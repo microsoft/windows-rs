@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Devices_HumanInterfaceDevice", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IGazeDevicePreviewImpl: Sized {
+pub trait IGazeDevicePreview_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<u32>;
     fn CanTrackEyes(&mut self) -> ::windows::core::Result<bool>;
     fn CanTrackHead(&mut self) -> ::windows::core::Result<bool>;
@@ -13,9 +13,9 @@ impl ::windows::core::RuntimeName for IGazeDevicePreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.IGazeDevicePreview";
 }
 #[cfg(all(feature = "Devices_HumanInterfaceDevice", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IGazeDevicePreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeDevicePreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeDevicePreviewVtbl {
-        unsafe extern "system" fn Id<Impl: IGazeDevicePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IGazeDevicePreview_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeDevicePreview_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeDevicePreview_Vtbl {
+        unsafe extern "system" fn Id<Impl: IGazeDevicePreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -26,7 +26,7 @@ impl IGazeDevicePreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanTrackEyes<Impl: IGazeDevicePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanTrackEyes<Impl: IGazeDevicePreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanTrackEyes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -37,7 +37,7 @@ impl IGazeDevicePreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanTrackHead<Impl: IGazeDevicePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanTrackHead<Impl: IGazeDevicePreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanTrackHead() {
                 ::core::result::Result::Ok(ok__) => {
@@ -48,7 +48,7 @@ impl IGazeDevicePreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConfigurationState<Impl: IGazeDevicePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GazeDeviceConfigurationStatePreview) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConfigurationState<Impl: IGazeDevicePreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GazeDeviceConfigurationStatePreview) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConfigurationState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -59,7 +59,7 @@ impl IGazeDevicePreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestCalibrationAsync<Impl: IGazeDevicePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestCalibrationAsync<Impl: IGazeDevicePreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestCalibrationAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -70,7 +70,7 @@ impl IGazeDevicePreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNumericControlDescriptions<Impl: IGazeDevicePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, usagepage: u16, usageid: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNumericControlDescriptions<Impl: IGazeDevicePreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, usagepage: u16, usageid: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNumericControlDescriptions(usagepage, usageid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -81,7 +81,7 @@ impl IGazeDevicePreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBooleanControlDescriptions<Impl: IGazeDevicePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, usagepage: u16, usageid: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBooleanControlDescriptions<Impl: IGazeDevicePreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, usagepage: u16, usageid: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetBooleanControlDescriptions(usagepage, usageid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -108,7 +108,7 @@ impl IGazeDevicePreviewVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGazeDeviceWatcherAddedPreviewEventArgsImpl: Sized {
+pub trait IGazeDeviceWatcherAddedPreviewEventArgs_Impl: Sized {
     fn Device(&mut self) -> ::windows::core::Result<GazeDevicePreview>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -116,9 +116,9 @@ impl ::windows::core::RuntimeName for IGazeDeviceWatcherAddedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.IGazeDeviceWatcherAddedPreviewEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGazeDeviceWatcherAddedPreviewEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeDeviceWatcherAddedPreviewEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeDeviceWatcherAddedPreviewEventArgsVtbl {
-        unsafe extern "system" fn Device<Impl: IGazeDeviceWatcherAddedPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGazeDeviceWatcherAddedPreviewEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeDeviceWatcherAddedPreviewEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeDeviceWatcherAddedPreviewEventArgs_Vtbl {
+        unsafe extern "system" fn Device<Impl: IGazeDeviceWatcherAddedPreviewEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Device() {
                 ::core::result::Result::Ok(ok__) => {
@@ -139,7 +139,7 @@ impl IGazeDeviceWatcherAddedPreviewEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGazeDeviceWatcherPreviewImpl: Sized {
+pub trait IGazeDeviceWatcherPreview_Impl: Sized {
     fn Added(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherAddedPreviewEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveAdded(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn Removed(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherRemovedPreviewEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
@@ -156,9 +156,9 @@ impl ::windows::core::RuntimeName for IGazeDeviceWatcherPreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.IGazeDeviceWatcherPreview";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGazeDeviceWatcherPreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeDeviceWatcherPreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeDeviceWatcherPreviewVtbl {
-        unsafe extern "system" fn Added<Impl: IGazeDeviceWatcherPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IGazeDeviceWatcherPreview_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeDeviceWatcherPreview_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeDeviceWatcherPreview_Vtbl {
+        unsafe extern "system" fn Added<Impl: IGazeDeviceWatcherPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Added(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherAddedPreviewEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherAddedPreviewEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -169,11 +169,11 @@ impl IGazeDeviceWatcherPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAdded<Impl: IGazeDeviceWatcherPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAdded<Impl: IGazeDeviceWatcherPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAdded(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Removed<Impl: IGazeDeviceWatcherPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Removed<Impl: IGazeDeviceWatcherPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Removed(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherRemovedPreviewEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherRemovedPreviewEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -184,11 +184,11 @@ impl IGazeDeviceWatcherPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRemoved<Impl: IGazeDeviceWatcherPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveRemoved<Impl: IGazeDeviceWatcherPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRemoved(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Updated<Impl: IGazeDeviceWatcherPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Updated<Impl: IGazeDeviceWatcherPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Updated(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherUpdatedPreviewEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherUpdatedPreviewEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -199,11 +199,11 @@ impl IGazeDeviceWatcherPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveUpdated<Impl: IGazeDeviceWatcherPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveUpdated<Impl: IGazeDeviceWatcherPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveUpdated(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EnumerationCompleted<Impl: IGazeDeviceWatcherPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumerationCompleted<Impl: IGazeDeviceWatcherPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnumerationCompleted(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -214,15 +214,15 @@ impl IGazeDeviceWatcherPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveEnumerationCompleted<Impl: IGazeDeviceWatcherPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveEnumerationCompleted<Impl: IGazeDeviceWatcherPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveEnumerationCompleted(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Start<Impl: IGazeDeviceWatcherPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Start<Impl: IGazeDeviceWatcherPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        unsafe extern "system" fn Stop<Impl: IGazeDeviceWatcherPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stop<Impl: IGazeDeviceWatcherPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
@@ -245,7 +245,7 @@ impl IGazeDeviceWatcherPreviewVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGazeDeviceWatcherRemovedPreviewEventArgsImpl: Sized {
+pub trait IGazeDeviceWatcherRemovedPreviewEventArgs_Impl: Sized {
     fn Device(&mut self) -> ::windows::core::Result<GazeDevicePreview>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -253,9 +253,9 @@ impl ::windows::core::RuntimeName for IGazeDeviceWatcherRemovedPreviewEventArgs 
     const NAME: &'static str = "Windows.Devices.Input.Preview.IGazeDeviceWatcherRemovedPreviewEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGazeDeviceWatcherRemovedPreviewEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeDeviceWatcherRemovedPreviewEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeDeviceWatcherRemovedPreviewEventArgsVtbl {
-        unsafe extern "system" fn Device<Impl: IGazeDeviceWatcherRemovedPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGazeDeviceWatcherRemovedPreviewEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeDeviceWatcherRemovedPreviewEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeDeviceWatcherRemovedPreviewEventArgs_Vtbl {
+        unsafe extern "system" fn Device<Impl: IGazeDeviceWatcherRemovedPreviewEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Device() {
                 ::core::result::Result::Ok(ok__) => {
@@ -276,7 +276,7 @@ impl IGazeDeviceWatcherRemovedPreviewEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGazeDeviceWatcherUpdatedPreviewEventArgsImpl: Sized {
+pub trait IGazeDeviceWatcherUpdatedPreviewEventArgs_Impl: Sized {
     fn Device(&mut self) -> ::windows::core::Result<GazeDevicePreview>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -284,9 +284,9 @@ impl ::windows::core::RuntimeName for IGazeDeviceWatcherUpdatedPreviewEventArgs 
     const NAME: &'static str = "Windows.Devices.Input.Preview.IGazeDeviceWatcherUpdatedPreviewEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGazeDeviceWatcherUpdatedPreviewEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeDeviceWatcherUpdatedPreviewEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeDeviceWatcherUpdatedPreviewEventArgsVtbl {
-        unsafe extern "system" fn Device<Impl: IGazeDeviceWatcherUpdatedPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGazeDeviceWatcherUpdatedPreviewEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeDeviceWatcherUpdatedPreviewEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeDeviceWatcherUpdatedPreviewEventArgs_Vtbl {
+        unsafe extern "system" fn Device<Impl: IGazeDeviceWatcherUpdatedPreviewEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Device() {
                 ::core::result::Result::Ok(ok__) => {
@@ -307,7 +307,7 @@ impl IGazeDeviceWatcherUpdatedPreviewEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGazeEnteredPreviewEventArgsImpl: Sized {
+pub trait IGazeEnteredPreviewEventArgs_Impl: Sized {
     fn Handled(&mut self) -> ::windows::core::Result<bool>;
     fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn CurrentPoint(&mut self) -> ::windows::core::Result<GazePointPreview>;
@@ -317,9 +317,9 @@ impl ::windows::core::RuntimeName for IGazeEnteredPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.IGazeEnteredPreviewEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGazeEnteredPreviewEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeEnteredPreviewEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeEnteredPreviewEventArgsVtbl {
-        unsafe extern "system" fn Handled<Impl: IGazeEnteredPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IGazeEnteredPreviewEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeEnteredPreviewEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeEnteredPreviewEventArgs_Vtbl {
+        unsafe extern "system" fn Handled<Impl: IGazeEnteredPreviewEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -330,11 +330,11 @@ impl IGazeEnteredPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandled<Impl: IGazeEnteredPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHandled<Impl: IGazeEnteredPreviewEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        unsafe extern "system" fn CurrentPoint<Impl: IGazeEnteredPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentPoint<Impl: IGazeEnteredPreviewEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -357,7 +357,7 @@ impl IGazeEnteredPreviewEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGazeExitedPreviewEventArgsImpl: Sized {
+pub trait IGazeExitedPreviewEventArgs_Impl: Sized {
     fn Handled(&mut self) -> ::windows::core::Result<bool>;
     fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn CurrentPoint(&mut self) -> ::windows::core::Result<GazePointPreview>;
@@ -367,9 +367,9 @@ impl ::windows::core::RuntimeName for IGazeExitedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.IGazeExitedPreviewEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGazeExitedPreviewEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeExitedPreviewEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeExitedPreviewEventArgsVtbl {
-        unsafe extern "system" fn Handled<Impl: IGazeExitedPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IGazeExitedPreviewEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeExitedPreviewEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeExitedPreviewEventArgs_Vtbl {
+        unsafe extern "system" fn Handled<Impl: IGazeExitedPreviewEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -380,11 +380,11 @@ impl IGazeExitedPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandled<Impl: IGazeExitedPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHandled<Impl: IGazeExitedPreviewEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        unsafe extern "system" fn CurrentPoint<Impl: IGazeExitedPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentPoint<Impl: IGazeExitedPreviewEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -407,7 +407,7 @@ impl IGazeExitedPreviewEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGazeInputSourcePreviewImpl: Sized {
+pub trait IGazeInputSourcePreview_Impl: Sized {
     fn GazeMoved(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeMovedPreviewEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveGazeMoved(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn GazeEntered(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeEnteredPreviewEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
@@ -420,9 +420,9 @@ impl ::windows::core::RuntimeName for IGazeInputSourcePreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.IGazeInputSourcePreview";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGazeInputSourcePreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeInputSourcePreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeInputSourcePreviewVtbl {
-        unsafe extern "system" fn GazeMoved<Impl: IGazeInputSourcePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IGazeInputSourcePreview_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeInputSourcePreview_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeInputSourcePreview_Vtbl {
+        unsafe extern "system" fn GazeMoved<Impl: IGazeInputSourcePreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GazeMoved(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeMovedPreviewEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeMovedPreviewEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -433,11 +433,11 @@ impl IGazeInputSourcePreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveGazeMoved<Impl: IGazeInputSourcePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveGazeMoved<Impl: IGazeInputSourcePreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveGazeMoved(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GazeEntered<Impl: IGazeInputSourcePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GazeEntered<Impl: IGazeInputSourcePreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GazeEntered(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeEnteredPreviewEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeEnteredPreviewEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -448,11 +448,11 @@ impl IGazeInputSourcePreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveGazeEntered<Impl: IGazeInputSourcePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveGazeEntered<Impl: IGazeInputSourcePreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveGazeEntered(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GazeExited<Impl: IGazeInputSourcePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GazeExited<Impl: IGazeInputSourcePreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GazeExited(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeExitedPreviewEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeExitedPreviewEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -463,7 +463,7 @@ impl IGazeInputSourcePreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveGazeExited<Impl: IGazeInputSourcePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveGazeExited<Impl: IGazeInputSourcePreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveGazeExited(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -482,7 +482,7 @@ impl IGazeInputSourcePreviewVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGazeInputSourcePreviewStaticsImpl: Sized {
+pub trait IGazeInputSourcePreviewStatics_Impl: Sized {
     fn GetForCurrentView(&mut self) -> ::windows::core::Result<GazeInputSourcePreview>;
     fn CreateWatcher(&mut self) -> ::windows::core::Result<GazeDeviceWatcherPreview>;
 }
@@ -491,9 +491,9 @@ impl ::windows::core::RuntimeName for IGazeInputSourcePreviewStatics {
     const NAME: &'static str = "Windows.Devices.Input.Preview.IGazeInputSourcePreviewStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGazeInputSourcePreviewStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeInputSourcePreviewStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeInputSourcePreviewStaticsVtbl {
-        unsafe extern "system" fn GetForCurrentView<Impl: IGazeInputSourcePreviewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGazeInputSourcePreviewStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeInputSourcePreviewStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeInputSourcePreviewStatics_Vtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: IGazeInputSourcePreviewStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -504,7 +504,7 @@ impl IGazeInputSourcePreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWatcher<Impl: IGazeInputSourcePreviewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWatcher<Impl: IGazeInputSourcePreviewStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWatcher() {
                 ::core::result::Result::Ok(ok__) => {
@@ -526,7 +526,7 @@ impl IGazeInputSourcePreviewStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IGazeMovedPreviewEventArgsImpl: Sized {
+pub trait IGazeMovedPreviewEventArgs_Impl: Sized {
     fn Handled(&mut self) -> ::windows::core::Result<bool>;
     fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn CurrentPoint(&mut self) -> ::windows::core::Result<GazePointPreview>;
@@ -537,9 +537,9 @@ impl ::windows::core::RuntimeName for IGazeMovedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.IGazeMovedPreviewEventArgs";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IGazeMovedPreviewEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeMovedPreviewEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeMovedPreviewEventArgsVtbl {
-        unsafe extern "system" fn Handled<Impl: IGazeMovedPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IGazeMovedPreviewEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazeMovedPreviewEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazeMovedPreviewEventArgs_Vtbl {
+        unsafe extern "system" fn Handled<Impl: IGazeMovedPreviewEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -550,11 +550,11 @@ impl IGazeMovedPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandled<Impl: IGazeMovedPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHandled<Impl: IGazeMovedPreviewEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        unsafe extern "system" fn CurrentPoint<Impl: IGazeMovedPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentPoint<Impl: IGazeMovedPreviewEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -565,7 +565,7 @@ impl IGazeMovedPreviewEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIntermediatePoints<Impl: IGazeMovedPreviewEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIntermediatePoints<Impl: IGazeMovedPreviewEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIntermediatePoints() {
                 ::core::result::Result::Ok(ok__) => {
@@ -589,7 +589,7 @@ impl IGazeMovedPreviewEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Devices_HumanInterfaceDevice", feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGazePointPreviewImpl: Sized {
+pub trait IGazePointPreview_Impl: Sized {
     fn SourceDevice(&mut self) -> ::windows::core::Result<GazeDevicePreview>;
     fn EyeGazePosition(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Point>>;
     fn HeadGazePosition(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Point>>;
@@ -601,9 +601,9 @@ impl ::windows::core::RuntimeName for IGazePointPreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.IGazePointPreview";
 }
 #[cfg(all(feature = "Devices_HumanInterfaceDevice", feature = "Foundation", feature = "implement_exclusive"))]
-impl IGazePointPreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazePointPreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazePointPreviewVtbl {
-        unsafe extern "system" fn SourceDevice<Impl: IGazePointPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGazePointPreview_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGazePointPreview_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGazePointPreview_Vtbl {
+        unsafe extern "system" fn SourceDevice<Impl: IGazePointPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceDevice() {
                 ::core::result::Result::Ok(ok__) => {
@@ -614,7 +614,7 @@ impl IGazePointPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EyeGazePosition<Impl: IGazePointPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EyeGazePosition<Impl: IGazePointPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EyeGazePosition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -625,7 +625,7 @@ impl IGazePointPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HeadGazePosition<Impl: IGazePointPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HeadGazePosition<Impl: IGazePointPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HeadGazePosition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -636,7 +636,7 @@ impl IGazePointPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Timestamp<Impl: IGazePointPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Timestamp<Impl: IGazePointPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -647,7 +647,7 @@ impl IGazePointPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HidInputReport<Impl: IGazePointPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HidInputReport<Impl: IGazePointPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HidInputReport() {
                 ::core::result::Result::Ok(ok__) => {

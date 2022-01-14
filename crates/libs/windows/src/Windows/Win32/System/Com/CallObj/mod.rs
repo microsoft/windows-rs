@@ -349,12 +349,12 @@ impl ::core::fmt::Debug for ICallFrame {
     }
 }
 unsafe impl ::windows::core::Interface for ICallFrame {
-    type Vtable = ICallFrameVtbl;
+    type Vtable = ICallFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd573b4b0_894e_11d2_b8b6_00c04fb9618a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICallFrameVtbl {
+pub struct ICallFrame_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *mut CALLFRAMEINFO) -> ::windows::core::HRESULT,
@@ -449,12 +449,12 @@ impl ::core::fmt::Debug for ICallFrameEvents {
     }
 }
 unsafe impl ::windows::core::Interface for ICallFrameEvents {
-    type Vtable = ICallFrameEventsVtbl;
+    type Vtable = ICallFrameEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd5e0843_fc91_11d0_97d7_00c04fb9618a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICallFrameEventsVtbl {
+pub struct ICallFrameEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pframe: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -505,12 +505,12 @@ impl ::core::fmt::Debug for ICallFrameWalker {
     }
 }
 unsafe impl ::windows::core::Interface for ICallFrameWalker {
-    type Vtable = ICallFrameWalkerVtbl;
+    type Vtable = ICallFrameWalker_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08b23919_392d_11d2_b8a4_00c04fb9618a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICallFrameWalkerVtbl {
+pub struct ICallFrameWalker_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub OnWalkInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, ppvinterface: *const *const ::core::ffi::c_void, fin: super::super::super::Foundation::BOOL, fout: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -578,12 +578,12 @@ impl ::core::fmt::Debug for ICallIndirect {
     }
 }
 unsafe impl ::windows::core::Interface for ICallIndirect {
-    type Vtable = ICallIndirectVtbl;
+    type Vtable = ICallIndirect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd573b4b1_894e_11d2_b8b6_00c04fb9618a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICallIndirectVtbl {
+pub struct ICallIndirect_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CallIndirect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrreturn: *mut ::windows::core::HRESULT, imethod: u32, pvargs: *const ::core::ffi::c_void, cbargs: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -686,13 +686,13 @@ impl ::core::fmt::Debug for ICallInterceptor {
     }
 }
 unsafe impl ::windows::core::Interface for ICallInterceptor {
-    type Vtable = ICallInterceptorVtbl;
+    type Vtable = ICallInterceptor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60c7ca75_896d_11d2_b8b6_00c04fb9618a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICallInterceptorVtbl {
-    pub base: ICallIndirectVtbl,
+pub struct ICallInterceptor_Vtbl {
+    pub base: ICallIndirect_Vtbl,
     pub RegisterSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetRegisteredSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -748,12 +748,12 @@ impl ::core::fmt::Debug for ICallUnmarshal {
     }
 }
 unsafe impl ::windows::core::Interface for ICallUnmarshal {
-    type Vtable = ICallUnmarshalVtbl;
+    type Vtable = ICallUnmarshal_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5333b003_2e42_11d2_b89d_00c04fb9618a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICallUnmarshalVtbl {
+pub struct ICallUnmarshal_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Unmarshal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imethod: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, fforcebuffercopy: super::super::super::Foundation::BOOL, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT, pcbunmarshalled: *mut u32, ppframe: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -815,12 +815,12 @@ impl ::core::fmt::Debug for IInterfaceRelated {
     }
 }
 unsafe impl ::windows::core::Interface for IInterfaceRelated {
-    type Vtable = IInterfaceRelatedVtbl;
+    type Vtable = IInterfaceRelated_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1fb5a79_7706_11d1_adba_00c04fc2adc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInterfaceRelatedVtbl {
+pub struct IInterfaceRelated_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetIID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetIID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,

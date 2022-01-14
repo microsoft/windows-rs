@@ -68,12 +68,12 @@ impl ::core::fmt::Debug for IAudioFrameNative {
     }
 }
 unsafe impl ::windows::core::Interface for IAudioFrameNative {
-    type Vtable = IAudioFrameNativeVtbl;
+    type Vtable = IAudioFrameNative_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20be1e2e_930f_4746_9335_3c332f255093);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioFrameNativeVtbl {
+pub struct IAudioFrameNative_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -145,12 +145,12 @@ impl ::core::fmt::Debug for IAudioFrameNativeFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IAudioFrameNativeFactory {
-    type Vtable = IAudioFrameNativeFactoryVtbl;
+    type Vtable = IAudioFrameNativeFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bd67cf8_bf7d_43e6_af8d_b170ee0c0110);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioFrameNativeFactoryVtbl {
+pub struct IAudioFrameNativeFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub CreateFromMFSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, forcereadonly: super::super::super::Foundation::BOOL, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -229,12 +229,12 @@ impl ::core::fmt::Debug for IVideoFrameNative {
     }
 }
 unsafe impl ::windows::core::Interface for IVideoFrameNative {
-    type Vtable = IVideoFrameNativeVtbl;
+    type Vtable = IVideoFrameNative_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26ba702b_314a_4620_aaf6_7a51aa58fa18);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVideoFrameNativeVtbl {
+pub struct IVideoFrameNative_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -307,12 +307,12 @@ impl ::core::fmt::Debug for IVideoFrameNativeFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IVideoFrameNativeFactory {
-    type Vtable = IVideoFrameNativeFactoryVtbl;
+    type Vtable = IVideoFrameNativeFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69e3693e_8e1e_4e63_ac4c_7fdc21d9731d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVideoFrameNativeFactoryVtbl {
+pub struct IVideoFrameNativeFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub CreateFromMFSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, subtype: *const ::windows::core::GUID, width: u32, height: u32, forcereadonly: super::super::super::Foundation::BOOL, mindisplayaperture: *const super::super::super::Media::MediaFoundation::MFVideoArea, device: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

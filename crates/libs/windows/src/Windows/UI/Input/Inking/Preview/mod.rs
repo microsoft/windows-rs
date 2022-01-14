@@ -3,24 +3,24 @@
 #[repr(transparent)]
 pub struct IPalmRejectionDelayZonePreview(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPalmRejectionDelayZonePreview {
-    type Vtable = IPalmRejectionDelayZonePreviewVtbl;
+    type Vtable = IPalmRejectionDelayZonePreview_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62b496cb_539d_5343_a65f_41f5300ec70c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPalmRejectionDelayZonePreviewVtbl {
+pub struct IPalmRejectionDelayZonePreview_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPalmRejectionDelayZonePreviewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPalmRejectionDelayZonePreviewStatics {
-    type Vtable = IPalmRejectionDelayZonePreviewStaticsVtbl;
+    type Vtable = IPalmRejectionDelayZonePreviewStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdef5ee0_93d0_53a9_8f0e_9a379f8f7530);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPalmRejectionDelayZonePreviewStaticsVtbl {
+pub struct IPalmRejectionDelayZonePreviewStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "UI_Composition"))]
     pub CreateForVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputpanelvisual: ::windows::core::RawPtr, inputpanelrect: super::super::super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -83,7 +83,7 @@ unsafe impl ::windows::core::RuntimeType for PalmRejectionDelayZonePreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Preview.PalmRejectionDelayZonePreview;{62b496cb-539d-5343-a65f-41f5300ec70c})");
 }
 unsafe impl ::windows::core::Interface for PalmRejectionDelayZonePreview {
-    type Vtable = IPalmRejectionDelayZonePreviewVtbl;
+    type Vtable = IPalmRejectionDelayZonePreview_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62b496cb_539d_5343_a65f_41f5300ec70c);
 }
 impl ::windows::core::RuntimeName for PalmRejectionDelayZonePreview {

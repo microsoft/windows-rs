@@ -1386,12 +1386,12 @@ impl ::core::fmt::Debug for ICcgDomainAuthCredentials {
     }
 }
 unsafe impl ::windows::core::Interface for ICcgDomainAuthCredentials {
-    type Vtable = ICcgDomainAuthCredentialsVtbl;
+    type Vtable = ICcgDomainAuthCredentials_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ecda518_2010_4437_8bc3_46e752b7b172);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICcgDomainAuthCredentialsVtbl {
+pub struct ICcgDomainAuthCredentials_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetPasswordCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugininput: super::super::super::Foundation::PWSTR, domainname: *mut super::super::super::Foundation::PWSTR, username: *mut super::super::super::Foundation::PWSTR, password: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,

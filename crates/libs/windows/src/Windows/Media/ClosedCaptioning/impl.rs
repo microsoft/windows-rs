@@ -1,5 +1,5 @@
 #[cfg(all(feature = "UI", feature = "implement_exclusive"))]
-pub trait IClosedCaptionPropertiesStaticsImpl: Sized {
+pub trait IClosedCaptionPropertiesStatics_Impl: Sized {
     fn FontColor(&mut self) -> ::windows::core::Result<ClosedCaptionColor>;
     fn ComputedFontColor(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
     fn FontOpacity(&mut self) -> ::windows::core::Result<ClosedCaptionOpacity>;
@@ -18,9 +18,9 @@ impl ::windows::core::RuntimeName for IClosedCaptionPropertiesStatics {
     const NAME: &'static str = "Windows.Media.ClosedCaptioning.IClosedCaptionPropertiesStatics";
 }
 #[cfg(all(feature = "UI", feature = "implement_exclusive"))]
-impl IClosedCaptionPropertiesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClosedCaptionPropertiesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClosedCaptionPropertiesStaticsVtbl {
-        unsafe extern "system" fn FontColor<Impl: IClosedCaptionPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionColor) -> ::windows::core::HRESULT {
+impl IClosedCaptionPropertiesStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClosedCaptionPropertiesStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClosedCaptionPropertiesStatics_Vtbl {
+        unsafe extern "system" fn FontColor<Impl: IClosedCaptionPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionColor) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FontColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -31,7 +31,7 @@ impl IClosedCaptionPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ComputedFontColor<Impl: IClosedCaptionPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ComputedFontColor<Impl: IClosedCaptionPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ComputedFontColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -42,7 +42,7 @@ impl IClosedCaptionPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FontOpacity<Impl: IClosedCaptionPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionOpacity) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FontOpacity<Impl: IClosedCaptionPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionOpacity) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FontOpacity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -53,7 +53,7 @@ impl IClosedCaptionPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FontSize<Impl: IClosedCaptionPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionSize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FontSize<Impl: IClosedCaptionPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionSize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FontSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -64,7 +64,7 @@ impl IClosedCaptionPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FontStyle<Impl: IClosedCaptionPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionStyle) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FontStyle<Impl: IClosedCaptionPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionStyle) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FontStyle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -75,7 +75,7 @@ impl IClosedCaptionPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FontEffect<Impl: IClosedCaptionPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionEdgeEffect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FontEffect<Impl: IClosedCaptionPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionEdgeEffect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FontEffect() {
                 ::core::result::Result::Ok(ok__) => {
@@ -86,7 +86,7 @@ impl IClosedCaptionPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BackgroundColor<Impl: IClosedCaptionPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionColor) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackgroundColor<Impl: IClosedCaptionPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionColor) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackgroundColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -97,7 +97,7 @@ impl IClosedCaptionPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ComputedBackgroundColor<Impl: IClosedCaptionPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ComputedBackgroundColor<Impl: IClosedCaptionPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ComputedBackgroundColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -108,7 +108,7 @@ impl IClosedCaptionPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BackgroundOpacity<Impl: IClosedCaptionPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionOpacity) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackgroundOpacity<Impl: IClosedCaptionPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionOpacity) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackgroundOpacity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -119,7 +119,7 @@ impl IClosedCaptionPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegionColor<Impl: IClosedCaptionPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionColor) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegionColor<Impl: IClosedCaptionPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionColor) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegionColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -130,7 +130,7 @@ impl IClosedCaptionPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ComputedRegionColor<Impl: IClosedCaptionPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ComputedRegionColor<Impl: IClosedCaptionPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ComputedRegionColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -141,7 +141,7 @@ impl IClosedCaptionPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegionOpacity<Impl: IClosedCaptionPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionOpacity) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegionOpacity<Impl: IClosedCaptionPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionOpacity) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegionOpacity() {
                 ::core::result::Result::Ok(ok__) => {

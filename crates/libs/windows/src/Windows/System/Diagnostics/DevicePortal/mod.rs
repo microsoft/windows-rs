@@ -112,7 +112,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePortalConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DevicePortal.DevicePortalConnection;{0f447f51-1198-4da1-8d54-bdef393e09b6})");
 }
 unsafe impl ::windows::core::Interface for DevicePortalConnection {
-    type Vtable = IDevicePortalConnectionVtbl;
+    type Vtable = IDevicePortalConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f447f51_1198_4da1_8d54_bdef393e09b6);
 }
 impl ::windows::core::RuntimeName for DevicePortalConnection {
@@ -193,7 +193,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePortalConnectionClosedEventAr
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedEventArgs;{fcf70e38-7032-428c-9f50-945c15a9f0cb})");
 }
 unsafe impl ::windows::core::Interface for DevicePortalConnectionClosedEventArgs {
-    type Vtable = IDevicePortalConnectionClosedEventArgsVtbl;
+    type Vtable = IDevicePortalConnectionClosedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcf70e38_7032_428c_9f50_945c15a9f0cb);
 }
 impl ::windows::core::RuntimeName for DevicePortalConnectionClosedEventArgs {
@@ -347,7 +347,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePortalConnectionRequestReceiv
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionRequestReceivedEventArgs;{64dae045-6fda-4459-9ebd-ecce22e38559})");
 }
 unsafe impl ::windows::core::Interface for DevicePortalConnectionRequestReceivedEventArgs {
-    type Vtable = IDevicePortalConnectionRequestReceivedEventArgsVtbl;
+    type Vtable = IDevicePortalConnectionRequestReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64dae045_6fda_4459_9ebd_ecce22e38559);
 }
 impl ::windows::core::RuntimeName for DevicePortalConnectionRequestReceivedEventArgs {
@@ -399,12 +399,12 @@ unsafe impl ::core::marker::Sync for DevicePortalConnectionRequestReceivedEventA
 #[repr(transparent)]
 pub struct IDevicePortalConnection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDevicePortalConnection {
-    type Vtable = IDevicePortalConnectionVtbl;
+    type Vtable = IDevicePortalConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f447f51_1198_4da1_8d54_bdef393e09b6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDevicePortalConnectionVtbl {
+pub struct IDevicePortalConnection_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Closed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -427,12 +427,12 @@ pub struct IDevicePortalConnectionVtbl {
 #[repr(transparent)]
 pub struct IDevicePortalConnectionClosedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDevicePortalConnectionClosedEventArgs {
-    type Vtable = IDevicePortalConnectionClosedEventArgsVtbl;
+    type Vtable = IDevicePortalConnectionClosedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcf70e38_7032_428c_9f50_945c15a9f0cb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDevicePortalConnectionClosedEventArgsVtbl {
+pub struct IDevicePortalConnectionClosedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DevicePortalConnectionClosedReason) -> ::windows::core::HRESULT,
 }
@@ -440,12 +440,12 @@ pub struct IDevicePortalConnectionClosedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IDevicePortalConnectionRequestReceivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDevicePortalConnectionRequestReceivedEventArgs {
-    type Vtable = IDevicePortalConnectionRequestReceivedEventArgsVtbl;
+    type Vtable = IDevicePortalConnectionRequestReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64dae045_6fda_4459_9ebd_ecce22e38559);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDevicePortalConnectionRequestReceivedEventArgsVtbl {
+pub struct IDevicePortalConnectionRequestReceivedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Web_Http")]
     pub RequestMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -460,12 +460,12 @@ pub struct IDevicePortalConnectionRequestReceivedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IDevicePortalConnectionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDevicePortalConnectionStatics {
-    type Vtable = IDevicePortalConnectionStaticsVtbl;
+    type Vtable = IDevicePortalConnectionStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bbe31e7_e9b9_4645_8fed_a53eea0edbd6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDevicePortalConnectionStaticsVtbl {
+pub struct IDevicePortalConnectionStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "ApplicationModel_AppService")]
     pub GetForAppServiceConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appserviceconnection: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -476,12 +476,12 @@ pub struct IDevicePortalConnectionStaticsVtbl {
 #[repr(transparent)]
 pub struct IDevicePortalWebSocketConnection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDevicePortalWebSocketConnection {
-    type Vtable = IDevicePortalWebSocketConnectionVtbl;
+    type Vtable = IDevicePortalWebSocketConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67657920_d65a_42f0_aef4_787808098b7b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDevicePortalWebSocketConnectionVtbl {
+pub struct IDevicePortalWebSocketConnection_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
     pub GetServerMessageWebSocketForRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -508,12 +508,12 @@ pub struct IDevicePortalWebSocketConnectionVtbl {
 #[repr(transparent)]
 pub struct IDevicePortalWebSocketConnectionRequestReceivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDevicePortalWebSocketConnectionRequestReceivedEventArgs {
-    type Vtable = IDevicePortalWebSocketConnectionRequestReceivedEventArgsVtbl;
+    type Vtable = IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79fdcaba_175c_4739_9f74_dda797c35b3f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDevicePortalWebSocketConnectionRequestReceivedEventArgsVtbl {
+pub struct IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsWebSocketUpgradeRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]

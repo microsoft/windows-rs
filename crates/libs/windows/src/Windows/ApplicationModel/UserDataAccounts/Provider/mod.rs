@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IUserDataAccountPartnerAccountInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataAccountPartnerAccountInfo {
-    type Vtable = IUserDataAccountPartnerAccountInfoVtbl;
+    type Vtable = IUserDataAccountPartnerAccountInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f200037_f6ef_4ec3_8630_012c59c1149f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataAccountPartnerAccountInfoVtbl {
+pub struct IUserDataAccountPartnerAccountInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Priority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -18,12 +18,12 @@ pub struct IUserDataAccountPartnerAccountInfoVtbl {
 #[repr(transparent)]
 pub struct IUserDataAccountProviderAddAccountOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataAccountProviderAddAccountOperation {
-    type Vtable = IUserDataAccountProviderAddAccountOperationVtbl;
+    type Vtable = IUserDataAccountProviderAddAccountOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9c72530_3f84_4b5d_8eaa_45e97aa842ed);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataAccountProviderAddAccountOperationVtbl {
+pub struct IUserDataAccountProviderAddAccountOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ContentKinds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::UserDataAccountContentKinds) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -105,12 +105,12 @@ unsafe impl ::windows::core::RuntimeType for IUserDataAccountProviderOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a20aad63-888c-4a62-a3dd-34d07a802b2b}");
 }
 unsafe impl ::windows::core::Interface for IUserDataAccountProviderOperation {
-    type Vtable = IUserDataAccountProviderOperationVtbl;
+    type Vtable = IUserDataAccountProviderOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa20aad63_888c_4a62_a3dd_34d07a802b2b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataAccountProviderOperationVtbl {
+pub struct IUserDataAccountProviderOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataAccountProviderOperationKind) -> ::windows::core::HRESULT,
 }
@@ -118,12 +118,12 @@ pub struct IUserDataAccountProviderOperationVtbl {
 #[repr(transparent)]
 pub struct IUserDataAccountProviderResolveErrorsOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataAccountProviderResolveErrorsOperation {
-    type Vtable = IUserDataAccountProviderResolveErrorsOperationVtbl;
+    type Vtable = IUserDataAccountProviderResolveErrorsOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6235dc15_bfcb_41e1_9957_9759a28846cc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataAccountProviderResolveErrorsOperationVtbl {
+pub struct IUserDataAccountProviderResolveErrorsOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub UserDataAccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ReportCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -132,12 +132,12 @@ pub struct IUserDataAccountProviderResolveErrorsOperationVtbl {
 #[repr(transparent)]
 pub struct IUserDataAccountProviderSettingsOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataAccountProviderSettingsOperation {
-    type Vtable = IUserDataAccountProviderSettingsOperationVtbl;
+    type Vtable = IUserDataAccountProviderSettingsOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92034db7_8648_4f30_acfa_3002658ca80d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataAccountProviderSettingsOperationVtbl {
+pub struct IUserDataAccountProviderSettingsOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub UserDataAccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ReportCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -191,7 +191,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAccountPartnerAccountInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountPartnerAccountInfo;{5f200037-f6ef-4ec3-8630-012c59c1149f})");
 }
 unsafe impl ::windows::core::Interface for UserDataAccountPartnerAccountInfo {
-    type Vtable = IUserDataAccountPartnerAccountInfoVtbl;
+    type Vtable = IUserDataAccountPartnerAccountInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f200037_f6ef_4ec3_8630_012c59c1149f);
 }
 impl ::windows::core::RuntimeName for UserDataAccountPartnerAccountInfo {
@@ -294,7 +294,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAccountProviderAddAccountOp
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderAddAccountOperation;{b9c72530-3f84-4b5d-8eaa-45e97aa842ed})");
 }
 unsafe impl ::windows::core::Interface for UserDataAccountProviderAddAccountOperation {
-    type Vtable = IUserDataAccountProviderAddAccountOperationVtbl;
+    type Vtable = IUserDataAccountProviderAddAccountOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9c72530_3f84_4b5d_8eaa_45e97aa842ed);
 }
 impl ::windows::core::RuntimeName for UserDataAccountProviderAddAccountOperation {
@@ -477,7 +477,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAccountProviderResolveError
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderResolveErrorsOperation;{6235dc15-bfcb-41e1-9957-9759a28846cc})");
 }
 unsafe impl ::windows::core::Interface for UserDataAccountProviderResolveErrorsOperation {
-    type Vtable = IUserDataAccountProviderResolveErrorsOperationVtbl;
+    type Vtable = IUserDataAccountProviderResolveErrorsOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6235dc15_bfcb_41e1_9957_9759a28846cc);
 }
 impl ::windows::core::RuntimeName for UserDataAccountProviderResolveErrorsOperation {
@@ -593,7 +593,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAccountProviderSettingsOper
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderSettingsOperation;{92034db7-8648-4f30-acfa-3002658ca80d})");
 }
 unsafe impl ::windows::core::Interface for UserDataAccountProviderSettingsOperation {
-    type Vtable = IUserDataAccountProviderSettingsOperationVtbl;
+    type Vtable = IUserDataAccountProviderSettingsOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92034db7_8648_4f30_acfa_3002658ca80d);
 }
 impl ::windows::core::RuntimeName for UserDataAccountProviderSettingsOperation {

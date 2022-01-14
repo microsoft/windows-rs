@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-pub trait IHolographicKeyboardImpl: Sized {
+pub trait IHolographicKeyboard_Impl: Sized {
     fn SetPlacementOverride(&mut self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>, topcenterposition: &super::super::Foundation::Numerics::Vector3, orientation: &super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>;
     fn SetPlacementOverrideWithMaxSize(&mut self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>, topcenterposition: &super::super::Foundation::Numerics::Vector3, orientation: &super::super::Foundation::Numerics::Quaternion, maxsize: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
     fn ResetPlacementOverride(&mut self) -> ::windows::core::Result<()>;
@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for IHolographicKeyboard {
     const NAME: &'static str = "Windows.ApplicationModel.Holographic.IHolographicKeyboard";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-impl IHolographicKeyboardVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicKeyboardImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicKeyboardVtbl {
-        unsafe extern "system" fn SetPlacementOverride<Impl: IHolographicKeyboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
+impl IHolographicKeyboard_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicKeyboard_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicKeyboard_Vtbl {
+        unsafe extern "system" fn SetPlacementOverride<Impl: IHolographicKeyboard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetPlacementOverride(
@@ -21,7 +21,7 @@ impl IHolographicKeyboardVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn SetPlacementOverrideWithMaxSize<Impl: IHolographicKeyboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion, maxsize: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPlacementOverrideWithMaxSize<Impl: IHolographicKeyboard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion, maxsize: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetPlacementOverrideWithMaxSize(
@@ -32,7 +32,7 @@ impl IHolographicKeyboardVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn ResetPlacementOverride<Impl: IHolographicKeyboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResetPlacementOverride<Impl: IHolographicKeyboard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ResetPlacementOverride().into()
         }
@@ -48,7 +48,7 @@ impl IHolographicKeyboardVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHolographicKeyboardStaticsImpl: Sized {
+pub trait IHolographicKeyboardStatics_Impl: Sized {
     fn GetDefault(&mut self) -> ::windows::core::Result<HolographicKeyboard>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -56,9 +56,9 @@ impl ::windows::core::RuntimeName for IHolographicKeyboardStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Holographic.IHolographicKeyboardStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHolographicKeyboardStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicKeyboardStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicKeyboardStaticsVtbl {
-        unsafe extern "system" fn GetDefault<Impl: IHolographicKeyboardStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHolographicKeyboardStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicKeyboardStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicKeyboardStatics_Vtbl {
+        unsafe extern "system" fn GetDefault<Impl: IHolographicKeyboardStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
                 ::core::result::Result::Ok(ok__) => {

@@ -515,12 +515,12 @@ impl ::core::fmt::Debug for IEnhancedStorageACT {
     }
 }
 unsafe impl ::windows::core::Interface for IEnhancedStorageACT {
-    type Vtable = IEnhancedStorageACTVtbl;
+    type Vtable = IEnhancedStorageACT_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e7781f4_e0f2_4239_b976_a01abab52930);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnhancedStorageACTVtbl {
+pub struct IEnhancedStorageACT_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Authorize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: u32, dwflags: u32) -> ::windows::core::HRESULT,
     pub Unauthorize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -638,13 +638,13 @@ impl ::core::fmt::Debug for IEnhancedStorageACT2 {
     }
 }
 unsafe impl ::windows::core::Interface for IEnhancedStorageACT2 {
-    type Vtable = IEnhancedStorageACT2Vtbl;
+    type Vtable = IEnhancedStorageACT2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4da57d2e_8eb3_41f6_a07e_98b52b88242b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnhancedStorageACT2Vtbl {
-    pub base: IEnhancedStorageACTVtbl,
+pub struct IEnhancedStorageACT2_Vtbl {
+    pub base: IEnhancedStorageACT_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetDeviceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszdevicename: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -793,13 +793,13 @@ impl ::core::fmt::Debug for IEnhancedStorageACT3 {
     }
 }
 unsafe impl ::windows::core::Interface for IEnhancedStorageACT3 {
-    type Vtable = IEnhancedStorageACT3Vtbl;
+    type Vtable = IEnhancedStorageACT3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x022150a1_113d_11df_bb61_001aa01bbc58);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnhancedStorageACT3Vtbl {
-    pub base: IEnhancedStorageACT2Vtbl,
+pub struct IEnhancedStorageACT3_Vtbl {
+    pub base: IEnhancedStorageACT2_Vtbl,
     pub UnauthorizeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsQueueFrozen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisqueuefrozen: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -877,12 +877,12 @@ impl ::core::fmt::Debug for IEnhancedStorageSilo {
     }
 }
 unsafe impl ::windows::core::Interface for IEnhancedStorageSilo {
-    type Vtable = IEnhancedStorageSiloVtbl;
+    type Vtable = IEnhancedStorageSilo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5aef78c6_2242_4703_bf49_44b29357a359);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnhancedStorageSiloVtbl {
+pub struct IEnhancedStorageSilo_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psiloinfo: *mut SILO_INFO) -> ::windows::core::HRESULT,
     pub GetActions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstoragesiloactions: *mut *mut ::windows::core::RawPtr, pcenhancedstoragesiloactions: *mut u32) -> ::windows::core::HRESULT,
@@ -954,12 +954,12 @@ impl ::core::fmt::Debug for IEnhancedStorageSiloAction {
     }
 }
 unsafe impl ::windows::core::Interface for IEnhancedStorageSiloAction {
-    type Vtable = IEnhancedStorageSiloActionVtbl;
+    type Vtable = IEnhancedStorageSiloAction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6f7f311_206f_4ff8_9c4b_27efee77a86f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnhancedStorageSiloActionVtbl {
+pub struct IEnhancedStorageSiloAction_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszactionname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -1023,12 +1023,12 @@ impl ::core::fmt::Debug for IEnumEnhancedStorageACT {
     }
 }
 unsafe impl ::windows::core::Interface for IEnumEnhancedStorageACT {
-    type Vtable = IEnumEnhancedStorageACTVtbl;
+    type Vtable = IEnumEnhancedStorageACT_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09b224bd_1335_4631_a7ff_cfd3a92646d7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumEnhancedStorageACTVtbl {
+pub struct IEnumEnhancedStorageACT_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetACTs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstorageacts: *mut *mut ::windows::core::RawPtr, pcenhancedstorageacts: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]

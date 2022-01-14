@@ -117,7 +117,7 @@ unsafe impl ::windows::core::RuntimeType for CustomSensor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Custom.CustomSensor;{a136f9ad-4034-4b4d-99dd-531aac649c09})");
 }
 unsafe impl ::windows::core::Interface for CustomSensor {
-    type Vtable = ICustomSensorVtbl;
+    type Vtable = ICustomSensor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa136f9ad_4034_4b4d_99dd_531aac649c09);
 }
 impl ::windows::core::RuntimeName for CustomSensor {
@@ -217,7 +217,7 @@ unsafe impl ::windows::core::RuntimeType for CustomSensorReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Custom.CustomSensorReading;{64004f4d-446a-4366-a87a-5f963268ec53})");
 }
 unsafe impl ::windows::core::Interface for CustomSensorReading {
-    type Vtable = ICustomSensorReadingVtbl;
+    type Vtable = ICustomSensorReading_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64004f4d_446a_4366_a87a_5f963268ec53);
 }
 impl ::windows::core::RuntimeName for CustomSensorReading {
@@ -298,7 +298,7 @@ unsafe impl ::windows::core::RuntimeType for CustomSensorReadingChangedEventArgs
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Custom.CustomSensorReadingChangedEventArgs;{6b202023-cffd-4cc1-8ff0-e21823d76fcc})");
 }
 unsafe impl ::windows::core::Interface for CustomSensorReadingChangedEventArgs {
-    type Vtable = ICustomSensorReadingChangedEventArgsVtbl;
+    type Vtable = ICustomSensorReadingChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b202023_cffd_4cc1_8ff0_e21823d76fcc);
 }
 impl ::windows::core::RuntimeName for CustomSensorReadingChangedEventArgs {
@@ -350,12 +350,12 @@ unsafe impl ::core::marker::Sync for CustomSensorReadingChangedEventArgs {}
 #[repr(transparent)]
 pub struct ICustomSensor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICustomSensor {
-    type Vtable = ICustomSensorVtbl;
+    type Vtable = ICustomSensor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa136f9ad_4034_4b4d_99dd_531aac649c09);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICustomSensorVtbl {
+pub struct ICustomSensor_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetCurrentReading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub MinimumReportInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -375,12 +375,12 @@ pub struct ICustomSensorVtbl {
 #[repr(transparent)]
 pub struct ICustomSensor2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICustomSensor2 {
-    type Vtable = ICustomSensor2Vtbl;
+    type Vtable = ICustomSensor2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20db3111_ec58_4d9f_bfbd_e77825088510);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICustomSensor2Vtbl {
+pub struct ICustomSensor2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetReportLatency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
     pub ReportLatency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -390,12 +390,12 @@ pub struct ICustomSensor2Vtbl {
 #[repr(transparent)]
 pub struct ICustomSensorReading(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICustomSensorReading {
-    type Vtable = ICustomSensorReadingVtbl;
+    type Vtable = ICustomSensorReading_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64004f4d_446a_4366_a87a_5f963268ec53);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICustomSensorReadingVtbl {
+pub struct ICustomSensorReading_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -410,12 +410,12 @@ pub struct ICustomSensorReadingVtbl {
 #[repr(transparent)]
 pub struct ICustomSensorReading2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICustomSensorReading2 {
-    type Vtable = ICustomSensorReading2Vtbl;
+    type Vtable = ICustomSensorReading2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x223c98ea_bf73_4992_9a48_d3c897594ccb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICustomSensorReading2Vtbl {
+pub struct ICustomSensorReading2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub PerformanceCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -426,12 +426,12 @@ pub struct ICustomSensorReading2Vtbl {
 #[repr(transparent)]
 pub struct ICustomSensorReadingChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICustomSensorReadingChangedEventArgs {
-    type Vtable = ICustomSensorReadingChangedEventArgsVtbl;
+    type Vtable = ICustomSensorReadingChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b202023_cffd_4cc1_8ff0_e21823d76fcc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICustomSensorReadingChangedEventArgsVtbl {
+pub struct ICustomSensorReadingChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Reading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -439,12 +439,12 @@ pub struct ICustomSensorReadingChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICustomSensorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICustomSensorStatics {
-    type Vtable = ICustomSensorStaticsVtbl;
+    type Vtable = ICustomSensorStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x992052cf_f422_4c7d_836b_e7dc74a7124b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICustomSensorStaticsVtbl {
+pub struct ICustomSensorStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfaceid: ::windows::core::GUID, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]

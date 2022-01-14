@@ -1,12 +1,12 @@
-pub trait II2cControllerProviderImpl: Sized {
+pub trait II2cControllerProvider_Impl: Sized {
     fn GetDeviceProvider(&mut self, settings: &::core::option::Option<ProviderI2cConnectionSettings>) -> ::windows::core::Result<II2cDeviceProvider>;
 }
 impl ::windows::core::RuntimeName for II2cControllerProvider {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.II2cControllerProvider";
 }
-impl II2cControllerProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: II2cControllerProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> II2cControllerProviderVtbl {
-        unsafe extern "system" fn GetDeviceProvider<Impl: II2cControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl II2cControllerProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: II2cControllerProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> II2cControllerProvider_Vtbl {
+        unsafe extern "system" fn GetDeviceProvider<Impl: II2cControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceProvider(&*(&settings as *const <ProviderI2cConnectionSettings as ::windows::core::Abi>::Abi as *const <ProviderI2cConnectionSettings as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -27,7 +27,7 @@ impl II2cControllerProviderVtbl {
     }
 }
 #[cfg(feature = "Foundation")]
-pub trait II2cDeviceProviderImpl: Sized + IClosableImpl {
+pub trait II2cDeviceProvider_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Write(&mut self, buffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
     fn WritePartial(&mut self, buffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<ProviderI2cTransferResult>;
@@ -41,9 +41,9 @@ impl ::windows::core::RuntimeName for II2cDeviceProvider {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.II2cDeviceProvider";
 }
 #[cfg(feature = "Foundation")]
-impl II2cDeviceProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: II2cDeviceProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> II2cDeviceProviderVtbl {
-        unsafe extern "system" fn DeviceId<Impl: II2cDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl II2cDeviceProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: II2cDeviceProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> II2cDeviceProvider_Vtbl {
+        unsafe extern "system" fn DeviceId<Impl: II2cDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -54,11 +54,11 @@ impl II2cDeviceProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Write<Impl: II2cDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *const u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Write<Impl: II2cDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Write(::core::slice::from_raw_parts(::core::mem::transmute_copy(&buffer), buffer_array_size as _)).into()
         }
-        unsafe extern "system" fn WritePartial<Impl: II2cDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *const u8, result__: *mut ProviderI2cTransferResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WritePartial<Impl: II2cDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *const u8, result__: *mut ProviderI2cTransferResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WritePartial(::core::slice::from_raw_parts(::core::mem::transmute_copy(&buffer), buffer_array_size as _)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -69,11 +69,11 @@ impl II2cDeviceProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Read<Impl: II2cDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Read<Impl: II2cDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Read(::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&buffer), buffer_array_size as _)).into()
         }
-        unsafe extern "system" fn ReadPartial<Impl: II2cDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8, result__: *mut ProviderI2cTransferResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadPartial<Impl: II2cDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8, result__: *mut ProviderI2cTransferResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadPartial(::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&buffer), buffer_array_size as _)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -84,11 +84,11 @@ impl II2cDeviceProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WriteRead<Impl: II2cDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteRead<Impl: II2cDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).WriteRead(::core::slice::from_raw_parts(::core::mem::transmute_copy(&writebuffer), writeBuffer_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&readbuffer), readBuffer_array_size as _)).into()
         }
-        unsafe extern "system" fn WriteReadPartial<Impl: II2cDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8, result__: *mut ProviderI2cTransferResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteReadPartial<Impl: II2cDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8, result__: *mut ProviderI2cTransferResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteReadPartial(::core::slice::from_raw_parts(::core::mem::transmute_copy(&writebuffer), writeBuffer_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&readbuffer), readBuffer_array_size as _)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -115,7 +115,7 @@ impl II2cDeviceProviderVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-pub trait II2cProviderImpl: Sized {
+pub trait II2cProvider_Impl: Sized {
     fn GetControllersAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<II2cControllerProvider>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -123,9 +123,9 @@ impl ::windows::core::RuntimeName for II2cProvider {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.II2cProvider";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-impl II2cProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: II2cProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> II2cProviderVtbl {
-        unsafe extern "system" fn GetControllersAsync<Impl: II2cProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl II2cProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: II2cProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> II2cProvider_Vtbl {
+        unsafe extern "system" fn GetControllersAsync<Impl: II2cProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetControllersAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -146,7 +146,7 @@ impl II2cProviderVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IProviderI2cConnectionSettingsImpl: Sized {
+pub trait IProviderI2cConnectionSettings_Impl: Sized {
     fn SlaveAddress(&mut self) -> ::windows::core::Result<i32>;
     fn SetSlaveAddress(&mut self, value: i32) -> ::windows::core::Result<()>;
     fn BusSpeed(&mut self) -> ::windows::core::Result<ProviderI2cBusSpeed>;
@@ -159,9 +159,9 @@ impl ::windows::core::RuntimeName for IProviderI2cConnectionSettings {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.IProviderI2cConnectionSettings";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IProviderI2cConnectionSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProviderI2cConnectionSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProviderI2cConnectionSettingsVtbl {
-        unsafe extern "system" fn SlaveAddress<Impl: IProviderI2cConnectionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IProviderI2cConnectionSettings_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProviderI2cConnectionSettings_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProviderI2cConnectionSettings_Vtbl {
+        unsafe extern "system" fn SlaveAddress<Impl: IProviderI2cConnectionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SlaveAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -172,11 +172,11 @@ impl IProviderI2cConnectionSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSlaveAddress<Impl: IProviderI2cConnectionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSlaveAddress<Impl: IProviderI2cConnectionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSlaveAddress(value).into()
         }
-        unsafe extern "system" fn BusSpeed<Impl: IProviderI2cConnectionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProviderI2cBusSpeed) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BusSpeed<Impl: IProviderI2cConnectionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProviderI2cBusSpeed) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BusSpeed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -187,11 +187,11 @@ impl IProviderI2cConnectionSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBusSpeed<Impl: IProviderI2cConnectionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ProviderI2cBusSpeed) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBusSpeed<Impl: IProviderI2cConnectionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ProviderI2cBusSpeed) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBusSpeed(value).into()
         }
-        unsafe extern "system" fn SharingMode<Impl: IProviderI2cConnectionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProviderI2cSharingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SharingMode<Impl: IProviderI2cConnectionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProviderI2cSharingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SharingMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -202,7 +202,7 @@ impl IProviderI2cConnectionSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSharingMode<Impl: IProviderI2cConnectionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ProviderI2cSharingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSharingMode<Impl: IProviderI2cConnectionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ProviderI2cSharingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSharingMode(value).into()
         }

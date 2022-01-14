@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IFileOpenPickerUIImpl: Sized {
+pub trait IFileOpenPickerUI_Impl: Sized {
     fn AddFile(&mut self, id: &::windows::core::HSTRING, file: &::core::option::Option<super::super::IStorageFile>) -> ::windows::core::Result<AddFileResult>;
     fn RemoveFile(&mut self, id: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn ContainsFile(&mut self, id: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
@@ -19,9 +19,9 @@ impl ::windows::core::RuntimeName for IFileOpenPickerUI {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.IFileOpenPickerUI";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IFileOpenPickerUIVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileOpenPickerUIImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileOpenPickerUIVtbl {
-        unsafe extern "system" fn AddFile<Impl: IFileOpenPickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, file: ::windows::core::RawPtr, result__: *mut AddFileResult) -> ::windows::core::HRESULT {
+impl IFileOpenPickerUI_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileOpenPickerUI_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileOpenPickerUI_Vtbl {
+        unsafe extern "system" fn AddFile<Impl: IFileOpenPickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, file: ::windows::core::RawPtr, result__: *mut AddFileResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddFile(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&file as *const <super::super::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::IStorageFile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -32,11 +32,11 @@ impl IFileOpenPickerUIVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveFile<Impl: IFileOpenPickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveFile<Impl: IFileOpenPickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFile(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ContainsFile<Impl: IFileOpenPickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContainsFile<Impl: IFileOpenPickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContainsFile(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -47,7 +47,7 @@ impl IFileOpenPickerUIVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanAddFile<Impl: IFileOpenPickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanAddFile<Impl: IFileOpenPickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanAddFile(&*(&file as *const <super::super::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::IStorageFile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -58,7 +58,7 @@ impl IFileOpenPickerUIVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AllowedFileTypes<Impl: IFileOpenPickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllowedFileTypes<Impl: IFileOpenPickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowedFileTypes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -69,7 +69,7 @@ impl IFileOpenPickerUIVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectionMode<Impl: IFileOpenPickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut FileSelectionMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectionMode<Impl: IFileOpenPickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut FileSelectionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectionMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -80,7 +80,7 @@ impl IFileOpenPickerUIVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SettingsIdentifier<Impl: IFileOpenPickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SettingsIdentifier<Impl: IFileOpenPickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SettingsIdentifier() {
                 ::core::result::Result::Ok(ok__) => {
@@ -91,7 +91,7 @@ impl IFileOpenPickerUIVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Title<Impl: IFileOpenPickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Title<Impl: IFileOpenPickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
                 ::core::result::Result::Ok(ok__) => {
@@ -102,11 +102,11 @@ impl IFileOpenPickerUIVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTitle<Impl: IFileOpenPickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTitle<Impl: IFileOpenPickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTitle(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FileRemoved<Impl: IFileOpenPickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FileRemoved<Impl: IFileOpenPickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FileRemoved(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<FileOpenPickerUI, FileRemovedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<FileOpenPickerUI, FileRemovedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -117,11 +117,11 @@ impl IFileOpenPickerUIVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveFileRemoved<Impl: IFileOpenPickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveFileRemoved<Impl: IFileOpenPickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFileRemoved(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Closing<Impl: IFileOpenPickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Closing<Impl: IFileOpenPickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Closing(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<FileOpenPickerUI, PickerClosingEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<FileOpenPickerUI, PickerClosingEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -132,7 +132,7 @@ impl IFileOpenPickerUIVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveClosing<Impl: IFileOpenPickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveClosing<Impl: IFileOpenPickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveClosing(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -158,7 +158,7 @@ impl IFileOpenPickerUIVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IFileRemovedEventArgsImpl: Sized {
+pub trait IFileRemovedEventArgs_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -166,9 +166,9 @@ impl ::windows::core::RuntimeName for IFileRemovedEventArgs {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.IFileRemovedEventArgs";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IFileRemovedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileRemovedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileRemovedEventArgsVtbl {
-        unsafe extern "system" fn Id<Impl: IFileRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IFileRemovedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileRemovedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileRemovedEventArgs_Vtbl {
+        unsafe extern "system" fn Id<Impl: IFileRemovedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -186,7 +186,7 @@ impl IFileRemovedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IFileSavePickerUIImpl: Sized {
+pub trait IFileSavePickerUI_Impl: Sized {
     fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn AllowedFileTypes(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
@@ -203,9 +203,9 @@ impl ::windows::core::RuntimeName for IFileSavePickerUI {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.IFileSavePickerUI";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IFileSavePickerUIVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileSavePickerUIImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileSavePickerUIVtbl {
-        unsafe extern "system" fn Title<Impl: IFileSavePickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IFileSavePickerUI_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileSavePickerUI_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileSavePickerUI_Vtbl {
+        unsafe extern "system" fn Title<Impl: IFileSavePickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
                 ::core::result::Result::Ok(ok__) => {
@@ -216,11 +216,11 @@ impl IFileSavePickerUIVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTitle<Impl: IFileSavePickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTitle<Impl: IFileSavePickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTitle(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AllowedFileTypes<Impl: IFileSavePickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllowedFileTypes<Impl: IFileSavePickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowedFileTypes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -231,7 +231,7 @@ impl IFileSavePickerUIVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SettingsIdentifier<Impl: IFileSavePickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SettingsIdentifier<Impl: IFileSavePickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SettingsIdentifier() {
                 ::core::result::Result::Ok(ok__) => {
@@ -242,7 +242,7 @@ impl IFileSavePickerUIVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FileName<Impl: IFileSavePickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FileName<Impl: IFileSavePickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FileName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -253,7 +253,7 @@ impl IFileSavePickerUIVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrySetFileName<Impl: IFileSavePickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut SetFileNameResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrySetFileName<Impl: IFileSavePickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut SetFileNameResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrySetFileName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -264,7 +264,7 @@ impl IFileSavePickerUIVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FileNameChanged<Impl: IFileSavePickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FileNameChanged<Impl: IFileSavePickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FileNameChanged(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<FileSavePickerUI, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<FileSavePickerUI, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -275,11 +275,11 @@ impl IFileSavePickerUIVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveFileNameChanged<Impl: IFileSavePickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveFileNameChanged<Impl: IFileSavePickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFileNameChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TargetFileRequested<Impl: IFileSavePickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TargetFileRequested<Impl: IFileSavePickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetFileRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<FileSavePickerUI, TargetFileRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<FileSavePickerUI, TargetFileRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -290,7 +290,7 @@ impl IFileSavePickerUIVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveTargetFileRequested<Impl: IFileSavePickerUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveTargetFileRequested<Impl: IFileSavePickerUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTargetFileRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -313,7 +313,7 @@ impl IFileSavePickerUIVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPickerClosingDeferralImpl: Sized {
+pub trait IPickerClosingDeferral_Impl: Sized {
     fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -321,9 +321,9 @@ impl ::windows::core::RuntimeName for IPickerClosingDeferral {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.IPickerClosingDeferral";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPickerClosingDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPickerClosingDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPickerClosingDeferralVtbl {
-        unsafe extern "system" fn Complete<Impl: IPickerClosingDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IPickerClosingDeferral_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPickerClosingDeferral_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPickerClosingDeferral_Vtbl {
+        unsafe extern "system" fn Complete<Impl: IPickerClosingDeferral_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
@@ -334,7 +334,7 @@ impl IPickerClosingDeferralVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPickerClosingEventArgsImpl: Sized {
+pub trait IPickerClosingEventArgs_Impl: Sized {
     fn ClosingOperation(&mut self) -> ::windows::core::Result<PickerClosingOperation>;
     fn IsCanceled(&mut self) -> ::windows::core::Result<bool>;
 }
@@ -343,9 +343,9 @@ impl ::windows::core::RuntimeName for IPickerClosingEventArgs {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.IPickerClosingEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPickerClosingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPickerClosingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPickerClosingEventArgsVtbl {
-        unsafe extern "system" fn ClosingOperation<Impl: IPickerClosingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPickerClosingEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPickerClosingEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPickerClosingEventArgs_Vtbl {
+        unsafe extern "system" fn ClosingOperation<Impl: IPickerClosingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClosingOperation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -356,7 +356,7 @@ impl IPickerClosingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsCanceled<Impl: IPickerClosingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCanceled<Impl: IPickerClosingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCanceled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -378,7 +378,7 @@ impl IPickerClosingEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPickerClosingOperationImpl: Sized {
+pub trait IPickerClosingOperation_Impl: Sized {
     fn GetDeferral(&mut self) -> ::windows::core::Result<PickerClosingDeferral>;
     fn Deadline(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
 }
@@ -387,9 +387,9 @@ impl ::windows::core::RuntimeName for IPickerClosingOperation {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.IPickerClosingOperation";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPickerClosingOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPickerClosingOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPickerClosingOperationVtbl {
-        unsafe extern "system" fn GetDeferral<Impl: IPickerClosingOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPickerClosingOperation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPickerClosingOperation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPickerClosingOperation_Vtbl {
+        unsafe extern "system" fn GetDeferral<Impl: IPickerClosingOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -400,7 +400,7 @@ impl IPickerClosingOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Deadline<Impl: IPickerClosingOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Deadline<Impl: IPickerClosingOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Deadline() {
                 ::core::result::Result::Ok(ok__) => {
@@ -422,7 +422,7 @@ impl IPickerClosingOperationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ITargetFileRequestImpl: Sized {
+pub trait ITargetFileRequest_Impl: Sized {
     fn TargetFile(&mut self) -> ::windows::core::Result<super::super::IStorageFile>;
     fn SetTargetFile(&mut self, value: &::core::option::Option<super::super::IStorageFile>) -> ::windows::core::Result<()>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<TargetFileRequestDeferral>;
@@ -432,9 +432,9 @@ impl ::windows::core::RuntimeName for ITargetFileRequest {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.ITargetFileRequest";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ITargetFileRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetFileRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetFileRequestVtbl {
-        unsafe extern "system" fn TargetFile<Impl: ITargetFileRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITargetFileRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetFileRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetFileRequest_Vtbl {
+        unsafe extern "system" fn TargetFile<Impl: ITargetFileRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetFile() {
                 ::core::result::Result::Ok(ok__) => {
@@ -445,11 +445,11 @@ impl ITargetFileRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTargetFile<Impl: ITargetFileRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTargetFile<Impl: ITargetFileRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetFile(&*(&value as *const <super::super::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::IStorageFile as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetDeferral<Impl: ITargetFileRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: ITargetFileRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -472,7 +472,7 @@ impl ITargetFileRequestVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ITargetFileRequestDeferralImpl: Sized {
+pub trait ITargetFileRequestDeferral_Impl: Sized {
     fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -480,9 +480,9 @@ impl ::windows::core::RuntimeName for ITargetFileRequestDeferral {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.ITargetFileRequestDeferral";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ITargetFileRequestDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetFileRequestDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetFileRequestDeferralVtbl {
-        unsafe extern "system" fn Complete<Impl: ITargetFileRequestDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl ITargetFileRequestDeferral_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetFileRequestDeferral_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetFileRequestDeferral_Vtbl {
+        unsafe extern "system" fn Complete<Impl: ITargetFileRequestDeferral_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
@@ -493,7 +493,7 @@ impl ITargetFileRequestDeferralVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ITargetFileRequestedEventArgsImpl: Sized {
+pub trait ITargetFileRequestedEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<TargetFileRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -501,9 +501,9 @@ impl ::windows::core::RuntimeName for ITargetFileRequestedEventArgs {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.ITargetFileRequestedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ITargetFileRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetFileRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetFileRequestedEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: ITargetFileRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITargetFileRequestedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetFileRequestedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetFileRequestedEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: ITargetFileRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {

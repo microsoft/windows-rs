@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IQuickLink(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IQuickLink {
-    type Vtable = IQuickLinkVtbl;
+    type Vtable = IQuickLink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x603e4308_f0be_4adc_acc9_8b27ab9cf556);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IQuickLinkVtbl {
+pub struct IQuickLink_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -35,12 +35,12 @@ pub struct IQuickLinkVtbl {
 #[repr(transparent)]
 pub struct IShareOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShareOperation {
-    type Vtable = IShareOperationVtbl;
+    type Vtable = IShareOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2246bab8_d0f8_41c1_a82a_4137db6504fb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IShareOperationVtbl {
+pub struct IShareOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub QuickLinkId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -56,12 +56,12 @@ pub struct IShareOperationVtbl {
 #[repr(transparent)]
 pub struct IShareOperation2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShareOperation2 {
-    type Vtable = IShareOperation2Vtbl;
+    type Vtable = IShareOperation2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ffb97c1_9778_4a09_8e5b_cb5e482d0555);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IShareOperation2Vtbl {
+pub struct IShareOperation2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DismissUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -69,12 +69,12 @@ pub struct IShareOperation2Vtbl {
 #[repr(transparent)]
 pub struct IShareOperation3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShareOperation3 {
-    type Vtable = IShareOperation3Vtbl;
+    type Vtable = IShareOperation3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ef6b382_b7a7_4571_a2a6_994a034988b2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IShareOperation3Vtbl {
+pub struct IShareOperation3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections"))]
     pub Contacts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -172,7 +172,7 @@ unsafe impl ::windows::core::RuntimeType for QuickLink {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareTarget.QuickLink;{603e4308-f0be-4adc-acc9-8b27ab9cf556})");
 }
 unsafe impl ::windows::core::Interface for QuickLink {
-    type Vtable = IQuickLinkVtbl;
+    type Vtable = IQuickLink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x603e4308_f0be_4adc_acc9_8b27ab9cf556);
 }
 impl ::windows::core::RuntimeName for QuickLink {
@@ -308,7 +308,7 @@ unsafe impl ::windows::core::RuntimeType for ShareOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation;{2246bab8-d0f8-41c1-a82a-4137db6504fb})");
 }
 unsafe impl ::windows::core::Interface for ShareOperation {
-    type Vtable = IShareOperationVtbl;
+    type Vtable = IShareOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2246bab8_d0f8_41c1_a82a_4137db6504fb);
 }
 impl ::windows::core::RuntimeName for ShareOperation {

@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IInstalledDesktopApp(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInstalledDesktopApp {
-    type Vtable = IInstalledDesktopAppVtbl;
+    type Vtable = IInstalledDesktopApp_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75eab8ed_c0bc_5364_4c28_166e0545167a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInstalledDesktopAppVtbl {
+pub struct IInstalledDesktopApp_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -19,12 +19,12 @@ pub struct IInstalledDesktopAppVtbl {
 #[repr(transparent)]
 pub struct IInstalledDesktopAppStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInstalledDesktopAppStatics {
-    type Vtable = IInstalledDesktopAppStaticsVtbl;
+    type Vtable = IInstalledDesktopAppStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x264cf74e_21cd_5f9b_6056_7866ad72489a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInstalledDesktopAppStaticsVtbl {
+pub struct IInstalledDesktopAppStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetInventoryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -110,7 +110,7 @@ unsafe impl ::windows::core::RuntimeType for InstalledDesktopApp {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Inventory.InstalledDesktopApp;{75eab8ed-c0bc-5364-4c28-166e0545167a})");
 }
 unsafe impl ::windows::core::Interface for InstalledDesktopApp {
-    type Vtable = IInstalledDesktopAppVtbl;
+    type Vtable = IInstalledDesktopApp_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75eab8ed_c0bc_5364_4c28_166e0545167a);
 }
 impl ::windows::core::RuntimeName for InstalledDesktopApp {

@@ -294,12 +294,12 @@ impl ::core::fmt::Debug for IDXCoreAdapter {
     }
 }
 unsafe impl ::windows::core::Interface for IDXCoreAdapter {
-    type Vtable = IDXCoreAdapterVtbl;
+    type Vtable = IDXCoreAdapter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0db4c7f_fe5a_42a2_bd62_f2a6cf6fc83e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDXCoreAdapterVtbl {
+pub struct IDXCoreAdapter_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub IsValid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> bool,
     pub IsAttributeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributeguid: *const ::windows::core::GUID) -> bool,
@@ -378,12 +378,12 @@ impl ::core::fmt::Debug for IDXCoreAdapterFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IDXCoreAdapterFactory {
-    type Vtable = IDXCoreAdapterFactoryVtbl;
+    type Vtable = IDXCoreAdapterFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78ee5945_c36e_4b13_a669_005dd11c0f06);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDXCoreAdapterFactoryVtbl {
+pub struct IDXCoreAdapterFactory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateAdapterList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numattributes: u32, filterattributes: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvadapterlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -462,12 +462,12 @@ impl ::core::fmt::Debug for IDXCoreAdapterList {
     }
 }
 unsafe impl ::windows::core::Interface for IDXCoreAdapterList {
-    type Vtable = IDXCoreAdapterListVtbl;
+    type Vtable = IDXCoreAdapterList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x526c7776_40e9_459b_b711_f32ad76dfc28);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDXCoreAdapterListVtbl {
+pub struct IDXCoreAdapterList_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetAdapterCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,

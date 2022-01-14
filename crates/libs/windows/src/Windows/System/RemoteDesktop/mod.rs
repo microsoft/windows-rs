@@ -5,12 +5,12 @@ pub mod Input;
 #[repr(transparent)]
 pub struct IInteractiveSessionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInteractiveSessionStatics {
-    type Vtable = IInteractiveSessionStaticsVtbl;
+    type Vtable = IInteractiveSessionStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60884631_dd3a_4576_9c8d_e8027618bdce);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInteractiveSessionStaticsVtbl {
+pub struct IInteractiveSessionStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsRemote: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }

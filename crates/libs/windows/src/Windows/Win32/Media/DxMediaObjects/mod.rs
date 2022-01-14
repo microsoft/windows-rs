@@ -274,12 +274,12 @@ impl ::core::fmt::Debug for IDMOQualityControl {
     }
 }
 unsafe impl ::windows::core::Interface for IDMOQualityControl {
-    type Vtable = IDMOQualityControlVtbl;
+    type Vtable = IDMOQualityControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65abea96_cf36_453f_af8a_705e98f16260);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMOQualityControlVtbl {
+pub struct IDMOQualityControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetNow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rtnow: i64) -> ::windows::core::HRESULT,
     pub SetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
@@ -346,12 +346,12 @@ impl ::core::fmt::Debug for IDMOVideoOutputOptimizations {
     }
 }
 unsafe impl ::windows::core::Interface for IDMOVideoOutputOptimizations {
-    type Vtable = IDMOVideoOutputOptimizationsVtbl;
+    type Vtable = IDMOVideoOutputOptimizations_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe8f4f4e_5b16_4d29_b350_7f6b5d9298ac);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMOVideoOutputOptimizationsVtbl {
+pub struct IDMOVideoOutputOptimizations_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub QueryOperationModePreferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uloutputstreamindex: u32, pdwrequestedcapabilities: *mut u32) -> ::windows::core::HRESULT,
     pub SetOperationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uloutputstreamindex: u32, dwenabledfeatures: u32) -> ::windows::core::HRESULT,
@@ -418,12 +418,12 @@ impl ::core::fmt::Debug for IEnumDMO {
     }
 }
 unsafe impl ::windows::core::Interface for IEnumDMO {
-    type Vtable = IEnumDMOVtbl;
+    type Vtable = IEnumDMO_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c3cd98a_2bfa_4a53_9c27_5249ba64ba0f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumDMOVtbl {
+pub struct IEnumDMO_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, citemstofetch: u32, pclsid: *mut ::windows::core::GUID, names: *mut super::super::Foundation::PWSTR, pcitemsfetched: *mut u32) -> ::windows::core::HRESULT,
@@ -488,12 +488,12 @@ impl ::core::fmt::Debug for IMediaBuffer {
     }
 }
 unsafe impl ::windows::core::Interface for IMediaBuffer {
-    type Vtable = IMediaBufferVtbl;
+    type Vtable = IMediaBuffer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59eff8b9_938c_4a26_82f2_95cb84cdc837);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaBufferVtbl {
+pub struct IMediaBuffer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cblength: u32) -> ::windows::core::HRESULT,
     pub GetMaxLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbmaxlength: *mut u32) -> ::windows::core::HRESULT,
@@ -639,12 +639,12 @@ impl ::core::fmt::Debug for IMediaObject {
     }
 }
 unsafe impl ::windows::core::Interface for IMediaObject {
-    type Vtable = IMediaObjectVtbl;
+    type Vtable = IMediaObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8ad0f58_5494_4102_97c5_ec798e59bcf4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaObjectVtbl {
+pub struct IMediaObject_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetStreamCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcinputstreams: *mut u32, pcoutputstreams: *mut u32) -> ::windows::core::HRESULT,
     pub GetInputStreamInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputstreamindex: u32, pdwflags: *mut u32) -> ::windows::core::HRESULT,
@@ -742,12 +742,12 @@ impl ::core::fmt::Debug for IMediaObjectInPlace {
     }
 }
 unsafe impl ::windows::core::Interface for IMediaObjectInPlace {
-    type Vtable = IMediaObjectInPlaceVtbl;
+    type Vtable = IMediaObjectInPlace_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x651b9ad0_0fc7_4aa9_9538_d89931010741);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaObjectInPlaceVtbl {
+pub struct IMediaObjectInPlace_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Process: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulsize: u32, pdata: *mut u8, reftimestart: i64, dwflags: u32) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmediaobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

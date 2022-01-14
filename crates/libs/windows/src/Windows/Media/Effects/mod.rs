@@ -48,7 +48,7 @@ unsafe impl ::windows::core::RuntimeType for AudioCaptureEffectsManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioCaptureEffectsManager;{8f85c271-038d-4393-8298-540110608eef})");
 }
 unsafe impl ::windows::core::Interface for AudioCaptureEffectsManager {
-    type Vtable = IAudioCaptureEffectsManagerVtbl;
+    type Vtable = IAudioCaptureEffectsManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f85c271_038d_4393_8298_540110608eef);
 }
 impl ::windows::core::RuntimeName for AudioCaptureEffectsManager {
@@ -129,7 +129,7 @@ unsafe impl ::windows::core::RuntimeType for AudioEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioEffect;{34aafa51-9207-4055-be93-6e5734a86ae4})");
 }
 unsafe impl ::windows::core::Interface for AudioEffect {
-    type Vtable = IAudioEffectVtbl;
+    type Vtable = IAudioEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34aafa51_9207_4055_be93_6e5734a86ae4);
 }
 impl ::windows::core::RuntimeName for AudioEffect {
@@ -239,7 +239,7 @@ unsafe impl ::windows::core::RuntimeType for AudioEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioEffectDefinition;{e4d7f974-7d80-4f73-9089-e31c9db9c294})");
 }
 unsafe impl ::windows::core::Interface for AudioEffectDefinition {
-    type Vtable = IAudioEffectDefinitionVtbl;
+    type Vtable = IAudioEffectDefinition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4d7f974_7d80_4f73_9089_e31c9db9c294);
 }
 impl ::windows::core::RuntimeName for AudioEffectDefinition {
@@ -477,7 +477,7 @@ unsafe impl ::windows::core::RuntimeType for AudioRenderEffectsManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioRenderEffectsManager;{4dc98966-8751-42b2-bfcb-39ca7864bd47})");
 }
 unsafe impl ::windows::core::Interface for AudioRenderEffectsManager {
-    type Vtable = IAudioRenderEffectsManagerVtbl;
+    type Vtable = IAudioRenderEffectsManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4dc98966_8751_42b2_bfcb_39ca7864bd47);
 }
 impl ::windows::core::RuntimeName for AudioRenderEffectsManager {
@@ -584,7 +584,7 @@ unsafe impl ::windows::core::RuntimeType for CompositeVideoFrameContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.CompositeVideoFrameContext;{6c30024b-f514-4278-a5f7-b9188049d110})");
 }
 unsafe impl ::windows::core::Interface for CompositeVideoFrameContext {
-    type Vtable = ICompositeVideoFrameContextVtbl;
+    type Vtable = ICompositeVideoFrameContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c30024b_f514_4278_a5f7_b9188049d110);
 }
 impl ::windows::core::RuntimeName for CompositeVideoFrameContext {
@@ -636,12 +636,12 @@ unsafe impl ::core::marker::Sync for CompositeVideoFrameContext {}
 #[repr(transparent)]
 pub struct IAudioCaptureEffectsManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioCaptureEffectsManager {
-    type Vtable = IAudioCaptureEffectsManagerVtbl;
+    type Vtable = IAudioCaptureEffectsManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f85c271_038d_4393_8298_540110608eef);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioCaptureEffectsManagerVtbl {
+pub struct IAudioCaptureEffectsManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub AudioCaptureEffectsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -660,12 +660,12 @@ pub struct IAudioCaptureEffectsManagerVtbl {
 #[repr(transparent)]
 pub struct IAudioEffect(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioEffect {
-    type Vtable = IAudioEffectVtbl;
+    type Vtable = IAudioEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34aafa51_9207_4055_be93_6e5734a86ae4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioEffectVtbl {
+pub struct IAudioEffect_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AudioEffectType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioEffectType) -> ::windows::core::HRESULT,
 }
@@ -751,12 +751,12 @@ unsafe impl ::windows::core::RuntimeType for IAudioEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e4d7f974-7d80-4f73-9089-e31c9db9c294}");
 }
 unsafe impl ::windows::core::Interface for IAudioEffectDefinition {
-    type Vtable = IAudioEffectDefinitionVtbl;
+    type Vtable = IAudioEffectDefinition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4d7f974_7d80_4f73_9089_e31c9db9c294);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioEffectDefinitionVtbl {
+pub struct IAudioEffectDefinition_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ActivatableClassId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -768,12 +768,12 @@ pub struct IAudioEffectDefinitionVtbl {
 #[repr(transparent)]
 pub struct IAudioEffectDefinitionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioEffectDefinitionFactory {
-    type Vtable = IAudioEffectDefinitionFactoryVtbl;
+    type Vtable = IAudioEffectDefinitionFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e1da646_e705_45ed_8a2b_fc4e4f405a97);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioEffectDefinitionFactoryVtbl {
+pub struct IAudioEffectDefinitionFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -785,12 +785,12 @@ pub struct IAudioEffectDefinitionFactoryVtbl {
 #[repr(transparent)]
 pub struct IAudioEffectsManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioEffectsManagerStatics {
-    type Vtable = IAudioEffectsManagerStaticsVtbl;
+    type Vtable = IAudioEffectsManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66406c04_86fa_47cc_a315_f489d8c3fe10);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioEffectsManagerStaticsVtbl {
+pub struct IAudioEffectsManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_Render")]
     pub CreateAudioRenderEffectsManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, category: super::Render::AudioRenderCategory, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -813,12 +813,12 @@ pub struct IAudioEffectsManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IAudioRenderEffectsManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioRenderEffectsManager {
-    type Vtable = IAudioRenderEffectsManagerVtbl;
+    type Vtable = IAudioRenderEffectsManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4dc98966_8751_42b2_bfcb_39ca7864bd47);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioRenderEffectsManagerVtbl {
+pub struct IAudioRenderEffectsManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub AudioRenderEffectsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -839,13 +839,13 @@ pub struct IAudioRenderEffectsManagerVtbl {
 pub struct IAudioRenderEffectsManager2(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAudioRenderEffectsManager2 {
-    type Vtable = IAudioRenderEffectsManager2Vtbl;
+    type Vtable = IAudioRenderEffectsManager2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa844cd09_5ecc_44b3_bb4e_1db07287139c);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioRenderEffectsManager2Vtbl {
+pub struct IAudioRenderEffectsManager2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub EffectsProviderThumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -991,12 +991,12 @@ unsafe impl ::windows::core::RuntimeType for IBasicAudioEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8c062c53-6bc0-48b8-a99a-4b41550f1359}");
 }
 unsafe impl ::windows::core::Interface for IBasicAudioEffect {
-    type Vtable = IBasicAudioEffectVtbl;
+    type Vtable = IBasicAudioEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c062c53_6bc0_48b8_a99a_4b41550f1359);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBasicAudioEffectVtbl {
+pub struct IBasicAudioEffect_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub UseInputFrameForOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
@@ -1158,12 +1158,12 @@ unsafe impl ::windows::core::RuntimeType for IBasicVideoEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8262c7ef-b360-40be-949b-2ff42ff35693}");
 }
 unsafe impl ::windows::core::Interface for IBasicVideoEffect {
-    type Vtable = IBasicVideoEffectVtbl;
+    type Vtable = IBasicVideoEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8262c7ef_b360_40be_949b_2ff42ff35693);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBasicVideoEffectVtbl {
+pub struct IBasicVideoEffect_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsReadOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SupportedMemoryTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaMemoryTypes) -> ::windows::core::HRESULT,
@@ -1184,12 +1184,12 @@ pub struct IBasicVideoEffectVtbl {
 #[repr(transparent)]
 pub struct ICompositeVideoFrameContext(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositeVideoFrameContext {
-    type Vtable = ICompositeVideoFrameContextVtbl;
+    type Vtable = ICompositeVideoFrameContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c30024b_f514_4278_a5f7_b9188049d110);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICompositeVideoFrameContextVtbl {
+pub struct ICompositeVideoFrameContext_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11"))]
     pub SurfacesToOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1206,12 +1206,12 @@ pub struct ICompositeVideoFrameContextVtbl {
 #[repr(transparent)]
 pub struct IProcessAudioFrameContext(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProcessAudioFrameContext {
-    type Vtable = IProcessAudioFrameContextVtbl;
+    type Vtable = IProcessAudioFrameContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cd92946_1222_4a27_a586_fb3e20273255);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProcessAudioFrameContextVtbl {
+pub struct IProcessAudioFrameContext_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InputFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OutputFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1220,12 +1220,12 @@ pub struct IProcessAudioFrameContextVtbl {
 #[repr(transparent)]
 pub struct IProcessVideoFrameContext(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProcessVideoFrameContext {
-    type Vtable = IProcessVideoFrameContextVtbl;
+    type Vtable = IProcessVideoFrameContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x276f0e2b_6461_401e_ba78_0fdad6114eec);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProcessVideoFrameContextVtbl {
+pub struct IProcessVideoFrameContext_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InputFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OutputFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1234,12 +1234,12 @@ pub struct IProcessVideoFrameContextVtbl {
 #[repr(transparent)]
 pub struct ISlowMotionEffectDefinition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISlowMotionEffectDefinition {
-    type Vtable = ISlowMotionEffectDefinitionVtbl;
+    type Vtable = ISlowMotionEffectDefinition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35053cd0_176c_4763_82c4_1b02dbe31737);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISlowMotionEffectDefinitionVtbl {
+pub struct ISlowMotionEffectDefinition_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TimeStretchRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetTimeStretchRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
@@ -1366,12 +1366,12 @@ unsafe impl ::windows::core::RuntimeType for IVideoCompositor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8510b43e-420c-420f-96c7-7c98bba1fc55}");
 }
 unsafe impl ::windows::core::Interface for IVideoCompositor {
-    type Vtable = IVideoCompositorVtbl;
+    type Vtable = IVideoCompositor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8510b43e_420c_420f_96c7_7c98bba1fc55);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVideoCompositorVtbl {
+pub struct IVideoCompositor_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TimeIndependent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
@@ -1464,12 +1464,12 @@ unsafe impl ::windows::core::RuntimeType for IVideoCompositorDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7946b8d0-2010-4ae3-9ab2-2cef42edd4d2}");
 }
 unsafe impl ::windows::core::Interface for IVideoCompositorDefinition {
-    type Vtable = IVideoCompositorDefinitionVtbl;
+    type Vtable = IVideoCompositorDefinition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7946b8d0_2010_4ae3_9ab2_2cef42edd4d2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVideoCompositorDefinitionVtbl {
+pub struct IVideoCompositorDefinition_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ActivatableClassId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -1481,12 +1481,12 @@ pub struct IVideoCompositorDefinitionVtbl {
 #[repr(transparent)]
 pub struct IVideoCompositorDefinitionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoCompositorDefinitionFactory {
-    type Vtable = IVideoCompositorDefinitionFactoryVtbl;
+    type Vtable = IVideoCompositorDefinitionFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4366fd10_68b8_4d52_89b6_02a968cca899);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVideoCompositorDefinitionFactoryVtbl {
+pub struct IVideoCompositorDefinitionFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -1576,12 +1576,12 @@ unsafe impl ::windows::core::RuntimeType for IVideoEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{39f38cf0-8d0f-4f3e-84fc-2d46a5297943}");
 }
 unsafe impl ::windows::core::Interface for IVideoEffectDefinition {
-    type Vtable = IVideoEffectDefinitionVtbl;
+    type Vtable = IVideoEffectDefinition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39f38cf0_8d0f_4f3e_84fc_2d46a5297943);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVideoEffectDefinitionVtbl {
+pub struct IVideoEffectDefinition_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ActivatableClassId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -1593,12 +1593,12 @@ pub struct IVideoEffectDefinitionVtbl {
 #[repr(transparent)]
 pub struct IVideoEffectDefinitionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoEffectDefinitionFactory {
-    type Vtable = IVideoEffectDefinitionFactoryVtbl;
+    type Vtable = IVideoEffectDefinitionFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81439b4e_6e33_428f_9d21_b5aafef7617c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVideoEffectDefinitionFactoryVtbl {
+pub struct IVideoEffectDefinitionFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -1610,12 +1610,12 @@ pub struct IVideoEffectDefinitionFactoryVtbl {
 #[repr(transparent)]
 pub struct IVideoTransformEffectDefinition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoTransformEffectDefinition {
-    type Vtable = IVideoTransformEffectDefinitionVtbl;
+    type Vtable = IVideoTransformEffectDefinition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9664bb6a_1ea6_4aa6_8074_abe8851ecae2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVideoTransformEffectDefinitionVtbl {
+pub struct IVideoTransformEffectDefinition_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI")]
     pub PaddingColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT,
@@ -1670,12 +1670,12 @@ pub struct IVideoTransformEffectDefinitionVtbl {
 #[repr(transparent)]
 pub struct IVideoTransformEffectDefinition2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoTransformEffectDefinition2 {
-    type Vtable = IVideoTransformEffectDefinition2Vtbl;
+    type Vtable = IVideoTransformEffectDefinition2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0a8089f_66c8_4694_9fd9_1136abf7444a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVideoTransformEffectDefinition2Vtbl {
+pub struct IVideoTransformEffectDefinition2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SphericalProjection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1683,12 +1683,12 @@ pub struct IVideoTransformEffectDefinition2Vtbl {
 #[repr(transparent)]
 pub struct IVideoTransformSphericalProjection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoTransformSphericalProjection {
-    type Vtable = IVideoTransformSphericalProjectionVtbl;
+    type Vtable = IVideoTransformSphericalProjection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf4401f0_9bf2_4c39_9f41_e022514a8468);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVideoTransformSphericalProjectionVtbl {
+pub struct IVideoTransformSphericalProjection_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -1829,7 +1829,7 @@ unsafe impl ::windows::core::RuntimeType for ProcessAudioFrameContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.ProcessAudioFrameContext;{4cd92946-1222-4a27-a586-fb3e20273255})");
 }
 unsafe impl ::windows::core::Interface for ProcessAudioFrameContext {
-    type Vtable = IProcessAudioFrameContextVtbl;
+    type Vtable = IProcessAudioFrameContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cd92946_1222_4a27_a586_fb3e20273255);
 }
 impl ::windows::core::RuntimeName for ProcessAudioFrameContext {
@@ -1918,7 +1918,7 @@ unsafe impl ::windows::core::RuntimeType for ProcessVideoFrameContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.ProcessVideoFrameContext;{276f0e2b-6461-401e-ba78-0fdad6114eec})");
 }
 unsafe impl ::windows::core::Interface for ProcessVideoFrameContext {
-    type Vtable = IProcessVideoFrameContextVtbl;
+    type Vtable = IProcessVideoFrameContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x276f0e2b_6461_401e_ba78_0fdad6114eec);
 }
 impl ::windows::core::RuntimeName for ProcessVideoFrameContext {
@@ -2028,7 +2028,7 @@ unsafe impl ::windows::core::RuntimeType for SlowMotionEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.SlowMotionEffectDefinition;{35053cd0-176c-4763-82c4-1b02dbe31737})");
 }
 unsafe impl ::windows::core::Interface for SlowMotionEffectDefinition {
-    type Vtable = ISlowMotionEffectDefinitionVtbl;
+    type Vtable = ISlowMotionEffectDefinition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35053cd0_176c_4763_82c4_1b02dbe31737);
 }
 impl ::windows::core::RuntimeName for SlowMotionEffectDefinition {
@@ -2160,7 +2160,7 @@ unsafe impl ::windows::core::RuntimeType for VideoCompositorDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoCompositorDefinition;{7946b8d0-2010-4ae3-9ab2-2cef42edd4d2})");
 }
 unsafe impl ::windows::core::Interface for VideoCompositorDefinition {
-    type Vtable = IVideoCompositorDefinitionVtbl;
+    type Vtable = IVideoCompositorDefinition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7946b8d0_2010_4ae3_9ab2_2cef42edd4d2);
 }
 impl ::windows::core::RuntimeName for VideoCompositorDefinition {
@@ -2292,7 +2292,7 @@ unsafe impl ::windows::core::RuntimeType for VideoEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoEffectDefinition;{39f38cf0-8d0f-4f3e-84fc-2d46a5297943})");
 }
 unsafe impl ::windows::core::Interface for VideoEffectDefinition {
-    type Vtable = IVideoEffectDefinitionVtbl;
+    type Vtable = IVideoEffectDefinition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39f38cf0_8d0f_4f3e_84fc_2d46a5297943);
 }
 impl ::windows::core::RuntimeName for VideoEffectDefinition {
@@ -2509,7 +2509,7 @@ unsafe impl ::windows::core::RuntimeType for VideoTransformEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoTransformEffectDefinition;{39f38cf0-8d0f-4f3e-84fc-2d46a5297943})");
 }
 unsafe impl ::windows::core::Interface for VideoTransformEffectDefinition {
-    type Vtable = IVideoEffectDefinitionVtbl;
+    type Vtable = IVideoEffectDefinition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39f38cf0_8d0f_4f3e_84fc_2d46a5297943);
 }
 impl ::windows::core::RuntimeName for VideoTransformEffectDefinition {
@@ -2675,7 +2675,7 @@ unsafe impl ::windows::core::RuntimeType for VideoTransformSphericalProjection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoTransformSphericalProjection;{cf4401f0-9bf2-4c39-9f41-e022514a8468})");
 }
 unsafe impl ::windows::core::Interface for VideoTransformSphericalProjection {
-    type Vtable = IVideoTransformSphericalProjectionVtbl;
+    type Vtable = IVideoTransformSphericalProjection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf4401f0_9bf2_4c39_9f41_e022514a8468);
 }
 impl ::windows::core::RuntimeName for VideoTransformSphericalProjection {

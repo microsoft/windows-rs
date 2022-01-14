@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IIndexedResourceCandidate(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIndexedResourceCandidate {
-    type Vtable = IIndexedResourceCandidateVtbl;
+    type Vtable = IIndexedResourceCandidate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e619ef3_faec_4414_a9d7_54acd5953f29);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIndexedResourceCandidateVtbl {
+pub struct IIndexedResourceCandidate_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IndexedResourceType) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -30,12 +30,12 @@ pub struct IIndexedResourceCandidateVtbl {
 #[repr(transparent)]
 pub struct IIndexedResourceQualifier(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIndexedResourceQualifier {
-    type Vtable = IIndexedResourceQualifierVtbl;
+    type Vtable = IIndexedResourceQualifier_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdae3bb9b_d304_497f_a168_a340042c8adb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIndexedResourceQualifierVtbl {
+pub struct IIndexedResourceQualifier_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub QualifierName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub QualifierValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -46,13 +46,13 @@ pub struct IIndexedResourceQualifierVtbl {
 pub struct IResourceIndexer(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IResourceIndexer {
-    type Vtable = IResourceIndexerVtbl;
+    type Vtable = IResourceIndexer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d4cf9a5_e32f_4ab2_8748_96350a016da3);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceIndexerVtbl {
+pub struct IResourceIndexer_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub IndexFilePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -69,13 +69,13 @@ pub struct IResourceIndexerVtbl {
 pub struct IResourceIndexerFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IResourceIndexerFactory {
-    type Vtable = IResourceIndexerFactoryVtbl;
+    type Vtable = IResourceIndexerFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8de3f09_31cd_4d97_bd30_8d39f742bc61);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceIndexerFactoryVtbl {
+pub struct IResourceIndexerFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub CreateResourceIndexer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, projectroot: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -88,13 +88,13 @@ pub struct IResourceIndexerFactoryVtbl {
 pub struct IResourceIndexerFactory2(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IResourceIndexerFactory2 {
-    type Vtable = IResourceIndexerFactory2Vtbl;
+    type Vtable = IResourceIndexerFactory2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6040f18d_d5e5_4b60_9201_cd279cbcfed9);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceIndexerFactory2Vtbl {
+pub struct IResourceIndexerFactory2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub CreateResourceIndexerWithExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, projectroot: ::windows::core::RawPtr, extensiondllpath: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -177,7 +177,7 @@ unsafe impl ::windows::core::RuntimeType for IndexedResourceCandidate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Management.IndexedResourceCandidate;{0e619ef3-faec-4414-a9d7-54acd5953f29})");
 }
 unsafe impl ::windows::core::Interface for IndexedResourceCandidate {
-    type Vtable = IIndexedResourceCandidateVtbl;
+    type Vtable = IIndexedResourceCandidate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e619ef3_faec_4414_a9d7_54acd5953f29);
 }
 impl ::windows::core::RuntimeName for IndexedResourceCandidate {
@@ -266,7 +266,7 @@ unsafe impl ::windows::core::RuntimeType for IndexedResourceQualifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Management.IndexedResourceQualifier;{dae3bb9b-d304-497f-a168-a340042c8adb})");
 }
 unsafe impl ::windows::core::Interface for IndexedResourceQualifier {
-    type Vtable = IIndexedResourceQualifierVtbl;
+    type Vtable = IIndexedResourceQualifier_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdae3bb9b_d304_497f_a168_a340042c8adb);
 }
 impl ::windows::core::RuntimeName for IndexedResourceQualifier {
@@ -427,7 +427,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceIndexer {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ResourceIndexer {
-    type Vtable = IResourceIndexerVtbl;
+    type Vtable = IResourceIndexer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d4cf9a5_e32f_4ab2_8748_96350a016da3);
 }
 #[cfg(feature = "deprecated")]

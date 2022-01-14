@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IJsonArrayImpl: Sized + IJsonValueImpl {
+pub trait IJsonArray_Impl: Sized + IJsonValue_Impl {
     fn GetObjectAt(&mut self, index: u32) -> ::windows::core::Result<JsonObject>;
     fn GetArrayAt(&mut self, index: u32) -> ::windows::core::Result<JsonArray>;
     fn GetStringAt(&mut self, index: u32) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -11,9 +11,9 @@ impl ::windows::core::RuntimeName for IJsonArray {
     const NAME: &'static str = "Windows.Data.Json.IJsonArray";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IJsonArrayVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonArrayImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonArrayVtbl {
-        unsafe extern "system" fn GetObjectAt<Impl: IJsonArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IJsonArray_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonArray_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonArray_Vtbl {
+        unsafe extern "system" fn GetObjectAt<Impl: IJsonArray_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetObjectAt(index) {
                 ::core::result::Result::Ok(ok__) => {
@@ -24,7 +24,7 @@ impl IJsonArrayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetArrayAt<Impl: IJsonArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetArrayAt<Impl: IJsonArray_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetArrayAt(index) {
                 ::core::result::Result::Ok(ok__) => {
@@ -35,7 +35,7 @@ impl IJsonArrayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStringAt<Impl: IJsonArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStringAt<Impl: IJsonArray_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStringAt(index) {
                 ::core::result::Result::Ok(ok__) => {
@@ -46,7 +46,7 @@ impl IJsonArrayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNumberAt<Impl: IJsonArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNumberAt<Impl: IJsonArray_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNumberAt(index) {
                 ::core::result::Result::Ok(ok__) => {
@@ -57,7 +57,7 @@ impl IJsonArrayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBooleanAt<Impl: IJsonArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBooleanAt<Impl: IJsonArray_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetBooleanAt(index) {
                 ::core::result::Result::Ok(ok__) => {
@@ -82,7 +82,7 @@ impl IJsonArrayVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IJsonArrayStaticsImpl: Sized {
+pub trait IJsonArrayStatics_Impl: Sized {
     fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<JsonArray>;
     fn TryParse(&mut self, input: &::windows::core::HSTRING, result: &mut ::core::option::Option<JsonArray>) -> ::windows::core::Result<bool>;
 }
@@ -91,9 +91,9 @@ impl ::windows::core::RuntimeName for IJsonArrayStatics {
     const NAME: &'static str = "Windows.Data.Json.IJsonArrayStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IJsonArrayStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonArrayStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonArrayStaticsVtbl {
-        unsafe extern "system" fn Parse<Impl: IJsonArrayStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IJsonArrayStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonArrayStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonArrayStatics_Vtbl {
+        unsafe extern "system" fn Parse<Impl: IJsonArrayStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -104,7 +104,7 @@ impl IJsonArrayStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryParse<Impl: IJsonArrayStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParse<Impl: IJsonArrayStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&result)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -126,7 +126,7 @@ impl IJsonArrayStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IJsonErrorStatics2Impl: Sized {
+pub trait IJsonErrorStatics2_Impl: Sized {
     fn GetJsonStatus(&mut self, hresult: i32) -> ::windows::core::Result<JsonErrorStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -134,9 +134,9 @@ impl ::windows::core::RuntimeName for IJsonErrorStatics2 {
     const NAME: &'static str = "Windows.Data.Json.IJsonErrorStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IJsonErrorStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonErrorStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonErrorStatics2Vtbl {
-        unsafe extern "system" fn GetJsonStatus<Impl: IJsonErrorStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut JsonErrorStatus) -> ::windows::core::HRESULT {
+impl IJsonErrorStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonErrorStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonErrorStatics2_Vtbl {
+        unsafe extern "system" fn GetJsonStatus<Impl: IJsonErrorStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut JsonErrorStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetJsonStatus(hresult) {
                 ::core::result::Result::Ok(ok__) => {
@@ -154,7 +154,7 @@ impl IJsonErrorStatics2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IJsonObjectImpl: Sized + IJsonValueImpl {
+pub trait IJsonObject_Impl: Sized + IJsonValue_Impl {
     fn GetNamedValue(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<JsonValue>;
     fn SetNamedValue(&mut self, name: &::windows::core::HSTRING, value: &::core::option::Option<IJsonValue>) -> ::windows::core::Result<()>;
     fn GetNamedObject(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<JsonObject>;
@@ -168,9 +168,9 @@ impl ::windows::core::RuntimeName for IJsonObject {
     const NAME: &'static str = "Windows.Data.Json.IJsonObject";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IJsonObjectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonObjectVtbl {
-        unsafe extern "system" fn GetNamedValue<Impl: IJsonObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IJsonObject_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonObject_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonObject_Vtbl {
+        unsafe extern "system" fn GetNamedValue<Impl: IJsonObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNamedValue(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -181,11 +181,11 @@ impl IJsonObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNamedValue<Impl: IJsonObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNamedValue<Impl: IJsonObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNamedValue(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <IJsonValue as ::windows::core::Abi>::Abi as *const <IJsonValue as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetNamedObject<Impl: IJsonObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNamedObject<Impl: IJsonObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNamedObject(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -196,7 +196,7 @@ impl IJsonObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNamedArray<Impl: IJsonObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNamedArray<Impl: IJsonObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNamedArray(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -207,7 +207,7 @@ impl IJsonObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNamedString<Impl: IJsonObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNamedString<Impl: IJsonObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNamedString(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -218,7 +218,7 @@ impl IJsonObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNamedNumber<Impl: IJsonObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNamedNumber<Impl: IJsonObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNamedNumber(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -229,7 +229,7 @@ impl IJsonObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNamedBoolean<Impl: IJsonObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNamedBoolean<Impl: IJsonObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNamedBoolean(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -256,7 +256,7 @@ impl IJsonObjectVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IJsonObjectStaticsImpl: Sized {
+pub trait IJsonObjectStatics_Impl: Sized {
     fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<JsonObject>;
     fn TryParse(&mut self, input: &::windows::core::HSTRING, result: &mut ::core::option::Option<JsonObject>) -> ::windows::core::Result<bool>;
 }
@@ -265,9 +265,9 @@ impl ::windows::core::RuntimeName for IJsonObjectStatics {
     const NAME: &'static str = "Windows.Data.Json.IJsonObjectStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IJsonObjectStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonObjectStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonObjectStaticsVtbl {
-        unsafe extern "system" fn Parse<Impl: IJsonObjectStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IJsonObjectStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonObjectStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonObjectStatics_Vtbl {
+        unsafe extern "system" fn Parse<Impl: IJsonObjectStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -278,7 +278,7 @@ impl IJsonObjectStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryParse<Impl: IJsonObjectStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParse<Impl: IJsonObjectStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&result)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -300,7 +300,7 @@ impl IJsonObjectStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IJsonObjectWithDefaultValuesImpl: Sized + IJsonObjectImpl + IJsonValueImpl {
+pub trait IJsonObjectWithDefaultValues_Impl: Sized + IJsonObject_Impl + IJsonValue_Impl {
     fn GetNamedValueOrDefault(&mut self, name: &::windows::core::HSTRING, defaultvalue: &::core::option::Option<JsonValue>) -> ::windows::core::Result<JsonValue>;
     fn GetNamedObjectOrDefault(&mut self, name: &::windows::core::HSTRING, defaultvalue: &::core::option::Option<JsonObject>) -> ::windows::core::Result<JsonObject>;
     fn GetNamedStringOrDefault(&mut self, name: &::windows::core::HSTRING, defaultvalue: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -313,9 +313,9 @@ impl ::windows::core::RuntimeName for IJsonObjectWithDefaultValues {
     const NAME: &'static str = "Windows.Data.Json.IJsonObjectWithDefaultValues";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IJsonObjectWithDefaultValuesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonObjectWithDefaultValuesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonObjectWithDefaultValuesVtbl {
-        unsafe extern "system" fn GetNamedValueOrDefault<Impl: IJsonObjectWithDefaultValuesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, defaultvalue: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IJsonObjectWithDefaultValues_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonObjectWithDefaultValues_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonObjectWithDefaultValues_Vtbl {
+        unsafe extern "system" fn GetNamedValueOrDefault<Impl: IJsonObjectWithDefaultValues_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, defaultvalue: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNamedValueOrDefault(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&defaultvalue as *const <JsonValue as ::windows::core::Abi>::Abi as *const <JsonValue as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -326,7 +326,7 @@ impl IJsonObjectWithDefaultValuesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNamedObjectOrDefault<Impl: IJsonObjectWithDefaultValuesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, defaultvalue: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNamedObjectOrDefault<Impl: IJsonObjectWithDefaultValues_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, defaultvalue: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNamedObjectOrDefault(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&defaultvalue as *const <JsonObject as ::windows::core::Abi>::Abi as *const <JsonObject as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -337,7 +337,7 @@ impl IJsonObjectWithDefaultValuesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNamedStringOrDefault<Impl: IJsonObjectWithDefaultValuesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, defaultvalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNamedStringOrDefault<Impl: IJsonObjectWithDefaultValues_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, defaultvalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNamedStringOrDefault(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&defaultvalue as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -348,7 +348,7 @@ impl IJsonObjectWithDefaultValuesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNamedArrayOrDefault<Impl: IJsonObjectWithDefaultValuesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, defaultvalue: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNamedArrayOrDefault<Impl: IJsonObjectWithDefaultValues_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, defaultvalue: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNamedArrayOrDefault(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&defaultvalue as *const <JsonArray as ::windows::core::Abi>::Abi as *const <JsonArray as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -359,7 +359,7 @@ impl IJsonObjectWithDefaultValuesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNamedNumberOrDefault<Impl: IJsonObjectWithDefaultValuesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, defaultvalue: f64, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNamedNumberOrDefault<Impl: IJsonObjectWithDefaultValues_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, defaultvalue: f64, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNamedNumberOrDefault(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), defaultvalue) {
                 ::core::result::Result::Ok(ok__) => {
@@ -370,7 +370,7 @@ impl IJsonObjectWithDefaultValuesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNamedBooleanOrDefault<Impl: IJsonObjectWithDefaultValuesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, defaultvalue: bool, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNamedBooleanOrDefault<Impl: IJsonObjectWithDefaultValues_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, defaultvalue: bool, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNamedBooleanOrDefault(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), defaultvalue) {
                 ::core::result::Result::Ok(ok__) => {
@@ -395,7 +395,7 @@ impl IJsonObjectWithDefaultValuesVtbl {
         iid == &<IJsonObjectWithDefaultValues as ::windows::core::Interface>::IID
     }
 }
-pub trait IJsonValueImpl: Sized {
+pub trait IJsonValue_Impl: Sized {
     fn ValueType(&mut self) -> ::windows::core::Result<JsonValueType>;
     fn Stringify(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -407,9 +407,9 @@ pub trait IJsonValueImpl: Sized {
 impl ::windows::core::RuntimeName for IJsonValue {
     const NAME: &'static str = "Windows.Data.Json.IJsonValue";
 }
-impl IJsonValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonValueVtbl {
-        unsafe extern "system" fn ValueType<Impl: IJsonValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut JsonValueType) -> ::windows::core::HRESULT {
+impl IJsonValue_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonValue_Vtbl {
+        unsafe extern "system" fn ValueType<Impl: IJsonValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut JsonValueType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ValueType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -420,7 +420,7 @@ impl IJsonValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Stringify<Impl: IJsonValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stringify<Impl: IJsonValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Stringify() {
                 ::core::result::Result::Ok(ok__) => {
@@ -431,7 +431,7 @@ impl IJsonValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetString<Impl: IJsonValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetString<Impl: IJsonValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetString() {
                 ::core::result::Result::Ok(ok__) => {
@@ -442,7 +442,7 @@ impl IJsonValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNumber<Impl: IJsonValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNumber<Impl: IJsonValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -453,7 +453,7 @@ impl IJsonValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBoolean<Impl: IJsonValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBoolean<Impl: IJsonValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetBoolean() {
                 ::core::result::Result::Ok(ok__) => {
@@ -464,7 +464,7 @@ impl IJsonValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetArray<Impl: IJsonValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetArray<Impl: IJsonValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetArray() {
                 ::core::result::Result::Ok(ok__) => {
@@ -475,7 +475,7 @@ impl IJsonValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetObject<Impl: IJsonValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetObject<Impl: IJsonValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetObject() {
                 ::core::result::Result::Ok(ok__) => {
@@ -502,7 +502,7 @@ impl IJsonValueVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IJsonValueStaticsImpl: Sized {
+pub trait IJsonValueStatics_Impl: Sized {
     fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<JsonValue>;
     fn TryParse(&mut self, input: &::windows::core::HSTRING, result: &mut ::core::option::Option<JsonValue>) -> ::windows::core::Result<bool>;
     fn CreateBooleanValue(&mut self, input: bool) -> ::windows::core::Result<JsonValue>;
@@ -514,9 +514,9 @@ impl ::windows::core::RuntimeName for IJsonValueStatics {
     const NAME: &'static str = "Windows.Data.Json.IJsonValueStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IJsonValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonValueStaticsVtbl {
-        unsafe extern "system" fn Parse<Impl: IJsonValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IJsonValueStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonValueStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonValueStatics_Vtbl {
+        unsafe extern "system" fn Parse<Impl: IJsonValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -527,7 +527,7 @@ impl IJsonValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryParse<Impl: IJsonValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParse<Impl: IJsonValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&result)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -538,7 +538,7 @@ impl IJsonValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateBooleanValue<Impl: IJsonValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateBooleanValue<Impl: IJsonValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateBooleanValue(input) {
                 ::core::result::Result::Ok(ok__) => {
@@ -549,7 +549,7 @@ impl IJsonValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateNumberValue<Impl: IJsonValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateNumberValue<Impl: IJsonValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateNumberValue(input) {
                 ::core::result::Result::Ok(ok__) => {
@@ -560,7 +560,7 @@ impl IJsonValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateStringValue<Impl: IJsonValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateStringValue<Impl: IJsonValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateStringValue(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -585,7 +585,7 @@ impl IJsonValueStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IJsonValueStatics2Impl: Sized {
+pub trait IJsonValueStatics2_Impl: Sized {
     fn CreateNullValue(&mut self) -> ::windows::core::Result<JsonValue>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -593,9 +593,9 @@ impl ::windows::core::RuntimeName for IJsonValueStatics2 {
     const NAME: &'static str = "Windows.Data.Json.IJsonValueStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IJsonValueStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonValueStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonValueStatics2Vtbl {
-        unsafe extern "system" fn CreateNullValue<Impl: IJsonValueStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IJsonValueStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJsonValueStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJsonValueStatics2_Vtbl {
+        unsafe extern "system" fn CreateNullValue<Impl: IJsonValueStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateNullValue() {
                 ::core::result::Result::Ok(ok__) => {

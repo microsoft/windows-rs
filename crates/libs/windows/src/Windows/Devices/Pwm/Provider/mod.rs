@@ -129,12 +129,12 @@ unsafe impl ::windows::core::RuntimeType for IPwmControllerProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1300593b-e2e3-40a4-b7d9-48dff0377a52}");
 }
 unsafe impl ::windows::core::Interface for IPwmControllerProvider {
-    type Vtable = IPwmControllerProviderVtbl;
+    type Vtable = IPwmControllerProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1300593b_e2e3_40a4_b7d9_48dff0377a52);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPwmControllerProviderVtbl {
+pub struct IPwmControllerProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PinCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub ActualFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -221,12 +221,12 @@ unsafe impl ::windows::core::RuntimeType for IPwmProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a3301228-52f1-47b0-9349-66ba43d25902}");
 }
 unsafe impl ::windows::core::Interface for IPwmProvider {
-    type Vtable = IPwmProviderVtbl;
+    type Vtable = IPwmProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3301228_52f1_47b0_9349_66ba43d25902);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPwmProviderVtbl {
+pub struct IPwmProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetControllers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

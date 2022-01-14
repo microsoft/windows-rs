@@ -126,7 +126,7 @@ unsafe impl ::windows::core::RuntimeType for DeleteSmsMessageOperation {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for DeleteSmsMessageOperation {
-    type Vtable = super::super::Foundation::IAsyncActionVtbl;
+    type Vtable = super::super::Foundation::IAsyncAction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a648006_843a_4da9_865b_9d26e5dfad7b);
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -357,7 +357,7 @@ unsafe impl ::windows::core::RuntimeType for DeleteSmsMessagesOperation {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for DeleteSmsMessagesOperation {
-    type Vtable = super::super::Foundation::IAsyncActionVtbl;
+    type Vtable = super::super::Foundation::IAsyncAction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a648006_843a_4da9_865b_9d26e5dfad7b);
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -591,7 +591,7 @@ unsafe impl ::windows::core::RuntimeType for GetSmsDeviceOperation {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for GetSmsDeviceOperation {
-    type Vtable = super::super::Foundation::IAsyncOperationVtbl<SmsDevice>;
+    type Vtable = super::super::Foundation::IAsyncOperation_Vtbl<SmsDevice>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -825,7 +825,7 @@ unsafe impl ::windows::core::RuntimeType for GetSmsMessageOperation {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for GetSmsMessageOperation {
-    type Vtable = super::super::Foundation::IAsyncOperationVtbl<ISmsMessage>;
+    type Vtable = super::super::Foundation::IAsyncOperation_Vtbl<ISmsMessage>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -1074,7 +1074,7 @@ unsafe impl ::windows::core::RuntimeType for GetSmsMessagesOperation {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for GetSmsMessagesOperation {
-    type Vtable = super::super::Foundation::IAsyncOperationWithProgressVtbl<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>;
+    type Vtable = super::super::Foundation::IAsyncOperationWithProgress_Vtbl<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -1216,12 +1216,12 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncOperatio
 #[repr(transparent)]
 pub struct ISmsAppMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsAppMessage {
-    type Vtable = ISmsAppMessageVtbl;
+    type Vtable = ISmsAppMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8bb8494_d3a0_4a0a_86d7_291033a8cf54);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsAppMessageVtbl {
+pub struct ISmsAppMessage_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -1408,13 +1408,13 @@ unsafe impl ::windows::core::RuntimeType for ISmsBinaryMessage {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISmsBinaryMessage {
-    type Vtable = ISmsBinaryMessageVtbl;
+    type Vtable = ISmsBinaryMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bf4e813_3b53_4c6e_b61a_d86a63755650);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsBinaryMessageVtbl {
+pub struct ISmsBinaryMessage_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Format: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmsDataFormat) -> ::windows::core::HRESULT,
@@ -1437,12 +1437,12 @@ pub struct ISmsBinaryMessageVtbl {
 #[repr(transparent)]
 pub struct ISmsBroadcastMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsBroadcastMessage {
-    type Vtable = ISmsBroadcastMessageVtbl;
+    type Vtable = ISmsBroadcastMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75aebbf1_e4b7_4874_a09c_2956e592f957);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsBroadcastMessageVtbl {
+pub struct ISmsBroadcastMessage_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -1623,13 +1623,13 @@ unsafe impl ::windows::core::RuntimeType for ISmsDevice {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISmsDevice {
-    type Vtable = ISmsDeviceVtbl;
+    type Vtable = ISmsDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x091791ed_872b_4eec_9c72_ab11627b34ec);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsDeviceVtbl {
+pub struct ISmsDevice_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub SendMessageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, message: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1676,12 +1676,12 @@ pub struct ISmsDeviceVtbl {
 #[repr(transparent)]
 pub struct ISmsDevice2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsDevice2 {
-    type Vtable = ISmsDevice2Vtbl;
+    type Vtable = ISmsDevice2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd8a5c13_e522_46cb_b8d5_9ead30fb6c47);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsDevice2Vtbl {
+pub struct ISmsDevice2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SmscAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetSmscAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1708,12 +1708,12 @@ pub struct ISmsDevice2Vtbl {
 #[repr(transparent)]
 pub struct ISmsDevice2Statics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsDevice2Statics {
-    type Vtable = ISmsDevice2StaticsVtbl;
+    type Vtable = ISmsDevice2Statics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65c78325_1031_491e_8fb6_ef9991afe363);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsDevice2StaticsVtbl {
+pub struct ISmsDevice2Statics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub FromId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1726,13 +1726,13 @@ pub struct ISmsDevice2StaticsVtbl {
 pub struct ISmsDeviceMessageStore(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISmsDeviceMessageStore {
-    type Vtable = ISmsDeviceMessageStoreVtbl;
+    type Vtable = ISmsDeviceMessageStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9889f253_f188_4427_8d54_ce0c2423c5c1);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsDeviceMessageStoreVtbl {
+pub struct ISmsDeviceMessageStore_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub DeleteMessageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, messageid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1761,13 +1761,13 @@ pub struct ISmsDeviceMessageStoreVtbl {
 pub struct ISmsDeviceStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISmsDeviceStatics {
-    type Vtable = ISmsDeviceStaticsVtbl;
+    type Vtable = ISmsDeviceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf88d07ea_d815_4dd1_a234_4520ce4604a4);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsDeviceStaticsVtbl {
+pub struct ISmsDeviceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1788,13 +1788,13 @@ pub struct ISmsDeviceStaticsVtbl {
 pub struct ISmsDeviceStatics2(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISmsDeviceStatics2 {
-    type Vtable = ISmsDeviceStatics2Vtbl;
+    type Vtable = ISmsDeviceStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ca11c87_0873_4caf_8a7d_bd471e8586d1);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsDeviceStatics2Vtbl {
+pub struct ISmsDeviceStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub FromNetworkAccountIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networkaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1805,12 +1805,12 @@ pub struct ISmsDeviceStatics2Vtbl {
 #[repr(transparent)]
 pub struct ISmsFilterRule(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsFilterRule {
-    type Vtable = ISmsFilterRuleVtbl;
+    type Vtable = ISmsFilterRule_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40e32fae_b049_4fbc_afe9_e2a610eff55c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsFilterRuleVtbl {
+pub struct ISmsFilterRule_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MessageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmsMessageType) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -1864,12 +1864,12 @@ pub struct ISmsFilterRuleVtbl {
 #[repr(transparent)]
 pub struct ISmsFilterRuleFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsFilterRuleFactory {
-    type Vtable = ISmsFilterRuleFactoryVtbl;
+    type Vtable = ISmsFilterRuleFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00c36508_6296_4f29_9aad_8920ceba3ce8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsFilterRuleFactoryVtbl {
+pub struct ISmsFilterRuleFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateFilterRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, messagetype: SmsMessageType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1877,12 +1877,12 @@ pub struct ISmsFilterRuleFactoryVtbl {
 #[repr(transparent)]
 pub struct ISmsFilterRules(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsFilterRules {
-    type Vtable = ISmsFilterRulesVtbl;
+    type Vtable = ISmsFilterRules_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e47eafb_79cd_4881_9894_55a4135b23fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsFilterRulesVtbl {
+pub struct ISmsFilterRules_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ActionType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmsFilterActionType) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -1894,12 +1894,12 @@ pub struct ISmsFilterRulesVtbl {
 #[repr(transparent)]
 pub struct ISmsFilterRulesFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsFilterRulesFactory {
-    type Vtable = ISmsFilterRulesFactoryVtbl;
+    type Vtable = ISmsFilterRulesFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa09924ed_6e2e_4530_9fde_465d02eed00e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsFilterRulesFactoryVtbl {
+pub struct ISmsFilterRulesFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateFilterRules: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, actiontype: SmsFilterActionType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1984,12 +1984,12 @@ unsafe impl ::windows::core::RuntimeType for ISmsMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ed3c5e28-6984-4b07-811d-8d5906ed3cea}");
 }
 unsafe impl ::windows::core::Interface for ISmsMessage {
-    type Vtable = ISmsMessageVtbl;
+    type Vtable = ISmsMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed3c5e28_6984_4b07_811d_8d5906ed3cea);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsMessageVtbl {
+pub struct ISmsMessage_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub MessageClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmsMessageClass) -> ::windows::core::HRESULT,
@@ -2099,12 +2099,12 @@ unsafe impl ::windows::core::RuntimeType for ISmsMessageBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2cf0fe30-fe50-4fc6-aa88-4ccfe27a29ea}");
 }
 unsafe impl ::windows::core::Interface for ISmsMessageBase {
-    type Vtable = ISmsMessageBaseVtbl;
+    type Vtable = ISmsMessageBase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cf0fe30_fe50_4fc6_aa88_4ccfe27a29ea);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsMessageBaseVtbl {
+pub struct ISmsMessageBase_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MessageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmsMessageType) -> ::windows::core::HRESULT,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2118,13 +2118,13 @@ pub struct ISmsMessageBaseVtbl {
 pub struct ISmsMessageReceivedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISmsMessageReceivedEventArgs {
-    type Vtable = ISmsMessageReceivedEventArgsVtbl;
+    type Vtable = ISmsMessageReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08e80a98_b8e5_41c1_a3d8_d3abfae22675);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsMessageReceivedEventArgsVtbl {
+pub struct ISmsMessageReceivedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub TextMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2139,12 +2139,12 @@ pub struct ISmsMessageReceivedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISmsMessageReceivedTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsMessageReceivedTriggerDetails {
-    type Vtable = ISmsMessageReceivedTriggerDetailsVtbl;
+    type Vtable = ISmsMessageReceivedTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bcfcbd4_2657_4128_ad5f_e3877132bdb1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsMessageReceivedTriggerDetailsVtbl {
+pub struct ISmsMessageReceivedTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MessageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmsMessageType) -> ::windows::core::HRESULT,
     pub TextMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2160,12 +2160,12 @@ pub struct ISmsMessageReceivedTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct ISmsMessageRegistration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsMessageRegistration {
-    type Vtable = ISmsMessageRegistrationVtbl;
+    type Vtable = ISmsMessageRegistration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1720503e_f34f_446b_83b3_0ff19923b409);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsMessageRegistrationVtbl {
+pub struct ISmsMessageRegistration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Unregister: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2182,12 +2182,12 @@ pub struct ISmsMessageRegistrationVtbl {
 #[repr(transparent)]
 pub struct ISmsMessageRegistrationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsMessageRegistrationStatics {
-    type Vtable = ISmsMessageRegistrationStaticsVtbl;
+    type Vtable = ISmsMessageRegistrationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63a05464_2898_4778_a03c_6f994907d63a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsMessageRegistrationStaticsVtbl {
+pub struct ISmsMessageRegistrationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub AllRegistrations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2201,13 +2201,13 @@ pub struct ISmsMessageRegistrationStaticsVtbl {
 pub struct ISmsReceivedEventDetails(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISmsReceivedEventDetails {
-    type Vtable = ISmsReceivedEventDetailsVtbl;
+    type Vtable = ISmsReceivedEventDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bb50f15_e46d_4c82_847d_5a0304c1d53d);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsReceivedEventDetailsVtbl {
+pub struct ISmsReceivedEventDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2224,13 +2224,13 @@ pub struct ISmsReceivedEventDetailsVtbl {
 pub struct ISmsReceivedEventDetails2(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISmsReceivedEventDetails2 {
-    type Vtable = ISmsReceivedEventDetails2Vtbl;
+    type Vtable = ISmsReceivedEventDetails2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40e05c86_a7b4_4771_9ae7_0b5ffb12c03a);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsReceivedEventDetails2Vtbl {
+pub struct ISmsReceivedEventDetails2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub MessageClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmsMessageClass) -> ::windows::core::HRESULT,
@@ -2245,12 +2245,12 @@ pub struct ISmsReceivedEventDetails2Vtbl {
 #[repr(transparent)]
 pub struct ISmsSendMessageResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsSendMessageResult {
-    type Vtable = ISmsSendMessageResultVtbl;
+    type Vtable = ISmsSendMessageResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb139af2_78c9_4feb_9622_452328088d62);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsSendMessageResultVtbl {
+pub struct ISmsSendMessageResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsSuccessful: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -2267,12 +2267,12 @@ pub struct ISmsSendMessageResultVtbl {
 #[repr(transparent)]
 pub struct ISmsStatusMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsStatusMessage {
-    type Vtable = ISmsStatusMessageVtbl;
+    type Vtable = ISmsStatusMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6d28342_b70b_4677_9379_c9783fdff8f4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsStatusMessageVtbl {
+pub struct ISmsStatusMessage_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub To: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub From: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2516,13 +2516,13 @@ unsafe impl ::windows::core::RuntimeType for ISmsTextMessage {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISmsTextMessage {
-    type Vtable = ISmsTextMessageVtbl;
+    type Vtable = ISmsTextMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd61c904c_a495_487f_9a6f_971548c5bc9f);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsTextMessageVtbl {
+pub struct ISmsTextMessage_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -2581,12 +2581,12 @@ pub struct ISmsTextMessageVtbl {
 #[repr(transparent)]
 pub struct ISmsTextMessage2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsTextMessage2 {
-    type Vtable = ISmsTextMessage2Vtbl;
+    type Vtable = ISmsTextMessage2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22a0d893_4555_4755_b5a1_e7fd84955f8d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsTextMessage2Vtbl {
+pub struct ISmsTextMessage2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -2614,13 +2614,13 @@ pub struct ISmsTextMessage2Vtbl {
 pub struct ISmsTextMessageStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISmsTextMessageStatics {
-    type Vtable = ISmsTextMessageStaticsVtbl;
+    type Vtable = ISmsTextMessageStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f68c5ed_3ccc_47a3_8c55_380d3b010892);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsTextMessageStaticsVtbl {
+pub struct ISmsTextMessageStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub FromBinaryMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binarymessage: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2635,12 +2635,12 @@ pub struct ISmsTextMessageStaticsVtbl {
 #[repr(transparent)]
 pub struct ISmsVoicemailMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsVoicemailMessage {
-    type Vtable = ISmsVoicemailMessageVtbl;
+    type Vtable = ISmsVoicemailMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x271aa0a6_95b1_44ff_bcb8_b8fdd7e08bc3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsVoicemailMessageVtbl {
+pub struct ISmsVoicemailMessage_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -2657,12 +2657,12 @@ pub struct ISmsVoicemailMessageVtbl {
 #[repr(transparent)]
 pub struct ISmsWapMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmsWapMessage {
-    type Vtable = ISmsWapMessageVtbl;
+    type Vtable = ISmsWapMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd937743_7a55_4d3b_9021_f22e022d09c5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmsWapMessageVtbl {
+pub struct ISmsWapMessage_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -2774,7 +2774,7 @@ unsafe impl ::windows::core::RuntimeType for SendSmsMessageOperation {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for SendSmsMessageOperation {
-    type Vtable = super::super::Foundation::IAsyncActionVtbl;
+    type Vtable = super::super::Foundation::IAsyncAction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a648006_843a_4da9_865b_9d26e5dfad7b);
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -3133,7 +3133,7 @@ unsafe impl ::windows::core::RuntimeType for SmsAppMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsAppMessage;{e8bb8494-d3a0-4a0a-86d7-291033a8cf54})");
 }
 unsafe impl ::windows::core::Interface for SmsAppMessage {
-    type Vtable = ISmsAppMessageVtbl;
+    type Vtable = ISmsAppMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8bb8494_d3a0_4a0a_86d7_291033a8cf54);
 }
 impl ::windows::core::RuntimeName for SmsAppMessage {
@@ -3289,7 +3289,7 @@ unsafe impl ::windows::core::RuntimeType for SmsBinaryMessage {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SmsBinaryMessage {
-    type Vtable = ISmsBinaryMessageVtbl;
+    type Vtable = ISmsBinaryMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bf4e813_3b53_4c6e_b61a_d86a63755650);
 }
 #[cfg(feature = "deprecated")]
@@ -3546,7 +3546,7 @@ unsafe impl ::windows::core::RuntimeType for SmsBroadcastMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsBroadcastMessage;{75aebbf1-e4b7-4874-a09c-2956e592f957})");
 }
 unsafe impl ::windows::core::Interface for SmsBroadcastMessage {
-    type Vtable = ISmsBroadcastMessageVtbl;
+    type Vtable = ISmsBroadcastMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75aebbf1_e4b7_4874_a09c_2956e592f957);
 }
 impl ::windows::core::RuntimeName for SmsBroadcastMessage {
@@ -3859,7 +3859,7 @@ unsafe impl ::windows::core::RuntimeType for SmsDevice {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SmsDevice {
-    type Vtable = ISmsDeviceVtbl;
+    type Vtable = ISmsDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x091791ed_872b_4eec_9c72_ab11627b34ec);
 }
 #[cfg(feature = "deprecated")]
@@ -4083,7 +4083,7 @@ unsafe impl ::windows::core::RuntimeType for SmsDevice2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsDevice2;{bd8a5c13-e522-46cb-b8d5-9ead30fb6c47})");
 }
 unsafe impl ::windows::core::Interface for SmsDevice2 {
-    type Vtable = ISmsDevice2Vtbl;
+    type Vtable = ISmsDevice2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd8a5c13_e522_46cb_b8d5_9ead30fb6c47);
 }
 impl ::windows::core::RuntimeName for SmsDevice2 {
@@ -4207,7 +4207,7 @@ unsafe impl ::windows::core::RuntimeType for SmsDeviceMessageStore {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SmsDeviceMessageStore {
-    type Vtable = ISmsDeviceMessageStoreVtbl;
+    type Vtable = ISmsDeviceMessageStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9889f253_f188_4427_8d54_ce0c2423c5c1);
 }
 #[cfg(feature = "deprecated")]
@@ -4321,13 +4321,13 @@ impl SmsDeviceStatusChangedEventHandler {
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 struct SmsDeviceStatusChangedEventHandlerBox<F: FnMut(&::core::option::Option<SmsDevice>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const SmsDeviceStatusChangedEventHandlerVtbl,
+    vtable: *const SmsDeviceStatusChangedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 #[cfg(feature = "deprecated")]
 impl<F: FnMut(&::core::option::Option<SmsDevice>) -> ::windows::core::Result<()> + 'static> SmsDeviceStatusChangedEventHandlerBox<F> {
-    const VTABLE: SmsDeviceStatusChangedEventHandlerVtbl = SmsDeviceStatusChangedEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: SmsDeviceStatusChangedEventHandler_Vtbl = SmsDeviceStatusChangedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<SmsDeviceStatusChangedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -4377,7 +4377,7 @@ impl ::core::fmt::Debug for SmsDeviceStatusChangedEventHandler {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SmsDeviceStatusChangedEventHandler {
-    type Vtable = SmsDeviceStatusChangedEventHandlerVtbl;
+    type Vtable = SmsDeviceStatusChangedEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x982b1162_3dd7_4618_af89_0c272d5d06d8);
 }
 #[cfg(feature = "deprecated")]
@@ -4387,7 +4387,7 @@ unsafe impl ::windows::core::RuntimeType for SmsDeviceStatusChangedEventHandler 
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct SmsDeviceStatusChangedEventHandlerVtbl {
+pub struct SmsDeviceStatusChangedEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "deprecated")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4668,7 +4668,7 @@ unsafe impl ::windows::core::RuntimeType for SmsFilterRule {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsFilterRule;{40e32fae-b049-4fbc-afe9-e2a610eff55c})");
 }
 unsafe impl ::windows::core::Interface for SmsFilterRule {
-    type Vtable = ISmsFilterRuleVtbl;
+    type Vtable = ISmsFilterRule_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40e32fae_b049_4fbc_afe9_e2a610eff55c);
 }
 impl ::windows::core::RuntimeName for SmsFilterRule {
@@ -4770,7 +4770,7 @@ unsafe impl ::windows::core::RuntimeType for SmsFilterRules {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsFilterRules;{4e47eafb-79cd-4881-9894-55a4135b23fa})");
 }
 unsafe impl ::windows::core::Interface for SmsFilterRules {
-    type Vtable = ISmsFilterRulesVtbl;
+    type Vtable = ISmsFilterRules_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e47eafb_79cd_4881_9894_55a4135b23fa);
 }
 impl ::windows::core::RuntimeName for SmsFilterRules {
@@ -4987,7 +4987,7 @@ unsafe impl ::windows::core::RuntimeType for SmsMessageReceivedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SmsMessageReceivedEventArgs {
-    type Vtable = ISmsMessageReceivedEventArgsVtbl;
+    type Vtable = ISmsMessageReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08e80a98_b8e5_41c1_a3d8_d3abfae22675);
 }
 #[cfg(feature = "deprecated")]
@@ -5062,13 +5062,13 @@ impl SmsMessageReceivedEventHandler {
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 struct SmsMessageReceivedEventHandlerBox<F: FnMut(&::core::option::Option<SmsDevice>, &::core::option::Option<SmsMessageReceivedEventArgs>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const SmsMessageReceivedEventHandlerVtbl,
+    vtable: *const SmsMessageReceivedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 #[cfg(feature = "deprecated")]
 impl<F: FnMut(&::core::option::Option<SmsDevice>, &::core::option::Option<SmsMessageReceivedEventArgs>) -> ::windows::core::Result<()> + 'static> SmsMessageReceivedEventHandlerBox<F> {
-    const VTABLE: SmsMessageReceivedEventHandlerVtbl = SmsMessageReceivedEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: SmsMessageReceivedEventHandler_Vtbl = SmsMessageReceivedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<SmsMessageReceivedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -5118,7 +5118,7 @@ impl ::core::fmt::Debug for SmsMessageReceivedEventHandler {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SmsMessageReceivedEventHandler {
-    type Vtable = SmsMessageReceivedEventHandlerVtbl;
+    type Vtable = SmsMessageReceivedEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b7ad409_ec2d_47ce_a253_732beeebcacd);
 }
 #[cfg(feature = "deprecated")]
@@ -5128,7 +5128,7 @@ unsafe impl ::windows::core::RuntimeType for SmsMessageReceivedEventHandler {
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct SmsMessageReceivedEventHandlerVtbl {
+pub struct SmsMessageReceivedEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "deprecated")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5226,7 +5226,7 @@ unsafe impl ::windows::core::RuntimeType for SmsMessageReceivedTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsMessageReceivedTriggerDetails;{2bcfcbd4-2657-4128-ad5f-e3877132bdb1})");
 }
 unsafe impl ::windows::core::Interface for SmsMessageReceivedTriggerDetails {
-    type Vtable = ISmsMessageReceivedTriggerDetailsVtbl;
+    type Vtable = ISmsMessageReceivedTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bcfcbd4_2657_4128_ad5f_e3877132bdb1);
 }
 impl ::windows::core::RuntimeName for SmsMessageReceivedTriggerDetails {
@@ -5347,7 +5347,7 @@ unsafe impl ::windows::core::RuntimeType for SmsMessageRegistration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsMessageRegistration;{1720503e-f34f-446b-83b3-0ff19923b409})");
 }
 unsafe impl ::windows::core::Interface for SmsMessageRegistration {
-    type Vtable = ISmsMessageRegistrationVtbl;
+    type Vtable = ISmsMessageRegistration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1720503e_f34f_446b_83b3_0ff19923b409);
 }
 impl ::windows::core::RuntimeName for SmsMessageRegistration {
@@ -5543,7 +5543,7 @@ unsafe impl ::windows::core::RuntimeType for SmsReceivedEventDetails {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SmsReceivedEventDetails {
-    type Vtable = ISmsReceivedEventDetailsVtbl;
+    type Vtable = ISmsReceivedEventDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bb50f15_e46d_4c82_847d_5a0304c1d53d);
 }
 #[cfg(feature = "deprecated")]
@@ -5684,7 +5684,7 @@ unsafe impl ::windows::core::RuntimeType for SmsSendMessageResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsSendMessageResult;{db139af2-78c9-4feb-9622-452328088d62})");
 }
 unsafe impl ::windows::core::Interface for SmsSendMessageResult {
-    type Vtable = ISmsSendMessageResultVtbl;
+    type Vtable = ISmsSendMessageResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb139af2_78c9_4feb_9622_452328088d62);
 }
 impl ::windows::core::RuntimeName for SmsSendMessageResult {
@@ -5855,7 +5855,7 @@ unsafe impl ::windows::core::RuntimeType for SmsStatusMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsStatusMessage;{e6d28342-b70b-4677-9379-c9783fdff8f4})");
 }
 unsafe impl ::windows::core::Interface for SmsStatusMessage {
-    type Vtable = ISmsStatusMessageVtbl;
+    type Vtable = ISmsStatusMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6d28342_b70b_4677_9379_c9783fdff8f4);
 }
 impl ::windows::core::RuntimeName for SmsStatusMessage {
@@ -6108,7 +6108,7 @@ unsafe impl ::windows::core::RuntimeType for SmsTextMessage {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SmsTextMessage {
-    type Vtable = ISmsTextMessageVtbl;
+    type Vtable = ISmsTextMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd61c904c_a495_487f_9a6f_971548c5bc9f);
 }
 #[cfg(feature = "deprecated")]
@@ -6402,7 +6402,7 @@ unsafe impl ::windows::core::RuntimeType for SmsTextMessage2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsTextMessage2;{22a0d893-4555-4755-b5a1-e7fd84955f8d})");
 }
 unsafe impl ::windows::core::Interface for SmsTextMessage2 {
-    type Vtable = ISmsTextMessage2Vtbl;
+    type Vtable = ISmsTextMessage2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22a0d893_4555_4755_b5a1_e7fd84955f8d);
 }
 impl ::windows::core::RuntimeName for SmsTextMessage2 {
@@ -6571,7 +6571,7 @@ unsafe impl ::windows::core::RuntimeType for SmsVoicemailMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsVoicemailMessage;{271aa0a6-95b1-44ff-bcb8-b8fdd7e08bc3})");
 }
 unsafe impl ::windows::core::Interface for SmsVoicemailMessage {
-    type Vtable = ISmsVoicemailMessageVtbl;
+    type Vtable = ISmsVoicemailMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x271aa0a6_95b1_44ff_bcb8_b8fdd7e08bc3);
 }
 impl ::windows::core::RuntimeName for SmsVoicemailMessage {
@@ -6765,7 +6765,7 @@ unsafe impl ::windows::core::RuntimeType for SmsWapMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsWapMessage;{cd937743-7a55-4d3b-9021-f22e022d09c5})");
 }
 unsafe impl ::windows::core::Interface for SmsWapMessage {
-    type Vtable = ISmsWapMessageVtbl;
+    type Vtable = ISmsWapMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd937743_7a55_4d3b_9021_f22e022d09c5);
 }
 impl ::windows::core::RuntimeName for SmsWapMessage {

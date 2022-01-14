@@ -45,12 +45,12 @@ impl ::core::fmt::Debug for IWebApplicationActivation {
     }
 }
 unsafe impl ::windows::core::Interface for IWebApplicationActivation {
-    type Vtable = IWebApplicationActivationVtbl;
+    type Vtable = IWebApplicationActivation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbcdcd0de_330e_481b_b843_4898a6a8ebac);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebApplicationActivationVtbl {
+pub struct IWebApplicationActivation_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CancelPendingActivation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -142,14 +142,14 @@ impl ::core::fmt::Debug for IWebApplicationAuthoringMode {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWebApplicationAuthoringMode {
-    type Vtable = IWebApplicationAuthoringModeVtbl;
+    type Vtable = IWebApplicationAuthoringMode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x720aea93_1964_4db0_b005_29eb9e2b18a9);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebApplicationAuthoringModeVtbl {
-    pub base: super::super::super::Com::IServiceProviderVtbl,
+pub struct IWebApplicationAuthoringMode_Vtbl {
+    pub base: super::super::super::Com::IServiceProvider_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AuthoringClientBinary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, designmodedllpath: *mut super::super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -220,12 +220,12 @@ impl ::core::fmt::Debug for IWebApplicationHost {
     }
 }
 unsafe impl ::windows::core::Interface for IWebApplicationHost {
-    type Vtable = IWebApplicationHostVtbl;
+    type Vtable = IWebApplicationHost_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcecbd2c3_a3a5_4749_9681_20e9161c6794);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebApplicationHostVtbl {
+pub struct IWebApplicationHost_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub HWND: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: *mut super::super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
@@ -309,12 +309,12 @@ impl ::core::fmt::Debug for IWebApplicationNavigationEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IWebApplicationNavigationEvents {
-    type Vtable = IWebApplicationNavigationEventsVtbl;
+    type Vtable = IWebApplicationNavigationEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc22615d2_d318_4da2_8422_1fcaf77b10e4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebApplicationNavigationEventsVtbl {
+pub struct IWebApplicationNavigationEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
     pub BeforeNavigate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: super::super::super::super::Foundation::PWSTR, navigationflags: u32, targetframename: super::super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -387,12 +387,12 @@ impl ::core::fmt::Debug for IWebApplicationScriptEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IWebApplicationScriptEvents {
-    type Vtable = IWebApplicationScriptEventsVtbl;
+    type Vtable = IWebApplicationScriptEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c3f6998_1567_4bba_b52b_48d32141d613);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebApplicationScriptEventsVtbl {
+pub struct IWebApplicationScriptEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
     pub BeforeScriptExecute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -449,12 +449,12 @@ impl ::core::fmt::Debug for IWebApplicationUIEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IWebApplicationUIEvents {
-    type Vtable = IWebApplicationUIEventsVtbl;
+    type Vtable = IWebApplicationUIEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b2b3f99_328c_41d5_a6f7_7483ed8e71dd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebApplicationUIEventsVtbl {
+pub struct IWebApplicationUIEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SecurityProblem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, securityproblem: u32, result: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
@@ -508,12 +508,12 @@ impl ::core::fmt::Debug for IWebApplicationUpdateEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IWebApplicationUpdateEvents {
-    type Vtable = IWebApplicationUpdateEventsVtbl;
+    type Vtable = IWebApplicationUpdateEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e59e6b7_c652_4daf_ad5e_16feb350cde3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebApplicationUpdateEventsVtbl {
+pub struct IWebApplicationUpdateEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnPaint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnCssChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

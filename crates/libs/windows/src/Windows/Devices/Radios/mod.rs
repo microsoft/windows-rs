@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IRadio(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRadio {
-    type Vtable = IRadioVtbl;
+    type Vtable = IRadio_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x252118df_b33e_416a_875f_1cf38ae2d83e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRadioVtbl {
+pub struct IRadio_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SetStateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: RadioState, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -30,12 +30,12 @@ pub struct IRadioVtbl {
 #[repr(transparent)]
 pub struct IRadioStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRadioStatics {
-    type Vtable = IRadioStaticsVtbl;
+    type Vtable = IRadioStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fb6a12e_67cb_46ae_aae9_65919f86eff4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRadioStaticsVtbl {
+pub struct IRadioStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetRadiosAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -160,7 +160,7 @@ unsafe impl ::windows::core::RuntimeType for Radio {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Radios.Radio;{252118df-b33e-416a-875f-1cf38ae2d83e})");
 }
 unsafe impl ::windows::core::Interface for Radio {
-    type Vtable = IRadioVtbl;
+    type Vtable = IRadio_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x252118df_b33e_416a_875f_1cf38ae2d83e);
 }
 impl ::windows::core::RuntimeName for Radio {

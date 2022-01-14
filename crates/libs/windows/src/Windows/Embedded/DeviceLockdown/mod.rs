@@ -74,7 +74,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceLockdownProfileInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Embedded.DeviceLockdown.DeviceLockdownProfileInformation;{7980e14e-45b1-4a96-92fc-62756b739678})");
 }
 unsafe impl ::windows::core::Interface for DeviceLockdownProfileInformation {
-    type Vtable = IDeviceLockdownProfileInformationVtbl;
+    type Vtable = IDeviceLockdownProfileInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7980e14e_45b1_4a96_92fc_62756b739678);
 }
 impl ::windows::core::RuntimeName for DeviceLockdownProfileInformation {
@@ -126,12 +126,12 @@ unsafe impl ::core::marker::Sync for DeviceLockdownProfileInformation {}
 #[repr(transparent)]
 pub struct IDeviceLockdownProfileInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceLockdownProfileInformation {
-    type Vtable = IDeviceLockdownProfileInformationVtbl;
+    type Vtable = IDeviceLockdownProfileInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7980e14e_45b1_4a96_92fc_62756b739678);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceLockdownProfileInformationVtbl {
+pub struct IDeviceLockdownProfileInformation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -139,12 +139,12 @@ pub struct IDeviceLockdownProfileInformationVtbl {
 #[repr(transparent)]
 pub struct IDeviceLockdownProfileStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceLockdownProfileStatics {
-    type Vtable = IDeviceLockdownProfileStaticsVtbl;
+    type Vtable = IDeviceLockdownProfileStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x622f6965_f9a8_41a1_a691_88cd80c7a069);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceLockdownProfileStaticsVtbl {
+pub struct IDeviceLockdownProfileStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetSupportedLockdownProfiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

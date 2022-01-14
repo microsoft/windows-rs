@@ -90,12 +90,12 @@ impl ::windows::core::RuntimeName for CommunicationBlockingAppManager {
 #[repr(transparent)]
 pub struct ICommunicationBlockingAccessManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICommunicationBlockingAccessManagerStatics {
-    type Vtable = ICommunicationBlockingAccessManagerStaticsVtbl;
+    type Vtable = ICommunicationBlockingAccessManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c969998_9d2a_5db7_edd5_0ce407fc2595);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICommunicationBlockingAccessManagerStaticsVtbl {
+pub struct ICommunicationBlockingAccessManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsBlockingActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -117,12 +117,12 @@ pub struct ICommunicationBlockingAccessManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct ICommunicationBlockingAppManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICommunicationBlockingAppManagerStatics {
-    type Vtable = ICommunicationBlockingAppManagerStaticsVtbl;
+    type Vtable = ICommunicationBlockingAppManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77db58ec_14a6_4baa_942a_6a673d999bf2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICommunicationBlockingAppManagerStaticsVtbl {
+pub struct ICommunicationBlockingAppManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsCurrentAppActiveBlockingApp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub ShowCommunicationBlockingSettingsUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -131,12 +131,12 @@ pub struct ICommunicationBlockingAppManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct ICommunicationBlockingAppManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICommunicationBlockingAppManagerStatics2 {
-    type Vtable = ICommunicationBlockingAppManagerStatics2Vtbl;
+    type Vtable = ICommunicationBlockingAppManagerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14a68edd_ed88_457a_a364_a3634d6f166d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICommunicationBlockingAppManagerStatics2Vtbl {
+pub struct ICommunicationBlockingAppManagerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestSetAsActiveBlockingAppAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

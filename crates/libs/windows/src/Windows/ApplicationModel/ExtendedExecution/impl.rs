@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IExtendedExecutionRevokedEventArgsImpl: Sized {
+pub trait IExtendedExecutionRevokedEventArgs_Impl: Sized {
     fn Reason(&mut self) -> ::windows::core::Result<ExtendedExecutionRevokedReason>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7,9 +7,9 @@ impl ::windows::core::RuntimeName for IExtendedExecutionRevokedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.IExtendedExecutionRevokedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IExtendedExecutionRevokedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExtendedExecutionRevokedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IExtendedExecutionRevokedEventArgsVtbl {
-        unsafe extern "system" fn Reason<Impl: IExtendedExecutionRevokedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ExtendedExecutionRevokedReason) -> ::windows::core::HRESULT {
+impl IExtendedExecutionRevokedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExtendedExecutionRevokedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IExtendedExecutionRevokedEventArgs_Vtbl {
+        unsafe extern "system" fn Reason<Impl: IExtendedExecutionRevokedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ExtendedExecutionRevokedReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reason() {
                 ::core::result::Result::Ok(ok__) => {
@@ -27,7 +27,7 @@ impl IExtendedExecutionRevokedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IExtendedExecutionSessionImpl: Sized + IClosableImpl {
+pub trait IExtendedExecutionSession_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn Reason(&mut self) -> ::windows::core::Result<ExtendedExecutionReason>;
     fn SetReason(&mut self, value: ExtendedExecutionReason) -> ::windows::core::Result<()>;
     fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -43,9 +43,9 @@ impl ::windows::core::RuntimeName for IExtendedExecutionSession {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.IExtendedExecutionSession";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IExtendedExecutionSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExtendedExecutionSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IExtendedExecutionSessionVtbl {
-        unsafe extern "system" fn Reason<Impl: IExtendedExecutionSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ExtendedExecutionReason) -> ::windows::core::HRESULT {
+impl IExtendedExecutionSession_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExtendedExecutionSession_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IExtendedExecutionSession_Vtbl {
+        unsafe extern "system" fn Reason<Impl: IExtendedExecutionSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ExtendedExecutionReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reason() {
                 ::core::result::Result::Ok(ok__) => {
@@ -56,11 +56,11 @@ impl IExtendedExecutionSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetReason<Impl: IExtendedExecutionSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ExtendedExecutionReason) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetReason<Impl: IExtendedExecutionSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ExtendedExecutionReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetReason(value).into()
         }
-        unsafe extern "system" fn Description<Impl: IExtendedExecutionSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Impl: IExtendedExecutionSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -71,11 +71,11 @@ impl IExtendedExecutionSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDescription<Impl: IExtendedExecutionSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDescription<Impl: IExtendedExecutionSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDescription(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PercentProgress<Impl: IExtendedExecutionSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PercentProgress<Impl: IExtendedExecutionSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PercentProgress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -86,11 +86,11 @@ impl IExtendedExecutionSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPercentProgress<Impl: IExtendedExecutionSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPercentProgress<Impl: IExtendedExecutionSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPercentProgress(value).into()
         }
-        unsafe extern "system" fn Revoked<Impl: IExtendedExecutionSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Revoked<Impl: IExtendedExecutionSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Revoked(&*(&handler as *const <super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, ExtendedExecutionRevokedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, ExtendedExecutionRevokedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -101,11 +101,11 @@ impl IExtendedExecutionSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRevoked<Impl: IExtendedExecutionSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveRevoked<Impl: IExtendedExecutionSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRevoked(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RequestExtensionAsync<Impl: IExtendedExecutionSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestExtensionAsync<Impl: IExtendedExecutionSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestExtensionAsync() {
                 ::core::result::Result::Ok(ok__) => {

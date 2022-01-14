@@ -304,7 +304,7 @@ unsafe impl ::windows::core::RuntimeType for AddPackageOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.AddPackageOptions;{05cee018-f68f-422b-95a4-66679ec77fc0})");
 }
 unsafe impl ::windows::core::Interface for AddPackageOptions {
-    type Vtable = IAddPackageOptionsVtbl;
+    type Vtable = IAddPackageOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05cee018_f68f_422b_95a4_66679ec77fc0);
 }
 impl ::windows::core::RuntimeName for AddPackageOptions {
@@ -412,7 +412,7 @@ unsafe impl ::windows::core::RuntimeType for AppInstallerManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.AppInstallerManager;{e7ee21c3-2103-53ee-9b18-68afeab0033d})");
 }
 unsafe impl ::windows::core::Interface for AppInstallerManager {
-    type Vtable = IAppInstallerManagerVtbl;
+    type Vtable = IAppInstallerManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7ee21c3_2103_53ee_9b18_68afeab0033d);
 }
 impl ::windows::core::RuntimeName for AppInstallerManager {
@@ -662,7 +662,7 @@ unsafe impl ::windows::core::RuntimeType for AutoUpdateSettingsOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.AutoUpdateSettingsOptions;{67491d87-35e1-512a-8968-1ae88d1be6d3})");
 }
 unsafe impl ::windows::core::Interface for AutoUpdateSettingsOptions {
-    type Vtable = IAutoUpdateSettingsOptionsVtbl;
+    type Vtable = IAutoUpdateSettingsOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67491d87_35e1_512a_8968_1ae88d1be6d3);
 }
 impl ::windows::core::RuntimeName for AutoUpdateSettingsOptions {
@@ -777,7 +777,7 @@ unsafe impl ::windows::core::RuntimeType for CreateSharedPackageContainerOptions
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.CreateSharedPackageContainerOptions;{c2ab6ece-f664-5c8e-a4b3-2a33276d3dde})");
 }
 unsafe impl ::windows::core::Interface for CreateSharedPackageContainerOptions {
-    type Vtable = ICreateSharedPackageContainerOptionsVtbl;
+    type Vtable = ICreateSharedPackageContainerOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2ab6ece_f664_5c8e_a4b3_2a33276d3dde);
 }
 impl ::windows::core::RuntimeName for CreateSharedPackageContainerOptions {
@@ -874,7 +874,7 @@ unsafe impl ::windows::core::RuntimeType for CreateSharedPackageContainerResult 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.CreateSharedPackageContainerResult;{ce8810bf-151c-5707-b936-497e564afc7a})");
 }
 unsafe impl ::windows::core::Interface for CreateSharedPackageContainerResult {
-    type Vtable = ICreateSharedPackageContainerResultVtbl;
+    type Vtable = ICreateSharedPackageContainerResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce8810bf_151c_5707_b936_497e564afc7a);
 }
 impl ::windows::core::RuntimeName for CreateSharedPackageContainerResult {
@@ -980,7 +980,7 @@ unsafe impl ::windows::core::RuntimeType for DeleteSharedPackageContainerOptions
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.DeleteSharedPackageContainerOptions;{9d81865f-986e-5138-8b5d-384d8e66ed6c})");
 }
 unsafe impl ::windows::core::Interface for DeleteSharedPackageContainerOptions {
-    type Vtable = IDeleteSharedPackageContainerOptionsVtbl;
+    type Vtable = IDeleteSharedPackageContainerOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d81865f_986e_5138_8b5d_384d8e66ed6c);
 }
 impl ::windows::core::RuntimeName for DeleteSharedPackageContainerOptions {
@@ -1069,7 +1069,7 @@ unsafe impl ::windows::core::RuntimeType for DeleteSharedPackageContainerResult 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.DeleteSharedPackageContainerResult;{35398884-5736-517b-85bc-e598c81ab284})");
 }
 unsafe impl ::windows::core::Interface for DeleteSharedPackageContainerResult {
-    type Vtable = IDeleteSharedPackageContainerResultVtbl;
+    type Vtable = IDeleteSharedPackageContainerResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35398884_5736_517b_85bc_e598c81ab284);
 }
 impl ::windows::core::RuntimeName for DeleteSharedPackageContainerResult {
@@ -1312,7 +1312,7 @@ unsafe impl ::windows::core::RuntimeType for DeploymentResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.DeploymentResult;{2563b9ae-b77d-4c1f-8a7b-20e6ad515ef3})");
 }
 unsafe impl ::windows::core::Interface for DeploymentResult {
-    type Vtable = IDeploymentResultVtbl;
+    type Vtable = IDeploymentResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2563b9ae_b77d_4c1f_8a7b_20e6ad515ef3);
 }
 impl ::windows::core::RuntimeName for DeploymentResult {
@@ -1418,7 +1418,7 @@ unsafe impl ::windows::core::RuntimeType for FindSharedPackageContainerOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.FindSharedPackageContainerOptions;{b40fc8fe-8384-54cc-817d-ae09d3b6a606})");
 }
 unsafe impl ::windows::core::Interface for FindSharedPackageContainerOptions {
-    type Vtable = IFindSharedPackageContainerOptionsVtbl;
+    type Vtable = IFindSharedPackageContainerOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb40fc8fe_8384_54cc_817d_ae09d3b6a606);
 }
 impl ::windows::core::RuntimeName for FindSharedPackageContainerOptions {
@@ -1470,12 +1470,12 @@ unsafe impl ::core::marker::Sync for FindSharedPackageContainerOptions {}
 #[repr(transparent)]
 pub struct IAddPackageOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAddPackageOptions {
-    type Vtable = IAddPackageOptionsVtbl;
+    type Vtable = IAddPackageOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05cee018_f68f_422b_95a4_66679ec77fc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAddPackageOptionsVtbl {
+pub struct IAddPackageOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub DependencyPackageUris: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1530,12 +1530,12 @@ pub struct IAddPackageOptionsVtbl {
 #[repr(transparent)]
 pub struct IAppInstallerManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppInstallerManager {
-    type Vtable = IAppInstallerManagerVtbl;
+    type Vtable = IAppInstallerManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7ee21c3_2103_53ee_9b18_68afeab0033d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppInstallerManagerVtbl {
+pub struct IAppInstallerManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetAutoUpdateSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, appinstallerinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ClearAutoUpdateSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1548,12 +1548,12 @@ pub struct IAppInstallerManagerVtbl {
 #[repr(transparent)]
 pub struct IAppInstallerManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppInstallerManagerStatics {
-    type Vtable = IAppInstallerManagerStaticsVtbl;
+    type Vtable = IAppInstallerManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc95a6ed5_fc59_5336_9b2e_2b07c5e61434);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppInstallerManagerStaticsVtbl {
+pub struct IAppInstallerManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetForSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1562,12 +1562,12 @@ pub struct IAppInstallerManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IAutoUpdateSettingsOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutoUpdateSettingsOptions {
-    type Vtable = IAutoUpdateSettingsOptionsVtbl;
+    type Vtable = IAutoUpdateSettingsOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67491d87_35e1_512a_8968_1ae88d1be6d3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutoUpdateSettingsOptionsVtbl {
+pub struct IAutoUpdateSettingsOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "ApplicationModel")]
     pub Version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::ApplicationModel::PackageVersion) -> ::windows::core::HRESULT,
@@ -1620,12 +1620,12 @@ pub struct IAutoUpdateSettingsOptionsVtbl {
 #[repr(transparent)]
 pub struct IAutoUpdateSettingsOptionsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutoUpdateSettingsOptionsStatics {
-    type Vtable = IAutoUpdateSettingsOptionsStaticsVtbl;
+    type Vtable = IAutoUpdateSettingsOptionsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x887b337d_0c05_54d0_bd49_3bb7a2c084cb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutoUpdateSettingsOptionsStaticsVtbl {
+pub struct IAutoUpdateSettingsOptionsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "ApplicationModel")]
     pub CreateFromAppInstallerInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appinstallerinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1636,12 +1636,12 @@ pub struct IAutoUpdateSettingsOptionsStaticsVtbl {
 #[repr(transparent)]
 pub struct ICreateSharedPackageContainerOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICreateSharedPackageContainerOptions {
-    type Vtable = ICreateSharedPackageContainerOptionsVtbl;
+    type Vtable = ICreateSharedPackageContainerOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2ab6ece_f664_5c8e_a4b3_2a33276d3dde);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICreateSharedPackageContainerOptionsVtbl {
+pub struct ICreateSharedPackageContainerOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Members: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1656,12 +1656,12 @@ pub struct ICreateSharedPackageContainerOptionsVtbl {
 #[repr(transparent)]
 pub struct ICreateSharedPackageContainerResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICreateSharedPackageContainerResult {
-    type Vtable = ICreateSharedPackageContainerResultVtbl;
+    type Vtable = ICreateSharedPackageContainerResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce8810bf_151c_5707_b936_497e564afc7a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICreateSharedPackageContainerResultVtbl {
+pub struct ICreateSharedPackageContainerResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Container: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SharedPackageContainerOperationStatus) -> ::windows::core::HRESULT,
@@ -1671,12 +1671,12 @@ pub struct ICreateSharedPackageContainerResultVtbl {
 #[repr(transparent)]
 pub struct IDeleteSharedPackageContainerOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeleteSharedPackageContainerOptions {
-    type Vtable = IDeleteSharedPackageContainerOptionsVtbl;
+    type Vtable = IDeleteSharedPackageContainerOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d81865f_986e_5138_8b5d_384d8e66ed6c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeleteSharedPackageContainerOptionsVtbl {
+pub struct IDeleteSharedPackageContainerOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ForceAppShutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetForceAppShutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -1687,12 +1687,12 @@ pub struct IDeleteSharedPackageContainerOptionsVtbl {
 #[repr(transparent)]
 pub struct IDeleteSharedPackageContainerResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeleteSharedPackageContainerResult {
-    type Vtable = IDeleteSharedPackageContainerResultVtbl;
+    type Vtable = IDeleteSharedPackageContainerResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35398884_5736_517b_85bc_e598c81ab284);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeleteSharedPackageContainerResultVtbl {
+pub struct IDeleteSharedPackageContainerResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SharedPackageContainerOperationStatus) -> ::windows::core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -1701,12 +1701,12 @@ pub struct IDeleteSharedPackageContainerResultVtbl {
 #[repr(transparent)]
 pub struct IDeploymentResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeploymentResult {
-    type Vtable = IDeploymentResultVtbl;
+    type Vtable = IDeploymentResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2563b9ae_b77d_4c1f_8a7b_20e6ad515ef3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeploymentResultVtbl {
+pub struct IDeploymentResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ErrorText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ActivityId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -1716,12 +1716,12 @@ pub struct IDeploymentResultVtbl {
 #[repr(transparent)]
 pub struct IDeploymentResult2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeploymentResult2 {
-    type Vtable = IDeploymentResult2Vtbl;
+    type Vtable = IDeploymentResult2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc0e715c_5a01_4bd7_bcf1_381c8c82e04a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeploymentResult2Vtbl {
+pub struct IDeploymentResult2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsRegistered: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -1729,12 +1729,12 @@ pub struct IDeploymentResult2Vtbl {
 #[repr(transparent)]
 pub struct IFindSharedPackageContainerOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFindSharedPackageContainerOptions {
-    type Vtable = IFindSharedPackageContainerOptionsVtbl;
+    type Vtable = IFindSharedPackageContainerOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb40fc8fe_8384_54cc_817d_ae09d3b6a606);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFindSharedPackageContainerOptionsVtbl {
+pub struct IFindSharedPackageContainerOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1745,12 +1745,12 @@ pub struct IFindSharedPackageContainerOptionsVtbl {
 #[repr(transparent)]
 pub struct IPackageAllUserProvisioningOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageAllUserProvisioningOptions {
-    type Vtable = IPackageAllUserProvisioningOptionsVtbl;
+    type Vtable = IPackageAllUserProvisioningOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda35aa22_1de0_5d3e_99ff_d24f3118bf5e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPackageAllUserProvisioningOptionsVtbl {
+pub struct IPackageAllUserProvisioningOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub OptionalPackageFamilyNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1765,12 +1765,12 @@ pub struct IPackageAllUserProvisioningOptionsVtbl {
 #[repr(transparent)]
 pub struct IPackageManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageManager {
-    type Vtable = IPackageManagerVtbl;
+    type Vtable = IPackageManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a7d4b65_5e8f_4fc7_a2e5_7f6925cb8b53);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPackageManagerVtbl {
+pub struct IPackageManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub AddPackageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packageuri: ::windows::core::RawPtr, dependencypackageuris: ::windows::core::RawPtr, deploymentoptions: DeploymentOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1838,12 +1838,12 @@ pub struct IPackageManagerVtbl {
 #[repr(transparent)]
 pub struct IPackageManager10(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageManager10 {
-    type Vtable = IPackageManager10Vtbl;
+    type Vtable = IPackageManager10_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7d7d07e_2e66_4093_aed5_e093ed87b3bb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPackageManager10Vtbl {
+pub struct IPackageManager10_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ProvisionPackageForAllUsersWithOptionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mainpackagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1854,12 +1854,12 @@ pub struct IPackageManager10Vtbl {
 #[repr(transparent)]
 pub struct IPackageManager2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageManager2 {
-    type Vtable = IPackageManager2Vtbl;
+    type Vtable = IPackageManager2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7aad08d_0840_46f2_b5d8_cad47693a095);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPackageManager2Vtbl {
+pub struct IPackageManager2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RemovePackageWithOptionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, removaloptions: RemovalOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1906,12 +1906,12 @@ pub struct IPackageManager2Vtbl {
 #[repr(transparent)]
 pub struct IPackageManager3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageManager3 {
-    type Vtable = IPackageManager3Vtbl;
+    type Vtable = IPackageManager3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaad9948_36f1_41a7_9188_bc263e0dcb72);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPackageManager3Vtbl {
+pub struct IPackageManager3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub AddPackageVolumeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagestorepath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1963,12 +1963,12 @@ pub struct IPackageManager3Vtbl {
 #[repr(transparent)]
 pub struct IPackageManager4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageManager4 {
-    type Vtable = IPackageManager4Vtbl;
+    type Vtable = IPackageManager4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c719963_bab6_46bf_8ff7_da4719230ae6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPackageManager4Vtbl {
+pub struct IPackageManager4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetPackageVolumesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1979,12 +1979,12 @@ pub struct IPackageManager4Vtbl {
 #[repr(transparent)]
 pub struct IPackageManager5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageManager5 {
-    type Vtable = IPackageManager5Vtbl;
+    type Vtable = IPackageManager5_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x711f3117_1afd_4313_978c_9bb6e1b864a7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPackageManager5Vtbl {
+pub struct IPackageManager5_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub AddPackageToVolumeAndOptionalPackagesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packageuri: ::windows::core::RawPtr, dependencypackageuris: ::windows::core::RawPtr, deploymentoptions: DeploymentOptions, targetvolume: ::windows::core::RawPtr, optionalpackagefamilynames: ::windows::core::RawPtr, externalpackageuris: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2004,12 +2004,12 @@ pub struct IPackageManager5Vtbl {
 #[repr(transparent)]
 pub struct IPackageManager6(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageManager6 {
-    type Vtable = IPackageManager6Vtbl;
+    type Vtable = IPackageManager6_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0847e909_53cd_4e4f_832e_57d180f6e447);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPackageManager6Vtbl {
+pub struct IPackageManager6_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ProvisionPackageForAllUsersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2040,12 +2040,12 @@ pub struct IPackageManager6Vtbl {
 #[repr(transparent)]
 pub struct IPackageManager7(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageManager7 {
-    type Vtable = IPackageManager7Vtbl;
+    type Vtable = IPackageManager7_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf28654f4_2ba7_4b80_88d6_be15f9a23fba);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPackageManager7Vtbl {
+pub struct IPackageManager7_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub RequestAddPackageAndRelatedSetAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packageuri: ::windows::core::RawPtr, dependencypackageuris: ::windows::core::RawPtr, deploymentoptions: DeploymentOptions, targetvolume: ::windows::core::RawPtr, optionalpackagefamilynames: ::windows::core::RawPtr, relatedpackageuris: ::windows::core::RawPtr, packageuristoinstall: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2056,12 +2056,12 @@ pub struct IPackageManager7Vtbl {
 #[repr(transparent)]
 pub struct IPackageManager8(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageManager8 {
-    type Vtable = IPackageManager8Vtbl;
+    type Vtable = IPackageManager8_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8575330_1298_4ee2_80ee_7f659c5d2782);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPackageManager8Vtbl {
+pub struct IPackageManager8_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub DeprovisionPackageForAllUsersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2072,12 +2072,12 @@ pub struct IPackageManager8Vtbl {
 #[repr(transparent)]
 pub struct IPackageManager9(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageManager9 {
-    type Vtable = IPackageManager9Vtbl;
+    type Vtable = IPackageManager9_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1aa79035_cc71_4b2e_80a6_c7041d8579a7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPackageManager9Vtbl {
+pub struct IPackageManager9_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub FindProvisionedPackages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2106,12 +2106,12 @@ pub struct IPackageManager9Vtbl {
 #[repr(transparent)]
 pub struct IPackageManagerDebugSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageManagerDebugSettings {
-    type Vtable = IPackageManagerDebugSettingsVtbl;
+    type Vtable = IPackageManagerDebugSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a611683_a988_4fcf_8f0f_ce175898e8eb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPackageManagerDebugSettingsVtbl {
+pub struct IPackageManagerDebugSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     pub SetContentGroupStateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, package: ::windows::core::RawPtr, contentgroupname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, state: super::super::ApplicationModel::PackageContentGroupState, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2126,12 +2126,12 @@ pub struct IPackageManagerDebugSettingsVtbl {
 #[repr(transparent)]
 pub struct IPackageUserInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageUserInformation {
-    type Vtable = IPackageUserInformationVtbl;
+    type Vtable = IPackageUserInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6383423_fa09_4cbc_9055_15ca275e2e7e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPackageUserInformationVtbl {
+pub struct IPackageUserInformation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub UserSecurityId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub InstallState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PackageInstallState) -> ::windows::core::HRESULT,
@@ -2140,12 +2140,12 @@ pub struct IPackageUserInformationVtbl {
 #[repr(transparent)]
 pub struct IPackageVolume(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageVolume {
-    type Vtable = IPackageVolumeVtbl;
+    type Vtable = IPackageVolume_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf2672c3_1a40_4450_9739_2ace2e898853);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPackageVolumeVtbl {
+pub struct IPackageVolume_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsOffline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsSystemVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -2214,12 +2214,12 @@ pub struct IPackageVolumeVtbl {
 #[repr(transparent)]
 pub struct IPackageVolume2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPackageVolume2 {
-    type Vtable = IPackageVolume2Vtbl;
+    type Vtable = IPackageVolume2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46abcf2e_9dd4_47a2_ab8c_c6408349bcd8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPackageVolume2Vtbl {
+pub struct IPackageVolume2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsFullTrustPackageSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsAppxInstallSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -2232,12 +2232,12 @@ pub struct IPackageVolume2Vtbl {
 #[repr(transparent)]
 pub struct IRegisterPackageOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRegisterPackageOptions {
-    type Vtable = IRegisterPackageOptionsVtbl;
+    type Vtable = IRegisterPackageOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x677112a7_50d4_496c_8415_0602b4c6d3bf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRegisterPackageOptionsVtbl {
+pub struct IRegisterPackageOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub DependencyPackageUris: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2278,12 +2278,12 @@ pub struct IRegisterPackageOptionsVtbl {
 #[repr(transparent)]
 pub struct ISharedPackageContainer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISharedPackageContainer {
-    type Vtable = ISharedPackageContainerVtbl;
+    type Vtable = ISharedPackageContainer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x177f1aa9_151e_5ef7_b1d9_2fba0b4b0d17);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISharedPackageContainerVtbl {
+pub struct ISharedPackageContainer_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2298,12 +2298,12 @@ pub struct ISharedPackageContainerVtbl {
 #[repr(transparent)]
 pub struct ISharedPackageContainerManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISharedPackageContainerManager {
-    type Vtable = ISharedPackageContainerManagerVtbl;
+    type Vtable = ISharedPackageContainerManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe353068_1ef7_5ac8_ab3f_0b9f612f0274);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISharedPackageContainerManagerVtbl {
+pub struct ISharedPackageContainerManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub DeleteContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2321,12 +2321,12 @@ pub struct ISharedPackageContainerManagerVtbl {
 #[repr(transparent)]
 pub struct ISharedPackageContainerManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISharedPackageContainerManagerStatics {
-    type Vtable = ISharedPackageContainerManagerStaticsVtbl;
+    type Vtable = ISharedPackageContainerManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ef56348_838a_5f55_a89e_1198a2c627e6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISharedPackageContainerManagerStaticsVtbl {
+pub struct ISharedPackageContainerManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usersid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2336,12 +2336,12 @@ pub struct ISharedPackageContainerManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct ISharedPackageContainerMember(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISharedPackageContainerMember {
-    type Vtable = ISharedPackageContainerMemberVtbl;
+    type Vtable = ISharedPackageContainerMember_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe0d0438_43c9_5426_b89c_f79bf85ddff4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISharedPackageContainerMemberVtbl {
+pub struct ISharedPackageContainerMember_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -2349,12 +2349,12 @@ pub struct ISharedPackageContainerMemberVtbl {
 #[repr(transparent)]
 pub struct ISharedPackageContainerMemberFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISharedPackageContainerMemberFactory {
-    type Vtable = ISharedPackageContainerMemberFactoryVtbl;
+    type Vtable = ISharedPackageContainerMemberFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49b0ceeb_498f_5a62_b738_b3ca0d436704);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISharedPackageContainerMemberFactoryVtbl {
+pub struct ISharedPackageContainerMemberFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2362,12 +2362,12 @@ pub struct ISharedPackageContainerMemberFactoryVtbl {
 #[repr(transparent)]
 pub struct IStagePackageOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStagePackageOptions {
-    type Vtable = IStagePackageOptionsVtbl;
+    type Vtable = IStagePackageOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b110c9c_b95d_4c56_bd36_6d656800d06b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStagePackageOptionsVtbl {
+pub struct IStagePackageOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub DependencyPackageUris: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2414,12 +2414,12 @@ pub struct IStagePackageOptionsVtbl {
 #[repr(transparent)]
 pub struct IUpdateSharedPackageContainerOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUpdateSharedPackageContainerOptions {
-    type Vtable = IUpdateSharedPackageContainerOptionsVtbl;
+    type Vtable = IUpdateSharedPackageContainerOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80672e83_7194_59f9_b5b9_daa5375f130a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateSharedPackageContainerOptionsVtbl {
+pub struct IUpdateSharedPackageContainerOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ForceAppShutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetForceAppShutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -2430,12 +2430,12 @@ pub struct IUpdateSharedPackageContainerOptionsVtbl {
 #[repr(transparent)]
 pub struct IUpdateSharedPackageContainerResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUpdateSharedPackageContainerResult {
-    type Vtable = IUpdateSharedPackageContainerResultVtbl;
+    type Vtable = IUpdateSharedPackageContainerResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa407df7_c72d_5458_aea3_4645b6a8ee99);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateSharedPackageContainerResultVtbl {
+pub struct IUpdateSharedPackageContainerResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SharedPackageContainerOperationStatus) -> ::windows::core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -2490,7 +2490,7 @@ unsafe impl ::windows::core::RuntimeType for PackageAllUserProvisioningOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.PackageAllUserProvisioningOptions;{da35aa22-1de0-5d3e-99ff-d24f3118bf5e})");
 }
 unsafe impl ::windows::core::Interface for PackageAllUserProvisioningOptions {
-    type Vtable = IPackageAllUserProvisioningOptionsVtbl;
+    type Vtable = IPackageAllUserProvisioningOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda35aa22_1de0_5d3e_99ff_d24f3118bf5e);
 }
 impl ::windows::core::RuntimeName for PackageAllUserProvisioningOptions {
@@ -3190,7 +3190,7 @@ unsafe impl ::windows::core::RuntimeType for PackageManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.PackageManager;{9a7d4b65-5e8f-4fc7-a2e5-7f6925cb8b53})");
 }
 unsafe impl ::windows::core::Interface for PackageManager {
-    type Vtable = IPackageManagerVtbl;
+    type Vtable = IPackageManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a7d4b65_5e8f_4fc7_a2e5_7f6925cb8b53);
 }
 impl ::windows::core::RuntimeName for PackageManager {
@@ -3281,7 +3281,7 @@ unsafe impl ::windows::core::RuntimeType for PackageManagerDebugSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.PackageManagerDebugSettings;{1a611683-a988-4fcf-8f0f-ce175898e8eb})");
 }
 unsafe impl ::windows::core::Interface for PackageManagerDebugSettings {
-    type Vtable = IPackageManagerDebugSettingsVtbl;
+    type Vtable = IPackageManagerDebugSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a611683_a988_4fcf_8f0f_ce175898e8eb);
 }
 impl ::windows::core::RuntimeName for PackageManagerDebugSettings {
@@ -3569,7 +3569,7 @@ unsafe impl ::windows::core::RuntimeType for PackageUserInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.PackageUserInformation;{f6383423-fa09-4cbc-9055-15ca275e2e7e})");
 }
 unsafe impl ::windows::core::Interface for PackageUserInformation {
-    type Vtable = IPackageUserInformationVtbl;
+    type Vtable = IPackageUserInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6383423_fa09_4cbc_9055_15ca275e2e7e);
 }
 impl ::windows::core::RuntimeName for PackageUserInformation {
@@ -3841,7 +3841,7 @@ unsafe impl ::windows::core::RuntimeType for PackageVolume {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.PackageVolume;{cf2672c3-1a40-4450-9739-2ace2e898853})");
 }
 unsafe impl ::windows::core::Interface for PackageVolume {
-    type Vtable = IPackageVolumeVtbl;
+    type Vtable = IPackageVolume_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf2672c3_1a40_4450_9739_2ace2e898853);
 }
 impl ::windows::core::RuntimeName for PackageVolume {
@@ -4071,7 +4071,7 @@ unsafe impl ::windows::core::RuntimeType for RegisterPackageOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.RegisterPackageOptions;{677112a7-50d4-496c-8415-0602b4c6d3bf})");
 }
 unsafe impl ::windows::core::Interface for RegisterPackageOptions {
-    type Vtable = IRegisterPackageOptionsVtbl;
+    type Vtable = IRegisterPackageOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x677112a7_50d4_496c_8415_0602b4c6d3bf);
 }
 impl ::windows::core::RuntimeName for RegisterPackageOptions {
@@ -4248,7 +4248,7 @@ unsafe impl ::windows::core::RuntimeType for SharedPackageContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.SharedPackageContainer;{177f1aa9-151e-5ef7-b1d9-2fba0b4b0d17})");
 }
 unsafe impl ::windows::core::Interface for SharedPackageContainer {
-    type Vtable = ISharedPackageContainerVtbl;
+    type Vtable = ISharedPackageContainer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x177f1aa9_151e_5ef7_b1d9_2fba0b4b0d17);
 }
 impl ::windows::core::RuntimeName for SharedPackageContainer {
@@ -4423,7 +4423,7 @@ unsafe impl ::windows::core::RuntimeType for SharedPackageContainerManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.SharedPackageContainerManager;{be353068-1ef7-5ac8-ab3f-0b9f612f0274})");
 }
 unsafe impl ::windows::core::Interface for SharedPackageContainerManager {
-    type Vtable = ISharedPackageContainerManagerVtbl;
+    type Vtable = ISharedPackageContainerManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe353068_1ef7_5ac8_ab3f_0b9f612f0274);
 }
 impl ::windows::core::RuntimeName for SharedPackageContainerManager {
@@ -4516,7 +4516,7 @@ unsafe impl ::windows::core::RuntimeType for SharedPackageContainerMember {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.SharedPackageContainerMember;{fe0d0438-43c9-5426-b89c-f79bf85ddff4})");
 }
 unsafe impl ::windows::core::Interface for SharedPackageContainerMember {
-    type Vtable = ISharedPackageContainerMemberVtbl;
+    type Vtable = ISharedPackageContainerMember_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe0d0438_43c9_5426_b89c_f79bf85ddff4);
 }
 impl ::windows::core::RuntimeName for SharedPackageContainerMember {
@@ -4788,7 +4788,7 @@ unsafe impl ::windows::core::RuntimeType for StagePackageOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.StagePackageOptions;{0b110c9c-b95d-4c56-bd36-6d656800d06b})");
 }
 unsafe impl ::windows::core::Interface for StagePackageOptions {
-    type Vtable = IStagePackageOptionsVtbl;
+    type Vtable = IStagePackageOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b110c9c_b95d_4c56_bd36_6d656800d06b);
 }
 impl ::windows::core::RuntimeName for StagePackageOptions {
@@ -4929,7 +4929,7 @@ unsafe impl ::windows::core::RuntimeType for UpdateSharedPackageContainerOptions
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.UpdateSharedPackageContainerOptions;{80672e83-7194-59f9-b5b9-daa5375f130a})");
 }
 unsafe impl ::windows::core::Interface for UpdateSharedPackageContainerOptions {
-    type Vtable = IUpdateSharedPackageContainerOptionsVtbl;
+    type Vtable = IUpdateSharedPackageContainerOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80672e83_7194_59f9_b5b9_daa5375f130a);
 }
 impl ::windows::core::RuntimeName for UpdateSharedPackageContainerOptions {
@@ -5018,7 +5018,7 @@ unsafe impl ::windows::core::RuntimeType for UpdateSharedPackageContainerResult 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.UpdateSharedPackageContainerResult;{aa407df7-c72d-5458-aea3-4645b6a8ee99})");
 }
 unsafe impl ::windows::core::Interface for UpdateSharedPackageContainerResult {
-    type Vtable = IUpdateSharedPackageContainerResultVtbl;
+    type Vtable = IUpdateSharedPackageContainerResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa407df7_c72d_5458_aea3_4645b6a8ee99);
 }
 impl ::windows::core::RuntimeName for UpdateSharedPackageContainerResult {

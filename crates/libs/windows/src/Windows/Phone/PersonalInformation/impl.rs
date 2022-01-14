@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IContactAddressImpl: Sized {
+pub trait IContactAddress_Impl: Sized {
     fn Country(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetCountry(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Locality(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -16,9 +16,9 @@ impl ::windows::core::RuntimeName for IContactAddress {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.IContactAddress";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IContactAddressVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAddressImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAddressVtbl {
-        unsafe extern "system" fn Country<Impl: IContactAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IContactAddress_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAddress_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAddress_Vtbl {
+        unsafe extern "system" fn Country<Impl: IContactAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Country() {
                 ::core::result::Result::Ok(ok__) => {
@@ -29,11 +29,11 @@ impl IContactAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCountry<Impl: IContactAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCountry<Impl: IContactAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCountry(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Locality<Impl: IContactAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Locality<Impl: IContactAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Locality() {
                 ::core::result::Result::Ok(ok__) => {
@@ -44,11 +44,11 @@ impl IContactAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLocality<Impl: IContactAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLocality<Impl: IContactAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLocality(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Region<Impl: IContactAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Region<Impl: IContactAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Region() {
                 ::core::result::Result::Ok(ok__) => {
@@ -59,11 +59,11 @@ impl IContactAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRegion<Impl: IContactAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRegion<Impl: IContactAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRegion(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PostalCode<Impl: IContactAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PostalCode<Impl: IContactAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PostalCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -74,11 +74,11 @@ impl IContactAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPostalCode<Impl: IContactAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPostalCode<Impl: IContactAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPostalCode(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StreetAddress<Impl: IContactAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StreetAddress<Impl: IContactAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StreetAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -89,7 +89,7 @@ impl IContactAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStreetAddress<Impl: IContactAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStreetAddress<Impl: IContactAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStreetAddress(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -112,7 +112,7 @@ impl IContactAddressVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IContactChangeRecordImpl: Sized {
+pub trait IContactChangeRecord_Impl: Sized {
     fn ChangeType(&mut self) -> ::windows::core::Result<ContactChangeType>;
     fn RevisionNumber(&mut self) -> ::windows::core::Result<u64>;
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -123,9 +123,9 @@ impl ::windows::core::RuntimeName for IContactChangeRecord {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.IContactChangeRecord";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IContactChangeRecordVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactChangeRecordImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactChangeRecordVtbl {
-        unsafe extern "system" fn ChangeType<Impl: IContactChangeRecordImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ContactChangeType) -> ::windows::core::HRESULT {
+impl IContactChangeRecord_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactChangeRecord_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactChangeRecord_Vtbl {
+        unsafe extern "system" fn ChangeType<Impl: IContactChangeRecord_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ContactChangeType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChangeType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -136,7 +136,7 @@ impl IContactChangeRecordVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RevisionNumber<Impl: IContactChangeRecordImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RevisionNumber<Impl: IContactChangeRecord_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RevisionNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -147,7 +147,7 @@ impl IContactChangeRecordVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Id<Impl: IContactChangeRecordImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Id<Impl: IContactChangeRecord_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -158,7 +158,7 @@ impl IContactChangeRecordVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoteId<Impl: IContactChangeRecordImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoteId<Impl: IContactChangeRecord_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -182,7 +182,7 @@ impl IContactChangeRecordVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-pub trait IContactInformationImpl: Sized {
+pub trait IContactInformation_Impl: Sized {
     fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn FamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -205,9 +205,9 @@ impl ::windows::core::RuntimeName for IContactInformation {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.IContactInformation";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-impl IContactInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactInformationVtbl {
-        unsafe extern "system" fn DisplayName<Impl: IContactInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IContactInformation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactInformation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactInformation_Vtbl {
+        unsafe extern "system" fn DisplayName<Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -218,11 +218,11 @@ impl IContactInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDisplayName<Impl: IContactInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDisplayName<Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FamilyName<Impl: IContactInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FamilyName<Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FamilyName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -233,11 +233,11 @@ impl IContactInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFamilyName<Impl: IContactInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFamilyName<Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFamilyName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GivenName<Impl: IContactInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GivenName<Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GivenName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -248,11 +248,11 @@ impl IContactInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGivenName<Impl: IContactInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGivenName<Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetGivenName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn HonorificPrefix<Impl: IContactInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HonorificPrefix<Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HonorificPrefix() {
                 ::core::result::Result::Ok(ok__) => {
@@ -263,11 +263,11 @@ impl IContactInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHonorificPrefix<Impl: IContactInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHonorificPrefix<Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHonorificPrefix(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn HonorificSuffix<Impl: IContactInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HonorificSuffix<Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HonorificSuffix() {
                 ::core::result::Result::Ok(ok__) => {
@@ -278,11 +278,11 @@ impl IContactInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHonorificSuffix<Impl: IContactInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHonorificSuffix<Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHonorificSuffix(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetDisplayPictureAsync<Impl: IContactInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDisplayPictureAsync<Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDisplayPictureAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -293,7 +293,7 @@ impl IContactInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDisplayPictureAsync<Impl: IContactInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDisplayPictureAsync<Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetDisplayPictureAsync(&*(&stream as *const <super::super::Storage::Streams::IInputStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IInputStream as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -304,7 +304,7 @@ impl IContactInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayPicture<Impl: IContactInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayPicture<Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayPicture() {
                 ::core::result::Result::Ok(ok__) => {
@@ -315,7 +315,7 @@ impl IContactInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPropertiesAsync<Impl: IContactInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertiesAsync<Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPropertiesAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -326,7 +326,7 @@ impl IContactInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ToVcardAsync<Impl: IContactInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToVcardAsync<Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToVcardAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -337,7 +337,7 @@ impl IContactInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ToVcardWithOptionsAsync<Impl: IContactInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: VCardFormat, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToVcardWithOptionsAsync<Impl: IContactInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: VCardFormat, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToVcardWithOptionsAsync(format) {
                 ::core::result::Result::Ok(ok__) => {
@@ -373,7 +373,7 @@ impl IContactInformationVtbl {
     }
 }
 #[cfg(feature = "Foundation")]
-pub trait IContactInformation2Impl: Sized {
+pub trait IContactInformation2_Impl: Sized {
     fn DisplayPictureDate(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn SetDisplayPictureDate(&mut self, returnvalue: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
 }
@@ -382,9 +382,9 @@ impl ::windows::core::RuntimeName for IContactInformation2 {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.IContactInformation2";
 }
 #[cfg(feature = "Foundation")]
-impl IContactInformation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactInformation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactInformation2Vtbl {
-        unsafe extern "system" fn DisplayPictureDate<Impl: IContactInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+impl IContactInformation2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactInformation2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactInformation2_Vtbl {
+        unsafe extern "system" fn DisplayPictureDate<Impl: IContactInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayPictureDate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -395,7 +395,7 @@ impl IContactInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDisplayPictureDate<Impl: IContactInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, returnvalue: super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDisplayPictureDate<Impl: IContactInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, returnvalue: super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayPictureDate(&*(&returnvalue as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -410,7 +410,7 @@ impl IContactInformation2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IContactInformationStaticsImpl: Sized {
+pub trait IContactInformationStatics_Impl: Sized {
     fn ParseVcardAsync(&mut self, vcard: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactInformation>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -418,9 +418,9 @@ impl ::windows::core::RuntimeName for IContactInformationStatics {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.IContactInformationStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IContactInformationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactInformationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactInformationStaticsVtbl {
-        unsafe extern "system" fn ParseVcardAsync<Impl: IContactInformationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vcard: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IContactInformationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactInformationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactInformationStatics_Vtbl {
+        unsafe extern "system" fn ParseVcardAsync<Impl: IContactInformationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vcard: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ParseVcardAsync(&*(&vcard as *const <super::super::Storage::Streams::IInputStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IInputStream as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -441,7 +441,7 @@ impl IContactInformationStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IContactQueryOptionsImpl: Sized {
+pub trait IContactQueryOptions_Impl: Sized {
     fn DesiredFields(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
     fn OrderBy(&mut self) -> ::windows::core::Result<ContactQueryResultOrdering>;
     fn SetOrderBy(&mut self, value: ContactQueryResultOrdering) -> ::windows::core::Result<()>;
@@ -451,9 +451,9 @@ impl ::windows::core::RuntimeName for IContactQueryOptions {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.IContactQueryOptions";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IContactQueryOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactQueryOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactQueryOptionsVtbl {
-        unsafe extern "system" fn DesiredFields<Impl: IContactQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IContactQueryOptions_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactQueryOptions_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactQueryOptions_Vtbl {
+        unsafe extern "system" fn DesiredFields<Impl: IContactQueryOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesiredFields() {
                 ::core::result::Result::Ok(ok__) => {
@@ -464,7 +464,7 @@ impl IContactQueryOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OrderBy<Impl: IContactQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ContactQueryResultOrdering) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OrderBy<Impl: IContactQueryOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ContactQueryResultOrdering) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OrderBy() {
                 ::core::result::Result::Ok(ok__) => {
@@ -475,7 +475,7 @@ impl IContactQueryOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOrderBy<Impl: IContactQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ContactQueryResultOrdering) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOrderBy<Impl: IContactQueryOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ContactQueryResultOrdering) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOrderBy(value).into()
         }
@@ -491,7 +491,7 @@ impl IContactQueryOptionsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IContactQueryResultImpl: Sized {
+pub trait IContactQueryResult_Impl: Sized {
     fn GetContactCountAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
     fn GetContactsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoredContact>>>;
     fn GetContactsAsyncInRange(&mut self, startindex: u32, maxnumberofitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoredContact>>>;
@@ -502,9 +502,9 @@ impl ::windows::core::RuntimeName for IContactQueryResult {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.IContactQueryResult";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IContactQueryResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactQueryResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactQueryResultVtbl {
-        unsafe extern "system" fn GetContactCountAsync<Impl: IContactQueryResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IContactQueryResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactQueryResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactQueryResult_Vtbl {
+        unsafe extern "system" fn GetContactCountAsync<Impl: IContactQueryResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetContactCountAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -515,7 +515,7 @@ impl IContactQueryResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetContactsAsync<Impl: IContactQueryResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetContactsAsync<Impl: IContactQueryResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetContactsAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -526,7 +526,7 @@ impl IContactQueryResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetContactsAsyncInRange<Impl: IContactQueryResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxnumberofitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetContactsAsyncInRange<Impl: IContactQueryResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxnumberofitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetContactsAsyncInRange(startindex, maxnumberofitems) {
                 ::core::result::Result::Ok(ok__) => {
@@ -537,7 +537,7 @@ impl IContactQueryResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentQueryOptions<Impl: IContactQueryResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentQueryOptions<Impl: IContactQueryResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentQueryOptions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -561,7 +561,7 @@ impl IContactQueryResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IContactStoreImpl: Sized {
+pub trait IContactStore_Impl: Sized {
     fn FindContactByRemoteIdAsync(&mut self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoredContact>>;
     fn FindContactByIdAsync(&mut self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoredContact>>;
     fn DeleteContactAsync(&mut self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -578,9 +578,9 @@ impl ::windows::core::RuntimeName for IContactStore {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.IContactStore";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IContactStoreVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactStoreImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactStoreVtbl {
-        unsafe extern "system" fn FindContactByRemoteIdAsync<Impl: IContactStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IContactStore_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactStore_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactStore_Vtbl {
+        unsafe extern "system" fn FindContactByRemoteIdAsync<Impl: IContactStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindContactByRemoteIdAsync(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -591,7 +591,7 @@ impl IContactStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindContactByIdAsync<Impl: IContactStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindContactByIdAsync<Impl: IContactStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindContactByIdAsync(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -602,7 +602,7 @@ impl IContactStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteContactAsync<Impl: IContactStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteContactAsync<Impl: IContactStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeleteContactAsync(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -613,7 +613,7 @@ impl IContactStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateContactQueryDefault<Impl: IContactStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateContactQueryDefault<Impl: IContactStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateContactQueryDefault() {
                 ::core::result::Result::Ok(ok__) => {
@@ -624,7 +624,7 @@ impl IContactStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateContactQueryWithOptions<Impl: IContactStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateContactQueryWithOptions<Impl: IContactStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateContactQueryWithOptions(&*(&options as *const <ContactQueryOptions as ::windows::core::Abi>::Abi as *const <ContactQueryOptions as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -635,7 +635,7 @@ impl IContactStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteAsync<Impl: IContactStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteAsync<Impl: IContactStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeleteAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -646,7 +646,7 @@ impl IContactStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RevisionNumber<Impl: IContactStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RevisionNumber<Impl: IContactStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RevisionNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -657,7 +657,7 @@ impl IContactStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetChangesAsync<Impl: IContactStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baserevisionnumber: u64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetChangesAsync<Impl: IContactStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baserevisionnumber: u64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetChangesAsync(baserevisionnumber) {
                 ::core::result::Result::Ok(ok__) => {
@@ -668,7 +668,7 @@ impl IContactStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadExtendedPropertiesAsync<Impl: IContactStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadExtendedPropertiesAsync<Impl: IContactStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadExtendedPropertiesAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -679,7 +679,7 @@ impl IContactStoreVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SaveExtendedPropertiesAsync<Impl: IContactStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaveExtendedPropertiesAsync<Impl: IContactStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SaveExtendedPropertiesAsync(&*(&data as *const <super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -709,7 +709,7 @@ impl IContactStoreVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IContactStore2Impl: Sized {
+pub trait IContactStore2_Impl: Sized {
     fn CreateMeContactAsync(&mut self, id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoredContact>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -717,9 +717,9 @@ impl ::windows::core::RuntimeName for IContactStore2 {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.IContactStore2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IContactStore2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactStore2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactStore2Vtbl {
-        unsafe extern "system" fn CreateMeContactAsync<Impl: IContactStore2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IContactStore2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactStore2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactStore2_Vtbl {
+        unsafe extern "system" fn CreateMeContactAsync<Impl: IContactStore2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMeContactAsync(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -740,7 +740,7 @@ impl IContactStore2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IContactStoreStaticsImpl: Sized {
+pub trait IContactStoreStatics_Impl: Sized {
     fn CreateOrOpenAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactStore>>;
     fn CreateOrOpenWithOptionsAsync(&mut self, access: ContactStoreSystemAccessMode, sharing: ContactStoreApplicationAccessMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactStore>>;
 }
@@ -749,9 +749,9 @@ impl ::windows::core::RuntimeName for IContactStoreStatics {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.IContactStoreStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IContactStoreStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactStoreStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactStoreStaticsVtbl {
-        unsafe extern "system" fn CreateOrOpenAsync<Impl: IContactStoreStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IContactStoreStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactStoreStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactStoreStatics_Vtbl {
+        unsafe extern "system" fn CreateOrOpenAsync<Impl: IContactStoreStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateOrOpenAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -762,7 +762,7 @@ impl IContactStoreStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateOrOpenWithOptionsAsync<Impl: IContactStoreStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, access: ContactStoreSystemAccessMode, sharing: ContactStoreApplicationAccessMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateOrOpenWithOptionsAsync<Impl: IContactStoreStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, access: ContactStoreSystemAccessMode, sharing: ContactStoreApplicationAccessMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateOrOpenWithOptionsAsync(access, sharing) {
                 ::core::result::Result::Ok(ok__) => {
@@ -784,7 +784,7 @@ impl IContactStoreStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IKnownContactPropertiesStaticsImpl: Sized {
+pub trait IKnownContactPropertiesStatics_Impl: Sized {
     fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GivenName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -826,9 +826,9 @@ impl ::windows::core::RuntimeName for IKnownContactPropertiesStatics {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.IKnownContactPropertiesStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IKnownContactPropertiesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownContactPropertiesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownContactPropertiesStaticsVtbl {
-        unsafe extern "system" fn DisplayName<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IKnownContactPropertiesStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownContactPropertiesStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownContactPropertiesStatics_Vtbl {
+        unsafe extern "system" fn DisplayName<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -839,7 +839,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FamilyName<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FamilyName<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FamilyName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -850,7 +850,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GivenName<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GivenName<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GivenName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -861,7 +861,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HonorificPrefix<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HonorificPrefix<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HonorificPrefix() {
                 ::core::result::Result::Ok(ok__) => {
@@ -872,7 +872,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HonorificSuffix<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HonorificSuffix<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HonorificSuffix() {
                 ::core::result::Result::Ok(ok__) => {
@@ -883,7 +883,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AdditionalName<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AdditionalName<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AdditionalName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -894,7 +894,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Address<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Address<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Address() {
                 ::core::result::Result::Ok(ok__) => {
@@ -905,7 +905,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OtherAddress<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OtherAddress<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OtherAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -916,7 +916,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Email<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Email<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Email() {
                 ::core::result::Result::Ok(ok__) => {
@@ -927,7 +927,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WorkAddress<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WorkAddress<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WorkAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -938,7 +938,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WorkTelephone<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WorkTelephone<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WorkTelephone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -949,7 +949,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn JobTitle<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn JobTitle<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).JobTitle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -960,7 +960,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Birthdate<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Birthdate<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Birthdate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -971,7 +971,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Anniversary<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Anniversary<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Anniversary() {
                 ::core::result::Result::Ok(ok__) => {
@@ -982,7 +982,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Telephone<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Telephone<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Telephone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -993,7 +993,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MobileTelephone<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MobileTelephone<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MobileTelephone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1004,7 +1004,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Url<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Url<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Url() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1015,7 +1015,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Notes<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Notes<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Notes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1026,7 +1026,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WorkFax<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WorkFax<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WorkFax() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1037,7 +1037,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Children<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Children<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Children() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1048,7 +1048,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SignificantOther<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignificantOther<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignificantOther() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1059,7 +1059,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CompanyName<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CompanyName<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CompanyName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1070,7 +1070,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CompanyTelephone<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CompanyTelephone<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CompanyTelephone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1081,7 +1081,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HomeFax<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HomeFax<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HomeFax() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1092,7 +1092,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AlternateTelephone<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AlternateTelephone<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlternateTelephone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1103,7 +1103,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Manager<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Manager<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Manager() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1114,7 +1114,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Nickname<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Nickname<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Nickname() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1125,7 +1125,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OfficeLocation<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OfficeLocation<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OfficeLocation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1136,7 +1136,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WorkEmail<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WorkEmail<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WorkEmail() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1147,7 +1147,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn YomiGivenName<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn YomiGivenName<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).YomiGivenName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1158,7 +1158,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn YomiFamilyName<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn YomiFamilyName<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).YomiFamilyName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1169,7 +1169,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn YomiCompanyName<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn YomiCompanyName<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).YomiCompanyName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1180,7 +1180,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OtherEmail<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OtherEmail<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OtherEmail() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1191,7 +1191,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AlternateMobileTelephone<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AlternateMobileTelephone<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlternateMobileTelephone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1202,7 +1202,7 @@ impl IKnownContactPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AlternateWorkTelephone<Impl: IKnownContactPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AlternateWorkTelephone<Impl: IKnownContactPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlternateWorkTelephone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1257,7 +1257,7 @@ impl IKnownContactPropertiesStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IStoredContactImpl: Sized + IContactInformationImpl {
+pub trait IStoredContact_Impl: Sized + IContactInformation_Impl {
     fn Store(&mut self) -> ::windows::core::Result<ContactStore>;
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn RemoteId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1271,9 +1271,9 @@ impl ::windows::core::RuntimeName for IStoredContact {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.IStoredContact";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IStoredContactVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoredContactImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoredContactVtbl {
-        unsafe extern "system" fn Store<Impl: IStoredContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStoredContact_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoredContact_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoredContact_Vtbl {
+        unsafe extern "system" fn Store<Impl: IStoredContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Store() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1284,7 +1284,7 @@ impl IStoredContactVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Id<Impl: IStoredContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Id<Impl: IStoredContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1295,7 +1295,7 @@ impl IStoredContactVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoteId<Impl: IStoredContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoteId<Impl: IStoredContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1306,11 +1306,11 @@ impl IStoredContactVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRemoteId<Impl: IStoredContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRemoteId<Impl: IStoredContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRemoteId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetExtendedPropertiesAsync<Impl: IStoredContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetExtendedPropertiesAsync<Impl: IStoredContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetExtendedPropertiesAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1321,7 +1321,7 @@ impl IStoredContactVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SaveAsync<Impl: IStoredContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaveAsync<Impl: IStoredContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SaveAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1332,7 +1332,7 @@ impl IStoredContactVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReplaceExistingContactAsync<Impl: IStoredContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReplaceExistingContactAsync<Impl: IStoredContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReplaceExistingContactAsync(&*(&id as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1359,7 +1359,7 @@ impl IStoredContactVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IStoredContactFactoryImpl: Sized {
+pub trait IStoredContactFactory_Impl: Sized {
     fn CreateStoredContact(&mut self, store: &::core::option::Option<ContactStore>) -> ::windows::core::Result<StoredContact>;
     fn CreateStoredContactFromInformation(&mut self, store: &::core::option::Option<ContactStore>, contact: &::core::option::Option<ContactInformation>) -> ::windows::core::Result<StoredContact>;
 }
@@ -1368,9 +1368,9 @@ impl ::windows::core::RuntimeName for IStoredContactFactory {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.IStoredContactFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IStoredContactFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoredContactFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoredContactFactoryVtbl {
-        unsafe extern "system" fn CreateStoredContact<Impl: IStoredContactFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, store: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStoredContactFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoredContactFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoredContactFactory_Vtbl {
+        unsafe extern "system" fn CreateStoredContact<Impl: IStoredContactFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, store: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateStoredContact(&*(&store as *const <ContactStore as ::windows::core::Abi>::Abi as *const <ContactStore as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1381,7 +1381,7 @@ impl IStoredContactFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateStoredContactFromInformation<Impl: IStoredContactFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, store: ::windows::core::RawPtr, contact: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateStoredContactFromInformation<Impl: IStoredContactFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, store: ::windows::core::RawPtr, contact: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateStoredContactFromInformation(&*(&store as *const <ContactStore as ::windows::core::Abi>::Abi as *const <ContactStore as ::windows::core::DefaultType>::DefaultType), &*(&contact as *const <ContactInformation as ::windows::core::Abi>::Abi as *const <ContactInformation as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

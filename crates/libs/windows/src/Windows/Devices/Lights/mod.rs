@@ -5,12 +5,12 @@ pub mod Effects;
 #[repr(transparent)]
 pub struct ILamp(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILamp {
-    type Vtable = ILampVtbl;
+    type Vtable = ILamp_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x047d5b9a_ea45_4b2b_b1a2_14dff00bde7b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILampVtbl {
+pub struct ILamp_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -39,12 +39,12 @@ pub struct ILampVtbl {
 #[repr(transparent)]
 pub struct ILampArray(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArray {
-    type Vtable = ILampArrayVtbl;
+    type Vtable = ILampArray_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ace9787_c8a0_4e95_a1e0_d58676538649);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILampArrayVtbl {
+pub struct ILampArray_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub HardwareVendorId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
@@ -113,12 +113,12 @@ pub struct ILampArrayVtbl {
 #[repr(transparent)]
 pub struct ILampArrayStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArrayStatics {
-    type Vtable = ILampArrayStaticsVtbl;
+    type Vtable = ILampArrayStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bb8c98d_5fc1_452d_bb1f_4ad410d398ff);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILampArrayStaticsVtbl {
+pub struct ILampArrayStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -130,12 +130,12 @@ pub struct ILampArrayStaticsVtbl {
 #[repr(transparent)]
 pub struct ILampAvailabilityChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampAvailabilityChangedEventArgs {
-    type Vtable = ILampAvailabilityChangedEventArgsVtbl;
+    type Vtable = ILampAvailabilityChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f6e3ded_07a2_499d_9260_67e304532ba4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILampAvailabilityChangedEventArgsVtbl {
+pub struct ILampAvailabilityChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -143,12 +143,12 @@ pub struct ILampAvailabilityChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ILampInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampInfo {
-    type Vtable = ILampInfoVtbl;
+    type Vtable = ILampInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30bb521c_0acf_49da_8c10_150b9cf62713);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILampInfoVtbl {
+pub struct ILampInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Index: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub Purposes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut LampPurposes) -> ::windows::core::HRESULT,
@@ -177,12 +177,12 @@ pub struct ILampInfoVtbl {
 #[repr(transparent)]
 pub struct ILampStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampStatics {
-    type Vtable = ILampStaticsVtbl;
+    type Vtable = ILampStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa822416c_8885_401e_b821_8e8b38a8e8ec);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILampStaticsVtbl {
+pub struct ILampStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -325,7 +325,7 @@ unsafe impl ::windows::core::RuntimeType for Lamp {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Lamp;{047d5b9a-ea45-4b2b-b1a2-14dff00bde7b})");
 }
 unsafe impl ::windows::core::Interface for Lamp {
-    type Vtable = ILampVtbl;
+    type Vtable = ILamp_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x047d5b9a_ea45_4b2b_b1a2_14dff00bde7b);
 }
 impl ::windows::core::RuntimeName for Lamp {
@@ -637,7 +637,7 @@ unsafe impl ::windows::core::RuntimeType for LampArray {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.LampArray;{7ace9787-c8a0-4e95-a1e0-d58676538649})");
 }
 unsafe impl ::windows::core::Interface for LampArray {
-    type Vtable = ILampArrayVtbl;
+    type Vtable = ILampArray_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ace9787_c8a0_4e95_a1e0_d58676538649);
 }
 impl ::windows::core::RuntimeName for LampArray {
@@ -760,7 +760,7 @@ unsafe impl ::windows::core::RuntimeType for LampAvailabilityChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.LampAvailabilityChangedEventArgs;{4f6e3ded-07a2-499d-9260-67e304532ba4})");
 }
 unsafe impl ::windows::core::Interface for LampAvailabilityChangedEventArgs {
-    type Vtable = ILampAvailabilityChangedEventArgsVtbl;
+    type Vtable = ILampAvailabilityChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f6e3ded_07a2_499d_9260_67e304532ba4);
 }
 impl ::windows::core::RuntimeName for LampAvailabilityChangedEventArgs {
@@ -917,7 +917,7 @@ unsafe impl ::windows::core::RuntimeType for LampInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.LampInfo;{30bb521c-0acf-49da-8c10-150b9cf62713})");
 }
 unsafe impl ::windows::core::Interface for LampInfo {
-    type Vtable = ILampInfoVtbl;
+    type Vtable = ILampInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30bb521c_0acf_49da_8c10_150b9cf62713);
 }
 impl ::windows::core::RuntimeName for LampInfo {

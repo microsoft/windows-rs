@@ -45,12 +45,12 @@ impl ::core::fmt::Debug for IInkCommitRequestHandler {
     }
 }
 unsafe impl ::windows::core::Interface for IInkCommitRequestHandler {
-    type Vtable = IInkCommitRequestHandlerVtbl;
+    type Vtable = IInkCommitRequestHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfabea3fc_b108_45b6_a9fc_8d08fa9f85cf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkCommitRequestHandlerVtbl {
+pub struct IInkCommitRequestHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnCommitRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -101,12 +101,12 @@ impl ::core::fmt::Debug for IInkD2DRenderer {
     }
 }
 unsafe impl ::windows::core::Interface for IInkD2DRenderer {
-    type Vtable = IInkD2DRendererVtbl;
+    type Vtable = IInkD2DRenderer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x407fb1de_f85a_4150_97cf_b7fb274fb4f8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkD2DRendererVtbl {
+pub struct IInkD2DRenderer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Draw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pd2d1devicecontext: *mut ::core::ffi::c_void, pinkstrokeiterable: *mut ::core::ffi::c_void, fhighcontrast: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -159,12 +159,12 @@ impl ::core::fmt::Debug for IInkD2DRenderer2 {
     }
 }
 unsafe impl ::windows::core::Interface for IInkD2DRenderer2 {
-    type Vtable = IInkD2DRenderer2Vtbl;
+    type Vtable = IInkD2DRenderer2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a95dcd9_4578_4b71_b20b_bf664d4bfeee);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkD2DRenderer2Vtbl {
+pub struct IInkD2DRenderer2_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Draw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pd2d1devicecontext: *mut ::core::ffi::c_void, pinkstrokeiterable: *mut ::core::ffi::c_void, highcontrastadjustment: INK_HIGH_CONTRAST_ADJUSTMENT) -> ::windows::core::HRESULT,
 }
@@ -224,12 +224,12 @@ impl ::core::fmt::Debug for IInkDesktopHost {
     }
 }
 unsafe impl ::windows::core::Interface for IInkDesktopHost {
-    type Vtable = IInkDesktopHostVtbl;
+    type Vtable = IInkDesktopHost_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ce7d875_a981_4140_a1ff_ad93258e8d59);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkDesktopHostVtbl {
+pub struct IInkDesktopHost_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub QueueWorkItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, workitem: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateInkPresenter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -281,12 +281,12 @@ impl ::core::fmt::Debug for IInkHostWorkItem {
     }
 }
 unsafe impl ::windows::core::Interface for IInkHostWorkItem {
-    type Vtable = IInkHostWorkItemVtbl;
+    type Vtable = IInkHostWorkItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccda0a9a_1b78_4632_bb96_97800662e26c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkHostWorkItemVtbl {
+pub struct IInkHostWorkItem_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -352,12 +352,12 @@ impl ::core::fmt::Debug for IInkPresenterDesktop {
     }
 }
 unsafe impl ::windows::core::Interface for IInkPresenterDesktop {
-    type Vtable = IInkPresenterDesktopVtbl;
+    type Vtable = IInkPresenterDesktop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73f3c0d9_2e8b_48f3_895e_20cbd27b723b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkPresenterDesktopVtbl {
+pub struct IInkPresenterDesktop_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetRootVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rootvisual: *mut ::core::ffi::c_void, device: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetCommitRequestHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT,

@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IRfcommDeviceService(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommDeviceService {
-    type Vtable = IRfcommDeviceServiceVtbl;
+    type Vtable = IRfcommDeviceService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae81ff1f_c5a1_4c40_8c28_f3efd69062f3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRfcommDeviceServiceVtbl {
+pub struct IRfcommDeviceService_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Networking")]
     pub ConnectionHostName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -37,12 +37,12 @@ pub struct IRfcommDeviceServiceVtbl {
 #[repr(transparent)]
 pub struct IRfcommDeviceService2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommDeviceService2 {
-    type Vtable = IRfcommDeviceService2Vtbl;
+    type Vtable = IRfcommDeviceService2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x536ced14_ebcd_49fe_bf9f_40efc689b20d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRfcommDeviceService2Vtbl {
+pub struct IRfcommDeviceService2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Device: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -50,12 +50,12 @@ pub struct IRfcommDeviceService2Vtbl {
 #[repr(transparent)]
 pub struct IRfcommDeviceService3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommDeviceService3 {
-    type Vtable = IRfcommDeviceService3Vtbl;
+    type Vtable = IRfcommDeviceService3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c22ace6_dd44_4d23_866d_8f3486ee6490);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRfcommDeviceService3Vtbl {
+pub struct IRfcommDeviceService3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Enumeration")]
     pub DeviceAccessInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -70,12 +70,12 @@ pub struct IRfcommDeviceService3Vtbl {
 #[repr(transparent)]
 pub struct IRfcommDeviceServiceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommDeviceServiceStatics {
-    type Vtable = IRfcommDeviceServiceStaticsVtbl;
+    type Vtable = IRfcommDeviceServiceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4a149ef_626d_41ac_b253_87ac5c27e28a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRfcommDeviceServiceStaticsVtbl {
+pub struct IRfcommDeviceServiceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -87,12 +87,12 @@ pub struct IRfcommDeviceServiceStaticsVtbl {
 #[repr(transparent)]
 pub struct IRfcommDeviceServiceStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommDeviceServiceStatics2 {
-    type Vtable = IRfcommDeviceServiceStatics2Vtbl;
+    type Vtable = IRfcommDeviceServiceStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa8cb1c9_e78d_4be4_8076_0a3d87a0a05f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRfcommDeviceServiceStatics2Vtbl {
+pub struct IRfcommDeviceServiceStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceSelectorForBluetoothDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bluetoothdevice: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub GetDeviceSelectorForBluetoothDeviceWithCacheMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bluetoothdevice: ::windows::core::RawPtr, cachemode: super::BluetoothCacheMode, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -103,12 +103,12 @@ pub struct IRfcommDeviceServiceStatics2Vtbl {
 #[repr(transparent)]
 pub struct IRfcommDeviceServicesResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommDeviceServicesResult {
-    type Vtable = IRfcommDeviceServicesResultVtbl;
+    type Vtable = IRfcommDeviceServicesResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b48388c_7ccf_488e_9625_d259a5732d55);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRfcommDeviceServicesResultVtbl {
+pub struct IRfcommDeviceServicesResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -120,12 +120,12 @@ pub struct IRfcommDeviceServicesResultVtbl {
 #[repr(transparent)]
 pub struct IRfcommServiceId(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommServiceId {
-    type Vtable = IRfcommServiceIdVtbl;
+    type Vtable = IRfcommServiceId_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22629204_7e02_4017_8136_da1b6a1b9bbf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRfcommServiceIdVtbl {
+pub struct IRfcommServiceId_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Uuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub AsShortId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -135,12 +135,12 @@ pub struct IRfcommServiceIdVtbl {
 #[repr(transparent)]
 pub struct IRfcommServiceIdStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommServiceIdStatics {
-    type Vtable = IRfcommServiceIdStaticsVtbl;
+    type Vtable = IRfcommServiceIdStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a179eba_a975_46e3_b56b_08ffd783a5fe);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRfcommServiceIdStaticsVtbl {
+pub struct IRfcommServiceIdStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FromUuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FromShortId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shortid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -155,12 +155,12 @@ pub struct IRfcommServiceIdStaticsVtbl {
 #[repr(transparent)]
 pub struct IRfcommServiceProvider(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommServiceProvider {
-    type Vtable = IRfcommServiceProviderVtbl;
+    type Vtable = IRfcommServiceProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeadbfdc4_b1f6_44ff_9f7c_e7a82ab86821);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRfcommServiceProviderVtbl {
+pub struct IRfcommServiceProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
@@ -177,12 +177,12 @@ pub struct IRfcommServiceProviderVtbl {
 #[repr(transparent)]
 pub struct IRfcommServiceProvider2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommServiceProvider2 {
-    type Vtable = IRfcommServiceProvider2Vtbl;
+    type Vtable = IRfcommServiceProvider2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x736bdfc6_3c81_4d1e_baf2_ddbb81284512);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRfcommServiceProvider2Vtbl {
+pub struct IRfcommServiceProvider2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Networking_Sockets")]
     pub StartAdvertisingWithRadioDiscoverability: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, listener: ::windows::core::RawPtr, radiodiscoverable: bool) -> ::windows::core::HRESULT,
@@ -193,12 +193,12 @@ pub struct IRfcommServiceProvider2Vtbl {
 #[repr(transparent)]
 pub struct IRfcommServiceProviderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommServiceProviderStatics {
-    type Vtable = IRfcommServiceProviderStaticsVtbl;
+    type Vtable = IRfcommServiceProviderStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98888303_69ca_413a_84f7_4344c7292997);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRfcommServiceProviderStaticsVtbl {
+pub struct IRfcommServiceProviderStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CreateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, serviceid: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -376,7 +376,7 @@ unsafe impl ::windows::core::RuntimeType for RfcommDeviceService {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService;{ae81ff1f-c5a1-4c40-8c28-f3efd69062f3})");
 }
 unsafe impl ::windows::core::Interface for RfcommDeviceService {
-    type Vtable = IRfcommDeviceServiceVtbl;
+    type Vtable = IRfcommDeviceService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae81ff1f_c5a1_4c40_8c28_f3efd69062f3);
 }
 impl ::windows::core::RuntimeName for RfcommDeviceService {
@@ -492,7 +492,7 @@ unsafe impl ::windows::core::RuntimeType for RfcommDeviceServicesResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceServicesResult;{3b48388c-7ccf-488e-9625-d259a5732d55})");
 }
 unsafe impl ::windows::core::Interface for RfcommDeviceServicesResult {
-    type Vtable = IRfcommDeviceServicesResultVtbl;
+    type Vtable = IRfcommDeviceServicesResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b48388c_7ccf_488e_9625_d259a5732d55);
 }
 impl ::windows::core::RuntimeName for RfcommDeviceServicesResult {
@@ -650,7 +650,7 @@ unsafe impl ::windows::core::RuntimeType for RfcommServiceId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommServiceId;{22629204-7e02-4017-8136-da1b6a1b9bbf})");
 }
 unsafe impl ::windows::core::Interface for RfcommServiceId {
-    type Vtable = IRfcommServiceIdVtbl;
+    type Vtable = IRfcommServiceId_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22629204_7e02_4017_8136_da1b6a1b9bbf);
 }
 impl ::windows::core::RuntimeName for RfcommServiceId {
@@ -770,7 +770,7 @@ unsafe impl ::windows::core::RuntimeType for RfcommServiceProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommServiceProvider;{eadbfdc4-b1f6-44ff-9f7c-e7a82ab86821})");
 }
 unsafe impl ::windows::core::Interface for RfcommServiceProvider {
-    type Vtable = IRfcommServiceProviderVtbl;
+    type Vtable = IRfcommServiceProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeadbfdc4_b1f6_44ff_9f7c_e7a82ab86821);
 }
 impl ::windows::core::RuntimeName for RfcommServiceProvider {

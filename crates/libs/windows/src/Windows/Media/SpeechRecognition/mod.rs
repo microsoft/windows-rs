@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct ISpeechContinuousRecognitionCompletedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechContinuousRecognitionCompletedEventArgs {
-    type Vtable = ISpeechContinuousRecognitionCompletedEventArgsVtbl;
+    type Vtable = ISpeechContinuousRecognitionCompletedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3d069bb_e30c_5e18_424b_7fbe81f8fbd0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechContinuousRecognitionCompletedEventArgsVtbl {
+pub struct ISpeechContinuousRecognitionCompletedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpeechRecognitionResultStatus) -> ::windows::core::HRESULT,
 }
@@ -16,12 +16,12 @@ pub struct ISpeechContinuousRecognitionCompletedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISpeechContinuousRecognitionResultGeneratedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechContinuousRecognitionResultGeneratedEventArgs {
-    type Vtable = ISpeechContinuousRecognitionResultGeneratedEventArgsVtbl;
+    type Vtable = ISpeechContinuousRecognitionResultGeneratedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19091e1e_6e7e_5a46_40fb_76594f786504);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechContinuousRecognitionResultGeneratedEventArgsVtbl {
+pub struct ISpeechContinuousRecognitionResultGeneratedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Result: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -29,12 +29,12 @@ pub struct ISpeechContinuousRecognitionResultGeneratedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISpeechContinuousRecognitionSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechContinuousRecognitionSession {
-    type Vtable = ISpeechContinuousRecognitionSessionVtbl;
+    type Vtable = ISpeechContinuousRecognitionSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a213c04_6614_49f8_99a2_b5e9b3a085c8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechContinuousRecognitionSessionVtbl {
+pub struct ISpeechContinuousRecognitionSession_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub AutoStopSilenceTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -86,12 +86,12 @@ pub struct ISpeechContinuousRecognitionSessionVtbl {
 #[repr(transparent)]
 pub struct ISpeechRecognitionCompilationResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognitionCompilationResult {
-    type Vtable = ISpeechRecognitionCompilationResultVtbl;
+    type Vtable = ISpeechRecognitionCompilationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x407e6c5d_6ac7_4da4_9cc1_2fce32cf7489);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognitionCompilationResultVtbl {
+pub struct ISpeechRecognitionCompilationResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpeechRecognitionResultStatus) -> ::windows::core::HRESULT,
 }
@@ -207,12 +207,12 @@ unsafe impl ::windows::core::RuntimeType for ISpeechRecognitionConstraint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{79ac1628-4d68-43c4-8911-40dc4101b55b}");
 }
 unsafe impl ::windows::core::Interface for ISpeechRecognitionConstraint {
-    type Vtable = ISpeechRecognitionConstraintVtbl;
+    type Vtable = ISpeechRecognitionConstraint_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79ac1628_4d68_43c4_8911_40dc4101b55b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognitionConstraintVtbl {
+pub struct ISpeechRecognitionConstraint_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -226,12 +226,12 @@ pub struct ISpeechRecognitionConstraintVtbl {
 #[repr(transparent)]
 pub struct ISpeechRecognitionGrammarFileConstraint(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognitionGrammarFileConstraint {
-    type Vtable = ISpeechRecognitionGrammarFileConstraintVtbl;
+    type Vtable = ISpeechRecognitionGrammarFileConstraint_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5031a8f_85ca_4fa4_b11a_474fc41b3835);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognitionGrammarFileConstraintVtbl {
+pub struct ISpeechRecognitionGrammarFileConstraint_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage")]
     pub GrammarFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -242,12 +242,12 @@ pub struct ISpeechRecognitionGrammarFileConstraintVtbl {
 #[repr(transparent)]
 pub struct ISpeechRecognitionGrammarFileConstraintFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognitionGrammarFileConstraintFactory {
-    type Vtable = ISpeechRecognitionGrammarFileConstraintFactoryVtbl;
+    type Vtable = ISpeechRecognitionGrammarFileConstraintFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3da770eb_c479_4c27_9f19_89974ef392d1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognitionGrammarFileConstraintFactoryVtbl {
+pub struct ISpeechRecognitionGrammarFileConstraintFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -262,12 +262,12 @@ pub struct ISpeechRecognitionGrammarFileConstraintFactoryVtbl {
 #[repr(transparent)]
 pub struct ISpeechRecognitionHypothesis(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognitionHypothesis {
-    type Vtable = ISpeechRecognitionHypothesisVtbl;
+    type Vtable = ISpeechRecognitionHypothesis_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a7b25b0_99c5_4f7d_bf84_10aa1302b634);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognitionHypothesisVtbl {
+pub struct ISpeechRecognitionHypothesis_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -275,12 +275,12 @@ pub struct ISpeechRecognitionHypothesisVtbl {
 #[repr(transparent)]
 pub struct ISpeechRecognitionHypothesisGeneratedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognitionHypothesisGeneratedEventArgs {
-    type Vtable = ISpeechRecognitionHypothesisGeneratedEventArgsVtbl;
+    type Vtable = ISpeechRecognitionHypothesisGeneratedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55161a7a_8023_5866_411d_1213bb271476);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognitionHypothesisGeneratedEventArgsVtbl {
+pub struct ISpeechRecognitionHypothesisGeneratedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Hypothesis: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -288,12 +288,12 @@ pub struct ISpeechRecognitionHypothesisGeneratedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISpeechRecognitionListConstraint(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognitionListConstraint {
-    type Vtable = ISpeechRecognitionListConstraintVtbl;
+    type Vtable = ISpeechRecognitionListConstraint_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09c487e9_e4ad_4526_81f2_4946fb481d98);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognitionListConstraintVtbl {
+pub struct ISpeechRecognitionListConstraint_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Commands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -304,12 +304,12 @@ pub struct ISpeechRecognitionListConstraintVtbl {
 #[repr(transparent)]
 pub struct ISpeechRecognitionListConstraintFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognitionListConstraintFactory {
-    type Vtable = ISpeechRecognitionListConstraintFactoryVtbl;
+    type Vtable = ISpeechRecognitionListConstraintFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40f3cdc7_562a_426a_9f3b_3b4e282be1d5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognitionListConstraintFactoryVtbl {
+pub struct ISpeechRecognitionListConstraintFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, commands: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -324,12 +324,12 @@ pub struct ISpeechRecognitionListConstraintFactoryVtbl {
 #[repr(transparent)]
 pub struct ISpeechRecognitionQualityDegradingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognitionQualityDegradingEventArgs {
-    type Vtable = ISpeechRecognitionQualityDegradingEventArgsVtbl;
+    type Vtable = ISpeechRecognitionQualityDegradingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fe24105_8c3a_4c7e_8d0a_5bd4f5b14ad8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognitionQualityDegradingEventArgsVtbl {
+pub struct ISpeechRecognitionQualityDegradingEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Problem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpeechRecognitionAudioProblem) -> ::windows::core::HRESULT,
 }
@@ -337,12 +337,12 @@ pub struct ISpeechRecognitionQualityDegradingEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISpeechRecognitionResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognitionResult {
-    type Vtable = ISpeechRecognitionResultVtbl;
+    type Vtable = ISpeechRecognitionResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e303157_034e_4652_857e_d0454cc4beec);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognitionResultVtbl {
+pub struct ISpeechRecognitionResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpeechRecognitionResultStatus) -> ::windows::core::HRESULT,
     pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -363,12 +363,12 @@ pub struct ISpeechRecognitionResultVtbl {
 #[repr(transparent)]
 pub struct ISpeechRecognitionResult2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognitionResult2 {
-    type Vtable = ISpeechRecognitionResult2Vtbl;
+    type Vtable = ISpeechRecognitionResult2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf7ed1ba_451b_4166_a0c1_1ffe84032d03);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognitionResult2Vtbl {
+pub struct ISpeechRecognitionResult2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub PhraseStartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -383,12 +383,12 @@ pub struct ISpeechRecognitionResult2Vtbl {
 #[repr(transparent)]
 pub struct ISpeechRecognitionSemanticInterpretation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognitionSemanticInterpretation {
-    type Vtable = ISpeechRecognitionSemanticInterpretationVtbl;
+    type Vtable = ISpeechRecognitionSemanticInterpretation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaae1da9b_7e32_4c1f_89fe_0c65f486f52e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognitionSemanticInterpretationVtbl {
+pub struct ISpeechRecognitionSemanticInterpretation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -399,12 +399,12 @@ pub struct ISpeechRecognitionSemanticInterpretationVtbl {
 #[repr(transparent)]
 pub struct ISpeechRecognitionTopicConstraint(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognitionTopicConstraint {
-    type Vtable = ISpeechRecognitionTopicConstraintVtbl;
+    type Vtable = ISpeechRecognitionTopicConstraint_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf6fdf19_825d_4e69_a681_36e48cf1c93e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognitionTopicConstraintVtbl {
+pub struct ISpeechRecognitionTopicConstraint_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Scenario: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpeechRecognitionScenario) -> ::windows::core::HRESULT,
     pub TopicHint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -413,12 +413,12 @@ pub struct ISpeechRecognitionTopicConstraintVtbl {
 #[repr(transparent)]
 pub struct ISpeechRecognitionTopicConstraintFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognitionTopicConstraintFactory {
-    type Vtable = ISpeechRecognitionTopicConstraintFactoryVtbl;
+    type Vtable = ISpeechRecognitionTopicConstraintFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e6863df_ec05_47d7_a5df_56a3431e58d2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognitionTopicConstraintFactoryVtbl {
+pub struct ISpeechRecognitionTopicConstraintFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scenario: SpeechRecognitionScenario, topichint: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateWithTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scenario: SpeechRecognitionScenario, topichint: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, tag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -427,24 +427,24 @@ pub struct ISpeechRecognitionTopicConstraintFactoryVtbl {
 #[repr(transparent)]
 pub struct ISpeechRecognitionVoiceCommandDefinitionConstraint(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognitionVoiceCommandDefinitionConstraint {
-    type Vtable = ISpeechRecognitionVoiceCommandDefinitionConstraintVtbl;
+    type Vtable = ISpeechRecognitionVoiceCommandDefinitionConstraint_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2791c2b_1ef4_4ae7_9d77_b6ff10b8a3c2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognitionVoiceCommandDefinitionConstraintVtbl {
+pub struct ISpeechRecognitionVoiceCommandDefinitionConstraint_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISpeechRecognizer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognizer {
-    type Vtable = ISpeechRecognizerVtbl;
+    type Vtable = ISpeechRecognizer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bc3c9cb_c26a_40f2_aeb5_8096b2e48073);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognizerVtbl {
+pub struct ISpeechRecognizer_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Globalization")]
     pub CurrentLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -489,12 +489,12 @@ pub struct ISpeechRecognizerVtbl {
 #[repr(transparent)]
 pub struct ISpeechRecognizer2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognizer2 {
-    type Vtable = ISpeechRecognizer2Vtbl;
+    type Vtable = ISpeechRecognizer2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63c9baf1_91e3_4ea4_86a1_7c3867d084a6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognizer2Vtbl {
+pub struct ISpeechRecognizer2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ContinuousRecognitionSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpeechRecognizerState) -> ::windows::core::HRESULT,
@@ -515,12 +515,12 @@ pub struct ISpeechRecognizer2Vtbl {
 #[repr(transparent)]
 pub struct ISpeechRecognizerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognizerFactory {
-    type Vtable = ISpeechRecognizerFactoryVtbl;
+    type Vtable = ISpeechRecognizerFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60c488dd_7fb8_4033_ac70_d046f64818e1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognizerFactoryVtbl {
+pub struct ISpeechRecognizerFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Globalization")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, language: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -531,12 +531,12 @@ pub struct ISpeechRecognizerFactoryVtbl {
 #[repr(transparent)]
 pub struct ISpeechRecognizerStateChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognizerStateChangedEventArgs {
-    type Vtable = ISpeechRecognizerStateChangedEventArgsVtbl;
+    type Vtable = ISpeechRecognizerStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x563d4f09_ba03_4bad_ad81_ddc6c4dab0c3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognizerStateChangedEventArgsVtbl {
+pub struct ISpeechRecognizerStateChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpeechRecognizerState) -> ::windows::core::HRESULT,
 }
@@ -544,12 +544,12 @@ pub struct ISpeechRecognizerStateChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISpeechRecognizerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognizerStatics {
-    type Vtable = ISpeechRecognizerStaticsVtbl;
+    type Vtable = ISpeechRecognizerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87a35eac_a7dc_4b0b_bcc9_24f47c0b7ebf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognizerStaticsVtbl {
+pub struct ISpeechRecognizerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Globalization")]
     pub SystemSpeechLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -568,12 +568,12 @@ pub struct ISpeechRecognizerStaticsVtbl {
 #[repr(transparent)]
 pub struct ISpeechRecognizerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognizerStatics2 {
-    type Vtable = ISpeechRecognizerStatics2Vtbl;
+    type Vtable = ISpeechRecognizerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d1b0d95_7565_4ef9_a2f3_ba15162a96cf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognizerStatics2Vtbl {
+pub struct ISpeechRecognizerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Globalization"))]
     pub TrySetSystemSpeechLanguageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, speechlanguage: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -584,12 +584,12 @@ pub struct ISpeechRecognizerStatics2Vtbl {
 #[repr(transparent)]
 pub struct ISpeechRecognizerTimeouts(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognizerTimeouts {
-    type Vtable = ISpeechRecognizerTimeoutsVtbl;
+    type Vtable = ISpeechRecognizerTimeouts_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ef76fca_6a3c_4dca_a153_df1bc88a79af);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognizerTimeoutsVtbl {
+pub struct ISpeechRecognizerTimeouts_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub InitialSilenceTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -620,12 +620,12 @@ pub struct ISpeechRecognizerTimeoutsVtbl {
 #[repr(transparent)]
 pub struct ISpeechRecognizerUIOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeechRecognizerUIOptions {
-    type Vtable = ISpeechRecognizerUIOptionsVtbl;
+    type Vtable = ISpeechRecognizerUIOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7888d641_b92b_44ba_a25f_d1864630641f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeechRecognizerUIOptionsVtbl {
+pub struct ISpeechRecognizerUIOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ExampleText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetExampleText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -640,12 +640,12 @@ pub struct ISpeechRecognizerUIOptionsVtbl {
 #[repr(transparent)]
 pub struct IVoiceCommandManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVoiceCommandManager {
-    type Vtable = IVoiceCommandManagerVtbl;
+    type Vtable = IVoiceCommandManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa3a8dd5_b6e7_4ee2_baa9_dd6baced0a2b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVoiceCommandManagerVtbl {
+pub struct IVoiceCommandManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub InstallCommandSetsFromStorageFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -660,12 +660,12 @@ pub struct IVoiceCommandManagerVtbl {
 #[repr(transparent)]
 pub struct IVoiceCommandSet(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVoiceCommandSet {
-    type Vtable = IVoiceCommandSetVtbl;
+    type Vtable = IVoiceCommandSet_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bedda75_46e6_4b11_a088_5c68632899b5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVoiceCommandSetVtbl {
+pub struct IVoiceCommandSet_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Language: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -707,7 +707,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechContinuousRecognitionComplete
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionCompletedEventArgs;{e3d069bb-e30c-5e18-424b-7fbe81f8fbd0})");
 }
 unsafe impl ::windows::core::Interface for SpeechContinuousRecognitionCompletedEventArgs {
-    type Vtable = ISpeechContinuousRecognitionCompletedEventArgsVtbl;
+    type Vtable = ISpeechContinuousRecognitionCompletedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3d069bb_e30c_5e18_424b_7fbe81f8fbd0);
 }
 impl ::windows::core::RuntimeName for SpeechContinuousRecognitionCompletedEventArgs {
@@ -821,7 +821,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechContinuousRecognitionResultGe
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionResultGeneratedEventArgs;{19091e1e-6e7e-5a46-40fb-76594f786504})");
 }
 unsafe impl ::windows::core::Interface for SpeechContinuousRecognitionResultGeneratedEventArgs {
-    type Vtable = ISpeechContinuousRecognitionResultGeneratedEventArgsVtbl;
+    type Vtable = ISpeechContinuousRecognitionResultGeneratedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19091e1e_6e7e_5a46_40fb_76594f786504);
 }
 impl ::windows::core::RuntimeName for SpeechContinuousRecognitionResultGeneratedEventArgs {
@@ -989,7 +989,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechContinuousRecognitionSession 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionSession;{6a213c04-6614-49f8-99a2-b5e9b3a085c8})");
 }
 unsafe impl ::windows::core::Interface for SpeechContinuousRecognitionSession {
-    type Vtable = ISpeechContinuousRecognitionSessionVtbl;
+    type Vtable = ISpeechContinuousRecognitionSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a213c04_6614_49f8_99a2_b5e9b3a085c8);
 }
 impl ::windows::core::RuntimeName for SpeechContinuousRecognitionSession {
@@ -1108,7 +1108,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionCompilationResult 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionCompilationResult;{407e6c5d-6ac7-4da4-9cc1-2fce32cf7489})");
 }
 unsafe impl ::windows::core::Interface for SpeechRecognitionCompilationResult {
-    type Vtable = ISpeechRecognitionCompilationResultVtbl;
+    type Vtable = ISpeechRecognitionCompilationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x407e6c5d_6ac7_4da4_9cc1_2fce32cf7489);
 }
 impl ::windows::core::RuntimeName for SpeechRecognitionCompilationResult {
@@ -1362,7 +1362,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionGrammarFileConstra
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionGrammarFileConstraint;{b5031a8f-85ca-4fa4-b11a-474fc41b3835})");
 }
 unsafe impl ::windows::core::Interface for SpeechRecognitionGrammarFileConstraint {
-    type Vtable = ISpeechRecognitionGrammarFileConstraintVtbl;
+    type Vtable = ISpeechRecognitionGrammarFileConstraint_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5031a8f_85ca_4fa4_b11a_474fc41b3835);
 }
 impl ::windows::core::RuntimeName for SpeechRecognitionGrammarFileConstraint {
@@ -1465,7 +1465,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionHypothesis {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionHypothesis;{7a7b25b0-99c5-4f7d-bf84-10aa1302b634})");
 }
 unsafe impl ::windows::core::Interface for SpeechRecognitionHypothesis {
-    type Vtable = ISpeechRecognitionHypothesisVtbl;
+    type Vtable = ISpeechRecognitionHypothesis_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a7b25b0_99c5_4f7d_bf84_10aa1302b634);
 }
 impl ::windows::core::RuntimeName for SpeechRecognitionHypothesis {
@@ -1546,7 +1546,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionHypothesisGenerate
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionHypothesisGeneratedEventArgs;{55161a7a-8023-5866-411d-1213bb271476})");
 }
 unsafe impl ::windows::core::Interface for SpeechRecognitionHypothesisGeneratedEventArgs {
-    type Vtable = ISpeechRecognitionHypothesisGeneratedEventArgsVtbl;
+    type Vtable = ISpeechRecognitionHypothesisGeneratedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55161a7a_8023_5866_411d_1213bb271476);
 }
 impl ::windows::core::RuntimeName for SpeechRecognitionHypothesisGeneratedEventArgs {
@@ -1696,7 +1696,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionListConstraint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionListConstraint;{09c487e9-e4ad-4526-81f2-4946fb481d98})");
 }
 unsafe impl ::windows::core::Interface for SpeechRecognitionListConstraint {
-    type Vtable = ISpeechRecognitionListConstraintVtbl;
+    type Vtable = ISpeechRecognitionListConstraint_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09c487e9_e4ad_4526_81f2_4946fb481d98);
 }
 impl ::windows::core::RuntimeName for SpeechRecognitionListConstraint {
@@ -1799,7 +1799,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionQualityDegradingEv
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionQualityDegradingEventArgs;{4fe24105-8c3a-4c7e-8d0a-5bd4f5b14ad8})");
 }
 unsafe impl ::windows::core::Interface for SpeechRecognitionQualityDegradingEventArgs {
-    type Vtable = ISpeechRecognitionQualityDegradingEventArgsVtbl;
+    type Vtable = ISpeechRecognitionQualityDegradingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fe24105_8c3a_4c7e_8d0a_5bd4f5b14ad8);
 }
 impl ::windows::core::RuntimeName for SpeechRecognitionQualityDegradingEventArgs {
@@ -1956,7 +1956,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionResult;{4e303157-034e-4652-857e-d0454cc4beec})");
 }
 unsafe impl ::windows::core::Interface for SpeechRecognitionResult {
-    type Vtable = ISpeechRecognitionResultVtbl;
+    type Vtable = ISpeechRecognitionResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e303157_034e_4652_857e_d0454cc4beec);
 }
 impl ::windows::core::RuntimeName for SpeechRecognitionResult {
@@ -2114,7 +2114,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionSemanticInterpreta
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionSemanticInterpretation;{aae1da9b-7e32-4c1f-89fe-0c65f486f52e})");
 }
 unsafe impl ::windows::core::Interface for SpeechRecognitionSemanticInterpretation {
-    type Vtable = ISpeechRecognitionSemanticInterpretationVtbl;
+    type Vtable = ISpeechRecognitionSemanticInterpretation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaae1da9b_7e32_4c1f_89fe_0c65f486f52e);
 }
 impl ::windows::core::RuntimeName for SpeechRecognitionSemanticInterpretation {
@@ -2269,7 +2269,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionTopicConstraint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint;{bf6fdf19-825d-4e69-a681-36e48cf1c93e})");
 }
 unsafe impl ::windows::core::Interface for SpeechRecognitionTopicConstraint {
-    type Vtable = ISpeechRecognitionTopicConstraintVtbl;
+    type Vtable = ISpeechRecognitionTopicConstraint_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf6fdf19_825d_4e69_a681_36e48cf1c93e);
 }
 impl ::windows::core::RuntimeName for SpeechRecognitionTopicConstraint {
@@ -2411,7 +2411,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionVoiceCommandDefini
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionVoiceCommandDefinitionConstraint;{f2791c2b-1ef4-4ae7-9d77-b6ff10b8a3c2})");
 }
 unsafe impl ::windows::core::Interface for SpeechRecognitionVoiceCommandDefinitionConstraint {
-    type Vtable = ISpeechRecognitionVoiceCommandDefinitionConstraintVtbl;
+    type Vtable = ISpeechRecognitionVoiceCommandDefinitionConstraint_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2791c2b_1ef4_4ae7_9d77_b6ff10b8a3c2);
 }
 impl ::windows::core::RuntimeName for SpeechRecognitionVoiceCommandDefinitionConstraint {
@@ -2705,7 +2705,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognizer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognizer;{0bc3c9cb-c26a-40f2-aeb5-8096b2e48073})");
 }
 unsafe impl ::windows::core::Interface for SpeechRecognizer {
-    type Vtable = ISpeechRecognizerVtbl;
+    type Vtable = ISpeechRecognizer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bc3c9cb_c26a_40f2_aeb5_8096b2e48073);
 }
 impl ::windows::core::RuntimeName for SpeechRecognizer {
@@ -2850,7 +2850,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognizerStateChangedEventAr
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognizerStateChangedEventArgs;{563d4f09-ba03-4bad-ad81-ddc6c4dab0c3})");
 }
 unsafe impl ::windows::core::Interface for SpeechRecognizerStateChangedEventArgs {
-    type Vtable = ISpeechRecognizerStateChangedEventArgsVtbl;
+    type Vtable = ISpeechRecognizerStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x563d4f09_ba03_4bad_ad81_ddc6c4dab0c3);
 }
 impl ::windows::core::RuntimeName for SpeechRecognizerStateChangedEventArgs {
@@ -2968,7 +2968,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognizerTimeouts {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognizerTimeouts;{2ef76fca-6a3c-4dca-a153-df1bc88a79af})");
 }
 unsafe impl ::windows::core::Interface for SpeechRecognizerTimeouts {
-    type Vtable = ISpeechRecognizerTimeoutsVtbl;
+    type Vtable = ISpeechRecognizerTimeouts_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ef76fca_6a3c_4dca_a153_df1bc88a79af);
 }
 impl ::windows::core::RuntimeName for SpeechRecognizerTimeouts {
@@ -3093,7 +3093,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognizerUIOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognizerUIOptions;{7888d641-b92b-44ba-a25f-d1864630641f})");
 }
 unsafe impl ::windows::core::Interface for SpeechRecognizerUIOptions {
-    type Vtable = ISpeechRecognizerUIOptionsVtbl;
+    type Vtable = ISpeechRecognizerUIOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7888d641_b92b_44ba_a25f_d1864630641f);
 }
 impl ::windows::core::RuntimeName for SpeechRecognizerUIOptions {
@@ -3219,7 +3219,7 @@ unsafe impl ::windows::core::RuntimeType for VoiceCommandSet {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.VoiceCommandSet;{0bedda75-46e6-4b11-a088-5c68632899b5})");
 }
 unsafe impl ::windows::core::Interface for VoiceCommandSet {
-    type Vtable = IVoiceCommandSetVtbl;
+    type Vtable = IVoiceCommandSet_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bedda75_46e6_4b11_a088_5c68632899b5);
 }
 impl ::windows::core::RuntimeName for VoiceCommandSet {

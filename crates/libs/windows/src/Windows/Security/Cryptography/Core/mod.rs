@@ -268,7 +268,7 @@ unsafe impl ::windows::core::RuntimeType for AsymmetricKeyAlgorithmProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider;{e8d2ff37-6259-4e88-b7e0-94191fde699e})");
 }
 unsafe impl ::windows::core::Interface for AsymmetricKeyAlgorithmProvider {
-    type Vtable = IAsymmetricKeyAlgorithmProviderVtbl;
+    type Vtable = IAsymmetricKeyAlgorithmProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8d2ff37_6259_4e88_b7e0_94191fde699e);
 }
 impl ::windows::core::RuntimeName for AsymmetricKeyAlgorithmProvider {
@@ -502,7 +502,7 @@ unsafe impl ::windows::core::RuntimeType for CryptographicHash {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.CryptographicHash;{5904d1b6-ad31-4603-a3a4-b1bda98e2562})");
 }
 unsafe impl ::windows::core::Interface for CryptographicHash {
-    type Vtable = IHashComputationVtbl;
+    type Vtable = IHashComputation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5904d1b6_ad31_4603_a3a4_b1bda98e2562);
 }
 impl ::windows::core::RuntimeName for CryptographicHash {
@@ -619,7 +619,7 @@ unsafe impl ::windows::core::RuntimeType for CryptographicKey {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.CryptographicKey;{ed2a3b70-8e7b-4009-8401-ffd1a62eeb27})");
 }
 unsafe impl ::windows::core::Interface for CryptographicKey {
-    type Vtable = ICryptographicKeyVtbl;
+    type Vtable = ICryptographicKey_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed2a3b70_8e7b_4009_8401_ffd1a62eeb27);
 }
 impl ::windows::core::RuntimeName for CryptographicKey {
@@ -1152,7 +1152,7 @@ unsafe impl ::windows::core::RuntimeType for EncryptedAndAuthenticatedData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.EncryptedAndAuthenticatedData;{6fa42fe7-1ecb-4b00-bea5-60b83f862f17})");
 }
 unsafe impl ::windows::core::Interface for EncryptedAndAuthenticatedData {
-    type Vtable = IEncryptedAndAuthenticatedDataVtbl;
+    type Vtable = IEncryptedAndAuthenticatedData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fa42fe7_1ecb_4b00_bea5_60b83f862f17);
 }
 impl ::windows::core::RuntimeName for EncryptedAndAuthenticatedData {
@@ -1317,7 +1317,7 @@ unsafe impl ::windows::core::RuntimeType for HashAlgorithmProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.HashAlgorithmProvider;{be9b3080-b2c3-422b-bce1-ec90efb5d7b5})");
 }
 unsafe impl ::windows::core::Interface for HashAlgorithmProvider {
-    type Vtable = IHashAlgorithmProviderVtbl;
+    type Vtable = IHashAlgorithmProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe9b3080_b2c3_422b_bce1_ec90efb5d7b5);
 }
 impl ::windows::core::RuntimeName for HashAlgorithmProvider {
@@ -1369,12 +1369,12 @@ unsafe impl ::core::marker::Sync for HashAlgorithmProvider {}
 #[repr(transparent)]
 pub struct IAsymmetricAlgorithmNamesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAsymmetricAlgorithmNamesStatics {
-    type Vtable = IAsymmetricAlgorithmNamesStaticsVtbl;
+    type Vtable = IAsymmetricAlgorithmNamesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaf6fce4_67c0_46aa_84f9_752e77449f9b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAsymmetricAlgorithmNamesStaticsVtbl {
+pub struct IAsymmetricAlgorithmNamesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RsaPkcs1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub RsaOaepSha1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1399,12 +1399,12 @@ pub struct IAsymmetricAlgorithmNamesStaticsVtbl {
 #[repr(transparent)]
 pub struct IAsymmetricAlgorithmNamesStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAsymmetricAlgorithmNamesStatics2 {
-    type Vtable = IAsymmetricAlgorithmNamesStatics2Vtbl;
+    type Vtable = IAsymmetricAlgorithmNamesStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf141c0d6_4bff_4f23_ba66_6045b137d5df);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAsymmetricAlgorithmNamesStatics2Vtbl {
+pub struct IAsymmetricAlgorithmNamesStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EcdsaSha256: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub EcdsaSha384: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1414,12 +1414,12 @@ pub struct IAsymmetricAlgorithmNamesStatics2Vtbl {
 #[repr(transparent)]
 pub struct IAsymmetricKeyAlgorithmProvider(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAsymmetricKeyAlgorithmProvider {
-    type Vtable = IAsymmetricKeyAlgorithmProviderVtbl;
+    type Vtable = IAsymmetricKeyAlgorithmProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8d2ff37_6259_4e88_b7e0_94191fde699e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAsymmetricKeyAlgorithmProviderVtbl {
+pub struct IAsymmetricKeyAlgorithmProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub CreateKeyPair: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysize: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1444,12 +1444,12 @@ pub struct IAsymmetricKeyAlgorithmProviderVtbl {
 #[repr(transparent)]
 pub struct IAsymmetricKeyAlgorithmProvider2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAsymmetricKeyAlgorithmProvider2 {
-    type Vtable = IAsymmetricKeyAlgorithmProvider2Vtbl;
+    type Vtable = IAsymmetricKeyAlgorithmProvider2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e322a7e_7c4d_4997_ac4f_1b848b36306e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAsymmetricKeyAlgorithmProvider2Vtbl {
+pub struct IAsymmetricKeyAlgorithmProvider2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateKeyPairWithCurveName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, curvename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateKeyPairWithCurveParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parameters_array_size: u32, parameters: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1458,12 +1458,12 @@ pub struct IAsymmetricKeyAlgorithmProvider2Vtbl {
 #[repr(transparent)]
 pub struct IAsymmetricKeyAlgorithmProviderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAsymmetricKeyAlgorithmProviderStatics {
-    type Vtable = IAsymmetricKeyAlgorithmProviderStaticsVtbl;
+    type Vtable = IAsymmetricKeyAlgorithmProviderStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x425bde18_a7f3_47a6_a8d2_c48d6033a65c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAsymmetricKeyAlgorithmProviderStaticsVtbl {
+pub struct IAsymmetricKeyAlgorithmProviderStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OpenAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, algorithm: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1471,12 +1471,12 @@ pub struct IAsymmetricKeyAlgorithmProviderStaticsVtbl {
 #[repr(transparent)]
 pub struct ICryptographicEngineStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICryptographicEngineStatics {
-    type Vtable = ICryptographicEngineStaticsVtbl;
+    type Vtable = ICryptographicEngineStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fea0639_6ff7_4c85_a095_95eb31715eb9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICryptographicEngineStaticsVtbl {
+pub struct ICryptographicEngineStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub Encrypt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, iv: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1511,12 +1511,12 @@ pub struct ICryptographicEngineStaticsVtbl {
 #[repr(transparent)]
 pub struct ICryptographicEngineStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICryptographicEngineStatics2 {
-    type Vtable = ICryptographicEngineStatics2Vtbl;
+    type Vtable = ICryptographicEngineStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x675948fe_df9f_4191_92c7_6ce6f58420e0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICryptographicEngineStatics2Vtbl {
+pub struct ICryptographicEngineStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub SignHashedData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1543,12 +1543,12 @@ pub struct ICryptographicEngineStatics2Vtbl {
 #[repr(transparent)]
 pub struct ICryptographicKey(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICryptographicKey {
-    type Vtable = ICryptographicKeyVtbl;
+    type Vtable = ICryptographicKey_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed2a3b70_8e7b_4009_8401_ffd1a62eeb27);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICryptographicKeyVtbl {
+pub struct ICryptographicKey_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub KeySize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -1572,12 +1572,12 @@ pub struct ICryptographicKeyVtbl {
 #[repr(transparent)]
 pub struct IEccCurveNamesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEccCurveNamesStatics {
-    type Vtable = IEccCurveNamesStaticsVtbl;
+    type Vtable = IEccCurveNamesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3ff930c_aeeb_409e_b7d4_9b95295aaecf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEccCurveNamesStaticsVtbl {
+pub struct IEccCurveNamesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub BrainpoolP160r1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub BrainpoolP160t1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1633,12 +1633,12 @@ pub struct IEccCurveNamesStaticsVtbl {
 #[repr(transparent)]
 pub struct IEncryptedAndAuthenticatedData(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEncryptedAndAuthenticatedData {
-    type Vtable = IEncryptedAndAuthenticatedDataVtbl;
+    type Vtable = IEncryptedAndAuthenticatedData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fa42fe7_1ecb_4b00_bea5_60b83f862f17);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEncryptedAndAuthenticatedDataVtbl {
+pub struct IEncryptedAndAuthenticatedData_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub EncryptedData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1653,12 +1653,12 @@ pub struct IEncryptedAndAuthenticatedDataVtbl {
 #[repr(transparent)]
 pub struct IHashAlgorithmNamesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHashAlgorithmNamesStatics {
-    type Vtable = IHashAlgorithmNamesStaticsVtbl;
+    type Vtable = IHashAlgorithmNamesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b5e0516_de96_4f0a_8d57_dcc9dae36c76);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHashAlgorithmNamesStaticsVtbl {
+pub struct IHashAlgorithmNamesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Md5: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Sha1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1670,12 +1670,12 @@ pub struct IHashAlgorithmNamesStaticsVtbl {
 #[repr(transparent)]
 pub struct IHashAlgorithmProvider(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHashAlgorithmProvider {
-    type Vtable = IHashAlgorithmProviderVtbl;
+    type Vtable = IHashAlgorithmProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe9b3080_b2c3_422b_bce1_ec90efb5d7b5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHashAlgorithmProviderVtbl {
+pub struct IHashAlgorithmProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub HashLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -1689,12 +1689,12 @@ pub struct IHashAlgorithmProviderVtbl {
 #[repr(transparent)]
 pub struct IHashAlgorithmProviderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHashAlgorithmProviderStatics {
-    type Vtable = IHashAlgorithmProviderStaticsVtbl;
+    type Vtable = IHashAlgorithmProviderStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fac9741_5cc4_4336_ae38_6212b75a915a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHashAlgorithmProviderStaticsVtbl {
+pub struct IHashAlgorithmProviderStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OpenAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, algorithm: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1702,12 +1702,12 @@ pub struct IHashAlgorithmProviderStaticsVtbl {
 #[repr(transparent)]
 pub struct IHashComputation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHashComputation {
-    type Vtable = IHashComputationVtbl;
+    type Vtable = IHashComputation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5904d1b6_ad31_4603_a3a4_b1bda98e2562);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHashComputationVtbl {
+pub struct IHashComputation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub Append: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1722,12 +1722,12 @@ pub struct IHashComputationVtbl {
 #[repr(transparent)]
 pub struct IKeyDerivationAlgorithmNamesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyDerivationAlgorithmNamesStatics {
-    type Vtable = IKeyDerivationAlgorithmNamesStaticsVtbl;
+    type Vtable = IKeyDerivationAlgorithmNamesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b6e363e_94d2_4739_a57b_022e0c3a402a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKeyDerivationAlgorithmNamesStaticsVtbl {
+pub struct IKeyDerivationAlgorithmNamesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Pbkdf2Md5: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Pbkdf2Sha1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1749,12 +1749,12 @@ pub struct IKeyDerivationAlgorithmNamesStaticsVtbl {
 #[repr(transparent)]
 pub struct IKeyDerivationAlgorithmNamesStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyDerivationAlgorithmNamesStatics2 {
-    type Vtable = IKeyDerivationAlgorithmNamesStatics2Vtbl;
+    type Vtable = IKeyDerivationAlgorithmNamesStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57953fab_6044_466f_97f4_337b7808384d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKeyDerivationAlgorithmNamesStatics2Vtbl {
+pub struct IKeyDerivationAlgorithmNamesStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CapiKdfMd5: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub CapiKdfSha1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1766,12 +1766,12 @@ pub struct IKeyDerivationAlgorithmNamesStatics2Vtbl {
 #[repr(transparent)]
 pub struct IKeyDerivationAlgorithmProvider(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyDerivationAlgorithmProvider {
-    type Vtable = IKeyDerivationAlgorithmProviderVtbl;
+    type Vtable = IKeyDerivationAlgorithmProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1fba83b_4671_43b7_9158_763aaa98b6bf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKeyDerivationAlgorithmProviderVtbl {
+pub struct IKeyDerivationAlgorithmProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -1783,12 +1783,12 @@ pub struct IKeyDerivationAlgorithmProviderVtbl {
 #[repr(transparent)]
 pub struct IKeyDerivationAlgorithmProviderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyDerivationAlgorithmProviderStatics {
-    type Vtable = IKeyDerivationAlgorithmProviderStaticsVtbl;
+    type Vtable = IKeyDerivationAlgorithmProviderStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a22097a_0a1c_443b_9418_b9498aeb1603);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKeyDerivationAlgorithmProviderStaticsVtbl {
+pub struct IKeyDerivationAlgorithmProviderStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OpenAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, algorithm: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1796,12 +1796,12 @@ pub struct IKeyDerivationAlgorithmProviderStaticsVtbl {
 #[repr(transparent)]
 pub struct IKeyDerivationParameters(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyDerivationParameters {
-    type Vtable = IKeyDerivationParametersVtbl;
+    type Vtable = IKeyDerivationParameters_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bf05967_047b_4a8c_964a_469ffd5522e2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKeyDerivationParametersVtbl {
+pub struct IKeyDerivationParameters_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub KdfGenericBinary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1817,12 +1817,12 @@ pub struct IKeyDerivationParametersVtbl {
 #[repr(transparent)]
 pub struct IKeyDerivationParameters2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyDerivationParameters2 {
-    type Vtable = IKeyDerivationParameters2Vtbl;
+    type Vtable = IKeyDerivationParameters2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd4166d1_417e_4f4c_b666_c0d879f3f8e0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKeyDerivationParameters2Vtbl {
+pub struct IKeyDerivationParameters2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Capi1KdfTargetAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Capi1KdfTargetAlgorithm) -> ::windows::core::HRESULT,
     pub SetCapi1KdfTargetAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: Capi1KdfTargetAlgorithm) -> ::windows::core::HRESULT,
@@ -1831,12 +1831,12 @@ pub struct IKeyDerivationParameters2Vtbl {
 #[repr(transparent)]
 pub struct IKeyDerivationParametersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyDerivationParametersStatics {
-    type Vtable = IKeyDerivationParametersStaticsVtbl;
+    type Vtable = IKeyDerivationParametersStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea961fbe_f37f_4146_9dfe_a456f1735f4b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKeyDerivationParametersStaticsVtbl {
+pub struct IKeyDerivationParametersStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub BuildForPbkdf2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbkdf2salt: ::windows::core::RawPtr, iterationcount: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1855,12 +1855,12 @@ pub struct IKeyDerivationParametersStaticsVtbl {
 #[repr(transparent)]
 pub struct IKeyDerivationParametersStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyDerivationParametersStatics2 {
-    type Vtable = IKeyDerivationParametersStatics2Vtbl;
+    type Vtable = IKeyDerivationParametersStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5783dd5_58e3_4efb_b283_a1653126e1be);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKeyDerivationParametersStatics2Vtbl {
+pub struct IKeyDerivationParametersStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub BuildForCapi1Kdf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capi1kdftargetalgorithm: Capi1KdfTargetAlgorithm, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1868,12 +1868,12 @@ pub struct IKeyDerivationParametersStatics2Vtbl {
 #[repr(transparent)]
 pub struct IMacAlgorithmNamesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMacAlgorithmNamesStatics {
-    type Vtable = IMacAlgorithmNamesStaticsVtbl;
+    type Vtable = IMacAlgorithmNamesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41412678_fb1e_43a4_895e_a9026e4390a3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMacAlgorithmNamesStaticsVtbl {
+pub struct IMacAlgorithmNamesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub HmacMd5: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub HmacSha1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1886,12 +1886,12 @@ pub struct IMacAlgorithmNamesStaticsVtbl {
 #[repr(transparent)]
 pub struct IMacAlgorithmProvider(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMacAlgorithmProvider {
-    type Vtable = IMacAlgorithmProviderVtbl;
+    type Vtable = IMacAlgorithmProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a3fc5c3_1cbd_41ce_a092_aa0bc5d2d2f5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMacAlgorithmProviderVtbl {
+pub struct IMacAlgorithmProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub MacLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -1904,12 +1904,12 @@ pub struct IMacAlgorithmProviderVtbl {
 #[repr(transparent)]
 pub struct IMacAlgorithmProvider2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMacAlgorithmProvider2 {
-    type Vtable = IMacAlgorithmProvider2Vtbl;
+    type Vtable = IMacAlgorithmProvider2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6da32a15_d931_42ed_8e7e_c301caee119c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMacAlgorithmProvider2Vtbl {
+pub struct IMacAlgorithmProvider2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub CreateHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keymaterial: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1920,12 +1920,12 @@ pub struct IMacAlgorithmProvider2Vtbl {
 #[repr(transparent)]
 pub struct IMacAlgorithmProviderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMacAlgorithmProviderStatics {
-    type Vtable = IMacAlgorithmProviderStaticsVtbl;
+    type Vtable = IMacAlgorithmProviderStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9bdc147_cc77_4df0_9e4e_b921e080644c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMacAlgorithmProviderStaticsVtbl {
+pub struct IMacAlgorithmProviderStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OpenAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, algorithm: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1933,12 +1933,12 @@ pub struct IMacAlgorithmProviderStaticsVtbl {
 #[repr(transparent)]
 pub struct IPersistedKeyProviderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPersistedKeyProviderStatics {
-    type Vtable = IPersistedKeyProviderStaticsVtbl;
+    type Vtable = IPersistedKeyProviderStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77274814_d9d4_4cf5_b668_e0457df30894);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPersistedKeyProviderStaticsVtbl {
+pub struct IPersistedKeyProviderStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates"))]
     pub OpenKeyPairFromCertificateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificate: ::windows::core::RawPtr, hashalgorithmname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, padding: CryptographicPadding, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1953,12 +1953,12 @@ pub struct IPersistedKeyProviderStaticsVtbl {
 #[repr(transparent)]
 pub struct ISymmetricAlgorithmNamesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISymmetricAlgorithmNamesStatics {
-    type Vtable = ISymmetricAlgorithmNamesStaticsVtbl;
+    type Vtable = ISymmetricAlgorithmNamesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6870727b_c996_4eae_84d7_79b2aeb73b9c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISymmetricAlgorithmNamesStaticsVtbl {
+pub struct ISymmetricAlgorithmNamesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DesCbc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DesEcb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1984,12 +1984,12 @@ pub struct ISymmetricAlgorithmNamesStaticsVtbl {
 #[repr(transparent)]
 pub struct ISymmetricKeyAlgorithmProvider(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISymmetricKeyAlgorithmProvider {
-    type Vtable = ISymmetricKeyAlgorithmProviderVtbl;
+    type Vtable = ISymmetricKeyAlgorithmProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d7e4a33_3bd0_4902_8ac8_470d50d21376);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISymmetricKeyAlgorithmProviderVtbl {
+pub struct ISymmetricKeyAlgorithmProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AlgorithmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub BlockLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -2002,12 +2002,12 @@ pub struct ISymmetricKeyAlgorithmProviderVtbl {
 #[repr(transparent)]
 pub struct ISymmetricKeyAlgorithmProviderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISymmetricKeyAlgorithmProviderStatics {
-    type Vtable = ISymmetricKeyAlgorithmProviderStaticsVtbl;
+    type Vtable = ISymmetricKeyAlgorithmProviderStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d3b2326_1f37_491f_b60e_f5431b26b483);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISymmetricKeyAlgorithmProviderStaticsVtbl {
+pub struct ISymmetricKeyAlgorithmProviderStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OpenAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, algorithm: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2222,7 +2222,7 @@ unsafe impl ::windows::core::RuntimeType for KeyDerivationAlgorithmProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.KeyDerivationAlgorithmProvider;{e1fba83b-4671-43b7-9158-763aaa98b6bf})");
 }
 unsafe impl ::windows::core::Interface for KeyDerivationAlgorithmProvider {
-    type Vtable = IKeyDerivationAlgorithmProviderVtbl;
+    type Vtable = IKeyDerivationAlgorithmProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1fba83b_4671_43b7_9158_763aaa98b6bf);
 }
 impl ::windows::core::RuntimeName for KeyDerivationAlgorithmProvider {
@@ -2372,7 +2372,7 @@ unsafe impl ::windows::core::RuntimeType for KeyDerivationParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.KeyDerivationParameters;{7bf05967-047b-4a8c-964a-469ffd5522e2})");
 }
 unsafe impl ::windows::core::Interface for KeyDerivationParameters {
-    type Vtable = IKeyDerivationParametersVtbl;
+    type Vtable = IKeyDerivationParameters_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bf05967_047b_4a8c_964a_469ffd5522e2);
 }
 impl ::windows::core::RuntimeName for KeyDerivationParameters {
@@ -2545,7 +2545,7 @@ unsafe impl ::windows::core::RuntimeType for MacAlgorithmProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.MacAlgorithmProvider;{4a3fc5c3-1cbd-41ce-a092-aa0bc5d2d2f5})");
 }
 unsafe impl ::windows::core::Interface for MacAlgorithmProvider {
-    type Vtable = IMacAlgorithmProviderVtbl;
+    type Vtable = IMacAlgorithmProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a3fc5c3_1cbd_41ce_a092_aa0bc5d2d2f5);
 }
 impl ::windows::core::RuntimeName for MacAlgorithmProvider {
@@ -2828,7 +2828,7 @@ unsafe impl ::windows::core::RuntimeType for SymmetricKeyAlgorithmProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider;{3d7e4a33-3bd0-4902-8ac8-470d50d21376})");
 }
 unsafe impl ::windows::core::Interface for SymmetricKeyAlgorithmProvider {
-    type Vtable = ISymmetricKeyAlgorithmProviderVtbl;
+    type Vtable = ISymmetricKeyAlgorithmProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d7e4a33_3bd0_4902_8ac8_470d50d21376);
 }
 impl ::windows::core::RuntimeName for SymmetricKeyAlgorithmProvider {

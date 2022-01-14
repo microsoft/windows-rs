@@ -104,12 +104,12 @@ impl ::core::fmt::Debug for ID3D11On12Device {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D11On12Device {
-    type Vtable = ID3D11On12DeviceVtbl;
+    type Vtable = ID3D11On12Device_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85611e73_70a9_490e_9614_a9e302777904);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D11On12DeviceVtbl {
+pub struct ID3D11On12Device_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub CreateWrappedResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource12: *mut ::core::ffi::c_void, pflags11: *const D3D11_RESOURCE_FLAGS, instate: super::Direct3D12::D3D12_RESOURCE_STATES, outstate: super::Direct3D12::D3D12_RESOURCE_STATES, riid: *const ::windows::core::GUID, ppresource11: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -206,13 +206,13 @@ impl ::core::fmt::Debug for ID3D11On12Device1 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D11On12Device1 {
-    type Vtable = ID3D11On12Device1Vtbl;
+    type Vtable = ID3D11On12Device1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdb64df4_ea2f_4c70_b861_aaab1258bb5d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D11On12Device1Vtbl {
-    pub base: ID3D11On12DeviceVtbl,
+pub struct ID3D11On12Device1_Vtbl {
+    pub base: ID3D11On12Device_Vtbl,
     pub GetD3D12Device: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11on12'*"]
@@ -328,13 +328,13 @@ impl ::core::fmt::Debug for ID3D11On12Device2 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D11On12Device2 {
-    type Vtable = ID3D11On12Device2Vtbl;
+    type Vtable = ID3D11On12Device2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc90f331_4740_43fa_866e_67f12cb58223);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D11On12Device2Vtbl {
-    pub base: ID3D11On12Device1Vtbl,
+pub struct ID3D11On12Device2_Vtbl {
+    pub base: ID3D11On12Device1_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
     pub UnwrapUnderlyingResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource11: ::windows::core::RawPtr, pcommandqueue: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvresource12: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12")))]

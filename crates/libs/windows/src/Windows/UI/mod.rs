@@ -117,7 +117,7 @@ unsafe impl ::windows::core::RuntimeType for ColorHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ColorHelper;{193cfbe7-65c7-4540-ad08-6283ba76879a})");
 }
 unsafe impl ::windows::core::Interface for ColorHelper {
-    type Vtable = IColorHelperVtbl;
+    type Vtable = IColorHelper_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x193cfbe7_65c7_4540_ad08_6283ba76879a);
 }
 impl ::windows::core::RuntimeName for ColorHelper {
@@ -1182,7 +1182,7 @@ unsafe impl ::windows::core::RuntimeType for Colors {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Colors;{9b8c9326-4ca6-4ce5-8994-9eff65cabdcc})");
 }
 unsafe impl ::windows::core::Interface for Colors {
-    type Vtable = IColorsVtbl;
+    type Vtable = IColors_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b8c9326_4ca6_4ce5_8994_9eff65cabdcc);
 }
 impl ::windows::core::RuntimeName for Colors {
@@ -1234,24 +1234,24 @@ unsafe impl ::core::marker::Sync for Colors {}
 #[repr(transparent)]
 pub struct IColorHelper(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorHelper {
-    type Vtable = IColorHelperVtbl;
+    type Vtable = IColorHelper_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x193cfbe7_65c7_4540_ad08_6283ba76879a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IColorHelperVtbl {
+pub struct IColorHelper_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IColorHelperStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorHelperStatics {
-    type Vtable = IColorHelperStaticsVtbl;
+    type Vtable = IColorHelperStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8504dbea_fb6a_4144_a6c2_33499c9284f5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IColorHelperStaticsVtbl {
+pub struct IColorHelperStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FromArgb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, a: u8, r: u8, g: u8, b: u8, result__: *mut Color) -> ::windows::core::HRESULT,
 }
@@ -1259,12 +1259,12 @@ pub struct IColorHelperStaticsVtbl {
 #[repr(transparent)]
 pub struct IColorHelperStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorHelperStatics2 {
-    type Vtable = IColorHelperStatics2Vtbl;
+    type Vtable = IColorHelperStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24d9af02_6eb0_4b94_855c_fcf0818d9a16);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IColorHelperStatics2Vtbl {
+pub struct IColorHelperStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ToDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: Color, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -1272,24 +1272,24 @@ pub struct IColorHelperStatics2Vtbl {
 #[repr(transparent)]
 pub struct IColors(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColors {
-    type Vtable = IColorsVtbl;
+    type Vtable = IColors_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b8c9326_4ca6_4ce5_8994_9eff65cabdcc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IColorsVtbl {
+pub struct IColors_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IColorsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorsStatics {
-    type Vtable = IColorsStaticsVtbl;
+    type Vtable = IColorsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcff52e04_cca6_4614_a17e_754910c84a99);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IColorsStaticsVtbl {
+pub struct IColorsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AliceBlue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT,
     pub AntiqueWhite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows::core::HRESULT,
@@ -1437,12 +1437,12 @@ pub struct IColorsStaticsVtbl {
 #[repr(transparent)]
 pub struct IUIContentRoot(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUIContentRoot {
-    type Vtable = IUIContentRootVtbl;
+    type Vtable = IUIContentRoot_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dfcbac6_b36b_5cb9_9bc5_2b7a0eddc378);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUIContentRootVtbl {
+pub struct IUIContentRoot_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub UIContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1450,12 +1450,12 @@ pub struct IUIContentRootVtbl {
 #[repr(transparent)]
 pub struct IUIContext(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUIContext {
-    type Vtable = IUIContextVtbl;
+    type Vtable = IUIContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb5cfacd_5bd8_59d0_a59e_1c17a4d6d243);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUIContextVtbl {
+pub struct IUIContext_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc = "*Required features: 'UI'*"]
@@ -1491,7 +1491,7 @@ unsafe impl ::windows::core::RuntimeType for UIContentRoot {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIContentRoot;{1dfcbac6-b36b-5cb9-9bc5-2b7a0eddc378})");
 }
 unsafe impl ::windows::core::Interface for UIContentRoot {
-    type Vtable = IUIContentRootVtbl;
+    type Vtable = IUIContentRoot_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dfcbac6_b36b_5cb9_9bc5_2b7a0eddc378);
 }
 impl ::windows::core::RuntimeName for UIContentRoot {
@@ -1563,7 +1563,7 @@ unsafe impl ::windows::core::RuntimeType for UIContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIContext;{bb5cfacd-5bd8-59d0-a59e-1c17a4d6d243})");
 }
 unsafe impl ::windows::core::Interface for UIContext {
-    type Vtable = IUIContextVtbl;
+    type Vtable = IUIContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb5cfacd_5bd8_59d0_a59e_1c17a4d6d243);
 }
 impl ::windows::core::RuntimeName for UIContext {

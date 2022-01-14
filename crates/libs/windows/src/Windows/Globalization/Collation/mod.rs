@@ -40,7 +40,7 @@ unsafe impl ::windows::core::RuntimeType for CharacterGrouping {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.Collation.CharacterGrouping;{fae761bb-805d-4bb0-95bb-c1f7c3e8eb8e})");
 }
 unsafe impl ::windows::core::Interface for CharacterGrouping {
-    type Vtable = ICharacterGroupingVtbl;
+    type Vtable = ICharacterGrouping_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfae761bb_805d_4bb0_95bb_c1f7c3e8eb8e);
 }
 impl ::windows::core::RuntimeName for CharacterGrouping {
@@ -185,7 +185,7 @@ unsafe impl ::windows::core::RuntimeType for CharacterGroupings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.Collation.CharacterGroupings;{b8d20a75-d4cf-4055-80e5-ce169c226496})");
 }
 unsafe impl ::windows::core::Interface for CharacterGroupings {
-    type Vtable = ICharacterGroupingsVtbl;
+    type Vtable = ICharacterGroupings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8d20a75_d4cf_4055_80e5_ce169c226496);
 }
 impl ::windows::core::RuntimeName for CharacterGroupings {
@@ -305,12 +305,12 @@ unsafe impl ::core::marker::Sync for CharacterGroupings {}
 #[repr(transparent)]
 pub struct ICharacterGrouping(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICharacterGrouping {
-    type Vtable = ICharacterGroupingVtbl;
+    type Vtable = ICharacterGrouping_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfae761bb_805d_4bb0_95bb_c1f7c3e8eb8e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICharacterGroupingVtbl {
+pub struct ICharacterGrouping_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub First: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -319,12 +319,12 @@ pub struct ICharacterGroupingVtbl {
 #[repr(transparent)]
 pub struct ICharacterGroupings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICharacterGroupings {
-    type Vtable = ICharacterGroupingsVtbl;
+    type Vtable = ICharacterGroupings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8d20a75_d4cf_4055_80e5_ce169c226496);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICharacterGroupingsVtbl {
+pub struct ICharacterGroupings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Lookup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -332,12 +332,12 @@ pub struct ICharacterGroupingsVtbl {
 #[repr(transparent)]
 pub struct ICharacterGroupingsFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICharacterGroupingsFactory {
-    type Vtable = ICharacterGroupingsFactoryVtbl;
+    type Vtable = ICharacterGroupingsFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99ea9fd9_886d_4401_9f98_69c82d4c2f78);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICharacterGroupingsFactoryVtbl {
+pub struct ICharacterGroupingsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, language: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }

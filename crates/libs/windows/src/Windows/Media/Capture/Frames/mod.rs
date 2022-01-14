@@ -49,7 +49,7 @@ unsafe impl ::windows::core::RuntimeType for AudioMediaFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.AudioMediaFrame;{a3a9feff-8021-441b-9a46-e7f0137b7981})");
 }
 unsafe impl ::windows::core::Interface for AudioMediaFrame {
-    type Vtable = IAudioMediaFrameVtbl;
+    type Vtable = IAudioMediaFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3a9feff_8021_441b_9a46_e7f0137b7981);
 }
 impl ::windows::core::RuntimeName for AudioMediaFrame {
@@ -139,7 +139,7 @@ unsafe impl ::windows::core::RuntimeType for BufferMediaFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.BufferMediaFrame;{b5b153c7-9b84-4062-b79c-a365b2596854})");
 }
 unsafe impl ::windows::core::Interface for BufferMediaFrame {
-    type Vtable = IBufferMediaFrameVtbl;
+    type Vtable = IBufferMediaFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5b153c7_9b84_4062_b79c_a365b2596854);
 }
 impl ::windows::core::RuntimeName for BufferMediaFrame {
@@ -261,7 +261,7 @@ unsafe impl ::windows::core::RuntimeType for DepthMediaFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.DepthMediaFrame;{47135e4f-8549-45c0-925b-80d35efdb10a})");
 }
 unsafe impl ::windows::core::Interface for DepthMediaFrame {
-    type Vtable = IDepthMediaFrameVtbl;
+    type Vtable = IDepthMediaFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47135e4f_8549_45c0_925b_80d35efdb10a);
 }
 impl ::windows::core::RuntimeName for DepthMediaFrame {
@@ -350,7 +350,7 @@ unsafe impl ::windows::core::RuntimeType for DepthMediaFrameFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.DepthMediaFrameFormat;{c312cf40-d729-453e-8780-2e04f140d28e})");
 }
 unsafe impl ::windows::core::Interface for DepthMediaFrameFormat {
-    type Vtable = IDepthMediaFrameFormatVtbl;
+    type Vtable = IDepthMediaFrameFormat_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc312cf40_d729_453e_8780_2e04f140d28e);
 }
 impl ::windows::core::RuntimeName for DepthMediaFrameFormat {
@@ -402,12 +402,12 @@ unsafe impl ::core::marker::Sync for DepthMediaFrameFormat {}
 #[repr(transparent)]
 pub struct IAudioMediaFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioMediaFrame {
-    type Vtable = IAudioMediaFrameVtbl;
+    type Vtable = IAudioMediaFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3a9feff_8021_441b_9a46_e7f0137b7981);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioMediaFrameVtbl {
+pub struct IAudioMediaFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FrameReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Media_MediaProperties")]
@@ -420,12 +420,12 @@ pub struct IAudioMediaFrameVtbl {
 #[repr(transparent)]
 pub struct IBufferMediaFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBufferMediaFrame {
-    type Vtable = IBufferMediaFrameVtbl;
+    type Vtable = IBufferMediaFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5b153c7_9b84_4062_b79c_a365b2596854);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBufferMediaFrameVtbl {
+pub struct IBufferMediaFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FrameReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -437,12 +437,12 @@ pub struct IBufferMediaFrameVtbl {
 #[repr(transparent)]
 pub struct IDepthMediaFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDepthMediaFrame {
-    type Vtable = IDepthMediaFrameVtbl;
+    type Vtable = IDepthMediaFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47135e4f_8549_45c0_925b_80d35efdb10a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDepthMediaFrameVtbl {
+pub struct IDepthMediaFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FrameReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub VideoMediaFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -456,12 +456,12 @@ pub struct IDepthMediaFrameVtbl {
 #[repr(transparent)]
 pub struct IDepthMediaFrame2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDepthMediaFrame2 {
-    type Vtable = IDepthMediaFrame2Vtbl;
+    type Vtable = IDepthMediaFrame2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cca473d_c4a4_4176_b0cd_33eae3b35aa3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDepthMediaFrame2Vtbl {
+pub struct IDepthMediaFrame2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MaxReliableDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub MinReliableDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -470,12 +470,12 @@ pub struct IDepthMediaFrame2Vtbl {
 #[repr(transparent)]
 pub struct IDepthMediaFrameFormat(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDepthMediaFrameFormat {
-    type Vtable = IDepthMediaFrameFormatVtbl;
+    type Vtable = IDepthMediaFrameFormat_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc312cf40_d729_453e_8780_2e04f140d28e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDepthMediaFrameFormatVtbl {
+pub struct IDepthMediaFrameFormat_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub VideoFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub DepthScaleInMeters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -484,12 +484,12 @@ pub struct IDepthMediaFrameFormatVtbl {
 #[repr(transparent)]
 pub struct IInfraredMediaFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInfraredMediaFrame {
-    type Vtable = IInfraredMediaFrameVtbl;
+    type Vtable = IInfraredMediaFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fd13503_004b_4f0e_91ac_465299b41658);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInfraredMediaFrameVtbl {
+pub struct IInfraredMediaFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FrameReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub VideoMediaFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -499,24 +499,24 @@ pub struct IInfraredMediaFrameVtbl {
 #[repr(transparent)]
 pub struct IMediaFrameArrivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameArrivedEventArgs {
-    type Vtable = IMediaFrameArrivedEventArgsVtbl;
+    type Vtable = IMediaFrameArrivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b430add_a490_4435_ada1_9affd55239f7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaFrameArrivedEventArgsVtbl {
+pub struct IMediaFrameArrivedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMediaFrameFormat(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameFormat {
-    type Vtable = IMediaFrameFormatVtbl;
+    type Vtable = IMediaFrameFormat_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71902b4e_b279_4a97_a9db_bd5a2fb78f39);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaFrameFormatVtbl {
+pub struct IMediaFrameFormat_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MajorType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Subtype: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -534,12 +534,12 @@ pub struct IMediaFrameFormatVtbl {
 #[repr(transparent)]
 pub struct IMediaFrameFormat2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameFormat2 {
-    type Vtable = IMediaFrameFormat2Vtbl;
+    type Vtable = IMediaFrameFormat2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63856340_5e87_4c10_86d1_6df097a6c6a8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaFrameFormat2Vtbl {
+pub struct IMediaFrameFormat2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_MediaProperties")]
     pub AudioEncodingProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -550,12 +550,12 @@ pub struct IMediaFrameFormat2Vtbl {
 #[repr(transparent)]
 pub struct IMediaFrameReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameReader {
-    type Vtable = IMediaFrameReaderVtbl;
+    type Vtable = IMediaFrameReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4c94395_2028_48ed_90b0_d1c1b162e24c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaFrameReaderVtbl {
+pub struct IMediaFrameReader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FrameArrived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -579,12 +579,12 @@ pub struct IMediaFrameReaderVtbl {
 #[repr(transparent)]
 pub struct IMediaFrameReader2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameReader2 {
-    type Vtable = IMediaFrameReader2Vtbl;
+    type Vtable = IMediaFrameReader2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x871127b3_8531_4050_87cc_a13733cf3e9b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaFrameReader2Vtbl {
+pub struct IMediaFrameReader2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetAcquisitionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: MediaFrameReaderAcquisitionMode) -> ::windows::core::HRESULT,
     pub AcquisitionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaFrameReaderAcquisitionMode) -> ::windows::core::HRESULT,
@@ -593,12 +593,12 @@ pub struct IMediaFrameReader2Vtbl {
 #[repr(transparent)]
 pub struct IMediaFrameReference(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameReference {
-    type Vtable = IMediaFrameReferenceVtbl;
+    type Vtable = IMediaFrameReference_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6b88641_f0dc_4044_8dc9_961cedd05bad);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaFrameReferenceVtbl {
+pub struct IMediaFrameReference_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaFrameSourceKind) -> ::windows::core::HRESULT,
     pub Format: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -625,12 +625,12 @@ pub struct IMediaFrameReferenceVtbl {
 #[repr(transparent)]
 pub struct IMediaFrameReference2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameReference2 {
-    type Vtable = IMediaFrameReference2Vtbl;
+    type Vtable = IMediaFrameReference2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddbc3ecc_d5b2_49ef_836a_947d989b80c1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaFrameReference2Vtbl {
+pub struct IMediaFrameReference2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AudioMediaFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -638,12 +638,12 @@ pub struct IMediaFrameReference2Vtbl {
 #[repr(transparent)]
 pub struct IMediaFrameSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameSource {
-    type Vtable = IMediaFrameSourceVtbl;
+    type Vtable = IMediaFrameSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6782953_90db_46a8_8add_2aa884a8d253);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaFrameSourceVtbl {
+pub struct IMediaFrameSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Info: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Controller: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -673,12 +673,12 @@ pub struct IMediaFrameSourceVtbl {
 #[repr(transparent)]
 pub struct IMediaFrameSourceController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameSourceController {
-    type Vtable = IMediaFrameSourceControllerVtbl;
+    type Vtable = IMediaFrameSourceController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d076635_316d_4b8f_b7b6_eeb04a8c6525);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaFrameSourceControllerVtbl {
+pub struct IMediaFrameSourceController_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetPropertyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -697,12 +697,12 @@ pub struct IMediaFrameSourceControllerVtbl {
 #[repr(transparent)]
 pub struct IMediaFrameSourceController2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameSourceController2 {
-    type Vtable = IMediaFrameSourceController2Vtbl;
+    type Vtable = IMediaFrameSourceController2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefc49fd4_fcf2_4a03_b4e4_ac9628739bee);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaFrameSourceController2Vtbl {
+pub struct IMediaFrameSourceController2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetPropertyByExtendedIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extendedPropertyId_array_size: u32, extendedpropertyid: *const u8, maxpropertyvaluesize: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -717,12 +717,12 @@ pub struct IMediaFrameSourceController2Vtbl {
 #[repr(transparent)]
 pub struct IMediaFrameSourceController3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameSourceController3 {
-    type Vtable = IMediaFrameSourceController3Vtbl;
+    type Vtable = IMediaFrameSourceController3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f0cf815_2464_4651_b1e8_4a82dbdb54de);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaFrameSourceController3Vtbl {
+pub struct IMediaFrameSourceController3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_Devices")]
     pub AudioDeviceController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -733,12 +733,12 @@ pub struct IMediaFrameSourceController3Vtbl {
 #[repr(transparent)]
 pub struct IMediaFrameSourceGetPropertyResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameSourceGetPropertyResult {
-    type Vtable = IMediaFrameSourceGetPropertyResultVtbl;
+    type Vtable = IMediaFrameSourceGetPropertyResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x088616c2_3a64_4bd5_bd2b_e7c898d2f37a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaFrameSourceGetPropertyResultVtbl {
+pub struct IMediaFrameSourceGetPropertyResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaFrameSourceGetPropertyStatus) -> ::windows::core::HRESULT,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -747,12 +747,12 @@ pub struct IMediaFrameSourceGetPropertyResultVtbl {
 #[repr(transparent)]
 pub struct IMediaFrameSourceGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameSourceGroup {
-    type Vtable = IMediaFrameSourceGroupVtbl;
+    type Vtable = IMediaFrameSourceGroup_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f605b87_4832_4b5f_ae3d_412faab37d34);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaFrameSourceGroupVtbl {
+pub struct IMediaFrameSourceGroup_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -765,12 +765,12 @@ pub struct IMediaFrameSourceGroupVtbl {
 #[repr(transparent)]
 pub struct IMediaFrameSourceGroupStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameSourceGroupStatics {
-    type Vtable = IMediaFrameSourceGroupStaticsVtbl;
+    type Vtable = IMediaFrameSourceGroupStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c48bfc5_436f_4508_94cf_d5d8b7326445);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaFrameSourceGroupStaticsVtbl {
+pub struct IMediaFrameSourceGroupStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub FindAllAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -786,12 +786,12 @@ pub struct IMediaFrameSourceGroupStaticsVtbl {
 #[repr(transparent)]
 pub struct IMediaFrameSourceInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameSourceInfo {
-    type Vtable = IMediaFrameSourceInfoVtbl;
+    type Vtable = IMediaFrameSourceInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87bdc9cd_4601_408f_91cf_038318cd0af3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaFrameSourceInfoVtbl {
+pub struct IMediaFrameSourceInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub MediaStreamType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::MediaStreamType) -> ::windows::core::HRESULT,
@@ -814,12 +814,12 @@ pub struct IMediaFrameSourceInfoVtbl {
 #[repr(transparent)]
 pub struct IMediaFrameSourceInfo2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameSourceInfo2 {
-    type Vtable = IMediaFrameSourceInfo2Vtbl;
+    type Vtable = IMediaFrameSourceInfo2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x195a7855_6457_42c6_a769_19b65bd32e6e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaFrameSourceInfo2Vtbl {
+pub struct IMediaFrameSourceInfo2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ProfileId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -831,12 +831,12 @@ pub struct IMediaFrameSourceInfo2Vtbl {
 #[repr(transparent)]
 pub struct IMediaFrameSourceInfo3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaFrameSourceInfo3 {
-    type Vtable = IMediaFrameSourceInfo3Vtbl;
+    type Vtable = IMediaFrameSourceInfo3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca824ab6_66ea_5885_a2b6_26c0eeec3c7b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaFrameSourceInfo3Vtbl {
+pub struct IMediaFrameSourceInfo3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Devices_Enumeration", feature = "UI_WindowManagement"))]
     pub GetRelativePanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayregion: ::windows::core::RawPtr, result__: *mut super::super::super::Devices::Enumeration::Panel) -> ::windows::core::HRESULT,
@@ -847,24 +847,24 @@ pub struct IMediaFrameSourceInfo3Vtbl {
 #[repr(transparent)]
 pub struct IMultiSourceMediaFrameArrivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMultiSourceMediaFrameArrivedEventArgs {
-    type Vtable = IMultiSourceMediaFrameArrivedEventArgsVtbl;
+    type Vtable = IMultiSourceMediaFrameArrivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63115e01_cf51_48fd_aab0_6d693eb48127);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMultiSourceMediaFrameArrivedEventArgsVtbl {
+pub struct IMultiSourceMediaFrameArrivedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMultiSourceMediaFrameReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMultiSourceMediaFrameReader {
-    type Vtable = IMultiSourceMediaFrameReaderVtbl;
+    type Vtable = IMultiSourceMediaFrameReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d144402_f763_488d_98f2_b437bcf075e7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMultiSourceMediaFrameReaderVtbl {
+pub struct IMultiSourceMediaFrameReader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FrameArrived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -888,12 +888,12 @@ pub struct IMultiSourceMediaFrameReaderVtbl {
 #[repr(transparent)]
 pub struct IMultiSourceMediaFrameReader2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMultiSourceMediaFrameReader2 {
-    type Vtable = IMultiSourceMediaFrameReader2Vtbl;
+    type Vtable = IMultiSourceMediaFrameReader2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef5c8abd_fc5c_4c6b_9d81_3cb9cc637c26);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMultiSourceMediaFrameReader2Vtbl {
+pub struct IMultiSourceMediaFrameReader2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetAcquisitionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: MediaFrameReaderAcquisitionMode) -> ::windows::core::HRESULT,
     pub AcquisitionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaFrameReaderAcquisitionMode) -> ::windows::core::HRESULT,
@@ -902,12 +902,12 @@ pub struct IMultiSourceMediaFrameReader2Vtbl {
 #[repr(transparent)]
 pub struct IMultiSourceMediaFrameReference(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMultiSourceMediaFrameReference {
-    type Vtable = IMultiSourceMediaFrameReferenceVtbl;
+    type Vtable = IMultiSourceMediaFrameReference_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21964b1a_7fe2_44d6_92e5_298e6d2810e9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMultiSourceMediaFrameReferenceVtbl {
+pub struct IMultiSourceMediaFrameReference_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TryGetFrameReferenceBySourceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -915,12 +915,12 @@ pub struct IMultiSourceMediaFrameReferenceVtbl {
 #[repr(transparent)]
 pub struct IVideoMediaFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoMediaFrame {
-    type Vtable = IVideoMediaFrameVtbl;
+    type Vtable = IVideoMediaFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00dd4ccb_32bd_4fe1_a013_7cc13cf5dbcf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVideoMediaFrameVtbl {
+pub struct IVideoMediaFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FrameReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub VideoFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -944,12 +944,12 @@ pub struct IVideoMediaFrameVtbl {
 #[repr(transparent)]
 pub struct IVideoMediaFrameFormat(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoMediaFrameFormat {
-    type Vtable = IVideoMediaFrameFormatVtbl;
+    type Vtable = IVideoMediaFrameFormat_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46027fc0_d71b_45c7_8f14_6d9a0ae604e4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVideoMediaFrameFormatVtbl {
+pub struct IVideoMediaFrameFormat_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MediaFrameFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub DepthFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1005,7 +1005,7 @@ unsafe impl ::windows::core::RuntimeType for InfraredMediaFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.InfraredMediaFrame;{3fd13503-004b-4f0e-91ac-465299b41658})");
 }
 unsafe impl ::windows::core::Interface for InfraredMediaFrame {
-    type Vtable = IInfraredMediaFrameVtbl;
+    type Vtable = IInfraredMediaFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fd13503_004b_4f0e_91ac_465299b41658);
 }
 impl ::windows::core::RuntimeName for InfraredMediaFrame {
@@ -1077,7 +1077,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameArrivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameArrivedEventArgs;{0b430add-a490-4435-ada1-9affd55239f7})");
 }
 unsafe impl ::windows::core::Interface for MediaFrameArrivedEventArgs {
-    type Vtable = IMediaFrameArrivedEventArgsVtbl;
+    type Vtable = IMediaFrameArrivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b430add_a490_4435_ada1_9affd55239f7);
 }
 impl ::windows::core::RuntimeName for MediaFrameArrivedEventArgs {
@@ -1201,7 +1201,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameFormat;{71902b4e-b279-4a97-a9db-bd5a2fb78f39})");
 }
 unsafe impl ::windows::core::Interface for MediaFrameFormat {
-    type Vtable = IMediaFrameFormatVtbl;
+    type Vtable = IMediaFrameFormat_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71902b4e_b279_4a97_a9db_bd5a2fb78f39);
 }
 impl ::windows::core::RuntimeName for MediaFrameFormat {
@@ -1334,7 +1334,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameReader;{e4c94395-2028-48ed-90b0-d1c1b162e24c})");
 }
 unsafe impl ::windows::core::Interface for MediaFrameReader {
-    type Vtable = IMediaFrameReaderVtbl;
+    type Vtable = IMediaFrameReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4c94395_2028_48ed_90b0_d1c1b162e24c);
 }
 impl ::windows::core::RuntimeName for MediaFrameReader {
@@ -1584,7 +1584,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameReference;{f6b88641-f0dc-4044-8dc9-961cedd05bad})");
 }
 unsafe impl ::windows::core::Interface for MediaFrameReference {
-    type Vtable = IMediaFrameReferenceVtbl;
+    type Vtable = IMediaFrameReference_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6b88641_f0dc_4044_8dc9_961cedd05bad);
 }
 impl ::windows::core::RuntimeName for MediaFrameReference {
@@ -1749,7 +1749,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSource;{d6782953-90db-46a8-8add-2aa884a8d253})");
 }
 unsafe impl ::windows::core::Interface for MediaFrameSource {
-    type Vtable = IMediaFrameSourceVtbl;
+    type Vtable = IMediaFrameSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6782953_90db_46a8_8add_2aa884a8d253);
 }
 impl ::windows::core::RuntimeName for MediaFrameSource {
@@ -1876,7 +1876,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameSourceController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSourceController;{6d076635-316d-4b8f-b7b6-eeb04a8c6525})");
 }
 unsafe impl ::windows::core::Interface for MediaFrameSourceController {
-    type Vtable = IMediaFrameSourceControllerVtbl;
+    type Vtable = IMediaFrameSourceController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d076635_316d_4b8f_b7b6_eeb04a8c6525);
 }
 impl ::windows::core::RuntimeName for MediaFrameSourceController {
@@ -1965,7 +1965,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameSourceGetPropertyResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSourceGetPropertyResult;{088616c2-3a64-4bd5-bd2b-e7c898d2f37a})");
 }
 unsafe impl ::windows::core::Interface for MediaFrameSourceGetPropertyResult {
-    type Vtable = IMediaFrameSourceGetPropertyResultVtbl;
+    type Vtable = IMediaFrameSourceGetPropertyResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x088616c2_3a64_4bd5_bd2b_e7c898d2f37a);
 }
 impl ::windows::core::RuntimeName for MediaFrameSourceGetPropertyResult {
@@ -2128,7 +2128,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameSourceGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSourceGroup;{7f605b87-4832-4b5f-ae3d-412faab37d34})");
 }
 unsafe impl ::windows::core::Interface for MediaFrameSourceGroup {
-    type Vtable = IMediaFrameSourceGroupVtbl;
+    type Vtable = IMediaFrameSourceGroup_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f605b87_4832_4b5f_ae3d_412faab37d34);
 }
 impl ::windows::core::RuntimeName for MediaFrameSourceGroup {
@@ -2286,7 +2286,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameSourceInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSourceInfo;{87bdc9cd-4601-408f-91cf-038318cd0af3})");
 }
 unsafe impl ::windows::core::Interface for MediaFrameSourceInfo {
-    type Vtable = IMediaFrameSourceInfoVtbl;
+    type Vtable = IMediaFrameSourceInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87bdc9cd_4601_408f_91cf_038318cd0af3);
 }
 impl ::windows::core::RuntimeName for MediaFrameSourceInfo {
@@ -2433,7 +2433,7 @@ unsafe impl ::windows::core::RuntimeType for MultiSourceMediaFrameArrivedEventAr
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MultiSourceMediaFrameArrivedEventArgs;{63115e01-cf51-48fd-aab0-6d693eb48127})");
 }
 unsafe impl ::windows::core::Interface for MultiSourceMediaFrameArrivedEventArgs {
-    type Vtable = IMultiSourceMediaFrameArrivedEventArgsVtbl;
+    type Vtable = IMultiSourceMediaFrameArrivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63115e01_cf51_48fd_aab0_6d693eb48127);
 }
 impl ::windows::core::RuntimeName for MultiSourceMediaFrameArrivedEventArgs {
@@ -2566,7 +2566,7 @@ unsafe impl ::windows::core::RuntimeType for MultiSourceMediaFrameReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MultiSourceMediaFrameReader;{8d144402-f763-488d-98f2-b437bcf075e7})");
 }
 unsafe impl ::windows::core::Interface for MultiSourceMediaFrameReader {
-    type Vtable = IMultiSourceMediaFrameReaderVtbl;
+    type Vtable = IMultiSourceMediaFrameReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d144402_f763_488d_98f2_b437bcf075e7);
 }
 impl ::windows::core::RuntimeName for MultiSourceMediaFrameReader {
@@ -2715,7 +2715,7 @@ unsafe impl ::windows::core::RuntimeType for MultiSourceMediaFrameReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MultiSourceMediaFrameReference;{21964b1a-7fe2-44d6-92e5-298e6d2810e9})");
 }
 unsafe impl ::windows::core::Interface for MultiSourceMediaFrameReference {
-    type Vtable = IMultiSourceMediaFrameReferenceVtbl;
+    type Vtable = IMultiSourceMediaFrameReference_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21964b1a_7fe2_44d6_92e5_298e6d2810e9);
 }
 impl ::windows::core::RuntimeName for MultiSourceMediaFrameReference {
@@ -2881,7 +2881,7 @@ unsafe impl ::windows::core::RuntimeType for VideoMediaFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.VideoMediaFrame;{00dd4ccb-32bd-4fe1-a013-7cc13cf5dbcf})");
 }
 unsafe impl ::windows::core::Interface for VideoMediaFrame {
-    type Vtable = IVideoMediaFrameVtbl;
+    type Vtable = IVideoMediaFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00dd4ccb_32bd_4fe1_a013_7cc13cf5dbcf);
 }
 impl ::windows::core::RuntimeName for VideoMediaFrame {
@@ -2986,7 +2986,7 @@ unsafe impl ::windows::core::RuntimeType for VideoMediaFrameFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.VideoMediaFrameFormat;{46027fc0-d71b-45c7-8f14-6d9a0ae604e4})");
 }
 unsafe impl ::windows::core::Interface for VideoMediaFrameFormat {
-    type Vtable = IVideoMediaFrameFormatVtbl;
+    type Vtable = IVideoMediaFrameFormat_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46027fc0_d71b_45c7_8f14_6d9a0ae604e4);
 }
 impl ::windows::core::RuntimeName for VideoMediaFrameFormat {

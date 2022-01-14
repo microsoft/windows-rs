@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IPdfDocument(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPdfDocument {
-    type Vtable = IPdfDocumentVtbl;
+    type Vtable = IPdfDocument_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac7ebedd_80fa_4089_846e_81b77ff5a86c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPdfDocumentVtbl {
+pub struct IPdfDocument_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pageindex: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub PageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -18,12 +18,12 @@ pub struct IPdfDocumentVtbl {
 #[repr(transparent)]
 pub struct IPdfDocumentStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPdfDocumentStatics {
-    type Vtable = IPdfDocumentStaticsVtbl;
+    type Vtable = IPdfDocumentStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x433a0b5f_c007_4788_90f2_08143d922599);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPdfDocumentStaticsVtbl {
+pub struct IPdfDocumentStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub LoadFromFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -46,12 +46,12 @@ pub struct IPdfDocumentStaticsVtbl {
 #[repr(transparent)]
 pub struct IPdfPage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPdfPage {
-    type Vtable = IPdfPageVtbl;
+    type Vtable = IPdfPage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9db4b0c8_5320_4cfc_ad76_493fdad0e594);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPdfPageVtbl {
+pub struct IPdfPage_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub RenderToStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -78,12 +78,12 @@ pub struct IPdfPageVtbl {
 #[repr(transparent)]
 pub struct IPdfPageDimensions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPdfPageDimensions {
-    type Vtable = IPdfPageDimensionsVtbl;
+    type Vtable = IPdfPageDimensions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22170471_313e_44e8_835d_63a3e7624a10);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPdfPageDimensionsVtbl {
+pub struct IPdfPageDimensions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub MediaBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT,
@@ -110,12 +110,12 @@ pub struct IPdfPageDimensionsVtbl {
 #[repr(transparent)]
 pub struct IPdfPageRenderOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPdfPageRenderOptions {
-    type Vtable = IPdfPageRenderOptionsVtbl;
+    type Vtable = IPdfPageRenderOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c98056f_b7cf_4c29_9a04_52d90267f425);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPdfPageRenderOptionsVtbl {
+pub struct IPdfPageRenderOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SourceRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT,
@@ -228,7 +228,7 @@ unsafe impl ::windows::core::RuntimeType for PdfDocument {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfDocument;{ac7ebedd-80fa-4089-846e-81b77ff5a86c})");
 }
 unsafe impl ::windows::core::Interface for PdfDocument {
-    type Vtable = IPdfDocumentVtbl;
+    type Vtable = IPdfDocument_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac7ebedd_80fa_4089_846e_81b77ff5a86c);
 }
 impl ::windows::core::RuntimeName for PdfDocument {
@@ -375,7 +375,7 @@ unsafe impl ::windows::core::RuntimeType for PdfPage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfPage;{9db4b0c8-5320-4cfc-ad76-493fdad0e594})");
 }
 unsafe impl ::windows::core::Interface for PdfPage {
-    type Vtable = IPdfPageVtbl;
+    type Vtable = IPdfPage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9db4b0c8_5320_4cfc_ad76_493fdad0e594);
 }
 impl ::windows::core::RuntimeName for PdfPage {
@@ -519,7 +519,7 @@ unsafe impl ::windows::core::RuntimeType for PdfPageDimensions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfPageDimensions;{22170471-313e-44e8-835d-63a3e7624a10})");
 }
 unsafe impl ::windows::core::Interface for PdfPageDimensions {
-    type Vtable = IPdfPageDimensionsVtbl;
+    type Vtable = IPdfPageDimensions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22170471_313e_44e8_835d_63a3e7624a10);
 }
 impl ::windows::core::RuntimeName for PdfPageDimensions {
@@ -681,7 +681,7 @@ unsafe impl ::windows::core::RuntimeType for PdfPageRenderOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfPageRenderOptions;{3c98056f-b7cf-4c29-9a04-52d90267f425})");
 }
 unsafe impl ::windows::core::Interface for PdfPageRenderOptions {
-    type Vtable = IPdfPageRenderOptionsVtbl;
+    type Vtable = IPdfPageRenderOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c98056f_b7cf_4c29_9a04_52d90267f425);
 }
 impl ::windows::core::RuntimeName for PdfPageRenderOptions {

@@ -43,12 +43,12 @@ impl ::windows::core::DefaultType for HandwritingLineHeight {
 #[repr(transparent)]
 pub struct IInkDrawingAttributes(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkDrawingAttributes {
-    type Vtable = IInkDrawingAttributesVtbl;
+    type Vtable = IInkDrawingAttributes_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97a2176c_6774_48ad_84f0_48f5a9be74f9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkDrawingAttributesVtbl {
+pub struct IInkDrawingAttributes_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Color) -> ::windows::core::HRESULT,
     pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Color) -> ::windows::core::HRESULT,
@@ -71,12 +71,12 @@ pub struct IInkDrawingAttributesVtbl {
 #[repr(transparent)]
 pub struct IInkDrawingAttributes2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkDrawingAttributes2 {
-    type Vtable = IInkDrawingAttributes2Vtbl;
+    type Vtable = IInkDrawingAttributes2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cab6508_8ec4_42fd_a5a5_e4b7d1d5316d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkDrawingAttributes2Vtbl {
+pub struct IInkDrawingAttributes2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub PenTipTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT,
@@ -93,12 +93,12 @@ pub struct IInkDrawingAttributes2Vtbl {
 #[repr(transparent)]
 pub struct IInkDrawingAttributes3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkDrawingAttributes3 {
-    type Vtable = IInkDrawingAttributes3Vtbl;
+    type Vtable = IInkDrawingAttributes3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72020002_7d5b_4690_8af4_e664cbe2b74f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkDrawingAttributes3Vtbl {
+pub struct IInkDrawingAttributes3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InkDrawingAttributesKind) -> ::windows::core::HRESULT,
     pub PencilProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -107,12 +107,12 @@ pub struct IInkDrawingAttributes3Vtbl {
 #[repr(transparent)]
 pub struct IInkDrawingAttributes4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkDrawingAttributes4 {
-    type Vtable = IInkDrawingAttributes4Vtbl;
+    type Vtable = IInkDrawingAttributes4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef65dc25_9f19_456d_91a3_bc3a3d91c5fb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkDrawingAttributes4Vtbl {
+pub struct IInkDrawingAttributes4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IgnoreTilt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIgnoreTilt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -121,12 +121,12 @@ pub struct IInkDrawingAttributes4Vtbl {
 #[repr(transparent)]
 pub struct IInkDrawingAttributes5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkDrawingAttributes5 {
-    type Vtable = IInkDrawingAttributes5Vtbl;
+    type Vtable = IInkDrawingAttributes5_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd11aa0bb_0775_4852_ae64_41143a7ae6c9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkDrawingAttributes5Vtbl {
+pub struct IInkDrawingAttributes5_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ModelerAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -134,12 +134,12 @@ pub struct IInkDrawingAttributes5Vtbl {
 #[repr(transparent)]
 pub struct IInkDrawingAttributesPencilProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkDrawingAttributesPencilProperties {
-    type Vtable = IInkDrawingAttributesPencilPropertiesVtbl;
+    type Vtable = IInkDrawingAttributesPencilProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f2534cb_2d86_41bb_b0e8_e4c2a0253c52);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkDrawingAttributesPencilPropertiesVtbl {
+pub struct IInkDrawingAttributesPencilProperties_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Opacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
@@ -148,12 +148,12 @@ pub struct IInkDrawingAttributesPencilPropertiesVtbl {
 #[repr(transparent)]
 pub struct IInkDrawingAttributesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkDrawingAttributesStatics {
-    type Vtable = IInkDrawingAttributesStaticsVtbl;
+    type Vtable = IInkDrawingAttributesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf731e03f_1a65_4862_96cb_6e1665e17f6d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkDrawingAttributesStaticsVtbl {
+pub struct IInkDrawingAttributesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateForPencil: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -161,12 +161,12 @@ pub struct IInkDrawingAttributesStaticsVtbl {
 #[repr(transparent)]
 pub struct IInkInputConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkInputConfiguration {
-    type Vtable = IInkInputConfigurationVtbl;
+    type Vtable = IInkInputConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93a68dc4_0b7b_49d7_b34f_9901e524dcf2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkInputConfigurationVtbl {
+pub struct IInkInputConfiguration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsPrimaryBarrelButtonInputEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsPrimaryBarrelButtonInputEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -177,12 +177,12 @@ pub struct IInkInputConfigurationVtbl {
 #[repr(transparent)]
 pub struct IInkInputConfiguration2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkInputConfiguration2 {
-    type Vtable = IInkInputConfiguration2Vtbl;
+    type Vtable = IInkInputConfiguration2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ac2272e_81b4_5cc4_a36d_d057c387dfda);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkInputConfiguration2Vtbl {
+pub struct IInkInputConfiguration2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsPenHapticFeedbackEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsPenHapticFeedbackEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -191,12 +191,12 @@ pub struct IInkInputConfiguration2Vtbl {
 #[repr(transparent)]
 pub struct IInkInputProcessingConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkInputProcessingConfiguration {
-    type Vtable = IInkInputProcessingConfigurationVtbl;
+    type Vtable = IInkInputProcessingConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2778d85e_33ca_4b06_a6d3_ac3945116d37);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkInputProcessingConfigurationVtbl {
+pub struct IInkInputProcessingConfiguration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InkInputProcessingMode) -> ::windows::core::HRESULT,
     pub SetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InkInputProcessingMode) -> ::windows::core::HRESULT,
@@ -207,12 +207,12 @@ pub struct IInkInputProcessingConfigurationVtbl {
 #[repr(transparent)]
 pub struct IInkManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkManager {
-    type Vtable = IInkManagerVtbl;
+    type Vtable = IInkManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4744737d_671b_4163_9c95_4e8d7a035fe1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkManagerVtbl {
+pub struct IInkManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InkManipulationMode) -> ::windows::core::HRESULT,
     pub SetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InkManipulationMode) -> ::windows::core::HRESULT,
@@ -232,12 +232,12 @@ pub struct IInkManagerVtbl {
 #[repr(transparent)]
 pub struct IInkModelerAttributes(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkModelerAttributes {
-    type Vtable = IInkModelerAttributesVtbl;
+    type Vtable = IInkModelerAttributes_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad31f27_0cd9_4bfd_b6f3_9e03ba8d7454);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkModelerAttributesVtbl {
+pub struct IInkModelerAttributes_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub PredictionTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -254,12 +254,12 @@ pub struct IInkModelerAttributesVtbl {
 #[repr(transparent)]
 pub struct IInkModelerAttributes2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkModelerAttributes2 {
-    type Vtable = IInkModelerAttributes2Vtbl;
+    type Vtable = IInkModelerAttributes2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86d1d09a_4ef8_5e25_b7bc_b65424f16bb3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkModelerAttributes2Vtbl {
+pub struct IInkModelerAttributes2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub UseVelocityBasedPressure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetUseVelocityBasedPressure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -268,12 +268,12 @@ pub struct IInkModelerAttributes2Vtbl {
 #[repr(transparent)]
 pub struct IInkPoint(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkPoint {
-    type Vtable = IInkPointVtbl;
+    type Vtable = IInkPoint_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f87272b_858c_46a5_9b41_d195970459fd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkPointVtbl {
+pub struct IInkPoint_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
@@ -285,12 +285,12 @@ pub struct IInkPointVtbl {
 #[repr(transparent)]
 pub struct IInkPoint2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkPoint2 {
-    type Vtable = IInkPoint2Vtbl;
+    type Vtable = IInkPoint2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfba9c3f7_ae56_4d5c_bd2f_0ac45f5e4af9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkPoint2Vtbl {
+pub struct IInkPoint2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TiltX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub TiltY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -370,12 +370,12 @@ unsafe impl ::windows::core::RuntimeType for IInkPointFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{29e5d51c-c98f-405d-9f3b-e53e31068d4d}");
 }
 unsafe impl ::windows::core::Interface for IInkPointFactory {
-    type Vtable = IInkPointFactoryVtbl;
+    type Vtable = IInkPointFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29e5d51c_c98f_405d_9f3b_e53e31068d4d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkPointFactoryVtbl {
+pub struct IInkPointFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CreateInkPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: super::super::super::Foundation::Point, pressure: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -386,12 +386,12 @@ pub struct IInkPointFactoryVtbl {
 #[repr(transparent)]
 pub struct IInkPointFactory2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkPointFactory2 {
-    type Vtable = IInkPointFactory2Vtbl;
+    type Vtable = IInkPointFactory2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0145e85_daff_45f2_ad69_050d8256a209);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkPointFactory2Vtbl {
+pub struct IInkPointFactory2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CreateInkPointWithTiltAndTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: super::super::super::Foundation::Point, pressure: f32, tiltx: f32, tilty: f32, timestamp: u64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -402,12 +402,12 @@ pub struct IInkPointFactory2Vtbl {
 #[repr(transparent)]
 pub struct IInkPresenter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkPresenter {
-    type Vtable = IInkPresenterVtbl;
+    type Vtable = IInkPresenter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa69b70e2_887b_458f_b173_4fe4438930a3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkPresenterVtbl {
+pub struct IInkPresenter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsInputEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsInputEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -449,12 +449,12 @@ pub struct IInkPresenterVtbl {
 #[repr(transparent)]
 pub struct IInkPresenter2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkPresenter2 {
-    type Vtable = IInkPresenter2Vtbl;
+    type Vtable = IInkPresenter2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf53e612_9a34_11e6_9f33_a24fc0d9649c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkPresenter2Vtbl {
+pub struct IInkPresenter2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub HighContrastAdjustment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InkHighContrastAdjustment) -> ::windows::core::HRESULT,
     pub SetHighContrastAdjustment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InkHighContrastAdjustment) -> ::windows::core::HRESULT,
@@ -463,12 +463,12 @@ pub struct IInkPresenter2Vtbl {
 #[repr(transparent)]
 pub struct IInkPresenter3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkPresenter3 {
-    type Vtable = IInkPresenter3Vtbl;
+    type Vtable = IInkPresenter3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51e1ce89_d37d_4a90_83fc_7f5e9dfbf217);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkPresenter3Vtbl {
+pub struct IInkPresenter3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InputConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -476,12 +476,12 @@ pub struct IInkPresenter3Vtbl {
 #[repr(transparent)]
 pub struct IInkPresenterProtractor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkPresenterProtractor {
-    type Vtable = IInkPresenterProtractorVtbl;
+    type Vtable = IInkPresenterProtractor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7de3f2aa_ef6c_4e91_a73b_5b70d56fbd17);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkPresenterProtractorVtbl {
+pub struct IInkPresenterProtractor_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AreTickMarksVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAreTickMarksVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -502,12 +502,12 @@ pub struct IInkPresenterProtractorVtbl {
 #[repr(transparent)]
 pub struct IInkPresenterProtractorFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkPresenterProtractorFactory {
-    type Vtable = IInkPresenterProtractorFactoryVtbl;
+    type Vtable = IInkPresenterProtractorFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x320103c9_68fa_47e9_8127_8370711fc46c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkPresenterProtractorFactoryVtbl {
+pub struct IInkPresenterProtractorFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpresenter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -515,12 +515,12 @@ pub struct IInkPresenterProtractorFactoryVtbl {
 #[repr(transparent)]
 pub struct IInkPresenterRuler(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkPresenterRuler {
-    type Vtable = IInkPresenterRulerVtbl;
+    type Vtable = IInkPresenterRuler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cda7d5a_dec7_4dd7_877a_2133f183d48a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkPresenterRulerVtbl {
+pub struct IInkPresenterRuler_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
@@ -531,12 +531,12 @@ pub struct IInkPresenterRulerVtbl {
 #[repr(transparent)]
 pub struct IInkPresenterRuler2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkPresenterRuler2 {
-    type Vtable = IInkPresenterRuler2Vtbl;
+    type Vtable = IInkPresenterRuler2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45130dc1_bc61_44d4_a423_54712ae671c4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkPresenterRuler2Vtbl {
+pub struct IInkPresenterRuler2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AreTickMarksVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAreTickMarksVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -616,12 +616,12 @@ unsafe impl ::windows::core::RuntimeType for IInkPresenterRulerFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{34361beb-9001-4a4b-a690-69dbaf63e501}");
 }
 unsafe impl ::windows::core::Interface for IInkPresenterRulerFactory {
-    type Vtable = IInkPresenterRulerFactoryVtbl;
+    type Vtable = IInkPresenterRulerFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34361beb_9001_4a4b_a690_69dbaf63e501);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkPresenterRulerFactoryVtbl {
+pub struct IInkPresenterRulerFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpresenter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -752,12 +752,12 @@ unsafe impl ::windows::core::RuntimeType for IInkPresenterStencil {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{30d12d6d-3e06-4d02-b116-277fb5d8addc}");
 }
 unsafe impl ::windows::core::Interface for IInkPresenterStencil {
-    type Vtable = IInkPresenterStencilVtbl;
+    type Vtable = IInkPresenterStencil_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30d12d6d_3e06_4d02_b116_277fb5d8addc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkPresenterStencilVtbl {
+pub struct IInkPresenterStencil_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InkPresenterStencilKind) -> ::windows::core::HRESULT,
     pub IsVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -779,12 +779,12 @@ pub struct IInkPresenterStencilVtbl {
 #[repr(transparent)]
 pub struct IInkRecognitionResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkRecognitionResult {
-    type Vtable = IInkRecognitionResultVtbl;
+    type Vtable = IInkRecognitionResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36461a94_5068_40ef_8a05_2c2fb60908a2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkRecognitionResultVtbl {
+pub struct IInkRecognitionResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub BoundingRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
@@ -803,12 +803,12 @@ pub struct IInkRecognitionResultVtbl {
 #[repr(transparent)]
 pub struct IInkRecognizer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkRecognizer {
-    type Vtable = IInkRecognizerVtbl;
+    type Vtable = IInkRecognizer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x077ccea3_904d_442a_b151_aaca3631c43b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkRecognizerVtbl {
+pub struct IInkRecognizer_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -900,12 +900,12 @@ unsafe impl ::windows::core::RuntimeType for IInkRecognizerContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a74d9a31-8047-4698-a912-f82a5085012f}");
 }
 unsafe impl ::windows::core::Interface for IInkRecognizerContainer {
-    type Vtable = IInkRecognizerContainerVtbl;
+    type Vtable = IInkRecognizerContainer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa74d9a31_8047_4698_a912_f82a5085012f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkRecognizerContainerVtbl {
+pub struct IInkRecognizerContainer_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetDefaultRecognizer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recognizer: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -921,12 +921,12 @@ pub struct IInkRecognizerContainerVtbl {
 #[repr(transparent)]
 pub struct IInkStroke(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkStroke {
-    type Vtable = IInkStrokeVtbl;
+    type Vtable = IInkStroke_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15144d60_cce3_4fcf_9d52_11518ab6afd4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkStrokeVtbl {
+pub struct IInkStroke_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DrawingAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetDrawingAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -947,12 +947,12 @@ pub struct IInkStrokeVtbl {
 #[repr(transparent)]
 pub struct IInkStroke2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkStroke2 {
-    type Vtable = IInkStroke2Vtbl;
+    type Vtable = IInkStroke2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5db9e4f4_bafa_4de1_89d3_201b1ed7d89b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkStroke2Vtbl {
+pub struct IInkStroke2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub PointTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT,
@@ -971,12 +971,12 @@ pub struct IInkStroke2Vtbl {
 #[repr(transparent)]
 pub struct IInkStroke3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkStroke3 {
-    type Vtable = IInkStroke3Vtbl;
+    type Vtable = IInkStroke3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a807374_9499_411d_a1c4_68855d03d65f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkStroke3Vtbl {
+pub struct IInkStroke3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1000,12 +1000,12 @@ pub struct IInkStroke3Vtbl {
 #[repr(transparent)]
 pub struct IInkStroke4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkStroke4 {
-    type Vtable = IInkStroke4Vtbl;
+    type Vtable = IInkStroke4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd5b62e5_b6e9_5b91_a577_1921d2348690);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkStroke4Vtbl {
+pub struct IInkStroke4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PointerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -1013,12 +1013,12 @@ pub struct IInkStroke4Vtbl {
 #[repr(transparent)]
 pub struct IInkStrokeBuilder(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkStrokeBuilder {
-    type Vtable = IInkStrokeBuilderVtbl;
+    type Vtable = IInkStrokeBuilder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82bbd1dc_1c63_41dc_9e07_4b4a70ced801);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkStrokeBuilderVtbl {
+pub struct IInkStrokeBuilder_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub BeginStroke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointerpoint: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AppendToStroke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointerpoint: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1033,12 +1033,12 @@ pub struct IInkStrokeBuilderVtbl {
 #[repr(transparent)]
 pub struct IInkStrokeBuilder2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkStrokeBuilder2 {
-    type Vtable = IInkStrokeBuilder2Vtbl;
+    type Vtable = IInkStrokeBuilder2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd82bc27_731f_4cbc_bbbf_6d468044f1e5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkStrokeBuilder2Vtbl {
+pub struct IInkStrokeBuilder2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Foundation_Numerics"))]
     pub CreateStrokeFromInkPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpoints: ::windows::core::RawPtr, transform: super::super::super::Foundation::Numerics::Matrix3x2, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1049,12 +1049,12 @@ pub struct IInkStrokeBuilder2Vtbl {
 #[repr(transparent)]
 pub struct IInkStrokeBuilder3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkStrokeBuilder3 {
-    type Vtable = IInkStrokeBuilder3Vtbl;
+    type Vtable = IInkStrokeBuilder3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2c71fcd_5472_46b1_a81d_c37a3d169441);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkStrokeBuilder3Vtbl {
+pub struct IInkStrokeBuilder3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics"))]
     pub CreateStrokeFromInkPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpoints: ::windows::core::RawPtr, transform: super::super::super::Foundation::Numerics::Matrix3x2, strokestartedtime: ::windows::core::RawPtr, strokeduration: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1240,12 +1240,12 @@ unsafe impl ::windows::core::RuntimeType for IInkStrokeContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{22accbc6-faa9-4f14-b68c-f6cee670ae16}");
 }
 unsafe impl ::windows::core::Interface for IInkStrokeContainer {
-    type Vtable = IInkStrokeContainerVtbl;
+    type Vtable = IInkStrokeContainer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22accbc6_faa9_4f14_b68c_f6cee670ae16);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkStrokeContainerVtbl {
+pub struct IInkStrokeContainer_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub BoundingRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
@@ -1299,12 +1299,12 @@ pub struct IInkStrokeContainerVtbl {
 #[repr(transparent)]
 pub struct IInkStrokeContainer2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkStrokeContainer2 {
-    type Vtable = IInkStrokeContainer2Vtbl;
+    type Vtable = IInkStrokeContainer2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8901d364_da36_4bcf_9e5c_d195825995b4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkStrokeContainer2Vtbl {
+pub struct IInkStrokeContainer2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub AddStrokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1316,12 +1316,12 @@ pub struct IInkStrokeContainer2Vtbl {
 #[repr(transparent)]
 pub struct IInkStrokeContainer3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkStrokeContainer3 {
-    type Vtable = IInkStrokeContainer3Vtbl;
+    type Vtable = IInkStrokeContainer3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d07bea5_baea_4c82_a719_7b83da1067d2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkStrokeContainer3Vtbl {
+pub struct IInkStrokeContainer3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub SaveWithFormatAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, inkpersistenceformat: InkPersistenceFormat, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1333,12 +1333,12 @@ pub struct IInkStrokeContainer3Vtbl {
 #[repr(transparent)]
 pub struct IInkStrokeInput(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkStrokeInput {
-    type Vtable = IInkStrokeInputVtbl;
+    type Vtable = IInkStrokeInput_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf2ffe7b_5e10_43c6_a080_88f26e1dc67d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkStrokeInputVtbl {
+pub struct IInkStrokeInput_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
     pub StrokeStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -1378,12 +1378,12 @@ pub struct IInkStrokeInputVtbl {
 #[repr(transparent)]
 pub struct IInkStrokeRenderingSegment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkStrokeRenderingSegment {
-    type Vtable = IInkStrokeRenderingSegmentVtbl;
+    type Vtable = IInkStrokeRenderingSegment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68510f1f_88e3_477a_a2fa_569f5f1f9bd5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkStrokeRenderingSegmentVtbl {
+pub struct IInkStrokeRenderingSegment_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
@@ -1406,12 +1406,12 @@ pub struct IInkStrokeRenderingSegmentVtbl {
 #[repr(transparent)]
 pub struct IInkStrokesCollectedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkStrokesCollectedEventArgs {
-    type Vtable = IInkStrokesCollectedEventArgsVtbl;
+    type Vtable = IInkStrokesCollectedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4f3f229_1938_495c_b4d9_6de4b08d4811);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkStrokesCollectedEventArgsVtbl {
+pub struct IInkStrokesCollectedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Strokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1422,12 +1422,12 @@ pub struct IInkStrokesCollectedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IInkStrokesErasedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkStrokesErasedEventArgs {
-    type Vtable = IInkStrokesErasedEventArgsVtbl;
+    type Vtable = IInkStrokesErasedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4216a22_1503_4ebf_8ff5_2de84584a8aa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkStrokesErasedEventArgsVtbl {
+pub struct IInkStrokesErasedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Strokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1438,12 +1438,12 @@ pub struct IInkStrokesErasedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IInkSynchronizer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkSynchronizer {
-    type Vtable = IInkSynchronizerVtbl;
+    type Vtable = IInkSynchronizer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b9ea160_ae9b_45f9_8407_4b493b163661);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkSynchronizerVtbl {
+pub struct IInkSynchronizer_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub BeginDry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1455,12 +1455,12 @@ pub struct IInkSynchronizerVtbl {
 #[repr(transparent)]
 pub struct IInkUnprocessedInput(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkUnprocessedInput {
-    type Vtable = IInkUnprocessedInputVtbl;
+    type Vtable = IInkUnprocessedInput_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb4445e0_8398_4921_ac3b_ab978c5ba256);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkUnprocessedInputVtbl {
+pub struct IInkUnprocessedInput_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
     pub PointerEntered: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -1524,12 +1524,12 @@ pub struct IInkUnprocessedInputVtbl {
 #[repr(transparent)]
 pub struct IPenAndInkSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPenAndInkSettings {
-    type Vtable = IPenAndInkSettingsVtbl;
+    type Vtable = IPenAndInkSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc2ceb8f_0066_44a8_bb7a_b839b3deb8f5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPenAndInkSettingsVtbl {
+pub struct IPenAndInkSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsHandwritingDirectlyIntoTextFieldEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub PenHandedness: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PenHandedness) -> ::windows::core::HRESULT,
@@ -1542,12 +1542,12 @@ pub struct IPenAndInkSettingsVtbl {
 #[repr(transparent)]
 pub struct IPenAndInkSettings2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPenAndInkSettings2 {
-    type Vtable = IPenAndInkSettings2Vtbl;
+    type Vtable = IPenAndInkSettings2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3262da53_1f44_55e2_9929_ebf77e5481b8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPenAndInkSettings2Vtbl {
+pub struct IPenAndInkSettings2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetPenHandedness: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: PenHandedness) -> ::windows::core::HRESULT,
 }
@@ -1555,12 +1555,12 @@ pub struct IPenAndInkSettings2Vtbl {
 #[repr(transparent)]
 pub struct IPenAndInkSettingsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPenAndInkSettingsStatics {
-    type Vtable = IPenAndInkSettingsStaticsVtbl;
+    type Vtable = IPenAndInkSettingsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed6dd036_5708_5c3c_96db_f2f552eab641);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPenAndInkSettingsStaticsVtbl {
+pub struct IPenAndInkSettingsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1740,7 +1740,7 @@ unsafe impl ::windows::core::RuntimeType for InkDrawingAttributes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkDrawingAttributes;{97a2176c-6774-48ad-84f0-48f5a9be74f9})");
 }
 unsafe impl ::windows::core::Interface for InkDrawingAttributes {
-    type Vtable = IInkDrawingAttributesVtbl;
+    type Vtable = IInkDrawingAttributes_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97a2176c_6774_48ad_84f0_48f5a9be74f9);
 }
 impl ::windows::core::RuntimeName for InkDrawingAttributes {
@@ -1859,7 +1859,7 @@ unsafe impl ::windows::core::RuntimeType for InkDrawingAttributesPencilPropertie
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkDrawingAttributesPencilProperties;{4f2534cb-2d86-41bb-b0e8-e4c2a0253c52})");
 }
 unsafe impl ::windows::core::Interface for InkDrawingAttributesPencilProperties {
-    type Vtable = IInkDrawingAttributesPencilPropertiesVtbl;
+    type Vtable = IInkDrawingAttributesPencilProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f2534cb_2d86_41bb_b0e8_e4c2a0253c52);
 }
 impl ::windows::core::RuntimeName for InkDrawingAttributesPencilProperties {
@@ -2005,7 +2005,7 @@ unsafe impl ::windows::core::RuntimeType for InkInputConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkInputConfiguration;{93a68dc4-0b7b-49d7-b34f-9901e524dcf2})");
 }
 unsafe impl ::windows::core::Interface for InkInputConfiguration {
-    type Vtable = IInkInputConfigurationVtbl;
+    type Vtable = IInkInputConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93a68dc4_0b7b_49d7_b34f_9901e524dcf2);
 }
 impl ::windows::core::RuntimeName for InkInputConfiguration {
@@ -2104,7 +2104,7 @@ unsafe impl ::windows::core::RuntimeType for InkInputProcessingConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkInputProcessingConfiguration;{2778d85e-33ca-4b06-a6d3-ac3945116d37})");
 }
 unsafe impl ::windows::core::Interface for InkInputProcessingConfiguration {
-    type Vtable = IInkInputProcessingConfigurationVtbl;
+    type Vtable = IInkInputProcessingConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2778d85e_33ca_4b06_a6d3_ac3945116d37);
 }
 impl ::windows::core::RuntimeName for InkInputProcessingConfiguration {
@@ -2437,7 +2437,7 @@ unsafe impl ::windows::core::RuntimeType for InkManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkManager;{4744737d-671b-4163-9c95-4e8d7a035fe1})");
 }
 unsafe impl ::windows::core::Interface for InkManager {
-    type Vtable = IInkManagerVtbl;
+    type Vtable = IInkManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4744737d_671b_4163_9c95_4e8d7a035fe1);
 }
 impl ::windows::core::RuntimeName for InkManager {
@@ -2627,7 +2627,7 @@ unsafe impl ::windows::core::RuntimeType for InkModelerAttributes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkModelerAttributes;{bad31f27-0cd9-4bfd-b6f3-9e03ba8d7454})");
 }
 unsafe impl ::windows::core::Interface for InkModelerAttributes {
-    type Vtable = IInkModelerAttributesVtbl;
+    type Vtable = IInkModelerAttributes_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad31f27_0cd9_4bfd_b6f3_9e03ba8d7454);
 }
 impl ::windows::core::RuntimeName for InkModelerAttributes {
@@ -2800,7 +2800,7 @@ unsafe impl ::windows::core::RuntimeType for InkPoint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkPoint;{9f87272b-858c-46a5-9b41-d195970459fd})");
 }
 unsafe impl ::windows::core::Interface for InkPoint {
-    type Vtable = IInkPointVtbl;
+    type Vtable = IInkPoint_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f87272b_858c_46a5_9b41_d195970459fd);
 }
 impl ::windows::core::RuntimeName for InkPoint {
@@ -3015,7 +3015,7 @@ unsafe impl ::windows::core::RuntimeType for InkPresenter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkPresenter;{a69b70e2-887b-458f-b173-4fe4438930a3})");
 }
 unsafe impl ::windows::core::Interface for InkPresenter {
-    type Vtable = IInkPresenterVtbl;
+    type Vtable = IInkPresenter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa69b70e2_887b_458f_b173_4fe4438930a3);
 }
 impl ::windows::core::RuntimeName for InkPresenter {
@@ -3286,7 +3286,7 @@ unsafe impl ::windows::core::RuntimeType for InkPresenterProtractor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkPresenterProtractor;{7de3f2aa-ef6c-4e91-a73b-5b70d56fbd17})");
 }
 unsafe impl ::windows::core::Interface for InkPresenterProtractor {
-    type Vtable = IInkPresenterProtractorVtbl;
+    type Vtable = IInkPresenterProtractor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7de3f2aa_ef6c_4e91_a73b_5b70d56fbd17);
 }
 impl ::windows::core::RuntimeName for InkPresenterProtractor {
@@ -3507,7 +3507,7 @@ unsafe impl ::windows::core::RuntimeType for InkPresenterRuler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkPresenterRuler;{6cda7d5a-dec7-4dd7-877a-2133f183d48a})");
 }
 unsafe impl ::windows::core::Interface for InkPresenterRuler {
-    type Vtable = IInkPresenterRulerVtbl;
+    type Vtable = IInkPresenterRuler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cda7d5a_dec7_4dd7_877a_2133f183d48a);
 }
 impl ::windows::core::RuntimeName for InkPresenterRuler {
@@ -3663,7 +3663,7 @@ unsafe impl ::windows::core::RuntimeType for InkRecognitionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkRecognitionResult;{36461a94-5068-40ef-8a05-2c2fb60908a2})");
 }
 unsafe impl ::windows::core::Interface for InkRecognitionResult {
-    type Vtable = IInkRecognitionResultVtbl;
+    type Vtable = IInkRecognitionResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36461a94_5068_40ef_8a05_2c2fb60908a2);
 }
 impl ::windows::core::RuntimeName for InkRecognitionResult {
@@ -3778,7 +3778,7 @@ unsafe impl ::windows::core::RuntimeType for InkRecognizer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkRecognizer;{077ccea3-904d-442a-b151-aaca3631c43b})");
 }
 unsafe impl ::windows::core::Interface for InkRecognizer {
-    type Vtable = IInkRecognizerVtbl;
+    type Vtable = IInkRecognizer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x077ccea3_904d_442a_b151_aaca3631c43b);
 }
 impl ::windows::core::RuntimeName for InkRecognizer {
@@ -3879,7 +3879,7 @@ unsafe impl ::windows::core::RuntimeType for InkRecognizerContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkRecognizerContainer;{a74d9a31-8047-4698-a912-f82a5085012f})");
 }
 unsafe impl ::windows::core::Interface for InkRecognizerContainer {
-    type Vtable = IInkRecognizerContainerVtbl;
+    type Vtable = IInkRecognizerContainer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa74d9a31_8047_4698_a912_f82a5085012f);
 }
 impl ::windows::core::RuntimeName for InkRecognizerContainer {
@@ -4102,7 +4102,7 @@ unsafe impl ::windows::core::RuntimeType for InkStroke {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStroke;{15144d60-cce3-4fcf-9d52-11518ab6afd4})");
 }
 unsafe impl ::windows::core::Interface for InkStroke {
-    type Vtable = IInkStrokeVtbl;
+    type Vtable = IInkStroke_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15144d60_cce3_4fcf_9d52_11518ab6afd4);
 }
 impl ::windows::core::RuntimeName for InkStroke {
@@ -4235,7 +4235,7 @@ unsafe impl ::windows::core::RuntimeType for InkStrokeBuilder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeBuilder;{82bbd1dc-1c63-41dc-9e07-4b4a70ced801})");
 }
 unsafe impl ::windows::core::Interface for InkStrokeBuilder {
-    type Vtable = IInkStrokeBuilderVtbl;
+    type Vtable = IInkStrokeBuilder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82bbd1dc_1c63_41dc_9e07_4b4a70ced801);
 }
 impl ::windows::core::RuntimeName for InkStrokeBuilder {
@@ -4455,7 +4455,7 @@ unsafe impl ::windows::core::RuntimeType for InkStrokeContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeContainer;{22accbc6-faa9-4f14-b68c-f6cee670ae16})");
 }
 unsafe impl ::windows::core::Interface for InkStrokeContainer {
-    type Vtable = IInkStrokeContainerVtbl;
+    type Vtable = IInkStrokeContainer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22accbc6_faa9_4f14_b68c_f6cee670ae16);
 }
 impl ::windows::core::RuntimeName for InkStrokeContainer {
@@ -4616,7 +4616,7 @@ unsafe impl ::windows::core::RuntimeType for InkStrokeInput {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeInput;{cf2ffe7b-5e10-43c6-a080-88f26e1dc67d})");
 }
 unsafe impl ::windows::core::Interface for InkStrokeInput {
-    type Vtable = IInkStrokeInputVtbl;
+    type Vtable = IInkStrokeInput_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf2ffe7b_5e10_43c6_a080_88f26e1dc67d);
 }
 impl ::windows::core::RuntimeName for InkStrokeInput {
@@ -4748,7 +4748,7 @@ unsafe impl ::windows::core::RuntimeType for InkStrokeRenderingSegment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeRenderingSegment;{68510f1f-88e3-477a-a2fa-569f5f1f9bd5})");
 }
 unsafe impl ::windows::core::Interface for InkStrokeRenderingSegment {
-    type Vtable = IInkStrokeRenderingSegmentVtbl;
+    type Vtable = IInkStrokeRenderingSegment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68510f1f_88e3_477a_a2fa_569f5f1f9bd5);
 }
 impl ::windows::core::RuntimeName for InkStrokeRenderingSegment {
@@ -4830,7 +4830,7 @@ unsafe impl ::windows::core::RuntimeType for InkStrokesCollectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokesCollectedEventArgs;{c4f3f229-1938-495c-b4d9-6de4b08d4811})");
 }
 unsafe impl ::windows::core::Interface for InkStrokesCollectedEventArgs {
-    type Vtable = IInkStrokesCollectedEventArgsVtbl;
+    type Vtable = IInkStrokesCollectedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4f3f229_1938_495c_b4d9_6de4b08d4811);
 }
 impl ::windows::core::RuntimeName for InkStrokesCollectedEventArgs {
@@ -4910,7 +4910,7 @@ unsafe impl ::windows::core::RuntimeType for InkStrokesErasedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokesErasedEventArgs;{a4216a22-1503-4ebf-8ff5-2de84584a8aa})");
 }
 unsafe impl ::windows::core::Interface for InkStrokesErasedEventArgs {
-    type Vtable = IInkStrokesErasedEventArgsVtbl;
+    type Vtable = IInkStrokesErasedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4216a22_1503_4ebf_8ff5_2de84584a8aa);
 }
 impl ::windows::core::RuntimeName for InkStrokesErasedEventArgs {
@@ -4995,7 +4995,7 @@ unsafe impl ::windows::core::RuntimeType for InkSynchronizer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkSynchronizer;{9b9ea160-ae9b-45f9-8407-4b493b163661})");
 }
 unsafe impl ::windows::core::Interface for InkSynchronizer {
-    type Vtable = IInkSynchronizerVtbl;
+    type Vtable = IInkSynchronizer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b9ea160_ae9b_45f9_8407_4b493b163661);
 }
 impl ::windows::core::RuntimeName for InkSynchronizer {
@@ -5179,7 +5179,7 @@ unsafe impl ::windows::core::RuntimeType for InkUnprocessedInput {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkUnprocessedInput;{db4445e0-8398-4921-ac3b-ab978c5ba256})");
 }
 unsafe impl ::windows::core::Interface for InkUnprocessedInput {
-    type Vtable = IInkUnprocessedInputVtbl;
+    type Vtable = IInkUnprocessedInput_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb4445e0_8398_4921_ac3b_ab978c5ba256);
 }
 impl ::windows::core::RuntimeName for InkUnprocessedInput {
@@ -5317,7 +5317,7 @@ unsafe impl ::windows::core::RuntimeType for PenAndInkSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.PenAndInkSettings;{bc2ceb8f-0066-44a8-bb7a-b839b3deb8f5})");
 }
 unsafe impl ::windows::core::Interface for PenAndInkSettings {
-    type Vtable = IPenAndInkSettingsVtbl;
+    type Vtable = IPenAndInkSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc2ceb8f_0066_44a8_bb7a_b839b3deb8f5);
 }
 impl ::windows::core::RuntimeName for PenAndInkSettings {

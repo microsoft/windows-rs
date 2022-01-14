@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IAddAppointmentOperationImpl: Sized {
+pub trait IAddAppointmentOperation_Impl: Sized {
     fn AppointmentInformation(&mut self) -> ::windows::core::Result<super::Appointment>;
     fn SourcePackageFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ReportCompleted(&mut self, itemid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -12,9 +12,9 @@ impl ::windows::core::RuntimeName for IAddAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.IAddAppointmentOperation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAddAppointmentOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAddAppointmentOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAddAppointmentOperationVtbl {
-        unsafe extern "system" fn AppointmentInformation<Impl: IAddAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAddAppointmentOperation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAddAppointmentOperation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAddAppointmentOperation_Vtbl {
+        unsafe extern "system" fn AppointmentInformation<Impl: IAddAppointmentOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppointmentInformation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -25,7 +25,7 @@ impl IAddAppointmentOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SourcePackageFamilyName<Impl: IAddAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SourcePackageFamilyName<Impl: IAddAppointmentOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourcePackageFamilyName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -36,19 +36,19 @@ impl IAddAppointmentOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompleted<Impl: IAddAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCompleted<Impl: IAddAppointmentOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCompleted(&*(&itemid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ReportCanceled<Impl: IAddAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCanceled<Impl: IAddAppointmentOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCanceled().into()
         }
-        unsafe extern "system" fn ReportError<Impl: IAddAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportError<Impl: IAddAppointmentOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportError(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DismissUI<Impl: IAddAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DismissUI<Impl: IAddAppointmentOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DismissUI().into()
         }
@@ -67,7 +67,7 @@ impl IAddAppointmentOperationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentsProviderLaunchActionVerbsStaticsImpl: Sized {
+pub trait IAppointmentsProviderLaunchActionVerbsStatics_Impl: Sized {
     fn AddAppointment(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ReplaceAppointment(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn RemoveAppointment(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -78,9 +78,9 @@ impl ::windows::core::RuntimeName for IAppointmentsProviderLaunchActionVerbsStat
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.IAppointmentsProviderLaunchActionVerbsStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppointmentsProviderLaunchActionVerbsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentsProviderLaunchActionVerbsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppointmentsProviderLaunchActionVerbsStaticsVtbl {
-        unsafe extern "system" fn AddAppointment<Impl: IAppointmentsProviderLaunchActionVerbsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAppointmentsProviderLaunchActionVerbsStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentsProviderLaunchActionVerbsStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppointmentsProviderLaunchActionVerbsStatics_Vtbl {
+        unsafe extern "system" fn AddAppointment<Impl: IAppointmentsProviderLaunchActionVerbsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddAppointment() {
                 ::core::result::Result::Ok(ok__) => {
@@ -91,7 +91,7 @@ impl IAppointmentsProviderLaunchActionVerbsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReplaceAppointment<Impl: IAppointmentsProviderLaunchActionVerbsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReplaceAppointment<Impl: IAppointmentsProviderLaunchActionVerbsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReplaceAppointment() {
                 ::core::result::Result::Ok(ok__) => {
@@ -102,7 +102,7 @@ impl IAppointmentsProviderLaunchActionVerbsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAppointment<Impl: IAppointmentsProviderLaunchActionVerbsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAppointment<Impl: IAppointmentsProviderLaunchActionVerbsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoveAppointment() {
                 ::core::result::Result::Ok(ok__) => {
@@ -113,7 +113,7 @@ impl IAppointmentsProviderLaunchActionVerbsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShowTimeFrame<Impl: IAppointmentsProviderLaunchActionVerbsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowTimeFrame<Impl: IAppointmentsProviderLaunchActionVerbsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowTimeFrame() {
                 ::core::result::Result::Ok(ok__) => {
@@ -137,7 +137,7 @@ impl IAppointmentsProviderLaunchActionVerbsStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppointmentsProviderLaunchActionVerbsStatics2Impl: Sized {
+pub trait IAppointmentsProviderLaunchActionVerbsStatics2_Impl: Sized {
     fn ShowAppointmentDetails(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -145,9 +145,9 @@ impl ::windows::core::RuntimeName for IAppointmentsProviderLaunchActionVerbsStat
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.IAppointmentsProviderLaunchActionVerbsStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppointmentsProviderLaunchActionVerbsStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentsProviderLaunchActionVerbsStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppointmentsProviderLaunchActionVerbsStatics2Vtbl {
-        unsafe extern "system" fn ShowAppointmentDetails<Impl: IAppointmentsProviderLaunchActionVerbsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAppointmentsProviderLaunchActionVerbsStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppointmentsProviderLaunchActionVerbsStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppointmentsProviderLaunchActionVerbsStatics2_Vtbl {
+        unsafe extern "system" fn ShowAppointmentDetails<Impl: IAppointmentsProviderLaunchActionVerbsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowAppointmentDetails() {
                 ::core::result::Result::Ok(ok__) => {
@@ -168,7 +168,7 @@ impl IAppointmentsProviderLaunchActionVerbsStatics2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IRemoveAppointmentOperationImpl: Sized {
+pub trait IRemoveAppointmentOperation_Impl: Sized {
     fn AppointmentId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn InstanceStartDate(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
     fn SourcePackageFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -182,9 +182,9 @@ impl ::windows::core::RuntimeName for IRemoveAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.IRemoveAppointmentOperation";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IRemoveAppointmentOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoveAppointmentOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoveAppointmentOperationVtbl {
-        unsafe extern "system" fn AppointmentId<Impl: IRemoveAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IRemoveAppointmentOperation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoveAppointmentOperation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoveAppointmentOperation_Vtbl {
+        unsafe extern "system" fn AppointmentId<Impl: IRemoveAppointmentOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppointmentId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -195,7 +195,7 @@ impl IRemoveAppointmentOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InstanceStartDate<Impl: IRemoveAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InstanceStartDate<Impl: IRemoveAppointmentOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InstanceStartDate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -206,7 +206,7 @@ impl IRemoveAppointmentOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SourcePackageFamilyName<Impl: IRemoveAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SourcePackageFamilyName<Impl: IRemoveAppointmentOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourcePackageFamilyName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -217,19 +217,19 @@ impl IRemoveAppointmentOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompleted<Impl: IRemoveAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCompleted<Impl: IRemoveAppointmentOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCompleted().into()
         }
-        unsafe extern "system" fn ReportCanceled<Impl: IRemoveAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCanceled<Impl: IRemoveAppointmentOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCanceled().into()
         }
-        unsafe extern "system" fn ReportError<Impl: IRemoveAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportError<Impl: IRemoveAppointmentOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportError(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DismissUI<Impl: IRemoveAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DismissUI<Impl: IRemoveAppointmentOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DismissUI().into()
         }
@@ -249,7 +249,7 @@ impl IRemoveAppointmentOperationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IReplaceAppointmentOperationImpl: Sized {
+pub trait IReplaceAppointmentOperation_Impl: Sized {
     fn AppointmentId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn AppointmentInformation(&mut self) -> ::windows::core::Result<super::Appointment>;
     fn InstanceStartDate(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
@@ -264,9 +264,9 @@ impl ::windows::core::RuntimeName for IReplaceAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.IReplaceAppointmentOperation";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IReplaceAppointmentOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReplaceAppointmentOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReplaceAppointmentOperationVtbl {
-        unsafe extern "system" fn AppointmentId<Impl: IReplaceAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IReplaceAppointmentOperation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReplaceAppointmentOperation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReplaceAppointmentOperation_Vtbl {
+        unsafe extern "system" fn AppointmentId<Impl: IReplaceAppointmentOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppointmentId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -277,7 +277,7 @@ impl IReplaceAppointmentOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppointmentInformation<Impl: IReplaceAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppointmentInformation<Impl: IReplaceAppointmentOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppointmentInformation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -288,7 +288,7 @@ impl IReplaceAppointmentOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InstanceStartDate<Impl: IReplaceAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InstanceStartDate<Impl: IReplaceAppointmentOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InstanceStartDate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -299,7 +299,7 @@ impl IReplaceAppointmentOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SourcePackageFamilyName<Impl: IReplaceAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SourcePackageFamilyName<Impl: IReplaceAppointmentOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourcePackageFamilyName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -310,19 +310,19 @@ impl IReplaceAppointmentOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompleted<Impl: IReplaceAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCompleted<Impl: IReplaceAppointmentOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCompleted(&*(&itemid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ReportCanceled<Impl: IReplaceAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCanceled<Impl: IReplaceAppointmentOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCanceled().into()
         }
-        unsafe extern "system" fn ReportError<Impl: IReplaceAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportError<Impl: IReplaceAppointmentOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportError(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DismissUI<Impl: IReplaceAppointmentOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DismissUI<Impl: IReplaceAppointmentOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DismissUI().into()
         }

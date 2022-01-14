@@ -3451,12 +3451,12 @@ impl ::core::fmt::Debug for IAVIEditStream {
     }
 }
 unsafe impl ::windows::core::Interface for IAVIEditStream {
-    type Vtable = IAVIEditStreamVtbl;
+    type Vtable = IAVIEditStream_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020024_0000_0000_c000_000000000046);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAVIEditStreamVtbl {
+pub struct IAVIEditStream_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Cut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3538,12 +3538,12 @@ impl ::core::fmt::Debug for IAVIFile {
     }
 }
 unsafe impl ::windows::core::Interface for IAVIFile {
-    type Vtable = IAVIFileVtbl;
+    type Vtable = IAVIFile_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020020_0000_0000_c000_000000000046);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAVIFileVtbl {
+pub struct IAVIFile_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Info: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::core::HRESULT,
     pub GetStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstream: *mut ::windows::core::RawPtr, fcctype: u32, lparam: i32) -> ::windows::core::HRESULT,
@@ -3693,14 +3693,14 @@ impl ::core::fmt::Debug for IAVIPersistFile {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IAVIPersistFile {
-    type Vtable = IAVIPersistFileVtbl;
+    type Vtable = IAVIPersistFile_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020025_0000_0000_c000_000000000046);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAVIPersistFileVtbl {
-    pub base: super::super::System::Com::IPersistFileVtbl,
+pub struct IAVIPersistFile_Vtbl {
+    pub base: super::super::System::Com::IPersistFile_Vtbl,
     pub Reserved1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
@@ -3792,12 +3792,12 @@ impl ::core::fmt::Debug for IAVIStream {
     }
 }
 unsafe impl ::windows::core::Interface for IAVIStream {
-    type Vtable = IAVIStreamVtbl;
+    type Vtable = IAVIStream_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020021_0000_0000_c000_000000000046);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAVIStreamVtbl {
+pub struct IAVIStream_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
@@ -3870,12 +3870,12 @@ impl ::core::fmt::Debug for IAVIStreaming {
     }
 }
 unsafe impl ::windows::core::Interface for IAVIStreaming {
-    type Vtable = IAVIStreamingVtbl;
+    type Vtable = IAVIStreaming_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020022_0000_0000_c000_000000000046);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAVIStreamingVtbl {
+pub struct IAVIStreaming_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Begin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::HRESULT,
     pub End: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -5172,12 +5172,12 @@ impl ::core::fmt::Debug for IGetFrame {
     }
 }
 unsafe impl ::windows::core::Interface for IGetFrame {
-    type Vtable = IGetFrameVtbl;
+    type Vtable = IGetFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020023_0000_0000_c000_000000000046);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGetFrameVtbl {
+pub struct IGetFrame_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpos: i32) -> *mut ::core::ffi::c_void,
     pub Begin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::HRESULT,

@@ -1,12 +1,12 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IAddDeleteThemeTransitionImpl: Sized {}
+pub trait IAddDeleteThemeTransition_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAddDeleteThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IAddDeleteThemeTransition";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAddDeleteThemeTransitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAddDeleteThemeTransitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAddDeleteThemeTransitionVtbl {
+impl IAddDeleteThemeTransition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAddDeleteThemeTransition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAddDeleteThemeTransition_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAddDeleteThemeTransition, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -14,7 +14,7 @@ impl IAddDeleteThemeTransitionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBackEaseImpl: Sized {
+pub trait IBackEase_Impl: Sized {
     fn Amplitude(&mut self) -> ::windows::core::Result<f64>;
     fn SetAmplitude(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
@@ -23,9 +23,9 @@ impl ::windows::core::RuntimeName for IBackEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IBackEase";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBackEaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackEaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackEaseVtbl {
-        unsafe extern "system" fn Amplitude<Impl: IBackEaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+impl IBackEase_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackEase_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackEase_Vtbl {
+        unsafe extern "system" fn Amplitude<Impl: IBackEase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Amplitude() {
                 ::core::result::Result::Ok(ok__) => {
@@ -36,7 +36,7 @@ impl IBackEaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAmplitude<Impl: IBackEaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAmplitude<Impl: IBackEase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAmplitude(value).into()
         }
@@ -51,7 +51,7 @@ impl IBackEaseVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBackEaseStaticsImpl: Sized {
+pub trait IBackEaseStatics_Impl: Sized {
     fn AmplitudeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -59,9 +59,9 @@ impl ::windows::core::RuntimeName for IBackEaseStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IBackEaseStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBackEaseStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackEaseStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackEaseStaticsVtbl {
-        unsafe extern "system" fn AmplitudeProperty<Impl: IBackEaseStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBackEaseStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackEaseStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackEaseStatics_Vtbl {
+        unsafe extern "system" fn AmplitudeProperty<Impl: IBackEaseStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AmplitudeProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -82,14 +82,14 @@ impl IBackEaseStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBasicConnectedAnimationConfigurationImpl: Sized {}
+pub trait IBasicConnectedAnimationConfiguration_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IBasicConnectedAnimationConfiguration {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IBasicConnectedAnimationConfiguration";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBasicConnectedAnimationConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBasicConnectedAnimationConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBasicConnectedAnimationConfigurationVtbl {
+impl IBasicConnectedAnimationConfiguration_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBasicConnectedAnimationConfiguration_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBasicConnectedAnimationConfiguration_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IBasicConnectedAnimationConfiguration, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -97,7 +97,7 @@ impl IBasicConnectedAnimationConfigurationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBasicConnectedAnimationConfigurationFactoryImpl: Sized {
+pub trait IBasicConnectedAnimationConfigurationFactory_Impl: Sized {
     fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<BasicConnectedAnimationConfiguration>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -105,9 +105,9 @@ impl ::windows::core::RuntimeName for IBasicConnectedAnimationConfigurationFacto
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IBasicConnectedAnimationConfigurationFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBasicConnectedAnimationConfigurationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBasicConnectedAnimationConfigurationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBasicConnectedAnimationConfigurationFactoryVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: IBasicConnectedAnimationConfigurationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBasicConnectedAnimationConfigurationFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBasicConnectedAnimationConfigurationFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBasicConnectedAnimationConfigurationFactory_Vtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IBasicConnectedAnimationConfigurationFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -128,7 +128,7 @@ impl IBasicConnectedAnimationConfigurationFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBeginStoryboardImpl: Sized {
+pub trait IBeginStoryboard_Impl: Sized {
     fn Storyboard(&mut self) -> ::windows::core::Result<Storyboard>;
     fn SetStoryboard(&mut self, value: &::core::option::Option<Storyboard>) -> ::windows::core::Result<()>;
 }
@@ -137,9 +137,9 @@ impl ::windows::core::RuntimeName for IBeginStoryboard {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IBeginStoryboard";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBeginStoryboardVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBeginStoryboardImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBeginStoryboardVtbl {
-        unsafe extern "system" fn Storyboard<Impl: IBeginStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBeginStoryboard_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBeginStoryboard_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBeginStoryboard_Vtbl {
+        unsafe extern "system" fn Storyboard<Impl: IBeginStoryboard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Storyboard() {
                 ::core::result::Result::Ok(ok__) => {
@@ -150,7 +150,7 @@ impl IBeginStoryboardVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStoryboard<Impl: IBeginStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStoryboard<Impl: IBeginStoryboard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStoryboard(&*(&value as *const <Storyboard as ::windows::core::Abi>::Abi as *const <Storyboard as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -165,7 +165,7 @@ impl IBeginStoryboardVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBeginStoryboardStaticsImpl: Sized {
+pub trait IBeginStoryboardStatics_Impl: Sized {
     fn StoryboardProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -173,9 +173,9 @@ impl ::windows::core::RuntimeName for IBeginStoryboardStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IBeginStoryboardStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBeginStoryboardStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBeginStoryboardStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBeginStoryboardStaticsVtbl {
-        unsafe extern "system" fn StoryboardProperty<Impl: IBeginStoryboardStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBeginStoryboardStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBeginStoryboardStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBeginStoryboardStatics_Vtbl {
+        unsafe extern "system" fn StoryboardProperty<Impl: IBeginStoryboardStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StoryboardProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -196,7 +196,7 @@ impl IBeginStoryboardStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBounceEaseImpl: Sized {
+pub trait IBounceEase_Impl: Sized {
     fn Bounces(&mut self) -> ::windows::core::Result<i32>;
     fn SetBounces(&mut self, value: i32) -> ::windows::core::Result<()>;
     fn Bounciness(&mut self) -> ::windows::core::Result<f64>;
@@ -207,9 +207,9 @@ impl ::windows::core::RuntimeName for IBounceEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IBounceEase";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBounceEaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBounceEaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBounceEaseVtbl {
-        unsafe extern "system" fn Bounces<Impl: IBounceEaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IBounceEase_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBounceEase_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBounceEase_Vtbl {
+        unsafe extern "system" fn Bounces<Impl: IBounceEase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bounces() {
                 ::core::result::Result::Ok(ok__) => {
@@ -220,11 +220,11 @@ impl IBounceEaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBounces<Impl: IBounceEaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBounces<Impl: IBounceEase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBounces(value).into()
         }
-        unsafe extern "system" fn Bounciness<Impl: IBounceEaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Bounciness<Impl: IBounceEase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bounciness() {
                 ::core::result::Result::Ok(ok__) => {
@@ -235,7 +235,7 @@ impl IBounceEaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBounciness<Impl: IBounceEaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBounciness<Impl: IBounceEase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBounciness(value).into()
         }
@@ -252,7 +252,7 @@ impl IBounceEaseVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBounceEaseStaticsImpl: Sized {
+pub trait IBounceEaseStatics_Impl: Sized {
     fn BouncesProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn BouncinessProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
@@ -261,9 +261,9 @@ impl ::windows::core::RuntimeName for IBounceEaseStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IBounceEaseStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBounceEaseStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBounceEaseStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBounceEaseStaticsVtbl {
-        unsafe extern "system" fn BouncesProperty<Impl: IBounceEaseStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBounceEaseStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBounceEaseStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBounceEaseStatics_Vtbl {
+        unsafe extern "system" fn BouncesProperty<Impl: IBounceEaseStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BouncesProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -274,7 +274,7 @@ impl IBounceEaseStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BouncinessProperty<Impl: IBounceEaseStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BouncinessProperty<Impl: IBounceEaseStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BouncinessProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -296,14 +296,14 @@ impl IBounceEaseStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICircleEaseImpl: Sized {}
+pub trait ICircleEase_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICircleEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ICircleEase";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICircleEaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICircleEaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICircleEaseVtbl {
+impl ICircleEase_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICircleEase_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICircleEase_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICircleEase, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -311,7 +311,7 @@ impl ICircleEaseVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IColorAnimationImpl: Sized {
+pub trait IColorAnimation_Impl: Sized {
     fn From(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::Color>>;
     fn SetFrom(&mut self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<super::super::super::Color>>) -> ::windows::core::Result<()>;
     fn To(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::Color>>;
@@ -328,9 +328,9 @@ impl ::windows::core::RuntimeName for IColorAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IColorAnimation";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IColorAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorAnimationVtbl {
-        unsafe extern "system" fn From<Impl: IColorAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IColorAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorAnimation_Vtbl {
+        unsafe extern "system" fn From<Impl: IColorAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).From() {
                 ::core::result::Result::Ok(ok__) => {
@@ -341,11 +341,11 @@ impl IColorAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFrom<Impl: IColorAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFrom<Impl: IColorAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFrom(&*(&value as *const <super::super::super::super::Foundation::IReference<super::super::super::Color> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::IReference<super::super::super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn To<Impl: IColorAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn To<Impl: IColorAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).To() {
                 ::core::result::Result::Ok(ok__) => {
@@ -356,11 +356,11 @@ impl IColorAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTo<Impl: IColorAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTo<Impl: IColorAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTo(&*(&value as *const <super::super::super::super::Foundation::IReference<super::super::super::Color> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::IReference<super::super::super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn By<Impl: IColorAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn By<Impl: IColorAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).By() {
                 ::core::result::Result::Ok(ok__) => {
@@ -371,11 +371,11 @@ impl IColorAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBy<Impl: IColorAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBy<Impl: IColorAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBy(&*(&value as *const <super::super::super::super::Foundation::IReference<super::super::super::Color> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::IReference<super::super::super::Color> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EasingFunction<Impl: IColorAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EasingFunction<Impl: IColorAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EasingFunction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -386,11 +386,11 @@ impl IColorAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEasingFunction<Impl: IColorAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEasingFunction<Impl: IColorAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEasingFunction(&*(&value as *const <EasingFunctionBase as ::windows::core::Abi>::Abi as *const <EasingFunctionBase as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EnableDependentAnimation<Impl: IColorAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableDependentAnimation<Impl: IColorAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableDependentAnimation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -401,7 +401,7 @@ impl IColorAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEnableDependentAnimation<Impl: IColorAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnableDependentAnimation<Impl: IColorAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnableDependentAnimation(value).into()
         }
@@ -424,7 +424,7 @@ impl IColorAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IColorAnimationStaticsImpl: Sized {
+pub trait IColorAnimationStatics_Impl: Sized {
     fn FromProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn ToProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn ByProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
@@ -436,9 +436,9 @@ impl ::windows::core::RuntimeName for IColorAnimationStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IColorAnimationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IColorAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorAnimationStaticsVtbl {
-        unsafe extern "system" fn FromProperty<Impl: IColorAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IColorAnimationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorAnimationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorAnimationStatics_Vtbl {
+        unsafe extern "system" fn FromProperty<Impl: IColorAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -449,7 +449,7 @@ impl IColorAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ToProperty<Impl: IColorAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToProperty<Impl: IColorAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -460,7 +460,7 @@ impl IColorAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ByProperty<Impl: IColorAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ByProperty<Impl: IColorAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ByProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -471,7 +471,7 @@ impl IColorAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EasingFunctionProperty<Impl: IColorAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EasingFunctionProperty<Impl: IColorAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EasingFunctionProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -482,7 +482,7 @@ impl IColorAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableDependentAnimationProperty<Impl: IColorAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableDependentAnimationProperty<Impl: IColorAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableDependentAnimationProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -507,7 +507,7 @@ impl IColorAnimationStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IColorAnimationUsingKeyFramesImpl: Sized {
+pub trait IColorAnimationUsingKeyFrames_Impl: Sized {
     fn KeyFrames(&mut self) -> ::windows::core::Result<ColorKeyFrameCollection>;
     fn EnableDependentAnimation(&mut self) -> ::windows::core::Result<bool>;
     fn SetEnableDependentAnimation(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -517,9 +517,9 @@ impl ::windows::core::RuntimeName for IColorAnimationUsingKeyFrames {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IColorAnimationUsingKeyFrames";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IColorAnimationUsingKeyFramesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorAnimationUsingKeyFramesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorAnimationUsingKeyFramesVtbl {
-        unsafe extern "system" fn KeyFrames<Impl: IColorAnimationUsingKeyFramesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IColorAnimationUsingKeyFrames_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorAnimationUsingKeyFrames_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorAnimationUsingKeyFrames_Vtbl {
+        unsafe extern "system" fn KeyFrames<Impl: IColorAnimationUsingKeyFrames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyFrames() {
                 ::core::result::Result::Ok(ok__) => {
@@ -530,7 +530,7 @@ impl IColorAnimationUsingKeyFramesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableDependentAnimation<Impl: IColorAnimationUsingKeyFramesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableDependentAnimation<Impl: IColorAnimationUsingKeyFrames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableDependentAnimation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -541,7 +541,7 @@ impl IColorAnimationUsingKeyFramesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEnableDependentAnimation<Impl: IColorAnimationUsingKeyFramesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnableDependentAnimation<Impl: IColorAnimationUsingKeyFrames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnableDependentAnimation(value).into()
         }
@@ -557,7 +557,7 @@ impl IColorAnimationUsingKeyFramesVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IColorAnimationUsingKeyFramesStaticsImpl: Sized {
+pub trait IColorAnimationUsingKeyFramesStatics_Impl: Sized {
     fn EnableDependentAnimationProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -565,9 +565,9 @@ impl ::windows::core::RuntimeName for IColorAnimationUsingKeyFramesStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IColorAnimationUsingKeyFramesStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IColorAnimationUsingKeyFramesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorAnimationUsingKeyFramesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorAnimationUsingKeyFramesStaticsVtbl {
-        unsafe extern "system" fn EnableDependentAnimationProperty<Impl: IColorAnimationUsingKeyFramesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IColorAnimationUsingKeyFramesStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorAnimationUsingKeyFramesStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorAnimationUsingKeyFramesStatics_Vtbl {
+        unsafe extern "system" fn EnableDependentAnimationProperty<Impl: IColorAnimationUsingKeyFramesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableDependentAnimationProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -588,7 +588,7 @@ impl IColorAnimationUsingKeyFramesStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IColorKeyFrameImpl: Sized {
+pub trait IColorKeyFrame_Impl: Sized {
     fn Value(&mut self) -> ::windows::core::Result<super::super::super::Color>;
     fn SetValue(&mut self, value: &super::super::super::Color) -> ::windows::core::Result<()>;
     fn KeyTime(&mut self) -> ::windows::core::Result<KeyTime>;
@@ -599,9 +599,9 @@ impl ::windows::core::RuntimeName for IColorKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IColorKeyFrame";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IColorKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorKeyFrameVtbl {
-        unsafe extern "system" fn Value<Impl: IColorKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Color) -> ::windows::core::HRESULT {
+impl IColorKeyFrame_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorKeyFrame_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorKeyFrame_Vtbl {
+        unsafe extern "system" fn Value<Impl: IColorKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -612,11 +612,11 @@ impl IColorKeyFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Impl: IColorKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Impl: IColorKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <super::super::super::Color as ::windows::core::Abi>::Abi as *const <super::super::super::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn KeyTime<Impl: IColorKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut KeyTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KeyTime<Impl: IColorKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut KeyTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -627,7 +627,7 @@ impl IColorKeyFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetKeyTime<Impl: IColorKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: KeyTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetKeyTime<Impl: IColorKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: KeyTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKeyTime(&*(&value as *const <KeyTime as ::windows::core::Abi>::Abi as *const <KeyTime as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -644,7 +644,7 @@ impl IColorKeyFrameVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IColorKeyFrameFactoryImpl: Sized {
+pub trait IColorKeyFrameFactory_Impl: Sized {
     fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ColorKeyFrame>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -652,9 +652,9 @@ impl ::windows::core::RuntimeName for IColorKeyFrameFactory {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IColorKeyFrameFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IColorKeyFrameFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorKeyFrameFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorKeyFrameFactoryVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: IColorKeyFrameFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IColorKeyFrameFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorKeyFrameFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorKeyFrameFactory_Vtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IColorKeyFrameFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -675,7 +675,7 @@ impl IColorKeyFrameFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IColorKeyFrameStaticsImpl: Sized {
+pub trait IColorKeyFrameStatics_Impl: Sized {
     fn ValueProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn KeyTimeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
@@ -684,9 +684,9 @@ impl ::windows::core::RuntimeName for IColorKeyFrameStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IColorKeyFrameStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IColorKeyFrameStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorKeyFrameStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorKeyFrameStaticsVtbl {
-        unsafe extern "system" fn ValueProperty<Impl: IColorKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IColorKeyFrameStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorKeyFrameStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorKeyFrameStatics_Vtbl {
+        unsafe extern "system" fn ValueProperty<Impl: IColorKeyFrameStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ValueProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -697,7 +697,7 @@ impl IColorKeyFrameStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn KeyTimeProperty<Impl: IColorKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KeyTimeProperty<Impl: IColorKeyFrameStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyTimeProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -719,7 +719,7 @@ impl IColorKeyFrameStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICommonNavigationTransitionInfoImpl: Sized {
+pub trait ICommonNavigationTransitionInfo_Impl: Sized {
     fn IsStaggeringEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsStaggeringEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
@@ -728,9 +728,9 @@ impl ::windows::core::RuntimeName for ICommonNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ICommonNavigationTransitionInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICommonNavigationTransitionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommonNavigationTransitionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommonNavigationTransitionInfoVtbl {
-        unsafe extern "system" fn IsStaggeringEnabled<Impl: ICommonNavigationTransitionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ICommonNavigationTransitionInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommonNavigationTransitionInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommonNavigationTransitionInfo_Vtbl {
+        unsafe extern "system" fn IsStaggeringEnabled<Impl: ICommonNavigationTransitionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStaggeringEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -741,7 +741,7 @@ impl ICommonNavigationTransitionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsStaggeringEnabled<Impl: ICommonNavigationTransitionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsStaggeringEnabled<Impl: ICommonNavigationTransitionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsStaggeringEnabled(value).into()
         }
@@ -756,7 +756,7 @@ impl ICommonNavigationTransitionInfoVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICommonNavigationTransitionInfoStaticsImpl: Sized {
+pub trait ICommonNavigationTransitionInfoStatics_Impl: Sized {
     fn IsStaggeringEnabledProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn IsStaggerElementProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn GetIsStaggerElement(&mut self, element: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<bool>;
@@ -767,9 +767,9 @@ impl ::windows::core::RuntimeName for ICommonNavigationTransitionInfoStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ICommonNavigationTransitionInfoStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICommonNavigationTransitionInfoStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommonNavigationTransitionInfoStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommonNavigationTransitionInfoStaticsVtbl {
-        unsafe extern "system" fn IsStaggeringEnabledProperty<Impl: ICommonNavigationTransitionInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICommonNavigationTransitionInfoStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommonNavigationTransitionInfoStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommonNavigationTransitionInfoStatics_Vtbl {
+        unsafe extern "system" fn IsStaggeringEnabledProperty<Impl: ICommonNavigationTransitionInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStaggeringEnabledProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -780,7 +780,7 @@ impl ICommonNavigationTransitionInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsStaggerElementProperty<Impl: ICommonNavigationTransitionInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStaggerElementProperty<Impl: ICommonNavigationTransitionInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStaggerElementProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -791,7 +791,7 @@ impl ICommonNavigationTransitionInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIsStaggerElement<Impl: ICommonNavigationTransitionInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIsStaggerElement<Impl: ICommonNavigationTransitionInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIsStaggerElement(&*(&element as *const <super::super::UIElement as ::windows::core::Abi>::Abi as *const <super::super::UIElement as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -802,7 +802,7 @@ impl ICommonNavigationTransitionInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsStaggerElement<Impl: ICommonNavigationTransitionInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsStaggerElement<Impl: ICommonNavigationTransitionInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsStaggerElement(&*(&element as *const <super::super::UIElement as ::windows::core::Abi>::Abi as *const <super::super::UIElement as ::windows::core::DefaultType>::DefaultType), value).into()
         }
@@ -819,7 +819,7 @@ impl ICommonNavigationTransitionInfoStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IConnectedAnimationImpl: Sized {
+pub trait IConnectedAnimation_Impl: Sized {
     fn Completed(&mut self, handler: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<ConnectedAnimation, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveCompleted(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn TryStart(&mut self, destination: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<bool>;
@@ -830,9 +830,9 @@ impl ::windows::core::RuntimeName for IConnectedAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IConnectedAnimation";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IConnectedAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectedAnimationVtbl {
-        unsafe extern "system" fn Completed<Impl: IConnectedAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IConnectedAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectedAnimation_Vtbl {
+        unsafe extern "system" fn Completed<Impl: IConnectedAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Completed(&*(&handler as *const <super::super::super::super::Foundation::TypedEventHandler<ConnectedAnimation, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::TypedEventHandler<ConnectedAnimation, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -843,11 +843,11 @@ impl IConnectedAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCompleted<Impl: IConnectedAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCompleted<Impl: IConnectedAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCompleted(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryStart<Impl: IConnectedAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryStart<Impl: IConnectedAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryStart(&*(&destination as *const <super::super::UIElement as ::windows::core::Abi>::Abi as *const <super::super::UIElement as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -858,7 +858,7 @@ impl IConnectedAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Cancel<Impl: IConnectedAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Cancel<Impl: IConnectedAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Cancel().into()
         }
@@ -875,7 +875,7 @@ impl IConnectedAnimationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Composition", feature = "implement_exclusive"))]
-pub trait IConnectedAnimation2Impl: Sized {
+pub trait IConnectedAnimation2_Impl: Sized {
     fn IsScaleAnimationEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsScaleAnimationEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn TryStartWithCoordinatedElements(&mut self, destination: &::core::option::Option<super::super::UIElement>, coordinatedelements: &::core::option::Option<super::super::super::super::Foundation::Collections::IIterable<super::super::UIElement>>) -> ::windows::core::Result<bool>;
@@ -886,9 +886,9 @@ impl ::windows::core::RuntimeName for IConnectedAnimation2 {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IConnectedAnimation2";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Composition", feature = "implement_exclusive"))]
-impl IConnectedAnimation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectedAnimation2Vtbl {
-        unsafe extern "system" fn IsScaleAnimationEnabled<Impl: IConnectedAnimation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IConnectedAnimation2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimation2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectedAnimation2_Vtbl {
+        unsafe extern "system" fn IsScaleAnimationEnabled<Impl: IConnectedAnimation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsScaleAnimationEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -899,11 +899,11 @@ impl IConnectedAnimation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsScaleAnimationEnabled<Impl: IConnectedAnimation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsScaleAnimationEnabled<Impl: IConnectedAnimation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsScaleAnimationEnabled(value).into()
         }
-        unsafe extern "system" fn TryStartWithCoordinatedElements<Impl: IConnectedAnimation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr, coordinatedelements: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryStartWithCoordinatedElements<Impl: IConnectedAnimation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr, coordinatedelements: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryStartWithCoordinatedElements(&*(&destination as *const <super::super::UIElement as ::windows::core::Abi>::Abi as *const <super::super::UIElement as ::windows::core::DefaultType>::DefaultType), &*(&coordinatedelements as *const <super::super::super::super::Foundation::Collections::IIterable<super::super::UIElement> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Collections::IIterable<super::super::UIElement> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -914,7 +914,7 @@ impl IConnectedAnimation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAnimationComponent<Impl: IConnectedAnimation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, component: ConnectedAnimationComponent, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAnimationComponent<Impl: IConnectedAnimation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, component: ConnectedAnimationComponent, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAnimationComponent(component, &*(&animation as *const <super::super::super::Composition::ICompositionAnimationBase as ::windows::core::Abi>::Abi as *const <super::super::super::Composition::ICompositionAnimationBase as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -931,7 +931,7 @@ impl IConnectedAnimation2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IConnectedAnimation3Impl: Sized {
+pub trait IConnectedAnimation3_Impl: Sized {
     fn Configuration(&mut self) -> ::windows::core::Result<ConnectedAnimationConfiguration>;
     fn SetConfiguration(&mut self, value: &::core::option::Option<ConnectedAnimationConfiguration>) -> ::windows::core::Result<()>;
 }
@@ -940,9 +940,9 @@ impl ::windows::core::RuntimeName for IConnectedAnimation3 {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IConnectedAnimation3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IConnectedAnimation3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimation3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectedAnimation3Vtbl {
-        unsafe extern "system" fn Configuration<Impl: IConnectedAnimation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IConnectedAnimation3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimation3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectedAnimation3_Vtbl {
+        unsafe extern "system" fn Configuration<Impl: IConnectedAnimation3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Configuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -953,7 +953,7 @@ impl IConnectedAnimation3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetConfiguration<Impl: IConnectedAnimation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetConfiguration<Impl: IConnectedAnimation3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetConfiguration(&*(&value as *const <ConnectedAnimationConfiguration as ::windows::core::Abi>::Abi as *const <ConnectedAnimationConfiguration as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -968,14 +968,14 @@ impl IConnectedAnimation3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IConnectedAnimationConfigurationImpl: Sized {}
+pub trait IConnectedAnimationConfiguration_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IConnectedAnimationConfiguration {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IConnectedAnimationConfiguration";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IConnectedAnimationConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimationConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectedAnimationConfigurationVtbl {
+impl IConnectedAnimationConfiguration_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimationConfiguration_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectedAnimationConfiguration_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IConnectedAnimationConfiguration, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -983,14 +983,14 @@ impl IConnectedAnimationConfigurationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IConnectedAnimationConfigurationFactoryImpl: Sized {}
+pub trait IConnectedAnimationConfigurationFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IConnectedAnimationConfigurationFactory {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IConnectedAnimationConfigurationFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IConnectedAnimationConfigurationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimationConfigurationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectedAnimationConfigurationFactoryVtbl {
+impl IConnectedAnimationConfigurationFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimationConfigurationFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectedAnimationConfigurationFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IConnectedAnimationConfigurationFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -998,7 +998,7 @@ impl IConnectedAnimationConfigurationFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Composition", feature = "implement_exclusive"))]
-pub trait IConnectedAnimationServiceImpl: Sized {
+pub trait IConnectedAnimationService_Impl: Sized {
     fn DefaultDuration(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::TimeSpan>;
     fn SetDefaultDuration(&mut self, value: &super::super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
     fn DefaultEasingFunction(&mut self) -> ::windows::core::Result<super::super::super::Composition::CompositionEasingFunction>;
@@ -1011,9 +1011,9 @@ impl ::windows::core::RuntimeName for IConnectedAnimationService {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IConnectedAnimationService";
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Composition", feature = "implement_exclusive"))]
-impl IConnectedAnimationServiceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimationServiceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectedAnimationServiceVtbl {
-        unsafe extern "system" fn DefaultDuration<Impl: IConnectedAnimationServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+impl IConnectedAnimationService_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimationService_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectedAnimationService_Vtbl {
+        unsafe extern "system" fn DefaultDuration<Impl: IConnectedAnimationService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1024,11 +1024,11 @@ impl IConnectedAnimationServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDefaultDuration<Impl: IConnectedAnimationServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDefaultDuration<Impl: IConnectedAnimationService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDefaultDuration(&*(&value as *const <super::super::super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DefaultEasingFunction<Impl: IConnectedAnimationServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultEasingFunction<Impl: IConnectedAnimationService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultEasingFunction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1039,11 +1039,11 @@ impl IConnectedAnimationServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDefaultEasingFunction<Impl: IConnectedAnimationServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDefaultEasingFunction<Impl: IConnectedAnimationService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDefaultEasingFunction(&*(&value as *const <super::super::super::Composition::CompositionEasingFunction as ::windows::core::Abi>::Abi as *const <super::super::super::Composition::CompositionEasingFunction as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PrepareToAnimate<Impl: IConnectedAnimationServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrepareToAnimate<Impl: IConnectedAnimationService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrepareToAnimate(&*(&key as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&source as *const <super::super::UIElement as ::windows::core::Abi>::Abi as *const <super::super::UIElement as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1054,7 +1054,7 @@ impl IConnectedAnimationServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAnimation<Impl: IConnectedAnimationServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAnimation<Impl: IConnectedAnimationService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAnimation(&*(&key as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1080,7 +1080,7 @@ impl IConnectedAnimationServiceVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IConnectedAnimationServiceStaticsImpl: Sized {
+pub trait IConnectedAnimationServiceStatics_Impl: Sized {
     fn GetForCurrentView(&mut self) -> ::windows::core::Result<ConnectedAnimationService>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1088,9 +1088,9 @@ impl ::windows::core::RuntimeName for IConnectedAnimationServiceStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IConnectedAnimationServiceStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IConnectedAnimationServiceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimationServiceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectedAnimationServiceStaticsVtbl {
-        unsafe extern "system" fn GetForCurrentView<Impl: IConnectedAnimationServiceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IConnectedAnimationServiceStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedAnimationServiceStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectedAnimationServiceStatics_Vtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: IConnectedAnimationServiceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1111,7 +1111,7 @@ impl IConnectedAnimationServiceStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IContentThemeTransitionImpl: Sized {
+pub trait IContentThemeTransition_Impl: Sized {
     fn HorizontalOffset(&mut self) -> ::windows::core::Result<f64>;
     fn SetHorizontalOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
     fn VerticalOffset(&mut self) -> ::windows::core::Result<f64>;
@@ -1122,9 +1122,9 @@ impl ::windows::core::RuntimeName for IContentThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IContentThemeTransition";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IContentThemeTransitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentThemeTransitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentThemeTransitionVtbl {
-        unsafe extern "system" fn HorizontalOffset<Impl: IContentThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+impl IContentThemeTransition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentThemeTransition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentThemeTransition_Vtbl {
+        unsafe extern "system" fn HorizontalOffset<Impl: IContentThemeTransition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HorizontalOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1135,11 +1135,11 @@ impl IContentThemeTransitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHorizontalOffset<Impl: IContentThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHorizontalOffset<Impl: IContentThemeTransition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHorizontalOffset(value).into()
         }
-        unsafe extern "system" fn VerticalOffset<Impl: IContentThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VerticalOffset<Impl: IContentThemeTransition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VerticalOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1150,7 +1150,7 @@ impl IContentThemeTransitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVerticalOffset<Impl: IContentThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVerticalOffset<Impl: IContentThemeTransition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVerticalOffset(value).into()
         }
@@ -1167,7 +1167,7 @@ impl IContentThemeTransitionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IContentThemeTransitionStaticsImpl: Sized {
+pub trait IContentThemeTransitionStatics_Impl: Sized {
     fn HorizontalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn VerticalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
@@ -1176,9 +1176,9 @@ impl ::windows::core::RuntimeName for IContentThemeTransitionStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IContentThemeTransitionStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IContentThemeTransitionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentThemeTransitionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentThemeTransitionStaticsVtbl {
-        unsafe extern "system" fn HorizontalOffsetProperty<Impl: IContentThemeTransitionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IContentThemeTransitionStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentThemeTransitionStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentThemeTransitionStatics_Vtbl {
+        unsafe extern "system" fn HorizontalOffsetProperty<Impl: IContentThemeTransitionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HorizontalOffsetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1189,7 +1189,7 @@ impl IContentThemeTransitionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VerticalOffsetProperty<Impl: IContentThemeTransitionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VerticalOffsetProperty<Impl: IContentThemeTransitionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VerticalOffsetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1211,7 +1211,7 @@ impl IContentThemeTransitionStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IContinuumNavigationTransitionInfoImpl: Sized {
+pub trait IContinuumNavigationTransitionInfo_Impl: Sized {
     fn ExitElement(&mut self) -> ::windows::core::Result<super::super::UIElement>;
     fn SetExitElement(&mut self, value: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<()>;
 }
@@ -1220,9 +1220,9 @@ impl ::windows::core::RuntimeName for IContinuumNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IContinuumNavigationTransitionInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IContinuumNavigationTransitionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContinuumNavigationTransitionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContinuumNavigationTransitionInfoVtbl {
-        unsafe extern "system" fn ExitElement<Impl: IContinuumNavigationTransitionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IContinuumNavigationTransitionInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContinuumNavigationTransitionInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContinuumNavigationTransitionInfo_Vtbl {
+        unsafe extern "system" fn ExitElement<Impl: IContinuumNavigationTransitionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExitElement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1233,7 +1233,7 @@ impl IContinuumNavigationTransitionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExitElement<Impl: IContinuumNavigationTransitionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetExitElement<Impl: IContinuumNavigationTransitionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExitElement(&*(&value as *const <super::super::UIElement as ::windows::core::Abi>::Abi as *const <super::super::UIElement as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1248,7 +1248,7 @@ impl IContinuumNavigationTransitionInfoVtbl {
     }
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
-pub trait IContinuumNavigationTransitionInfoStaticsImpl: Sized {
+pub trait IContinuumNavigationTransitionInfoStatics_Impl: Sized {
     fn ExitElementProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn IsEntranceElementProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn GetIsEntranceElement(&mut self, element: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<bool>;
@@ -1265,9 +1265,9 @@ impl ::windows::core::RuntimeName for IContinuumNavigationTransitionInfoStatics 
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IContinuumNavigationTransitionInfoStatics";
 }
 #[cfg(all(feature = "UI_Xaml_Controls", feature = "implement_exclusive"))]
-impl IContinuumNavigationTransitionInfoStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContinuumNavigationTransitionInfoStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContinuumNavigationTransitionInfoStaticsVtbl {
-        unsafe extern "system" fn ExitElementProperty<Impl: IContinuumNavigationTransitionInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IContinuumNavigationTransitionInfoStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContinuumNavigationTransitionInfoStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContinuumNavigationTransitionInfoStatics_Vtbl {
+        unsafe extern "system" fn ExitElementProperty<Impl: IContinuumNavigationTransitionInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExitElementProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1278,7 +1278,7 @@ impl IContinuumNavigationTransitionInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsEntranceElementProperty<Impl: IContinuumNavigationTransitionInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEntranceElementProperty<Impl: IContinuumNavigationTransitionInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEntranceElementProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1289,7 +1289,7 @@ impl IContinuumNavigationTransitionInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIsEntranceElement<Impl: IContinuumNavigationTransitionInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIsEntranceElement<Impl: IContinuumNavigationTransitionInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIsEntranceElement(&*(&element as *const <super::super::UIElement as ::windows::core::Abi>::Abi as *const <super::super::UIElement as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1300,11 +1300,11 @@ impl IContinuumNavigationTransitionInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsEntranceElement<Impl: IContinuumNavigationTransitionInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsEntranceElement<Impl: IContinuumNavigationTransitionInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsEntranceElement(&*(&element as *const <super::super::UIElement as ::windows::core::Abi>::Abi as *const <super::super::UIElement as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn IsExitElementProperty<Impl: IContinuumNavigationTransitionInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsExitElementProperty<Impl: IContinuumNavigationTransitionInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsExitElementProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1315,7 +1315,7 @@ impl IContinuumNavigationTransitionInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIsExitElement<Impl: IContinuumNavigationTransitionInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIsExitElement<Impl: IContinuumNavigationTransitionInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIsExitElement(&*(&element as *const <super::super::UIElement as ::windows::core::Abi>::Abi as *const <super::super::UIElement as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1326,11 +1326,11 @@ impl IContinuumNavigationTransitionInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsExitElement<Impl: IContinuumNavigationTransitionInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsExitElement<Impl: IContinuumNavigationTransitionInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsExitElement(&*(&element as *const <super::super::UIElement as ::windows::core::Abi>::Abi as *const <super::super::UIElement as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn ExitElementContainerProperty<Impl: IContinuumNavigationTransitionInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExitElementContainerProperty<Impl: IContinuumNavigationTransitionInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExitElementContainerProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1341,7 +1341,7 @@ impl IContinuumNavigationTransitionInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetExitElementContainer<Impl: IContinuumNavigationTransitionInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetExitElementContainer<Impl: IContinuumNavigationTransitionInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetExitElementContainer(&*(&element as *const <super::super::Controls::ListViewBase as ::windows::core::Abi>::Abi as *const <super::super::Controls::ListViewBase as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1352,7 +1352,7 @@ impl IContinuumNavigationTransitionInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExitElementContainer<Impl: IContinuumNavigationTransitionInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetExitElementContainer<Impl: IContinuumNavigationTransitionInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExitElementContainer(&*(&element as *const <super::super::Controls::ListViewBase as ::windows::core::Abi>::Abi as *const <super::super::Controls::ListViewBase as ::windows::core::DefaultType>::DefaultType), value).into()
         }
@@ -1375,14 +1375,14 @@ impl IContinuumNavigationTransitionInfoStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICubicEaseImpl: Sized {}
+pub trait ICubicEase_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICubicEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ICubicEase";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICubicEaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICubicEaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICubicEaseVtbl {
+impl ICubicEase_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICubicEase_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICubicEase_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICubicEase, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1390,14 +1390,14 @@ impl ICubicEaseVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDirectConnectedAnimationConfigurationImpl: Sized {}
+pub trait IDirectConnectedAnimationConfiguration_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDirectConnectedAnimationConfiguration {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDirectConnectedAnimationConfiguration";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDirectConnectedAnimationConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectConnectedAnimationConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirectConnectedAnimationConfigurationVtbl {
+impl IDirectConnectedAnimationConfiguration_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectConnectedAnimationConfiguration_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirectConnectedAnimationConfiguration_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDirectConnectedAnimationConfiguration, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1405,7 +1405,7 @@ impl IDirectConnectedAnimationConfigurationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDirectConnectedAnimationConfigurationFactoryImpl: Sized {
+pub trait IDirectConnectedAnimationConfigurationFactory_Impl: Sized {
     fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<DirectConnectedAnimationConfiguration>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1413,9 +1413,9 @@ impl ::windows::core::RuntimeName for IDirectConnectedAnimationConfigurationFact
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDirectConnectedAnimationConfigurationFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDirectConnectedAnimationConfigurationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectConnectedAnimationConfigurationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirectConnectedAnimationConfigurationFactoryVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: IDirectConnectedAnimationConfigurationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDirectConnectedAnimationConfigurationFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectConnectedAnimationConfigurationFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirectConnectedAnimationConfigurationFactory_Vtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IDirectConnectedAnimationConfigurationFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1436,14 +1436,14 @@ impl IDirectConnectedAnimationConfigurationFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDiscreteColorKeyFrameImpl: Sized {}
+pub trait IDiscreteColorKeyFrame_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDiscreteColorKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDiscreteColorKeyFrame";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDiscreteColorKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscreteColorKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDiscreteColorKeyFrameVtbl {
+impl IDiscreteColorKeyFrame_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscreteColorKeyFrame_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDiscreteColorKeyFrame_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDiscreteColorKeyFrame, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1451,14 +1451,14 @@ impl IDiscreteColorKeyFrameVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDiscreteDoubleKeyFrameImpl: Sized {}
+pub trait IDiscreteDoubleKeyFrame_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDiscreteDoubleKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDiscreteDoubleKeyFrame";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDiscreteDoubleKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscreteDoubleKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDiscreteDoubleKeyFrameVtbl {
+impl IDiscreteDoubleKeyFrame_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscreteDoubleKeyFrame_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDiscreteDoubleKeyFrame_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDiscreteDoubleKeyFrame, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1466,14 +1466,14 @@ impl IDiscreteDoubleKeyFrameVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDiscreteObjectKeyFrameImpl: Sized {}
+pub trait IDiscreteObjectKeyFrame_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDiscreteObjectKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDiscreteObjectKeyFrame";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDiscreteObjectKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscreteObjectKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDiscreteObjectKeyFrameVtbl {
+impl IDiscreteObjectKeyFrame_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscreteObjectKeyFrame_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDiscreteObjectKeyFrame_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDiscreteObjectKeyFrame, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1481,14 +1481,14 @@ impl IDiscreteObjectKeyFrameVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDiscretePointKeyFrameImpl: Sized {}
+pub trait IDiscretePointKeyFrame_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDiscretePointKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDiscretePointKeyFrame";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDiscretePointKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscretePointKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDiscretePointKeyFrameVtbl {
+impl IDiscretePointKeyFrame_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscretePointKeyFrame_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDiscretePointKeyFrame_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDiscretePointKeyFrame, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1496,7 +1496,7 @@ impl IDiscretePointKeyFrameVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IDoubleAnimationImpl: Sized {
+pub trait IDoubleAnimation_Impl: Sized {
     fn From(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<f64>>;
     fn SetFrom(&mut self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<f64>>) -> ::windows::core::Result<()>;
     fn To(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<f64>>;
@@ -1513,9 +1513,9 @@ impl ::windows::core::RuntimeName for IDoubleAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDoubleAnimation";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IDoubleAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDoubleAnimationVtbl {
-        unsafe extern "system" fn From<Impl: IDoubleAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDoubleAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDoubleAnimation_Vtbl {
+        unsafe extern "system" fn From<Impl: IDoubleAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).From() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1526,11 +1526,11 @@ impl IDoubleAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFrom<Impl: IDoubleAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFrom<Impl: IDoubleAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFrom(&*(&value as *const <super::super::super::super::Foundation::IReference<f64> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::IReference<f64> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn To<Impl: IDoubleAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn To<Impl: IDoubleAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).To() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1541,11 +1541,11 @@ impl IDoubleAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTo<Impl: IDoubleAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTo<Impl: IDoubleAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTo(&*(&value as *const <super::super::super::super::Foundation::IReference<f64> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::IReference<f64> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn By<Impl: IDoubleAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn By<Impl: IDoubleAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).By() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1556,11 +1556,11 @@ impl IDoubleAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBy<Impl: IDoubleAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBy<Impl: IDoubleAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBy(&*(&value as *const <super::super::super::super::Foundation::IReference<f64> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::IReference<f64> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EasingFunction<Impl: IDoubleAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EasingFunction<Impl: IDoubleAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EasingFunction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1571,11 +1571,11 @@ impl IDoubleAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEasingFunction<Impl: IDoubleAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEasingFunction<Impl: IDoubleAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEasingFunction(&*(&value as *const <EasingFunctionBase as ::windows::core::Abi>::Abi as *const <EasingFunctionBase as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EnableDependentAnimation<Impl: IDoubleAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableDependentAnimation<Impl: IDoubleAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableDependentAnimation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1586,7 +1586,7 @@ impl IDoubleAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEnableDependentAnimation<Impl: IDoubleAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnableDependentAnimation<Impl: IDoubleAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnableDependentAnimation(value).into()
         }
@@ -1609,7 +1609,7 @@ impl IDoubleAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDoubleAnimationStaticsImpl: Sized {
+pub trait IDoubleAnimationStatics_Impl: Sized {
     fn FromProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn ToProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn ByProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
@@ -1621,9 +1621,9 @@ impl ::windows::core::RuntimeName for IDoubleAnimationStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDoubleAnimationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDoubleAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDoubleAnimationStaticsVtbl {
-        unsafe extern "system" fn FromProperty<Impl: IDoubleAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDoubleAnimationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleAnimationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDoubleAnimationStatics_Vtbl {
+        unsafe extern "system" fn FromProperty<Impl: IDoubleAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1634,7 +1634,7 @@ impl IDoubleAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ToProperty<Impl: IDoubleAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToProperty<Impl: IDoubleAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1645,7 +1645,7 @@ impl IDoubleAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ByProperty<Impl: IDoubleAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ByProperty<Impl: IDoubleAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ByProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1656,7 +1656,7 @@ impl IDoubleAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EasingFunctionProperty<Impl: IDoubleAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EasingFunctionProperty<Impl: IDoubleAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EasingFunctionProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1667,7 +1667,7 @@ impl IDoubleAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableDependentAnimationProperty<Impl: IDoubleAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableDependentAnimationProperty<Impl: IDoubleAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableDependentAnimationProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1692,7 +1692,7 @@ impl IDoubleAnimationStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IDoubleAnimationUsingKeyFramesImpl: Sized {
+pub trait IDoubleAnimationUsingKeyFrames_Impl: Sized {
     fn KeyFrames(&mut self) -> ::windows::core::Result<DoubleKeyFrameCollection>;
     fn EnableDependentAnimation(&mut self) -> ::windows::core::Result<bool>;
     fn SetEnableDependentAnimation(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -1702,9 +1702,9 @@ impl ::windows::core::RuntimeName for IDoubleAnimationUsingKeyFrames {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDoubleAnimationUsingKeyFrames";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IDoubleAnimationUsingKeyFramesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleAnimationUsingKeyFramesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDoubleAnimationUsingKeyFramesVtbl {
-        unsafe extern "system" fn KeyFrames<Impl: IDoubleAnimationUsingKeyFramesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDoubleAnimationUsingKeyFrames_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleAnimationUsingKeyFrames_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDoubleAnimationUsingKeyFrames_Vtbl {
+        unsafe extern "system" fn KeyFrames<Impl: IDoubleAnimationUsingKeyFrames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyFrames() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1715,7 +1715,7 @@ impl IDoubleAnimationUsingKeyFramesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableDependentAnimation<Impl: IDoubleAnimationUsingKeyFramesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableDependentAnimation<Impl: IDoubleAnimationUsingKeyFrames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableDependentAnimation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1726,7 +1726,7 @@ impl IDoubleAnimationUsingKeyFramesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEnableDependentAnimation<Impl: IDoubleAnimationUsingKeyFramesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnableDependentAnimation<Impl: IDoubleAnimationUsingKeyFrames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnableDependentAnimation(value).into()
         }
@@ -1742,7 +1742,7 @@ impl IDoubleAnimationUsingKeyFramesVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDoubleAnimationUsingKeyFramesStaticsImpl: Sized {
+pub trait IDoubleAnimationUsingKeyFramesStatics_Impl: Sized {
     fn EnableDependentAnimationProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1750,9 +1750,9 @@ impl ::windows::core::RuntimeName for IDoubleAnimationUsingKeyFramesStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDoubleAnimationUsingKeyFramesStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDoubleAnimationUsingKeyFramesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleAnimationUsingKeyFramesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDoubleAnimationUsingKeyFramesStaticsVtbl {
-        unsafe extern "system" fn EnableDependentAnimationProperty<Impl: IDoubleAnimationUsingKeyFramesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDoubleAnimationUsingKeyFramesStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleAnimationUsingKeyFramesStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDoubleAnimationUsingKeyFramesStatics_Vtbl {
+        unsafe extern "system" fn EnableDependentAnimationProperty<Impl: IDoubleAnimationUsingKeyFramesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableDependentAnimationProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1773,7 +1773,7 @@ impl IDoubleAnimationUsingKeyFramesStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IDoubleKeyFrameImpl: Sized {
+pub trait IDoubleKeyFrame_Impl: Sized {
     fn Value(&mut self) -> ::windows::core::Result<f64>;
     fn SetValue(&mut self, value: f64) -> ::windows::core::Result<()>;
     fn KeyTime(&mut self) -> ::windows::core::Result<KeyTime>;
@@ -1784,9 +1784,9 @@ impl ::windows::core::RuntimeName for IDoubleKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IDoubleKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDoubleKeyFrameVtbl {
-        unsafe extern "system" fn Value<Impl: IDoubleKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+impl IDoubleKeyFrame_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleKeyFrame_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDoubleKeyFrame_Vtbl {
+        unsafe extern "system" fn Value<Impl: IDoubleKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1797,11 +1797,11 @@ impl IDoubleKeyFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Impl: IDoubleKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Impl: IDoubleKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(value).into()
         }
-        unsafe extern "system" fn KeyTime<Impl: IDoubleKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut KeyTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KeyTime<Impl: IDoubleKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut KeyTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1812,7 +1812,7 @@ impl IDoubleKeyFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetKeyTime<Impl: IDoubleKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: KeyTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetKeyTime<Impl: IDoubleKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: KeyTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKeyTime(&*(&value as *const <KeyTime as ::windows::core::Abi>::Abi as *const <KeyTime as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1829,7 +1829,7 @@ impl IDoubleKeyFrameVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDoubleKeyFrameFactoryImpl: Sized {
+pub trait IDoubleKeyFrameFactory_Impl: Sized {
     fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<DoubleKeyFrame>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1837,9 +1837,9 @@ impl ::windows::core::RuntimeName for IDoubleKeyFrameFactory {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDoubleKeyFrameFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDoubleKeyFrameFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleKeyFrameFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDoubleKeyFrameFactoryVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: IDoubleKeyFrameFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDoubleKeyFrameFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleKeyFrameFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDoubleKeyFrameFactory_Vtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IDoubleKeyFrameFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1860,7 +1860,7 @@ impl IDoubleKeyFrameFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDoubleKeyFrameStaticsImpl: Sized {
+pub trait IDoubleKeyFrameStatics_Impl: Sized {
     fn ValueProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn KeyTimeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
@@ -1869,9 +1869,9 @@ impl ::windows::core::RuntimeName for IDoubleKeyFrameStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDoubleKeyFrameStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDoubleKeyFrameStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleKeyFrameStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDoubleKeyFrameStaticsVtbl {
-        unsafe extern "system" fn ValueProperty<Impl: IDoubleKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDoubleKeyFrameStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDoubleKeyFrameStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDoubleKeyFrameStatics_Vtbl {
+        unsafe extern "system" fn ValueProperty<Impl: IDoubleKeyFrameStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ValueProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1882,7 +1882,7 @@ impl IDoubleKeyFrameStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn KeyTimeProperty<Impl: IDoubleKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KeyTimeProperty<Impl: IDoubleKeyFrameStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyTimeProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1904,7 +1904,7 @@ impl IDoubleKeyFrameStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDragItemThemeAnimationImpl: Sized {
+pub trait IDragItemThemeAnimation_Impl: Sized {
     fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
@@ -1913,9 +1913,9 @@ impl ::windows::core::RuntimeName for IDragItemThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDragItemThemeAnimation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDragItemThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragItemThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDragItemThemeAnimationVtbl {
-        unsafe extern "system" fn TargetName<Impl: IDragItemThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDragItemThemeAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragItemThemeAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDragItemThemeAnimation_Vtbl {
+        unsafe extern "system" fn TargetName<Impl: IDragItemThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1926,7 +1926,7 @@ impl IDragItemThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTargetName<Impl: IDragItemThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTargetName<Impl: IDragItemThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1941,7 +1941,7 @@ impl IDragItemThemeAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDragItemThemeAnimationStaticsImpl: Sized {
+pub trait IDragItemThemeAnimationStatics_Impl: Sized {
     fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1949,9 +1949,9 @@ impl ::windows::core::RuntimeName for IDragItemThemeAnimationStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDragItemThemeAnimationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDragItemThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragItemThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDragItemThemeAnimationStaticsVtbl {
-        unsafe extern "system" fn TargetNameProperty<Impl: IDragItemThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDragItemThemeAnimationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragItemThemeAnimationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDragItemThemeAnimationStatics_Vtbl {
+        unsafe extern "system" fn TargetNameProperty<Impl: IDragItemThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1972,7 +1972,7 @@ impl IDragItemThemeAnimationStaticsVtbl {
     }
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
-pub trait IDragOverThemeAnimationImpl: Sized {
+pub trait IDragOverThemeAnimation_Impl: Sized {
     fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn ToOffset(&mut self) -> ::windows::core::Result<f64>;
@@ -1985,9 +1985,9 @@ impl ::windows::core::RuntimeName for IDragOverThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDragOverThemeAnimation";
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
-impl IDragOverThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragOverThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDragOverThemeAnimationVtbl {
-        unsafe extern "system" fn TargetName<Impl: IDragOverThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDragOverThemeAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragOverThemeAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDragOverThemeAnimation_Vtbl {
+        unsafe extern "system" fn TargetName<Impl: IDragOverThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1998,11 +1998,11 @@ impl IDragOverThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTargetName<Impl: IDragOverThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTargetName<Impl: IDragOverThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ToOffset<Impl: IDragOverThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToOffset<Impl: IDragOverThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2013,11 +2013,11 @@ impl IDragOverThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetToOffset<Impl: IDragOverThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetToOffset<Impl: IDragOverThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetToOffset(value).into()
         }
-        unsafe extern "system" fn Direction<Impl: IDragOverThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Controls::Primitives::AnimationDirection) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Direction<Impl: IDragOverThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Controls::Primitives::AnimationDirection) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Direction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2028,7 +2028,7 @@ impl IDragOverThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDirection<Impl: IDragOverThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Controls::Primitives::AnimationDirection) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDirection<Impl: IDragOverThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Controls::Primitives::AnimationDirection) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDirection(value).into()
         }
@@ -2047,7 +2047,7 @@ impl IDragOverThemeAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDragOverThemeAnimationStaticsImpl: Sized {
+pub trait IDragOverThemeAnimationStatics_Impl: Sized {
     fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn ToOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn DirectionProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
@@ -2057,9 +2057,9 @@ impl ::windows::core::RuntimeName for IDragOverThemeAnimationStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDragOverThemeAnimationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDragOverThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragOverThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDragOverThemeAnimationStaticsVtbl {
-        unsafe extern "system" fn TargetNameProperty<Impl: IDragOverThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDragOverThemeAnimationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragOverThemeAnimationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDragOverThemeAnimationStatics_Vtbl {
+        unsafe extern "system" fn TargetNameProperty<Impl: IDragOverThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2070,7 +2070,7 @@ impl IDragOverThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ToOffsetProperty<Impl: IDragOverThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToOffsetProperty<Impl: IDragOverThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToOffsetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2081,7 +2081,7 @@ impl IDragOverThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DirectionProperty<Impl: IDragOverThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DirectionProperty<Impl: IDragOverThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DirectionProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2104,14 +2104,14 @@ impl IDragOverThemeAnimationStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDrillInNavigationTransitionInfoImpl: Sized {}
+pub trait IDrillInNavigationTransitionInfo_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IDrillInNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDrillInNavigationTransitionInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDrillInNavigationTransitionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDrillInNavigationTransitionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDrillInNavigationTransitionInfoVtbl {
+impl IDrillInNavigationTransitionInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDrillInNavigationTransitionInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDrillInNavigationTransitionInfo_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDrillInNavigationTransitionInfo, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -2119,7 +2119,7 @@ impl IDrillInNavigationTransitionInfoVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDrillInThemeAnimationImpl: Sized {
+pub trait IDrillInThemeAnimation_Impl: Sized {
     fn EntranceTargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetEntranceTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn EntranceTarget(&mut self) -> ::windows::core::Result<super::super::DependencyObject>;
@@ -2134,9 +2134,9 @@ impl ::windows::core::RuntimeName for IDrillInThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDrillInThemeAnimation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDrillInThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDrillInThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDrillInThemeAnimationVtbl {
-        unsafe extern "system" fn EntranceTargetName<Impl: IDrillInThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDrillInThemeAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDrillInThemeAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDrillInThemeAnimation_Vtbl {
+        unsafe extern "system" fn EntranceTargetName<Impl: IDrillInThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EntranceTargetName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2147,11 +2147,11 @@ impl IDrillInThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEntranceTargetName<Impl: IDrillInThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEntranceTargetName<Impl: IDrillInThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEntranceTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EntranceTarget<Impl: IDrillInThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EntranceTarget<Impl: IDrillInThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EntranceTarget() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2162,11 +2162,11 @@ impl IDrillInThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEntranceTarget<Impl: IDrillInThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEntranceTarget<Impl: IDrillInThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEntranceTarget(&*(&value as *const <super::super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::super::DependencyObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ExitTargetName<Impl: IDrillInThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExitTargetName<Impl: IDrillInThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExitTargetName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2177,11 +2177,11 @@ impl IDrillInThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExitTargetName<Impl: IDrillInThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetExitTargetName<Impl: IDrillInThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExitTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ExitTarget<Impl: IDrillInThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExitTarget<Impl: IDrillInThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExitTarget() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2192,7 +2192,7 @@ impl IDrillInThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExitTarget<Impl: IDrillInThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetExitTarget<Impl: IDrillInThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExitTarget(&*(&value as *const <super::super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::super::DependencyObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2213,7 +2213,7 @@ impl IDrillInThemeAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDrillInThemeAnimationStaticsImpl: Sized {
+pub trait IDrillInThemeAnimationStatics_Impl: Sized {
     fn EntranceTargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn EntranceTargetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn ExitTargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
@@ -2224,9 +2224,9 @@ impl ::windows::core::RuntimeName for IDrillInThemeAnimationStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDrillInThemeAnimationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDrillInThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDrillInThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDrillInThemeAnimationStaticsVtbl {
-        unsafe extern "system" fn EntranceTargetNameProperty<Impl: IDrillInThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDrillInThemeAnimationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDrillInThemeAnimationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDrillInThemeAnimationStatics_Vtbl {
+        unsafe extern "system" fn EntranceTargetNameProperty<Impl: IDrillInThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EntranceTargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2237,7 +2237,7 @@ impl IDrillInThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EntranceTargetProperty<Impl: IDrillInThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EntranceTargetProperty<Impl: IDrillInThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EntranceTargetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2248,7 +2248,7 @@ impl IDrillInThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExitTargetNameProperty<Impl: IDrillInThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExitTargetNameProperty<Impl: IDrillInThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExitTargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2259,7 +2259,7 @@ impl IDrillInThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExitTargetProperty<Impl: IDrillInThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExitTargetProperty<Impl: IDrillInThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExitTargetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2283,7 +2283,7 @@ impl IDrillInThemeAnimationStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDrillOutThemeAnimationImpl: Sized {
+pub trait IDrillOutThemeAnimation_Impl: Sized {
     fn EntranceTargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetEntranceTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn EntranceTarget(&mut self) -> ::windows::core::Result<super::super::DependencyObject>;
@@ -2298,9 +2298,9 @@ impl ::windows::core::RuntimeName for IDrillOutThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDrillOutThemeAnimation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDrillOutThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDrillOutThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDrillOutThemeAnimationVtbl {
-        unsafe extern "system" fn EntranceTargetName<Impl: IDrillOutThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDrillOutThemeAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDrillOutThemeAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDrillOutThemeAnimation_Vtbl {
+        unsafe extern "system" fn EntranceTargetName<Impl: IDrillOutThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EntranceTargetName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2311,11 +2311,11 @@ impl IDrillOutThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEntranceTargetName<Impl: IDrillOutThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEntranceTargetName<Impl: IDrillOutThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEntranceTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EntranceTarget<Impl: IDrillOutThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EntranceTarget<Impl: IDrillOutThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EntranceTarget() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2326,11 +2326,11 @@ impl IDrillOutThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEntranceTarget<Impl: IDrillOutThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEntranceTarget<Impl: IDrillOutThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEntranceTarget(&*(&value as *const <super::super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::super::DependencyObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ExitTargetName<Impl: IDrillOutThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExitTargetName<Impl: IDrillOutThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExitTargetName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2341,11 +2341,11 @@ impl IDrillOutThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExitTargetName<Impl: IDrillOutThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetExitTargetName<Impl: IDrillOutThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExitTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ExitTarget<Impl: IDrillOutThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExitTarget<Impl: IDrillOutThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExitTarget() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2356,7 +2356,7 @@ impl IDrillOutThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExitTarget<Impl: IDrillOutThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetExitTarget<Impl: IDrillOutThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExitTarget(&*(&value as *const <super::super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::super::DependencyObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2377,7 +2377,7 @@ impl IDrillOutThemeAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDrillOutThemeAnimationStaticsImpl: Sized {
+pub trait IDrillOutThemeAnimationStatics_Impl: Sized {
     fn EntranceTargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn EntranceTargetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn ExitTargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
@@ -2388,9 +2388,9 @@ impl ::windows::core::RuntimeName for IDrillOutThemeAnimationStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDrillOutThemeAnimationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDrillOutThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDrillOutThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDrillOutThemeAnimationStaticsVtbl {
-        unsafe extern "system" fn EntranceTargetNameProperty<Impl: IDrillOutThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDrillOutThemeAnimationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDrillOutThemeAnimationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDrillOutThemeAnimationStatics_Vtbl {
+        unsafe extern "system" fn EntranceTargetNameProperty<Impl: IDrillOutThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EntranceTargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2401,7 +2401,7 @@ impl IDrillOutThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EntranceTargetProperty<Impl: IDrillOutThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EntranceTargetProperty<Impl: IDrillOutThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EntranceTargetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2412,7 +2412,7 @@ impl IDrillOutThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExitTargetNameProperty<Impl: IDrillOutThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExitTargetNameProperty<Impl: IDrillOutThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExitTargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2423,7 +2423,7 @@ impl IDrillOutThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExitTargetProperty<Impl: IDrillOutThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExitTargetProperty<Impl: IDrillOutThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExitTargetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2447,7 +2447,7 @@ impl IDrillOutThemeAnimationStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDropTargetItemThemeAnimationImpl: Sized {
+pub trait IDropTargetItemThemeAnimation_Impl: Sized {
     fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
@@ -2456,9 +2456,9 @@ impl ::windows::core::RuntimeName for IDropTargetItemThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDropTargetItemThemeAnimation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDropTargetItemThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDropTargetItemThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDropTargetItemThemeAnimationVtbl {
-        unsafe extern "system" fn TargetName<Impl: IDropTargetItemThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDropTargetItemThemeAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDropTargetItemThemeAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDropTargetItemThemeAnimation_Vtbl {
+        unsafe extern "system" fn TargetName<Impl: IDropTargetItemThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2469,7 +2469,7 @@ impl IDropTargetItemThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTargetName<Impl: IDropTargetItemThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTargetName<Impl: IDropTargetItemThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2484,7 +2484,7 @@ impl IDropTargetItemThemeAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDropTargetItemThemeAnimationStaticsImpl: Sized {
+pub trait IDropTargetItemThemeAnimationStatics_Impl: Sized {
     fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2492,9 +2492,9 @@ impl ::windows::core::RuntimeName for IDropTargetItemThemeAnimationStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IDropTargetItemThemeAnimationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDropTargetItemThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDropTargetItemThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDropTargetItemThemeAnimationStaticsVtbl {
-        unsafe extern "system" fn TargetNameProperty<Impl: IDropTargetItemThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDropTargetItemThemeAnimationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDropTargetItemThemeAnimationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDropTargetItemThemeAnimationStatics_Vtbl {
+        unsafe extern "system" fn TargetNameProperty<Impl: IDropTargetItemThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2515,7 +2515,7 @@ impl IDropTargetItemThemeAnimationStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEasingColorKeyFrameImpl: Sized {
+pub trait IEasingColorKeyFrame_Impl: Sized {
     fn EasingFunction(&mut self) -> ::windows::core::Result<EasingFunctionBase>;
     fn SetEasingFunction(&mut self, value: &::core::option::Option<EasingFunctionBase>) -> ::windows::core::Result<()>;
 }
@@ -2524,9 +2524,9 @@ impl ::windows::core::RuntimeName for IEasingColorKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IEasingColorKeyFrame";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEasingColorKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingColorKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingColorKeyFrameVtbl {
-        unsafe extern "system" fn EasingFunction<Impl: IEasingColorKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEasingColorKeyFrame_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingColorKeyFrame_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingColorKeyFrame_Vtbl {
+        unsafe extern "system" fn EasingFunction<Impl: IEasingColorKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EasingFunction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2537,7 +2537,7 @@ impl IEasingColorKeyFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEasingFunction<Impl: IEasingColorKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEasingFunction<Impl: IEasingColorKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEasingFunction(&*(&value as *const <EasingFunctionBase as ::windows::core::Abi>::Abi as *const <EasingFunctionBase as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2552,7 +2552,7 @@ impl IEasingColorKeyFrameVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEasingColorKeyFrameStaticsImpl: Sized {
+pub trait IEasingColorKeyFrameStatics_Impl: Sized {
     fn EasingFunctionProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2560,9 +2560,9 @@ impl ::windows::core::RuntimeName for IEasingColorKeyFrameStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IEasingColorKeyFrameStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEasingColorKeyFrameStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingColorKeyFrameStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingColorKeyFrameStaticsVtbl {
-        unsafe extern "system" fn EasingFunctionProperty<Impl: IEasingColorKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEasingColorKeyFrameStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingColorKeyFrameStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingColorKeyFrameStatics_Vtbl {
+        unsafe extern "system" fn EasingFunctionProperty<Impl: IEasingColorKeyFrameStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EasingFunctionProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2583,7 +2583,7 @@ impl IEasingColorKeyFrameStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEasingDoubleKeyFrameImpl: Sized {
+pub trait IEasingDoubleKeyFrame_Impl: Sized {
     fn EasingFunction(&mut self) -> ::windows::core::Result<EasingFunctionBase>;
     fn SetEasingFunction(&mut self, value: &::core::option::Option<EasingFunctionBase>) -> ::windows::core::Result<()>;
 }
@@ -2592,9 +2592,9 @@ impl ::windows::core::RuntimeName for IEasingDoubleKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrame";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEasingDoubleKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingDoubleKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingDoubleKeyFrameVtbl {
-        unsafe extern "system" fn EasingFunction<Impl: IEasingDoubleKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEasingDoubleKeyFrame_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingDoubleKeyFrame_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingDoubleKeyFrame_Vtbl {
+        unsafe extern "system" fn EasingFunction<Impl: IEasingDoubleKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EasingFunction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2605,7 +2605,7 @@ impl IEasingDoubleKeyFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEasingFunction<Impl: IEasingDoubleKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEasingFunction<Impl: IEasingDoubleKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEasingFunction(&*(&value as *const <EasingFunctionBase as ::windows::core::Abi>::Abi as *const <EasingFunctionBase as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2620,7 +2620,7 @@ impl IEasingDoubleKeyFrameVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEasingDoubleKeyFrameStaticsImpl: Sized {
+pub trait IEasingDoubleKeyFrameStatics_Impl: Sized {
     fn EasingFunctionProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2628,9 +2628,9 @@ impl ::windows::core::RuntimeName for IEasingDoubleKeyFrameStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrameStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEasingDoubleKeyFrameStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingDoubleKeyFrameStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingDoubleKeyFrameStaticsVtbl {
-        unsafe extern "system" fn EasingFunctionProperty<Impl: IEasingDoubleKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEasingDoubleKeyFrameStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingDoubleKeyFrameStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingDoubleKeyFrameStatics_Vtbl {
+        unsafe extern "system" fn EasingFunctionProperty<Impl: IEasingDoubleKeyFrameStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EasingFunctionProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2651,7 +2651,7 @@ impl IEasingDoubleKeyFrameStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEasingFunctionBaseImpl: Sized {
+pub trait IEasingFunctionBase_Impl: Sized {
     fn EasingMode(&mut self) -> ::windows::core::Result<EasingMode>;
     fn SetEasingMode(&mut self, value: EasingMode) -> ::windows::core::Result<()>;
     fn Ease(&mut self, normalizedtime: f64) -> ::windows::core::Result<f64>;
@@ -2661,9 +2661,9 @@ impl ::windows::core::RuntimeName for IEasingFunctionBase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IEasingFunctionBase";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEasingFunctionBaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingFunctionBaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingFunctionBaseVtbl {
-        unsafe extern "system" fn EasingMode<Impl: IEasingFunctionBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EasingMode) -> ::windows::core::HRESULT {
+impl IEasingFunctionBase_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingFunctionBase_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingFunctionBase_Vtbl {
+        unsafe extern "system" fn EasingMode<Impl: IEasingFunctionBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EasingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EasingMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2674,11 +2674,11 @@ impl IEasingFunctionBaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEasingMode<Impl: IEasingFunctionBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: EasingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEasingMode<Impl: IEasingFunctionBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: EasingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEasingMode(value).into()
         }
-        unsafe extern "system" fn Ease<Impl: IEasingFunctionBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedtime: f64, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ease<Impl: IEasingFunctionBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedtime: f64, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ease(normalizedtime) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2701,14 +2701,14 @@ impl IEasingFunctionBaseVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEasingFunctionBaseFactoryImpl: Sized {}
+pub trait IEasingFunctionBaseFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEasingFunctionBaseFactory {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IEasingFunctionBaseFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEasingFunctionBaseFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingFunctionBaseFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingFunctionBaseFactoryVtbl {
+impl IEasingFunctionBaseFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingFunctionBaseFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingFunctionBaseFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IEasingFunctionBaseFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -2716,7 +2716,7 @@ impl IEasingFunctionBaseFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEasingFunctionBaseStaticsImpl: Sized {
+pub trait IEasingFunctionBaseStatics_Impl: Sized {
     fn EasingModeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2724,9 +2724,9 @@ impl ::windows::core::RuntimeName for IEasingFunctionBaseStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IEasingFunctionBaseStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEasingFunctionBaseStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingFunctionBaseStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingFunctionBaseStaticsVtbl {
-        unsafe extern "system" fn EasingModeProperty<Impl: IEasingFunctionBaseStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEasingFunctionBaseStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingFunctionBaseStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingFunctionBaseStatics_Vtbl {
+        unsafe extern "system" fn EasingModeProperty<Impl: IEasingFunctionBaseStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EasingModeProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2747,7 +2747,7 @@ impl IEasingFunctionBaseStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEasingPointKeyFrameImpl: Sized {
+pub trait IEasingPointKeyFrame_Impl: Sized {
     fn EasingFunction(&mut self) -> ::windows::core::Result<EasingFunctionBase>;
     fn SetEasingFunction(&mut self, value: &::core::option::Option<EasingFunctionBase>) -> ::windows::core::Result<()>;
 }
@@ -2756,9 +2756,9 @@ impl ::windows::core::RuntimeName for IEasingPointKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IEasingPointKeyFrame";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEasingPointKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingPointKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingPointKeyFrameVtbl {
-        unsafe extern "system" fn EasingFunction<Impl: IEasingPointKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEasingPointKeyFrame_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingPointKeyFrame_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingPointKeyFrame_Vtbl {
+        unsafe extern "system" fn EasingFunction<Impl: IEasingPointKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EasingFunction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2769,7 +2769,7 @@ impl IEasingPointKeyFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEasingFunction<Impl: IEasingPointKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEasingFunction<Impl: IEasingPointKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEasingFunction(&*(&value as *const <EasingFunctionBase as ::windows::core::Abi>::Abi as *const <EasingFunctionBase as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2784,7 +2784,7 @@ impl IEasingPointKeyFrameVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEasingPointKeyFrameStaticsImpl: Sized {
+pub trait IEasingPointKeyFrameStatics_Impl: Sized {
     fn EasingFunctionProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2792,9 +2792,9 @@ impl ::windows::core::RuntimeName for IEasingPointKeyFrameStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IEasingPointKeyFrameStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEasingPointKeyFrameStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingPointKeyFrameStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingPointKeyFrameStaticsVtbl {
-        unsafe extern "system" fn EasingFunctionProperty<Impl: IEasingPointKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEasingPointKeyFrameStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasingPointKeyFrameStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasingPointKeyFrameStatics_Vtbl {
+        unsafe extern "system" fn EasingFunctionProperty<Impl: IEasingPointKeyFrameStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EasingFunctionProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2815,7 +2815,7 @@ impl IEasingPointKeyFrameStaticsVtbl {
     }
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
-pub trait IEdgeUIThemeTransitionImpl: Sized {
+pub trait IEdgeUIThemeTransition_Impl: Sized {
     fn Edge(&mut self) -> ::windows::core::Result<super::super::Controls::Primitives::EdgeTransitionLocation>;
     fn SetEdge(&mut self, value: super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::Result<()>;
 }
@@ -2824,9 +2824,9 @@ impl ::windows::core::RuntimeName for IEdgeUIThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IEdgeUIThemeTransition";
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
-impl IEdgeUIThemeTransitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEdgeUIThemeTransitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEdgeUIThemeTransitionVtbl {
-        unsafe extern "system" fn Edge<Impl: IEdgeUIThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::HRESULT {
+impl IEdgeUIThemeTransition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEdgeUIThemeTransition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEdgeUIThemeTransition_Vtbl {
+        unsafe extern "system" fn Edge<Impl: IEdgeUIThemeTransition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Edge() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2837,7 +2837,7 @@ impl IEdgeUIThemeTransitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEdge<Impl: IEdgeUIThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEdge<Impl: IEdgeUIThemeTransition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEdge(value).into()
         }
@@ -2852,7 +2852,7 @@ impl IEdgeUIThemeTransitionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEdgeUIThemeTransitionStaticsImpl: Sized {
+pub trait IEdgeUIThemeTransitionStatics_Impl: Sized {
     fn EdgeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2860,9 +2860,9 @@ impl ::windows::core::RuntimeName for IEdgeUIThemeTransitionStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IEdgeUIThemeTransitionStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEdgeUIThemeTransitionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEdgeUIThemeTransitionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEdgeUIThemeTransitionStaticsVtbl {
-        unsafe extern "system" fn EdgeProperty<Impl: IEdgeUIThemeTransitionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEdgeUIThemeTransitionStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEdgeUIThemeTransitionStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEdgeUIThemeTransitionStatics_Vtbl {
+        unsafe extern "system" fn EdgeProperty<Impl: IEdgeUIThemeTransitionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EdgeProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2883,7 +2883,7 @@ impl IEdgeUIThemeTransitionStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IElasticEaseImpl: Sized {
+pub trait IElasticEase_Impl: Sized {
     fn Oscillations(&mut self) -> ::windows::core::Result<i32>;
     fn SetOscillations(&mut self, value: i32) -> ::windows::core::Result<()>;
     fn Springiness(&mut self) -> ::windows::core::Result<f64>;
@@ -2894,9 +2894,9 @@ impl ::windows::core::RuntimeName for IElasticEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IElasticEase";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IElasticEaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IElasticEaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IElasticEaseVtbl {
-        unsafe extern "system" fn Oscillations<Impl: IElasticEaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IElasticEase_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IElasticEase_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IElasticEase_Vtbl {
+        unsafe extern "system" fn Oscillations<Impl: IElasticEase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Oscillations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2907,11 +2907,11 @@ impl IElasticEaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOscillations<Impl: IElasticEaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOscillations<Impl: IElasticEase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOscillations(value).into()
         }
-        unsafe extern "system" fn Springiness<Impl: IElasticEaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Springiness<Impl: IElasticEase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Springiness() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2922,7 +2922,7 @@ impl IElasticEaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSpringiness<Impl: IElasticEaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSpringiness<Impl: IElasticEase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSpringiness(value).into()
         }
@@ -2939,7 +2939,7 @@ impl IElasticEaseVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IElasticEaseStaticsImpl: Sized {
+pub trait IElasticEaseStatics_Impl: Sized {
     fn OscillationsProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn SpringinessProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
@@ -2948,9 +2948,9 @@ impl ::windows::core::RuntimeName for IElasticEaseStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IElasticEaseStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IElasticEaseStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IElasticEaseStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IElasticEaseStaticsVtbl {
-        unsafe extern "system" fn OscillationsProperty<Impl: IElasticEaseStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IElasticEaseStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IElasticEaseStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IElasticEaseStatics_Vtbl {
+        unsafe extern "system" fn OscillationsProperty<Impl: IElasticEaseStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OscillationsProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2961,7 +2961,7 @@ impl IElasticEaseStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SpringinessProperty<Impl: IElasticEaseStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SpringinessProperty<Impl: IElasticEaseStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SpringinessProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2983,14 +2983,14 @@ impl IElasticEaseStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEntranceNavigationTransitionInfoImpl: Sized {}
+pub trait IEntranceNavigationTransitionInfo_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEntranceNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IEntranceNavigationTransitionInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEntranceNavigationTransitionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEntranceNavigationTransitionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEntranceNavigationTransitionInfoVtbl {
+impl IEntranceNavigationTransitionInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEntranceNavigationTransitionInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEntranceNavigationTransitionInfo_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IEntranceNavigationTransitionInfo, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -2998,7 +2998,7 @@ impl IEntranceNavigationTransitionInfoVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEntranceNavigationTransitionInfoStaticsImpl: Sized {
+pub trait IEntranceNavigationTransitionInfoStatics_Impl: Sized {
     fn IsTargetElementProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn GetIsTargetElement(&mut self, element: &::core::option::Option<super::super::UIElement>) -> ::windows::core::Result<bool>;
     fn SetIsTargetElement(&mut self, element: &::core::option::Option<super::super::UIElement>, value: bool) -> ::windows::core::Result<()>;
@@ -3008,9 +3008,9 @@ impl ::windows::core::RuntimeName for IEntranceNavigationTransitionInfoStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IEntranceNavigationTransitionInfoStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEntranceNavigationTransitionInfoStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEntranceNavigationTransitionInfoStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEntranceNavigationTransitionInfoStaticsVtbl {
-        unsafe extern "system" fn IsTargetElementProperty<Impl: IEntranceNavigationTransitionInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEntranceNavigationTransitionInfoStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEntranceNavigationTransitionInfoStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEntranceNavigationTransitionInfoStatics_Vtbl {
+        unsafe extern "system" fn IsTargetElementProperty<Impl: IEntranceNavigationTransitionInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTargetElementProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3021,7 +3021,7 @@ impl IEntranceNavigationTransitionInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIsTargetElement<Impl: IEntranceNavigationTransitionInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIsTargetElement<Impl: IEntranceNavigationTransitionInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIsTargetElement(&*(&element as *const <super::super::UIElement as ::windows::core::Abi>::Abi as *const <super::super::UIElement as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3032,7 +3032,7 @@ impl IEntranceNavigationTransitionInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsTargetElement<Impl: IEntranceNavigationTransitionInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsTargetElement<Impl: IEntranceNavigationTransitionInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsTargetElement(&*(&element as *const <super::super::UIElement as ::windows::core::Abi>::Abi as *const <super::super::UIElement as ::windows::core::DefaultType>::DefaultType), value).into()
         }
@@ -3048,7 +3048,7 @@ impl IEntranceNavigationTransitionInfoStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEntranceThemeTransitionImpl: Sized {
+pub trait IEntranceThemeTransition_Impl: Sized {
     fn FromHorizontalOffset(&mut self) -> ::windows::core::Result<f64>;
     fn SetFromHorizontalOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
     fn FromVerticalOffset(&mut self) -> ::windows::core::Result<f64>;
@@ -3061,9 +3061,9 @@ impl ::windows::core::RuntimeName for IEntranceThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IEntranceThemeTransition";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEntranceThemeTransitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEntranceThemeTransitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEntranceThemeTransitionVtbl {
-        unsafe extern "system" fn FromHorizontalOffset<Impl: IEntranceThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+impl IEntranceThemeTransition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEntranceThemeTransition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEntranceThemeTransition_Vtbl {
+        unsafe extern "system" fn FromHorizontalOffset<Impl: IEntranceThemeTransition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromHorizontalOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3074,11 +3074,11 @@ impl IEntranceThemeTransitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFromHorizontalOffset<Impl: IEntranceThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFromHorizontalOffset<Impl: IEntranceThemeTransition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFromHorizontalOffset(value).into()
         }
-        unsafe extern "system" fn FromVerticalOffset<Impl: IEntranceThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromVerticalOffset<Impl: IEntranceThemeTransition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromVerticalOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3089,11 +3089,11 @@ impl IEntranceThemeTransitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFromVerticalOffset<Impl: IEntranceThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFromVerticalOffset<Impl: IEntranceThemeTransition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFromVerticalOffset(value).into()
         }
-        unsafe extern "system" fn IsStaggeringEnabled<Impl: IEntranceThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStaggeringEnabled<Impl: IEntranceThemeTransition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStaggeringEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3104,7 +3104,7 @@ impl IEntranceThemeTransitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsStaggeringEnabled<Impl: IEntranceThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsStaggeringEnabled<Impl: IEntranceThemeTransition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsStaggeringEnabled(value).into()
         }
@@ -3123,7 +3123,7 @@ impl IEntranceThemeTransitionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEntranceThemeTransitionStaticsImpl: Sized {
+pub trait IEntranceThemeTransitionStatics_Impl: Sized {
     fn FromHorizontalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn FromVerticalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn IsStaggeringEnabledProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
@@ -3133,9 +3133,9 @@ impl ::windows::core::RuntimeName for IEntranceThemeTransitionStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IEntranceThemeTransitionStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEntranceThemeTransitionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEntranceThemeTransitionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEntranceThemeTransitionStaticsVtbl {
-        unsafe extern "system" fn FromHorizontalOffsetProperty<Impl: IEntranceThemeTransitionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEntranceThemeTransitionStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEntranceThemeTransitionStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEntranceThemeTransitionStatics_Vtbl {
+        unsafe extern "system" fn FromHorizontalOffsetProperty<Impl: IEntranceThemeTransitionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromHorizontalOffsetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3146,7 +3146,7 @@ impl IEntranceThemeTransitionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromVerticalOffsetProperty<Impl: IEntranceThemeTransitionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromVerticalOffsetProperty<Impl: IEntranceThemeTransitionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromVerticalOffsetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3157,7 +3157,7 @@ impl IEntranceThemeTransitionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsStaggeringEnabledProperty<Impl: IEntranceThemeTransitionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStaggeringEnabledProperty<Impl: IEntranceThemeTransitionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStaggeringEnabledProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3180,7 +3180,7 @@ impl IEntranceThemeTransitionStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IExponentialEaseImpl: Sized {
+pub trait IExponentialEase_Impl: Sized {
     fn Exponent(&mut self) -> ::windows::core::Result<f64>;
     fn SetExponent(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
@@ -3189,9 +3189,9 @@ impl ::windows::core::RuntimeName for IExponentialEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IExponentialEase";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IExponentialEaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExponentialEaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IExponentialEaseVtbl {
-        unsafe extern "system" fn Exponent<Impl: IExponentialEaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+impl IExponentialEase_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExponentialEase_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IExponentialEase_Vtbl {
+        unsafe extern "system" fn Exponent<Impl: IExponentialEase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Exponent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3202,7 +3202,7 @@ impl IExponentialEaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExponent<Impl: IExponentialEaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetExponent<Impl: IExponentialEase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExponent(value).into()
         }
@@ -3217,7 +3217,7 @@ impl IExponentialEaseVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IExponentialEaseStaticsImpl: Sized {
+pub trait IExponentialEaseStatics_Impl: Sized {
     fn ExponentProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3225,9 +3225,9 @@ impl ::windows::core::RuntimeName for IExponentialEaseStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IExponentialEaseStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IExponentialEaseStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExponentialEaseStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IExponentialEaseStaticsVtbl {
-        unsafe extern "system" fn ExponentProperty<Impl: IExponentialEaseStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IExponentialEaseStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExponentialEaseStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IExponentialEaseStatics_Vtbl {
+        unsafe extern "system" fn ExponentProperty<Impl: IExponentialEaseStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExponentProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3248,7 +3248,7 @@ impl IExponentialEaseStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IFadeInThemeAnimationImpl: Sized {
+pub trait IFadeInThemeAnimation_Impl: Sized {
     fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
@@ -3257,9 +3257,9 @@ impl ::windows::core::RuntimeName for IFadeInThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IFadeInThemeAnimation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IFadeInThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFadeInThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFadeInThemeAnimationVtbl {
-        unsafe extern "system" fn TargetName<Impl: IFadeInThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IFadeInThemeAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFadeInThemeAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFadeInThemeAnimation_Vtbl {
+        unsafe extern "system" fn TargetName<Impl: IFadeInThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3270,7 +3270,7 @@ impl IFadeInThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTargetName<Impl: IFadeInThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTargetName<Impl: IFadeInThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3285,7 +3285,7 @@ impl IFadeInThemeAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IFadeInThemeAnimationStaticsImpl: Sized {
+pub trait IFadeInThemeAnimationStatics_Impl: Sized {
     fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3293,9 +3293,9 @@ impl ::windows::core::RuntimeName for IFadeInThemeAnimationStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IFadeInThemeAnimationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IFadeInThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFadeInThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFadeInThemeAnimationStaticsVtbl {
-        unsafe extern "system" fn TargetNameProperty<Impl: IFadeInThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IFadeInThemeAnimationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFadeInThemeAnimationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFadeInThemeAnimationStatics_Vtbl {
+        unsafe extern "system" fn TargetNameProperty<Impl: IFadeInThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3316,7 +3316,7 @@ impl IFadeInThemeAnimationStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IFadeOutThemeAnimationImpl: Sized {
+pub trait IFadeOutThemeAnimation_Impl: Sized {
     fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
@@ -3325,9 +3325,9 @@ impl ::windows::core::RuntimeName for IFadeOutThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IFadeOutThemeAnimation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IFadeOutThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFadeOutThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFadeOutThemeAnimationVtbl {
-        unsafe extern "system" fn TargetName<Impl: IFadeOutThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IFadeOutThemeAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFadeOutThemeAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFadeOutThemeAnimation_Vtbl {
+        unsafe extern "system" fn TargetName<Impl: IFadeOutThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3338,7 +3338,7 @@ impl IFadeOutThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTargetName<Impl: IFadeOutThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTargetName<Impl: IFadeOutThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3353,7 +3353,7 @@ impl IFadeOutThemeAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IFadeOutThemeAnimationStaticsImpl: Sized {
+pub trait IFadeOutThemeAnimationStatics_Impl: Sized {
     fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3361,9 +3361,9 @@ impl ::windows::core::RuntimeName for IFadeOutThemeAnimationStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IFadeOutThemeAnimationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IFadeOutThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFadeOutThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFadeOutThemeAnimationStaticsVtbl {
-        unsafe extern "system" fn TargetNameProperty<Impl: IFadeOutThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IFadeOutThemeAnimationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFadeOutThemeAnimationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFadeOutThemeAnimationStatics_Vtbl {
+        unsafe extern "system" fn TargetNameProperty<Impl: IFadeOutThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3384,14 +3384,14 @@ impl IFadeOutThemeAnimationStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGravityConnectedAnimationConfigurationImpl: Sized {}
+pub trait IGravityConnectedAnimationConfiguration_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IGravityConnectedAnimationConfiguration {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IGravityConnectedAnimationConfiguration";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGravityConnectedAnimationConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGravityConnectedAnimationConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGravityConnectedAnimationConfigurationVtbl {
+impl IGravityConnectedAnimationConfiguration_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGravityConnectedAnimationConfiguration_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGravityConnectedAnimationConfiguration_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGravityConnectedAnimationConfiguration, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -3399,7 +3399,7 @@ impl IGravityConnectedAnimationConfigurationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGravityConnectedAnimationConfiguration2Impl: Sized {
+pub trait IGravityConnectedAnimationConfiguration2_Impl: Sized {
     fn IsShadowEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsShadowEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
@@ -3408,9 +3408,9 @@ impl ::windows::core::RuntimeName for IGravityConnectedAnimationConfiguration2 {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IGravityConnectedAnimationConfiguration2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGravityConnectedAnimationConfiguration2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGravityConnectedAnimationConfiguration2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGravityConnectedAnimationConfiguration2Vtbl {
-        unsafe extern "system" fn IsShadowEnabled<Impl: IGravityConnectedAnimationConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IGravityConnectedAnimationConfiguration2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGravityConnectedAnimationConfiguration2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGravityConnectedAnimationConfiguration2_Vtbl {
+        unsafe extern "system" fn IsShadowEnabled<Impl: IGravityConnectedAnimationConfiguration2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsShadowEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3421,7 +3421,7 @@ impl IGravityConnectedAnimationConfiguration2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsShadowEnabled<Impl: IGravityConnectedAnimationConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsShadowEnabled<Impl: IGravityConnectedAnimationConfiguration2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsShadowEnabled(value).into()
         }
@@ -3436,7 +3436,7 @@ impl IGravityConnectedAnimationConfiguration2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGravityConnectedAnimationConfigurationFactoryImpl: Sized {
+pub trait IGravityConnectedAnimationConfigurationFactory_Impl: Sized {
     fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<GravityConnectedAnimationConfiguration>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3444,9 +3444,9 @@ impl ::windows::core::RuntimeName for IGravityConnectedAnimationConfigurationFac
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IGravityConnectedAnimationConfigurationFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGravityConnectedAnimationConfigurationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGravityConnectedAnimationConfigurationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGravityConnectedAnimationConfigurationFactoryVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: IGravityConnectedAnimationConfigurationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGravityConnectedAnimationConfigurationFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGravityConnectedAnimationConfigurationFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGravityConnectedAnimationConfigurationFactory_Vtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IGravityConnectedAnimationConfigurationFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3467,7 +3467,7 @@ impl IGravityConnectedAnimationConfigurationFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IKeySplineImpl: Sized {
+pub trait IKeySpline_Impl: Sized {
     fn ControlPoint1(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
     fn SetControlPoint1(&mut self, value: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<()>;
     fn ControlPoint2(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
@@ -3478,9 +3478,9 @@ impl ::windows::core::RuntimeName for IKeySpline {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IKeySpline";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IKeySplineVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeySplineImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeySplineVtbl {
-        unsafe extern "system" fn ControlPoint1<Impl: IKeySplineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
+impl IKeySpline_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeySpline_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeySpline_Vtbl {
+        unsafe extern "system" fn ControlPoint1<Impl: IKeySpline_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ControlPoint1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3491,11 +3491,11 @@ impl IKeySplineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetControlPoint1<Impl: IKeySplineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetControlPoint1<Impl: IKeySpline_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetControlPoint1(&*(&value as *const <super::super::super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ControlPoint2<Impl: IKeySplineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ControlPoint2<Impl: IKeySpline_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ControlPoint2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3506,7 +3506,7 @@ impl IKeySplineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetControlPoint2<Impl: IKeySplineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetControlPoint2<Impl: IKeySpline_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetControlPoint2(&*(&value as *const <super::super::super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3523,14 +3523,14 @@ impl IKeySplineVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IKeyTimeHelperImpl: Sized {}
+pub trait IKeyTimeHelper_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKeyTimeHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IKeyTimeHelper";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IKeyTimeHelperVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyTimeHelperImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyTimeHelperVtbl {
+impl IKeyTimeHelper_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyTimeHelper_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyTimeHelper_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyTimeHelper, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -3538,7 +3538,7 @@ impl IKeyTimeHelperVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IKeyTimeHelperStaticsImpl: Sized {
+pub trait IKeyTimeHelperStatics_Impl: Sized {
     fn FromTimeSpan(&mut self, timespan: &super::super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<KeyTime>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -3546,9 +3546,9 @@ impl ::windows::core::RuntimeName for IKeyTimeHelperStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IKeyTimeHelperStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IKeyTimeHelperStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyTimeHelperStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyTimeHelperStaticsVtbl {
-        unsafe extern "system" fn FromTimeSpan<Impl: IKeyTimeHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timespan: super::super::super::super::Foundation::TimeSpan, result__: *mut KeyTime) -> ::windows::core::HRESULT {
+impl IKeyTimeHelperStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyTimeHelperStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyTimeHelperStatics_Vtbl {
+        unsafe extern "system" fn FromTimeSpan<Impl: IKeyTimeHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timespan: super::super::super::super::Foundation::TimeSpan, result__: *mut KeyTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromTimeSpan(&*(&timespan as *const <super::super::super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3566,14 +3566,14 @@ impl IKeyTimeHelperStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILinearColorKeyFrameImpl: Sized {}
+pub trait ILinearColorKeyFrame_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILinearColorKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ILinearColorKeyFrame";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILinearColorKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILinearColorKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILinearColorKeyFrameVtbl {
+impl ILinearColorKeyFrame_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILinearColorKeyFrame_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILinearColorKeyFrame_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILinearColorKeyFrame, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -3581,14 +3581,14 @@ impl ILinearColorKeyFrameVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILinearDoubleKeyFrameImpl: Sized {}
+pub trait ILinearDoubleKeyFrame_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILinearDoubleKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ILinearDoubleKeyFrame";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILinearDoubleKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILinearDoubleKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILinearDoubleKeyFrameVtbl {
+impl ILinearDoubleKeyFrame_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILinearDoubleKeyFrame_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILinearDoubleKeyFrame_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILinearDoubleKeyFrame, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -3596,14 +3596,14 @@ impl ILinearDoubleKeyFrameVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILinearPointKeyFrameImpl: Sized {}
+pub trait ILinearPointKeyFrame_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILinearPointKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ILinearPointKeyFrame";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILinearPointKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILinearPointKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILinearPointKeyFrameVtbl {
+impl ILinearPointKeyFrame_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILinearPointKeyFrame_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILinearPointKeyFrame_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILinearPointKeyFrame, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -3611,7 +3611,7 @@ impl ILinearPointKeyFrameVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait INavigationThemeTransitionImpl: Sized {
+pub trait INavigationThemeTransition_Impl: Sized {
     fn DefaultNavigationTransitionInfo(&mut self) -> ::windows::core::Result<NavigationTransitionInfo>;
     fn SetDefaultNavigationTransitionInfo(&mut self, value: &::core::option::Option<NavigationTransitionInfo>) -> ::windows::core::Result<()>;
 }
@@ -3620,9 +3620,9 @@ impl ::windows::core::RuntimeName for INavigationThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.INavigationThemeTransition";
 }
 #[cfg(feature = "implement_exclusive")]
-impl INavigationThemeTransitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INavigationThemeTransitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INavigationThemeTransitionVtbl {
-        unsafe extern "system" fn DefaultNavigationTransitionInfo<Impl: INavigationThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl INavigationThemeTransition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INavigationThemeTransition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INavigationThemeTransition_Vtbl {
+        unsafe extern "system" fn DefaultNavigationTransitionInfo<Impl: INavigationThemeTransition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultNavigationTransitionInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3633,7 +3633,7 @@ impl INavigationThemeTransitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDefaultNavigationTransitionInfo<Impl: INavigationThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDefaultNavigationTransitionInfo<Impl: INavigationThemeTransition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDefaultNavigationTransitionInfo(&*(&value as *const <NavigationTransitionInfo as ::windows::core::Abi>::Abi as *const <NavigationTransitionInfo as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3648,7 +3648,7 @@ impl INavigationThemeTransitionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait INavigationThemeTransitionStaticsImpl: Sized {
+pub trait INavigationThemeTransitionStatics_Impl: Sized {
     fn DefaultNavigationTransitionInfoProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3656,9 +3656,9 @@ impl ::windows::core::RuntimeName for INavigationThemeTransitionStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.INavigationThemeTransitionStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl INavigationThemeTransitionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INavigationThemeTransitionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INavigationThemeTransitionStaticsVtbl {
-        unsafe extern "system" fn DefaultNavigationTransitionInfoProperty<Impl: INavigationThemeTransitionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl INavigationThemeTransitionStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INavigationThemeTransitionStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INavigationThemeTransitionStatics_Vtbl {
+        unsafe extern "system" fn DefaultNavigationTransitionInfoProperty<Impl: INavigationThemeTransitionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultNavigationTransitionInfoProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3679,14 +3679,14 @@ impl INavigationThemeTransitionStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait INavigationTransitionInfoImpl: Sized {}
+pub trait INavigationTransitionInfo_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl INavigationTransitionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INavigationTransitionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INavigationTransitionInfoVtbl {
+impl INavigationTransitionInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INavigationTransitionInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INavigationTransitionInfo_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, INavigationTransitionInfo, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -3694,7 +3694,7 @@ impl INavigationTransitionInfoVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait INavigationTransitionInfoFactoryImpl: Sized {
+pub trait INavigationTransitionInfoFactory_Impl: Sized {
     fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<NavigationTransitionInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3702,9 +3702,9 @@ impl ::windows::core::RuntimeName for INavigationTransitionInfoFactory {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.INavigationTransitionInfoFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl INavigationTransitionInfoFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INavigationTransitionInfoFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INavigationTransitionInfoFactoryVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: INavigationTransitionInfoFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl INavigationTransitionInfoFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INavigationTransitionInfoFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INavigationTransitionInfoFactory_Vtbl {
+        unsafe extern "system" fn CreateInstance<Impl: INavigationTransitionInfoFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3725,7 +3725,7 @@ impl INavigationTransitionInfoFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait INavigationTransitionInfoOverridesImpl: Sized {
+pub trait INavigationTransitionInfoOverrides_Impl: Sized {
     fn GetNavigationStateCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetNavigationStateCore(&mut self, navigationstate: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
@@ -3734,9 +3734,9 @@ impl ::windows::core::RuntimeName for INavigationTransitionInfoOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.INavigationTransitionInfoOverrides";
 }
 #[cfg(feature = "implement_exclusive")]
-impl INavigationTransitionInfoOverridesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INavigationTransitionInfoOverridesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INavigationTransitionInfoOverridesVtbl {
-        unsafe extern "system" fn GetNavigationStateCore<Impl: INavigationTransitionInfoOverridesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl INavigationTransitionInfoOverrides_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INavigationTransitionInfoOverrides_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INavigationTransitionInfoOverrides_Vtbl {
+        unsafe extern "system" fn GetNavigationStateCore<Impl: INavigationTransitionInfoOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNavigationStateCore() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3747,7 +3747,7 @@ impl INavigationTransitionInfoOverridesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNavigationStateCore<Impl: INavigationTransitionInfoOverridesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, navigationstate: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNavigationStateCore<Impl: INavigationTransitionInfoOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, navigationstate: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNavigationStateCore(&*(&navigationstate as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3762,7 +3762,7 @@ impl INavigationTransitionInfoOverridesVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IObjectAnimationUsingKeyFramesImpl: Sized {
+pub trait IObjectAnimationUsingKeyFrames_Impl: Sized {
     fn KeyFrames(&mut self) -> ::windows::core::Result<ObjectKeyFrameCollection>;
     fn EnableDependentAnimation(&mut self) -> ::windows::core::Result<bool>;
     fn SetEnableDependentAnimation(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -3772,9 +3772,9 @@ impl ::windows::core::RuntimeName for IObjectAnimationUsingKeyFrames {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IObjectAnimationUsingKeyFrames";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IObjectAnimationUsingKeyFramesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectAnimationUsingKeyFramesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectAnimationUsingKeyFramesVtbl {
-        unsafe extern "system" fn KeyFrames<Impl: IObjectAnimationUsingKeyFramesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IObjectAnimationUsingKeyFrames_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectAnimationUsingKeyFrames_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectAnimationUsingKeyFrames_Vtbl {
+        unsafe extern "system" fn KeyFrames<Impl: IObjectAnimationUsingKeyFrames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyFrames() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3785,7 +3785,7 @@ impl IObjectAnimationUsingKeyFramesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableDependentAnimation<Impl: IObjectAnimationUsingKeyFramesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableDependentAnimation<Impl: IObjectAnimationUsingKeyFrames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableDependentAnimation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3796,7 +3796,7 @@ impl IObjectAnimationUsingKeyFramesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEnableDependentAnimation<Impl: IObjectAnimationUsingKeyFramesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnableDependentAnimation<Impl: IObjectAnimationUsingKeyFrames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnableDependentAnimation(value).into()
         }
@@ -3812,7 +3812,7 @@ impl IObjectAnimationUsingKeyFramesVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IObjectAnimationUsingKeyFramesStaticsImpl: Sized {
+pub trait IObjectAnimationUsingKeyFramesStatics_Impl: Sized {
     fn EnableDependentAnimationProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3820,9 +3820,9 @@ impl ::windows::core::RuntimeName for IObjectAnimationUsingKeyFramesStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IObjectAnimationUsingKeyFramesStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IObjectAnimationUsingKeyFramesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectAnimationUsingKeyFramesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectAnimationUsingKeyFramesStaticsVtbl {
-        unsafe extern "system" fn EnableDependentAnimationProperty<Impl: IObjectAnimationUsingKeyFramesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IObjectAnimationUsingKeyFramesStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectAnimationUsingKeyFramesStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectAnimationUsingKeyFramesStatics_Vtbl {
+        unsafe extern "system" fn EnableDependentAnimationProperty<Impl: IObjectAnimationUsingKeyFramesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableDependentAnimationProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3843,7 +3843,7 @@ impl IObjectAnimationUsingKeyFramesStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IObjectKeyFrameImpl: Sized {
+pub trait IObjectKeyFrame_Impl: Sized {
     fn Value(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn SetValue(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
     fn KeyTime(&mut self) -> ::windows::core::Result<KeyTime>;
@@ -3854,9 +3854,9 @@ impl ::windows::core::RuntimeName for IObjectKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IObjectKeyFrame";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IObjectKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectKeyFrameVtbl {
-        unsafe extern "system" fn Value<Impl: IObjectKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IObjectKeyFrame_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectKeyFrame_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectKeyFrame_Vtbl {
+        unsafe extern "system" fn Value<Impl: IObjectKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3867,11 +3867,11 @@ impl IObjectKeyFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Impl: IObjectKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Impl: IObjectKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn KeyTime<Impl: IObjectKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut KeyTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KeyTime<Impl: IObjectKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut KeyTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3882,7 +3882,7 @@ impl IObjectKeyFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetKeyTime<Impl: IObjectKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: KeyTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetKeyTime<Impl: IObjectKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: KeyTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKeyTime(&*(&value as *const <KeyTime as ::windows::core::Abi>::Abi as *const <KeyTime as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3899,7 +3899,7 @@ impl IObjectKeyFrameVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IObjectKeyFrameFactoryImpl: Sized {
+pub trait IObjectKeyFrameFactory_Impl: Sized {
     fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ObjectKeyFrame>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3907,9 +3907,9 @@ impl ::windows::core::RuntimeName for IObjectKeyFrameFactory {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IObjectKeyFrameFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IObjectKeyFrameFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectKeyFrameFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectKeyFrameFactoryVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: IObjectKeyFrameFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IObjectKeyFrameFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectKeyFrameFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectKeyFrameFactory_Vtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IObjectKeyFrameFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3930,7 +3930,7 @@ impl IObjectKeyFrameFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IObjectKeyFrameStaticsImpl: Sized {
+pub trait IObjectKeyFrameStatics_Impl: Sized {
     fn ValueProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn KeyTimeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
@@ -3939,9 +3939,9 @@ impl ::windows::core::RuntimeName for IObjectKeyFrameStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IObjectKeyFrameStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IObjectKeyFrameStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectKeyFrameStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectKeyFrameStaticsVtbl {
-        unsafe extern "system" fn ValueProperty<Impl: IObjectKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IObjectKeyFrameStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectKeyFrameStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectKeyFrameStatics_Vtbl {
+        unsafe extern "system" fn ValueProperty<Impl: IObjectKeyFrameStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ValueProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3952,7 +3952,7 @@ impl IObjectKeyFrameStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn KeyTimeProperty<Impl: IObjectKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KeyTimeProperty<Impl: IObjectKeyFrameStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyTimeProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3974,7 +3974,7 @@ impl IObjectKeyFrameStaticsVtbl {
     }
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
-pub trait IPaneThemeTransitionImpl: Sized {
+pub trait IPaneThemeTransition_Impl: Sized {
     fn Edge(&mut self) -> ::windows::core::Result<super::super::Controls::Primitives::EdgeTransitionLocation>;
     fn SetEdge(&mut self, value: super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::Result<()>;
 }
@@ -3983,9 +3983,9 @@ impl ::windows::core::RuntimeName for IPaneThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPaneThemeTransition";
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
-impl IPaneThemeTransitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaneThemeTransitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaneThemeTransitionVtbl {
-        unsafe extern "system" fn Edge<Impl: IPaneThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::HRESULT {
+impl IPaneThemeTransition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaneThemeTransition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaneThemeTransition_Vtbl {
+        unsafe extern "system" fn Edge<Impl: IPaneThemeTransition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Edge() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3996,7 +3996,7 @@ impl IPaneThemeTransitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEdge<Impl: IPaneThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEdge<Impl: IPaneThemeTransition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEdge(value).into()
         }
@@ -4011,7 +4011,7 @@ impl IPaneThemeTransitionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPaneThemeTransitionStaticsImpl: Sized {
+pub trait IPaneThemeTransitionStatics_Impl: Sized {
     fn EdgeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4019,9 +4019,9 @@ impl ::windows::core::RuntimeName for IPaneThemeTransitionStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPaneThemeTransitionStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPaneThemeTransitionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaneThemeTransitionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaneThemeTransitionStaticsVtbl {
-        unsafe extern "system" fn EdgeProperty<Impl: IPaneThemeTransitionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPaneThemeTransitionStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaneThemeTransitionStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaneThemeTransitionStatics_Vtbl {
+        unsafe extern "system" fn EdgeProperty<Impl: IPaneThemeTransitionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EdgeProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4042,7 +4042,7 @@ impl IPaneThemeTransitionStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPointAnimationImpl: Sized {
+pub trait IPointAnimation_Impl: Sized {
     fn From(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>;
     fn SetFrom(&mut self, value: &::core::option::Option<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>) -> ::windows::core::Result<()>;
     fn To(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>;
@@ -4059,9 +4059,9 @@ impl ::windows::core::RuntimeName for IPointAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPointAnimation";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPointAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointAnimationVtbl {
-        unsafe extern "system" fn From<Impl: IPointAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPointAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointAnimation_Vtbl {
+        unsafe extern "system" fn From<Impl: IPointAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).From() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4072,11 +4072,11 @@ impl IPointAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFrom<Impl: IPointAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFrom<Impl: IPointAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFrom(&*(&value as *const <super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn To<Impl: IPointAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn To<Impl: IPointAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).To() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4087,11 +4087,11 @@ impl IPointAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTo<Impl: IPointAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTo<Impl: IPointAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTo(&*(&value as *const <super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn By<Impl: IPointAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn By<Impl: IPointAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).By() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4102,11 +4102,11 @@ impl IPointAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBy<Impl: IPointAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBy<Impl: IPointAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBy(&*(&value as *const <super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EasingFunction<Impl: IPointAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EasingFunction<Impl: IPointAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EasingFunction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4117,11 +4117,11 @@ impl IPointAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEasingFunction<Impl: IPointAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEasingFunction<Impl: IPointAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEasingFunction(&*(&value as *const <EasingFunctionBase as ::windows::core::Abi>::Abi as *const <EasingFunctionBase as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EnableDependentAnimation<Impl: IPointAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableDependentAnimation<Impl: IPointAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableDependentAnimation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4132,7 +4132,7 @@ impl IPointAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEnableDependentAnimation<Impl: IPointAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnableDependentAnimation<Impl: IPointAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnableDependentAnimation(value).into()
         }
@@ -4155,7 +4155,7 @@ impl IPointAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPointAnimationStaticsImpl: Sized {
+pub trait IPointAnimationStatics_Impl: Sized {
     fn FromProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn ToProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn ByProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
@@ -4167,9 +4167,9 @@ impl ::windows::core::RuntimeName for IPointAnimationStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPointAnimationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPointAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointAnimationStaticsVtbl {
-        unsafe extern "system" fn FromProperty<Impl: IPointAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPointAnimationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointAnimationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointAnimationStatics_Vtbl {
+        unsafe extern "system" fn FromProperty<Impl: IPointAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4180,7 +4180,7 @@ impl IPointAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ToProperty<Impl: IPointAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToProperty<Impl: IPointAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4191,7 +4191,7 @@ impl IPointAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ByProperty<Impl: IPointAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ByProperty<Impl: IPointAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ByProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4202,7 +4202,7 @@ impl IPointAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EasingFunctionProperty<Impl: IPointAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EasingFunctionProperty<Impl: IPointAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EasingFunctionProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4213,7 +4213,7 @@ impl IPointAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableDependentAnimationProperty<Impl: IPointAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableDependentAnimationProperty<Impl: IPointAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableDependentAnimationProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4238,7 +4238,7 @@ impl IPointAnimationStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPointAnimationUsingKeyFramesImpl: Sized {
+pub trait IPointAnimationUsingKeyFrames_Impl: Sized {
     fn KeyFrames(&mut self) -> ::windows::core::Result<PointKeyFrameCollection>;
     fn EnableDependentAnimation(&mut self) -> ::windows::core::Result<bool>;
     fn SetEnableDependentAnimation(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -4248,9 +4248,9 @@ impl ::windows::core::RuntimeName for IPointAnimationUsingKeyFrames {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPointAnimationUsingKeyFrames";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPointAnimationUsingKeyFramesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointAnimationUsingKeyFramesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointAnimationUsingKeyFramesVtbl {
-        unsafe extern "system" fn KeyFrames<Impl: IPointAnimationUsingKeyFramesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPointAnimationUsingKeyFrames_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointAnimationUsingKeyFrames_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointAnimationUsingKeyFrames_Vtbl {
+        unsafe extern "system" fn KeyFrames<Impl: IPointAnimationUsingKeyFrames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyFrames() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4261,7 +4261,7 @@ impl IPointAnimationUsingKeyFramesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableDependentAnimation<Impl: IPointAnimationUsingKeyFramesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableDependentAnimation<Impl: IPointAnimationUsingKeyFrames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableDependentAnimation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4272,7 +4272,7 @@ impl IPointAnimationUsingKeyFramesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEnableDependentAnimation<Impl: IPointAnimationUsingKeyFramesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnableDependentAnimation<Impl: IPointAnimationUsingKeyFrames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnableDependentAnimation(value).into()
         }
@@ -4288,7 +4288,7 @@ impl IPointAnimationUsingKeyFramesVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPointAnimationUsingKeyFramesStaticsImpl: Sized {
+pub trait IPointAnimationUsingKeyFramesStatics_Impl: Sized {
     fn EnableDependentAnimationProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4296,9 +4296,9 @@ impl ::windows::core::RuntimeName for IPointAnimationUsingKeyFramesStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPointAnimationUsingKeyFramesStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPointAnimationUsingKeyFramesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointAnimationUsingKeyFramesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointAnimationUsingKeyFramesStaticsVtbl {
-        unsafe extern "system" fn EnableDependentAnimationProperty<Impl: IPointAnimationUsingKeyFramesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPointAnimationUsingKeyFramesStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointAnimationUsingKeyFramesStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointAnimationUsingKeyFramesStatics_Vtbl {
+        unsafe extern "system" fn EnableDependentAnimationProperty<Impl: IPointAnimationUsingKeyFramesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableDependentAnimationProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4319,7 +4319,7 @@ impl IPointAnimationUsingKeyFramesStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPointKeyFrameImpl: Sized {
+pub trait IPointKeyFrame_Impl: Sized {
     fn Value(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
     fn SetValue(&mut self, value: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<()>;
     fn KeyTime(&mut self) -> ::windows::core::Result<KeyTime>;
@@ -4330,9 +4330,9 @@ impl ::windows::core::RuntimeName for IPointKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPointKeyFrame";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPointKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointKeyFrameVtbl {
-        unsafe extern "system" fn Value<Impl: IPointKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
+impl IPointKeyFrame_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointKeyFrame_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointKeyFrame_Vtbl {
+        unsafe extern "system" fn Value<Impl: IPointKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4343,11 +4343,11 @@ impl IPointKeyFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Impl: IPointKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Impl: IPointKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <super::super::super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn KeyTime<Impl: IPointKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut KeyTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KeyTime<Impl: IPointKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut KeyTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4358,7 +4358,7 @@ impl IPointKeyFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetKeyTime<Impl: IPointKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: KeyTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetKeyTime<Impl: IPointKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: KeyTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKeyTime(&*(&value as *const <KeyTime as ::windows::core::Abi>::Abi as *const <KeyTime as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -4375,7 +4375,7 @@ impl IPointKeyFrameVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPointKeyFrameFactoryImpl: Sized {
+pub trait IPointKeyFrameFactory_Impl: Sized {
     fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<PointKeyFrame>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4383,9 +4383,9 @@ impl ::windows::core::RuntimeName for IPointKeyFrameFactory {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPointKeyFrameFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPointKeyFrameFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointKeyFrameFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointKeyFrameFactoryVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: IPointKeyFrameFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPointKeyFrameFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointKeyFrameFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointKeyFrameFactory_Vtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IPointKeyFrameFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4406,7 +4406,7 @@ impl IPointKeyFrameFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPointKeyFrameStaticsImpl: Sized {
+pub trait IPointKeyFrameStatics_Impl: Sized {
     fn ValueProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn KeyTimeProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
@@ -4415,9 +4415,9 @@ impl ::windows::core::RuntimeName for IPointKeyFrameStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPointKeyFrameStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPointKeyFrameStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointKeyFrameStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointKeyFrameStaticsVtbl {
-        unsafe extern "system" fn ValueProperty<Impl: IPointKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPointKeyFrameStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointKeyFrameStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointKeyFrameStatics_Vtbl {
+        unsafe extern "system" fn ValueProperty<Impl: IPointKeyFrameStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ValueProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4428,7 +4428,7 @@ impl IPointKeyFrameStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn KeyTimeProperty<Impl: IPointKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KeyTimeProperty<Impl: IPointKeyFrameStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyTimeProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4450,7 +4450,7 @@ impl IPointKeyFrameStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPointerDownThemeAnimationImpl: Sized {
+pub trait IPointerDownThemeAnimation_Impl: Sized {
     fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
@@ -4459,9 +4459,9 @@ impl ::windows::core::RuntimeName for IPointerDownThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPointerDownThemeAnimation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPointerDownThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerDownThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerDownThemeAnimationVtbl {
-        unsafe extern "system" fn TargetName<Impl: IPointerDownThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPointerDownThemeAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerDownThemeAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerDownThemeAnimation_Vtbl {
+        unsafe extern "system" fn TargetName<Impl: IPointerDownThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4472,7 +4472,7 @@ impl IPointerDownThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTargetName<Impl: IPointerDownThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTargetName<Impl: IPointerDownThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -4487,7 +4487,7 @@ impl IPointerDownThemeAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPointerDownThemeAnimationStaticsImpl: Sized {
+pub trait IPointerDownThemeAnimationStatics_Impl: Sized {
     fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4495,9 +4495,9 @@ impl ::windows::core::RuntimeName for IPointerDownThemeAnimationStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPointerDownThemeAnimationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPointerDownThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerDownThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerDownThemeAnimationStaticsVtbl {
-        unsafe extern "system" fn TargetNameProperty<Impl: IPointerDownThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPointerDownThemeAnimationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerDownThemeAnimationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerDownThemeAnimationStatics_Vtbl {
+        unsafe extern "system" fn TargetNameProperty<Impl: IPointerDownThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4518,7 +4518,7 @@ impl IPointerDownThemeAnimationStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPointerUpThemeAnimationImpl: Sized {
+pub trait IPointerUpThemeAnimation_Impl: Sized {
     fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
@@ -4527,9 +4527,9 @@ impl ::windows::core::RuntimeName for IPointerUpThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPointerUpThemeAnimation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPointerUpThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerUpThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerUpThemeAnimationVtbl {
-        unsafe extern "system" fn TargetName<Impl: IPointerUpThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPointerUpThemeAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerUpThemeAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerUpThemeAnimation_Vtbl {
+        unsafe extern "system" fn TargetName<Impl: IPointerUpThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4540,7 +4540,7 @@ impl IPointerUpThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTargetName<Impl: IPointerUpThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTargetName<Impl: IPointerUpThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -4555,7 +4555,7 @@ impl IPointerUpThemeAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPointerUpThemeAnimationStaticsImpl: Sized {
+pub trait IPointerUpThemeAnimationStatics_Impl: Sized {
     fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4563,9 +4563,9 @@ impl ::windows::core::RuntimeName for IPointerUpThemeAnimationStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPointerUpThemeAnimationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPointerUpThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerUpThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerUpThemeAnimationStaticsVtbl {
-        unsafe extern "system" fn TargetNameProperty<Impl: IPointerUpThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPointerUpThemeAnimationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerUpThemeAnimationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerUpThemeAnimationStatics_Vtbl {
+        unsafe extern "system" fn TargetNameProperty<Impl: IPointerUpThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4586,7 +4586,7 @@ impl IPointerUpThemeAnimationStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPopInThemeAnimationImpl: Sized {
+pub trait IPopInThemeAnimation_Impl: Sized {
     fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn FromHorizontalOffset(&mut self) -> ::windows::core::Result<f64>;
@@ -4599,9 +4599,9 @@ impl ::windows::core::RuntimeName for IPopInThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPopInThemeAnimation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPopInThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopInThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPopInThemeAnimationVtbl {
-        unsafe extern "system" fn TargetName<Impl: IPopInThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPopInThemeAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopInThemeAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPopInThemeAnimation_Vtbl {
+        unsafe extern "system" fn TargetName<Impl: IPopInThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4612,11 +4612,11 @@ impl IPopInThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTargetName<Impl: IPopInThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTargetName<Impl: IPopInThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FromHorizontalOffset<Impl: IPopInThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromHorizontalOffset<Impl: IPopInThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromHorizontalOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4627,11 +4627,11 @@ impl IPopInThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFromHorizontalOffset<Impl: IPopInThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFromHorizontalOffset<Impl: IPopInThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFromHorizontalOffset(value).into()
         }
-        unsafe extern "system" fn FromVerticalOffset<Impl: IPopInThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromVerticalOffset<Impl: IPopInThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromVerticalOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4642,7 +4642,7 @@ impl IPopInThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFromVerticalOffset<Impl: IPopInThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFromVerticalOffset<Impl: IPopInThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFromVerticalOffset(value).into()
         }
@@ -4661,7 +4661,7 @@ impl IPopInThemeAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPopInThemeAnimationStaticsImpl: Sized {
+pub trait IPopInThemeAnimationStatics_Impl: Sized {
     fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn FromHorizontalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn FromVerticalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
@@ -4671,9 +4671,9 @@ impl ::windows::core::RuntimeName for IPopInThemeAnimationStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPopInThemeAnimationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPopInThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopInThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPopInThemeAnimationStaticsVtbl {
-        unsafe extern "system" fn TargetNameProperty<Impl: IPopInThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPopInThemeAnimationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopInThemeAnimationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPopInThemeAnimationStatics_Vtbl {
+        unsafe extern "system" fn TargetNameProperty<Impl: IPopInThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4684,7 +4684,7 @@ impl IPopInThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromHorizontalOffsetProperty<Impl: IPopInThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromHorizontalOffsetProperty<Impl: IPopInThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromHorizontalOffsetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4695,7 +4695,7 @@ impl IPopInThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromVerticalOffsetProperty<Impl: IPopInThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromVerticalOffsetProperty<Impl: IPopInThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromVerticalOffsetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4718,7 +4718,7 @@ impl IPopInThemeAnimationStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPopOutThemeAnimationImpl: Sized {
+pub trait IPopOutThemeAnimation_Impl: Sized {
     fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
@@ -4727,9 +4727,9 @@ impl ::windows::core::RuntimeName for IPopOutThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPopOutThemeAnimation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPopOutThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopOutThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPopOutThemeAnimationVtbl {
-        unsafe extern "system" fn TargetName<Impl: IPopOutThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPopOutThemeAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopOutThemeAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPopOutThemeAnimation_Vtbl {
+        unsafe extern "system" fn TargetName<Impl: IPopOutThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4740,7 +4740,7 @@ impl IPopOutThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTargetName<Impl: IPopOutThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTargetName<Impl: IPopOutThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -4755,7 +4755,7 @@ impl IPopOutThemeAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPopOutThemeAnimationStaticsImpl: Sized {
+pub trait IPopOutThemeAnimationStatics_Impl: Sized {
     fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4763,9 +4763,9 @@ impl ::windows::core::RuntimeName for IPopOutThemeAnimationStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPopOutThemeAnimationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPopOutThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopOutThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPopOutThemeAnimationStaticsVtbl {
-        unsafe extern "system" fn TargetNameProperty<Impl: IPopOutThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPopOutThemeAnimationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopOutThemeAnimationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPopOutThemeAnimationStatics_Vtbl {
+        unsafe extern "system" fn TargetNameProperty<Impl: IPopOutThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4786,7 +4786,7 @@ impl IPopOutThemeAnimationStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPopupThemeTransitionImpl: Sized {
+pub trait IPopupThemeTransition_Impl: Sized {
     fn FromHorizontalOffset(&mut self) -> ::windows::core::Result<f64>;
     fn SetFromHorizontalOffset(&mut self, value: f64) -> ::windows::core::Result<()>;
     fn FromVerticalOffset(&mut self) -> ::windows::core::Result<f64>;
@@ -4797,9 +4797,9 @@ impl ::windows::core::RuntimeName for IPopupThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPopupThemeTransition";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPopupThemeTransitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopupThemeTransitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPopupThemeTransitionVtbl {
-        unsafe extern "system" fn FromHorizontalOffset<Impl: IPopupThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+impl IPopupThemeTransition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopupThemeTransition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPopupThemeTransition_Vtbl {
+        unsafe extern "system" fn FromHorizontalOffset<Impl: IPopupThemeTransition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromHorizontalOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4810,11 +4810,11 @@ impl IPopupThemeTransitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFromHorizontalOffset<Impl: IPopupThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFromHorizontalOffset<Impl: IPopupThemeTransition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFromHorizontalOffset(value).into()
         }
-        unsafe extern "system" fn FromVerticalOffset<Impl: IPopupThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromVerticalOffset<Impl: IPopupThemeTransition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromVerticalOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4825,7 +4825,7 @@ impl IPopupThemeTransitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFromVerticalOffset<Impl: IPopupThemeTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFromVerticalOffset<Impl: IPopupThemeTransition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFromVerticalOffset(value).into()
         }
@@ -4842,7 +4842,7 @@ impl IPopupThemeTransitionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPopupThemeTransitionStaticsImpl: Sized {
+pub trait IPopupThemeTransitionStatics_Impl: Sized {
     fn FromHorizontalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn FromVerticalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
@@ -4851,9 +4851,9 @@ impl ::windows::core::RuntimeName for IPopupThemeTransitionStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPopupThemeTransitionStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPopupThemeTransitionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopupThemeTransitionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPopupThemeTransitionStaticsVtbl {
-        unsafe extern "system" fn FromHorizontalOffsetProperty<Impl: IPopupThemeTransitionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPopupThemeTransitionStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopupThemeTransitionStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPopupThemeTransitionStatics_Vtbl {
+        unsafe extern "system" fn FromHorizontalOffsetProperty<Impl: IPopupThemeTransitionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromHorizontalOffsetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4864,7 +4864,7 @@ impl IPopupThemeTransitionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromVerticalOffsetProperty<Impl: IPopupThemeTransitionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromVerticalOffsetProperty<Impl: IPopupThemeTransitionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromVerticalOffsetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4886,7 +4886,7 @@ impl IPopupThemeTransitionStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPowerEaseImpl: Sized {
+pub trait IPowerEase_Impl: Sized {
     fn Power(&mut self) -> ::windows::core::Result<f64>;
     fn SetPower(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
@@ -4895,9 +4895,9 @@ impl ::windows::core::RuntimeName for IPowerEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPowerEase";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPowerEaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPowerEaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPowerEaseVtbl {
-        unsafe extern "system" fn Power<Impl: IPowerEaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+impl IPowerEase_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPowerEase_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPowerEase_Vtbl {
+        unsafe extern "system" fn Power<Impl: IPowerEase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Power() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4908,7 +4908,7 @@ impl IPowerEaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPower<Impl: IPowerEaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPower<Impl: IPowerEase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPower(value).into()
         }
@@ -4923,7 +4923,7 @@ impl IPowerEaseVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPowerEaseStaticsImpl: Sized {
+pub trait IPowerEaseStatics_Impl: Sized {
     fn PowerProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4931,9 +4931,9 @@ impl ::windows::core::RuntimeName for IPowerEaseStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IPowerEaseStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPowerEaseStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPowerEaseStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPowerEaseStaticsVtbl {
-        unsafe extern "system" fn PowerProperty<Impl: IPowerEaseStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPowerEaseStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPowerEaseStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPowerEaseStatics_Vtbl {
+        unsafe extern "system" fn PowerProperty<Impl: IPowerEaseStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PowerProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4951,14 +4951,14 @@ impl IPowerEaseStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IQuadraticEaseImpl: Sized {}
+pub trait IQuadraticEase_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IQuadraticEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IQuadraticEase";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IQuadraticEaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQuadraticEaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQuadraticEaseVtbl {
+impl IQuadraticEase_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQuadraticEase_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQuadraticEase_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IQuadraticEase, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -4966,14 +4966,14 @@ impl IQuadraticEaseVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IQuarticEaseImpl: Sized {}
+pub trait IQuarticEase_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IQuarticEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IQuarticEase";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IQuarticEaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQuarticEaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQuarticEaseVtbl {
+impl IQuarticEase_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQuarticEase_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQuarticEase_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IQuarticEase, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -4981,14 +4981,14 @@ impl IQuarticEaseVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IQuinticEaseImpl: Sized {}
+pub trait IQuinticEase_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IQuinticEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IQuinticEase";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IQuinticEaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQuinticEaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQuinticEaseVtbl {
+impl IQuinticEase_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQuinticEase_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQuinticEase_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IQuinticEase, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -4996,14 +4996,14 @@ impl IQuinticEaseVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IReorderThemeTransitionImpl: Sized {}
+pub trait IReorderThemeTransition_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IReorderThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IReorderThemeTransition";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IReorderThemeTransitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReorderThemeTransitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReorderThemeTransitionVtbl {
+impl IReorderThemeTransition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReorderThemeTransition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReorderThemeTransition_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IReorderThemeTransition, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -5011,14 +5011,14 @@ impl IReorderThemeTransitionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRepeatBehaviorHelperImpl: Sized {}
+pub trait IRepeatBehaviorHelper_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRepeatBehaviorHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IRepeatBehaviorHelper";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRepeatBehaviorHelperVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepeatBehaviorHelperImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRepeatBehaviorHelperVtbl {
+impl IRepeatBehaviorHelper_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepeatBehaviorHelper_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRepeatBehaviorHelper_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRepeatBehaviorHelper, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -5026,7 +5026,7 @@ impl IRepeatBehaviorHelperVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IRepeatBehaviorHelperStaticsImpl: Sized {
+pub trait IRepeatBehaviorHelperStatics_Impl: Sized {
     fn Forever(&mut self) -> ::windows::core::Result<RepeatBehavior>;
     fn FromCount(&mut self, count: f64) -> ::windows::core::Result<RepeatBehavior>;
     fn FromDuration(&mut self, duration: &super::super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<RepeatBehavior>;
@@ -5039,9 +5039,9 @@ impl ::windows::core::RuntimeName for IRepeatBehaviorHelperStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IRepeatBehaviorHelperStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IRepeatBehaviorHelperStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepeatBehaviorHelperStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRepeatBehaviorHelperStaticsVtbl {
-        unsafe extern "system" fn Forever<Impl: IRepeatBehaviorHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RepeatBehavior) -> ::windows::core::HRESULT {
+impl IRepeatBehaviorHelperStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepeatBehaviorHelperStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRepeatBehaviorHelperStatics_Vtbl {
+        unsafe extern "system" fn Forever<Impl: IRepeatBehaviorHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RepeatBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Forever() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5052,7 +5052,7 @@ impl IRepeatBehaviorHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromCount<Impl: IRepeatBehaviorHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: f64, result__: *mut RepeatBehavior) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromCount<Impl: IRepeatBehaviorHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: f64, result__: *mut RepeatBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromCount(count) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5063,7 +5063,7 @@ impl IRepeatBehaviorHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromDuration<Impl: IRepeatBehaviorHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: super::super::super::super::Foundation::TimeSpan, result__: *mut RepeatBehavior) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromDuration<Impl: IRepeatBehaviorHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: super::super::super::super::Foundation::TimeSpan, result__: *mut RepeatBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromDuration(&*(&duration as *const <super::super::super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5074,7 +5074,7 @@ impl IRepeatBehaviorHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHasCount<Impl: IRepeatBehaviorHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: RepeatBehavior, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetHasCount<Impl: IRepeatBehaviorHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: RepeatBehavior, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetHasCount(&*(&target as *const <RepeatBehavior as ::windows::core::Abi>::Abi as *const <RepeatBehavior as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5085,7 +5085,7 @@ impl IRepeatBehaviorHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHasDuration<Impl: IRepeatBehaviorHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: RepeatBehavior, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetHasDuration<Impl: IRepeatBehaviorHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: RepeatBehavior, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetHasDuration(&*(&target as *const <RepeatBehavior as ::windows::core::Abi>::Abi as *const <RepeatBehavior as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5096,7 +5096,7 @@ impl IRepeatBehaviorHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Equals<Impl: IRepeatBehaviorHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: RepeatBehavior, value: RepeatBehavior, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Equals<Impl: IRepeatBehaviorHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: RepeatBehavior, value: RepeatBehavior, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Equals(&*(&target as *const <RepeatBehavior as ::windows::core::Abi>::Abi as *const <RepeatBehavior as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <RepeatBehavior as ::windows::core::Abi>::Abi as *const <RepeatBehavior as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5122,7 +5122,7 @@ impl IRepeatBehaviorHelperStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRepositionThemeAnimationImpl: Sized {
+pub trait IRepositionThemeAnimation_Impl: Sized {
     fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn FromHorizontalOffset(&mut self) -> ::windows::core::Result<f64>;
@@ -5135,9 +5135,9 @@ impl ::windows::core::RuntimeName for IRepositionThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IRepositionThemeAnimation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRepositionThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepositionThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRepositionThemeAnimationVtbl {
-        unsafe extern "system" fn TargetName<Impl: IRepositionThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IRepositionThemeAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepositionThemeAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRepositionThemeAnimation_Vtbl {
+        unsafe extern "system" fn TargetName<Impl: IRepositionThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5148,11 +5148,11 @@ impl IRepositionThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTargetName<Impl: IRepositionThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTargetName<Impl: IRepositionThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FromHorizontalOffset<Impl: IRepositionThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromHorizontalOffset<Impl: IRepositionThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromHorizontalOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5163,11 +5163,11 @@ impl IRepositionThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFromHorizontalOffset<Impl: IRepositionThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFromHorizontalOffset<Impl: IRepositionThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFromHorizontalOffset(value).into()
         }
-        unsafe extern "system" fn FromVerticalOffset<Impl: IRepositionThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromVerticalOffset<Impl: IRepositionThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromVerticalOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5178,7 +5178,7 @@ impl IRepositionThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFromVerticalOffset<Impl: IRepositionThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFromVerticalOffset<Impl: IRepositionThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFromVerticalOffset(value).into()
         }
@@ -5197,7 +5197,7 @@ impl IRepositionThemeAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRepositionThemeAnimationStaticsImpl: Sized {
+pub trait IRepositionThemeAnimationStatics_Impl: Sized {
     fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn FromHorizontalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn FromVerticalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
@@ -5207,9 +5207,9 @@ impl ::windows::core::RuntimeName for IRepositionThemeAnimationStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IRepositionThemeAnimationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRepositionThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepositionThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRepositionThemeAnimationStaticsVtbl {
-        unsafe extern "system" fn TargetNameProperty<Impl: IRepositionThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRepositionThemeAnimationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepositionThemeAnimationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRepositionThemeAnimationStatics_Vtbl {
+        unsafe extern "system" fn TargetNameProperty<Impl: IRepositionThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5220,7 +5220,7 @@ impl IRepositionThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromHorizontalOffsetProperty<Impl: IRepositionThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromHorizontalOffsetProperty<Impl: IRepositionThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromHorizontalOffsetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5231,7 +5231,7 @@ impl IRepositionThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromVerticalOffsetProperty<Impl: IRepositionThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromVerticalOffsetProperty<Impl: IRepositionThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromVerticalOffsetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5254,14 +5254,14 @@ impl IRepositionThemeAnimationStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRepositionThemeTransitionImpl: Sized {}
+pub trait IRepositionThemeTransition_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IRepositionThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IRepositionThemeTransition";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRepositionThemeTransitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepositionThemeTransitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRepositionThemeTransitionVtbl {
+impl IRepositionThemeTransition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepositionThemeTransition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRepositionThemeTransition_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IRepositionThemeTransition, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -5269,7 +5269,7 @@ impl IRepositionThemeTransitionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRepositionThemeTransition2Impl: Sized {
+pub trait IRepositionThemeTransition2_Impl: Sized {
     fn IsStaggeringEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsStaggeringEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
@@ -5278,9 +5278,9 @@ impl ::windows::core::RuntimeName for IRepositionThemeTransition2 {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IRepositionThemeTransition2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRepositionThemeTransition2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepositionThemeTransition2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRepositionThemeTransition2Vtbl {
-        unsafe extern "system" fn IsStaggeringEnabled<Impl: IRepositionThemeTransition2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IRepositionThemeTransition2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepositionThemeTransition2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRepositionThemeTransition2_Vtbl {
+        unsafe extern "system" fn IsStaggeringEnabled<Impl: IRepositionThemeTransition2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStaggeringEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5291,7 +5291,7 @@ impl IRepositionThemeTransition2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsStaggeringEnabled<Impl: IRepositionThemeTransition2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsStaggeringEnabled<Impl: IRepositionThemeTransition2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsStaggeringEnabled(value).into()
         }
@@ -5306,7 +5306,7 @@ impl IRepositionThemeTransition2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRepositionThemeTransitionStatics2Impl: Sized {
+pub trait IRepositionThemeTransitionStatics2_Impl: Sized {
     fn IsStaggeringEnabledProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5314,9 +5314,9 @@ impl ::windows::core::RuntimeName for IRepositionThemeTransitionStatics2 {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IRepositionThemeTransitionStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRepositionThemeTransitionStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepositionThemeTransitionStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRepositionThemeTransitionStatics2Vtbl {
-        unsafe extern "system" fn IsStaggeringEnabledProperty<Impl: IRepositionThemeTransitionStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRepositionThemeTransitionStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepositionThemeTransitionStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRepositionThemeTransitionStatics2_Vtbl {
+        unsafe extern "system" fn IsStaggeringEnabledProperty<Impl: IRepositionThemeTransitionStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStaggeringEnabledProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5337,14 +5337,14 @@ impl IRepositionThemeTransitionStatics2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISineEaseImpl: Sized {}
+pub trait ISineEase_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISineEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ISineEase";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISineEaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISineEaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISineEaseVtbl {
+impl ISineEase_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISineEase_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISineEase_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISineEase, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -5352,14 +5352,14 @@ impl ISineEaseVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISlideNavigationTransitionInfoImpl: Sized {}
+pub trait ISlideNavigationTransitionInfo_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISlideNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISlideNavigationTransitionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlideNavigationTransitionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISlideNavigationTransitionInfoVtbl {
+impl ISlideNavigationTransitionInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlideNavigationTransitionInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISlideNavigationTransitionInfo_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISlideNavigationTransitionInfo, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -5367,7 +5367,7 @@ impl ISlideNavigationTransitionInfoVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISlideNavigationTransitionInfo2Impl: Sized {
+pub trait ISlideNavigationTransitionInfo2_Impl: Sized {
     fn Effect(&mut self) -> ::windows::core::Result<SlideNavigationTransitionEffect>;
     fn SetEffect(&mut self, value: SlideNavigationTransitionEffect) -> ::windows::core::Result<()>;
 }
@@ -5376,9 +5376,9 @@ impl ::windows::core::RuntimeName for ISlideNavigationTransitionInfo2 {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfo2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISlideNavigationTransitionInfo2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlideNavigationTransitionInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISlideNavigationTransitionInfo2Vtbl {
-        unsafe extern "system" fn Effect<Impl: ISlideNavigationTransitionInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SlideNavigationTransitionEffect) -> ::windows::core::HRESULT {
+impl ISlideNavigationTransitionInfo2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlideNavigationTransitionInfo2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISlideNavigationTransitionInfo2_Vtbl {
+        unsafe extern "system" fn Effect<Impl: ISlideNavigationTransitionInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SlideNavigationTransitionEffect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Effect() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5389,7 +5389,7 @@ impl ISlideNavigationTransitionInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEffect<Impl: ISlideNavigationTransitionInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SlideNavigationTransitionEffect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEffect<Impl: ISlideNavigationTransitionInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SlideNavigationTransitionEffect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEffect(value).into()
         }
@@ -5404,7 +5404,7 @@ impl ISlideNavigationTransitionInfo2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISlideNavigationTransitionInfoStatics2Impl: Sized {
+pub trait ISlideNavigationTransitionInfoStatics2_Impl: Sized {
     fn EffectProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5412,9 +5412,9 @@ impl ::windows::core::RuntimeName for ISlideNavigationTransitionInfoStatics2 {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfoStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISlideNavigationTransitionInfoStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlideNavigationTransitionInfoStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISlideNavigationTransitionInfoStatics2Vtbl {
-        unsafe extern "system" fn EffectProperty<Impl: ISlideNavigationTransitionInfoStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISlideNavigationTransitionInfoStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlideNavigationTransitionInfoStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISlideNavigationTransitionInfoStatics2_Vtbl {
+        unsafe extern "system" fn EffectProperty<Impl: ISlideNavigationTransitionInfoStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EffectProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5435,7 +5435,7 @@ impl ISlideNavigationTransitionInfoStatics2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISplineColorKeyFrameImpl: Sized {
+pub trait ISplineColorKeyFrame_Impl: Sized {
     fn KeySpline(&mut self) -> ::windows::core::Result<KeySpline>;
     fn SetKeySpline(&mut self, value: &::core::option::Option<KeySpline>) -> ::windows::core::Result<()>;
 }
@@ -5444,9 +5444,9 @@ impl ::windows::core::RuntimeName for ISplineColorKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ISplineColorKeyFrame";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISplineColorKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplineColorKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplineColorKeyFrameVtbl {
-        unsafe extern "system" fn KeySpline<Impl: ISplineColorKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISplineColorKeyFrame_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplineColorKeyFrame_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplineColorKeyFrame_Vtbl {
+        unsafe extern "system" fn KeySpline<Impl: ISplineColorKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeySpline() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5457,7 +5457,7 @@ impl ISplineColorKeyFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetKeySpline<Impl: ISplineColorKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetKeySpline<Impl: ISplineColorKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKeySpline(&*(&value as *const <KeySpline as ::windows::core::Abi>::Abi as *const <KeySpline as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -5472,7 +5472,7 @@ impl ISplineColorKeyFrameVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISplineColorKeyFrameStaticsImpl: Sized {
+pub trait ISplineColorKeyFrameStatics_Impl: Sized {
     fn KeySplineProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5480,9 +5480,9 @@ impl ::windows::core::RuntimeName for ISplineColorKeyFrameStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ISplineColorKeyFrameStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISplineColorKeyFrameStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplineColorKeyFrameStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplineColorKeyFrameStaticsVtbl {
-        unsafe extern "system" fn KeySplineProperty<Impl: ISplineColorKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISplineColorKeyFrameStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplineColorKeyFrameStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplineColorKeyFrameStatics_Vtbl {
+        unsafe extern "system" fn KeySplineProperty<Impl: ISplineColorKeyFrameStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeySplineProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5503,7 +5503,7 @@ impl ISplineColorKeyFrameStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISplineDoubleKeyFrameImpl: Sized {
+pub trait ISplineDoubleKeyFrame_Impl: Sized {
     fn KeySpline(&mut self) -> ::windows::core::Result<KeySpline>;
     fn SetKeySpline(&mut self, value: &::core::option::Option<KeySpline>) -> ::windows::core::Result<()>;
 }
@@ -5512,9 +5512,9 @@ impl ::windows::core::RuntimeName for ISplineDoubleKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ISplineDoubleKeyFrame";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISplineDoubleKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplineDoubleKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplineDoubleKeyFrameVtbl {
-        unsafe extern "system" fn KeySpline<Impl: ISplineDoubleKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISplineDoubleKeyFrame_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplineDoubleKeyFrame_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplineDoubleKeyFrame_Vtbl {
+        unsafe extern "system" fn KeySpline<Impl: ISplineDoubleKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeySpline() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5525,7 +5525,7 @@ impl ISplineDoubleKeyFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetKeySpline<Impl: ISplineDoubleKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetKeySpline<Impl: ISplineDoubleKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKeySpline(&*(&value as *const <KeySpline as ::windows::core::Abi>::Abi as *const <KeySpline as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -5540,7 +5540,7 @@ impl ISplineDoubleKeyFrameVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISplineDoubleKeyFrameStaticsImpl: Sized {
+pub trait ISplineDoubleKeyFrameStatics_Impl: Sized {
     fn KeySplineProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5548,9 +5548,9 @@ impl ::windows::core::RuntimeName for ISplineDoubleKeyFrameStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ISplineDoubleKeyFrameStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISplineDoubleKeyFrameStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplineDoubleKeyFrameStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplineDoubleKeyFrameStaticsVtbl {
-        unsafe extern "system" fn KeySplineProperty<Impl: ISplineDoubleKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISplineDoubleKeyFrameStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplineDoubleKeyFrameStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplineDoubleKeyFrameStatics_Vtbl {
+        unsafe extern "system" fn KeySplineProperty<Impl: ISplineDoubleKeyFrameStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeySplineProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5571,7 +5571,7 @@ impl ISplineDoubleKeyFrameStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISplinePointKeyFrameImpl: Sized {
+pub trait ISplinePointKeyFrame_Impl: Sized {
     fn KeySpline(&mut self) -> ::windows::core::Result<KeySpline>;
     fn SetKeySpline(&mut self, value: &::core::option::Option<KeySpline>) -> ::windows::core::Result<()>;
 }
@@ -5580,9 +5580,9 @@ impl ::windows::core::RuntimeName for ISplinePointKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ISplinePointKeyFrame";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISplinePointKeyFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplinePointKeyFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplinePointKeyFrameVtbl {
-        unsafe extern "system" fn KeySpline<Impl: ISplinePointKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISplinePointKeyFrame_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplinePointKeyFrame_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplinePointKeyFrame_Vtbl {
+        unsafe extern "system" fn KeySpline<Impl: ISplinePointKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeySpline() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5593,7 +5593,7 @@ impl ISplinePointKeyFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetKeySpline<Impl: ISplinePointKeyFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetKeySpline<Impl: ISplinePointKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKeySpline(&*(&value as *const <KeySpline as ::windows::core::Abi>::Abi as *const <KeySpline as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -5608,7 +5608,7 @@ impl ISplinePointKeyFrameVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISplinePointKeyFrameStaticsImpl: Sized {
+pub trait ISplinePointKeyFrameStatics_Impl: Sized {
     fn KeySplineProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5616,9 +5616,9 @@ impl ::windows::core::RuntimeName for ISplinePointKeyFrameStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ISplinePointKeyFrameStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISplinePointKeyFrameStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplinePointKeyFrameStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplinePointKeyFrameStaticsVtbl {
-        unsafe extern "system" fn KeySplineProperty<Impl: ISplinePointKeyFrameStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISplinePointKeyFrameStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplinePointKeyFrameStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplinePointKeyFrameStatics_Vtbl {
+        unsafe extern "system" fn KeySplineProperty<Impl: ISplinePointKeyFrameStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeySplineProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5639,7 +5639,7 @@ impl ISplinePointKeyFrameStaticsVtbl {
     }
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
-pub trait ISplitCloseThemeAnimationImpl: Sized {
+pub trait ISplitCloseThemeAnimation_Impl: Sized {
     fn OpenedTargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetOpenedTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn OpenedTarget(&mut self) -> ::windows::core::Result<super::super::DependencyObject>;
@@ -5668,9 +5668,9 @@ impl ::windows::core::RuntimeName for ISplitCloseThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ISplitCloseThemeAnimation";
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
-impl ISplitCloseThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplitCloseThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplitCloseThemeAnimationVtbl {
-        unsafe extern "system" fn OpenedTargetName<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISplitCloseThemeAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplitCloseThemeAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplitCloseThemeAnimation_Vtbl {
+        unsafe extern "system" fn OpenedTargetName<Impl: ISplitCloseThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenedTargetName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5681,11 +5681,11 @@ impl ISplitCloseThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOpenedTargetName<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOpenedTargetName<Impl: ISplitCloseThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOpenedTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn OpenedTarget<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenedTarget<Impl: ISplitCloseThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenedTarget() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5696,11 +5696,11 @@ impl ISplitCloseThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOpenedTarget<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOpenedTarget<Impl: ISplitCloseThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOpenedTarget(&*(&value as *const <super::super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::super::DependencyObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ClosedTargetName<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClosedTargetName<Impl: ISplitCloseThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClosedTargetName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5711,11 +5711,11 @@ impl ISplitCloseThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClosedTargetName<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClosedTargetName<Impl: ISplitCloseThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetClosedTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ClosedTarget<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClosedTarget<Impl: ISplitCloseThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClosedTarget() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5726,11 +5726,11 @@ impl ISplitCloseThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClosedTarget<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClosedTarget<Impl: ISplitCloseThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetClosedTarget(&*(&value as *const <super::super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::super::DependencyObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ContentTargetName<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentTargetName<Impl: ISplitCloseThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentTargetName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5741,11 +5741,11 @@ impl ISplitCloseThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContentTargetName<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContentTargetName<Impl: ISplitCloseThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ContentTarget<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentTarget<Impl: ISplitCloseThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentTarget() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5756,11 +5756,11 @@ impl ISplitCloseThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContentTarget<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContentTarget<Impl: ISplitCloseThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentTarget(&*(&value as *const <super::super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::super::DependencyObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn OpenedLength<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenedLength<Impl: ISplitCloseThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenedLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5771,11 +5771,11 @@ impl ISplitCloseThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOpenedLength<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOpenedLength<Impl: ISplitCloseThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOpenedLength(value).into()
         }
-        unsafe extern "system" fn ClosedLength<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClosedLength<Impl: ISplitCloseThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClosedLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5786,11 +5786,11 @@ impl ISplitCloseThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClosedLength<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClosedLength<Impl: ISplitCloseThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetClosedLength(value).into()
         }
-        unsafe extern "system" fn OffsetFromCenter<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OffsetFromCenter<Impl: ISplitCloseThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OffsetFromCenter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5801,11 +5801,11 @@ impl ISplitCloseThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOffsetFromCenter<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffsetFromCenter<Impl: ISplitCloseThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOffsetFromCenter(value).into()
         }
-        unsafe extern "system" fn ContentTranslationDirection<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Controls::Primitives::AnimationDirection) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentTranslationDirection<Impl: ISplitCloseThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Controls::Primitives::AnimationDirection) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentTranslationDirection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5816,11 +5816,11 @@ impl ISplitCloseThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContentTranslationDirection<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Controls::Primitives::AnimationDirection) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContentTranslationDirection<Impl: ISplitCloseThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Controls::Primitives::AnimationDirection) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentTranslationDirection(value).into()
         }
-        unsafe extern "system" fn ContentTranslationOffset<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentTranslationOffset<Impl: ISplitCloseThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentTranslationOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5831,7 +5831,7 @@ impl ISplitCloseThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContentTranslationOffset<Impl: ISplitCloseThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContentTranslationOffset<Impl: ISplitCloseThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentTranslationOffset(value).into()
         }
@@ -5866,7 +5866,7 @@ impl ISplitCloseThemeAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISplitCloseThemeAnimationStaticsImpl: Sized {
+pub trait ISplitCloseThemeAnimationStatics_Impl: Sized {
     fn OpenedTargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn OpenedTargetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn ClosedTargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
@@ -5884,9 +5884,9 @@ impl ::windows::core::RuntimeName for ISplitCloseThemeAnimationStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ISplitCloseThemeAnimationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISplitCloseThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplitCloseThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplitCloseThemeAnimationStaticsVtbl {
-        unsafe extern "system" fn OpenedTargetNameProperty<Impl: ISplitCloseThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISplitCloseThemeAnimationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplitCloseThemeAnimationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplitCloseThemeAnimationStatics_Vtbl {
+        unsafe extern "system" fn OpenedTargetNameProperty<Impl: ISplitCloseThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenedTargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5897,7 +5897,7 @@ impl ISplitCloseThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OpenedTargetProperty<Impl: ISplitCloseThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenedTargetProperty<Impl: ISplitCloseThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenedTargetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5908,7 +5908,7 @@ impl ISplitCloseThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClosedTargetNameProperty<Impl: ISplitCloseThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClosedTargetNameProperty<Impl: ISplitCloseThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClosedTargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5919,7 +5919,7 @@ impl ISplitCloseThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClosedTargetProperty<Impl: ISplitCloseThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClosedTargetProperty<Impl: ISplitCloseThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClosedTargetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5930,7 +5930,7 @@ impl ISplitCloseThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentTargetNameProperty<Impl: ISplitCloseThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentTargetNameProperty<Impl: ISplitCloseThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentTargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5941,7 +5941,7 @@ impl ISplitCloseThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentTargetProperty<Impl: ISplitCloseThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentTargetProperty<Impl: ISplitCloseThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentTargetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5952,7 +5952,7 @@ impl ISplitCloseThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OpenedLengthProperty<Impl: ISplitCloseThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenedLengthProperty<Impl: ISplitCloseThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenedLengthProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5963,7 +5963,7 @@ impl ISplitCloseThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClosedLengthProperty<Impl: ISplitCloseThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClosedLengthProperty<Impl: ISplitCloseThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClosedLengthProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5974,7 +5974,7 @@ impl ISplitCloseThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OffsetFromCenterProperty<Impl: ISplitCloseThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OffsetFromCenterProperty<Impl: ISplitCloseThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OffsetFromCenterProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5985,7 +5985,7 @@ impl ISplitCloseThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentTranslationDirectionProperty<Impl: ISplitCloseThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentTranslationDirectionProperty<Impl: ISplitCloseThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentTranslationDirectionProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5996,7 +5996,7 @@ impl ISplitCloseThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentTranslationOffsetProperty<Impl: ISplitCloseThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentTranslationOffsetProperty<Impl: ISplitCloseThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentTranslationOffsetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6027,7 +6027,7 @@ impl ISplitCloseThemeAnimationStaticsVtbl {
     }
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
-pub trait ISplitOpenThemeAnimationImpl: Sized {
+pub trait ISplitOpenThemeAnimation_Impl: Sized {
     fn OpenedTargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetOpenedTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn OpenedTarget(&mut self) -> ::windows::core::Result<super::super::DependencyObject>;
@@ -6056,9 +6056,9 @@ impl ::windows::core::RuntimeName for ISplitOpenThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ISplitOpenThemeAnimation";
 }
 #[cfg(all(feature = "UI_Xaml_Controls_Primitives", feature = "implement_exclusive"))]
-impl ISplitOpenThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplitOpenThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplitOpenThemeAnimationVtbl {
-        unsafe extern "system" fn OpenedTargetName<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISplitOpenThemeAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplitOpenThemeAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplitOpenThemeAnimation_Vtbl {
+        unsafe extern "system" fn OpenedTargetName<Impl: ISplitOpenThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenedTargetName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6069,11 +6069,11 @@ impl ISplitOpenThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOpenedTargetName<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOpenedTargetName<Impl: ISplitOpenThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOpenedTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn OpenedTarget<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenedTarget<Impl: ISplitOpenThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenedTarget() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6084,11 +6084,11 @@ impl ISplitOpenThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOpenedTarget<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOpenedTarget<Impl: ISplitOpenThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOpenedTarget(&*(&value as *const <super::super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::super::DependencyObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ClosedTargetName<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClosedTargetName<Impl: ISplitOpenThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClosedTargetName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6099,11 +6099,11 @@ impl ISplitOpenThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClosedTargetName<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClosedTargetName<Impl: ISplitOpenThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetClosedTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ClosedTarget<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClosedTarget<Impl: ISplitOpenThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClosedTarget() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6114,11 +6114,11 @@ impl ISplitOpenThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClosedTarget<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClosedTarget<Impl: ISplitOpenThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetClosedTarget(&*(&value as *const <super::super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::super::DependencyObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ContentTargetName<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentTargetName<Impl: ISplitOpenThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentTargetName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6129,11 +6129,11 @@ impl ISplitOpenThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContentTargetName<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContentTargetName<Impl: ISplitOpenThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ContentTarget<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentTarget<Impl: ISplitOpenThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentTarget() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6144,11 +6144,11 @@ impl ISplitOpenThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContentTarget<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContentTarget<Impl: ISplitOpenThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentTarget(&*(&value as *const <super::super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::super::DependencyObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn OpenedLength<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenedLength<Impl: ISplitOpenThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenedLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6159,11 +6159,11 @@ impl ISplitOpenThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOpenedLength<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOpenedLength<Impl: ISplitOpenThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOpenedLength(value).into()
         }
-        unsafe extern "system" fn ClosedLength<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClosedLength<Impl: ISplitOpenThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClosedLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6174,11 +6174,11 @@ impl ISplitOpenThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClosedLength<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClosedLength<Impl: ISplitOpenThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetClosedLength(value).into()
         }
-        unsafe extern "system" fn OffsetFromCenter<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OffsetFromCenter<Impl: ISplitOpenThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OffsetFromCenter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6189,11 +6189,11 @@ impl ISplitOpenThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOffsetFromCenter<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffsetFromCenter<Impl: ISplitOpenThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOffsetFromCenter(value).into()
         }
-        unsafe extern "system" fn ContentTranslationDirection<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Controls::Primitives::AnimationDirection) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentTranslationDirection<Impl: ISplitOpenThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Controls::Primitives::AnimationDirection) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentTranslationDirection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6204,11 +6204,11 @@ impl ISplitOpenThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContentTranslationDirection<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Controls::Primitives::AnimationDirection) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContentTranslationDirection<Impl: ISplitOpenThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Controls::Primitives::AnimationDirection) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentTranslationDirection(value).into()
         }
-        unsafe extern "system" fn ContentTranslationOffset<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentTranslationOffset<Impl: ISplitOpenThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentTranslationOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6219,7 +6219,7 @@ impl ISplitOpenThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContentTranslationOffset<Impl: ISplitOpenThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContentTranslationOffset<Impl: ISplitOpenThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentTranslationOffset(value).into()
         }
@@ -6254,7 +6254,7 @@ impl ISplitOpenThemeAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISplitOpenThemeAnimationStaticsImpl: Sized {
+pub trait ISplitOpenThemeAnimationStatics_Impl: Sized {
     fn OpenedTargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn OpenedTargetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn ClosedTargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
@@ -6272,9 +6272,9 @@ impl ::windows::core::RuntimeName for ISplitOpenThemeAnimationStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ISplitOpenThemeAnimationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISplitOpenThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplitOpenThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplitOpenThemeAnimationStaticsVtbl {
-        unsafe extern "system" fn OpenedTargetNameProperty<Impl: ISplitOpenThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISplitOpenThemeAnimationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplitOpenThemeAnimationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplitOpenThemeAnimationStatics_Vtbl {
+        unsafe extern "system" fn OpenedTargetNameProperty<Impl: ISplitOpenThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenedTargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6285,7 +6285,7 @@ impl ISplitOpenThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OpenedTargetProperty<Impl: ISplitOpenThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenedTargetProperty<Impl: ISplitOpenThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenedTargetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6296,7 +6296,7 @@ impl ISplitOpenThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClosedTargetNameProperty<Impl: ISplitOpenThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClosedTargetNameProperty<Impl: ISplitOpenThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClosedTargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6307,7 +6307,7 @@ impl ISplitOpenThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClosedTargetProperty<Impl: ISplitOpenThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClosedTargetProperty<Impl: ISplitOpenThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClosedTargetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6318,7 +6318,7 @@ impl ISplitOpenThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentTargetNameProperty<Impl: ISplitOpenThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentTargetNameProperty<Impl: ISplitOpenThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentTargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6329,7 +6329,7 @@ impl ISplitOpenThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentTargetProperty<Impl: ISplitOpenThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentTargetProperty<Impl: ISplitOpenThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentTargetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6340,7 +6340,7 @@ impl ISplitOpenThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OpenedLengthProperty<Impl: ISplitOpenThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenedLengthProperty<Impl: ISplitOpenThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenedLengthProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6351,7 +6351,7 @@ impl ISplitOpenThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClosedLengthProperty<Impl: ISplitOpenThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClosedLengthProperty<Impl: ISplitOpenThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClosedLengthProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6362,7 +6362,7 @@ impl ISplitOpenThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OffsetFromCenterProperty<Impl: ISplitOpenThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OffsetFromCenterProperty<Impl: ISplitOpenThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OffsetFromCenterProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6373,7 +6373,7 @@ impl ISplitOpenThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentTranslationDirectionProperty<Impl: ISplitOpenThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentTranslationDirectionProperty<Impl: ISplitOpenThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentTranslationDirectionProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6384,7 +6384,7 @@ impl ISplitOpenThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentTranslationOffsetProperty<Impl: ISplitOpenThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentTranslationOffsetProperty<Impl: ISplitOpenThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentTranslationOffsetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6415,7 +6415,7 @@ impl ISplitOpenThemeAnimationStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IStoryboardImpl: Sized {
+pub trait IStoryboard_Impl: Sized {
     fn Children(&mut self) -> ::windows::core::Result<TimelineCollection>;
     fn Seek(&mut self, offset: &super::super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
     fn Stop(&mut self) -> ::windows::core::Result<()>;
@@ -6432,9 +6432,9 @@ impl ::windows::core::RuntimeName for IStoryboard {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IStoryboard";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IStoryboardVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoryboardImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoryboardVtbl {
-        unsafe extern "system" fn Children<Impl: IStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStoryboard_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoryboard_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoryboard_Vtbl {
+        unsafe extern "system" fn Children<Impl: IStoryboard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Children() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6445,27 +6445,27 @@ impl IStoryboardVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Seek<Impl: IStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: super::super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Seek<Impl: IStoryboard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: super::super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Seek(&*(&offset as *const <super::super::super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Stop<Impl: IStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stop<Impl: IStoryboard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        unsafe extern "system" fn Begin<Impl: IStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Begin<Impl: IStoryboard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Begin().into()
         }
-        unsafe extern "system" fn Pause<Impl: IStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pause<Impl: IStoryboard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Pause().into()
         }
-        unsafe extern "system" fn Resume<Impl: IStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Resume<Impl: IStoryboard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Resume().into()
         }
-        unsafe extern "system" fn GetCurrentState<Impl: IStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClockState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentState<Impl: IStoryboard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClockState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6476,7 +6476,7 @@ impl IStoryboardVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentTime<Impl: IStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentTime<Impl: IStoryboard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6487,11 +6487,11 @@ impl IStoryboardVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SeekAlignedToLastTick<Impl: IStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: super::super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SeekAlignedToLastTick<Impl: IStoryboard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: super::super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SeekAlignedToLastTick(&*(&offset as *const <super::super::super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SkipToFill<Impl: IStoryboardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SkipToFill<Impl: IStoryboard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SkipToFill().into()
         }
@@ -6514,7 +6514,7 @@ impl IStoryboardVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IStoryboardStaticsImpl: Sized {
+pub trait IStoryboardStatics_Impl: Sized {
     fn TargetPropertyProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn GetTargetProperty(&mut self, element: &::core::option::Option<Timeline>) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTargetProperty(&mut self, element: &::core::option::Option<Timeline>, path: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -6528,9 +6528,9 @@ impl ::windows::core::RuntimeName for IStoryboardStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.IStoryboardStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IStoryboardStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoryboardStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoryboardStaticsVtbl {
-        unsafe extern "system" fn TargetPropertyProperty<Impl: IStoryboardStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStoryboardStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoryboardStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoryboardStatics_Vtbl {
+        unsafe extern "system" fn TargetPropertyProperty<Impl: IStoryboardStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetPropertyProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6541,7 +6541,7 @@ impl IStoryboardStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTargetProperty<Impl: IStoryboardStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTargetProperty<Impl: IStoryboardStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTargetProperty(&*(&element as *const <Timeline as ::windows::core::Abi>::Abi as *const <Timeline as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6552,11 +6552,11 @@ impl IStoryboardStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTargetProperty<Impl: IStoryboardStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, path: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTargetProperty<Impl: IStoryboardStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, path: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetProperty(&*(&element as *const <Timeline as ::windows::core::Abi>::Abi as *const <Timeline as ::windows::core::DefaultType>::DefaultType), &*(&path as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TargetNameProperty<Impl: IStoryboardStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TargetNameProperty<Impl: IStoryboardStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6567,7 +6567,7 @@ impl IStoryboardStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTargetName<Impl: IStoryboardStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTargetName<Impl: IStoryboardStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTargetName(&*(&element as *const <Timeline as ::windows::core::Abi>::Abi as *const <Timeline as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6578,11 +6578,11 @@ impl IStoryboardStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTargetName<Impl: IStoryboardStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTargetName<Impl: IStoryboardStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetName(&*(&element as *const <Timeline as ::windows::core::Abi>::Abi as *const <Timeline as ::windows::core::DefaultType>::DefaultType), &*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetTarget<Impl: IStoryboardStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeline: ::windows::core::RawPtr, target: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTarget<Impl: IStoryboardStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeline: ::windows::core::RawPtr, target: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTarget(&*(&timeline as *const <Timeline as ::windows::core::Abi>::Abi as *const <Timeline as ::windows::core::DefaultType>::DefaultType), &*(&target as *const <super::super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::super::DependencyObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -6602,14 +6602,14 @@ impl IStoryboardStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISuppressNavigationTransitionInfoImpl: Sized {}
+pub trait ISuppressNavigationTransitionInfo_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISuppressNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ISuppressNavigationTransitionInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISuppressNavigationTransitionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISuppressNavigationTransitionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISuppressNavigationTransitionInfoVtbl {
+impl ISuppressNavigationTransitionInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISuppressNavigationTransitionInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISuppressNavigationTransitionInfo_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISuppressNavigationTransitionInfo, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -6617,7 +6617,7 @@ impl ISuppressNavigationTransitionInfoVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISwipeBackThemeAnimationImpl: Sized {
+pub trait ISwipeBackThemeAnimation_Impl: Sized {
     fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn FromHorizontalOffset(&mut self) -> ::windows::core::Result<f64>;
@@ -6630,9 +6630,9 @@ impl ::windows::core::RuntimeName for ISwipeBackThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ISwipeBackThemeAnimation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISwipeBackThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwipeBackThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISwipeBackThemeAnimationVtbl {
-        unsafe extern "system" fn TargetName<Impl: ISwipeBackThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISwipeBackThemeAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwipeBackThemeAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISwipeBackThemeAnimation_Vtbl {
+        unsafe extern "system" fn TargetName<Impl: ISwipeBackThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6643,11 +6643,11 @@ impl ISwipeBackThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTargetName<Impl: ISwipeBackThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTargetName<Impl: ISwipeBackThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FromHorizontalOffset<Impl: ISwipeBackThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromHorizontalOffset<Impl: ISwipeBackThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromHorizontalOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6658,11 +6658,11 @@ impl ISwipeBackThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFromHorizontalOffset<Impl: ISwipeBackThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFromHorizontalOffset<Impl: ISwipeBackThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFromHorizontalOffset(value).into()
         }
-        unsafe extern "system" fn FromVerticalOffset<Impl: ISwipeBackThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromVerticalOffset<Impl: ISwipeBackThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromVerticalOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6673,7 +6673,7 @@ impl ISwipeBackThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFromVerticalOffset<Impl: ISwipeBackThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFromVerticalOffset<Impl: ISwipeBackThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFromVerticalOffset(value).into()
         }
@@ -6692,7 +6692,7 @@ impl ISwipeBackThemeAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISwipeBackThemeAnimationStaticsImpl: Sized {
+pub trait ISwipeBackThemeAnimationStatics_Impl: Sized {
     fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn FromHorizontalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn FromVerticalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
@@ -6702,9 +6702,9 @@ impl ::windows::core::RuntimeName for ISwipeBackThemeAnimationStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ISwipeBackThemeAnimationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISwipeBackThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwipeBackThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISwipeBackThemeAnimationStaticsVtbl {
-        unsafe extern "system" fn TargetNameProperty<Impl: ISwipeBackThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISwipeBackThemeAnimationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwipeBackThemeAnimationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISwipeBackThemeAnimationStatics_Vtbl {
+        unsafe extern "system" fn TargetNameProperty<Impl: ISwipeBackThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6715,7 +6715,7 @@ impl ISwipeBackThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromHorizontalOffsetProperty<Impl: ISwipeBackThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromHorizontalOffsetProperty<Impl: ISwipeBackThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromHorizontalOffsetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6726,7 +6726,7 @@ impl ISwipeBackThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromVerticalOffsetProperty<Impl: ISwipeBackThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromVerticalOffsetProperty<Impl: ISwipeBackThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromVerticalOffsetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6749,7 +6749,7 @@ impl ISwipeBackThemeAnimationStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISwipeHintThemeAnimationImpl: Sized {
+pub trait ISwipeHintThemeAnimation_Impl: Sized {
     fn TargetName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTargetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn ToHorizontalOffset(&mut self) -> ::windows::core::Result<f64>;
@@ -6762,9 +6762,9 @@ impl ::windows::core::RuntimeName for ISwipeHintThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ISwipeHintThemeAnimation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISwipeHintThemeAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwipeHintThemeAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISwipeHintThemeAnimationVtbl {
-        unsafe extern "system" fn TargetName<Impl: ISwipeHintThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISwipeHintThemeAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwipeHintThemeAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISwipeHintThemeAnimation_Vtbl {
+        unsafe extern "system" fn TargetName<Impl: ISwipeHintThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6775,11 +6775,11 @@ impl ISwipeHintThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTargetName<Impl: ISwipeHintThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTargetName<Impl: ISwipeHintThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTargetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ToHorizontalOffset<Impl: ISwipeHintThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToHorizontalOffset<Impl: ISwipeHintThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToHorizontalOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6790,11 +6790,11 @@ impl ISwipeHintThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetToHorizontalOffset<Impl: ISwipeHintThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetToHorizontalOffset<Impl: ISwipeHintThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetToHorizontalOffset(value).into()
         }
-        unsafe extern "system" fn ToVerticalOffset<Impl: ISwipeHintThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToVerticalOffset<Impl: ISwipeHintThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToVerticalOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6805,7 +6805,7 @@ impl ISwipeHintThemeAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetToVerticalOffset<Impl: ISwipeHintThemeAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetToVerticalOffset<Impl: ISwipeHintThemeAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetToVerticalOffset(value).into()
         }
@@ -6824,7 +6824,7 @@ impl ISwipeHintThemeAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISwipeHintThemeAnimationStaticsImpl: Sized {
+pub trait ISwipeHintThemeAnimationStatics_Impl: Sized {
     fn TargetNameProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn ToHorizontalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
     fn ToVerticalOffsetProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
@@ -6834,9 +6834,9 @@ impl ::windows::core::RuntimeName for ISwipeHintThemeAnimationStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ISwipeHintThemeAnimationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISwipeHintThemeAnimationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwipeHintThemeAnimationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISwipeHintThemeAnimationStaticsVtbl {
-        unsafe extern "system" fn TargetNameProperty<Impl: ISwipeHintThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISwipeHintThemeAnimationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwipeHintThemeAnimationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISwipeHintThemeAnimationStatics_Vtbl {
+        unsafe extern "system" fn TargetNameProperty<Impl: ISwipeHintThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetNameProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6847,7 +6847,7 @@ impl ISwipeHintThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ToHorizontalOffsetProperty<Impl: ISwipeHintThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToHorizontalOffsetProperty<Impl: ISwipeHintThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToHorizontalOffsetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6858,7 +6858,7 @@ impl ISwipeHintThemeAnimationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ToVerticalOffsetProperty<Impl: ISwipeHintThemeAnimationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToVerticalOffsetProperty<Impl: ISwipeHintThemeAnimationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToVerticalOffsetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6881,7 +6881,7 @@ impl ISwipeHintThemeAnimationStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ITimelineImpl: Sized {
+pub trait ITimeline_Impl: Sized {
     fn AutoReverse(&mut self) -> ::windows::core::Result<bool>;
     fn SetAutoReverse(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn BeginTime(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>>;
@@ -6902,9 +6902,9 @@ impl ::windows::core::RuntimeName for ITimeline {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ITimeline";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ITimelineVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimelineImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITimelineVtbl {
-        unsafe extern "system" fn AutoReverse<Impl: ITimelineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ITimeline_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimeline_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITimeline_Vtbl {
+        unsafe extern "system" fn AutoReverse<Impl: ITimeline_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutoReverse() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6915,11 +6915,11 @@ impl ITimelineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAutoReverse<Impl: ITimelineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAutoReverse<Impl: ITimeline_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAutoReverse(value).into()
         }
-        unsafe extern "system" fn BeginTime<Impl: ITimelineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeginTime<Impl: ITimeline_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BeginTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6930,11 +6930,11 @@ impl ITimelineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBeginTime<Impl: ITimelineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBeginTime<Impl: ITimeline_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBeginTime(&*(&value as *const <super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Duration<Impl: ITimelineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Duration) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Duration<Impl: ITimeline_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Duration) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Duration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6945,11 +6945,11 @@ impl ITimelineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDuration<Impl: ITimelineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Duration) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDuration<Impl: ITimeline_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Duration) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDuration(&*(&value as *const <super::super::Duration as ::windows::core::Abi>::Abi as *const <super::super::Duration as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SpeedRatio<Impl: ITimelineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SpeedRatio<Impl: ITimeline_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SpeedRatio() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6960,11 +6960,11 @@ impl ITimelineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSpeedRatio<Impl: ITimelineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSpeedRatio<Impl: ITimeline_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSpeedRatio(value).into()
         }
-        unsafe extern "system" fn FillBehavior<Impl: ITimelineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut FillBehavior) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FillBehavior<Impl: ITimeline_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut FillBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FillBehavior() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6975,11 +6975,11 @@ impl ITimelineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFillBehavior<Impl: ITimelineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: FillBehavior) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFillBehavior<Impl: ITimeline_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: FillBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFillBehavior(value).into()
         }
-        unsafe extern "system" fn RepeatBehavior<Impl: ITimelineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RepeatBehavior) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RepeatBehavior<Impl: ITimeline_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RepeatBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RepeatBehavior() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6990,11 +6990,11 @@ impl ITimelineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRepeatBehavior<Impl: ITimelineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: RepeatBehavior) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRepeatBehavior<Impl: ITimeline_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: RepeatBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRepeatBehavior(&*(&value as *const <RepeatBehavior as ::windows::core::Abi>::Abi as *const <RepeatBehavior as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Completed<Impl: ITimelineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Completed<Impl: ITimeline_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Completed(&*(&handler as *const <super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -7005,7 +7005,7 @@ impl ITimelineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCompleted<Impl: ITimelineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCompleted<Impl: ITimeline_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCompleted(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -7032,7 +7032,7 @@ impl ITimelineVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ITimelineFactoryImpl: Sized {
+pub trait ITimelineFactory_Impl: Sized {
     fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<Timeline>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7040,9 +7040,9 @@ impl ::windows::core::RuntimeName for ITimelineFactory {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ITimelineFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ITimelineFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimelineFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITimelineFactoryVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: ITimelineFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITimelineFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimelineFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITimelineFactory_Vtbl {
+        unsafe extern "system" fn CreateInstance<Impl: ITimelineFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -7060,7 +7060,7 @@ impl ITimelineFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ITimelineStaticsImpl: Sized {
+pub trait ITimelineStatics_Impl: Sized {
     fn AllowDependentAnimations(&mut self) -> ::windows::core::Result<bool>;
     fn SetAllowDependentAnimations(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn AutoReverseProperty(&mut self) -> ::windows::core::Result<super::super::DependencyProperty>;
@@ -7075,9 +7075,9 @@ impl ::windows::core::RuntimeName for ITimelineStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ITimelineStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ITimelineStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimelineStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITimelineStaticsVtbl {
-        unsafe extern "system" fn AllowDependentAnimations<Impl: ITimelineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ITimelineStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimelineStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITimelineStatics_Vtbl {
+        unsafe extern "system" fn AllowDependentAnimations<Impl: ITimelineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowDependentAnimations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7088,11 +7088,11 @@ impl ITimelineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAllowDependentAnimations<Impl: ITimelineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAllowDependentAnimations<Impl: ITimelineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowDependentAnimations(value).into()
         }
-        unsafe extern "system" fn AutoReverseProperty<Impl: ITimelineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AutoReverseProperty<Impl: ITimelineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutoReverseProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7103,7 +7103,7 @@ impl ITimelineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BeginTimeProperty<Impl: ITimelineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeginTimeProperty<Impl: ITimelineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BeginTimeProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7114,7 +7114,7 @@ impl ITimelineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DurationProperty<Impl: ITimelineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DurationProperty<Impl: ITimelineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DurationProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7125,7 +7125,7 @@ impl ITimelineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SpeedRatioProperty<Impl: ITimelineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SpeedRatioProperty<Impl: ITimelineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SpeedRatioProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7136,7 +7136,7 @@ impl ITimelineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FillBehaviorProperty<Impl: ITimelineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FillBehaviorProperty<Impl: ITimelineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FillBehaviorProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7147,7 +7147,7 @@ impl ITimelineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RepeatBehaviorProperty<Impl: ITimelineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RepeatBehaviorProperty<Impl: ITimelineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RepeatBehaviorProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7175,14 +7175,14 @@ impl ITimelineStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ITransitionImpl: Sized {}
+pub trait ITransition_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ITransition";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ITransitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransitionVtbl {
+impl ITransition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransition_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITransition, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -7190,14 +7190,14 @@ impl ITransitionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ITransitionFactoryImpl: Sized {}
+pub trait ITransitionFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITransitionFactory {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ITransitionFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ITransitionFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransitionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransitionFactoryVtbl {
+impl ITransitionFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransitionFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransitionFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITransitionFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

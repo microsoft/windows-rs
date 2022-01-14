@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IApplicationProfileStaticsImpl: Sized {
+pub trait IApplicationProfileStatics_Impl: Sized {
     fn Modes(&mut self) -> ::windows::core::Result<ApplicationProfileModes>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7,9 +7,9 @@ impl ::windows::core::RuntimeName for IApplicationProfileStatics {
     const NAME: &'static str = "Windows.Phone.ApplicationModel.IApplicationProfileStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IApplicationProfileStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApplicationProfileStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IApplicationProfileStaticsVtbl {
-        unsafe extern "system" fn Modes<Impl: IApplicationProfileStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ApplicationProfileModes) -> ::windows::core::HRESULT {
+impl IApplicationProfileStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApplicationProfileStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IApplicationProfileStatics_Vtbl {
+        unsafe extern "system" fn Modes<Impl: IApplicationProfileStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ApplicationProfileModes) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Modes() {
                 ::core::result::Result::Ok(ok__) => {

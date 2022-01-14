@@ -42,7 +42,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceAccessChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceAccessChangedEventArgs;{deda0bcc-4f9d-4f58-9dba-a9bc800408d5})");
 }
 unsafe impl ::windows::core::Interface for DeviceAccessChangedEventArgs {
-    type Vtable = IDeviceAccessChangedEventArgsVtbl;
+    type Vtable = IDeviceAccessChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdeda0bcc_4f9d_4f58_9dba_a9bc800408d5);
 }
 impl ::windows::core::RuntimeName for DeviceAccessChangedEventArgs {
@@ -164,7 +164,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceAccessInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceAccessInformation;{0baa9a73-6de5-4915-8ddd-9a0554a6f545})");
 }
 unsafe impl ::windows::core::Interface for DeviceAccessInformation {
-    type Vtable = IDeviceAccessInformationVtbl;
+    type Vtable = IDeviceAccessInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0baa9a73_6de5_4915_8ddd_9a0554a6f545);
 }
 impl ::windows::core::RuntimeName for DeviceAccessInformation {
@@ -318,7 +318,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceConnectionChangeTriggerDetail
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceConnectionChangeTriggerDetails;{b8578c0c-bbc1-484b-bffa-7b31dcc200b2})");
 }
 unsafe impl ::windows::core::Interface for DeviceConnectionChangeTriggerDetails {
-    type Vtable = IDeviceConnectionChangeTriggerDetailsVtbl;
+    type Vtable = IDeviceConnectionChangeTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8578c0c_bbc1_484b_bffa_7b31dcc200b2);
 }
 impl ::windows::core::RuntimeName for DeviceConnectionChangeTriggerDetails {
@@ -399,7 +399,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceDisconnectButtonClickedEventA
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceDisconnectButtonClickedEventArgs;{8e44b56d-f902-4a00-b536-f37992e6a2a7})");
 }
 unsafe impl ::windows::core::Interface for DeviceDisconnectButtonClickedEventArgs {
-    type Vtable = IDeviceDisconnectButtonClickedEventArgsVtbl;
+    type Vtable = IDeviceDisconnectButtonClickedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e44b56d_f902_4a00_b536_f37992e6a2a7);
 }
 impl ::windows::core::RuntimeName for DeviceDisconnectButtonClickedEventArgs {
@@ -678,7 +678,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceInformation;{aba0fb95-4398-489d-8e44-e6130927011f})");
 }
 unsafe impl ::windows::core::Interface for DeviceInformation {
-    type Vtable = IDeviceInformationVtbl;
+    type Vtable = IDeviceInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaba0fb95_4398_489d_8e44_e6130927011f);
 }
 impl ::windows::core::RuntimeName for DeviceInformation {
@@ -804,7 +804,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceInformationCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for DeviceInformationCollection {
-    type Vtable = super::super::Foundation::Collections::IVectorViewVtbl<DeviceInformation>;
+    type Vtable = super::super::Foundation::Collections::IVectorView_Vtbl<DeviceInformation>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -998,7 +998,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceInformationCustomPairing {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceInformationCustomPairing;{85138c02-4ee6-4914-8370-107a39144c0e})");
 }
 unsafe impl ::windows::core::Interface for DeviceInformationCustomPairing {
-    type Vtable = IDeviceInformationCustomPairingVtbl;
+    type Vtable = IDeviceInformationCustomPairing_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85138c02_4ee6_4914_8370_107a39144c0e);
 }
 impl ::windows::core::RuntimeName for DeviceInformationCustomPairing {
@@ -1203,7 +1203,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceInformationPairing {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceInformationPairing;{2c4769f5-f684-40d5-8469-e8dbaab70485})");
 }
 unsafe impl ::windows::core::Interface for DeviceInformationPairing {
-    type Vtable = IDeviceInformationPairingVtbl;
+    type Vtable = IDeviceInformationPairing_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c4769f5_f684_40d5_8469_e8dbaab70485);
 }
 impl ::windows::core::RuntimeName for DeviceInformationPairing {
@@ -1301,7 +1301,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceInformationUpdate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceInformationUpdate;{8f315305-d972-44b7-a37e-9e822c78213b})");
 }
 unsafe impl ::windows::core::Interface for DeviceInformationUpdate {
-    type Vtable = IDeviceInformationUpdateVtbl;
+    type Vtable = IDeviceInformationUpdate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f315305_d972_44b7_a37e_9e822c78213b);
 }
 impl ::windows::core::RuntimeName for DeviceInformationUpdate {
@@ -1523,7 +1523,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePairingRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DevicePairingRequestedEventArgs;{f717fc56-de6b-487f-8376-0180aca69963})");
 }
 unsafe impl ::windows::core::Interface for DevicePairingRequestedEventArgs {
-    type Vtable = IDevicePairingRequestedEventArgsVtbl;
+    type Vtable = IDevicePairingRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf717fc56_de6b_487f_8376_0180aca69963);
 }
 impl ::windows::core::RuntimeName for DevicePairingRequestedEventArgs {
@@ -1612,7 +1612,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePairingResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DevicePairingResult;{072b02bf-dd95-4025-9b37-de51adba37b7})");
 }
 unsafe impl ::windows::core::Interface for DevicePairingResult {
-    type Vtable = IDevicePairingResultVtbl;
+    type Vtable = IDevicePairingResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x072b02bf_dd95_4025_9b37_de51adba37b7);
 }
 impl ::windows::core::RuntimeName for DevicePairingResult {
@@ -1853,7 +1853,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePicker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DevicePicker;{84997aa2-034a-4440-8813-7d0bd479bf5a})");
 }
 unsafe impl ::windows::core::Interface for DevicePicker {
-    type Vtable = IDevicePickerVtbl;
+    type Vtable = IDevicePicker_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84997aa2_034a_4440_8813_7d0bd479bf5a);
 }
 impl ::windows::core::RuntimeName for DevicePicker {
@@ -2029,7 +2029,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePickerAppearance {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DevicePickerAppearance;{e69a12c6-e627-4ed8-9b6c-460af445e56d})");
 }
 unsafe impl ::windows::core::Interface for DevicePickerAppearance {
-    type Vtable = IDevicePickerAppearanceVtbl;
+    type Vtable = IDevicePickerAppearance_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe69a12c6_e627_4ed8_9b6c_460af445e56d);
 }
 impl ::windows::core::RuntimeName for DevicePickerAppearance {
@@ -2183,7 +2183,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePickerFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DevicePickerFilter;{91db92a2-57cb-48f1-9b59-a59b7a1f02a2})");
 }
 unsafe impl ::windows::core::Interface for DevicePickerFilter {
-    type Vtable = IDevicePickerFilterVtbl;
+    type Vtable = IDevicePickerFilter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91db92a2_57cb_48f1_9b59_a59b7a1f02a2);
 }
 impl ::windows::core::RuntimeName for DevicePickerFilter {
@@ -2264,7 +2264,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceSelectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceSelectedEventArgs;{269edade-1d2f-4940-8402-4156b81d3c77})");
 }
 unsafe impl ::windows::core::Interface for DeviceSelectedEventArgs {
-    type Vtable = IDeviceSelectedEventArgsVtbl;
+    type Vtable = IDeviceSelectedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x269edade_1d2f_4940_8402_4156b81d3c77);
 }
 impl ::windows::core::RuntimeName for DeviceSelectedEventArgs {
@@ -2462,7 +2462,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceThumbnail {
 }
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::core::Interface for DeviceThumbnail {
-    type Vtable = super::super::Storage::Streams::IRandomAccessStreamWithContentTypeVtbl;
+    type Vtable = super::super::Storage::Streams::IRandomAccessStreamWithContentType_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc254827_4b3d_438f_9232_10c76bc7e038);
 }
 #[cfg(feature = "Storage_Streams")]
@@ -2710,7 +2710,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceUnpairingResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceUnpairingResult;{66f44ad3-79d9-444b-92cf-a92ef72571c7})");
 }
 unsafe impl ::windows::core::Interface for DeviceUnpairingResult {
-    type Vtable = IDeviceUnpairingResultVtbl;
+    type Vtable = IDeviceUnpairingResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66f44ad3_79d9_444b_92cf_a92ef72571c7);
 }
 impl ::windows::core::RuntimeName for DeviceUnpairingResult {
@@ -2921,7 +2921,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceWatcher;{c9eab97d-8f6b-4f96-a9f4-abc814e22271})");
 }
 unsafe impl ::windows::core::Interface for DeviceWatcher {
-    type Vtable = IDeviceWatcherVtbl;
+    type Vtable = IDeviceWatcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9eab97d_8f6b_4f96_a9f4_abc814e22271);
 }
 impl ::windows::core::RuntimeName for DeviceWatcher {
@@ -3018,7 +3018,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceWatcherEvent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceWatcherEvent;{74aa9c0b-1dbd-47fd-b635-3cc556d0ff8b})");
 }
 unsafe impl ::windows::core::Interface for DeviceWatcherEvent {
-    type Vtable = IDeviceWatcherEventVtbl;
+    type Vtable = IDeviceWatcherEvent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74aa9c0b_1dbd_47fd_b635_3cc556d0ff8b);
 }
 impl ::windows::core::RuntimeName for DeviceWatcherEvent {
@@ -3171,7 +3171,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceWatcherTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceWatcherTriggerDetails;{38808119-4cb7-4e57-a56d-776d07cbfef9})");
 }
 unsafe impl ::windows::core::Interface for DeviceWatcherTriggerDetails {
-    type Vtable = IDeviceWatcherTriggerDetailsVtbl;
+    type Vtable = IDeviceWatcherTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38808119_4cb7_4e57_a56d_776d07cbfef9);
 }
 impl ::windows::core::RuntimeName for DeviceWatcherTriggerDetails {
@@ -3276,7 +3276,7 @@ unsafe impl ::windows::core::RuntimeType for EnclosureLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.EnclosureLocation;{42340a27-5810-459c-aabb-c65e1f813ecf})");
 }
 unsafe impl ::windows::core::Interface for EnclosureLocation {
-    type Vtable = IEnclosureLocationVtbl;
+    type Vtable = IEnclosureLocation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42340a27_5810_459c_aabb_c65e1f813ecf);
 }
 impl ::windows::core::RuntimeName for EnclosureLocation {
@@ -3328,12 +3328,12 @@ unsafe impl ::core::marker::Sync for EnclosureLocation {}
 #[repr(transparent)]
 pub struct IDeviceAccessChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceAccessChangedEventArgs {
-    type Vtable = IDeviceAccessChangedEventArgsVtbl;
+    type Vtable = IDeviceAccessChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdeda0bcc_4f9d_4f58_9dba_a9bc800408d5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceAccessChangedEventArgsVtbl {
+pub struct IDeviceAccessChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DeviceAccessStatus) -> ::windows::core::HRESULT,
 }
@@ -3341,12 +3341,12 @@ pub struct IDeviceAccessChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IDeviceAccessChangedEventArgs2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceAccessChangedEventArgs2 {
-    type Vtable = IDeviceAccessChangedEventArgs2Vtbl;
+    type Vtable = IDeviceAccessChangedEventArgs2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82523262_934b_4b30_a178_adc39f2f2be3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceAccessChangedEventArgs2Vtbl {
+pub struct IDeviceAccessChangedEventArgs2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -3354,12 +3354,12 @@ pub struct IDeviceAccessChangedEventArgs2Vtbl {
 #[repr(transparent)]
 pub struct IDeviceAccessInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceAccessInformation {
-    type Vtable = IDeviceAccessInformationVtbl;
+    type Vtable = IDeviceAccessInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0baa9a73_6de5_4915_8ddd_9a0554a6f545);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceAccessInformationVtbl {
+pub struct IDeviceAccessInformation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub AccessChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -3375,12 +3375,12 @@ pub struct IDeviceAccessInformationVtbl {
 #[repr(transparent)]
 pub struct IDeviceAccessInformationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceAccessInformationStatics {
-    type Vtable = IDeviceAccessInformationStaticsVtbl;
+    type Vtable = IDeviceAccessInformationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x574bd3d3_5f30_45cd_8a94_724fe5973084);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceAccessInformationStaticsVtbl {
+pub struct IDeviceAccessInformationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateFromId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateFromDeviceClassId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceclassid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3390,12 +3390,12 @@ pub struct IDeviceAccessInformationStaticsVtbl {
 #[repr(transparent)]
 pub struct IDeviceConnectionChangeTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceConnectionChangeTriggerDetails {
-    type Vtable = IDeviceConnectionChangeTriggerDetailsVtbl;
+    type Vtable = IDeviceConnectionChangeTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8578c0c_bbc1_484b_bffa_7b31dcc200b2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceConnectionChangeTriggerDetailsVtbl {
+pub struct IDeviceConnectionChangeTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -3403,12 +3403,12 @@ pub struct IDeviceConnectionChangeTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IDeviceDisconnectButtonClickedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceDisconnectButtonClickedEventArgs {
-    type Vtable = IDeviceDisconnectButtonClickedEventArgsVtbl;
+    type Vtable = IDeviceDisconnectButtonClickedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e44b56d_f902_4a00_b536_f37992e6a2a7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceDisconnectButtonClickedEventArgsVtbl {
+pub struct IDeviceDisconnectButtonClickedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Device: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -3416,12 +3416,12 @@ pub struct IDeviceDisconnectButtonClickedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IDeviceInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceInformation {
-    type Vtable = IDeviceInformationVtbl;
+    type Vtable = IDeviceInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaba0fb95_4398_489d_8e44_e6130927011f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceInformationVtbl {
+pub struct IDeviceInformation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3446,12 +3446,12 @@ pub struct IDeviceInformationVtbl {
 #[repr(transparent)]
 pub struct IDeviceInformation2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceInformation2 {
-    type Vtable = IDeviceInformation2Vtbl;
+    type Vtable = IDeviceInformation2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf156a638_7997_48d9_a10c_269d46533f48);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceInformation2Vtbl {
+pub struct IDeviceInformation2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DeviceInformationKind) -> ::windows::core::HRESULT,
     pub Pairing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3460,12 +3460,12 @@ pub struct IDeviceInformation2Vtbl {
 #[repr(transparent)]
 pub struct IDeviceInformationCustomPairing(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceInformationCustomPairing {
-    type Vtable = IDeviceInformationCustomPairingVtbl;
+    type Vtable = IDeviceInformationCustomPairing_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85138c02_4ee6_4914_8370_107a39144c0e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceInformationCustomPairingVtbl {
+pub struct IDeviceInformationCustomPairing_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub PairAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pairingkindssupported: DevicePairingKinds, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3492,12 +3492,12 @@ pub struct IDeviceInformationCustomPairingVtbl {
 #[repr(transparent)]
 pub struct IDeviceInformationPairing(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceInformationPairing {
-    type Vtable = IDeviceInformationPairingVtbl;
+    type Vtable = IDeviceInformationPairing_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c4769f5_f684_40d5_8469_e8dbaab70485);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceInformationPairingVtbl {
+pub struct IDeviceInformationPairing_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsPaired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub CanPair: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -3514,12 +3514,12 @@ pub struct IDeviceInformationPairingVtbl {
 #[repr(transparent)]
 pub struct IDeviceInformationPairing2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceInformationPairing2 {
-    type Vtable = IDeviceInformationPairing2Vtbl;
+    type Vtable = IDeviceInformationPairing2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf68612fd_0aee_4328_85cc_1c742bb1790d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceInformationPairing2Vtbl {
+pub struct IDeviceInformationPairing2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ProtectionLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DevicePairingProtectionLevel) -> ::windows::core::HRESULT,
     pub Custom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3536,12 +3536,12 @@ pub struct IDeviceInformationPairing2Vtbl {
 #[repr(transparent)]
 pub struct IDeviceInformationPairingStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceInformationPairingStatics {
-    type Vtable = IDeviceInformationPairingStaticsVtbl;
+    type Vtable = IDeviceInformationPairingStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe915c408_36d4_49a1_bf13_514173799b6b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceInformationPairingStaticsVtbl {
+pub struct IDeviceInformationPairingStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TryRegisterForAllInboundPairingRequests: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pairingkindssupported: DevicePairingKinds, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -3549,12 +3549,12 @@ pub struct IDeviceInformationPairingStaticsVtbl {
 #[repr(transparent)]
 pub struct IDeviceInformationPairingStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceInformationPairingStatics2 {
-    type Vtable = IDeviceInformationPairingStatics2Vtbl;
+    type Vtable = IDeviceInformationPairingStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04de5372_b7b7_476b_a74f_c5836a704d98);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceInformationPairingStatics2Vtbl {
+pub struct IDeviceInformationPairingStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TryRegisterForAllInboundPairingRequestsWithProtectionLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -3562,12 +3562,12 @@ pub struct IDeviceInformationPairingStatics2Vtbl {
 #[repr(transparent)]
 pub struct IDeviceInformationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceInformationStatics {
-    type Vtable = IDeviceInformationStaticsVtbl;
+    type Vtable = IDeviceInformationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc17f100e_3a46_4a78_8013_769dc9b97390);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceInformationStaticsVtbl {
+pub struct IDeviceInformationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CreateFromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3605,12 +3605,12 @@ pub struct IDeviceInformationStaticsVtbl {
 #[repr(transparent)]
 pub struct IDeviceInformationStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceInformationStatics2 {
-    type Vtable = IDeviceInformationStatics2Vtbl;
+    type Vtable = IDeviceInformationStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x493b4f34_a84f_45fd_9167_15d1cb1bd1f9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceInformationStatics2Vtbl {
+pub struct IDeviceInformationStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetAqsFilterFromDeviceClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceclass: DeviceClass, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -3630,12 +3630,12 @@ pub struct IDeviceInformationStatics2Vtbl {
 #[repr(transparent)]
 pub struct IDeviceInformationUpdate(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceInformationUpdate {
-    type Vtable = IDeviceInformationUpdateVtbl;
+    type Vtable = IDeviceInformationUpdate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f315305_d972_44b7_a37e_9e822c78213b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceInformationUpdateVtbl {
+pub struct IDeviceInformationUpdate_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -3647,12 +3647,12 @@ pub struct IDeviceInformationUpdateVtbl {
 #[repr(transparent)]
 pub struct IDeviceInformationUpdate2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceInformationUpdate2 {
-    type Vtable = IDeviceInformationUpdate2Vtbl;
+    type Vtable = IDeviceInformationUpdate2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d9d148c_a873_485e_baa6_aa620788e3cc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceInformationUpdate2Vtbl {
+pub struct IDeviceInformationUpdate2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DeviceInformationKind) -> ::windows::core::HRESULT,
 }
@@ -3660,12 +3660,12 @@ pub struct IDeviceInformationUpdate2Vtbl {
 #[repr(transparent)]
 pub struct IDevicePairingRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDevicePairingRequestedEventArgs {
-    type Vtable = IDevicePairingRequestedEventArgsVtbl;
+    type Vtable = IDevicePairingRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf717fc56_de6b_487f_8376_0180aca69963);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDevicePairingRequestedEventArgsVtbl {
+pub struct IDevicePairingRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub PairingKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DevicePairingKinds) -> ::windows::core::HRESULT,
@@ -3681,12 +3681,12 @@ pub struct IDevicePairingRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IDevicePairingRequestedEventArgs2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDevicePairingRequestedEventArgs2 {
-    type Vtable = IDevicePairingRequestedEventArgs2Vtbl;
+    type Vtable = IDevicePairingRequestedEventArgs2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc83752d9_e4d3_4db0_a360_a105e437dbdc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDevicePairingRequestedEventArgs2Vtbl {
+pub struct IDevicePairingRequestedEventArgs2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Security_Credentials")]
     pub AcceptWithPasswordCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, passwordcredential: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3697,12 +3697,12 @@ pub struct IDevicePairingRequestedEventArgs2Vtbl {
 #[repr(transparent)]
 pub struct IDevicePairingResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDevicePairingResult {
-    type Vtable = IDevicePairingResultVtbl;
+    type Vtable = IDevicePairingResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x072b02bf_dd95_4025_9b37_de51adba37b7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDevicePairingResultVtbl {
+pub struct IDevicePairingResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DevicePairingResultStatus) -> ::windows::core::HRESULT,
     pub ProtectionLevelUsed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DevicePairingProtectionLevel) -> ::windows::core::HRESULT,
@@ -3771,24 +3771,24 @@ unsafe impl ::windows::core::RuntimeType for IDevicePairingSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{482cb27c-83bb-420e-be51-6602b222de54}");
 }
 unsafe impl ::windows::core::Interface for IDevicePairingSettings {
-    type Vtable = IDevicePairingSettingsVtbl;
+    type Vtable = IDevicePairingSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x482cb27c_83bb_420e_be51_6602b222de54);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDevicePairingSettingsVtbl {
+pub struct IDevicePairingSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDevicePicker(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDevicePicker {
-    type Vtable = IDevicePickerVtbl;
+    type Vtable = IDevicePicker_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84997aa2_034a_4440_8813_7d0bd479bf5a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDevicePickerVtbl {
+pub struct IDevicePicker_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Filter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Appearance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3843,12 +3843,12 @@ pub struct IDevicePickerVtbl {
 #[repr(transparent)]
 pub struct IDevicePickerAppearance(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDevicePickerAppearance {
-    type Vtable = IDevicePickerAppearanceVtbl;
+    type Vtable = IDevicePickerAppearance_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe69a12c6_e627_4ed8_9b6c_460af445e56d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDevicePickerAppearanceVtbl {
+pub struct IDevicePickerAppearance_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3905,12 +3905,12 @@ pub struct IDevicePickerAppearanceVtbl {
 #[repr(transparent)]
 pub struct IDevicePickerFilter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDevicePickerFilter {
-    type Vtable = IDevicePickerFilterVtbl;
+    type Vtable = IDevicePickerFilter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91db92a2_57cb_48f1_9b59_a59b7a1f02a2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDevicePickerFilterVtbl {
+pub struct IDevicePickerFilter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub SupportedDeviceClasses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3925,12 +3925,12 @@ pub struct IDevicePickerFilterVtbl {
 #[repr(transparent)]
 pub struct IDeviceSelectedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceSelectedEventArgs {
-    type Vtable = IDeviceSelectedEventArgsVtbl;
+    type Vtable = IDeviceSelectedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x269edade_1d2f_4940_8402_4156b81d3c77);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceSelectedEventArgsVtbl {
+pub struct IDeviceSelectedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SelectedDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -3938,12 +3938,12 @@ pub struct IDeviceSelectedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IDeviceUnpairingResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceUnpairingResult {
-    type Vtable = IDeviceUnpairingResultVtbl;
+    type Vtable = IDeviceUnpairingResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66f44ad3_79d9_444b_92cf_a92ef72571c7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceUnpairingResultVtbl {
+pub struct IDeviceUnpairingResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DeviceUnpairingResultStatus) -> ::windows::core::HRESULT,
 }
@@ -3951,12 +3951,12 @@ pub struct IDeviceUnpairingResultVtbl {
 #[repr(transparent)]
 pub struct IDeviceWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceWatcher {
-    type Vtable = IDeviceWatcherVtbl;
+    type Vtable = IDeviceWatcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9eab97d_8f6b_4f96_a9f4_abc814e22271);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceWatcherVtbl {
+pub struct IDeviceWatcher_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Added: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -4006,12 +4006,12 @@ pub struct IDeviceWatcherVtbl {
 #[repr(transparent)]
 pub struct IDeviceWatcher2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceWatcher2 {
-    type Vtable = IDeviceWatcher2Vtbl;
+    type Vtable = IDeviceWatcher2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff08456e_ed14_49e9_9a69_8117c54ae971);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceWatcher2Vtbl {
+pub struct IDeviceWatcher2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation_Collections"))]
     pub GetBackgroundTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestedeventkinds: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4022,12 +4022,12 @@ pub struct IDeviceWatcher2Vtbl {
 #[repr(transparent)]
 pub struct IDeviceWatcherEvent(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceWatcherEvent {
-    type Vtable = IDeviceWatcherEventVtbl;
+    type Vtable = IDeviceWatcherEvent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74aa9c0b_1dbd_47fd_b635_3cc556d0ff8b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceWatcherEventVtbl {
+pub struct IDeviceWatcherEvent_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DeviceWatcherEventKind) -> ::windows::core::HRESULT,
     pub DeviceInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4037,12 +4037,12 @@ pub struct IDeviceWatcherEventVtbl {
 #[repr(transparent)]
 pub struct IDeviceWatcherTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceWatcherTriggerDetails {
-    type Vtable = IDeviceWatcherTriggerDetailsVtbl;
+    type Vtable = IDeviceWatcherTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38808119_4cb7_4e57_a56d_776d07cbfef9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceWatcherTriggerDetailsVtbl {
+pub struct IDeviceWatcherTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub DeviceWatcherEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4053,12 +4053,12 @@ pub struct IDeviceWatcherTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IEnclosureLocation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEnclosureLocation {
-    type Vtable = IEnclosureLocationVtbl;
+    type Vtable = IEnclosureLocation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42340a27_5810_459c_aabb_c65e1f813ecf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnclosureLocationVtbl {
+pub struct IEnclosureLocation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InDock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub InLid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -4068,12 +4068,12 @@ pub struct IEnclosureLocationVtbl {
 #[repr(transparent)]
 pub struct IEnclosureLocation2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEnclosureLocation2 {
-    type Vtable = IEnclosureLocation2Vtbl;
+    type Vtable = IEnclosureLocation2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2885995b_e07d_485d_8a9e_bdf29aef4f66);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnclosureLocation2Vtbl {
+pub struct IEnclosureLocation2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RotationAngleInDegreesClockwise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }

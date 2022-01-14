@@ -20,12 +20,12 @@ impl ::windows::core::RuntimeName for CorePerceptionAutomation {
 #[repr(transparent)]
 pub struct ICorePerceptionAutomationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICorePerceptionAutomationStatics {
-    type Vtable = ICorePerceptionAutomationStaticsVtbl;
+    type Vtable = ICorePerceptionAutomationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bb04541_4ce2_4923_9a76_8187ecc59112);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICorePerceptionAutomationStaticsVtbl {
+pub struct ICorePerceptionAutomationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SetActivationFactoryProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr) -> ::windows::core::HRESULT,

@@ -32,7 +32,7 @@ unsafe impl ::windows::core::RuntimeType for DesignerAppExitedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Hosting.DesignerAppExitedEventArgs;{f6aac86a-0cad-410c-8f62-dc2936151c74})");
 }
 unsafe impl ::windows::core::Interface for DesignerAppExitedEventArgs {
-    type Vtable = IDesignerAppExitedEventArgsVtbl;
+    type Vtable = IDesignerAppExitedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6aac86a_0cad_410c_8f62_dc2936151c74);
 }
 impl ::windows::core::RuntimeName for DesignerAppExitedEventArgs {
@@ -164,7 +164,7 @@ unsafe impl ::windows::core::RuntimeType for DesignerAppManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Hosting.DesignerAppManager;{a6272caa-d5c6-40cb-abd9-27ba43831bb7})");
 }
 unsafe impl ::windows::core::Interface for DesignerAppManager {
-    type Vtable = IDesignerAppManagerVtbl;
+    type Vtable = IDesignerAppManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6272caa_d5c6_40cb_abd9_27ba43831bb7);
 }
 impl ::windows::core::RuntimeName for DesignerAppManager {
@@ -311,7 +311,7 @@ unsafe impl ::windows::core::RuntimeType for DesignerAppView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Hosting.DesignerAppView;{5c777cea-dd71-4a84-a56f-dacb4b14706f})");
 }
 unsafe impl ::windows::core::Interface for DesignerAppView {
-    type Vtable = IDesignerAppViewVtbl;
+    type Vtable = IDesignerAppView_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c777cea_dd71_4a84_a56f_dacb4b14706f);
 }
 impl ::windows::core::RuntimeName for DesignerAppView {
@@ -520,7 +520,7 @@ unsafe impl ::windows::core::RuntimeType for DesktopWindowXamlSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Hosting.DesktopWindowXamlSource;{d585bfe1-00ff-51be-ba1d-a1329956ea0a})");
 }
 unsafe impl ::windows::core::Interface for DesktopWindowXamlSource {
-    type Vtable = IDesktopWindowXamlSourceVtbl;
+    type Vtable = IDesktopWindowXamlSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd585bfe1_00ff_51be_ba1d_a1329956ea0a);
 }
 impl ::windows::core::RuntimeName for DesktopWindowXamlSource {
@@ -627,7 +627,7 @@ unsafe impl ::windows::core::RuntimeType for DesktopWindowXamlSourceGotFocusEven
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Hosting.DesktopWindowXamlSourceGotFocusEventArgs;{39be4849-d9cc-5b70-8f05-1ad9a4aaa342})");
 }
 unsafe impl ::windows::core::Interface for DesktopWindowXamlSourceGotFocusEventArgs {
-    type Vtable = IDesktopWindowXamlSourceGotFocusEventArgsVtbl;
+    type Vtable = IDesktopWindowXamlSourceGotFocusEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39be4849_d9cc_5b70_8f05_1ad9a4aaa342);
 }
 impl ::windows::core::RuntimeName for DesktopWindowXamlSourceGotFocusEventArgs {
@@ -708,7 +708,7 @@ unsafe impl ::windows::core::RuntimeType for DesktopWindowXamlSourceTakeFocusReq
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Hosting.DesktopWindowXamlSourceTakeFocusRequestedEventArgs;{fe61e4b9-a7af-52b3-bdb9-c3305c0b8df2})");
 }
 unsafe impl ::windows::core::Interface for DesktopWindowXamlSourceTakeFocusRequestedEventArgs {
-    type Vtable = IDesktopWindowXamlSourceTakeFocusRequestedEventArgsVtbl;
+    type Vtable = IDesktopWindowXamlSourceTakeFocusRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe61e4b9_a7af_52b3_bdb9_c3305c0b8df2);
 }
 impl ::windows::core::RuntimeName for DesktopWindowXamlSourceTakeFocusRequestedEventArgs {
@@ -860,7 +860,7 @@ unsafe impl ::windows::core::RuntimeType for ElementCompositionPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Hosting.ElementCompositionPreview;{b6f1a676-cfe6-46ac-acf6-c4687bb65e60})");
 }
 unsafe impl ::windows::core::Interface for ElementCompositionPreview {
-    type Vtable = IElementCompositionPreviewVtbl;
+    type Vtable = IElementCompositionPreview_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6f1a676_cfe6_46ac_acf6_c4687bb65e60);
 }
 impl ::windows::core::RuntimeName for ElementCompositionPreview {
@@ -912,12 +912,12 @@ unsafe impl ::core::marker::Sync for ElementCompositionPreview {}
 #[repr(transparent)]
 pub struct IDesignerAppExitedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDesignerAppExitedEventArgs {
-    type Vtable = IDesignerAppExitedEventArgsVtbl;
+    type Vtable = IDesignerAppExitedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6aac86a_0cad_410c_8f62_dc2936151c74);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDesignerAppExitedEventArgsVtbl {
+pub struct IDesignerAppExitedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ExitCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -925,12 +925,12 @@ pub struct IDesignerAppExitedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IDesignerAppManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDesignerAppManager {
-    type Vtable = IDesignerAppManagerVtbl;
+    type Vtable = IDesignerAppManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6272caa_d5c6_40cb_abd9_27ba43831bb7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDesignerAppManagerVtbl {
+pub struct IDesignerAppManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AppUserModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -954,12 +954,12 @@ pub struct IDesignerAppManagerVtbl {
 #[repr(transparent)]
 pub struct IDesignerAppManagerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDesignerAppManagerFactory {
-    type Vtable = IDesignerAppManagerFactoryVtbl;
+    type Vtable = IDesignerAppManagerFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f9d633b_1266_4c0e_8499_0db85bbd4c43);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDesignerAppManagerFactoryVtbl {
+pub struct IDesignerAppManagerFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appusermodelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -967,12 +967,12 @@ pub struct IDesignerAppManagerFactoryVtbl {
 #[repr(transparent)]
 pub struct IDesignerAppView(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDesignerAppView {
-    type Vtable = IDesignerAppViewVtbl;
+    type Vtable = IDesignerAppView_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c777cea_dd71_4a84_a56f_dacb4b14706f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDesignerAppViewVtbl {
+pub struct IDesignerAppView_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ApplicationViewId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub AppUserModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -990,12 +990,12 @@ pub struct IDesignerAppViewVtbl {
 #[repr(transparent)]
 pub struct IDesktopWindowXamlSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDesktopWindowXamlSource {
-    type Vtable = IDesktopWindowXamlSourceVtbl;
+    type Vtable = IDesktopWindowXamlSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd585bfe1_00ff_51be_ba1d_a1329956ea0a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDesktopWindowXamlSourceVtbl {
+pub struct IDesktopWindowXamlSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1022,12 +1022,12 @@ pub struct IDesktopWindowXamlSourceVtbl {
 #[repr(transparent)]
 pub struct IDesktopWindowXamlSourceFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDesktopWindowXamlSourceFactory {
-    type Vtable = IDesktopWindowXamlSourceFactoryVtbl;
+    type Vtable = IDesktopWindowXamlSourceFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cd61dc0_2561_56e1_8e75_6e44173805e3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDesktopWindowXamlSourceFactoryVtbl {
+pub struct IDesktopWindowXamlSourceFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1035,12 +1035,12 @@ pub struct IDesktopWindowXamlSourceFactoryVtbl {
 #[repr(transparent)]
 pub struct IDesktopWindowXamlSourceGotFocusEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDesktopWindowXamlSourceGotFocusEventArgs {
-    type Vtable = IDesktopWindowXamlSourceGotFocusEventArgsVtbl;
+    type Vtable = IDesktopWindowXamlSourceGotFocusEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39be4849_d9cc_5b70_8f05_1ad9a4aaa342);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDesktopWindowXamlSourceGotFocusEventArgsVtbl {
+pub struct IDesktopWindowXamlSourceGotFocusEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1048,12 +1048,12 @@ pub struct IDesktopWindowXamlSourceGotFocusEventArgsVtbl {
 #[repr(transparent)]
 pub struct IDesktopWindowXamlSourceTakeFocusRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDesktopWindowXamlSourceTakeFocusRequestedEventArgs {
-    type Vtable = IDesktopWindowXamlSourceTakeFocusRequestedEventArgsVtbl;
+    type Vtable = IDesktopWindowXamlSourceTakeFocusRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe61e4b9_a7af_52b3_bdb9_c3305c0b8df2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDesktopWindowXamlSourceTakeFocusRequestedEventArgsVtbl {
+pub struct IDesktopWindowXamlSourceTakeFocusRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1061,24 +1061,24 @@ pub struct IDesktopWindowXamlSourceTakeFocusRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IElementCompositionPreview(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IElementCompositionPreview {
-    type Vtable = IElementCompositionPreviewVtbl;
+    type Vtable = IElementCompositionPreview_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6f1a676_cfe6_46ac_acf6_c4687bb65e60);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IElementCompositionPreviewVtbl {
+pub struct IElementCompositionPreview_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IElementCompositionPreviewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IElementCompositionPreviewStatics {
-    type Vtable = IElementCompositionPreviewStaticsVtbl;
+    type Vtable = IElementCompositionPreviewStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c92b38_ec99_4c55_bc85_a1c180b27646);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IElementCompositionPreviewStaticsVtbl {
+pub struct IElementCompositionPreviewStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Composition")]
     pub GetElementVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1101,12 +1101,12 @@ pub struct IElementCompositionPreviewStaticsVtbl {
 #[repr(transparent)]
 pub struct IElementCompositionPreviewStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IElementCompositionPreviewStatics2 {
-    type Vtable = IElementCompositionPreviewStatics2Vtbl;
+    type Vtable = IElementCompositionPreviewStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24148fbb_23d6_4f37_ba0c_0733e799722d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IElementCompositionPreviewStatics2Vtbl {
+pub struct IElementCompositionPreviewStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Composition")]
     pub SetImplicitShowAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1126,12 +1126,12 @@ pub struct IElementCompositionPreviewStatics2Vtbl {
 #[repr(transparent)]
 pub struct IElementCompositionPreviewStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IElementCompositionPreviewStatics3 {
-    type Vtable = IElementCompositionPreviewStatics3Vtbl;
+    type Vtable = IElementCompositionPreviewStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x843bc4c3_c105_59fe_a3d1_373c1d3e6fbc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IElementCompositionPreviewStatics3Vtbl {
+pub struct IElementCompositionPreviewStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_WindowManagement")]
     pub SetAppWindowContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: ::windows::core::RawPtr, xamlcontent: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1146,24 +1146,24 @@ pub struct IElementCompositionPreviewStatics3Vtbl {
 #[repr(transparent)]
 pub struct IWindowsXamlManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWindowsXamlManager {
-    type Vtable = IWindowsXamlManagerVtbl;
+    type Vtable = IWindowsXamlManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56096c31_1aa0_5288_8818_6e74a2dcaff5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowsXamlManagerVtbl {
+pub struct IWindowsXamlManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowsXamlManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWindowsXamlManagerStatics {
-    type Vtable = IWindowsXamlManagerStaticsVtbl;
+    type Vtable = IWindowsXamlManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28258a12_7d82_505b_b210_712b04a58882);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowsXamlManagerStaticsVtbl {
+pub struct IWindowsXamlManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InitializeForCurrentThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1171,12 +1171,12 @@ pub struct IWindowsXamlManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IXamlSourceFocusNavigationRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlSourceFocusNavigationRequest {
-    type Vtable = IXamlSourceFocusNavigationRequestVtbl;
+    type Vtable = IXamlSourceFocusNavigationRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbb93bb5_1496_5a80_ac00_e757359755e6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXamlSourceFocusNavigationRequestVtbl {
+pub struct IXamlSourceFocusNavigationRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut XamlSourceFocusNavigationReason) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1189,12 +1189,12 @@ pub struct IXamlSourceFocusNavigationRequestVtbl {
 #[repr(transparent)]
 pub struct IXamlSourceFocusNavigationRequestFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlSourceFocusNavigationRequestFactory {
-    type Vtable = IXamlSourceFocusNavigationRequestFactoryVtbl;
+    type Vtable = IXamlSourceFocusNavigationRequestFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe746ab8f_b4ef_5390_97e5_cc0a2779c574);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXamlSourceFocusNavigationRequestFactoryVtbl {
+pub struct IXamlSourceFocusNavigationRequestFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reason: XamlSourceFocusNavigationReason, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1210,12 +1210,12 @@ pub struct IXamlSourceFocusNavigationRequestFactoryVtbl {
 #[repr(transparent)]
 pub struct IXamlSourceFocusNavigationResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlSourceFocusNavigationResult {
-    type Vtable = IXamlSourceFocusNavigationResultVtbl;
+    type Vtable = IXamlSourceFocusNavigationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d55a5f_9603_5d8f_9cc7_d1c4070d9801);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXamlSourceFocusNavigationResultVtbl {
+pub struct IXamlSourceFocusNavigationResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub WasFocusMoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -1223,12 +1223,12 @@ pub struct IXamlSourceFocusNavigationResultVtbl {
 #[repr(transparent)]
 pub struct IXamlSourceFocusNavigationResultFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlSourceFocusNavigationResultFactory {
-    type Vtable = IXamlSourceFocusNavigationResultFactoryVtbl;
+    type Vtable = IXamlSourceFocusNavigationResultFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43bbadbf_f9e1_5527_b8c5_09339ff2ca76);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXamlSourceFocusNavigationResultFactoryVtbl {
+pub struct IXamlSourceFocusNavigationResultFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, focusmoved: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1236,12 +1236,12 @@ pub struct IXamlSourceFocusNavigationResultFactoryVtbl {
 #[repr(transparent)]
 pub struct IXamlUIPresenter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlUIPresenter {
-    type Vtable = IXamlUIPresenterVtbl;
+    type Vtable = IXamlUIPresenter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa714944a_1619_4fc6_b31b_89512ef022a2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXamlUIPresenterVtbl {
+pub struct IXamlUIPresenter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RootElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetRootElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1326,12 +1326,12 @@ unsafe impl ::windows::core::RuntimeType for IXamlUIPresenterHost {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{aafb84cd-9f6d-4f80-ac2c-0e6cb9f31659}");
 }
 unsafe impl ::windows::core::Interface for IXamlUIPresenterHost {
-    type Vtable = IXamlUIPresenterHostVtbl;
+    type Vtable = IXamlUIPresenterHost_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaafb84cd_9f6d_4f80_ac2c_0e6cb9f31659);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXamlUIPresenterHostVtbl {
+pub struct IXamlUIPresenterHost_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ResolveFileResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -1408,12 +1408,12 @@ unsafe impl ::windows::core::RuntimeType for IXamlUIPresenterHost2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{61595672-7ca4-4a21-b56a-88f4812388ca}");
 }
 unsafe impl ::windows::core::Interface for IXamlUIPresenterHost2 {
-    type Vtable = IXamlUIPresenterHost2Vtbl;
+    type Vtable = IXamlUIPresenterHost2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61595672_7ca4_4a21_b56a_88f4812388ca);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXamlUIPresenterHost2Vtbl {
+pub struct IXamlUIPresenterHost2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetGenericXamlFilePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -1490,12 +1490,12 @@ unsafe impl ::windows::core::RuntimeType for IXamlUIPresenterHost3 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b14292bf-7320-41bb-9f26-4d6fd34db45a}");
 }
 unsafe impl ::windows::core::Interface for IXamlUIPresenterHost3 {
-    type Vtable = IXamlUIPresenterHost3Vtbl;
+    type Vtable = IXamlUIPresenterHost3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb14292bf_7320_41bb_9f26_4d6fd34db45a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXamlUIPresenterHost3Vtbl {
+pub struct IXamlUIPresenterHost3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ResolveDictionaryResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dictionary: ::windows::core::RawPtr, dictionarykey: *mut ::core::ffi::c_void, suggestedvalue: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -1503,12 +1503,12 @@ pub struct IXamlUIPresenterHost3Vtbl {
 #[repr(transparent)]
 pub struct IXamlUIPresenterStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlUIPresenterStatics {
-    type Vtable = IXamlUIPresenterStaticsVtbl;
+    type Vtable = IXamlUIPresenterStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71eaeac8_45e1_4192_85aa_3a422edd23cf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXamlUIPresenterStaticsVtbl {
+pub struct IXamlUIPresenterStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CompleteTimelinesAutomatically: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetCompleteTimelinesAutomatically: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -1519,12 +1519,12 @@ pub struct IXamlUIPresenterStaticsVtbl {
 #[repr(transparent)]
 pub struct IXamlUIPresenterStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlUIPresenterStatics2 {
-    type Vtable = IXamlUIPresenterStatics2Vtbl;
+    type Vtable = IXamlUIPresenterStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c6b68d2_cf1c_4f53_bf09_6a745f7a9703);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXamlUIPresenterStatics2Vtbl {
+pub struct IXamlUIPresenterStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives"))]
     pub GetFlyoutPlacementTargetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placementtarget: ::windows::core::RawPtr, preferredplacement: super::Controls::Primitives::FlyoutPlacementMode, targetpreferredplacement: *mut super::Controls::Primitives::FlyoutPlacementMode, allowfallbacks: *mut bool, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
@@ -1578,7 +1578,7 @@ unsafe impl ::windows::core::RuntimeType for WindowsXamlManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Hosting.WindowsXamlManager;{56096c31-1aa0-5288-8818-6e74a2dcaff5})");
 }
 unsafe impl ::windows::core::Interface for WindowsXamlManager {
-    type Vtable = IWindowsXamlManagerVtbl;
+    type Vtable = IWindowsXamlManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56096c31_1aa0_5288_8818_6e74a2dcaff5);
 }
 impl ::windows::core::RuntimeName for WindowsXamlManager {
@@ -1769,7 +1769,7 @@ unsafe impl ::windows::core::RuntimeType for XamlSourceFocusNavigationRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Hosting.XamlSourceFocusNavigationRequest;{fbb93bb5-1496-5a80-ac00-e757359755e6})");
 }
 unsafe impl ::windows::core::Interface for XamlSourceFocusNavigationRequest {
-    type Vtable = IXamlSourceFocusNavigationRequestVtbl;
+    type Vtable = IXamlSourceFocusNavigationRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbb93bb5_1496_5a80_ac00_e757359755e6);
 }
 impl ::windows::core::RuntimeName for XamlSourceFocusNavigationRequest {
@@ -1862,7 +1862,7 @@ unsafe impl ::windows::core::RuntimeType for XamlSourceFocusNavigationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Hosting.XamlSourceFocusNavigationResult;{88d55a5f-9603-5d8f-9cc7-d1c4070d9801})");
 }
 unsafe impl ::windows::core::Interface for XamlSourceFocusNavigationResult {
-    type Vtable = IXamlSourceFocusNavigationResultVtbl;
+    type Vtable = IXamlSourceFocusNavigationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d55a5f_9603_5d8f_9cc7_d1c4070d9801);
 }
 impl ::windows::core::RuntimeName for XamlSourceFocusNavigationResult {
@@ -2034,7 +2034,7 @@ unsafe impl ::windows::core::RuntimeType for XamlUIPresenter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Hosting.XamlUIPresenter;{a714944a-1619-4fc6-b31b-89512ef022a2})");
 }
 unsafe impl ::windows::core::Interface for XamlUIPresenter {
-    type Vtable = IXamlUIPresenterVtbl;
+    type Vtable = IXamlUIPresenter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa714944a_1619_4fc6_b31b_89512ef022a2);
 }
 impl ::windows::core::RuntimeName for XamlUIPresenter {

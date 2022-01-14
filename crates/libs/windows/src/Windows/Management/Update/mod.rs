@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IPreviewBuildsManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPreviewBuildsManager {
-    type Vtable = IPreviewBuildsManagerVtbl;
+    type Vtable = IPreviewBuildsManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa07dd61_7e4f_59f7_7c9f_def9051c5f62);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPreviewBuildsManagerVtbl {
+pub struct IPreviewBuildsManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ArePreviewBuildsAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetArePreviewBuildsAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -22,12 +22,12 @@ pub struct IPreviewBuildsManagerVtbl {
 #[repr(transparent)]
 pub struct IPreviewBuildsManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPreviewBuildsManagerStatics {
-    type Vtable = IPreviewBuildsManagerStaticsVtbl;
+    type Vtable = IPreviewBuildsManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e422887_b112_5a70_7da1_97d78d32aa29);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPreviewBuildsManagerStaticsVtbl {
+pub struct IPreviewBuildsManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -36,12 +36,12 @@ pub struct IPreviewBuildsManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IPreviewBuildsState(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPreviewBuildsState {
-    type Vtable = IPreviewBuildsStateVtbl;
+    type Vtable = IPreviewBuildsState_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2f2903e_b223_5f63_7546_3e8eac070a2e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPreviewBuildsStateVtbl {
+pub struct IPreviewBuildsState_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -122,7 +122,7 @@ unsafe impl ::windows::core::RuntimeType for PreviewBuildsManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.PreviewBuildsManager;{fa07dd61-7e4f-59f7-7c9f-def9051c5f62})");
 }
 unsafe impl ::windows::core::Interface for PreviewBuildsManager {
-    type Vtable = IPreviewBuildsManagerVtbl;
+    type Vtable = IPreviewBuildsManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa07dd61_7e4f_59f7_7c9f_def9051c5f62);
 }
 impl ::windows::core::RuntimeName for PreviewBuildsManager {
@@ -204,7 +204,7 @@ unsafe impl ::windows::core::RuntimeType for PreviewBuildsState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.PreviewBuildsState;{a2f2903e-b223-5f63-7546-3e8eac070a2e})");
 }
 unsafe impl ::windows::core::Interface for PreviewBuildsState {
-    type Vtable = IPreviewBuildsStateVtbl;
+    type Vtable = IPreviewBuildsState_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2f2903e_b223_5f63_7546_3e8eac070a2e);
 }
 impl ::windows::core::RuntimeName for PreviewBuildsState {

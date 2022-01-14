@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IQuickLinkImpl: Sized {
+pub trait IQuickLink_Impl: Sized {
     fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Thumbnail(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::RandomAccessStreamReference>;
@@ -14,9 +14,9 @@ impl ::windows::core::RuntimeName for IQuickLink {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.IQuickLink";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IQuickLinkVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQuickLinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQuickLinkVtbl {
-        unsafe extern "system" fn Title<Impl: IQuickLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IQuickLink_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQuickLink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQuickLink_Vtbl {
+        unsafe extern "system" fn Title<Impl: IQuickLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
                 ::core::result::Result::Ok(ok__) => {
@@ -27,11 +27,11 @@ impl IQuickLinkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTitle<Impl: IQuickLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTitle<Impl: IQuickLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTitle(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Thumbnail<Impl: IQuickLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Thumbnail<Impl: IQuickLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Thumbnail() {
                 ::core::result::Result::Ok(ok__) => {
@@ -42,11 +42,11 @@ impl IQuickLinkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetThumbnail<Impl: IQuickLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetThumbnail<Impl: IQuickLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetThumbnail(&*(&value as *const <super::super::super::Storage::Streams::RandomAccessStreamReference as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::RandomAccessStreamReference as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Id<Impl: IQuickLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Id<Impl: IQuickLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -57,11 +57,11 @@ impl IQuickLinkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetId<Impl: IQuickLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetId<Impl: IQuickLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SupportedDataFormats<Impl: IQuickLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedDataFormats<Impl: IQuickLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedDataFormats() {
                 ::core::result::Result::Ok(ok__) => {
@@ -72,7 +72,7 @@ impl IQuickLinkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedFileTypes<Impl: IQuickLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedFileTypes<Impl: IQuickLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedFileTypes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -100,7 +100,7 @@ impl IQuickLinkVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IShareOperationImpl: Sized {
+pub trait IShareOperation_Impl: Sized {
     fn Data(&mut self) -> ::windows::core::Result<super::DataPackageView>;
     fn QuickLinkId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn RemoveThisQuickLink(&mut self) -> ::windows::core::Result<()>;
@@ -116,9 +116,9 @@ impl ::windows::core::RuntimeName for IShareOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IShareOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareOperationVtbl {
-        unsafe extern "system" fn Data<Impl: IShareOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IShareOperation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareOperation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareOperation_Vtbl {
+        unsafe extern "system" fn Data<Impl: IShareOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
                 ::core::result::Result::Ok(ok__) => {
@@ -129,7 +129,7 @@ impl IShareOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QuickLinkId<Impl: IShareOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QuickLinkId<Impl: IShareOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QuickLinkId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -140,31 +140,31 @@ impl IShareOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveThisQuickLink<Impl: IShareOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveThisQuickLink<Impl: IShareOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveThisQuickLink().into()
         }
-        unsafe extern "system" fn ReportStarted<Impl: IShareOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportStarted<Impl: IShareOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportStarted().into()
         }
-        unsafe extern "system" fn ReportDataRetrieved<Impl: IShareOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportDataRetrieved<Impl: IShareOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportDataRetrieved().into()
         }
-        unsafe extern "system" fn ReportSubmittedBackgroundTask<Impl: IShareOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportSubmittedBackgroundTask<Impl: IShareOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportSubmittedBackgroundTask().into()
         }
-        unsafe extern "system" fn ReportCompletedWithQuickLink<Impl: IShareOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, quicklink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCompletedWithQuickLink<Impl: IShareOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, quicklink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCompletedWithQuickLink(&*(&quicklink as *const <QuickLink as ::windows::core::Abi>::Abi as *const <QuickLink as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ReportCompleted<Impl: IShareOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCompleted<Impl: IShareOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCompleted().into()
         }
-        unsafe extern "system" fn ReportError<Impl: IShareOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportError<Impl: IShareOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportError(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -186,7 +186,7 @@ impl IShareOperationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IShareOperation2Impl: Sized {
+pub trait IShareOperation2_Impl: Sized {
     fn DismissUI(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -194,9 +194,9 @@ impl ::windows::core::RuntimeName for IShareOperation2 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IShareOperation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareOperation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareOperation2Vtbl {
-        unsafe extern "system" fn DismissUI<Impl: IShareOperation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IShareOperation2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareOperation2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareOperation2_Vtbl {
+        unsafe extern "system" fn DismissUI<Impl: IShareOperation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DismissUI().into()
         }
@@ -207,7 +207,7 @@ impl IShareOperation2Vtbl {
     }
 }
 #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IShareOperation3Impl: Sized {
+pub trait IShareOperation3_Impl: Sized {
     fn Contacts(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::Contacts::Contact>>;
 }
 #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -215,9 +215,9 @@ impl ::windows::core::RuntimeName for IShareOperation3 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation3";
 }
 #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IShareOperation3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareOperation3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareOperation3Vtbl {
-        unsafe extern "system" fn Contacts<Impl: IShareOperation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IShareOperation3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareOperation3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareOperation3_Vtbl {
+        unsafe extern "system" fn Contacts<Impl: IShareOperation3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contacts() {
                 ::core::result::Result::Ok(ok__) => {

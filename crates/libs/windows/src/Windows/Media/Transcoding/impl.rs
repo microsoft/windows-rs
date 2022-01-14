@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMediaTranscoderImpl: Sized {
+pub trait IMediaTranscoder_Impl: Sized {
     fn SetTrimStartTime(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
     fn TrimStartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn SetTrimStopTime(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
@@ -21,13 +21,13 @@ impl ::windows::core::RuntimeName for IMediaTranscoder {
     const NAME: &'static str = "Windows.Media.Transcoding.IMediaTranscoder";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMediaTranscoderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaTranscoderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaTranscoderVtbl {
-        unsafe extern "system" fn SetTrimStartTime<Impl: IMediaTranscoderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+impl IMediaTranscoder_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaTranscoder_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaTranscoder_Vtbl {
+        unsafe extern "system" fn SetTrimStartTime<Impl: IMediaTranscoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTrimStartTime(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TrimStartTime<Impl: IMediaTranscoderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrimStartTime<Impl: IMediaTranscoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrimStartTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -38,11 +38,11 @@ impl IMediaTranscoderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTrimStopTime<Impl: IMediaTranscoderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTrimStopTime<Impl: IMediaTranscoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTrimStopTime(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TrimStopTime<Impl: IMediaTranscoderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrimStopTime<Impl: IMediaTranscoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrimStopTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -53,11 +53,11 @@ impl IMediaTranscoderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAlwaysReencode<Impl: IMediaTranscoderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAlwaysReencode<Impl: IMediaTranscoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAlwaysReencode(value).into()
         }
-        unsafe extern "system" fn AlwaysReencode<Impl: IMediaTranscoderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AlwaysReencode<Impl: IMediaTranscoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlwaysReencode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -68,11 +68,11 @@ impl IMediaTranscoderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHardwareAccelerationEnabled<Impl: IMediaTranscoderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHardwareAccelerationEnabled<Impl: IMediaTranscoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHardwareAccelerationEnabled(value).into()
         }
-        unsafe extern "system" fn HardwareAccelerationEnabled<Impl: IMediaTranscoderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HardwareAccelerationEnabled<Impl: IMediaTranscoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HardwareAccelerationEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -83,27 +83,27 @@ impl IMediaTranscoderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddAudioEffect<Impl: IMediaTranscoderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddAudioEffect<Impl: IMediaTranscoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddAudioEffect(&*(&activatableclassid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AddAudioEffectWithSettings<Impl: IMediaTranscoderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, effectrequired: bool, configuration: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddAudioEffectWithSettings<Impl: IMediaTranscoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, effectrequired: bool, configuration: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddAudioEffectWithSettings(&*(&activatableclassid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), effectrequired, &*(&configuration as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AddVideoEffect<Impl: IMediaTranscoderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddVideoEffect<Impl: IMediaTranscoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddVideoEffect(&*(&activatableclassid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AddVideoEffectWithSettings<Impl: IMediaTranscoderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, effectrequired: bool, configuration: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddVideoEffectWithSettings<Impl: IMediaTranscoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, effectrequired: bool, configuration: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddVideoEffectWithSettings(&*(&activatableclassid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), effectrequired, &*(&configuration as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ClearEffects<Impl: IMediaTranscoderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearEffects<Impl: IMediaTranscoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearEffects().into()
         }
-        unsafe extern "system" fn PrepareFileTranscodeAsync<Impl: IMediaTranscoderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, destination: ::windows::core::RawPtr, profile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrepareFileTranscodeAsync<Impl: IMediaTranscoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, destination: ::windows::core::RawPtr, profile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrepareFileTranscodeAsync(
                 &*(&source as *const <super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType),
@@ -118,7 +118,7 @@ impl IMediaTranscoderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrepareStreamTranscodeAsync<Impl: IMediaTranscoderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, destination: ::windows::core::RawPtr, profile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrepareStreamTranscodeAsync<Impl: IMediaTranscoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, destination: ::windows::core::RawPtr, profile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrepareStreamTranscodeAsync(
                 &*(&source as *const <super::super::Storage::Streams::IRandomAccessStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStream as ::windows::core::DefaultType>::DefaultType),
@@ -157,7 +157,7 @@ impl IMediaTranscoderVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMediaTranscoder2Impl: Sized {
+pub trait IMediaTranscoder2_Impl: Sized {
     fn PrepareMediaStreamSourceTranscodeAsync(&mut self, source: &::core::option::Option<super::Core::IMediaSource>, destination: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, profile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>;
     fn SetVideoProcessingAlgorithm(&mut self, value: MediaVideoProcessingAlgorithm) -> ::windows::core::Result<()>;
     fn VideoProcessingAlgorithm(&mut self) -> ::windows::core::Result<MediaVideoProcessingAlgorithm>;
@@ -167,9 +167,9 @@ impl ::windows::core::RuntimeName for IMediaTranscoder2 {
     const NAME: &'static str = "Windows.Media.Transcoding.IMediaTranscoder2";
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMediaTranscoder2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaTranscoder2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaTranscoder2Vtbl {
-        unsafe extern "system" fn PrepareMediaStreamSourceTranscodeAsync<Impl: IMediaTranscoder2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, destination: ::windows::core::RawPtr, profile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaTranscoder2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaTranscoder2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaTranscoder2_Vtbl {
+        unsafe extern "system" fn PrepareMediaStreamSourceTranscodeAsync<Impl: IMediaTranscoder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, destination: ::windows::core::RawPtr, profile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrepareMediaStreamSourceTranscodeAsync(
                 &*(&source as *const <super::Core::IMediaSource as ::windows::core::Abi>::Abi as *const <super::Core::IMediaSource as ::windows::core::DefaultType>::DefaultType),
@@ -184,11 +184,11 @@ impl IMediaTranscoder2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVideoProcessingAlgorithm<Impl: IMediaTranscoder2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MediaVideoProcessingAlgorithm) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVideoProcessingAlgorithm<Impl: IMediaTranscoder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MediaVideoProcessingAlgorithm) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVideoProcessingAlgorithm(value).into()
         }
-        unsafe extern "system" fn VideoProcessingAlgorithm<Impl: IMediaTranscoder2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaVideoProcessingAlgorithm) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoProcessingAlgorithm<Impl: IMediaTranscoder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaVideoProcessingAlgorithm) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoProcessingAlgorithm() {
                 ::core::result::Result::Ok(ok__) => {
@@ -211,7 +211,7 @@ impl IMediaTranscoder2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPrepareTranscodeResultImpl: Sized {
+pub trait IPrepareTranscodeResult_Impl: Sized {
     fn CanTranscode(&mut self) -> ::windows::core::Result<bool>;
     fn FailureReason(&mut self) -> ::windows::core::Result<TranscodeFailureReason>;
     fn TranscodeAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncActionWithProgress<f64>>;
@@ -221,9 +221,9 @@ impl ::windows::core::RuntimeName for IPrepareTranscodeResult {
     const NAME: &'static str = "Windows.Media.Transcoding.IPrepareTranscodeResult";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPrepareTranscodeResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrepareTranscodeResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrepareTranscodeResultVtbl {
-        unsafe extern "system" fn CanTranscode<Impl: IPrepareTranscodeResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IPrepareTranscodeResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrepareTranscodeResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrepareTranscodeResult_Vtbl {
+        unsafe extern "system" fn CanTranscode<Impl: IPrepareTranscodeResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanTranscode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -234,7 +234,7 @@ impl IPrepareTranscodeResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FailureReason<Impl: IPrepareTranscodeResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TranscodeFailureReason) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FailureReason<Impl: IPrepareTranscodeResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TranscodeFailureReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FailureReason() {
                 ::core::result::Result::Ok(ok__) => {
@@ -245,7 +245,7 @@ impl IPrepareTranscodeResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TranscodeAsync<Impl: IPrepareTranscodeResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TranscodeAsync<Impl: IPrepareTranscodeResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TranscodeAsync() {
                 ::core::result::Result::Ok(ok__) => {

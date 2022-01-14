@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMXAttributesImpl: Sized + IDispatchImpl {
+pub trait IMXAttributes_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn addAttribute(&mut self, struri: super::super::super::Foundation::BSTR, strlocalname: super::super::super::Foundation::BSTR, strqname: super::super::super::Foundation::BSTR, strtype: super::super::super::Foundation::BSTR, strvalue: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn addAttributeFromIndex(&mut self, varatts: super::super::super::System::Com::VARIANT, nindex: i32) -> ::windows::core::Result<()>;
     fn clear(&mut self) -> ::windows::core::Result<()>;
@@ -13,54 +13,54 @@ pub trait IMXAttributesImpl: Sized + IDispatchImpl {
     fn setValue(&mut self, nindex: i32, strvalue: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IMXAttributesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMXAttributesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMXAttributesVtbl {
-        unsafe extern "system" fn addAttribute<Impl: IMXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, struri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strlocalname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strqname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strtype: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strvalue: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+impl IMXAttributes_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMXAttributes_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMXAttributes_Vtbl {
+        unsafe extern "system" fn addAttribute<Impl: IMXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, struri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strlocalname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strqname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strtype: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strvalue: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).addAttribute(::core::mem::transmute_copy(&struri), ::core::mem::transmute_copy(&strlocalname), ::core::mem::transmute_copy(&strqname), ::core::mem::transmute_copy(&strtype), ::core::mem::transmute_copy(&strvalue)).into()
         }
-        unsafe extern "system" fn addAttributeFromIndex<Impl: IMXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varatts: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, nindex: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn addAttributeFromIndex<Impl: IMXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varatts: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, nindex: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).addAttributeFromIndex(::core::mem::transmute_copy(&varatts), ::core::mem::transmute_copy(&nindex)).into()
         }
-        unsafe extern "system" fn clear<Impl: IMXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn clear<Impl: IMXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).clear().into()
         }
-        unsafe extern "system" fn removeAttribute<Impl: IMXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn removeAttribute<Impl: IMXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).removeAttribute(::core::mem::transmute_copy(&nindex)).into()
         }
-        unsafe extern "system" fn setAttribute<Impl: IMXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, struri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strlocalname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strqname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strtype: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strvalue: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn setAttribute<Impl: IMXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, struri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strlocalname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strqname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strtype: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strvalue: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).setAttribute(::core::mem::transmute_copy(&nindex), ::core::mem::transmute_copy(&struri), ::core::mem::transmute_copy(&strlocalname), ::core::mem::transmute_copy(&strqname), ::core::mem::transmute_copy(&strtype), ::core::mem::transmute_copy(&strvalue)).into()
         }
-        unsafe extern "system" fn setAttributes<Impl: IMXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varatts: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn setAttributes<Impl: IMXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varatts: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).setAttributes(::core::mem::transmute_copy(&varatts)).into()
         }
-        unsafe extern "system" fn setLocalName<Impl: IMXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, strlocalname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn setLocalName<Impl: IMXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, strlocalname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).setLocalName(::core::mem::transmute_copy(&nindex), ::core::mem::transmute_copy(&strlocalname)).into()
         }
-        unsafe extern "system" fn setQName<Impl: IMXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, strqname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn setQName<Impl: IMXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, strqname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).setQName(::core::mem::transmute_copy(&nindex), ::core::mem::transmute_copy(&strqname)).into()
         }
-        unsafe extern "system" fn setType<Impl: IMXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, strtype: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn setType<Impl: IMXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, strtype: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).setType(::core::mem::transmute_copy(&nindex), ::core::mem::transmute_copy(&strtype)).into()
         }
-        unsafe extern "system" fn setURI<Impl: IMXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, struri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn setURI<Impl: IMXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, struri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).setURI(::core::mem::transmute_copy(&nindex), ::core::mem::transmute_copy(&struri)).into()
         }
-        unsafe extern "system" fn setValue<Impl: IMXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, strvalue: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn setValue<Impl: IMXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, strvalue: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).setValue(::core::mem::transmute_copy(&nindex), ::core::mem::transmute_copy(&strvalue)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             addAttribute: addAttribute::<Impl, IMPL_OFFSET>,
             addAttributeFromIndex: addAttributeFromIndex::<Impl, IMPL_OFFSET>,
             clear: clear::<Impl, IMPL_OFFSET>,
@@ -79,7 +79,7 @@ impl IMXAttributesVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IMXNamespaceManagerImpl: Sized {
+pub trait IMXNamespaceManager_Impl: Sized {
     fn putAllowOverride(&mut self, foverride: i16) -> ::windows::core::Result<()>;
     fn getAllowOverride(&mut self) -> ::windows::core::Result<i16>;
     fn reset(&mut self) -> ::windows::core::Result<()>;
@@ -92,13 +92,13 @@ pub trait IMXNamespaceManagerImpl: Sized {
     fn getURI(&mut self, pwchprefix: super::super::super::Foundation::PWSTR, pcontextnode: ::core::option::Option<IXMLDOMNode>, pwchuri: super::super::super::Foundation::PWSTR, pcchuri: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl IMXNamespaceManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMXNamespaceManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMXNamespaceManagerVtbl {
-        unsafe extern "system" fn putAllowOverride<Impl: IMXNamespaceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, foverride: i16) -> ::windows::core::HRESULT {
+impl IMXNamespaceManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMXNamespaceManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMXNamespaceManager_Vtbl {
+        unsafe extern "system" fn putAllowOverride<Impl: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, foverride: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putAllowOverride(::core::mem::transmute_copy(&foverride)).into()
         }
-        unsafe extern "system" fn getAllowOverride<Impl: IMXNamespaceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, foverride: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getAllowOverride<Impl: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, foverride: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getAllowOverride() {
                 ::core::result::Result::Ok(ok__) => {
@@ -108,35 +108,35 @@ impl IMXNamespaceManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn reset<Impl: IMXNamespaceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn reset<Impl: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).reset().into()
         }
-        unsafe extern "system" fn pushContext<Impl: IMXNamespaceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn pushContext<Impl: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).pushContext().into()
         }
-        unsafe extern "system" fn pushNodeContext<Impl: IMXNamespaceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contextnode: ::windows::core::RawPtr, fdeep: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn pushNodeContext<Impl: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contextnode: ::windows::core::RawPtr, fdeep: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).pushNodeContext(::core::mem::transmute(&contextnode), ::core::mem::transmute_copy(&fdeep)).into()
         }
-        unsafe extern "system" fn popContext<Impl: IMXNamespaceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn popContext<Impl: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).popContext().into()
         }
-        unsafe extern "system" fn declarePrefix<Impl: IMXNamespaceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prefix: super::super::super::Foundation::PWSTR, namespaceuri: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn declarePrefix<Impl: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prefix: super::super::super::Foundation::PWSTR, namespaceuri: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).declarePrefix(::core::mem::transmute_copy(&prefix), ::core::mem::transmute_copy(&namespaceuri)).into()
         }
-        unsafe extern "system" fn getDeclaredPrefix<Impl: IMXNamespaceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, pwchprefix: super::super::super::Foundation::PWSTR, pcchprefix: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getDeclaredPrefix<Impl: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, pwchprefix: super::super::super::Foundation::PWSTR, pcchprefix: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).getDeclaredPrefix(::core::mem::transmute_copy(&nindex), ::core::mem::transmute_copy(&pwchprefix), ::core::mem::transmute_copy(&pcchprefix)).into()
         }
-        unsafe extern "system" fn getPrefix<Impl: IMXNamespaceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwsznamespaceuri: super::super::super::Foundation::PWSTR, nindex: i32, pwchprefix: super::super::super::Foundation::PWSTR, pcchprefix: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getPrefix<Impl: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwsznamespaceuri: super::super::super::Foundation::PWSTR, nindex: i32, pwchprefix: super::super::super::Foundation::PWSTR, pcchprefix: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).getPrefix(::core::mem::transmute_copy(&pwsznamespaceuri), ::core::mem::transmute_copy(&nindex), ::core::mem::transmute_copy(&pwchprefix), ::core::mem::transmute_copy(&pcchprefix)).into()
         }
-        unsafe extern "system" fn getURI<Impl: IMXNamespaceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchprefix: super::super::super::Foundation::PWSTR, pcontextnode: ::windows::core::RawPtr, pwchuri: super::super::super::Foundation::PWSTR, pcchuri: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getURI<Impl: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchprefix: super::super::super::Foundation::PWSTR, pcontextnode: ::windows::core::RawPtr, pwchuri: super::super::super::Foundation::PWSTR, pcchuri: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).getURI(::core::mem::transmute_copy(&pwchprefix), ::core::mem::transmute(&pcontextnode), ::core::mem::transmute_copy(&pwchuri), ::core::mem::transmute_copy(&pcchuri)).into()
         }
@@ -159,15 +159,15 @@ impl IMXNamespaceManagerVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMXNamespacePrefixesImpl: Sized + IDispatchImpl {
+pub trait IMXNamespacePrefixes_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn item(&mut self, index: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn length(&mut self) -> ::windows::core::Result<i32>;
     fn _newEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IMXNamespacePrefixesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMXNamespacePrefixesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMXNamespacePrefixesVtbl {
-        unsafe extern "system" fn item<Impl: IMXNamespacePrefixesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, prefix: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IMXNamespacePrefixes_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMXNamespacePrefixes_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMXNamespacePrefixes_Vtbl {
+        unsafe extern "system" fn item<Impl: IMXNamespacePrefixes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, prefix: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -177,7 +177,7 @@ impl IMXNamespacePrefixesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn length<Impl: IMXNamespacePrefixesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn length<Impl: IMXNamespacePrefixes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).length() {
                 ::core::result::Result::Ok(ok__) => {
@@ -187,7 +187,7 @@ impl IMXNamespacePrefixesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn _newEnum<Impl: IMXNamespacePrefixesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn _newEnum<Impl: IMXNamespacePrefixes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._newEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -198,7 +198,7 @@ impl IMXNamespacePrefixesVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             item: item::<Impl, IMPL_OFFSET>,
             length: length::<Impl, IMPL_OFFSET>,
             _newEnum: _newEnum::<Impl, IMPL_OFFSET>,
@@ -209,28 +209,28 @@ impl IMXNamespacePrefixesVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMXReaderControlImpl: Sized + IDispatchImpl {
+pub trait IMXReaderControl_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn abort(&mut self) -> ::windows::core::Result<()>;
     fn resume(&mut self) -> ::windows::core::Result<()>;
     fn suspend(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IMXReaderControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMXReaderControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMXReaderControlVtbl {
-        unsafe extern "system" fn abort<Impl: IMXReaderControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IMXReaderControl_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMXReaderControl_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMXReaderControl_Vtbl {
+        unsafe extern "system" fn abort<Impl: IMXReaderControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).abort().into()
         }
-        unsafe extern "system" fn resume<Impl: IMXReaderControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn resume<Impl: IMXReaderControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).resume().into()
         }
-        unsafe extern "system" fn suspend<Impl: IMXReaderControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn suspend<Impl: IMXReaderControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).suspend().into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             abort: abort::<Impl, IMPL_OFFSET>,
             resume: resume::<Impl, IMPL_OFFSET>,
             suspend: suspend::<Impl, IMPL_OFFSET>,
@@ -241,24 +241,27 @@ impl IMXReaderControlVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMXSchemaDeclHandlerImpl: Sized + IDispatchImpl {
+pub trait IMXSchemaDeclHandler_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn schemaElementDecl(&mut self, oschemaelement: ::core::option::Option<ISchemaElement>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IMXSchemaDeclHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMXSchemaDeclHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMXSchemaDeclHandlerVtbl {
-        unsafe extern "system" fn schemaElementDecl<Impl: IMXSchemaDeclHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oschemaelement: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMXSchemaDeclHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMXSchemaDeclHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMXSchemaDeclHandler_Vtbl {
+        unsafe extern "system" fn schemaElementDecl<Impl: IMXSchemaDeclHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oschemaelement: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).schemaElementDecl(::core::mem::transmute(&oschemaelement)).into()
         }
-        Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), schemaElementDecl: schemaElementDecl::<Impl, IMPL_OFFSET> }
+        Self {
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            schemaElementDecl: schemaElementDecl::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMXSchemaDeclHandler as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMXWriterImpl: Sized + IDispatchImpl {
+pub trait IMXWriter_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Setoutput(&mut self, vardestination: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn output(&mut self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn Setencoding(&mut self, strencoding: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
@@ -278,13 +281,13 @@ pub trait IMXWriterImpl: Sized + IDispatchImpl {
     fn flush(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IMXWriterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMXWriterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMXWriterVtbl {
-        unsafe extern "system" fn Setoutput<Impl: IMXWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vardestination: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+impl IMXWriter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMXWriter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMXWriter_Vtbl {
+        unsafe extern "system" fn Setoutput<Impl: IMXWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vardestination: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Setoutput(::core::mem::transmute_copy(&vardestination)).into()
         }
-        unsafe extern "system" fn output<Impl: IMXWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vardestination: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn output<Impl: IMXWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vardestination: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).output() {
                 ::core::result::Result::Ok(ok__) => {
@@ -294,11 +297,11 @@ impl IMXWriterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Setencoding<Impl: IMXWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strencoding: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Setencoding<Impl: IMXWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strencoding: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Setencoding(::core::mem::transmute_copy(&strencoding)).into()
         }
-        unsafe extern "system" fn encoding<Impl: IMXWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strencoding: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn encoding<Impl: IMXWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strencoding: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).encoding() {
                 ::core::result::Result::Ok(ok__) => {
@@ -308,11 +311,11 @@ impl IMXWriterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetbyteOrderMark<Impl: IMXWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fwritebyteordermark: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetbyteOrderMark<Impl: IMXWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fwritebyteordermark: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetbyteOrderMark(::core::mem::transmute_copy(&fwritebyteordermark)).into()
         }
-        unsafe extern "system" fn byteOrderMark<Impl: IMXWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fwritebyteordermark: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn byteOrderMark<Impl: IMXWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fwritebyteordermark: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).byteOrderMark() {
                 ::core::result::Result::Ok(ok__) => {
@@ -322,11 +325,11 @@ impl IMXWriterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Setindent<Impl: IMXWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, findentmode: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Setindent<Impl: IMXWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, findentmode: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Setindent(::core::mem::transmute_copy(&findentmode)).into()
         }
-        unsafe extern "system" fn indent<Impl: IMXWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, findentmode: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn indent<Impl: IMXWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, findentmode: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).indent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -336,11 +339,11 @@ impl IMXWriterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Setstandalone<Impl: IMXWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fvalue: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Setstandalone<Impl: IMXWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fvalue: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Setstandalone(::core::mem::transmute_copy(&fvalue)).into()
         }
-        unsafe extern "system" fn standalone<Impl: IMXWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fvalue: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn standalone<Impl: IMXWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fvalue: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).standalone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -350,11 +353,11 @@ impl IMXWriterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetomitXMLDeclaration<Impl: IMXWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fvalue: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetomitXMLDeclaration<Impl: IMXWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fvalue: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetomitXMLDeclaration(::core::mem::transmute_copy(&fvalue)).into()
         }
-        unsafe extern "system" fn omitXMLDeclaration<Impl: IMXWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fvalue: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn omitXMLDeclaration<Impl: IMXWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fvalue: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).omitXMLDeclaration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -364,11 +367,11 @@ impl IMXWriterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Setversion<Impl: IMXWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strversion: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Setversion<Impl: IMXWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strversion: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Setversion(::core::mem::transmute_copy(&strversion)).into()
         }
-        unsafe extern "system" fn version<Impl: IMXWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strversion: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn version<Impl: IMXWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strversion: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).version() {
                 ::core::result::Result::Ok(ok__) => {
@@ -378,11 +381,11 @@ impl IMXWriterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetdisableOutputEscaping<Impl: IMXWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fvalue: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetdisableOutputEscaping<Impl: IMXWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fvalue: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetdisableOutputEscaping(::core::mem::transmute_copy(&fvalue)).into()
         }
-        unsafe extern "system" fn disableOutputEscaping<Impl: IMXWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fvalue: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn disableOutputEscaping<Impl: IMXWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fvalue: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).disableOutputEscaping() {
                 ::core::result::Result::Ok(ok__) => {
@@ -392,12 +395,12 @@ impl IMXWriterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn flush<Impl: IMXWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn flush<Impl: IMXWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).flush().into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Setoutput: Setoutput::<Impl, IMPL_OFFSET>,
             output: output::<Impl, IMPL_OFFSET>,
             Setencoding: Setencoding::<Impl, IMPL_OFFSET>,
@@ -422,7 +425,7 @@ impl IMXWriterVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMXXMLFilterImpl: Sized + IDispatchImpl {
+pub trait IMXXMLFilter_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn getFeature(&mut self, strname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
     fn putFeature(&mut self, strname: super::super::super::Foundation::BSTR, fvalue: i16) -> ::windows::core::Result<()>;
     fn getProperty(&mut self, strname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
@@ -437,9 +440,9 @@ pub trait IMXXMLFilterImpl: Sized + IDispatchImpl {
     fn putref_errorHandler(&mut self, ohandler: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IMXXMLFilterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMXXMLFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMXXMLFilterVtbl {
-        unsafe extern "system" fn getFeature<Impl: IMXXMLFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, fvalue: *mut i16) -> ::windows::core::HRESULT {
+impl IMXXMLFilter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMXXMLFilter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMXXMLFilter_Vtbl {
+        unsafe extern "system" fn getFeature<Impl: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, fvalue: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getFeature(::core::mem::transmute_copy(&strname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -449,11 +452,11 @@ impl IMXXMLFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putFeature<Impl: IMXXMLFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, fvalue: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putFeature<Impl: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, fvalue: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putFeature(::core::mem::transmute_copy(&strname), ::core::mem::transmute_copy(&fvalue)).into()
         }
-        unsafe extern "system" fn getProperty<Impl: IMXXMLFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, varvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getProperty<Impl: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, varvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getProperty(::core::mem::transmute_copy(&strname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -463,11 +466,11 @@ impl IMXXMLFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putProperty<Impl: IMXXMLFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, varvalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putProperty<Impl: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, varvalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putProperty(::core::mem::transmute_copy(&strname), ::core::mem::transmute_copy(&varvalue)).into()
         }
-        unsafe extern "system" fn entityResolver<Impl: IMXXMLFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oresolver: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn entityResolver<Impl: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oresolver: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).entityResolver() {
                 ::core::result::Result::Ok(ok__) => {
@@ -477,11 +480,11 @@ impl IMXXMLFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putref_entityResolver<Impl: IMXXMLFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oresolver: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putref_entityResolver<Impl: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oresolver: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putref_entityResolver(::core::mem::transmute(&oresolver)).into()
         }
-        unsafe extern "system" fn contentHandler<Impl: IMXXMLFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn contentHandler<Impl: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).contentHandler() {
                 ::core::result::Result::Ok(ok__) => {
@@ -491,11 +494,11 @@ impl IMXXMLFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putref_contentHandler<Impl: IMXXMLFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putref_contentHandler<Impl: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putref_contentHandler(::core::mem::transmute(&ohandler)).into()
         }
-        unsafe extern "system" fn dtdHandler<Impl: IMXXMLFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn dtdHandler<Impl: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).dtdHandler() {
                 ::core::result::Result::Ok(ok__) => {
@@ -505,11 +508,11 @@ impl IMXXMLFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putref_dtdHandler<Impl: IMXXMLFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putref_dtdHandler<Impl: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putref_dtdHandler(::core::mem::transmute(&ohandler)).into()
         }
-        unsafe extern "system" fn errorHandler<Impl: IMXXMLFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn errorHandler<Impl: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).errorHandler() {
                 ::core::result::Result::Ok(ok__) => {
@@ -519,12 +522,12 @@ impl IMXXMLFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putref_errorHandler<Impl: IMXXMLFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putref_errorHandler<Impl: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putref_errorHandler(::core::mem::transmute(&ohandler)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             getFeature: getFeature::<Impl, IMPL_OFFSET>,
             putFeature: putFeature::<Impl, IMPL_OFFSET>,
             getProperty: getProperty::<Impl, IMPL_OFFSET>,
@@ -544,7 +547,7 @@ impl IMXXMLFilterVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ISAXAttributesImpl: Sized {
+pub trait ISAXAttributes_Impl: Sized {
     fn getLength(&mut self) -> ::windows::core::Result<i32>;
     fn getURI(&mut self, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32) -> ::windows::core::Result<()>;
     fn getLocalName(&mut self, nindex: i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32) -> ::windows::core::Result<()>;
@@ -560,9 +563,9 @@ pub trait ISAXAttributesImpl: Sized {
     fn getValueFromQName(&mut self, pwchqname: super::super::super::Foundation::PWSTR, cchqname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ISAXAttributesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISAXAttributesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISAXAttributesVtbl {
-        unsafe extern "system" fn getLength<Impl: ISAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnlength: *mut i32) -> ::windows::core::HRESULT {
+impl ISAXAttributes_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISAXAttributes_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISAXAttributes_Vtbl {
+        unsafe extern "system" fn getLength<Impl: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnlength: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -572,23 +575,23 @@ impl ISAXAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getURI<Impl: ISAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getURI<Impl: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).getURI(::core::mem::transmute_copy(&nindex), ::core::mem::transmute_copy(&ppwchuri), ::core::mem::transmute_copy(&pcchuri)).into()
         }
-        unsafe extern "system" fn getLocalName<Impl: ISAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getLocalName<Impl: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).getLocalName(::core::mem::transmute_copy(&nindex), ::core::mem::transmute_copy(&ppwchlocalname), ::core::mem::transmute_copy(&pcchlocalname)).into()
         }
-        unsafe extern "system" fn getQName<Impl: ISAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, ppwchqname: *mut *mut u16, pcchqname: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getQName<Impl: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, ppwchqname: *mut *mut u16, pcchqname: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).getQName(::core::mem::transmute_copy(&nindex), ::core::mem::transmute_copy(&ppwchqname), ::core::mem::transmute_copy(&pcchqname)).into()
         }
-        unsafe extern "system" fn getName<Impl: ISAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32, ppwchqname: *mut *mut u16, pcchqname: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getName<Impl: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32, ppwchqname: *mut *mut u16, pcchqname: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).getName(::core::mem::transmute_copy(&nindex), ::core::mem::transmute_copy(&ppwchuri), ::core::mem::transmute_copy(&pcchuri), ::core::mem::transmute_copy(&ppwchlocalname), ::core::mem::transmute_copy(&pcchlocalname), ::core::mem::transmute_copy(&ppwchqname), ::core::mem::transmute_copy(&pcchqname)).into()
         }
-        unsafe extern "system" fn getIndexFromName<Impl: ISAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchuri: super::super::super::Foundation::PWSTR, cchuri: i32, pwchlocalname: super::super::super::Foundation::PWSTR, cchlocalname: i32, pnindex: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getIndexFromName<Impl: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchuri: super::super::super::Foundation::PWSTR, cchuri: i32, pwchlocalname: super::super::super::Foundation::PWSTR, cchlocalname: i32, pnindex: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getIndexFromName(::core::mem::transmute_copy(&pwchuri), ::core::mem::transmute_copy(&cchuri), ::core::mem::transmute_copy(&pwchlocalname), ::core::mem::transmute_copy(&cchlocalname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -598,7 +601,7 @@ impl ISAXAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getIndexFromQName<Impl: ISAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchqname: super::super::super::Foundation::PWSTR, cchqname: i32, pnindex: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getIndexFromQName<Impl: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchqname: super::super::super::Foundation::PWSTR, cchqname: i32, pnindex: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getIndexFromQName(::core::mem::transmute_copy(&pwchqname), ::core::mem::transmute_copy(&cchqname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -608,27 +611,27 @@ impl ISAXAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getType<Impl: ISAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getType<Impl: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).getType(::core::mem::transmute_copy(&nindex), ::core::mem::transmute_copy(&ppwchtype), ::core::mem::transmute_copy(&pcchtype)).into()
         }
-        unsafe extern "system" fn getTypeFromName<Impl: ISAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchuri: super::super::super::Foundation::PWSTR, cchuri: i32, pwchlocalname: super::super::super::Foundation::PWSTR, cchlocalname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getTypeFromName<Impl: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchuri: super::super::super::Foundation::PWSTR, cchuri: i32, pwchlocalname: super::super::super::Foundation::PWSTR, cchlocalname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).getTypeFromName(::core::mem::transmute_copy(&pwchuri), ::core::mem::transmute_copy(&cchuri), ::core::mem::transmute_copy(&pwchlocalname), ::core::mem::transmute_copy(&cchlocalname), ::core::mem::transmute_copy(&ppwchtype), ::core::mem::transmute_copy(&pcchtype)).into()
         }
-        unsafe extern "system" fn getTypeFromQName<Impl: ISAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchqname: super::super::super::Foundation::PWSTR, cchqname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getTypeFromQName<Impl: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchqname: super::super::super::Foundation::PWSTR, cchqname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).getTypeFromQName(::core::mem::transmute_copy(&pwchqname), ::core::mem::transmute_copy(&cchqname), ::core::mem::transmute_copy(&ppwchtype), ::core::mem::transmute_copy(&pcchtype)).into()
         }
-        unsafe extern "system" fn getValue<Impl: ISAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getValue<Impl: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).getValue(::core::mem::transmute_copy(&nindex), ::core::mem::transmute_copy(&ppwchvalue), ::core::mem::transmute_copy(&pcchvalue)).into()
         }
-        unsafe extern "system" fn getValueFromName<Impl: ISAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchuri: super::super::super::Foundation::PWSTR, cchuri: i32, pwchlocalname: super::super::super::Foundation::PWSTR, cchlocalname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getValueFromName<Impl: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchuri: super::super::super::Foundation::PWSTR, cchuri: i32, pwchlocalname: super::super::super::Foundation::PWSTR, cchlocalname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).getValueFromName(::core::mem::transmute_copy(&pwchuri), ::core::mem::transmute_copy(&cchuri), ::core::mem::transmute_copy(&pwchlocalname), ::core::mem::transmute_copy(&cchlocalname), ::core::mem::transmute_copy(&ppwchvalue), ::core::mem::transmute_copy(&pcchvalue)).into()
         }
-        unsafe extern "system" fn getValueFromQName<Impl: ISAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchqname: super::super::super::Foundation::PWSTR, cchqname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getValueFromQName<Impl: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchqname: super::super::super::Foundation::PWSTR, cchqname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).getValueFromQName(::core::mem::transmute_copy(&pwchqname), ::core::mem::transmute_copy(&cchqname), ::core::mem::transmute_copy(&ppwchvalue), ::core::mem::transmute_copy(&pcchvalue)).into()
         }
@@ -654,7 +657,7 @@ impl ISAXAttributesVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ISAXContentHandlerImpl: Sized {
+pub trait ISAXContentHandler_Impl: Sized {
     fn putDocumentLocator(&mut self, plocator: ::core::option::Option<ISAXLocator>) -> ::windows::core::Result<()>;
     fn startDocument(&mut self) -> ::windows::core::Result<()>;
     fn endDocument(&mut self) -> ::windows::core::Result<()>;
@@ -668,49 +671,49 @@ pub trait ISAXContentHandlerImpl: Sized {
     fn skippedEntity(&mut self, pwchname: super::super::super::Foundation::PWSTR, cchname: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ISAXContentHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISAXContentHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISAXContentHandlerVtbl {
-        unsafe extern "system" fn putDocumentLocator<Impl: ISAXContentHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plocator: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISAXContentHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISAXContentHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISAXContentHandler_Vtbl {
+        unsafe extern "system" fn putDocumentLocator<Impl: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plocator: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putDocumentLocator(::core::mem::transmute(&plocator)).into()
         }
-        unsafe extern "system" fn startDocument<Impl: ISAXContentHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn startDocument<Impl: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).startDocument().into()
         }
-        unsafe extern "system" fn endDocument<Impl: ISAXContentHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn endDocument<Impl: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).endDocument().into()
         }
-        unsafe extern "system" fn startPrefixMapping<Impl: ISAXContentHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchprefix: super::super::super::Foundation::PWSTR, cchprefix: i32, pwchuri: super::super::super::Foundation::PWSTR, cchuri: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn startPrefixMapping<Impl: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchprefix: super::super::super::Foundation::PWSTR, cchprefix: i32, pwchuri: super::super::super::Foundation::PWSTR, cchuri: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).startPrefixMapping(::core::mem::transmute_copy(&pwchprefix), ::core::mem::transmute_copy(&cchprefix), ::core::mem::transmute_copy(&pwchuri), ::core::mem::transmute_copy(&cchuri)).into()
         }
-        unsafe extern "system" fn endPrefixMapping<Impl: ISAXContentHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchprefix: super::super::super::Foundation::PWSTR, cchprefix: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn endPrefixMapping<Impl: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchprefix: super::super::super::Foundation::PWSTR, cchprefix: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).endPrefixMapping(::core::mem::transmute_copy(&pwchprefix), ::core::mem::transmute_copy(&cchprefix)).into()
         }
-        unsafe extern "system" fn startElement<Impl: ISAXContentHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchnamespaceuri: super::super::super::Foundation::PWSTR, cchnamespaceuri: i32, pwchlocalname: super::super::super::Foundation::PWSTR, cchlocalname: i32, pwchqname: super::super::super::Foundation::PWSTR, cchqname: i32, pattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn startElement<Impl: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchnamespaceuri: super::super::super::Foundation::PWSTR, cchnamespaceuri: i32, pwchlocalname: super::super::super::Foundation::PWSTR, cchlocalname: i32, pwchqname: super::super::super::Foundation::PWSTR, cchqname: i32, pattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).startElement(::core::mem::transmute_copy(&pwchnamespaceuri), ::core::mem::transmute_copy(&cchnamespaceuri), ::core::mem::transmute_copy(&pwchlocalname), ::core::mem::transmute_copy(&cchlocalname), ::core::mem::transmute_copy(&pwchqname), ::core::mem::transmute_copy(&cchqname), ::core::mem::transmute(&pattributes)).into()
         }
-        unsafe extern "system" fn endElement<Impl: ISAXContentHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchnamespaceuri: super::super::super::Foundation::PWSTR, cchnamespaceuri: i32, pwchlocalname: super::super::super::Foundation::PWSTR, cchlocalname: i32, pwchqname: super::super::super::Foundation::PWSTR, cchqname: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn endElement<Impl: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchnamespaceuri: super::super::super::Foundation::PWSTR, cchnamespaceuri: i32, pwchlocalname: super::super::super::Foundation::PWSTR, cchlocalname: i32, pwchqname: super::super::super::Foundation::PWSTR, cchqname: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).endElement(::core::mem::transmute_copy(&pwchnamespaceuri), ::core::mem::transmute_copy(&cchnamespaceuri), ::core::mem::transmute_copy(&pwchlocalname), ::core::mem::transmute_copy(&cchlocalname), ::core::mem::transmute_copy(&pwchqname), ::core::mem::transmute_copy(&cchqname)).into()
         }
-        unsafe extern "system" fn characters<Impl: ISAXContentHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchchars: super::super::super::Foundation::PWSTR, cchchars: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn characters<Impl: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchchars: super::super::super::Foundation::PWSTR, cchchars: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).characters(::core::mem::transmute_copy(&pwchchars), ::core::mem::transmute_copy(&cchchars)).into()
         }
-        unsafe extern "system" fn ignorableWhitespace<Impl: ISAXContentHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchchars: super::super::super::Foundation::PWSTR, cchchars: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ignorableWhitespace<Impl: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchchars: super::super::super::Foundation::PWSTR, cchchars: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ignorableWhitespace(::core::mem::transmute_copy(&pwchchars), ::core::mem::transmute_copy(&cchchars)).into()
         }
-        unsafe extern "system" fn processingInstruction<Impl: ISAXContentHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchtarget: super::super::super::Foundation::PWSTR, cchtarget: i32, pwchdata: super::super::super::Foundation::PWSTR, cchdata: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn processingInstruction<Impl: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchtarget: super::super::super::Foundation::PWSTR, cchtarget: i32, pwchdata: super::super::super::Foundation::PWSTR, cchdata: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).processingInstruction(::core::mem::transmute_copy(&pwchtarget), ::core::mem::transmute_copy(&cchtarget), ::core::mem::transmute_copy(&pwchdata), ::core::mem::transmute_copy(&cchdata)).into()
         }
-        unsafe extern "system" fn skippedEntity<Impl: ISAXContentHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, cchname: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn skippedEntity<Impl: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, cchname: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).skippedEntity(::core::mem::transmute_copy(&pwchname), ::core::mem::transmute_copy(&cchname)).into()
         }
@@ -734,18 +737,18 @@ impl ISAXContentHandlerVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ISAXDTDHandlerImpl: Sized {
+pub trait ISAXDTDHandler_Impl: Sized {
     fn notationDecl(&mut self, pwchname: super::super::super::Foundation::PWSTR, cchname: i32, pwchpublicid: super::super::super::Foundation::PWSTR, cchpublicid: i32, pwchsystemid: super::super::super::Foundation::PWSTR, cchsystemid: i32) -> ::windows::core::Result<()>;
     fn unparsedEntityDecl(&mut self, pwchname: super::super::super::Foundation::PWSTR, cchname: i32, pwchpublicid: super::super::super::Foundation::PWSTR, cchpublicid: i32, pwchsystemid: super::super::super::Foundation::PWSTR, cchsystemid: i32, pwchnotationname: super::super::super::Foundation::PWSTR, cchnotationname: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ISAXDTDHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISAXDTDHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISAXDTDHandlerVtbl {
-        unsafe extern "system" fn notationDecl<Impl: ISAXDTDHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, cchname: i32, pwchpublicid: super::super::super::Foundation::PWSTR, cchpublicid: i32, pwchsystemid: super::super::super::Foundation::PWSTR, cchsystemid: i32) -> ::windows::core::HRESULT {
+impl ISAXDTDHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISAXDTDHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISAXDTDHandler_Vtbl {
+        unsafe extern "system" fn notationDecl<Impl: ISAXDTDHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, cchname: i32, pwchpublicid: super::super::super::Foundation::PWSTR, cchpublicid: i32, pwchsystemid: super::super::super::Foundation::PWSTR, cchsystemid: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).notationDecl(::core::mem::transmute_copy(&pwchname), ::core::mem::transmute_copy(&cchname), ::core::mem::transmute_copy(&pwchpublicid), ::core::mem::transmute_copy(&cchpublicid), ::core::mem::transmute_copy(&pwchsystemid), ::core::mem::transmute_copy(&cchsystemid)).into()
         }
-        unsafe extern "system" fn unparsedEntityDecl<Impl: ISAXDTDHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, cchname: i32, pwchpublicid: super::super::super::Foundation::PWSTR, cchpublicid: i32, pwchsystemid: super::super::super::Foundation::PWSTR, cchsystemid: i32, pwchnotationname: super::super::super::Foundation::PWSTR, cchnotationname: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn unparsedEntityDecl<Impl: ISAXDTDHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, cchname: i32, pwchpublicid: super::super::super::Foundation::PWSTR, cchpublicid: i32, pwchsystemid: super::super::super::Foundation::PWSTR, cchsystemid: i32, pwchnotationname: super::super::super::Foundation::PWSTR, cchnotationname: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).unparsedEntityDecl(::core::mem::transmute_copy(&pwchname), ::core::mem::transmute_copy(&cchname), ::core::mem::transmute_copy(&pwchpublicid), ::core::mem::transmute_copy(&cchpublicid), ::core::mem::transmute_copy(&pwchsystemid), ::core::mem::transmute_copy(&cchsystemid), ::core::mem::transmute_copy(&pwchnotationname), ::core::mem::transmute_copy(&cchnotationname)).into()
         }
@@ -760,28 +763,28 @@ impl ISAXDTDHandlerVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ISAXDeclHandlerImpl: Sized {
+pub trait ISAXDeclHandler_Impl: Sized {
     fn elementDecl(&mut self, pwchname: super::super::super::Foundation::PWSTR, cchname: i32, pwchmodel: super::super::super::Foundation::PWSTR, cchmodel: i32) -> ::windows::core::Result<()>;
     fn attributeDecl(&mut self, pwchelementname: super::super::super::Foundation::PWSTR, cchelementname: i32, pwchattributename: super::super::super::Foundation::PWSTR, cchattributename: i32, pwchtype: super::super::super::Foundation::PWSTR, cchtype: i32, pwchvaluedefault: super::super::super::Foundation::PWSTR, cchvaluedefault: i32, pwchvalue: super::super::super::Foundation::PWSTR, cchvalue: i32) -> ::windows::core::Result<()>;
     fn internalEntityDecl(&mut self, pwchname: super::super::super::Foundation::PWSTR, cchname: i32, pwchvalue: super::super::super::Foundation::PWSTR, cchvalue: i32) -> ::windows::core::Result<()>;
     fn externalEntityDecl(&mut self, pwchname: super::super::super::Foundation::PWSTR, cchname: i32, pwchpublicid: super::super::super::Foundation::PWSTR, cchpublicid: i32, pwchsystemid: super::super::super::Foundation::PWSTR, cchsystemid: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ISAXDeclHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISAXDeclHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISAXDeclHandlerVtbl {
-        unsafe extern "system" fn elementDecl<Impl: ISAXDeclHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, cchname: i32, pwchmodel: super::super::super::Foundation::PWSTR, cchmodel: i32) -> ::windows::core::HRESULT {
+impl ISAXDeclHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISAXDeclHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISAXDeclHandler_Vtbl {
+        unsafe extern "system" fn elementDecl<Impl: ISAXDeclHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, cchname: i32, pwchmodel: super::super::super::Foundation::PWSTR, cchmodel: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).elementDecl(::core::mem::transmute_copy(&pwchname), ::core::mem::transmute_copy(&cchname), ::core::mem::transmute_copy(&pwchmodel), ::core::mem::transmute_copy(&cchmodel)).into()
         }
-        unsafe extern "system" fn attributeDecl<Impl: ISAXDeclHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchelementname: super::super::super::Foundation::PWSTR, cchelementname: i32, pwchattributename: super::super::super::Foundation::PWSTR, cchattributename: i32, pwchtype: super::super::super::Foundation::PWSTR, cchtype: i32, pwchvaluedefault: super::super::super::Foundation::PWSTR, cchvaluedefault: i32, pwchvalue: super::super::super::Foundation::PWSTR, cchvalue: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn attributeDecl<Impl: ISAXDeclHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchelementname: super::super::super::Foundation::PWSTR, cchelementname: i32, pwchattributename: super::super::super::Foundation::PWSTR, cchattributename: i32, pwchtype: super::super::super::Foundation::PWSTR, cchtype: i32, pwchvaluedefault: super::super::super::Foundation::PWSTR, cchvaluedefault: i32, pwchvalue: super::super::super::Foundation::PWSTR, cchvalue: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).attributeDecl(::core::mem::transmute_copy(&pwchelementname), ::core::mem::transmute_copy(&cchelementname), ::core::mem::transmute_copy(&pwchattributename), ::core::mem::transmute_copy(&cchattributename), ::core::mem::transmute_copy(&pwchtype), ::core::mem::transmute_copy(&cchtype), ::core::mem::transmute_copy(&pwchvaluedefault), ::core::mem::transmute_copy(&cchvaluedefault), ::core::mem::transmute_copy(&pwchvalue), ::core::mem::transmute_copy(&cchvalue)).into()
         }
-        unsafe extern "system" fn internalEntityDecl<Impl: ISAXDeclHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, cchname: i32, pwchvalue: super::super::super::Foundation::PWSTR, cchvalue: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn internalEntityDecl<Impl: ISAXDeclHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, cchname: i32, pwchvalue: super::super::super::Foundation::PWSTR, cchvalue: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).internalEntityDecl(::core::mem::transmute_copy(&pwchname), ::core::mem::transmute_copy(&cchname), ::core::mem::transmute_copy(&pwchvalue), ::core::mem::transmute_copy(&cchvalue)).into()
         }
-        unsafe extern "system" fn externalEntityDecl<Impl: ISAXDeclHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, cchname: i32, pwchpublicid: super::super::super::Foundation::PWSTR, cchpublicid: i32, pwchsystemid: super::super::super::Foundation::PWSTR, cchsystemid: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn externalEntityDecl<Impl: ISAXDeclHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, cchname: i32, pwchpublicid: super::super::super::Foundation::PWSTR, cchpublicid: i32, pwchsystemid: super::super::super::Foundation::PWSTR, cchsystemid: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).externalEntityDecl(::core::mem::transmute_copy(&pwchname), ::core::mem::transmute_copy(&cchname), ::core::mem::transmute_copy(&pwchpublicid), ::core::mem::transmute_copy(&cchpublicid), ::core::mem::transmute_copy(&pwchsystemid), ::core::mem::transmute_copy(&cchsystemid)).into()
         }
@@ -798,13 +801,13 @@ impl ISAXDeclHandlerVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISAXEntityResolverImpl: Sized {
+pub trait ISAXEntityResolver_Impl: Sized {
     fn resolveEntity(&mut self, pwchpublicid: super::super::super::Foundation::PWSTR, pwchsystemid: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ISAXEntityResolverVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISAXEntityResolverImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISAXEntityResolverVtbl {
-        unsafe extern "system" fn resolveEntity<Impl: ISAXEntityResolverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchpublicid: super::super::super::Foundation::PWSTR, pwchsystemid: super::super::super::Foundation::PWSTR, pvarinput: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+impl ISAXEntityResolver_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISAXEntityResolver_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISAXEntityResolver_Vtbl {
+        unsafe extern "system" fn resolveEntity<Impl: ISAXEntityResolver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchpublicid: super::super::super::Foundation::PWSTR, pwchsystemid: super::super::super::Foundation::PWSTR, pvarinput: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).resolveEntity(::core::mem::transmute_copy(&pwchpublicid), ::core::mem::transmute_copy(&pwchsystemid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -821,23 +824,23 @@ impl ISAXEntityResolverVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ISAXErrorHandlerImpl: Sized {
+pub trait ISAXErrorHandler_Impl: Sized {
     fn error(&mut self, plocator: ::core::option::Option<ISAXLocator>, pwcherrormessage: super::super::super::Foundation::PWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn fatalError(&mut self, plocator: ::core::option::Option<ISAXLocator>, pwcherrormessage: super::super::super::Foundation::PWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn ignorableWarning(&mut self, plocator: ::core::option::Option<ISAXLocator>, pwcherrormessage: super::super::super::Foundation::PWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ISAXErrorHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISAXErrorHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISAXErrorHandlerVtbl {
-        unsafe extern "system" fn error<Impl: ISAXErrorHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plocator: ::windows::core::RawPtr, pwcherrormessage: super::super::super::Foundation::PWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+impl ISAXErrorHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISAXErrorHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISAXErrorHandler_Vtbl {
+        unsafe extern "system" fn error<Impl: ISAXErrorHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plocator: ::windows::core::RawPtr, pwcherrormessage: super::super::super::Foundation::PWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).error(::core::mem::transmute(&plocator), ::core::mem::transmute_copy(&pwcherrormessage), ::core::mem::transmute_copy(&hrerrorcode)).into()
         }
-        unsafe extern "system" fn fatalError<Impl: ISAXErrorHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plocator: ::windows::core::RawPtr, pwcherrormessage: super::super::super::Foundation::PWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn fatalError<Impl: ISAXErrorHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plocator: ::windows::core::RawPtr, pwcherrormessage: super::super::super::Foundation::PWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).fatalError(::core::mem::transmute(&plocator), ::core::mem::transmute_copy(&pwcherrormessage), ::core::mem::transmute_copy(&hrerrorcode)).into()
         }
-        unsafe extern "system" fn ignorableWarning<Impl: ISAXErrorHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plocator: ::windows::core::RawPtr, pwcherrormessage: super::super::super::Foundation::PWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ignorableWarning<Impl: ISAXErrorHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plocator: ::windows::core::RawPtr, pwcherrormessage: super::super::super::Foundation::PWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ignorableWarning(::core::mem::transmute(&plocator), ::core::mem::transmute_copy(&pwcherrormessage), ::core::mem::transmute_copy(&hrerrorcode)).into()
         }
@@ -853,7 +856,7 @@ impl ISAXErrorHandlerVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ISAXLexicalHandlerImpl: Sized {
+pub trait ISAXLexicalHandler_Impl: Sized {
     fn startDTD(&mut self, pwchname: super::super::super::Foundation::PWSTR, cchname: i32, pwchpublicid: super::super::super::Foundation::PWSTR, cchpublicid: i32, pwchsystemid: super::super::super::Foundation::PWSTR, cchsystemid: i32) -> ::windows::core::Result<()>;
     fn endDTD(&mut self) -> ::windows::core::Result<()>;
     fn startEntity(&mut self, pwchname: super::super::super::Foundation::PWSTR, cchname: i32) -> ::windows::core::Result<()>;
@@ -863,33 +866,33 @@ pub trait ISAXLexicalHandlerImpl: Sized {
     fn comment(&mut self, pwchchars: super::super::super::Foundation::PWSTR, cchchars: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ISAXLexicalHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISAXLexicalHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISAXLexicalHandlerVtbl {
-        unsafe extern "system" fn startDTD<Impl: ISAXLexicalHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, cchname: i32, pwchpublicid: super::super::super::Foundation::PWSTR, cchpublicid: i32, pwchsystemid: super::super::super::Foundation::PWSTR, cchsystemid: i32) -> ::windows::core::HRESULT {
+impl ISAXLexicalHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISAXLexicalHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISAXLexicalHandler_Vtbl {
+        unsafe extern "system" fn startDTD<Impl: ISAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, cchname: i32, pwchpublicid: super::super::super::Foundation::PWSTR, cchpublicid: i32, pwchsystemid: super::super::super::Foundation::PWSTR, cchsystemid: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).startDTD(::core::mem::transmute_copy(&pwchname), ::core::mem::transmute_copy(&cchname), ::core::mem::transmute_copy(&pwchpublicid), ::core::mem::transmute_copy(&cchpublicid), ::core::mem::transmute_copy(&pwchsystemid), ::core::mem::transmute_copy(&cchsystemid)).into()
         }
-        unsafe extern "system" fn endDTD<Impl: ISAXLexicalHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn endDTD<Impl: ISAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).endDTD().into()
         }
-        unsafe extern "system" fn startEntity<Impl: ISAXLexicalHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, cchname: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn startEntity<Impl: ISAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, cchname: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).startEntity(::core::mem::transmute_copy(&pwchname), ::core::mem::transmute_copy(&cchname)).into()
         }
-        unsafe extern "system" fn endEntity<Impl: ISAXLexicalHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, cchname: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn endEntity<Impl: ISAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, cchname: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).endEntity(::core::mem::transmute_copy(&pwchname), ::core::mem::transmute_copy(&cchname)).into()
         }
-        unsafe extern "system" fn startCDATA<Impl: ISAXLexicalHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn startCDATA<Impl: ISAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).startCDATA().into()
         }
-        unsafe extern "system" fn endCDATA<Impl: ISAXLexicalHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn endCDATA<Impl: ISAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).endCDATA().into()
         }
-        unsafe extern "system" fn comment<Impl: ISAXLexicalHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchchars: super::super::super::Foundation::PWSTR, cchchars: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn comment<Impl: ISAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchchars: super::super::super::Foundation::PWSTR, cchchars: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).comment(::core::mem::transmute_copy(&pwchchars), ::core::mem::transmute_copy(&cchchars)).into()
         }
@@ -908,15 +911,15 @@ impl ISAXLexicalHandlerVtbl {
         iid == &<ISAXLexicalHandler as ::windows::core::Interface>::IID
     }
 }
-pub trait ISAXLocatorImpl: Sized {
+pub trait ISAXLocator_Impl: Sized {
     fn getColumnNumber(&mut self) -> ::windows::core::Result<i32>;
     fn getLineNumber(&mut self) -> ::windows::core::Result<i32>;
     fn getPublicId(&mut self) -> ::windows::core::Result<*mut u16>;
     fn getSystemId(&mut self) -> ::windows::core::Result<*mut u16>;
 }
-impl ISAXLocatorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISAXLocatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISAXLocatorVtbl {
-        unsafe extern "system" fn getColumnNumber<Impl: ISAXLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pncolumn: *mut i32) -> ::windows::core::HRESULT {
+impl ISAXLocator_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISAXLocator_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISAXLocator_Vtbl {
+        unsafe extern "system" fn getColumnNumber<Impl: ISAXLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pncolumn: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getColumnNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -926,7 +929,7 @@ impl ISAXLocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getLineNumber<Impl: ISAXLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnline: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getLineNumber<Impl: ISAXLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnline: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getLineNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -936,7 +939,7 @@ impl ISAXLocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getPublicId<Impl: ISAXLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwchpublicid: *mut *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getPublicId<Impl: ISAXLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwchpublicid: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getPublicId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -946,7 +949,7 @@ impl ISAXLocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getSystemId<Impl: ISAXLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwchsystemid: *mut *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getSystemId<Impl: ISAXLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwchsystemid: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getSystemId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -969,14 +972,14 @@ impl ISAXLocatorVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISAXXMLFilterImpl: Sized + ISAXXMLReaderImpl {
+pub trait ISAXXMLFilter_Impl: Sized + ISAXXMLReader_Impl {
     fn getParent(&mut self) -> ::windows::core::Result<ISAXXMLReader>;
     fn putParent(&mut self, preader: ::core::option::Option<ISAXXMLReader>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ISAXXMLFilterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISAXXMLFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISAXXMLFilterVtbl {
-        unsafe extern "system" fn getParent<Impl: ISAXXMLFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISAXXMLFilter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISAXXMLFilter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISAXXMLFilter_Vtbl {
+        unsafe extern "system" fn getParent<Impl: ISAXXMLFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getParent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -986,12 +989,12 @@ impl ISAXXMLFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putParent<Impl: ISAXXMLFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preader: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putParent<Impl: ISAXXMLFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preader: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putParent(::core::mem::transmute(&preader)).into()
         }
         Self {
-            base: ISAXXMLReaderVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: ISAXXMLReader_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             getParent: getParent::<Impl, IMPL_OFFSET>,
             putParent: putParent::<Impl, IMPL_OFFSET>,
         }
@@ -1001,7 +1004,7 @@ impl ISAXXMLFilterVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISAXXMLReaderImpl: Sized {
+pub trait ISAXXMLReader_Impl: Sized {
     fn getFeature(&mut self, pwchname: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<i16>;
     fn putFeature(&mut self, pwchname: super::super::super::Foundation::PWSTR, vfvalue: i16) -> ::windows::core::Result<()>;
     fn getProperty(&mut self, pwchname: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
@@ -1022,9 +1025,9 @@ pub trait ISAXXMLReaderImpl: Sized {
     fn parseURL(&mut self, pwchurl: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ISAXXMLReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISAXXMLReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISAXXMLReaderVtbl {
-        unsafe extern "system" fn getFeature<Impl: ISAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, pvfvalue: *mut i16) -> ::windows::core::HRESULT {
+impl ISAXXMLReader_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISAXXMLReader_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISAXXMLReader_Vtbl {
+        unsafe extern "system" fn getFeature<Impl: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, pvfvalue: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getFeature(::core::mem::transmute_copy(&pwchname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1034,11 +1037,11 @@ impl ISAXXMLReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putFeature<Impl: ISAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, vfvalue: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putFeature<Impl: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, vfvalue: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putFeature(::core::mem::transmute_copy(&pwchname), ::core::mem::transmute_copy(&vfvalue)).into()
         }
-        unsafe extern "system" fn getProperty<Impl: ISAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, pvarvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getProperty<Impl: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, pvarvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getProperty(::core::mem::transmute_copy(&pwchname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1048,11 +1051,11 @@ impl ISAXXMLReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putProperty<Impl: ISAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, varvalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putProperty<Impl: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, varvalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putProperty(::core::mem::transmute_copy(&pwchname), ::core::mem::transmute_copy(&varvalue)).into()
         }
-        unsafe extern "system" fn getEntityResolver<Impl: ISAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresolver: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getEntityResolver<Impl: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresolver: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getEntityResolver() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1062,11 +1065,11 @@ impl ISAXXMLReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putEntityResolver<Impl: ISAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presolver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putEntityResolver<Impl: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presolver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putEntityResolver(::core::mem::transmute(&presolver)).into()
         }
-        unsafe extern "system" fn getContentHandler<Impl: ISAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getContentHandler<Impl: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getContentHandler() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1076,11 +1079,11 @@ impl ISAXXMLReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putContentHandler<Impl: ISAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phandler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putContentHandler<Impl: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phandler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putContentHandler(::core::mem::transmute(&phandler)).into()
         }
-        unsafe extern "system" fn getDTDHandler<Impl: ISAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getDTDHandler<Impl: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getDTDHandler() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1090,11 +1093,11 @@ impl ISAXXMLReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putDTDHandler<Impl: ISAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phandler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putDTDHandler<Impl: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phandler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putDTDHandler(::core::mem::transmute(&phandler)).into()
         }
-        unsafe extern "system" fn getErrorHandler<Impl: ISAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getErrorHandler<Impl: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getErrorHandler() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1104,11 +1107,11 @@ impl ISAXXMLReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putErrorHandler<Impl: ISAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phandler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putErrorHandler<Impl: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phandler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putErrorHandler(::core::mem::transmute(&phandler)).into()
         }
-        unsafe extern "system" fn getBaseURL<Impl: ISAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwchbaseurl: *mut *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getBaseURL<Impl: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwchbaseurl: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getBaseURL() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1118,11 +1121,11 @@ impl ISAXXMLReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putBaseURL<Impl: ISAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchbaseurl: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putBaseURL<Impl: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchbaseurl: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putBaseURL(::core::mem::transmute_copy(&pwchbaseurl)).into()
         }
-        unsafe extern "system" fn getSecureBaseURL<Impl: ISAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwchsecurebaseurl: *mut *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getSecureBaseURL<Impl: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwchsecurebaseurl: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getSecureBaseURL() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1132,15 +1135,15 @@ impl ISAXXMLReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putSecureBaseURL<Impl: ISAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchsecurebaseurl: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putSecureBaseURL<Impl: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchsecurebaseurl: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putSecureBaseURL(::core::mem::transmute_copy(&pwchsecurebaseurl)).into()
         }
-        unsafe extern "system" fn parse<Impl: ISAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varinput: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn parse<Impl: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varinput: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).parse(::core::mem::transmute_copy(&varinput)).into()
         }
-        unsafe extern "system" fn parseURL<Impl: ISAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchurl: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn parseURL<Impl: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchurl: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).parseURL(::core::mem::transmute_copy(&pwchurl)).into()
         }
@@ -1171,7 +1174,7 @@ impl ISAXXMLReaderVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaImpl: Sized + IDispatchImpl + ISchemaItemImpl {
+pub trait ISchema_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ISchemaItem_Impl {
     fn targetNamespace(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn version(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn types(&mut self) -> ::windows::core::Result<ISchemaItemCollection>;
@@ -1183,9 +1186,9 @@ pub trait ISchemaImpl: Sized + IDispatchImpl + ISchemaItemImpl {
     fn schemaLocations(&mut self) -> ::windows::core::Result<ISchemaStringCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ISchemaVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaVtbl {
-        unsafe extern "system" fn targetNamespace<Impl: ISchemaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetnamespace: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl ISchema_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchema_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchema_Vtbl {
+        unsafe extern "system" fn targetNamespace<Impl: ISchema_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetnamespace: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).targetNamespace() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1195,7 +1198,7 @@ impl ISchemaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn version<Impl: ISchemaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, version: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn version<Impl: ISchema_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, version: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).version() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1205,7 +1208,7 @@ impl ISchemaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn types<Impl: ISchemaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, types: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn types<Impl: ISchema_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, types: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).types() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1215,7 +1218,7 @@ impl ISchemaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn elements<Impl: ISchemaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, elements: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn elements<Impl: ISchema_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, elements: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).elements() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1225,7 +1228,7 @@ impl ISchemaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn attributes<Impl: ISchemaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn attributes<Impl: ISchema_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).attributes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1235,7 +1238,7 @@ impl ISchemaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn attributeGroups<Impl: ISchemaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributegroups: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn attributeGroups<Impl: ISchema_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributegroups: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).attributeGroups() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1245,7 +1248,7 @@ impl ISchemaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn modelGroups<Impl: ISchemaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, modelgroups: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn modelGroups<Impl: ISchema_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, modelgroups: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).modelGroups() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1255,7 +1258,7 @@ impl ISchemaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn notations<Impl: ISchemaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, notations: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn notations<Impl: ISchema_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, notations: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).notations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1265,7 +1268,7 @@ impl ISchemaVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn schemaLocations<Impl: ISchemaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, schemalocations: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn schemaLocations<Impl: ISchema_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, schemalocations: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).schemaLocations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1276,7 +1279,7 @@ impl ISchemaVtbl {
             }
         }
         Self {
-            base: ISchemaItemVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: ISchemaItem_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             targetNamespace: targetNamespace::<Impl, IMPL_OFFSET>,
             version: version::<Impl, IMPL_OFFSET>,
             types: types::<Impl, IMPL_OFFSET>,
@@ -1293,14 +1296,14 @@ impl ISchemaVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaAnyImpl: Sized + IDispatchImpl + ISchemaItemImpl + ISchemaParticleImpl {
+pub trait ISchemaAny_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ISchemaItem_Impl + ISchemaParticle_Impl {
     fn namespaces(&mut self) -> ::windows::core::Result<ISchemaStringCollection>;
     fn processContents(&mut self) -> ::windows::core::Result<SCHEMAPROCESSCONTENTS>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ISchemaAnyVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaAnyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaAnyVtbl {
-        unsafe extern "system" fn namespaces<Impl: ISchemaAnyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespaces: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISchemaAny_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaAny_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaAny_Vtbl {
+        unsafe extern "system" fn namespaces<Impl: ISchemaAny_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespaces: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).namespaces() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1310,7 +1313,7 @@ impl ISchemaAnyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn processContents<Impl: ISchemaAnyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, processcontents: *mut SCHEMAPROCESSCONTENTS) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn processContents<Impl: ISchemaAny_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, processcontents: *mut SCHEMAPROCESSCONTENTS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).processContents() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1321,7 +1324,7 @@ impl ISchemaAnyVtbl {
             }
         }
         Self {
-            base: ISchemaParticleVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: ISchemaParticle_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             namespaces: namespaces::<Impl, IMPL_OFFSET>,
             processContents: processContents::<Impl, IMPL_OFFSET>,
         }
@@ -1331,7 +1334,7 @@ impl ISchemaAnyVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaAttributeImpl: Sized + IDispatchImpl + ISchemaItemImpl {
+pub trait ISchemaAttribute_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ISchemaItem_Impl {
     fn r#type(&mut self) -> ::windows::core::Result<ISchemaType>;
     fn scope(&mut self) -> ::windows::core::Result<ISchemaComplexType>;
     fn defaultValue(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
@@ -1340,9 +1343,9 @@ pub trait ISchemaAttributeImpl: Sized + IDispatchImpl + ISchemaItemImpl {
     fn isReference(&mut self) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ISchemaAttributeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaAttributeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaAttributeVtbl {
-        unsafe extern "system" fn r#type<Impl: ISchemaAttributeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISchemaAttribute_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaAttribute_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaAttribute_Vtbl {
+        unsafe extern "system" fn r#type<Impl: ISchemaAttribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).r#type() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1352,7 +1355,7 @@ impl ISchemaAttributeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn scope<Impl: ISchemaAttributeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn scope<Impl: ISchemaAttribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).scope() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1362,7 +1365,7 @@ impl ISchemaAttributeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn defaultValue<Impl: ISchemaAttributeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, defaultvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn defaultValue<Impl: ISchemaAttribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, defaultvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).defaultValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1372,7 +1375,7 @@ impl ISchemaAttributeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn fixedValue<Impl: ISchemaAttributeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fixedvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn fixedValue<Impl: ISchemaAttribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fixedvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).fixedValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1382,7 +1385,7 @@ impl ISchemaAttributeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn r#use<Impl: ISchemaAttributeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#use: *mut SCHEMAUSE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn r#use<Impl: ISchemaAttribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#use: *mut SCHEMAUSE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).r#use() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1392,7 +1395,7 @@ impl ISchemaAttributeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn isReference<Impl: ISchemaAttributeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reference: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn isReference<Impl: ISchemaAttribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reference: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).isReference() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1403,7 +1406,7 @@ impl ISchemaAttributeVtbl {
             }
         }
         Self {
-            base: ISchemaItemVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: ISchemaItem_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             r#type: r#type::<Impl, IMPL_OFFSET>,
             scope: scope::<Impl, IMPL_OFFSET>,
             defaultValue: defaultValue::<Impl, IMPL_OFFSET>,
@@ -1417,14 +1420,14 @@ impl ISchemaAttributeVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaAttributeGroupImpl: Sized + IDispatchImpl + ISchemaItemImpl {
+pub trait ISchemaAttributeGroup_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ISchemaItem_Impl {
     fn anyAttribute(&mut self) -> ::windows::core::Result<ISchemaAny>;
     fn attributes(&mut self) -> ::windows::core::Result<ISchemaItemCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ISchemaAttributeGroupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaAttributeGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaAttributeGroupVtbl {
-        unsafe extern "system" fn anyAttribute<Impl: ISchemaAttributeGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, anyattribute: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISchemaAttributeGroup_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaAttributeGroup_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaAttributeGroup_Vtbl {
+        unsafe extern "system" fn anyAttribute<Impl: ISchemaAttributeGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, anyattribute: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).anyAttribute() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1434,7 +1437,7 @@ impl ISchemaAttributeGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn attributes<Impl: ISchemaAttributeGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn attributes<Impl: ISchemaAttributeGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).attributes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1445,7 +1448,7 @@ impl ISchemaAttributeGroupVtbl {
             }
         }
         Self {
-            base: ISchemaItemVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: ISchemaItem_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             anyAttribute: anyAttribute::<Impl, IMPL_OFFSET>,
             attributes: attributes::<Impl, IMPL_OFFSET>,
         }
@@ -1455,7 +1458,7 @@ impl ISchemaAttributeGroupVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaComplexTypeImpl: Sized + IDispatchImpl + ISchemaItemImpl + ISchemaTypeImpl {
+pub trait ISchemaComplexType_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ISchemaItem_Impl + ISchemaType_Impl {
     fn isAbstract(&mut self) -> ::windows::core::Result<i16>;
     fn anyAttribute(&mut self) -> ::windows::core::Result<ISchemaAny>;
     fn attributes(&mut self) -> ::windows::core::Result<ISchemaItemCollection>;
@@ -1464,9 +1467,9 @@ pub trait ISchemaComplexTypeImpl: Sized + IDispatchImpl + ISchemaItemImpl + ISch
     fn prohibitedSubstitutions(&mut self) -> ::windows::core::Result<SCHEMADERIVATIONMETHOD>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ISchemaComplexTypeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaComplexTypeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaComplexTypeVtbl {
-        unsafe extern "system" fn isAbstract<Impl: ISchemaComplexTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#abstract: *mut i16) -> ::windows::core::HRESULT {
+impl ISchemaComplexType_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaComplexType_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaComplexType_Vtbl {
+        unsafe extern "system" fn isAbstract<Impl: ISchemaComplexType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#abstract: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).isAbstract() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1476,7 +1479,7 @@ impl ISchemaComplexTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn anyAttribute<Impl: ISchemaComplexTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, anyattribute: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn anyAttribute<Impl: ISchemaComplexType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, anyattribute: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).anyAttribute() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1486,7 +1489,7 @@ impl ISchemaComplexTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn attributes<Impl: ISchemaComplexTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn attributes<Impl: ISchemaComplexType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).attributes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1496,7 +1499,7 @@ impl ISchemaComplexTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn contentType<Impl: ISchemaComplexTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contenttype: *mut SCHEMACONTENTTYPE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn contentType<Impl: ISchemaComplexType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contenttype: *mut SCHEMACONTENTTYPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).contentType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1506,7 +1509,7 @@ impl ISchemaComplexTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn contentModel<Impl: ISchemaComplexTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentmodel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn contentModel<Impl: ISchemaComplexType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentmodel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).contentModel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1516,7 +1519,7 @@ impl ISchemaComplexTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn prohibitedSubstitutions<Impl: ISchemaComplexTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prohibited: *mut SCHEMADERIVATIONMETHOD) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn prohibitedSubstitutions<Impl: ISchemaComplexType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prohibited: *mut SCHEMADERIVATIONMETHOD) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).prohibitedSubstitutions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1527,7 +1530,7 @@ impl ISchemaComplexTypeVtbl {
             }
         }
         Self {
-            base: ISchemaTypeVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: ISchemaType_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             isAbstract: isAbstract::<Impl, IMPL_OFFSET>,
             anyAttribute: anyAttribute::<Impl, IMPL_OFFSET>,
             attributes: attributes::<Impl, IMPL_OFFSET>,
@@ -1541,7 +1544,7 @@ impl ISchemaComplexTypeVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaElementImpl: Sized + IDispatchImpl + ISchemaItemImpl + ISchemaParticleImpl {
+pub trait ISchemaElement_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ISchemaItem_Impl + ISchemaParticle_Impl {
     fn r#type(&mut self) -> ::windows::core::Result<ISchemaType>;
     fn scope(&mut self) -> ::windows::core::Result<ISchemaComplexType>;
     fn defaultValue(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
@@ -1555,9 +1558,9 @@ pub trait ISchemaElementImpl: Sized + IDispatchImpl + ISchemaItemImpl + ISchemaP
     fn isReference(&mut self) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ISchemaElementVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaElementImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaElementVtbl {
-        unsafe extern "system" fn r#type<Impl: ISchemaElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISchemaElement_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaElement_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaElement_Vtbl {
+        unsafe extern "system" fn r#type<Impl: ISchemaElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).r#type() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1567,7 +1570,7 @@ impl ISchemaElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn scope<Impl: ISchemaElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn scope<Impl: ISchemaElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).scope() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1577,7 +1580,7 @@ impl ISchemaElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn defaultValue<Impl: ISchemaElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, defaultvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn defaultValue<Impl: ISchemaElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, defaultvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).defaultValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1587,7 +1590,7 @@ impl ISchemaElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn fixedValue<Impl: ISchemaElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fixedvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn fixedValue<Impl: ISchemaElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fixedvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).fixedValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1597,7 +1600,7 @@ impl ISchemaElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn isNillable<Impl: ISchemaElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nillable: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn isNillable<Impl: ISchemaElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nillable: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).isNillable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1607,7 +1610,7 @@ impl ISchemaElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn identityConstraints<Impl: ISchemaElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, constraints: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn identityConstraints<Impl: ISchemaElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, constraints: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).identityConstraints() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1617,7 +1620,7 @@ impl ISchemaElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn substitutionGroup<Impl: ISchemaElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn substitutionGroup<Impl: ISchemaElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).substitutionGroup() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1627,7 +1630,7 @@ impl ISchemaElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn substitutionGroupExclusions<Impl: ISchemaElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, exclusions: *mut SCHEMADERIVATIONMETHOD) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn substitutionGroupExclusions<Impl: ISchemaElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, exclusions: *mut SCHEMADERIVATIONMETHOD) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).substitutionGroupExclusions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1637,7 +1640,7 @@ impl ISchemaElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn disallowedSubstitutions<Impl: ISchemaElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, disallowed: *mut SCHEMADERIVATIONMETHOD) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn disallowedSubstitutions<Impl: ISchemaElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, disallowed: *mut SCHEMADERIVATIONMETHOD) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).disallowedSubstitutions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1647,7 +1650,7 @@ impl ISchemaElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn isAbstract<Impl: ISchemaElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#abstract: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn isAbstract<Impl: ISchemaElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#abstract: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).isAbstract() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1657,7 +1660,7 @@ impl ISchemaElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn isReference<Impl: ISchemaElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reference: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn isReference<Impl: ISchemaElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reference: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).isReference() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1668,7 +1671,7 @@ impl ISchemaElementVtbl {
             }
         }
         Self {
-            base: ISchemaParticleVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: ISchemaParticle_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             r#type: r#type::<Impl, IMPL_OFFSET>,
             scope: scope::<Impl, IMPL_OFFSET>,
             defaultValue: defaultValue::<Impl, IMPL_OFFSET>,
@@ -1687,15 +1690,15 @@ impl ISchemaElementVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaIdentityConstraintImpl: Sized + IDispatchImpl + ISchemaItemImpl {
+pub trait ISchemaIdentityConstraint_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ISchemaItem_Impl {
     fn selector(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn fields(&mut self) -> ::windows::core::Result<ISchemaStringCollection>;
     fn referencedKey(&mut self) -> ::windows::core::Result<ISchemaIdentityConstraint>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ISchemaIdentityConstraintVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaIdentityConstraintImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaIdentityConstraintVtbl {
-        unsafe extern "system" fn selector<Impl: ISchemaIdentityConstraintImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selector: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl ISchemaIdentityConstraint_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaIdentityConstraint_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaIdentityConstraint_Vtbl {
+        unsafe extern "system" fn selector<Impl: ISchemaIdentityConstraint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selector: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).selector() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1705,7 +1708,7 @@ impl ISchemaIdentityConstraintVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn fields<Impl: ISchemaIdentityConstraintImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fields: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn fields<Impl: ISchemaIdentityConstraint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fields: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).fields() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1715,7 +1718,7 @@ impl ISchemaIdentityConstraintVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn referencedKey<Impl: ISchemaIdentityConstraintImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn referencedKey<Impl: ISchemaIdentityConstraint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).referencedKey() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1726,7 +1729,7 @@ impl ISchemaIdentityConstraintVtbl {
             }
         }
         Self {
-            base: ISchemaItemVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: ISchemaItem_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             selector: selector::<Impl, IMPL_OFFSET>,
             fields: fields::<Impl, IMPL_OFFSET>,
             referencedKey: referencedKey::<Impl, IMPL_OFFSET>,
@@ -1737,7 +1740,7 @@ impl ISchemaIdentityConstraintVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaItemImpl: Sized + IDispatchImpl {
+pub trait ISchemaItem_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn name(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn namespaceURI(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn schema(&mut self) -> ::windows::core::Result<ISchema>;
@@ -1747,9 +1750,9 @@ pub trait ISchemaItemImpl: Sized + IDispatchImpl {
     fn writeAnnotation(&mut self, annotationsink: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ISchemaItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaItemVtbl {
-        unsafe extern "system" fn name<Impl: ISchemaItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl ISchemaItem_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaItem_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaItem_Vtbl {
+        unsafe extern "system" fn name<Impl: ISchemaItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1759,7 +1762,7 @@ impl ISchemaItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn namespaceURI<Impl: ISchemaItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn namespaceURI<Impl: ISchemaItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).namespaceURI() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1769,7 +1772,7 @@ impl ISchemaItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn schema<Impl: ISchemaItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, schema: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn schema<Impl: ISchemaItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, schema: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).schema() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1779,7 +1782,7 @@ impl ISchemaItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn id<Impl: ISchemaItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn id<Impl: ISchemaItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1789,7 +1792,7 @@ impl ISchemaItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn itemType<Impl: ISchemaItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemtype: *mut SOMITEMTYPE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn itemType<Impl: ISchemaItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemtype: *mut SOMITEMTYPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).itemType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1799,7 +1802,7 @@ impl ISchemaItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn unhandledAttributes<Impl: ISchemaItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn unhandledAttributes<Impl: ISchemaItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).unhandledAttributes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1809,7 +1812,7 @@ impl ISchemaItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn writeAnnotation<Impl: ISchemaItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, annotationsink: *mut ::core::ffi::c_void, iswritten: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn writeAnnotation<Impl: ISchemaItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, annotationsink: *mut ::core::ffi::c_void, iswritten: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).writeAnnotation(::core::mem::transmute(&annotationsink)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1820,7 +1823,7 @@ impl ISchemaItemVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             name: name::<Impl, IMPL_OFFSET>,
             namespaceURI: namespaceURI::<Impl, IMPL_OFFSET>,
             schema: schema::<Impl, IMPL_OFFSET>,
@@ -1835,7 +1838,7 @@ impl ISchemaItemVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaItemCollectionImpl: Sized + IDispatchImpl {
+pub trait ISchemaItemCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn item(&mut self, index: i32) -> ::windows::core::Result<ISchemaItem>;
     fn itemByName(&mut self, name: super::super::super::Foundation::BSTR) -> ::windows::core::Result<ISchemaItem>;
     fn itemByQName(&mut self, name: super::super::super::Foundation::BSTR, namespaceuri: super::super::super::Foundation::BSTR) -> ::windows::core::Result<ISchemaItem>;
@@ -1843,9 +1846,9 @@ pub trait ISchemaItemCollectionImpl: Sized + IDispatchImpl {
     fn _newEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ISchemaItemCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaItemCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaItemCollectionVtbl {
-        unsafe extern "system" fn item<Impl: ISchemaItemCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, item: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISchemaItemCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaItemCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaItemCollection_Vtbl {
+        unsafe extern "system" fn item<Impl: ISchemaItemCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, item: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1855,7 +1858,7 @@ impl ISchemaItemCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn itemByName<Impl: ISchemaItemCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, item: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn itemByName<Impl: ISchemaItemCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, item: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).itemByName(::core::mem::transmute_copy(&name)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1865,7 +1868,7 @@ impl ISchemaItemCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn itemByQName<Impl: ISchemaItemCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, item: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn itemByQName<Impl: ISchemaItemCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, item: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).itemByQName(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&namespaceuri)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1875,7 +1878,7 @@ impl ISchemaItemCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn length<Impl: ISchemaItemCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn length<Impl: ISchemaItemCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).length() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1885,7 +1888,7 @@ impl ISchemaItemCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn _newEnum<Impl: ISchemaItemCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn _newEnum<Impl: ISchemaItemCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._newEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1896,7 +1899,7 @@ impl ISchemaItemCollectionVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             item: item::<Impl, IMPL_OFFSET>,
             itemByName: itemByName::<Impl, IMPL_OFFSET>,
             itemByQName: itemByQName::<Impl, IMPL_OFFSET>,
@@ -1909,13 +1912,13 @@ impl ISchemaItemCollectionVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaModelGroupImpl: Sized + IDispatchImpl + ISchemaItemImpl + ISchemaParticleImpl {
+pub trait ISchemaModelGroup_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ISchemaItem_Impl + ISchemaParticle_Impl {
     fn particles(&mut self) -> ::windows::core::Result<ISchemaItemCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ISchemaModelGroupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaModelGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaModelGroupVtbl {
-        unsafe extern "system" fn particles<Impl: ISchemaModelGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, particles: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISchemaModelGroup_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaModelGroup_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaModelGroup_Vtbl {
+        unsafe extern "system" fn particles<Impl: ISchemaModelGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, particles: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).particles() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1925,21 +1928,21 @@ impl ISchemaModelGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ISchemaParticleVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), particles: particles::<Impl, IMPL_OFFSET> }
+        Self { base: ISchemaParticle_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), particles: particles::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISchemaModelGroup as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaNotationImpl: Sized + IDispatchImpl + ISchemaItemImpl {
+pub trait ISchemaNotation_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ISchemaItem_Impl {
     fn systemIdentifier(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn publicIdentifier(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ISchemaNotationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaNotationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaNotationVtbl {
-        unsafe extern "system" fn systemIdentifier<Impl: ISchemaNotationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl ISchemaNotation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaNotation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaNotation_Vtbl {
+        unsafe extern "system" fn systemIdentifier<Impl: ISchemaNotation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).systemIdentifier() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1949,7 +1952,7 @@ impl ISchemaNotationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn publicIdentifier<Impl: ISchemaNotationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn publicIdentifier<Impl: ISchemaNotation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).publicIdentifier() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1960,7 +1963,7 @@ impl ISchemaNotationVtbl {
             }
         }
         Self {
-            base: ISchemaItemVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: ISchemaItem_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             systemIdentifier: systemIdentifier::<Impl, IMPL_OFFSET>,
             publicIdentifier: publicIdentifier::<Impl, IMPL_OFFSET>,
         }
@@ -1970,14 +1973,14 @@ impl ISchemaNotationVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaParticleImpl: Sized + IDispatchImpl + ISchemaItemImpl {
+pub trait ISchemaParticle_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ISchemaItem_Impl {
     fn minOccurs(&mut self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn maxOccurs(&mut self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ISchemaParticleVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaParticleImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaParticleVtbl {
-        unsafe extern "system" fn minOccurs<Impl: ISchemaParticleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minoccurs: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+impl ISchemaParticle_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaParticle_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaParticle_Vtbl {
+        unsafe extern "system" fn minOccurs<Impl: ISchemaParticle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minoccurs: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).minOccurs() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1987,7 +1990,7 @@ impl ISchemaParticleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn maxOccurs<Impl: ISchemaParticleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxoccurs: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn maxOccurs<Impl: ISchemaParticle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxoccurs: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).maxOccurs() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1998,7 +2001,7 @@ impl ISchemaParticleVtbl {
             }
         }
         Self {
-            base: ISchemaItemVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: ISchemaItem_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             minOccurs: minOccurs::<Impl, IMPL_OFFSET>,
             maxOccurs: maxOccurs::<Impl, IMPL_OFFSET>,
         }
@@ -2008,15 +2011,15 @@ impl ISchemaParticleVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaStringCollectionImpl: Sized + IDispatchImpl {
+pub trait ISchemaStringCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn item(&mut self, index: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn length(&mut self) -> ::windows::core::Result<i32>;
     fn _newEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ISchemaStringCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaStringCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaStringCollectionVtbl {
-        unsafe extern "system" fn item<Impl: ISchemaStringCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, bstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl ISchemaStringCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaStringCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaStringCollection_Vtbl {
+        unsafe extern "system" fn item<Impl: ISchemaStringCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, bstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2026,7 +2029,7 @@ impl ISchemaStringCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn length<Impl: ISchemaStringCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn length<Impl: ISchemaStringCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).length() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2036,7 +2039,7 @@ impl ISchemaStringCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn _newEnum<Impl: ISchemaStringCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn _newEnum<Impl: ISchemaStringCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._newEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2047,7 +2050,7 @@ impl ISchemaStringCollectionVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             item: item::<Impl, IMPL_OFFSET>,
             length: length::<Impl, IMPL_OFFSET>,
             _newEnum: _newEnum::<Impl, IMPL_OFFSET>,
@@ -2058,7 +2061,7 @@ impl ISchemaStringCollectionVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaTypeImpl: Sized + IDispatchImpl + ISchemaItemImpl {
+pub trait ISchemaType_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ISchemaItem_Impl {
     fn baseTypes(&mut self) -> ::windows::core::Result<ISchemaItemCollection>;
     fn r#final(&mut self) -> ::windows::core::Result<SCHEMADERIVATIONMETHOD>;
     fn variety(&mut self) -> ::windows::core::Result<SCHEMATYPEVARIETY>;
@@ -2078,9 +2081,9 @@ pub trait ISchemaTypeImpl: Sized + IDispatchImpl + ISchemaItemImpl {
     fn patterns(&mut self) -> ::windows::core::Result<ISchemaStringCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ISchemaTypeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaTypeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaTypeVtbl {
-        unsafe extern "system" fn baseTypes<Impl: ISchemaTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, basetypes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISchemaType_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaType_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaType_Vtbl {
+        unsafe extern "system" fn baseTypes<Impl: ISchemaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, basetypes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).baseTypes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2090,7 +2093,7 @@ impl ISchemaTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn r#final<Impl: ISchemaTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#final: *mut SCHEMADERIVATIONMETHOD) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn r#final<Impl: ISchemaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#final: *mut SCHEMADERIVATIONMETHOD) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).r#final() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2100,7 +2103,7 @@ impl ISchemaTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn variety<Impl: ISchemaTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, variety: *mut SCHEMATYPEVARIETY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn variety<Impl: ISchemaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, variety: *mut SCHEMATYPEVARIETY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).variety() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2110,7 +2113,7 @@ impl ISchemaTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn derivedBy<Impl: ISchemaTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, derivedby: *mut SCHEMADERIVATIONMETHOD) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn derivedBy<Impl: ISchemaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, derivedby: *mut SCHEMADERIVATIONMETHOD) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).derivedBy() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2120,7 +2123,7 @@ impl ISchemaTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn isValid<Impl: ISchemaTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, valid: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn isValid<Impl: ISchemaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, valid: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).isValid(::core::mem::transmute_copy(&data)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2130,7 +2133,7 @@ impl ISchemaTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn minExclusive<Impl: ISchemaTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minexclusive: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn minExclusive<Impl: ISchemaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minexclusive: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).minExclusive() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2140,7 +2143,7 @@ impl ISchemaTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn minInclusive<Impl: ISchemaTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mininclusive: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn minInclusive<Impl: ISchemaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mininclusive: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).minInclusive() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2150,7 +2153,7 @@ impl ISchemaTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn maxExclusive<Impl: ISchemaTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxexclusive: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn maxExclusive<Impl: ISchemaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxexclusive: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).maxExclusive() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2160,7 +2163,7 @@ impl ISchemaTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn maxInclusive<Impl: ISchemaTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxinclusive: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn maxInclusive<Impl: ISchemaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxinclusive: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).maxInclusive() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2170,7 +2173,7 @@ impl ISchemaTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn totalDigits<Impl: ISchemaTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, totaldigits: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn totalDigits<Impl: ISchemaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, totaldigits: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).totalDigits() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2180,7 +2183,7 @@ impl ISchemaTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn fractionDigits<Impl: ISchemaTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fractiondigits: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn fractionDigits<Impl: ISchemaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fractiondigits: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).fractionDigits() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2190,7 +2193,7 @@ impl ISchemaTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn length<Impl: ISchemaTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn length<Impl: ISchemaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).length() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2200,7 +2203,7 @@ impl ISchemaTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn minLength<Impl: ISchemaTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minlength: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn minLength<Impl: ISchemaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minlength: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).minLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2210,7 +2213,7 @@ impl ISchemaTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn maxLength<Impl: ISchemaTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxlength: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn maxLength<Impl: ISchemaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxlength: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).maxLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2220,7 +2223,7 @@ impl ISchemaTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn enumeration<Impl: ISchemaTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enumeration: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn enumeration<Impl: ISchemaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enumeration: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).enumeration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2230,7 +2233,7 @@ impl ISchemaTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn whitespace<Impl: ISchemaTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, whitespace: *mut SCHEMAWHITESPACE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn whitespace<Impl: ISchemaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, whitespace: *mut SCHEMAWHITESPACE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).whitespace() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2240,7 +2243,7 @@ impl ISchemaTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn patterns<Impl: ISchemaTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, patterns: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn patterns<Impl: ISchemaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, patterns: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).patterns() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2251,7 +2254,7 @@ impl ISchemaTypeVtbl {
             }
         }
         Self {
-            base: ISchemaItemVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: ISchemaItem_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             baseTypes: baseTypes::<Impl, IMPL_OFFSET>,
             r#final: r#final::<Impl, IMPL_OFFSET>,
             variety: variety::<Impl, IMPL_OFFSET>,
@@ -2276,20 +2279,20 @@ impl ISchemaTypeVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IServerXMLHTTPRequestImpl: Sized + IDispatchImpl + IXMLHTTPRequestImpl {
+pub trait IServerXMLHTTPRequest_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLHTTPRequest_Impl {
     fn setTimeouts(&mut self, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> ::windows::core::Result<()>;
     fn waitForResponse(&mut self, timeoutinseconds: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<i16>;
     fn getOption(&mut self, option: SERVERXMLHTTP_OPTION) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn setOption(&mut self, option: SERVERXMLHTTP_OPTION, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IServerXMLHTTPRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerXMLHTTPRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServerXMLHTTPRequestVtbl {
-        unsafe extern "system" fn setTimeouts<Impl: IServerXMLHTTPRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> ::windows::core::HRESULT {
+impl IServerXMLHTTPRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerXMLHTTPRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServerXMLHTTPRequest_Vtbl {
+        unsafe extern "system" fn setTimeouts<Impl: IServerXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).setTimeouts(::core::mem::transmute_copy(&resolvetimeout), ::core::mem::transmute_copy(&connecttimeout), ::core::mem::transmute_copy(&sendtimeout), ::core::mem::transmute_copy(&receivetimeout)).into()
         }
-        unsafe extern "system" fn waitForResponse<Impl: IServerXMLHTTPRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeoutinseconds: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, issuccessful: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn waitForResponse<Impl: IServerXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeoutinseconds: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, issuccessful: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).waitForResponse(::core::mem::transmute_copy(&timeoutinseconds)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2299,7 +2302,7 @@ impl IServerXMLHTTPRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getOption<Impl: IServerXMLHTTPRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, option: SERVERXMLHTTP_OPTION, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getOption<Impl: IServerXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, option: SERVERXMLHTTP_OPTION, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getOption(::core::mem::transmute_copy(&option)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2309,12 +2312,12 @@ impl IServerXMLHTTPRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn setOption<Impl: IServerXMLHTTPRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, option: SERVERXMLHTTP_OPTION, value: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn setOption<Impl: IServerXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, option: SERVERXMLHTTP_OPTION, value: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).setOption(::core::mem::transmute_copy(&option), ::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: IXMLHTTPRequestVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IXMLHTTPRequest_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             setTimeouts: setTimeouts::<Impl, IMPL_OFFSET>,
             waitForResponse: waitForResponse::<Impl, IMPL_OFFSET>,
             getOption: getOption::<Impl, IMPL_OFFSET>,
@@ -2326,23 +2329,23 @@ impl IServerXMLHTTPRequestVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IServerXMLHTTPRequest2Impl: Sized + IDispatchImpl + IXMLHTTPRequestImpl + IServerXMLHTTPRequestImpl {
+pub trait IServerXMLHTTPRequest2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLHTTPRequest_Impl + IServerXMLHTTPRequest_Impl {
     fn setProxy(&mut self, proxysetting: SXH_PROXY_SETTING, varproxyserver: super::super::super::System::Com::VARIANT, varbypasslist: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn setProxyCredentials(&mut self, bstrusername: super::super::super::Foundation::BSTR, bstrpassword: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IServerXMLHTTPRequest2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerXMLHTTPRequest2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServerXMLHTTPRequest2Vtbl {
-        unsafe extern "system" fn setProxy<Impl: IServerXMLHTTPRequest2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, proxysetting: SXH_PROXY_SETTING, varproxyserver: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, varbypasslist: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+impl IServerXMLHTTPRequest2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerXMLHTTPRequest2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServerXMLHTTPRequest2_Vtbl {
+        unsafe extern "system" fn setProxy<Impl: IServerXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, proxysetting: SXH_PROXY_SETTING, varproxyserver: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, varbypasslist: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).setProxy(::core::mem::transmute_copy(&proxysetting), ::core::mem::transmute_copy(&varproxyserver), ::core::mem::transmute_copy(&varbypasslist)).into()
         }
-        unsafe extern "system" fn setProxyCredentials<Impl: IServerXMLHTTPRequest2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrusername: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn setProxyCredentials<Impl: IServerXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrusername: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).setProxyCredentials(::core::mem::transmute_copy(&bstrusername), ::core::mem::transmute_copy(&bstrpassword)).into()
         }
         Self {
-            base: IServerXMLHTTPRequestVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IServerXMLHTTPRequest_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             setProxy: setProxy::<Impl, IMPL_OFFSET>,
             setProxyCredentials: setProxyCredentials::<Impl, IMPL_OFFSET>,
         }
@@ -2352,7 +2355,7 @@ impl IServerXMLHTTPRequest2Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IVBMXNamespaceManagerImpl: Sized + IDispatchImpl {
+pub trait IVBMXNamespaceManager_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn SetallowOverride(&mut self, foverride: i16) -> ::windows::core::Result<()>;
     fn allowOverride(&mut self) -> ::windows::core::Result<i16>;
     fn reset(&mut self) -> ::windows::core::Result<()>;
@@ -2366,13 +2369,13 @@ pub trait IVBMXNamespaceManagerImpl: Sized + IDispatchImpl {
     fn getURIFromNode(&mut self, strprefix: super::super::super::Foundation::BSTR, contextnode: ::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IVBMXNamespaceManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVBMXNamespaceManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVBMXNamespaceManagerVtbl {
-        unsafe extern "system" fn SetallowOverride<Impl: IVBMXNamespaceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, foverride: i16) -> ::windows::core::HRESULT {
+impl IVBMXNamespaceManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVBMXNamespaceManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVBMXNamespaceManager_Vtbl {
+        unsafe extern "system" fn SetallowOverride<Impl: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, foverride: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetallowOverride(::core::mem::transmute_copy(&foverride)).into()
         }
-        unsafe extern "system" fn allowOverride<Impl: IVBMXNamespaceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, foverride: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn allowOverride<Impl: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, foverride: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).allowOverride() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2382,27 +2385,27 @@ impl IVBMXNamespaceManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn reset<Impl: IVBMXNamespaceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn reset<Impl: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).reset().into()
         }
-        unsafe extern "system" fn pushContext<Impl: IVBMXNamespaceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn pushContext<Impl: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).pushContext().into()
         }
-        unsafe extern "system" fn pushNodeContext<Impl: IVBMXNamespaceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contextnode: ::windows::core::RawPtr, fdeep: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn pushNodeContext<Impl: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contextnode: ::windows::core::RawPtr, fdeep: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).pushNodeContext(::core::mem::transmute(&contextnode), ::core::mem::transmute_copy(&fdeep)).into()
         }
-        unsafe extern "system" fn popContext<Impl: IVBMXNamespaceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn popContext<Impl: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).popContext().into()
         }
-        unsafe extern "system" fn declarePrefix<Impl: IVBMXNamespaceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prefix: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn declarePrefix<Impl: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prefix: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).declarePrefix(::core::mem::transmute_copy(&prefix), ::core::mem::transmute_copy(&namespaceuri)).into()
         }
-        unsafe extern "system" fn getDeclaredPrefixes<Impl: IVBMXNamespaceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prefixes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getDeclaredPrefixes<Impl: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prefixes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getDeclaredPrefixes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2412,7 +2415,7 @@ impl IVBMXNamespaceManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getPrefixes<Impl: IVBMXNamespaceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, prefixes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getPrefixes<Impl: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, prefixes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getPrefixes(::core::mem::transmute_copy(&namespaceuri)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2422,7 +2425,7 @@ impl IVBMXNamespaceManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getURI<Impl: IVBMXNamespaceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prefix: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, uri: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getURI<Impl: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prefix: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, uri: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getURI(::core::mem::transmute_copy(&prefix)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2432,7 +2435,7 @@ impl IVBMXNamespaceManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getURIFromNode<Impl: IVBMXNamespaceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strprefix: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, contextnode: ::windows::core::RawPtr, uri: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getURIFromNode<Impl: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strprefix: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, contextnode: ::windows::core::RawPtr, uri: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getURIFromNode(::core::mem::transmute_copy(&strprefix), ::core::mem::transmute(&contextnode)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2443,7 +2446,7 @@ impl IVBMXNamespaceManagerVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             SetallowOverride: SetallowOverride::<Impl, IMPL_OFFSET>,
             allowOverride: allowOverride::<Impl, IMPL_OFFSET>,
             reset: reset::<Impl, IMPL_OFFSET>,
@@ -2462,7 +2465,7 @@ impl IVBMXNamespaceManagerVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IVBSAXAttributesImpl: Sized + IDispatchImpl {
+pub trait IVBSAXAttributes_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn length(&mut self) -> ::windows::core::Result<i32>;
     fn getURI(&mut self, nindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn getLocalName(&mut self, nindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
@@ -2477,9 +2480,9 @@ pub trait IVBSAXAttributesImpl: Sized + IDispatchImpl {
     fn getValueFromQName(&mut self, strqname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IVBSAXAttributesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVBSAXAttributesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVBSAXAttributesVtbl {
-        unsafe extern "system" fn length<Impl: IVBSAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nlength: *mut i32) -> ::windows::core::HRESULT {
+impl IVBSAXAttributes_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVBSAXAttributes_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVBSAXAttributes_Vtbl {
+        unsafe extern "system" fn length<Impl: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nlength: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).length() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2489,7 +2492,7 @@ impl IVBSAXAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getURI<Impl: IVBSAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, struri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getURI<Impl: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, struri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getURI(::core::mem::transmute_copy(&nindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2499,7 +2502,7 @@ impl IVBSAXAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getLocalName<Impl: IVBSAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, strlocalname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getLocalName<Impl: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, strlocalname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getLocalName(::core::mem::transmute_copy(&nindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2509,7 +2512,7 @@ impl IVBSAXAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getQName<Impl: IVBSAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, strqname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getQName<Impl: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, strqname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getQName(::core::mem::transmute_copy(&nindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2519,7 +2522,7 @@ impl IVBSAXAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getIndexFromName<Impl: IVBSAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, struri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strlocalname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, nindex: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getIndexFromName<Impl: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, struri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strlocalname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, nindex: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getIndexFromName(::core::mem::transmute_copy(&struri), ::core::mem::transmute_copy(&strlocalname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2529,7 +2532,7 @@ impl IVBSAXAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getIndexFromQName<Impl: IVBSAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strqname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, nindex: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getIndexFromQName<Impl: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strqname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, nindex: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getIndexFromQName(::core::mem::transmute_copy(&strqname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2539,7 +2542,7 @@ impl IVBSAXAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getType<Impl: IVBSAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, strtype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getType<Impl: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, strtype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getType(::core::mem::transmute_copy(&nindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2549,7 +2552,7 @@ impl IVBSAXAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getTypeFromName<Impl: IVBSAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, struri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strlocalname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strtype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getTypeFromName<Impl: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, struri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strlocalname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strtype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getTypeFromName(::core::mem::transmute_copy(&struri), ::core::mem::transmute_copy(&strlocalname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2559,7 +2562,7 @@ impl IVBSAXAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getTypeFromQName<Impl: IVBSAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strqname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strtype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getTypeFromQName<Impl: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strqname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strtype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getTypeFromQName(::core::mem::transmute_copy(&strqname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2569,7 +2572,7 @@ impl IVBSAXAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getValue<Impl: IVBSAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, strvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getValue<Impl: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32, strvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getValue(::core::mem::transmute_copy(&nindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2579,7 +2582,7 @@ impl IVBSAXAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getValueFromName<Impl: IVBSAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, struri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strlocalname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getValueFromName<Impl: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, struri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strlocalname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getValueFromName(::core::mem::transmute_copy(&struri), ::core::mem::transmute_copy(&strlocalname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2589,7 +2592,7 @@ impl IVBSAXAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getValueFromQName<Impl: IVBSAXAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strqname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getValueFromQName<Impl: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strqname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getValueFromQName(::core::mem::transmute_copy(&strqname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2600,7 +2603,7 @@ impl IVBSAXAttributesVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             length: length::<Impl, IMPL_OFFSET>,
             getURI: getURI::<Impl, IMPL_OFFSET>,
             getLocalName: getLocalName::<Impl, IMPL_OFFSET>,
@@ -2620,7 +2623,7 @@ impl IVBSAXAttributesVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IVBSAXContentHandlerImpl: Sized + IDispatchImpl {
+pub trait IVBSAXContentHandler_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn putref_documentLocator(&mut self, olocator: ::core::option::Option<IVBSAXLocator>) -> ::windows::core::Result<()>;
     fn startDocument(&mut self) -> ::windows::core::Result<()>;
     fn endDocument(&mut self) -> ::windows::core::Result<()>;
@@ -2634,54 +2637,54 @@ pub trait IVBSAXContentHandlerImpl: Sized + IDispatchImpl {
     fn skippedEntity(&mut self, strname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IVBSAXContentHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVBSAXContentHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVBSAXContentHandlerVtbl {
-        unsafe extern "system" fn putref_documentLocator<Impl: IVBSAXContentHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, olocator: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVBSAXContentHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVBSAXContentHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVBSAXContentHandler_Vtbl {
+        unsafe extern "system" fn putref_documentLocator<Impl: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, olocator: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putref_documentLocator(::core::mem::transmute(&olocator)).into()
         }
-        unsafe extern "system" fn startDocument<Impl: IVBSAXContentHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn startDocument<Impl: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).startDocument().into()
         }
-        unsafe extern "system" fn endDocument<Impl: IVBSAXContentHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn endDocument<Impl: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).endDocument().into()
         }
-        unsafe extern "system" fn startPrefixMapping<Impl: IVBSAXContentHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strprefix: *mut super::super::super::Foundation::BSTR, struri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn startPrefixMapping<Impl: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strprefix: *mut super::super::super::Foundation::BSTR, struri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).startPrefixMapping(::core::mem::transmute_copy(&strprefix), ::core::mem::transmute_copy(&struri)).into()
         }
-        unsafe extern "system" fn endPrefixMapping<Impl: IVBSAXContentHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strprefix: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn endPrefixMapping<Impl: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strprefix: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).endPrefixMapping(::core::mem::transmute_copy(&strprefix)).into()
         }
-        unsafe extern "system" fn startElement<Impl: IVBSAXContentHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strnamespaceuri: *mut super::super::super::Foundation::BSTR, strlocalname: *mut super::super::super::Foundation::BSTR, strqname: *mut super::super::super::Foundation::BSTR, oattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn startElement<Impl: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strnamespaceuri: *mut super::super::super::Foundation::BSTR, strlocalname: *mut super::super::super::Foundation::BSTR, strqname: *mut super::super::super::Foundation::BSTR, oattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).startElement(::core::mem::transmute_copy(&strnamespaceuri), ::core::mem::transmute_copy(&strlocalname), ::core::mem::transmute_copy(&strqname), ::core::mem::transmute(&oattributes)).into()
         }
-        unsafe extern "system" fn endElement<Impl: IVBSAXContentHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strnamespaceuri: *mut super::super::super::Foundation::BSTR, strlocalname: *mut super::super::super::Foundation::BSTR, strqname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn endElement<Impl: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strnamespaceuri: *mut super::super::super::Foundation::BSTR, strlocalname: *mut super::super::super::Foundation::BSTR, strqname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).endElement(::core::mem::transmute_copy(&strnamespaceuri), ::core::mem::transmute_copy(&strlocalname), ::core::mem::transmute_copy(&strqname)).into()
         }
-        unsafe extern "system" fn characters<Impl: IVBSAXContentHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strchars: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn characters<Impl: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strchars: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).characters(::core::mem::transmute_copy(&strchars)).into()
         }
-        unsafe extern "system" fn ignorableWhitespace<Impl: IVBSAXContentHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strchars: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ignorableWhitespace<Impl: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strchars: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ignorableWhitespace(::core::mem::transmute_copy(&strchars)).into()
         }
-        unsafe extern "system" fn processingInstruction<Impl: IVBSAXContentHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strtarget: *mut super::super::super::Foundation::BSTR, strdata: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn processingInstruction<Impl: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strtarget: *mut super::super::super::Foundation::BSTR, strdata: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).processingInstruction(::core::mem::transmute_copy(&strtarget), ::core::mem::transmute_copy(&strdata)).into()
         }
-        unsafe extern "system" fn skippedEntity<Impl: IVBSAXContentHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn skippedEntity<Impl: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).skippedEntity(::core::mem::transmute_copy(&strname)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             putref_documentLocator: putref_documentLocator::<Impl, IMPL_OFFSET>,
             startDocument: startDocument::<Impl, IMPL_OFFSET>,
             endDocument: endDocument::<Impl, IMPL_OFFSET>,
@@ -2700,23 +2703,23 @@ impl IVBSAXContentHandlerVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IVBSAXDTDHandlerImpl: Sized + IDispatchImpl {
+pub trait IVBSAXDTDHandler_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn notationDecl(&mut self, strname: *mut super::super::super::Foundation::BSTR, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn unparsedEntityDecl(&mut self, strname: *mut super::super::super::Foundation::BSTR, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR, strnotationname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IVBSAXDTDHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVBSAXDTDHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVBSAXDTDHandlerVtbl {
-        unsafe extern "system" fn notationDecl<Impl: IVBSAXDTDHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IVBSAXDTDHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVBSAXDTDHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVBSAXDTDHandler_Vtbl {
+        unsafe extern "system" fn notationDecl<Impl: IVBSAXDTDHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).notationDecl(::core::mem::transmute_copy(&strname), ::core::mem::transmute_copy(&strpublicid), ::core::mem::transmute_copy(&strsystemid)).into()
         }
-        unsafe extern "system" fn unparsedEntityDecl<Impl: IVBSAXDTDHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR, strnotationname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn unparsedEntityDecl<Impl: IVBSAXDTDHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR, strnotationname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).unparsedEntityDecl(::core::mem::transmute_copy(&strname), ::core::mem::transmute_copy(&strpublicid), ::core::mem::transmute_copy(&strsystemid), ::core::mem::transmute_copy(&strnotationname)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             notationDecl: notationDecl::<Impl, IMPL_OFFSET>,
             unparsedEntityDecl: unparsedEntityDecl::<Impl, IMPL_OFFSET>,
         }
@@ -2726,33 +2729,33 @@ impl IVBSAXDTDHandlerVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IVBSAXDeclHandlerImpl: Sized + IDispatchImpl {
+pub trait IVBSAXDeclHandler_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn elementDecl(&mut self, strname: *mut super::super::super::Foundation::BSTR, strmodel: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn attributeDecl(&mut self, strelementname: *mut super::super::super::Foundation::BSTR, strattributename: *mut super::super::super::Foundation::BSTR, strtype: *mut super::super::super::Foundation::BSTR, strvaluedefault: *mut super::super::super::Foundation::BSTR, strvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn internalEntityDecl(&mut self, strname: *mut super::super::super::Foundation::BSTR, strvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn externalEntityDecl(&mut self, strname: *mut super::super::super::Foundation::BSTR, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IVBSAXDeclHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVBSAXDeclHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVBSAXDeclHandlerVtbl {
-        unsafe extern "system" fn elementDecl<Impl: IVBSAXDeclHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR, strmodel: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IVBSAXDeclHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVBSAXDeclHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVBSAXDeclHandler_Vtbl {
+        unsafe extern "system" fn elementDecl<Impl: IVBSAXDeclHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR, strmodel: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).elementDecl(::core::mem::transmute_copy(&strname), ::core::mem::transmute_copy(&strmodel)).into()
         }
-        unsafe extern "system" fn attributeDecl<Impl: IVBSAXDeclHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strelementname: *mut super::super::super::Foundation::BSTR, strattributename: *mut super::super::super::Foundation::BSTR, strtype: *mut super::super::super::Foundation::BSTR, strvaluedefault: *mut super::super::super::Foundation::BSTR, strvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn attributeDecl<Impl: IVBSAXDeclHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strelementname: *mut super::super::super::Foundation::BSTR, strattributename: *mut super::super::super::Foundation::BSTR, strtype: *mut super::super::super::Foundation::BSTR, strvaluedefault: *mut super::super::super::Foundation::BSTR, strvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).attributeDecl(::core::mem::transmute_copy(&strelementname), ::core::mem::transmute_copy(&strattributename), ::core::mem::transmute_copy(&strtype), ::core::mem::transmute_copy(&strvaluedefault), ::core::mem::transmute_copy(&strvalue)).into()
         }
-        unsafe extern "system" fn internalEntityDecl<Impl: IVBSAXDeclHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR, strvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn internalEntityDecl<Impl: IVBSAXDeclHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR, strvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).internalEntityDecl(::core::mem::transmute_copy(&strname), ::core::mem::transmute_copy(&strvalue)).into()
         }
-        unsafe extern "system" fn externalEntityDecl<Impl: IVBSAXDeclHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn externalEntityDecl<Impl: IVBSAXDeclHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).externalEntityDecl(::core::mem::transmute_copy(&strname), ::core::mem::transmute_copy(&strpublicid), ::core::mem::transmute_copy(&strsystemid)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             elementDecl: elementDecl::<Impl, IMPL_OFFSET>,
             attributeDecl: attributeDecl::<Impl, IMPL_OFFSET>,
             internalEntityDecl: internalEntityDecl::<Impl, IMPL_OFFSET>,
@@ -2764,45 +2767,48 @@ impl IVBSAXDeclHandlerVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IVBSAXEntityResolverImpl: Sized + IDispatchImpl {
+pub trait IVBSAXEntityResolver_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn resolveEntity(&mut self, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR, varinput: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IVBSAXEntityResolverVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVBSAXEntityResolverImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVBSAXEntityResolverVtbl {
-        unsafe extern "system" fn resolveEntity<Impl: IVBSAXEntityResolverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR, varinput: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+impl IVBSAXEntityResolver_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVBSAXEntityResolver_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVBSAXEntityResolver_Vtbl {
+        unsafe extern "system" fn resolveEntity<Impl: IVBSAXEntityResolver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR, varinput: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).resolveEntity(::core::mem::transmute_copy(&strpublicid), ::core::mem::transmute_copy(&strsystemid), ::core::mem::transmute_copy(&varinput)).into()
         }
-        Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), resolveEntity: resolveEntity::<Impl, IMPL_OFFSET> }
+        Self {
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            resolveEntity: resolveEntity::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVBSAXEntityResolver as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IVBSAXErrorHandlerImpl: Sized + IDispatchImpl {
+pub trait IVBSAXErrorHandler_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn error(&mut self, olocator: ::core::option::Option<IVBSAXLocator>, strerrormessage: *mut super::super::super::Foundation::BSTR, nerrorcode: i32) -> ::windows::core::Result<()>;
     fn fatalError(&mut self, olocator: ::core::option::Option<IVBSAXLocator>, strerrormessage: *mut super::super::super::Foundation::BSTR, nerrorcode: i32) -> ::windows::core::Result<()>;
     fn ignorableWarning(&mut self, olocator: ::core::option::Option<IVBSAXLocator>, strerrormessage: *mut super::super::super::Foundation::BSTR, nerrorcode: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IVBSAXErrorHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVBSAXErrorHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVBSAXErrorHandlerVtbl {
-        unsafe extern "system" fn error<Impl: IVBSAXErrorHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, olocator: ::windows::core::RawPtr, strerrormessage: *mut super::super::super::Foundation::BSTR, nerrorcode: i32) -> ::windows::core::HRESULT {
+impl IVBSAXErrorHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVBSAXErrorHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVBSAXErrorHandler_Vtbl {
+        unsafe extern "system" fn error<Impl: IVBSAXErrorHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, olocator: ::windows::core::RawPtr, strerrormessage: *mut super::super::super::Foundation::BSTR, nerrorcode: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).error(::core::mem::transmute(&olocator), ::core::mem::transmute_copy(&strerrormessage), ::core::mem::transmute_copy(&nerrorcode)).into()
         }
-        unsafe extern "system" fn fatalError<Impl: IVBSAXErrorHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, olocator: ::windows::core::RawPtr, strerrormessage: *mut super::super::super::Foundation::BSTR, nerrorcode: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn fatalError<Impl: IVBSAXErrorHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, olocator: ::windows::core::RawPtr, strerrormessage: *mut super::super::super::Foundation::BSTR, nerrorcode: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).fatalError(::core::mem::transmute(&olocator), ::core::mem::transmute_copy(&strerrormessage), ::core::mem::transmute_copy(&nerrorcode)).into()
         }
-        unsafe extern "system" fn ignorableWarning<Impl: IVBSAXErrorHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, olocator: ::windows::core::RawPtr, strerrormessage: *mut super::super::super::Foundation::BSTR, nerrorcode: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ignorableWarning<Impl: IVBSAXErrorHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, olocator: ::windows::core::RawPtr, strerrormessage: *mut super::super::super::Foundation::BSTR, nerrorcode: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ignorableWarning(::core::mem::transmute(&olocator), ::core::mem::transmute_copy(&strerrormessage), ::core::mem::transmute_copy(&nerrorcode)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             error: error::<Impl, IMPL_OFFSET>,
             fatalError: fatalError::<Impl, IMPL_OFFSET>,
             ignorableWarning: ignorableWarning::<Impl, IMPL_OFFSET>,
@@ -2813,7 +2819,7 @@ impl IVBSAXErrorHandlerVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IVBSAXLexicalHandlerImpl: Sized + IDispatchImpl {
+pub trait IVBSAXLexicalHandler_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn startDTD(&mut self, strname: *mut super::super::super::Foundation::BSTR, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn endDTD(&mut self) -> ::windows::core::Result<()>;
     fn startEntity(&mut self, strname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
@@ -2823,38 +2829,38 @@ pub trait IVBSAXLexicalHandlerImpl: Sized + IDispatchImpl {
     fn comment(&mut self, strchars: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IVBSAXLexicalHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVBSAXLexicalHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVBSAXLexicalHandlerVtbl {
-        unsafe extern "system" fn startDTD<Impl: IVBSAXLexicalHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IVBSAXLexicalHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVBSAXLexicalHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVBSAXLexicalHandler_Vtbl {
+        unsafe extern "system" fn startDTD<Impl: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).startDTD(::core::mem::transmute_copy(&strname), ::core::mem::transmute_copy(&strpublicid), ::core::mem::transmute_copy(&strsystemid)).into()
         }
-        unsafe extern "system" fn endDTD<Impl: IVBSAXLexicalHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn endDTD<Impl: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).endDTD().into()
         }
-        unsafe extern "system" fn startEntity<Impl: IVBSAXLexicalHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn startEntity<Impl: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).startEntity(::core::mem::transmute_copy(&strname)).into()
         }
-        unsafe extern "system" fn endEntity<Impl: IVBSAXLexicalHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn endEntity<Impl: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).endEntity(::core::mem::transmute_copy(&strname)).into()
         }
-        unsafe extern "system" fn startCDATA<Impl: IVBSAXLexicalHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn startCDATA<Impl: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).startCDATA().into()
         }
-        unsafe extern "system" fn endCDATA<Impl: IVBSAXLexicalHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn endCDATA<Impl: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).endCDATA().into()
         }
-        unsafe extern "system" fn comment<Impl: IVBSAXLexicalHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strchars: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn comment<Impl: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strchars: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).comment(::core::mem::transmute_copy(&strchars)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             startDTD: startDTD::<Impl, IMPL_OFFSET>,
             endDTD: endDTD::<Impl, IMPL_OFFSET>,
             startEntity: startEntity::<Impl, IMPL_OFFSET>,
@@ -2869,16 +2875,16 @@ impl IVBSAXLexicalHandlerVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IVBSAXLocatorImpl: Sized + IDispatchImpl {
+pub trait IVBSAXLocator_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn columnNumber(&mut self) -> ::windows::core::Result<i32>;
     fn lineNumber(&mut self) -> ::windows::core::Result<i32>;
     fn publicId(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn systemId(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IVBSAXLocatorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVBSAXLocatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVBSAXLocatorVtbl {
-        unsafe extern "system" fn columnNumber<Impl: IVBSAXLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncolumn: *mut i32) -> ::windows::core::HRESULT {
+impl IVBSAXLocator_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVBSAXLocator_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVBSAXLocator_Vtbl {
+        unsafe extern "system" fn columnNumber<Impl: IVBSAXLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncolumn: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).columnNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2888,7 +2894,7 @@ impl IVBSAXLocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn lineNumber<Impl: IVBSAXLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nline: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn lineNumber<Impl: IVBSAXLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nline: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).lineNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2898,7 +2904,7 @@ impl IVBSAXLocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn publicId<Impl: IVBSAXLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strpublicid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn publicId<Impl: IVBSAXLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strpublicid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).publicId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2908,7 +2914,7 @@ impl IVBSAXLocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn systemId<Impl: IVBSAXLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strsystemid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn systemId<Impl: IVBSAXLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strsystemid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).systemId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2919,7 +2925,7 @@ impl IVBSAXLocatorVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             columnNumber: columnNumber::<Impl, IMPL_OFFSET>,
             lineNumber: lineNumber::<Impl, IMPL_OFFSET>,
             publicId: publicId::<Impl, IMPL_OFFSET>,
@@ -2931,14 +2937,14 @@ impl IVBSAXLocatorVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IVBSAXXMLFilterImpl: Sized + IDispatchImpl {
+pub trait IVBSAXXMLFilter_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn parent(&mut self) -> ::windows::core::Result<IVBSAXXMLReader>;
     fn putref_parent(&mut self, oreader: ::core::option::Option<IVBSAXXMLReader>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IVBSAXXMLFilterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVBSAXXMLFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVBSAXXMLFilterVtbl {
-        unsafe extern "system" fn parent<Impl: IVBSAXXMLFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVBSAXXMLFilter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVBSAXXMLFilter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVBSAXXMLFilter_Vtbl {
+        unsafe extern "system" fn parent<Impl: IVBSAXXMLFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).parent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2948,12 +2954,12 @@ impl IVBSAXXMLFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putref_parent<Impl: IVBSAXXMLFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oreader: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putref_parent<Impl: IVBSAXXMLFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oreader: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putref_parent(::core::mem::transmute(&oreader)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             parent: parent::<Impl, IMPL_OFFSET>,
             putref_parent: putref_parent::<Impl, IMPL_OFFSET>,
         }
@@ -2963,7 +2969,7 @@ impl IVBSAXXMLFilterVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IVBSAXXMLReaderImpl: Sized + IDispatchImpl {
+pub trait IVBSAXXMLReader_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn getFeature(&mut self, strname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
     fn putFeature(&mut self, strname: super::super::super::Foundation::BSTR, fvalue: i16) -> ::windows::core::Result<()>;
     fn getProperty(&mut self, strname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
@@ -2984,9 +2990,9 @@ pub trait IVBSAXXMLReaderImpl: Sized + IDispatchImpl {
     fn parseURL(&mut self, strurl: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IVBSAXXMLReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVBSAXXMLReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVBSAXXMLReaderVtbl {
-        unsafe extern "system" fn getFeature<Impl: IVBSAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, fvalue: *mut i16) -> ::windows::core::HRESULT {
+impl IVBSAXXMLReader_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVBSAXXMLReader_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVBSAXXMLReader_Vtbl {
+        unsafe extern "system" fn getFeature<Impl: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, fvalue: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getFeature(::core::mem::transmute_copy(&strname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2996,11 +3002,11 @@ impl IVBSAXXMLReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putFeature<Impl: IVBSAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, fvalue: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putFeature<Impl: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, fvalue: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putFeature(::core::mem::transmute_copy(&strname), ::core::mem::transmute_copy(&fvalue)).into()
         }
-        unsafe extern "system" fn getProperty<Impl: IVBSAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, varvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getProperty<Impl: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, varvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getProperty(::core::mem::transmute_copy(&strname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3010,11 +3016,11 @@ impl IVBSAXXMLReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putProperty<Impl: IVBSAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, varvalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putProperty<Impl: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, varvalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putProperty(::core::mem::transmute_copy(&strname), ::core::mem::transmute_copy(&varvalue)).into()
         }
-        unsafe extern "system" fn entityResolver<Impl: IVBSAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oresolver: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn entityResolver<Impl: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oresolver: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).entityResolver() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3024,11 +3030,11 @@ impl IVBSAXXMLReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putref_entityResolver<Impl: IVBSAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oresolver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putref_entityResolver<Impl: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oresolver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putref_entityResolver(::core::mem::transmute(&oresolver)).into()
         }
-        unsafe extern "system" fn contentHandler<Impl: IVBSAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn contentHandler<Impl: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).contentHandler() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3038,11 +3044,11 @@ impl IVBSAXXMLReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putref_contentHandler<Impl: IVBSAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putref_contentHandler<Impl: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putref_contentHandler(::core::mem::transmute(&ohandler)).into()
         }
-        unsafe extern "system" fn dtdHandler<Impl: IVBSAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn dtdHandler<Impl: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).dtdHandler() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3052,11 +3058,11 @@ impl IVBSAXXMLReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putref_dtdHandler<Impl: IVBSAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putref_dtdHandler<Impl: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putref_dtdHandler(::core::mem::transmute(&ohandler)).into()
         }
-        unsafe extern "system" fn errorHandler<Impl: IVBSAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn errorHandler<Impl: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).errorHandler() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3066,11 +3072,11 @@ impl IVBSAXXMLReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putref_errorHandler<Impl: IVBSAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putref_errorHandler<Impl: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ohandler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putref_errorHandler(::core::mem::transmute(&ohandler)).into()
         }
-        unsafe extern "system" fn baseURL<Impl: IVBSAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strbaseurl: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn baseURL<Impl: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strbaseurl: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).baseURL() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3080,11 +3086,11 @@ impl IVBSAXXMLReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetbaseURL<Impl: IVBSAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strbaseurl: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetbaseURL<Impl: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strbaseurl: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetbaseURL(::core::mem::transmute_copy(&strbaseurl)).into()
         }
-        unsafe extern "system" fn secureBaseURL<Impl: IVBSAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strsecurebaseurl: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn secureBaseURL<Impl: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strsecurebaseurl: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).secureBaseURL() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3094,20 +3100,20 @@ impl IVBSAXXMLReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetsecureBaseURL<Impl: IVBSAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strsecurebaseurl: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetsecureBaseURL<Impl: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strsecurebaseurl: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetsecureBaseURL(::core::mem::transmute_copy(&strsecurebaseurl)).into()
         }
-        unsafe extern "system" fn parse<Impl: IVBSAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varinput: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn parse<Impl: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varinput: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).parse(::core::mem::transmute_copy(&varinput)).into()
         }
-        unsafe extern "system" fn parseURL<Impl: IVBSAXXMLReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strurl: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn parseURL<Impl: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strurl: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).parseURL(::core::mem::transmute_copy(&strurl)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             getFeature: getFeature::<Impl, IMPL_OFFSET>,
             putFeature: putFeature::<Impl, IMPL_OFFSET>,
             getProperty: getProperty::<Impl, IMPL_OFFSET>,
@@ -3133,14 +3139,14 @@ impl IVBSAXXMLReaderVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLAttributeImpl: Sized + IDispatchImpl {
+pub trait IXMLAttribute_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn name(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn value(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLAttributeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLAttributeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLAttributeVtbl {
-        unsafe extern "system" fn name<Impl: IXMLAttributeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, n: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IXMLAttribute_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLAttribute_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLAttribute_Vtbl {
+        unsafe extern "system" fn name<Impl: IXMLAttribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, n: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3150,7 +3156,7 @@ impl IXMLAttributeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn value<Impl: IXMLAttributeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, v: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn value<Impl: IXMLAttribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, v: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3160,35 +3166,39 @@ impl IXMLAttributeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), name: name::<Impl, IMPL_OFFSET>, value: value::<Impl, IMPL_OFFSET> }
+        Self {
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            name: name::<Impl, IMPL_OFFSET>,
+            value: value::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXMLAttribute as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMAttributeImpl: Sized + IDispatchImpl + IXMLDOMNodeImpl {
+pub trait IXMLDOMAttribute_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
     fn name(&mut self, attributename: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn value(&mut self, attributevalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Setvalue(&mut self, attributevalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMAttributeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMAttributeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMAttributeVtbl {
-        unsafe extern "system" fn name<Impl: IXMLDOMAttributeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributename: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IXMLDOMAttribute_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMAttribute_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMAttribute_Vtbl {
+        unsafe extern "system" fn name<Impl: IXMLDOMAttribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributename: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).name(::core::mem::transmute_copy(&attributename)).into()
         }
-        unsafe extern "system" fn value<Impl: IXMLDOMAttributeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributevalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn value<Impl: IXMLDOMAttribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributevalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).value(::core::mem::transmute_copy(&attributevalue)).into()
         }
-        unsafe extern "system" fn Setvalue<Impl: IXMLDOMAttributeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributevalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Setvalue<Impl: IXMLDOMAttribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributevalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Setvalue(::core::mem::transmute_copy(&attributevalue)).into()
         }
         Self {
-            base: IXMLDOMNodeVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IXMLDOMNode_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             name: name::<Impl, IMPL_OFFSET>,
             value: value::<Impl, IMPL_OFFSET>,
             Setvalue: Setvalue::<Impl, IMPL_OFFSET>,
@@ -3199,18 +3209,18 @@ impl IXMLDOMAttributeVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMCDATASectionImpl: Sized + IDispatchImpl + IXMLDOMNodeImpl + IXMLDOMCharacterDataImpl + IXMLDOMTextImpl {}
+pub trait IXMLDOMCDATASection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl + IXMLDOMCharacterData_Impl + IXMLDOMText_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMCDATASectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMCDATASectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMCDATASectionVtbl {
-        Self { base: IXMLDOMTextVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
+impl IXMLDOMCDATASection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMCDATASection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMCDATASection_Vtbl {
+        Self { base: IXMLDOMText_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXMLDOMCDATASection as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMCharacterDataImpl: Sized + IDispatchImpl + IXMLDOMNodeImpl {
+pub trait IXMLDOMCharacterData_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
     fn data(&mut self, data: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Setdata(&mut self, data: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn length(&mut self, datalength: *mut i32) -> ::windows::core::Result<()>;
@@ -3221,42 +3231,42 @@ pub trait IXMLDOMCharacterDataImpl: Sized + IDispatchImpl + IXMLDOMNodeImpl {
     fn replaceData(&mut self, offset: i32, count: i32, data: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMCharacterDataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMCharacterDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMCharacterDataVtbl {
-        unsafe extern "system" fn data<Impl: IXMLDOMCharacterDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IXMLDOMCharacterData_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMCharacterData_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMCharacterData_Vtbl {
+        unsafe extern "system" fn data<Impl: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).data(::core::mem::transmute_copy(&data)).into()
         }
-        unsafe extern "system" fn Setdata<Impl: IXMLDOMCharacterDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Setdata<Impl: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Setdata(::core::mem::transmute_copy(&data)).into()
         }
-        unsafe extern "system" fn length<Impl: IXMLDOMCharacterDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datalength: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn length<Impl: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datalength: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).length(::core::mem::transmute_copy(&datalength)).into()
         }
-        unsafe extern "system" fn substringData<Impl: IXMLDOMCharacterDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: i32, count: i32, data: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn substringData<Impl: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: i32, count: i32, data: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).substringData(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&data)).into()
         }
-        unsafe extern "system" fn appendData<Impl: IXMLDOMCharacterDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn appendData<Impl: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).appendData(::core::mem::transmute_copy(&data)).into()
         }
-        unsafe extern "system" fn insertData<Impl: IXMLDOMCharacterDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: i32, data: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn insertData<Impl: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: i32, data: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).insertData(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&data)).into()
         }
-        unsafe extern "system" fn deleteData<Impl: IXMLDOMCharacterDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: i32, count: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn deleteData<Impl: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: i32, count: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).deleteData(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
-        unsafe extern "system" fn replaceData<Impl: IXMLDOMCharacterDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: i32, count: i32, data: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn replaceData<Impl: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: i32, count: i32, data: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).replaceData(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&data)).into()
         }
         Self {
-            base: IXMLDOMNodeVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IXMLDOMNode_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             data: data::<Impl, IMPL_OFFSET>,
             Setdata: Setdata::<Impl, IMPL_OFFSET>,
             length: length::<Impl, IMPL_OFFSET>,
@@ -3272,18 +3282,18 @@ impl IXMLDOMCharacterDataVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMCommentImpl: Sized + IDispatchImpl + IXMLDOMNodeImpl + IXMLDOMCharacterDataImpl {}
+pub trait IXMLDOMComment_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl + IXMLDOMCharacterData_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMCommentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMCommentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMCommentVtbl {
-        Self { base: IXMLDOMCharacterDataVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
+impl IXMLDOMComment_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMComment_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMComment_Vtbl {
+        Self { base: IXMLDOMCharacterData_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXMLDOMComment as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMDocumentImpl: Sized + IDispatchImpl + IXMLDOMNodeImpl {
+pub trait IXMLDOMDocument_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
     fn doctype(&mut self) -> ::windows::core::Result<IXMLDOMDocumentType>;
     fn implementation(&mut self) -> ::windows::core::Result<IXMLDOMImplementation>;
     fn documentElement(&mut self) -> ::windows::core::Result<IXMLDOMElement>;
@@ -3319,9 +3329,9 @@ pub trait IXMLDOMDocumentImpl: Sized + IDispatchImpl + IXMLDOMNodeImpl {
     fn Setontransformnode(&mut self, ontransformnodesink: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMDocumentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMDocumentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMDocumentVtbl {
-        unsafe extern "system" fn doctype<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, documenttype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXMLDOMDocument_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMDocument_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMDocument_Vtbl {
+        unsafe extern "system" fn doctype<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, documenttype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).doctype() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3331,7 +3341,7 @@ impl IXMLDOMDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn implementation<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#impl: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn implementation<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#impl: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).implementation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3341,7 +3351,7 @@ impl IXMLDOMDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn documentElement<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, domelement: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn documentElement<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, domelement: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).documentElement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3351,11 +3361,11 @@ impl IXMLDOMDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putref_documentElement<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, domelement: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putref_documentElement<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, domelement: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putref_documentElement(::core::mem::transmute(&domelement)).into()
         }
-        unsafe extern "system" fn createElement<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tagname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn createElement<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tagname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).createElement(::core::mem::transmute_copy(&tagname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3365,7 +3375,7 @@ impl IXMLDOMDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn createDocumentFragment<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, docfrag: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn createDocumentFragment<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, docfrag: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).createDocumentFragment() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3375,7 +3385,7 @@ impl IXMLDOMDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn createTextNode<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, text: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn createTextNode<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, text: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).createTextNode(::core::mem::transmute_copy(&data)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3385,7 +3395,7 @@ impl IXMLDOMDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn createComment<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, comment: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn createComment<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, comment: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).createComment(::core::mem::transmute_copy(&data)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3395,7 +3405,7 @@ impl IXMLDOMDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn createCDATASection<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, cdata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn createCDATASection<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, cdata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).createCDATASection(::core::mem::transmute_copy(&data)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3405,7 +3415,7 @@ impl IXMLDOMDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn createProcessingInstruction<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, data: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn createProcessingInstruction<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, data: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).createProcessingInstruction(::core::mem::transmute_copy(&target), ::core::mem::transmute_copy(&data)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3415,7 +3425,7 @@ impl IXMLDOMDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn createAttribute<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, attribute: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn createAttribute<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, attribute: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).createAttribute(::core::mem::transmute_copy(&name)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3425,7 +3435,7 @@ impl IXMLDOMDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn createEntityReference<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, entityref: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn createEntityReference<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, entityref: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).createEntityReference(::core::mem::transmute_copy(&name)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3435,7 +3445,7 @@ impl IXMLDOMDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getElementsByTagName<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tagname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, resultlist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getElementsByTagName<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tagname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, resultlist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getElementsByTagName(::core::mem::transmute_copy(&tagname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3445,7 +3455,7 @@ impl IXMLDOMDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn createNode<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, node: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn createNode<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, node: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).createNode(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&namespaceuri)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3455,7 +3465,7 @@ impl IXMLDOMDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn nodeFromID<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, node: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn nodeFromID<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, node: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).nodeFromID(::core::mem::transmute_copy(&idstring)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3465,15 +3475,15 @@ impl IXMLDOMDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn load<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xmlsource: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, issuccessful: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn load<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xmlsource: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, issuccessful: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).load(::core::mem::transmute_copy(&xmlsource), ::core::mem::transmute_copy(&issuccessful)).into()
         }
-        unsafe extern "system" fn readyState<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn readyState<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).readyState(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn parseError<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errorobj: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn parseError<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errorobj: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).parseError() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3483,68 +3493,68 @@ impl IXMLDOMDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn url<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, urlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn url<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, urlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).url(::core::mem::transmute_copy(&urlstring)).into()
         }
-        unsafe extern "system" fn r#async<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isasync: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn r#async<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isasync: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).r#async(::core::mem::transmute_copy(&isasync)).into()
         }
-        unsafe extern "system" fn Setasync<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isasync: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Setasync<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isasync: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Setasync(::core::mem::transmute_copy(&isasync)).into()
         }
-        unsafe extern "system" fn abort<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn abort<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).abort().into()
         }
-        unsafe extern "system" fn loadXML<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrxml: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, issuccessful: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn loadXML<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrxml: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, issuccessful: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).loadXML(::core::mem::transmute_copy(&bstrxml), ::core::mem::transmute_copy(&issuccessful)).into()
         }
-        unsafe extern "system" fn save<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn save<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).save(::core::mem::transmute_copy(&destination)).into()
         }
-        unsafe extern "system" fn validateOnParse<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isvalidating: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn validateOnParse<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isvalidating: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).validateOnParse(::core::mem::transmute_copy(&isvalidating)).into()
         }
-        unsafe extern "system" fn SetvalidateOnParse<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isvalidating: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetvalidateOnParse<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isvalidating: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetvalidateOnParse(::core::mem::transmute_copy(&isvalidating)).into()
         }
-        unsafe extern "system" fn resolveExternals<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isresolving: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn resolveExternals<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isresolving: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).resolveExternals(::core::mem::transmute_copy(&isresolving)).into()
         }
-        unsafe extern "system" fn SetresolveExternals<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isresolving: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetresolveExternals<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isresolving: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetresolveExternals(::core::mem::transmute_copy(&isresolving)).into()
         }
-        unsafe extern "system" fn preserveWhiteSpace<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ispreserving: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn preserveWhiteSpace<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ispreserving: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).preserveWhiteSpace(::core::mem::transmute_copy(&ispreserving)).into()
         }
-        unsafe extern "system" fn SetpreserveWhiteSpace<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ispreserving: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetpreserveWhiteSpace<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ispreserving: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetpreserveWhiteSpace(::core::mem::transmute_copy(&ispreserving)).into()
         }
-        unsafe extern "system" fn Setonreadystatechange<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, readystatechangesink: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Setonreadystatechange<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, readystatechangesink: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Setonreadystatechange(::core::mem::transmute_copy(&readystatechangesink)).into()
         }
-        unsafe extern "system" fn Setondataavailable<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ondataavailablesink: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Setondataavailable<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ondataavailablesink: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Setondataavailable(::core::mem::transmute_copy(&ondataavailablesink)).into()
         }
-        unsafe extern "system" fn Setontransformnode<Impl: IXMLDOMDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ontransformnodesink: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Setontransformnode<Impl: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ontransformnodesink: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Setontransformnode(::core::mem::transmute_copy(&ontransformnodesink)).into()
         }
         Self {
-            base: IXMLDOMNodeVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IXMLDOMNode_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             doctype: doctype::<Impl, IMPL_OFFSET>,
             implementation: implementation::<Impl, IMPL_OFFSET>,
             documentElement: documentElement::<Impl, IMPL_OFFSET>,
@@ -3585,7 +3595,7 @@ impl IXMLDOMDocumentVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMDocument2Impl: Sized + IDispatchImpl + IXMLDOMNodeImpl + IXMLDOMDocumentImpl {
+pub trait IXMLDOMDocument2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl + IXMLDOMDocument_Impl {
     fn namespaces(&mut self) -> ::windows::core::Result<IXMLDOMSchemaCollection>;
     fn schemas(&mut self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn putref_schemas(&mut self, othercollection: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -3594,9 +3604,9 @@ pub trait IXMLDOMDocument2Impl: Sized + IDispatchImpl + IXMLDOMNodeImpl + IXMLDO
     fn getProperty(&mut self, name: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMDocument2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMDocument2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMDocument2Vtbl {
-        unsafe extern "system" fn namespaces<Impl: IXMLDOMDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespacecollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXMLDOMDocument2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMDocument2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMDocument2_Vtbl {
+        unsafe extern "system" fn namespaces<Impl: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespacecollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).namespaces() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3606,7 +3616,7 @@ impl IXMLDOMDocument2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn schemas<Impl: IXMLDOMDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, othercollection: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn schemas<Impl: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, othercollection: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).schemas() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3616,11 +3626,11 @@ impl IXMLDOMDocument2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putref_schemas<Impl: IXMLDOMDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, othercollection: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putref_schemas<Impl: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, othercollection: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putref_schemas(::core::mem::transmute_copy(&othercollection)).into()
         }
-        unsafe extern "system" fn validate<Impl: IXMLDOMDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errorobj: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn validate<Impl: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errorobj: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).validate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3630,11 +3640,11 @@ impl IXMLDOMDocument2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn setProperty<Impl: IXMLDOMDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, value: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn setProperty<Impl: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, value: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).setProperty(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn getProperty<Impl: IXMLDOMDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getProperty<Impl: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getProperty(::core::mem::transmute_copy(&name)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3645,7 +3655,7 @@ impl IXMLDOMDocument2Vtbl {
             }
         }
         Self {
-            base: IXMLDOMDocumentVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IXMLDOMDocument_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             namespaces: namespaces::<Impl, IMPL_OFFSET>,
             schemas: schemas::<Impl, IMPL_OFFSET>,
             putref_schemas: putref_schemas::<Impl, IMPL_OFFSET>,
@@ -3659,14 +3669,14 @@ impl IXMLDOMDocument2Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMDocument3Impl: Sized + IDispatchImpl + IXMLDOMNodeImpl + IXMLDOMDocumentImpl + IXMLDOMDocument2Impl {
+pub trait IXMLDOMDocument3_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl + IXMLDOMDocument_Impl + IXMLDOMDocument2_Impl {
     fn validateNode(&mut self, node: ::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<IXMLDOMParseError>;
     fn importNode(&mut self, node: ::core::option::Option<IXMLDOMNode>, deep: i16) -> ::windows::core::Result<IXMLDOMNode>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMDocument3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMDocument3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMDocument3Vtbl {
-        unsafe extern "system" fn validateNode<Impl: IXMLDOMDocument3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, node: ::windows::core::RawPtr, errorobj: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXMLDOMDocument3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMDocument3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMDocument3_Vtbl {
+        unsafe extern "system" fn validateNode<Impl: IXMLDOMDocument3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, node: ::windows::core::RawPtr, errorobj: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).validateNode(::core::mem::transmute(&node)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3676,7 +3686,7 @@ impl IXMLDOMDocument3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn importNode<Impl: IXMLDOMDocument3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, node: ::windows::core::RawPtr, deep: i16, clone: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn importNode<Impl: IXMLDOMDocument3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, node: ::windows::core::RawPtr, deep: i16, clone: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).importNode(::core::mem::transmute(&node), ::core::mem::transmute_copy(&deep)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3687,7 +3697,7 @@ impl IXMLDOMDocument3Vtbl {
             }
         }
         Self {
-            base: IXMLDOMDocument2Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IXMLDOMDocument2_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             validateNode: validateNode::<Impl, IMPL_OFFSET>,
             importNode: importNode::<Impl, IMPL_OFFSET>,
         }
@@ -3697,30 +3707,30 @@ impl IXMLDOMDocument3Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMDocumentFragmentImpl: Sized + IDispatchImpl + IXMLDOMNodeImpl {}
+pub trait IXMLDOMDocumentFragment_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMDocumentFragmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMDocumentFragmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMDocumentFragmentVtbl {
-        Self { base: IXMLDOMNodeVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
+impl IXMLDOMDocumentFragment_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMDocumentFragment_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMDocumentFragment_Vtbl {
+        Self { base: IXMLDOMNode_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXMLDOMDocumentFragment as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMDocumentTypeImpl: Sized + IDispatchImpl + IXMLDOMNodeImpl {
+pub trait IXMLDOMDocumentType_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
     fn name(&mut self, rootname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn entities(&mut self) -> ::windows::core::Result<IXMLDOMNamedNodeMap>;
     fn notations(&mut self) -> ::windows::core::Result<IXMLDOMNamedNodeMap>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMDocumentTypeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMDocumentTypeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMDocumentTypeVtbl {
-        unsafe extern "system" fn name<Impl: IXMLDOMDocumentTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rootname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IXMLDOMDocumentType_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMDocumentType_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMDocumentType_Vtbl {
+        unsafe extern "system" fn name<Impl: IXMLDOMDocumentType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rootname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).name(::core::mem::transmute_copy(&rootname)).into()
         }
-        unsafe extern "system" fn entities<Impl: IXMLDOMDocumentTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entitymap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn entities<Impl: IXMLDOMDocumentType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entitymap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).entities() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3730,7 +3740,7 @@ impl IXMLDOMDocumentTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn notations<Impl: IXMLDOMDocumentTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, notationmap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn notations<Impl: IXMLDOMDocumentType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, notationmap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).notations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3741,7 +3751,7 @@ impl IXMLDOMDocumentTypeVtbl {
             }
         }
         Self {
-            base: IXMLDOMNodeVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IXMLDOMNode_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             name: name::<Impl, IMPL_OFFSET>,
             entities: entities::<Impl, IMPL_OFFSET>,
             notations: notations::<Impl, IMPL_OFFSET>,
@@ -3752,7 +3762,7 @@ impl IXMLDOMDocumentTypeVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMElementImpl: Sized + IDispatchImpl + IXMLDOMNodeImpl {
+pub trait IXMLDOMElement_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
     fn tagName(&mut self, tagname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn getAttribute(&mut self, name: super::super::super::Foundation::BSTR, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn setAttribute(&mut self, name: super::super::super::Foundation::BSTR, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -3764,25 +3774,25 @@ pub trait IXMLDOMElementImpl: Sized + IDispatchImpl + IXMLDOMNodeImpl {
     fn normalize(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMElementVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMElementImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMElementVtbl {
-        unsafe extern "system" fn tagName<Impl: IXMLDOMElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tagname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IXMLDOMElement_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMElement_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMElement_Vtbl {
+        unsafe extern "system" fn tagName<Impl: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tagname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).tagName(::core::mem::transmute_copy(&tagname)).into()
         }
-        unsafe extern "system" fn getAttribute<Impl: IXMLDOMElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getAttribute<Impl: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).getAttribute(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn setAttribute<Impl: IXMLDOMElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, value: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn setAttribute<Impl: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, value: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).setAttribute(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn removeAttribute<Impl: IXMLDOMElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn removeAttribute<Impl: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).removeAttribute(::core::mem::transmute_copy(&name)).into()
         }
-        unsafe extern "system" fn getAttributeNode<Impl: IXMLDOMElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, attributenode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getAttributeNode<Impl: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, attributenode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getAttributeNode(::core::mem::transmute_copy(&name)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3792,7 +3802,7 @@ impl IXMLDOMElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn setAttributeNode<Impl: IXMLDOMElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, domattribute: ::windows::core::RawPtr, attributenode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn setAttributeNode<Impl: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, domattribute: ::windows::core::RawPtr, attributenode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).setAttributeNode(::core::mem::transmute(&domattribute)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3802,7 +3812,7 @@ impl IXMLDOMElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn removeAttributeNode<Impl: IXMLDOMElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, domattribute: ::windows::core::RawPtr, attributenode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn removeAttributeNode<Impl: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, domattribute: ::windows::core::RawPtr, attributenode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).removeAttributeNode(::core::mem::transmute(&domattribute)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3812,7 +3822,7 @@ impl IXMLDOMElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getElementsByTagName<Impl: IXMLDOMElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tagname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, resultlist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getElementsByTagName<Impl: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tagname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, resultlist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getElementsByTagName(::core::mem::transmute_copy(&tagname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3822,12 +3832,12 @@ impl IXMLDOMElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn normalize<Impl: IXMLDOMElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn normalize<Impl: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).normalize().into()
         }
         Self {
-            base: IXMLDOMNodeVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IXMLDOMNode_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             tagName: tagName::<Impl, IMPL_OFFSET>,
             getAttribute: getAttribute::<Impl, IMPL_OFFSET>,
             setAttribute: setAttribute::<Impl, IMPL_OFFSET>,
@@ -3844,28 +3854,28 @@ impl IXMLDOMElementVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMEntityImpl: Sized + IDispatchImpl + IXMLDOMNodeImpl {
+pub trait IXMLDOMEntity_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
     fn publicId(&mut self, publicid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn systemId(&mut self, systemid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn notationName(&mut self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMEntityVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMEntityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMEntityVtbl {
-        unsafe extern "system" fn publicId<Impl: IXMLDOMEntityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, publicid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+impl IXMLDOMEntity_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMEntity_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMEntity_Vtbl {
+        unsafe extern "system" fn publicId<Impl: IXMLDOMEntity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, publicid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).publicId(::core::mem::transmute_copy(&publicid)).into()
         }
-        unsafe extern "system" fn systemId<Impl: IXMLDOMEntityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, systemid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn systemId<Impl: IXMLDOMEntity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, systemid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).systemId(::core::mem::transmute_copy(&systemid)).into()
         }
-        unsafe extern "system" fn notationName<Impl: IXMLDOMEntityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn notationName<Impl: IXMLDOMEntity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).notationName(::core::mem::transmute_copy(&name)).into()
         }
         Self {
-            base: IXMLDOMNodeVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IXMLDOMNode_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             publicId: publicId::<Impl, IMPL_OFFSET>,
             systemId: systemId::<Impl, IMPL_OFFSET>,
             notationName: notationName::<Impl, IMPL_OFFSET>,
@@ -3876,35 +3886,38 @@ impl IXMLDOMEntityVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMEntityReferenceImpl: Sized + IDispatchImpl + IXMLDOMNodeImpl {}
+pub trait IXMLDOMEntityReference_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMEntityReferenceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMEntityReferenceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMEntityReferenceVtbl {
-        Self { base: IXMLDOMNodeVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
+impl IXMLDOMEntityReference_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMEntityReference_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMEntityReference_Vtbl {
+        Self { base: IXMLDOMNode_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXMLDOMEntityReference as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMImplementationImpl: Sized + IDispatchImpl {
+pub trait IXMLDOMImplementation_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn hasFeature(&mut self, feature: super::super::super::Foundation::BSTR, version: super::super::super::Foundation::BSTR, hasfeature: *mut i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMImplementationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMImplementationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMImplementationVtbl {
-        unsafe extern "system" fn hasFeature<Impl: IXMLDOMImplementationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, feature: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, version: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, hasfeature: *mut i16) -> ::windows::core::HRESULT {
+impl IXMLDOMImplementation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMImplementation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMImplementation_Vtbl {
+        unsafe extern "system" fn hasFeature<Impl: IXMLDOMImplementation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, feature: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, version: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, hasfeature: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).hasFeature(::core::mem::transmute_copy(&feature), ::core::mem::transmute_copy(&version), ::core::mem::transmute_copy(&hasfeature)).into()
         }
-        Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), hasFeature: hasFeature::<Impl, IMPL_OFFSET> }
+        Self {
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            hasFeature: hasFeature::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXMLDOMImplementation as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMNamedNodeMapImpl: Sized + IDispatchImpl {
+pub trait IXMLDOMNamedNodeMap_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn getNamedItem(&mut self, name: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
     fn setNamedItem(&mut self, newitem: ::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<IXMLDOMNode>;
     fn removeNamedItem(&mut self, name: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
@@ -3917,9 +3930,9 @@ pub trait IXMLDOMNamedNodeMapImpl: Sized + IDispatchImpl {
     fn _newEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMNamedNodeMapVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMNamedNodeMapImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMNamedNodeMapVtbl {
-        unsafe extern "system" fn getNamedItem<Impl: IXMLDOMNamedNodeMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, nameditem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXMLDOMNamedNodeMap_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMNamedNodeMap_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMNamedNodeMap_Vtbl {
+        unsafe extern "system" fn getNamedItem<Impl: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, nameditem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getNamedItem(::core::mem::transmute_copy(&name)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3929,7 +3942,7 @@ impl IXMLDOMNamedNodeMapVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn setNamedItem<Impl: IXMLDOMNamedNodeMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newitem: ::windows::core::RawPtr, nameitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn setNamedItem<Impl: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newitem: ::windows::core::RawPtr, nameitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).setNamedItem(::core::mem::transmute(&newitem)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3939,7 +3952,7 @@ impl IXMLDOMNamedNodeMapVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn removeNamedItem<Impl: IXMLDOMNamedNodeMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, nameditem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn removeNamedItem<Impl: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, nameditem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).removeNamedItem(::core::mem::transmute_copy(&name)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3949,7 +3962,7 @@ impl IXMLDOMNamedNodeMapVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn item<Impl: IXMLDOMNamedNodeMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, listitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn item<Impl: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, listitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3959,11 +3972,11 @@ impl IXMLDOMNamedNodeMapVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn length<Impl: IXMLDOMNamedNodeMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, listlength: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn length<Impl: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, listlength: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).length(::core::mem::transmute_copy(&listlength)).into()
         }
-        unsafe extern "system" fn getQualifiedItem<Impl: IXMLDOMNamedNodeMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, basename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, qualifieditem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getQualifiedItem<Impl: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, basename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, qualifieditem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getQualifiedItem(::core::mem::transmute_copy(&basename), ::core::mem::transmute_copy(&namespaceuri)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3973,7 +3986,7 @@ impl IXMLDOMNamedNodeMapVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn removeQualifiedItem<Impl: IXMLDOMNamedNodeMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, basename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, qualifieditem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn removeQualifiedItem<Impl: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, basename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, qualifieditem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).removeQualifiedItem(::core::mem::transmute_copy(&basename), ::core::mem::transmute_copy(&namespaceuri)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3983,7 +3996,7 @@ impl IXMLDOMNamedNodeMapVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn nextNode<Impl: IXMLDOMNamedNodeMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nextitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn nextNode<Impl: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nextitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).nextNode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3993,11 +4006,11 @@ impl IXMLDOMNamedNodeMapVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn reset<Impl: IXMLDOMNamedNodeMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn reset<Impl: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).reset().into()
         }
-        unsafe extern "system" fn _newEnum<Impl: IXMLDOMNamedNodeMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn _newEnum<Impl: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._newEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4008,7 +4021,7 @@ impl IXMLDOMNamedNodeMapVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             getNamedItem: getNamedItem::<Impl, IMPL_OFFSET>,
             setNamedItem: setNamedItem::<Impl, IMPL_OFFSET>,
             removeNamedItem: removeNamedItem::<Impl, IMPL_OFFSET>,
@@ -4026,7 +4039,7 @@ impl IXMLDOMNamedNodeMapVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMNodeImpl: Sized + IDispatchImpl {
+pub trait IXMLDOMNode_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn nodeName(&mut self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn nodeValue(&mut self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn SetnodeValue(&mut self, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -4065,25 +4078,25 @@ pub trait IXMLDOMNodeImpl: Sized + IDispatchImpl {
     fn transformNodeToObject(&mut self, stylesheet: ::core::option::Option<IXMLDOMNode>, outputobject: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMNodeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMNodeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMNodeVtbl {
-        unsafe extern "system" fn nodeName<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IXMLDOMNode_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMNode_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMNode_Vtbl {
+        unsafe extern "system" fn nodeName<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).nodeName(::core::mem::transmute_copy(&name)).into()
         }
-        unsafe extern "system" fn nodeValue<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn nodeValue<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).nodeValue(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn SetnodeValue<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetnodeValue<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetnodeValue(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn nodeType<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: *mut DOMNodeType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn nodeType<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: *mut DOMNodeType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).nodeType(::core::mem::transmute_copy(&r#type)).into()
         }
-        unsafe extern "system" fn parentNode<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn parentNode<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).parentNode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4093,7 +4106,7 @@ impl IXMLDOMNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn childNodes<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childlist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn childNodes<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childlist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).childNodes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4103,7 +4116,7 @@ impl IXMLDOMNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn firstChild<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, firstchild: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn firstChild<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, firstchild: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).firstChild() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4113,7 +4126,7 @@ impl IXMLDOMNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn lastChild<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lastchild: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn lastChild<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lastchild: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).lastChild() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4123,7 +4136,7 @@ impl IXMLDOMNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn previousSibling<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, previoussibling: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn previousSibling<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, previoussibling: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).previousSibling() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4133,7 +4146,7 @@ impl IXMLDOMNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn nextSibling<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nextsibling: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn nextSibling<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nextsibling: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).nextSibling() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4143,7 +4156,7 @@ impl IXMLDOMNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn attributes<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributemap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn attributes<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributemap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).attributes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4153,7 +4166,7 @@ impl IXMLDOMNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn insertBefore<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newchild: ::windows::core::RawPtr, refchild: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, outnewchild: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn insertBefore<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newchild: ::windows::core::RawPtr, refchild: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, outnewchild: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).insertBefore(::core::mem::transmute(&newchild), ::core::mem::transmute_copy(&refchild)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4163,7 +4176,7 @@ impl IXMLDOMNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn replaceChild<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newchild: ::windows::core::RawPtr, oldchild: ::windows::core::RawPtr, outoldchild: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn replaceChild<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newchild: ::windows::core::RawPtr, oldchild: ::windows::core::RawPtr, outoldchild: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).replaceChild(::core::mem::transmute(&newchild), ::core::mem::transmute(&oldchild)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4173,7 +4186,7 @@ impl IXMLDOMNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn removeChild<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childnode: ::windows::core::RawPtr, oldchild: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn removeChild<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childnode: ::windows::core::RawPtr, oldchild: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).removeChild(::core::mem::transmute(&childnode)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4183,7 +4196,7 @@ impl IXMLDOMNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn appendChild<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newchild: ::windows::core::RawPtr, outnewchild: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn appendChild<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newchild: ::windows::core::RawPtr, outnewchild: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).appendChild(::core::mem::transmute(&newchild)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4193,11 +4206,11 @@ impl IXMLDOMNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn hasChildNodes<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haschild: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn hasChildNodes<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haschild: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).hasChildNodes(::core::mem::transmute_copy(&haschild)).into()
         }
-        unsafe extern "system" fn ownerDocument<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xmldomdocument: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ownerDocument<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xmldomdocument: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ownerDocument() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4207,7 +4220,7 @@ impl IXMLDOMNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn cloneNode<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deep: i16, cloneroot: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn cloneNode<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deep: i16, cloneroot: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).cloneNode(::core::mem::transmute_copy(&deep)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4217,23 +4230,23 @@ impl IXMLDOMNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn nodeTypeString<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn nodeTypeString<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).nodeTypeString(::core::mem::transmute_copy(&nodetype)).into()
         }
-        unsafe extern "system" fn text<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn text<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).text(::core::mem::transmute_copy(&text)).into()
         }
-        unsafe extern "system" fn Settext<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Settext<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Settext(::core::mem::transmute_copy(&text)).into()
         }
-        unsafe extern "system" fn specified<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isspecified: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn specified<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isspecified: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).specified(::core::mem::transmute_copy(&isspecified)).into()
         }
-        unsafe extern "system" fn definition<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, definitionnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn definition<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, definitionnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).definition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4243,31 +4256,31 @@ impl IXMLDOMNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn nodeTypedValue<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn nodeTypedValue<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).nodeTypedValue(::core::mem::transmute_copy(&typedvalue)).into()
         }
-        unsafe extern "system" fn SetnodeTypedValue<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, typedvalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetnodeTypedValue<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, typedvalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetnodeTypedValue(::core::mem::transmute_copy(&typedvalue)).into()
         }
-        unsafe extern "system" fn dataType<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn dataType<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).dataType(::core::mem::transmute_copy(&datatypename)).into()
         }
-        unsafe extern "system" fn SetdataType<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datatypename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetdataType<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datatypename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetdataType(::core::mem::transmute_copy(&datatypename)).into()
         }
-        unsafe extern "system" fn xml<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn xml<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).xml(::core::mem::transmute_copy(&xmlstring)).into()
         }
-        unsafe extern "system" fn transformNode<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stylesheet: ::windows::core::RawPtr, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn transformNode<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stylesheet: ::windows::core::RawPtr, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).transformNode(::core::mem::transmute(&stylesheet), ::core::mem::transmute_copy(&xmlstring)).into()
         }
-        unsafe extern "system" fn selectNodes<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, querystring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, resultlist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn selectNodes<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, querystring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, resultlist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).selectNodes(::core::mem::transmute_copy(&querystring)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4277,7 +4290,7 @@ impl IXMLDOMNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn selectSingleNode<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, querystring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, resultnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn selectSingleNode<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, querystring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, resultnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).selectSingleNode(::core::mem::transmute_copy(&querystring)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4287,28 +4300,28 @@ impl IXMLDOMNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn parsed<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isparsed: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn parsed<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isparsed: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).parsed(::core::mem::transmute_copy(&isparsed)).into()
         }
-        unsafe extern "system" fn namespaceURI<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn namespaceURI<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).namespaceURI(::core::mem::transmute_copy(&namespaceuri)).into()
         }
-        unsafe extern "system" fn prefix<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn prefix<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).prefix(::core::mem::transmute_copy(&prefixstring)).into()
         }
-        unsafe extern "system" fn baseName<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn baseName<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).baseName(::core::mem::transmute_copy(&namestring)).into()
         }
-        unsafe extern "system" fn transformNodeToObject<Impl: IXMLDOMNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stylesheet: ::windows::core::RawPtr, outputobject: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn transformNodeToObject<Impl: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stylesheet: ::windows::core::RawPtr, outputobject: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).transformNodeToObject(::core::mem::transmute(&stylesheet), ::core::mem::transmute_copy(&outputobject)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             nodeName: nodeName::<Impl, IMPL_OFFSET>,
             nodeValue: nodeValue::<Impl, IMPL_OFFSET>,
             SetnodeValue: SetnodeValue::<Impl, IMPL_OFFSET>,
@@ -4352,7 +4365,7 @@ impl IXMLDOMNodeVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMNodeListImpl: Sized + IDispatchImpl {
+pub trait IXMLDOMNodeList_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn item(&mut self, index: i32) -> ::windows::core::Result<IXMLDOMNode>;
     fn length(&mut self, listlength: *mut i32) -> ::windows::core::Result<()>;
     fn nextNode(&mut self) -> ::windows::core::Result<IXMLDOMNode>;
@@ -4360,9 +4373,9 @@ pub trait IXMLDOMNodeListImpl: Sized + IDispatchImpl {
     fn _newEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMNodeListVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMNodeListImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMNodeListVtbl {
-        unsafe extern "system" fn item<Impl: IXMLDOMNodeListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, listitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXMLDOMNodeList_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMNodeList_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMNodeList_Vtbl {
+        unsafe extern "system" fn item<Impl: IXMLDOMNodeList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, listitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4372,11 +4385,11 @@ impl IXMLDOMNodeListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn length<Impl: IXMLDOMNodeListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, listlength: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn length<Impl: IXMLDOMNodeList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, listlength: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).length(::core::mem::transmute_copy(&listlength)).into()
         }
-        unsafe extern "system" fn nextNode<Impl: IXMLDOMNodeListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nextitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn nextNode<Impl: IXMLDOMNodeList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nextitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).nextNode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4386,11 +4399,11 @@ impl IXMLDOMNodeListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn reset<Impl: IXMLDOMNodeListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn reset<Impl: IXMLDOMNodeList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).reset().into()
         }
-        unsafe extern "system" fn _newEnum<Impl: IXMLDOMNodeListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn _newEnum<Impl: IXMLDOMNodeList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._newEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4401,7 +4414,7 @@ impl IXMLDOMNodeListVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             item: item::<Impl, IMPL_OFFSET>,
             length: length::<Impl, IMPL_OFFSET>,
             nextNode: nextNode::<Impl, IMPL_OFFSET>,
@@ -4414,23 +4427,23 @@ impl IXMLDOMNodeListVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMNotationImpl: Sized + IDispatchImpl + IXMLDOMNodeImpl {
+pub trait IXMLDOMNotation_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
     fn publicId(&mut self, publicid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn systemId(&mut self, systemid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMNotationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMNotationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMNotationVtbl {
-        unsafe extern "system" fn publicId<Impl: IXMLDOMNotationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, publicid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+impl IXMLDOMNotation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMNotation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMNotation_Vtbl {
+        unsafe extern "system" fn publicId<Impl: IXMLDOMNotation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, publicid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).publicId(::core::mem::transmute_copy(&publicid)).into()
         }
-        unsafe extern "system" fn systemId<Impl: IXMLDOMNotationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, systemid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn systemId<Impl: IXMLDOMNotation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, systemid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).systemId(::core::mem::transmute_copy(&systemid)).into()
         }
         Self {
-            base: IXMLDOMNodeVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IXMLDOMNode_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             publicId: publicId::<Impl, IMPL_OFFSET>,
             systemId: systemId::<Impl, IMPL_OFFSET>,
         }
@@ -4440,7 +4453,7 @@ impl IXMLDOMNotationVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMParseErrorImpl: Sized + IDispatchImpl {
+pub trait IXMLDOMParseError_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn errorCode(&mut self, errorcode: *mut i32) -> ::windows::core::Result<()>;
     fn url(&mut self, urlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn reason(&mut self, reasonstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
@@ -4450,38 +4463,38 @@ pub trait IXMLDOMParseErrorImpl: Sized + IDispatchImpl {
     fn filepos(&mut self, fileposition: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMParseErrorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMParseErrorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMParseErrorVtbl {
-        unsafe extern "system" fn errorCode<Impl: IXMLDOMParseErrorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errorcode: *mut i32) -> ::windows::core::HRESULT {
+impl IXMLDOMParseError_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMParseError_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMParseError_Vtbl {
+        unsafe extern "system" fn errorCode<Impl: IXMLDOMParseError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errorcode: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).errorCode(::core::mem::transmute_copy(&errorcode)).into()
         }
-        unsafe extern "system" fn url<Impl: IXMLDOMParseErrorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, urlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn url<Impl: IXMLDOMParseError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, urlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).url(::core::mem::transmute_copy(&urlstring)).into()
         }
-        unsafe extern "system" fn reason<Impl: IXMLDOMParseErrorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reasonstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn reason<Impl: IXMLDOMParseError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reasonstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).reason(::core::mem::transmute_copy(&reasonstring)).into()
         }
-        unsafe extern "system" fn srcText<Impl: IXMLDOMParseErrorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourcestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn srcText<Impl: IXMLDOMParseError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourcestring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).srcText(::core::mem::transmute_copy(&sourcestring)).into()
         }
-        unsafe extern "system" fn line<Impl: IXMLDOMParseErrorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, linenumber: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn line<Impl: IXMLDOMParseError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, linenumber: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).line(::core::mem::transmute_copy(&linenumber)).into()
         }
-        unsafe extern "system" fn linepos<Impl: IXMLDOMParseErrorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lineposition: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn linepos<Impl: IXMLDOMParseError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lineposition: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).linepos(::core::mem::transmute_copy(&lineposition)).into()
         }
-        unsafe extern "system" fn filepos<Impl: IXMLDOMParseErrorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fileposition: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn filepos<Impl: IXMLDOMParseError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fileposition: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).filepos(::core::mem::transmute_copy(&fileposition)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             errorCode: errorCode::<Impl, IMPL_OFFSET>,
             url: url::<Impl, IMPL_OFFSET>,
             reason: reason::<Impl, IMPL_OFFSET>,
@@ -4496,16 +4509,16 @@ impl IXMLDOMParseErrorVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMParseError2Impl: Sized + IDispatchImpl + IXMLDOMParseErrorImpl {
+pub trait IXMLDOMParseError2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMParseError_Impl {
     fn errorXPath(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn allErrors(&mut self) -> ::windows::core::Result<IXMLDOMParseErrorCollection>;
     fn errorParameters(&mut self, index: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn errorParametersCount(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMParseError2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMParseError2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMParseError2Vtbl {
-        unsafe extern "system" fn errorXPath<Impl: IXMLDOMParseError2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xpathexpr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IXMLDOMParseError2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMParseError2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMParseError2_Vtbl {
+        unsafe extern "system" fn errorXPath<Impl: IXMLDOMParseError2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xpathexpr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).errorXPath() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4515,7 +4528,7 @@ impl IXMLDOMParseError2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn allErrors<Impl: IXMLDOMParseError2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allerrors: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn allErrors<Impl: IXMLDOMParseError2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allerrors: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).allErrors() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4525,7 +4538,7 @@ impl IXMLDOMParseError2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn errorParameters<Impl: IXMLDOMParseError2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, param1: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn errorParameters<Impl: IXMLDOMParseError2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, param1: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).errorParameters(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4535,7 +4548,7 @@ impl IXMLDOMParseError2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn errorParametersCount<Impl: IXMLDOMParseError2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn errorParametersCount<Impl: IXMLDOMParseError2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).errorParametersCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4546,7 +4559,7 @@ impl IXMLDOMParseError2Vtbl {
             }
         }
         Self {
-            base: IXMLDOMParseErrorVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IXMLDOMParseError_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             errorXPath: errorXPath::<Impl, IMPL_OFFSET>,
             allErrors: allErrors::<Impl, IMPL_OFFSET>,
             errorParameters: errorParameters::<Impl, IMPL_OFFSET>,
@@ -4558,7 +4571,7 @@ impl IXMLDOMParseError2Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMParseErrorCollectionImpl: Sized + IDispatchImpl {
+pub trait IXMLDOMParseErrorCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn item(&mut self, index: i32) -> ::windows::core::Result<IXMLDOMParseError2>;
     fn length(&mut self) -> ::windows::core::Result<i32>;
     fn next(&mut self) -> ::windows::core::Result<IXMLDOMParseError2>;
@@ -4566,9 +4579,9 @@ pub trait IXMLDOMParseErrorCollectionImpl: Sized + IDispatchImpl {
     fn _newEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMParseErrorCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMParseErrorCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMParseErrorCollectionVtbl {
-        unsafe extern "system" fn item<Impl: IXMLDOMParseErrorCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, error: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXMLDOMParseErrorCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMParseErrorCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMParseErrorCollection_Vtbl {
+        unsafe extern "system" fn item<Impl: IXMLDOMParseErrorCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, error: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4578,7 +4591,7 @@ impl IXMLDOMParseErrorCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn length<Impl: IXMLDOMParseErrorCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn length<Impl: IXMLDOMParseErrorCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).length() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4588,7 +4601,7 @@ impl IXMLDOMParseErrorCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn next<Impl: IXMLDOMParseErrorCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, error: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn next<Impl: IXMLDOMParseErrorCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, error: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).next() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4598,11 +4611,11 @@ impl IXMLDOMParseErrorCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn reset<Impl: IXMLDOMParseErrorCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn reset<Impl: IXMLDOMParseErrorCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).reset().into()
         }
-        unsafe extern "system" fn _newEnum<Impl: IXMLDOMParseErrorCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn _newEnum<Impl: IXMLDOMParseErrorCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._newEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4613,7 +4626,7 @@ impl IXMLDOMParseErrorCollectionVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             item: item::<Impl, IMPL_OFFSET>,
             length: length::<Impl, IMPL_OFFSET>,
             next: next::<Impl, IMPL_OFFSET>,
@@ -4626,28 +4639,28 @@ impl IXMLDOMParseErrorCollectionVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMProcessingInstructionImpl: Sized + IDispatchImpl + IXMLDOMNodeImpl {
+pub trait IXMLDOMProcessingInstruction_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
     fn target(&mut self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn data(&mut self, value: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Setdata(&mut self, value: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMProcessingInstructionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMProcessingInstructionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMProcessingInstructionVtbl {
-        unsafe extern "system" fn target<Impl: IXMLDOMProcessingInstructionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IXMLDOMProcessingInstruction_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMProcessingInstruction_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMProcessingInstruction_Vtbl {
+        unsafe extern "system" fn target<Impl: IXMLDOMProcessingInstruction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).target(::core::mem::transmute_copy(&name)).into()
         }
-        unsafe extern "system" fn data<Impl: IXMLDOMProcessingInstructionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn data<Impl: IXMLDOMProcessingInstruction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).data(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn Setdata<Impl: IXMLDOMProcessingInstructionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Setdata<Impl: IXMLDOMProcessingInstruction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Setdata(::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: IXMLDOMNodeVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IXMLDOMNode_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             target: target::<Impl, IMPL_OFFSET>,
             data: data::<Impl, IMPL_OFFSET>,
             Setdata: Setdata::<Impl, IMPL_OFFSET>,
@@ -4658,7 +4671,7 @@ impl IXMLDOMProcessingInstructionVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMSchemaCollectionImpl: Sized + IDispatchImpl {
+pub trait IXMLDOMSchemaCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn add(&mut self, namespaceuri: super::super::super::Foundation::BSTR, var: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn get(&mut self, namespaceuri: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
     fn remove(&mut self, namespaceuri: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
@@ -4668,13 +4681,13 @@ pub trait IXMLDOMSchemaCollectionImpl: Sized + IDispatchImpl {
     fn _newEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMSchemaCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMSchemaCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMSchemaCollectionVtbl {
-        unsafe extern "system" fn add<Impl: IXMLDOMSchemaCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, var: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+impl IXMLDOMSchemaCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMSchemaCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMSchemaCollection_Vtbl {
+        unsafe extern "system" fn add<Impl: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, var: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).add(::core::mem::transmute_copy(&namespaceuri), ::core::mem::transmute_copy(&var)).into()
         }
-        unsafe extern "system" fn get<Impl: IXMLDOMSchemaCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, schemanode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get<Impl: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, schemanode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).get(::core::mem::transmute_copy(&namespaceuri)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4684,11 +4697,11 @@ impl IXMLDOMSchemaCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn remove<Impl: IXMLDOMSchemaCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn remove<Impl: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).remove(::core::mem::transmute_copy(&namespaceuri)).into()
         }
-        unsafe extern "system" fn length<Impl: IXMLDOMSchemaCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn length<Impl: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).length() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4698,7 +4711,7 @@ impl IXMLDOMSchemaCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn namespaceURI<Impl: IXMLDOMSchemaCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, length: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn namespaceURI<Impl: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, length: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).namespaceURI(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4708,11 +4721,11 @@ impl IXMLDOMSchemaCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn addCollection<Impl: IXMLDOMSchemaCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, othercollection: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn addCollection<Impl: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, othercollection: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).addCollection(::core::mem::transmute(&othercollection)).into()
         }
-        unsafe extern "system" fn _newEnum<Impl: IXMLDOMSchemaCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn _newEnum<Impl: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._newEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4723,7 +4736,7 @@ impl IXMLDOMSchemaCollectionVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             add: add::<Impl, IMPL_OFFSET>,
             get: get::<Impl, IMPL_OFFSET>,
             remove: remove::<Impl, IMPL_OFFSET>,
@@ -4738,7 +4751,7 @@ impl IXMLDOMSchemaCollectionVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMSchemaCollection2Impl: Sized + IDispatchImpl + IXMLDOMSchemaCollectionImpl {
+pub trait IXMLDOMSchemaCollection2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMSchemaCollection_Impl {
     fn validate(&mut self) -> ::windows::core::Result<()>;
     fn SetvalidateOnLoad(&mut self, validateonload: i16) -> ::windows::core::Result<()>;
     fn validateOnLoad(&mut self) -> ::windows::core::Result<i16>;
@@ -4746,17 +4759,17 @@ pub trait IXMLDOMSchemaCollection2Impl: Sized + IDispatchImpl + IXMLDOMSchemaCol
     fn getDeclaration(&mut self, node: ::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<ISchemaItem>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMSchemaCollection2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMSchemaCollection2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMSchemaCollection2Vtbl {
-        unsafe extern "system" fn validate<Impl: IXMLDOMSchemaCollection2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IXMLDOMSchemaCollection2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMSchemaCollection2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMSchemaCollection2_Vtbl {
+        unsafe extern "system" fn validate<Impl: IXMLDOMSchemaCollection2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).validate().into()
         }
-        unsafe extern "system" fn SetvalidateOnLoad<Impl: IXMLDOMSchemaCollection2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, validateonload: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetvalidateOnLoad<Impl: IXMLDOMSchemaCollection2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, validateonload: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetvalidateOnLoad(::core::mem::transmute_copy(&validateonload)).into()
         }
-        unsafe extern "system" fn validateOnLoad<Impl: IXMLDOMSchemaCollection2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, validateonload: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn validateOnLoad<Impl: IXMLDOMSchemaCollection2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, validateonload: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).validateOnLoad() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4766,7 +4779,7 @@ impl IXMLDOMSchemaCollection2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getSchema<Impl: IXMLDOMSchemaCollection2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, schema: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getSchema<Impl: IXMLDOMSchemaCollection2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, schema: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getSchema(::core::mem::transmute_copy(&namespaceuri)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4776,7 +4789,7 @@ impl IXMLDOMSchemaCollection2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getDeclaration<Impl: IXMLDOMSchemaCollection2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, node: ::windows::core::RawPtr, item: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getDeclaration<Impl: IXMLDOMSchemaCollection2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, node: ::windows::core::RawPtr, item: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getDeclaration(::core::mem::transmute(&node)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4787,7 +4800,7 @@ impl IXMLDOMSchemaCollection2Vtbl {
             }
         }
         Self {
-            base: IXMLDOMSchemaCollectionVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IXMLDOMSchemaCollection_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             validate: validate::<Impl, IMPL_OFFSET>,
             SetvalidateOnLoad: SetvalidateOnLoad::<Impl, IMPL_OFFSET>,
             validateOnLoad: validateOnLoad::<Impl, IMPL_OFFSET>,
@@ -4800,7 +4813,7 @@ impl IXMLDOMSchemaCollection2Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMSelectionImpl: Sized + IDispatchImpl + IXMLDOMNodeListImpl {
+pub trait IXMLDOMSelection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNodeList_Impl {
     fn expr(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn Setexpr(&mut self, expression: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn context(&mut self) -> ::windows::core::Result<IXMLDOMNode>;
@@ -4814,9 +4827,9 @@ pub trait IXMLDOMSelectionImpl: Sized + IDispatchImpl + IXMLDOMNodeListImpl {
     fn setProperty(&mut self, name: super::super::super::Foundation::BSTR, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMSelectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMSelectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMSelectionVtbl {
-        unsafe extern "system" fn expr<Impl: IXMLDOMSelectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, expression: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IXMLDOMSelection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMSelection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMSelection_Vtbl {
+        unsafe extern "system" fn expr<Impl: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, expression: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).expr() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4826,11 +4839,11 @@ impl IXMLDOMSelectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Setexpr<Impl: IXMLDOMSelectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, expression: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Setexpr<Impl: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, expression: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Setexpr(::core::mem::transmute_copy(&expression)).into()
         }
-        unsafe extern "system" fn context<Impl: IXMLDOMSelectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn context<Impl: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).context() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4840,11 +4853,11 @@ impl IXMLDOMSelectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putref_context<Impl: IXMLDOMSelectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnode: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn putref_context<Impl: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnode: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putref_context(::core::mem::transmute(&pnode)).into()
         }
-        unsafe extern "system" fn peekNode<Impl: IXMLDOMSelectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn peekNode<Impl: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).peekNode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4854,7 +4867,7 @@ impl IXMLDOMSelectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn matches<Impl: IXMLDOMSelectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnode: ::windows::core::RawPtr, ppnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn matches<Impl: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnode: ::windows::core::RawPtr, ppnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).matches(::core::mem::transmute(&pnode)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4864,7 +4877,7 @@ impl IXMLDOMSelectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn removeNext<Impl: IXMLDOMSelectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn removeNext<Impl: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).removeNext() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4874,11 +4887,11 @@ impl IXMLDOMSelectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn removeAll<Impl: IXMLDOMSelectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn removeAll<Impl: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).removeAll().into()
         }
-        unsafe extern "system" fn clone<Impl: IXMLDOMSelectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn clone<Impl: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4888,7 +4901,7 @@ impl IXMLDOMSelectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getProperty<Impl: IXMLDOMSelectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getProperty<Impl: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getProperty(::core::mem::transmute_copy(&name)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4898,12 +4911,12 @@ impl IXMLDOMSelectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn setProperty<Impl: IXMLDOMSelectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, value: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn setProperty<Impl: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, value: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).setProperty(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base: IXMLDOMNodeListVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IXMLDOMNodeList_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             expr: expr::<Impl, IMPL_OFFSET>,
             Setexpr: Setexpr::<Impl, IMPL_OFFSET>,
             context: context::<Impl, IMPL_OFFSET>,
@@ -4922,13 +4935,13 @@ impl IXMLDOMSelectionVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMTextImpl: Sized + IDispatchImpl + IXMLDOMNodeImpl + IXMLDOMCharacterDataImpl {
+pub trait IXMLDOMText_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl + IXMLDOMCharacterData_Impl {
     fn splitText(&mut self, offset: i32) -> ::windows::core::Result<IXMLDOMText>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDOMTextVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMTextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMTextVtbl {
-        unsafe extern "system" fn splitText<Impl: IXMLDOMTextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: i32, righthandtextnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXMLDOMText_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMText_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDOMText_Vtbl {
+        unsafe extern "system" fn splitText<Impl: IXMLDOMText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: i32, righthandtextnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).splitText(::core::mem::transmute_copy(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4938,14 +4951,14 @@ impl IXMLDOMTextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IXMLDOMCharacterDataVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), splitText: splitText::<Impl, IMPL_OFFSET> }
+        Self { base: IXMLDOMCharacterData_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), splitText: splitText::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXMLDOMText as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDSOControlImpl: Sized + IDispatchImpl {
+pub trait IXMLDSOControl_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn XMLDocument(&mut self) -> ::windows::core::Result<IXMLDOMDocument>;
     fn SetXMLDocument(&mut self, ppdoc: ::core::option::Option<IXMLDOMDocument>) -> ::windows::core::Result<()>;
     fn JavaDSOCompatible(&mut self, fjavadsocompatible: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -4953,9 +4966,9 @@ pub trait IXMLDSOControlImpl: Sized + IDispatchImpl {
     fn readyState(&mut self, state: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDSOControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDSOControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDSOControlVtbl {
-        unsafe extern "system" fn XMLDocument<Impl: IXMLDSOControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdoc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXMLDSOControl_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDSOControl_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDSOControl_Vtbl {
+        unsafe extern "system" fn XMLDocument<Impl: IXMLDSOControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdoc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).XMLDocument() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4965,24 +4978,24 @@ impl IXMLDSOControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetXMLDocument<Impl: IXMLDSOControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdoc: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetXMLDocument<Impl: IXMLDSOControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdoc: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetXMLDocument(::core::mem::transmute(&ppdoc)).into()
         }
-        unsafe extern "system" fn JavaDSOCompatible<Impl: IXMLDSOControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fjavadsocompatible: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn JavaDSOCompatible<Impl: IXMLDSOControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fjavadsocompatible: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).JavaDSOCompatible(::core::mem::transmute_copy(&fjavadsocompatible)).into()
         }
-        unsafe extern "system" fn SetJavaDSOCompatible<Impl: IXMLDSOControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fjavadsocompatible: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetJavaDSOCompatible<Impl: IXMLDSOControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fjavadsocompatible: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetJavaDSOCompatible(::core::mem::transmute_copy(&fjavadsocompatible)).into()
         }
-        unsafe extern "system" fn readyState<Impl: IXMLDSOControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn readyState<Impl: IXMLDSOControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).readyState(::core::mem::transmute_copy(&state)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             XMLDocument: XMLDocument::<Impl, IMPL_OFFSET>,
             SetXMLDocument: SetXMLDocument::<Impl, IMPL_OFFSET>,
             JavaDSOCompatible: JavaDSOCompatible::<Impl, IMPL_OFFSET>,
@@ -4995,7 +5008,7 @@ impl IXMLDSOControlVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDocumentImpl: Sized + IDispatchImpl {
+pub trait IXMLDocument_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn root(&mut self) -> ::windows::core::Result<IXMLElement>;
     fn fileSize(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn fileModifiedDate(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
@@ -5012,9 +5025,9 @@ pub trait IXMLDocumentImpl: Sized + IDispatchImpl {
     fn createElement(&mut self, vtype: super::super::super::System::Com::VARIANT, var1: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLElement>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDocumentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDocumentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDocumentVtbl {
-        unsafe extern "system" fn root<Impl: IXMLDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXMLDocument_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDocument_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDocument_Vtbl {
+        unsafe extern "system" fn root<Impl: IXMLDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).root() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5024,7 +5037,7 @@ impl IXMLDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn fileSize<Impl: IXMLDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn fileSize<Impl: IXMLDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).fileSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5034,7 +5047,7 @@ impl IXMLDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn fileModifiedDate<Impl: IXMLDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn fileModifiedDate<Impl: IXMLDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).fileModifiedDate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5044,7 +5057,7 @@ impl IXMLDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn fileUpdatedDate<Impl: IXMLDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn fileUpdatedDate<Impl: IXMLDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).fileUpdatedDate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5054,7 +5067,7 @@ impl IXMLDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn URL<Impl: IXMLDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn URL<Impl: IXMLDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).URL() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5064,11 +5077,11 @@ impl IXMLDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetURL<Impl: IXMLDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetURL<Impl: IXMLDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetURL(::core::mem::transmute_copy(&p)).into()
         }
-        unsafe extern "system" fn mimeType<Impl: IXMLDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn mimeType<Impl: IXMLDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).mimeType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5078,7 +5091,7 @@ impl IXMLDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn readyState<Impl: IXMLDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pl: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn readyState<Impl: IXMLDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pl: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).readyState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5088,7 +5101,7 @@ impl IXMLDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn charset<Impl: IXMLDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn charset<Impl: IXMLDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).charset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5098,11 +5111,11 @@ impl IXMLDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Setcharset<Impl: IXMLDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Setcharset<Impl: IXMLDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Setcharset(::core::mem::transmute_copy(&p)).into()
         }
-        unsafe extern "system" fn version<Impl: IXMLDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn version<Impl: IXMLDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).version() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5112,7 +5125,7 @@ impl IXMLDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn doctype<Impl: IXMLDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn doctype<Impl: IXMLDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).doctype() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5122,7 +5135,7 @@ impl IXMLDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn dtdURL<Impl: IXMLDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn dtdURL<Impl: IXMLDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).dtdURL() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5132,7 +5145,7 @@ impl IXMLDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn createElement<Impl: IXMLDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vtype: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, var1: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ppelem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn createElement<Impl: IXMLDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vtype: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, var1: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ppelem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).createElement(::core::mem::transmute_copy(&vtype), ::core::mem::transmute_copy(&var1)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5143,7 +5156,7 @@ impl IXMLDocumentVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             root: root::<Impl, IMPL_OFFSET>,
             fileSize: fileSize::<Impl, IMPL_OFFSET>,
             fileModifiedDate: fileModifiedDate::<Impl, IMPL_OFFSET>,
@@ -5165,7 +5178,7 @@ impl IXMLDocumentVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDocument2Impl: Sized + IDispatchImpl {
+pub trait IXMLDocument2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn root(&mut self) -> ::windows::core::Result<IXMLElement2>;
     fn fileSize(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn fileModifiedDate(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
@@ -5184,9 +5197,9 @@ pub trait IXMLDocument2Impl: Sized + IDispatchImpl {
     fn Setasync(&mut self, f: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLDocument2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDocument2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDocument2Vtbl {
-        unsafe extern "system" fn root<Impl: IXMLDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXMLDocument2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDocument2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLDocument2_Vtbl {
+        unsafe extern "system" fn root<Impl: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).root() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5196,7 +5209,7 @@ impl IXMLDocument2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn fileSize<Impl: IXMLDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn fileSize<Impl: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).fileSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5206,7 +5219,7 @@ impl IXMLDocument2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn fileModifiedDate<Impl: IXMLDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn fileModifiedDate<Impl: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).fileModifiedDate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5216,7 +5229,7 @@ impl IXMLDocument2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn fileUpdatedDate<Impl: IXMLDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn fileUpdatedDate<Impl: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).fileUpdatedDate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5226,7 +5239,7 @@ impl IXMLDocument2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn URL<Impl: IXMLDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn URL<Impl: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).URL() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5236,11 +5249,11 @@ impl IXMLDocument2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetURL<Impl: IXMLDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetURL<Impl: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetURL(::core::mem::transmute_copy(&p)).into()
         }
-        unsafe extern "system" fn mimeType<Impl: IXMLDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn mimeType<Impl: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).mimeType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5250,7 +5263,7 @@ impl IXMLDocument2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn readyState<Impl: IXMLDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pl: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn readyState<Impl: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pl: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).readyState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5260,7 +5273,7 @@ impl IXMLDocument2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn charset<Impl: IXMLDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn charset<Impl: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).charset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5270,11 +5283,11 @@ impl IXMLDocument2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Setcharset<Impl: IXMLDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Setcharset<Impl: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Setcharset(::core::mem::transmute_copy(&p)).into()
         }
-        unsafe extern "system" fn version<Impl: IXMLDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn version<Impl: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).version() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5284,7 +5297,7 @@ impl IXMLDocument2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn doctype<Impl: IXMLDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn doctype<Impl: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).doctype() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5294,7 +5307,7 @@ impl IXMLDocument2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn dtdURL<Impl: IXMLDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn dtdURL<Impl: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).dtdURL() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5304,7 +5317,7 @@ impl IXMLDocument2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn createElement<Impl: IXMLDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vtype: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, var1: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ppelem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn createElement<Impl: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vtype: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, var1: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ppelem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).createElement(::core::mem::transmute_copy(&vtype), ::core::mem::transmute_copy(&var1)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5314,7 +5327,7 @@ impl IXMLDocument2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn r#async<Impl: IXMLDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pf: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn r#async<Impl: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pf: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).r#async() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5324,12 +5337,12 @@ impl IXMLDocument2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Setasync<Impl: IXMLDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, f: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Setasync<Impl: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, f: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Setasync(::core::mem::transmute_copy(&f)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             root: root::<Impl, IMPL_OFFSET>,
             fileSize: fileSize::<Impl, IMPL_OFFSET>,
             fileModifiedDate: fileModifiedDate::<Impl, IMPL_OFFSET>,
@@ -5353,7 +5366,7 @@ impl IXMLDocument2Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLElementImpl: Sized + IDispatchImpl {
+pub trait IXMLElement_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn tagName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn SettagName(&mut self, p: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn parent(&mut self) -> ::windows::core::Result<IXMLElement>;
@@ -5368,9 +5381,9 @@ pub trait IXMLElementImpl: Sized + IDispatchImpl {
     fn removeChild(&mut self, pchildelem: ::core::option::Option<IXMLElement>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLElementVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLElementImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLElementVtbl {
-        unsafe extern "system" fn tagName<Impl: IXMLElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IXMLElement_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLElement_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLElement_Vtbl {
+        unsafe extern "system" fn tagName<Impl: IXMLElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).tagName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5380,11 +5393,11 @@ impl IXMLElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SettagName<Impl: IXMLElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SettagName<Impl: IXMLElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SettagName(::core::mem::transmute_copy(&p)).into()
         }
-        unsafe extern "system" fn parent<Impl: IXMLElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppparent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn parent<Impl: IXMLElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppparent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).parent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5394,11 +5407,11 @@ impl IXMLElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn setAttribute<Impl: IXMLElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, propertyvalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn setAttribute<Impl: IXMLElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, propertyvalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).setAttribute(::core::mem::transmute_copy(&strpropertyname), ::core::mem::transmute_copy(&propertyvalue)).into()
         }
-        unsafe extern "system" fn getAttribute<Impl: IXMLElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, propertyvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getAttribute<Impl: IXMLElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, propertyvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getAttribute(::core::mem::transmute_copy(&strpropertyname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5408,11 +5421,11 @@ impl IXMLElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn removeAttribute<Impl: IXMLElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn removeAttribute<Impl: IXMLElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).removeAttribute(::core::mem::transmute_copy(&strpropertyname)).into()
         }
-        unsafe extern "system" fn children<Impl: IXMLElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn children<Impl: IXMLElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).children() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5422,7 +5435,7 @@ impl IXMLElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn r#type<Impl: IXMLElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pltype: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn r#type<Impl: IXMLElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pltype: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).r#type() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5432,7 +5445,7 @@ impl IXMLElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn text<Impl: IXMLElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn text<Impl: IXMLElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).text() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5442,20 +5455,20 @@ impl IXMLElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Settext<Impl: IXMLElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Settext<Impl: IXMLElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Settext(::core::mem::transmute_copy(&p)).into()
         }
-        unsafe extern "system" fn addChild<Impl: IXMLElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchildelem: ::windows::core::RawPtr, lindex: i32, lreserved: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn addChild<Impl: IXMLElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchildelem: ::windows::core::RawPtr, lindex: i32, lreserved: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).addChild(::core::mem::transmute(&pchildelem), ::core::mem::transmute_copy(&lindex), ::core::mem::transmute_copy(&lreserved)).into()
         }
-        unsafe extern "system" fn removeChild<Impl: IXMLElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchildelem: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn removeChild<Impl: IXMLElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchildelem: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).removeChild(::core::mem::transmute(&pchildelem)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             tagName: tagName::<Impl, IMPL_OFFSET>,
             SettagName: SettagName::<Impl, IMPL_OFFSET>,
             parent: parent::<Impl, IMPL_OFFSET>,
@@ -5475,7 +5488,7 @@ impl IXMLElementVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLElement2Impl: Sized + IDispatchImpl {
+pub trait IXMLElement2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn tagName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn SettagName(&mut self, p: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn parent(&mut self) -> ::windows::core::Result<IXMLElement2>;
@@ -5491,9 +5504,9 @@ pub trait IXMLElement2Impl: Sized + IDispatchImpl {
     fn attributes(&mut self) -> ::windows::core::Result<IXMLElementCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLElement2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLElement2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLElement2Vtbl {
-        unsafe extern "system" fn tagName<Impl: IXMLElement2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IXMLElement2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLElement2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLElement2_Vtbl {
+        unsafe extern "system" fn tagName<Impl: IXMLElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).tagName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5503,11 +5516,11 @@ impl IXMLElement2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SettagName<Impl: IXMLElement2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SettagName<Impl: IXMLElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SettagName(::core::mem::transmute_copy(&p)).into()
         }
-        unsafe extern "system" fn parent<Impl: IXMLElement2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppparent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn parent<Impl: IXMLElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppparent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).parent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5517,11 +5530,11 @@ impl IXMLElement2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn setAttribute<Impl: IXMLElement2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, propertyvalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn setAttribute<Impl: IXMLElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, propertyvalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).setAttribute(::core::mem::transmute_copy(&strpropertyname), ::core::mem::transmute_copy(&propertyvalue)).into()
         }
-        unsafe extern "system" fn getAttribute<Impl: IXMLElement2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, propertyvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getAttribute<Impl: IXMLElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, propertyvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getAttribute(::core::mem::transmute_copy(&strpropertyname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5531,11 +5544,11 @@ impl IXMLElement2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn removeAttribute<Impl: IXMLElement2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn removeAttribute<Impl: IXMLElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).removeAttribute(::core::mem::transmute_copy(&strpropertyname)).into()
         }
-        unsafe extern "system" fn children<Impl: IXMLElement2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn children<Impl: IXMLElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).children() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5545,7 +5558,7 @@ impl IXMLElement2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn r#type<Impl: IXMLElement2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pltype: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn r#type<Impl: IXMLElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pltype: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).r#type() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5555,7 +5568,7 @@ impl IXMLElement2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn text<Impl: IXMLElement2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn text<Impl: IXMLElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).text() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5565,19 +5578,19 @@ impl IXMLElement2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Settext<Impl: IXMLElement2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Settext<Impl: IXMLElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Settext(::core::mem::transmute_copy(&p)).into()
         }
-        unsafe extern "system" fn addChild<Impl: IXMLElement2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchildelem: ::windows::core::RawPtr, lindex: i32, lreserved: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn addChild<Impl: IXMLElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchildelem: ::windows::core::RawPtr, lindex: i32, lreserved: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).addChild(::core::mem::transmute(&pchildelem), ::core::mem::transmute_copy(&lindex), ::core::mem::transmute_copy(&lreserved)).into()
         }
-        unsafe extern "system" fn removeChild<Impl: IXMLElement2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchildelem: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn removeChild<Impl: IXMLElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchildelem: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).removeChild(::core::mem::transmute(&pchildelem)).into()
         }
-        unsafe extern "system" fn attributes<Impl: IXMLElement2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn attributes<Impl: IXMLElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).attributes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5588,7 +5601,7 @@ impl IXMLElement2Vtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             tagName: tagName::<Impl, IMPL_OFFSET>,
             SettagName: SettagName::<Impl, IMPL_OFFSET>,
             parent: parent::<Impl, IMPL_OFFSET>,
@@ -5609,20 +5622,20 @@ impl IXMLElement2Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLElementCollectionImpl: Sized + IDispatchImpl {
+pub trait IXMLElementCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Setlength(&mut self, v: i32) -> ::windows::core::Result<()>;
     fn length(&mut self) -> ::windows::core::Result<i32>;
     fn _newEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn item(&mut self, var1: super::super::super::System::Com::VARIANT, var2: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::System::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLElementCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLElementCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLElementCollectionVtbl {
-        unsafe extern "system" fn Setlength<Impl: IXMLElementCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, v: i32) -> ::windows::core::HRESULT {
+impl IXMLElementCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLElementCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLElementCollection_Vtbl {
+        unsafe extern "system" fn Setlength<Impl: IXMLElementCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, v: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Setlength(::core::mem::transmute_copy(&v)).into()
         }
-        unsafe extern "system" fn length<Impl: IXMLElementCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn length<Impl: IXMLElementCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, p: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).length() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5632,7 +5645,7 @@ impl IXMLElementCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn _newEnum<Impl: IXMLElementCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn _newEnum<Impl: IXMLElementCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._newEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5642,7 +5655,7 @@ impl IXMLElementCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn item<Impl: IXMLElementCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, var1: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, var2: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn item<Impl: IXMLElementCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, var1: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, var2: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).item(::core::mem::transmute_copy(&var1), ::core::mem::transmute_copy(&var2)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5653,7 +5666,7 @@ impl IXMLElementCollectionVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Setlength: Setlength::<Impl, IMPL_OFFSET>,
             length: length::<Impl, IMPL_OFFSET>,
             _newEnum: _newEnum::<Impl, IMPL_OFFSET>,
@@ -5665,13 +5678,13 @@ impl IXMLElementCollectionVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IXMLErrorImpl: Sized {
+pub trait IXMLError_Impl: Sized {
     fn GetErrorInfo(&mut self, perrorreturn: *mut XML_ERROR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IXMLErrorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLErrorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLErrorVtbl {
-        unsafe extern "system" fn GetErrorInfo<Impl: IXMLErrorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, perrorreturn: *mut XML_ERROR) -> ::windows::core::HRESULT {
+impl IXMLError_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLError_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLError_Vtbl {
+        unsafe extern "system" fn GetErrorInfo<Impl: IXMLError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, perrorreturn: *mut XML_ERROR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetErrorInfo(::core::mem::transmute_copy(&perrorreturn)).into()
         }
@@ -5682,7 +5695,7 @@ impl IXMLErrorVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLHTTPRequestImpl: Sized + IDispatchImpl {
+pub trait IXMLHTTPRequest_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn open(&mut self, bstrmethod: super::super::super::Foundation::BSTR, bstrurl: super::super::super::Foundation::BSTR, varasync: super::super::super::System::Com::VARIANT, bstruser: super::super::super::System::Com::VARIANT, bstrpassword: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn setRequestHeader(&mut self, bstrheader: super::super::super::Foundation::BSTR, bstrvalue: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn getResponseHeader(&mut self, bstrheader: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
@@ -5699,17 +5712,17 @@ pub trait IXMLHTTPRequestImpl: Sized + IDispatchImpl {
     fn Setonreadystatechange(&mut self, preadystatesink: ::core::option::Option<super::super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLHTTPRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLHTTPRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLHTTPRequestVtbl {
-        unsafe extern "system" fn open<Impl: IXMLHTTPRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmethod: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, varasync: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstruser: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstrpassword: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+impl IXMLHTTPRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLHTTPRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLHTTPRequest_Vtbl {
+        unsafe extern "system" fn open<Impl: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmethod: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, varasync: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstruser: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstrpassword: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).open(::core::mem::transmute_copy(&bstrmethod), ::core::mem::transmute_copy(&bstrurl), ::core::mem::transmute_copy(&varasync), ::core::mem::transmute_copy(&bstruser), ::core::mem::transmute_copy(&bstrpassword)).into()
         }
-        unsafe extern "system" fn setRequestHeader<Impl: IXMLHTTPRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrheader: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrvalue: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn setRequestHeader<Impl: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrheader: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrvalue: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).setRequestHeader(::core::mem::transmute_copy(&bstrheader), ::core::mem::transmute_copy(&bstrvalue)).into()
         }
-        unsafe extern "system" fn getResponseHeader<Impl: IXMLHTTPRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrheader: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getResponseHeader<Impl: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrheader: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getResponseHeader(::core::mem::transmute_copy(&bstrheader)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5719,7 +5732,7 @@ impl IXMLHTTPRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getAllResponseHeaders<Impl: IXMLHTTPRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrheaders: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getAllResponseHeaders<Impl: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrheaders: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getAllResponseHeaders() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5729,15 +5742,15 @@ impl IXMLHTTPRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn send<Impl: IXMLHTTPRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varbody: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn send<Impl: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varbody: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).send(::core::mem::transmute_copy(&varbody)).into()
         }
-        unsafe extern "system" fn abort<Impl: IXMLHTTPRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn abort<Impl: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).abort().into()
         }
-        unsafe extern "system" fn status<Impl: IXMLHTTPRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plstatus: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn status<Impl: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plstatus: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5747,7 +5760,7 @@ impl IXMLHTTPRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn statusText<Impl: IXMLHTTPRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstatus: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn statusText<Impl: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstatus: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).statusText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5757,7 +5770,7 @@ impl IXMLHTTPRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn responseXML<Impl: IXMLHTTPRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppbody: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn responseXML<Impl: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppbody: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).responseXML() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5767,7 +5780,7 @@ impl IXMLHTTPRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn responseText<Impl: IXMLHTTPRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbody: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn responseText<Impl: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbody: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).responseText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5777,7 +5790,7 @@ impl IXMLHTTPRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn responseBody<Impl: IXMLHTTPRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarbody: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn responseBody<Impl: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarbody: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).responseBody() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5787,7 +5800,7 @@ impl IXMLHTTPRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn responseStream<Impl: IXMLHTTPRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarbody: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn responseStream<Impl: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarbody: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).responseStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5797,7 +5810,7 @@ impl IXMLHTTPRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn readyState<Impl: IXMLHTTPRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plstate: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn readyState<Impl: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plstate: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).readyState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5807,12 +5820,12 @@ impl IXMLHTTPRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Setonreadystatechange<Impl: IXMLHTTPRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preadystatesink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Setonreadystatechange<Impl: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preadystatesink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Setonreadystatechange(::core::mem::transmute(&preadystatesink)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             open: open::<Impl, IMPL_OFFSET>,
             setRequestHeader: setRequestHeader::<Impl, IMPL_OFFSET>,
             getResponseHeader: getResponseHeader::<Impl, IMPL_OFFSET>,
@@ -5834,7 +5847,7 @@ impl IXMLHTTPRequestVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IXMLHTTPRequest2Impl: Sized {
+pub trait IXMLHTTPRequest2_Impl: Sized {
     fn Open(&mut self, pwszmethod: super::super::super::Foundation::PWSTR, pwszurl: super::super::super::Foundation::PWSTR, pstatuscallback: ::core::option::Option<IXMLHTTPRequest2Callback>, pwszusername: super::super::super::Foundation::PWSTR, pwszpassword: super::super::super::Foundation::PWSTR, pwszproxyusername: super::super::super::Foundation::PWSTR, pwszproxypassword: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn Send(&mut self, pbody: ::core::option::Option<super::super::super::System::Com::ISequentialStream>, cbbody: u64) -> ::windows::core::Result<()>;
     fn Abort(&mut self) -> ::windows::core::Result<()>;
@@ -5847,21 +5860,21 @@ pub trait IXMLHTTPRequest2Impl: Sized {
     fn GetResponseHeader(&mut self, pwszheader: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<*mut u16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl IXMLHTTPRequest2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLHTTPRequest2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLHTTPRequest2Vtbl {
-        unsafe extern "system" fn Open<Impl: IXMLHTTPRequest2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszmethod: super::super::super::Foundation::PWSTR, pwszurl: super::super::super::Foundation::PWSTR, pstatuscallback: ::windows::core::RawPtr, pwszusername: super::super::super::Foundation::PWSTR, pwszpassword: super::super::super::Foundation::PWSTR, pwszproxyusername: super::super::super::Foundation::PWSTR, pwszproxypassword: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+impl IXMLHTTPRequest2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLHTTPRequest2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLHTTPRequest2_Vtbl {
+        unsafe extern "system" fn Open<Impl: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszmethod: super::super::super::Foundation::PWSTR, pwszurl: super::super::super::Foundation::PWSTR, pstatuscallback: ::windows::core::RawPtr, pwszusername: super::super::super::Foundation::PWSTR, pwszpassword: super::super::super::Foundation::PWSTR, pwszproxyusername: super::super::super::Foundation::PWSTR, pwszproxypassword: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Open(::core::mem::transmute_copy(&pwszmethod), ::core::mem::transmute_copy(&pwszurl), ::core::mem::transmute(&pstatuscallback), ::core::mem::transmute_copy(&pwszusername), ::core::mem::transmute_copy(&pwszpassword), ::core::mem::transmute_copy(&pwszproxyusername), ::core::mem::transmute_copy(&pwszproxypassword)).into()
         }
-        unsafe extern "system" fn Send<Impl: IXMLHTTPRequest2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbody: ::windows::core::RawPtr, cbbody: u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Send<Impl: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbody: ::windows::core::RawPtr, cbbody: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Send(::core::mem::transmute(&pbody), ::core::mem::transmute_copy(&cbbody)).into()
         }
-        unsafe extern "system" fn Abort<Impl: IXMLHTTPRequest2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Abort<Impl: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Abort().into()
         }
-        unsafe extern "system" fn SetCookie<Impl: IXMLHTTPRequest2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcookie: *const XHR_COOKIE, pdwcookiestate: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCookie<Impl: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcookie: *const XHR_COOKIE, pdwcookiestate: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetCookie(::core::mem::transmute_copy(&pcookie)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5871,19 +5884,19 @@ impl IXMLHTTPRequest2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCustomResponseStream<Impl: IXMLHTTPRequest2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psequentialstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCustomResponseStream<Impl: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psequentialstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCustomResponseStream(::core::mem::transmute(&psequentialstream)).into()
         }
-        unsafe extern "system" fn SetProperty<Impl: IXMLHTTPRequest2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eproperty: XHR_PROPERTY, ullvalue: u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProperty<Impl: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eproperty: XHR_PROPERTY, ullvalue: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProperty(::core::mem::transmute_copy(&eproperty), ::core::mem::transmute_copy(&ullvalue)).into()
         }
-        unsafe extern "system" fn SetRequestHeader<Impl: IXMLHTTPRequest2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszheader: super::super::super::Foundation::PWSTR, pwszvalue: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRequestHeader<Impl: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszheader: super::super::super::Foundation::PWSTR, pwszvalue: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRequestHeader(::core::mem::transmute_copy(&pwszheader), ::core::mem::transmute_copy(&pwszvalue)).into()
         }
-        unsafe extern "system" fn GetAllResponseHeaders<Impl: IXMLHTTPRequest2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszheaders: *mut *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAllResponseHeaders<Impl: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszheaders: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAllResponseHeaders() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5893,11 +5906,11 @@ impl IXMLHTTPRequest2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCookie<Impl: IXMLHTTPRequest2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::super::Foundation::PWSTR, pwszname: super::super::super::Foundation::PWSTR, dwflags: u32, pccookies: *mut u32, ppcookies: *mut *mut XHR_COOKIE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCookie<Impl: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::super::Foundation::PWSTR, pwszname: super::super::super::Foundation::PWSTR, dwflags: u32, pccookies: *mut u32, ppcookies: *mut *mut XHR_COOKIE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetCookie(::core::mem::transmute_copy(&pwszurl), ::core::mem::transmute_copy(&pwszname), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pccookies), ::core::mem::transmute_copy(&ppcookies)).into()
         }
-        unsafe extern "system" fn GetResponseHeader<Impl: IXMLHTTPRequest2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszheader: super::super::super::Foundation::PWSTR, ppwszvalue: *mut *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetResponseHeader<Impl: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszheader: super::super::super::Foundation::PWSTR, ppwszvalue: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetResponseHeader(::core::mem::transmute_copy(&pwszheader)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5926,7 +5939,7 @@ impl IXMLHTTPRequest2Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IXMLHTTPRequest2CallbackImpl: Sized {
+pub trait IXMLHTTPRequest2Callback_Impl: Sized {
     fn OnRedirect(&mut self, pxhr: ::core::option::Option<IXMLHTTPRequest2>, pwszredirecturl: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn OnHeadersAvailable(&mut self, pxhr: ::core::option::Option<IXMLHTTPRequest2>, dwstatus: u32, pwszstatus: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn OnDataAvailable(&mut self, pxhr: ::core::option::Option<IXMLHTTPRequest2>, presponsestream: ::core::option::Option<super::super::super::System::Com::ISequentialStream>) -> ::windows::core::Result<()>;
@@ -5934,25 +5947,25 @@ pub trait IXMLHTTPRequest2CallbackImpl: Sized {
     fn OnError(&mut self, pxhr: ::core::option::Option<IXMLHTTPRequest2>, hrerror: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl IXMLHTTPRequest2CallbackVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLHTTPRequest2CallbackImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLHTTPRequest2CallbackVtbl {
-        unsafe extern "system" fn OnRedirect<Impl: IXMLHTTPRequest2CallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxhr: ::windows::core::RawPtr, pwszredirecturl: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+impl IXMLHTTPRequest2Callback_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLHTTPRequest2Callback_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLHTTPRequest2Callback_Vtbl {
+        unsafe extern "system" fn OnRedirect<Impl: IXMLHTTPRequest2Callback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxhr: ::windows::core::RawPtr, pwszredirecturl: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnRedirect(::core::mem::transmute(&pxhr), ::core::mem::transmute_copy(&pwszredirecturl)).into()
         }
-        unsafe extern "system" fn OnHeadersAvailable<Impl: IXMLHTTPRequest2CallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxhr: ::windows::core::RawPtr, dwstatus: u32, pwszstatus: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnHeadersAvailable<Impl: IXMLHTTPRequest2Callback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxhr: ::windows::core::RawPtr, dwstatus: u32, pwszstatus: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnHeadersAvailable(::core::mem::transmute(&pxhr), ::core::mem::transmute_copy(&dwstatus), ::core::mem::transmute_copy(&pwszstatus)).into()
         }
-        unsafe extern "system" fn OnDataAvailable<Impl: IXMLHTTPRequest2CallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxhr: ::windows::core::RawPtr, presponsestream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnDataAvailable<Impl: IXMLHTTPRequest2Callback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxhr: ::windows::core::RawPtr, presponsestream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnDataAvailable(::core::mem::transmute(&pxhr), ::core::mem::transmute(&presponsestream)).into()
         }
-        unsafe extern "system" fn OnResponseReceived<Impl: IXMLHTTPRequest2CallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxhr: ::windows::core::RawPtr, presponsestream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnResponseReceived<Impl: IXMLHTTPRequest2Callback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxhr: ::windows::core::RawPtr, presponsestream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnResponseReceived(::core::mem::transmute(&pxhr), ::core::mem::transmute(&presponsestream)).into()
         }
-        unsafe extern "system" fn OnError<Impl: IXMLHTTPRequest2CallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxhr: ::windows::core::RawPtr, hrerror: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnError<Impl: IXMLHTTPRequest2Callback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxhr: ::windows::core::RawPtr, hrerror: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnError(::core::mem::transmute(&pxhr), ::core::mem::transmute_copy(&hrerror)).into()
         }
@@ -5970,40 +5983,40 @@ impl IXMLHTTPRequest2CallbackVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IXMLHTTPRequest3Impl: Sized + IXMLHTTPRequest2Impl {
+pub trait IXMLHTTPRequest3_Impl: Sized + IXMLHTTPRequest2_Impl {
     fn SetClientCertificate(&mut self, cbclientcertificatehash: u32, pbclientcertificatehash: *const u8, pwszpin: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl IXMLHTTPRequest3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLHTTPRequest3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLHTTPRequest3Vtbl {
-        unsafe extern "system" fn SetClientCertificate<Impl: IXMLHTTPRequest3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbclientcertificatehash: u32, pbclientcertificatehash: *const u8, pwszpin: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+impl IXMLHTTPRequest3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLHTTPRequest3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLHTTPRequest3_Vtbl {
+        unsafe extern "system" fn SetClientCertificate<Impl: IXMLHTTPRequest3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbclientcertificatehash: u32, pbclientcertificatehash: *const u8, pwszpin: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetClientCertificate(::core::mem::transmute_copy(&cbclientcertificatehash), ::core::mem::transmute_copy(&pbclientcertificatehash), ::core::mem::transmute_copy(&pwszpin)).into()
         }
-        Self { base: IXMLHTTPRequest2Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), SetClientCertificate: SetClientCertificate::<Impl, IMPL_OFFSET> }
+        Self { base: IXMLHTTPRequest2_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), SetClientCertificate: SetClientCertificate::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXMLHTTPRequest3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IXMLHTTPRequest3CallbackImpl: Sized + IXMLHTTPRequest2CallbackImpl {
+pub trait IXMLHTTPRequest3Callback_Impl: Sized + IXMLHTTPRequest2Callback_Impl {
     fn OnServerCertificateReceived(&mut self, pxhr: ::core::option::Option<IXMLHTTPRequest3>, dwcertificateerrors: u32, cservercertificatechain: u32, rgservercertificatechain: *const XHR_CERT) -> ::windows::core::Result<()>;
     fn OnClientCertificateRequested(&mut self, pxhr: ::core::option::Option<IXMLHTTPRequest3>, cissuerlist: u32, rgpwszissuerlist: *const *const u16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl IXMLHTTPRequest3CallbackVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLHTTPRequest3CallbackImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLHTTPRequest3CallbackVtbl {
-        unsafe extern "system" fn OnServerCertificateReceived<Impl: IXMLHTTPRequest3CallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxhr: ::windows::core::RawPtr, dwcertificateerrors: u32, cservercertificatechain: u32, rgservercertificatechain: *const XHR_CERT) -> ::windows::core::HRESULT {
+impl IXMLHTTPRequest3Callback_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLHTTPRequest3Callback_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLHTTPRequest3Callback_Vtbl {
+        unsafe extern "system" fn OnServerCertificateReceived<Impl: IXMLHTTPRequest3Callback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxhr: ::windows::core::RawPtr, dwcertificateerrors: u32, cservercertificatechain: u32, rgservercertificatechain: *const XHR_CERT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnServerCertificateReceived(::core::mem::transmute(&pxhr), ::core::mem::transmute_copy(&dwcertificateerrors), ::core::mem::transmute_copy(&cservercertificatechain), ::core::mem::transmute_copy(&rgservercertificatechain)).into()
         }
-        unsafe extern "system" fn OnClientCertificateRequested<Impl: IXMLHTTPRequest3CallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxhr: ::windows::core::RawPtr, cissuerlist: u32, rgpwszissuerlist: *const *const u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnClientCertificateRequested<Impl: IXMLHTTPRequest3Callback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxhr: ::windows::core::RawPtr, cissuerlist: u32, rgpwszissuerlist: *const *const u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnClientCertificateRequested(::core::mem::transmute(&pxhr), ::core::mem::transmute_copy(&cissuerlist), ::core::mem::transmute_copy(&rgpwszissuerlist)).into()
         }
         Self {
-            base: IXMLHTTPRequest2CallbackVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IXMLHTTPRequest2Callback_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             OnServerCertificateReceived: OnServerCertificateReceived::<Impl, IMPL_OFFSET>,
             OnClientCertificateRequested: OnClientCertificateRequested::<Impl, IMPL_OFFSET>,
         }
@@ -6013,7 +6026,7 @@ impl IXMLHTTPRequest3CallbackVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLHttpRequestImpl: Sized + IDispatchImpl {
+pub trait IXMLHttpRequest_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn open(&mut self, bstrmethod: super::super::super::Foundation::BSTR, bstrurl: super::super::super::Foundation::BSTR, varasync: super::super::super::System::Com::VARIANT, bstruser: super::super::super::System::Com::VARIANT, bstrpassword: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn setRequestHeader(&mut self, bstrheader: super::super::super::Foundation::BSTR, bstrvalue: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn getResponseHeader(&mut self, bstrheader: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
@@ -6030,17 +6043,17 @@ pub trait IXMLHttpRequestImpl: Sized + IDispatchImpl {
     fn Setonreadystatechange(&mut self, preadystatesink: ::core::option::Option<super::super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXMLHttpRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLHttpRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLHttpRequestVtbl {
-        unsafe extern "system" fn open<Impl: IXMLHttpRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmethod: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, varasync: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstruser: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstrpassword: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+impl IXMLHttpRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLHttpRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLHttpRequest_Vtbl {
+        unsafe extern "system" fn open<Impl: IXMLHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmethod: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, varasync: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstruser: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstrpassword: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).open(::core::mem::transmute_copy(&bstrmethod), ::core::mem::transmute_copy(&bstrurl), ::core::mem::transmute_copy(&varasync), ::core::mem::transmute_copy(&bstruser), ::core::mem::transmute_copy(&bstrpassword)).into()
         }
-        unsafe extern "system" fn setRequestHeader<Impl: IXMLHttpRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrheader: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrvalue: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn setRequestHeader<Impl: IXMLHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrheader: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrvalue: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).setRequestHeader(::core::mem::transmute_copy(&bstrheader), ::core::mem::transmute_copy(&bstrvalue)).into()
         }
-        unsafe extern "system" fn getResponseHeader<Impl: IXMLHttpRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrheader: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getResponseHeader<Impl: IXMLHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrheader: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getResponseHeader(::core::mem::transmute_copy(&bstrheader)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6050,7 +6063,7 @@ impl IXMLHttpRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getAllResponseHeaders<Impl: IXMLHttpRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrheaders: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getAllResponseHeaders<Impl: IXMLHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrheaders: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).getAllResponseHeaders() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6060,15 +6073,15 @@ impl IXMLHttpRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn send<Impl: IXMLHttpRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varbody: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn send<Impl: IXMLHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varbody: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).send(::core::mem::transmute_copy(&varbody)).into()
         }
-        unsafe extern "system" fn abort<Impl: IXMLHttpRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn abort<Impl: IXMLHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).abort().into()
         }
-        unsafe extern "system" fn status<Impl: IXMLHttpRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plstatus: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn status<Impl: IXMLHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plstatus: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6078,7 +6091,7 @@ impl IXMLHttpRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn statusText<Impl: IXMLHttpRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstatus: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn statusText<Impl: IXMLHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstatus: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).statusText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6088,7 +6101,7 @@ impl IXMLHttpRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn responseXML<Impl: IXMLHttpRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppbody: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn responseXML<Impl: IXMLHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppbody: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).responseXML() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6098,7 +6111,7 @@ impl IXMLHttpRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn responseText<Impl: IXMLHttpRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbody: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn responseText<Impl: IXMLHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbody: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).responseText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6108,7 +6121,7 @@ impl IXMLHttpRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn responseBody<Impl: IXMLHttpRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarbody: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn responseBody<Impl: IXMLHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarbody: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).responseBody() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6118,7 +6131,7 @@ impl IXMLHttpRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn responseStream<Impl: IXMLHttpRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarbody: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn responseStream<Impl: IXMLHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarbody: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).responseStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6128,7 +6141,7 @@ impl IXMLHttpRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn readyState<Impl: IXMLHttpRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plstate: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn readyState<Impl: IXMLHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plstate: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).readyState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6138,12 +6151,12 @@ impl IXMLHttpRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Setonreadystatechange<Impl: IXMLHttpRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preadystatesink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Setonreadystatechange<Impl: IXMLHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preadystatesink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Setonreadystatechange(::core::mem::transmute(&preadystatesink)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             open: open::<Impl, IMPL_OFFSET>,
             setRequestHeader: setRequestHeader::<Impl, IMPL_OFFSET>,
             getResponseHeader: getResponseHeader::<Impl, IMPL_OFFSET>,
@@ -6165,7 +6178,7 @@ impl IXMLHttpRequestVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXSLProcessorImpl: Sized + IDispatchImpl {
+pub trait IXSLProcessor_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Setinput(&mut self, var: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn input(&mut self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn ownerTemplate(&mut self) -> ::windows::core::Result<IXSLTemplate>;
@@ -6182,13 +6195,13 @@ pub trait IXSLProcessorImpl: Sized + IDispatchImpl {
     fn stylesheet(&mut self) -> ::windows::core::Result<IXMLDOMNode>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXSLProcessorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXSLProcessorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXSLProcessorVtbl {
-        unsafe extern "system" fn Setinput<Impl: IXSLProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, var: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+impl IXSLProcessor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXSLProcessor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXSLProcessor_Vtbl {
+        unsafe extern "system" fn Setinput<Impl: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, var: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Setinput(::core::mem::transmute_copy(&var)).into()
         }
-        unsafe extern "system" fn input<Impl: IXSLProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn input<Impl: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).input() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6198,7 +6211,7 @@ impl IXSLProcessorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ownerTemplate<Impl: IXSLProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptemplate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ownerTemplate<Impl: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptemplate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ownerTemplate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6208,11 +6221,11 @@ impl IXSLProcessorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn setStartMode<Impl: IXSLProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn setStartMode<Impl: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).setStartMode(::core::mem::transmute_copy(&mode), ::core::mem::transmute_copy(&namespaceuri)).into()
         }
-        unsafe extern "system" fn startMode<Impl: IXSLProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn startMode<Impl: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).startMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6222,7 +6235,7 @@ impl IXSLProcessorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn startModeURI<Impl: IXSLProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn startModeURI<Impl: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).startModeURI() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6232,11 +6245,11 @@ impl IXSLProcessorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Setoutput<Impl: IXSLProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, output: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Setoutput<Impl: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, output: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Setoutput(::core::mem::transmute_copy(&output)).into()
         }
-        unsafe extern "system" fn output<Impl: IXSLProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutput: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn output<Impl: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutput: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).output() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6246,7 +6259,7 @@ impl IXSLProcessorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn transform<Impl: IXSLProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdone: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn transform<Impl: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdone: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).transform() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6256,11 +6269,11 @@ impl IXSLProcessorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn reset<Impl: IXSLProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn reset<Impl: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).reset().into()
         }
-        unsafe extern "system" fn readyState<Impl: IXSLProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preadystate: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn readyState<Impl: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preadystate: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).readyState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6270,15 +6283,15 @@ impl IXSLProcessorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn addParameter<Impl: IXSLProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, basename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, parameter: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn addParameter<Impl: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, basename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, parameter: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).addParameter(::core::mem::transmute_copy(&basename), ::core::mem::transmute_copy(&parameter), ::core::mem::transmute_copy(&namespaceuri)).into()
         }
-        unsafe extern "system" fn addObject<Impl: IXSLProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, obj: ::windows::core::RawPtr, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn addObject<Impl: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, obj: ::windows::core::RawPtr, namespaceuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).addObject(::core::mem::transmute(&obj), ::core::mem::transmute_copy(&namespaceuri)).into()
         }
-        unsafe extern "system" fn stylesheet<Impl: IXSLProcessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stylesheet: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn stylesheet<Impl: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stylesheet: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).stylesheet() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6289,7 +6302,7 @@ impl IXSLProcessorVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Setinput: Setinput::<Impl, IMPL_OFFSET>,
             input: input::<Impl, IMPL_OFFSET>,
             ownerTemplate: ownerTemplate::<Impl, IMPL_OFFSET>,
@@ -6311,19 +6324,19 @@ impl IXSLProcessorVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXSLTemplateImpl: Sized + IDispatchImpl {
+pub trait IXSLTemplate_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn putref_stylesheet(&mut self, stylesheet: ::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<()>;
     fn stylesheet(&mut self) -> ::windows::core::Result<IXMLDOMNode>;
     fn createProcessor(&mut self) -> ::windows::core::Result<IXSLProcessor>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXSLTemplateVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXSLTemplateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXSLTemplateVtbl {
-        unsafe extern "system" fn putref_stylesheet<Impl: IXSLTemplateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stylesheet: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXSLTemplate_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXSLTemplate_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXSLTemplate_Vtbl {
+        unsafe extern "system" fn putref_stylesheet<Impl: IXSLTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stylesheet: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).putref_stylesheet(::core::mem::transmute(&stylesheet)).into()
         }
-        unsafe extern "system" fn stylesheet<Impl: IXSLTemplateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stylesheet: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn stylesheet<Impl: IXSLTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stylesheet: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).stylesheet() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6333,7 +6346,7 @@ impl IXSLTemplateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn createProcessor<Impl: IXSLTemplateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppprocessor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn createProcessor<Impl: IXSLTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppprocessor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).createProcessor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6344,7 +6357,7 @@ impl IXSLTemplateVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             putref_stylesheet: putref_stylesheet::<Impl, IMPL_OFFSET>,
             stylesheet: stylesheet::<Impl, IMPL_OFFSET>,
             createProcessor: createProcessor::<Impl, IMPL_OFFSET>,
@@ -6355,7 +6368,7 @@ impl IXSLTemplateVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXTLRuntimeImpl: Sized + IDispatchImpl + IXMLDOMNodeImpl {
+pub trait IXTLRuntime_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
     fn uniqueID(&mut self, pnode: ::core::option::Option<IXMLDOMNode>, pid: *mut i32) -> ::windows::core::Result<()>;
     fn depth(&mut self, pnode: ::core::option::Option<IXMLDOMNode>, pdepth: *mut i32) -> ::windows::core::Result<()>;
     fn childNumber(&mut self, pnode: ::core::option::Option<IXMLDOMNode>, pnumber: *mut i32) -> ::windows::core::Result<()>;
@@ -6367,46 +6380,46 @@ pub trait IXTLRuntimeImpl: Sized + IDispatchImpl + IXMLDOMNodeImpl {
     fn formatTime(&mut self, vartime: super::super::super::System::Com::VARIANT, bstrformat: super::super::super::Foundation::BSTR, vardestlocale: super::super::super::System::Com::VARIANT, pbstrformattedstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IXTLRuntimeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXTLRuntimeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXTLRuntimeVtbl {
-        unsafe extern "system" fn uniqueID<Impl: IXTLRuntimeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnode: ::windows::core::RawPtr, pid: *mut i32) -> ::windows::core::HRESULT {
+impl IXTLRuntime_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXTLRuntime_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXTLRuntime_Vtbl {
+        unsafe extern "system" fn uniqueID<Impl: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnode: ::windows::core::RawPtr, pid: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).uniqueID(::core::mem::transmute(&pnode), ::core::mem::transmute_copy(&pid)).into()
         }
-        unsafe extern "system" fn depth<Impl: IXTLRuntimeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnode: ::windows::core::RawPtr, pdepth: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn depth<Impl: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnode: ::windows::core::RawPtr, pdepth: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).depth(::core::mem::transmute(&pnode), ::core::mem::transmute_copy(&pdepth)).into()
         }
-        unsafe extern "system" fn childNumber<Impl: IXTLRuntimeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnode: ::windows::core::RawPtr, pnumber: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn childNumber<Impl: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnode: ::windows::core::RawPtr, pnumber: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).childNumber(::core::mem::transmute(&pnode), ::core::mem::transmute_copy(&pnumber)).into()
         }
-        unsafe extern "system" fn ancestorChildNumber<Impl: IXTLRuntimeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrnodename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pnode: ::windows::core::RawPtr, pnumber: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ancestorChildNumber<Impl: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrnodename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pnode: ::windows::core::RawPtr, pnumber: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ancestorChildNumber(::core::mem::transmute_copy(&bstrnodename), ::core::mem::transmute(&pnode), ::core::mem::transmute_copy(&pnumber)).into()
         }
-        unsafe extern "system" fn absoluteChildNumber<Impl: IXTLRuntimeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnode: ::windows::core::RawPtr, pnumber: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn absoluteChildNumber<Impl: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnode: ::windows::core::RawPtr, pnumber: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).absoluteChildNumber(::core::mem::transmute(&pnode), ::core::mem::transmute_copy(&pnumber)).into()
         }
-        unsafe extern "system" fn formatIndex<Impl: IXTLRuntimeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, bstrformat: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrformattedstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn formatIndex<Impl: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, bstrformat: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrformattedstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).formatIndex(::core::mem::transmute_copy(&lindex), ::core::mem::transmute_copy(&bstrformat), ::core::mem::transmute_copy(&pbstrformattedstring)).into()
         }
-        unsafe extern "system" fn formatNumber<Impl: IXTLRuntimeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dblnumber: f64, bstrformat: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrformattedstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn formatNumber<Impl: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dblnumber: f64, bstrformat: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrformattedstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).formatNumber(::core::mem::transmute_copy(&dblnumber), ::core::mem::transmute_copy(&bstrformat), ::core::mem::transmute_copy(&pbstrformattedstring)).into()
         }
-        unsafe extern "system" fn formatDate<Impl: IXTLRuntimeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vardate: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstrformat: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, vardestlocale: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pbstrformattedstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn formatDate<Impl: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vardate: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstrformat: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, vardestlocale: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pbstrformattedstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).formatDate(::core::mem::transmute_copy(&vardate), ::core::mem::transmute_copy(&bstrformat), ::core::mem::transmute_copy(&vardestlocale), ::core::mem::transmute_copy(&pbstrformattedstring)).into()
         }
-        unsafe extern "system" fn formatTime<Impl: IXTLRuntimeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vartime: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstrformat: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, vardestlocale: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pbstrformattedstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn formatTime<Impl: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vartime: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstrformat: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, vardestlocale: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pbstrformattedstring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).formatTime(::core::mem::transmute_copy(&vartime), ::core::mem::transmute_copy(&bstrformat), ::core::mem::transmute_copy(&vardestlocale), ::core::mem::transmute_copy(&pbstrformattedstring)).into()
         }
         Self {
-            base: IXMLDOMNodeVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IXMLDOMNode_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             uniqueID: uniqueID::<Impl, IMPL_OFFSET>,
             depth: depth::<Impl, IMPL_OFFSET>,
             childNumber: childNumber::<Impl, IMPL_OFFSET>,
@@ -6423,11 +6436,11 @@ impl IXTLRuntimeVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait XMLDOMDocumentEventsImpl: Sized + IDispatchImpl {}
+pub trait XMLDOMDocumentEvents_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl XMLDOMDocumentEventsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: XMLDOMDocumentEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> XMLDOMDocumentEventsVtbl {
-        Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
+impl XMLDOMDocumentEvents_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: XMLDOMDocumentEvents_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> XMLDOMDocumentEvents_Vtbl {
+        Self { base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<XMLDOMDocumentEvents as ::windows::core::Interface>::IID

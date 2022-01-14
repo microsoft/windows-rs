@@ -5,12 +5,12 @@ pub mod Core;
 #[repr(transparent)]
 pub struct IThreadPoolStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IThreadPoolStatics {
-    type Vtable = IThreadPoolStaticsVtbl;
+    type Vtable = IThreadPoolStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6bf67dd_84bd_44f8_ac1c_93ebcb9dba91);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IThreadPoolStaticsVtbl {
+pub struct IThreadPoolStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RunAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -29,12 +29,12 @@ pub struct IThreadPoolStaticsVtbl {
 #[repr(transparent)]
 pub struct IThreadPoolTimer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IThreadPoolTimer {
-    type Vtable = IThreadPoolTimerVtbl;
+    type Vtable = IThreadPoolTimer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x594ebe78_55ea_4a88_a50d_3402ae1f9cf2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IThreadPoolTimerVtbl {
+pub struct IThreadPoolTimer_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Period: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -50,12 +50,12 @@ pub struct IThreadPoolTimerVtbl {
 #[repr(transparent)]
 pub struct IThreadPoolTimerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IThreadPoolTimerStatics {
-    type Vtable = IThreadPoolTimerStaticsVtbl;
+    type Vtable = IThreadPoolTimerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a8a9d02_e482_461b_b8c7_8efad1cce590);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IThreadPoolTimerStaticsVtbl {
+pub struct IThreadPoolTimerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CreatePeriodicTimer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, period: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -195,7 +195,7 @@ unsafe impl ::windows::core::RuntimeType for ThreadPoolTimer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Threading.ThreadPoolTimer;{594ebe78-55ea-4a88-a50d-3402ae1f9cf2})");
 }
 unsafe impl ::windows::core::Interface for ThreadPoolTimer {
-    type Vtable = IThreadPoolTimerVtbl;
+    type Vtable = IThreadPoolTimer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x594ebe78_55ea_4a88_a50d_3402ae1f9cf2);
 }
 impl ::windows::core::RuntimeName for ThreadPoolTimer {
@@ -259,12 +259,12 @@ impl TimerDestroyedHandler {
 }
 #[repr(C)]
 struct TimerDestroyedHandlerBox<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const TimerDestroyedHandlerVtbl,
+    vtable: *const TimerDestroyedHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + 'static> TimerDestroyedHandlerBox<F> {
-    const VTABLE: TimerDestroyedHandlerVtbl = TimerDestroyedHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: TimerDestroyedHandler_Vtbl = TimerDestroyedHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<TimerDestroyedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -309,7 +309,7 @@ impl ::core::fmt::Debug for TimerDestroyedHandler {
     }
 }
 unsafe impl ::windows::core::Interface for TimerDestroyedHandler {
-    type Vtable = TimerDestroyedHandlerVtbl;
+    type Vtable = TimerDestroyedHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34ed19fa_8384_4eb9_8209_fb5094eeec35);
 }
 unsafe impl ::windows::core::RuntimeType for TimerDestroyedHandler {
@@ -317,7 +317,7 @@ unsafe impl ::windows::core::RuntimeType for TimerDestroyedHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct TimerDestroyedHandlerVtbl {
+pub struct TimerDestroyedHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timer: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -337,12 +337,12 @@ impl TimerElapsedHandler {
 }
 #[repr(C)]
 struct TimerElapsedHandlerBox<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const TimerElapsedHandlerVtbl,
+    vtable: *const TimerElapsedHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + 'static> TimerElapsedHandlerBox<F> {
-    const VTABLE: TimerElapsedHandlerVtbl = TimerElapsedHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: TimerElapsedHandler_Vtbl = TimerElapsedHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<TimerElapsedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -387,7 +387,7 @@ impl ::core::fmt::Debug for TimerElapsedHandler {
     }
 }
 unsafe impl ::windows::core::Interface for TimerElapsedHandler {
-    type Vtable = TimerElapsedHandlerVtbl;
+    type Vtable = TimerElapsedHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaaea667_fbeb_49cb_adb2_71184c556e43);
 }
 unsafe impl ::windows::core::RuntimeType for TimerElapsedHandler {
@@ -395,7 +395,7 @@ unsafe impl ::windows::core::RuntimeType for TimerElapsedHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct TimerElapsedHandlerVtbl {
+pub struct TimerElapsedHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timer: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -419,13 +419,13 @@ impl WorkItemHandler {
 #[cfg(feature = "Foundation")]
 #[repr(C)]
 struct WorkItemHandlerBox<F: FnMut(&::core::option::Option<super::super::Foundation::IAsyncAction>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const WorkItemHandlerVtbl,
+    vtable: *const WorkItemHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 #[cfg(feature = "Foundation")]
 impl<F: FnMut(&::core::option::Option<super::super::Foundation::IAsyncAction>) -> ::windows::core::Result<()> + 'static> WorkItemHandlerBox<F> {
-    const VTABLE: WorkItemHandlerVtbl = WorkItemHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: WorkItemHandler_Vtbl = WorkItemHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<WorkItemHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -475,7 +475,7 @@ impl ::core::fmt::Debug for WorkItemHandler {
 }
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Interface for WorkItemHandler {
-    type Vtable = WorkItemHandlerVtbl;
+    type Vtable = WorkItemHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d1a8b8b_fa66_414f_9cbd_b65fc99d17fa);
 }
 #[cfg(feature = "Foundation")]
@@ -485,7 +485,7 @@ unsafe impl ::windows::core::RuntimeType for WorkItemHandler {
 #[cfg(feature = "Foundation")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct WorkItemHandlerVtbl {
+pub struct WorkItemHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Foundation")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,

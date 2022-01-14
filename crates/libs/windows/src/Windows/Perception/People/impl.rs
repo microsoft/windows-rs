@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-pub trait IEyesPoseImpl: Sized {
+pub trait IEyesPose_Impl: Sized {
     fn IsCalibrationValid(&mut self) -> ::windows::core::Result<bool>;
     fn Gaze(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Spatial::SpatialRay>>;
     fn UpdateTimestamp(&mut self) -> ::windows::core::Result<super::PerceptionTimestamp>;
@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for IEyesPose {
     const NAME: &'static str = "Windows.Perception.People.IEyesPose";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-impl IEyesPoseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEyesPoseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEyesPoseVtbl {
-        unsafe extern "system" fn IsCalibrationValid<Impl: IEyesPoseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IEyesPose_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEyesPose_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEyesPose_Vtbl {
+        unsafe extern "system" fn IsCalibrationValid<Impl: IEyesPose_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCalibrationValid() {
                 ::core::result::Result::Ok(ok__) => {
@@ -22,7 +22,7 @@ impl IEyesPoseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Gaze<Impl: IEyesPoseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Gaze<Impl: IEyesPose_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Gaze() {
                 ::core::result::Result::Ok(ok__) => {
@@ -33,7 +33,7 @@ impl IEyesPoseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpdateTimestamp<Impl: IEyesPoseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateTimestamp<Impl: IEyesPose_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateTimestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -56,7 +56,7 @@ impl IEyesPoseVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Input", feature = "implement_exclusive"))]
-pub trait IEyesPoseStaticsImpl: Sized {
+pub trait IEyesPoseStatics_Impl: Sized {
     fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
     fn RequestAccessAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::UI::Input::GazeInputAccessStatus>>;
 }
@@ -65,9 +65,9 @@ impl ::windows::core::RuntimeName for IEyesPoseStatics {
     const NAME: &'static str = "Windows.Perception.People.IEyesPoseStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Input", feature = "implement_exclusive"))]
-impl IEyesPoseStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEyesPoseStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEyesPoseStaticsVtbl {
-        unsafe extern "system" fn IsSupported<Impl: IEyesPoseStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IEyesPoseStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEyesPoseStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEyesPoseStatics_Vtbl {
+        unsafe extern "system" fn IsSupported<Impl: IEyesPoseStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -78,7 +78,7 @@ impl IEyesPoseStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestAccessAsync<Impl: IEyesPoseStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestAccessAsync<Impl: IEyesPoseStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAccessAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -100,7 +100,7 @@ impl IEyesPoseStaticsVtbl {
     }
 }
 #[cfg(all(feature = "UI_Input_Spatial", feature = "implement_exclusive"))]
-pub trait IHandMeshObserverImpl: Sized {
+pub trait IHandMeshObserver_Impl: Sized {
     fn Source(&mut self) -> ::windows::core::Result<super::super::UI::Input::Spatial::SpatialInteractionSource>;
     fn TriangleIndexCount(&mut self) -> ::windows::core::Result<u32>;
     fn VertexCount(&mut self) -> ::windows::core::Result<u32>;
@@ -115,9 +115,9 @@ impl ::windows::core::RuntimeName for IHandMeshObserver {
     const NAME: &'static str = "Windows.Perception.People.IHandMeshObserver";
 }
 #[cfg(all(feature = "UI_Input_Spatial", feature = "implement_exclusive"))]
-impl IHandMeshObserverVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHandMeshObserverImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHandMeshObserverVtbl {
-        unsafe extern "system" fn Source<Impl: IHandMeshObserverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHandMeshObserver_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHandMeshObserver_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHandMeshObserver_Vtbl {
+        unsafe extern "system" fn Source<Impl: IHandMeshObserver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Source() {
                 ::core::result::Result::Ok(ok__) => {
@@ -128,7 +128,7 @@ impl IHandMeshObserverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TriangleIndexCount<Impl: IHandMeshObserverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TriangleIndexCount<Impl: IHandMeshObserver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TriangleIndexCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -139,7 +139,7 @@ impl IHandMeshObserverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VertexCount<Impl: IHandMeshObserverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VertexCount<Impl: IHandMeshObserver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VertexCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -150,11 +150,11 @@ impl IHandMeshObserverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTriangleIndices<Impl: IHandMeshObserverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, indices_array_size: u32, indices: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTriangleIndices<Impl: IHandMeshObserver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, indices_array_size: u32, indices: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetTriangleIndices(::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&indices), indices_array_size as _)).into()
         }
-        unsafe extern "system" fn GetVertexStateForPose<Impl: IHandMeshObserverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handpose: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetVertexStateForPose<Impl: IHandMeshObserver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handpose: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetVertexStateForPose(&*(&handpose as *const <HandPose as ::windows::core::Abi>::Abi as *const <HandPose as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -165,7 +165,7 @@ impl IHandMeshObserverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NeutralPose<Impl: IHandMeshObserverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NeutralPose<Impl: IHandMeshObserver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NeutralPose() {
                 ::core::result::Result::Ok(ok__) => {
@@ -176,7 +176,7 @@ impl IHandMeshObserverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NeutralPoseVersion<Impl: IHandMeshObserverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NeutralPoseVersion<Impl: IHandMeshObserver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NeutralPoseVersion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -187,7 +187,7 @@ impl IHandMeshObserverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModelId<Impl: IHandMeshObserverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ModelId<Impl: IHandMeshObserver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ModelId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -215,7 +215,7 @@ impl IHandMeshObserverVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-pub trait IHandMeshVertexStateImpl: Sized {
+pub trait IHandMeshVertexState_Impl: Sized {
     fn CoordinateSystem(&mut self) -> ::windows::core::Result<super::Spatial::SpatialCoordinateSystem>;
     fn GetVertices(&mut self, vertices: &mut [<HandMeshVertex as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
     fn UpdateTimestamp(&mut self) -> ::windows::core::Result<super::PerceptionTimestamp>;
@@ -225,9 +225,9 @@ impl ::windows::core::RuntimeName for IHandMeshVertexState {
     const NAME: &'static str = "Windows.Perception.People.IHandMeshVertexState";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-impl IHandMeshVertexStateVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHandMeshVertexStateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHandMeshVertexStateVtbl {
-        unsafe extern "system" fn CoordinateSystem<Impl: IHandMeshVertexStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHandMeshVertexState_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHandMeshVertexState_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHandMeshVertexState_Vtbl {
+        unsafe extern "system" fn CoordinateSystem<Impl: IHandMeshVertexState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CoordinateSystem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -238,11 +238,11 @@ impl IHandMeshVertexStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVertices<Impl: IHandMeshVertexStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vertices_array_size: u32, vertices: *mut HandMeshVertex) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetVertices<Impl: IHandMeshVertexState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vertices_array_size: u32, vertices: *mut HandMeshVertex) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetVertices(::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&vertices), vertices_array_size as _)).into()
         }
-        unsafe extern "system" fn UpdateTimestamp<Impl: IHandMeshVertexStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateTimestamp<Impl: IHandMeshVertexState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateTimestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -265,7 +265,7 @@ impl IHandMeshVertexStateVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-pub trait IHandPoseImpl: Sized {
+pub trait IHandPose_Impl: Sized {
     fn TryGetJoint(&mut self, coordinatesystem: &::core::option::Option<super::Spatial::SpatialCoordinateSystem>, joint: HandJointKind, jointpose: &mut JointPose) -> ::windows::core::Result<bool>;
     fn TryGetJoints(&mut self, coordinatesystem: &::core::option::Option<super::Spatial::SpatialCoordinateSystem>, joints: &[<HandJointKind as ::windows::core::DefaultType>::DefaultType], jointposes: &mut [<JointPose as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<bool>;
     fn GetRelativeJoint(&mut self, joint: HandJointKind, referencejoint: HandJointKind) -> ::windows::core::Result<JointPose>;
@@ -276,9 +276,9 @@ impl ::windows::core::RuntimeName for IHandPose {
     const NAME: &'static str = "Windows.Perception.People.IHandPose";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-impl IHandPoseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHandPoseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHandPoseVtbl {
-        unsafe extern "system" fn TryGetJoint<Impl: IHandPoseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, joint: HandJointKind, jointpose: *mut JointPose, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IHandPose_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHandPose_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHandPose_Vtbl {
+        unsafe extern "system" fn TryGetJoint<Impl: IHandPose_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, joint: HandJointKind, jointpose: *mut JointPose, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetJoint(&*(&coordinatesystem as *const <super::Spatial::SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <super::Spatial::SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType), joint, ::core::mem::transmute_copy(&jointpose)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -289,7 +289,7 @@ impl IHandPoseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryGetJoints<Impl: IHandPoseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, joints_array_size: u32, joints: *const HandJointKind, jointPoses_array_size: u32, jointposes: *mut JointPose, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryGetJoints<Impl: IHandPose_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, joints_array_size: u32, joints: *const HandJointKind, jointPoses_array_size: u32, jointposes: *mut JointPose, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetJoints(&*(&coordinatesystem as *const <super::Spatial::SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <super::Spatial::SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&joints), joints_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&jointposes), jointPoses_array_size as _)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -300,7 +300,7 @@ impl IHandPoseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRelativeJoint<Impl: IHandPoseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, joint: HandJointKind, referencejoint: HandJointKind, result__: *mut JointPose) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRelativeJoint<Impl: IHandPose_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, joint: HandJointKind, referencejoint: HandJointKind, result__: *mut JointPose) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRelativeJoint(joint, referencejoint) {
                 ::core::result::Result::Ok(ok__) => {
@@ -311,7 +311,7 @@ impl IHandPoseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRelativeJoints<Impl: IHandPoseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, joints_array_size: u32, joints: *const HandJointKind, referenceJoints_array_size: u32, referencejoints: *const HandJointKind, jointPoses_array_size: u32, jointposes: *mut JointPose) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRelativeJoints<Impl: IHandPose_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, joints_array_size: u32, joints: *const HandJointKind, referenceJoints_array_size: u32, referencejoints: *const HandJointKind, jointPoses_array_size: u32, jointposes: *mut JointPose) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetRelativeJoints(::core::slice::from_raw_parts(::core::mem::transmute_copy(&joints), joints_array_size as _), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&referencejoints), referenceJoints_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&jointposes), jointPoses_array_size as _)).into()
         }
@@ -328,7 +328,7 @@ impl IHandPoseVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IHeadPoseImpl: Sized {
+pub trait IHeadPose_Impl: Sized {
     fn Position(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
     fn ForwardDirection(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
     fn UpDirection(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
@@ -338,9 +338,9 @@ impl ::windows::core::RuntimeName for IHeadPose {
     const NAME: &'static str = "Windows.Perception.People.IHeadPose";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IHeadPoseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHeadPoseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHeadPoseVtbl {
-        unsafe extern "system" fn Position<Impl: IHeadPoseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+impl IHeadPose_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHeadPose_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHeadPose_Vtbl {
+        unsafe extern "system" fn Position<Impl: IHeadPose_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -351,7 +351,7 @@ impl IHeadPoseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ForwardDirection<Impl: IHeadPoseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ForwardDirection<Impl: IHeadPose_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ForwardDirection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -362,7 +362,7 @@ impl IHeadPoseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpDirection<Impl: IHeadPoseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpDirection<Impl: IHeadPose_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpDirection() {
                 ::core::result::Result::Ok(ok__) => {

@@ -1,21 +1,21 @@
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IXMLGraphBuilderImpl: Sized {
+pub trait IXMLGraphBuilder_Impl: Sized {
     fn BuildFromXML(&mut self, pgraph: ::core::option::Option<super::IGraphBuilder>, pxml: ::core::option::Option<super::super::super::Data::Xml::MsXml::IXMLElement>) -> ::windows::core::Result<()>;
     fn SaveToXML(&mut self, pgraph: ::core::option::Option<super::IGraphBuilder>, pbstrxml: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn BuildFromXMLFile(&mut self, pgraph: ::core::option::Option<super::IGraphBuilder>, wszfilename: super::super::super::Foundation::PWSTR, wszbaseurl: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl IXMLGraphBuilderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLGraphBuilderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLGraphBuilderVtbl {
-        unsafe extern "system" fn BuildFromXML<Impl: IXMLGraphBuilderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgraph: ::windows::core::RawPtr, pxml: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXMLGraphBuilder_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLGraphBuilder_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXMLGraphBuilder_Vtbl {
+        unsafe extern "system" fn BuildFromXML<Impl: IXMLGraphBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgraph: ::windows::core::RawPtr, pxml: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).BuildFromXML(::core::mem::transmute(&pgraph), ::core::mem::transmute(&pxml)).into()
         }
-        unsafe extern "system" fn SaveToXML<Impl: IXMLGraphBuilderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgraph: ::windows::core::RawPtr, pbstrxml: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaveToXML<Impl: IXMLGraphBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgraph: ::windows::core::RawPtr, pbstrxml: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SaveToXML(::core::mem::transmute(&pgraph), ::core::mem::transmute_copy(&pbstrxml)).into()
         }
-        unsafe extern "system" fn BuildFromXMLFile<Impl: IXMLGraphBuilderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgraph: ::windows::core::RawPtr, wszfilename: super::super::super::Foundation::PWSTR, wszbaseurl: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BuildFromXMLFile<Impl: IXMLGraphBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgraph: ::windows::core::RawPtr, wszfilename: super::super::super::Foundation::PWSTR, wszbaseurl: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).BuildFromXMLFile(::core::mem::transmute(&pgraph), ::core::mem::transmute_copy(&wszfilename), ::core::mem::transmute_copy(&wszbaseurl)).into()
         }

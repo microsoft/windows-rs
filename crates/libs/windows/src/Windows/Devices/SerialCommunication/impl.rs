@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IErrorReceivedEventArgsImpl: Sized {
+pub trait IErrorReceivedEventArgs_Impl: Sized {
     fn Error(&mut self) -> ::windows::core::Result<SerialError>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7,9 +7,9 @@ impl ::windows::core::RuntimeName for IErrorReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.IErrorReceivedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IErrorReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IErrorReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IErrorReceivedEventArgsVtbl {
-        unsafe extern "system" fn Error<Impl: IErrorReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SerialError) -> ::windows::core::HRESULT {
+impl IErrorReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IErrorReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IErrorReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn Error<Impl: IErrorReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SerialError) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Error() {
                 ::core::result::Result::Ok(ok__) => {
@@ -27,7 +27,7 @@ impl IErrorReceivedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPinChangedEventArgsImpl: Sized {
+pub trait IPinChangedEventArgs_Impl: Sized {
     fn PinChange(&mut self) -> ::windows::core::Result<SerialPinChange>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -35,9 +35,9 @@ impl ::windows::core::RuntimeName for IPinChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.IPinChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPinChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPinChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPinChangedEventArgsVtbl {
-        unsafe extern "system" fn PinChange<Impl: IPinChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SerialPinChange) -> ::windows::core::HRESULT {
+impl IPinChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPinChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPinChangedEventArgs_Vtbl {
+        unsafe extern "system" fn PinChange<Impl: IPinChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SerialPinChange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PinChange() {
                 ::core::result::Result::Ok(ok__) => {
@@ -55,7 +55,7 @@ impl IPinChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISerialDeviceImpl: Sized + IClosableImpl {
+pub trait ISerialDevice_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn BaudRate(&mut self) -> ::windows::core::Result<u32>;
     fn SetBaudRate(&mut self, value: u32) -> ::windows::core::Result<()>;
     fn BreakSignalState(&mut self) -> ::windows::core::Result<bool>;
@@ -95,9 +95,9 @@ impl ::windows::core::RuntimeName for ISerialDevice {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.ISerialDevice";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISerialDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISerialDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISerialDeviceVtbl {
-        unsafe extern "system" fn BaudRate<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl ISerialDevice_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISerialDevice_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISerialDevice_Vtbl {
+        unsafe extern "system" fn BaudRate<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BaudRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -108,11 +108,11 @@ impl ISerialDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBaudRate<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBaudRate<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBaudRate(value).into()
         }
-        unsafe extern "system" fn BreakSignalState<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BreakSignalState<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BreakSignalState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -123,11 +123,11 @@ impl ISerialDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBreakSignalState<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBreakSignalState<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBreakSignalState(value).into()
         }
-        unsafe extern "system" fn BytesReceived<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BytesReceived<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BytesReceived() {
                 ::core::result::Result::Ok(ok__) => {
@@ -138,7 +138,7 @@ impl ISerialDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CarrierDetectState<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CarrierDetectState<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CarrierDetectState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -149,7 +149,7 @@ impl ISerialDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClearToSendState<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearToSendState<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClearToSendState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -160,7 +160,7 @@ impl ISerialDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DataBits<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DataBits<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataBits() {
                 ::core::result::Result::Ok(ok__) => {
@@ -171,11 +171,11 @@ impl ISerialDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDataBits<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDataBits<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDataBits(value).into()
         }
-        unsafe extern "system" fn DataSetReadyState<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DataSetReadyState<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataSetReadyState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -186,7 +186,7 @@ impl ISerialDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Handshake<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SerialHandshake) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Handshake<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SerialHandshake) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handshake() {
                 ::core::result::Result::Ok(ok__) => {
@@ -197,11 +197,11 @@ impl ISerialDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandshake<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SerialHandshake) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHandshake<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SerialHandshake) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandshake(value).into()
         }
-        unsafe extern "system" fn IsDataTerminalReadyEnabled<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDataTerminalReadyEnabled<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDataTerminalReadyEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -212,11 +212,11 @@ impl ISerialDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsDataTerminalReadyEnabled<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsDataTerminalReadyEnabled<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsDataTerminalReadyEnabled(value).into()
         }
-        unsafe extern "system" fn IsRequestToSendEnabled<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsRequestToSendEnabled<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsRequestToSendEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -227,11 +227,11 @@ impl ISerialDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsRequestToSendEnabled<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsRequestToSendEnabled<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsRequestToSendEnabled(value).into()
         }
-        unsafe extern "system" fn Parity<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SerialParity) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Parity<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SerialParity) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -242,11 +242,11 @@ impl ISerialDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetParity<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SerialParity) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetParity<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SerialParity) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetParity(value).into()
         }
-        unsafe extern "system" fn PortName<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PortName<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PortName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -257,7 +257,7 @@ impl ISerialDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadTimeout<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadTimeout<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadTimeout() {
                 ::core::result::Result::Ok(ok__) => {
@@ -268,11 +268,11 @@ impl ISerialDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetReadTimeout<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetReadTimeout<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetReadTimeout(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StopBits<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SerialStopBitCount) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopBits<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SerialStopBitCount) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StopBits() {
                 ::core::result::Result::Ok(ok__) => {
@@ -283,11 +283,11 @@ impl ISerialDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStopBits<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SerialStopBitCount) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStopBits<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SerialStopBitCount) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStopBits(value).into()
         }
-        unsafe extern "system" fn UsbVendorId<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UsbVendorId<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UsbVendorId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -298,7 +298,7 @@ impl ISerialDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UsbProductId<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UsbProductId<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UsbProductId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -309,7 +309,7 @@ impl ISerialDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WriteTimeout<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteTimeout<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteTimeout() {
                 ::core::result::Result::Ok(ok__) => {
@@ -320,11 +320,11 @@ impl ISerialDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetWriteTimeout<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetWriteTimeout<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWriteTimeout(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InputStream<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InputStream<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InputStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -335,7 +335,7 @@ impl ISerialDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OutputStream<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OutputStream<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutputStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -346,7 +346,7 @@ impl ISerialDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ErrorReceived<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporthandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ErrorReceived<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporthandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ErrorReceived(&*(&reporthandler as *const <super::super::Foundation::TypedEventHandler<SerialDevice, ErrorReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SerialDevice, ErrorReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -357,11 +357,11 @@ impl ISerialDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveErrorReceived<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveErrorReceived<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveErrorReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PinChanged<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporthandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PinChanged<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporthandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PinChanged(&*(&reporthandler as *const <super::super::Foundation::TypedEventHandler<SerialDevice, PinChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SerialDevice, PinChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -372,7 +372,7 @@ impl ISerialDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePinChanged<Impl: ISerialDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePinChanged<Impl: ISerialDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePinChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -418,7 +418,7 @@ impl ISerialDeviceVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISerialDeviceStaticsImpl: Sized {
+pub trait ISerialDeviceStatics_Impl: Sized {
     fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeviceSelectorFromPortName(&mut self, portname: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeviceSelectorFromUsbVidPid(&mut self, vendorid: u16, productid: u16) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -429,9 +429,9 @@ impl ::windows::core::RuntimeName for ISerialDeviceStatics {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.ISerialDeviceStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISerialDeviceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISerialDeviceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISerialDeviceStaticsVtbl {
-        unsafe extern "system" fn GetDeviceSelector<Impl: ISerialDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISerialDeviceStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISerialDeviceStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISerialDeviceStatics_Vtbl {
+        unsafe extern "system" fn GetDeviceSelector<Impl: ISerialDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
                 ::core::result::Result::Ok(ok__) => {
@@ -442,7 +442,7 @@ impl ISerialDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelectorFromPortName<Impl: ISerialDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, portname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelectorFromPortName<Impl: ISerialDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, portname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorFromPortName(&*(&portname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -453,7 +453,7 @@ impl ISerialDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelectorFromUsbVidPid<Impl: ISerialDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vendorid: u16, productid: u16, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelectorFromUsbVidPid<Impl: ISerialDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vendorid: u16, productid: u16, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorFromUsbVidPid(vendorid, productid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -464,7 +464,7 @@ impl ISerialDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromIdAsync<Impl: ISerialDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromIdAsync<Impl: ISerialDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

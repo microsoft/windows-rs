@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IAutomationRemoteOperationResultImpl: Sized {
+pub trait IAutomationRemoteOperationResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<AutomationRemoteOperationStatus>;
     fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn ErrorLocation(&mut self) -> ::windows::core::Result<i32>;
@@ -11,9 +11,9 @@ impl ::windows::core::RuntimeName for IAutomationRemoteOperationResult {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.IAutomationRemoteOperationResult";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAutomationRemoteOperationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationRemoteOperationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationRemoteOperationResultVtbl {
-        unsafe extern "system" fn Status<Impl: IAutomationRemoteOperationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AutomationRemoteOperationStatus) -> ::windows::core::HRESULT {
+impl IAutomationRemoteOperationResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationRemoteOperationResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationRemoteOperationResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IAutomationRemoteOperationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AutomationRemoteOperationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -24,7 +24,7 @@ impl IAutomationRemoteOperationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedError<Impl: IAutomationRemoteOperationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedError<Impl: IAutomationRemoteOperationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedError() {
                 ::core::result::Result::Ok(ok__) => {
@@ -35,7 +35,7 @@ impl IAutomationRemoteOperationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ErrorLocation<Impl: IAutomationRemoteOperationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ErrorLocation<Impl: IAutomationRemoteOperationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ErrorLocation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -46,7 +46,7 @@ impl IAutomationRemoteOperationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasOperand<Impl: IAutomationRemoteOperationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operandid: AutomationRemoteOperationOperandId, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasOperand<Impl: IAutomationRemoteOperationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operandid: AutomationRemoteOperationOperandId, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasOperand(&*(&operandid as *const <AutomationRemoteOperationOperandId as ::windows::core::Abi>::Abi as *const <AutomationRemoteOperationOperandId as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -57,7 +57,7 @@ impl IAutomationRemoteOperationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetOperand<Impl: IAutomationRemoteOperationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operandid: AutomationRemoteOperationOperandId, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOperand<Impl: IAutomationRemoteOperationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operandid: AutomationRemoteOperationOperandId, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetOperand(&*(&operandid as *const <AutomationRemoteOperationOperandId as ::windows::core::Abi>::Abi as *const <AutomationRemoteOperationOperandId as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -81,15 +81,15 @@ impl IAutomationRemoteOperationResultVtbl {
         iid == &<IAutomationRemoteOperationResult as ::windows::core::Interface>::IID
     }
 }
-pub trait ICoreAutomationConnectionBoundObjectProviderImpl: Sized {
+pub trait ICoreAutomationConnectionBoundObjectProvider_Impl: Sized {
     fn IsComThreadingRequired(&mut self) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for ICoreAutomationConnectionBoundObjectProvider {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.ICoreAutomationConnectionBoundObjectProvider";
 }
-impl ICoreAutomationConnectionBoundObjectProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreAutomationConnectionBoundObjectProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreAutomationConnectionBoundObjectProviderVtbl {
-        unsafe extern "system" fn IsComThreadingRequired<Impl: ICoreAutomationConnectionBoundObjectProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ICoreAutomationConnectionBoundObjectProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreAutomationConnectionBoundObjectProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreAutomationConnectionBoundObjectProvider_Vtbl {
+        unsafe extern "system" fn IsComThreadingRequired<Impl: ICoreAutomationConnectionBoundObjectProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsComThreadingRequired() {
                 ::core::result::Result::Ok(ok__) => {
@@ -110,7 +110,7 @@ impl ICoreAutomationConnectionBoundObjectProviderVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICoreAutomationRegistrarStaticsImpl: Sized {
+pub trait ICoreAutomationRegistrarStatics_Impl: Sized {
     fn RegisterAnnotationType(&mut self, guid: &::windows::core::GUID) -> ::windows::core::Result<AutomationAnnotationTypeRegistration>;
     fn UnregisterAnnotationType(&mut self, registration: &AutomationAnnotationTypeRegistration) -> ::windows::core::Result<()>;
 }
@@ -119,9 +119,9 @@ impl ::windows::core::RuntimeName for ICoreAutomationRegistrarStatics {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.ICoreAutomationRegistrarStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICoreAutomationRegistrarStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreAutomationRegistrarStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreAutomationRegistrarStaticsVtbl {
-        unsafe extern "system" fn RegisterAnnotationType<Impl: ICoreAutomationRegistrarStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: ::windows::core::GUID, result__: *mut AutomationAnnotationTypeRegistration) -> ::windows::core::HRESULT {
+impl ICoreAutomationRegistrarStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreAutomationRegistrarStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreAutomationRegistrarStatics_Vtbl {
+        unsafe extern "system" fn RegisterAnnotationType<Impl: ICoreAutomationRegistrarStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: ::windows::core::GUID, result__: *mut AutomationAnnotationTypeRegistration) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterAnnotationType(&*(&guid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -132,7 +132,7 @@ impl ICoreAutomationRegistrarStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnregisterAnnotationType<Impl: ICoreAutomationRegistrarStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, registration: AutomationAnnotationTypeRegistration) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterAnnotationType<Impl: ICoreAutomationRegistrarStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, registration: AutomationAnnotationTypeRegistration) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UnregisterAnnotationType(&*(&registration as *const <AutomationAnnotationTypeRegistration as ::windows::core::Abi>::Abi as *const <AutomationAnnotationTypeRegistration as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -147,7 +147,7 @@ impl ICoreAutomationRegistrarStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICoreAutomationRemoteOperationImpl: Sized {
+pub trait ICoreAutomationRemoteOperation_Impl: Sized {
     fn IsOpcodeSupported(&mut self, opcode: u32) -> ::windows::core::Result<bool>;
     fn ImportElement(&mut self, operandid: &AutomationRemoteOperationOperandId, element: &::core::option::Option<super::AutomationElement>) -> ::windows::core::Result<()>;
     fn ImportTextRange(&mut self, operandid: &AutomationRemoteOperationOperandId, textrange: &::core::option::Option<super::AutomationTextRange>) -> ::windows::core::Result<()>;
@@ -159,9 +159,9 @@ impl ::windows::core::RuntimeName for ICoreAutomationRemoteOperation {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.ICoreAutomationRemoteOperation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICoreAutomationRemoteOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreAutomationRemoteOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreAutomationRemoteOperationVtbl {
-        unsafe extern "system" fn IsOpcodeSupported<Impl: ICoreAutomationRemoteOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, opcode: u32, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ICoreAutomationRemoteOperation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreAutomationRemoteOperation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreAutomationRemoteOperation_Vtbl {
+        unsafe extern "system" fn IsOpcodeSupported<Impl: ICoreAutomationRemoteOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, opcode: u32, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsOpcodeSupported(opcode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -172,19 +172,19 @@ impl ICoreAutomationRemoteOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImportElement<Impl: ICoreAutomationRemoteOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operandid: AutomationRemoteOperationOperandId, element: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImportElement<Impl: ICoreAutomationRemoteOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operandid: AutomationRemoteOperationOperandId, element: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ImportElement(&*(&operandid as *const <AutomationRemoteOperationOperandId as ::windows::core::Abi>::Abi as *const <AutomationRemoteOperationOperandId as ::windows::core::DefaultType>::DefaultType), &*(&element as *const <super::AutomationElement as ::windows::core::Abi>::Abi as *const <super::AutomationElement as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ImportTextRange<Impl: ICoreAutomationRemoteOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operandid: AutomationRemoteOperationOperandId, textrange: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImportTextRange<Impl: ICoreAutomationRemoteOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operandid: AutomationRemoteOperationOperandId, textrange: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ImportTextRange(&*(&operandid as *const <AutomationRemoteOperationOperandId as ::windows::core::Abi>::Abi as *const <AutomationRemoteOperationOperandId as ::windows::core::DefaultType>::DefaultType), &*(&textrange as *const <super::AutomationTextRange as ::windows::core::Abi>::Abi as *const <super::AutomationTextRange as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AddToResults<Impl: ICoreAutomationRemoteOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operandid: AutomationRemoteOperationOperandId) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddToResults<Impl: ICoreAutomationRemoteOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operandid: AutomationRemoteOperationOperandId) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddToResults(&*(&operandid as *const <AutomationRemoteOperationOperandId as ::windows::core::Abi>::Abi as *const <AutomationRemoteOperationOperandId as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Execute<Impl: ICoreAutomationRemoteOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bytecodeBuffer_array_size: u32, bytecodebuffer: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Execute<Impl: ICoreAutomationRemoteOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bytecodeBuffer_array_size: u32, bytecodebuffer: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Execute(::core::slice::from_raw_parts(::core::mem::transmute_copy(&bytecodebuffer), bytecodeBuffer_array_size as _)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -209,7 +209,7 @@ impl ICoreAutomationRemoteOperationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICoreAutomationRemoteOperation2Impl: Sized {
+pub trait ICoreAutomationRemoteOperation2_Impl: Sized {
     fn ImportConnectionBoundObject(&mut self, operandid: &AutomationRemoteOperationOperandId, connectionboundobject: &::core::option::Option<super::AutomationConnectionBoundObject>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -217,9 +217,9 @@ impl ::windows::core::RuntimeName for ICoreAutomationRemoteOperation2 {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.ICoreAutomationRemoteOperation2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICoreAutomationRemoteOperation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreAutomationRemoteOperation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreAutomationRemoteOperation2Vtbl {
-        unsafe extern "system" fn ImportConnectionBoundObject<Impl: ICoreAutomationRemoteOperation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operandid: AutomationRemoteOperationOperandId, connectionboundobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICoreAutomationRemoteOperation2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreAutomationRemoteOperation2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreAutomationRemoteOperation2_Vtbl {
+        unsafe extern "system" fn ImportConnectionBoundObject<Impl: ICoreAutomationRemoteOperation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operandid: AutomationRemoteOperationOperandId, connectionboundobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ImportConnectionBoundObject(&*(&operandid as *const <AutomationRemoteOperationOperandId as ::windows::core::Abi>::Abi as *const <AutomationRemoteOperationOperandId as ::windows::core::DefaultType>::DefaultType), &*(&connectionboundobject as *const <super::AutomationConnectionBoundObject as ::windows::core::Abi>::Abi as *const <super::AutomationConnectionBoundObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -233,7 +233,7 @@ impl ICoreAutomationRemoteOperation2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICoreAutomationRemoteOperationContextImpl: Sized {
+pub trait ICoreAutomationRemoteOperationContext_Impl: Sized {
     fn GetOperand(&mut self, id: &AutomationRemoteOperationOperandId) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn SetOperand(&mut self, id: &AutomationRemoteOperationOperandId, operand: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
     fn SetOperand2(&mut self, id: &AutomationRemoteOperationOperandId, operand: &::core::option::Option<::windows::core::IInspectable>, operandinterfaceid: &::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -243,9 +243,9 @@ impl ::windows::core::RuntimeName for ICoreAutomationRemoteOperationContext {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.ICoreAutomationRemoteOperationContext";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICoreAutomationRemoteOperationContextVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreAutomationRemoteOperationContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreAutomationRemoteOperationContextVtbl {
-        unsafe extern "system" fn GetOperand<Impl: ICoreAutomationRemoteOperationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: AutomationRemoteOperationOperandId, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl ICoreAutomationRemoteOperationContext_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreAutomationRemoteOperationContext_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreAutomationRemoteOperationContext_Vtbl {
+        unsafe extern "system" fn GetOperand<Impl: ICoreAutomationRemoteOperationContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: AutomationRemoteOperationOperandId, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetOperand(&*(&id as *const <AutomationRemoteOperationOperandId as ::windows::core::Abi>::Abi as *const <AutomationRemoteOperationOperandId as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -256,11 +256,11 @@ impl ICoreAutomationRemoteOperationContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOperand<Impl: ICoreAutomationRemoteOperationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: AutomationRemoteOperationOperandId, operand: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOperand<Impl: ICoreAutomationRemoteOperationContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: AutomationRemoteOperationOperandId, operand: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOperand(&*(&id as *const <AutomationRemoteOperationOperandId as ::windows::core::Abi>::Abi as *const <AutomationRemoteOperationOperandId as ::windows::core::DefaultType>::DefaultType), &*(&operand as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetOperand2<Impl: ICoreAutomationRemoteOperationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: AutomationRemoteOperationOperandId, operand: *mut ::core::ffi::c_void, operandinterfaceid: ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOperand2<Impl: ICoreAutomationRemoteOperationContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: AutomationRemoteOperationOperandId, operand: *mut ::core::ffi::c_void, operandinterfaceid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetOperand2(
@@ -281,20 +281,20 @@ impl ICoreAutomationRemoteOperationContextVtbl {
         iid == &<ICoreAutomationRemoteOperationContext as ::windows::core::Interface>::IID
     }
 }
-pub trait ICoreAutomationRemoteOperationExtensionProviderImpl: Sized {
+pub trait ICoreAutomationRemoteOperationExtensionProvider_Impl: Sized {
     fn CallExtension(&mut self, extensionid: &::windows::core::GUID, context: &::core::option::Option<CoreAutomationRemoteOperationContext>, operandids: &[<AutomationRemoteOperationOperandId as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
     fn IsExtensionSupported(&mut self, extensionid: &::windows::core::GUID) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for ICoreAutomationRemoteOperationExtensionProvider {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.ICoreAutomationRemoteOperationExtensionProvider";
 }
-impl ICoreAutomationRemoteOperationExtensionProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreAutomationRemoteOperationExtensionProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreAutomationRemoteOperationExtensionProviderVtbl {
-        unsafe extern "system" fn CallExtension<Impl: ICoreAutomationRemoteOperationExtensionProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, extensionid: ::windows::core::GUID, context: ::windows::core::RawPtr, operandIds_array_size: u32, operandids: *const AutomationRemoteOperationOperandId) -> ::windows::core::HRESULT {
+impl ICoreAutomationRemoteOperationExtensionProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreAutomationRemoteOperationExtensionProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreAutomationRemoteOperationExtensionProvider_Vtbl {
+        unsafe extern "system" fn CallExtension<Impl: ICoreAutomationRemoteOperationExtensionProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, extensionid: ::windows::core::GUID, context: ::windows::core::RawPtr, operandIds_array_size: u32, operandids: *const AutomationRemoteOperationOperandId) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CallExtension(&*(&extensionid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&context as *const <CoreAutomationRemoteOperationContext as ::windows::core::Abi>::Abi as *const <CoreAutomationRemoteOperationContext as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&operandids), operandIds_array_size as _)).into()
         }
-        unsafe extern "system" fn IsExtensionSupported<Impl: ICoreAutomationRemoteOperationExtensionProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, extensionid: ::windows::core::GUID, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsExtensionSupported<Impl: ICoreAutomationRemoteOperationExtensionProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, extensionid: ::windows::core::GUID, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsExtensionSupported(&*(&extensionid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -316,7 +316,7 @@ impl ICoreAutomationRemoteOperationExtensionProviderVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IRemoteAutomationClientSessionImpl: Sized {
+pub trait IRemoteAutomationClientSession_Impl: Sized {
     fn Start(&mut self) -> ::windows::core::Result<()>;
     fn Stop(&mut self) -> ::windows::core::Result<()>;
     fn CreateWindowAsync(&mut self, remotewindowid: u64, remoteprocessid: u32, parentautomationelement: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<RemoteAutomationWindow>>;
@@ -331,17 +331,17 @@ impl ::windows::core::RuntimeName for IRemoteAutomationClientSession {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.IRemoteAutomationClientSession";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IRemoteAutomationClientSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteAutomationClientSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteAutomationClientSessionVtbl {
-        unsafe extern "system" fn Start<Impl: IRemoteAutomationClientSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IRemoteAutomationClientSession_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteAutomationClientSession_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteAutomationClientSession_Vtbl {
+        unsafe extern "system" fn Start<Impl: IRemoteAutomationClientSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        unsafe extern "system" fn Stop<Impl: IRemoteAutomationClientSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stop<Impl: IRemoteAutomationClientSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        unsafe extern "system" fn CreateWindowAsync<Impl: IRemoteAutomationClientSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotewindowid: u64, remoteprocessid: u32, parentautomationelement: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWindowAsync<Impl: IRemoteAutomationClientSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotewindowid: u64, remoteprocessid: u32, parentautomationelement: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWindowAsync(remotewindowid, remoteprocessid, &*(&parentautomationelement as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -352,7 +352,7 @@ impl IRemoteAutomationClientSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SessionId<Impl: IRemoteAutomationClientSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SessionId<Impl: IRemoteAutomationClientSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -363,7 +363,7 @@ impl IRemoteAutomationClientSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectionRequested<Impl: IRemoteAutomationClientSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectionRequested<Impl: IRemoteAutomationClientSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<RemoteAutomationClientSession, RemoteAutomationConnectionRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<RemoteAutomationClientSession, RemoteAutomationConnectionRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -374,11 +374,11 @@ impl IRemoteAutomationClientSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveConnectionRequested<Impl: IRemoteAutomationClientSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveConnectionRequested<Impl: IRemoteAutomationClientSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveConnectionRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Disconnected<Impl: IRemoteAutomationClientSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Disconnected<Impl: IRemoteAutomationClientSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Disconnected(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<RemoteAutomationClientSession, RemoteAutomationDisconnectedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<RemoteAutomationClientSession, RemoteAutomationDisconnectedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -389,7 +389,7 @@ impl IRemoteAutomationClientSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDisconnected<Impl: IRemoteAutomationClientSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDisconnected<Impl: IRemoteAutomationClientSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDisconnected(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -410,7 +410,7 @@ impl IRemoteAutomationClientSessionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRemoteAutomationClientSessionFactoryImpl: Sized {
+pub trait IRemoteAutomationClientSessionFactory_Impl: Sized {
     fn CreateInstance(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<RemoteAutomationClientSession>;
     fn CreateInstance2(&mut self, name: &::windows::core::HSTRING, sessionid: &::windows::core::GUID) -> ::windows::core::Result<RemoteAutomationClientSession>;
 }
@@ -419,9 +419,9 @@ impl ::windows::core::RuntimeName for IRemoteAutomationClientSessionFactory {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.IRemoteAutomationClientSessionFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRemoteAutomationClientSessionFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteAutomationClientSessionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteAutomationClientSessionFactoryVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: IRemoteAutomationClientSessionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRemoteAutomationClientSessionFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteAutomationClientSessionFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteAutomationClientSessionFactory_Vtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IRemoteAutomationClientSessionFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -432,7 +432,7 @@ impl IRemoteAutomationClientSessionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateInstance2<Impl: IRemoteAutomationClientSessionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateInstance2<Impl: IRemoteAutomationClientSessionFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance2(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&sessionid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -454,7 +454,7 @@ impl IRemoteAutomationClientSessionFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRemoteAutomationConnectionRequestedEventArgsImpl: Sized {
+pub trait IRemoteAutomationConnectionRequestedEventArgs_Impl: Sized {
     fn LocalPipeName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn RemoteProcessId(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -463,9 +463,9 @@ impl ::windows::core::RuntimeName for IRemoteAutomationConnectionRequestedEventA
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.IRemoteAutomationConnectionRequestedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRemoteAutomationConnectionRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteAutomationConnectionRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteAutomationConnectionRequestedEventArgsVtbl {
-        unsafe extern "system" fn LocalPipeName<Impl: IRemoteAutomationConnectionRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IRemoteAutomationConnectionRequestedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteAutomationConnectionRequestedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteAutomationConnectionRequestedEventArgs_Vtbl {
+        unsafe extern "system" fn LocalPipeName<Impl: IRemoteAutomationConnectionRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalPipeName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -476,7 +476,7 @@ impl IRemoteAutomationConnectionRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoteProcessId<Impl: IRemoteAutomationConnectionRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoteProcessId<Impl: IRemoteAutomationConnectionRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteProcessId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -498,7 +498,7 @@ impl IRemoteAutomationConnectionRequestedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRemoteAutomationDisconnectedEventArgsImpl: Sized {
+pub trait IRemoteAutomationDisconnectedEventArgs_Impl: Sized {
     fn LocalPipeName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -506,9 +506,9 @@ impl ::windows::core::RuntimeName for IRemoteAutomationDisconnectedEventArgs {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.IRemoteAutomationDisconnectedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRemoteAutomationDisconnectedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteAutomationDisconnectedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteAutomationDisconnectedEventArgsVtbl {
-        unsafe extern "system" fn LocalPipeName<Impl: IRemoteAutomationDisconnectedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IRemoteAutomationDisconnectedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteAutomationDisconnectedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteAutomationDisconnectedEventArgs_Vtbl {
+        unsafe extern "system" fn LocalPipeName<Impl: IRemoteAutomationDisconnectedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalPipeName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -529,7 +529,7 @@ impl IRemoteAutomationDisconnectedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRemoteAutomationServerStaticsImpl: Sized {
+pub trait IRemoteAutomationServerStatics_Impl: Sized {
     fn ReportSession(&mut self, sessionid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -537,9 +537,9 @@ impl ::windows::core::RuntimeName for IRemoteAutomationServerStatics {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.IRemoteAutomationServerStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRemoteAutomationServerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteAutomationServerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteAutomationServerStaticsVtbl {
-        unsafe extern "system" fn ReportSession<Impl: IRemoteAutomationServerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionid: ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl IRemoteAutomationServerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteAutomationServerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteAutomationServerStatics_Vtbl {
+        unsafe extern "system" fn ReportSession<Impl: IRemoteAutomationServerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportSession(&*(&sessionid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -553,7 +553,7 @@ impl IRemoteAutomationServerStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IRemoteAutomationWindowImpl: Sized {
+pub trait IRemoteAutomationWindow_Impl: Sized {
     fn AutomationProvider(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn UnregisterAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
@@ -562,9 +562,9 @@ impl ::windows::core::RuntimeName for IRemoteAutomationWindow {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.IRemoteAutomationWindow";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IRemoteAutomationWindowVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteAutomationWindowImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteAutomationWindowVtbl {
-        unsafe extern "system" fn AutomationProvider<Impl: IRemoteAutomationWindowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IRemoteAutomationWindow_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteAutomationWindow_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteAutomationWindow_Vtbl {
+        unsafe extern "system" fn AutomationProvider<Impl: IRemoteAutomationWindow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutomationProvider() {
                 ::core::result::Result::Ok(ok__) => {
@@ -575,7 +575,7 @@ impl IRemoteAutomationWindowVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnregisterAsync<Impl: IRemoteAutomationWindowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterAsync<Impl: IRemoteAutomationWindow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnregisterAsync() {
                 ::core::result::Result::Ok(ok__) => {

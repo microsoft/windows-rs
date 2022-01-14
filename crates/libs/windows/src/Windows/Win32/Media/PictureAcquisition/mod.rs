@@ -120,12 +120,12 @@ impl ::core::fmt::Debug for IPhotoAcquire {
     }
 }
 unsafe impl ::windows::core::Interface for IPhotoAcquire {
-    type Vtable = IPhotoAcquireVtbl;
+    type Vtable = IPhotoAcquire_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f23353_e31b_4955_a8ad_ca5ebf31e2ce);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoAcquireVtbl {
+pub struct IPhotoAcquire_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreatePhotoSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdevice: super::super::Foundation::PWSTR, ppphotoacquiresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -197,12 +197,12 @@ impl ::core::fmt::Debug for IPhotoAcquireDeviceSelectionDialog {
     }
 }
 unsafe impl ::windows::core::Interface for IPhotoAcquireDeviceSelectionDialog {
-    type Vtable = IPhotoAcquireDeviceSelectionDialogVtbl;
+    type Vtable = IPhotoAcquireDeviceSelectionDialog_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f28837_55dd_4f37_aaf5_6855a9640467);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoAcquireDeviceSelectionDialogVtbl {
+pub struct IPhotoAcquireDeviceSelectionDialog_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psztitle: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -308,12 +308,12 @@ impl ::core::fmt::Debug for IPhotoAcquireItem {
     }
 }
 unsafe impl ::windows::core::Interface for IPhotoAcquireItem {
-    type Vtable = IPhotoAcquireItemVtbl;
+    type Vtable = IPhotoAcquireItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f21c97_28bf_4c02_b842_5e4e90139a30);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoAcquireItemVtbl {
+pub struct IPhotoAcquireItem_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetItemName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstritemname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -409,12 +409,12 @@ impl ::core::fmt::Debug for IPhotoAcquireOptionsDialog {
     }
 }
 unsafe impl ::windows::core::Interface for IPhotoAcquireOptionsDialog {
-    type Vtable = IPhotoAcquireOptionsDialogVtbl;
+    type Vtable = IPhotoAcquireOptionsDialog_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f2b3ee_bf64_47ee_89f4_4dedd79643f2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoAcquireOptionsDialogVtbl {
+pub struct IPhotoAcquireOptionsDialog_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszregistryroot: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -491,12 +491,12 @@ impl ::core::fmt::Debug for IPhotoAcquirePlugin {
     }
 }
 unsafe impl ::windows::core::Interface for IPhotoAcquirePlugin {
-    type Vtable = IPhotoAcquirePluginVtbl;
+    type Vtable = IPhotoAcquirePlugin_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f2dceb_ecb8_4f77_8e47_e7a987c83dd0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoAcquirePluginVtbl {
+pub struct IPhotoAcquirePlugin_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pphotoacquiresource: ::windows::core::RawPtr, pphotoacquireprogresscb: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -636,12 +636,12 @@ impl ::core::fmt::Debug for IPhotoAcquireProgressCB {
     }
 }
 unsafe impl ::windows::core::Interface for IPhotoAcquireProgressCB {
-    type Vtable = IPhotoAcquireProgressCBVtbl;
+    type Vtable = IPhotoAcquireProgressCB_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f2ce1e_935e_4248_892c_130f32c45cb4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoAcquireProgressCBVtbl {
+pub struct IPhotoAcquireProgressCB_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Cancelled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfcancelled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -790,12 +790,12 @@ impl ::core::fmt::Debug for IPhotoAcquireSettings {
     }
 }
 unsafe impl ::windows::core::Interface for IPhotoAcquireSettings {
-    type Vtable = IPhotoAcquireSettingsVtbl;
+    type Vtable = IPhotoAcquireSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f2b868_dd67_487c_9553_049240767e91);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoAcquireSettingsVtbl {
+pub struct IPhotoAcquireSettings_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub InitializeFromRegistry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszregistrykey: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -921,12 +921,12 @@ impl ::core::fmt::Debug for IPhotoAcquireSource {
     }
 }
 unsafe impl ::windows::core::Interface for IPhotoAcquireSource {
-    type Vtable = IPhotoAcquireSourceVtbl;
+    type Vtable = IPhotoAcquireSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f2c703_8613_4282_a53b_6ec59c5883ac);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoAcquireSourceVtbl {
+pub struct IPhotoAcquireSource_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfriendlyname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -996,12 +996,12 @@ impl ::core::fmt::Debug for IPhotoProgressActionCB {
     }
 }
 unsafe impl ::windows::core::Interface for IPhotoProgressActionCB {
-    type Vtable = IPhotoProgressActionCBVtbl;
+    type Vtable = IPhotoProgressActionCB_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f242d0_b206_4e7d_b4c1_4755bcbb9c9f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoProgressActionCBVtbl {
+pub struct IPhotoProgressActionCB_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub DoAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
@@ -1140,12 +1140,12 @@ impl ::core::fmt::Debug for IPhotoProgressDialog {
     }
 }
 unsafe impl ::windows::core::Interface for IPhotoProgressDialog {
-    type Vtable = IPhotoProgressDialogVtbl;
+    type Vtable = IPhotoProgressDialog_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f246f9_0750_4f08_9381_2cd8e906a4ae);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoProgressDialogVtbl {
+pub struct IPhotoProgressDialog_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
@@ -1309,12 +1309,12 @@ impl ::core::fmt::Debug for IUserInputString {
     }
 }
 unsafe impl ::windows::core::Interface for IUserInputString {
-    type Vtable = IUserInputStringVtbl;
+    type Vtable = IUserInputString_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f243a1_205b_45ba_ae26_abbc53aa7a6f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserInputStringVtbl {
+pub struct IUserInputString_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetSubmitButtonText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsubmitbuttontext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,

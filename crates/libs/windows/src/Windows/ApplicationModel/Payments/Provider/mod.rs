@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IPaymentAppCanMakePaymentTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaymentAppCanMakePaymentTriggerDetails {
-    type Vtable = IPaymentAppCanMakePaymentTriggerDetailsVtbl;
+    type Vtable = IPaymentAppCanMakePaymentTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ce201f0_8b93_4eb6_8c46_2e4a6c6a26f6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPaymentAppCanMakePaymentTriggerDetailsVtbl {
+pub struct IPaymentAppCanMakePaymentTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ReportCanMakePaymentResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -17,12 +17,12 @@ pub struct IPaymentAppCanMakePaymentTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IPaymentAppManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaymentAppManager {
-    type Vtable = IPaymentAppManagerVtbl;
+    type Vtable = IPaymentAppManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e47aa53_8521_4969_a957_df2538a3a98f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPaymentAppManagerVtbl {
+pub struct IPaymentAppManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub RegisterAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, supportedpaymentmethodids: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -37,12 +37,12 @@ pub struct IPaymentAppManagerVtbl {
 #[repr(transparent)]
 pub struct IPaymentAppManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaymentAppManagerStatics {
-    type Vtable = IPaymentAppManagerStaticsVtbl;
+    type Vtable = IPaymentAppManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa341ac28_fc89_4406_b4d9_34e7fe79dfb6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPaymentAppManagerStaticsVtbl {
+pub struct IPaymentAppManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -50,12 +50,12 @@ pub struct IPaymentAppManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IPaymentTransaction(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaymentTransaction {
-    type Vtable = IPaymentTransactionVtbl;
+    type Vtable = IPaymentTransaction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62581da0_26a5_4e9b_a6eb_66606cf001d3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPaymentTransactionVtbl {
+pub struct IPaymentTransaction_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PaymentRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub PayerEmail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -82,12 +82,12 @@ pub struct IPaymentTransactionVtbl {
 #[repr(transparent)]
 pub struct IPaymentTransactionAcceptResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaymentTransactionAcceptResult {
-    type Vtable = IPaymentTransactionAcceptResultVtbl;
+    type Vtable = IPaymentTransactionAcceptResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x060e3276_d30c_4817_95a2_df7ae9273b56);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPaymentTransactionAcceptResultVtbl {
+pub struct IPaymentTransactionAcceptResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::PaymentRequestCompletionStatus) -> ::windows::core::HRESULT,
 }
@@ -95,12 +95,12 @@ pub struct IPaymentTransactionAcceptResultVtbl {
 #[repr(transparent)]
 pub struct IPaymentTransactionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaymentTransactionStatics {
-    type Vtable = IPaymentTransactionStaticsVtbl;
+    type Vtable = IPaymentTransactionStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d639750_ee0a_4df5_9b1e_1c0f9ec59881);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPaymentTransactionStaticsVtbl {
+pub struct IPaymentTransactionStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -145,7 +145,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentAppCanMakePaymentTriggerDeta
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.Provider.PaymentAppCanMakePaymentTriggerDetails;{0ce201f0-8b93-4eb6-8c46-2e4a6c6a26f6})");
 }
 unsafe impl ::windows::core::Interface for PaymentAppCanMakePaymentTriggerDetails {
-    type Vtable = IPaymentAppCanMakePaymentTriggerDetailsVtbl;
+    type Vtable = IPaymentAppCanMakePaymentTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ce201f0_8b93_4eb6_8c46_2e4a6c6a26f6);
 }
 impl ::windows::core::RuntimeName for PaymentAppCanMakePaymentTriggerDetails {
@@ -248,7 +248,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentAppManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.Provider.PaymentAppManager;{0e47aa53-8521-4969-a957-df2538a3a98f})");
 }
 unsafe impl ::windows::core::Interface for PaymentAppManager {
-    type Vtable = IPaymentAppManagerVtbl;
+    type Vtable = IPaymentAppManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e47aa53_8521_4969_a957_df2538a3a98f);
 }
 impl ::windows::core::RuntimeName for PaymentAppManager {
@@ -413,7 +413,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentTransaction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.Provider.PaymentTransaction;{62581da0-26a5-4e9b-a6eb-66606cf001d3})");
 }
 unsafe impl ::windows::core::Interface for PaymentTransaction {
-    type Vtable = IPaymentTransactionVtbl;
+    type Vtable = IPaymentTransaction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62581da0_26a5_4e9b_a6eb_66606cf001d3);
 }
 impl ::windows::core::RuntimeName for PaymentTransaction {
@@ -494,7 +494,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentTransactionAcceptResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.Provider.PaymentTransactionAcceptResult;{060e3276-d30c-4817-95a2-df7ae9273b56})");
 }
 unsafe impl ::windows::core::Interface for PaymentTransactionAcceptResult {
-    type Vtable = IPaymentTransactionAcceptResultVtbl;
+    type Vtable = IPaymentTransactionAcceptResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x060e3276_d30c_4817_95a2_df7ae9273b56);
 }
 impl ::windows::core::RuntimeName for PaymentTransactionAcceptResult {

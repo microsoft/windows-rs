@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IXboxLiveDeviceAddressImpl: Sized {
+pub trait IXboxLiveDeviceAddress_Impl: Sized {
     fn SnapshotChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<XboxLiveDeviceAddress, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSnapshotChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn GetSnapshotAsBase64(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -15,9 +15,9 @@ impl ::windows::core::RuntimeName for IXboxLiveDeviceAddress {
     const NAME: &'static str = "Windows.Networking.XboxLive.IXboxLiveDeviceAddress";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IXboxLiveDeviceAddressVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveDeviceAddressImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveDeviceAddressVtbl {
-        unsafe extern "system" fn SnapshotChanged<Impl: IXboxLiveDeviceAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IXboxLiveDeviceAddress_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveDeviceAddress_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveDeviceAddress_Vtbl {
+        unsafe extern "system" fn SnapshotChanged<Impl: IXboxLiveDeviceAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SnapshotChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<XboxLiveDeviceAddress, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<XboxLiveDeviceAddress, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -28,11 +28,11 @@ impl IXboxLiveDeviceAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSnapshotChanged<Impl: IXboxLiveDeviceAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSnapshotChanged<Impl: IXboxLiveDeviceAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSnapshotChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetSnapshotAsBase64<Impl: IXboxLiveDeviceAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSnapshotAsBase64<Impl: IXboxLiveDeviceAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSnapshotAsBase64() {
                 ::core::result::Result::Ok(ok__) => {
@@ -43,7 +43,7 @@ impl IXboxLiveDeviceAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSnapshotAsBuffer<Impl: IXboxLiveDeviceAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSnapshotAsBuffer<Impl: IXboxLiveDeviceAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSnapshotAsBuffer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -54,11 +54,11 @@ impl IXboxLiveDeviceAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSnapshotAsBytes<Impl: IXboxLiveDeviceAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8, byteswritten: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSnapshotAsBytes<Impl: IXboxLiveDeviceAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8, byteswritten: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetSnapshotAsBytes(::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&buffer), buffer_array_size as _), ::core::mem::transmute_copy(&byteswritten)).into()
         }
-        unsafe extern "system" fn Compare<Impl: IXboxLiveDeviceAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, otherdeviceaddress: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Compare<Impl: IXboxLiveDeviceAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, otherdeviceaddress: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Compare(&*(&otherdeviceaddress as *const <XboxLiveDeviceAddress as ::windows::core::Abi>::Abi as *const <XboxLiveDeviceAddress as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -69,7 +69,7 @@ impl IXboxLiveDeviceAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsValid<Impl: IXboxLiveDeviceAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsValid<Impl: IXboxLiveDeviceAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsValid() {
                 ::core::result::Result::Ok(ok__) => {
@@ -80,7 +80,7 @@ impl IXboxLiveDeviceAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsLocal<Impl: IXboxLiveDeviceAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsLocal<Impl: IXboxLiveDeviceAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsLocal() {
                 ::core::result::Result::Ok(ok__) => {
@@ -91,7 +91,7 @@ impl IXboxLiveDeviceAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NetworkAccessKind<Impl: IXboxLiveDeviceAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveNetworkAccessKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NetworkAccessKind<Impl: IXboxLiveDeviceAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveNetworkAccessKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkAccessKind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -120,7 +120,7 @@ impl IXboxLiveDeviceAddressVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IXboxLiveDeviceAddressStaticsImpl: Sized {
+pub trait IXboxLiveDeviceAddressStatics_Impl: Sized {
     fn CreateFromSnapshotBase64(&mut self, base64: &::windows::core::HSTRING) -> ::windows::core::Result<XboxLiveDeviceAddress>;
     fn CreateFromSnapshotBuffer(&mut self, buffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<XboxLiveDeviceAddress>;
     fn CreateFromSnapshotBytes(&mut self, buffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<XboxLiveDeviceAddress>;
@@ -132,9 +132,9 @@ impl ::windows::core::RuntimeName for IXboxLiveDeviceAddressStatics {
     const NAME: &'static str = "Windows.Networking.XboxLive.IXboxLiveDeviceAddressStatics";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IXboxLiveDeviceAddressStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveDeviceAddressStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveDeviceAddressStaticsVtbl {
-        unsafe extern "system" fn CreateFromSnapshotBase64<Impl: IXboxLiveDeviceAddressStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, base64: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXboxLiveDeviceAddressStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveDeviceAddressStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveDeviceAddressStatics_Vtbl {
+        unsafe extern "system" fn CreateFromSnapshotBase64<Impl: IXboxLiveDeviceAddressStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, base64: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromSnapshotBase64(&*(&base64 as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -145,7 +145,7 @@ impl IXboxLiveDeviceAddressStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromSnapshotBuffer<Impl: IXboxLiveDeviceAddressStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromSnapshotBuffer<Impl: IXboxLiveDeviceAddressStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromSnapshotBuffer(&*(&buffer as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -156,7 +156,7 @@ impl IXboxLiveDeviceAddressStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromSnapshotBytes<Impl: IXboxLiveDeviceAddressStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromSnapshotBytes<Impl: IXboxLiveDeviceAddressStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromSnapshotBytes(::core::slice::from_raw_parts(::core::mem::transmute_copy(&buffer), buffer_array_size as _)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -167,7 +167,7 @@ impl IXboxLiveDeviceAddressStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetLocal<Impl: IXboxLiveDeviceAddressStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLocal<Impl: IXboxLiveDeviceAddressStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetLocal() {
                 ::core::result::Result::Ok(ok__) => {
@@ -178,7 +178,7 @@ impl IXboxLiveDeviceAddressStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxSnapshotBytesSize<Impl: IXboxLiveDeviceAddressStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxSnapshotBytesSize<Impl: IXboxLiveDeviceAddressStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxSnapshotBytesSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -203,7 +203,7 @@ impl IXboxLiveDeviceAddressStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IXboxLiveEndpointPairImpl: Sized {
+pub trait IXboxLiveEndpointPair_Impl: Sized {
     fn StateChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<XboxLiveEndpointPair, XboxLiveEndpointPairStateChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn DeleteAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -222,9 +222,9 @@ impl ::windows::core::RuntimeName for IXboxLiveEndpointPair {
     const NAME: &'static str = "Windows.Networking.XboxLive.IXboxLiveEndpointPair";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IXboxLiveEndpointPairVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveEndpointPairVtbl {
-        unsafe extern "system" fn StateChanged<Impl: IXboxLiveEndpointPairImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IXboxLiveEndpointPair_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPair_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveEndpointPair_Vtbl {
+        unsafe extern "system" fn StateChanged<Impl: IXboxLiveEndpointPair_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StateChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<XboxLiveEndpointPair, XboxLiveEndpointPairStateChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<XboxLiveEndpointPair, XboxLiveEndpointPairStateChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -235,11 +235,11 @@ impl IXboxLiveEndpointPairVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStateChanged<Impl: IXboxLiveEndpointPairImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStateChanged<Impl: IXboxLiveEndpointPair_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DeleteAsync<Impl: IXboxLiveEndpointPairImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteAsync<Impl: IXboxLiveEndpointPair_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeleteAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -250,15 +250,15 @@ impl IXboxLiveEndpointPairVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRemoteSocketAddressBytes<Impl: IXboxLiveEndpointPairImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, socketAddress_array_size: u32, socketaddress: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRemoteSocketAddressBytes<Impl: IXboxLiveEndpointPair_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, socketAddress_array_size: u32, socketaddress: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetRemoteSocketAddressBytes(::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&socketaddress), socketAddress_array_size as _)).into()
         }
-        unsafe extern "system" fn GetLocalSocketAddressBytes<Impl: IXboxLiveEndpointPairImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, socketAddress_array_size: u32, socketaddress: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLocalSocketAddressBytes<Impl: IXboxLiveEndpointPair_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, socketAddress_array_size: u32, socketaddress: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetLocalSocketAddressBytes(::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&socketaddress), socketAddress_array_size as _)).into()
         }
-        unsafe extern "system" fn State<Impl: IXboxLiveEndpointPairImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveEndpointPairState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn State<Impl: IXboxLiveEndpointPair_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveEndpointPairState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -269,7 +269,7 @@ impl IXboxLiveEndpointPairVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Template<Impl: IXboxLiveEndpointPairImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Template<Impl: IXboxLiveEndpointPair_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Template() {
                 ::core::result::Result::Ok(ok__) => {
@@ -280,7 +280,7 @@ impl IXboxLiveEndpointPairVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoteDeviceAddress<Impl: IXboxLiveEndpointPairImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoteDeviceAddress<Impl: IXboxLiveEndpointPair_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteDeviceAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -291,7 +291,7 @@ impl IXboxLiveEndpointPairVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoteHostName<Impl: IXboxLiveEndpointPairImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoteHostName<Impl: IXboxLiveEndpointPair_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteHostName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -302,7 +302,7 @@ impl IXboxLiveEndpointPairVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemotePort<Impl: IXboxLiveEndpointPairImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemotePort<Impl: IXboxLiveEndpointPair_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemotePort() {
                 ::core::result::Result::Ok(ok__) => {
@@ -313,7 +313,7 @@ impl IXboxLiveEndpointPairVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocalHostName<Impl: IXboxLiveEndpointPairImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LocalHostName<Impl: IXboxLiveEndpointPair_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalHostName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -324,7 +324,7 @@ impl IXboxLiveEndpointPairVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocalPort<Impl: IXboxLiveEndpointPairImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LocalPort<Impl: IXboxLiveEndpointPair_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalPort() {
                 ::core::result::Result::Ok(ok__) => {
@@ -356,7 +356,7 @@ impl IXboxLiveEndpointPairVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IXboxLiveEndpointPairCreationResultImpl: Sized {
+pub trait IXboxLiveEndpointPairCreationResult_Impl: Sized {
     fn DeviceAddress(&mut self) -> ::windows::core::Result<XboxLiveDeviceAddress>;
     fn Status(&mut self) -> ::windows::core::Result<XboxLiveEndpointPairCreationStatus>;
     fn IsExistingPathEvaluation(&mut self) -> ::windows::core::Result<bool>;
@@ -367,9 +367,9 @@ impl ::windows::core::RuntimeName for IXboxLiveEndpointPairCreationResult {
     const NAME: &'static str = "Windows.Networking.XboxLive.IXboxLiveEndpointPairCreationResult";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IXboxLiveEndpointPairCreationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairCreationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveEndpointPairCreationResultVtbl {
-        unsafe extern "system" fn DeviceAddress<Impl: IXboxLiveEndpointPairCreationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXboxLiveEndpointPairCreationResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairCreationResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveEndpointPairCreationResult_Vtbl {
+        unsafe extern "system" fn DeviceAddress<Impl: IXboxLiveEndpointPairCreationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -380,7 +380,7 @@ impl IXboxLiveEndpointPairCreationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Status<Impl: IXboxLiveEndpointPairCreationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveEndpointPairCreationStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Status<Impl: IXboxLiveEndpointPairCreationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveEndpointPairCreationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -391,7 +391,7 @@ impl IXboxLiveEndpointPairCreationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsExistingPathEvaluation<Impl: IXboxLiveEndpointPairCreationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsExistingPathEvaluation<Impl: IXboxLiveEndpointPairCreationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsExistingPathEvaluation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -402,7 +402,7 @@ impl IXboxLiveEndpointPairCreationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EndpointPair<Impl: IXboxLiveEndpointPairCreationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EndpointPair<Impl: IXboxLiveEndpointPairCreationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndpointPair() {
                 ::core::result::Result::Ok(ok__) => {
@@ -426,7 +426,7 @@ impl IXboxLiveEndpointPairCreationResultVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IXboxLiveEndpointPairStateChangedEventArgsImpl: Sized {
+pub trait IXboxLiveEndpointPairStateChangedEventArgs_Impl: Sized {
     fn OldState(&mut self) -> ::windows::core::Result<XboxLiveEndpointPairState>;
     fn NewState(&mut self) -> ::windows::core::Result<XboxLiveEndpointPairState>;
 }
@@ -435,9 +435,9 @@ impl ::windows::core::RuntimeName for IXboxLiveEndpointPairStateChangedEventArgs
     const NAME: &'static str = "Windows.Networking.XboxLive.IXboxLiveEndpointPairStateChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IXboxLiveEndpointPairStateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairStateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveEndpointPairStateChangedEventArgsVtbl {
-        unsafe extern "system" fn OldState<Impl: IXboxLiveEndpointPairStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveEndpointPairState) -> ::windows::core::HRESULT {
+impl IXboxLiveEndpointPairStateChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairStateChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveEndpointPairStateChangedEventArgs_Vtbl {
+        unsafe extern "system" fn OldState<Impl: IXboxLiveEndpointPairStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveEndpointPairState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OldState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -448,7 +448,7 @@ impl IXboxLiveEndpointPairStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NewState<Impl: IXboxLiveEndpointPairStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveEndpointPairState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NewState<Impl: IXboxLiveEndpointPairStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveEndpointPairState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NewState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -470,7 +470,7 @@ impl IXboxLiveEndpointPairStateChangedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IXboxLiveEndpointPairStaticsImpl: Sized {
+pub trait IXboxLiveEndpointPairStatics_Impl: Sized {
     fn FindEndpointPairBySocketAddressBytes(&mut self, localsocketaddress: &[<u8 as ::windows::core::DefaultType>::DefaultType], remotesocketaddress: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<XboxLiveEndpointPair>;
     fn FindEndpointPairByHostNamesAndPorts(&mut self, localhostname: &::core::option::Option<super::HostName>, localport: &::windows::core::HSTRING, remotehostname: &::core::option::Option<super::HostName>, remoteport: &::windows::core::HSTRING) -> ::windows::core::Result<XboxLiveEndpointPair>;
 }
@@ -479,9 +479,9 @@ impl ::windows::core::RuntimeName for IXboxLiveEndpointPairStatics {
     const NAME: &'static str = "Windows.Networking.XboxLive.IXboxLiveEndpointPairStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IXboxLiveEndpointPairStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveEndpointPairStaticsVtbl {
-        unsafe extern "system" fn FindEndpointPairBySocketAddressBytes<Impl: IXboxLiveEndpointPairStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localSocketAddress_array_size: u32, localsocketaddress: *const u8, remoteSocketAddress_array_size: u32, remotesocketaddress: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXboxLiveEndpointPairStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveEndpointPairStatics_Vtbl {
+        unsafe extern "system" fn FindEndpointPairBySocketAddressBytes<Impl: IXboxLiveEndpointPairStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localSocketAddress_array_size: u32, localsocketaddress: *const u8, remoteSocketAddress_array_size: u32, remotesocketaddress: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindEndpointPairBySocketAddressBytes(::core::slice::from_raw_parts(::core::mem::transmute_copy(&localsocketaddress), localSocketAddress_array_size as _), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&remotesocketaddress), remoteSocketAddress_array_size as _)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -492,7 +492,7 @@ impl IXboxLiveEndpointPairStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindEndpointPairByHostNamesAndPorts<Impl: IXboxLiveEndpointPairStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localhostname: ::windows::core::RawPtr, localport: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, remotehostname: ::windows::core::RawPtr, remoteport: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindEndpointPairByHostNamesAndPorts<Impl: IXboxLiveEndpointPairStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localhostname: ::windows::core::RawPtr, localport: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, remotehostname: ::windows::core::RawPtr, remoteport: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindEndpointPairByHostNamesAndPorts(
                 &*(&localhostname as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType),
@@ -519,7 +519,7 @@ impl IXboxLiveEndpointPairStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IXboxLiveEndpointPairTemplateImpl: Sized {
+pub trait IXboxLiveEndpointPairTemplate_Impl: Sized {
     fn InboundEndpointPairCreated(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<XboxLiveEndpointPairTemplate, XboxLiveInboundEndpointPairCreatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveInboundEndpointPairCreated(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn CreateEndpointPairDefaultAsync(&mut self, deviceaddress: &::core::option::Option<XboxLiveDeviceAddress>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>;
@@ -539,9 +539,9 @@ impl ::windows::core::RuntimeName for IXboxLiveEndpointPairTemplate {
     const NAME: &'static str = "Windows.Networking.XboxLive.IXboxLiveEndpointPairTemplate";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IXboxLiveEndpointPairTemplateVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairTemplateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveEndpointPairTemplateVtbl {
-        unsafe extern "system" fn InboundEndpointPairCreated<Impl: IXboxLiveEndpointPairTemplateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IXboxLiveEndpointPairTemplate_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairTemplate_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveEndpointPairTemplate_Vtbl {
+        unsafe extern "system" fn InboundEndpointPairCreated<Impl: IXboxLiveEndpointPairTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InboundEndpointPairCreated(&*(&handler as *const <super::super::Foundation::TypedEventHandler<XboxLiveEndpointPairTemplate, XboxLiveInboundEndpointPairCreatedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<XboxLiveEndpointPairTemplate, XboxLiveInboundEndpointPairCreatedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -552,11 +552,11 @@ impl IXboxLiveEndpointPairTemplateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveInboundEndpointPairCreated<Impl: IXboxLiveEndpointPairTemplateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveInboundEndpointPairCreated<Impl: IXboxLiveEndpointPairTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveInboundEndpointPairCreated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CreateEndpointPairDefaultAsync<Impl: IXboxLiveEndpointPairTemplateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceaddress: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateEndpointPairDefaultAsync<Impl: IXboxLiveEndpointPairTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceaddress: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateEndpointPairDefaultAsync(&*(&deviceaddress as *const <XboxLiveDeviceAddress as ::windows::core::Abi>::Abi as *const <XboxLiveDeviceAddress as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -567,7 +567,7 @@ impl IXboxLiveEndpointPairTemplateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateEndpointPairWithBehaviorsAsync<Impl: IXboxLiveEndpointPairTemplateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceaddress: ::windows::core::RawPtr, behaviors: XboxLiveEndpointPairCreationBehaviors, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateEndpointPairWithBehaviorsAsync<Impl: IXboxLiveEndpointPairTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceaddress: ::windows::core::RawPtr, behaviors: XboxLiveEndpointPairCreationBehaviors, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateEndpointPairWithBehaviorsAsync(&*(&deviceaddress as *const <XboxLiveDeviceAddress as ::windows::core::Abi>::Abi as *const <XboxLiveDeviceAddress as ::windows::core::DefaultType>::DefaultType), behaviors) {
                 ::core::result::Result::Ok(ok__) => {
@@ -578,7 +578,7 @@ impl IXboxLiveEndpointPairTemplateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateEndpointPairForPortsDefaultAsync<Impl: IXboxLiveEndpointPairTemplateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceaddress: ::windows::core::RawPtr, initiatorport: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, acceptorport: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateEndpointPairForPortsDefaultAsync<Impl: IXboxLiveEndpointPairTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceaddress: ::windows::core::RawPtr, initiatorport: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, acceptorport: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateEndpointPairForPortsDefaultAsync(
                 &*(&deviceaddress as *const <XboxLiveDeviceAddress as ::windows::core::Abi>::Abi as *const <XboxLiveDeviceAddress as ::windows::core::DefaultType>::DefaultType),
@@ -593,7 +593,7 @@ impl IXboxLiveEndpointPairTemplateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateEndpointPairForPortsWithBehaviorsAsync<Impl: IXboxLiveEndpointPairTemplateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceaddress: ::windows::core::RawPtr, initiatorport: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, acceptorport: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, behaviors: XboxLiveEndpointPairCreationBehaviors, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateEndpointPairForPortsWithBehaviorsAsync<Impl: IXboxLiveEndpointPairTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceaddress: ::windows::core::RawPtr, initiatorport: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, acceptorport: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, behaviors: XboxLiveEndpointPairCreationBehaviors, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateEndpointPairForPortsWithBehaviorsAsync(
                 &*(&deviceaddress as *const <XboxLiveDeviceAddress as ::windows::core::Abi>::Abi as *const <XboxLiveDeviceAddress as ::windows::core::DefaultType>::DefaultType),
@@ -609,7 +609,7 @@ impl IXboxLiveEndpointPairTemplateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Impl: IXboxLiveEndpointPairTemplateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Impl: IXboxLiveEndpointPairTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -620,7 +620,7 @@ impl IXboxLiveEndpointPairTemplateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SocketKind<Impl: IXboxLiveEndpointPairTemplateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveSocketKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SocketKind<Impl: IXboxLiveEndpointPairTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveSocketKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SocketKind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -631,7 +631,7 @@ impl IXboxLiveEndpointPairTemplateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InitiatorBoundPortRangeLower<Impl: IXboxLiveEndpointPairTemplateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitiatorBoundPortRangeLower<Impl: IXboxLiveEndpointPairTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InitiatorBoundPortRangeLower() {
                 ::core::result::Result::Ok(ok__) => {
@@ -642,7 +642,7 @@ impl IXboxLiveEndpointPairTemplateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InitiatorBoundPortRangeUpper<Impl: IXboxLiveEndpointPairTemplateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitiatorBoundPortRangeUpper<Impl: IXboxLiveEndpointPairTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InitiatorBoundPortRangeUpper() {
                 ::core::result::Result::Ok(ok__) => {
@@ -653,7 +653,7 @@ impl IXboxLiveEndpointPairTemplateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AcceptorBoundPortRangeLower<Impl: IXboxLiveEndpointPairTemplateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AcceptorBoundPortRangeLower<Impl: IXboxLiveEndpointPairTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AcceptorBoundPortRangeLower() {
                 ::core::result::Result::Ok(ok__) => {
@@ -664,7 +664,7 @@ impl IXboxLiveEndpointPairTemplateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AcceptorBoundPortRangeUpper<Impl: IXboxLiveEndpointPairTemplateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AcceptorBoundPortRangeUpper<Impl: IXboxLiveEndpointPairTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AcceptorBoundPortRangeUpper() {
                 ::core::result::Result::Ok(ok__) => {
@@ -675,7 +675,7 @@ impl IXboxLiveEndpointPairTemplateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EndpointPairs<Impl: IXboxLiveEndpointPairTemplateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EndpointPairs<Impl: IXboxLiveEndpointPairTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndpointPairs() {
                 ::core::result::Result::Ok(ok__) => {
@@ -708,7 +708,7 @@ impl IXboxLiveEndpointPairTemplateVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IXboxLiveEndpointPairTemplateStaticsImpl: Sized {
+pub trait IXboxLiveEndpointPairTemplateStatics_Impl: Sized {
     fn GetTemplateByName(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<XboxLiveEndpointPairTemplate>;
     fn Templates(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveEndpointPairTemplate>>;
 }
@@ -717,9 +717,9 @@ impl ::windows::core::RuntimeName for IXboxLiveEndpointPairTemplateStatics {
     const NAME: &'static str = "Windows.Networking.XboxLive.IXboxLiveEndpointPairTemplateStatics";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IXboxLiveEndpointPairTemplateStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairTemplateStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveEndpointPairTemplateStaticsVtbl {
-        unsafe extern "system" fn GetTemplateByName<Impl: IXboxLiveEndpointPairTemplateStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXboxLiveEndpointPairTemplateStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveEndpointPairTemplateStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveEndpointPairTemplateStatics_Vtbl {
+        unsafe extern "system" fn GetTemplateByName<Impl: IXboxLiveEndpointPairTemplateStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTemplateByName(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -730,7 +730,7 @@ impl IXboxLiveEndpointPairTemplateStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Templates<Impl: IXboxLiveEndpointPairTemplateStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Templates<Impl: IXboxLiveEndpointPairTemplateStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Templates() {
                 ::core::result::Result::Ok(ok__) => {
@@ -752,7 +752,7 @@ impl IXboxLiveEndpointPairTemplateStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IXboxLiveInboundEndpointPairCreatedEventArgsImpl: Sized {
+pub trait IXboxLiveInboundEndpointPairCreatedEventArgs_Impl: Sized {
     fn EndpointPair(&mut self) -> ::windows::core::Result<XboxLiveEndpointPair>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -760,9 +760,9 @@ impl ::windows::core::RuntimeName for IXboxLiveInboundEndpointPairCreatedEventAr
     const NAME: &'static str = "Windows.Networking.XboxLive.IXboxLiveInboundEndpointPairCreatedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IXboxLiveInboundEndpointPairCreatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveInboundEndpointPairCreatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveInboundEndpointPairCreatedEventArgsVtbl {
-        unsafe extern "system" fn EndpointPair<Impl: IXboxLiveInboundEndpointPairCreatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXboxLiveInboundEndpointPairCreatedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveInboundEndpointPairCreatedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveInboundEndpointPairCreatedEventArgs_Vtbl {
+        unsafe extern "system" fn EndpointPair<Impl: IXboxLiveInboundEndpointPairCreatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndpointPair() {
                 ::core::result::Result::Ok(ok__) => {
@@ -783,7 +783,7 @@ impl IXboxLiveInboundEndpointPairCreatedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IXboxLiveQualityOfServiceMeasurementImpl: Sized {
+pub trait IXboxLiveQualityOfServiceMeasurement_Impl: Sized {
     fn MeasureAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn GetMetricResultsForDevice(&mut self, deviceaddress: &::core::option::Option<XboxLiveDeviceAddress>) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>>;
     fn GetMetricResultsForMetric(&mut self, metric: XboxLiveQualityOfServiceMetric) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>>;
@@ -806,9 +806,9 @@ impl ::windows::core::RuntimeName for IXboxLiveQualityOfServiceMeasurement {
     const NAME: &'static str = "Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMeasurement";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IXboxLiveQualityOfServiceMeasurementVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveQualityOfServiceMeasurementImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveQualityOfServiceMeasurementVtbl {
-        unsafe extern "system" fn MeasureAsync<Impl: IXboxLiveQualityOfServiceMeasurementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXboxLiveQualityOfServiceMeasurement_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveQualityOfServiceMeasurement_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveQualityOfServiceMeasurement_Vtbl {
+        unsafe extern "system" fn MeasureAsync<Impl: IXboxLiveQualityOfServiceMeasurement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MeasureAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -819,7 +819,7 @@ impl IXboxLiveQualityOfServiceMeasurementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMetricResultsForDevice<Impl: IXboxLiveQualityOfServiceMeasurementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceaddress: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMetricResultsForDevice<Impl: IXboxLiveQualityOfServiceMeasurement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceaddress: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMetricResultsForDevice(&*(&deviceaddress as *const <XboxLiveDeviceAddress as ::windows::core::Abi>::Abi as *const <XboxLiveDeviceAddress as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -830,7 +830,7 @@ impl IXboxLiveQualityOfServiceMeasurementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMetricResultsForMetric<Impl: IXboxLiveQualityOfServiceMeasurementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, metric: XboxLiveQualityOfServiceMetric, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMetricResultsForMetric<Impl: IXboxLiveQualityOfServiceMeasurement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, metric: XboxLiveQualityOfServiceMetric, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMetricResultsForMetric(metric) {
                 ::core::result::Result::Ok(ok__) => {
@@ -841,7 +841,7 @@ impl IXboxLiveQualityOfServiceMeasurementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMetricResult<Impl: IXboxLiveQualityOfServiceMeasurementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceaddress: ::windows::core::RawPtr, metric: XboxLiveQualityOfServiceMetric, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMetricResult<Impl: IXboxLiveQualityOfServiceMeasurement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceaddress: ::windows::core::RawPtr, metric: XboxLiveQualityOfServiceMetric, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMetricResult(&*(&deviceaddress as *const <XboxLiveDeviceAddress as ::windows::core::Abi>::Abi as *const <XboxLiveDeviceAddress as ::windows::core::DefaultType>::DefaultType), metric) {
                 ::core::result::Result::Ok(ok__) => {
@@ -852,7 +852,7 @@ impl IXboxLiveQualityOfServiceMeasurementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPrivatePayloadResult<Impl: IXboxLiveQualityOfServiceMeasurementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceaddress: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPrivatePayloadResult<Impl: IXboxLiveQualityOfServiceMeasurement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceaddress: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPrivatePayloadResult(&*(&deviceaddress as *const <XboxLiveDeviceAddress as ::windows::core::Abi>::Abi as *const <XboxLiveDeviceAddress as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -863,7 +863,7 @@ impl IXboxLiveQualityOfServiceMeasurementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Metrics<Impl: IXboxLiveQualityOfServiceMeasurementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Metrics<Impl: IXboxLiveQualityOfServiceMeasurement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Metrics() {
                 ::core::result::Result::Ok(ok__) => {
@@ -874,7 +874,7 @@ impl IXboxLiveQualityOfServiceMeasurementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceAddresses<Impl: IXboxLiveQualityOfServiceMeasurementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceAddresses<Impl: IXboxLiveQualityOfServiceMeasurement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceAddresses() {
                 ::core::result::Result::Ok(ok__) => {
@@ -885,7 +885,7 @@ impl IXboxLiveQualityOfServiceMeasurementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShouldRequestPrivatePayloads<Impl: IXboxLiveQualityOfServiceMeasurementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShouldRequestPrivatePayloads<Impl: IXboxLiveQualityOfServiceMeasurement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShouldRequestPrivatePayloads() {
                 ::core::result::Result::Ok(ok__) => {
@@ -896,11 +896,11 @@ impl IXboxLiveQualityOfServiceMeasurementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetShouldRequestPrivatePayloads<Impl: IXboxLiveQualityOfServiceMeasurementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetShouldRequestPrivatePayloads<Impl: IXboxLiveQualityOfServiceMeasurement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetShouldRequestPrivatePayloads(value).into()
         }
-        unsafe extern "system" fn TimeoutInMilliseconds<Impl: IXboxLiveQualityOfServiceMeasurementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TimeoutInMilliseconds<Impl: IXboxLiveQualityOfServiceMeasurement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimeoutInMilliseconds() {
                 ::core::result::Result::Ok(ok__) => {
@@ -911,11 +911,11 @@ impl IXboxLiveQualityOfServiceMeasurementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTimeoutInMilliseconds<Impl: IXboxLiveQualityOfServiceMeasurementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTimeoutInMilliseconds<Impl: IXboxLiveQualityOfServiceMeasurement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTimeoutInMilliseconds(value).into()
         }
-        unsafe extern "system" fn NumberOfProbesToAttempt<Impl: IXboxLiveQualityOfServiceMeasurementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NumberOfProbesToAttempt<Impl: IXboxLiveQualityOfServiceMeasurement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NumberOfProbesToAttempt() {
                 ::core::result::Result::Ok(ok__) => {
@@ -926,11 +926,11 @@ impl IXboxLiveQualityOfServiceMeasurementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNumberOfProbesToAttempt<Impl: IXboxLiveQualityOfServiceMeasurementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNumberOfProbesToAttempt<Impl: IXboxLiveQualityOfServiceMeasurement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNumberOfProbesToAttempt(value).into()
         }
-        unsafe extern "system" fn NumberOfResultsPending<Impl: IXboxLiveQualityOfServiceMeasurementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NumberOfResultsPending<Impl: IXboxLiveQualityOfServiceMeasurement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NumberOfResultsPending() {
                 ::core::result::Result::Ok(ok__) => {
@@ -941,7 +941,7 @@ impl IXboxLiveQualityOfServiceMeasurementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MetricResults<Impl: IXboxLiveQualityOfServiceMeasurementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MetricResults<Impl: IXboxLiveQualityOfServiceMeasurement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MetricResults() {
                 ::core::result::Result::Ok(ok__) => {
@@ -952,7 +952,7 @@ impl IXboxLiveQualityOfServiceMeasurementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrivatePayloadResults<Impl: IXboxLiveQualityOfServiceMeasurementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrivatePayloadResults<Impl: IXboxLiveQualityOfServiceMeasurement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrivatePayloadResults() {
                 ::core::result::Result::Ok(ok__) => {
@@ -988,7 +988,7 @@ impl IXboxLiveQualityOfServiceMeasurementVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IXboxLiveQualityOfServiceMeasurementStaticsImpl: Sized {
+pub trait IXboxLiveQualityOfServiceMeasurementStatics_Impl: Sized {
     fn PublishPrivatePayloadBytes(&mut self, payload: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
     fn ClearPrivatePayload(&mut self) -> ::windows::core::Result<()>;
     fn MaxSimultaneousProbeConnections(&mut self) -> ::windows::core::Result<u32>;
@@ -1006,17 +1006,17 @@ impl ::windows::core::RuntimeName for IXboxLiveQualityOfServiceMeasurementStatic
     const NAME: &'static str = "Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMeasurementStatics";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IXboxLiveQualityOfServiceMeasurementStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveQualityOfServiceMeasurementStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveQualityOfServiceMeasurementStaticsVtbl {
-        unsafe extern "system" fn PublishPrivatePayloadBytes<Impl: IXboxLiveQualityOfServiceMeasurementStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, payload_array_size: u32, payload: *const u8) -> ::windows::core::HRESULT {
+impl IXboxLiveQualityOfServiceMeasurementStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveQualityOfServiceMeasurementStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveQualityOfServiceMeasurementStatics_Vtbl {
+        unsafe extern "system" fn PublishPrivatePayloadBytes<Impl: IXboxLiveQualityOfServiceMeasurementStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, payload_array_size: u32, payload: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PublishPrivatePayloadBytes(::core::slice::from_raw_parts(::core::mem::transmute_copy(&payload), payload_array_size as _)).into()
         }
-        unsafe extern "system" fn ClearPrivatePayload<Impl: IXboxLiveQualityOfServiceMeasurementStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearPrivatePayload<Impl: IXboxLiveQualityOfServiceMeasurementStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearPrivatePayload().into()
         }
-        unsafe extern "system" fn MaxSimultaneousProbeConnections<Impl: IXboxLiveQualityOfServiceMeasurementStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxSimultaneousProbeConnections<Impl: IXboxLiveQualityOfServiceMeasurementStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxSimultaneousProbeConnections() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1027,11 +1027,11 @@ impl IXboxLiveQualityOfServiceMeasurementStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxSimultaneousProbeConnections<Impl: IXboxLiveQualityOfServiceMeasurementStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxSimultaneousProbeConnections<Impl: IXboxLiveQualityOfServiceMeasurementStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxSimultaneousProbeConnections(value).into()
         }
-        unsafe extern "system" fn IsSystemOutboundBandwidthConstrained<Impl: IXboxLiveQualityOfServiceMeasurementStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSystemOutboundBandwidthConstrained<Impl: IXboxLiveQualityOfServiceMeasurementStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSystemOutboundBandwidthConstrained() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1042,11 +1042,11 @@ impl IXboxLiveQualityOfServiceMeasurementStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsSystemOutboundBandwidthConstrained<Impl: IXboxLiveQualityOfServiceMeasurementStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsSystemOutboundBandwidthConstrained<Impl: IXboxLiveQualityOfServiceMeasurementStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsSystemOutboundBandwidthConstrained(value).into()
         }
-        unsafe extern "system" fn IsSystemInboundBandwidthConstrained<Impl: IXboxLiveQualityOfServiceMeasurementStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSystemInboundBandwidthConstrained<Impl: IXboxLiveQualityOfServiceMeasurementStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSystemInboundBandwidthConstrained() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1057,11 +1057,11 @@ impl IXboxLiveQualityOfServiceMeasurementStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsSystemInboundBandwidthConstrained<Impl: IXboxLiveQualityOfServiceMeasurementStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsSystemInboundBandwidthConstrained<Impl: IXboxLiveQualityOfServiceMeasurementStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsSystemInboundBandwidthConstrained(value).into()
         }
-        unsafe extern "system" fn PublishedPrivatePayload<Impl: IXboxLiveQualityOfServiceMeasurementStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PublishedPrivatePayload<Impl: IXboxLiveQualityOfServiceMeasurementStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PublishedPrivatePayload() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1072,11 +1072,11 @@ impl IXboxLiveQualityOfServiceMeasurementStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPublishedPrivatePayload<Impl: IXboxLiveQualityOfServiceMeasurementStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPublishedPrivatePayload<Impl: IXboxLiveQualityOfServiceMeasurementStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPublishedPrivatePayload(&*(&value as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MaxPrivatePayloadSize<Impl: IXboxLiveQualityOfServiceMeasurementStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxPrivatePayloadSize<Impl: IXboxLiveQualityOfServiceMeasurementStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxPrivatePayloadSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1107,7 +1107,7 @@ impl IXboxLiveQualityOfServiceMeasurementStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IXboxLiveQualityOfServiceMetricResultImpl: Sized {
+pub trait IXboxLiveQualityOfServiceMetricResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<XboxLiveQualityOfServiceMeasurementStatus>;
     fn DeviceAddress(&mut self) -> ::windows::core::Result<XboxLiveDeviceAddress>;
     fn Metric(&mut self) -> ::windows::core::Result<XboxLiveQualityOfServiceMetric>;
@@ -1118,9 +1118,9 @@ impl ::windows::core::RuntimeName for IXboxLiveQualityOfServiceMetricResult {
     const NAME: &'static str = "Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMetricResult";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IXboxLiveQualityOfServiceMetricResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveQualityOfServiceMetricResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveQualityOfServiceMetricResultVtbl {
-        unsafe extern "system" fn Status<Impl: IXboxLiveQualityOfServiceMetricResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveQualityOfServiceMeasurementStatus) -> ::windows::core::HRESULT {
+impl IXboxLiveQualityOfServiceMetricResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveQualityOfServiceMetricResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveQualityOfServiceMetricResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IXboxLiveQualityOfServiceMetricResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveQualityOfServiceMeasurementStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1131,7 +1131,7 @@ impl IXboxLiveQualityOfServiceMetricResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceAddress<Impl: IXboxLiveQualityOfServiceMetricResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceAddress<Impl: IXboxLiveQualityOfServiceMetricResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1142,7 +1142,7 @@ impl IXboxLiveQualityOfServiceMetricResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Metric<Impl: IXboxLiveQualityOfServiceMetricResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveQualityOfServiceMetric) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Metric<Impl: IXboxLiveQualityOfServiceMetricResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveQualityOfServiceMetric) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Metric() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1153,7 +1153,7 @@ impl IXboxLiveQualityOfServiceMetricResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Impl: IXboxLiveQualityOfServiceMetricResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: IXboxLiveQualityOfServiceMetricResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1177,7 +1177,7 @@ impl IXboxLiveQualityOfServiceMetricResultVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IXboxLiveQualityOfServicePrivatePayloadResultImpl: Sized {
+pub trait IXboxLiveQualityOfServicePrivatePayloadResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<XboxLiveQualityOfServiceMeasurementStatus>;
     fn DeviceAddress(&mut self) -> ::windows::core::Result<XboxLiveDeviceAddress>;
     fn Value(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
@@ -1187,9 +1187,9 @@ impl ::windows::core::RuntimeName for IXboxLiveQualityOfServicePrivatePayloadRes
     const NAME: &'static str = "Windows.Networking.XboxLive.IXboxLiveQualityOfServicePrivatePayloadResult";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IXboxLiveQualityOfServicePrivatePayloadResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveQualityOfServicePrivatePayloadResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveQualityOfServicePrivatePayloadResultVtbl {
-        unsafe extern "system" fn Status<Impl: IXboxLiveQualityOfServicePrivatePayloadResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveQualityOfServiceMeasurementStatus) -> ::windows::core::HRESULT {
+impl IXboxLiveQualityOfServicePrivatePayloadResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXboxLiveQualityOfServicePrivatePayloadResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXboxLiveQualityOfServicePrivatePayloadResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IXboxLiveQualityOfServicePrivatePayloadResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveQualityOfServiceMeasurementStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1200,7 +1200,7 @@ impl IXboxLiveQualityOfServicePrivatePayloadResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceAddress<Impl: IXboxLiveQualityOfServicePrivatePayloadResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceAddress<Impl: IXboxLiveQualityOfServicePrivatePayloadResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1211,7 +1211,7 @@ impl IXboxLiveQualityOfServicePrivatePayloadResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Impl: IXboxLiveQualityOfServicePrivatePayloadResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: IXboxLiveQualityOfServicePrivatePayloadResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {

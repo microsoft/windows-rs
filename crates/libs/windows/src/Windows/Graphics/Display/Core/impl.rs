@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IHdmiDisplayInformationImpl: Sized {
+pub trait IHdmiDisplayInformation_Impl: Sized {
     fn GetSupportedDisplayModes(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<HdmiDisplayMode>>;
     fn GetCurrentDisplayMode(&mut self) -> ::windows::core::Result<HdmiDisplayMode>;
     fn SetDefaultDisplayModeAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
@@ -14,9 +14,9 @@ impl ::windows::core::RuntimeName for IHdmiDisplayInformation {
     const NAME: &'static str = "Windows.Graphics.Display.Core.IHdmiDisplayInformation";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IHdmiDisplayInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHdmiDisplayInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHdmiDisplayInformationVtbl {
-        unsafe extern "system" fn GetSupportedDisplayModes<Impl: IHdmiDisplayInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHdmiDisplayInformation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHdmiDisplayInformation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHdmiDisplayInformation_Vtbl {
+        unsafe extern "system" fn GetSupportedDisplayModes<Impl: IHdmiDisplayInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSupportedDisplayModes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -27,7 +27,7 @@ impl IHdmiDisplayInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentDisplayMode<Impl: IHdmiDisplayInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentDisplayMode<Impl: IHdmiDisplayInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentDisplayMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -38,7 +38,7 @@ impl IHdmiDisplayInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDefaultDisplayModeAsync<Impl: IHdmiDisplayInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDefaultDisplayModeAsync<Impl: IHdmiDisplayInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetDefaultDisplayModeAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -49,7 +49,7 @@ impl IHdmiDisplayInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestSetCurrentDisplayModeAsync<Impl: IHdmiDisplayInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestSetCurrentDisplayModeAsync<Impl: IHdmiDisplayInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestSetCurrentDisplayModeAsync(&*(&mode as *const <HdmiDisplayMode as ::windows::core::Abi>::Abi as *const <HdmiDisplayMode as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -60,7 +60,7 @@ impl IHdmiDisplayInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestSetCurrentDisplayModeWithHdrAsync<Impl: IHdmiDisplayInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: ::windows::core::RawPtr, hdroption: HdmiDisplayHdrOption, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestSetCurrentDisplayModeWithHdrAsync<Impl: IHdmiDisplayInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: ::windows::core::RawPtr, hdroption: HdmiDisplayHdrOption, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestSetCurrentDisplayModeWithHdrAsync(&*(&mode as *const <HdmiDisplayMode as ::windows::core::Abi>::Abi as *const <HdmiDisplayMode as ::windows::core::DefaultType>::DefaultType), hdroption) {
                 ::core::result::Result::Ok(ok__) => {
@@ -71,7 +71,7 @@ impl IHdmiDisplayInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestSetCurrentDisplayModeWithHdrAndMetadataAsync<Impl: IHdmiDisplayInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: ::windows::core::RawPtr, hdroption: HdmiDisplayHdrOption, hdrmetadata: HdmiDisplayHdr2086Metadata, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestSetCurrentDisplayModeWithHdrAndMetadataAsync<Impl: IHdmiDisplayInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: ::windows::core::RawPtr, hdroption: HdmiDisplayHdrOption, hdrmetadata: HdmiDisplayHdr2086Metadata, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestSetCurrentDisplayModeWithHdrAndMetadataAsync(&*(&mode as *const <HdmiDisplayMode as ::windows::core::Abi>::Abi as *const <HdmiDisplayMode as ::windows::core::DefaultType>::DefaultType), hdroption, &*(&hdrmetadata as *const <HdmiDisplayHdr2086Metadata as ::windows::core::Abi>::Abi as *const <HdmiDisplayHdr2086Metadata as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -82,7 +82,7 @@ impl IHdmiDisplayInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayModesChanged<Impl: IHdmiDisplayInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayModesChanged<Impl: IHdmiDisplayInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayModesChanged(&*(&value as *const <super::super::super::Foundation::TypedEventHandler<HdmiDisplayInformation, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<HdmiDisplayInformation, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -93,7 +93,7 @@ impl IHdmiDisplayInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDisplayModesChanged<Impl: IHdmiDisplayInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDisplayModesChanged<Impl: IHdmiDisplayInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDisplayModesChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -114,7 +114,7 @@ impl IHdmiDisplayInformationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHdmiDisplayInformationStaticsImpl: Sized {
+pub trait IHdmiDisplayInformationStatics_Impl: Sized {
     fn GetForCurrentView(&mut self) -> ::windows::core::Result<HdmiDisplayInformation>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -122,9 +122,9 @@ impl ::windows::core::RuntimeName for IHdmiDisplayInformationStatics {
     const NAME: &'static str = "Windows.Graphics.Display.Core.IHdmiDisplayInformationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHdmiDisplayInformationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHdmiDisplayInformationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHdmiDisplayInformationStaticsVtbl {
-        unsafe extern "system" fn GetForCurrentView<Impl: IHdmiDisplayInformationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHdmiDisplayInformationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHdmiDisplayInformationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHdmiDisplayInformationStatics_Vtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: IHdmiDisplayInformationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -145,7 +145,7 @@ impl IHdmiDisplayInformationStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHdmiDisplayModeImpl: Sized {
+pub trait IHdmiDisplayMode_Impl: Sized {
     fn ResolutionWidthInRawPixels(&mut self) -> ::windows::core::Result<u32>;
     fn ResolutionHeightInRawPixels(&mut self) -> ::windows::core::Result<u32>;
     fn RefreshRate(&mut self) -> ::windows::core::Result<f64>;
@@ -163,9 +163,9 @@ impl ::windows::core::RuntimeName for IHdmiDisplayMode {
     const NAME: &'static str = "Windows.Graphics.Display.Core.IHdmiDisplayMode";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHdmiDisplayModeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHdmiDisplayModeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHdmiDisplayModeVtbl {
-        unsafe extern "system" fn ResolutionWidthInRawPixels<Impl: IHdmiDisplayModeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IHdmiDisplayMode_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHdmiDisplayMode_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHdmiDisplayMode_Vtbl {
+        unsafe extern "system" fn ResolutionWidthInRawPixels<Impl: IHdmiDisplayMode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResolutionWidthInRawPixels() {
                 ::core::result::Result::Ok(ok__) => {
@@ -176,7 +176,7 @@ impl IHdmiDisplayModeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResolutionHeightInRawPixels<Impl: IHdmiDisplayModeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResolutionHeightInRawPixels<Impl: IHdmiDisplayMode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResolutionHeightInRawPixels() {
                 ::core::result::Result::Ok(ok__) => {
@@ -187,7 +187,7 @@ impl IHdmiDisplayModeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RefreshRate<Impl: IHdmiDisplayModeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RefreshRate<Impl: IHdmiDisplayMode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RefreshRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -198,7 +198,7 @@ impl IHdmiDisplayModeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StereoEnabled<Impl: IHdmiDisplayModeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StereoEnabled<Impl: IHdmiDisplayMode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StereoEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -209,7 +209,7 @@ impl IHdmiDisplayModeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BitsPerPixel<Impl: IHdmiDisplayModeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BitsPerPixel<Impl: IHdmiDisplayMode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BitsPerPixel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -220,7 +220,7 @@ impl IHdmiDisplayModeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsEqual<Impl: IHdmiDisplayModeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEqual<Impl: IHdmiDisplayMode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEqual(&*(&mode as *const <HdmiDisplayMode as ::windows::core::Abi>::Abi as *const <HdmiDisplayMode as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -231,7 +231,7 @@ impl IHdmiDisplayModeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ColorSpace<Impl: IHdmiDisplayModeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HdmiDisplayColorSpace) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ColorSpace<Impl: IHdmiDisplayMode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HdmiDisplayColorSpace) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ColorSpace() {
                 ::core::result::Result::Ok(ok__) => {
@@ -242,7 +242,7 @@ impl IHdmiDisplayModeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PixelEncoding<Impl: IHdmiDisplayModeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HdmiDisplayPixelEncoding) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PixelEncoding<Impl: IHdmiDisplayMode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HdmiDisplayPixelEncoding) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PixelEncoding() {
                 ::core::result::Result::Ok(ok__) => {
@@ -253,7 +253,7 @@ impl IHdmiDisplayModeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSdrLuminanceSupported<Impl: IHdmiDisplayModeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSdrLuminanceSupported<Impl: IHdmiDisplayMode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSdrLuminanceSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -264,7 +264,7 @@ impl IHdmiDisplayModeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSmpte2084Supported<Impl: IHdmiDisplayModeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSmpte2084Supported<Impl: IHdmiDisplayMode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSmpte2084Supported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -275,7 +275,7 @@ impl IHdmiDisplayModeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Is2086MetadataSupported<Impl: IHdmiDisplayModeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Is2086MetadataSupported<Impl: IHdmiDisplayMode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Is2086MetadataSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -306,7 +306,7 @@ impl IHdmiDisplayModeVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHdmiDisplayMode2Impl: Sized {
+pub trait IHdmiDisplayMode2_Impl: Sized {
     fn IsDolbyVisionLowLatencySupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -314,9 +314,9 @@ impl ::windows::core::RuntimeName for IHdmiDisplayMode2 {
     const NAME: &'static str = "Windows.Graphics.Display.Core.IHdmiDisplayMode2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHdmiDisplayMode2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHdmiDisplayMode2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHdmiDisplayMode2Vtbl {
-        unsafe extern "system" fn IsDolbyVisionLowLatencySupported<Impl: IHdmiDisplayMode2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IHdmiDisplayMode2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHdmiDisplayMode2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHdmiDisplayMode2_Vtbl {
+        unsafe extern "system" fn IsDolbyVisionLowLatencySupported<Impl: IHdmiDisplayMode2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDolbyVisionLowLatencySupported() {
                 ::core::result::Result::Ok(ok__) => {

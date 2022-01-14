@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IPreallocatedWorkItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPreallocatedWorkItem {
-    type Vtable = IPreallocatedWorkItemVtbl;
+    type Vtable = IPreallocatedWorkItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6daa9fc_bc5b_401a_a8b2_6e754d14daa6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPreallocatedWorkItemVtbl {
+pub struct IPreallocatedWorkItem_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RunAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -19,12 +19,12 @@ pub struct IPreallocatedWorkItemVtbl {
 #[repr(transparent)]
 pub struct IPreallocatedWorkItemFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPreallocatedWorkItemFactory {
-    type Vtable = IPreallocatedWorkItemFactoryVtbl;
+    type Vtable = IPreallocatedWorkItemFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3d32b45_dfea_469b_82c5_f6e3cefdeafb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPreallocatedWorkItemFactoryVtbl {
+pub struct IPreallocatedWorkItemFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CreateWorkItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -43,12 +43,12 @@ pub struct IPreallocatedWorkItemFactoryVtbl {
 #[repr(transparent)]
 pub struct ISignalNotifier(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISignalNotifier {
-    type Vtable = ISignalNotifierVtbl;
+    type Vtable = ISignalNotifier_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14285e06_63a7_4713_b6d9_62f64b56fb8b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISignalNotifierVtbl {
+pub struct ISignalNotifier_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Enable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Terminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -57,12 +57,12 @@ pub struct ISignalNotifierVtbl {
 #[repr(transparent)]
 pub struct ISignalNotifierStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISignalNotifierStatics {
-    type Vtable = ISignalNotifierStaticsVtbl;
+    type Vtable = ISignalNotifierStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c4e4566_8400_46d3_a115_7d0c0dfc9f62);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISignalNotifierStaticsVtbl {
+pub struct ISignalNotifierStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AttachToEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, handler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -138,7 +138,7 @@ unsafe impl ::windows::core::RuntimeType for PreallocatedWorkItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Threading.Core.PreallocatedWorkItem;{b6daa9fc-bc5b-401a-a8b2-6e754d14daa6})");
 }
 unsafe impl ::windows::core::Interface for PreallocatedWorkItem {
-    type Vtable = IPreallocatedWorkItemVtbl;
+    type Vtable = IPreallocatedWorkItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6daa9fc_bc5b_401a_a8b2_6e754d14daa6);
 }
 impl ::windows::core::RuntimeName for PreallocatedWorkItem {
@@ -202,12 +202,12 @@ impl SignalHandler {
 }
 #[repr(C)]
 struct SignalHandlerBox<F: FnMut(&::core::option::Option<SignalNotifier>, bool) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const SignalHandlerVtbl,
+    vtable: *const SignalHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<SignalNotifier>, bool) -> ::windows::core::Result<()> + 'static> SignalHandlerBox<F> {
-    const VTABLE: SignalHandlerVtbl = SignalHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: SignalHandler_Vtbl = SignalHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<SignalHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -252,7 +252,7 @@ impl ::core::fmt::Debug for SignalHandler {
     }
 }
 unsafe impl ::windows::core::Interface for SignalHandler {
-    type Vtable = SignalHandlerVtbl;
+    type Vtable = SignalHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x923c402e_4721_440e_9dda_55b6f2e07710);
 }
 unsafe impl ::windows::core::RuntimeType for SignalHandler {
@@ -260,7 +260,7 @@ unsafe impl ::windows::core::RuntimeType for SignalHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct SignalHandlerVtbl {
+pub struct SignalHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalnotifier: ::windows::core::RawPtr, timedout: bool) -> ::windows::core::HRESULT,
 }
@@ -334,7 +334,7 @@ unsafe impl ::windows::core::RuntimeType for SignalNotifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Threading.Core.SignalNotifier;{14285e06-63a7-4713-b6d9-62f64b56fb8b})");
 }
 unsafe impl ::windows::core::Interface for SignalNotifier {
-    type Vtable = ISignalNotifierVtbl;
+    type Vtable = ISignalNotifier_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14285e06_63a7_4713_b6d9_62f64b56fb8b);
 }
 impl ::windows::core::RuntimeName for SignalNotifier {

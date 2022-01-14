@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IDeliveryOptimizationSettingsImpl: Sized {
+pub trait IDeliveryOptimizationSettings_Impl: Sized {
     fn DownloadMode(&mut self) -> ::windows::core::Result<DeliveryOptimizationDownloadMode>;
     fn DownloadModeSource(&mut self) -> ::windows::core::Result<DeliveryOptimizationDownloadModeSource>;
 }
@@ -8,9 +8,9 @@ impl ::windows::core::RuntimeName for IDeliveryOptimizationSettings {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.IDeliveryOptimizationSettings";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDeliveryOptimizationSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeliveryOptimizationSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeliveryOptimizationSettingsVtbl {
-        unsafe extern "system" fn DownloadMode<Impl: IDeliveryOptimizationSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DeliveryOptimizationDownloadMode) -> ::windows::core::HRESULT {
+impl IDeliveryOptimizationSettings_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeliveryOptimizationSettings_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeliveryOptimizationSettings_Vtbl {
+        unsafe extern "system" fn DownloadMode<Impl: IDeliveryOptimizationSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DeliveryOptimizationDownloadMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DownloadMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -21,7 +21,7 @@ impl IDeliveryOptimizationSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DownloadModeSource<Impl: IDeliveryOptimizationSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DeliveryOptimizationDownloadModeSource) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DownloadModeSource<Impl: IDeliveryOptimizationSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DeliveryOptimizationDownloadModeSource) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DownloadModeSource() {
                 ::core::result::Result::Ok(ok__) => {
@@ -43,7 +43,7 @@ impl IDeliveryOptimizationSettingsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDeliveryOptimizationSettingsStaticsImpl: Sized {
+pub trait IDeliveryOptimizationSettingsStatics_Impl: Sized {
     fn GetCurrentSettings(&mut self) -> ::windows::core::Result<DeliveryOptimizationSettings>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -51,9 +51,9 @@ impl ::windows::core::RuntimeName for IDeliveryOptimizationSettingsStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.IDeliveryOptimizationSettingsStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDeliveryOptimizationSettingsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeliveryOptimizationSettingsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeliveryOptimizationSettingsStaticsVtbl {
-        unsafe extern "system" fn GetCurrentSettings<Impl: IDeliveryOptimizationSettingsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDeliveryOptimizationSettingsStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeliveryOptimizationSettingsStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeliveryOptimizationSettingsStatics_Vtbl {
+        unsafe extern "system" fn GetCurrentSettings<Impl: IDeliveryOptimizationSettingsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentSettings() {
                 ::core::result::Result::Ok(ok__) => {
@@ -74,7 +74,7 @@ impl IDeliveryOptimizationSettingsStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IStoreConfigurationStaticsImpl: Sized {
+pub trait IStoreConfigurationStatics_Impl: Sized {
     fn SetSystemConfiguration(&mut self, cataloghardwaremanufacturerid: &::windows::core::HSTRING, catalogstorecontentmodifierid: &::windows::core::HSTRING, systemconfigurationexpiration: &super::super::super::Foundation::DateTime, cataloghardwaredescriptor: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn SetMobileOperatorConfiguration(&mut self, mobileoperatorid: &::windows::core::HSTRING, appdownloadlimitinmegabytes: u32, updatedownloadlimitinmegabytes: u32) -> ::windows::core::Result<()>;
     fn SetStoreWebAccountId(&mut self, webaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -87,9 +87,9 @@ impl ::windows::core::RuntimeName for IStoreConfigurationStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IStoreConfigurationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreConfigurationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreConfigurationStaticsVtbl {
-        unsafe extern "system" fn SetSystemConfiguration<Impl: IStoreConfigurationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cataloghardwaremanufacturerid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, catalogstorecontentmodifierid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, systemconfigurationexpiration: super::super::super::Foundation::DateTime, cataloghardwaredescriptor: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IStoreConfigurationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreConfigurationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreConfigurationStatics_Vtbl {
+        unsafe extern "system" fn SetSystemConfiguration<Impl: IStoreConfigurationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cataloghardwaremanufacturerid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, catalogstorecontentmodifierid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, systemconfigurationexpiration: super::super::super::Foundation::DateTime, cataloghardwaredescriptor: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetSystemConfiguration(
@@ -100,15 +100,15 @@ impl IStoreConfigurationStaticsVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn SetMobileOperatorConfiguration<Impl: IStoreConfigurationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mobileoperatorid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, appdownloadlimitinmegabytes: u32, updatedownloadlimitinmegabytes: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMobileOperatorConfiguration<Impl: IStoreConfigurationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mobileoperatorid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, appdownloadlimitinmegabytes: u32, updatedownloadlimitinmegabytes: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMobileOperatorConfiguration(&*(&mobileoperatorid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), appdownloadlimitinmegabytes, updatedownloadlimitinmegabytes).into()
         }
-        unsafe extern "system" fn SetStoreWebAccountId<Impl: IStoreConfigurationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, webaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStoreWebAccountId<Impl: IStoreConfigurationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, webaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStoreWebAccountId(&*(&webaccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IsStoreWebAccountId<Impl: IStoreConfigurationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, webaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStoreWebAccountId<Impl: IStoreConfigurationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, webaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStoreWebAccountId(&*(&webaccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -119,7 +119,7 @@ impl IStoreConfigurationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HardwareManufacturerInfo<Impl: IStoreConfigurationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HardwareManufacturerInfo<Impl: IStoreConfigurationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HardwareManufacturerInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -130,7 +130,7 @@ impl IStoreConfigurationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FilterUnsupportedSystemFeaturesAsync<Impl: IStoreConfigurationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, systemfeatures: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FilterUnsupportedSystemFeaturesAsync<Impl: IStoreConfigurationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, systemfeatures: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FilterUnsupportedSystemFeaturesAsync(&*(&systemfeatures as *const <super::super::super::Foundation::Collections::IIterable<StoreSystemFeature> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<StoreSystemFeature> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -156,7 +156,7 @@ impl IStoreConfigurationStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IStoreConfigurationStatics2Impl: Sized {
+pub trait IStoreConfigurationStatics2_Impl: Sized {
     fn PurchasePromptingPolicy(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u32>>;
     fn SetPurchasePromptingPolicy(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
 }
@@ -165,9 +165,9 @@ impl ::windows::core::RuntimeName for IStoreConfigurationStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IStoreConfigurationStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreConfigurationStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreConfigurationStatics2Vtbl {
-        unsafe extern "system" fn PurchasePromptingPolicy<Impl: IStoreConfigurationStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStoreConfigurationStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreConfigurationStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreConfigurationStatics2_Vtbl {
+        unsafe extern "system" fn PurchasePromptingPolicy<Impl: IStoreConfigurationStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PurchasePromptingPolicy() {
                 ::core::result::Result::Ok(ok__) => {
@@ -178,7 +178,7 @@ impl IStoreConfigurationStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPurchasePromptingPolicy<Impl: IStoreConfigurationStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPurchasePromptingPolicy<Impl: IStoreConfigurationStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPurchasePromptingPolicy(&*(&value as *const <super::super::super::Foundation::IReference<u32> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<u32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -193,7 +193,7 @@ impl IStoreConfigurationStatics2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "System", feature = "implement_exclusive"))]
-pub trait IStoreConfigurationStatics3Impl: Sized {
+pub trait IStoreConfigurationStatics3_Impl: Sized {
     fn HasStoreWebAccount(&mut self) -> ::windows::core::Result<bool>;
     fn HasStoreWebAccountForUser(&mut self, user: &::core::option::Option<super::super::super::System::User>) -> ::windows::core::Result<bool>;
     fn GetStoreLogDataAsync(&mut self, options: StoreLogOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamReference>>;
@@ -207,9 +207,9 @@ impl ::windows::core::RuntimeName for IStoreConfigurationStatics3 {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics3";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "System", feature = "implement_exclusive"))]
-impl IStoreConfigurationStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreConfigurationStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreConfigurationStatics3Vtbl {
-        unsafe extern "system" fn HasStoreWebAccount<Impl: IStoreConfigurationStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IStoreConfigurationStatics3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreConfigurationStatics3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreConfigurationStatics3_Vtbl {
+        unsafe extern "system" fn HasStoreWebAccount<Impl: IStoreConfigurationStatics3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasStoreWebAccount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -220,7 +220,7 @@ impl IStoreConfigurationStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasStoreWebAccountForUser<Impl: IStoreConfigurationStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasStoreWebAccountForUser<Impl: IStoreConfigurationStatics3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasStoreWebAccountForUser(&*(&user as *const <super::super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -231,7 +231,7 @@ impl IStoreConfigurationStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStoreLogDataAsync<Impl: IStoreConfigurationStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: StoreLogOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStoreLogDataAsync<Impl: IStoreConfigurationStatics3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: StoreLogOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStoreLogDataAsync(options) {
                 ::core::result::Result::Ok(ok__) => {
@@ -242,11 +242,11 @@ impl IStoreConfigurationStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStoreWebAccountIdForUser<Impl: IStoreConfigurationStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, webaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStoreWebAccountIdForUser<Impl: IStoreConfigurationStatics3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, webaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStoreWebAccountIdForUser(&*(&user as *const <super::super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::super::System::User as ::windows::core::DefaultType>::DefaultType), &*(&webaccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IsStoreWebAccountIdForUser<Impl: IStoreConfigurationStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, webaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStoreWebAccountIdForUser<Impl: IStoreConfigurationStatics3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, webaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStoreWebAccountIdForUser(&*(&user as *const <super::super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::super::System::User as ::windows::core::DefaultType>::DefaultType), &*(&webaccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -257,7 +257,7 @@ impl IStoreConfigurationStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPurchasePromptingPolicyForUser<Impl: IStoreConfigurationStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPurchasePromptingPolicyForUser<Impl: IStoreConfigurationStatics3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPurchasePromptingPolicyForUser(&*(&user as *const <super::super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -268,7 +268,7 @@ impl IStoreConfigurationStatics3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPurchasePromptingPolicyForUser<Impl: IStoreConfigurationStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPurchasePromptingPolicyForUser<Impl: IStoreConfigurationStatics3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPurchasePromptingPolicyForUser(&*(&user as *const <super::super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::super::System::User as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::super::super::Foundation::IReference<u32> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<u32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -288,7 +288,7 @@ impl IStoreConfigurationStatics3Vtbl {
     }
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-pub trait IStoreConfigurationStatics4Impl: Sized {
+pub trait IStoreConfigurationStatics4_Impl: Sized {
     fn GetStoreWebAccountId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetStoreWebAccountIdForUser(&mut self, user: &::core::option::Option<super::super::super::System::User>) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetEnterpriseStoreWebAccountId(&mut self, webaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -303,9 +303,9 @@ impl ::windows::core::RuntimeName for IStoreConfigurationStatics4 {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics4";
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-impl IStoreConfigurationStatics4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreConfigurationStatics4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreConfigurationStatics4Vtbl {
-        unsafe extern "system" fn GetStoreWebAccountId<Impl: IStoreConfigurationStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IStoreConfigurationStatics4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreConfigurationStatics4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreConfigurationStatics4_Vtbl {
+        unsafe extern "system" fn GetStoreWebAccountId<Impl: IStoreConfigurationStatics4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStoreWebAccountId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -316,7 +316,7 @@ impl IStoreConfigurationStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStoreWebAccountIdForUser<Impl: IStoreConfigurationStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStoreWebAccountIdForUser<Impl: IStoreConfigurationStatics4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStoreWebAccountIdForUser(&*(&user as *const <super::super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -327,15 +327,15 @@ impl IStoreConfigurationStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEnterpriseStoreWebAccountId<Impl: IStoreConfigurationStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, webaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnterpriseStoreWebAccountId<Impl: IStoreConfigurationStatics4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, webaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnterpriseStoreWebAccountId(&*(&webaccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetEnterpriseStoreWebAccountIdForUser<Impl: IStoreConfigurationStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, webaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnterpriseStoreWebAccountIdForUser<Impl: IStoreConfigurationStatics4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, webaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnterpriseStoreWebAccountIdForUser(&*(&user as *const <super::super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::super::System::User as ::windows::core::DefaultType>::DefaultType), &*(&webaccountid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetEnterpriseStoreWebAccountId<Impl: IStoreConfigurationStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEnterpriseStoreWebAccountId<Impl: IStoreConfigurationStatics4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEnterpriseStoreWebAccountId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -346,7 +346,7 @@ impl IStoreConfigurationStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEnterpriseStoreWebAccountIdForUser<Impl: IStoreConfigurationStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEnterpriseStoreWebAccountIdForUser<Impl: IStoreConfigurationStatics4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEnterpriseStoreWebAccountIdForUser(&*(&user as *const <super::super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -357,7 +357,7 @@ impl IStoreConfigurationStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShouldRestrictToEnterpriseStoreOnly<Impl: IStoreConfigurationStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShouldRestrictToEnterpriseStoreOnly<Impl: IStoreConfigurationStatics4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShouldRestrictToEnterpriseStoreOnly() {
                 ::core::result::Result::Ok(ok__) => {
@@ -368,7 +368,7 @@ impl IStoreConfigurationStatics4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShouldRestrictToEnterpriseStoreOnlyForUser<Impl: IStoreConfigurationStatics4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShouldRestrictToEnterpriseStoreOnlyForUser<Impl: IStoreConfigurationStatics4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShouldRestrictToEnterpriseStoreOnlyForUser(&*(&user as *const <super::super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -396,7 +396,7 @@ impl IStoreConfigurationStatics4Vtbl {
     }
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-pub trait IStoreConfigurationStatics5Impl: Sized {
+pub trait IStoreConfigurationStatics5_Impl: Sized {
     fn IsPinToDesktopSupported(&mut self) -> ::windows::core::Result<bool>;
     fn IsPinToTaskbarSupported(&mut self) -> ::windows::core::Result<bool>;
     fn IsPinToStartSupported(&mut self) -> ::windows::core::Result<bool>;
@@ -408,9 +408,9 @@ impl ::windows::core::RuntimeName for IStoreConfigurationStatics5 {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics5";
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-impl IStoreConfigurationStatics5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreConfigurationStatics5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreConfigurationStatics5Vtbl {
-        unsafe extern "system" fn IsPinToDesktopSupported<Impl: IStoreConfigurationStatics5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IStoreConfigurationStatics5_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreConfigurationStatics5_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreConfigurationStatics5_Vtbl {
+        unsafe extern "system" fn IsPinToDesktopSupported<Impl: IStoreConfigurationStatics5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPinToDesktopSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -421,7 +421,7 @@ impl IStoreConfigurationStatics5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsPinToTaskbarSupported<Impl: IStoreConfigurationStatics5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPinToTaskbarSupported<Impl: IStoreConfigurationStatics5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPinToTaskbarSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -432,7 +432,7 @@ impl IStoreConfigurationStatics5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsPinToStartSupported<Impl: IStoreConfigurationStatics5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPinToStartSupported<Impl: IStoreConfigurationStatics5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPinToStartSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -443,11 +443,11 @@ impl IStoreConfigurationStatics5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PinToDesktop<Impl: IStoreConfigurationStatics5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, apppackagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PinToDesktop<Impl: IStoreConfigurationStatics5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, apppackagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PinToDesktop(&*(&apppackagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PinToDesktopForUser<Impl: IStoreConfigurationStatics5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, apppackagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PinToDesktopForUser<Impl: IStoreConfigurationStatics5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, apppackagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PinToDesktopForUser(&*(&user as *const <super::super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::super::System::User as ::windows::core::DefaultType>::DefaultType), &*(&apppackagefamilyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -465,7 +465,7 @@ impl IStoreConfigurationStatics5Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IStoreHardwareManufacturerInfoImpl: Sized {
+pub trait IStoreHardwareManufacturerInfo_Impl: Sized {
     fn HardwareManufacturerId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn StoreContentModifierId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ModelName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -476,9 +476,9 @@ impl ::windows::core::RuntimeName for IStoreHardwareManufacturerInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.IStoreHardwareManufacturerInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IStoreHardwareManufacturerInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreHardwareManufacturerInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreHardwareManufacturerInfoVtbl {
-        unsafe extern "system" fn HardwareManufacturerId<Impl: IStoreHardwareManufacturerInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IStoreHardwareManufacturerInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStoreHardwareManufacturerInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStoreHardwareManufacturerInfo_Vtbl {
+        unsafe extern "system" fn HardwareManufacturerId<Impl: IStoreHardwareManufacturerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HardwareManufacturerId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -489,7 +489,7 @@ impl IStoreHardwareManufacturerInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StoreContentModifierId<Impl: IStoreHardwareManufacturerInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StoreContentModifierId<Impl: IStoreHardwareManufacturerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StoreContentModifierId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -500,7 +500,7 @@ impl IStoreHardwareManufacturerInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModelName<Impl: IStoreHardwareManufacturerInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ModelName<Impl: IStoreHardwareManufacturerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ModelName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -511,7 +511,7 @@ impl IStoreHardwareManufacturerInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ManufacturerName<Impl: IStoreHardwareManufacturerInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ManufacturerName<Impl: IStoreHardwareManufacturerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ManufacturerName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -535,7 +535,7 @@ impl IStoreHardwareManufacturerInfoVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IStorePreviewImpl: Sized {
+pub trait IStorePreview_Impl: Sized {
     fn RequestProductPurchaseByProductIdAndSkuIdAsync(&mut self, productid: &::windows::core::HSTRING, skuid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<StorePreviewPurchaseResults>>;
     fn LoadAddOnProductInfosAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<StorePreviewProductInfo>>>;
 }
@@ -544,9 +544,9 @@ impl ::windows::core::RuntimeName for IStorePreview {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.IStorePreview";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IStorePreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorePreviewVtbl {
-        unsafe extern "system" fn RequestProductPurchaseByProductIdAndSkuIdAsync<Impl: IStorePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, skuid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStorePreview_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePreview_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorePreview_Vtbl {
+        unsafe extern "system" fn RequestProductPurchaseByProductIdAndSkuIdAsync<Impl: IStorePreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, skuid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestProductPurchaseByProductIdAndSkuIdAsync(&*(&productid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&skuid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -557,7 +557,7 @@ impl IStorePreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadAddOnProductInfosAsync<Impl: IStorePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadAddOnProductInfosAsync<Impl: IStorePreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadAddOnProductInfosAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -579,7 +579,7 @@ impl IStorePreviewVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IStorePreviewProductInfoImpl: Sized {
+pub trait IStorePreviewProductInfo_Impl: Sized {
     fn ProductId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ProductType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -591,9 +591,9 @@ impl ::windows::core::RuntimeName for IStorePreviewProductInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.IStorePreviewProductInfo";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IStorePreviewProductInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePreviewProductInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorePreviewProductInfoVtbl {
-        unsafe extern "system" fn ProductId<Impl: IStorePreviewProductInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IStorePreviewProductInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePreviewProductInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorePreviewProductInfo_Vtbl {
+        unsafe extern "system" fn ProductId<Impl: IStorePreviewProductInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProductId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -604,7 +604,7 @@ impl IStorePreviewProductInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProductType<Impl: IStorePreviewProductInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProductType<Impl: IStorePreviewProductInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProductType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -615,7 +615,7 @@ impl IStorePreviewProductInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Title<Impl: IStorePreviewProductInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Title<Impl: IStorePreviewProductInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
                 ::core::result::Result::Ok(ok__) => {
@@ -626,7 +626,7 @@ impl IStorePreviewProductInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Impl: IStorePreviewProductInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Impl: IStorePreviewProductInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -637,7 +637,7 @@ impl IStorePreviewProductInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SkuInfoList<Impl: IStorePreviewProductInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SkuInfoList<Impl: IStorePreviewProductInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SkuInfoList() {
                 ::core::result::Result::Ok(ok__) => {
@@ -662,7 +662,7 @@ impl IStorePreviewProductInfoVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IStorePreviewPurchaseResultsImpl: Sized {
+pub trait IStorePreviewPurchaseResults_Impl: Sized {
     fn ProductPurchaseStatus(&mut self) -> ::windows::core::Result<StorePreviewProductPurchaseStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -670,9 +670,9 @@ impl ::windows::core::RuntimeName for IStorePreviewPurchaseResults {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.IStorePreviewPurchaseResults";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IStorePreviewPurchaseResultsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePreviewPurchaseResultsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorePreviewPurchaseResultsVtbl {
-        unsafe extern "system" fn ProductPurchaseStatus<Impl: IStorePreviewPurchaseResultsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut StorePreviewProductPurchaseStatus) -> ::windows::core::HRESULT {
+impl IStorePreviewPurchaseResults_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePreviewPurchaseResults_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorePreviewPurchaseResults_Vtbl {
+        unsafe extern "system" fn ProductPurchaseStatus<Impl: IStorePreviewPurchaseResults_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut StorePreviewProductPurchaseStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProductPurchaseStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -693,7 +693,7 @@ impl IStorePreviewPurchaseResultsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IStorePreviewSkuInfoImpl: Sized {
+pub trait IStorePreviewSkuInfo_Impl: Sized {
     fn ProductId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SkuId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SkuType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -709,9 +709,9 @@ impl ::windows::core::RuntimeName for IStorePreviewSkuInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.IStorePreviewSkuInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IStorePreviewSkuInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePreviewSkuInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorePreviewSkuInfoVtbl {
-        unsafe extern "system" fn ProductId<Impl: IStorePreviewSkuInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IStorePreviewSkuInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorePreviewSkuInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorePreviewSkuInfo_Vtbl {
+        unsafe extern "system" fn ProductId<Impl: IStorePreviewSkuInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProductId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -722,7 +722,7 @@ impl IStorePreviewSkuInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SkuId<Impl: IStorePreviewSkuInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SkuId<Impl: IStorePreviewSkuInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SkuId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -733,7 +733,7 @@ impl IStorePreviewSkuInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SkuType<Impl: IStorePreviewSkuInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SkuType<Impl: IStorePreviewSkuInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SkuType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -744,7 +744,7 @@ impl IStorePreviewSkuInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Title<Impl: IStorePreviewSkuInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Title<Impl: IStorePreviewSkuInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
                 ::core::result::Result::Ok(ok__) => {
@@ -755,7 +755,7 @@ impl IStorePreviewSkuInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Impl: IStorePreviewSkuInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Impl: IStorePreviewSkuInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -766,7 +766,7 @@ impl IStorePreviewSkuInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CustomDeveloperData<Impl: IStorePreviewSkuInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CustomDeveloperData<Impl: IStorePreviewSkuInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CustomDeveloperData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -777,7 +777,7 @@ impl IStorePreviewSkuInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrencyCode<Impl: IStorePreviewSkuInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrencyCode<Impl: IStorePreviewSkuInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrencyCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -788,7 +788,7 @@ impl IStorePreviewSkuInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FormattedListPrice<Impl: IStorePreviewSkuInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FormattedListPrice<Impl: IStorePreviewSkuInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FormattedListPrice() {
                 ::core::result::Result::Ok(ok__) => {
@@ -799,7 +799,7 @@ impl IStorePreviewSkuInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedData<Impl: IStorePreviewSkuInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedData<Impl: IStorePreviewSkuInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -828,7 +828,7 @@ impl IStorePreviewSkuInfoVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml", feature = "implement_exclusive"))]
-pub trait IWebAuthenticationCoreManagerHelperImpl: Sized {
+pub trait IWebAuthenticationCoreManagerHelper_Impl: Sized {
     fn RequestTokenWithUIElementHostingAsync(&mut self, request: &::core::option::Option<super::super::super::Security::Authentication::Web::Core::WebTokenRequest>, uielement: &::core::option::Option<super::super::super::UI::Xaml::UIElement>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>;
     fn RequestTokenWithUIElementHostingAndWebAccountAsync(&mut self, request: &::core::option::Option<super::super::super::Security::Authentication::Web::Core::WebTokenRequest>, webaccount: &::core::option::Option<super::super::super::Security::Credentials::WebAccount>, uielement: &::core::option::Option<super::super::super::UI::Xaml::UIElement>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>;
 }
@@ -837,9 +837,9 @@ impl ::windows::core::RuntimeName for IWebAuthenticationCoreManagerHelper {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.IWebAuthenticationCoreManagerHelper";
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml", feature = "implement_exclusive"))]
-impl IWebAuthenticationCoreManagerHelperVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAuthenticationCoreManagerHelperImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebAuthenticationCoreManagerHelperVtbl {
-        unsafe extern "system" fn RequestTokenWithUIElementHostingAsync<Impl: IWebAuthenticationCoreManagerHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, uielement: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IWebAuthenticationCoreManagerHelper_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebAuthenticationCoreManagerHelper_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebAuthenticationCoreManagerHelper_Vtbl {
+        unsafe extern "system" fn RequestTokenWithUIElementHostingAsync<Impl: IWebAuthenticationCoreManagerHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, uielement: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestTokenWithUIElementHostingAsync(&*(&request as *const <super::super::super::Security::Authentication::Web::Core::WebTokenRequest as ::windows::core::Abi>::Abi as *const <super::super::super::Security::Authentication::Web::Core::WebTokenRequest as ::windows::core::DefaultType>::DefaultType), &*(&uielement as *const <super::super::super::UI::Xaml::UIElement as ::windows::core::Abi>::Abi as *const <super::super::super::UI::Xaml::UIElement as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -850,7 +850,7 @@ impl IWebAuthenticationCoreManagerHelperVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestTokenWithUIElementHostingAndWebAccountAsync<Impl: IWebAuthenticationCoreManagerHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, webaccount: ::windows::core::RawPtr, uielement: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestTokenWithUIElementHostingAndWebAccountAsync<Impl: IWebAuthenticationCoreManagerHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, webaccount: ::windows::core::RawPtr, uielement: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestTokenWithUIElementHostingAndWebAccountAsync(
                 &*(&request as *const <super::super::super::Security::Authentication::Web::Core::WebTokenRequest as ::windows::core::Abi>::Abi as *const <super::super::super::Security::Authentication::Web::Core::WebTokenRequest as ::windows::core::DefaultType>::DefaultType),

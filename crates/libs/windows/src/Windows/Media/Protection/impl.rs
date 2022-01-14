@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IComponentLoadFailedEventArgsImpl: Sized {
+pub trait IComponentLoadFailedEventArgs_Impl: Sized {
     fn Information(&mut self) -> ::windows::core::Result<RevocationAndRenewalInformation>;
     fn Completion(&mut self) -> ::windows::core::Result<MediaProtectionServiceCompletion>;
 }
@@ -8,9 +8,9 @@ impl ::windows::core::RuntimeName for IComponentLoadFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.IComponentLoadFailedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IComponentLoadFailedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComponentLoadFailedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComponentLoadFailedEventArgsVtbl {
-        unsafe extern "system" fn Information<Impl: IComponentLoadFailedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IComponentLoadFailedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComponentLoadFailedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComponentLoadFailedEventArgs_Vtbl {
+        unsafe extern "system" fn Information<Impl: IComponentLoadFailedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Information() {
                 ::core::result::Result::Ok(ok__) => {
@@ -21,7 +21,7 @@ impl IComponentLoadFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Completion<Impl: IComponentLoadFailedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Completion<Impl: IComponentLoadFailedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Completion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -43,7 +43,7 @@ impl IComponentLoadFailedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IComponentRenewalStaticsImpl: Sized {
+pub trait IComponentRenewalStatics_Impl: Sized {
     fn RenewSystemComponentsAsync(&mut self, information: &::core::option::Option<RevocationAndRenewalInformation>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<RenewalStatus, u32>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -51,9 +51,9 @@ impl ::windows::core::RuntimeName for IComponentRenewalStatics {
     const NAME: &'static str = "Windows.Media.Protection.IComponentRenewalStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IComponentRenewalStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComponentRenewalStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComponentRenewalStaticsVtbl {
-        unsafe extern "system" fn RenewSystemComponentsAsync<Impl: IComponentRenewalStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, information: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IComponentRenewalStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComponentRenewalStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComponentRenewalStatics_Vtbl {
+        unsafe extern "system" fn RenewSystemComponentsAsync<Impl: IComponentRenewalStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, information: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RenewSystemComponentsAsync(&*(&information as *const <RevocationAndRenewalInformation as ::windows::core::Abi>::Abi as *const <RevocationAndRenewalInformation as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -74,7 +74,7 @@ impl IComponentRenewalStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IHdcpSessionImpl: Sized + IClosableImpl {
+pub trait IHdcpSession_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn IsEffectiveProtectionAtLeast(&mut self, protection: HdcpProtection) -> ::windows::core::Result<bool>;
     fn GetEffectiveProtection(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<HdcpProtection>>;
     fn SetDesiredMinProtectionAsync(&mut self, protection: HdcpProtection) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HdcpSetProtectionResult>>;
@@ -86,9 +86,9 @@ impl ::windows::core::RuntimeName for IHdcpSession {
     const NAME: &'static str = "Windows.Media.Protection.IHdcpSession";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IHdcpSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHdcpSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHdcpSessionVtbl {
-        unsafe extern "system" fn IsEffectiveProtectionAtLeast<Impl: IHdcpSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, protection: HdcpProtection, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IHdcpSession_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHdcpSession_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHdcpSession_Vtbl {
+        unsafe extern "system" fn IsEffectiveProtectionAtLeast<Impl: IHdcpSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, protection: HdcpProtection, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEffectiveProtectionAtLeast(protection) {
                 ::core::result::Result::Ok(ok__) => {
@@ -99,7 +99,7 @@ impl IHdcpSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEffectiveProtection<Impl: IHdcpSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEffectiveProtection<Impl: IHdcpSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEffectiveProtection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -110,7 +110,7 @@ impl IHdcpSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDesiredMinProtectionAsync<Impl: IHdcpSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, protection: HdcpProtection, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDesiredMinProtectionAsync<Impl: IHdcpSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, protection: HdcpProtection, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetDesiredMinProtectionAsync(protection) {
                 ::core::result::Result::Ok(ok__) => {
@@ -121,7 +121,7 @@ impl IHdcpSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProtectionChanged<Impl: IHdcpSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProtectionChanged<Impl: IHdcpSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtectionChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<HdcpSession, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<HdcpSession, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -132,7 +132,7 @@ impl IHdcpSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveProtectionChanged<Impl: IHdcpSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveProtectionChanged<Impl: IHdcpSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveProtectionChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -150,7 +150,7 @@ impl IHdcpSessionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IMediaProtectionManagerImpl: Sized {
+pub trait IMediaProtectionManager_Impl: Sized {
     fn ServiceRequested(&mut self, handler: &::core::option::Option<ServiceRequestedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveServiceRequested(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn RebootNeeded(&mut self, handler: &::core::option::Option<RebootNeededEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -164,9 +164,9 @@ impl ::windows::core::RuntimeName for IMediaProtectionManager {
     const NAME: &'static str = "Windows.Media.Protection.IMediaProtectionManager";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IMediaProtectionManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaProtectionManagerVtbl {
-        unsafe extern "system" fn ServiceRequested<Impl: IMediaProtectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IMediaProtectionManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaProtectionManager_Vtbl {
+        unsafe extern "system" fn ServiceRequested<Impl: IMediaProtectionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceRequested(&*(&handler as *const <ServiceRequestedEventHandler as ::windows::core::Abi>::Abi as *const <ServiceRequestedEventHandler as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -177,11 +177,11 @@ impl IMediaProtectionManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveServiceRequested<Impl: IMediaProtectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveServiceRequested<Impl: IMediaProtectionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveServiceRequested(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RebootNeeded<Impl: IMediaProtectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RebootNeeded<Impl: IMediaProtectionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RebootNeeded(&*(&handler as *const <RebootNeededEventHandler as ::windows::core::Abi>::Abi as *const <RebootNeededEventHandler as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -192,11 +192,11 @@ impl IMediaProtectionManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRebootNeeded<Impl: IMediaProtectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveRebootNeeded<Impl: IMediaProtectionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRebootNeeded(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ComponentLoadFailed<Impl: IMediaProtectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ComponentLoadFailed<Impl: IMediaProtectionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ComponentLoadFailed(&*(&handler as *const <ComponentLoadFailedEventHandler as ::windows::core::Abi>::Abi as *const <ComponentLoadFailedEventHandler as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -207,11 +207,11 @@ impl IMediaProtectionManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveComponentLoadFailed<Impl: IMediaProtectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveComponentLoadFailed<Impl: IMediaProtectionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveComponentLoadFailed(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Properties<Impl: IMediaProtectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Properties<Impl: IMediaProtectionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -238,7 +238,7 @@ impl IMediaProtectionManagerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IMediaProtectionPMPServerImpl: Sized {
+pub trait IMediaProtectionPMPServer_Impl: Sized {
     fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -246,9 +246,9 @@ impl ::windows::core::RuntimeName for IMediaProtectionPMPServer {
     const NAME: &'static str = "Windows.Media.Protection.IMediaProtectionPMPServer";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IMediaProtectionPMPServerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionPMPServerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaProtectionPMPServerVtbl {
-        unsafe extern "system" fn Properties<Impl: IMediaProtectionPMPServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaProtectionPMPServer_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionPMPServer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaProtectionPMPServer_Vtbl {
+        unsafe extern "system" fn Properties<Impl: IMediaProtectionPMPServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -266,7 +266,7 @@ impl IMediaProtectionPMPServerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IMediaProtectionPMPServerFactoryImpl: Sized {
+pub trait IMediaProtectionPMPServerFactory_Impl: Sized {
     fn CreatePMPServer(&mut self, pproperties: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<MediaProtectionPMPServer>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -274,9 +274,9 @@ impl ::windows::core::RuntimeName for IMediaProtectionPMPServerFactory {
     const NAME: &'static str = "Windows.Media.Protection.IMediaProtectionPMPServerFactory";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IMediaProtectionPMPServerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionPMPServerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaProtectionPMPServerFactoryVtbl {
-        unsafe extern "system" fn CreatePMPServer<Impl: IMediaProtectionPMPServerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaProtectionPMPServerFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionPMPServerFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaProtectionPMPServerFactory_Vtbl {
+        unsafe extern "system" fn CreatePMPServer<Impl: IMediaProtectionPMPServerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePMPServer(&*(&pproperties as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -297,7 +297,7 @@ impl IMediaProtectionPMPServerFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMediaProtectionServiceCompletionImpl: Sized {
+pub trait IMediaProtectionServiceCompletion_Impl: Sized {
     fn Complete(&mut self, success: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -305,9 +305,9 @@ impl ::windows::core::RuntimeName for IMediaProtectionServiceCompletion {
     const NAME: &'static str = "Windows.Media.Protection.IMediaProtectionServiceCompletion";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMediaProtectionServiceCompletionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionServiceCompletionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaProtectionServiceCompletionVtbl {
-        unsafe extern "system" fn Complete<Impl: IMediaProtectionServiceCompletionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, success: bool) -> ::windows::core::HRESULT {
+impl IMediaProtectionServiceCompletion_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionServiceCompletion_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaProtectionServiceCompletion_Vtbl {
+        unsafe extern "system" fn Complete<Impl: IMediaProtectionServiceCompletion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, success: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete(success).into()
         }
@@ -320,16 +320,16 @@ impl IMediaProtectionServiceCompletionVtbl {
         iid == &<IMediaProtectionServiceCompletion as ::windows::core::Interface>::IID
     }
 }
-pub trait IMediaProtectionServiceRequestImpl: Sized {
+pub trait IMediaProtectionServiceRequest_Impl: Sized {
     fn ProtectionSystem(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Type(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 impl ::windows::core::RuntimeName for IMediaProtectionServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.IMediaProtectionServiceRequest";
 }
-impl IMediaProtectionServiceRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionServiceRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaProtectionServiceRequestVtbl {
-        unsafe extern "system" fn ProtectionSystem<Impl: IMediaProtectionServiceRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl IMediaProtectionServiceRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaProtectionServiceRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaProtectionServiceRequest_Vtbl {
+        unsafe extern "system" fn ProtectionSystem<Impl: IMediaProtectionServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtectionSystem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -340,7 +340,7 @@ impl IMediaProtectionServiceRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Type<Impl: IMediaProtectionServiceRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Type<Impl: IMediaProtectionServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
                 ::core::result::Result::Ok(ok__) => {
@@ -362,7 +362,7 @@ impl IMediaProtectionServiceRequestVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IProtectionCapabilitiesImpl: Sized {
+pub trait IProtectionCapabilities_Impl: Sized {
     fn IsTypeSupported(&mut self, r#type: &::windows::core::HSTRING, keysystem: &::windows::core::HSTRING) -> ::windows::core::Result<ProtectionCapabilityResult>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -370,9 +370,9 @@ impl ::windows::core::RuntimeName for IProtectionCapabilities {
     const NAME: &'static str = "Windows.Media.Protection.IProtectionCapabilities";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IProtectionCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProtectionCapabilitiesVtbl {
-        unsafe extern "system" fn IsTypeSupported<Impl: IProtectionCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, keysystem: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ProtectionCapabilityResult) -> ::windows::core::HRESULT {
+impl IProtectionCapabilities_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionCapabilities_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProtectionCapabilities_Vtbl {
+        unsafe extern "system" fn IsTypeSupported<Impl: IProtectionCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, keysystem: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ProtectionCapabilityResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTypeSupported(&*(&r#type as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&keysystem as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -393,7 +393,7 @@ impl IProtectionCapabilitiesVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IRevocationAndRenewalInformationImpl: Sized {
+pub trait IRevocationAndRenewalInformation_Impl: Sized {
     fn Items(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<RevocationAndRenewalItem>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -401,9 +401,9 @@ impl ::windows::core::RuntimeName for IRevocationAndRenewalInformation {
     const NAME: &'static str = "Windows.Media.Protection.IRevocationAndRenewalInformation";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IRevocationAndRenewalInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRevocationAndRenewalInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRevocationAndRenewalInformationVtbl {
-        unsafe extern "system" fn Items<Impl: IRevocationAndRenewalInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRevocationAndRenewalInformation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRevocationAndRenewalInformation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRevocationAndRenewalInformation_Vtbl {
+        unsafe extern "system" fn Items<Impl: IRevocationAndRenewalInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Items() {
                 ::core::result::Result::Ok(ok__) => {
@@ -421,7 +421,7 @@ impl IRevocationAndRenewalInformationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRevocationAndRenewalItemImpl: Sized {
+pub trait IRevocationAndRenewalItem_Impl: Sized {
     fn Reasons(&mut self) -> ::windows::core::Result<RevocationAndRenewalReasons>;
     fn HeaderHash(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn PublicKeyHash(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -433,9 +433,9 @@ impl ::windows::core::RuntimeName for IRevocationAndRenewalItem {
     const NAME: &'static str = "Windows.Media.Protection.IRevocationAndRenewalItem";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRevocationAndRenewalItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRevocationAndRenewalItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRevocationAndRenewalItemVtbl {
-        unsafe extern "system" fn Reasons<Impl: IRevocationAndRenewalItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RevocationAndRenewalReasons) -> ::windows::core::HRESULT {
+impl IRevocationAndRenewalItem_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRevocationAndRenewalItem_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRevocationAndRenewalItem_Vtbl {
+        unsafe extern "system" fn Reasons<Impl: IRevocationAndRenewalItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RevocationAndRenewalReasons) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reasons() {
                 ::core::result::Result::Ok(ok__) => {
@@ -446,7 +446,7 @@ impl IRevocationAndRenewalItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HeaderHash<Impl: IRevocationAndRenewalItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HeaderHash<Impl: IRevocationAndRenewalItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HeaderHash() {
                 ::core::result::Result::Ok(ok__) => {
@@ -457,7 +457,7 @@ impl IRevocationAndRenewalItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PublicKeyHash<Impl: IRevocationAndRenewalItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PublicKeyHash<Impl: IRevocationAndRenewalItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PublicKeyHash() {
                 ::core::result::Result::Ok(ok__) => {
@@ -468,7 +468,7 @@ impl IRevocationAndRenewalItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Impl: IRevocationAndRenewalItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Impl: IRevocationAndRenewalItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -479,7 +479,7 @@ impl IRevocationAndRenewalItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RenewalId<Impl: IRevocationAndRenewalItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RenewalId<Impl: IRevocationAndRenewalItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RenewalId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -504,7 +504,7 @@ impl IRevocationAndRenewalItemVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IServiceRequestedEventArgsImpl: Sized {
+pub trait IServiceRequestedEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<IMediaProtectionServiceRequest>;
     fn Completion(&mut self) -> ::windows::core::Result<MediaProtectionServiceCompletion>;
 }
@@ -513,9 +513,9 @@ impl ::windows::core::RuntimeName for IServiceRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.IServiceRequestedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IServiceRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServiceRequestedEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: IServiceRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IServiceRequestedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceRequestedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServiceRequestedEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: IServiceRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -526,7 +526,7 @@ impl IServiceRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Completion<Impl: IServiceRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Completion<Impl: IServiceRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Completion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -548,7 +548,7 @@ impl IServiceRequestedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Media_Playback", feature = "implement_exclusive"))]
-pub trait IServiceRequestedEventArgs2Impl: Sized {
+pub trait IServiceRequestedEventArgs2_Impl: Sized {
     fn MediaPlaybackItem(&mut self) -> ::windows::core::Result<super::Playback::MediaPlaybackItem>;
 }
 #[cfg(all(feature = "Media_Playback", feature = "implement_exclusive"))]
@@ -556,9 +556,9 @@ impl ::windows::core::RuntimeName for IServiceRequestedEventArgs2 {
     const NAME: &'static str = "Windows.Media.Protection.IServiceRequestedEventArgs2";
 }
 #[cfg(all(feature = "Media_Playback", feature = "implement_exclusive"))]
-impl IServiceRequestedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceRequestedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServiceRequestedEventArgs2Vtbl {
-        unsafe extern "system" fn MediaPlaybackItem<Impl: IServiceRequestedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IServiceRequestedEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceRequestedEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServiceRequestedEventArgs2_Vtbl {
+        unsafe extern "system" fn MediaPlaybackItem<Impl: IServiceRequestedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaPlaybackItem() {
                 ::core::result::Result::Ok(ok__) => {

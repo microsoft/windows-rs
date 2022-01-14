@@ -36,12 +36,12 @@ impl ::windows::core::DefaultType for ForegroundText {
 #[repr(transparent)]
 pub struct IJumpList(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJumpList {
-    type Vtable = IJumpListVtbl;
+    type Vtable = IJumpList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0234c3e_cd6f_4cb6_a611_61fd505f3ed1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IJumpListVtbl {
+pub struct IJumpList_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Items: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -58,12 +58,12 @@ pub struct IJumpListVtbl {
 #[repr(transparent)]
 pub struct IJumpListItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJumpListItem {
-    type Vtable = IJumpListItemVtbl;
+    type Vtable = IJumpListItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7adb6717_8b5d_4820_995b_9b418dbe48b0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IJumpListItemVtbl {
+pub struct IJumpListItem_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut JumpListItemKind) -> ::windows::core::HRESULT,
     pub Arguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -87,12 +87,12 @@ pub struct IJumpListItemVtbl {
 #[repr(transparent)]
 pub struct IJumpListItemStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJumpListItemStatics {
-    type Vtable = IJumpListItemStaticsVtbl;
+    type Vtable = IJumpListItemStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1bfc4e8_c7aa_49cb_8dde_ecfccd7ad7e4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IJumpListItemStaticsVtbl {
+pub struct IJumpListItemStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateWithArguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, arguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateSeparator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -101,12 +101,12 @@ pub struct IJumpListItemStaticsVtbl {
 #[repr(transparent)]
 pub struct IJumpListStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJumpListStatics {
-    type Vtable = IJumpListStaticsVtbl;
+    type Vtable = IJumpListStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7e0c681_e67e_4b74_8250_3f322c4d92c3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IJumpListStaticsVtbl {
+pub struct IJumpListStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub LoadCurrentAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -118,12 +118,12 @@ pub struct IJumpListStaticsVtbl {
 #[repr(transparent)]
 pub struct ISecondaryTile(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISecondaryTile {
-    type Vtable = ISecondaryTileVtbl;
+    type Vtable = ISecondaryTile_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e9e51e0_2bb5_4bc0_bb8d_42b23abcc88d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISecondaryTileVtbl {
+pub struct ISecondaryTile_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetTileId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub TileId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -238,12 +238,12 @@ pub struct ISecondaryTileVtbl {
 #[repr(transparent)]
 pub struct ISecondaryTile2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISecondaryTile2 {
-    type Vtable = ISecondaryTile2Vtbl;
+    type Vtable = ISecondaryTile2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2f6cc35_3250_4990_923c_294ab4b694dd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISecondaryTile2Vtbl {
+pub struct ISecondaryTile2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetPhoneticName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub PhoneticName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -263,12 +263,12 @@ pub struct ISecondaryTile2Vtbl {
 #[repr(transparent)]
 pub struct ISecondaryTileFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISecondaryTileFactory {
-    type Vtable = ISecondaryTileFactoryVtbl;
+    type Vtable = ISecondaryTileFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57f52ca0_51bc_4abf_8ebf_627a0398b05a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISecondaryTileFactoryVtbl {
+pub struct ISecondaryTileFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub CreateTile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, shortname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, arguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, tileoptions: TileOptions, logoreference: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -284,12 +284,12 @@ pub struct ISecondaryTileFactoryVtbl {
 #[repr(transparent)]
 pub struct ISecondaryTileFactory2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISecondaryTileFactory2 {
-    type Vtable = ISecondaryTileFactory2Vtbl;
+    type Vtable = ISecondaryTileFactory2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x274b8a3b_522d_448e_9eb2_d0672ab345c8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISecondaryTileFactory2Vtbl {
+pub struct ISecondaryTileFactory2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CreateMinimalTile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, arguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, square150x150logo: ::windows::core::RawPtr, desiredsize: TileSize, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -300,12 +300,12 @@ pub struct ISecondaryTileFactory2Vtbl {
 #[repr(transparent)]
 pub struct ISecondaryTileStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISecondaryTileStatics {
-    type Vtable = ISecondaryTileStaticsVtbl;
+    type Vtable = ISecondaryTileStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99908dae_d051_4676_87fe_9ec242d83c74);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISecondaryTileStaticsVtbl {
+pub struct ISecondaryTileStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Exists: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -325,12 +325,12 @@ pub struct ISecondaryTileStaticsVtbl {
 #[repr(transparent)]
 pub struct ISecondaryTileVisualElements(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISecondaryTileVisualElements {
-    type Vtable = ISecondaryTileVisualElementsVtbl;
+    type Vtable = ISecondaryTileVisualElements_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d8df333_815e_413f_9f50_a81da70a96b2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISecondaryTileVisualElementsVtbl {
+pub struct ISecondaryTileVisualElements_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub SetSquare30x30Logo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -387,12 +387,12 @@ pub struct ISecondaryTileVisualElementsVtbl {
 #[repr(transparent)]
 pub struct ISecondaryTileVisualElements2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISecondaryTileVisualElements2 {
-    type Vtable = ISecondaryTileVisualElements2Vtbl;
+    type Vtable = ISecondaryTileVisualElements2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd2e31d0_57dc_4794_8ecf_5682f5f3e6ef);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISecondaryTileVisualElements2Vtbl {
+pub struct ISecondaryTileVisualElements2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SetSquare71x71Logo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -407,12 +407,12 @@ pub struct ISecondaryTileVisualElements2Vtbl {
 #[repr(transparent)]
 pub struct ISecondaryTileVisualElements3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISecondaryTileVisualElements3 {
-    type Vtable = ISecondaryTileVisualElements3Vtbl;
+    type Vtable = ISecondaryTileVisualElements3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56b55ad6_d15c_40f4_81e7_57ffd8f8a4e9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISecondaryTileVisualElements3Vtbl {
+pub struct ISecondaryTileVisualElements3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SetSquare44x44Logo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -427,12 +427,12 @@ pub struct ISecondaryTileVisualElements3Vtbl {
 #[repr(transparent)]
 pub struct ISecondaryTileVisualElements4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISecondaryTileVisualElements4 {
-    type Vtable = ISecondaryTileVisualElements4Vtbl;
+    type Vtable = ISecondaryTileVisualElements4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66566117_b544_40d2_8d12_74d4ec24d04c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISecondaryTileVisualElements4Vtbl {
+pub struct ISecondaryTileVisualElements4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MixedRealityModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -440,12 +440,12 @@ pub struct ISecondaryTileVisualElements4Vtbl {
 #[repr(transparent)]
 pub struct IStartScreenManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStartScreenManager {
-    type Vtable = IStartScreenManagerVtbl;
+    type Vtable = IStartScreenManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a1dcbcb_26e9_4eb4_8933_859eb6ecdb29);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStartScreenManagerVtbl {
+pub struct IStartScreenManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -468,12 +468,12 @@ pub struct IStartScreenManagerVtbl {
 #[repr(transparent)]
 pub struct IStartScreenManager2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStartScreenManager2 {
-    type Vtable = IStartScreenManager2Vtbl;
+    type Vtable = IStartScreenManager2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08a716b6_316b_4ad9_acb8_fe9cf00bd608);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStartScreenManager2Vtbl {
+pub struct IStartScreenManager2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ContainsSecondaryTileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -488,12 +488,12 @@ pub struct IStartScreenManager2Vtbl {
 #[repr(transparent)]
 pub struct IStartScreenManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStartScreenManagerStatics {
-    type Vtable = IStartScreenManagerStaticsVtbl;
+    type Vtable = IStartScreenManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7865ef0f_b585_464e_8993_34e8f8738d48);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStartScreenManagerStaticsVtbl {
+pub struct IStartScreenManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "System")]
@@ -505,12 +505,12 @@ pub struct IStartScreenManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct ITileMixedRealityModel(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITileMixedRealityModel {
-    type Vtable = ITileMixedRealityModelVtbl;
+    type Vtable = ITileMixedRealityModel_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0764e5b_887d_4242_9a19_3d0a4ea78031);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITileMixedRealityModelVtbl {
+pub struct ITileMixedRealityModel_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SetUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -533,12 +533,12 @@ pub struct ITileMixedRealityModelVtbl {
 #[repr(transparent)]
 pub struct ITileMixedRealityModel2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITileMixedRealityModel2 {
-    type Vtable = ITileMixedRealityModel2Vtbl;
+    type Vtable = ITileMixedRealityModel2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x439470b2_d7c5_410b_8319_9486a27b6c67);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITileMixedRealityModel2Vtbl {
+pub struct ITileMixedRealityModel2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetActivationBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: TileMixedRealityModelActivationBehavior) -> ::windows::core::HRESULT,
     pub ActivationBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TileMixedRealityModelActivationBehavior) -> ::windows::core::HRESULT,
@@ -547,12 +547,12 @@ pub struct ITileMixedRealityModel2Vtbl {
 #[repr(transparent)]
 pub struct IVisualElementsRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVisualElementsRequest {
-    type Vtable = IVisualElementsRequestVtbl;
+    type Vtable = IVisualElementsRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc138333a_9308_4072_88cc_d068db347c68);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVisualElementsRequestVtbl {
+pub struct IVisualElementsRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub VisualElements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -569,12 +569,12 @@ pub struct IVisualElementsRequestVtbl {
 #[repr(transparent)]
 pub struct IVisualElementsRequestDeferral(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVisualElementsRequestDeferral {
-    type Vtable = IVisualElementsRequestDeferralVtbl;
+    type Vtable = IVisualElementsRequestDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1656eb0_0126_4357_8204_bd82bb2a046d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVisualElementsRequestDeferralVtbl {
+pub struct IVisualElementsRequestDeferral_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -582,12 +582,12 @@ pub struct IVisualElementsRequestDeferralVtbl {
 #[repr(transparent)]
 pub struct IVisualElementsRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVisualElementsRequestedEventArgs {
-    type Vtable = IVisualElementsRequestedEventArgsVtbl;
+    type Vtable = IVisualElementsRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b6fc982_3a0d_4ece_af96_cd17e1b00b2d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVisualElementsRequestedEventArgsVtbl {
+pub struct IVisualElementsRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -667,7 +667,7 @@ unsafe impl ::windows::core::RuntimeType for JumpList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.JumpList;{b0234c3e-cd6f-4cb6-a611-61fd505f3ed1})");
 }
 unsafe impl ::windows::core::Interface for JumpList {
-    type Vtable = IJumpListVtbl;
+    type Vtable = IJumpList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0234c3e_cd6f_4cb6_a611_61fd505f3ed1);
 }
 impl ::windows::core::RuntimeName for JumpList {
@@ -837,7 +837,7 @@ unsafe impl ::windows::core::RuntimeType for JumpListItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.JumpListItem;{7adb6717-8b5d-4820-995b-9b418dbe48b0})");
 }
 unsafe impl ::windows::core::Interface for JumpListItem {
-    type Vtable = IJumpListItemVtbl;
+    type Vtable = IJumpListItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7adb6717_8b5d_4820_995b_9b418dbe48b0);
 }
 impl ::windows::core::RuntimeName for JumpListItem {
@@ -1363,7 +1363,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryTile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.SecondaryTile;{9e9e51e0-2bb5-4bc0-bb8d-42b23abcc88d})");
 }
 unsafe impl ::windows::core::Interface for SecondaryTile {
-    type Vtable = ISecondaryTileVtbl;
+    type Vtable = ISecondaryTile_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e9e51e0_2bb5_4bc0_bb8d_42b23abcc88d);
 }
 impl ::windows::core::RuntimeName for SecondaryTile {
@@ -1614,7 +1614,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryTileVisualElements {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.SecondaryTileVisualElements;{1d8df333-815e-413f-9f50-a81da70a96b2})");
 }
 unsafe impl ::windows::core::Interface for SecondaryTileVisualElements {
-    type Vtable = ISecondaryTileVisualElementsVtbl;
+    type Vtable = ISecondaryTileVisualElements_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d8df333_815e_413f_9f50_a81da70a96b2);
 }
 impl ::windows::core::RuntimeName for SecondaryTileVisualElements {
@@ -1761,7 +1761,7 @@ unsafe impl ::windows::core::RuntimeType for StartScreenManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.StartScreenManager;{4a1dcbcb-26e9-4eb4-8933-859eb6ecdb29})");
 }
 unsafe impl ::windows::core::Interface for StartScreenManager {
-    type Vtable = IStartScreenManagerVtbl;
+    type Vtable = IStartScreenManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a1dcbcb_26e9_4eb4_8933_859eb6ecdb29);
 }
 impl ::windows::core::RuntimeName for StartScreenManager {
@@ -1877,7 +1877,7 @@ unsafe impl ::windows::core::RuntimeType for TileMixedRealityModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.TileMixedRealityModel;{b0764e5b-887d-4242-9a19-3d0a4ea78031})");
 }
 unsafe impl ::windows::core::Interface for TileMixedRealityModel {
-    type Vtable = ITileMixedRealityModelVtbl;
+    type Vtable = ITileMixedRealityModel_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0764e5b_887d_4242_9a19_3d0a4ea78031);
 }
 impl ::windows::core::RuntimeName for TileMixedRealityModel {
@@ -2119,7 +2119,7 @@ unsafe impl ::windows::core::RuntimeType for VisualElementsRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.VisualElementsRequest;{c138333a-9308-4072-88cc-d068db347c68})");
 }
 unsafe impl ::windows::core::Interface for VisualElementsRequest {
-    type Vtable = IVisualElementsRequestVtbl;
+    type Vtable = IVisualElementsRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc138333a_9308_4072_88cc_d068db347c68);
 }
 impl ::windows::core::RuntimeName for VisualElementsRequest {
@@ -2197,7 +2197,7 @@ unsafe impl ::windows::core::RuntimeType for VisualElementsRequestDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.VisualElementsRequestDeferral;{a1656eb0-0126-4357-8204-bd82bb2a046d})");
 }
 unsafe impl ::windows::core::Interface for VisualElementsRequestDeferral {
-    type Vtable = IVisualElementsRequestDeferralVtbl;
+    type Vtable = IVisualElementsRequestDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1656eb0_0126_4357_8204_bd82bb2a046d);
 }
 impl ::windows::core::RuntimeName for VisualElementsRequestDeferral {
@@ -2278,7 +2278,7 @@ unsafe impl ::windows::core::RuntimeType for VisualElementsRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.VisualElementsRequestedEventArgs;{7b6fc982-3a0d-4ece-af96-cd17e1b00b2d})");
 }
 unsafe impl ::windows::core::Interface for VisualElementsRequestedEventArgs {
-    type Vtable = IVisualElementsRequestedEventArgsVtbl;
+    type Vtable = IVisualElementsRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b6fc982_3a0d_4ece_af96_cd17e1b00b2d);
 }
 impl ::windows::core::RuntimeName for VisualElementsRequestedEventArgs {

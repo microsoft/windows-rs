@@ -62,7 +62,7 @@ unsafe impl ::windows::core::RuntimeType for AdvancedCapturedPhoto {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AdvancedCapturedPhoto;{f072728b-b292-4491-9d41-99807a550bbf})");
 }
 unsafe impl ::windows::core::Interface for AdvancedCapturedPhoto {
-    type Vtable = IAdvancedCapturedPhotoVtbl;
+    type Vtable = IAdvancedCapturedPhoto_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf072728b_b292_4491_9d41_99807a550bbf);
 }
 impl ::windows::core::RuntimeName for AdvancedCapturedPhoto {
@@ -192,7 +192,7 @@ unsafe impl ::windows::core::RuntimeType for AdvancedPhotoCapture {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AdvancedPhotoCapture;{83ffaafa-6667-44dc-973c-a6bce596aa0f})");
 }
 unsafe impl ::windows::core::Interface for AdvancedPhotoCapture {
-    type Vtable = IAdvancedPhotoCaptureVtbl;
+    type Vtable = IAdvancedPhotoCapture_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83ffaafa_6667_44dc_973c_a6bce596aa0f);
 }
 impl ::windows::core::RuntimeName for AdvancedPhotoCapture {
@@ -437,7 +437,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastBackgroundService {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastBackgroundService;{bad1e72a-fa94-46f9-95fc-d71511cda70b})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastBackgroundService {
-    type Vtable = IAppBroadcastBackgroundServiceVtbl;
+    type Vtable = IAppBroadcastBackgroundService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad1e72a_fa94_46f9_95fc_d71511cda70b);
 }
 impl ::windows::core::RuntimeName for AppBroadcastBackgroundService {
@@ -598,7 +598,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastBackgroundServiceSignIn
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo;{5e735275-88c8-4eca-89ba-4825985db880})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastBackgroundServiceSignInInfo {
-    type Vtable = IAppBroadcastBackgroundServiceSignInInfoVtbl;
+    type Vtable = IAppBroadcastBackgroundServiceSignInInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e735275_88c8_4eca_89ba_4825985db880);
 }
 impl ::windows::core::RuntimeName for AppBroadcastBackgroundServiceSignInInfo {
@@ -774,7 +774,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastBackgroundServiceStream
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo;{31dc02bc-990a-4904-aa96-fe364381f136})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastBackgroundServiceStreamInfo {
-    type Vtable = IAppBroadcastBackgroundServiceStreamInfoVtbl;
+    type Vtable = IAppBroadcastBackgroundServiceStreamInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31dc02bc_990a_4904_aa96_fe364381f136);
 }
 impl ::windows::core::RuntimeName for AppBroadcastBackgroundServiceStreamInfo {
@@ -895,7 +895,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastCameraCaptureStateChang
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs;{1e334cd0-b882-4b88-8692-05999aceb70f})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastCameraCaptureStateChangedEventArgs {
-    type Vtable = IAppBroadcastCameraCaptureStateChangedEventArgsVtbl;
+    type Vtable = IAppBroadcastCameraCaptureStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e334cd0_b882_4b88_8692_05999aceb70f);
 }
 impl ::windows::core::RuntimeName for AppBroadcastCameraCaptureStateChangedEventArgs {
@@ -1272,7 +1272,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastGlobalSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastGlobalSettings;{b2cb27a5-70fc-4e17-80bd-6ba0fd3ff3a0})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastGlobalSettings {
-    type Vtable = IAppBroadcastGlobalSettingsVtbl;
+    type Vtable = IAppBroadcastGlobalSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2cb27a5_70fc_4e17_80bd_6ba0fd3ff3a0);
 }
 impl ::windows::core::RuntimeName for AppBroadcastGlobalSettings {
@@ -1356,7 +1356,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastHeartbeatRequestedEvent
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastHeartbeatRequestedEventArgs;{cea54283-ee51-4dbf-9472-79a9ed4e2165})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastHeartbeatRequestedEventArgs {
-    type Vtable = IAppBroadcastHeartbeatRequestedEventArgsVtbl;
+    type Vtable = IAppBroadcastHeartbeatRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcea54283_ee51_4dbf_9472_79a9ed4e2165);
 }
 impl ::windows::core::RuntimeName for AppBroadcastHeartbeatRequestedEventArgs {
@@ -1511,7 +1511,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastMicrophoneCaptureStateC
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs;{a86ad5e9-9440-4908-9d09-65b7e315d795})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastMicrophoneCaptureStateChangedEventArgs {
-    type Vtable = IAppBroadcastMicrophoneCaptureStateChangedEventArgsVtbl;
+    type Vtable = IAppBroadcastMicrophoneCaptureStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa86ad5e9_9440_4908_9d09_65b7e315d795);
 }
 impl ::windows::core::RuntimeName for AppBroadcastMicrophoneCaptureStateChangedEventArgs {
@@ -1617,7 +1617,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastPlugIn {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPlugIn;{520c1e66-6513-4574-ac54-23b79729615b})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastPlugIn {
-    type Vtable = IAppBroadcastPlugInVtbl;
+    type Vtable = IAppBroadcastPlugIn_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x520c1e66_6513_4574_ac54_23b79729615b);
 }
 impl ::windows::core::RuntimeName for AppBroadcastPlugIn {
@@ -1740,7 +1740,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastPlugInManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPlugInManager;{e550d979-27a1-49a7-bbf4-d7a9e9d07668})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastPlugInManager {
-    type Vtable = IAppBroadcastPlugInManagerVtbl;
+    type Vtable = IAppBroadcastPlugInManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe550d979_27a1_49a7_bbf4_d7a9e9d07668);
 }
 impl ::windows::core::RuntimeName for AppBroadcastPlugInManager {
@@ -1859,7 +1859,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastPlugInStateChangedEvent
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPlugInStateChangedEventArgs;{4881d0f2-abc5-4fc6-84b0-89370bb47212})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastPlugInStateChangedEventArgs {
-    type Vtable = IAppBroadcastPlugInStateChangedEventArgsVtbl;
+    type Vtable = IAppBroadcastPlugInStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4881d0f2_abc5_4fc6_84b0_89370bb47212);
 }
 impl ::windows::core::RuntimeName for AppBroadcastPlugInStateChangedEventArgs {
@@ -1977,7 +1977,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPreview;{14b60f5a-6e4a-4b80-a14f-67ee77d153e7})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastPreview {
-    type Vtable = IAppBroadcastPreviewVtbl;
+    type Vtable = IAppBroadcastPreview_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14b60f5a_6e4a_4b80_a14f_67ee77d153e7);
 }
 impl ::windows::core::RuntimeName for AppBroadcastPreview {
@@ -2100,7 +2100,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastPreviewStateChangedEven
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs;{5a57f2de-8dea-4e86-90ad-03fc26b9653c})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastPreviewStateChangedEventArgs {
-    type Vtable = IAppBroadcastPreviewStateChangedEventArgsVtbl;
+    type Vtable = IAppBroadcastPreviewStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a57f2de_8dea_4e86_90ad_03fc26b9653c);
 }
 impl ::windows::core::RuntimeName for AppBroadcastPreviewStateChangedEventArgs {
@@ -2238,7 +2238,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastPreviewStreamReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPreviewStreamReader;{92228d50-db3f-40a8-8cd4-f4e371ddab37})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastPreviewStreamReader {
-    type Vtable = IAppBroadcastPreviewStreamReaderVtbl;
+    type Vtable = IAppBroadcastPreviewStreamReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92228d50_db3f_40a8_8cd4_f4e371ddab37);
 }
 impl ::windows::core::RuntimeName for AppBroadcastPreviewStreamReader {
@@ -2328,7 +2328,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastPreviewStreamVideoFrame
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame;{010fbea1-94fe-4499-b8c0-8d244279fb12})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastPreviewStreamVideoFrame {
-    type Vtable = IAppBroadcastPreviewStreamVideoFrameVtbl;
+    type Vtable = IAppBroadcastPreviewStreamVideoFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x010fbea1_94fe_4499_b8c0_8d244279fb12);
 }
 impl ::windows::core::RuntimeName for AppBroadcastPreviewStreamVideoFrame {
@@ -2436,7 +2436,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastPreviewStreamVideoHeade
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader;{8bef6113-da84-4499-a7ab-87118cb4a157})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastPreviewStreamVideoHeader {
-    type Vtable = IAppBroadcastPreviewStreamVideoHeaderVtbl;
+    type Vtable = IAppBroadcastPreviewStreamVideoHeader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bef6113_da84_4499_a7ab_87118cb4a157);
 }
 impl ::windows::core::RuntimeName for AppBroadcastPreviewStreamVideoHeader {
@@ -2600,7 +2600,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastProviderSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastProviderSettings;{c30bdf62-9948-458f-ad50-aa06ec03da08})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastProviderSettings {
-    type Vtable = IAppBroadcastProviderSettingsVtbl;
+    type Vtable = IAppBroadcastProviderSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc30bdf62_9948_458f_ad50_aa06ec03da08);
 }
 impl ::windows::core::RuntimeName for AppBroadcastProviderSettings {
@@ -2772,7 +2772,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastServices {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastServices;{8660b4d6-969b-4e3c-ac3a-8b042ee4ee63})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastServices {
-    type Vtable = IAppBroadcastServicesVtbl;
+    type Vtable = IAppBroadcastServices_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8660b4d6_969b_4e3c_ac3a_8b042ee4ee63);
 }
 impl ::windows::core::RuntimeName for AppBroadcastServices {
@@ -2933,7 +2933,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastSignInStateChangedEvent
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs;{02b692a4-5919-4a9e-8d5e-c9bb0dd3377a})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastSignInStateChangedEventArgs {
-    type Vtable = IAppBroadcastSignInStateChangedEventArgsVtbl;
+    type Vtable = IAppBroadcastSignInStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02b692a4_5919_4a9e_8d5e_c9bb0dd3377a);
 }
 impl ::windows::core::RuntimeName for AppBroadcastSignInStateChangedEventArgs {
@@ -3265,7 +3265,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastState;{ee08056d-8099-4ddd-922e-c56dac58abfb})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastState {
-    type Vtable = IAppBroadcastStateVtbl;
+    type Vtable = IAppBroadcastState_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee08056d_8099_4ddd_922e_c56dac58abfb);
 }
 impl ::windows::core::RuntimeName for AppBroadcastState {
@@ -3355,7 +3355,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastStreamAudioFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastStreamAudioFrame;{efab4ac8-21ba-453f-8bb7-5e938a2e9a74})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastStreamAudioFrame {
-    type Vtable = IAppBroadcastStreamAudioFrameVtbl;
+    type Vtable = IAppBroadcastStreamAudioFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefab4ac8_21ba_453f_8bb7_5e938a2e9a74);
 }
 impl ::windows::core::RuntimeName for AppBroadcastStreamAudioFrame {
@@ -3469,7 +3469,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastStreamAudioHeader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastStreamAudioHeader;{bf21a570-6b78-4216-9f07-5aff5256f1b7})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastStreamAudioHeader {
-    type Vtable = IAppBroadcastStreamAudioHeaderVtbl;
+    type Vtable = IAppBroadcastStreamAudioHeader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf21a570_6b78_4216_9f07_5aff5256f1b7);
 }
 impl ::windows::core::RuntimeName for AppBroadcastStreamAudioHeader {
@@ -3643,7 +3643,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastStreamReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastStreamReader;{b338bcf9-3364-4460-b5f1-3cc2796a8aa2})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastStreamReader {
-    type Vtable = IAppBroadcastStreamReaderVtbl;
+    type Vtable = IAppBroadcastStreamReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb338bcf9_3364_4460_b5f1_3cc2796a8aa2);
 }
 impl ::windows::core::RuntimeName for AppBroadcastStreamReader {
@@ -3758,7 +3758,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastStreamStateChangedEvent
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastStreamStateChangedEventArgs;{5108a733-d008-4a89-93be-58aed961374e})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastStreamStateChangedEventArgs {
-    type Vtable = IAppBroadcastStreamStateChangedEventArgsVtbl;
+    type Vtable = IAppBroadcastStreamStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5108a733_d008_4a89_93be_58aed961374e);
 }
 impl ::windows::core::RuntimeName for AppBroadcastStreamStateChangedEventArgs {
@@ -3846,7 +3846,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastStreamVideoFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastStreamVideoFrame;{0f97cf2b-c9e4-4e88-8194-d814cbd585d8})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastStreamVideoFrame {
-    type Vtable = IAppBroadcastStreamVideoFrameVtbl;
+    type Vtable = IAppBroadcastStreamVideoFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f97cf2b_c9e4_4e88_8194_d814cbd585d8);
 }
 impl ::windows::core::RuntimeName for AppBroadcastStreamVideoFrame {
@@ -3968,7 +3968,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastStreamVideoHeader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastStreamVideoHeader;{0b9ebece-7e32-432d-8ca2-36bf10b9f462})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastStreamVideoHeader {
-    type Vtable = IAppBroadcastStreamVideoHeaderVtbl;
+    type Vtable = IAppBroadcastStreamVideoHeader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b9ebece_7e32_432d_8ca2_36bf10b9f462);
 }
 impl ::windows::core::RuntimeName for AppBroadcastStreamVideoHeader {
@@ -4088,7 +4088,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastTriggerDetails;{deebab35-ec5e-4d8f-b1c0-5da6e8c75638})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastTriggerDetails {
-    type Vtable = IAppBroadcastTriggerDetailsVtbl;
+    type Vtable = IAppBroadcastTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdeebab35_ec5e_4d8f_b1c0_5da6e8c75638);
 }
 impl ::windows::core::RuntimeName for AppBroadcastTriggerDetails {
@@ -4233,7 +4233,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastViewerCountChangedEvent
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppBroadcastViewerCountChangedEventArgs;{e6e11825-5401-4ade-8bd2-c14ecee6807d})");
 }
 unsafe impl ::windows::core::Interface for AppBroadcastViewerCountChangedEventArgs {
-    type Vtable = IAppBroadcastViewerCountChangedEventArgsVtbl;
+    type Vtable = IAppBroadcastViewerCountChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6e11825_5401_4ade_8bd2_c14ecee6807d);
 }
 impl ::windows::core::RuntimeName for AppBroadcastViewerCountChangedEventArgs {
@@ -4362,7 +4362,7 @@ unsafe impl ::windows::core::RuntimeType for AppCapture {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCapture;{9749d453-a29a-45ed-8f29-22d09942cff7})");
 }
 unsafe impl ::windows::core::Interface for AppCapture {
-    type Vtable = IAppCaptureVtbl;
+    type Vtable = IAppCapture_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9749d453_a29a_45ed_8f29_22d09942cff7);
 }
 impl ::windows::core::RuntimeName for AppCapture {
@@ -4673,7 +4673,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureAlternateShortcutKeys {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureAlternateShortcutKeys;{19e8e0ef-236c-40f9-b38f-9b7dd65d1ccc})");
 }
 unsafe impl ::windows::core::Interface for AppCaptureAlternateShortcutKeys {
-    type Vtable = IAppCaptureAlternateShortcutKeysVtbl;
+    type Vtable = IAppCaptureAlternateShortcutKeys_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19e8e0ef_236c_40f9_b38f_9b7dd65d1ccc);
 }
 impl ::windows::core::RuntimeName for AppCaptureAlternateShortcutKeys {
@@ -4753,7 +4753,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureDurationGeneratedEventArg
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureDurationGeneratedEventArgs;{c1f5563b-ffa1-44c9-975f-27fbeb553b35})");
 }
 unsafe impl ::windows::core::Interface for AppCaptureDurationGeneratedEventArgs {
-    type Vtable = IAppCaptureDurationGeneratedEventArgsVtbl;
+    type Vtable = IAppCaptureDurationGeneratedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1f5563b_ffa1_44c9_975f_27fbeb553b35);
 }
 impl ::windows::core::RuntimeName for AppCaptureDurationGeneratedEventArgs {
@@ -4835,7 +4835,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureFileGeneratedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureFileGeneratedEventArgs;{4189fbf4-465e-45bf-907f-165b3fb23758})");
 }
 unsafe impl ::windows::core::Interface for AppCaptureFileGeneratedEventArgs {
-    type Vtable = IAppCaptureFileGeneratedEventArgsVtbl;
+    type Vtable = IAppCaptureFileGeneratedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4189fbf4_465e_45bf_907f_165b3fb23758);
 }
 impl ::windows::core::RuntimeName for AppCaptureFileGeneratedEventArgs {
@@ -5073,7 +5073,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureMetadataWriter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureMetadataWriter;{e0ce4877-9aaf-46b4-ad31-6a60b441c780})");
 }
 unsafe impl ::windows::core::Interface for AppCaptureMetadataWriter {
-    type Vtable = IAppCaptureMetadataWriterVtbl;
+    type Vtable = IAppCaptureMetadataWriter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0ce4877_9aaf_46b4_ad31_6a60b441c780);
 }
 impl ::windows::core::RuntimeName for AppCaptureMetadataWriter {
@@ -5222,7 +5222,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureMicrophoneCaptureStateCha
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureMicrophoneCaptureStateChangedEventArgs;{324d249e-45bc-4c35-bc35-e469fc7a69e0})");
 }
 unsafe impl ::windows::core::Interface for AppCaptureMicrophoneCaptureStateChangedEventArgs {
-    type Vtable = IAppCaptureMicrophoneCaptureStateChangedEventArgsVtbl;
+    type Vtable = IAppCaptureMicrophoneCaptureStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x324d249e_45bc_4c35_bc35_e469fc7a69e0);
 }
 impl ::windows::core::RuntimeName for AppCaptureMicrophoneCaptureStateChangedEventArgs {
@@ -5389,7 +5389,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureRecordOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureRecordOperation;{c66020a9-1538-495c-9bbb-2ba870ec5861})");
 }
 unsafe impl ::windows::core::Interface for AppCaptureRecordOperation {
-    type Vtable = IAppCaptureRecordOperationVtbl;
+    type Vtable = IAppCaptureRecordOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc66020a9_1538_495c_9bbb_2ba870ec5861);
 }
 impl ::windows::core::RuntimeName for AppCaptureRecordOperation {
@@ -5512,7 +5512,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureRecordingStateChangedEven
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureRecordingStateChangedEventArgs;{24fc8712-e305-490d-b415-6b1c9049736b})");
 }
 unsafe impl ::windows::core::Interface for AppCaptureRecordingStateChangedEventArgs {
-    type Vtable = IAppCaptureRecordingStateChangedEventArgsVtbl;
+    type Vtable = IAppCaptureRecordingStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24fc8712_e305_490d_b415_6b1c9049736b);
 }
 impl ::windows::core::RuntimeName for AppCaptureRecordingStateChangedEventArgs {
@@ -5618,7 +5618,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureServices {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureServices;{44fec0b5-34f5-4f18-ae8c-b9123abbfc0d})");
 }
 unsafe impl ::windows::core::Interface for AppCaptureServices {
-    type Vtable = IAppCaptureServicesVtbl;
+    type Vtable = IAppCaptureServices_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44fec0b5_34f5_4f18_ae8c_b9123abbfc0d);
 }
 impl ::windows::core::RuntimeName for AppCaptureServices {
@@ -6044,7 +6044,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureSettings;{14683a86-8807-48d3-883a-970ee4532a39})");
 }
 unsafe impl ::windows::core::Interface for AppCaptureSettings {
-    type Vtable = IAppCaptureSettingsVtbl;
+    type Vtable = IAppCaptureSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14683a86_8807_48d3_883a_970ee4532a39);
 }
 impl ::windows::core::RuntimeName for AppCaptureSettings {
@@ -6195,7 +6195,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.AppCaptureState;{73134372-d4eb-44ce-9538-465f506ac4ea})");
 }
 unsafe impl ::windows::core::Interface for AppCaptureState {
-    type Vtable = IAppCaptureStateVtbl;
+    type Vtable = IAppCaptureState_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73134372_d4eb_44ce_9538_465f506ac4ea);
 }
 impl ::windows::core::RuntimeName for AppCaptureState {
@@ -6401,7 +6401,7 @@ unsafe impl ::windows::core::RuntimeType for CameraCaptureUI {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.CameraCaptureUI;{48587540-6f93-4bb4-b8f3-e89e48948c91})");
 }
 unsafe impl ::windows::core::Interface for CameraCaptureUI {
-    type Vtable = ICameraCaptureUIVtbl;
+    type Vtable = ICameraCaptureUI_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48587540_6f93_4bb4_b8f3_e89e48948c91);
 }
 impl ::windows::core::RuntimeName for CameraCaptureUI {
@@ -6647,7 +6647,7 @@ unsafe impl ::windows::core::RuntimeType for CameraCaptureUIPhotoCaptureSettings
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.CameraCaptureUIPhotoCaptureSettings;{b9f5be97-3472-46a8-8a9e-04ce42ccc97d})");
 }
 unsafe impl ::windows::core::Interface for CameraCaptureUIPhotoCaptureSettings {
-    type Vtable = ICameraCaptureUIPhotoCaptureSettingsVtbl;
+    type Vtable = ICameraCaptureUIPhotoCaptureSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9f5be97_3472_46a8_8a9e_04ce42ccc97d);
 }
 impl ::windows::core::RuntimeName for CameraCaptureUIPhotoCaptureSettings {
@@ -6806,7 +6806,7 @@ unsafe impl ::windows::core::RuntimeType for CameraCaptureUIVideoCaptureSettings
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.CameraCaptureUIVideoCaptureSettings;{64e92d1f-a28d-425a-b84f-e568335ff24e})");
 }
 unsafe impl ::windows::core::Interface for CameraCaptureUIVideoCaptureSettings {
-    type Vtable = ICameraCaptureUIVideoCaptureSettingsVtbl;
+    type Vtable = ICameraCaptureUIVideoCaptureSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64e92d1f_a28d_425a_b84f_e568335ff24e);
 }
 impl ::windows::core::RuntimeName for CameraCaptureUIVideoCaptureSettings {
@@ -7087,7 +7087,7 @@ unsafe impl ::windows::core::RuntimeType for CapturedFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.CapturedFrame;{1dd2de1f-571b-44d8-8e80-a08a1578766e})");
 }
 unsafe impl ::windows::core::Interface for CapturedFrame {
-    type Vtable = ICapturedFrameVtbl;
+    type Vtable = ICapturedFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dd2de1f_571b_44d8_8e80_a08a1578766e);
 }
 impl ::windows::core::RuntimeName for CapturedFrame {
@@ -7442,7 +7442,7 @@ unsafe impl ::windows::core::RuntimeType for CapturedFrameControlValues {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.CapturedFrameControlValues;{90c65b7f-4e0d-4ca4-882d-7a144fed0a90})");
 }
 unsafe impl ::windows::core::Interface for CapturedFrameControlValues {
-    type Vtable = ICapturedFrameControlValuesVtbl;
+    type Vtable = ICapturedFrameControlValues_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90c65b7f_4e0d_4ca4_882d_7a144fed0a90);
 }
 impl ::windows::core::RuntimeName for CapturedFrameControlValues {
@@ -7531,7 +7531,7 @@ unsafe impl ::windows::core::RuntimeType for CapturedPhoto {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.CapturedPhoto;{b0ce7e5a-cfcc-4d6c-8ad1-0869208aca16})");
 }
 unsafe impl ::windows::core::Interface for CapturedPhoto {
-    type Vtable = ICapturedPhotoVtbl;
+    type Vtable = ICapturedPhoto_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0ce7e5a_cfcc_4d6c_8ad1_0869208aca16);
 }
 impl ::windows::core::RuntimeName for CapturedPhoto {
@@ -7781,7 +7781,7 @@ unsafe impl ::windows::core::RuntimeType for GameBarServices {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.GameBarServices;{2dbead57-50a6-499e-8c6c-d330a7311796})");
 }
 unsafe impl ::windows::core::Interface for GameBarServices {
-    type Vtable = IGameBarServicesVtbl;
+    type Vtable = IGameBarServices_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dbead57_50a6_499e_8c6c_d330a7311796);
 }
 impl ::windows::core::RuntimeName for GameBarServices {
@@ -7870,7 +7870,7 @@ unsafe impl ::windows::core::RuntimeType for GameBarServicesCommandEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.GameBarServicesCommandEventArgs;{a74226b2-f176-4fcf-8fbb-cf698b2eb8e0})");
 }
 unsafe impl ::windows::core::Interface for GameBarServicesCommandEventArgs {
-    type Vtable = IGameBarServicesCommandEventArgsVtbl;
+    type Vtable = IGameBarServicesCommandEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa74226b2_f176_4fcf_8fbb_cf698b2eb8e0);
 }
 impl ::windows::core::RuntimeName for GameBarServicesCommandEventArgs {
@@ -8003,7 +8003,7 @@ unsafe impl ::windows::core::RuntimeType for GameBarServicesManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.GameBarServicesManager;{3a4b9cfa-7f8b-4c60-9dbb-0bcd262dffc6})");
 }
 unsafe impl ::windows::core::Interface for GameBarServicesManager {
-    type Vtable = IGameBarServicesManagerVtbl;
+    type Vtable = IGameBarServicesManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a4b9cfa_7f8b_4c60_9dbb_0bcd262dffc6);
 }
 impl ::windows::core::RuntimeName for GameBarServicesManager {
@@ -8084,7 +8084,7 @@ unsafe impl ::windows::core::RuntimeType for GameBarServicesManagerGameBarServic
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.GameBarServicesManagerGameBarServicesCreatedEventArgs;{ededbd9c-143e-49a3-a5ea-0b1995c8d46e})");
 }
 unsafe impl ::windows::core::Interface for GameBarServicesManagerGameBarServicesCreatedEventArgs {
-    type Vtable = IGameBarServicesManagerGameBarServicesCreatedEventArgsVtbl;
+    type Vtable = IGameBarServicesManagerGameBarServicesCreatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xededbd9c_143e_49a3_a5ea_0b1995c8d46e);
 }
 impl ::windows::core::RuntimeName for GameBarServicesManagerGameBarServicesCreatedEventArgs {
@@ -8189,7 +8189,7 @@ unsafe impl ::windows::core::RuntimeType for GameBarServicesTargetInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.GameBarServicesTargetInfo;{b4202f92-1611-4e05-b6ef-dfd737ae33b0})");
 }
 unsafe impl ::windows::core::Interface for GameBarServicesTargetInfo {
-    type Vtable = IGameBarServicesTargetInfoVtbl;
+    type Vtable = IGameBarServicesTargetInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4202f92_1611_4e05_b6ef_dfd737ae33b0);
 }
 impl ::windows::core::RuntimeName for GameBarServicesTargetInfo {
@@ -8277,12 +8277,12 @@ impl ::windows::core::DefaultType for GameBarTargetCapturePolicy {
 #[repr(transparent)]
 pub struct IAdvancedCapturedPhoto(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdvancedCapturedPhoto {
-    type Vtable = IAdvancedCapturedPhotoVtbl;
+    type Vtable = IAdvancedCapturedPhoto_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf072728b_b292_4491_9d41_99807a550bbf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAdvancedCapturedPhotoVtbl {
+pub struct IAdvancedCapturedPhoto_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Frame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Media_Devices")]
@@ -8295,12 +8295,12 @@ pub struct IAdvancedCapturedPhotoVtbl {
 #[repr(transparent)]
 pub struct IAdvancedCapturedPhoto2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdvancedCapturedPhoto2 {
-    type Vtable = IAdvancedCapturedPhoto2Vtbl;
+    type Vtable = IAdvancedCapturedPhoto2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18cf6cd8_cffe_42d8_8104_017bb318f4a1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAdvancedCapturedPhoto2Vtbl {
+pub struct IAdvancedCapturedPhoto2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FrameBoundsRelativeToReferencePhoto: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8311,12 +8311,12 @@ pub struct IAdvancedCapturedPhoto2Vtbl {
 #[repr(transparent)]
 pub struct IAdvancedPhotoCapture(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdvancedPhotoCapture {
-    type Vtable = IAdvancedPhotoCaptureVtbl;
+    type Vtable = IAdvancedPhotoCapture_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83ffaafa_6667_44dc_973c_a6bce596aa0f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAdvancedPhotoCaptureVtbl {
+pub struct IAdvancedPhotoCapture_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CaptureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8351,12 +8351,12 @@ pub struct IAdvancedPhotoCaptureVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastBackgroundService(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastBackgroundService {
-    type Vtable = IAppBroadcastBackgroundServiceVtbl;
+    type Vtable = IAppBroadcastBackgroundService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad1e72a_fa94_46f9_95fc_d71511cda70b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastBackgroundServiceVtbl {
+pub struct IAppBroadcastBackgroundService_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetPlugInState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: AppBroadcastPlugInState) -> ::windows::core::HRESULT,
     pub PlugInState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastPlugInState) -> ::windows::core::HRESULT,
@@ -8383,12 +8383,12 @@ pub struct IAppBroadcastBackgroundServiceVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastBackgroundService2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastBackgroundService2 {
-    type Vtable = IAppBroadcastBackgroundService2Vtbl;
+    type Vtable = IAppBroadcastBackgroundService2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc8ccbbf_5549_4b87_959f_23ca401fd473);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastBackgroundService2Vtbl {
+pub struct IAppBroadcastBackgroundService2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetBroadcastTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub BroadcastLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8424,12 +8424,12 @@ pub struct IAppBroadcastBackgroundService2Vtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastBackgroundServiceSignInInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastBackgroundServiceSignInInfo {
-    type Vtable = IAppBroadcastBackgroundServiceSignInInfoVtbl;
+    type Vtable = IAppBroadcastBackgroundServiceSignInInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e735275_88c8_4eca_89ba_4825985db880);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastBackgroundServiceSignInInfoVtbl {
+pub struct IAppBroadcastBackgroundServiceSignInInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SignInState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastSignInState) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -8467,12 +8467,12 @@ pub struct IAppBroadcastBackgroundServiceSignInInfoVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastBackgroundServiceSignInInfo2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastBackgroundServiceSignInInfo2 {
-    type Vtable = IAppBroadcastBackgroundServiceSignInInfo2Vtbl;
+    type Vtable = IAppBroadcastBackgroundServiceSignInInfo2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9104285c_62cf_4a3c_a7ee_aeb507404645);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastBackgroundServiceSignInInfo2Vtbl {
+pub struct IAppBroadcastBackgroundServiceSignInInfo2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub UserNameChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -8487,12 +8487,12 @@ pub struct IAppBroadcastBackgroundServiceSignInInfo2Vtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastBackgroundServiceStreamInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastBackgroundServiceStreamInfo {
-    type Vtable = IAppBroadcastBackgroundServiceStreamInfoVtbl;
+    type Vtable = IAppBroadcastBackgroundServiceStreamInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31dc02bc_990a_4904_aa96_fe364381f136);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastBackgroundServiceStreamInfoVtbl {
+pub struct IAppBroadcastBackgroundServiceStreamInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub StreamState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastStreamState) -> ::windows::core::HRESULT,
     pub SetDesiredVideoEncodingBitrate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u64) -> ::windows::core::HRESULT,
@@ -8531,12 +8531,12 @@ pub struct IAppBroadcastBackgroundServiceStreamInfoVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastBackgroundServiceStreamInfo2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastBackgroundServiceStreamInfo2 {
-    type Vtable = IAppBroadcastBackgroundServiceStreamInfo2Vtbl;
+    type Vtable = IAppBroadcastBackgroundServiceStreamInfo2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd1e9f6d_94dc_4fce_9541_a9f129596334);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastBackgroundServiceStreamInfo2Vtbl {
+pub struct IAppBroadcastBackgroundServiceStreamInfo2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ReportProblemWithStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -8544,12 +8544,12 @@ pub struct IAppBroadcastBackgroundServiceStreamInfo2Vtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastCameraCaptureStateChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastCameraCaptureStateChangedEventArgs {
-    type Vtable = IAppBroadcastCameraCaptureStateChangedEventArgsVtbl;
+    type Vtable = IAppBroadcastCameraCaptureStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e334cd0_b882_4b88_8692_05999aceb70f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastCameraCaptureStateChangedEventArgsVtbl {
+pub struct IAppBroadcastCameraCaptureStateChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastCameraCaptureState) -> ::windows::core::HRESULT,
     pub ErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -8558,12 +8558,12 @@ pub struct IAppBroadcastCameraCaptureStateChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastGlobalSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastGlobalSettings {
-    type Vtable = IAppBroadcastGlobalSettingsVtbl;
+    type Vtable = IAppBroadcastGlobalSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2cb27a5_70fc_4e17_80bd_6ba0fd3ff3a0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastGlobalSettingsVtbl {
+pub struct IAppBroadcastGlobalSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsBroadcastEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsDisabledByPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -8594,12 +8594,12 @@ pub struct IAppBroadcastGlobalSettingsVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastHeartbeatRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastHeartbeatRequestedEventArgs {
-    type Vtable = IAppBroadcastHeartbeatRequestedEventArgsVtbl;
+    type Vtable = IAppBroadcastHeartbeatRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcea54283_ee51_4dbf_9472_79a9ed4e2165);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastHeartbeatRequestedEventArgsVtbl {
+pub struct IAppBroadcastHeartbeatRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -8608,12 +8608,12 @@ pub struct IAppBroadcastHeartbeatRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastManagerStatics {
-    type Vtable = IAppBroadcastManagerStaticsVtbl;
+    type Vtable = IAppBroadcastManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x364e018b_1e4e_411f_ab3e_92959844c156);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastManagerStaticsVtbl {
+pub struct IAppBroadcastManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetGlobalSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ApplyGlobalSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8624,12 +8624,12 @@ pub struct IAppBroadcastManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastMicrophoneCaptureStateChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastMicrophoneCaptureStateChangedEventArgs {
-    type Vtable = IAppBroadcastMicrophoneCaptureStateChangedEventArgsVtbl;
+    type Vtable = IAppBroadcastMicrophoneCaptureStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa86ad5e9_9440_4908_9d09_65b7e315d795);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastMicrophoneCaptureStateChangedEventArgsVtbl {
+pub struct IAppBroadcastMicrophoneCaptureStateChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastMicrophoneCaptureState) -> ::windows::core::HRESULT,
     pub ErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -8638,12 +8638,12 @@ pub struct IAppBroadcastMicrophoneCaptureStateChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastPlugIn(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastPlugIn {
-    type Vtable = IAppBroadcastPlugInVtbl;
+    type Vtable = IAppBroadcastPlugIn_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x520c1e66_6513_4574_ac54_23b79729615b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastPlugInVtbl {
+pub struct IAppBroadcastPlugIn_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AppId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ProviderSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8657,12 +8657,12 @@ pub struct IAppBroadcastPlugInVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastPlugInManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastPlugInManager {
-    type Vtable = IAppBroadcastPlugInManagerVtbl;
+    type Vtable = IAppBroadcastPlugInManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe550d979_27a1_49a7_bbf4_d7a9e9d07668);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastPlugInManagerVtbl {
+pub struct IAppBroadcastPlugInManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsBroadcastProviderAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -8676,12 +8676,12 @@ pub struct IAppBroadcastPlugInManagerVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastPlugInManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastPlugInManagerStatics {
-    type Vtable = IAppBroadcastPlugInManagerStaticsVtbl;
+    type Vtable = IAppBroadcastPlugInManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2645c20_5c76_4cdc_9364_82fe9eb6534d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastPlugInManagerStaticsVtbl {
+pub struct IAppBroadcastPlugInManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "System")]
@@ -8693,12 +8693,12 @@ pub struct IAppBroadcastPlugInManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastPlugInStateChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastPlugInStateChangedEventArgs {
-    type Vtable = IAppBroadcastPlugInStateChangedEventArgsVtbl;
+    type Vtable = IAppBroadcastPlugInStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4881d0f2_abc5_4fc6_84b0_89370bb47212);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastPlugInStateChangedEventArgsVtbl {
+pub struct IAppBroadcastPlugInStateChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PlugInState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastPlugInState) -> ::windows::core::HRESULT,
 }
@@ -8706,12 +8706,12 @@ pub struct IAppBroadcastPlugInStateChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastPreview(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastPreview {
-    type Vtable = IAppBroadcastPreviewVtbl;
+    type Vtable = IAppBroadcastPreview_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14b60f5a_6e4a_4b80_a14f_67ee77d153e7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastPreviewVtbl {
+pub struct IAppBroadcastPreview_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub StopPreview: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub PreviewState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastPreviewState) -> ::windows::core::HRESULT,
@@ -8733,12 +8733,12 @@ pub struct IAppBroadcastPreviewVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastPreviewStateChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastPreviewStateChangedEventArgs {
-    type Vtable = IAppBroadcastPreviewStateChangedEventArgsVtbl;
+    type Vtable = IAppBroadcastPreviewStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a57f2de_8dea_4e86_90ad_03fc26b9653c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastPreviewStateChangedEventArgsVtbl {
+pub struct IAppBroadcastPreviewStateChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PreviewState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastPreviewState) -> ::windows::core::HRESULT,
     pub ErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -8747,12 +8747,12 @@ pub struct IAppBroadcastPreviewStateChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastPreviewStreamReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastPreviewStreamReader {
-    type Vtable = IAppBroadcastPreviewStreamReaderVtbl;
+    type Vtable = IAppBroadcastPreviewStreamReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92228d50_db3f_40a8_8cd4_f4e371ddab37);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastPreviewStreamReaderVtbl {
+pub struct IAppBroadcastPreviewStreamReader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub VideoWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub VideoHeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -8779,12 +8779,12 @@ pub struct IAppBroadcastPreviewStreamReaderVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastPreviewStreamVideoFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastPreviewStreamVideoFrame {
-    type Vtable = IAppBroadcastPreviewStreamVideoFrameVtbl;
+    type Vtable = IAppBroadcastPreviewStreamVideoFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x010fbea1_94fe_4499_b8c0_8d244279fb12);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastPreviewStreamVideoFrameVtbl {
+pub struct IAppBroadcastPreviewStreamVideoFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub VideoHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -8796,12 +8796,12 @@ pub struct IAppBroadcastPreviewStreamVideoFrameVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastPreviewStreamVideoHeader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastPreviewStreamVideoHeader {
-    type Vtable = IAppBroadcastPreviewStreamVideoHeaderVtbl;
+    type Vtable = IAppBroadcastPreviewStreamVideoHeader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bef6113_da84_4499_a7ab_87118cb4a157);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastPreviewStreamVideoHeaderVtbl {
+pub struct IAppBroadcastPreviewStreamVideoHeader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub AbsoluteTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -8821,12 +8821,12 @@ pub struct IAppBroadcastPreviewStreamVideoHeaderVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastProviderSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastProviderSettings {
-    type Vtable = IAppBroadcastProviderSettingsVtbl;
+    type Vtable = IAppBroadcastProviderSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc30bdf62_9948_458f_ad50_aa06ec03da08);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastProviderSettingsVtbl {
+pub struct IAppBroadcastProviderSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetDefaultBroadcastTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DefaultBroadcastTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8847,12 +8847,12 @@ pub struct IAppBroadcastProviderSettingsVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastServices(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastServices {
-    type Vtable = IAppBroadcastServicesVtbl;
+    type Vtable = IAppBroadcastServices_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8660b4d6_969b_4e3c_ac3a_8b042ee4ee63);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastServicesVtbl {
+pub struct IAppBroadcastServices_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CaptureTargetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastCaptureTargetType) -> ::windows::core::HRESULT,
     pub SetCaptureTargetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: AppBroadcastCaptureTargetType) -> ::windows::core::HRESULT,
@@ -8880,12 +8880,12 @@ pub struct IAppBroadcastServicesVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastSignInStateChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastSignInStateChangedEventArgs {
-    type Vtable = IAppBroadcastSignInStateChangedEventArgsVtbl;
+    type Vtable = IAppBroadcastSignInStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02b692a4_5919_4a9e_8d5e_c9bb0dd3377a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastSignInStateChangedEventArgsVtbl {
+pub struct IAppBroadcastSignInStateChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SignInState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastSignInState) -> ::windows::core::HRESULT,
     pub Result: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastSignInResult) -> ::windows::core::HRESULT,
@@ -8894,12 +8894,12 @@ pub struct IAppBroadcastSignInStateChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastState(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastState {
-    type Vtable = IAppBroadcastStateVtbl;
+    type Vtable = IAppBroadcastState_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee08056d_8099_4ddd_922e_c56dac58abfb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastStateVtbl {
+pub struct IAppBroadcastState_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsCaptureTargetRunning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub ViewerCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -8992,12 +8992,12 @@ pub struct IAppBroadcastStateVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastStreamAudioFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastStreamAudioFrame {
-    type Vtable = IAppBroadcastStreamAudioFrameVtbl;
+    type Vtable = IAppBroadcastStreamAudioFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefab4ac8_21ba_453f_8bb7_5e938a2e9a74);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastStreamAudioFrameVtbl {
+pub struct IAppBroadcastStreamAudioFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AudioHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -9009,12 +9009,12 @@ pub struct IAppBroadcastStreamAudioFrameVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastStreamAudioHeader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastStreamAudioHeader {
-    type Vtable = IAppBroadcastStreamAudioHeaderVtbl;
+    type Vtable = IAppBroadcastStreamAudioHeader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf21a570_6b78_4216_9f07_5aff5256f1b7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastStreamAudioHeaderVtbl {
+pub struct IAppBroadcastStreamAudioHeader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub AbsoluteTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -9035,12 +9035,12 @@ pub struct IAppBroadcastStreamAudioHeaderVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastStreamReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastStreamReader {
-    type Vtable = IAppBroadcastStreamReaderVtbl;
+    type Vtable = IAppBroadcastStreamReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb338bcf9_3364_4460_b5f1_3cc2796a8aa2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastStreamReaderVtbl {
+pub struct IAppBroadcastStreamReader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AudioChannels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub AudioSampleRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -9075,12 +9075,12 @@ pub struct IAppBroadcastStreamReaderVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastStreamStateChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastStreamStateChangedEventArgs {
-    type Vtable = IAppBroadcastStreamStateChangedEventArgsVtbl;
+    type Vtable = IAppBroadcastStreamStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5108a733_d008_4a89_93be_58aed961374e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastStreamStateChangedEventArgsVtbl {
+pub struct IAppBroadcastStreamStateChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub StreamState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastStreamState) -> ::windows::core::HRESULT,
 }
@@ -9088,12 +9088,12 @@ pub struct IAppBroadcastStreamStateChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastStreamVideoFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastStreamVideoFrame {
-    type Vtable = IAppBroadcastStreamVideoFrameVtbl;
+    type Vtable = IAppBroadcastStreamVideoFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f97cf2b_c9e4_4e88_8194_d814cbd585d8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastStreamVideoFrameVtbl {
+pub struct IAppBroadcastStreamVideoFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub VideoHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -9105,12 +9105,12 @@ pub struct IAppBroadcastStreamVideoFrameVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastStreamVideoHeader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastStreamVideoHeader {
-    type Vtable = IAppBroadcastStreamVideoHeaderVtbl;
+    type Vtable = IAppBroadcastStreamVideoHeader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b9ebece_7e32_432d_8ca2_36bf10b9f462);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastStreamVideoHeaderVtbl {
+pub struct IAppBroadcastStreamVideoHeader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub AbsoluteTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -9132,12 +9132,12 @@ pub struct IAppBroadcastStreamVideoHeaderVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastTriggerDetails {
-    type Vtable = IAppBroadcastTriggerDetailsVtbl;
+    type Vtable = IAppBroadcastTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdeebab35_ec5e_4d8f_b1c0_5da6e8c75638);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastTriggerDetailsVtbl {
+pub struct IAppBroadcastTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub BackgroundService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -9145,12 +9145,12 @@ pub struct IAppBroadcastTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IAppBroadcastViewerCountChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppBroadcastViewerCountChangedEventArgs {
-    type Vtable = IAppBroadcastViewerCountChangedEventArgsVtbl;
+    type Vtable = IAppBroadcastViewerCountChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6e11825_5401_4ade_8bd2_c14ecee6807d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppBroadcastViewerCountChangedEventArgsVtbl {
+pub struct IAppBroadcastViewerCountChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ViewerCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -9158,12 +9158,12 @@ pub struct IAppBroadcastViewerCountChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAppCapture(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCapture {
-    type Vtable = IAppCaptureVtbl;
+    type Vtable = IAppCapture_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9749d453_a29a_45ed_8f29_22d09942cff7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCaptureVtbl {
+pub struct IAppCapture_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsCapturingAudio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsCapturingVideo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -9180,12 +9180,12 @@ pub struct IAppCaptureVtbl {
 #[repr(transparent)]
 pub struct IAppCaptureAlternateShortcutKeys(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureAlternateShortcutKeys {
-    type Vtable = IAppCaptureAlternateShortcutKeysVtbl;
+    type Vtable = IAppCaptureAlternateShortcutKeys_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19e8e0ef_236c_40f9_b38f_9b7dd65d1ccc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCaptureAlternateShortcutKeysVtbl {
+pub struct IAppCaptureAlternateShortcutKeys_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub SetToggleGameBarKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKey) -> ::windows::core::HRESULT,
@@ -9272,12 +9272,12 @@ pub struct IAppCaptureAlternateShortcutKeysVtbl {
 #[repr(transparent)]
 pub struct IAppCaptureAlternateShortcutKeys2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureAlternateShortcutKeys2 {
-    type Vtable = IAppCaptureAlternateShortcutKeys2Vtbl;
+    type Vtable = IAppCaptureAlternateShortcutKeys2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3669090_dd17_47f0_95e5_ce42286cf338);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCaptureAlternateShortcutKeys2Vtbl {
+pub struct IAppCaptureAlternateShortcutKeys2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub SetToggleMicrophoneCaptureKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKey) -> ::windows::core::HRESULT,
@@ -9300,12 +9300,12 @@ pub struct IAppCaptureAlternateShortcutKeys2Vtbl {
 #[repr(transparent)]
 pub struct IAppCaptureAlternateShortcutKeys3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureAlternateShortcutKeys3 {
-    type Vtable = IAppCaptureAlternateShortcutKeys3Vtbl;
+    type Vtable = IAppCaptureAlternateShortcutKeys3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b81448c_418e_469c_a49a_45b597c826b6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCaptureAlternateShortcutKeys3Vtbl {
+pub struct IAppCaptureAlternateShortcutKeys3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub SetToggleCameraCaptureKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKey) -> ::windows::core::HRESULT,
@@ -9344,12 +9344,12 @@ pub struct IAppCaptureAlternateShortcutKeys3Vtbl {
 #[repr(transparent)]
 pub struct IAppCaptureDurationGeneratedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureDurationGeneratedEventArgs {
-    type Vtable = IAppCaptureDurationGeneratedEventArgsVtbl;
+    type Vtable = IAppCaptureDurationGeneratedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1f5563b_ffa1_44c9_975f_27fbeb553b35);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCaptureDurationGeneratedEventArgsVtbl {
+pub struct IAppCaptureDurationGeneratedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -9360,12 +9360,12 @@ pub struct IAppCaptureDurationGeneratedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAppCaptureFileGeneratedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureFileGeneratedEventArgs {
-    type Vtable = IAppCaptureFileGeneratedEventArgsVtbl;
+    type Vtable = IAppCaptureFileGeneratedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4189fbf4_465e_45bf_907f_165b3fb23758);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCaptureFileGeneratedEventArgsVtbl {
+pub struct IAppCaptureFileGeneratedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage")]
     pub File: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9376,12 +9376,12 @@ pub struct IAppCaptureFileGeneratedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAppCaptureManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureManagerStatics {
-    type Vtable = IAppCaptureManagerStaticsVtbl;
+    type Vtable = IAppCaptureManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d9e3ea7_6282_4735_8d4e_aa45f90f6723);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCaptureManagerStaticsVtbl {
+pub struct IAppCaptureManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetCurrentSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ApplySettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appcapturesettings: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9390,12 +9390,12 @@ pub struct IAppCaptureManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IAppCaptureMetadataWriter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureMetadataWriter {
-    type Vtable = IAppCaptureMetadataWriterVtbl;
+    type Vtable = IAppCaptureMetadataWriter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0ce4877_9aaf_46b4_ad31_6a60b441c780);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCaptureMetadataWriterVtbl {
+pub struct IAppCaptureMetadataWriter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AddStringEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, priority: AppCaptureMetadataPriority) -> ::windows::core::HRESULT,
     pub AddInt32Event: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i32, priority: AppCaptureMetadataPriority) -> ::windows::core::HRESULT,
@@ -9419,12 +9419,12 @@ pub struct IAppCaptureMetadataWriterVtbl {
 #[repr(transparent)]
 pub struct IAppCaptureMicrophoneCaptureStateChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureMicrophoneCaptureStateChangedEventArgs {
-    type Vtable = IAppCaptureMicrophoneCaptureStateChangedEventArgsVtbl;
+    type Vtable = IAppCaptureMicrophoneCaptureStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x324d249e_45bc_4c35_bc35_e469fc7a69e0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCaptureMicrophoneCaptureStateChangedEventArgsVtbl {
+pub struct IAppCaptureMicrophoneCaptureStateChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppCaptureMicrophoneCaptureState) -> ::windows::core::HRESULT,
     pub ErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -9433,12 +9433,12 @@ pub struct IAppCaptureMicrophoneCaptureStateChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAppCaptureRecordOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureRecordOperation {
-    type Vtable = IAppCaptureRecordOperationVtbl;
+    type Vtable = IAppCaptureRecordOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc66020a9_1538_495c_9bbb_2ba870ec5861);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCaptureRecordOperationVtbl {
+pub struct IAppCaptureRecordOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub StopRecording: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppCaptureRecordingState) -> ::windows::core::HRESULT,
@@ -9487,12 +9487,12 @@ pub struct IAppCaptureRecordOperationVtbl {
 #[repr(transparent)]
 pub struct IAppCaptureRecordingStateChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureRecordingStateChangedEventArgs {
-    type Vtable = IAppCaptureRecordingStateChangedEventArgsVtbl;
+    type Vtable = IAppCaptureRecordingStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24fc8712_e305_490d_b415_6b1c9049736b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCaptureRecordingStateChangedEventArgsVtbl {
+pub struct IAppCaptureRecordingStateChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppCaptureRecordingState) -> ::windows::core::HRESULT,
     pub ErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -9501,12 +9501,12 @@ pub struct IAppCaptureRecordingStateChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAppCaptureServices(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureServices {
-    type Vtable = IAppCaptureServicesVtbl;
+    type Vtable = IAppCaptureServices_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44fec0b5_34f5_4f18_ae8c_b9123abbfc0d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCaptureServicesVtbl {
+pub struct IAppCaptureServices_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Record: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -9520,12 +9520,12 @@ pub struct IAppCaptureServicesVtbl {
 #[repr(transparent)]
 pub struct IAppCaptureSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureSettings {
-    type Vtable = IAppCaptureSettingsVtbl;
+    type Vtable = IAppCaptureSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14683a86_8807_48d3_883a_970ee4532a39);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCaptureSettingsVtbl {
+pub struct IAppCaptureSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage")]
     pub SetAppCaptureDestinationFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9586,12 +9586,12 @@ pub struct IAppCaptureSettingsVtbl {
 #[repr(transparent)]
 pub struct IAppCaptureSettings2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureSettings2 {
-    type Vtable = IAppCaptureSettings2Vtbl;
+    type Vtable = IAppCaptureSettings2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcb8cee7_e26b_476f_9b1a_ec342d2a8fde);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCaptureSettings2Vtbl {
+pub struct IAppCaptureSettings2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsGpuConstrained: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub AlternateShortcutKeys: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9600,12 +9600,12 @@ pub struct IAppCaptureSettings2Vtbl {
 #[repr(transparent)]
 pub struct IAppCaptureSettings3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureSettings3 {
-    type Vtable = IAppCaptureSettings3Vtbl;
+    type Vtable = IAppCaptureSettings3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa93502fe_88c2_42d6_aaaa_40feffd75aec);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCaptureSettings3Vtbl {
+pub struct IAppCaptureSettings3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetIsMicrophoneCaptureEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub IsMicrophoneCaptureEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -9614,12 +9614,12 @@ pub struct IAppCaptureSettings3Vtbl {
 #[repr(transparent)]
 pub struct IAppCaptureSettings4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureSettings4 {
-    type Vtable = IAppCaptureSettings4Vtbl;
+    type Vtable = IAppCaptureSettings4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07c2774c_1a81_482f_a244_049d95f25b0b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCaptureSettings4Vtbl {
+pub struct IAppCaptureSettings4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetIsMicrophoneCaptureEnabledByDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub IsMicrophoneCaptureEnabledByDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -9634,12 +9634,12 @@ pub struct IAppCaptureSettings4Vtbl {
 #[repr(transparent)]
 pub struct IAppCaptureSettings5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureSettings5 {
-    type Vtable = IAppCaptureSettings5Vtbl;
+    type Vtable = IAppCaptureSettings5_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18894522_b0e8_4ba0_8f13_3eaa5fa4013b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCaptureSettings5Vtbl {
+pub struct IAppCaptureSettings5_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetIsEchoCancellationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub IsEchoCancellationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -9650,12 +9650,12 @@ pub struct IAppCaptureSettings5Vtbl {
 #[repr(transparent)]
 pub struct IAppCaptureState(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureState {
-    type Vtable = IAppCaptureStateVtbl;
+    type Vtable = IAppCaptureState_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73134372_d4eb_44ce_9538_465f506ac4ea);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCaptureStateVtbl {
+pub struct IAppCaptureState_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsTargetRunning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsHistoricalCaptureEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -9685,12 +9685,12 @@ pub struct IAppCaptureStateVtbl {
 #[repr(transparent)]
 pub struct IAppCaptureStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureStatics {
-    type Vtable = IAppCaptureStaticsVtbl;
+    type Vtable = IAppCaptureStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf922dd6c_0a7e_4e74_8b20_9c1f902d08a1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCaptureStaticsVtbl {
+pub struct IAppCaptureStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -9698,12 +9698,12 @@ pub struct IAppCaptureStaticsVtbl {
 #[repr(transparent)]
 pub struct IAppCaptureStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCaptureStatics2 {
-    type Vtable = IAppCaptureStatics2Vtbl;
+    type Vtable = IAppCaptureStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2d881d4_836c_4da4_afd7_facc041e1cf3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCaptureStatics2Vtbl {
+pub struct IAppCaptureStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SetAllowedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allowed: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9714,12 +9714,12 @@ pub struct IAppCaptureStatics2Vtbl {
 #[repr(transparent)]
 pub struct ICameraCaptureUI(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICameraCaptureUI {
-    type Vtable = ICameraCaptureUIVtbl;
+    type Vtable = ICameraCaptureUI_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48587540_6f93_4bb4_b8f3_e89e48948c91);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICameraCaptureUIVtbl {
+pub struct ICameraCaptureUI_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PhotoSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub VideoSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9732,12 +9732,12 @@ pub struct ICameraCaptureUIVtbl {
 #[repr(transparent)]
 pub struct ICameraCaptureUIPhotoCaptureSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICameraCaptureUIPhotoCaptureSettings {
-    type Vtable = ICameraCaptureUIPhotoCaptureSettingsVtbl;
+    type Vtable = ICameraCaptureUIPhotoCaptureSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9f5be97_3472_46a8_8a9e_04ce42ccc97d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICameraCaptureUIPhotoCaptureSettingsVtbl {
+pub struct ICameraCaptureUIPhotoCaptureSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Format: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CameraCaptureUIPhotoFormat) -> ::windows::core::HRESULT,
     pub SetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CameraCaptureUIPhotoFormat) -> ::windows::core::HRESULT,
@@ -9766,12 +9766,12 @@ pub struct ICameraCaptureUIPhotoCaptureSettingsVtbl {
 #[repr(transparent)]
 pub struct ICameraCaptureUIVideoCaptureSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICameraCaptureUIVideoCaptureSettings {
-    type Vtable = ICameraCaptureUIVideoCaptureSettingsVtbl;
+    type Vtable = ICameraCaptureUIVideoCaptureSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64e92d1f_a28d_425a_b84f_e568335ff24e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICameraCaptureUIVideoCaptureSettingsVtbl {
+pub struct ICameraCaptureUIVideoCaptureSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Format: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CameraCaptureUIVideoFormat) -> ::windows::core::HRESULT,
     pub SetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CameraCaptureUIVideoFormat) -> ::windows::core::HRESULT,
@@ -9786,12 +9786,12 @@ pub struct ICameraCaptureUIVideoCaptureSettingsVtbl {
 #[repr(transparent)]
 pub struct ICameraOptionsUIStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICameraOptionsUIStatics {
-    type Vtable = ICameraOptionsUIStaticsVtbl;
+    type Vtable = ICameraOptionsUIStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b0d5e34_3906_4b7d_946c_7bde844499ae);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICameraOptionsUIStaticsVtbl {
+pub struct ICameraOptionsUIStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediacapture: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -9799,12 +9799,12 @@ pub struct ICameraOptionsUIStaticsVtbl {
 #[repr(transparent)]
 pub struct ICapturedFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICapturedFrame {
-    type Vtable = ICapturedFrameVtbl;
+    type Vtable = ICapturedFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dd2de1f_571b_44d8_8e80_a08a1578766e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICapturedFrameVtbl {
+pub struct ICapturedFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Width: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub Height: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -9813,12 +9813,12 @@ pub struct ICapturedFrameVtbl {
 #[repr(transparent)]
 pub struct ICapturedFrame2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICapturedFrame2 {
-    type Vtable = ICapturedFrame2Vtbl;
+    type Vtable = ICapturedFrame2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x543fa6d1_bd78_4866_adda_24314bc65dea);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICapturedFrame2Vtbl {
+pub struct ICapturedFrame2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ControlValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
@@ -9830,12 +9830,12 @@ pub struct ICapturedFrame2Vtbl {
 #[repr(transparent)]
 pub struct ICapturedFrameControlValues(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICapturedFrameControlValues {
-    type Vtable = ICapturedFrameControlValuesVtbl;
+    type Vtable = ICapturedFrameControlValues_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90c65b7f_4e0d_4ca4_882d_7a144fed0a90);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICapturedFrameControlValuesVtbl {
+pub struct ICapturedFrameControlValues_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Exposure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9878,12 +9878,12 @@ pub struct ICapturedFrameControlValuesVtbl {
 #[repr(transparent)]
 pub struct ICapturedFrameControlValues2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICapturedFrameControlValues2 {
-    type Vtable = ICapturedFrameControlValues2Vtbl;
+    type Vtable = ICapturedFrameControlValues2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x500b2b88_06d2_4aa7_a7db_d37af73321d8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICapturedFrameControlValues2Vtbl {
+pub struct ICapturedFrameControlValues2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Media_Devices"))]
     pub FocusState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9910,12 +9910,12 @@ pub struct ICapturedFrameControlValues2Vtbl {
 #[repr(transparent)]
 pub struct ICapturedFrameWithSoftwareBitmap(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICapturedFrameWithSoftwareBitmap {
-    type Vtable = ICapturedFrameWithSoftwareBitmapVtbl;
+    type Vtable = ICapturedFrameWithSoftwareBitmap_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb58e8b6e_8503_49b5_9e86_897d26a3ff3d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICapturedFrameWithSoftwareBitmapVtbl {
+pub struct ICapturedFrameWithSoftwareBitmap_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_Imaging")]
     pub SoftwareBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9926,12 +9926,12 @@ pub struct ICapturedFrameWithSoftwareBitmapVtbl {
 #[repr(transparent)]
 pub struct ICapturedPhoto(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICapturedPhoto {
-    type Vtable = ICapturedPhotoVtbl;
+    type Vtable = ICapturedPhoto_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0ce7e5a_cfcc_4d6c_8ad1_0869208aca16);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICapturedPhotoVtbl {
+pub struct ICapturedPhoto_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Frame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Thumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9940,12 +9940,12 @@ pub struct ICapturedPhotoVtbl {
 #[repr(transparent)]
 pub struct IGameBarServices(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameBarServices {
-    type Vtable = IGameBarServicesVtbl;
+    type Vtable = IGameBarServices_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dbead57_50a6_499e_8c6c_d330a7311796);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameBarServicesVtbl {
+pub struct IGameBarServices_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetCapturePolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GameBarTargetCapturePolicy) -> ::windows::core::HRESULT,
     pub EnableCapture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -9967,12 +9967,12 @@ pub struct IGameBarServicesVtbl {
 #[repr(transparent)]
 pub struct IGameBarServicesCommandEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameBarServicesCommandEventArgs {
-    type Vtable = IGameBarServicesCommandEventArgsVtbl;
+    type Vtable = IGameBarServicesCommandEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa74226b2_f176_4fcf_8fbb_cf698b2eb8e0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameBarServicesCommandEventArgsVtbl {
+pub struct IGameBarServicesCommandEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Command: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GameBarCommand) -> ::windows::core::HRESULT,
     pub Origin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GameBarCommandOrigin) -> ::windows::core::HRESULT,
@@ -9981,12 +9981,12 @@ pub struct IGameBarServicesCommandEventArgsVtbl {
 #[repr(transparent)]
 pub struct IGameBarServicesManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameBarServicesManager {
-    type Vtable = IGameBarServicesManagerVtbl;
+    type Vtable = IGameBarServicesManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a4b9cfa_7f8b_4c60_9dbb_0bcd262dffc6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameBarServicesManagerVtbl {
+pub struct IGameBarServicesManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GameBarServicesCreated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -10001,12 +10001,12 @@ pub struct IGameBarServicesManagerVtbl {
 #[repr(transparent)]
 pub struct IGameBarServicesManagerGameBarServicesCreatedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameBarServicesManagerGameBarServicesCreatedEventArgs {
-    type Vtable = IGameBarServicesManagerGameBarServicesCreatedEventArgsVtbl;
+    type Vtable = IGameBarServicesManagerGameBarServicesCreatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xededbd9c_143e_49a3_a5ea_0b1995c8d46e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameBarServicesManagerGameBarServicesCreatedEventArgsVtbl {
+pub struct IGameBarServicesManagerGameBarServicesCreatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GameBarServices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -10014,12 +10014,12 @@ pub struct IGameBarServicesManagerGameBarServicesCreatedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IGameBarServicesManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameBarServicesManagerStatics {
-    type Vtable = IGameBarServicesManagerStaticsVtbl;
+    type Vtable = IGameBarServicesManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34c1b616_ff25_4792_98f2_d3753f15ac13);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameBarServicesManagerStaticsVtbl {
+pub struct IGameBarServicesManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -10027,12 +10027,12 @@ pub struct IGameBarServicesManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IGameBarServicesTargetInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameBarServicesTargetInfo {
-    type Vtable = IGameBarServicesTargetInfoVtbl;
+    type Vtable = IGameBarServicesTargetInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4202f92_1611_4e05_b6ef_dfd737ae33b0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameBarServicesTargetInfoVtbl {
+pub struct IGameBarServicesTargetInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub AppId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -10043,12 +10043,12 @@ pub struct IGameBarServicesTargetInfoVtbl {
 #[repr(transparent)]
 pub struct ILowLagMediaRecording(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILowLagMediaRecording {
-    type Vtable = ILowLagMediaRecordingVtbl;
+    type Vtable = ILowLagMediaRecording_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41c8baf7_ff3f_49f0_a477_f195e3ce5108);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILowLagMediaRecordingVtbl {
+pub struct ILowLagMediaRecording_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub StartAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10067,12 +10067,12 @@ pub struct ILowLagMediaRecordingVtbl {
 #[repr(transparent)]
 pub struct ILowLagMediaRecording2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILowLagMediaRecording2 {
-    type Vtable = ILowLagMediaRecording2Vtbl;
+    type Vtable = ILowLagMediaRecording2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6369c758_5644_41e2_97af_8ef56a25e225);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILowLagMediaRecording2Vtbl {
+pub struct ILowLagMediaRecording2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Media_Devices"))]
     pub PauseAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, behavior: super::Devices::MediaCapturePauseBehavior, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10087,12 +10087,12 @@ pub struct ILowLagMediaRecording2Vtbl {
 #[repr(transparent)]
 pub struct ILowLagMediaRecording3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILowLagMediaRecording3 {
-    type Vtable = ILowLagMediaRecording3Vtbl;
+    type Vtable = ILowLagMediaRecording3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c33ab12_48f7_47da_b41e_90880a5fe0ec);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILowLagMediaRecording3Vtbl {
+pub struct ILowLagMediaRecording3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Media_Devices"))]
     pub PauseWithResultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, behavior: super::Devices::MediaCapturePauseBehavior, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10107,12 +10107,12 @@ pub struct ILowLagMediaRecording3Vtbl {
 #[repr(transparent)]
 pub struct ILowLagPhotoCapture(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILowLagPhotoCapture {
-    type Vtable = ILowLagPhotoCaptureVtbl;
+    type Vtable = ILowLagPhotoCapture_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa37251b7_6b44_473d_8f24_f703d6c0ec44);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILowLagPhotoCaptureVtbl {
+pub struct ILowLagPhotoCapture_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CaptureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10127,12 +10127,12 @@ pub struct ILowLagPhotoCaptureVtbl {
 #[repr(transparent)]
 pub struct ILowLagPhotoSequenceCapture(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILowLagPhotoSequenceCapture {
-    type Vtable = ILowLagPhotoSequenceCaptureVtbl;
+    type Vtable = ILowLagPhotoSequenceCapture_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cc346bb_b9a9_4c91_8ffa_287e9c668669);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILowLagPhotoSequenceCaptureVtbl {
+pub struct ILowLagPhotoSequenceCapture_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub StartAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10159,12 +10159,12 @@ pub struct ILowLagPhotoSequenceCaptureVtbl {
 #[repr(transparent)]
 pub struct IMediaCapture(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCapture {
-    type Vtable = IMediaCaptureVtbl;
+    type Vtable = IMediaCapture_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc61afbb4_fb10_4a34_ac18_ca80d9c8e7ee);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCaptureVtbl {
+pub struct IMediaCapture_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub InitializeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10248,12 +10248,12 @@ pub struct IMediaCaptureVtbl {
 #[repr(transparent)]
 pub struct IMediaCapture2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCapture2 {
-    type Vtable = IMediaCapture2Vtbl;
+    type Vtable = IMediaCapture2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cc68260_7da1_4043_b652_21b8878daff9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCapture2Vtbl {
+pub struct IMediaCapture2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage"))]
     pub PrepareLowLagRecordToStorageFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10288,12 +10288,12 @@ pub struct IMediaCapture2Vtbl {
 #[repr(transparent)]
 pub struct IMediaCapture3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCapture3 {
-    type Vtable = IMediaCapture3Vtbl;
+    type Vtable = IMediaCapture3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4136f30_1564_466e_bc0a_af94e02ab016);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCapture3Vtbl {
+pub struct IMediaCapture3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Media_Capture_Core", feature = "Media_MediaProperties"))]
     pub PrepareVariablePhotoSequenceCaptureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10320,12 +10320,12 @@ pub struct IMediaCapture3Vtbl {
 #[repr(transparent)]
 pub struct IMediaCapture4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCapture4 {
-    type Vtable = IMediaCapture4Vtbl;
+    type Vtable = IMediaCapture4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbacd6fd6_fb08_4947_aea2_ce14eff0ce13);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCapture4Vtbl {
+pub struct IMediaCapture4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Media_Effects"))]
     pub AddAudioEffectAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, definition: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10381,12 +10381,12 @@ pub struct IMediaCapture4Vtbl {
 #[repr(transparent)]
 pub struct IMediaCapture5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCapture5 {
-    type Vtable = IMediaCapture5Vtbl;
+    type Vtable = IMediaCapture5_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda787c22_3a9b_4720_a71e_97900a316e5a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCapture5Vtbl {
+pub struct IMediaCapture5_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RemoveEffectAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effect: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10421,12 +10421,12 @@ pub struct IMediaCapture5Vtbl {
 #[repr(transparent)]
 pub struct IMediaCapture6(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCapture6 {
-    type Vtable = IMediaCapture6Vtbl;
+    type Vtable = IMediaCapture6_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x228948bd_4b20_4bb1_9fd6_a583212a1012);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCapture6Vtbl {
+pub struct IMediaCapture6_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CaptureDeviceExclusiveControlStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -10445,12 +10445,12 @@ pub struct IMediaCapture6Vtbl {
 #[repr(transparent)]
 pub struct IMediaCapture7(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCapture7 {
-    type Vtable = IMediaCapture7Vtbl;
+    type Vtable = IMediaCapture7_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9169f102_8888_541a_95bc_24e4d462542a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCapture7Vtbl {
+pub struct IMediaCapture7_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_WindowManagement")]
     pub CreateRelativePanelWatcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capturemode: StreamingCaptureMode, displayregion: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10461,12 +10461,12 @@ pub struct IMediaCapture7Vtbl {
 #[repr(transparent)]
 pub struct IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs {
-    type Vtable = IMediaCaptureDeviceExclusiveControlStatusChangedEventArgsVtbl;
+    type Vtable = IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d2f920d_a588_43c6_89d6_5ad322af006a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCaptureDeviceExclusiveControlStatusChangedEventArgsVtbl {
+pub struct IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaCaptureDeviceExclusiveControlStatus) -> ::windows::core::HRESULT,
@@ -10475,12 +10475,12 @@ pub struct IMediaCaptureDeviceExclusiveControlStatusChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IMediaCaptureFailedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureFailedEventArgs {
-    type Vtable = IMediaCaptureFailedEventArgsVtbl;
+    type Vtable = IMediaCaptureFailedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80fde3f4_54c4_42c0_8d19_cea1a87ca18b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCaptureFailedEventArgsVtbl {
+pub struct IMediaCaptureFailedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Code: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -10489,12 +10489,12 @@ pub struct IMediaCaptureFailedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IMediaCaptureFocusChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureFocusChangedEventArgs {
-    type Vtable = IMediaCaptureFocusChangedEventArgsVtbl;
+    type Vtable = IMediaCaptureFocusChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81e1bc7f_2277_493e_abee_d3f44ff98c04);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCaptureFocusChangedEventArgsVtbl {
+pub struct IMediaCaptureFocusChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_Devices")]
     pub FocusState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Devices::MediaCaptureFocusState) -> ::windows::core::HRESULT,
@@ -10505,12 +10505,12 @@ pub struct IMediaCaptureFocusChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IMediaCaptureInitializationSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureInitializationSettings {
-    type Vtable = IMediaCaptureInitializationSettingsVtbl;
+    type Vtable = IMediaCaptureInitializationSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9782ba70_ea65_4900_9356_8ca887726884);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCaptureInitializationSettingsVtbl {
+pub struct IMediaCaptureInitializationSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetAudioDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub AudioDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -10525,12 +10525,12 @@ pub struct IMediaCaptureInitializationSettingsVtbl {
 #[repr(transparent)]
 pub struct IMediaCaptureInitializationSettings2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureInitializationSettings2 {
-    type Vtable = IMediaCaptureInitializationSettings2Vtbl;
+    type Vtable = IMediaCaptureInitializationSettings2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x404e0626_c9dc_43e9_aee4_e6bf1b57b44c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCaptureInitializationSettings2Vtbl {
+pub struct IMediaCaptureInitializationSettings2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetMediaCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: MediaCategory) -> ::windows::core::HRESULT,
     pub MediaCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaCategory) -> ::windows::core::HRESULT,
@@ -10541,12 +10541,12 @@ pub struct IMediaCaptureInitializationSettings2Vtbl {
 #[repr(transparent)]
 pub struct IMediaCaptureInitializationSettings3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureInitializationSettings3 {
-    type Vtable = IMediaCaptureInitializationSettings3Vtbl;
+    type Vtable = IMediaCaptureInitializationSettings3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4160519d_be48_4730_8104_0cf6e9e97948);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCaptureInitializationSettings3Vtbl {
+pub struct IMediaCaptureInitializationSettings3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_Core")]
     pub SetAudioSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10569,12 +10569,12 @@ pub struct IMediaCaptureInitializationSettings3Vtbl {
 #[repr(transparent)]
 pub struct IMediaCaptureInitializationSettings4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureInitializationSettings4 {
-    type Vtable = IMediaCaptureInitializationSettings4Vtbl;
+    type Vtable = IMediaCaptureInitializationSettings4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf502a537_4cb7_4d28_95ed_4f9f012e0518);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCaptureInitializationSettings4Vtbl {
+pub struct IMediaCaptureInitializationSettings4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub VideoProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetVideoProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10589,12 +10589,12 @@ pub struct IMediaCaptureInitializationSettings4Vtbl {
 #[repr(transparent)]
 pub struct IMediaCaptureInitializationSettings5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureInitializationSettings5 {
-    type Vtable = IMediaCaptureInitializationSettings5Vtbl;
+    type Vtable = IMediaCaptureInitializationSettings5_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5a2e3b8_2626_4e94_b7b3_5308a0f64b1a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCaptureInitializationSettings5Vtbl {
+pub struct IMediaCaptureInitializationSettings5_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_Capture_Frames")]
     pub SourceGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10613,12 +10613,12 @@ pub struct IMediaCaptureInitializationSettings5Vtbl {
 #[repr(transparent)]
 pub struct IMediaCaptureInitializationSettings6(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureInitializationSettings6 {
-    type Vtable = IMediaCaptureInitializationSettings6Vtbl;
+    type Vtable = IMediaCaptureInitializationSettings6_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2e26b47_3db1_4d33_ab63_0ffa09056585);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCaptureInitializationSettings6Vtbl {
+pub struct IMediaCaptureInitializationSettings6_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AlwaysPlaySystemShutterSound: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAlwaysPlaySystemShutterSound: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -10627,12 +10627,12 @@ pub struct IMediaCaptureInitializationSettings6Vtbl {
 #[repr(transparent)]
 pub struct IMediaCaptureInitializationSettings7(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureInitializationSettings7 {
-    type Vtable = IMediaCaptureInitializationSettings7Vtbl;
+    type Vtable = IMediaCaptureInitializationSettings7_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41546967_f58a_5d82_9ef4_ed572fb5e34e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCaptureInitializationSettings7Vtbl {
+pub struct IMediaCaptureInitializationSettings7_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Security_Credentials")]
     pub DeviceUriPasswordCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10655,12 +10655,12 @@ pub struct IMediaCaptureInitializationSettings7Vtbl {
 #[repr(transparent)]
 pub struct IMediaCapturePauseResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCapturePauseResult {
-    type Vtable = IMediaCapturePauseResultVtbl;
+    type Vtable = IMediaCapturePauseResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaec47ca3_4477_4b04_a06f_2c1c5182fe9d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCapturePauseResultVtbl {
+pub struct IMediaCapturePauseResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LastFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -10672,12 +10672,12 @@ pub struct IMediaCapturePauseResultVtbl {
 #[repr(transparent)]
 pub struct IMediaCaptureRelativePanelWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureRelativePanelWatcher {
-    type Vtable = IMediaCaptureRelativePanelWatcherVtbl;
+    type Vtable = IMediaCaptureRelativePanelWatcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d896566_04be_5b89_b30e_bd34a9f12db0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCaptureRelativePanelWatcherVtbl {
+pub struct IMediaCaptureRelativePanelWatcher_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Enumeration")]
     pub RelativePanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Enumeration::Panel) -> ::windows::core::HRESULT,
@@ -10698,12 +10698,12 @@ pub struct IMediaCaptureRelativePanelWatcherVtbl {
 #[repr(transparent)]
 pub struct IMediaCaptureSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureSettings {
-    type Vtable = IMediaCaptureSettingsVtbl;
+    type Vtable = IMediaCaptureSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d83aafe_6d45_4477_8dc4_ac5bc01c4091);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCaptureSettingsVtbl {
+pub struct IMediaCaptureSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AudioDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub VideoDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -10715,12 +10715,12 @@ pub struct IMediaCaptureSettingsVtbl {
 #[repr(transparent)]
 pub struct IMediaCaptureSettings2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureSettings2 {
-    type Vtable = IMediaCaptureSettings2Vtbl;
+    type Vtable = IMediaCaptureSettings2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f9e7cfb_fa9f_4b13_9cbe_5ab94f1f3493);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCaptureSettings2Vtbl {
+pub struct IMediaCaptureSettings2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ConcurrentRecordAndPhotoSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub ConcurrentRecordAndPhotoSequenceSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -10744,12 +10744,12 @@ pub struct IMediaCaptureSettings2Vtbl {
 #[repr(transparent)]
 pub struct IMediaCaptureSettings3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureSettings3 {
-    type Vtable = IMediaCaptureSettings3Vtbl;
+    type Vtable = IMediaCaptureSettings3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x303c67c2_8058_4b1b_b877_8c2ef3528440);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCaptureSettings3Vtbl {
+pub struct IMediaCaptureSettings3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub Direct3D11Device: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10760,12 +10760,12 @@ pub struct IMediaCaptureSettings3Vtbl {
 #[repr(transparent)]
 pub struct IMediaCaptureStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureStatics {
-    type Vtable = IMediaCaptureStaticsVtbl;
+    type Vtable = IMediaCaptureStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacef81ff_99ed_4645_965e_1925cfc63834);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCaptureStaticsVtbl {
+pub struct IMediaCaptureStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsVideoProfileSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, videodeviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -10785,12 +10785,12 @@ pub struct IMediaCaptureStaticsVtbl {
 #[repr(transparent)]
 pub struct IMediaCaptureStopResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureStopResult {
-    type Vtable = IMediaCaptureStopResultVtbl;
+    type Vtable = IMediaCaptureStopResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9db6a2a_a092_4ad1_97d4_f201f9d082db);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCaptureStopResultVtbl {
+pub struct IMediaCaptureStopResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LastFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -10802,12 +10802,12 @@ pub struct IMediaCaptureStopResultVtbl {
 #[repr(transparent)]
 pub struct IMediaCaptureVideoPreview(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureVideoPreview {
-    type Vtable = IMediaCaptureVideoPreviewVtbl;
+    type Vtable = IMediaCaptureVideoPreview_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27727073_549e_447f_a20a_4f03c479d8c0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCaptureVideoPreviewVtbl {
+pub struct IMediaCaptureVideoPreview_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub StartPreviewAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10830,12 +10830,12 @@ pub struct IMediaCaptureVideoPreviewVtbl {
 #[repr(transparent)]
 pub struct IMediaCaptureVideoProfile(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureVideoProfile {
-    type Vtable = IMediaCaptureVideoProfileVtbl;
+    type Vtable = IMediaCaptureVideoProfile_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21a073bf_a3ee_4ecf_9ef6_50b0bc4e1305);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCaptureVideoProfileVtbl {
+pub struct IMediaCaptureVideoProfile_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub VideoDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -10860,12 +10860,12 @@ pub struct IMediaCaptureVideoProfileVtbl {
 #[repr(transparent)]
 pub struct IMediaCaptureVideoProfile2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureVideoProfile2 {
-    type Vtable = IMediaCaptureVideoProfile2Vtbl;
+    type Vtable = IMediaCaptureVideoProfile2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97ddc95f_94ce_468f_9316_fc5bc2638f6b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCaptureVideoProfile2Vtbl {
+pub struct IMediaCaptureVideoProfile2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture_Frames"))]
     pub FrameSourceInfos: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10880,12 +10880,12 @@ pub struct IMediaCaptureVideoProfile2Vtbl {
 #[repr(transparent)]
 pub struct IMediaCaptureVideoProfileMediaDescription(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureVideoProfileMediaDescription {
-    type Vtable = IMediaCaptureVideoProfileMediaDescriptionVtbl;
+    type Vtable = IMediaCaptureVideoProfileMediaDescription_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8012afef_b691_49ff_83f2_c1e76eaaea1b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCaptureVideoProfileMediaDescriptionVtbl {
+pub struct IMediaCaptureVideoProfileMediaDescription_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Width: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub Height: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -10903,12 +10903,12 @@ pub struct IMediaCaptureVideoProfileMediaDescriptionVtbl {
 #[repr(transparent)]
 pub struct IMediaCaptureVideoProfileMediaDescription2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCaptureVideoProfileMediaDescription2 {
-    type Vtable = IMediaCaptureVideoProfileMediaDescription2Vtbl;
+    type Vtable = IMediaCaptureVideoProfileMediaDescription2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6a6ef13_322d_413a_b85a_68a88e02f4e9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCaptureVideoProfileMediaDescription2Vtbl {
+pub struct IMediaCaptureVideoProfileMediaDescription2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Subtype: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -10920,12 +10920,12 @@ pub struct IMediaCaptureVideoProfileMediaDescription2Vtbl {
 #[repr(transparent)]
 pub struct IOptionalReferencePhotoCapturedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOptionalReferencePhotoCapturedEventArgs {
-    type Vtable = IOptionalReferencePhotoCapturedEventArgsVtbl;
+    type Vtable = IOptionalReferencePhotoCapturedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x470f88b3_1e6d_4051_9c8b_f1d85af047b7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOptionalReferencePhotoCapturedEventArgsVtbl {
+pub struct IOptionalReferencePhotoCapturedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Frame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Context: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -10934,12 +10934,12 @@ pub struct IOptionalReferencePhotoCapturedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPhotoCapturedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoCapturedEventArgs {
-    type Vtable = IPhotoCapturedEventArgsVtbl;
+    type Vtable = IPhotoCapturedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x373bfbc1_984e_4ff0_bf85_1c00aabc5a45);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoCapturedEventArgsVtbl {
+pub struct IPhotoCapturedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Frame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Thumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10952,12 +10952,12 @@ pub struct IPhotoCapturedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPhotoConfirmationCapturedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoConfirmationCapturedEventArgs {
-    type Vtable = IPhotoConfirmationCapturedEventArgsVtbl;
+    type Vtable = IPhotoConfirmationCapturedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab473672_c28a_4827_8f8d_3636d3beb51e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoConfirmationCapturedEventArgsVtbl {
+pub struct IPhotoConfirmationCapturedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Frame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -10969,12 +10969,12 @@ pub struct IPhotoConfirmationCapturedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IScreenCapture(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IScreenCapture {
-    type Vtable = IScreenCaptureVtbl;
+    type Vtable = IScreenCapture_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89179ef7_cd12_4e0e_a6d4_5b3de98b2e9b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IScreenCaptureVtbl {
+pub struct IScreenCapture_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_Core")]
     pub AudioSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10999,12 +10999,12 @@ pub struct IScreenCaptureVtbl {
 #[repr(transparent)]
 pub struct IScreenCaptureStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IScreenCaptureStatics {
-    type Vtable = IScreenCaptureStaticsVtbl;
+    type Vtable = IScreenCaptureStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc898c3b0_c8a5_11e2_8b8b_0800200c9a66);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IScreenCaptureStaticsVtbl {
+pub struct IScreenCaptureStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -11012,12 +11012,12 @@ pub struct IScreenCaptureStaticsVtbl {
 #[repr(transparent)]
 pub struct ISourceSuspensionChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISourceSuspensionChangedEventArgs {
-    type Vtable = ISourceSuspensionChangedEventArgsVtbl;
+    type Vtable = ISourceSuspensionChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ece7b5e_d49b_4394_bc32_f97d6cedec1c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISourceSuspensionChangedEventArgsVtbl {
+pub struct ISourceSuspensionChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsAudioSuspended: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsVideoSuspended: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -11026,12 +11026,12 @@ pub struct ISourceSuspensionChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IVideoStreamConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoStreamConfiguration {
-    type Vtable = IVideoStreamConfigurationVtbl;
+    type Vtable = IVideoStreamConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8770a6f_4390_4b5e_ad3e_0f8af0963490);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVideoStreamConfigurationVtbl {
+pub struct IVideoStreamConfiguration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_MediaProperties")]
     pub InputProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -11172,7 +11172,7 @@ unsafe impl ::windows::core::RuntimeType for LowLagMediaRecording {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.LowLagMediaRecording;{41c8baf7-ff3f-49f0-a477-f195e3ce5108})");
 }
 unsafe impl ::windows::core::Interface for LowLagMediaRecording {
-    type Vtable = ILowLagMediaRecordingVtbl;
+    type Vtable = ILowLagMediaRecording_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41c8baf7_ff3f_49f0_a477_f195e3ce5108);
 }
 impl ::windows::core::RuntimeName for LowLagMediaRecording {
@@ -11261,7 +11261,7 @@ unsafe impl ::windows::core::RuntimeType for LowLagPhotoCapture {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.LowLagPhotoCapture;{a37251b7-6b44-473d-8f24-f703d6c0ec44})");
 }
 unsafe impl ::windows::core::Interface for LowLagPhotoCapture {
-    type Vtable = ILowLagPhotoCaptureVtbl;
+    type Vtable = ILowLagPhotoCapture_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa37251b7_6b44_473d_8f24_f703d6c0ec44);
 }
 impl ::windows::core::RuntimeName for LowLagPhotoCapture {
@@ -11374,7 +11374,7 @@ unsafe impl ::windows::core::RuntimeType for LowLagPhotoSequenceCapture {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.LowLagPhotoSequenceCapture;{7cc346bb-b9a9-4c91-8ffa-287e9c668669})");
 }
 unsafe impl ::windows::core::Interface for LowLagPhotoSequenceCapture {
-    type Vtable = ILowLagPhotoSequenceCaptureVtbl;
+    type Vtable = ILowLagPhotoSequenceCapture_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cc346bb_b9a9_4c91_8ffa_287e9c668669);
 }
 impl ::windows::core::RuntimeName for LowLagPhotoSequenceCapture {
@@ -12045,7 +12045,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCapture {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCapture;{c61afbb4-fb10-4a34-ac18-ca80d9c8e7ee})");
 }
 unsafe impl ::windows::core::Interface for MediaCapture {
-    type Vtable = IMediaCaptureVtbl;
+    type Vtable = IMediaCapture_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc61afbb4_fb10_4a34_ac18_ca80d9c8e7ee);
 }
 impl ::windows::core::RuntimeName for MediaCapture {
@@ -12191,7 +12191,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureDeviceExclusiveControlS
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureDeviceExclusiveControlStatusChangedEventArgs;{9d2f920d-a588-43c6-89d6-5ad322af006a})");
 }
 unsafe impl ::windows::core::Interface for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {
-    type Vtable = IMediaCaptureDeviceExclusiveControlStatusChangedEventArgsVtbl;
+    type Vtable = IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d2f920d_a588_43c6_89d6_5ad322af006a);
 }
 impl ::windows::core::RuntimeName for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {
@@ -12280,7 +12280,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureFailedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureFailedEventArgs;{80fde3f4-54c4-42c0-8d19-cea1a87ca18b})");
 }
 unsafe impl ::windows::core::Interface for MediaCaptureFailedEventArgs {
-    type Vtable = IMediaCaptureFailedEventArgsVtbl;
+    type Vtable = IMediaCaptureFailedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80fde3f4_54c4_42c0_8d19_cea1a87ca18b);
 }
 impl ::windows::core::RuntimeName for MediaCaptureFailedEventArgs {
@@ -12342,12 +12342,12 @@ impl MediaCaptureFailedEventHandler {
 }
 #[repr(C)]
 struct MediaCaptureFailedEventHandlerBox<F: FnMut(&::core::option::Option<MediaCapture>, &::core::option::Option<MediaCaptureFailedEventArgs>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const MediaCaptureFailedEventHandlerVtbl,
+    vtable: *const MediaCaptureFailedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<MediaCapture>, &::core::option::Option<MediaCaptureFailedEventArgs>) -> ::windows::core::Result<()> + 'static> MediaCaptureFailedEventHandlerBox<F> {
-    const VTABLE: MediaCaptureFailedEventHandlerVtbl = MediaCaptureFailedEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: MediaCaptureFailedEventHandler_Vtbl = MediaCaptureFailedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<MediaCaptureFailedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -12392,7 +12392,7 @@ impl ::core::fmt::Debug for MediaCaptureFailedEventHandler {
     }
 }
 unsafe impl ::windows::core::Interface for MediaCaptureFailedEventHandler {
-    type Vtable = MediaCaptureFailedEventHandlerVtbl;
+    type Vtable = MediaCaptureFailedEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2014effb_5cd8_4f08_a314_0d360da59f14);
 }
 unsafe impl ::windows::core::RuntimeType for MediaCaptureFailedEventHandler {
@@ -12400,7 +12400,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureFailedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct MediaCaptureFailedEventHandlerVtbl {
+pub struct MediaCaptureFailedEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, erroreventargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -12438,7 +12438,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureFocusChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureFocusChangedEventArgs;{81e1bc7f-2277-493e-abee-d3f44ff98c04})");
 }
 unsafe impl ::windows::core::Interface for MediaCaptureFocusChangedEventArgs {
-    type Vtable = IMediaCaptureFocusChangedEventArgsVtbl;
+    type Vtable = IMediaCaptureFocusChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81e1bc7f_2277_493e_abee_d3f44ff98c04);
 }
 impl ::windows::core::RuntimeName for MediaCaptureFocusChangedEventArgs {
@@ -12762,7 +12762,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureInitializationSettings 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureInitializationSettings;{9782ba70-ea65-4900-9356-8ca887726884})");
 }
 unsafe impl ::windows::core::Interface for MediaCaptureInitializationSettings {
-    type Vtable = IMediaCaptureInitializationSettingsVtbl;
+    type Vtable = IMediaCaptureInitializationSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9782ba70_ea65_4900_9356_8ca887726884);
 }
 impl ::windows::core::RuntimeName for MediaCaptureInitializationSettings {
@@ -12891,7 +12891,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCapturePauseResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCapturePauseResult;{aec47ca3-4477-4b04-a06f-2c1c5182fe9d})");
 }
 unsafe impl ::windows::core::Interface for MediaCapturePauseResult {
-    type Vtable = IMediaCapturePauseResultVtbl;
+    type Vtable = IMediaCapturePauseResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaec47ca3_4477_4b04_a06f_2c1c5182fe9d);
 }
 impl ::windows::core::RuntimeName for MediaCapturePauseResult {
@@ -13028,7 +13028,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureRelativePanelWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureRelativePanelWatcher;{7d896566-04be-5b89-b30e-bd34a9f12db0})");
 }
 unsafe impl ::windows::core::Interface for MediaCaptureRelativePanelWatcher {
-    type Vtable = IMediaCaptureRelativePanelWatcherVtbl;
+    type Vtable = IMediaCaptureRelativePanelWatcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d896566_04be_5b89_b30e_bd34a9f12db0);
 }
 impl ::windows::core::RuntimeName for MediaCaptureRelativePanelWatcher {
@@ -13243,7 +13243,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureSettings;{1d83aafe-6d45-4477-8dc4-ac5bc01c4091})");
 }
 unsafe impl ::windows::core::Interface for MediaCaptureSettings {
-    type Vtable = IMediaCaptureSettingsVtbl;
+    type Vtable = IMediaCaptureSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d83aafe_6d45_4477_8dc4_ac5bc01c4091);
 }
 impl ::windows::core::RuntimeName for MediaCaptureSettings {
@@ -13370,7 +13370,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureStopResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureStopResult;{f9db6a2a-a092-4ad1-97d4-f201f9d082db})");
 }
 unsafe impl ::windows::core::Interface for MediaCaptureStopResult {
-    type Vtable = IMediaCaptureStopResultVtbl;
+    type Vtable = IMediaCaptureStopResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9db6a2a_a092_4ad1_97d4_f201f9d082db);
 }
 impl ::windows::core::RuntimeName for MediaCaptureStopResult {
@@ -13570,7 +13570,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureVideoProfile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureVideoProfile;{21a073bf-a3ee-4ecf-9ef6-50b0bc4e1305})");
 }
 unsafe impl ::windows::core::Interface for MediaCaptureVideoProfile {
-    type Vtable = IMediaCaptureVideoProfileVtbl;
+    type Vtable = IMediaCaptureVideoProfile_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21a073bf_a3ee_4ecf_9ef6_50b0bc4e1305);
 }
 impl ::windows::core::RuntimeName for MediaCaptureVideoProfile {
@@ -13702,7 +13702,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureVideoProfileMediaDescri
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.MediaCaptureVideoProfileMediaDescription;{8012afef-b691-49ff-83f2-c1e76eaaea1b})");
 }
 unsafe impl ::windows::core::Interface for MediaCaptureVideoProfileMediaDescription {
-    type Vtable = IMediaCaptureVideoProfileMediaDescriptionVtbl;
+    type Vtable = IMediaCaptureVideoProfileMediaDescription_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8012afef_b691_49ff_83f2_c1e76eaaea1b);
 }
 impl ::windows::core::RuntimeName for MediaCaptureVideoProfileMediaDescription {
@@ -13866,7 +13866,7 @@ unsafe impl ::windows::core::RuntimeType for OptionalReferencePhotoCapturedEvent
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.OptionalReferencePhotoCapturedEventArgs;{470f88b3-1e6d-4051-9c8b-f1d85af047b7})");
 }
 unsafe impl ::windows::core::Interface for OptionalReferencePhotoCapturedEventArgs {
-    type Vtable = IOptionalReferencePhotoCapturedEventArgsVtbl;
+    type Vtable = IOptionalReferencePhotoCapturedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x470f88b3_1e6d_4051_9c8b_f1d85af047b7);
 }
 impl ::windows::core::RuntimeName for OptionalReferencePhotoCapturedEventArgs {
@@ -13998,7 +13998,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoCapturedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.PhotoCapturedEventArgs;{373bfbc1-984e-4ff0-bf85-1c00aabc5a45})");
 }
 unsafe impl ::windows::core::Interface for PhotoCapturedEventArgs {
-    type Vtable = IPhotoCapturedEventArgsVtbl;
+    type Vtable = IPhotoCapturedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x373bfbc1_984e_4ff0_bf85_1c00aabc5a45);
 }
 impl ::windows::core::RuntimeName for PhotoCapturedEventArgs {
@@ -14088,7 +14088,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoConfirmationCapturedEventArgs 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.PhotoConfirmationCapturedEventArgs;{ab473672-c28a-4827-8f8d-3636d3beb51e})");
 }
 unsafe impl ::windows::core::Interface for PhotoConfirmationCapturedEventArgs {
-    type Vtable = IPhotoConfirmationCapturedEventArgsVtbl;
+    type Vtable = IPhotoConfirmationCapturedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab473672_c28a_4827_8f8d_3636d3beb51e);
 }
 impl ::windows::core::RuntimeName for PhotoConfirmationCapturedEventArgs {
@@ -14187,12 +14187,12 @@ impl RecordLimitationExceededEventHandler {
 }
 #[repr(C)]
 struct RecordLimitationExceededEventHandlerBox<F: FnMut(&::core::option::Option<MediaCapture>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const RecordLimitationExceededEventHandlerVtbl,
+    vtable: *const RecordLimitationExceededEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<MediaCapture>) -> ::windows::core::Result<()> + 'static> RecordLimitationExceededEventHandlerBox<F> {
-    const VTABLE: RecordLimitationExceededEventHandlerVtbl = RecordLimitationExceededEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: RecordLimitationExceededEventHandler_Vtbl = RecordLimitationExceededEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<RecordLimitationExceededEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -14237,7 +14237,7 @@ impl ::core::fmt::Debug for RecordLimitationExceededEventHandler {
     }
 }
 unsafe impl ::windows::core::Interface for RecordLimitationExceededEventHandler {
-    type Vtable = RecordLimitationExceededEventHandlerVtbl;
+    type Vtable = RecordLimitationExceededEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fae8f2e_4fe1_4ffd_aaba_e1f1337d4e53);
 }
 unsafe impl ::windows::core::RuntimeType for RecordLimitationExceededEventHandler {
@@ -14245,7 +14245,7 @@ unsafe impl ::windows::core::RuntimeType for RecordLimitationExceededEventHandle
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct RecordLimitationExceededEventHandlerVtbl {
+pub struct RecordLimitationExceededEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -14335,7 +14335,7 @@ unsafe impl ::windows::core::RuntimeType for ScreenCapture {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.ScreenCapture;{89179ef7-cd12-4e0e-a6d4-5b3de98b2e9b})");
 }
 unsafe impl ::windows::core::Interface for ScreenCapture {
-    type Vtable = IScreenCaptureVtbl;
+    type Vtable = IScreenCapture_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89179ef7_cd12_4e0e_a6d4_5b3de98b2e9b);
 }
 impl ::windows::core::RuntimeName for ScreenCapture {
@@ -14424,7 +14424,7 @@ unsafe impl ::windows::core::RuntimeType for SourceSuspensionChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.SourceSuspensionChangedEventArgs;{2ece7b5e-d49b-4394-bc32-f97d6cedec1c})");
 }
 unsafe impl ::windows::core::Interface for SourceSuspensionChangedEventArgs {
-    type Vtable = ISourceSuspensionChangedEventArgsVtbl;
+    type Vtable = ISourceSuspensionChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ece7b5e_d49b_4394_bc32_f97d6cedec1c);
 }
 impl ::windows::core::RuntimeName for SourceSuspensionChangedEventArgs {
@@ -14620,7 +14620,7 @@ unsafe impl ::windows::core::RuntimeType for VideoStreamConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.VideoStreamConfiguration;{d8770a6f-4390-4b5e-ad3e-0f8af0963490})");
 }
 unsafe impl ::windows::core::Interface for VideoStreamConfiguration {
-    type Vtable = IVideoStreamConfigurationVtbl;
+    type Vtable = IVideoStreamConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8770a6f_4390_4b5e_ad3e_0f8af0963490);
 }
 impl ::windows::core::RuntimeName for VideoStreamConfiguration {

@@ -92,7 +92,7 @@ unsafe impl ::windows::core::RuntimeType for HttpDiagnosticProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProvider;{bd811501-a056-4d39-b174-833b7b03b02c})");
 }
 unsafe impl ::windows::core::Interface for HttpDiagnosticProvider {
-    type Vtable = IHttpDiagnosticProviderVtbl;
+    type Vtable = IHttpDiagnosticProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd811501_a056_4d39_b174_833b7b03b02c);
 }
 impl ::windows::core::RuntimeName for HttpDiagnosticProvider {
@@ -223,7 +223,7 @@ unsafe impl ::windows::core::RuntimeType for HttpDiagnosticProviderRequestRespon
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseCompletedEventArgs;{735f98ee-94f6-4532-b26e-61e1b1e4efd4})");
 }
 unsafe impl ::windows::core::Interface for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
-    type Vtable = IHttpDiagnosticProviderRequestResponseCompletedEventArgsVtbl;
+    type Vtable = IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x735f98ee_94f6_4532_b26e_61e1b1e4efd4);
 }
 impl ::windows::core::RuntimeName for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
@@ -377,7 +377,7 @@ unsafe impl ::windows::core::RuntimeType for HttpDiagnosticProviderRequestRespon
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseTimestamps;{e0afde10-55cf-4c01-91d4-a20557d849f0})");
 }
 unsafe impl ::windows::core::Interface for HttpDiagnosticProviderRequestResponseTimestamps {
-    type Vtable = IHttpDiagnosticProviderRequestResponseTimestampsVtbl;
+    type Vtable = IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0afde10_55cf_4c01_91d4_a20557d849f0);
 }
 impl ::windows::core::RuntimeName for HttpDiagnosticProviderRequestResponseTimestamps {
@@ -508,7 +508,7 @@ unsafe impl ::windows::core::RuntimeType for HttpDiagnosticProviderRequestSentEv
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestSentEventArgs;{3f5196d0-4c1f-4ebe-a57a-06930771c50d})");
 }
 unsafe impl ::windows::core::Interface for HttpDiagnosticProviderRequestSentEventArgs {
-    type Vtable = IHttpDiagnosticProviderRequestSentEventArgsVtbl;
+    type Vtable = IHttpDiagnosticProviderRequestSentEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f5196d0_4c1f_4ebe_a57a_06930771c50d);
 }
 impl ::windows::core::RuntimeName for HttpDiagnosticProviderRequestSentEventArgs {
@@ -606,7 +606,7 @@ unsafe impl ::windows::core::RuntimeType for HttpDiagnosticProviderResponseRecei
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProviderResponseReceivedEventArgs;{a0a2566c-ab5f-4d66-bb2d-084cf41635d0})");
 }
 unsafe impl ::windows::core::Interface for HttpDiagnosticProviderResponseReceivedEventArgs {
-    type Vtable = IHttpDiagnosticProviderResponseReceivedEventArgsVtbl;
+    type Vtable = IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0a2566c_ab5f_4d66_bb2d_084cf41635d0);
 }
 impl ::windows::core::RuntimeName for HttpDiagnosticProviderResponseReceivedEventArgs {
@@ -748,7 +748,7 @@ unsafe impl ::windows::core::RuntimeType for HttpDiagnosticSourceLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticSourceLocation;{54a9d260-8860-423f-b6fa-d77716f647a7})");
 }
 unsafe impl ::windows::core::Interface for HttpDiagnosticSourceLocation {
-    type Vtable = IHttpDiagnosticSourceLocationVtbl;
+    type Vtable = IHttpDiagnosticSourceLocation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54a9d260_8860_423f_b6fa_d77716f647a7);
 }
 impl ::windows::core::RuntimeName for HttpDiagnosticSourceLocation {
@@ -800,12 +800,12 @@ unsafe impl ::core::marker::Sync for HttpDiagnosticSourceLocation {}
 #[repr(transparent)]
 pub struct IHttpDiagnosticProvider(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpDiagnosticProvider {
-    type Vtable = IHttpDiagnosticProviderVtbl;
+    type Vtable = IHttpDiagnosticProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd811501_a056_4d39_b174_833b7b03b02c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpDiagnosticProviderVtbl {
+pub struct IHttpDiagnosticProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -838,12 +838,12 @@ pub struct IHttpDiagnosticProviderVtbl {
 #[repr(transparent)]
 pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderRequestResponseCompletedEventArgs {
-    type Vtable = IHttpDiagnosticProviderRequestResponseCompletedEventArgsVtbl;
+    type Vtable = IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x735f98ee_94f6_4532_b26e_61e1b1e4efd4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgsVtbl {
+pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ActivityId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub Timestamps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -863,12 +863,12 @@ pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IHttpDiagnosticProviderRequestResponseTimestamps(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderRequestResponseTimestamps {
-    type Vtable = IHttpDiagnosticProviderRequestResponseTimestampsVtbl;
+    type Vtable = IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0afde10_55cf_4c01_91d4_a20557d849f0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpDiagnosticProviderRequestResponseTimestampsVtbl {
+pub struct IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CacheCheckedTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -911,12 +911,12 @@ pub struct IHttpDiagnosticProviderRequestResponseTimestampsVtbl {
 #[repr(transparent)]
 pub struct IHttpDiagnosticProviderRequestSentEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderRequestSentEventArgs {
-    type Vtable = IHttpDiagnosticProviderRequestSentEventArgsVtbl;
+    type Vtable = IHttpDiagnosticProviderRequestSentEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f5196d0_4c1f_4ebe_a57a_06930771c50d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpDiagnosticProviderRequestSentEventArgsVtbl {
+pub struct IHttpDiagnosticProviderRequestSentEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -936,12 +936,12 @@ pub struct IHttpDiagnosticProviderRequestSentEventArgsVtbl {
 #[repr(transparent)]
 pub struct IHttpDiagnosticProviderResponseReceivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderResponseReceivedEventArgs {
-    type Vtable = IHttpDiagnosticProviderResponseReceivedEventArgsVtbl;
+    type Vtable = IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0a2566c_ab5f_4d66_bb2d_084cf41635d0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpDiagnosticProviderResponseReceivedEventArgsVtbl {
+pub struct IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -954,12 +954,12 @@ pub struct IHttpDiagnosticProviderResponseReceivedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IHttpDiagnosticProviderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderStatics {
-    type Vtable = IHttpDiagnosticProviderStaticsVtbl;
+    type Vtable = IHttpDiagnosticProviderStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b824ec1_6a6c_47cc_afec_1e86bc26053b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpDiagnosticProviderStaticsVtbl {
+pub struct IHttpDiagnosticProviderStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System_Diagnostics")]
     pub CreateFromProcessDiagnosticInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, processdiagnosticinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -970,12 +970,12 @@ pub struct IHttpDiagnosticProviderStaticsVtbl {
 #[repr(transparent)]
 pub struct IHttpDiagnosticSourceLocation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpDiagnosticSourceLocation {
-    type Vtable = IHttpDiagnosticSourceLocationVtbl;
+    type Vtable = IHttpDiagnosticSourceLocation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54a9d260_8860_423f_b6fa_d77716f647a7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpDiagnosticSourceLocationVtbl {
+pub struct IHttpDiagnosticSourceLocation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SourceUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

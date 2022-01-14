@@ -77,7 +77,7 @@ unsafe impl ::windows::core::RuntimeType for BasicProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.BasicProperties;{d05d55db-785e-4a66-be02-9beec58aea81})");
 }
 unsafe impl ::windows::core::Interface for BasicProperties {
-    type Vtable = IBasicPropertiesVtbl;
+    type Vtable = IBasicProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd05d55db_785e_4a66_be02_9beec58aea81);
 }
 impl ::windows::core::RuntimeName for BasicProperties {
@@ -241,7 +241,7 @@ unsafe impl ::windows::core::RuntimeType for DocumentProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.DocumentProperties;{7eab19bc-1821-4923-b4a9-0aea404d0070})");
 }
 unsafe impl ::windows::core::Interface for DocumentProperties {
-    type Vtable = IDocumentPropertiesVtbl;
+    type Vtable = IDocumentProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7eab19bc_1821_4923_b4a9_0aea404d0070);
 }
 impl ::windows::core::RuntimeName for DocumentProperties {
@@ -349,12 +349,12 @@ impl ::windows::core::RuntimeName for GeotagHelper {
 #[repr(transparent)]
 pub struct IBasicProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBasicProperties {
-    type Vtable = IBasicPropertiesVtbl;
+    type Vtable = IBasicProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd05d55db_785e_4a66_be02_9beec58aea81);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBasicPropertiesVtbl {
+pub struct IBasicProperties_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -370,12 +370,12 @@ pub struct IBasicPropertiesVtbl {
 #[repr(transparent)]
 pub struct IDocumentProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDocumentProperties {
-    type Vtable = IDocumentPropertiesVtbl;
+    type Vtable = IDocumentProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7eab19bc_1821_4923_b4a9_0aea404d0070);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDocumentPropertiesVtbl {
+pub struct IDocumentProperties_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Author: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -394,12 +394,12 @@ pub struct IDocumentPropertiesVtbl {
 #[repr(transparent)]
 pub struct IGeotagHelperStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeotagHelperStatics {
-    type Vtable = IGeotagHelperStaticsVtbl;
+    type Vtable = IGeotagHelperStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41493244_2524_4655_86a6_ed16f5fc716b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGeotagHelperStaticsVtbl {
+pub struct IGeotagHelperStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub GetGeotagAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -418,12 +418,12 @@ pub struct IGeotagHelperStaticsVtbl {
 #[repr(transparent)]
 pub struct IImageProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IImageProperties {
-    type Vtable = IImagePropertiesVtbl;
+    type Vtable = IImageProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x523c9424_fcff_4275_afee_ecdb9ab47973);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IImagePropertiesVtbl {
+pub struct IImageProperties_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Rating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub SetRating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
@@ -465,12 +465,12 @@ pub struct IImagePropertiesVtbl {
 #[repr(transparent)]
 pub struct IMusicProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMusicProperties {
-    type Vtable = IMusicPropertiesVtbl;
+    type Vtable = IMusicProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc8aab62_66ec_419a_bc5d_ca65a4cb46da);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMusicPropertiesVtbl {
+pub struct IMusicProperties_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Album: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetAlbum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -520,12 +520,12 @@ pub struct IMusicPropertiesVtbl {
 #[repr(transparent)]
 pub struct IStorageItemContentProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageItemContentProperties {
-    type Vtable = IStorageItemContentPropertiesVtbl;
+    type Vtable = IStorageItemContentProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05294bad_bc38_48bf_85d7_770e0e2ae0ba);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageItemContentPropertiesVtbl {
+pub struct IStorageItemContentProperties_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetMusicPropertiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -636,12 +636,12 @@ unsafe impl ::windows::core::RuntimeType for IStorageItemExtraProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c54361b2-54cd-432b-bdbc-4b19c4b470d7}");
 }
 unsafe impl ::windows::core::Interface for IStorageItemExtraProperties {
-    type Vtable = IStorageItemExtraPropertiesVtbl;
+    type Vtable = IStorageItemExtraProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc54361b2_54cd_432b_bdbc_4b19c4b470d7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageItemExtraPropertiesVtbl {
+pub struct IStorageItemExtraProperties_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub RetrievePropertiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertiestoretrieve: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -660,12 +660,12 @@ pub struct IStorageItemExtraPropertiesVtbl {
 #[repr(transparent)]
 pub struct IThumbnailProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IThumbnailProperties {
-    type Vtable = IThumbnailPropertiesVtbl;
+    type Vtable = IThumbnailProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x693dd42f_dbe7_49b5_b3b3_2893ac5d3423);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IThumbnailPropertiesVtbl {
+pub struct IThumbnailProperties_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OriginalWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub OriginalHeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -676,12 +676,12 @@ pub struct IThumbnailPropertiesVtbl {
 #[repr(transparent)]
 pub struct IVideoProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoProperties {
-    type Vtable = IVideoPropertiesVtbl;
+    type Vtable = IVideoProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x719ae507_68de_4db8_97de_49998c059f2f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVideoPropertiesVtbl {
+pub struct IVideoProperties_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Rating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub SetRating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
@@ -905,7 +905,7 @@ unsafe impl ::windows::core::RuntimeType for ImageProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.ImageProperties;{523c9424-fcff-4275-afee-ecdb9ab47973})");
 }
 unsafe impl ::windows::core::Interface for ImageProperties {
-    type Vtable = IImagePropertiesVtbl;
+    type Vtable = IImageProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x523c9424_fcff_4275_afee_ecdb9ab47973);
 }
 impl ::windows::core::RuntimeName for ImageProperties {
@@ -1204,7 +1204,7 @@ unsafe impl ::windows::core::RuntimeType for MusicProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.MusicProperties;{bc8aab62-66ec-419a-bc5d-ca65a4cb46da})");
 }
 unsafe impl ::windows::core::Interface for MusicProperties {
-    type Vtable = IMusicPropertiesVtbl;
+    type Vtable = IMusicProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc8aab62_66ec_419a_bc5d_ca65a4cb46da);
 }
 impl ::windows::core::RuntimeName for MusicProperties {
@@ -1465,7 +1465,7 @@ unsafe impl ::windows::core::RuntimeType for StorageItemContentProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.StorageItemContentProperties;{05294bad-bc38-48bf-85d7-770e0e2ae0ba})");
 }
 unsafe impl ::windows::core::Interface for StorageItemContentProperties {
-    type Vtable = IStorageItemContentPropertiesVtbl;
+    type Vtable = IStorageItemContentProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05294bad_bc38_48bf_85d7_770e0e2ae0ba);
 }
 impl ::windows::core::RuntimeName for StorageItemContentProperties {
@@ -1715,7 +1715,7 @@ unsafe impl ::windows::core::RuntimeType for StorageItemThumbnail {
 }
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::core::Interface for StorageItemThumbnail {
-    type Vtable = super::Streams::IRandomAccessStreamWithContentTypeVtbl;
+    type Vtable = super::Streams::IRandomAccessStreamWithContentType_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc254827_4b3d_438f_9232_10c76bc7e038);
 }
 #[cfg(feature = "Storage_Streams")]
@@ -2306,7 +2306,7 @@ unsafe impl ::windows::core::RuntimeType for VideoProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.VideoProperties;{719ae507-68de-4db8-97de-49998c059f2f})");
 }
 unsafe impl ::windows::core::Interface for VideoProperties {
-    type Vtable = IVideoPropertiesVtbl;
+    type Vtable = IVideoProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x719ae507_68de_4db8_97de_49998c059f2f);
 }
 impl ::windows::core::RuntimeName for VideoProperties {

@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ISpatialGraphInteropFrameOfReferencePreviewImpl: Sized {
+pub trait ISpatialGraphInteropFrameOfReferencePreview_Impl: Sized {
     fn CoordinateSystem(&mut self) -> ::windows::core::Result<super::SpatialCoordinateSystem>;
     fn NodeId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn CoordinateSystemToNodeTransform(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Matrix4x4>;
@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for ISpatialGraphInteropFrameOfReferencePrevie
     const NAME: &'static str = "Windows.Perception.Spatial.Preview.ISpatialGraphInteropFrameOfReferencePreview";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ISpatialGraphInteropFrameOfReferencePreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialGraphInteropFrameOfReferencePreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialGraphInteropFrameOfReferencePreviewVtbl {
-        unsafe extern "system" fn CoordinateSystem<Impl: ISpatialGraphInteropFrameOfReferencePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISpatialGraphInteropFrameOfReferencePreview_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialGraphInteropFrameOfReferencePreview_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialGraphInteropFrameOfReferencePreview_Vtbl {
+        unsafe extern "system" fn CoordinateSystem<Impl: ISpatialGraphInteropFrameOfReferencePreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CoordinateSystem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -22,7 +22,7 @@ impl ISpatialGraphInteropFrameOfReferencePreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NodeId<Impl: ISpatialGraphInteropFrameOfReferencePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NodeId<Impl: ISpatialGraphInteropFrameOfReferencePreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NodeId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -33,7 +33,7 @@ impl ISpatialGraphInteropFrameOfReferencePreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CoordinateSystemToNodeTransform<Impl: ISpatialGraphInteropFrameOfReferencePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CoordinateSystemToNodeTransform<Impl: ISpatialGraphInteropFrameOfReferencePreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CoordinateSystemToNodeTransform() {
                 ::core::result::Result::Ok(ok__) => {
@@ -56,7 +56,7 @@ impl ISpatialGraphInteropFrameOfReferencePreviewVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ISpatialGraphInteropPreviewStaticsImpl: Sized {
+pub trait ISpatialGraphInteropPreviewStatics_Impl: Sized {
     fn CreateCoordinateSystemForNode(&mut self, nodeid: &::windows::core::GUID) -> ::windows::core::Result<super::SpatialCoordinateSystem>;
     fn CreateCoordinateSystemForNodeWithPosition(&mut self, nodeid: &::windows::core::GUID, relativeposition: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<super::SpatialCoordinateSystem>;
     fn CreateCoordinateSystemForNodeWithPositionAndOrientation(&mut self, nodeid: &::windows::core::GUID, relativeposition: &super::super::super::Foundation::Numerics::Vector3, relativeorientation: &super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<super::SpatialCoordinateSystem>;
@@ -67,9 +67,9 @@ impl ::windows::core::RuntimeName for ISpatialGraphInteropPreviewStatics {
     const NAME: &'static str = "Windows.Perception.Spatial.Preview.ISpatialGraphInteropPreviewStatics";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ISpatialGraphInteropPreviewStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialGraphInteropPreviewStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialGraphInteropPreviewStaticsVtbl {
-        unsafe extern "system" fn CreateCoordinateSystemForNode<Impl: ISpatialGraphInteropPreviewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodeid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISpatialGraphInteropPreviewStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialGraphInteropPreviewStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialGraphInteropPreviewStatics_Vtbl {
+        unsafe extern "system" fn CreateCoordinateSystemForNode<Impl: ISpatialGraphInteropPreviewStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodeid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCoordinateSystemForNode(&*(&nodeid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -80,7 +80,7 @@ impl ISpatialGraphInteropPreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateCoordinateSystemForNodeWithPosition<Impl: ISpatialGraphInteropPreviewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodeid: ::windows::core::GUID, relativeposition: super::super::super::Foundation::Numerics::Vector3, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCoordinateSystemForNodeWithPosition<Impl: ISpatialGraphInteropPreviewStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodeid: ::windows::core::GUID, relativeposition: super::super::super::Foundation::Numerics::Vector3, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCoordinateSystemForNodeWithPosition(&*(&nodeid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&relativeposition as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -91,7 +91,7 @@ impl ISpatialGraphInteropPreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateCoordinateSystemForNodeWithPositionAndOrientation<Impl: ISpatialGraphInteropPreviewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodeid: ::windows::core::GUID, relativeposition: super::super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::super::Foundation::Numerics::Quaternion, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCoordinateSystemForNodeWithPositionAndOrientation<Impl: ISpatialGraphInteropPreviewStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodeid: ::windows::core::GUID, relativeposition: super::super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::super::Foundation::Numerics::Quaternion, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCoordinateSystemForNodeWithPositionAndOrientation(
                 &*(&nodeid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -106,7 +106,7 @@ impl ISpatialGraphInteropPreviewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateLocatorForNode<Impl: ISpatialGraphInteropPreviewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodeid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateLocatorForNode<Impl: ISpatialGraphInteropPreviewStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodeid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateLocatorForNode(&*(&nodeid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -130,7 +130,7 @@ impl ISpatialGraphInteropPreviewStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ISpatialGraphInteropPreviewStatics2Impl: Sized {
+pub trait ISpatialGraphInteropPreviewStatics2_Impl: Sized {
     fn TryCreateFrameOfReference(&mut self, coordinatesystem: &::core::option::Option<super::SpatialCoordinateSystem>) -> ::windows::core::Result<SpatialGraphInteropFrameOfReferencePreview>;
     fn TryCreateFrameOfReferenceWithPosition(&mut self, coordinatesystem: &::core::option::Option<super::SpatialCoordinateSystem>, relativeposition: &super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<SpatialGraphInteropFrameOfReferencePreview>;
     fn TryCreateFrameOfReferenceWithPositionAndOrientation(&mut self, coordinatesystem: &::core::option::Option<super::SpatialCoordinateSystem>, relativeposition: &super::super::super::Foundation::Numerics::Vector3, relativeorientation: &super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<SpatialGraphInteropFrameOfReferencePreview>;
@@ -140,9 +140,9 @@ impl ::windows::core::RuntimeName for ISpatialGraphInteropPreviewStatics2 {
     const NAME: &'static str = "Windows.Perception.Spatial.Preview.ISpatialGraphInteropPreviewStatics2";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ISpatialGraphInteropPreviewStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialGraphInteropPreviewStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialGraphInteropPreviewStatics2Vtbl {
-        unsafe extern "system" fn TryCreateFrameOfReference<Impl: ISpatialGraphInteropPreviewStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISpatialGraphInteropPreviewStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialGraphInteropPreviewStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialGraphInteropPreviewStatics2_Vtbl {
+        unsafe extern "system" fn TryCreateFrameOfReference<Impl: ISpatialGraphInteropPreviewStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreateFrameOfReference(&*(&coordinatesystem as *const <super::SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <super::SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -153,7 +153,7 @@ impl ISpatialGraphInteropPreviewStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryCreateFrameOfReferenceWithPosition<Impl: ISpatialGraphInteropPreviewStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, relativeposition: super::super::super::Foundation::Numerics::Vector3, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryCreateFrameOfReferenceWithPosition<Impl: ISpatialGraphInteropPreviewStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, relativeposition: super::super::super::Foundation::Numerics::Vector3, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreateFrameOfReferenceWithPosition(&*(&coordinatesystem as *const <super::SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <super::SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType), &*(&relativeposition as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -164,7 +164,7 @@ impl ISpatialGraphInteropPreviewStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryCreateFrameOfReferenceWithPositionAndOrientation<Impl: ISpatialGraphInteropPreviewStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, relativeposition: super::super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::super::Foundation::Numerics::Quaternion, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryCreateFrameOfReferenceWithPositionAndOrientation<Impl: ISpatialGraphInteropPreviewStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, relativeposition: super::super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::super::Foundation::Numerics::Quaternion, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreateFrameOfReferenceWithPositionAndOrientation(
                 &*(&coordinatesystem as *const <super::SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <super::SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType),

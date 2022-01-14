@@ -327,7 +327,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapImage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.BitmapImage;{31af3271-e3b4-442d-a341-4c0226b2725b})");
 }
 unsafe impl ::windows::core::Interface for BitmapImage {
-    type Vtable = IBitmapImageVtbl;
+    type Vtable = IBitmapImage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31af3271_e3b4_442d_a341_4c0226b2725b);
 }
 impl ::windows::core::RuntimeName for BitmapImage {
@@ -510,7 +510,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.BitmapSource;{23d86411-202f-41b2-8c5b-a8a3b333800b})");
 }
 unsafe impl ::windows::core::Interface for BitmapSource {
-    type Vtable = IBitmapSourceVtbl;
+    type Vtable = IBitmapSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23d86411_202f_41b2_8c5b_a8a3b333800b);
 }
 impl ::windows::core::RuntimeName for BitmapSource {
@@ -669,7 +669,7 @@ unsafe impl ::windows::core::RuntimeType for DownloadProgressEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.DownloadProgressEventArgs;{7311e0d4-fe94-4e70-9b90-cdd47ac23afb})");
 }
 unsafe impl ::windows::core::Interface for DownloadProgressEventArgs {
-    type Vtable = IDownloadProgressEventArgsVtbl;
+    type Vtable = IDownloadProgressEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7311e0d4_fe94_4e70_9b90_cdd47ac23afb);
 }
 impl ::windows::core::RuntimeName for DownloadProgressEventArgs {
@@ -733,12 +733,12 @@ impl DownloadProgressEventHandler {
 }
 #[repr(C)]
 struct DownloadProgressEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DownloadProgressEventArgs>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const DownloadProgressEventHandlerVtbl,
+    vtable: *const DownloadProgressEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<DownloadProgressEventArgs>) -> ::windows::core::Result<()> + 'static> DownloadProgressEventHandlerBox<F> {
-    const VTABLE: DownloadProgressEventHandlerVtbl = DownloadProgressEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: DownloadProgressEventHandler_Vtbl = DownloadProgressEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<DownloadProgressEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -783,7 +783,7 @@ impl ::core::fmt::Debug for DownloadProgressEventHandler {
     }
 }
 unsafe impl ::windows::core::Interface for DownloadProgressEventHandler {
-    type Vtable = DownloadProgressEventHandlerVtbl;
+    type Vtable = DownloadProgressEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1abaee23_74ee_4cc7_99ba_b171e3cda61e);
 }
 unsafe impl ::windows::core::RuntimeType for DownloadProgressEventHandler {
@@ -791,7 +791,7 @@ unsafe impl ::windows::core::RuntimeType for DownloadProgressEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct DownloadProgressEventHandlerVtbl {
+pub struct DownloadProgressEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -799,12 +799,12 @@ pub struct DownloadProgressEventHandlerVtbl {
 #[repr(transparent)]
 pub struct IBitmapImage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBitmapImage {
-    type Vtable = IBitmapImageVtbl;
+    type Vtable = IBitmapImage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31af3271_e3b4_442d_a341_4c0226b2725b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBitmapImageVtbl {
+pub struct IBitmapImage_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BitmapCreateOptions) -> ::windows::core::HRESULT,
     pub SetCreateOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: BitmapCreateOptions) -> ::windows::core::HRESULT,
@@ -849,12 +849,12 @@ pub struct IBitmapImageVtbl {
 #[repr(transparent)]
 pub struct IBitmapImage2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBitmapImage2 {
-    type Vtable = IBitmapImage2Vtbl;
+    type Vtable = IBitmapImage2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1069c1b6_8c9b_4762_be3d_759f5698f2b3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBitmapImage2Vtbl {
+pub struct IBitmapImage2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DecodePixelType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DecodePixelType) -> ::windows::core::HRESULT,
     pub SetDecodePixelType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: DecodePixelType) -> ::windows::core::HRESULT,
@@ -863,12 +863,12 @@ pub struct IBitmapImage2Vtbl {
 #[repr(transparent)]
 pub struct IBitmapImage3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBitmapImage3 {
-    type Vtable = IBitmapImage3Vtbl;
+    type Vtable = IBitmapImage3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1de6f26_3c73_453f_a7ba_9b85c18b3733);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBitmapImage3Vtbl {
+pub struct IBitmapImage3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsAnimatedBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsPlaying: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -881,12 +881,12 @@ pub struct IBitmapImage3Vtbl {
 #[repr(transparent)]
 pub struct IBitmapImageFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBitmapImageFactory {
-    type Vtable = IBitmapImageFactoryVtbl;
+    type Vtable = IBitmapImageFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9132978_4810_4e5e_8087_03671ee60d85);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBitmapImageFactoryVtbl {
+pub struct IBitmapImageFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CreateInstanceWithUriSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, urisource: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -897,12 +897,12 @@ pub struct IBitmapImageFactoryVtbl {
 #[repr(transparent)]
 pub struct IBitmapImageStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBitmapImageStatics {
-    type Vtable = IBitmapImageStaticsVtbl;
+    type Vtable = IBitmapImageStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e282143_70e8_437c_9fa4_2cbf295cff84);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBitmapImageStaticsVtbl {
+pub struct IBitmapImageStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateOptionsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub UriSourceProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -913,12 +913,12 @@ pub struct IBitmapImageStaticsVtbl {
 #[repr(transparent)]
 pub struct IBitmapImageStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBitmapImageStatics2 {
-    type Vtable = IBitmapImageStatics2Vtbl;
+    type Vtable = IBitmapImageStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5f5576a_75af_41a4_b893_8fe91fee2882);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBitmapImageStatics2Vtbl {
+pub struct IBitmapImageStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DecodePixelTypeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -926,12 +926,12 @@ pub struct IBitmapImageStatics2Vtbl {
 #[repr(transparent)]
 pub struct IBitmapImageStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBitmapImageStatics3 {
-    type Vtable = IBitmapImageStatics3Vtbl;
+    type Vtable = IBitmapImageStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b44e30d_f6d5_4411_a8cd_bf7603c4faa0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBitmapImageStatics3Vtbl {
+pub struct IBitmapImageStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsAnimatedBitmapProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsPlayingProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -941,12 +941,12 @@ pub struct IBitmapImageStatics3Vtbl {
 #[repr(transparent)]
 pub struct IBitmapSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBitmapSource {
-    type Vtable = IBitmapSourceVtbl;
+    type Vtable = IBitmapSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23d86411_202f_41b2_8c5b_a8a3b333800b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBitmapSourceVtbl {
+pub struct IBitmapSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PixelWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub PixelHeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -963,12 +963,12 @@ pub struct IBitmapSourceVtbl {
 #[repr(transparent)]
 pub struct IBitmapSourceFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBitmapSourceFactory {
-    type Vtable = IBitmapSourceFactoryVtbl;
+    type Vtable = IBitmapSourceFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe240420e_d4a7_49a4_a0b4_a59fdd77e508);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBitmapSourceFactoryVtbl {
+pub struct IBitmapSourceFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -976,12 +976,12 @@ pub struct IBitmapSourceFactoryVtbl {
 #[repr(transparent)]
 pub struct IBitmapSourceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBitmapSourceStatics {
-    type Vtable = IBitmapSourceStaticsVtbl;
+    type Vtable = IBitmapSourceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a9c9981_827b_4e51_891b_8a15b511842d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBitmapSourceStaticsVtbl {
+pub struct IBitmapSourceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PixelWidthProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub PixelHeightProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -990,12 +990,12 @@ pub struct IBitmapSourceStaticsVtbl {
 #[repr(transparent)]
 pub struct IDownloadProgressEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDownloadProgressEventArgs {
-    type Vtable = IDownloadProgressEventArgsVtbl;
+    type Vtable = IDownloadProgressEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7311e0d4_fe94_4e70_9b90_cdd47ac23afb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDownloadProgressEventArgsVtbl {
+pub struct IDownloadProgressEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Progress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
@@ -1004,12 +1004,12 @@ pub struct IDownloadProgressEventArgsVtbl {
 #[repr(transparent)]
 pub struct IRenderTargetBitmap(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRenderTargetBitmap {
-    type Vtable = IRenderTargetBitmapVtbl;
+    type Vtable = IRenderTargetBitmap_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x500dee81_893c_4c0a_8fec_4678ac717589);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRenderTargetBitmapVtbl {
+pub struct IRenderTargetBitmap_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PixelWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub PixelHeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -1030,12 +1030,12 @@ pub struct IRenderTargetBitmapVtbl {
 #[repr(transparent)]
 pub struct IRenderTargetBitmapStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRenderTargetBitmapStatics {
-    type Vtable = IRenderTargetBitmapStaticsVtbl;
+    type Vtable = IRenderTargetBitmapStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0a1efee_c131_4d40_9c47_f7d7cf2b077f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRenderTargetBitmapStaticsVtbl {
+pub struct IRenderTargetBitmapStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PixelWidthProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub PixelHeightProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1044,12 +1044,12 @@ pub struct IRenderTargetBitmapStaticsVtbl {
 #[repr(transparent)]
 pub struct ISoftwareBitmapSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISoftwareBitmapSource {
-    type Vtable = ISoftwareBitmapSourceVtbl;
+    type Vtable = ISoftwareBitmapSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2dd9ed0_d3c5_4056_91b5_b7c1d1e8130e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISoftwareBitmapSourceVtbl {
+pub struct ISoftwareBitmapSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
     pub SetBitmapAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, softwarebitmap: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1060,24 +1060,24 @@ pub struct ISoftwareBitmapSourceVtbl {
 #[repr(transparent)]
 pub struct ISurfaceImageSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISurfaceImageSource {
-    type Vtable = ISurfaceImageSourceVtbl;
+    type Vtable = ISurfaceImageSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62f7d416_c714_4c4c_8273_f839bc58135c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISurfaceImageSourceVtbl {
+pub struct ISurfaceImageSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISurfaceImageSourceFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISurfaceImageSourceFactory {
-    type Vtable = ISurfaceImageSourceFactoryVtbl;
+    type Vtable = ISurfaceImageSourceFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ab2212a_ef65_4a5f_bfac_73993e8c12c9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISurfaceImageSourceFactoryVtbl {
+pub struct ISurfaceImageSourceFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstanceWithDimensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pixelwidth: i32, pixelheight: i32, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateInstanceWithDimensionsAndOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pixelwidth: i32, pixelheight: i32, isopaque: bool, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1086,12 +1086,12 @@ pub struct ISurfaceImageSourceFactoryVtbl {
 #[repr(transparent)]
 pub struct ISvgImageSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISvgImageSource {
-    type Vtable = ISvgImageSourceVtbl;
+    type Vtable = ISvgImageSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03e1cec3_0ca8_4a4e_8d7c_c808a0838586);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISvgImageSourceVtbl {
+pub struct ISvgImageSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub UriSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1130,12 +1130,12 @@ pub struct ISvgImageSourceVtbl {
 #[repr(transparent)]
 pub struct ISvgImageSourceFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISvgImageSourceFactory {
-    type Vtable = ISvgImageSourceFactoryVtbl;
+    type Vtable = ISvgImageSourceFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc794e9e7_cf23_4d72_bf1a_dfaa16d8ea52);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISvgImageSourceFactoryVtbl {
+pub struct ISvgImageSourceFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1147,12 +1147,12 @@ pub struct ISvgImageSourceFactoryVtbl {
 #[repr(transparent)]
 pub struct ISvgImageSourceFailedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISvgImageSourceFailedEventArgs {
-    type Vtable = ISvgImageSourceFailedEventArgsVtbl;
+    type Vtable = ISvgImageSourceFailedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68bb3170_3ccc_4035_ac01_9834543d744e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISvgImageSourceFailedEventArgsVtbl {
+pub struct ISvgImageSourceFailedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SvgImageSourceLoadStatus) -> ::windows::core::HRESULT,
 }
@@ -1160,24 +1160,24 @@ pub struct ISvgImageSourceFailedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISvgImageSourceOpenedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISvgImageSourceOpenedEventArgs {
-    type Vtable = ISvgImageSourceOpenedEventArgsVtbl;
+    type Vtable = ISvgImageSourceOpenedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85ef4c16_748e_4008_95c7_6a23dd7316db);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISvgImageSourceOpenedEventArgsVtbl {
+pub struct ISvgImageSourceOpenedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISvgImageSourceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISvgImageSourceStatics {
-    type Vtable = ISvgImageSourceStaticsVtbl;
+    type Vtable = ISvgImageSourceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c6638ce_bed1_4aab_acbb_d3e2185d315a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISvgImageSourceStaticsVtbl {
+pub struct ISvgImageSourceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub UriSourceProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RasterizePixelWidthProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1187,24 +1187,24 @@ pub struct ISvgImageSourceStaticsVtbl {
 #[repr(transparent)]
 pub struct IVirtualSurfaceImageSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVirtualSurfaceImageSource {
-    type Vtable = IVirtualSurfaceImageSourceVtbl;
+    type Vtable = IVirtualSurfaceImageSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a711fea_bfac_11e0_a06a_9de44724019b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVirtualSurfaceImageSourceVtbl {
+pub struct IVirtualSurfaceImageSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IVirtualSurfaceImageSourceFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVirtualSurfaceImageSourceFactory {
-    type Vtable = IVirtualSurfaceImageSourceFactoryVtbl;
+    type Vtable = IVirtualSurfaceImageSourceFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ab2212a_bfac_11e0_8a92_69e44724019b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVirtualSurfaceImageSourceFactoryVtbl {
+pub struct IVirtualSurfaceImageSourceFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstanceWithDimensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pixelwidth: i32, pixelheight: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateInstanceWithDimensionsAndOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pixelwidth: i32, pixelheight: i32, isopaque: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1213,12 +1213,12 @@ pub struct IVirtualSurfaceImageSourceFactoryVtbl {
 #[repr(transparent)]
 pub struct IWriteableBitmap(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWriteableBitmap {
-    type Vtable = IWriteableBitmapVtbl;
+    type Vtable = IWriteableBitmap_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf0b7e6f_df7c_4a85_8413_a1216285835c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWriteableBitmapVtbl {
+pub struct IWriteableBitmap_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub PixelBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1230,12 +1230,12 @@ pub struct IWriteableBitmapVtbl {
 #[repr(transparent)]
 pub struct IWriteableBitmapFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWriteableBitmapFactory {
-    type Vtable = IWriteableBitmapFactoryVtbl;
+    type Vtable = IWriteableBitmapFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5563ebb1_3ef2_42c5_9c6d_1cf5dcc041ff);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWriteableBitmapFactoryVtbl {
+pub struct IWriteableBitmapFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstanceWithDimensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pixelwidth: i32, pixelheight: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1243,24 +1243,24 @@ pub struct IWriteableBitmapFactoryVtbl {
 #[repr(transparent)]
 pub struct IXamlRenderingBackgroundTask(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlRenderingBackgroundTask {
-    type Vtable = IXamlRenderingBackgroundTaskVtbl;
+    type Vtable = IXamlRenderingBackgroundTask_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d5fe9aa_533e_44b8_a975_fc5f1e3bff52);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXamlRenderingBackgroundTaskVtbl {
+pub struct IXamlRenderingBackgroundTask_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IXamlRenderingBackgroundTaskFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlRenderingBackgroundTaskFactory {
-    type Vtable = IXamlRenderingBackgroundTaskFactoryVtbl;
+    type Vtable = IXamlRenderingBackgroundTaskFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3d1bb63_38f8_4da3_9fca_fd8128a2cbf9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXamlRenderingBackgroundTaskFactoryVtbl {
+pub struct IXamlRenderingBackgroundTaskFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1268,12 +1268,12 @@ pub struct IXamlRenderingBackgroundTaskFactoryVtbl {
 #[repr(transparent)]
 pub struct IXamlRenderingBackgroundTaskOverrides(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlRenderingBackgroundTaskOverrides {
-    type Vtable = IXamlRenderingBackgroundTaskOverridesVtbl;
+    type Vtable = IXamlRenderingBackgroundTaskOverrides_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c2a6997_a908_4711_b4b2_a960db3d8e5a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXamlRenderingBackgroundTaskOverridesVtbl {
+pub struct IXamlRenderingBackgroundTaskOverrides_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "ApplicationModel_Background")]
     pub OnRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, taskinstance: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1374,7 +1374,7 @@ unsafe impl ::windows::core::RuntimeType for RenderTargetBitmap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap;{500dee81-893c-4c0a-8fec-4678ac717589})");
 }
 unsafe impl ::windows::core::Interface for RenderTargetBitmap {
-    type Vtable = IRenderTargetBitmapVtbl;
+    type Vtable = IRenderTargetBitmap_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x500dee81_893c_4c0a_8fec_4678ac717589);
 }
 impl ::windows::core::RuntimeName for RenderTargetBitmap {
@@ -1509,7 +1509,7 @@ unsafe impl ::windows::core::RuntimeType for SoftwareBitmapSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.SoftwareBitmapSource;{d2dd9ed0-d3c5-4056-91b5-b7c1d1e8130e})");
 }
 unsafe impl ::windows::core::Interface for SoftwareBitmapSource {
-    type Vtable = ISoftwareBitmapSourceVtbl;
+    type Vtable = ISoftwareBitmapSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2dd9ed0_d3c5_4056_91b5_b7c1d1e8130e);
 }
 impl ::windows::core::RuntimeName for SoftwareBitmapSource {
@@ -1667,7 +1667,7 @@ unsafe impl ::windows::core::RuntimeType for SurfaceImageSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.SurfaceImageSource;{62f7d416-c714-4c4c-8273-f839bc58135c})");
 }
 unsafe impl ::windows::core::Interface for SurfaceImageSource {
-    type Vtable = ISurfaceImageSourceVtbl;
+    type Vtable = ISurfaceImageSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62f7d416_c714_4c4c_8273_f839bc58135c);
 }
 impl ::windows::core::RuntimeName for SurfaceImageSource {
@@ -1906,7 +1906,7 @@ unsafe impl ::windows::core::RuntimeType for SvgImageSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.SvgImageSource;{03e1cec3-0ca8-4a4e-8d7c-c808a0838586})");
 }
 unsafe impl ::windows::core::Interface for SvgImageSource {
-    type Vtable = ISvgImageSourceVtbl;
+    type Vtable = ISvgImageSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03e1cec3_0ca8_4a4e_8d7c_c808a0838586);
 }
 impl ::windows::core::RuntimeName for SvgImageSource {
@@ -2027,7 +2027,7 @@ unsafe impl ::windows::core::RuntimeType for SvgImageSourceFailedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.SvgImageSourceFailedEventArgs;{68bb3170-3ccc-4035-ac01-9834543d744e})");
 }
 unsafe impl ::windows::core::Interface for SvgImageSourceFailedEventArgs {
-    type Vtable = ISvgImageSourceFailedEventArgsVtbl;
+    type Vtable = ISvgImageSourceFailedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68bb3170_3ccc_4035_ac01_9834543d744e);
 }
 impl ::windows::core::RuntimeName for SvgImageSourceFailedEventArgs {
@@ -2134,7 +2134,7 @@ unsafe impl ::windows::core::RuntimeType for SvgImageSourceOpenedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.SvgImageSourceOpenedEventArgs;{85ef4c16-748e-4008-95c7-6a23dd7316db})");
 }
 unsafe impl ::windows::core::Interface for SvgImageSourceOpenedEventArgs {
-    type Vtable = ISvgImageSourceOpenedEventArgsVtbl;
+    type Vtable = ISvgImageSourceOpenedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85ef4c16_748e_4008_95c7_6a23dd7316db);
 }
 impl ::windows::core::RuntimeName for SvgImageSourceOpenedEventArgs {
@@ -2226,7 +2226,7 @@ unsafe impl ::windows::core::RuntimeType for VirtualSurfaceImageSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.VirtualSurfaceImageSource;{4a711fea-bfac-11e0-a06a-9de44724019b})");
 }
 unsafe impl ::windows::core::Interface for VirtualSurfaceImageSource {
-    type Vtable = IVirtualSurfaceImageSourceVtbl;
+    type Vtable = IVirtualSurfaceImageSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a711fea_bfac_11e0_a06a_9de44724019b);
 }
 impl ::windows::core::RuntimeName for VirtualSurfaceImageSource {
@@ -2385,7 +2385,7 @@ unsafe impl ::windows::core::RuntimeType for WriteableBitmap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.WriteableBitmap;{bf0b7e6f-df7c-4a85-8413-a1216285835c})");
 }
 unsafe impl ::windows::core::Interface for WriteableBitmap {
-    type Vtable = IWriteableBitmapVtbl;
+    type Vtable = IWriteableBitmap_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf0b7e6f_df7c_4a85_8413_a1216285835c);
 }
 impl ::windows::core::RuntimeName for WriteableBitmap {
@@ -2517,7 +2517,7 @@ unsafe impl ::windows::core::RuntimeType for XamlRenderingBackgroundTask {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.XamlRenderingBackgroundTask;{5d5fe9aa-533e-44b8-a975-fc5f1e3bff52})");
 }
 unsafe impl ::windows::core::Interface for XamlRenderingBackgroundTask {
-    type Vtable = IXamlRenderingBackgroundTaskVtbl;
+    type Vtable = IXamlRenderingBackgroundTask_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d5fe9aa_533e_44b8_a975_fc5f1e3bff52);
 }
 impl ::windows::core::RuntimeName for XamlRenderingBackgroundTask {

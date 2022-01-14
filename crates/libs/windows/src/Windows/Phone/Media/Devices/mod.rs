@@ -111,7 +111,7 @@ unsafe impl ::windows::core::RuntimeType for AudioRoutingManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Media.Devices.AudioRoutingManager;{79340d20-71cc-4526-9f29-fc8d2486418b})");
 }
 unsafe impl ::windows::core::Interface for AudioRoutingManager {
-    type Vtable = IAudioRoutingManagerVtbl;
+    type Vtable = IAudioRoutingManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79340d20_71cc_4526_9f29_fc8d2486418b);
 }
 impl ::windows::core::RuntimeName for AudioRoutingManager {
@@ -226,12 +226,12 @@ impl ::windows::core::DefaultType for AvailableAudioRoutingEndpoints {
 #[repr(transparent)]
 pub struct IAudioRoutingManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioRoutingManager {
-    type Vtable = IAudioRoutingManagerVtbl;
+    type Vtable = IAudioRoutingManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79340d20_71cc_4526_9f29_fc8d2486418b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioRoutingManagerVtbl {
+pub struct IAudioRoutingManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetAudioEndpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioRoutingEndpoint) -> ::windows::core::HRESULT,
     pub SetAudioEndpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpoint: AudioRoutingEndpoint) -> ::windows::core::HRESULT,
@@ -249,12 +249,12 @@ pub struct IAudioRoutingManagerVtbl {
 #[repr(transparent)]
 pub struct IAudioRoutingManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioRoutingManagerStatics {
-    type Vtable = IAudioRoutingManagerStaticsVtbl;
+    type Vtable = IAudioRoutingManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x977fb2a4_5590_4a6f_adde_6a3d0ad58250);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioRoutingManagerStaticsVtbl {
+pub struct IAudioRoutingManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }

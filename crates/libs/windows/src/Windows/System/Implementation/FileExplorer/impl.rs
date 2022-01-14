@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait ISysStorageProviderEventReceivedEventArgsImpl: Sized {
+pub trait ISysStorageProviderEventReceivedEventArgs_Impl: Sized {
     fn Json(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7,9 +7,9 @@ impl ::windows::core::RuntimeName for ISysStorageProviderEventReceivedEventArgs 
     const NAME: &'static str = "Windows.System.Implementation.FileExplorer.ISysStorageProviderEventReceivedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISysStorageProviderEventReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISysStorageProviderEventReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISysStorageProviderEventReceivedEventArgsVtbl {
-        unsafe extern "system" fn Json<Impl: ISysStorageProviderEventReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISysStorageProviderEventReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISysStorageProviderEventReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISysStorageProviderEventReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn Json<Impl: ISysStorageProviderEventReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Json() {
                 ::core::result::Result::Ok(ok__) => {
@@ -30,7 +30,7 @@ impl ISysStorageProviderEventReceivedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISysStorageProviderEventReceivedEventArgsFactoryImpl: Sized {
+pub trait ISysStorageProviderEventReceivedEventArgsFactory_Impl: Sized {
     fn CreateInstance(&mut self, json: &::windows::core::HSTRING) -> ::windows::core::Result<SysStorageProviderEventReceivedEventArgs>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -38,9 +38,9 @@ impl ::windows::core::RuntimeName for ISysStorageProviderEventReceivedEventArgsF
     const NAME: &'static str = "Windows.System.Implementation.FileExplorer.ISysStorageProviderEventReceivedEventArgsFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISysStorageProviderEventReceivedEventArgsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISysStorageProviderEventReceivedEventArgsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISysStorageProviderEventReceivedEventArgsFactoryVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: ISysStorageProviderEventReceivedEventArgsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, json: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISysStorageProviderEventReceivedEventArgsFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISysStorageProviderEventReceivedEventArgsFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISysStorageProviderEventReceivedEventArgsFactory_Vtbl {
+        unsafe extern "system" fn CreateInstance<Impl: ISysStorageProviderEventReceivedEventArgsFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, json: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&json as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -61,7 +61,7 @@ impl ISysStorageProviderEventReceivedEventArgsFactoryVtbl {
     }
 }
 #[cfg(feature = "Foundation")]
-pub trait ISysStorageProviderEventSourceImpl: Sized {
+pub trait ISysStorageProviderEventSource_Impl: Sized {
     fn EventReceived(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<ISysStorageProviderEventSource, SysStorageProviderEventReceivedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveEventReceived(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
@@ -70,9 +70,9 @@ impl ::windows::core::RuntimeName for ISysStorageProviderEventSource {
     const NAME: &'static str = "Windows.System.Implementation.FileExplorer.ISysStorageProviderEventSource";
 }
 #[cfg(feature = "Foundation")]
-impl ISysStorageProviderEventSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISysStorageProviderEventSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISysStorageProviderEventSourceVtbl {
-        unsafe extern "system" fn EventReceived<Impl: ISysStorageProviderEventSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl ISysStorageProviderEventSource_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISysStorageProviderEventSource_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISysStorageProviderEventSource_Vtbl {
+        unsafe extern "system" fn EventReceived<Impl: ISysStorageProviderEventSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EventReceived(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<ISysStorageProviderEventSource, SysStorageProviderEventReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<ISysStorageProviderEventSource, SysStorageProviderEventReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -83,7 +83,7 @@ impl ISysStorageProviderEventSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveEventReceived<Impl: ISysStorageProviderEventSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveEventReceived<Impl: ISysStorageProviderEventSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveEventReceived(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -97,16 +97,16 @@ impl ISysStorageProviderEventSourceVtbl {
         iid == &<ISysStorageProviderEventSource as ::windows::core::Interface>::IID
     }
 }
-pub trait ISysStorageProviderHandlerFactoryImpl: Sized {
+pub trait ISysStorageProviderHandlerFactory_Impl: Sized {
     fn GetHttpRequestProvider(&mut self, syncrootid: &::windows::core::HSTRING) -> ::windows::core::Result<ISysStorageProviderHttpRequestProvider>;
     fn GetEventSource(&mut self, syncrootid: &::windows::core::HSTRING, eventname: &::windows::core::HSTRING) -> ::windows::core::Result<ISysStorageProviderEventSource>;
 }
 impl ::windows::core::RuntimeName for ISysStorageProviderHandlerFactory {
     const NAME: &'static str = "Windows.System.Implementation.FileExplorer.ISysStorageProviderHandlerFactory";
 }
-impl ISysStorageProviderHandlerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISysStorageProviderHandlerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISysStorageProviderHandlerFactoryVtbl {
-        unsafe extern "system" fn GetHttpRequestProvider<Impl: ISysStorageProviderHandlerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, syncrootid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISysStorageProviderHandlerFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISysStorageProviderHandlerFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISysStorageProviderHandlerFactory_Vtbl {
+        unsafe extern "system" fn GetHttpRequestProvider<Impl: ISysStorageProviderHandlerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, syncrootid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetHttpRequestProvider(&*(&syncrootid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -117,7 +117,7 @@ impl ISysStorageProviderHandlerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEventSource<Impl: ISysStorageProviderHandlerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, syncrootid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEventSource<Impl: ISysStorageProviderHandlerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, syncrootid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEventSource(&*(&syncrootid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&eventname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -139,7 +139,7 @@ impl ISysStorageProviderHandlerFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Web_Http"))]
-pub trait ISysStorageProviderHttpRequestProviderImpl: Sized {
+pub trait ISysStorageProviderHttpRequestProvider_Impl: Sized {
     fn SendRequestAsync(&mut self, request: &::core::option::Option<super::super::super::Web::Http::HttpRequestMessage>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Web_Http"))]
@@ -147,9 +147,9 @@ impl ::windows::core::RuntimeName for ISysStorageProviderHttpRequestProvider {
     const NAME: &'static str = "Windows.System.Implementation.FileExplorer.ISysStorageProviderHttpRequestProvider";
 }
 #[cfg(all(feature = "Foundation", feature = "Web_Http"))]
-impl ISysStorageProviderHttpRequestProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISysStorageProviderHttpRequestProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISysStorageProviderHttpRequestProviderVtbl {
-        unsafe extern "system" fn SendRequestAsync<Impl: ISysStorageProviderHttpRequestProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISysStorageProviderHttpRequestProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISysStorageProviderHttpRequestProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISysStorageProviderHttpRequestProvider_Vtbl {
+        unsafe extern "system" fn SendRequestAsync<Impl: ISysStorageProviderHttpRequestProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SendRequestAsync(&*(&request as *const <super::super::super::Web::Http::HttpRequestMessage as ::windows::core::Abi>::Abi as *const <super::super::super::Web::Http::HttpRequestMessage as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

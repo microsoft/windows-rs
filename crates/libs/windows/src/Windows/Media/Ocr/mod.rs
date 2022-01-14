@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IOcrEngine(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOcrEngine {
-    type Vtable = IOcrEngineVtbl;
+    type Vtable = IOcrEngine_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a14bc41_5b76_3140_b680_8825562683ac);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOcrEngineVtbl {
+pub struct IOcrEngine_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
     pub RecognizeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -23,12 +23,12 @@ pub struct IOcrEngineVtbl {
 #[repr(transparent)]
 pub struct IOcrEngineStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOcrEngineStatics {
-    type Vtable = IOcrEngineStaticsVtbl;
+    type Vtable = IOcrEngineStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bffa85a_3384_3540_9940_699120d428a8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOcrEngineStaticsVtbl {
+pub struct IOcrEngineStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MaxImageDimension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
@@ -49,12 +49,12 @@ pub struct IOcrEngineStaticsVtbl {
 #[repr(transparent)]
 pub struct IOcrLine(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOcrLine {
-    type Vtable = IOcrLineVtbl;
+    type Vtable = IOcrLine_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0043a16f_e31f_3a24_899c_d444bd088124);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOcrLineVtbl {
+pub struct IOcrLine_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Words: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -66,12 +66,12 @@ pub struct IOcrLineVtbl {
 #[repr(transparent)]
 pub struct IOcrResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOcrResult {
-    type Vtable = IOcrResultVtbl;
+    type Vtable = IOcrResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bd235b2_175b_3d6a_92e2_388c206e2f63);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOcrResultVtbl {
+pub struct IOcrResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Lines: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -87,12 +87,12 @@ pub struct IOcrResultVtbl {
 #[repr(transparent)]
 pub struct IOcrWord(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOcrWord {
-    type Vtable = IOcrWordVtbl;
+    type Vtable = IOcrWord_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c2a477a_5cd9_3525_ba2a_23d1e0a68a1d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOcrWordVtbl {
+pub struct IOcrWord_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub BoundingRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT,
@@ -186,7 +186,7 @@ unsafe impl ::windows::core::RuntimeType for OcrEngine {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Ocr.OcrEngine;{5a14bc41-5b76-3140-b680-8825562683ac})");
 }
 unsafe impl ::windows::core::Interface for OcrEngine {
-    type Vtable = IOcrEngineVtbl;
+    type Vtable = IOcrEngine_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a14bc41_5b76_3140_b680_8825562683ac);
 }
 impl ::windows::core::RuntimeName for OcrEngine {
@@ -276,7 +276,7 @@ unsafe impl ::windows::core::RuntimeType for OcrLine {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Ocr.OcrLine;{0043a16f-e31f-3a24-899c-d444bd088124})");
 }
 unsafe impl ::windows::core::Interface for OcrLine {
-    type Vtable = IOcrLineVtbl;
+    type Vtable = IOcrLine_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0043a16f_e31f_3a24_899c_d444bd088124);
 }
 impl ::windows::core::RuntimeName for OcrLine {
@@ -375,7 +375,7 @@ unsafe impl ::windows::core::RuntimeType for OcrResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Ocr.OcrResult;{9bd235b2-175b-3d6a-92e2-388c206e2f63})");
 }
 unsafe impl ::windows::core::Interface for OcrResult {
-    type Vtable = IOcrResultVtbl;
+    type Vtable = IOcrResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bd235b2_175b_3d6a_92e2_388c206e2f63);
 }
 impl ::windows::core::RuntimeName for OcrResult {
@@ -465,7 +465,7 @@ unsafe impl ::windows::core::RuntimeType for OcrWord {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Ocr.OcrWord;{3c2a477a-5cd9-3525-ba2a-23d1e0a68a1d})");
 }
 unsafe impl ::windows::core::Interface for OcrWord {
-    type Vtable = IOcrWordVtbl;
+    type Vtable = IOcrWord_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c2a477a_5cd9_3525_ba2a_23d1e0a68a1d);
 }
 impl ::windows::core::RuntimeName for OcrWord {

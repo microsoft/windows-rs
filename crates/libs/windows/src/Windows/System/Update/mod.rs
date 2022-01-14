@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct ISystemUpdateItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemUpdateItem {
-    type Vtable = ISystemUpdateItemVtbl;
+    type Vtable = ISystemUpdateItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x779740eb_5624_519e_a8e2_09e9173b3fb7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISystemUpdateItemVtbl {
+pub struct ISystemUpdateItem_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SystemUpdateItemState) -> ::windows::core::HRESULT,
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -23,12 +23,12 @@ pub struct ISystemUpdateItemVtbl {
 #[repr(transparent)]
 pub struct ISystemUpdateLastErrorInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemUpdateLastErrorInfo {
-    type Vtable = ISystemUpdateLastErrorInfoVtbl;
+    type Vtable = ISystemUpdateLastErrorInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ee887f7_8a44_5b6e_bd07_7aece4116ea9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISystemUpdateLastErrorInfoVtbl {
+pub struct ISystemUpdateLastErrorInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SystemUpdateManagerState) -> ::windows::core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -38,12 +38,12 @@ pub struct ISystemUpdateLastErrorInfoVtbl {
 #[repr(transparent)]
 pub struct ISystemUpdateManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemUpdateManagerStatics {
-    type Vtable = ISystemUpdateManagerStaticsVtbl;
+    type Vtable = ISystemUpdateManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2d3fcef_2971_51be_b41a_8bd703bb701a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISystemUpdateManagerStaticsVtbl {
+pub struct ISystemUpdateManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SystemUpdateManagerState) -> ::windows::core::HRESULT,
@@ -228,7 +228,7 @@ unsafe impl ::windows::core::RuntimeType for SystemUpdateItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Update.SystemUpdateItem;{779740eb-5624-519e-a8e2-09e9173b3fb7})");
 }
 unsafe impl ::windows::core::Interface for SystemUpdateItem {
-    type Vtable = ISystemUpdateItemVtbl;
+    type Vtable = ISystemUpdateItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x779740eb_5624_519e_a8e2_09e9173b3fb7);
 }
 impl ::windows::core::RuntimeName for SystemUpdateItem {
@@ -365,7 +365,7 @@ unsafe impl ::windows::core::RuntimeType for SystemUpdateLastErrorInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Update.SystemUpdateLastErrorInfo;{7ee887f7-8a44-5b6e-bd07-7aece4116ea9})");
 }
 unsafe impl ::windows::core::Interface for SystemUpdateLastErrorInfo {
-    type Vtable = ISystemUpdateLastErrorInfoVtbl;
+    type Vtable = ISystemUpdateLastErrorInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ee887f7_8a44_5b6e_bd07_7aece4116ea9);
 }
 impl ::windows::core::RuntimeName for SystemUpdateLastErrorInfo {

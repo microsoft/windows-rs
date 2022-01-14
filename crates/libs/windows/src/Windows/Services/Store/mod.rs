@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IStoreAcquireLicenseResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreAcquireLicenseResult {
-    type Vtable = IStoreAcquireLicenseResultVtbl;
+    type Vtable = IStoreAcquireLicenseResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbd7946d_f040_4cb3_9a39_29bcecdbe22d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreAcquireLicenseResultVtbl {
+pub struct IStoreAcquireLicenseResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub StorePackageLicense: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -17,12 +17,12 @@ pub struct IStoreAcquireLicenseResultVtbl {
 #[repr(transparent)]
 pub struct IStoreAppLicense(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreAppLicense {
-    type Vtable = IStoreAppLicenseVtbl;
+    type Vtable = IStoreAppLicense_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf389f9de_73c0_45ce_9bab_b2fe3e5eafd3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreAppLicenseVtbl {
+pub struct IStoreAppLicense_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SkuStoreId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub IsActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -47,12 +47,12 @@ pub struct IStoreAppLicenseVtbl {
 #[repr(transparent)]
 pub struct IStoreAppLicense2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreAppLicense2 {
-    type Vtable = IStoreAppLicense2Vtbl;
+    type Vtable = IStoreAppLicense2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4666e91_4443_40b3_993f_28904435bdc6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreAppLicense2Vtbl {
+pub struct IStoreAppLicense2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsDiscLicense: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -60,12 +60,12 @@ pub struct IStoreAppLicense2Vtbl {
 #[repr(transparent)]
 pub struct IStoreAvailability(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreAvailability {
-    type Vtable = IStoreAvailabilityVtbl;
+    type Vtable = IStoreAvailability_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa060325_0ffd_4493_ad43_f1f9918f69fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreAvailabilityVtbl {
+pub struct IStoreAvailability_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub StoreId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -87,12 +87,12 @@ pub struct IStoreAvailabilityVtbl {
 #[repr(transparent)]
 pub struct IStoreCanAcquireLicenseResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreCanAcquireLicenseResult {
-    type Vtable = IStoreCanAcquireLicenseResultVtbl;
+    type Vtable = IStoreCanAcquireLicenseResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a693db3_0088_482f_86d5_bd46522663ad);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreCanAcquireLicenseResultVtbl {
+pub struct IStoreCanAcquireLicenseResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub LicensableSku: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -102,12 +102,12 @@ pub struct IStoreCanAcquireLicenseResultVtbl {
 #[repr(transparent)]
 pub struct IStoreCollectionData(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreCollectionData {
-    type Vtable = IStoreCollectionDataVtbl;
+    type Vtable = IStoreCollectionData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8aa4c3b3_5bb3_441a_2ab4_4dab73d5ce67);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreCollectionDataVtbl {
+pub struct IStoreCollectionData_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsTrial: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub CampaignId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -134,12 +134,12 @@ pub struct IStoreCollectionDataVtbl {
 #[repr(transparent)]
 pub struct IStoreConsumableResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreConsumableResult {
-    type Vtable = IStoreConsumableResultVtbl;
+    type Vtable = IStoreConsumableResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea5dab72_6a00_4052_be5b_bfdab4433352);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreConsumableResultVtbl {
+pub struct IStoreConsumableResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut StoreConsumableStatus) -> ::windows::core::HRESULT,
     pub TrackingId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -150,12 +150,12 @@ pub struct IStoreConsumableResultVtbl {
 #[repr(transparent)]
 pub struct IStoreContext(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreContext {
-    type Vtable = IStoreContextVtbl;
+    type Vtable = IStoreContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac98b6be_f4fd_4912_babd_5035e5e8bcab);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreContextVtbl {
+pub struct IStoreContext_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -246,12 +246,12 @@ pub struct IStoreContextVtbl {
 #[repr(transparent)]
 pub struct IStoreContext2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreContext2 {
-    type Vtable = IStoreContext2Vtbl;
+    type Vtable = IStoreContext2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18bc54da_7bd9_452c_9116_3bbd06ffc63a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreContext2Vtbl {
+pub struct IStoreContext2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))]
     pub FindStoreProductForPackageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productkinds: ::windows::core::RawPtr, package: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -262,12 +262,12 @@ pub struct IStoreContext2Vtbl {
 #[repr(transparent)]
 pub struct IStoreContext3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreContext3 {
-    type Vtable = IStoreContext3Vtbl;
+    type Vtable = IStoreContext3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe26226ca_1a01_4730_85a6_ecc896e4ae38);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreContext3Vtbl {
+pub struct IStoreContext3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CanSilentlyDownloadStorePackageUpdates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -327,12 +327,12 @@ pub struct IStoreContext3Vtbl {
 #[repr(transparent)]
 pub struct IStoreContext4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreContext4 {
-    type Vtable = IStoreContext4Vtbl;
+    type Vtable = IStoreContext4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf9c6f69_bea1_4bf4_8e74_ae03e206c6b0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreContext4Vtbl {
+pub struct IStoreContext4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestRateAndReviewAppAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -347,12 +347,12 @@ pub struct IStoreContext4Vtbl {
 #[repr(transparent)]
 pub struct IStoreContextStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreContextStatics {
-    type Vtable = IStoreContextStaticsVtbl;
+    type Vtable = IStoreContextStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c06ee5f_15c0_4e72_9330_d6191cebd19c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreContextStaticsVtbl {
+pub struct IStoreContextStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "System")]
@@ -364,12 +364,12 @@ pub struct IStoreContextStaticsVtbl {
 #[repr(transparent)]
 pub struct IStoreImage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreImage {
-    type Vtable = IStoreImageVtbl;
+    type Vtable = IStoreImage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x081fd248_adb4_4b64_a993_784789926ed5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreImageVtbl {
+pub struct IStoreImage_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Uri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -384,12 +384,12 @@ pub struct IStoreImageVtbl {
 #[repr(transparent)]
 pub struct IStoreLicense(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreLicense {
-    type Vtable = IStoreLicenseVtbl;
+    type Vtable = IStoreLicense_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26dc9579_4c4f_4f30_bc89_649f60e36055);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreLicenseVtbl {
+pub struct IStoreLicense_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SkuStoreId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub IsActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -404,12 +404,12 @@ pub struct IStoreLicenseVtbl {
 #[repr(transparent)]
 pub struct IStorePackageInstallOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorePackageInstallOptions {
-    type Vtable = IStorePackageInstallOptionsVtbl;
+    type Vtable = IStorePackageInstallOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d3d630c_0ccd_44dd_8c59_80810a729973);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorePackageInstallOptionsVtbl {
+pub struct IStorePackageInstallOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AllowForcedAppRestart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAllowForcedAppRestart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -418,12 +418,12 @@ pub struct IStorePackageInstallOptionsVtbl {
 #[repr(transparent)]
 pub struct IStorePackageLicense(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorePackageLicense {
-    type Vtable = IStorePackageLicenseVtbl;
+    type Vtable = IStorePackageLicense_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c465714_14e1_4973_bd14_f77724271e99);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorePackageLicenseVtbl {
+pub struct IStorePackageLicense_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub LicenseLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -444,12 +444,12 @@ pub struct IStorePackageLicenseVtbl {
 #[repr(transparent)]
 pub struct IStorePackageUpdate(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorePackageUpdate {
-    type Vtable = IStorePackageUpdateVtbl;
+    type Vtable = IStorePackageUpdate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x140fa150_3cbf_4a35_b91f_48271c31b072);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorePackageUpdateVtbl {
+pub struct IStorePackageUpdate_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "ApplicationModel")]
     pub Package: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -461,12 +461,12 @@ pub struct IStorePackageUpdateVtbl {
 #[repr(transparent)]
 pub struct IStorePackageUpdateResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorePackageUpdateResult {
-    type Vtable = IStorePackageUpdateResultVtbl;
+    type Vtable = IStorePackageUpdateResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe79142ed_61f9_4893_b4fe_cf191603af7b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorePackageUpdateResultVtbl {
+pub struct IStorePackageUpdateResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OverallState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut StorePackageUpdateState) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -478,12 +478,12 @@ pub struct IStorePackageUpdateResultVtbl {
 #[repr(transparent)]
 pub struct IStorePackageUpdateResult2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorePackageUpdateResult2 {
-    type Vtable = IStorePackageUpdateResult2Vtbl;
+    type Vtable = IStorePackageUpdateResult2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x071d012e_bc62_4f2e_87ea_99d801aeaf98);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorePackageUpdateResult2Vtbl {
+pub struct IStorePackageUpdateResult2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub StoreQueueItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -494,12 +494,12 @@ pub struct IStorePackageUpdateResult2Vtbl {
 #[repr(transparent)]
 pub struct IStorePrice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorePrice {
-    type Vtable = IStorePriceVtbl;
+    type Vtable = IStorePrice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55ba94c4_15f1_407c_8f06_006380f4df0b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorePriceVtbl {
+pub struct IStorePrice_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FormattedBasePrice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub FormattedPrice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -515,12 +515,12 @@ pub struct IStorePriceVtbl {
 #[repr(transparent)]
 pub struct IStoreProduct(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreProduct {
-    type Vtable = IStoreProductVtbl;
+    type Vtable = IStoreProduct_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x320e2c52_d760_450a_a42b_67d1e901ac90);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreProductVtbl {
+pub struct IStoreProduct_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub StoreId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Language: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -569,12 +569,12 @@ pub struct IStoreProductVtbl {
 #[repr(transparent)]
 pub struct IStoreProductOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreProductOptions {
-    type Vtable = IStoreProductOptionsVtbl;
+    type Vtable = IStoreProductOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b34a0f9_a113_4811_8326_16199c927f31);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreProductOptionsVtbl {
+pub struct IStoreProductOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub ActionFilters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -585,12 +585,12 @@ pub struct IStoreProductOptionsVtbl {
 #[repr(transparent)]
 pub struct IStoreProductPagedQueryResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreProductPagedQueryResult {
-    type Vtable = IStoreProductPagedQueryResultVtbl;
+    type Vtable = IStoreProductPagedQueryResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc92718c5_4dd5_4869_a462_ecc6872e43c5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreProductPagedQueryResultVtbl {
+pub struct IStoreProductPagedQueryResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Products: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -607,12 +607,12 @@ pub struct IStoreProductPagedQueryResultVtbl {
 #[repr(transparent)]
 pub struct IStoreProductQueryResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreProductQueryResult {
-    type Vtable = IStoreProductQueryResultVtbl;
+    type Vtable = IStoreProductQueryResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd805e6c5_d456_4ff6_8049_9076d5165f73);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreProductQueryResultVtbl {
+pub struct IStoreProductQueryResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Products: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -624,12 +624,12 @@ pub struct IStoreProductQueryResultVtbl {
 #[repr(transparent)]
 pub struct IStoreProductResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreProductResult {
-    type Vtable = IStoreProductResultVtbl;
+    type Vtable = IStoreProductResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7674f73_3c87_4ee1_8201_f428359bd3af);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreProductResultVtbl {
+pub struct IStoreProductResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Product: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -638,12 +638,12 @@ pub struct IStoreProductResultVtbl {
 #[repr(transparent)]
 pub struct IStorePurchaseProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorePurchaseProperties {
-    type Vtable = IStorePurchasePropertiesVtbl;
+    type Vtable = IStorePurchaseProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x836278f3_ff87_4364_a5b4_fd2153ebe43b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorePurchasePropertiesVtbl {
+pub struct IStorePurchaseProperties_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -654,12 +654,12 @@ pub struct IStorePurchasePropertiesVtbl {
 #[repr(transparent)]
 pub struct IStorePurchasePropertiesFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorePurchasePropertiesFactory {
-    type Vtable = IStorePurchasePropertiesFactoryVtbl;
+    type Vtable = IStorePurchasePropertiesFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa768f59e_fefd_489f_9a17_22a593e68b9d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorePurchasePropertiesFactoryVtbl {
+pub struct IStorePurchasePropertiesFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -667,12 +667,12 @@ pub struct IStorePurchasePropertiesFactoryVtbl {
 #[repr(transparent)]
 pub struct IStorePurchaseResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorePurchaseResult {
-    type Vtable = IStorePurchaseResultVtbl;
+    type Vtable = IStorePurchaseResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadd28552_f96a_463d_a7bb_c20b4fca6952);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorePurchaseResultVtbl {
+pub struct IStorePurchaseResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut StorePurchaseStatus) -> ::windows::core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -681,12 +681,12 @@ pub struct IStorePurchaseResultVtbl {
 #[repr(transparent)]
 pub struct IStoreQueueItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreQueueItem {
-    type Vtable = IStoreQueueItemVtbl;
+    type Vtable = IStoreQueueItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56d5c32b_f830_4293_9188_cad2dcde7357);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreQueueItemVtbl {
+pub struct IStoreQueueItem_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ProductId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub PackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -713,12 +713,12 @@ pub struct IStoreQueueItemVtbl {
 #[repr(transparent)]
 pub struct IStoreQueueItem2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreQueueItem2 {
-    type Vtable = IStoreQueueItem2Vtbl;
+    type Vtable = IStoreQueueItem2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69491ca8_1ad4_447c_ad8c_a95035f64d82);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreQueueItem2Vtbl {
+pub struct IStoreQueueItem2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CancelInstallAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -737,12 +737,12 @@ pub struct IStoreQueueItem2Vtbl {
 #[repr(transparent)]
 pub struct IStoreQueueItemCompletedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreQueueItemCompletedEventArgs {
-    type Vtable = IStoreQueueItemCompletedEventArgsVtbl;
+    type Vtable = IStoreQueueItemCompletedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1247df6c_b44a_439b_bb07_1d3003d005c2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreQueueItemCompletedEventArgsVtbl {
+pub struct IStoreQueueItemCompletedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -750,12 +750,12 @@ pub struct IStoreQueueItemCompletedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IStoreQueueItemStatus(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreQueueItemStatus {
-    type Vtable = IStoreQueueItemStatusVtbl;
+    type Vtable = IStoreQueueItemStatus_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bd6796f_9cc3_4ec3_b2ef_7be433b30174);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreQueueItemStatusVtbl {
+pub struct IStoreQueueItemStatus_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PackageInstallState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut StoreQueueItemState) -> ::windows::core::HRESULT,
     pub PackageInstallExtendedState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut StoreQueueItemExtendedState) -> ::windows::core::HRESULT,
@@ -766,12 +766,12 @@ pub struct IStoreQueueItemStatusVtbl {
 #[repr(transparent)]
 pub struct IStoreRateAndReviewResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreRateAndReviewResult {
-    type Vtable = IStoreRateAndReviewResultVtbl;
+    type Vtable = IStoreRateAndReviewResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d209d56_a6b5_4121_9b61_ee6d0fbdbdbb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreRateAndReviewResultVtbl {
+pub struct IStoreRateAndReviewResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub ExtendedJsonData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -782,12 +782,12 @@ pub struct IStoreRateAndReviewResultVtbl {
 #[repr(transparent)]
 pub struct IStoreRequestHelperStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreRequestHelperStatics {
-    type Vtable = IStoreRequestHelperStaticsVtbl;
+    type Vtable = IStoreRequestHelperStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ce5e5f9_a0c9_4b2c_96a6_a171c630038d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreRequestHelperStaticsVtbl {
+pub struct IStoreRequestHelperStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SendRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, requestkind: u32, parametersasjson: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -798,12 +798,12 @@ pub struct IStoreRequestHelperStaticsVtbl {
 #[repr(transparent)]
 pub struct IStoreSendRequestResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreSendRequestResult {
-    type Vtable = IStoreSendRequestResultVtbl;
+    type Vtable = IStoreSendRequestResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc73abe60_8272_4502_8a69_6e75153a4299);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreSendRequestResultVtbl {
+pub struct IStoreSendRequestResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Response: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -812,12 +812,12 @@ pub struct IStoreSendRequestResultVtbl {
 #[repr(transparent)]
 pub struct IStoreSendRequestResult2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreSendRequestResult2 {
-    type Vtable = IStoreSendRequestResult2Vtbl;
+    type Vtable = IStoreSendRequestResult2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2901296f_c0b0_49d0_8e8d_aa940af9c10b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreSendRequestResult2Vtbl {
+pub struct IStoreSendRequestResult2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Web_Http")]
     pub HttpStatusCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Web::Http::HttpStatusCode) -> ::windows::core::HRESULT,
@@ -828,12 +828,12 @@ pub struct IStoreSendRequestResult2Vtbl {
 #[repr(transparent)]
 pub struct IStoreSku(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreSku {
-    type Vtable = IStoreSkuVtbl;
+    type Vtable = IStoreSku_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x397e6f55_4440_4f03_863c_91f3fec83d79);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreSkuVtbl {
+pub struct IStoreSku_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub StoreId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Language: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -880,12 +880,12 @@ pub struct IStoreSkuVtbl {
 #[repr(transparent)]
 pub struct IStoreSubscriptionInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreSubscriptionInfo {
-    type Vtable = IStoreSubscriptionInfoVtbl;
+    type Vtable = IStoreSubscriptionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4189776a_0559_43ac_a9c6_3ab0011fb8eb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreSubscriptionInfoVtbl {
+pub struct IStoreSubscriptionInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub BillingPeriod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub BillingPeriodUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut StoreDurationUnit) -> ::windows::core::HRESULT,
@@ -897,12 +897,12 @@ pub struct IStoreSubscriptionInfoVtbl {
 #[repr(transparent)]
 pub struct IStoreUninstallStorePackageResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreUninstallStorePackageResult {
-    type Vtable = IStoreUninstallStorePackageResultVtbl;
+    type Vtable = IStoreUninstallStorePackageResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fca39fd_126f_4cda_b801_1346b8d0a260);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreUninstallStorePackageResultVtbl {
+pub struct IStoreUninstallStorePackageResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut StoreUninstallStorePackageStatus) -> ::windows::core::HRESULT,
@@ -911,12 +911,12 @@ pub struct IStoreUninstallStorePackageResultVtbl {
 #[repr(transparent)]
 pub struct IStoreVideo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoreVideo {
-    type Vtable = IStoreVideoVtbl;
+    type Vtable = IStoreVideo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf26cb184_6f5e_4dc2_886c_3c63083c2f94);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoreVideoVtbl {
+pub struct IStoreVideo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Uri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -969,7 +969,7 @@ unsafe impl ::windows::core::RuntimeType for StoreAcquireLicenseResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreAcquireLicenseResult;{fbd7946d-f040-4cb3-9a39-29bcecdbe22d})");
 }
 unsafe impl ::windows::core::Interface for StoreAcquireLicenseResult {
-    type Vtable = IStoreAcquireLicenseResultVtbl;
+    type Vtable = IStoreAcquireLicenseResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbd7946d_f040_4cb3_9a39_29bcecdbe22d);
 }
 impl ::windows::core::RuntimeName for StoreAcquireLicenseResult {
@@ -1125,7 +1125,7 @@ unsafe impl ::windows::core::RuntimeType for StoreAppLicense {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreAppLicense;{f389f9de-73c0-45ce-9bab-b2fe3e5eafd3})");
 }
 unsafe impl ::windows::core::Interface for StoreAppLicense {
-    type Vtable = IStoreAppLicenseVtbl;
+    type Vtable = IStoreAppLicense_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf389f9de_73c0_45ce_9bab_b2fe3e5eafd3);
 }
 impl ::windows::core::RuntimeName for StoreAppLicense {
@@ -1249,7 +1249,7 @@ unsafe impl ::windows::core::RuntimeType for StoreAvailability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreAvailability;{fa060325-0ffd-4493-ad43-f1f9918f69fa})");
 }
 unsafe impl ::windows::core::Interface for StoreAvailability {
-    type Vtable = IStoreAvailabilityVtbl;
+    type Vtable = IStoreAvailability_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa060325_0ffd_4493_ad43_f1f9918f69fa);
 }
 impl ::windows::core::RuntimeName for StoreAvailability {
@@ -1346,7 +1346,7 @@ unsafe impl ::windows::core::RuntimeType for StoreCanAcquireLicenseResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreCanAcquireLicenseResult;{3a693db3-0088-482f-86d5-bd46522663ad})");
 }
 unsafe impl ::windows::core::Interface for StoreCanAcquireLicenseResult {
-    type Vtable = IStoreCanAcquireLicenseResultVtbl;
+    type Vtable = IStoreCanAcquireLicenseResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a693db3_0088_482f_86d5_bd46522663ad);
 }
 impl ::windows::core::RuntimeName for StoreCanAcquireLicenseResult {
@@ -1523,7 +1523,7 @@ unsafe impl ::windows::core::RuntimeType for StoreCollectionData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreCollectionData;{8aa4c3b3-5bb3-441a-2ab4-4dab73d5ce67})");
 }
 unsafe impl ::windows::core::Interface for StoreCollectionData {
-    type Vtable = IStoreCollectionDataVtbl;
+    type Vtable = IStoreCollectionData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8aa4c3b3_5bb3_441a_2ab4_4dab73d5ce67);
 }
 impl ::windows::core::RuntimeName for StoreCollectionData {
@@ -1628,7 +1628,7 @@ unsafe impl ::windows::core::RuntimeType for StoreConsumableResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreConsumableResult;{ea5dab72-6a00-4052-be5b-bfdab4433352})");
 }
 unsafe impl ::windows::core::Interface for StoreConsumableResult {
-    type Vtable = IStoreConsumableResultVtbl;
+    type Vtable = IStoreConsumableResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea5dab72_6a00_4052_be5b_bfdab4433352);
 }
 impl ::windows::core::RuntimeName for StoreConsumableResult {
@@ -2094,7 +2094,7 @@ unsafe impl ::windows::core::RuntimeType for StoreContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreContext;{ac98b6be-f4fd-4912-babd-5035e5e8bcab})");
 }
 unsafe impl ::windows::core::Interface for StoreContext {
-    type Vtable = IStoreContextVtbl;
+    type Vtable = IStoreContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac98b6be_f4fd_4912_babd_5035e5e8bcab);
 }
 impl ::windows::core::RuntimeName for StoreContext {
@@ -2245,7 +2245,7 @@ unsafe impl ::windows::core::RuntimeType for StoreImage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreImage;{081fd248-adb4-4b64-a993-784789926ed5})");
 }
 unsafe impl ::windows::core::Interface for StoreImage {
-    type Vtable = IStoreImageVtbl;
+    type Vtable = IStoreImage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x081fd248_adb4_4b64_a993_784789926ed5);
 }
 impl ::windows::core::RuntimeName for StoreImage {
@@ -2359,7 +2359,7 @@ unsafe impl ::windows::core::RuntimeType for StoreLicense {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreLicense;{26dc9579-4c4f-4f30-bc89-649f60e36055})");
 }
 unsafe impl ::windows::core::Interface for StoreLicense {
-    type Vtable = IStoreLicenseVtbl;
+    type Vtable = IStoreLicense_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26dc9579_4c4f_4f30_bc89_649f60e36055);
 }
 impl ::windows::core::RuntimeName for StoreLicense {
@@ -2452,7 +2452,7 @@ unsafe impl ::windows::core::RuntimeType for StorePackageInstallOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePackageInstallOptions;{1d3d630c-0ccd-44dd-8c59-80810a729973})");
 }
 unsafe impl ::windows::core::Interface for StorePackageInstallOptions {
-    type Vtable = IStorePackageInstallOptionsVtbl;
+    type Vtable = IStorePackageInstallOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d3d630c_0ccd_44dd_8c59_80810a729973);
 }
 impl ::windows::core::RuntimeName for StorePackageInstallOptions {
@@ -2568,7 +2568,7 @@ unsafe impl ::windows::core::RuntimeType for StorePackageLicense {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePackageLicense;{0c465714-14e1-4973-bd14-f77724271e99})");
 }
 unsafe impl ::windows::core::Interface for StorePackageLicense {
-    type Vtable = IStorePackageLicenseVtbl;
+    type Vtable = IStorePackageLicense_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c465714_14e1_4973_bd14_f77724271e99);
 }
 impl ::windows::core::RuntimeName for StorePackageLicense {
@@ -2684,7 +2684,7 @@ unsafe impl ::windows::core::RuntimeType for StorePackageUpdate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePackageUpdate;{140fa150-3cbf-4a35-b91f-48271c31b072})");
 }
 unsafe impl ::windows::core::Interface for StorePackageUpdate {
-    type Vtable = IStorePackageUpdateVtbl;
+    type Vtable = IStorePackageUpdate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x140fa150_3cbf_4a35_b91f_48271c31b072);
 }
 impl ::windows::core::RuntimeName for StorePackageUpdate {
@@ -2783,7 +2783,7 @@ unsafe impl ::windows::core::RuntimeType for StorePackageUpdateResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePackageUpdateResult;{e79142ed-61f9-4893-b4fe-cf191603af7b})");
 }
 unsafe impl ::windows::core::Interface for StorePackageUpdateResult {
-    type Vtable = IStorePackageUpdateResultVtbl;
+    type Vtable = IStorePackageUpdateResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe79142ed_61f9_4893_b4fe_cf191603af7b);
 }
 impl ::windows::core::RuntimeName for StorePackageUpdateResult {
@@ -2992,7 +2992,7 @@ unsafe impl ::windows::core::RuntimeType for StorePrice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePrice;{55ba94c4-15f1-407c-8f06-006380f4df0b})");
 }
 unsafe impl ::windows::core::Interface for StorePrice {
-    type Vtable = IStorePriceVtbl;
+    type Vtable = IStorePrice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55ba94c4_15f1_407c_8f06_006380f4df0b);
 }
 impl ::windows::core::RuntimeName for StorePrice {
@@ -3217,7 +3217,7 @@ unsafe impl ::windows::core::RuntimeType for StoreProduct {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProduct;{320e2c52-d760-450a-a42b-67d1e901ac90})");
 }
 unsafe impl ::windows::core::Interface for StoreProduct {
-    type Vtable = IStoreProductVtbl;
+    type Vtable = IStoreProduct_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x320e2c52_d760_450a_a42b_67d1e901ac90);
 }
 impl ::windows::core::RuntimeName for StoreProduct {
@@ -3306,7 +3306,7 @@ unsafe impl ::windows::core::RuntimeType for StoreProductOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProductOptions;{5b34a0f9-a113-4811-8326-16199c927f31})");
 }
 unsafe impl ::windows::core::Interface for StoreProductOptions {
-    type Vtable = IStoreProductOptionsVtbl;
+    type Vtable = IStoreProductOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b34a0f9_a113_4811_8326_16199c927f31);
 }
 impl ::windows::core::RuntimeName for StoreProductOptions {
@@ -3413,7 +3413,7 @@ unsafe impl ::windows::core::RuntimeType for StoreProductPagedQueryResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProductPagedQueryResult;{c92718c5-4dd5-4869-a462-ecc6872e43c5})");
 }
 unsafe impl ::windows::core::Interface for StoreProductPagedQueryResult {
-    type Vtable = IStoreProductPagedQueryResultVtbl;
+    type Vtable = IStoreProductPagedQueryResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc92718c5_4dd5_4869_a462_ecc6872e43c5);
 }
 impl ::windows::core::RuntimeName for StoreProductPagedQueryResult {
@@ -3503,7 +3503,7 @@ unsafe impl ::windows::core::RuntimeType for StoreProductQueryResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProductQueryResult;{d805e6c5-d456-4ff6-8049-9076d5165f73})");
 }
 unsafe impl ::windows::core::Interface for StoreProductQueryResult {
-    type Vtable = IStoreProductQueryResultVtbl;
+    type Vtable = IStoreProductQueryResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd805e6c5_d456_4ff6_8049_9076d5165f73);
 }
 impl ::windows::core::RuntimeName for StoreProductQueryResult {
@@ -3592,7 +3592,7 @@ unsafe impl ::windows::core::RuntimeType for StoreProductResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreProductResult;{b7674f73-3c87-4ee1-8201-f428359bd3af})");
 }
 unsafe impl ::windows::core::Interface for StoreProductResult {
-    type Vtable = IStoreProductResultVtbl;
+    type Vtable = IStoreProductResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7674f73_3c87_4ee1_8201_f428359bd3af);
 }
 impl ::windows::core::RuntimeName for StoreProductResult {
@@ -3710,7 +3710,7 @@ unsafe impl ::windows::core::RuntimeType for StorePurchaseProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePurchaseProperties;{836278f3-ff87-4364-a5b4-fd2153ebe43b})");
 }
 unsafe impl ::windows::core::Interface for StorePurchaseProperties {
-    type Vtable = IStorePurchasePropertiesVtbl;
+    type Vtable = IStorePurchaseProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x836278f3_ff87_4364_a5b4_fd2153ebe43b);
 }
 impl ::windows::core::RuntimeName for StorePurchaseProperties {
@@ -3799,7 +3799,7 @@ unsafe impl ::windows::core::RuntimeType for StorePurchaseResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StorePurchaseResult;{add28552-f96a-463d-a7bb-c20b4fca6952})");
 }
 unsafe impl ::windows::core::Interface for StorePurchaseResult {
-    type Vtable = IStorePurchaseResultVtbl;
+    type Vtable = IStorePurchaseResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadd28552_f96a_463d_a7bb_c20b4fca6952);
 }
 impl ::windows::core::RuntimeName for StorePurchaseResult {
@@ -3997,7 +3997,7 @@ unsafe impl ::windows::core::RuntimeType for StoreQueueItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreQueueItem;{56d5c32b-f830-4293-9188-cad2dcde7357})");
 }
 unsafe impl ::windows::core::Interface for StoreQueueItem {
-    type Vtable = IStoreQueueItemVtbl;
+    type Vtable = IStoreQueueItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56d5c32b_f830_4293_9188_cad2dcde7357);
 }
 impl ::windows::core::RuntimeName for StoreQueueItem {
@@ -4078,7 +4078,7 @@ unsafe impl ::windows::core::RuntimeType for StoreQueueItemCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreQueueItemCompletedEventArgs;{1247df6c-b44a-439b-bb07-1d3003d005c2})");
 }
 unsafe impl ::windows::core::Interface for StoreQueueItemCompletedEventArgs {
-    type Vtable = IStoreQueueItemCompletedEventArgsVtbl;
+    type Vtable = IStoreQueueItemCompletedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1247df6c_b44a_439b_bb07_1d3003d005c2);
 }
 impl ::windows::core::RuntimeName for StoreQueueItemCompletedEventArgs {
@@ -4299,7 +4299,7 @@ unsafe impl ::windows::core::RuntimeType for StoreQueueItemStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreQueueItemStatus;{9bd6796f-9cc3-4ec3-b2ef-7be433b30174})");
 }
 unsafe impl ::windows::core::Interface for StoreQueueItemStatus {
-    type Vtable = IStoreQueueItemStatusVtbl;
+    type Vtable = IStoreQueueItemStatus_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bd6796f_9cc3_4ec3_b2ef_7be433b30174);
 }
 impl ::windows::core::RuntimeName for StoreQueueItemStatus {
@@ -4404,7 +4404,7 @@ unsafe impl ::windows::core::RuntimeType for StoreRateAndReviewResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreRateAndReviewResult;{9d209d56-a6b5-4121-9b61-ee6d0fbdbdbb})");
 }
 unsafe impl ::windows::core::Interface for StoreRateAndReviewResult {
-    type Vtable = IStoreRateAndReviewResultVtbl;
+    type Vtable = IStoreRateAndReviewResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d209d56_a6b5_4121_9b61_ee6d0fbdbdbb);
 }
 impl ::windows::core::RuntimeName for StoreRateAndReviewResult {
@@ -4557,7 +4557,7 @@ unsafe impl ::windows::core::RuntimeType for StoreSendRequestResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreSendRequestResult;{c73abe60-8272-4502-8a69-6e75153a4299})");
 }
 unsafe impl ::windows::core::Interface for StoreSendRequestResult {
-    type Vtable = IStoreSendRequestResultVtbl;
+    type Vtable = IStoreSendRequestResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc73abe60_8272_4502_8a69_6e75153a4299);
 }
 impl ::windows::core::RuntimeName for StoreSendRequestResult {
@@ -4789,7 +4789,7 @@ unsafe impl ::windows::core::RuntimeType for StoreSku {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreSku;{397e6f55-4440-4f03-863c-91f3fec83d79})");
 }
 unsafe impl ::windows::core::Interface for StoreSku {
-    type Vtable = IStoreSkuVtbl;
+    type Vtable = IStoreSku_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x397e6f55_4440_4f03_863c_91f3fec83d79);
 }
 impl ::windows::core::RuntimeName for StoreSku {
@@ -4902,7 +4902,7 @@ unsafe impl ::windows::core::RuntimeType for StoreSubscriptionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreSubscriptionInfo;{4189776a-0559-43ac-a9c6-3ab0011fb8eb})");
 }
 unsafe impl ::windows::core::Interface for StoreSubscriptionInfo {
-    type Vtable = IStoreSubscriptionInfoVtbl;
+    type Vtable = IStoreSubscriptionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4189776a_0559_43ac_a9c6_3ab0011fb8eb);
 }
 impl ::windows::core::RuntimeName for StoreSubscriptionInfo {
@@ -4991,7 +4991,7 @@ unsafe impl ::windows::core::RuntimeType for StoreUninstallStorePackageResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreUninstallStorePackageResult;{9fca39fd-126f-4cda-b801-1346b8d0a260})");
 }
 unsafe impl ::windows::core::Interface for StoreUninstallStorePackageResult {
-    type Vtable = IStoreUninstallStorePackageResultVtbl;
+    type Vtable = IStoreUninstallStorePackageResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fca39fd_126f_4cda_b801_1346b8d0a260);
 }
 impl ::windows::core::RuntimeName for StoreUninstallStorePackageResult {
@@ -5149,7 +5149,7 @@ unsafe impl ::windows::core::RuntimeType for StoreVideo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Store.StoreVideo;{f26cb184-6f5e-4dc2-886c-3c63083c2f94})");
 }
 unsafe impl ::windows::core::Interface for StoreVideo {
-    type Vtable = IStoreVideoVtbl;
+    type Vtable = IStoreVideo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf26cb184_6f5e_4dc2_886c_3c63083c2f94);
 }
 impl ::windows::core::RuntimeName for StoreVideo {

@@ -1917,12 +1917,12 @@ impl ::core::fmt::Debug for IRichEditOle {
     }
 }
 unsafe impl ::windows::core::Interface for IRichEditOle {
-    type Vtable = IRichEditOleVtbl;
+    type Vtable = IRichEditOle_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020d00_0000_0000_c000_000000000046);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRichEditOleVtbl {
+pub struct IRichEditOle_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Ole")]
     pub GetClientSite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lplpolesite: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2064,12 +2064,12 @@ impl ::core::fmt::Debug for IRichEditOleCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IRichEditOleCallback {
-    type Vtable = IRichEditOleCallbackVtbl;
+    type Vtable = IRichEditOleCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020d03_0000_0000_c000_000000000046);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRichEditOleCallbackVtbl {
+pub struct IRichEditOleCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub GetNewStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lplpstg: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2159,12 +2159,12 @@ impl ::core::fmt::Debug for IRicheditUiaOverrides {
     }
 }
 unsafe impl ::windows::core::Interface for IRicheditUiaOverrides {
-    type Vtable = IRicheditUiaOverridesVtbl;
+    type Vtable = IRicheditUiaOverrides_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRicheditUiaOverridesVtbl {
+pub struct IRicheditUiaOverrides_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetPropertyOverrideValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32, pretvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -2270,14 +2270,14 @@ impl ::core::fmt::Debug for ITextDisplays {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITextDisplays {
-    type Vtable = ITextDisplaysVtbl;
+    type Vtable = ITextDisplays_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241f5f2_7206_11d8_a2c7_00a0d1d6c6b3);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextDisplaysVtbl {
-    pub base: super::super::super::System::Com::IDispatchVtbl,
+pub struct ITextDisplays_Vtbl {
+    pub base: super::super::super::System::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -2473,14 +2473,14 @@ impl ::core::fmt::Debug for ITextDocument {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITextDocument {
-    type Vtable = ITextDocumentVtbl;
+    type Vtable = ITextDocument_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cc497c0_a1df_11ce_8098_00aa0047be5d);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextDocumentVtbl {
-    pub base: super::super::super::System::Com::IDispatchVtbl,
+pub struct ITextDocument_Vtbl {
+    pub base: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2952,14 +2952,14 @@ impl ::core::fmt::Debug for ITextDocument2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITextDocument2 {
-    type Vtable = ITextDocument2Vtbl;
+    type Vtable = ITextDocument2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241f5e0_7206_11d8_a2c7_00a0d1d6c6b3);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextDocument2Vtbl {
-    pub base: ITextDocumentVtbl,
+pub struct ITextDocument2_Vtbl {
+    pub base: ITextDocument_Vtbl,
     pub GetCaretType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT,
     pub SetCaretType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -3369,14 +3369,14 @@ impl ::core::fmt::Debug for ITextDocument2Old {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITextDocument2Old {
-    type Vtable = ITextDocument2OldVtbl;
+    type Vtable = ITextDocument2Old_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01c25500_4268_11d1_883a_3c8b00c10000);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextDocument2OldVtbl {
-    pub base: ITextDocumentVtbl,
+pub struct ITextDocument2Old_Vtbl {
+    pub base: ITextDocument_Vtbl,
     pub AttachMsgFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetEffectColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, cr: u32) -> ::windows::core::HRESULT,
     pub GetEffectColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pcr: *mut u32) -> ::windows::core::HRESULT,
@@ -3766,14 +3766,14 @@ impl ::core::fmt::Debug for ITextFont {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITextFont {
-    type Vtable = ITextFontVtbl;
+    type Vtable = ITextFont_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cc497c3_a1df_11ce_8098_00aa0047be5d);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextFontVtbl {
-    pub base: super::super::super::System::Com::IDispatchVtbl,
+pub struct ITextFont_Vtbl {
+    pub base: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetDuplicate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppfont: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4430,14 +4430,14 @@ impl ::core::fmt::Debug for ITextFont2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITextFont2 {
-    type Vtable = ITextFont2Vtbl;
+    type Vtable = ITextFont2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241f5e3_7206_11d8_a2c7_00a0d1d6c6b3);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextFont2Vtbl {
-    pub base: ITextFontVtbl,
+pub struct ITextFont2_Vtbl {
+    pub base: ITextFont_Vtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
     pub GetAutoLigatures: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT,
     pub SetAutoLigatures: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
@@ -4715,12 +4715,12 @@ impl ::core::fmt::Debug for ITextHost {
     }
 }
 unsafe impl ::windows::core::Interface for ITextHost {
-    type Vtable = ITextHostVtbl;
+    type Vtable = ITextHost_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextHostVtbl {
+pub struct ITextHost_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub TxGetDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::super::Graphics::Gdi::HDC,
@@ -5122,13 +5122,13 @@ impl ::core::fmt::Debug for ITextHost2 {
     }
 }
 unsafe impl ::windows::core::Interface for ITextHost2 {
-    type Vtable = ITextHost2Vtbl;
+    type Vtable = ITextHost2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextHost2Vtbl {
-    pub base: ITextHostVtbl,
+pub struct ITextHost2_Vtbl {
+    pub base: ITextHost_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub TxIsDoubleClickPending: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5475,14 +5475,14 @@ impl ::core::fmt::Debug for ITextPara {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITextPara {
-    type Vtable = ITextParaVtbl;
+    type Vtable = ITextPara_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cc497c4_a1df_11ce_8098_00aa0047be5d);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextParaVtbl {
-    pub base: super::super::super::System::Com::IDispatchVtbl,
+pub struct ITextPara_Vtbl {
+    pub base: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetDuplicate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppara: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5958,14 +5958,14 @@ impl ::core::fmt::Debug for ITextPara2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITextPara2 {
-    type Vtable = ITextPara2Vtbl;
+    type Vtable = ITextPara2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241f5e4_7206_11d8_a2c7_00a0d1d6c6b3);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextPara2Vtbl {
-    pub base: ITextParaVtbl,
+pub struct ITextPara2_Vtbl {
+    pub base: ITextPara_Vtbl,
     pub GetBorders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppborders: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetDuplicate2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppara: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6355,14 +6355,14 @@ impl ::core::fmt::Debug for ITextRange {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITextRange {
-    type Vtable = ITextRangeVtbl;
+    type Vtable = ITextRange_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cc497c2_a1df_11ce_8098_00aa0047be5d);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextRangeVtbl {
-    pub base: super::super::super::System::Com::IDispatchVtbl,
+pub struct ITextRange_Vtbl {
+    pub base: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7142,14 +7142,14 @@ impl ::core::fmt::Debug for ITextRange2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITextRange2 {
-    type Vtable = ITextRange2Vtbl;
+    type Vtable = ITextRange2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241f5e2_7206_11d8_a2c7_00a0d1d6c6b3);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextRange2Vtbl {
-    pub base: ITextSelectionVtbl,
+pub struct ITextRange2_Vtbl {
+    pub base: ITextSelection_Vtbl,
     pub GetCch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcch: *mut i32) -> ::windows::core::HRESULT,
     pub GetCells: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcells: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetColumn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolumn: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7541,14 +7541,14 @@ impl ::core::fmt::Debug for ITextRow {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITextRow {
-    type Vtable = ITextRowVtbl;
+    type Vtable = ITextRow_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241f5ef_7206_11d8_a2c7_00a0d1d6c6b3);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextRowVtbl {
-    pub base: super::super::super::System::Com::IDispatchVtbl,
+pub struct ITextRow_Vtbl {
+    pub base: super::super::super::System::Com::IDispatch_Vtbl,
     pub GetAlignment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT,
     pub SetAlignment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
     pub GetCellCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT,
@@ -8035,14 +8035,14 @@ impl ::core::fmt::Debug for ITextSelection {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITextSelection {
-    type Vtable = ITextSelectionVtbl;
+    type Vtable = ITextSelection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cc497c1_a1df_11ce_8098_00aa0047be5d);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextSelectionVtbl {
-    pub base: ITextRangeVtbl,
+pub struct ITextSelection_Vtbl {
+    pub base: ITextRange_Vtbl,
     pub GetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflags: *mut i32) -> ::windows::core::HRESULT,
     pub SetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32) -> ::windows::core::HRESULT,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut i32) -> ::windows::core::HRESULT,
@@ -8733,14 +8733,14 @@ impl ::core::fmt::Debug for ITextSelection2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITextSelection2 {
-    type Vtable = ITextSelection2Vtbl;
+    type Vtable = ITextSelection2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241f5e1_7206_11d8_a2c7_00a0d1d6c6b3);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextSelection2Vtbl {
-    pub base: ITextRange2Vtbl,
+pub struct ITextSelection2_Vtbl {
+    pub base: ITextRange2_Vtbl,
 }
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 #[repr(transparent)]
@@ -8868,12 +8868,12 @@ impl ::core::fmt::Debug for ITextServices {
     }
 }
 unsafe impl ::windows::core::Interface for ITextServices {
-    type Vtable = ITextServicesVtbl;
+    type Vtable = ITextServices_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextServicesVtbl {
+pub struct ITextServices_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub TxSendMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
@@ -9083,13 +9083,13 @@ impl ::core::fmt::Debug for ITextServices2 {
     }
 }
 unsafe impl ::windows::core::Interface for ITextServices2 {
-    type Vtable = ITextServices2Vtbl;
+    type Vtable = ITextServices2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextServices2Vtbl {
-    pub base: ITextServicesVtbl,
+pub struct ITextServices2_Vtbl {
+    pub base: ITextServices_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub TxGetNaturalSize2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaspect: u32, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32, pascent: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))]
@@ -9199,12 +9199,12 @@ impl ::core::fmt::Debug for ITextStory {
     }
 }
 unsafe impl ::windows::core::Interface for ITextStory {
-    type Vtable = ITextStoryVtbl;
+    type Vtable = ITextStory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241f5f3_7206_11d8_a2c7_00a0d1d6c6b3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextStoryVtbl {
+pub struct ITextStory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT,
     pub SetActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
@@ -9343,14 +9343,14 @@ impl ::core::fmt::Debug for ITextStoryRanges {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITextStoryRanges {
-    type Vtable = ITextStoryRangesVtbl;
+    type Vtable = ITextStoryRanges_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cc497c5_a1df_11ce_8098_00aa0047be5d);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextStoryRangesVtbl {
-    pub base: super::super::super::System::Com::IDispatchVtbl,
+pub struct ITextStoryRanges_Vtbl {
+    pub base: super::super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pprange: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9503,14 +9503,14 @@ impl ::core::fmt::Debug for ITextStoryRanges2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITextStoryRanges2 {
-    type Vtable = ITextStoryRanges2Vtbl;
+    type Vtable = ITextStoryRanges2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241f5e5_7206_11d8_a2c7_00a0d1d6c6b3);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextStoryRanges2Vtbl {
-    pub base: ITextStoryRangesVtbl,
+pub struct ITextStoryRanges2_Vtbl {
+    pub base: ITextStoryRanges_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Item2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pprange: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -9695,14 +9695,14 @@ impl ::core::fmt::Debug for ITextStrings {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITextStrings {
-    type Vtable = ITextStringsVtbl;
+    type Vtable = ITextStrings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241f5e7_7206_11d8_a2c7_00a0d1d6c6b3);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextStringsVtbl {
-    pub base: super::super::super::System::Com::IDispatchVtbl,
+pub struct ITextStrings_Vtbl {
+    pub base: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pprange: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]

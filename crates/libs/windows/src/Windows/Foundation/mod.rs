@@ -23,12 +23,12 @@ impl AsyncActionCompletedHandler {
 }
 #[repr(C)]
 struct AsyncActionCompletedHandlerBox<F: FnMut(&::core::option::Option<IAsyncAction>, AsyncStatus) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const AsyncActionCompletedHandlerVtbl,
+    vtable: *const AsyncActionCompletedHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<IAsyncAction>, AsyncStatus) -> ::windows::core::Result<()> + 'static> AsyncActionCompletedHandlerBox<F> {
-    const VTABLE: AsyncActionCompletedHandlerVtbl = AsyncActionCompletedHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: AsyncActionCompletedHandler_Vtbl = AsyncActionCompletedHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<AsyncActionCompletedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -73,7 +73,7 @@ impl ::core::fmt::Debug for AsyncActionCompletedHandler {
     }
 }
 unsafe impl ::windows::core::Interface for AsyncActionCompletedHandler {
-    type Vtable = AsyncActionCompletedHandlerVtbl;
+    type Vtable = AsyncActionCompletedHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4ed5c81_76c9_40bd_8be6_b1d90fb20ae7);
 }
 unsafe impl ::windows::core::RuntimeType for AsyncActionCompletedHandler {
@@ -81,7 +81,7 @@ unsafe impl ::windows::core::RuntimeType for AsyncActionCompletedHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AsyncActionCompletedHandlerVtbl {
+pub struct AsyncActionCompletedHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, asyncinfo: ::windows::core::RawPtr, asyncstatus: AsyncStatus) -> ::windows::core::HRESULT,
 }
@@ -106,12 +106,12 @@ struct AsyncActionProgressHandlerBox<TProgress, F: FnMut(&::core::option::Option
 where
     TProgress: ::windows::core::RuntimeType + 'static,
 {
-    vtable: *const AsyncActionProgressHandlerVtbl<TProgress>,
+    vtable: *const AsyncActionProgressHandler_Vtbl<TProgress>,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<TProgress: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option<IAsyncActionWithProgress<TProgress>>, &<TProgress as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<()> + 'static> AsyncActionProgressHandlerBox<TProgress, F> {
-    const VTABLE: AsyncActionProgressHandlerVtbl<TProgress> = AsyncActionProgressHandlerVtbl::<TProgress> {
+    const VTABLE: AsyncActionProgressHandler_Vtbl<TProgress> = AsyncActionProgressHandler_Vtbl::<TProgress> {
         base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
         TProgress: ::core::marker::PhantomData::<TProgress>,
@@ -160,7 +160,7 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for A
     }
 }
 unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for AsyncActionProgressHandler<TProgress> {
-    type Vtable = AsyncActionProgressHandlerVtbl<TProgress>;
+    type Vtable = AsyncActionProgressHandler_Vtbl<TProgress>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for AsyncActionProgressHandler<TProgress> {
@@ -168,7 +168,7 @@ unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AsyncActionProgressHandlerVtbl<TProgress>
+pub struct AsyncActionProgressHandler_Vtbl<TProgress>
 where
     TProgress: ::windows::core::RuntimeType + 'static,
 {
@@ -197,12 +197,12 @@ struct AsyncActionWithProgressCompletedHandlerBox<TProgress, F: FnMut(&::core::o
 where
     TProgress: ::windows::core::RuntimeType + 'static,
 {
-    vtable: *const AsyncActionWithProgressCompletedHandlerVtbl<TProgress>,
+    vtable: *const AsyncActionWithProgressCompletedHandler_Vtbl<TProgress>,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<TProgress: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option<IAsyncActionWithProgress<TProgress>>, AsyncStatus) -> ::windows::core::Result<()> + 'static> AsyncActionWithProgressCompletedHandlerBox<TProgress, F> {
-    const VTABLE: AsyncActionWithProgressCompletedHandlerVtbl<TProgress> = AsyncActionWithProgressCompletedHandlerVtbl::<TProgress> {
+    const VTABLE: AsyncActionWithProgressCompletedHandler_Vtbl<TProgress> = AsyncActionWithProgressCompletedHandler_Vtbl::<TProgress> {
         base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
         TProgress: ::core::marker::PhantomData::<TProgress>,
@@ -251,7 +251,7 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for A
     }
 }
 unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for AsyncActionWithProgressCompletedHandler<TProgress> {
-    type Vtable = AsyncActionWithProgressCompletedHandlerVtbl<TProgress>;
+    type Vtable = AsyncActionWithProgressCompletedHandler_Vtbl<TProgress>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for AsyncActionWithProgressCompletedHandler<TProgress> {
@@ -259,7 +259,7 @@ unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AsyncActionWithProgressCompletedHandlerVtbl<TProgress>
+pub struct AsyncActionWithProgressCompletedHandler_Vtbl<TProgress>
 where
     TProgress: ::windows::core::RuntimeType + 'static,
 {
@@ -288,12 +288,12 @@ struct AsyncOperationCompletedHandlerBox<TResult, F: FnMut(&::core::option::Opti
 where
     TResult: ::windows::core::RuntimeType + 'static,
 {
-    vtable: *const AsyncOperationCompletedHandlerVtbl<TResult>,
+    vtable: *const AsyncOperationCompletedHandler_Vtbl<TResult>,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<TResult: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option<IAsyncOperation<TResult>>, AsyncStatus) -> ::windows::core::Result<()> + 'static> AsyncOperationCompletedHandlerBox<TResult, F> {
-    const VTABLE: AsyncOperationCompletedHandlerVtbl<TResult> = AsyncOperationCompletedHandlerVtbl::<TResult> {
+    const VTABLE: AsyncOperationCompletedHandler_Vtbl<TResult> = AsyncOperationCompletedHandler_Vtbl::<TResult> {
         base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
         TResult: ::core::marker::PhantomData::<TResult>,
@@ -342,7 +342,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for Asy
     }
 }
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for AsyncOperationCompletedHandler<TResult> {
-    type Vtable = AsyncOperationCompletedHandlerVtbl<TResult>;
+    type Vtable = AsyncOperationCompletedHandler_Vtbl<TResult>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for AsyncOperationCompletedHandler<TResult> {
@@ -350,7 +350,7 @@ unsafe impl<TResult: ::windows::core::RuntimeType + 'static> ::windows::core::Ru
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AsyncOperationCompletedHandlerVtbl<TResult>
+pub struct AsyncOperationCompletedHandler_Vtbl<TResult>
 where
     TResult: ::windows::core::RuntimeType + 'static,
 {
@@ -381,12 +381,12 @@ where
     TResult: ::windows::core::RuntimeType + 'static,
     TProgress: ::windows::core::RuntimeType + 'static,
 {
-    vtable: *const AsyncOperationProgressHandlerVtbl<TResult, TProgress>,
+    vtable: *const AsyncOperationProgressHandler_Vtbl<TResult, TProgress>,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option<IAsyncOperationWithProgress<TResult, TProgress>>, &<TProgress as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<()> + 'static> AsyncOperationProgressHandlerBox<TResult, TProgress, F> {
-    const VTABLE: AsyncOperationProgressHandlerVtbl<TResult, TProgress> = AsyncOperationProgressHandlerVtbl::<TResult, TProgress> {
+    const VTABLE: AsyncOperationProgressHandler_Vtbl<TResult, TProgress> = AsyncOperationProgressHandler_Vtbl::<TResult, TProgress> {
         base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
         TResult: ::core::marker::PhantomData::<TResult>,
@@ -436,7 +436,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
     }
 }
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for AsyncOperationProgressHandler<TResult, TProgress> {
-    type Vtable = AsyncOperationProgressHandlerVtbl<TResult, TProgress>;
+    type Vtable = AsyncOperationProgressHandler_Vtbl<TResult, TProgress>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for AsyncOperationProgressHandler<TResult, TProgress> {
@@ -444,7 +444,7 @@ unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::window
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AsyncOperationProgressHandlerVtbl<TResult, TProgress>
+pub struct AsyncOperationProgressHandler_Vtbl<TResult, TProgress>
 where
     TResult: ::windows::core::RuntimeType + 'static,
     TProgress: ::windows::core::RuntimeType + 'static,
@@ -477,12 +477,12 @@ where
     TResult: ::windows::core::RuntimeType + 'static,
     TProgress: ::windows::core::RuntimeType + 'static,
 {
-    vtable: *const AsyncOperationWithProgressCompletedHandlerVtbl<TResult, TProgress>,
+    vtable: *const AsyncOperationWithProgressCompletedHandler_Vtbl<TResult, TProgress>,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option<IAsyncOperationWithProgress<TResult, TProgress>>, AsyncStatus) -> ::windows::core::Result<()> + 'static> AsyncOperationWithProgressCompletedHandlerBox<TResult, TProgress, F> {
-    const VTABLE: AsyncOperationWithProgressCompletedHandlerVtbl<TResult, TProgress> = AsyncOperationWithProgressCompletedHandlerVtbl::<TResult, TProgress> {
+    const VTABLE: AsyncOperationWithProgressCompletedHandler_Vtbl<TResult, TProgress> = AsyncOperationWithProgressCompletedHandler_Vtbl::<TResult, TProgress> {
         base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
         TResult: ::core::marker::PhantomData::<TResult>,
@@ -532,7 +532,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
     }
 }
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
-    type Vtable = AsyncOperationWithProgressCompletedHandlerVtbl<TResult, TProgress>;
+    type Vtable = AsyncOperationWithProgressCompletedHandler_Vtbl<TResult, TProgress>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
@@ -540,7 +540,7 @@ unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::window
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AsyncOperationWithProgressCompletedHandlerVtbl<TResult, TProgress>
+pub struct AsyncOperationWithProgressCompletedHandler_Vtbl<TResult, TProgress>
 where
     TResult: ::windows::core::RuntimeType + 'static,
     TProgress: ::windows::core::RuntimeType + 'static,
@@ -668,7 +668,7 @@ unsafe impl ::windows::core::RuntimeType for Deferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Deferral;{d6269732-3b7f-46a7-b40b-4fdca2a2c693})");
 }
 unsafe impl ::windows::core::Interface for Deferral {
-    type Vtable = IDeferralVtbl;
+    type Vtable = IDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6269732_3b7f_46a7_b40b_4fdca2a2c693);
 }
 impl ::windows::core::RuntimeName for Deferral {
@@ -754,12 +754,12 @@ impl DeferralCompletedHandler {
 }
 #[repr(C)]
 struct DeferralCompletedHandlerBox<F: FnMut() -> ::windows::core::Result<()> + 'static> {
-    vtable: *const DeferralCompletedHandlerVtbl,
+    vtable: *const DeferralCompletedHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut() -> ::windows::core::Result<()> + 'static> DeferralCompletedHandlerBox<F> {
-    const VTABLE: DeferralCompletedHandlerVtbl = DeferralCompletedHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: DeferralCompletedHandler_Vtbl = DeferralCompletedHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<DeferralCompletedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -804,7 +804,7 @@ impl ::core::fmt::Debug for DeferralCompletedHandler {
     }
 }
 unsafe impl ::windows::core::Interface for DeferralCompletedHandler {
-    type Vtable = DeferralCompletedHandlerVtbl;
+    type Vtable = DeferralCompletedHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed32a372_f3c8_4faa_9cfb_470148da3888);
 }
 unsafe impl ::windows::core::RuntimeType for DeferralCompletedHandler {
@@ -812,7 +812,7 @@ unsafe impl ::windows::core::RuntimeType for DeferralCompletedHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct DeferralCompletedHandlerVtbl {
+pub struct DeferralCompletedHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -837,12 +837,12 @@ struct EventHandlerBox<T, F: FnMut(&::core::option::Option<::windows::core::IIns
 where
     T: ::windows::core::RuntimeType + 'static,
 {
-    vtable: *const EventHandlerVtbl<T>,
+    vtable: *const EventHandler_Vtbl<T>,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<T: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &<T as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<()> + 'static> EventHandlerBox<T, F> {
-    const VTABLE: EventHandlerVtbl<T> = EventHandlerVtbl::<T> {
+    const VTABLE: EventHandler_Vtbl<T> = EventHandler_Vtbl::<T> {
         base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
         T: ::core::marker::PhantomData::<T>,
@@ -891,7 +891,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for EventHand
     }
 }
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for EventHandler<T> {
-    type Vtable = EventHandlerVtbl<T>;
+    type Vtable = EventHandler_Vtbl<T>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for EventHandler<T> {
@@ -899,7 +899,7 @@ unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeT
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct EventHandlerVtbl<T>
+pub struct EventHandler_Vtbl<T>
 where
     T: ::windows::core::RuntimeType + 'static,
 {
@@ -1148,12 +1148,12 @@ impl ::std::future::Future for IAsyncAction {
 unsafe impl ::core::marker::Send for IAsyncAction {}
 unsafe impl ::core::marker::Sync for IAsyncAction {}
 unsafe impl ::windows::core::Interface for IAsyncAction {
-    type Vtable = IAsyncActionVtbl;
+    type Vtable = IAsyncAction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a648006_843a_4da9_865b_9d26e5dfad7b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAsyncActionVtbl {
+pub struct IAsyncAction_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Completed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1346,12 +1346,12 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> ::std::future::Future fo
 unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::marker::Send for IAsyncActionWithProgress<TProgress> {}
 unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::marker::Sync for IAsyncActionWithProgress<TProgress> {}
 unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for IAsyncActionWithProgress<TProgress> {
-    type Vtable = IAsyncActionWithProgressVtbl<TProgress>;
+    type Vtable = IAsyncActionWithProgress_Vtbl<TProgress>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAsyncActionWithProgressVtbl<TProgress>
+pub struct IAsyncActionWithProgress_Vtbl<TProgress>
 where
     TProgress: ::windows::core::RuntimeType + 'static,
 {
@@ -1462,12 +1462,12 @@ unsafe impl ::windows::core::RuntimeType for IAsyncInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{00000036-0000-0000-c000-000000000046}");
 }
 unsafe impl ::windows::core::Interface for IAsyncInfo {
-    type Vtable = IAsyncInfoVtbl;
+    type Vtable = IAsyncInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000036_0000_0000_c000_000000000046);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAsyncInfoVtbl {
+pub struct IAsyncInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AsyncStatus) -> ::windows::core::HRESULT,
@@ -1652,12 +1652,12 @@ impl<TResult: ::windows::core::RuntimeType + 'static> ::std::future::Future for 
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static> ::core::marker::Send for IAsyncOperation<TResult> {}
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static> ::core::marker::Sync for IAsyncOperation<TResult> {}
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for IAsyncOperation<TResult> {
-    type Vtable = IAsyncOperationVtbl<TResult>;
+    type Vtable = IAsyncOperation_Vtbl<TResult>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAsyncOperationVtbl<TResult>
+pub struct IAsyncOperation_Vtbl<TResult>
 where
     TResult: ::windows::core::RuntimeType + 'static,
 {
@@ -1858,12 +1858,12 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::marker::Send for IAsyncOperationWithProgress<TResult, TProgress> {}
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::marker::Sync for IAsyncOperationWithProgress<TResult, TProgress> {}
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for IAsyncOperationWithProgress<TResult, TProgress> {
-    type Vtable = IAsyncOperationWithProgressVtbl<TResult, TProgress>;
+    type Vtable = IAsyncOperationWithProgress_Vtbl<TResult, TProgress>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAsyncOperationWithProgressVtbl<TResult, TProgress>
+pub struct IAsyncOperationWithProgress_Vtbl<TResult, TProgress>
 where
     TResult: ::windows::core::RuntimeType + 'static,
     TProgress: ::windows::core::RuntimeType + 'static,
@@ -1947,12 +1947,12 @@ unsafe impl ::windows::core::RuntimeType for IClosable {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{30d5a829-7fa4-4026-83bb-d75bae4ea99e}");
 }
 unsafe impl ::windows::core::Interface for IClosable {
-    type Vtable = IClosableVtbl;
+    type Vtable = IClosable_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30d5a829_7fa4_4026_83bb_d75bae4ea99e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClosableVtbl {
+pub struct IClosable_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -1960,12 +1960,12 @@ pub struct IClosableVtbl {
 #[repr(transparent)]
 pub struct IDeferral(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeferral {
-    type Vtable = IDeferralVtbl;
+    type Vtable = IDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6269732_3b7f_46a7_b40b_4fdca2a2c693);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeferralVtbl {
+pub struct IDeferral_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -1973,12 +1973,12 @@ pub struct IDeferralVtbl {
 #[repr(transparent)]
 pub struct IDeferralFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeferralFactory {
-    type Vtable = IDeferralFactoryVtbl;
+    type Vtable = IDeferralFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65a1ecc5_3fb5_4832_8ca9_f061b281d13a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeferralFactoryVtbl {
+pub struct IDeferralFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2055,12 +2055,12 @@ unsafe impl ::windows::core::RuntimeType for IGetActivationFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4edb8ee2-96dd-49a7-94f7-4607ddab8e3c}");
 }
 unsafe impl ::windows::core::Interface for IGetActivationFactory {
-    type Vtable = IGetActivationFactoryVtbl;
+    type Vtable = IGetActivationFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4edb8ee2_96dd_49a7_94f7_4607ddab8e3c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGetActivationFactoryVtbl {
+pub struct IGetActivationFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetActivationFactory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -2068,12 +2068,12 @@ pub struct IGetActivationFactoryVtbl {
 #[repr(transparent)]
 pub struct IGuidHelperStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidHelperStatics {
-    type Vtable = IGuidHelperStaticsVtbl;
+    type Vtable = IGuidHelperStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59c7966b_ae52_5283_ad7f_a1b9e9678add);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGuidHelperStaticsVtbl {
+pub struct IGuidHelperStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateNewGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub Empty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -2179,12 +2179,12 @@ unsafe impl ::windows::core::RuntimeType for IMemoryBuffer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fbc4dd2a-245b-11e4-af98-689423260cf8}");
 }
 unsafe impl ::windows::core::Interface for IMemoryBuffer {
-    type Vtable = IMemoryBufferVtbl;
+    type Vtable = IMemoryBuffer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc4dd2a_245b_11e4_af98_689423260cf8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMemoryBufferVtbl {
+pub struct IMemoryBuffer_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2192,12 +2192,12 @@ pub struct IMemoryBufferVtbl {
 #[repr(transparent)]
 pub struct IMemoryBufferFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMemoryBufferFactory {
-    type Vtable = IMemoryBufferFactoryVtbl;
+    type Vtable = IMemoryBufferFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc4dd2b_245b_11e4_af98_689423260cf8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMemoryBufferFactoryVtbl {
+pub struct IMemoryBufferFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capacity: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2314,12 +2314,12 @@ unsafe impl ::windows::core::RuntimeType for IMemoryBufferReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fbc4dd29-245b-11e4-af98-689423260cf8}");
 }
 unsafe impl ::windows::core::Interface for IMemoryBufferReference {
-    type Vtable = IMemoryBufferReferenceVtbl;
+    type Vtable = IMemoryBufferReference_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc4dd29_245b_11e4_af98_689423260cf8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMemoryBufferReferenceVtbl {
+pub struct IMemoryBufferReference_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Capacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub Closed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -2645,12 +2645,12 @@ unsafe impl ::windows::core::RuntimeType for IPropertyValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4bd682dd-7554-40e9-9a9b-82654ede7e62}");
 }
 unsafe impl ::windows::core::Interface for IPropertyValue {
-    type Vtable = IPropertyValueVtbl;
+    type Vtable = IPropertyValue_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bd682dd_7554_40e9_9a9b_82654ede7e62);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyValueVtbl {
+pub struct IPropertyValue_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PropertyType) -> ::windows::core::HRESULT,
     pub IsNumericScalar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -2696,12 +2696,12 @@ pub struct IPropertyValueVtbl {
 #[repr(transparent)]
 pub struct IPropertyValueStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPropertyValueStatics {
-    type Vtable = IPropertyValueStaticsVtbl;
+    type Vtable = IPropertyValueStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x629bdbc8_d932_4ff4_96b9_8d96c5c1e858);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyValueStaticsVtbl {
+pub struct IPropertyValueStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateEmpty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateUInt8: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3095,12 +3095,12 @@ unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeT
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{61c17706-2d65-11e0-9ae8-d48564015472}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for IReference<T> {
-    type Vtable = IReferenceVtbl<T>;
+    type Vtable = IReference_Vtbl<T>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IReferenceVtbl<T>
+pub struct IReference_Vtbl<T>
 where
     T: ::windows::core::RuntimeType + 'static,
 {
@@ -3460,12 +3460,12 @@ unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeT
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{61c17707-2d65-11e0-9ae8-d48564015472}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for IReferenceArray<T> {
-    type Vtable = IReferenceArrayVtbl<T>;
+    type Vtable = IReferenceArray_Vtbl<T>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IReferenceArrayVtbl<T>
+pub struct IReferenceArray_Vtbl<T>
 where
     T: ::windows::core::RuntimeType + 'static,
 {
@@ -3546,12 +3546,12 @@ unsafe impl ::windows::core::RuntimeType for IStringable {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{96369f54-8eb6-48f0-abce-c1b211e627c3}");
 }
 unsafe impl ::windows::core::Interface for IStringable {
-    type Vtable = IStringableVtbl;
+    type Vtable = IStringable_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96369f54_8eb6_48f0_abce_c1b211e627c3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStringableVtbl {
+pub struct IStringable_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -3559,12 +3559,12 @@ pub struct IStringableVtbl {
 #[repr(transparent)]
 pub struct IUriEscapeStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUriEscapeStatics {
-    type Vtable = IUriEscapeStaticsVtbl;
+    type Vtable = IUriEscapeStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1d432ba_c824_4452_a7fd_512bc3bbe9a1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUriEscapeStaticsVtbl {
+pub struct IUriEscapeStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub UnescapeComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tounescape: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub EscapeComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, toescape: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3573,12 +3573,12 @@ pub struct IUriEscapeStaticsVtbl {
 #[repr(transparent)]
 pub struct IUriRuntimeClass(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUriRuntimeClass {
-    type Vtable = IUriRuntimeClassVtbl;
+    type Vtable = IUriRuntimeClass_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e365e57_48b2_4160_956f_c7385120bbfc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUriRuntimeClassVtbl {
+pub struct IUriRuntimeClass_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AbsoluteUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DisplayUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3602,12 +3602,12 @@ pub struct IUriRuntimeClassVtbl {
 #[repr(transparent)]
 pub struct IUriRuntimeClassFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUriRuntimeClassFactory {
-    type Vtable = IUriRuntimeClassFactoryVtbl;
+    type Vtable = IUriRuntimeClassFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44a9796f_723e_4fdf_a218_033e75b0c084);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUriRuntimeClassFactoryVtbl {
+pub struct IUriRuntimeClassFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateWithRelativeUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseuri: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, relativeuri: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3616,12 +3616,12 @@ pub struct IUriRuntimeClassFactoryVtbl {
 #[repr(transparent)]
 pub struct IUriRuntimeClassWithAbsoluteCanonicalUri(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUriRuntimeClassWithAbsoluteCanonicalUri {
-    type Vtable = IUriRuntimeClassWithAbsoluteCanonicalUriVtbl;
+    type Vtable = IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x758d9661_221c_480f_a339_50656673f46f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUriRuntimeClassWithAbsoluteCanonicalUriVtbl {
+pub struct IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AbsoluteCanonicalUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DisplayIri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3707,12 +3707,12 @@ unsafe impl ::windows::core::RuntimeType for IWwwFormUrlDecoderEntry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{125e7431-f678-4e8e-b670-20a9b06c512d}");
 }
 unsafe impl ::windows::core::Interface for IWwwFormUrlDecoderEntry {
-    type Vtable = IWwwFormUrlDecoderEntryVtbl;
+    type Vtable = IWwwFormUrlDecoderEntry_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x125e7431_f678_4e8e_b670_20a9b06c512d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWwwFormUrlDecoderEntryVtbl {
+pub struct IWwwFormUrlDecoderEntry_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3721,12 +3721,12 @@ pub struct IWwwFormUrlDecoderEntryVtbl {
 #[repr(transparent)]
 pub struct IWwwFormUrlDecoderRuntimeClass(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWwwFormUrlDecoderRuntimeClass {
-    type Vtable = IWwwFormUrlDecoderRuntimeClassVtbl;
+    type Vtable = IWwwFormUrlDecoderRuntimeClass_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd45a0451_f225_4542_9296_0e1df5d254df);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWwwFormUrlDecoderRuntimeClassVtbl {
+pub struct IWwwFormUrlDecoderRuntimeClass_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetFirstValueByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -3734,12 +3734,12 @@ pub struct IWwwFormUrlDecoderRuntimeClassVtbl {
 #[repr(transparent)]
 pub struct IWwwFormUrlDecoderRuntimeClassFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWwwFormUrlDecoderRuntimeClassFactory {
-    type Vtable = IWwwFormUrlDecoderRuntimeClassFactoryVtbl;
+    type Vtable = IWwwFormUrlDecoderRuntimeClassFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b8c6b3d_24ae_41b5_a1bf_f0c3d544845b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWwwFormUrlDecoderRuntimeClassFactoryVtbl {
+pub struct IWwwFormUrlDecoderRuntimeClassFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateWwwFormUrlDecoder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, query: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -3793,7 +3793,7 @@ unsafe impl ::windows::core::RuntimeType for MemoryBuffer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.MemoryBuffer;{fbc4dd2a-245b-11e4-af98-689423260cf8})");
 }
 unsafe impl ::windows::core::Interface for MemoryBuffer {
-    type Vtable = IMemoryBufferVtbl;
+    type Vtable = IMemoryBuffer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc4dd2a_245b_11e4_af98_689423260cf8);
 }
 impl ::windows::core::RuntimeName for MemoryBuffer {
@@ -4429,12 +4429,12 @@ where
     TSender: ::windows::core::RuntimeType + 'static,
     TResult: ::windows::core::RuntimeType + 'static,
 {
-    vtable: *const TypedEventHandlerVtbl<TSender, TResult>,
+    vtable: *const TypedEventHandler_Vtbl<TSender, TResult>,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::RuntimeType + 'static, F: FnMut(&<TSender as ::windows::core::DefaultType>::DefaultType, &<TResult as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<()> + 'static> TypedEventHandlerBox<TSender, TResult, F> {
-    const VTABLE: TypedEventHandlerVtbl<TSender, TResult> = TypedEventHandlerVtbl::<TSender, TResult> {
+    const VTABLE: TypedEventHandler_Vtbl<TSender, TResult> = TypedEventHandler_Vtbl::<TSender, TResult> {
         base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
         TSender: ::core::marker::PhantomData::<TSender>,
@@ -4484,7 +4484,7 @@ impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::
     }
 }
 unsafe impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for TypedEventHandler<TSender, TResult> {
-    type Vtable = TypedEventHandlerVtbl<TSender, TResult>;
+    type Vtable = TypedEventHandler_Vtbl<TSender, TResult>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 unsafe impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for TypedEventHandler<TSender, TResult> {
@@ -4492,7 +4492,7 @@ unsafe impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows:
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct TypedEventHandlerVtbl<TSender, TResult>
+pub struct TypedEventHandler_Vtbl<TSender, TResult>
 where
     TSender: ::windows::core::RuntimeType + 'static,
     TResult: ::windows::core::RuntimeType + 'static,
@@ -4725,7 +4725,7 @@ unsafe impl ::windows::core::RuntimeType for Uri {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Uri;{9e365e57-48b2-4160-956f-c7385120bbfc})");
 }
 unsafe impl ::windows::core::Interface for Uri {
-    type Vtable = IUriRuntimeClassVtbl;
+    type Vtable = IUriRuntimeClass_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e365e57_48b2_4160_956f_c7385120bbfc);
 }
 impl ::windows::core::RuntimeName for Uri {
@@ -4885,7 +4885,7 @@ unsafe impl ::windows::core::RuntimeType for WwwFormUrlDecoder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.WwwFormUrlDecoder;{d45a0451-f225-4542-9296-0e1df5d254df})");
 }
 unsafe impl ::windows::core::Interface for WwwFormUrlDecoder {
-    type Vtable = IWwwFormUrlDecoderRuntimeClassVtbl;
+    type Vtable = IWwwFormUrlDecoderRuntimeClass_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd45a0451_f225_4542_9296_0e1df5d254df);
 }
 impl ::windows::core::RuntimeName for WwwFormUrlDecoder {
@@ -5042,7 +5042,7 @@ unsafe impl ::windows::core::RuntimeType for WwwFormUrlDecoderEntry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.WwwFormUrlDecoderEntry;{125e7431-f678-4e8e-b670-20a9b06c512d})");
 }
 unsafe impl ::windows::core::Interface for WwwFormUrlDecoderEntry {
-    type Vtable = IWwwFormUrlDecoderEntryVtbl;
+    type Vtable = IWwwFormUrlDecoderEntry_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x125e7431_f678_4e8e_b670_20a9b06c512d);
 }
 impl ::windows::core::RuntimeName for WwwFormUrlDecoderEntry {

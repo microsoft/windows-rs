@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IHolographicCameraImpl: Sized {
+pub trait IHolographicCamera_Impl: Sized {
     fn RenderTargetSize(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
     fn ViewportScaleFactor(&mut self) -> ::windows::core::Result<f64>;
     fn SetViewportScaleFactor(&mut self, value: f64) -> ::windows::core::Result<()>;
@@ -13,9 +13,9 @@ impl ::windows::core::RuntimeName for IHolographicCamera {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicCamera";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IHolographicCameraVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraVtbl {
-        unsafe extern "system" fn RenderTargetSize<Impl: IHolographicCameraImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+impl IHolographicCamera_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCamera_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCamera_Vtbl {
+        unsafe extern "system" fn RenderTargetSize<Impl: IHolographicCamera_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RenderTargetSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -26,7 +26,7 @@ impl IHolographicCameraVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ViewportScaleFactor<Impl: IHolographicCameraImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ViewportScaleFactor<Impl: IHolographicCamera_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ViewportScaleFactor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -37,11 +37,11 @@ impl IHolographicCameraVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetViewportScaleFactor<Impl: IHolographicCameraImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetViewportScaleFactor<Impl: IHolographicCamera_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetViewportScaleFactor(value).into()
         }
-        unsafe extern "system" fn IsStereo<Impl: IHolographicCameraImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStereo<Impl: IHolographicCamera_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStereo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -52,7 +52,7 @@ impl IHolographicCameraVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Id<Impl: IHolographicCameraImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Id<Impl: IHolographicCamera_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -63,11 +63,11 @@ impl IHolographicCameraVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNearPlaneDistance<Impl: IHolographicCameraImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNearPlaneDistance<Impl: IHolographicCamera_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNearPlaneDistance(value).into()
         }
-        unsafe extern "system" fn SetFarPlaneDistance<Impl: IHolographicCameraImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFarPlaneDistance<Impl: IHolographicCamera_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFarPlaneDistance(value).into()
         }
@@ -87,7 +87,7 @@ impl IHolographicCameraVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IHolographicCamera2Impl: Sized + IHolographicCameraImpl {
+pub trait IHolographicCamera2_Impl: Sized + IHolographicCamera_Impl {
     fn LeftViewportParameters(&mut self) -> ::windows::core::Result<HolographicCameraViewportParameters>;
     fn RightViewportParameters(&mut self) -> ::windows::core::Result<HolographicCameraViewportParameters>;
     fn Display(&mut self) -> ::windows::core::Result<HolographicDisplay>;
@@ -97,9 +97,9 @@ impl ::windows::core::RuntimeName for IHolographicCamera2 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicCamera2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IHolographicCamera2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCamera2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCamera2Vtbl {
-        unsafe extern "system" fn LeftViewportParameters<Impl: IHolographicCamera2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHolographicCamera2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCamera2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCamera2_Vtbl {
+        unsafe extern "system" fn LeftViewportParameters<Impl: IHolographicCamera2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LeftViewportParameters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -110,7 +110,7 @@ impl IHolographicCamera2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RightViewportParameters<Impl: IHolographicCamera2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RightViewportParameters<Impl: IHolographicCamera2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RightViewportParameters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -121,7 +121,7 @@ impl IHolographicCamera2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Display<Impl: IHolographicCamera2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Display<Impl: IHolographicCamera2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Display() {
                 ::core::result::Result::Ok(ok__) => {
@@ -144,7 +144,7 @@ impl IHolographicCamera2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IHolographicCamera3Impl: Sized + IHolographicCameraImpl + IHolographicCamera2Impl {
+pub trait IHolographicCamera3_Impl: Sized + IHolographicCamera_Impl + IHolographicCamera2_Impl {
     fn IsPrimaryLayerEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsPrimaryLayerEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn MaxQuadLayerCount(&mut self) -> ::windows::core::Result<u32>;
@@ -155,9 +155,9 @@ impl ::windows::core::RuntimeName for IHolographicCamera3 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicCamera3";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IHolographicCamera3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCamera3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCamera3Vtbl {
-        unsafe extern "system" fn IsPrimaryLayerEnabled<Impl: IHolographicCamera3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IHolographicCamera3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCamera3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCamera3_Vtbl {
+        unsafe extern "system" fn IsPrimaryLayerEnabled<Impl: IHolographicCamera3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPrimaryLayerEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -168,11 +168,11 @@ impl IHolographicCamera3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsPrimaryLayerEnabled<Impl: IHolographicCamera3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsPrimaryLayerEnabled<Impl: IHolographicCamera3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsPrimaryLayerEnabled(value).into()
         }
-        unsafe extern "system" fn MaxQuadLayerCount<Impl: IHolographicCamera3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxQuadLayerCount<Impl: IHolographicCamera3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxQuadLayerCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -183,7 +183,7 @@ impl IHolographicCamera3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QuadLayers<Impl: IHolographicCamera3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QuadLayers<Impl: IHolographicCamera3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QuadLayers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -207,7 +207,7 @@ impl IHolographicCamera3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHolographicCamera4Impl: Sized {
+pub trait IHolographicCamera4_Impl: Sized {
     fn CanOverrideViewport(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -215,9 +215,9 @@ impl ::windows::core::RuntimeName for IHolographicCamera4 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicCamera4";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHolographicCamera4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCamera4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCamera4Vtbl {
-        unsafe extern "system" fn CanOverrideViewport<Impl: IHolographicCamera4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IHolographicCamera4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCamera4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCamera4_Vtbl {
+        unsafe extern "system" fn CanOverrideViewport<Impl: IHolographicCamera4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanOverrideViewport() {
                 ::core::result::Result::Ok(ok__) => {
@@ -238,7 +238,7 @@ impl IHolographicCamera4Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHolographicCamera5Impl: Sized {
+pub trait IHolographicCamera5_Impl: Sized {
     fn IsHardwareContentProtectionSupported(&mut self) -> ::windows::core::Result<bool>;
     fn IsHardwareContentProtectionEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsHardwareContentProtectionEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -248,9 +248,9 @@ impl ::windows::core::RuntimeName for IHolographicCamera5 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicCamera5";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHolographicCamera5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCamera5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCamera5Vtbl {
-        unsafe extern "system" fn IsHardwareContentProtectionSupported<Impl: IHolographicCamera5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IHolographicCamera5_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCamera5_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCamera5_Vtbl {
+        unsafe extern "system" fn IsHardwareContentProtectionSupported<Impl: IHolographicCamera5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsHardwareContentProtectionSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -261,7 +261,7 @@ impl IHolographicCamera5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsHardwareContentProtectionEnabled<Impl: IHolographicCamera5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsHardwareContentProtectionEnabled<Impl: IHolographicCamera5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsHardwareContentProtectionEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -272,7 +272,7 @@ impl IHolographicCamera5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsHardwareContentProtectionEnabled<Impl: IHolographicCamera5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsHardwareContentProtectionEnabled<Impl: IHolographicCamera5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsHardwareContentProtectionEnabled(value).into()
         }
@@ -288,7 +288,7 @@ impl IHolographicCamera5Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHolographicCamera6Impl: Sized {
+pub trait IHolographicCamera6_Impl: Sized {
     fn ViewConfiguration(&mut self) -> ::windows::core::Result<HolographicViewConfiguration>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -296,9 +296,9 @@ impl ::windows::core::RuntimeName for IHolographicCamera6 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicCamera6";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHolographicCamera6Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCamera6Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCamera6Vtbl {
-        unsafe extern "system" fn ViewConfiguration<Impl: IHolographicCamera6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHolographicCamera6_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCamera6_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCamera6_Vtbl {
+        unsafe extern "system" fn ViewConfiguration<Impl: IHolographicCamera6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ViewConfiguration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -319,7 +319,7 @@ impl IHolographicCamera6Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-pub trait IHolographicCameraPoseImpl: Sized {
+pub trait IHolographicCameraPose_Impl: Sized {
     fn HolographicCamera(&mut self) -> ::windows::core::Result<HolographicCamera>;
     fn Viewport(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
     fn TryGetViewTransform(&mut self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>) -> ::windows::core::Result<super::super::Foundation::IReference<HolographicStereoTransform>>;
@@ -334,9 +334,9 @@ impl ::windows::core::RuntimeName for IHolographicCameraPose {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicCameraPose";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-impl IHolographicCameraPoseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraPoseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraPoseVtbl {
-        unsafe extern "system" fn HolographicCamera<Impl: IHolographicCameraPoseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHolographicCameraPose_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraPose_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraPose_Vtbl {
+        unsafe extern "system" fn HolographicCamera<Impl: IHolographicCameraPose_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HolographicCamera() {
                 ::core::result::Result::Ok(ok__) => {
@@ -347,7 +347,7 @@ impl IHolographicCameraPoseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Viewport<Impl: IHolographicCameraPoseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Viewport<Impl: IHolographicCameraPose_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Viewport() {
                 ::core::result::Result::Ok(ok__) => {
@@ -358,7 +358,7 @@ impl IHolographicCameraPoseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryGetViewTransform<Impl: IHolographicCameraPoseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryGetViewTransform<Impl: IHolographicCameraPose_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetViewTransform(&*(&coordinatesystem as *const <super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -369,7 +369,7 @@ impl IHolographicCameraPoseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProjectionTransform<Impl: IHolographicCameraPoseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicStereoTransform) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProjectionTransform<Impl: IHolographicCameraPose_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicStereoTransform) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProjectionTransform() {
                 ::core::result::Result::Ok(ok__) => {
@@ -380,7 +380,7 @@ impl IHolographicCameraPoseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryGetCullingFrustum<Impl: IHolographicCameraPoseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryGetCullingFrustum<Impl: IHolographicCameraPose_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetCullingFrustum(&*(&coordinatesystem as *const <super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -391,7 +391,7 @@ impl IHolographicCameraPoseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryGetVisibleFrustum<Impl: IHolographicCameraPoseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryGetVisibleFrustum<Impl: IHolographicCameraPose_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetVisibleFrustum(&*(&coordinatesystem as *const <super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -402,7 +402,7 @@ impl IHolographicCameraPoseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NearPlaneDistance<Impl: IHolographicCameraPoseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NearPlaneDistance<Impl: IHolographicCameraPose_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NearPlaneDistance() {
                 ::core::result::Result::Ok(ok__) => {
@@ -413,7 +413,7 @@ impl IHolographicCameraPoseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FarPlaneDistance<Impl: IHolographicCameraPoseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FarPlaneDistance<Impl: IHolographicCameraPose_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FarPlaneDistance() {
                 ::core::result::Result::Ok(ok__) => {
@@ -441,7 +441,7 @@ impl IHolographicCameraPoseVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-pub trait IHolographicCameraPose2Impl: Sized {
+pub trait IHolographicCameraPose2_Impl: Sized {
     fn OverrideViewTransform(&mut self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>, coordinatesystemtoviewtransform: &HolographicStereoTransform) -> ::windows::core::Result<()>;
     fn OverrideProjectionTransform(&mut self, projectiontransform: &HolographicStereoTransform) -> ::windows::core::Result<()>;
     fn OverrideViewport(&mut self, leftviewport: &super::super::Foundation::Rect, rightviewport: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
@@ -451,17 +451,17 @@ impl ::windows::core::RuntimeName for IHolographicCameraPose2 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicCameraPose2";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-impl IHolographicCameraPose2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraPose2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraPose2Vtbl {
-        unsafe extern "system" fn OverrideViewTransform<Impl: IHolographicCameraPose2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, coordinatesystemtoviewtransform: HolographicStereoTransform) -> ::windows::core::HRESULT {
+impl IHolographicCameraPose2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraPose2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraPose2_Vtbl {
+        unsafe extern "system" fn OverrideViewTransform<Impl: IHolographicCameraPose2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, coordinatesystemtoviewtransform: HolographicStereoTransform) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OverrideViewTransform(&*(&coordinatesystem as *const <super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType), &*(&coordinatesystemtoviewtransform as *const <HolographicStereoTransform as ::windows::core::Abi>::Abi as *const <HolographicStereoTransform as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn OverrideProjectionTransform<Impl: IHolographicCameraPose2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, projectiontransform: HolographicStereoTransform) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OverrideProjectionTransform<Impl: IHolographicCameraPose2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, projectiontransform: HolographicStereoTransform) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OverrideProjectionTransform(&*(&projectiontransform as *const <HolographicStereoTransform as ::windows::core::Abi>::Abi as *const <HolographicStereoTransform as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn OverrideViewport<Impl: IHolographicCameraPose2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, leftviewport: super::super::Foundation::Rect, rightviewport: super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OverrideViewport<Impl: IHolographicCameraPose2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, leftviewport: super::super::Foundation::Rect, rightviewport: super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OverrideViewport(&*(&leftviewport as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType), &*(&rightviewport as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -477,7 +477,7 @@ impl IHolographicCameraPose2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-pub trait IHolographicCameraRenderingParametersImpl: Sized {
+pub trait IHolographicCameraRenderingParameters_Impl: Sized {
     fn SetFocusPoint(&mut self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>, position: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
     fn SetFocusPointWithNormal(&mut self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>, position: &super::super::Foundation::Numerics::Vector3, normal: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
     fn SetFocusPointWithNormalLinearVelocity(&mut self, coordinatesystem: &::core::option::Option<super::super::Perception::Spatial::SpatialCoordinateSystem>, position: &super::super::Foundation::Numerics::Vector3, normal: &super::super::Foundation::Numerics::Vector3, linearvelocity: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
@@ -489,13 +489,13 @@ impl ::windows::core::RuntimeName for IHolographicCameraRenderingParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicCameraRenderingParameters";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-impl IHolographicCameraRenderingParametersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraRenderingParametersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraRenderingParametersVtbl {
-        unsafe extern "system" fn SetFocusPoint<Impl: IHolographicCameraRenderingParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, position: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+impl IHolographicCameraRenderingParameters_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraRenderingParameters_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraRenderingParameters_Vtbl {
+        unsafe extern "system" fn SetFocusPoint<Impl: IHolographicCameraRenderingParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, position: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFocusPoint(&*(&coordinatesystem as *const <super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::Abi>::Abi as *const <super::super::Perception::Spatial::SpatialCoordinateSystem as ::windows::core::DefaultType>::DefaultType), &*(&position as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetFocusPointWithNormal<Impl: IHolographicCameraRenderingParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, position: super::super::Foundation::Numerics::Vector3, normal: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFocusPointWithNormal<Impl: IHolographicCameraRenderingParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, position: super::super::Foundation::Numerics::Vector3, normal: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetFocusPointWithNormal(
@@ -505,7 +505,7 @@ impl IHolographicCameraRenderingParametersVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn SetFocusPointWithNormalLinearVelocity<Impl: IHolographicCameraRenderingParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, position: super::super::Foundation::Numerics::Vector3, normal: super::super::Foundation::Numerics::Vector3, linearvelocity: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFocusPointWithNormalLinearVelocity<Impl: IHolographicCameraRenderingParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, position: super::super::Foundation::Numerics::Vector3, normal: super::super::Foundation::Numerics::Vector3, linearvelocity: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetFocusPointWithNormalLinearVelocity(
@@ -516,7 +516,7 @@ impl IHolographicCameraRenderingParametersVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn Direct3D11Device<Impl: IHolographicCameraRenderingParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Direct3D11Device<Impl: IHolographicCameraRenderingParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Direct3D11Device() {
                 ::core::result::Result::Ok(ok__) => {
@@ -527,7 +527,7 @@ impl IHolographicCameraRenderingParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Direct3D11BackBuffer<Impl: IHolographicCameraRenderingParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Direct3D11BackBuffer<Impl: IHolographicCameraRenderingParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Direct3D11BackBuffer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -552,7 +552,7 @@ impl IHolographicCameraRenderingParametersVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-pub trait IHolographicCameraRenderingParameters2Impl: Sized + IHolographicCameraRenderingParametersImpl {
+pub trait IHolographicCameraRenderingParameters2_Impl: Sized + IHolographicCameraRenderingParameters_Impl {
     fn ReprojectionMode(&mut self) -> ::windows::core::Result<HolographicReprojectionMode>;
     fn SetReprojectionMode(&mut self, value: HolographicReprojectionMode) -> ::windows::core::Result<()>;
     fn CommitDirect3D11DepthBuffer(&mut self, value: &::core::option::Option<super::DirectX::Direct3D11::IDirect3DSurface>) -> ::windows::core::Result<()>;
@@ -562,9 +562,9 @@ impl ::windows::core::RuntimeName for IHolographicCameraRenderingParameters2 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicCameraRenderingParameters2";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-impl IHolographicCameraRenderingParameters2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraRenderingParameters2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraRenderingParameters2Vtbl {
-        unsafe extern "system" fn ReprojectionMode<Impl: IHolographicCameraRenderingParameters2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicReprojectionMode) -> ::windows::core::HRESULT {
+impl IHolographicCameraRenderingParameters2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraRenderingParameters2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraRenderingParameters2_Vtbl {
+        unsafe extern "system" fn ReprojectionMode<Impl: IHolographicCameraRenderingParameters2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicReprojectionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReprojectionMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -575,11 +575,11 @@ impl IHolographicCameraRenderingParameters2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetReprojectionMode<Impl: IHolographicCameraRenderingParameters2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: HolographicReprojectionMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetReprojectionMode<Impl: IHolographicCameraRenderingParameters2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: HolographicReprojectionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetReprojectionMode(value).into()
         }
-        unsafe extern "system" fn CommitDirect3D11DepthBuffer<Impl: IHolographicCameraRenderingParameters2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CommitDirect3D11DepthBuffer<Impl: IHolographicCameraRenderingParameters2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CommitDirect3D11DepthBuffer(&*(&value as *const <super::DirectX::Direct3D11::IDirect3DSurface as ::windows::core::Abi>::Abi as *const <super::DirectX::Direct3D11::IDirect3DSurface as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -595,7 +595,7 @@ impl IHolographicCameraRenderingParameters2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-pub trait IHolographicCameraRenderingParameters3Impl: Sized + IHolographicCameraRenderingParametersImpl + IHolographicCameraRenderingParameters2Impl {
+pub trait IHolographicCameraRenderingParameters3_Impl: Sized + IHolographicCameraRenderingParameters_Impl + IHolographicCameraRenderingParameters2_Impl {
     fn IsContentProtectionEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsContentProtectionEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
@@ -604,9 +604,9 @@ impl ::windows::core::RuntimeName for IHolographicCameraRenderingParameters3 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicCameraRenderingParameters3";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-impl IHolographicCameraRenderingParameters3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraRenderingParameters3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraRenderingParameters3Vtbl {
-        unsafe extern "system" fn IsContentProtectionEnabled<Impl: IHolographicCameraRenderingParameters3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IHolographicCameraRenderingParameters3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraRenderingParameters3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraRenderingParameters3_Vtbl {
+        unsafe extern "system" fn IsContentProtectionEnabled<Impl: IHolographicCameraRenderingParameters3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsContentProtectionEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -617,7 +617,7 @@ impl IHolographicCameraRenderingParameters3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsContentProtectionEnabled<Impl: IHolographicCameraRenderingParameters3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsContentProtectionEnabled<Impl: IHolographicCameraRenderingParameters3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsContentProtectionEnabled(value).into()
         }
@@ -632,7 +632,7 @@ impl IHolographicCameraRenderingParameters3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHolographicCameraRenderingParameters4Impl: Sized {
+pub trait IHolographicCameraRenderingParameters4_Impl: Sized {
     fn DepthReprojectionMethod(&mut self) -> ::windows::core::Result<HolographicDepthReprojectionMethod>;
     fn SetDepthReprojectionMethod(&mut self, value: HolographicDepthReprojectionMethod) -> ::windows::core::Result<()>;
 }
@@ -641,9 +641,9 @@ impl ::windows::core::RuntimeName for IHolographicCameraRenderingParameters4 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicCameraRenderingParameters4";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHolographicCameraRenderingParameters4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraRenderingParameters4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraRenderingParameters4Vtbl {
-        unsafe extern "system" fn DepthReprojectionMethod<Impl: IHolographicCameraRenderingParameters4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicDepthReprojectionMethod) -> ::windows::core::HRESULT {
+impl IHolographicCameraRenderingParameters4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraRenderingParameters4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraRenderingParameters4_Vtbl {
+        unsafe extern "system" fn DepthReprojectionMethod<Impl: IHolographicCameraRenderingParameters4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicDepthReprojectionMethod) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DepthReprojectionMethod() {
                 ::core::result::Result::Ok(ok__) => {
@@ -654,7 +654,7 @@ impl IHolographicCameraRenderingParameters4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDepthReprojectionMethod<Impl: IHolographicCameraRenderingParameters4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: HolographicDepthReprojectionMethod) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDepthReprojectionMethod<Impl: IHolographicCameraRenderingParameters4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: HolographicDepthReprojectionMethod) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDepthReprojectionMethod(value).into()
         }
@@ -669,7 +669,7 @@ impl IHolographicCameraRenderingParameters4Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IHolographicCameraViewportParametersImpl: Sized {
+pub trait IHolographicCameraViewportParameters_Impl: Sized {
     fn HiddenAreaMesh(&mut self) -> ::windows::core::Result<::windows::core::Array<super::super::Foundation::Numerics::Vector2>>;
     fn VisibleAreaMesh(&mut self) -> ::windows::core::Result<::windows::core::Array<super::super::Foundation::Numerics::Vector2>>;
 }
@@ -678,9 +678,9 @@ impl ::windows::core::RuntimeName for IHolographicCameraViewportParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicCameraViewportParameters";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IHolographicCameraViewportParametersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraViewportParametersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraViewportParametersVtbl {
-        unsafe extern "system" fn HiddenAreaMesh<Impl: IHolographicCameraViewportParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+impl IHolographicCameraViewportParameters_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraViewportParameters_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicCameraViewportParameters_Vtbl {
+        unsafe extern "system" fn HiddenAreaMesh<Impl: IHolographicCameraViewportParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HiddenAreaMesh() {
                 ::core::result::Result::Ok(ok__) => {
@@ -692,7 +692,7 @@ impl IHolographicCameraViewportParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VisibleAreaMesh<Impl: IHolographicCameraViewportParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VisibleAreaMesh<Impl: IHolographicCameraViewportParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VisibleAreaMesh() {
                 ::core::result::Result::Ok(ok__) => {
@@ -715,7 +715,7 @@ impl IHolographicCameraViewportParametersVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-pub trait IHolographicDisplayImpl: Sized {
+pub trait IHolographicDisplay_Impl: Sized {
     fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn MaxViewportSize(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
     fn IsStereo(&mut self) -> ::windows::core::Result<bool>;
@@ -728,9 +728,9 @@ impl ::windows::core::RuntimeName for IHolographicDisplay {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicDisplay";
 }
 #[cfg(all(feature = "Foundation", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-impl IHolographicDisplayVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicDisplayImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicDisplayVtbl {
-        unsafe extern "system" fn DisplayName<Impl: IHolographicDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHolographicDisplay_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicDisplay_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicDisplay_Vtbl {
+        unsafe extern "system" fn DisplayName<Impl: IHolographicDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -741,7 +741,7 @@ impl IHolographicDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxViewportSize<Impl: IHolographicDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxViewportSize<Impl: IHolographicDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxViewportSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -752,7 +752,7 @@ impl IHolographicDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsStereo<Impl: IHolographicDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStereo<Impl: IHolographicDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStereo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -763,7 +763,7 @@ impl IHolographicDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsOpaque<Impl: IHolographicDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsOpaque<Impl: IHolographicDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsOpaque() {
                 ::core::result::Result::Ok(ok__) => {
@@ -774,7 +774,7 @@ impl IHolographicDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AdapterId<Impl: IHolographicDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicAdapterId) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AdapterId<Impl: IHolographicDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicAdapterId) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AdapterId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -785,7 +785,7 @@ impl IHolographicDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SpatialLocator<Impl: IHolographicDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SpatialLocator<Impl: IHolographicDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SpatialLocator() {
                 ::core::result::Result::Ok(ok__) => {
@@ -811,7 +811,7 @@ impl IHolographicDisplayVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHolographicDisplay2Impl: Sized {
+pub trait IHolographicDisplay2_Impl: Sized {
     fn RefreshRate(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -819,9 +819,9 @@ impl ::windows::core::RuntimeName for IHolographicDisplay2 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicDisplay2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHolographicDisplay2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicDisplay2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicDisplay2Vtbl {
-        unsafe extern "system" fn RefreshRate<Impl: IHolographicDisplay2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+impl IHolographicDisplay2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicDisplay2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicDisplay2_Vtbl {
+        unsafe extern "system" fn RefreshRate<Impl: IHolographicDisplay2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RefreshRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -839,7 +839,7 @@ impl IHolographicDisplay2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHolographicDisplay3Impl: Sized {
+pub trait IHolographicDisplay3_Impl: Sized {
     fn TryGetViewConfiguration(&mut self, kind: HolographicViewConfigurationKind) -> ::windows::core::Result<HolographicViewConfiguration>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -847,9 +847,9 @@ impl ::windows::core::RuntimeName for IHolographicDisplay3 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicDisplay3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHolographicDisplay3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicDisplay3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicDisplay3Vtbl {
-        unsafe extern "system" fn TryGetViewConfiguration<Impl: IHolographicDisplay3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kind: HolographicViewConfigurationKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHolographicDisplay3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicDisplay3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicDisplay3_Vtbl {
+        unsafe extern "system" fn TryGetViewConfiguration<Impl: IHolographicDisplay3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kind: HolographicViewConfigurationKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetViewConfiguration(kind) {
                 ::core::result::Result::Ok(ok__) => {
@@ -870,7 +870,7 @@ impl IHolographicDisplay3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHolographicDisplayStaticsImpl: Sized {
+pub trait IHolographicDisplayStatics_Impl: Sized {
     fn GetDefault(&mut self) -> ::windows::core::Result<HolographicDisplay>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -878,9 +878,9 @@ impl ::windows::core::RuntimeName for IHolographicDisplayStatics {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicDisplayStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHolographicDisplayStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicDisplayStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicDisplayStaticsVtbl {
-        unsafe extern "system" fn GetDefault<Impl: IHolographicDisplayStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHolographicDisplayStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicDisplayStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicDisplayStatics_Vtbl {
+        unsafe extern "system" fn GetDefault<Impl: IHolographicDisplayStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
                 ::core::result::Result::Ok(ok__) => {
@@ -898,7 +898,7 @@ impl IHolographicDisplayStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IHolographicFrameImpl: Sized {
+pub trait IHolographicFrame_Impl: Sized {
     fn AddedCameras(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicCamera>>;
     fn RemovedCameras(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicCamera>>;
     fn GetRenderingParameters(&mut self, camerapose: &::core::option::Option<HolographicCameraPose>) -> ::windows::core::Result<HolographicCameraRenderingParameters>;
@@ -914,9 +914,9 @@ impl ::windows::core::RuntimeName for IHolographicFrame {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicFrame";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IHolographicFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFrameVtbl {
-        unsafe extern "system" fn AddedCameras<Impl: IHolographicFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHolographicFrame_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrame_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFrame_Vtbl {
+        unsafe extern "system" fn AddedCameras<Impl: IHolographicFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddedCameras() {
                 ::core::result::Result::Ok(ok__) => {
@@ -927,7 +927,7 @@ impl IHolographicFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovedCameras<Impl: IHolographicFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovedCameras<Impl: IHolographicFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemovedCameras() {
                 ::core::result::Result::Ok(ok__) => {
@@ -938,7 +938,7 @@ impl IHolographicFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRenderingParameters<Impl: IHolographicFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, camerapose: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRenderingParameters<Impl: IHolographicFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, camerapose: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRenderingParameters(&*(&camerapose as *const <HolographicCameraPose as ::windows::core::Abi>::Abi as *const <HolographicCameraPose as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -949,7 +949,7 @@ impl IHolographicFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Duration<Impl: IHolographicFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Duration<Impl: IHolographicFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Duration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -960,7 +960,7 @@ impl IHolographicFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentPrediction<Impl: IHolographicFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentPrediction<Impl: IHolographicFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentPrediction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -971,11 +971,11 @@ impl IHolographicFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpdateCurrentPrediction<Impl: IHolographicFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateCurrentPrediction<Impl: IHolographicFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UpdateCurrentPrediction().into()
         }
-        unsafe extern "system" fn PresentUsingCurrentPrediction<Impl: IHolographicFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicFramePresentResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PresentUsingCurrentPrediction<Impl: IHolographicFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicFramePresentResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PresentUsingCurrentPrediction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -986,7 +986,7 @@ impl IHolographicFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PresentUsingCurrentPredictionWithBehavior<Impl: IHolographicFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, waitbehavior: HolographicFramePresentWaitBehavior, result__: *mut HolographicFramePresentResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PresentUsingCurrentPredictionWithBehavior<Impl: IHolographicFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, waitbehavior: HolographicFramePresentWaitBehavior, result__: *mut HolographicFramePresentResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PresentUsingCurrentPredictionWithBehavior(waitbehavior) {
                 ::core::result::Result::Ok(ok__) => {
@@ -997,7 +997,7 @@ impl IHolographicFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WaitForFrameToFinish<Impl: IHolographicFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WaitForFrameToFinish<Impl: IHolographicFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).WaitForFrameToFinish().into()
         }
@@ -1019,7 +1019,7 @@ impl IHolographicFrameVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IHolographicFrame2Impl: Sized + IHolographicFrameImpl {
+pub trait IHolographicFrame2_Impl: Sized + IHolographicFrame_Impl {
     fn GetQuadLayerUpdateParameters(&mut self, layer: &::core::option::Option<HolographicQuadLayer>) -> ::windows::core::Result<HolographicQuadLayerUpdateParameters>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -1027,9 +1027,9 @@ impl ::windows::core::RuntimeName for IHolographicFrame2 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicFrame2";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IHolographicFrame2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrame2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFrame2Vtbl {
-        unsafe extern "system" fn GetQuadLayerUpdateParameters<Impl: IHolographicFrame2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, layer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHolographicFrame2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrame2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFrame2_Vtbl {
+        unsafe extern "system" fn GetQuadLayerUpdateParameters<Impl: IHolographicFrame2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, layer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetQuadLayerUpdateParameters(&*(&layer as *const <HolographicQuadLayer as ::windows::core::Abi>::Abi as *const <HolographicQuadLayer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1050,7 +1050,7 @@ impl IHolographicFrame2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHolographicFrame3Impl: Sized {
+pub trait IHolographicFrame3_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<HolographicFrameId>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1058,9 +1058,9 @@ impl ::windows::core::RuntimeName for IHolographicFrame3 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicFrame3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHolographicFrame3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrame3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFrame3Vtbl {
-        unsafe extern "system" fn Id<Impl: IHolographicFrame3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicFrameId) -> ::windows::core::HRESULT {
+impl IHolographicFrame3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrame3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFrame3_Vtbl {
+        unsafe extern "system" fn Id<Impl: IHolographicFrame3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicFrameId) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1078,7 +1078,7 @@ impl IHolographicFrame3Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Perception", feature = "implement_exclusive"))]
-pub trait IHolographicFramePredictionImpl: Sized {
+pub trait IHolographicFramePrediction_Impl: Sized {
     fn CameraPoses(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicCameraPose>>;
     fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Perception::PerceptionTimestamp>;
 }
@@ -1087,9 +1087,9 @@ impl ::windows::core::RuntimeName for IHolographicFramePrediction {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicFramePrediction";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Perception", feature = "implement_exclusive"))]
-impl IHolographicFramePredictionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFramePredictionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFramePredictionVtbl {
-        unsafe extern "system" fn CameraPoses<Impl: IHolographicFramePredictionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHolographicFramePrediction_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFramePrediction_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFramePrediction_Vtbl {
+        unsafe extern "system" fn CameraPoses<Impl: IHolographicFramePrediction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CameraPoses() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1100,7 +1100,7 @@ impl IHolographicFramePredictionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Timestamp<Impl: IHolographicFramePredictionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Timestamp<Impl: IHolographicFramePrediction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1122,7 +1122,7 @@ impl IHolographicFramePredictionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IHolographicFramePresentationMonitorImpl: Sized + IClosableImpl {
+pub trait IHolographicFramePresentationMonitor_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn ReadReports(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicFramePresentationReport>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
@@ -1130,9 +1130,9 @@ impl ::windows::core::RuntimeName for IHolographicFramePresentationMonitor {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicFramePresentationMonitor";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
-impl IHolographicFramePresentationMonitorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFramePresentationMonitorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFramePresentationMonitorVtbl {
-        unsafe extern "system" fn ReadReports<Impl: IHolographicFramePresentationMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHolographicFramePresentationMonitor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFramePresentationMonitor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFramePresentationMonitor_Vtbl {
+        unsafe extern "system" fn ReadReports<Impl: IHolographicFramePresentationMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadReports() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1153,7 +1153,7 @@ impl IHolographicFramePresentationMonitorVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IHolographicFramePresentationReportImpl: Sized {
+pub trait IHolographicFramePresentationReport_Impl: Sized {
     fn CompositorGpuDuration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn AppGpuDuration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn AppGpuOverrun(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -1165,9 +1165,9 @@ impl ::windows::core::RuntimeName for IHolographicFramePresentationReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicFramePresentationReport";
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
-impl IHolographicFramePresentationReportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFramePresentationReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFramePresentationReportVtbl {
-        unsafe extern "system" fn CompositorGpuDuration<Impl: IHolographicFramePresentationReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+impl IHolographicFramePresentationReport_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFramePresentationReport_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFramePresentationReport_Vtbl {
+        unsafe extern "system" fn CompositorGpuDuration<Impl: IHolographicFramePresentationReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CompositorGpuDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1178,7 +1178,7 @@ impl IHolographicFramePresentationReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppGpuDuration<Impl: IHolographicFramePresentationReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppGpuDuration<Impl: IHolographicFramePresentationReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppGpuDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1189,7 +1189,7 @@ impl IHolographicFramePresentationReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppGpuOverrun<Impl: IHolographicFramePresentationReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppGpuOverrun<Impl: IHolographicFramePresentationReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppGpuOverrun() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1200,7 +1200,7 @@ impl IHolographicFramePresentationReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MissedPresentationOpportunityCount<Impl: IHolographicFramePresentationReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MissedPresentationOpportunityCount<Impl: IHolographicFramePresentationReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MissedPresentationOpportunityCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1211,7 +1211,7 @@ impl IHolographicFramePresentationReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PresentationCount<Impl: IHolographicFramePresentationReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PresentationCount<Impl: IHolographicFramePresentationReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PresentationCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1236,7 +1236,7 @@ impl IHolographicFramePresentationReportVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IHolographicFrameRenderingReportImpl: Sized {
+pub trait IHolographicFrameRenderingReport_Impl: Sized {
     fn FrameId(&mut self) -> ::windows::core::Result<HolographicFrameId>;
     fn MissedLatchCount(&mut self) -> ::windows::core::Result<u32>;
     fn SystemRelativeFrameReadyTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -1248,9 +1248,9 @@ impl ::windows::core::RuntimeName for IHolographicFrameRenderingReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicFrameRenderingReport";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IHolographicFrameRenderingReportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrameRenderingReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFrameRenderingReportVtbl {
-        unsafe extern "system" fn FrameId<Impl: IHolographicFrameRenderingReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicFrameId) -> ::windows::core::HRESULT {
+impl IHolographicFrameRenderingReport_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrameRenderingReport_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFrameRenderingReport_Vtbl {
+        unsafe extern "system" fn FrameId<Impl: IHolographicFrameRenderingReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicFrameId) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1261,7 +1261,7 @@ impl IHolographicFrameRenderingReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MissedLatchCount<Impl: IHolographicFrameRenderingReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MissedLatchCount<Impl: IHolographicFrameRenderingReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MissedLatchCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1272,7 +1272,7 @@ impl IHolographicFrameRenderingReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SystemRelativeFrameReadyTime<Impl: IHolographicFrameRenderingReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SystemRelativeFrameReadyTime<Impl: IHolographicFrameRenderingReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemRelativeFrameReadyTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1283,7 +1283,7 @@ impl IHolographicFrameRenderingReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SystemRelativeActualGpuFinishTime<Impl: IHolographicFrameRenderingReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SystemRelativeActualGpuFinishTime<Impl: IHolographicFrameRenderingReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemRelativeActualGpuFinishTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1294,7 +1294,7 @@ impl IHolographicFrameRenderingReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SystemRelativeTargetLatchTime<Impl: IHolographicFrameRenderingReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SystemRelativeTargetLatchTime<Impl: IHolographicFrameRenderingReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemRelativeTargetLatchTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1319,7 +1319,7 @@ impl IHolographicFrameRenderingReportVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IHolographicFrameScanoutMonitorImpl: Sized + IClosableImpl {
+pub trait IHolographicFrameScanoutMonitor_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn ReadReports(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<HolographicFrameScanoutReport>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -1327,9 +1327,9 @@ impl ::windows::core::RuntimeName for IHolographicFrameScanoutMonitor {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicFrameScanoutMonitor";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IHolographicFrameScanoutMonitorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrameScanoutMonitorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFrameScanoutMonitorVtbl {
-        unsafe extern "system" fn ReadReports<Impl: IHolographicFrameScanoutMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHolographicFrameScanoutMonitor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrameScanoutMonitor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFrameScanoutMonitor_Vtbl {
+        unsafe extern "system" fn ReadReports<Impl: IHolographicFrameScanoutMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadReports() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1350,7 +1350,7 @@ impl IHolographicFrameScanoutMonitorVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IHolographicFrameScanoutReportImpl: Sized {
+pub trait IHolographicFrameScanoutReport_Impl: Sized {
     fn RenderingReport(&mut self) -> ::windows::core::Result<HolographicFrameRenderingReport>;
     fn MissedScanoutCount(&mut self) -> ::windows::core::Result<u32>;
     fn SystemRelativeLatchTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -1362,9 +1362,9 @@ impl ::windows::core::RuntimeName for IHolographicFrameScanoutReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicFrameScanoutReport";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IHolographicFrameScanoutReportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrameScanoutReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFrameScanoutReportVtbl {
-        unsafe extern "system" fn RenderingReport<Impl: IHolographicFrameScanoutReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHolographicFrameScanoutReport_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicFrameScanoutReport_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicFrameScanoutReport_Vtbl {
+        unsafe extern "system" fn RenderingReport<Impl: IHolographicFrameScanoutReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RenderingReport() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1375,7 +1375,7 @@ impl IHolographicFrameScanoutReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MissedScanoutCount<Impl: IHolographicFrameScanoutReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MissedScanoutCount<Impl: IHolographicFrameScanoutReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MissedScanoutCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1386,7 +1386,7 @@ impl IHolographicFrameScanoutReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SystemRelativeLatchTime<Impl: IHolographicFrameScanoutReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SystemRelativeLatchTime<Impl: IHolographicFrameScanoutReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemRelativeLatchTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1397,7 +1397,7 @@ impl IHolographicFrameScanoutReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SystemRelativeScanoutStartTime<Impl: IHolographicFrameScanoutReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SystemRelativeScanoutStartTime<Impl: IHolographicFrameScanoutReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemRelativeScanoutStartTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1408,7 +1408,7 @@ impl IHolographicFrameScanoutReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SystemRelativePhotonTime<Impl: IHolographicFrameScanoutReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SystemRelativePhotonTime<Impl: IHolographicFrameScanoutReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemRelativePhotonTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1433,7 +1433,7 @@ impl IHolographicFrameScanoutReportVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
-pub trait IHolographicQuadLayerImpl: Sized {
+pub trait IHolographicQuadLayer_Impl: Sized {
     fn PixelFormat(&mut self) -> ::windows::core::Result<super::DirectX::DirectXPixelFormat>;
     fn Size(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
 }
@@ -1442,9 +1442,9 @@ impl ::windows::core::RuntimeName for IHolographicQuadLayer {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicQuadLayer";
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
-impl IHolographicQuadLayerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicQuadLayerVtbl {
-        unsafe extern "system" fn PixelFormat<Impl: IHolographicQuadLayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT {
+impl IHolographicQuadLayer_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicQuadLayer_Vtbl {
+        unsafe extern "system" fn PixelFormat<Impl: IHolographicQuadLayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PixelFormat() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1455,7 +1455,7 @@ impl IHolographicQuadLayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Size<Impl: IHolographicQuadLayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Size<Impl: IHolographicQuadLayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Size() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1477,7 +1477,7 @@ impl IHolographicQuadLayerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
-pub trait IHolographicQuadLayerFactoryImpl: Sized {
+pub trait IHolographicQuadLayerFactory_Impl: Sized {
     fn Create(&mut self, size: &super::super::Foundation::Size) -> ::windows::core::Result<HolographicQuadLayer>;
     fn CreateWithPixelFormat(&mut self, size: &super::super::Foundation::Size, pixelformat: super::DirectX::DirectXPixelFormat) -> ::windows::core::Result<HolographicQuadLayer>;
 }
@@ -1486,9 +1486,9 @@ impl ::windows::core::RuntimeName for IHolographicQuadLayerFactory {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicQuadLayerFactory";
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
-impl IHolographicQuadLayerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicQuadLayerFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IHolographicQuadLayerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: super::super::Foundation::Size, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHolographicQuadLayerFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicQuadLayerFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IHolographicQuadLayerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: super::super::Foundation::Size, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&size as *const <super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1499,7 +1499,7 @@ impl IHolographicQuadLayerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithPixelFormat<Impl: IHolographicQuadLayerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: super::super::Foundation::Size, pixelformat: super::DirectX::DirectXPixelFormat, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithPixelFormat<Impl: IHolographicQuadLayerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: super::super::Foundation::Size, pixelformat: super::DirectX::DirectXPixelFormat, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithPixelFormat(&*(&size as *const <super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType), pixelformat) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1521,7 +1521,7 @@ impl IHolographicQuadLayerFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-pub trait IHolographicQuadLayerUpdateParametersImpl: Sized {
+pub trait IHolographicQuadLayerUpdateParameters_Impl: Sized {
     fn AcquireBufferToUpdateContent(&mut self) -> ::windows::core::Result<super::DirectX::Direct3D11::IDirect3DSurface>;
     fn UpdateViewport(&mut self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
     fn UpdateContentProtectionEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -1534,9 +1534,9 @@ impl ::windows::core::RuntimeName for IHolographicQuadLayerUpdateParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicQuadLayerUpdateParameters";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Graphics_DirectX_Direct3D11", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-impl IHolographicQuadLayerUpdateParametersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerUpdateParametersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicQuadLayerUpdateParametersVtbl {
-        unsafe extern "system" fn AcquireBufferToUpdateContent<Impl: IHolographicQuadLayerUpdateParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHolographicQuadLayerUpdateParameters_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerUpdateParameters_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicQuadLayerUpdateParameters_Vtbl {
+        unsafe extern "system" fn AcquireBufferToUpdateContent<Impl: IHolographicQuadLayerUpdateParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AcquireBufferToUpdateContent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1547,19 +1547,19 @@ impl IHolographicQuadLayerUpdateParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpdateViewport<Impl: IHolographicQuadLayerUpdateParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateViewport<Impl: IHolographicQuadLayerUpdateParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UpdateViewport(&*(&value as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn UpdateContentProtectionEnabled<Impl: IHolographicQuadLayerUpdateParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateContentProtectionEnabled<Impl: IHolographicQuadLayerUpdateParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UpdateContentProtectionEnabled(value).into()
         }
-        unsafe extern "system" fn UpdateExtents<Impl: IHolographicQuadLayerUpdateParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateExtents<Impl: IHolographicQuadLayerUpdateParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UpdateExtents(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn UpdateLocationWithStationaryMode<Impl: IHolographicQuadLayerUpdateParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, position: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateLocationWithStationaryMode<Impl: IHolographicQuadLayerUpdateParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, position: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .UpdateLocationWithStationaryMode(
@@ -1569,7 +1569,7 @@ impl IHolographicQuadLayerUpdateParametersVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn UpdateLocationWithDisplayRelativeMode<Impl: IHolographicQuadLayerUpdateParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateLocationWithDisplayRelativeMode<Impl: IHolographicQuadLayerUpdateParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UpdateLocationWithDisplayRelativeMode(&*(&position as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType), &*(&orientation as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1588,7 +1588,7 @@ impl IHolographicQuadLayerUpdateParametersVtbl {
     }
 }
 #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
-pub trait IHolographicQuadLayerUpdateParameters2Impl: Sized {
+pub trait IHolographicQuadLayerUpdateParameters2_Impl: Sized {
     fn CanAcquireWithHardwareProtection(&mut self) -> ::windows::core::Result<bool>;
     fn AcquireBufferToUpdateContentWithHardwareProtection(&mut self) -> ::windows::core::Result<super::DirectX::Direct3D11::IDirect3DSurface>;
 }
@@ -1597,9 +1597,9 @@ impl ::windows::core::RuntimeName for IHolographicQuadLayerUpdateParameters2 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicQuadLayerUpdateParameters2";
 }
 #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
-impl IHolographicQuadLayerUpdateParameters2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerUpdateParameters2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicQuadLayerUpdateParameters2Vtbl {
-        unsafe extern "system" fn CanAcquireWithHardwareProtection<Impl: IHolographicQuadLayerUpdateParameters2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IHolographicQuadLayerUpdateParameters2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerUpdateParameters2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicQuadLayerUpdateParameters2_Vtbl {
+        unsafe extern "system" fn CanAcquireWithHardwareProtection<Impl: IHolographicQuadLayerUpdateParameters2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanAcquireWithHardwareProtection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1610,7 +1610,7 @@ impl IHolographicQuadLayerUpdateParameters2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AcquireBufferToUpdateContentWithHardwareProtection<Impl: IHolographicQuadLayerUpdateParameters2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AcquireBufferToUpdateContentWithHardwareProtection<Impl: IHolographicQuadLayerUpdateParameters2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AcquireBufferToUpdateContentWithHardwareProtection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1632,7 +1632,7 @@ impl IHolographicQuadLayerUpdateParameters2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
-pub trait IHolographicSpaceImpl: Sized {
+pub trait IHolographicSpace_Impl: Sized {
     fn PrimaryAdapterId(&mut self) -> ::windows::core::Result<HolographicAdapterId>;
     fn SetDirect3D11Device(&mut self, value: &::core::option::Option<super::DirectX::Direct3D11::IDirect3DDevice>) -> ::windows::core::Result<()>;
     fn CameraAdded(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<HolographicSpace, HolographicSpaceCameraAddedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -1646,9 +1646,9 @@ impl ::windows::core::RuntimeName for IHolographicSpace {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicSpace";
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
-impl IHolographicSpaceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpaceVtbl {
-        unsafe extern "system" fn PrimaryAdapterId<Impl: IHolographicSpaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicAdapterId) -> ::windows::core::HRESULT {
+impl IHolographicSpace_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpace_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpace_Vtbl {
+        unsafe extern "system" fn PrimaryAdapterId<Impl: IHolographicSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicAdapterId) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrimaryAdapterId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1659,11 +1659,11 @@ impl IHolographicSpaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDirect3D11Device<Impl: IHolographicSpaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDirect3D11Device<Impl: IHolographicSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDirect3D11Device(&*(&value as *const <super::DirectX::Direct3D11::IDirect3DDevice as ::windows::core::Abi>::Abi as *const <super::DirectX::Direct3D11::IDirect3DDevice as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CameraAdded<Impl: IHolographicSpaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CameraAdded<Impl: IHolographicSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CameraAdded(&*(&handler as *const <super::super::Foundation::TypedEventHandler<HolographicSpace, HolographicSpaceCameraAddedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<HolographicSpace, HolographicSpaceCameraAddedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1674,11 +1674,11 @@ impl IHolographicSpaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCameraAdded<Impl: IHolographicSpaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCameraAdded<Impl: IHolographicSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCameraAdded(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CameraRemoved<Impl: IHolographicSpaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CameraRemoved<Impl: IHolographicSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CameraRemoved(&*(&handler as *const <super::super::Foundation::TypedEventHandler<HolographicSpace, HolographicSpaceCameraRemovedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<HolographicSpace, HolographicSpaceCameraRemovedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1689,11 +1689,11 @@ impl IHolographicSpaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCameraRemoved<Impl: IHolographicSpaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCameraRemoved<Impl: IHolographicSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCameraRemoved(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CreateNextFrame<Impl: IHolographicSpaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateNextFrame<Impl: IHolographicSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateNextFrame() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1720,7 +1720,7 @@ impl IHolographicSpaceVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IHolographicSpace2Impl: Sized {
+pub trait IHolographicSpace2_Impl: Sized {
     fn UserPresence(&mut self) -> ::windows::core::Result<HolographicSpaceUserPresence>;
     fn UserPresenceChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<HolographicSpace, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveUserPresenceChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -1733,9 +1733,9 @@ impl ::windows::core::RuntimeName for IHolographicSpace2 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicSpace2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IHolographicSpace2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpace2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpace2Vtbl {
-        unsafe extern "system" fn UserPresence<Impl: IHolographicSpace2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicSpaceUserPresence) -> ::windows::core::HRESULT {
+impl IHolographicSpace2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpace2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpace2_Vtbl {
+        unsafe extern "system" fn UserPresence<Impl: IHolographicSpace2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicSpaceUserPresence) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserPresence() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1746,7 +1746,7 @@ impl IHolographicSpace2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UserPresenceChanged<Impl: IHolographicSpace2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UserPresenceChanged<Impl: IHolographicSpace2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserPresenceChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<HolographicSpace, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<HolographicSpace, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1757,19 +1757,19 @@ impl IHolographicSpace2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveUserPresenceChanged<Impl: IHolographicSpace2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveUserPresenceChanged<Impl: IHolographicSpace2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveUserPresenceChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn WaitForNextFrameReady<Impl: IHolographicSpace2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WaitForNextFrameReady<Impl: IHolographicSpace2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).WaitForNextFrameReady().into()
         }
-        unsafe extern "system" fn WaitForNextFrameReadyWithHeadStart<Impl: IHolographicSpace2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestedheadstartduration: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WaitForNextFrameReadyWithHeadStart<Impl: IHolographicSpace2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestedheadstartduration: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).WaitForNextFrameReadyWithHeadStart(&*(&requestedheadstartduration as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CreateFramePresentationMonitor<Impl: IHolographicSpace2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxqueuedreports: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFramePresentationMonitor<Impl: IHolographicSpace2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxqueuedreports: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFramePresentationMonitor(maxqueuedreports) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1795,7 +1795,7 @@ impl IHolographicSpace2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHolographicSpace3Impl: Sized {
+pub trait IHolographicSpace3_Impl: Sized {
     fn CreateFrameScanoutMonitor(&mut self, maxqueuedreports: u32) -> ::windows::core::Result<HolographicFrameScanoutMonitor>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1803,9 +1803,9 @@ impl ::windows::core::RuntimeName for IHolographicSpace3 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicSpace3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHolographicSpace3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpace3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpace3Vtbl {
-        unsafe extern "system" fn CreateFrameScanoutMonitor<Impl: IHolographicSpace3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxqueuedreports: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHolographicSpace3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpace3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpace3_Vtbl {
+        unsafe extern "system" fn CreateFrameScanoutMonitor<Impl: IHolographicSpace3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxqueuedreports: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFrameScanoutMonitor(maxqueuedreports) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1826,7 +1826,7 @@ impl IHolographicSpace3Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IHolographicSpaceCameraAddedEventArgsImpl: Sized {
+pub trait IHolographicSpaceCameraAddedEventArgs_Impl: Sized {
     fn Camera(&mut self) -> ::windows::core::Result<HolographicCamera>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
@@ -1835,9 +1835,9 @@ impl ::windows::core::RuntimeName for IHolographicSpaceCameraAddedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicSpaceCameraAddedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IHolographicSpaceCameraAddedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceCameraAddedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpaceCameraAddedEventArgsVtbl {
-        unsafe extern "system" fn Camera<Impl: IHolographicSpaceCameraAddedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHolographicSpaceCameraAddedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceCameraAddedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpaceCameraAddedEventArgs_Vtbl {
+        unsafe extern "system" fn Camera<Impl: IHolographicSpaceCameraAddedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Camera() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1848,7 +1848,7 @@ impl IHolographicSpaceCameraAddedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IHolographicSpaceCameraAddedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IHolographicSpaceCameraAddedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1870,7 +1870,7 @@ impl IHolographicSpaceCameraAddedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHolographicSpaceCameraRemovedEventArgsImpl: Sized {
+pub trait IHolographicSpaceCameraRemovedEventArgs_Impl: Sized {
     fn Camera(&mut self) -> ::windows::core::Result<HolographicCamera>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1878,9 +1878,9 @@ impl ::windows::core::RuntimeName for IHolographicSpaceCameraRemovedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicSpaceCameraRemovedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHolographicSpaceCameraRemovedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceCameraRemovedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpaceCameraRemovedEventArgsVtbl {
-        unsafe extern "system" fn Camera<Impl: IHolographicSpaceCameraRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHolographicSpaceCameraRemovedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceCameraRemovedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpaceCameraRemovedEventArgs_Vtbl {
+        unsafe extern "system" fn Camera<Impl: IHolographicSpaceCameraRemovedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Camera() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1901,7 +1901,7 @@ impl IHolographicSpaceCameraRemovedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "UI_Core", feature = "implement_exclusive"))]
-pub trait IHolographicSpaceStaticsImpl: Sized {
+pub trait IHolographicSpaceStatics_Impl: Sized {
     fn CreateForCoreWindow(&mut self, window: &::core::option::Option<super::super::UI::Core::CoreWindow>) -> ::windows::core::Result<HolographicSpace>;
 }
 #[cfg(all(feature = "UI_Core", feature = "implement_exclusive"))]
@@ -1909,9 +1909,9 @@ impl ::windows::core::RuntimeName for IHolographicSpaceStatics {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicSpaceStatics";
 }
 #[cfg(all(feature = "UI_Core", feature = "implement_exclusive"))]
-impl IHolographicSpaceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpaceStaticsVtbl {
-        unsafe extern "system" fn CreateForCoreWindow<Impl: IHolographicSpaceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, window: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHolographicSpaceStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpaceStatics_Vtbl {
+        unsafe extern "system" fn CreateForCoreWindow<Impl: IHolographicSpaceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, window: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateForCoreWindow(&*(&window as *const <super::super::UI::Core::CoreWindow as ::windows::core::Abi>::Abi as *const <super::super::UI::Core::CoreWindow as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1932,7 +1932,7 @@ impl IHolographicSpaceStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IHolographicSpaceStatics2Impl: Sized {
+pub trait IHolographicSpaceStatics2_Impl: Sized {
     fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
     fn IsAvailable(&mut self) -> ::windows::core::Result<bool>;
     fn IsAvailableChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -1943,9 +1943,9 @@ impl ::windows::core::RuntimeName for IHolographicSpaceStatics2 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicSpaceStatics2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IHolographicSpaceStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpaceStatics2Vtbl {
-        unsafe extern "system" fn IsSupported<Impl: IHolographicSpaceStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IHolographicSpaceStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpaceStatics2_Vtbl {
+        unsafe extern "system" fn IsSupported<Impl: IHolographicSpaceStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1956,7 +1956,7 @@ impl IHolographicSpaceStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsAvailable<Impl: IHolographicSpaceStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsAvailable<Impl: IHolographicSpaceStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAvailable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1967,7 +1967,7 @@ impl IHolographicSpaceStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsAvailableChanged<Impl: IHolographicSpaceStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsAvailableChanged<Impl: IHolographicSpaceStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAvailableChanged(&*(&handler as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1978,7 +1978,7 @@ impl IHolographicSpaceStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveIsAvailableChanged<Impl: IHolographicSpaceStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveIsAvailableChanged<Impl: IHolographicSpaceStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveIsAvailableChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1995,7 +1995,7 @@ impl IHolographicSpaceStatics2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHolographicSpaceStatics3Impl: Sized {
+pub trait IHolographicSpaceStatics3_Impl: Sized {
     fn IsConfigured(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2003,9 +2003,9 @@ impl ::windows::core::RuntimeName for IHolographicSpaceStatics3 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicSpaceStatics3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHolographicSpaceStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpaceStatics3Vtbl {
-        unsafe extern "system" fn IsConfigured<Impl: IHolographicSpaceStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IHolographicSpaceStatics3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicSpaceStatics3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicSpaceStatics3_Vtbl {
+        unsafe extern "system" fn IsConfigured<Impl: IHolographicSpaceStatics3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsConfigured() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2026,7 +2026,7 @@ impl IHolographicSpaceStatics3Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
-pub trait IHolographicViewConfigurationImpl: Sized {
+pub trait IHolographicViewConfiguration_Impl: Sized {
     fn NativeRenderTargetSize(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
     fn RenderTargetSize(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
     fn RequestRenderTargetSize(&mut self, size: &super::super::Foundation::Size) -> ::windows::core::Result<super::super::Foundation::Size>;
@@ -2045,9 +2045,9 @@ impl ::windows::core::RuntimeName for IHolographicViewConfiguration {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicViewConfiguration";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
-impl IHolographicViewConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicViewConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicViewConfigurationVtbl {
-        unsafe extern "system" fn NativeRenderTargetSize<Impl: IHolographicViewConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+impl IHolographicViewConfiguration_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicViewConfiguration_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicViewConfiguration_Vtbl {
+        unsafe extern "system" fn NativeRenderTargetSize<Impl: IHolographicViewConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NativeRenderTargetSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2058,7 +2058,7 @@ impl IHolographicViewConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RenderTargetSize<Impl: IHolographicViewConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RenderTargetSize<Impl: IHolographicViewConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RenderTargetSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2069,7 +2069,7 @@ impl IHolographicViewConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestRenderTargetSize<Impl: IHolographicViewConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: super::super::Foundation::Size, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestRenderTargetSize<Impl: IHolographicViewConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: super::super::Foundation::Size, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestRenderTargetSize(&*(&size as *const <super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2080,7 +2080,7 @@ impl IHolographicViewConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedPixelFormats<Impl: IHolographicViewConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedPixelFormats<Impl: IHolographicViewConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedPixelFormats() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2091,7 +2091,7 @@ impl IHolographicViewConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PixelFormat<Impl: IHolographicViewConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PixelFormat<Impl: IHolographicViewConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PixelFormat() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2102,11 +2102,11 @@ impl IHolographicViewConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPixelFormat<Impl: IHolographicViewConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPixelFormat<Impl: IHolographicViewConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPixelFormat(value).into()
         }
-        unsafe extern "system" fn IsStereo<Impl: IHolographicViewConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStereo<Impl: IHolographicViewConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStereo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2117,7 +2117,7 @@ impl IHolographicViewConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RefreshRate<Impl: IHolographicViewConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RefreshRate<Impl: IHolographicViewConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RefreshRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2128,7 +2128,7 @@ impl IHolographicViewConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Kind<Impl: IHolographicViewConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicViewConfigurationKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Kind<Impl: IHolographicViewConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HolographicViewConfigurationKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2139,7 +2139,7 @@ impl IHolographicViewConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Display<Impl: IHolographicViewConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Display<Impl: IHolographicViewConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Display() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2150,7 +2150,7 @@ impl IHolographicViewConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsEnabled<Impl: IHolographicViewConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEnabled<Impl: IHolographicViewConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2161,7 +2161,7 @@ impl IHolographicViewConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsEnabled<Impl: IHolographicViewConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsEnabled<Impl: IHolographicViewConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsEnabled(value).into()
         }
@@ -2186,7 +2186,7 @@ impl IHolographicViewConfigurationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IHolographicViewConfiguration2Impl: Sized {
+pub trait IHolographicViewConfiguration2_Impl: Sized {
     fn SupportedDepthReprojectionMethods(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicDepthReprojectionMethod>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -2194,9 +2194,9 @@ impl ::windows::core::RuntimeName for IHolographicViewConfiguration2 {
     const NAME: &'static str = "Windows.Graphics.Holographic.IHolographicViewConfiguration2";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IHolographicViewConfiguration2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicViewConfiguration2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicViewConfiguration2Vtbl {
-        unsafe extern "system" fn SupportedDepthReprojectionMethods<Impl: IHolographicViewConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHolographicViewConfiguration2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicViewConfiguration2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHolographicViewConfiguration2_Vtbl {
+        unsafe extern "system" fn SupportedDepthReprojectionMethods<Impl: IHolographicViewConfiguration2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedDepthReprojectionMethods() {
                 ::core::result::Result::Ok(ok__) => {

@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ISceneBoundingBoxImpl: Sized {
+pub trait ISceneBoundingBox_Impl: Sized {
     fn Center(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
     fn Extents(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
     fn Max(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
@@ -11,9 +11,9 @@ impl ::windows::core::RuntimeName for ISceneBoundingBox {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneBoundingBox";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ISceneBoundingBoxVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneBoundingBoxImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneBoundingBoxVtbl {
-        unsafe extern "system" fn Center<Impl: ISceneBoundingBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+impl ISceneBoundingBox_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneBoundingBox_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneBoundingBox_Vtbl {
+        unsafe extern "system" fn Center<Impl: ISceneBoundingBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Center() {
                 ::core::result::Result::Ok(ok__) => {
@@ -24,7 +24,7 @@ impl ISceneBoundingBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Extents<Impl: ISceneBoundingBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Extents<Impl: ISceneBoundingBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Extents() {
                 ::core::result::Result::Ok(ok__) => {
@@ -35,7 +35,7 @@ impl ISceneBoundingBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Max<Impl: ISceneBoundingBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Max<Impl: ISceneBoundingBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Max() {
                 ::core::result::Result::Ok(ok__) => {
@@ -46,7 +46,7 @@ impl ISceneBoundingBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Min<Impl: ISceneBoundingBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Min<Impl: ISceneBoundingBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Min() {
                 ::core::result::Result::Ok(ok__) => {
@@ -57,7 +57,7 @@ impl ISceneBoundingBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Size<Impl: ISceneBoundingBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Size<Impl: ISceneBoundingBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Size() {
                 ::core::result::Result::Ok(ok__) => {
@@ -82,7 +82,7 @@ impl ISceneBoundingBoxVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISceneComponentImpl: Sized {
+pub trait ISceneComponent_Impl: Sized {
     fn ComponentType(&mut self) -> ::windows::core::Result<SceneComponentType>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -90,9 +90,9 @@ impl ::windows::core::RuntimeName for ISceneComponent {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneComponent";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISceneComponentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneComponentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneComponentVtbl {
-        unsafe extern "system" fn ComponentType<Impl: ISceneComponentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SceneComponentType) -> ::windows::core::HRESULT {
+impl ISceneComponent_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneComponent_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneComponent_Vtbl {
+        unsafe extern "system" fn ComponentType<Impl: ISceneComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SceneComponentType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ComponentType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -110,14 +110,14 @@ impl ISceneComponentVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISceneComponentCollectionImpl: Sized {}
+pub trait ISceneComponentCollection_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISceneComponentCollection {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneComponentCollection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISceneComponentCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneComponentCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneComponentCollectionVtbl {
+impl ISceneComponentCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneComponentCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneComponentCollection_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneComponentCollection, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -125,14 +125,14 @@ impl ISceneComponentCollectionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISceneComponentFactoryImpl: Sized {}
+pub trait ISceneComponentFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISceneComponentFactory {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneComponentFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISceneComponentFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneComponentFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneComponentFactoryVtbl {
+impl ISceneComponentFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneComponentFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneComponentFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneComponentFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -140,14 +140,14 @@ impl ISceneComponentFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISceneMaterialImpl: Sized {}
+pub trait ISceneMaterial_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISceneMaterial {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneMaterial";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISceneMaterialVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMaterialImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMaterialVtbl {
+impl ISceneMaterial_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMaterial_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMaterial_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneMaterial, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -155,14 +155,14 @@ impl ISceneMaterialVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISceneMaterialFactoryImpl: Sized {}
+pub trait ISceneMaterialFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISceneMaterialFactory {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneMaterialFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISceneMaterialFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMaterialFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMaterialFactoryVtbl {
+impl ISceneMaterialFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMaterialFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMaterialFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneMaterialFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -170,14 +170,14 @@ impl ISceneMaterialFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISceneMaterialInputImpl: Sized {}
+pub trait ISceneMaterialInput_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISceneMaterialInput {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneMaterialInput";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISceneMaterialInputVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMaterialInputImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMaterialInputVtbl {
+impl ISceneMaterialInput_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMaterialInput_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMaterialInput_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneMaterialInput, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -185,14 +185,14 @@ impl ISceneMaterialInputVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISceneMaterialInputFactoryImpl: Sized {}
+pub trait ISceneMaterialInputFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISceneMaterialInputFactory {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneMaterialInputFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISceneMaterialInputFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMaterialInputFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMaterialInputFactoryVtbl {
+impl ISceneMaterialInputFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMaterialInputFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMaterialInputFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneMaterialInputFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -200,7 +200,7 @@ impl ISceneMaterialInputFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
-pub trait ISceneMeshImpl: Sized {
+pub trait ISceneMesh_Impl: Sized {
     fn Bounds(&mut self) -> ::windows::core::Result<SceneBoundingBox>;
     fn PrimitiveTopology(&mut self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPrimitiveTopology>;
     fn SetPrimitiveTopology(&mut self, value: super::super::super::Graphics::DirectX::DirectXPrimitiveTopology) -> ::windows::core::Result<()>;
@@ -211,9 +211,9 @@ impl ::windows::core::RuntimeName for ISceneMesh {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneMesh";
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
-impl ISceneMeshVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMeshImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMeshVtbl {
-        unsafe extern "system" fn Bounds<Impl: ISceneMeshImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISceneMesh_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMesh_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMesh_Vtbl {
+        unsafe extern "system" fn Bounds<Impl: ISceneMesh_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bounds() {
                 ::core::result::Result::Ok(ok__) => {
@@ -224,7 +224,7 @@ impl ISceneMeshVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrimitiveTopology<Impl: ISceneMeshImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::DirectX::DirectXPrimitiveTopology) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrimitiveTopology<Impl: ISceneMesh_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::DirectX::DirectXPrimitiveTopology) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrimitiveTopology() {
                 ::core::result::Result::Ok(ok__) => {
@@ -235,11 +235,11 @@ impl ISceneMeshVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPrimitiveTopology<Impl: ISceneMeshImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Graphics::DirectX::DirectXPrimitiveTopology) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPrimitiveTopology<Impl: ISceneMesh_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Graphics::DirectX::DirectXPrimitiveTopology) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPrimitiveTopology(value).into()
         }
-        unsafe extern "system" fn FillMeshAttribute<Impl: ISceneMeshImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, semantic: SceneAttributeSemantic, format: super::super::super::Graphics::DirectX::DirectXPixelFormat, memory: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FillMeshAttribute<Impl: ISceneMesh_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, semantic: SceneAttributeSemantic, format: super::super::super::Graphics::DirectX::DirectXPixelFormat, memory: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).FillMeshAttribute(semantic, format, &*(&memory as *const <super::super::super::Foundation::MemoryBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::MemoryBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -256,14 +256,14 @@ impl ISceneMeshVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISceneMeshMaterialAttributeMapImpl: Sized {}
+pub trait ISceneMeshMaterialAttributeMap_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISceneMeshMaterialAttributeMap {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneMeshMaterialAttributeMap";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISceneMeshMaterialAttributeMapVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMeshMaterialAttributeMapImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMeshMaterialAttributeMapVtbl {
+impl ISceneMeshMaterialAttributeMap_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMeshMaterialAttributeMap_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMeshMaterialAttributeMap_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneMeshMaterialAttributeMap, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -271,7 +271,7 @@ impl ISceneMeshMaterialAttributeMapVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISceneMeshRendererComponentImpl: Sized {
+pub trait ISceneMeshRendererComponent_Impl: Sized {
     fn Material(&mut self) -> ::windows::core::Result<SceneMaterial>;
     fn SetMaterial(&mut self, value: &::core::option::Option<SceneMaterial>) -> ::windows::core::Result<()>;
     fn Mesh(&mut self) -> ::windows::core::Result<SceneMesh>;
@@ -283,9 +283,9 @@ impl ::windows::core::RuntimeName for ISceneMeshRendererComponent {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneMeshRendererComponent";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISceneMeshRendererComponentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMeshRendererComponentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMeshRendererComponentVtbl {
-        unsafe extern "system" fn Material<Impl: ISceneMeshRendererComponentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISceneMeshRendererComponent_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMeshRendererComponent_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMeshRendererComponent_Vtbl {
+        unsafe extern "system" fn Material<Impl: ISceneMeshRendererComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Material() {
                 ::core::result::Result::Ok(ok__) => {
@@ -296,11 +296,11 @@ impl ISceneMeshRendererComponentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaterial<Impl: ISceneMeshRendererComponentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaterial<Impl: ISceneMeshRendererComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaterial(&*(&value as *const <SceneMaterial as ::windows::core::Abi>::Abi as *const <SceneMaterial as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Mesh<Impl: ISceneMeshRendererComponentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Mesh<Impl: ISceneMeshRendererComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Mesh() {
                 ::core::result::Result::Ok(ok__) => {
@@ -311,11 +311,11 @@ impl ISceneMeshRendererComponentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMesh<Impl: ISceneMeshRendererComponentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMesh<Impl: ISceneMeshRendererComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMesh(&*(&value as *const <SceneMesh as ::windows::core::Abi>::Abi as *const <SceneMesh as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn UVMappings<Impl: ISceneMeshRendererComponentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UVMappings<Impl: ISceneMeshRendererComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UVMappings() {
                 ::core::result::Result::Ok(ok__) => {
@@ -340,7 +340,7 @@ impl ISceneMeshRendererComponentVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISceneMeshRendererComponentStaticsImpl: Sized {
+pub trait ISceneMeshRendererComponentStatics_Impl: Sized {
     fn Create(&mut self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<SceneMeshRendererComponent>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -348,9 +348,9 @@ impl ::windows::core::RuntimeName for ISceneMeshRendererComponentStatics {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneMeshRendererComponentStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISceneMeshRendererComponentStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMeshRendererComponentStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMeshRendererComponentStaticsVtbl {
-        unsafe extern "system" fn Create<Impl: ISceneMeshRendererComponentStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISceneMeshRendererComponentStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMeshRendererComponentStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMeshRendererComponentStatics_Vtbl {
+        unsafe extern "system" fn Create<Impl: ISceneMeshRendererComponentStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&compositor as *const <super::Compositor as ::windows::core::Abi>::Abi as *const <super::Compositor as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -368,7 +368,7 @@ impl ISceneMeshRendererComponentStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISceneMeshStaticsImpl: Sized {
+pub trait ISceneMeshStatics_Impl: Sized {
     fn Create(&mut self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<SceneMesh>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -376,9 +376,9 @@ impl ::windows::core::RuntimeName for ISceneMeshStatics {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneMeshStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISceneMeshStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMeshStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMeshStaticsVtbl {
-        unsafe extern "system" fn Create<Impl: ISceneMeshStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISceneMeshStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMeshStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMeshStatics_Vtbl {
+        unsafe extern "system" fn Create<Impl: ISceneMeshStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&compositor as *const <super::Compositor as ::windows::core::Abi>::Abi as *const <super::Compositor as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -396,7 +396,7 @@ impl ISceneMeshStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ISceneMetallicRoughnessMaterialImpl: Sized {
+pub trait ISceneMetallicRoughnessMaterial_Impl: Sized {
     fn BaseColorInput(&mut self) -> ::windows::core::Result<SceneMaterialInput>;
     fn SetBaseColorInput(&mut self, value: &::core::option::Option<SceneMaterialInput>) -> ::windows::core::Result<()>;
     fn BaseColorFactor(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector4>;
@@ -413,9 +413,9 @@ impl ::windows::core::RuntimeName for ISceneMetallicRoughnessMaterial {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneMetallicRoughnessMaterial";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ISceneMetallicRoughnessMaterialVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMetallicRoughnessMaterialImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMetallicRoughnessMaterialVtbl {
-        unsafe extern "system" fn BaseColorInput<Impl: ISceneMetallicRoughnessMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISceneMetallicRoughnessMaterial_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMetallicRoughnessMaterial_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMetallicRoughnessMaterial_Vtbl {
+        unsafe extern "system" fn BaseColorInput<Impl: ISceneMetallicRoughnessMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BaseColorInput() {
                 ::core::result::Result::Ok(ok__) => {
@@ -426,11 +426,11 @@ impl ISceneMetallicRoughnessMaterialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBaseColorInput<Impl: ISceneMetallicRoughnessMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBaseColorInput<Impl: ISceneMetallicRoughnessMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBaseColorInput(&*(&value as *const <SceneMaterialInput as ::windows::core::Abi>::Abi as *const <SceneMaterialInput as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BaseColorFactor<Impl: ISceneMetallicRoughnessMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector4) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BaseColorFactor<Impl: ISceneMetallicRoughnessMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector4) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BaseColorFactor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -441,11 +441,11 @@ impl ISceneMetallicRoughnessMaterialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBaseColorFactor<Impl: ISceneMetallicRoughnessMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector4) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBaseColorFactor<Impl: ISceneMetallicRoughnessMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector4) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBaseColorFactor(&*(&value as *const <super::super::super::Foundation::Numerics::Vector4 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector4 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MetallicFactor<Impl: ISceneMetallicRoughnessMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MetallicFactor<Impl: ISceneMetallicRoughnessMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MetallicFactor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -456,11 +456,11 @@ impl ISceneMetallicRoughnessMaterialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMetallicFactor<Impl: ISceneMetallicRoughnessMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMetallicFactor<Impl: ISceneMetallicRoughnessMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMetallicFactor(value).into()
         }
-        unsafe extern "system" fn MetallicRoughnessInput<Impl: ISceneMetallicRoughnessMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MetallicRoughnessInput<Impl: ISceneMetallicRoughnessMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MetallicRoughnessInput() {
                 ::core::result::Result::Ok(ok__) => {
@@ -471,11 +471,11 @@ impl ISceneMetallicRoughnessMaterialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMetallicRoughnessInput<Impl: ISceneMetallicRoughnessMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMetallicRoughnessInput<Impl: ISceneMetallicRoughnessMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMetallicRoughnessInput(&*(&value as *const <SceneMaterialInput as ::windows::core::Abi>::Abi as *const <SceneMaterialInput as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RoughnessFactor<Impl: ISceneMetallicRoughnessMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RoughnessFactor<Impl: ISceneMetallicRoughnessMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RoughnessFactor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -486,7 +486,7 @@ impl ISceneMetallicRoughnessMaterialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRoughnessFactor<Impl: ISceneMetallicRoughnessMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRoughnessFactor<Impl: ISceneMetallicRoughnessMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRoughnessFactor(value).into()
         }
@@ -509,7 +509,7 @@ impl ISceneMetallicRoughnessMaterialVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISceneMetallicRoughnessMaterialStaticsImpl: Sized {
+pub trait ISceneMetallicRoughnessMaterialStatics_Impl: Sized {
     fn Create(&mut self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<SceneMetallicRoughnessMaterial>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -517,9 +517,9 @@ impl ::windows::core::RuntimeName for ISceneMetallicRoughnessMaterialStatics {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneMetallicRoughnessMaterialStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISceneMetallicRoughnessMaterialStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMetallicRoughnessMaterialStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMetallicRoughnessMaterialStaticsVtbl {
-        unsafe extern "system" fn Create<Impl: ISceneMetallicRoughnessMaterialStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISceneMetallicRoughnessMaterialStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneMetallicRoughnessMaterialStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneMetallicRoughnessMaterialStatics_Vtbl {
+        unsafe extern "system" fn Create<Impl: ISceneMetallicRoughnessMaterialStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&compositor as *const <super::Compositor as ::windows::core::Abi>::Abi as *const <super::Compositor as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -540,7 +540,7 @@ impl ISceneMetallicRoughnessMaterialStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ISceneModelTransformImpl: Sized {
+pub trait ISceneModelTransform_Impl: Sized {
     fn Orientation(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Quaternion>;
     fn SetOrientation(&mut self, value: &super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>;
     fn RotationAngle(&mut self) -> ::windows::core::Result<f32>;
@@ -559,9 +559,9 @@ impl ::windows::core::RuntimeName for ISceneModelTransform {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneModelTransform";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ISceneModelTransformVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneModelTransformImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneModelTransformVtbl {
-        unsafe extern "system" fn Orientation<Impl: ISceneModelTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
+impl ISceneModelTransform_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneModelTransform_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneModelTransform_Vtbl {
+        unsafe extern "system" fn Orientation<Impl: ISceneModelTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Orientation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -572,11 +572,11 @@ impl ISceneModelTransformVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOrientation<Impl: ISceneModelTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOrientation<Impl: ISceneModelTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOrientation(&*(&value as *const <super::super::super::Foundation::Numerics::Quaternion as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Quaternion as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RotationAngle<Impl: ISceneModelTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RotationAngle<Impl: ISceneModelTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RotationAngle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -587,11 +587,11 @@ impl ISceneModelTransformVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRotationAngle<Impl: ISceneModelTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRotationAngle<Impl: ISceneModelTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRotationAngle(value).into()
         }
-        unsafe extern "system" fn RotationAngleInDegrees<Impl: ISceneModelTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RotationAngleInDegrees<Impl: ISceneModelTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RotationAngleInDegrees() {
                 ::core::result::Result::Ok(ok__) => {
@@ -602,11 +602,11 @@ impl ISceneModelTransformVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRotationAngleInDegrees<Impl: ISceneModelTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRotationAngleInDegrees<Impl: ISceneModelTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRotationAngleInDegrees(value).into()
         }
-        unsafe extern "system" fn RotationAxis<Impl: ISceneModelTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RotationAxis<Impl: ISceneModelTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RotationAxis() {
                 ::core::result::Result::Ok(ok__) => {
@@ -617,11 +617,11 @@ impl ISceneModelTransformVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRotationAxis<Impl: ISceneModelTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRotationAxis<Impl: ISceneModelTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRotationAxis(&*(&value as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Scale<Impl: ISceneModelTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Scale<Impl: ISceneModelTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Scale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -632,11 +632,11 @@ impl ISceneModelTransformVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetScale<Impl: ISceneModelTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScale<Impl: ISceneModelTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScale(&*(&value as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Translation<Impl: ISceneModelTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Translation<Impl: ISceneModelTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Translation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -647,7 +647,7 @@ impl ISceneModelTransformVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTranslation<Impl: ISceneModelTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTranslation<Impl: ISceneModelTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTranslation(&*(&value as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -672,7 +672,7 @@ impl ISceneModelTransformVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ISceneNodeImpl: Sized {
+pub trait ISceneNode_Impl: Sized {
     fn Children(&mut self) -> ::windows::core::Result<SceneNodeCollection>;
     fn Components(&mut self) -> ::windows::core::Result<SceneComponentCollection>;
     fn Parent(&mut self) -> ::windows::core::Result<SceneNode>;
@@ -684,9 +684,9 @@ impl ::windows::core::RuntimeName for ISceneNode {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneNode";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ISceneNodeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneNodeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneNodeVtbl {
-        unsafe extern "system" fn Children<Impl: ISceneNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISceneNode_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneNode_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneNode_Vtbl {
+        unsafe extern "system" fn Children<Impl: ISceneNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Children() {
                 ::core::result::Result::Ok(ok__) => {
@@ -697,7 +697,7 @@ impl ISceneNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Components<Impl: ISceneNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Components<Impl: ISceneNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Components() {
                 ::core::result::Result::Ok(ok__) => {
@@ -708,7 +708,7 @@ impl ISceneNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Parent<Impl: ISceneNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Parent<Impl: ISceneNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -719,7 +719,7 @@ impl ISceneNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Transform<Impl: ISceneNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Transform<Impl: ISceneNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Transform() {
                 ::core::result::Result::Ok(ok__) => {
@@ -730,7 +730,7 @@ impl ISceneNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindFirstComponentOfType<Impl: ISceneNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SceneComponentType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindFirstComponentOfType<Impl: ISceneNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SceneComponentType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindFirstComponentOfType(value) {
                 ::core::result::Result::Ok(ok__) => {
@@ -755,14 +755,14 @@ impl ISceneNodeVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISceneNodeCollectionImpl: Sized {}
+pub trait ISceneNodeCollection_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISceneNodeCollection {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneNodeCollection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISceneNodeCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneNodeCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneNodeCollectionVtbl {
+impl ISceneNodeCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneNodeCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneNodeCollection_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneNodeCollection, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -770,7 +770,7 @@ impl ISceneNodeCollectionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISceneNodeStaticsImpl: Sized {
+pub trait ISceneNodeStatics_Impl: Sized {
     fn Create(&mut self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<SceneNode>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -778,9 +778,9 @@ impl ::windows::core::RuntimeName for ISceneNodeStatics {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneNodeStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISceneNodeStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneNodeStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneNodeStaticsVtbl {
-        unsafe extern "system" fn Create<Impl: ISceneNodeStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISceneNodeStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneNodeStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneNodeStatics_Vtbl {
+        unsafe extern "system" fn Create<Impl: ISceneNodeStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&compositor as *const <super::Compositor as ::windows::core::Abi>::Abi as *const <super::Compositor as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -798,14 +798,14 @@ impl ISceneNodeStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISceneObjectImpl: Sized {}
+pub trait ISceneObject_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISceneObject {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneObject";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISceneObjectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneObjectVtbl {
+impl ISceneObject_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneObject_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneObject_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneObject, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -813,14 +813,14 @@ impl ISceneObjectVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISceneObjectFactoryImpl: Sized {}
+pub trait ISceneObjectFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISceneObjectFactory {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneObjectFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISceneObjectFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneObjectFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneObjectFactoryVtbl {
+impl ISceneObjectFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneObjectFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneObjectFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneObjectFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -828,7 +828,7 @@ impl ISceneObjectFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IScenePbrMaterialImpl: Sized {
+pub trait IScenePbrMaterial_Impl: Sized {
     fn AlphaCutoff(&mut self) -> ::windows::core::Result<f32>;
     fn SetAlphaCutoff(&mut self, value: f32) -> ::windows::core::Result<()>;
     fn AlphaMode(&mut self) -> ::windows::core::Result<SceneAlphaMode>;
@@ -853,9 +853,9 @@ impl ::windows::core::RuntimeName for IScenePbrMaterial {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.IScenePbrMaterial";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IScenePbrMaterialVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScenePbrMaterialImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScenePbrMaterialVtbl {
-        unsafe extern "system" fn AlphaCutoff<Impl: IScenePbrMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl IScenePbrMaterial_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScenePbrMaterial_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScenePbrMaterial_Vtbl {
+        unsafe extern "system" fn AlphaCutoff<Impl: IScenePbrMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlphaCutoff() {
                 ::core::result::Result::Ok(ok__) => {
@@ -866,11 +866,11 @@ impl IScenePbrMaterialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAlphaCutoff<Impl: IScenePbrMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAlphaCutoff<Impl: IScenePbrMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAlphaCutoff(value).into()
         }
-        unsafe extern "system" fn AlphaMode<Impl: IScenePbrMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SceneAlphaMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AlphaMode<Impl: IScenePbrMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SceneAlphaMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlphaMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -881,11 +881,11 @@ impl IScenePbrMaterialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAlphaMode<Impl: IScenePbrMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SceneAlphaMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAlphaMode<Impl: IScenePbrMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SceneAlphaMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAlphaMode(value).into()
         }
-        unsafe extern "system" fn EmissiveInput<Impl: IScenePbrMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EmissiveInput<Impl: IScenePbrMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmissiveInput() {
                 ::core::result::Result::Ok(ok__) => {
@@ -896,11 +896,11 @@ impl IScenePbrMaterialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEmissiveInput<Impl: IScenePbrMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEmissiveInput<Impl: IScenePbrMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEmissiveInput(&*(&value as *const <SceneMaterialInput as ::windows::core::Abi>::Abi as *const <SceneMaterialInput as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EmissiveFactor<Impl: IScenePbrMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EmissiveFactor<Impl: IScenePbrMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmissiveFactor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -911,11 +911,11 @@ impl IScenePbrMaterialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEmissiveFactor<Impl: IScenePbrMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEmissiveFactor<Impl: IScenePbrMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEmissiveFactor(&*(&value as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IsDoubleSided<Impl: IScenePbrMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDoubleSided<Impl: IScenePbrMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDoubleSided() {
                 ::core::result::Result::Ok(ok__) => {
@@ -926,11 +926,11 @@ impl IScenePbrMaterialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsDoubleSided<Impl: IScenePbrMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsDoubleSided<Impl: IScenePbrMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsDoubleSided(value).into()
         }
-        unsafe extern "system" fn NormalInput<Impl: IScenePbrMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NormalInput<Impl: IScenePbrMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NormalInput() {
                 ::core::result::Result::Ok(ok__) => {
@@ -941,11 +941,11 @@ impl IScenePbrMaterialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNormalInput<Impl: IScenePbrMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNormalInput<Impl: IScenePbrMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNormalInput(&*(&value as *const <SceneMaterialInput as ::windows::core::Abi>::Abi as *const <SceneMaterialInput as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn NormalScale<Impl: IScenePbrMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NormalScale<Impl: IScenePbrMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NormalScale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -956,11 +956,11 @@ impl IScenePbrMaterialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNormalScale<Impl: IScenePbrMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNormalScale<Impl: IScenePbrMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNormalScale(value).into()
         }
-        unsafe extern "system" fn OcclusionInput<Impl: IScenePbrMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OcclusionInput<Impl: IScenePbrMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OcclusionInput() {
                 ::core::result::Result::Ok(ok__) => {
@@ -971,11 +971,11 @@ impl IScenePbrMaterialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOcclusionInput<Impl: IScenePbrMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOcclusionInput<Impl: IScenePbrMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOcclusionInput(&*(&value as *const <SceneMaterialInput as ::windows::core::Abi>::Abi as *const <SceneMaterialInput as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn OcclusionStrength<Impl: IScenePbrMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OcclusionStrength<Impl: IScenePbrMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OcclusionStrength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -986,7 +986,7 @@ impl IScenePbrMaterialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOcclusionStrength<Impl: IScenePbrMaterialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOcclusionStrength<Impl: IScenePbrMaterial_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOcclusionStrength(value).into()
         }
@@ -1017,14 +1017,14 @@ impl IScenePbrMaterialVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IScenePbrMaterialFactoryImpl: Sized {}
+pub trait IScenePbrMaterialFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IScenePbrMaterialFactory {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.IScenePbrMaterialFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IScenePbrMaterialFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScenePbrMaterialFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScenePbrMaterialFactoryVtbl {
+impl IScenePbrMaterialFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScenePbrMaterialFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScenePbrMaterialFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IScenePbrMaterialFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1032,14 +1032,14 @@ impl IScenePbrMaterialFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISceneRendererComponentImpl: Sized {}
+pub trait ISceneRendererComponent_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISceneRendererComponent {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneRendererComponent";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISceneRendererComponentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneRendererComponentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneRendererComponentVtbl {
+impl ISceneRendererComponent_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneRendererComponent_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneRendererComponent_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneRendererComponent, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1047,14 +1047,14 @@ impl ISceneRendererComponentVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISceneRendererComponentFactoryImpl: Sized {}
+pub trait ISceneRendererComponentFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISceneRendererComponentFactory {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneRendererComponentFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISceneRendererComponentFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneRendererComponentFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneRendererComponentFactoryVtbl {
+impl ISceneRendererComponentFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneRendererComponentFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneRendererComponentFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISceneRendererComponentFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1062,7 +1062,7 @@ impl ISceneRendererComponentFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISceneSurfaceMaterialInputImpl: Sized {
+pub trait ISceneSurfaceMaterialInput_Impl: Sized {
     fn BitmapInterpolationMode(&mut self) -> ::windows::core::Result<super::CompositionBitmapInterpolationMode>;
     fn SetBitmapInterpolationMode(&mut self, value: super::CompositionBitmapInterpolationMode) -> ::windows::core::Result<()>;
     fn Surface(&mut self) -> ::windows::core::Result<super::ICompositionSurface>;
@@ -1077,9 +1077,9 @@ impl ::windows::core::RuntimeName for ISceneSurfaceMaterialInput {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneSurfaceMaterialInput";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISceneSurfaceMaterialInputVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneSurfaceMaterialInputImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneSurfaceMaterialInputVtbl {
-        unsafe extern "system" fn BitmapInterpolationMode<Impl: ISceneSurfaceMaterialInputImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::CompositionBitmapInterpolationMode) -> ::windows::core::HRESULT {
+impl ISceneSurfaceMaterialInput_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneSurfaceMaterialInput_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneSurfaceMaterialInput_Vtbl {
+        unsafe extern "system" fn BitmapInterpolationMode<Impl: ISceneSurfaceMaterialInput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::CompositionBitmapInterpolationMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BitmapInterpolationMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1090,11 +1090,11 @@ impl ISceneSurfaceMaterialInputVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBitmapInterpolationMode<Impl: ISceneSurfaceMaterialInputImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::CompositionBitmapInterpolationMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBitmapInterpolationMode<Impl: ISceneSurfaceMaterialInput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::CompositionBitmapInterpolationMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBitmapInterpolationMode(value).into()
         }
-        unsafe extern "system" fn Surface<Impl: ISceneSurfaceMaterialInputImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Surface<Impl: ISceneSurfaceMaterialInput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Surface() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1105,11 +1105,11 @@ impl ISceneSurfaceMaterialInputVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSurface<Impl: ISceneSurfaceMaterialInputImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSurface<Impl: ISceneSurfaceMaterialInput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSurface(&*(&value as *const <super::ICompositionSurface as ::windows::core::Abi>::Abi as *const <super::ICompositionSurface as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn WrappingUMode<Impl: ISceneSurfaceMaterialInputImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SceneWrappingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WrappingUMode<Impl: ISceneSurfaceMaterialInput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SceneWrappingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WrappingUMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1120,11 +1120,11 @@ impl ISceneSurfaceMaterialInputVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetWrappingUMode<Impl: ISceneSurfaceMaterialInputImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SceneWrappingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetWrappingUMode<Impl: ISceneSurfaceMaterialInput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SceneWrappingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWrappingUMode(value).into()
         }
-        unsafe extern "system" fn WrappingVMode<Impl: ISceneSurfaceMaterialInputImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SceneWrappingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WrappingVMode<Impl: ISceneSurfaceMaterialInput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SceneWrappingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WrappingVMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1135,7 +1135,7 @@ impl ISceneSurfaceMaterialInputVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetWrappingVMode<Impl: ISceneSurfaceMaterialInputImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SceneWrappingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetWrappingVMode<Impl: ISceneSurfaceMaterialInput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SceneWrappingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWrappingVMode(value).into()
         }
@@ -1156,7 +1156,7 @@ impl ISceneSurfaceMaterialInputVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISceneSurfaceMaterialInputStaticsImpl: Sized {
+pub trait ISceneSurfaceMaterialInputStatics_Impl: Sized {
     fn Create(&mut self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<SceneSurfaceMaterialInput>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1164,9 +1164,9 @@ impl ::windows::core::RuntimeName for ISceneSurfaceMaterialInputStatics {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneSurfaceMaterialInputStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISceneSurfaceMaterialInputStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneSurfaceMaterialInputStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneSurfaceMaterialInputStaticsVtbl {
-        unsafe extern "system" fn Create<Impl: ISceneSurfaceMaterialInputStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISceneSurfaceMaterialInputStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneSurfaceMaterialInputStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneSurfaceMaterialInputStatics_Vtbl {
+        unsafe extern "system" fn Create<Impl: ISceneSurfaceMaterialInputStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&compositor as *const <super::Compositor as ::windows::core::Abi>::Abi as *const <super::Compositor as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1184,7 +1184,7 @@ impl ISceneSurfaceMaterialInputStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISceneVisualImpl: Sized {
+pub trait ISceneVisual_Impl: Sized {
     fn Root(&mut self) -> ::windows::core::Result<SceneNode>;
     fn SetRoot(&mut self, value: &::core::option::Option<SceneNode>) -> ::windows::core::Result<()>;
 }
@@ -1193,9 +1193,9 @@ impl ::windows::core::RuntimeName for ISceneVisual {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneVisual";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISceneVisualVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneVisualImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneVisualVtbl {
-        unsafe extern "system" fn Root<Impl: ISceneVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISceneVisual_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneVisual_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneVisual_Vtbl {
+        unsafe extern "system" fn Root<Impl: ISceneVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Root() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1206,7 +1206,7 @@ impl ISceneVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRoot<Impl: ISceneVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRoot<Impl: ISceneVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRoot(&*(&value as *const <SceneNode as ::windows::core::Abi>::Abi as *const <SceneNode as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1221,7 +1221,7 @@ impl ISceneVisualVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISceneVisualStaticsImpl: Sized {
+pub trait ISceneVisualStatics_Impl: Sized {
     fn Create(&mut self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<SceneVisual>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1229,9 +1229,9 @@ impl ::windows::core::RuntimeName for ISceneVisualStatics {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ISceneVisualStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISceneVisualStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneVisualStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneVisualStaticsVtbl {
-        unsafe extern "system" fn Create<Impl: ISceneVisualStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISceneVisualStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceneVisualStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISceneVisualStatics_Vtbl {
+        unsafe extern "system" fn Create<Impl: ISceneVisualStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&compositor as *const <super::Compositor as ::windows::core::Abi>::Abi as *const <super::Compositor as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

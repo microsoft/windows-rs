@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISoundLevelBrokerStaticsImpl: Sized {
+pub trait ISoundLevelBrokerStatics_Impl: Sized {
     fn SoundLevel(&mut self) -> ::windows::core::Result<super::super::SoundLevel>;
     fn SoundLevelChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveSoundLevelChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for ISoundLevelBrokerStatics {
     const NAME: &'static str = "Windows.Media.Core.Preview.ISoundLevelBrokerStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISoundLevelBrokerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISoundLevelBrokerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISoundLevelBrokerStaticsVtbl {
-        unsafe extern "system" fn SoundLevel<Impl: ISoundLevelBrokerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::SoundLevel) -> ::windows::core::HRESULT {
+impl ISoundLevelBrokerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISoundLevelBrokerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISoundLevelBrokerStatics_Vtbl {
+        unsafe extern "system" fn SoundLevel<Impl: ISoundLevelBrokerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::SoundLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SoundLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -22,7 +22,7 @@ impl ISoundLevelBrokerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SoundLevelChanged<Impl: ISoundLevelBrokerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SoundLevelChanged<Impl: ISoundLevelBrokerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SoundLevelChanged(&*(&handler as *const <super::super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -33,7 +33,7 @@ impl ISoundLevelBrokerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSoundLevelChanged<Impl: ISoundLevelBrokerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSoundLevelChanged<Impl: ISoundLevelBrokerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSoundLevelChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }

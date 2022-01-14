@@ -77,12 +77,12 @@ impl ::core::fmt::Debug for IGeometrySource2DInterop {
     }
 }
 unsafe impl ::windows::core::Interface for IGeometrySource2DInterop {
-    type Vtable = IGeometrySource2DInteropVtbl;
+    type Vtable = IGeometrySource2DInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0657af73_53fd_47cf_84ff_c8492d2a80a3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGeometrySource2DInteropVtbl {
+pub struct IGeometrySource2DInterop_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D")]
     pub GetGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -167,12 +167,12 @@ impl ::core::fmt::Debug for IGraphicsEffectD2D1Interop {
     }
 }
 unsafe impl ::windows::core::Interface for IGraphicsEffectD2D1Interop {
-    type Vtable = IGraphicsEffectD2D1InteropVtbl;
+    type Vtable = IGraphicsEffectD2D1Interop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fc57384_a068_44d7_a331_30982fcf7177);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGraphicsEffectD2D1InteropVtbl {
+pub struct IGraphicsEffectD2D1Interop_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetEffectId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]

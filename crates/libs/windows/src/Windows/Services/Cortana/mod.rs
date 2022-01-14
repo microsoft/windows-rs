@@ -126,7 +126,7 @@ unsafe impl ::windows::core::RuntimeType for CortanaActionableInsights {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for CortanaActionableInsights {
-    type Vtable = ICortanaActionableInsightsVtbl;
+    type Vtable = ICortanaActionableInsights_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x951ec6b1_fc83_586d_8b84_2452c8981625);
 }
 #[cfg(feature = "deprecated")]
@@ -255,7 +255,7 @@ unsafe impl ::windows::core::RuntimeType for CortanaActionableInsightsOptions {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for CortanaActionableInsightsOptions {
-    type Vtable = ICortanaActionableInsightsOptionsVtbl;
+    type Vtable = ICortanaActionableInsightsOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaac2bbcf_9782_5420_b81e_7ae56af31815);
 }
 #[cfg(feature = "deprecated")]
@@ -493,7 +493,7 @@ unsafe impl ::windows::core::RuntimeType for CortanaPermissionsManager {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for CortanaPermissionsManager {
-    type Vtable = ICortanaPermissionsManagerVtbl;
+    type Vtable = ICortanaPermissionsManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x191330e0_8695_438a_9545_3da4e822ddb4);
 }
 #[cfg(feature = "deprecated")]
@@ -631,7 +631,7 @@ unsafe impl ::windows::core::RuntimeType for CortanaSettings {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for CortanaSettings {
-    type Vtable = ICortanaSettingsVtbl;
+    type Vtable = ICortanaSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54d571a7_8062_40f4_abe7_dedfd697b019);
 }
 #[cfg(feature = "deprecated")]
@@ -696,13 +696,13 @@ unsafe impl ::core::marker::Sync for CortanaSettings {}
 pub struct ICortanaActionableInsights(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ICortanaActionableInsights {
-    type Vtable = ICortanaActionableInsightsVtbl;
+    type Vtable = ICortanaActionableInsights_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x951ec6b1_fc83_586d_8b84_2452c8981625);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICortanaActionableInsightsVtbl {
+pub struct ICortanaActionableInsights_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "System", feature = "deprecated"))]
     pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -743,13 +743,13 @@ pub struct ICortanaActionableInsightsVtbl {
 pub struct ICortanaActionableInsightsOptions(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ICortanaActionableInsightsOptions {
-    type Vtable = ICortanaActionableInsightsOptionsVtbl;
+    type Vtable = ICortanaActionableInsightsOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaac2bbcf_9782_5420_b81e_7ae56af31815);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICortanaActionableInsightsOptionsVtbl {
+pub struct ICortanaActionableInsightsOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub ContentSourceWebLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -774,13 +774,13 @@ pub struct ICortanaActionableInsightsOptionsVtbl {
 pub struct ICortanaActionableInsightsStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ICortanaActionableInsightsStatics {
-    type Vtable = ICortanaActionableInsightsStaticsVtbl;
+    type Vtable = ICortanaActionableInsightsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5ded412_9d2f_5cb5_9b05_356a0b836c10);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICortanaActionableInsightsStaticsVtbl {
+pub struct ICortanaActionableInsightsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -797,13 +797,13 @@ pub struct ICortanaActionableInsightsStaticsVtbl {
 pub struct ICortanaPermissionsManager(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ICortanaPermissionsManager {
-    type Vtable = ICortanaPermissionsManagerVtbl;
+    type Vtable = ICortanaPermissionsManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x191330e0_8695_438a_9545_3da4e822ddb4);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICortanaPermissionsManagerVtbl {
+pub struct ICortanaPermissionsManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -828,13 +828,13 @@ pub struct ICortanaPermissionsManagerVtbl {
 pub struct ICortanaPermissionsManagerStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ICortanaPermissionsManagerStatics {
-    type Vtable = ICortanaPermissionsManagerStaticsVtbl;
+    type Vtable = ICortanaPermissionsManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76b1e67a_b045_4414_9d6d_2ad3a5fe3a7e);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICortanaPermissionsManagerStaticsVtbl {
+pub struct ICortanaPermissionsManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -847,13 +847,13 @@ pub struct ICortanaPermissionsManagerStaticsVtbl {
 pub struct ICortanaSettings(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ICortanaSettings {
-    type Vtable = ICortanaSettingsVtbl;
+    type Vtable = ICortanaSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54d571a7_8062_40f4_abe7_dedfd697b019);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICortanaSettingsVtbl {
+pub struct ICortanaSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub HasUserConsentToVoiceActivation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -874,13 +874,13 @@ pub struct ICortanaSettingsVtbl {
 pub struct ICortanaSettingsStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ICortanaSettingsStatics {
-    type Vtable = ICortanaSettingsStaticsVtbl;
+    type Vtable = ICortanaSettingsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b2ccd7e_2ec0_446d_9285_33f07ce8ac04);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICortanaSettingsStaticsVtbl {
+pub struct ICortanaSettingsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,

@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ICurrencyFormatterImpl: Sized + INumberFormatterImpl + INumberFormatter2Impl + INumberFormatterOptionsImpl + INumberParserImpl {
+pub trait ICurrencyFormatter_Impl: Sized + INumberFormatter_Impl + INumberFormatter2_Impl + INumberFormatterOptions_Impl + INumberParser_Impl {
     fn Currency(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetCurrency(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
@@ -8,9 +8,9 @@ impl ::windows::core::RuntimeName for ICurrencyFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.ICurrencyFormatter";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ICurrencyFormatterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrencyFormatterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrencyFormatterVtbl {
-        unsafe extern "system" fn Currency<Impl: ICurrencyFormatterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ICurrencyFormatter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrencyFormatter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrencyFormatter_Vtbl {
+        unsafe extern "system" fn Currency<Impl: ICurrencyFormatter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Currency() {
                 ::core::result::Result::Ok(ok__) => {
@@ -21,7 +21,7 @@ impl ICurrencyFormatterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCurrency<Impl: ICurrencyFormatterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCurrency<Impl: ICurrencyFormatter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCurrency(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -36,7 +36,7 @@ impl ICurrencyFormatterVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICurrencyFormatter2Impl: Sized {
+pub trait ICurrencyFormatter2_Impl: Sized {
     fn Mode(&mut self) -> ::windows::core::Result<CurrencyFormatterMode>;
     fn SetMode(&mut self, value: CurrencyFormatterMode) -> ::windows::core::Result<()>;
     fn ApplyRoundingForCurrency(&mut self, roundingalgorithm: RoundingAlgorithm) -> ::windows::core::Result<()>;
@@ -46,9 +46,9 @@ impl ::windows::core::RuntimeName for ICurrencyFormatter2 {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.ICurrencyFormatter2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICurrencyFormatter2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrencyFormatter2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrencyFormatter2Vtbl {
-        unsafe extern "system" fn Mode<Impl: ICurrencyFormatter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CurrencyFormatterMode) -> ::windows::core::HRESULT {
+impl ICurrencyFormatter2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrencyFormatter2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrencyFormatter2_Vtbl {
+        unsafe extern "system" fn Mode<Impl: ICurrencyFormatter2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CurrencyFormatterMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Mode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -59,11 +59,11 @@ impl ICurrencyFormatter2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMode<Impl: ICurrencyFormatter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CurrencyFormatterMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMode<Impl: ICurrencyFormatter2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CurrencyFormatterMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMode(value).into()
         }
-        unsafe extern "system" fn ApplyRoundingForCurrency<Impl: ICurrencyFormatter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, roundingalgorithm: RoundingAlgorithm) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ApplyRoundingForCurrency<Impl: ICurrencyFormatter2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, roundingalgorithm: RoundingAlgorithm) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ApplyRoundingForCurrency(roundingalgorithm).into()
         }
@@ -79,7 +79,7 @@ impl ICurrencyFormatter2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ICurrencyFormatterFactoryImpl: Sized {
+pub trait ICurrencyFormatterFactory_Impl: Sized {
     fn CreateCurrencyFormatterCode(&mut self, currencycode: &::windows::core::HSTRING) -> ::windows::core::Result<CurrencyFormatter>;
     fn CreateCurrencyFormatterCodeContext(&mut self, currencycode: &::windows::core::HSTRING, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<CurrencyFormatter>;
 }
@@ -88,9 +88,9 @@ impl ::windows::core::RuntimeName for ICurrencyFormatterFactory {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.ICurrencyFormatterFactory";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ICurrencyFormatterFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrencyFormatterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrencyFormatterFactoryVtbl {
-        unsafe extern "system" fn CreateCurrencyFormatterCode<Impl: ICurrencyFormatterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, currencycode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICurrencyFormatterFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrencyFormatterFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrencyFormatterFactory_Vtbl {
+        unsafe extern "system" fn CreateCurrencyFormatterCode<Impl: ICurrencyFormatterFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, currencycode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCurrencyFormatterCode(&*(&currencycode as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -101,7 +101,7 @@ impl ICurrencyFormatterFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateCurrencyFormatterCodeContext<Impl: ICurrencyFormatterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, currencycode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, languages: ::windows::core::RawPtr, geographicregion: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCurrencyFormatterCodeContext<Impl: ICurrencyFormatterFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, currencycode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, languages: ::windows::core::RawPtr, geographicregion: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCurrencyFormatterCodeContext(
                 &*(&currencycode as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -127,7 +127,7 @@ impl ICurrencyFormatterFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IDecimalFormatterFactoryImpl: Sized {
+pub trait IDecimalFormatterFactory_Impl: Sized {
     fn CreateDecimalFormatter(&mut self, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<DecimalFormatter>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -135,9 +135,9 @@ impl ::windows::core::RuntimeName for IDecimalFormatterFactory {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.IDecimalFormatterFactory";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IDecimalFormatterFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDecimalFormatterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDecimalFormatterFactoryVtbl {
-        unsafe extern "system" fn CreateDecimalFormatter<Impl: IDecimalFormatterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languages: ::windows::core::RawPtr, geographicregion: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDecimalFormatterFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDecimalFormatterFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDecimalFormatterFactory_Vtbl {
+        unsafe extern "system" fn CreateDecimalFormatter<Impl: IDecimalFormatterFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languages: ::windows::core::RawPtr, geographicregion: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDecimalFormatter(&*(&languages as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType), &*(&geographicregion as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -158,7 +158,7 @@ impl IDecimalFormatterFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IIncrementNumberRounderImpl: Sized {
+pub trait IIncrementNumberRounder_Impl: Sized {
     fn RoundingAlgorithm(&mut self) -> ::windows::core::Result<RoundingAlgorithm>;
     fn SetRoundingAlgorithm(&mut self, value: RoundingAlgorithm) -> ::windows::core::Result<()>;
     fn Increment(&mut self) -> ::windows::core::Result<f64>;
@@ -169,9 +169,9 @@ impl ::windows::core::RuntimeName for IIncrementNumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.IIncrementNumberRounder";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IIncrementNumberRounderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIncrementNumberRounderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIncrementNumberRounderVtbl {
-        unsafe extern "system" fn RoundingAlgorithm<Impl: IIncrementNumberRounderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RoundingAlgorithm) -> ::windows::core::HRESULT {
+impl IIncrementNumberRounder_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIncrementNumberRounder_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIncrementNumberRounder_Vtbl {
+        unsafe extern "system" fn RoundingAlgorithm<Impl: IIncrementNumberRounder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RoundingAlgorithm) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RoundingAlgorithm() {
                 ::core::result::Result::Ok(ok__) => {
@@ -182,11 +182,11 @@ impl IIncrementNumberRounderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRoundingAlgorithm<Impl: IIncrementNumberRounderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: RoundingAlgorithm) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRoundingAlgorithm<Impl: IIncrementNumberRounder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: RoundingAlgorithm) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRoundingAlgorithm(value).into()
         }
-        unsafe extern "system" fn Increment<Impl: IIncrementNumberRounderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Increment<Impl: IIncrementNumberRounder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Increment() {
                 ::core::result::Result::Ok(ok__) => {
@@ -197,7 +197,7 @@ impl IIncrementNumberRounderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIncrement<Impl: IIncrementNumberRounderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIncrement<Impl: IIncrementNumberRounder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIncrement(value).into()
         }
@@ -213,7 +213,7 @@ impl IIncrementNumberRounderVtbl {
         iid == &<IIncrementNumberRounder as ::windows::core::Interface>::IID
     }
 }
-pub trait INumberFormatterImpl: Sized {
+pub trait INumberFormatter_Impl: Sized {
     fn FormatInt(&mut self, value: i64) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FormatUInt(&mut self, value: u64) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FormatDouble(&mut self, value: f64) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -221,9 +221,9 @@ pub trait INumberFormatterImpl: Sized {
 impl ::windows::core::RuntimeName for INumberFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberFormatter";
 }
-impl INumberFormatterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberFormatterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumberFormatterVtbl {
-        unsafe extern "system" fn FormatInt<Impl: INumberFormatterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl INumberFormatter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberFormatter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumberFormatter_Vtbl {
+        unsafe extern "system" fn FormatInt<Impl: INumberFormatter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FormatInt(value) {
                 ::core::result::Result::Ok(ok__) => {
@@ -234,7 +234,7 @@ impl INumberFormatterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FormatUInt<Impl: INumberFormatterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FormatUInt<Impl: INumberFormatter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FormatUInt(value) {
                 ::core::result::Result::Ok(ok__) => {
@@ -245,7 +245,7 @@ impl INumberFormatterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FormatDouble<Impl: INumberFormatterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FormatDouble<Impl: INumberFormatter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FormatDouble(value) {
                 ::core::result::Result::Ok(ok__) => {
@@ -267,7 +267,7 @@ impl INumberFormatterVtbl {
         iid == &<INumberFormatter as ::windows::core::Interface>::IID
     }
 }
-pub trait INumberFormatter2Impl: Sized {
+pub trait INumberFormatter2_Impl: Sized {
     fn FormatInt(&mut self, value: i64) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FormatUInt(&mut self, value: u64) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FormatDouble(&mut self, value: f64) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -275,9 +275,9 @@ pub trait INumberFormatter2Impl: Sized {
 impl ::windows::core::RuntimeName for INumberFormatter2 {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberFormatter2";
 }
-impl INumberFormatter2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberFormatter2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumberFormatter2Vtbl {
-        unsafe extern "system" fn FormatInt<Impl: INumberFormatter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl INumberFormatter2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberFormatter2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumberFormatter2_Vtbl {
+        unsafe extern "system" fn FormatInt<Impl: INumberFormatter2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FormatInt(value) {
                 ::core::result::Result::Ok(ok__) => {
@@ -288,7 +288,7 @@ impl INumberFormatter2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FormatUInt<Impl: INumberFormatter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FormatUInt<Impl: INumberFormatter2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FormatUInt(value) {
                 ::core::result::Result::Ok(ok__) => {
@@ -299,7 +299,7 @@ impl INumberFormatter2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FormatDouble<Impl: INumberFormatter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FormatDouble<Impl: INumberFormatter2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FormatDouble(value) {
                 ::core::result::Result::Ok(ok__) => {
@@ -322,7 +322,7 @@ impl INumberFormatter2Vtbl {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait INumberFormatterOptionsImpl: Sized {
+pub trait INumberFormatterOptions_Impl: Sized {
     fn Languages(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn GeographicRegion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IntegerDigits(&mut self) -> ::windows::core::Result<i32>;
@@ -343,9 +343,9 @@ impl ::windows::core::RuntimeName for INumberFormatterOptions {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberFormatterOptions";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl INumberFormatterOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberFormatterOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumberFormatterOptionsVtbl {
-        unsafe extern "system" fn Languages<Impl: INumberFormatterOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl INumberFormatterOptions_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberFormatterOptions_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumberFormatterOptions_Vtbl {
+        unsafe extern "system" fn Languages<Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Languages() {
                 ::core::result::Result::Ok(ok__) => {
@@ -356,7 +356,7 @@ impl INumberFormatterOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GeographicRegion<Impl: INumberFormatterOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GeographicRegion<Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GeographicRegion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -367,7 +367,7 @@ impl INumberFormatterOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IntegerDigits<Impl: INumberFormatterOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IntegerDigits<Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IntegerDigits() {
                 ::core::result::Result::Ok(ok__) => {
@@ -378,11 +378,11 @@ impl INumberFormatterOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIntegerDigits<Impl: INumberFormatterOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIntegerDigits<Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIntegerDigits(value).into()
         }
-        unsafe extern "system" fn FractionDigits<Impl: INumberFormatterOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FractionDigits<Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FractionDigits() {
                 ::core::result::Result::Ok(ok__) => {
@@ -393,11 +393,11 @@ impl INumberFormatterOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFractionDigits<Impl: INumberFormatterOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFractionDigits<Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFractionDigits(value).into()
         }
-        unsafe extern "system" fn IsGrouped<Impl: INumberFormatterOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsGrouped<Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsGrouped() {
                 ::core::result::Result::Ok(ok__) => {
@@ -408,11 +408,11 @@ impl INumberFormatterOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsGrouped<Impl: INumberFormatterOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsGrouped<Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsGrouped(value).into()
         }
-        unsafe extern "system" fn IsDecimalPointAlwaysDisplayed<Impl: INumberFormatterOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDecimalPointAlwaysDisplayed<Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDecimalPointAlwaysDisplayed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -423,11 +423,11 @@ impl INumberFormatterOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsDecimalPointAlwaysDisplayed<Impl: INumberFormatterOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsDecimalPointAlwaysDisplayed<Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsDecimalPointAlwaysDisplayed(value).into()
         }
-        unsafe extern "system" fn NumeralSystem<Impl: INumberFormatterOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NumeralSystem<Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NumeralSystem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -438,11 +438,11 @@ impl INumberFormatterOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNumeralSystem<Impl: INumberFormatterOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNumeralSystem<Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNumeralSystem(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ResolvedLanguage<Impl: INumberFormatterOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResolvedLanguage<Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResolvedLanguage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -453,7 +453,7 @@ impl INumberFormatterOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResolvedGeographicRegion<Impl: INumberFormatterOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResolvedGeographicRegion<Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResolvedGeographicRegion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -487,7 +487,7 @@ impl INumberFormatterOptionsVtbl {
     }
 }
 #[cfg(feature = "Foundation")]
-pub trait INumberParserImpl: Sized {
+pub trait INumberParser_Impl: Sized {
     fn ParseInt(&mut self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<i64>>;
     fn ParseUInt(&mut self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<u64>>;
     fn ParseDouble(&mut self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
@@ -497,9 +497,9 @@ impl ::windows::core::RuntimeName for INumberParser {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberParser";
 }
 #[cfg(feature = "Foundation")]
-impl INumberParserVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberParserImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumberParserVtbl {
-        unsafe extern "system" fn ParseInt<Impl: INumberParserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl INumberParser_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberParser_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumberParser_Vtbl {
+        unsafe extern "system" fn ParseInt<Impl: INumberParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ParseInt(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -510,7 +510,7 @@ impl INumberParserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ParseUInt<Impl: INumberParserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ParseUInt<Impl: INumberParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ParseUInt(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -521,7 +521,7 @@ impl INumberParserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ParseDouble<Impl: INumberParserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ParseDouble<Impl: INumberParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ParseDouble(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -543,7 +543,7 @@ impl INumberParserVtbl {
         iid == &<INumberParser as ::windows::core::Interface>::IID
     }
 }
-pub trait INumberRounderImpl: Sized {
+pub trait INumberRounder_Impl: Sized {
     fn RoundInt32(&mut self, value: i32) -> ::windows::core::Result<i32>;
     fn RoundUInt32(&mut self, value: u32) -> ::windows::core::Result<u32>;
     fn RoundInt64(&mut self, value: i64) -> ::windows::core::Result<i64>;
@@ -554,9 +554,9 @@ pub trait INumberRounderImpl: Sized {
 impl ::windows::core::RuntimeName for INumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberRounder";
 }
-impl INumberRounderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberRounderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumberRounderVtbl {
-        unsafe extern "system" fn RoundInt32<Impl: INumberRounderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, result__: *mut i32) -> ::windows::core::HRESULT {
+impl INumberRounder_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberRounder_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumberRounder_Vtbl {
+        unsafe extern "system" fn RoundInt32<Impl: INumberRounder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RoundInt32(value) {
                 ::core::result::Result::Ok(ok__) => {
@@ -567,7 +567,7 @@ impl INumberRounderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RoundUInt32<Impl: INumberRounderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RoundUInt32<Impl: INumberRounder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RoundUInt32(value) {
                 ::core::result::Result::Ok(ok__) => {
@@ -578,7 +578,7 @@ impl INumberRounderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RoundInt64<Impl: INumberRounderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i64, result__: *mut i64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RoundInt64<Impl: INumberRounder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i64, result__: *mut i64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RoundInt64(value) {
                 ::core::result::Result::Ok(ok__) => {
@@ -589,7 +589,7 @@ impl INumberRounderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RoundUInt64<Impl: INumberRounderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u64, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RoundUInt64<Impl: INumberRounder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u64, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RoundUInt64(value) {
                 ::core::result::Result::Ok(ok__) => {
@@ -600,7 +600,7 @@ impl INumberRounderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RoundSingle<Impl: INumberRounderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RoundSingle<Impl: INumberRounder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RoundSingle(value) {
                 ::core::result::Result::Ok(ok__) => {
@@ -611,7 +611,7 @@ impl INumberRounderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RoundDouble<Impl: INumberRounderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RoundDouble<Impl: INumberRounder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RoundDouble(value) {
                 ::core::result::Result::Ok(ok__) => {
@@ -636,16 +636,16 @@ impl INumberRounderVtbl {
         iid == &<INumberRounder as ::windows::core::Interface>::IID
     }
 }
-pub trait INumberRounderOptionImpl: Sized {
+pub trait INumberRounderOption_Impl: Sized {
     fn NumberRounder(&mut self) -> ::windows::core::Result<INumberRounder>;
     fn SetNumberRounder(&mut self, value: &::core::option::Option<INumberRounder>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for INumberRounderOption {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberRounderOption";
 }
-impl INumberRounderOptionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberRounderOptionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumberRounderOptionVtbl {
-        unsafe extern "system" fn NumberRounder<Impl: INumberRounderOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl INumberRounderOption_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumberRounderOption_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumberRounderOption_Vtbl {
+        unsafe extern "system" fn NumberRounder<Impl: INumberRounderOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NumberRounder() {
                 ::core::result::Result::Ok(ok__) => {
@@ -656,7 +656,7 @@ impl INumberRounderOptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNumberRounder<Impl: INumberRounderOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNumberRounder<Impl: INumberRounderOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNumberRounder(&*(&value as *const <INumberRounder as ::windows::core::Abi>::Abi as *const <INumberRounder as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -671,7 +671,7 @@ impl INumberRounderOptionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait INumeralSystemTranslatorImpl: Sized {
+pub trait INumeralSystemTranslator_Impl: Sized {
     fn Languages(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn ResolvedLanguage(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn NumeralSystem(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -683,9 +683,9 @@ impl ::windows::core::RuntimeName for INumeralSystemTranslator {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumeralSystemTranslator";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl INumeralSystemTranslatorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumeralSystemTranslatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumeralSystemTranslatorVtbl {
-        unsafe extern "system" fn Languages<Impl: INumeralSystemTranslatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl INumeralSystemTranslator_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumeralSystemTranslator_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumeralSystemTranslator_Vtbl {
+        unsafe extern "system" fn Languages<Impl: INumeralSystemTranslator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Languages() {
                 ::core::result::Result::Ok(ok__) => {
@@ -696,7 +696,7 @@ impl INumeralSystemTranslatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResolvedLanguage<Impl: INumeralSystemTranslatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResolvedLanguage<Impl: INumeralSystemTranslator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResolvedLanguage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -707,7 +707,7 @@ impl INumeralSystemTranslatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NumeralSystem<Impl: INumeralSystemTranslatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NumeralSystem<Impl: INumeralSystemTranslator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NumeralSystem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -718,11 +718,11 @@ impl INumeralSystemTranslatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNumeralSystem<Impl: INumeralSystemTranslatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNumeralSystem<Impl: INumeralSystemTranslator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNumeralSystem(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TranslateNumerals<Impl: INumeralSystemTranslatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TranslateNumerals<Impl: INumeralSystemTranslator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TranslateNumerals(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -747,7 +747,7 @@ impl INumeralSystemTranslatorVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait INumeralSystemTranslatorFactoryImpl: Sized {
+pub trait INumeralSystemTranslatorFactory_Impl: Sized {
     fn Create(&mut self, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<NumeralSystemTranslator>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -755,9 +755,9 @@ impl ::windows::core::RuntimeName for INumeralSystemTranslatorFactory {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumeralSystemTranslatorFactory";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl INumeralSystemTranslatorFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumeralSystemTranslatorFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumeralSystemTranslatorFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: INumeralSystemTranslatorFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languages: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl INumeralSystemTranslatorFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INumeralSystemTranslatorFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INumeralSystemTranslatorFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: INumeralSystemTranslatorFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languages: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&languages as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -775,7 +775,7 @@ impl INumeralSystemTranslatorFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPercentFormatterFactoryImpl: Sized {
+pub trait IPercentFormatterFactory_Impl: Sized {
     fn CreatePercentFormatter(&mut self, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<PercentFormatter>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -783,9 +783,9 @@ impl ::windows::core::RuntimeName for IPercentFormatterFactory {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.IPercentFormatterFactory";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPercentFormatterFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPercentFormatterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPercentFormatterFactoryVtbl {
-        unsafe extern "system" fn CreatePercentFormatter<Impl: IPercentFormatterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languages: ::windows::core::RawPtr, geographicregion: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPercentFormatterFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPercentFormatterFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPercentFormatterFactory_Vtbl {
+        unsafe extern "system" fn CreatePercentFormatter<Impl: IPercentFormatterFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languages: ::windows::core::RawPtr, geographicregion: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePercentFormatter(&*(&languages as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType), &*(&geographicregion as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -806,7 +806,7 @@ impl IPercentFormatterFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPermilleFormatterFactoryImpl: Sized {
+pub trait IPermilleFormatterFactory_Impl: Sized {
     fn CreatePermilleFormatter(&mut self, languages: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<PermilleFormatter>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -814,9 +814,9 @@ impl ::windows::core::RuntimeName for IPermilleFormatterFactory {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.IPermilleFormatterFactory";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPermilleFormatterFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPermilleFormatterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPermilleFormatterFactoryVtbl {
-        unsafe extern "system" fn CreatePermilleFormatter<Impl: IPermilleFormatterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languages: ::windows::core::RawPtr, geographicregion: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPermilleFormatterFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPermilleFormatterFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPermilleFormatterFactory_Vtbl {
+        unsafe extern "system" fn CreatePermilleFormatter<Impl: IPermilleFormatterFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languages: ::windows::core::RawPtr, geographicregion: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePermilleFormatter(&*(&languages as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType), &*(&geographicregion as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -836,16 +836,16 @@ impl IPermilleFormatterFactoryVtbl {
         iid == &<IPermilleFormatterFactory as ::windows::core::Interface>::IID
     }
 }
-pub trait ISignedZeroOptionImpl: Sized {
+pub trait ISignedZeroOption_Impl: Sized {
     fn IsZeroSigned(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsZeroSigned(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ISignedZeroOption {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.ISignedZeroOption";
 }
-impl ISignedZeroOptionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISignedZeroOptionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISignedZeroOptionVtbl {
-        unsafe extern "system" fn IsZeroSigned<Impl: ISignedZeroOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ISignedZeroOption_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISignedZeroOption_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISignedZeroOption_Vtbl {
+        unsafe extern "system" fn IsZeroSigned<Impl: ISignedZeroOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsZeroSigned() {
                 ::core::result::Result::Ok(ok__) => {
@@ -856,7 +856,7 @@ impl ISignedZeroOptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsZeroSigned<Impl: ISignedZeroOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsZeroSigned<Impl: ISignedZeroOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsZeroSigned(value).into()
         }
@@ -871,7 +871,7 @@ impl ISignedZeroOptionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISignificantDigitsNumberRounderImpl: Sized {
+pub trait ISignificantDigitsNumberRounder_Impl: Sized {
     fn RoundingAlgorithm(&mut self) -> ::windows::core::Result<RoundingAlgorithm>;
     fn SetRoundingAlgorithm(&mut self, value: RoundingAlgorithm) -> ::windows::core::Result<()>;
     fn SignificantDigits(&mut self) -> ::windows::core::Result<u32>;
@@ -882,9 +882,9 @@ impl ::windows::core::RuntimeName for ISignificantDigitsNumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.ISignificantDigitsNumberRounder";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISignificantDigitsNumberRounderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISignificantDigitsNumberRounderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISignificantDigitsNumberRounderVtbl {
-        unsafe extern "system" fn RoundingAlgorithm<Impl: ISignificantDigitsNumberRounderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RoundingAlgorithm) -> ::windows::core::HRESULT {
+impl ISignificantDigitsNumberRounder_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISignificantDigitsNumberRounder_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISignificantDigitsNumberRounder_Vtbl {
+        unsafe extern "system" fn RoundingAlgorithm<Impl: ISignificantDigitsNumberRounder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RoundingAlgorithm) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RoundingAlgorithm() {
                 ::core::result::Result::Ok(ok__) => {
@@ -895,11 +895,11 @@ impl ISignificantDigitsNumberRounderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRoundingAlgorithm<Impl: ISignificantDigitsNumberRounderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: RoundingAlgorithm) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRoundingAlgorithm<Impl: ISignificantDigitsNumberRounder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: RoundingAlgorithm) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRoundingAlgorithm(value).into()
         }
-        unsafe extern "system" fn SignificantDigits<Impl: ISignificantDigitsNumberRounderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignificantDigits<Impl: ISignificantDigitsNumberRounder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignificantDigits() {
                 ::core::result::Result::Ok(ok__) => {
@@ -910,7 +910,7 @@ impl ISignificantDigitsNumberRounderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignificantDigits<Impl: ISignificantDigitsNumberRounderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSignificantDigits<Impl: ISignificantDigitsNumberRounder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSignificantDigits(value).into()
         }
@@ -926,16 +926,16 @@ impl ISignificantDigitsNumberRounderVtbl {
         iid == &<ISignificantDigitsNumberRounder as ::windows::core::Interface>::IID
     }
 }
-pub trait ISignificantDigitsOptionImpl: Sized {
+pub trait ISignificantDigitsOption_Impl: Sized {
     fn SignificantDigits(&mut self) -> ::windows::core::Result<i32>;
     fn SetSignificantDigits(&mut self, value: i32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ISignificantDigitsOption {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.ISignificantDigitsOption";
 }
-impl ISignificantDigitsOptionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISignificantDigitsOptionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISignificantDigitsOptionVtbl {
-        unsafe extern "system" fn SignificantDigits<Impl: ISignificantDigitsOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl ISignificantDigitsOption_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISignificantDigitsOption_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISignificantDigitsOption_Vtbl {
+        unsafe extern "system" fn SignificantDigits<Impl: ISignificantDigitsOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignificantDigits() {
                 ::core::result::Result::Ok(ok__) => {
@@ -946,7 +946,7 @@ impl ISignificantDigitsOptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignificantDigits<Impl: ISignificantDigitsOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSignificantDigits<Impl: ISignificantDigitsOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSignificantDigits(value).into()
         }

@@ -1,12 +1,12 @@
 #[cfg(feature = "Win32_Graphics_Direct2D")]
-pub trait IGeometrySource2DInteropImpl: Sized {
+pub trait IGeometrySource2DInterop_Impl: Sized {
     fn GetGeometry(&mut self) -> ::windows::core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>;
     fn TryGetGeometryUsingFactory(&mut self, factory: ::core::option::Option<super::super::super::super::Graphics::Direct2D::ID2D1Factory>) -> ::windows::core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D")]
-impl IGeometrySource2DInteropVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeometrySource2DInteropImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeometrySource2DInteropVtbl {
-        unsafe extern "system" fn GetGeometry<Impl: IGeometrySource2DInteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGeometrySource2DInterop_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeometrySource2DInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeometrySource2DInterop_Vtbl {
+        unsafe extern "system" fn GetGeometry<Impl: IGeometrySource2DInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetGeometry() {
                 ::core::result::Result::Ok(ok__) => {
@@ -16,7 +16,7 @@ impl IGeometrySource2DInteropVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryGetGeometryUsingFactory<Impl: IGeometrySource2DInteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factory: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryGetGeometryUsingFactory<Impl: IGeometrySource2DInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factory: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetGeometryUsingFactory(::core::mem::transmute(&factory)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -37,7 +37,7 @@ impl IGeometrySource2DInteropVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Effects", feature = "Win32_Foundation"))]
-pub trait IGraphicsEffectD2D1InteropImpl: Sized {
+pub trait IGraphicsEffectD2D1Interop_Impl: Sized {
     fn GetEffectId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetNamedPropertyMapping(&mut self, name: super::super::super::super::Foundation::PWSTR, index: *mut u32, mapping: *mut GRAPHICS_EFFECT_PROPERTY_MAPPING) -> ::windows::core::Result<()>;
     fn GetPropertyCount(&mut self) -> ::windows::core::Result<u32>;
@@ -46,9 +46,9 @@ pub trait IGraphicsEffectD2D1InteropImpl: Sized {
     fn GetSourceCount(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Effects", feature = "Win32_Foundation"))]
-impl IGraphicsEffectD2D1InteropVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGraphicsEffectD2D1InteropImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGraphicsEffectD2D1InteropVtbl {
-        unsafe extern "system" fn GetEffectId<Impl: IGraphicsEffectD2D1InteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl IGraphicsEffectD2D1Interop_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGraphicsEffectD2D1Interop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGraphicsEffectD2D1Interop_Vtbl {
+        unsafe extern "system" fn GetEffectId<Impl: IGraphicsEffectD2D1Interop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEffectId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -58,11 +58,11 @@ impl IGraphicsEffectD2D1InteropVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNamedPropertyMapping<Impl: IGraphicsEffectD2D1InteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::super::super::Foundation::PWSTR, index: *mut u32, mapping: *mut GRAPHICS_EFFECT_PROPERTY_MAPPING) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNamedPropertyMapping<Impl: IGraphicsEffectD2D1Interop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::super::super::Foundation::PWSTR, index: *mut u32, mapping: *mut GRAPHICS_EFFECT_PROPERTY_MAPPING) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetNamedPropertyMapping(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&mapping)).into()
         }
-        unsafe extern "system" fn GetPropertyCount<Impl: IGraphicsEffectD2D1InteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyCount<Impl: IGraphicsEffectD2D1Interop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPropertyCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -72,7 +72,7 @@ impl IGraphicsEffectD2D1InteropVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProperty<Impl: IGraphicsEffectD2D1InteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProperty<Impl: IGraphicsEffectD2D1Interop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetProperty(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -82,7 +82,7 @@ impl IGraphicsEffectD2D1InteropVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSource<Impl: IGraphicsEffectD2D1InteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, source: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSource<Impl: IGraphicsEffectD2D1Interop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, source: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSource(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -92,7 +92,7 @@ impl IGraphicsEffectD2D1InteropVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSourceCount<Impl: IGraphicsEffectD2D1InteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSourceCount<Impl: IGraphicsEffectD2D1Interop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSourceCount() {
                 ::core::result::Result::Ok(ok__) => {

@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPaymentAddressImpl: Sized {
+pub trait IPaymentAddress_Impl: Sized {
     fn Country(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetCountry(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn AddressLines(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
@@ -29,9 +29,9 @@ impl ::windows::core::RuntimeName for IPaymentAddress {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentAddress";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPaymentAddressVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentAddressImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentAddressVtbl {
-        unsafe extern "system" fn Country<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPaymentAddress_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentAddress_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentAddress_Vtbl {
+        unsafe extern "system" fn Country<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Country() {
                 ::core::result::Result::Ok(ok__) => {
@@ -42,11 +42,11 @@ impl IPaymentAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCountry<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCountry<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCountry(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AddressLines<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddressLines<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddressLines() {
                 ::core::result::Result::Ok(ok__) => {
@@ -57,11 +57,11 @@ impl IPaymentAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAddressLines<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAddressLines<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAddressLines(&*(&value as *const <super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Region<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Region<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Region() {
                 ::core::result::Result::Ok(ok__) => {
@@ -72,11 +72,11 @@ impl IPaymentAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRegion<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRegion<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRegion(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn City<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn City<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).City() {
                 ::core::result::Result::Ok(ok__) => {
@@ -87,11 +87,11 @@ impl IPaymentAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCity<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCity<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCity(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DependentLocality<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DependentLocality<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DependentLocality() {
                 ::core::result::Result::Ok(ok__) => {
@@ -102,11 +102,11 @@ impl IPaymentAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDependentLocality<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDependentLocality<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDependentLocality(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PostalCode<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PostalCode<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PostalCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -117,11 +117,11 @@ impl IPaymentAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPostalCode<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPostalCode<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPostalCode(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SortingCode<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SortingCode<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SortingCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -132,11 +132,11 @@ impl IPaymentAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSortingCode<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSortingCode<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSortingCode(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn LanguageCode<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LanguageCode<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LanguageCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -147,11 +147,11 @@ impl IPaymentAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLanguageCode<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLanguageCode<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLanguageCode(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Organization<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Organization<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Organization() {
                 ::core::result::Result::Ok(ok__) => {
@@ -162,11 +162,11 @@ impl IPaymentAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOrganization<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOrganization<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOrganization(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Recipient<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Recipient<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Recipient() {
                 ::core::result::Result::Ok(ok__) => {
@@ -177,11 +177,11 @@ impl IPaymentAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRecipient<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRecipient<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRecipient(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PhoneNumber<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhoneNumber<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhoneNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -192,11 +192,11 @@ impl IPaymentAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPhoneNumber<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPhoneNumber<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPhoneNumber(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Properties<Impl: IPaymentAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Properties<Impl: IPaymentAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -239,7 +239,7 @@ impl IPaymentAddressVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPaymentCanMakePaymentResultImpl: Sized {
+pub trait IPaymentCanMakePaymentResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<PaymentCanMakePaymentResultStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -247,9 +247,9 @@ impl ::windows::core::RuntimeName for IPaymentCanMakePaymentResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentCanMakePaymentResult";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPaymentCanMakePaymentResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentCanMakePaymentResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentCanMakePaymentResultVtbl {
-        unsafe extern "system" fn Status<Impl: IPaymentCanMakePaymentResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PaymentCanMakePaymentResultStatus) -> ::windows::core::HRESULT {
+impl IPaymentCanMakePaymentResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentCanMakePaymentResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentCanMakePaymentResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IPaymentCanMakePaymentResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PaymentCanMakePaymentResultStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -267,7 +267,7 @@ impl IPaymentCanMakePaymentResultVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPaymentCanMakePaymentResultFactoryImpl: Sized {
+pub trait IPaymentCanMakePaymentResultFactory_Impl: Sized {
     fn Create(&mut self, value: PaymentCanMakePaymentResultStatus) -> ::windows::core::Result<PaymentCanMakePaymentResult>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -275,9 +275,9 @@ impl ::windows::core::RuntimeName for IPaymentCanMakePaymentResultFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentCanMakePaymentResultFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPaymentCanMakePaymentResultFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentCanMakePaymentResultFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentCanMakePaymentResultFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IPaymentCanMakePaymentResultFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PaymentCanMakePaymentResultStatus, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPaymentCanMakePaymentResultFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentCanMakePaymentResultFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentCanMakePaymentResultFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IPaymentCanMakePaymentResultFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PaymentCanMakePaymentResultStatus, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(value) {
                 ::core::result::Result::Ok(ok__) => {
@@ -298,7 +298,7 @@ impl IPaymentCanMakePaymentResultFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPaymentCurrencyAmountImpl: Sized {
+pub trait IPaymentCurrencyAmount_Impl: Sized {
     fn Currency(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetCurrency(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn CurrencySystem(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -311,9 +311,9 @@ impl ::windows::core::RuntimeName for IPaymentCurrencyAmount {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentCurrencyAmount";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPaymentCurrencyAmountVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentCurrencyAmountImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentCurrencyAmountVtbl {
-        unsafe extern "system" fn Currency<Impl: IPaymentCurrencyAmountImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPaymentCurrencyAmount_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentCurrencyAmount_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentCurrencyAmount_Vtbl {
+        unsafe extern "system" fn Currency<Impl: IPaymentCurrencyAmount_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Currency() {
                 ::core::result::Result::Ok(ok__) => {
@@ -324,11 +324,11 @@ impl IPaymentCurrencyAmountVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCurrency<Impl: IPaymentCurrencyAmountImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCurrency<Impl: IPaymentCurrencyAmount_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCurrency(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CurrencySystem<Impl: IPaymentCurrencyAmountImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrencySystem<Impl: IPaymentCurrencyAmount_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrencySystem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -339,11 +339,11 @@ impl IPaymentCurrencyAmountVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCurrencySystem<Impl: IPaymentCurrencyAmountImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCurrencySystem<Impl: IPaymentCurrencyAmount_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCurrencySystem(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Value<Impl: IPaymentCurrencyAmountImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: IPaymentCurrencyAmount_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -354,7 +354,7 @@ impl IPaymentCurrencyAmountVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Impl: IPaymentCurrencyAmountImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Impl: IPaymentCurrencyAmount_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -373,7 +373,7 @@ impl IPaymentCurrencyAmountVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPaymentCurrencyAmountFactoryImpl: Sized {
+pub trait IPaymentCurrencyAmountFactory_Impl: Sized {
     fn Create(&mut self, value: &::windows::core::HSTRING, currency: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentCurrencyAmount>;
     fn CreateWithCurrencySystem(&mut self, value: &::windows::core::HSTRING, currency: &::windows::core::HSTRING, currencysystem: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentCurrencyAmount>;
 }
@@ -382,9 +382,9 @@ impl ::windows::core::RuntimeName for IPaymentCurrencyAmountFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentCurrencyAmountFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPaymentCurrencyAmountFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentCurrencyAmountFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentCurrencyAmountFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IPaymentCurrencyAmountFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, currency: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPaymentCurrencyAmountFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentCurrencyAmountFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentCurrencyAmountFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IPaymentCurrencyAmountFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, currency: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&currency as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -395,7 +395,7 @@ impl IPaymentCurrencyAmountFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithCurrencySystem<Impl: IPaymentCurrencyAmountFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, currency: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, currencysystem: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithCurrencySystem<Impl: IPaymentCurrencyAmountFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, currency: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, currencysystem: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithCurrencySystem(
                 &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -421,7 +421,7 @@ impl IPaymentCurrencyAmountFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPaymentDetailsImpl: Sized {
+pub trait IPaymentDetails_Impl: Sized {
     fn Total(&mut self) -> ::windows::core::Result<PaymentItem>;
     fn SetTotal(&mut self, value: &::core::option::Option<PaymentItem>) -> ::windows::core::Result<()>;
     fn DisplayItems(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PaymentItem>>;
@@ -436,9 +436,9 @@ impl ::windows::core::RuntimeName for IPaymentDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentDetails";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPaymentDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentDetailsVtbl {
-        unsafe extern "system" fn Total<Impl: IPaymentDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPaymentDetails_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentDetails_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentDetails_Vtbl {
+        unsafe extern "system" fn Total<Impl: IPaymentDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Total() {
                 ::core::result::Result::Ok(ok__) => {
@@ -449,11 +449,11 @@ impl IPaymentDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTotal<Impl: IPaymentDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTotal<Impl: IPaymentDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTotal(&*(&value as *const <PaymentItem as ::windows::core::Abi>::Abi as *const <PaymentItem as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DisplayItems<Impl: IPaymentDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayItems<Impl: IPaymentDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayItems() {
                 ::core::result::Result::Ok(ok__) => {
@@ -464,11 +464,11 @@ impl IPaymentDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDisplayItems<Impl: IPaymentDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDisplayItems<Impl: IPaymentDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayItems(&*(&value as *const <super::super::Foundation::Collections::IVectorView<PaymentItem> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IVectorView<PaymentItem> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ShippingOptions<Impl: IPaymentDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShippingOptions<Impl: IPaymentDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShippingOptions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -479,11 +479,11 @@ impl IPaymentDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetShippingOptions<Impl: IPaymentDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetShippingOptions<Impl: IPaymentDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetShippingOptions(&*(&value as *const <super::super::Foundation::Collections::IVectorView<PaymentShippingOption> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IVectorView<PaymentShippingOption> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Modifiers<Impl: IPaymentDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Modifiers<Impl: IPaymentDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Modifiers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -494,7 +494,7 @@ impl IPaymentDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetModifiers<Impl: IPaymentDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetModifiers<Impl: IPaymentDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetModifiers(&*(&value as *const <super::super::Foundation::Collections::IVectorView<PaymentDetailsModifier> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IVectorView<PaymentDetailsModifier> as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -515,7 +515,7 @@ impl IPaymentDetailsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPaymentDetailsFactoryImpl: Sized {
+pub trait IPaymentDetailsFactory_Impl: Sized {
     fn Create(&mut self, total: &::core::option::Option<PaymentItem>) -> ::windows::core::Result<PaymentDetails>;
     fn CreateWithDisplayItems(&mut self, total: &::core::option::Option<PaymentItem>, displayitems: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentItem>>) -> ::windows::core::Result<PaymentDetails>;
 }
@@ -524,9 +524,9 @@ impl ::windows::core::RuntimeName for IPaymentDetailsFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentDetailsFactory";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPaymentDetailsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentDetailsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentDetailsFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IPaymentDetailsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, total: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPaymentDetailsFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentDetailsFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentDetailsFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IPaymentDetailsFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, total: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&total as *const <PaymentItem as ::windows::core::Abi>::Abi as *const <PaymentItem as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -537,7 +537,7 @@ impl IPaymentDetailsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithDisplayItems<Impl: IPaymentDetailsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, total: ::windows::core::RawPtr, displayitems: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithDisplayItems<Impl: IPaymentDetailsFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, total: ::windows::core::RawPtr, displayitems: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithDisplayItems(&*(&total as *const <PaymentItem as ::windows::core::Abi>::Abi as *const <PaymentItem as ::windows::core::DefaultType>::DefaultType), &*(&displayitems as *const <super::super::Foundation::Collections::IIterable<PaymentItem> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<PaymentItem> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -559,7 +559,7 @@ impl IPaymentDetailsFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPaymentDetailsModifierImpl: Sized {
+pub trait IPaymentDetailsModifier_Impl: Sized {
     fn JsonData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SupportedMethodIds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn Total(&mut self) -> ::windows::core::Result<PaymentItem>;
@@ -570,9 +570,9 @@ impl ::windows::core::RuntimeName for IPaymentDetailsModifier {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentDetailsModifier";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPaymentDetailsModifierVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentDetailsModifierImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentDetailsModifierVtbl {
-        unsafe extern "system" fn JsonData<Impl: IPaymentDetailsModifierImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPaymentDetailsModifier_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentDetailsModifier_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentDetailsModifier_Vtbl {
+        unsafe extern "system" fn JsonData<Impl: IPaymentDetailsModifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).JsonData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -583,7 +583,7 @@ impl IPaymentDetailsModifierVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedMethodIds<Impl: IPaymentDetailsModifierImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedMethodIds<Impl: IPaymentDetailsModifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedMethodIds() {
                 ::core::result::Result::Ok(ok__) => {
@@ -594,7 +594,7 @@ impl IPaymentDetailsModifierVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Total<Impl: IPaymentDetailsModifierImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Total<Impl: IPaymentDetailsModifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Total() {
                 ::core::result::Result::Ok(ok__) => {
@@ -605,7 +605,7 @@ impl IPaymentDetailsModifierVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AdditionalDisplayItems<Impl: IPaymentDetailsModifierImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AdditionalDisplayItems<Impl: IPaymentDetailsModifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AdditionalDisplayItems() {
                 ::core::result::Result::Ok(ok__) => {
@@ -629,7 +629,7 @@ impl IPaymentDetailsModifierVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPaymentDetailsModifierFactoryImpl: Sized {
+pub trait IPaymentDetailsModifierFactory_Impl: Sized {
     fn Create(&mut self, supportedmethodids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, total: &::core::option::Option<PaymentItem>) -> ::windows::core::Result<PaymentDetailsModifier>;
     fn CreateWithAdditionalDisplayItems(&mut self, supportedmethodids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, total: &::core::option::Option<PaymentItem>, additionaldisplayitems: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentItem>>) -> ::windows::core::Result<PaymentDetailsModifier>;
     fn CreateWithAdditionalDisplayItemsAndJsonData(&mut self, supportedmethodids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, total: &::core::option::Option<PaymentItem>, additionaldisplayitems: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentItem>>, jsondata: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentDetailsModifier>;
@@ -639,9 +639,9 @@ impl ::windows::core::RuntimeName for IPaymentDetailsModifierFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentDetailsModifierFactory";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPaymentDetailsModifierFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentDetailsModifierFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentDetailsModifierFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IPaymentDetailsModifierFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, supportedmethodids: ::windows::core::RawPtr, total: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPaymentDetailsModifierFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentDetailsModifierFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentDetailsModifierFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IPaymentDetailsModifierFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, supportedmethodids: ::windows::core::RawPtr, total: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&supportedmethodids as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType), &*(&total as *const <PaymentItem as ::windows::core::Abi>::Abi as *const <PaymentItem as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -652,7 +652,7 @@ impl IPaymentDetailsModifierFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithAdditionalDisplayItems<Impl: IPaymentDetailsModifierFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, supportedmethodids: ::windows::core::RawPtr, total: ::windows::core::RawPtr, additionaldisplayitems: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithAdditionalDisplayItems<Impl: IPaymentDetailsModifierFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, supportedmethodids: ::windows::core::RawPtr, total: ::windows::core::RawPtr, additionaldisplayitems: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithAdditionalDisplayItems(
                 &*(&supportedmethodids as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType),
@@ -667,7 +667,7 @@ impl IPaymentDetailsModifierFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithAdditionalDisplayItemsAndJsonData<Impl: IPaymentDetailsModifierFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, supportedmethodids: ::windows::core::RawPtr, total: ::windows::core::RawPtr, additionaldisplayitems: ::windows::core::RawPtr, jsondata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithAdditionalDisplayItemsAndJsonData<Impl: IPaymentDetailsModifierFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, supportedmethodids: ::windows::core::RawPtr, total: ::windows::core::RawPtr, additionaldisplayitems: ::windows::core::RawPtr, jsondata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithAdditionalDisplayItemsAndJsonData(
                 &*(&supportedmethodids as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType),
@@ -695,7 +695,7 @@ impl IPaymentDetailsModifierFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPaymentItemImpl: Sized {
+pub trait IPaymentItem_Impl: Sized {
     fn Label(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetLabel(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Amount(&mut self) -> ::windows::core::Result<PaymentCurrencyAmount>;
@@ -708,9 +708,9 @@ impl ::windows::core::RuntimeName for IPaymentItem {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentItem";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPaymentItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentItemVtbl {
-        unsafe extern "system" fn Label<Impl: IPaymentItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPaymentItem_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentItem_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentItem_Vtbl {
+        unsafe extern "system" fn Label<Impl: IPaymentItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Label() {
                 ::core::result::Result::Ok(ok__) => {
@@ -721,11 +721,11 @@ impl IPaymentItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLabel<Impl: IPaymentItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLabel<Impl: IPaymentItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLabel(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Amount<Impl: IPaymentItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Amount<Impl: IPaymentItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Amount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -736,11 +736,11 @@ impl IPaymentItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAmount<Impl: IPaymentItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAmount<Impl: IPaymentItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAmount(&*(&value as *const <PaymentCurrencyAmount as ::windows::core::Abi>::Abi as *const <PaymentCurrencyAmount as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Pending<Impl: IPaymentItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pending<Impl: IPaymentItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pending() {
                 ::core::result::Result::Ok(ok__) => {
@@ -751,7 +751,7 @@ impl IPaymentItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPending<Impl: IPaymentItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPending<Impl: IPaymentItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPending(value).into()
         }
@@ -770,7 +770,7 @@ impl IPaymentItemVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPaymentItemFactoryImpl: Sized {
+pub trait IPaymentItemFactory_Impl: Sized {
     fn Create(&mut self, label: &::windows::core::HSTRING, amount: &::core::option::Option<PaymentCurrencyAmount>) -> ::windows::core::Result<PaymentItem>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -778,9 +778,9 @@ impl ::windows::core::RuntimeName for IPaymentItemFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentItemFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPaymentItemFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentItemFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentItemFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IPaymentItemFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, amount: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPaymentItemFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentItemFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentItemFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IPaymentItemFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, amount: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&label as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&amount as *const <PaymentCurrencyAmount as ::windows::core::Abi>::Abi as *const <PaymentCurrencyAmount as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -798,7 +798,7 @@ impl IPaymentItemFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPaymentMediatorImpl: Sized {
+pub trait IPaymentMediator_Impl: Sized {
     fn GetSupportedMethodIdsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>;
     fn SubmitPaymentRequestAsync(&mut self, paymentrequest: &::core::option::Option<PaymentRequest>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>;
     fn SubmitPaymentRequestWithChangeHandlerAsync(&mut self, paymentrequest: &::core::option::Option<PaymentRequest>, changehandler: &::core::option::Option<PaymentRequestChangedHandler>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>;
@@ -808,9 +808,9 @@ impl ::windows::core::RuntimeName for IPaymentMediator {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentMediator";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPaymentMediatorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMediatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentMediatorVtbl {
-        unsafe extern "system" fn GetSupportedMethodIdsAsync<Impl: IPaymentMediatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPaymentMediator_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMediator_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentMediator_Vtbl {
+        unsafe extern "system" fn GetSupportedMethodIdsAsync<Impl: IPaymentMediator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSupportedMethodIdsAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -821,7 +821,7 @@ impl IPaymentMediatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SubmitPaymentRequestAsync<Impl: IPaymentMediatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paymentrequest: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SubmitPaymentRequestAsync<Impl: IPaymentMediator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paymentrequest: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SubmitPaymentRequestAsync(&*(&paymentrequest as *const <PaymentRequest as ::windows::core::Abi>::Abi as *const <PaymentRequest as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -832,7 +832,7 @@ impl IPaymentMediatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SubmitPaymentRequestWithChangeHandlerAsync<Impl: IPaymentMediatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paymentrequest: ::windows::core::RawPtr, changehandler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SubmitPaymentRequestWithChangeHandlerAsync<Impl: IPaymentMediator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paymentrequest: ::windows::core::RawPtr, changehandler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SubmitPaymentRequestWithChangeHandlerAsync(&*(&paymentrequest as *const <PaymentRequest as ::windows::core::Abi>::Abi as *const <PaymentRequest as ::windows::core::DefaultType>::DefaultType), &*(&changehandler as *const <PaymentRequestChangedHandler as ::windows::core::Abi>::Abi as *const <PaymentRequestChangedHandler as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -855,7 +855,7 @@ impl IPaymentMediatorVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPaymentMediator2Impl: Sized {
+pub trait IPaymentMediator2_Impl: Sized {
     fn CanMakePaymentAsync(&mut self, paymentrequest: &::core::option::Option<PaymentRequest>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PaymentCanMakePaymentResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -863,9 +863,9 @@ impl ::windows::core::RuntimeName for IPaymentMediator2 {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentMediator2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPaymentMediator2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMediator2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentMediator2Vtbl {
-        unsafe extern "system" fn CanMakePaymentAsync<Impl: IPaymentMediator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paymentrequest: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPaymentMediator2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMediator2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentMediator2_Vtbl {
+        unsafe extern "system" fn CanMakePaymentAsync<Impl: IPaymentMediator2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paymentrequest: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanMakePaymentAsync(&*(&paymentrequest as *const <PaymentRequest as ::windows::core::Abi>::Abi as *const <PaymentRequest as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -886,7 +886,7 @@ impl IPaymentMediator2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPaymentMerchantInfoImpl: Sized {
+pub trait IPaymentMerchantInfo_Impl: Sized {
     fn PackageFullName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Uri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
 }
@@ -895,9 +895,9 @@ impl ::windows::core::RuntimeName for IPaymentMerchantInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentMerchantInfo";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPaymentMerchantInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMerchantInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentMerchantInfoVtbl {
-        unsafe extern "system" fn PackageFullName<Impl: IPaymentMerchantInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPaymentMerchantInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMerchantInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentMerchantInfo_Vtbl {
+        unsafe extern "system" fn PackageFullName<Impl: IPaymentMerchantInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PackageFullName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -908,7 +908,7 @@ impl IPaymentMerchantInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Uri<Impl: IPaymentMerchantInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Uri<Impl: IPaymentMerchantInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -930,7 +930,7 @@ impl IPaymentMerchantInfoVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPaymentMerchantInfoFactoryImpl: Sized {
+pub trait IPaymentMerchantInfoFactory_Impl: Sized {
     fn Create(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<PaymentMerchantInfo>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -938,9 +938,9 @@ impl ::windows::core::RuntimeName for IPaymentMerchantInfoFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentMerchantInfoFactory";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPaymentMerchantInfoFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMerchantInfoFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentMerchantInfoFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IPaymentMerchantInfoFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPaymentMerchantInfoFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMerchantInfoFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentMerchantInfoFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IPaymentMerchantInfoFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&uri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -958,7 +958,7 @@ impl IPaymentMerchantInfoFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPaymentMethodDataImpl: Sized {
+pub trait IPaymentMethodData_Impl: Sized {
     fn SupportedMethodIds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn JsonData(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -967,9 +967,9 @@ impl ::windows::core::RuntimeName for IPaymentMethodData {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentMethodData";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPaymentMethodDataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMethodDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentMethodDataVtbl {
-        unsafe extern "system" fn SupportedMethodIds<Impl: IPaymentMethodDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPaymentMethodData_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMethodData_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentMethodData_Vtbl {
+        unsafe extern "system" fn SupportedMethodIds<Impl: IPaymentMethodData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedMethodIds() {
                 ::core::result::Result::Ok(ok__) => {
@@ -980,7 +980,7 @@ impl IPaymentMethodDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn JsonData<Impl: IPaymentMethodDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn JsonData<Impl: IPaymentMethodData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).JsonData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1002,7 +1002,7 @@ impl IPaymentMethodDataVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPaymentMethodDataFactoryImpl: Sized {
+pub trait IPaymentMethodDataFactory_Impl: Sized {
     fn Create(&mut self, supportedmethodids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<PaymentMethodData>;
     fn CreateWithJsonData(&mut self, supportedmethodids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, jsondata: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentMethodData>;
 }
@@ -1011,9 +1011,9 @@ impl ::windows::core::RuntimeName for IPaymentMethodDataFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentMethodDataFactory";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPaymentMethodDataFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMethodDataFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentMethodDataFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IPaymentMethodDataFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, supportedmethodids: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPaymentMethodDataFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentMethodDataFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentMethodDataFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IPaymentMethodDataFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, supportedmethodids: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&supportedmethodids as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1024,7 +1024,7 @@ impl IPaymentMethodDataFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithJsonData<Impl: IPaymentMethodDataFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, supportedmethodids: ::windows::core::RawPtr, jsondata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithJsonData<Impl: IPaymentMethodDataFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, supportedmethodids: ::windows::core::RawPtr, jsondata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithJsonData(&*(&supportedmethodids as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType), &*(&jsondata as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1046,7 +1046,7 @@ impl IPaymentMethodDataFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPaymentOptionsImpl: Sized {
+pub trait IPaymentOptions_Impl: Sized {
     fn RequestPayerEmail(&mut self) -> ::windows::core::Result<PaymentOptionPresence>;
     fn SetRequestPayerEmail(&mut self, value: PaymentOptionPresence) -> ::windows::core::Result<()>;
     fn RequestPayerName(&mut self) -> ::windows::core::Result<PaymentOptionPresence>;
@@ -1063,9 +1063,9 @@ impl ::windows::core::RuntimeName for IPaymentOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentOptions";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPaymentOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentOptionsVtbl {
-        unsafe extern "system" fn RequestPayerEmail<Impl: IPaymentOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PaymentOptionPresence) -> ::windows::core::HRESULT {
+impl IPaymentOptions_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentOptions_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentOptions_Vtbl {
+        unsafe extern "system" fn RequestPayerEmail<Impl: IPaymentOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PaymentOptionPresence) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestPayerEmail() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1076,11 +1076,11 @@ impl IPaymentOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRequestPayerEmail<Impl: IPaymentOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PaymentOptionPresence) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRequestPayerEmail<Impl: IPaymentOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PaymentOptionPresence) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRequestPayerEmail(value).into()
         }
-        unsafe extern "system" fn RequestPayerName<Impl: IPaymentOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PaymentOptionPresence) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestPayerName<Impl: IPaymentOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PaymentOptionPresence) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestPayerName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1091,11 +1091,11 @@ impl IPaymentOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRequestPayerName<Impl: IPaymentOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PaymentOptionPresence) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRequestPayerName<Impl: IPaymentOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PaymentOptionPresence) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRequestPayerName(value).into()
         }
-        unsafe extern "system" fn RequestPayerPhoneNumber<Impl: IPaymentOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PaymentOptionPresence) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestPayerPhoneNumber<Impl: IPaymentOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PaymentOptionPresence) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestPayerPhoneNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1106,11 +1106,11 @@ impl IPaymentOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRequestPayerPhoneNumber<Impl: IPaymentOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PaymentOptionPresence) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRequestPayerPhoneNumber<Impl: IPaymentOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PaymentOptionPresence) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRequestPayerPhoneNumber(value).into()
         }
-        unsafe extern "system" fn RequestShipping<Impl: IPaymentOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestShipping<Impl: IPaymentOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestShipping() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1121,11 +1121,11 @@ impl IPaymentOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRequestShipping<Impl: IPaymentOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRequestShipping<Impl: IPaymentOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRequestShipping(value).into()
         }
-        unsafe extern "system" fn ShippingType<Impl: IPaymentOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PaymentShippingType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShippingType<Impl: IPaymentOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PaymentShippingType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShippingType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1136,7 +1136,7 @@ impl IPaymentOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetShippingType<Impl: IPaymentOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PaymentShippingType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetShippingType<Impl: IPaymentOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PaymentShippingType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetShippingType(value).into()
         }
@@ -1159,7 +1159,7 @@ impl IPaymentOptionsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPaymentRequestImpl: Sized {
+pub trait IPaymentRequest_Impl: Sized {
     fn MerchantInfo(&mut self) -> ::windows::core::Result<PaymentMerchantInfo>;
     fn Details(&mut self) -> ::windows::core::Result<PaymentDetails>;
     fn MethodData(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PaymentMethodData>>;
@@ -1170,9 +1170,9 @@ impl ::windows::core::RuntimeName for IPaymentRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentRequest";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPaymentRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequestVtbl {
-        unsafe extern "system" fn MerchantInfo<Impl: IPaymentRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPaymentRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequest_Vtbl {
+        unsafe extern "system" fn MerchantInfo<Impl: IPaymentRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MerchantInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1183,7 +1183,7 @@ impl IPaymentRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Details<Impl: IPaymentRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Details<Impl: IPaymentRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Details() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1194,7 +1194,7 @@ impl IPaymentRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MethodData<Impl: IPaymentRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MethodData<Impl: IPaymentRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MethodData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1205,7 +1205,7 @@ impl IPaymentRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Options<Impl: IPaymentRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Options<Impl: IPaymentRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Options() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1229,7 +1229,7 @@ impl IPaymentRequestVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPaymentRequest2Impl: Sized {
+pub trait IPaymentRequest2_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1237,9 +1237,9 @@ impl ::windows::core::RuntimeName for IPaymentRequest2 {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentRequest2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPaymentRequest2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequest2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequest2Vtbl {
-        unsafe extern "system" fn Id<Impl: IPaymentRequest2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPaymentRequest2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequest2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequest2_Vtbl {
+        unsafe extern "system" fn Id<Impl: IPaymentRequest2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1257,7 +1257,7 @@ impl IPaymentRequest2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPaymentRequestChangedArgsImpl: Sized {
+pub trait IPaymentRequestChangedArgs_Impl: Sized {
     fn ChangeKind(&mut self) -> ::windows::core::Result<PaymentRequestChangeKind>;
     fn ShippingAddress(&mut self) -> ::windows::core::Result<PaymentAddress>;
     fn SelectedShippingOption(&mut self) -> ::windows::core::Result<PaymentShippingOption>;
@@ -1268,9 +1268,9 @@ impl ::windows::core::RuntimeName for IPaymentRequestChangedArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentRequestChangedArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPaymentRequestChangedArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestChangedArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequestChangedArgsVtbl {
-        unsafe extern "system" fn ChangeKind<Impl: IPaymentRequestChangedArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PaymentRequestChangeKind) -> ::windows::core::HRESULT {
+impl IPaymentRequestChangedArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestChangedArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequestChangedArgs_Vtbl {
+        unsafe extern "system" fn ChangeKind<Impl: IPaymentRequestChangedArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PaymentRequestChangeKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChangeKind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1281,7 +1281,7 @@ impl IPaymentRequestChangedArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShippingAddress<Impl: IPaymentRequestChangedArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShippingAddress<Impl: IPaymentRequestChangedArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShippingAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1292,7 +1292,7 @@ impl IPaymentRequestChangedArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectedShippingOption<Impl: IPaymentRequestChangedArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectedShippingOption<Impl: IPaymentRequestChangedArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedShippingOption() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1303,7 +1303,7 @@ impl IPaymentRequestChangedArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Acknowledge<Impl: IPaymentRequestChangedArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changeresult: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Acknowledge<Impl: IPaymentRequestChangedArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changeresult: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Acknowledge(&*(&changeresult as *const <PaymentRequestChangedResult as ::windows::core::Abi>::Abi as *const <PaymentRequestChangedResult as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1320,7 +1320,7 @@ impl IPaymentRequestChangedArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPaymentRequestChangedResultImpl: Sized {
+pub trait IPaymentRequestChangedResult_Impl: Sized {
     fn ChangeAcceptedByMerchant(&mut self) -> ::windows::core::Result<bool>;
     fn SetChangeAcceptedByMerchant(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn Message(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1333,9 +1333,9 @@ impl ::windows::core::RuntimeName for IPaymentRequestChangedResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentRequestChangedResult";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPaymentRequestChangedResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestChangedResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequestChangedResultVtbl {
-        unsafe extern "system" fn ChangeAcceptedByMerchant<Impl: IPaymentRequestChangedResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IPaymentRequestChangedResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestChangedResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequestChangedResult_Vtbl {
+        unsafe extern "system" fn ChangeAcceptedByMerchant<Impl: IPaymentRequestChangedResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChangeAcceptedByMerchant() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1346,11 +1346,11 @@ impl IPaymentRequestChangedResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetChangeAcceptedByMerchant<Impl: IPaymentRequestChangedResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetChangeAcceptedByMerchant<Impl: IPaymentRequestChangedResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetChangeAcceptedByMerchant(value).into()
         }
-        unsafe extern "system" fn Message<Impl: IPaymentRequestChangedResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Message<Impl: IPaymentRequestChangedResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Message() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1361,11 +1361,11 @@ impl IPaymentRequestChangedResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMessage<Impl: IPaymentRequestChangedResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMessage<Impl: IPaymentRequestChangedResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMessage(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn UpdatedPaymentDetails<Impl: IPaymentRequestChangedResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdatedPaymentDetails<Impl: IPaymentRequestChangedResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdatedPaymentDetails() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1376,7 +1376,7 @@ impl IPaymentRequestChangedResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetUpdatedPaymentDetails<Impl: IPaymentRequestChangedResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUpdatedPaymentDetails<Impl: IPaymentRequestChangedResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUpdatedPaymentDetails(&*(&value as *const <PaymentDetails as ::windows::core::Abi>::Abi as *const <PaymentDetails as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1395,7 +1395,7 @@ impl IPaymentRequestChangedResultVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPaymentRequestChangedResultFactoryImpl: Sized {
+pub trait IPaymentRequestChangedResultFactory_Impl: Sized {
     fn Create(&mut self, changeacceptedbymerchant: bool) -> ::windows::core::Result<PaymentRequestChangedResult>;
     fn CreateWithPaymentDetails(&mut self, changeacceptedbymerchant: bool, updatedpaymentdetails: &::core::option::Option<PaymentDetails>) -> ::windows::core::Result<PaymentRequestChangedResult>;
 }
@@ -1404,9 +1404,9 @@ impl ::windows::core::RuntimeName for IPaymentRequestChangedResultFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentRequestChangedResultFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPaymentRequestChangedResultFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestChangedResultFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequestChangedResultFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IPaymentRequestChangedResultFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changeacceptedbymerchant: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPaymentRequestChangedResultFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestChangedResultFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequestChangedResultFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IPaymentRequestChangedResultFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changeacceptedbymerchant: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(changeacceptedbymerchant) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1417,7 +1417,7 @@ impl IPaymentRequestChangedResultFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithPaymentDetails<Impl: IPaymentRequestChangedResultFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changeacceptedbymerchant: bool, updatedpaymentdetails: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithPaymentDetails<Impl: IPaymentRequestChangedResultFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changeacceptedbymerchant: bool, updatedpaymentdetails: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithPaymentDetails(changeacceptedbymerchant, &*(&updatedpaymentdetails as *const <PaymentDetails as ::windows::core::Abi>::Abi as *const <PaymentDetails as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1439,7 +1439,7 @@ impl IPaymentRequestChangedResultFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPaymentRequestFactoryImpl: Sized {
+pub trait IPaymentRequestFactory_Impl: Sized {
     fn Create(&mut self, details: &::core::option::Option<PaymentDetails>, methoddata: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentMethodData>>) -> ::windows::core::Result<PaymentRequest>;
     fn CreateWithMerchantInfo(&mut self, details: &::core::option::Option<PaymentDetails>, methoddata: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentMethodData>>, merchantinfo: &::core::option::Option<PaymentMerchantInfo>) -> ::windows::core::Result<PaymentRequest>;
     fn CreateWithMerchantInfoAndOptions(&mut self, details: &::core::option::Option<PaymentDetails>, methoddata: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentMethodData>>, merchantinfo: &::core::option::Option<PaymentMerchantInfo>, options: &::core::option::Option<PaymentOptions>) -> ::windows::core::Result<PaymentRequest>;
@@ -1449,9 +1449,9 @@ impl ::windows::core::RuntimeName for IPaymentRequestFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentRequestFactory";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPaymentRequestFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequestFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IPaymentRequestFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, details: ::windows::core::RawPtr, methoddata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPaymentRequestFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequestFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IPaymentRequestFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, details: ::windows::core::RawPtr, methoddata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&details as *const <PaymentDetails as ::windows::core::Abi>::Abi as *const <PaymentDetails as ::windows::core::DefaultType>::DefaultType), &*(&methoddata as *const <super::super::Foundation::Collections::IIterable<PaymentMethodData> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<PaymentMethodData> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1462,7 +1462,7 @@ impl IPaymentRequestFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithMerchantInfo<Impl: IPaymentRequestFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, details: ::windows::core::RawPtr, methoddata: ::windows::core::RawPtr, merchantinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithMerchantInfo<Impl: IPaymentRequestFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, details: ::windows::core::RawPtr, methoddata: ::windows::core::RawPtr, merchantinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithMerchantInfo(
                 &*(&details as *const <PaymentDetails as ::windows::core::Abi>::Abi as *const <PaymentDetails as ::windows::core::DefaultType>::DefaultType),
@@ -1477,7 +1477,7 @@ impl IPaymentRequestFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithMerchantInfoAndOptions<Impl: IPaymentRequestFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, details: ::windows::core::RawPtr, methoddata: ::windows::core::RawPtr, merchantinfo: ::windows::core::RawPtr, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithMerchantInfoAndOptions<Impl: IPaymentRequestFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, details: ::windows::core::RawPtr, methoddata: ::windows::core::RawPtr, merchantinfo: ::windows::core::RawPtr, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithMerchantInfoAndOptions(
                 &*(&details as *const <PaymentDetails as ::windows::core::Abi>::Abi as *const <PaymentDetails as ::windows::core::DefaultType>::DefaultType),
@@ -1505,7 +1505,7 @@ impl IPaymentRequestFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPaymentRequestFactory2Impl: Sized {
+pub trait IPaymentRequestFactory2_Impl: Sized {
     fn CreateWithMerchantInfoOptionsAndId(&mut self, details: &::core::option::Option<PaymentDetails>, methoddata: &::core::option::Option<super::super::Foundation::Collections::IIterable<PaymentMethodData>>, merchantinfo: &::core::option::Option<PaymentMerchantInfo>, options: &::core::option::Option<PaymentOptions>, id: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentRequest>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -1513,9 +1513,9 @@ impl ::windows::core::RuntimeName for IPaymentRequestFactory2 {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentRequestFactory2";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPaymentRequestFactory2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestFactory2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequestFactory2Vtbl {
-        unsafe extern "system" fn CreateWithMerchantInfoOptionsAndId<Impl: IPaymentRequestFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, details: ::windows::core::RawPtr, methoddata: ::windows::core::RawPtr, merchantinfo: ::windows::core::RawPtr, options: ::windows::core::RawPtr, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPaymentRequestFactory2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestFactory2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequestFactory2_Vtbl {
+        unsafe extern "system" fn CreateWithMerchantInfoOptionsAndId<Impl: IPaymentRequestFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, details: ::windows::core::RawPtr, methoddata: ::windows::core::RawPtr, merchantinfo: ::windows::core::RawPtr, options: ::windows::core::RawPtr, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithMerchantInfoOptionsAndId(
                 &*(&details as *const <PaymentDetails as ::windows::core::Abi>::Abi as *const <PaymentDetails as ::windows::core::DefaultType>::DefaultType),
@@ -1542,7 +1542,7 @@ impl IPaymentRequestFactory2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPaymentRequestSubmitResultImpl: Sized {
+pub trait IPaymentRequestSubmitResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<PaymentRequestStatus>;
     fn Response(&mut self) -> ::windows::core::Result<PaymentResponse>;
 }
@@ -1551,9 +1551,9 @@ impl ::windows::core::RuntimeName for IPaymentRequestSubmitResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentRequestSubmitResult";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPaymentRequestSubmitResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestSubmitResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequestSubmitResultVtbl {
-        unsafe extern "system" fn Status<Impl: IPaymentRequestSubmitResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PaymentRequestStatus) -> ::windows::core::HRESULT {
+impl IPaymentRequestSubmitResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentRequestSubmitResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentRequestSubmitResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IPaymentRequestSubmitResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PaymentRequestStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1564,7 +1564,7 @@ impl IPaymentRequestSubmitResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Response<Impl: IPaymentRequestSubmitResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Response<Impl: IPaymentRequestSubmitResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Response() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1586,7 +1586,7 @@ impl IPaymentRequestSubmitResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPaymentResponseImpl: Sized {
+pub trait IPaymentResponse_Impl: Sized {
     fn PaymentToken(&mut self) -> ::windows::core::Result<PaymentToken>;
     fn ShippingOption(&mut self) -> ::windows::core::Result<PaymentShippingOption>;
     fn ShippingAddress(&mut self) -> ::windows::core::Result<PaymentAddress>;
@@ -1600,9 +1600,9 @@ impl ::windows::core::RuntimeName for IPaymentResponse {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentResponse";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPaymentResponseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentResponseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentResponseVtbl {
-        unsafe extern "system" fn PaymentToken<Impl: IPaymentResponseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPaymentResponse_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentResponse_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentResponse_Vtbl {
+        unsafe extern "system" fn PaymentToken<Impl: IPaymentResponse_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PaymentToken() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1613,7 +1613,7 @@ impl IPaymentResponseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShippingOption<Impl: IPaymentResponseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShippingOption<Impl: IPaymentResponse_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShippingOption() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1624,7 +1624,7 @@ impl IPaymentResponseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShippingAddress<Impl: IPaymentResponseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShippingAddress<Impl: IPaymentResponse_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShippingAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1635,7 +1635,7 @@ impl IPaymentResponseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PayerEmail<Impl: IPaymentResponseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PayerEmail<Impl: IPaymentResponse_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PayerEmail() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1646,7 +1646,7 @@ impl IPaymentResponseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PayerName<Impl: IPaymentResponseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PayerName<Impl: IPaymentResponse_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PayerName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1657,7 +1657,7 @@ impl IPaymentResponseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PayerPhoneNumber<Impl: IPaymentResponseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PayerPhoneNumber<Impl: IPaymentResponse_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PayerPhoneNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1668,7 +1668,7 @@ impl IPaymentResponseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CompleteAsync<Impl: IPaymentResponseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: PaymentRequestCompletionStatus, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CompleteAsync<Impl: IPaymentResponse_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: PaymentRequestCompletionStatus, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CompleteAsync(status) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1695,7 +1695,7 @@ impl IPaymentResponseVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPaymentShippingOptionImpl: Sized {
+pub trait IPaymentShippingOption_Impl: Sized {
     fn Label(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetLabel(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Amount(&mut self) -> ::windows::core::Result<PaymentCurrencyAmount>;
@@ -1710,9 +1710,9 @@ impl ::windows::core::RuntimeName for IPaymentShippingOption {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentShippingOption";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPaymentShippingOptionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentShippingOptionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentShippingOptionVtbl {
-        unsafe extern "system" fn Label<Impl: IPaymentShippingOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPaymentShippingOption_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentShippingOption_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentShippingOption_Vtbl {
+        unsafe extern "system" fn Label<Impl: IPaymentShippingOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Label() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1723,11 +1723,11 @@ impl IPaymentShippingOptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLabel<Impl: IPaymentShippingOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLabel<Impl: IPaymentShippingOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLabel(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Amount<Impl: IPaymentShippingOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Amount<Impl: IPaymentShippingOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Amount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1738,11 +1738,11 @@ impl IPaymentShippingOptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAmount<Impl: IPaymentShippingOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAmount<Impl: IPaymentShippingOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAmount(&*(&value as *const <PaymentCurrencyAmount as ::windows::core::Abi>::Abi as *const <PaymentCurrencyAmount as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Tag<Impl: IPaymentShippingOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Tag<Impl: IPaymentShippingOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Tag() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1753,11 +1753,11 @@ impl IPaymentShippingOptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTag<Impl: IPaymentShippingOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTag<Impl: IPaymentShippingOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTag(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IsSelected<Impl: IPaymentShippingOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSelected<Impl: IPaymentShippingOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSelected() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1768,7 +1768,7 @@ impl IPaymentShippingOptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsSelected<Impl: IPaymentShippingOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsSelected<Impl: IPaymentShippingOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsSelected(value).into()
         }
@@ -1789,7 +1789,7 @@ impl IPaymentShippingOptionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPaymentShippingOptionFactoryImpl: Sized {
+pub trait IPaymentShippingOptionFactory_Impl: Sized {
     fn Create(&mut self, label: &::windows::core::HSTRING, amount: &::core::option::Option<PaymentCurrencyAmount>) -> ::windows::core::Result<PaymentShippingOption>;
     fn CreateWithSelected(&mut self, label: &::windows::core::HSTRING, amount: &::core::option::Option<PaymentCurrencyAmount>, selected: bool) -> ::windows::core::Result<PaymentShippingOption>;
     fn CreateWithSelectedAndTag(&mut self, label: &::windows::core::HSTRING, amount: &::core::option::Option<PaymentCurrencyAmount>, selected: bool, tag: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentShippingOption>;
@@ -1799,9 +1799,9 @@ impl ::windows::core::RuntimeName for IPaymentShippingOptionFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentShippingOptionFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPaymentShippingOptionFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentShippingOptionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentShippingOptionFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IPaymentShippingOptionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, amount: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPaymentShippingOptionFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentShippingOptionFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentShippingOptionFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IPaymentShippingOptionFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, amount: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&label as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&amount as *const <PaymentCurrencyAmount as ::windows::core::Abi>::Abi as *const <PaymentCurrencyAmount as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1812,7 +1812,7 @@ impl IPaymentShippingOptionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithSelected<Impl: IPaymentShippingOptionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, amount: ::windows::core::RawPtr, selected: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithSelected<Impl: IPaymentShippingOptionFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, amount: ::windows::core::RawPtr, selected: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithSelected(&*(&label as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&amount as *const <PaymentCurrencyAmount as ::windows::core::Abi>::Abi as *const <PaymentCurrencyAmount as ::windows::core::DefaultType>::DefaultType), selected) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1823,7 +1823,7 @@ impl IPaymentShippingOptionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithSelectedAndTag<Impl: IPaymentShippingOptionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, amount: ::windows::core::RawPtr, selected: bool, tag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithSelectedAndTag<Impl: IPaymentShippingOptionFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, amount: ::windows::core::RawPtr, selected: bool, tag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithSelectedAndTag(
                 &*(&label as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -1851,7 +1851,7 @@ impl IPaymentShippingOptionFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPaymentTokenImpl: Sized {
+pub trait IPaymentToken_Impl: Sized {
     fn PaymentMethodId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn JsonDetails(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -1860,9 +1860,9 @@ impl ::windows::core::RuntimeName for IPaymentToken {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentToken";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPaymentTokenVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentTokenImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentTokenVtbl {
-        unsafe extern "system" fn PaymentMethodId<Impl: IPaymentTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPaymentToken_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentToken_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentToken_Vtbl {
+        unsafe extern "system" fn PaymentMethodId<Impl: IPaymentToken_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PaymentMethodId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1873,7 +1873,7 @@ impl IPaymentTokenVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn JsonDetails<Impl: IPaymentTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn JsonDetails<Impl: IPaymentToken_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).JsonDetails() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1895,7 +1895,7 @@ impl IPaymentTokenVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPaymentTokenFactoryImpl: Sized {
+pub trait IPaymentTokenFactory_Impl: Sized {
     fn Create(&mut self, paymentmethodid: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentToken>;
     fn CreateWithJsonDetails(&mut self, paymentmethodid: &::windows::core::HSTRING, jsondetails: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentToken>;
 }
@@ -1904,9 +1904,9 @@ impl ::windows::core::RuntimeName for IPaymentTokenFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.IPaymentTokenFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPaymentTokenFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentTokenFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentTokenFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IPaymentTokenFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paymentmethodid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPaymentTokenFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPaymentTokenFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPaymentTokenFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IPaymentTokenFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paymentmethodid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&paymentmethodid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1917,7 +1917,7 @@ impl IPaymentTokenFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithJsonDetails<Impl: IPaymentTokenFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paymentmethodid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, jsondetails: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithJsonDetails<Impl: IPaymentTokenFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paymentmethodid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, jsondetails: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithJsonDetails(&*(&paymentmethodid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&jsondetails as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

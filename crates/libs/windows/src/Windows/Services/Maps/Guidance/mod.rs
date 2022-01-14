@@ -120,7 +120,7 @@ unsafe impl ::windows::core::RuntimeType for GuidanceAudioNotificationRequestedE
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceAudioNotificationRequestedEventArgs;{ca2aa24a-c7c2-4d4c-9d7c-499576bceddb})");
 }
 unsafe impl ::windows::core::Interface for GuidanceAudioNotificationRequestedEventArgs {
-    type Vtable = IGuidanceAudioNotificationRequestedEventArgsVtbl;
+    type Vtable = IGuidanceAudioNotificationRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca2aa24a_c7c2_4d4c_9d7c_499576bceddb);
 }
 impl ::windows::core::RuntimeName for GuidanceAudioNotificationRequestedEventArgs {
@@ -275,7 +275,7 @@ unsafe impl ::windows::core::RuntimeType for GuidanceLaneInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceLaneInfo;{8404d114-6581-43b7-ac15-c9079bf90df1})");
 }
 unsafe impl ::windows::core::Interface for GuidanceLaneInfo {
-    type Vtable = IGuidanceLaneInfoVtbl;
+    type Vtable = IGuidanceLaneInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8404d114_6581_43b7_ac15_c9079bf90df1);
 }
 impl ::windows::core::RuntimeName for GuidanceLaneInfo {
@@ -515,7 +515,7 @@ unsafe impl ::windows::core::RuntimeType for GuidanceManeuver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceManeuver;{fc09326c-ecc9-4928-a2a1-7232b99b94a1})");
 }
 unsafe impl ::windows::core::Interface for GuidanceManeuver {
-    type Vtable = IGuidanceManeuverVtbl;
+    type Vtable = IGuidanceManeuver_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc09326c_ecc9_4928_a2a1_7232b99b94a1);
 }
 impl ::windows::core::RuntimeName for GuidanceManeuver {
@@ -708,7 +708,7 @@ unsafe impl ::windows::core::RuntimeType for GuidanceMapMatchedCoordinate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceMapMatchedCoordinate;{b7acb168-2912-4a99-aff1-798609b981fe})");
 }
 unsafe impl ::windows::core::Interface for GuidanceMapMatchedCoordinate {
-    type Vtable = IGuidanceMapMatchedCoordinateVtbl;
+    type Vtable = IGuidanceMapMatchedCoordinate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7acb168_2912_4a99_aff1_798609b981fe);
 }
 impl ::windows::core::RuntimeName for GuidanceMapMatchedCoordinate {
@@ -1051,7 +1051,7 @@ unsafe impl ::windows::core::RuntimeType for GuidanceNavigator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceNavigator;{08f17ef7-8e3f-4d9a-be8a-108f9a012c67})");
 }
 unsafe impl ::windows::core::Interface for GuidanceNavigator {
-    type Vtable = IGuidanceNavigatorVtbl;
+    type Vtable = IGuidanceNavigator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08f17ef7_8e3f_4d9a_be8a_108f9a012c67);
 }
 impl ::windows::core::RuntimeName for GuidanceNavigator {
@@ -1132,7 +1132,7 @@ unsafe impl ::windows::core::RuntimeType for GuidanceReroutedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceReroutedEventArgs;{115d4008-d528-454e-bb94-a50341d2c9f1})");
 }
 unsafe impl ::windows::core::Interface for GuidanceReroutedEventArgs {
-    type Vtable = IGuidanceReroutedEventArgsVtbl;
+    type Vtable = IGuidanceReroutedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x115d4008_d528_454e_bb94_a50341d2c9f1);
 }
 impl ::windows::core::RuntimeName for GuidanceReroutedEventArgs {
@@ -1287,7 +1287,7 @@ unsafe impl ::windows::core::RuntimeType for GuidanceRoadSegment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceRoadSegment;{b32758a6-be78-4c63-afe7-6c2957479b3e})");
 }
 unsafe impl ::windows::core::Interface for GuidanceRoadSegment {
-    type Vtable = IGuidanceRoadSegmentVtbl;
+    type Vtable = IGuidanceRoadSegment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb32758a6_be78_4c63_afe7_6c2957479b3e);
 }
 impl ::windows::core::RuntimeName for GuidanceRoadSegment {
@@ -1403,7 +1403,7 @@ unsafe impl ::windows::core::RuntimeType for GuidanceRoadSignpost {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceRoadSignpost;{f1a728b6-f77a-4742-8312-53300f9845f0})");
 }
 unsafe impl ::windows::core::Interface for GuidanceRoadSignpost {
-    type Vtable = IGuidanceRoadSignpostVtbl;
+    type Vtable = IGuidanceRoadSignpost_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1a728b6_f77a_4742_8312_53300f9845f0);
 }
 impl ::windows::core::RuntimeName for GuidanceRoadSignpost {
@@ -1556,7 +1556,7 @@ unsafe impl ::windows::core::RuntimeType for GuidanceRoute {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceRoute;{3a14545d-801a-40bd-a286-afb2010cce6c})");
 }
 unsafe impl ::windows::core::Interface for GuidanceRoute {
-    type Vtable = IGuidanceRouteVtbl;
+    type Vtable = IGuidanceRoute_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a14545d_801a_40bd_a286_afb2010cce6c);
 }
 impl ::windows::core::RuntimeName for GuidanceRoute {
@@ -1685,7 +1685,7 @@ unsafe impl ::windows::core::RuntimeType for GuidanceTelemetryCollector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceTelemetryCollector;{db1f8da5-b878-4d92-98dd-347d23d38262})");
 }
 unsafe impl ::windows::core::Interface for GuidanceTelemetryCollector {
-    type Vtable = IGuidanceTelemetryCollectorVtbl;
+    type Vtable = IGuidanceTelemetryCollector_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb1f8da5_b878_4d92_98dd_347d23d38262);
 }
 impl ::windows::core::RuntimeName for GuidanceTelemetryCollector {
@@ -1873,7 +1873,7 @@ unsafe impl ::windows::core::RuntimeType for GuidanceUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.Guidance.GuidanceUpdatedEventArgs;{fdac160b-9e8d-4de3-a9fa-b06321d18db9})");
 }
 unsafe impl ::windows::core::Interface for GuidanceUpdatedEventArgs {
-    type Vtable = IGuidanceUpdatedEventArgsVtbl;
+    type Vtable = IGuidanceUpdatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdac160b_9e8d_4de3_a9fa_b06321d18db9);
 }
 impl ::windows::core::RuntimeName for GuidanceUpdatedEventArgs {
@@ -1925,12 +1925,12 @@ unsafe impl ::core::marker::Sync for GuidanceUpdatedEventArgs {}
 #[repr(transparent)]
 pub struct IGuidanceAudioNotificationRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceAudioNotificationRequestedEventArgs {
-    type Vtable = IGuidanceAudioNotificationRequestedEventArgsVtbl;
+    type Vtable = IGuidanceAudioNotificationRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca2aa24a_c7c2_4d4c_9d7c_499576bceddb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGuidanceAudioNotificationRequestedEventArgsVtbl {
+pub struct IGuidanceAudioNotificationRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AudioNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GuidanceAudioNotificationKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -1943,12 +1943,12 @@ pub struct IGuidanceAudioNotificationRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IGuidanceLaneInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceLaneInfo {
-    type Vtable = IGuidanceLaneInfoVtbl;
+    type Vtable = IGuidanceLaneInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8404d114_6581_43b7_ac15_c9079bf90df1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGuidanceLaneInfoVtbl {
+pub struct IGuidanceLaneInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LaneMarkers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GuidanceLaneMarkers) -> ::windows::core::HRESULT,
     pub IsOnRoute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1957,12 +1957,12 @@ pub struct IGuidanceLaneInfoVtbl {
 #[repr(transparent)]
 pub struct IGuidanceManeuver(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceManeuver {
-    type Vtable = IGuidanceManeuverVtbl;
+    type Vtable = IGuidanceManeuver_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc09326c_ecc9_4928_a2a1_7232b99b94a1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGuidanceManeuverVtbl {
+pub struct IGuidanceManeuver_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub StartLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1984,12 +1984,12 @@ pub struct IGuidanceManeuverVtbl {
 #[repr(transparent)]
 pub struct IGuidanceMapMatchedCoordinate(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceMapMatchedCoordinate {
-    type Vtable = IGuidanceMapMatchedCoordinateVtbl;
+    type Vtable = IGuidanceMapMatchedCoordinate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7acb168_2912_4a99_aff1_798609b981fe);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGuidanceMapMatchedCoordinateVtbl {
+pub struct IGuidanceMapMatchedCoordinate_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub Location: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2004,12 +2004,12 @@ pub struct IGuidanceMapMatchedCoordinateVtbl {
 #[repr(transparent)]
 pub struct IGuidanceNavigator(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceNavigator {
-    type Vtable = IGuidanceNavigatorVtbl;
+    type Vtable = IGuidanceNavigator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08f17ef7_8e3f_4d9a_be8a_108f9a012c67);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGuidanceNavigatorVtbl {
+pub struct IGuidanceNavigator_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub StartNavigating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, route: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub StartSimulating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, route: ::windows::core::RawPtr, speedinmeterspersecond: i32) -> ::windows::core::HRESULT,
@@ -2092,12 +2092,12 @@ pub struct IGuidanceNavigatorVtbl {
 #[repr(transparent)]
 pub struct IGuidanceNavigator2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceNavigator2 {
-    type Vtable = IGuidanceNavigator2Vtbl;
+    type Vtable = IGuidanceNavigator2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cdc50d1_041c_4bf3_b633_a101fc2f6b57);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGuidanceNavigator2Vtbl {
+pub struct IGuidanceNavigator2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub AudioNotificationRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -2114,12 +2114,12 @@ pub struct IGuidanceNavigator2Vtbl {
 #[repr(transparent)]
 pub struct IGuidanceNavigatorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceNavigatorStatics {
-    type Vtable = IGuidanceNavigatorStaticsVtbl;
+    type Vtable = IGuidanceNavigatorStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00fd9513_4456_4e66_a143_3add6be08426);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGuidanceNavigatorStaticsVtbl {
+pub struct IGuidanceNavigatorStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2127,12 +2127,12 @@ pub struct IGuidanceNavigatorStaticsVtbl {
 #[repr(transparent)]
 pub struct IGuidanceNavigatorStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceNavigatorStatics2 {
-    type Vtable = IGuidanceNavigatorStatics2Vtbl;
+    type Vtable = IGuidanceNavigatorStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54c5c3e2_7784_4c85_8c95_d0c6efb43965);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGuidanceNavigatorStatics2Vtbl {
+pub struct IGuidanceNavigatorStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub UseAppProvidedVoice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -2140,12 +2140,12 @@ pub struct IGuidanceNavigatorStatics2Vtbl {
 #[repr(transparent)]
 pub struct IGuidanceReroutedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceReroutedEventArgs {
-    type Vtable = IGuidanceReroutedEventArgsVtbl;
+    type Vtable = IGuidanceReroutedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x115d4008_d528_454e_bb94_a50341d2c9f1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGuidanceReroutedEventArgsVtbl {
+pub struct IGuidanceReroutedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Route: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2153,12 +2153,12 @@ pub struct IGuidanceReroutedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IGuidanceRoadSegment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceRoadSegment {
-    type Vtable = IGuidanceRoadSegmentVtbl;
+    type Vtable = IGuidanceRoadSegment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb32758a6_be78_4c63_afe7_6c2957479b3e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGuidanceRoadSegmentVtbl {
+pub struct IGuidanceRoadSegment_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RoadName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ShortRoadName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2180,12 +2180,12 @@ pub struct IGuidanceRoadSegmentVtbl {
 #[repr(transparent)]
 pub struct IGuidanceRoadSegment2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceRoadSegment2 {
-    type Vtable = IGuidanceRoadSegment2Vtbl;
+    type Vtable = IGuidanceRoadSegment2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2474a61d_1723_49f1_895b_47a2c4aa9c55);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGuidanceRoadSegment2Vtbl {
+pub struct IGuidanceRoadSegment2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsScenic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -2193,12 +2193,12 @@ pub struct IGuidanceRoadSegment2Vtbl {
 #[repr(transparent)]
 pub struct IGuidanceRoadSignpost(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceRoadSignpost {
-    type Vtable = IGuidanceRoadSignpostVtbl;
+    type Vtable = IGuidanceRoadSignpost_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1a728b6_f77a_4742_8312_53300f9845f0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGuidanceRoadSignpostVtbl {
+pub struct IGuidanceRoadSignpost_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ExitNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Exit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2219,12 +2219,12 @@ pub struct IGuidanceRoadSignpostVtbl {
 #[repr(transparent)]
 pub struct IGuidanceRoute(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceRoute {
-    type Vtable = IGuidanceRouteVtbl;
+    type Vtable = IGuidanceRoute_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a14545d_801a_40bd_a286_afb2010cce6c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGuidanceRouteVtbl {
+pub struct IGuidanceRoute_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -2253,12 +2253,12 @@ pub struct IGuidanceRouteVtbl {
 #[repr(transparent)]
 pub struct IGuidanceRouteStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceRouteStatics {
-    type Vtable = IGuidanceRouteStaticsVtbl;
+    type Vtable = IGuidanceRouteStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf56d926a_55ed_49c1_b09c_4b8223b50db3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGuidanceRouteStaticsVtbl {
+pub struct IGuidanceRouteStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CanCreateFromMapRoute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maproute: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
     pub TryCreateFromMapRoute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maproute: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2267,12 +2267,12 @@ pub struct IGuidanceRouteStaticsVtbl {
 #[repr(transparent)]
 pub struct IGuidanceTelemetryCollector(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceTelemetryCollector {
-    type Vtable = IGuidanceTelemetryCollectorVtbl;
+    type Vtable = IGuidanceTelemetryCollector_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb1f8da5_b878_4d92_98dd_347d23d38262);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGuidanceTelemetryCollectorVtbl {
+pub struct IGuidanceTelemetryCollector_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -2286,12 +2286,12 @@ pub struct IGuidanceTelemetryCollectorVtbl {
 #[repr(transparent)]
 pub struct IGuidanceTelemetryCollectorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceTelemetryCollectorStatics {
-    type Vtable = IGuidanceTelemetryCollectorStaticsVtbl;
+    type Vtable = IGuidanceTelemetryCollectorStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36532047_f160_44fb_b578_94577ca05990);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGuidanceTelemetryCollectorStaticsVtbl {
+pub struct IGuidanceTelemetryCollectorStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2299,12 +2299,12 @@ pub struct IGuidanceTelemetryCollectorStaticsVtbl {
 #[repr(transparent)]
 pub struct IGuidanceUpdatedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGuidanceUpdatedEventArgs {
-    type Vtable = IGuidanceUpdatedEventArgsVtbl;
+    type Vtable = IGuidanceUpdatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdac160b_9e8d_4de3_a9fa_b06321d18db9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGuidanceUpdatedEventArgsVtbl {
+pub struct IGuidanceUpdatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GuidanceMode) -> ::windows::core::HRESULT,
     pub NextManeuver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

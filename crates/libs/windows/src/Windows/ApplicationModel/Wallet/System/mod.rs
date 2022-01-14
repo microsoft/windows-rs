@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IWalletItemSystemStore(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWalletItemSystemStore {
-    type Vtable = IWalletItemSystemStoreVtbl;
+    type Vtable = IWalletItemSystemStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x522e2bff_96a2_4a17_8d19_fe1d9f837561);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWalletItemSystemStoreVtbl {
+pub struct IWalletItemSystemStore_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetItemsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -32,12 +32,12 @@ pub struct IWalletItemSystemStoreVtbl {
 #[repr(transparent)]
 pub struct IWalletItemSystemStore2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWalletItemSystemStore2 {
-    type Vtable = IWalletItemSystemStore2Vtbl;
+    type Vtable = IWalletItemSystemStore2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf98d3a4e_be00_4fdd_9734_6c113c1ac1cb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWalletItemSystemStore2Vtbl {
+pub struct IWalletItemSystemStore2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ItemsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -52,12 +52,12 @@ pub struct IWalletItemSystemStore2Vtbl {
 #[repr(transparent)]
 pub struct IWalletManagerSystemStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWalletManagerSystemStatics {
-    type Vtable = IWalletManagerSystemStaticsVtbl;
+    type Vtable = IWalletManagerSystemStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbee8eb89_2634_4b9a_8b23_ee8903c91fe0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWalletManagerSystemStaticsVtbl {
+pub struct IWalletManagerSystemStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestStoreAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -182,7 +182,7 @@ unsafe impl ::windows::core::RuntimeType for WalletItemSystemStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.System.WalletItemSystemStore;{522e2bff-96a2-4a17-8d19-fe1d9f837561})");
 }
 unsafe impl ::windows::core::Interface for WalletItemSystemStore {
-    type Vtable = IWalletItemSystemStoreVtbl;
+    type Vtable = IWalletItemSystemStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x522e2bff_96a2_4a17_8d19_fe1d9f837561);
 }
 impl ::windows::core::RuntimeName for WalletItemSystemStore {

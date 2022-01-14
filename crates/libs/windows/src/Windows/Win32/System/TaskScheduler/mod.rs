@@ -144,14 +144,14 @@ impl ::core::fmt::Debug for IAction {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IAction {
-    type Vtable = IActionVtbl;
+    type Vtable = IAction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbae54997_48b1_4cbe_9965_d6be263ebea4);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActionVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IAction_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -311,14 +311,14 @@ impl ::core::fmt::Debug for IActionCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IActionCollection {
-    type Vtable = IActionCollectionVtbl;
+    type Vtable = IActionCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02820e19_7b98_4ed2_b2e8_fdccceff619b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActionCollectionVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IActionCollection_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, ppaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -547,14 +547,14 @@ impl ::core::fmt::Debug for IBootTrigger {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IBootTrigger {
-    type Vtable = IBootTriggerVtbl;
+    type Vtable = IBootTrigger_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a9c35da_d357_41f4_bbc1_207ac1b1f3cb);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBootTriggerVtbl {
-    pub base: ITriggerVtbl,
+pub struct IBootTrigger_Vtbl {
+    pub base: ITrigger_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Delay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -721,14 +721,14 @@ impl ::core::fmt::Debug for IComHandlerAction {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IComHandlerAction {
-    type Vtable = IComHandlerActionVtbl;
+    type Vtable = IComHandlerAction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d2fd252_75c5_4f66_90ba_2a7d8cc3039f);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IComHandlerActionVtbl {
-    pub base: IActionVtbl,
+pub struct IComHandlerAction_Vtbl {
+    pub base: IAction_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ClassId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -950,14 +950,14 @@ impl ::core::fmt::Debug for IDailyTrigger {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IDailyTrigger {
-    type Vtable = IDailyTriggerVtbl;
+    type Vtable = IDailyTrigger_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x126c5cd8_b288_41d5_8dbf_e491446adc5c);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDailyTriggerVtbl {
-    pub base: ITriggerVtbl,
+pub struct IDailyTrigger_Vtbl {
+    pub base: ITrigger_Vtbl,
     pub DaysInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdays: *mut i16) -> ::windows::core::HRESULT,
     pub SetDaysInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, days: i16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -1207,14 +1207,14 @@ impl ::core::fmt::Debug for IEmailAction {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IEmailAction {
-    type Vtable = IEmailActionVtbl;
+    type Vtable = IEmailAction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10f62c64_7e16_4314_a0c2_0c3683f99d40);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailActionVtbl {
-    pub base: IActionVtbl,
+pub struct IEmailAction_Vtbl {
+    pub base: IAction_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Server: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pserver: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1356,12 +1356,12 @@ impl ::core::fmt::Debug for IEnumWorkItems {
     }
 }
 unsafe impl ::windows::core::Interface for IEnumWorkItems {
-    type Vtable = IEnumWorkItemsVtbl;
+    type Vtable = IEnumWorkItems_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x148bd528_a2ab_11ce_b11f_00aa00530503);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumWorkItemsVtbl {
+pub struct IEnumWorkItems_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgpwsznames: *mut *mut super::super::Foundation::PWSTR, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
@@ -1588,14 +1588,14 @@ impl ::core::fmt::Debug for IEventTrigger {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IEventTrigger {
-    type Vtable = IEventTriggerVtbl;
+    type Vtable = IEventTrigger_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd45b0167_9653_4eef_b94f_0732ca7af251);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEventTriggerVtbl {
-    pub base: ITriggerVtbl,
+pub struct IEventTrigger_Vtbl {
+    pub base: ITrigger_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Subscription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pquery: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1788,14 +1788,14 @@ impl ::core::fmt::Debug for IExecAction {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IExecAction {
-    type Vtable = IExecActionVtbl;
+    type Vtable = IExecAction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c3d624d_fd6b_49a3_b9b7_09cb3cd3f047);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IExecActionVtbl {
-    pub base: IActionVtbl,
+pub struct IExecAction_Vtbl {
+    pub base: IAction_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppath: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2020,14 +2020,14 @@ impl ::core::fmt::Debug for IExecAction2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IExecAction2 {
-    type Vtable = IExecAction2Vtbl;
+    type Vtable = IExecAction2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2a82542_bda5_4e6b_9143_e2bf4f8987b6);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IExecAction2Vtbl {
-    pub base: IExecActionVtbl,
+pub struct IExecAction2_Vtbl {
+    pub base: IExecAction_Vtbl,
     pub HideAppWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phideappwindow: *mut i16) -> ::windows::core::HRESULT,
     pub SetHideAppWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hideappwindow: i16) -> ::windows::core::HRESULT,
 }
@@ -2166,14 +2166,14 @@ impl ::core::fmt::Debug for IIdleSettings {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IIdleSettings {
-    type Vtable = IIdleSettingsVtbl;
+    type Vtable = IIdleSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84594461_0053_4342_a8fd_088fabf11f32);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIdleSettingsVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IIdleSettings_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IdleDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2381,14 +2381,14 @@ impl ::core::fmt::Debug for IIdleTrigger {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IIdleTrigger {
-    type Vtable = IIdleTriggerVtbl;
+    type Vtable = IIdleTrigger_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd537d2b0_9fb3_4d34_9739_1ff5ce7b1ef3);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIdleTriggerVtbl {
-    pub base: ITriggerVtbl,
+pub struct IIdleTrigger_Vtbl {
+    pub base: ITrigger_Vtbl,
 }
 #[doc = "*Required features: 'Win32_System_TaskScheduler', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -2596,14 +2596,14 @@ impl ::core::fmt::Debug for ILogonTrigger {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ILogonTrigger {
-    type Vtable = ILogonTriggerVtbl;
+    type Vtable = ILogonTrigger_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72dade38_fae4_4b3e_baf4_5d009af02b1c);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILogonTriggerVtbl {
-    pub base: ITriggerVtbl,
+pub struct ILogonTrigger_Vtbl {
+    pub base: ITrigger_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Delay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2748,14 +2748,14 @@ impl ::core::fmt::Debug for IMaintenanceSettings {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMaintenanceSettings {
-    type Vtable = IMaintenanceSettingsVtbl;
+    type Vtable = IMaintenanceSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6024fa8_9652_4adb_a6bf_5cfcd877a7ba);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMaintenanceSettingsVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMaintenanceSettings_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetPeriod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3003,14 +3003,14 @@ impl ::core::fmt::Debug for IMonthlyDOWTrigger {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMonthlyDOWTrigger {
-    type Vtable = IMonthlyDOWTriggerVtbl;
+    type Vtable = IMonthlyDOWTrigger_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77d025a3_90fa_43aa_b52e_cda5499b946a);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMonthlyDOWTriggerVtbl {
-    pub base: ITriggerVtbl,
+pub struct IMonthlyDOWTrigger_Vtbl {
+    pub base: ITrigger_Vtbl,
     pub DaysOfWeek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdays: *mut i16) -> ::windows::core::HRESULT,
     pub SetDaysOfWeek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, days: i16) -> ::windows::core::HRESULT,
     pub WeeksOfMonth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pweeks: *mut i16) -> ::windows::core::HRESULT,
@@ -3248,14 +3248,14 @@ impl ::core::fmt::Debug for IMonthlyTrigger {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMonthlyTrigger {
-    type Vtable = IMonthlyTriggerVtbl;
+    type Vtable = IMonthlyTrigger_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97c45ef1_6b02_4a1a_9c0e_1ebfba1500ac);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMonthlyTriggerVtbl {
-    pub base: ITriggerVtbl,
+pub struct IMonthlyTrigger_Vtbl {
+    pub base: ITrigger_Vtbl,
     pub DaysOfMonth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdays: *mut i32) -> ::windows::core::HRESULT,
     pub SetDaysOfMonth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, days: i32) -> ::windows::core::HRESULT,
     pub MonthsOfYear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmonths: *mut i16) -> ::windows::core::HRESULT,
@@ -3390,14 +3390,14 @@ impl ::core::fmt::Debug for INetworkSettings {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for INetworkSettings {
-    type Vtable = INetworkSettingsVtbl;
+    type Vtable = INetworkSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7dea84_c30b_4245_80b6_00e9f646f1b4);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetworkSettingsVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct INetworkSettings_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3570,14 +3570,14 @@ impl ::core::fmt::Debug for IPrincipal {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrincipal {
-    type Vtable = IPrincipalVtbl;
+    type Vtable = IPrincipal_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd98d51e5_c9b4_496a_a9c1_18980261cf0f);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrincipalVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IPrincipal_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3736,14 +3736,14 @@ impl ::core::fmt::Debug for IPrincipal2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrincipal2 {
-    type Vtable = IPrincipal2Vtbl;
+    type Vtable = IPrincipal2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x248919ae_e345_4a6d_8aeb_e0d3165c904e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrincipal2Vtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IPrincipal2_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub ProcessTokenSidType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprocesstokensidtype: *mut TASK_PROCESSTOKENSID_TYPE) -> ::windows::core::HRESULT,
     pub SetProcessTokenSidType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, processtokensidtype: TASK_PROCESSTOKENSID_TYPE) -> ::windows::core::HRESULT,
     pub RequiredPrivilegeCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
@@ -3804,12 +3804,12 @@ impl ::core::fmt::Debug for IProvideTaskPage {
     }
 }
 unsafe impl ::windows::core::Interface for IProvideTaskPage {
-    type Vtable = IProvideTaskPageVtbl;
+    type Vtable = IProvideTaskPage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4086658a_cbbb_11cf_b604_00c04fd8d565);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProvideTaskPageVtbl {
+pub struct IProvideTaskPage_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
     pub GetPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tptype: TASKPAGE, fpersistchanges: super::super::Foundation::BOOL, phpage: *mut super::super::UI::Controls::HPROPSHEETPAGE) -> ::windows::core::HRESULT,
@@ -4011,14 +4011,14 @@ impl ::core::fmt::Debug for IRegisteredTask {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRegisteredTask {
-    type Vtable = IRegisteredTaskVtbl;
+    type Vtable = IRegisteredTask_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c86f320_dee3_4dd1_b972_a303f26b061e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRegisteredTaskVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IRegisteredTask_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4183,14 +4183,14 @@ impl ::core::fmt::Debug for IRegisteredTaskCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRegisteredTaskCollection {
-    type Vtable = IRegisteredTaskCollectionVtbl;
+    type Vtable = IRegisteredTaskCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86627eb4_42a7_41e4_a4d9_ac33a72f2d52);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRegisteredTaskCollectionVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IRegisteredTaskCollection_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppregisteredtask: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4387,14 +4387,14 @@ impl ::core::fmt::Debug for IRegistrationInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRegistrationInfo {
-    type Vtable = IRegistrationInfoVtbl;
+    type Vtable = IRegistrationInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x416d8b73_cb41_4ea1_805c_9be9a5ac4a74);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRegistrationInfoVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IRegistrationInfo_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4664,14 +4664,14 @@ impl ::core::fmt::Debug for IRegistrationTrigger {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRegistrationTrigger {
-    type Vtable = IRegistrationTriggerVtbl;
+    type Vtable = IRegistrationTrigger_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c8fec3a_c218_4e0c_b23d_629024db91a2);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRegistrationTriggerVtbl {
-    pub base: ITriggerVtbl,
+pub struct IRegistrationTrigger_Vtbl {
+    pub base: ITrigger_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Delay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4808,14 +4808,14 @@ impl ::core::fmt::Debug for IRepetitionPattern {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRepetitionPattern {
-    type Vtable = IRepetitionPatternVtbl;
+    type Vtable = IRepetitionPattern_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fb9acf1_26be_400e_85b5_294b9c75dfd6);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRepetitionPatternVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IRepetitionPattern_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Interval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinterval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4976,14 +4976,14 @@ impl ::core::fmt::Debug for IRunningTask {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRunningTask {
-    type Vtable = IRunningTaskVtbl;
+    type Vtable = IRunningTask_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x653758fb_7b9a_4f1e_a471_beeb8e9b834e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRunningTaskVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IRunningTask_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5120,14 +5120,14 @@ impl ::core::fmt::Debug for IRunningTaskCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRunningTaskCollection {
-    type Vtable = IRunningTaskCollectionVtbl;
+    type Vtable = IRunningTaskCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a67614b_6828_4fec_aa54_6d52e8f1f2db);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRunningTaskCollectionVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IRunningTaskCollection_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, pprunningtask: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5316,12 +5316,12 @@ impl ::core::fmt::Debug for IScheduledWorkItem {
     }
 }
 unsafe impl ::windows::core::Interface for IScheduledWorkItem {
-    type Vtable = IScheduledWorkItemVtbl;
+    type Vtable = IScheduledWorkItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6b952f0_a4b1_11d0_997d_00aa006887ec);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IScheduledWorkItemVtbl {
+pub struct IScheduledWorkItem_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinewtrigger: *mut u16, pptrigger: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub DeleteTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itrigger: u16) -> ::windows::core::HRESULT,
@@ -5600,14 +5600,14 @@ impl ::core::fmt::Debug for ISessionStateChangeTrigger {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISessionStateChangeTrigger {
-    type Vtable = ISessionStateChangeTriggerVtbl;
+    type Vtable = ISessionStateChangeTrigger_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x754da71b_4385_4475_9dd9_598294fa3641);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISessionStateChangeTriggerVtbl {
-    pub base: ITriggerVtbl,
+pub struct ISessionStateChangeTrigger_Vtbl {
+    pub base: ITrigger_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Delay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5784,14 +5784,14 @@ impl ::core::fmt::Debug for IShowMessageAction {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IShowMessageAction {
-    type Vtable = IShowMessageActionVtbl;
+    type Vtable = IShowMessageAction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x505e9e68_af89_46b8_a30f_56162a83d537);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IShowMessageActionVtbl {
-    pub base: IActionVtbl,
+pub struct IShowMessageAction_Vtbl {
+    pub base: IAction_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptitle: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6070,13 +6070,13 @@ impl ::core::fmt::Debug for ITask {
     }
 }
 unsafe impl ::windows::core::Interface for ITask {
-    type Vtable = ITaskVtbl;
+    type Vtable = ITask_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x148bd524_a2ab_11ce_b11f_00aa00530503);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITaskVtbl {
-    pub base: IScheduledWorkItemVtbl,
+pub struct ITask_Vtbl {
+    pub base: IScheduledWorkItem_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetApplicationName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszapplicationname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6282,14 +6282,14 @@ impl ::core::fmt::Debug for ITaskDefinition {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITaskDefinition {
-    type Vtable = ITaskDefinitionVtbl;
+    type Vtable = ITaskDefinition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5bc8fc5_536d_4f77_b852_fbc1356fdeb6);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITaskDefinitionVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct ITaskDefinition_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub RegistrationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppregistrationinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -6521,14 +6521,14 @@ impl ::core::fmt::Debug for ITaskFolder {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITaskFolder {
-    type Vtable = ITaskFolderVtbl;
+    type Vtable = ITaskFolder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cfac062_a080_4c15_9a88_aa7c2af80dfc);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITaskFolderVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct ITaskFolder_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6697,14 +6697,14 @@ impl ::core::fmt::Debug for ITaskFolderCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITaskFolderCollection {
-    type Vtable = ITaskFolderCollectionVtbl;
+    type Vtable = ITaskFolderCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79184a66_8664_423f_97f1_637356a5d812);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITaskFolderCollectionVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct ITaskFolderCollection_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppfolder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6772,12 +6772,12 @@ impl ::core::fmt::Debug for ITaskHandler {
     }
 }
 unsafe impl ::windows::core::Interface for ITaskHandler {
-    type Vtable = ITaskHandlerVtbl;
+    type Vtable = ITaskHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x839d7762_5121_4009_9234_4f0d19394f04);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITaskHandlerVtbl {
+pub struct ITaskHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phandlerservices: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -6838,12 +6838,12 @@ impl ::core::fmt::Debug for ITaskHandlerStatus {
     }
 }
 unsafe impl ::windows::core::Interface for ITaskHandlerStatus {
-    type Vtable = ITaskHandlerStatusVtbl;
+    type Vtable = ITaskHandlerStatus_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeaec7a8f_27a0_4ddc_8675_14726a01a38a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITaskHandlerStatusVtbl {
+pub struct ITaskHandlerStatus_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub UpdateStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, percentcomplete: i16, statusmessage: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -6979,14 +6979,14 @@ impl ::core::fmt::Debug for ITaskNamedValueCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITaskNamedValueCollection {
-    type Vtable = ITaskNamedValueCollectionVtbl;
+    type Vtable = ITaskNamedValueCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4ef826b_63c3_46e4_a504_ef69e4f7ea4d);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITaskNamedValueCollectionVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct ITaskNamedValueCollection_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pppair: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7119,14 +7119,14 @@ impl ::core::fmt::Debug for ITaskNamedValuePair {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITaskNamedValuePair {
-    type Vtable = ITaskNamedValuePairVtbl;
+    type Vtable = ITaskNamedValuePair_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39038068_2b46_4afd_8662_7bb6f868d221);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITaskNamedValuePairVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct ITaskNamedValuePair_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7229,12 +7229,12 @@ impl ::core::fmt::Debug for ITaskScheduler {
     }
 }
 unsafe impl ::windows::core::Interface for ITaskScheduler {
-    type Vtable = ITaskSchedulerVtbl;
+    type Vtable = ITaskScheduler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x148bd527_a2ab_11ce_b11f_00aa00530503);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITaskSchedulerVtbl {
+pub struct ITaskScheduler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetTargetComputer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszcomputer: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -7416,14 +7416,14 @@ impl ::core::fmt::Debug for ITaskService {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITaskService {
-    type Vtable = ITaskServiceVtbl;
+    type Vtable = ITaskService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2faba4c7_4da9_4013_9697_20cc3fd40f85);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITaskServiceVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct ITaskService_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub GetFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppfolder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -7728,14 +7728,14 @@ impl ::core::fmt::Debug for ITaskSettings {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITaskSettings {
-    type Vtable = ITaskSettingsVtbl;
+    type Vtable = ITaskSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fd4711d_2d02_4c8c_87e3_eff699de127e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITaskSettingsVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct ITaskSettings_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub AllowDemandStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pallowdemandstart: *mut i16) -> ::windows::core::HRESULT,
     pub SetAllowDemandStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allowdemandstart: i16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -7928,14 +7928,14 @@ impl ::core::fmt::Debug for ITaskSettings2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITaskSettings2 {
-    type Vtable = ITaskSettings2Vtbl;
+    type Vtable = ITaskSettings2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c05c3f0_6eed_4c05_a15f_ed7d7a98a369);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITaskSettings2Vtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct ITaskSettings2_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub DisallowStartOnRemoteAppSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdisallowstart: *mut i16) -> ::windows::core::HRESULT,
     pub SetDisallowStartOnRemoteAppSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, disallowstart: i16) -> ::windows::core::HRESULT,
     pub UseUnifiedSchedulingEngine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puseunifiedengine: *mut i16) -> ::windows::core::HRESULT,
@@ -8279,14 +8279,14 @@ impl ::core::fmt::Debug for ITaskSettings3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITaskSettings3 {
-    type Vtable = ITaskSettings3Vtbl;
+    type Vtable = ITaskSettings3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ad9d0d7_0c7f_4ebb_9a5f_d1c648dca528);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITaskSettings3Vtbl {
-    pub base: ITaskSettingsVtbl,
+pub struct ITaskSettings3_Vtbl {
+    pub base: ITaskSettings_Vtbl,
     pub DisallowStartOnRemoteAppSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdisallowstart: *mut i16) -> ::windows::core::HRESULT,
     pub SetDisallowStartOnRemoteAppSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, disallowstart: i16) -> ::windows::core::HRESULT,
     pub UseUnifiedSchedulingEngine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puseunifiedengine: *mut i16) -> ::windows::core::HRESULT,
@@ -8363,12 +8363,12 @@ impl ::core::fmt::Debug for ITaskTrigger {
     }
 }
 unsafe impl ::windows::core::Interface for ITaskTrigger {
-    type Vtable = ITaskTriggerVtbl;
+    type Vtable = ITaskTrigger_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x148bd52b_a2ab_11ce_b11f_00aa00530503);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITaskTriggerVtbl {
+pub struct ITaskTrigger_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptrigger: *const TASK_TRIGGER) -> ::windows::core::HRESULT,
     pub GetTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptrigger: *mut TASK_TRIGGER) -> ::windows::core::HRESULT,
@@ -8436,12 +8436,12 @@ impl ::core::fmt::Debug for ITaskVariables {
     }
 }
 unsafe impl ::windows::core::Interface for ITaskVariables {
-    type Vtable = ITaskVariablesVtbl;
+    type Vtable = ITaskVariables_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e4c9351_d966_4b8b_bb87_ceba68bb0107);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITaskVariablesVtbl {
+pub struct ITaskVariables_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinput: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -8652,14 +8652,14 @@ impl ::core::fmt::Debug for ITimeTrigger {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITimeTrigger {
-    type Vtable = ITimeTriggerVtbl;
+    type Vtable = ITimeTrigger_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb45747e0_eba7_4276_9f29_85c5bb300006);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITimeTriggerVtbl {
-    pub base: ITriggerVtbl,
+pub struct ITimeTrigger_Vtbl {
+    pub base: ITrigger_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RandomDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prandomdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8831,14 +8831,14 @@ impl ::core::fmt::Debug for ITrigger {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITrigger {
-    type Vtable = ITriggerVtbl;
+    type Vtable = ITrigger_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09941815_ea89_4b5b_89e0_2a773801fac3);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITriggerVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct ITrigger_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut TASK_TRIGGER_TYPE2) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -9012,14 +9012,14 @@ impl ::core::fmt::Debug for ITriggerCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITriggerCollection {
-    type Vtable = ITriggerCollectionVtbl;
+    type Vtable = ITriggerCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85df5081_1b24_4f32_878a_d9d14df4cb77);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITriggerCollectionVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct ITriggerCollection_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pptrigger: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9248,14 +9248,14 @@ impl ::core::fmt::Debug for IWeeklyTrigger {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWeeklyTrigger {
-    type Vtable = IWeeklyTriggerVtbl;
+    type Vtable = IWeeklyTrigger_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5038fc98_82ff_436d_8728_a512a57c9dc1);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWeeklyTriggerVtbl {
-    pub base: ITriggerVtbl,
+pub struct IWeeklyTrigger_Vtbl {
+    pub base: ITrigger_Vtbl,
     pub DaysOfWeek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdays: *mut i16) -> ::windows::core::HRESULT,
     pub SetDaysOfWeek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, days: i16) -> ::windows::core::HRESULT,
     pub WeeksInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pweeks: *mut i16) -> ::windows::core::HRESULT,

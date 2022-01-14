@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
-pub trait IPlaylistImpl: Sized {
+pub trait IPlaylist_Impl: Sized {
     fn Files(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Storage::StorageFile>>;
     fn SaveAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn SaveAsAsync(&mut self, savelocation: &::core::option::Option<super::super::Storage::IStorageFolder>, desiredname: &::windows::core::HSTRING, option: super::super::Storage::NameCollisionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>;
@@ -10,9 +10,9 @@ impl ::windows::core::RuntimeName for IPlaylist {
     const NAME: &'static str = "Windows.Media.Playlists.IPlaylist";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
-impl IPlaylistVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaylistImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlaylistVtbl {
-        unsafe extern "system" fn Files<Impl: IPlaylistImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPlaylist_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaylist_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlaylist_Vtbl {
+        unsafe extern "system" fn Files<Impl: IPlaylist_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Files() {
                 ::core::result::Result::Ok(ok__) => {
@@ -23,7 +23,7 @@ impl IPlaylistVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SaveAsync<Impl: IPlaylistImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaveAsync<Impl: IPlaylist_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SaveAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -34,7 +34,7 @@ impl IPlaylistVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SaveAsAsync<Impl: IPlaylistImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, savelocation: ::windows::core::RawPtr, desiredname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, option: super::super::Storage::NameCollisionOption, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaveAsAsync<Impl: IPlaylist_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, savelocation: ::windows::core::RawPtr, desiredname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, option: super::super::Storage::NameCollisionOption, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SaveAsAsync(&*(&savelocation as *const <super::super::Storage::IStorageFolder as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFolder as ::windows::core::DefaultType>::DefaultType), &*(&desiredname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), option) {
                 ::core::result::Result::Ok(ok__) => {
@@ -45,7 +45,7 @@ impl IPlaylistVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SaveAsWithFormatAsync<Impl: IPlaylistImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, savelocation: ::windows::core::RawPtr, desiredname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, option: super::super::Storage::NameCollisionOption, playlistformat: PlaylistFormat, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaveAsWithFormatAsync<Impl: IPlaylist_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, savelocation: ::windows::core::RawPtr, desiredname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, option: super::super::Storage::NameCollisionOption, playlistformat: PlaylistFormat, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SaveAsWithFormatAsync(&*(&savelocation as *const <super::super::Storage::IStorageFolder as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFolder as ::windows::core::DefaultType>::DefaultType), &*(&desiredname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), option, playlistformat) {
                 ::core::result::Result::Ok(ok__) => {
@@ -69,7 +69,7 @@ impl IPlaylistVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
-pub trait IPlaylistStaticsImpl: Sized {
+pub trait IPlaylistStatics_Impl: Sized {
     fn LoadAsync(&mut self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Playlist>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
@@ -77,9 +77,9 @@ impl ::windows::core::RuntimeName for IPlaylistStatics {
     const NAME: &'static str = "Windows.Media.Playlists.IPlaylistStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
-impl IPlaylistStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaylistStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlaylistStaticsVtbl {
-        unsafe extern "system" fn LoadAsync<Impl: IPlaylistStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPlaylistStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaylistStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlaylistStatics_Vtbl {
+        unsafe extern "system" fn LoadAsync<Impl: IPlaylistStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadAsync(&*(&file as *const <super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

@@ -1,5 +1,5 @@
 #[cfg(feature = "Win32_Foundation")]
-pub trait ICoreFrameworkInputViewInteropImpl: Sized {
+pub trait ICoreFrameworkInputViewInterop_Impl: Sized {
     fn GetForWindow(&mut self, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, coreframeworkinputview: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7,9 +7,9 @@ impl ::windows::core::RuntimeName for ICoreFrameworkInputViewInterop {
     const NAME: &'static str = "";
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ICoreFrameworkInputViewInteropVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreFrameworkInputViewInteropImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreFrameworkInputViewInteropVtbl {
-        unsafe extern "system" fn GetForWindow<Impl: ICoreFrameworkInputViewInteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, coreframeworkinputview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl ICoreFrameworkInputViewInterop_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreFrameworkInputViewInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreFrameworkInputViewInterop_Vtbl {
+        unsafe extern "system" fn GetForWindow<Impl: ICoreFrameworkInputViewInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, coreframeworkinputview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetForWindow(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&coreframeworkinputview)).into()
         }

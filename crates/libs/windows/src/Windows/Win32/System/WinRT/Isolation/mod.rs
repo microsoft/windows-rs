@@ -47,12 +47,12 @@ impl ::core::fmt::Debug for IIsolatedEnvironmentInterop {
     }
 }
 unsafe impl ::windows::core::Interface for IIsolatedEnvironmentInterop {
-    type Vtable = IIsolatedEnvironmentInteropVtbl;
+    type Vtable = IIsolatedEnvironmentInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85713c2e_8e62_46c5_8de2_c647e1d54636);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIsolatedEnvironmentInteropVtbl {
+pub struct IIsolatedEnvironmentInterop_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetHostHwndInterop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, containerhwnd: super::super::super::Foundation::HWND, hosthwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,

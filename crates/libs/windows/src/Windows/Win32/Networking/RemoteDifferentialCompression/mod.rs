@@ -88,12 +88,12 @@ impl ::core::fmt::Debug for IFindSimilarResults {
     }
 }
 unsafe impl ::windows::core::Interface for IFindSimilarResults {
-    type Vtable = IFindSimilarResultsVtbl;
+    type Vtable = IFindSimilarResults_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a81_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFindSimilarResultsVtbl {
+pub struct IFindSimilarResults_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: *mut u32) -> ::windows::core::HRESULT,
     pub GetNextFileId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numtraitsmatched: *mut u32, similarityfileid: *mut SimilarityFileId) -> ::windows::core::HRESULT,
@@ -145,12 +145,12 @@ impl ::core::fmt::Debug for IRdcComparator {
     }
 }
 unsafe impl ::windows::core::Interface for IRdcComparator {
-    type Vtable = IRdcComparatorVtbl;
+    type Vtable = IRdcComparator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a77_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRdcComparatorVtbl {
+pub struct IRdcComparator_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Process: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endofinput: super::super::Foundation::BOOL, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffer: *mut RdcNeedPointer, rdc_errorcode: *mut RDC_ErrorCode) -> ::windows::core::HRESULT,
@@ -214,12 +214,12 @@ impl ::core::fmt::Debug for IRdcFileReader {
     }
 }
 unsafe impl ::windows::core::Interface for IRdcFileReader {
-    type Vtable = IRdcFileReaderVtbl;
+    type Vtable = IRdcFileReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a74_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRdcFileReaderVtbl {
+pub struct IRdcFileReader_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetFileSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filesize: *mut u64) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -318,13 +318,13 @@ impl ::core::fmt::Debug for IRdcFileWriter {
     }
 }
 unsafe impl ::windows::core::Interface for IRdcFileWriter {
-    type Vtable = IRdcFileWriterVtbl;
+    type Vtable = IRdcFileWriter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a75_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRdcFileWriterVtbl {
-    pub base: IRdcFileReaderVtbl,
+pub struct IRdcFileWriter_Vtbl {
+    pub base: IRdcFileReader_Vtbl,
     pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetfilestart: u64, bytestowrite: u32, buffer: *mut u8) -> ::windows::core::HRESULT,
     pub Truncate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DeleteOnClose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -381,12 +381,12 @@ impl ::core::fmt::Debug for IRdcGenerator {
     }
 }
 unsafe impl ::windows::core::Interface for IRdcGenerator {
-    type Vtable = IRdcGeneratorVtbl;
+    type Vtable = IRdcGenerator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a73_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRdcGeneratorVtbl {
+pub struct IRdcGenerator_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetGeneratorParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: u32, igeneratorparameters: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -454,12 +454,12 @@ impl ::core::fmt::Debug for IRdcGeneratorFilterMaxParameters {
     }
 }
 unsafe impl ::windows::core::Interface for IRdcGeneratorFilterMaxParameters {
-    type Vtable = IRdcGeneratorFilterMaxParametersVtbl;
+    type Vtable = IRdcGeneratorFilterMaxParameters_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a72_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRdcGeneratorFilterMaxParametersVtbl {
+pub struct IRdcGeneratorFilterMaxParameters_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetHorizonSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizonsize: *mut u32) -> ::windows::core::HRESULT,
     pub SetHorizonSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizonsize: u32) -> ::windows::core::HRESULT,
@@ -526,12 +526,12 @@ impl ::core::fmt::Debug for IRdcGeneratorParameters {
     }
 }
 unsafe impl ::windows::core::Interface for IRdcGeneratorParameters {
-    type Vtable = IRdcGeneratorParametersVtbl;
+    type Vtable = IRdcGeneratorParameters_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a71_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRdcGeneratorParametersVtbl {
+pub struct IRdcGeneratorParameters_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetGeneratorParametersType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parameterstype: *mut GeneratorParametersType) -> ::windows::core::HRESULT,
     pub GetParametersVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentversion: *mut u32, minimumcompatibleappversion: *mut u32) -> ::windows::core::HRESULT,
@@ -614,12 +614,12 @@ impl ::core::fmt::Debug for IRdcLibrary {
     }
 }
 unsafe impl ::windows::core::Interface for IRdcLibrary {
-    type Vtable = IRdcLibraryVtbl;
+    type Vtable = IRdcLibrary_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a78_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRdcLibraryVtbl {
+pub struct IRdcLibrary_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub ComputeDefaultRecursionDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filesize: u64, depth: *mut u32) -> ::windows::core::HRESULT,
     pub CreateGeneratorParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parameterstype: GeneratorParametersType, level: u32, igeneratorparameters: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -681,12 +681,12 @@ impl ::core::fmt::Debug for IRdcSignatureReader {
     }
 }
 unsafe impl ::windows::core::Interface for IRdcSignatureReader {
-    type Vtable = IRdcSignatureReaderVtbl;
+    type Vtable = IRdcSignatureReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a76_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRdcSignatureReaderVtbl {
+pub struct IRdcSignatureReader_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub ReadHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rdc_errorcode: *mut RDC_ErrorCode) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -745,12 +745,12 @@ impl ::core::fmt::Debug for IRdcSimilarityGenerator {
     }
 }
 unsafe impl ::windows::core::Interface for IRdcSimilarityGenerator {
-    type Vtable = IRdcSimilarityGeneratorVtbl;
+    type Vtable = IRdcSimilarityGenerator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a80_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRdcSimilarityGeneratorVtbl {
+pub struct IRdcSimilarityGenerator_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub EnableSimilarity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Results: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, similaritydata: *mut SimilarityData) -> ::windows::core::HRESULT,
@@ -832,12 +832,12 @@ impl ::core::fmt::Debug for ISimilarity {
     }
 }
 unsafe impl ::windows::core::Interface for ISimilarity {
-    type Vtable = ISimilarityVtbl;
+    type Vtable = ISimilarity_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a83_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISimilarityVtbl {
+pub struct ISimilarity_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: super::super::Foundation::PWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8, recordsize: u32, isnew: *mut RdcCreatedTables) -> ::windows::core::HRESULT,
@@ -934,12 +934,12 @@ impl ::core::fmt::Debug for ISimilarityFileIdTable {
     }
 }
 unsafe impl ::windows::core::Interface for ISimilarityFileIdTable {
-    type Vtable = ISimilarityFileIdTableVtbl;
+    type Vtable = ISimilarityFileIdTable_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7f_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISimilarityFileIdTableVtbl {
+pub struct ISimilarityFileIdTable_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: super::super::Foundation::PWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8, recordsize: u32, isnew: *mut RdcCreatedTables) -> ::windows::core::HRESULT,
@@ -1004,12 +1004,12 @@ impl ::core::fmt::Debug for ISimilarityReportProgress {
     }
 }
 unsafe impl ::windows::core::Interface for ISimilarityReportProgress {
-    type Vtable = ISimilarityReportProgressVtbl;
+    type Vtable = ISimilarityReportProgress_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7a_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISimilarityReportProgressVtbl {
+pub struct ISimilarityReportProgress_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub ReportProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, percentcompleted: u32) -> ::windows::core::HRESULT,
 }
@@ -1060,12 +1060,12 @@ impl ::core::fmt::Debug for ISimilarityTableDumpState {
     }
 }
 unsafe impl ::windows::core::Interface for ISimilarityTableDumpState {
-    type Vtable = ISimilarityTableDumpStateVtbl;
+    type Vtable = ISimilarityTableDumpState_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7b_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISimilarityTableDumpStateVtbl {
+pub struct ISimilarityTableDumpState_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetNextData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resultssize: u32, resultsused: *mut u32, eof: *mut super::super::Foundation::BOOL, results: *mut SimilarityDumpData) -> ::windows::core::HRESULT,
@@ -1132,12 +1132,12 @@ impl ::core::fmt::Debug for ISimilarityTraitsMappedView {
     }
 }
 unsafe impl ::windows::core::Interface for ISimilarityTraitsMappedView {
-    type Vtable = ISimilarityTraitsMappedViewVtbl;
+    type Vtable = ISimilarityTraitsMappedView_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7c_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISimilarityTraitsMappedViewVtbl {
+pub struct ISimilarityTraitsMappedView_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Flush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Unmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1221,12 +1221,12 @@ impl ::core::fmt::Debug for ISimilarityTraitsMapping {
     }
 }
 unsafe impl ::windows::core::Interface for ISimilarityTraitsMapping {
-    type Vtable = ISimilarityTraitsMappingVtbl;
+    type Vtable = ISimilarityTraitsMapping_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7d_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISimilarityTraitsMappingVtbl {
+pub struct ISimilarityTraitsMapping_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CloseMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub SetFileSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filesize: u64) -> ::windows::core::HRESULT,
@@ -1313,12 +1313,12 @@ impl ::core::fmt::Debug for ISimilarityTraitsTable {
     }
 }
 unsafe impl ::windows::core::Interface for ISimilarityTraitsTable {
-    type Vtable = ISimilarityTraitsTableVtbl;
+    type Vtable = ISimilarityTraitsTable_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7e_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISimilarityTraitsTableVtbl {
+pub struct ISimilarityTraitsTable_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: super::super::Foundation::PWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8, isnew: *mut RdcCreatedTables) -> ::windows::core::HRESULT,

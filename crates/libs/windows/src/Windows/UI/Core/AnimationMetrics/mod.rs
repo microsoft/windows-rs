@@ -79,7 +79,7 @@ unsafe impl ::windows::core::RuntimeType for AnimationDescription {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.AnimationDescription;{7d11a549-be3d-41de-b081-05c149962f9b})");
 }
 unsafe impl ::windows::core::Interface for AnimationDescription {
-    type Vtable = IAnimationDescriptionVtbl;
+    type Vtable = IAnimationDescription_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d11a549_be3d_41de_b081_05c149962f9b);
 }
 impl ::windows::core::RuntimeName for AnimationDescription {
@@ -249,12 +249,12 @@ impl ::windows::core::DefaultType for AnimationEffectTarget {
 #[repr(transparent)]
 pub struct IAnimationDescription(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAnimationDescription {
-    type Vtable = IAnimationDescriptionVtbl;
+    type Vtable = IAnimationDescription_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d11a549_be3d_41de_b081_05c149962f9b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAnimationDescriptionVtbl {
+pub struct IAnimationDescription_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Animations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -275,12 +275,12 @@ pub struct IAnimationDescriptionVtbl {
 #[repr(transparent)]
 pub struct IAnimationDescriptionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAnimationDescriptionFactory {
-    type Vtable = IAnimationDescriptionFactoryVtbl;
+    type Vtable = IAnimationDescriptionFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6e27abe_c1fb_48b5_9271_ecc70ac86ef0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAnimationDescriptionFactoryVtbl {
+pub struct IAnimationDescriptionFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effect: AnimationEffect, target: AnimationEffectTarget, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -288,12 +288,12 @@ pub struct IAnimationDescriptionFactoryVtbl {
 #[repr(transparent)]
 pub struct IOpacityAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOpacityAnimation {
-    type Vtable = IOpacityAnimationVtbl;
+    type Vtable = IOpacityAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x803aabe5_ee7e_455f_84e9_2506afb8d2b4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOpacityAnimationVtbl {
+pub struct IOpacityAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub InitialOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -410,12 +410,12 @@ unsafe impl ::windows::core::RuntimeType for IPropertyAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3a01b4da-4d8c-411e-b615-1ade683a9903}");
 }
 unsafe impl ::windows::core::Interface for IPropertyAnimation {
-    type Vtable = IPropertyAnimationVtbl;
+    type Vtable = IPropertyAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a01b4da_4d8c_411e_b615_1ade683a9903);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyAnimationVtbl {
+pub struct IPropertyAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PropertyAnimationType) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -439,12 +439,12 @@ pub struct IPropertyAnimationVtbl {
 #[repr(transparent)]
 pub struct IScaleAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IScaleAnimation {
-    type Vtable = IScaleAnimationVtbl;
+    type Vtable = IScaleAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x023552c7_71ab_428c_9c9f_d31780964995);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IScaleAnimationVtbl {
+pub struct IScaleAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub InitialScaleX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -547,7 +547,7 @@ unsafe impl ::windows::core::RuntimeType for OpacityAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.OpacityAnimation;{803aabe5-ee7e-455f-84e9-2506afb8d2b4})");
 }
 unsafe impl ::windows::core::Interface for OpacityAnimation {
-    type Vtable = IOpacityAnimationVtbl;
+    type Vtable = IOpacityAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x803aabe5_ee7e_455f_84e9_2506afb8d2b4);
 }
 impl ::windows::core::RuntimeName for OpacityAnimation {
@@ -686,7 +686,7 @@ unsafe impl ::windows::core::RuntimeType for PropertyAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.PropertyAnimation;{3a01b4da-4d8c-411e-b615-1ade683a9903})");
 }
 unsafe impl ::windows::core::Interface for PropertyAnimation {
-    type Vtable = IPropertyAnimationVtbl;
+    type Vtable = IPropertyAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a01b4da_4d8c_411e_b615_1ade683a9903);
 }
 impl ::windows::core::RuntimeName for PropertyAnimation {
@@ -902,7 +902,7 @@ unsafe impl ::windows::core::RuntimeType for ScaleAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.ScaleAnimation;{023552c7-71ab-428c-9c9f-d31780964995})");
 }
 unsafe impl ::windows::core::Interface for ScaleAnimation {
-    type Vtable = IScaleAnimationVtbl;
+    type Vtable = IScaleAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x023552c7_71ab_428c_9c9f_d31780964995);
 }
 impl ::windows::core::RuntimeName for ScaleAnimation {
@@ -1041,7 +1041,7 @@ unsafe impl ::windows::core::RuntimeType for TranslationAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.TranslationAnimation;{3a01b4da-4d8c-411e-b615-1ade683a9903})");
 }
 unsafe impl ::windows::core::Interface for TranslationAnimation {
-    type Vtable = IPropertyAnimationVtbl;
+    type Vtable = IPropertyAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a01b4da_4d8c_411e_b615_1ade683a9903);
 }
 impl ::windows::core::RuntimeName for TranslationAnimation {

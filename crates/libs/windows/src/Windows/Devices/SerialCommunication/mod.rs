@@ -32,7 +32,7 @@ unsafe impl ::windows::core::RuntimeType for ErrorReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SerialCommunication.ErrorReceivedEventArgs;{fcc6bf59-1283-4d8a-bfdf-566b33ddb28f})");
 }
 unsafe impl ::windows::core::Interface for ErrorReceivedEventArgs {
-    type Vtable = IErrorReceivedEventArgsVtbl;
+    type Vtable = IErrorReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcc6bf59_1283_4d8a_bfdf_566b33ddb28f);
 }
 impl ::windows::core::RuntimeName for ErrorReceivedEventArgs {
@@ -84,12 +84,12 @@ unsafe impl ::core::marker::Sync for ErrorReceivedEventArgs {}
 #[repr(transparent)]
 pub struct IErrorReceivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IErrorReceivedEventArgs {
-    type Vtable = IErrorReceivedEventArgsVtbl;
+    type Vtable = IErrorReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcc6bf59_1283_4d8a_bfdf_566b33ddb28f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IErrorReceivedEventArgsVtbl {
+pub struct IErrorReceivedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SerialError) -> ::windows::core::HRESULT,
 }
@@ -97,12 +97,12 @@ pub struct IErrorReceivedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPinChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPinChangedEventArgs {
-    type Vtable = IPinChangedEventArgsVtbl;
+    type Vtable = IPinChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2bf1db0_fc9c_4607_93d0_fa5e8343ee22);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPinChangedEventArgsVtbl {
+pub struct IPinChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PinChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SerialPinChange) -> ::windows::core::HRESULT,
 }
@@ -110,12 +110,12 @@ pub struct IPinChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISerialDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISerialDevice {
-    type Vtable = ISerialDeviceVtbl;
+    type Vtable = ISerialDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe187ccc6_2210_414f_b65a_f5553a03372a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISerialDeviceVtbl {
+pub struct ISerialDevice_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub BaudRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub SetBaudRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
@@ -185,12 +185,12 @@ pub struct ISerialDeviceVtbl {
 #[repr(transparent)]
 pub struct ISerialDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISerialDeviceStatics {
-    type Vtable = ISerialDeviceStaticsVtbl;
+    type Vtable = ISerialDeviceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x058c4a70_0836_4993_ae1a_b61ae3be056b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISerialDeviceStaticsVtbl {
+pub struct ISerialDeviceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub GetDeviceSelectorFromPortName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, portname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -233,7 +233,7 @@ unsafe impl ::windows::core::RuntimeType for PinChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SerialCommunication.PinChangedEventArgs;{a2bf1db0-fc9c-4607-93d0-fa5e8343ee22})");
 }
 unsafe impl ::windows::core::Interface for PinChangedEventArgs {
-    type Vtable = IPinChangedEventArgsVtbl;
+    type Vtable = IPinChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2bf1db0_fc9c_4607_93d0_fa5e8343ee22);
 }
 impl ::windows::core::RuntimeName for PinChangedEventArgs {
@@ -584,7 +584,7 @@ unsafe impl ::windows::core::RuntimeType for SerialDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SerialCommunication.SerialDevice;{e187ccc6-2210-414f-b65a-f5553a03372a})");
 }
 unsafe impl ::windows::core::Interface for SerialDevice {
-    type Vtable = ISerialDeviceVtbl;
+    type Vtable = ISerialDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe187ccc6_2210_414f_b65a_f5553a03372a);
 }
 impl ::windows::core::RuntimeName for SerialDevice {

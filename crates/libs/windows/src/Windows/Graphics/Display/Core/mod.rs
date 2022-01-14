@@ -234,7 +234,7 @@ unsafe impl ::windows::core::RuntimeType for HdmiDisplayInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.Core.HdmiDisplayInformation;{130b3c0a-f565-476e-abd5-ea05aee74c69})");
 }
 unsafe impl ::windows::core::Interface for HdmiDisplayInformation {
-    type Vtable = IHdmiDisplayInformationVtbl;
+    type Vtable = IHdmiDisplayInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x130b3c0a_f565_476e_abd5_ea05aee74c69);
 }
 impl ::windows::core::RuntimeName for HdmiDisplayInformation {
@@ -403,7 +403,7 @@ unsafe impl ::windows::core::RuntimeType for HdmiDisplayMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.Core.HdmiDisplayMode;{0c06d5ad-1b90-4f51-9981-ef5a1c0ddf66})");
 }
 unsafe impl ::windows::core::Interface for HdmiDisplayMode {
-    type Vtable = IHdmiDisplayModeVtbl;
+    type Vtable = IHdmiDisplayMode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c06d5ad_1b90_4f51_9981_ef5a1c0ddf66);
 }
 impl ::windows::core::RuntimeName for HdmiDisplayMode {
@@ -490,12 +490,12 @@ impl ::windows::core::DefaultType for HdmiDisplayPixelEncoding {
 #[repr(transparent)]
 pub struct IHdmiDisplayInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHdmiDisplayInformation {
-    type Vtable = IHdmiDisplayInformationVtbl;
+    type Vtable = IHdmiDisplayInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x130b3c0a_f565_476e_abd5_ea05aee74c69);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHdmiDisplayInformationVtbl {
+pub struct IHdmiDisplayInformation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetSupportedDisplayModes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -531,12 +531,12 @@ pub struct IHdmiDisplayInformationVtbl {
 #[repr(transparent)]
 pub struct IHdmiDisplayInformationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHdmiDisplayInformationStatics {
-    type Vtable = IHdmiDisplayInformationStaticsVtbl;
+    type Vtable = IHdmiDisplayInformationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ce6b260_f42a_4a15_914c_7b8e2a5a65df);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHdmiDisplayInformationStaticsVtbl {
+pub struct IHdmiDisplayInformationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -544,12 +544,12 @@ pub struct IHdmiDisplayInformationStaticsVtbl {
 #[repr(transparent)]
 pub struct IHdmiDisplayMode(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHdmiDisplayMode {
-    type Vtable = IHdmiDisplayModeVtbl;
+    type Vtable = IHdmiDisplayMode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c06d5ad_1b90_4f51_9981_ef5a1c0ddf66);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHdmiDisplayModeVtbl {
+pub struct IHdmiDisplayMode_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ResolutionWidthInRawPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub ResolutionHeightInRawPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -567,12 +567,12 @@ pub struct IHdmiDisplayModeVtbl {
 #[repr(transparent)]
 pub struct IHdmiDisplayMode2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHdmiDisplayMode2 {
-    type Vtable = IHdmiDisplayMode2Vtbl;
+    type Vtable = IHdmiDisplayMode2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07cd4e9f_4b3c_42b8_84e7_895368718af2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHdmiDisplayMode2Vtbl {
+pub struct IHdmiDisplayMode2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsDolbyVisionLowLatencySupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }

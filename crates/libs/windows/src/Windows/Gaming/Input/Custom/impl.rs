@@ -1,4 +1,4 @@
-pub trait ICustomGameControllerFactoryImpl: Sized {
+pub trait ICustomGameControllerFactory_Impl: Sized {
     fn CreateGameController(&mut self, provider: &::core::option::Option<IGameControllerProvider>) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn OnGameControllerAdded(&mut self, value: &::core::option::Option<super::IGameController>) -> ::windows::core::Result<()>;
     fn OnGameControllerRemoved(&mut self, value: &::core::option::Option<super::IGameController>) -> ::windows::core::Result<()>;
@@ -6,9 +6,9 @@ pub trait ICustomGameControllerFactoryImpl: Sized {
 impl ::windows::core::RuntimeName for ICustomGameControllerFactory {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.ICustomGameControllerFactory";
 }
-impl ICustomGameControllerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomGameControllerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomGameControllerFactoryVtbl {
-        unsafe extern "system" fn CreateGameController<Impl: ICustomGameControllerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl ICustomGameControllerFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomGameControllerFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomGameControllerFactory_Vtbl {
+        unsafe extern "system" fn CreateGameController<Impl: ICustomGameControllerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateGameController(&*(&provider as *const <IGameControllerProvider as ::windows::core::Abi>::Abi as *const <IGameControllerProvider as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -19,11 +19,11 @@ impl ICustomGameControllerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnGameControllerAdded<Impl: ICustomGameControllerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnGameControllerAdded<Impl: ICustomGameControllerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnGameControllerAdded(&*(&value as *const <super::IGameController as ::windows::core::Abi>::Abi as *const <super::IGameController as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn OnGameControllerRemoved<Impl: ICustomGameControllerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnGameControllerRemoved<Impl: ICustomGameControllerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnGameControllerRemoved(&*(&value as *const <super::IGameController as ::windows::core::Abi>::Abi as *const <super::IGameController as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -39,7 +39,7 @@ impl ICustomGameControllerFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGameControllerFactoryManagerStaticsImpl: Sized {
+pub trait IGameControllerFactoryManagerStatics_Impl: Sized {
     fn RegisterCustomFactoryForGipInterface(&mut self, factory: &::core::option::Option<ICustomGameControllerFactory>, interfaceid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn RegisterCustomFactoryForHardwareId(&mut self, factory: &::core::option::Option<ICustomGameControllerFactory>, hardwarevendorid: u16, hardwareproductid: u16) -> ::windows::core::Result<()>;
     fn RegisterCustomFactoryForXusbType(&mut self, factory: &::core::option::Option<ICustomGameControllerFactory>, xusbtype: XusbDeviceType, xusbsubtype: XusbDeviceSubtype) -> ::windows::core::Result<()>;
@@ -49,17 +49,17 @@ impl ::windows::core::RuntimeName for IGameControllerFactoryManagerStatics {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IGameControllerFactoryManagerStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGameControllerFactoryManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameControllerFactoryManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameControllerFactoryManagerStaticsVtbl {
-        unsafe extern "system" fn RegisterCustomFactoryForGipInterface<Impl: IGameControllerFactoryManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factory: ::windows::core::RawPtr, interfaceid: ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl IGameControllerFactoryManagerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameControllerFactoryManagerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameControllerFactoryManagerStatics_Vtbl {
+        unsafe extern "system" fn RegisterCustomFactoryForGipInterface<Impl: IGameControllerFactoryManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factory: ::windows::core::RawPtr, interfaceid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RegisterCustomFactoryForGipInterface(&*(&factory as *const <ICustomGameControllerFactory as ::windows::core::Abi>::Abi as *const <ICustomGameControllerFactory as ::windows::core::DefaultType>::DefaultType), &*(&interfaceid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RegisterCustomFactoryForHardwareId<Impl: IGameControllerFactoryManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factory: ::windows::core::RawPtr, hardwarevendorid: u16, hardwareproductid: u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterCustomFactoryForHardwareId<Impl: IGameControllerFactoryManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factory: ::windows::core::RawPtr, hardwarevendorid: u16, hardwareproductid: u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RegisterCustomFactoryForHardwareId(&*(&factory as *const <ICustomGameControllerFactory as ::windows::core::Abi>::Abi as *const <ICustomGameControllerFactory as ::windows::core::DefaultType>::DefaultType), hardwarevendorid, hardwareproductid).into()
         }
-        unsafe extern "system" fn RegisterCustomFactoryForXusbType<Impl: IGameControllerFactoryManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factory: ::windows::core::RawPtr, xusbtype: XusbDeviceType, xusbsubtype: XusbDeviceSubtype) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterCustomFactoryForXusbType<Impl: IGameControllerFactoryManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factory: ::windows::core::RawPtr, xusbtype: XusbDeviceType, xusbsubtype: XusbDeviceSubtype) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RegisterCustomFactoryForXusbType(&*(&factory as *const <ICustomGameControllerFactory as ::windows::core::Abi>::Abi as *const <ICustomGameControllerFactory as ::windows::core::DefaultType>::DefaultType), xusbtype, xusbsubtype).into()
         }
@@ -75,7 +75,7 @@ impl IGameControllerFactoryManagerStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGameControllerFactoryManagerStatics2Impl: Sized + IGameControllerFactoryManagerStaticsImpl {
+pub trait IGameControllerFactoryManagerStatics2_Impl: Sized + IGameControllerFactoryManagerStatics_Impl {
     fn TryGetFactoryControllerFromGameController(&mut self, factory: &::core::option::Option<ICustomGameControllerFactory>, gamecontroller: &::core::option::Option<super::IGameController>) -> ::windows::core::Result<super::IGameController>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -83,9 +83,9 @@ impl ::windows::core::RuntimeName for IGameControllerFactoryManagerStatics2 {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IGameControllerFactoryManagerStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGameControllerFactoryManagerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameControllerFactoryManagerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameControllerFactoryManagerStatics2Vtbl {
-        unsafe extern "system" fn TryGetFactoryControllerFromGameController<Impl: IGameControllerFactoryManagerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factory: ::windows::core::RawPtr, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGameControllerFactoryManagerStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameControllerFactoryManagerStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameControllerFactoryManagerStatics2_Vtbl {
+        unsafe extern "system" fn TryGetFactoryControllerFromGameController<Impl: IGameControllerFactoryManagerStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factory: ::windows::core::RawPtr, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetFactoryControllerFromGameController(&*(&factory as *const <ICustomGameControllerFactory as ::windows::core::Abi>::Abi as *const <ICustomGameControllerFactory as ::windows::core::DefaultType>::DefaultType), &*(&gamecontroller as *const <super::IGameController as ::windows::core::Abi>::Abi as *const <super::IGameController as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -105,20 +105,20 @@ impl IGameControllerFactoryManagerStatics2Vtbl {
         iid == &<IGameControllerFactoryManagerStatics2 as ::windows::core::Interface>::IID
     }
 }
-pub trait IGameControllerInputSinkImpl: Sized {
+pub trait IGameControllerInputSink_Impl: Sized {
     fn OnInputResumed(&mut self, timestamp: u64) -> ::windows::core::Result<()>;
     fn OnInputSuspended(&mut self, timestamp: u64) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IGameControllerInputSink {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IGameControllerInputSink";
 }
-impl IGameControllerInputSinkVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameControllerInputSinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameControllerInputSinkVtbl {
-        unsafe extern "system" fn OnInputResumed<Impl: IGameControllerInputSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: u64) -> ::windows::core::HRESULT {
+impl IGameControllerInputSink_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameControllerInputSink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameControllerInputSink_Vtbl {
+        unsafe extern "system" fn OnInputResumed<Impl: IGameControllerInputSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnInputResumed(timestamp).into()
         }
-        unsafe extern "system" fn OnInputSuspended<Impl: IGameControllerInputSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnInputSuspended<Impl: IGameControllerInputSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnInputSuspended(timestamp).into()
         }
@@ -132,7 +132,7 @@ impl IGameControllerInputSinkVtbl {
         iid == &<IGameControllerInputSink as ::windows::core::Interface>::IID
     }
 }
-pub trait IGameControllerProviderImpl: Sized {
+pub trait IGameControllerProvider_Impl: Sized {
     fn FirmwareVersionInfo(&mut self) -> ::windows::core::Result<GameControllerVersionInfo>;
     fn HardwareProductId(&mut self) -> ::windows::core::Result<u16>;
     fn HardwareVendorId(&mut self) -> ::windows::core::Result<u16>;
@@ -142,9 +142,9 @@ pub trait IGameControllerProviderImpl: Sized {
 impl ::windows::core::RuntimeName for IGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IGameControllerProvider";
 }
-impl IGameControllerProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameControllerProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameControllerProviderVtbl {
-        unsafe extern "system" fn FirmwareVersionInfo<Impl: IGameControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameControllerVersionInfo) -> ::windows::core::HRESULT {
+impl IGameControllerProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameControllerProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameControllerProvider_Vtbl {
+        unsafe extern "system" fn FirmwareVersionInfo<Impl: IGameControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameControllerVersionInfo) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FirmwareVersionInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -155,7 +155,7 @@ impl IGameControllerProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HardwareProductId<Impl: IGameControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HardwareProductId<Impl: IGameControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HardwareProductId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -166,7 +166,7 @@ impl IGameControllerProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HardwareVendorId<Impl: IGameControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HardwareVendorId<Impl: IGameControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HardwareVendorId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -177,7 +177,7 @@ impl IGameControllerProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HardwareVersionInfo<Impl: IGameControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameControllerVersionInfo) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HardwareVersionInfo<Impl: IGameControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameControllerVersionInfo) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HardwareVersionInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -188,7 +188,7 @@ impl IGameControllerProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsConnected<Impl: IGameControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsConnected<Impl: IGameControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsConnected() {
                 ::core::result::Result::Ok(ok__) => {
@@ -213,7 +213,7 @@ impl IGameControllerProviderVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGipFirmwareUpdateResultImpl: Sized {
+pub trait IGipFirmwareUpdateResult_Impl: Sized {
     fn ExtendedErrorCode(&mut self) -> ::windows::core::Result<u32>;
     fn FinalComponentId(&mut self) -> ::windows::core::Result<u32>;
     fn Status(&mut self) -> ::windows::core::Result<GipFirmwareUpdateStatus>;
@@ -223,9 +223,9 @@ impl ::windows::core::RuntimeName for IGipFirmwareUpdateResult {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IGipFirmwareUpdateResult";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGipFirmwareUpdateResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGipFirmwareUpdateResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGipFirmwareUpdateResultVtbl {
-        unsafe extern "system" fn ExtendedErrorCode<Impl: IGipFirmwareUpdateResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IGipFirmwareUpdateResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGipFirmwareUpdateResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGipFirmwareUpdateResult_Vtbl {
+        unsafe extern "system" fn ExtendedErrorCode<Impl: IGipFirmwareUpdateResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedErrorCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -236,7 +236,7 @@ impl IGipFirmwareUpdateResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FinalComponentId<Impl: IGipFirmwareUpdateResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FinalComponentId<Impl: IGipFirmwareUpdateResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FinalComponentId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -247,7 +247,7 @@ impl IGipFirmwareUpdateResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Status<Impl: IGipFirmwareUpdateResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GipFirmwareUpdateStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Status<Impl: IGipFirmwareUpdateResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GipFirmwareUpdateStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -269,20 +269,20 @@ impl IGipFirmwareUpdateResultVtbl {
         iid == &<IGipFirmwareUpdateResult as ::windows::core::Interface>::IID
     }
 }
-pub trait IGipGameControllerInputSinkImpl: Sized + IGameControllerInputSinkImpl {
+pub trait IGipGameControllerInputSink_Impl: Sized + IGameControllerInputSink_Impl {
     fn OnKeyReceived(&mut self, timestamp: u64, keycode: u8, ispressed: bool) -> ::windows::core::Result<()>;
     fn OnMessageReceived(&mut self, timestamp: u64, messageclass: GipMessageClass, messageid: u8, sequenceid: u8, messagebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IGipGameControllerInputSink {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IGipGameControllerInputSink";
 }
-impl IGipGameControllerInputSinkVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGipGameControllerInputSinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGipGameControllerInputSinkVtbl {
-        unsafe extern "system" fn OnKeyReceived<Impl: IGipGameControllerInputSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: u64, keycode: u8, ispressed: bool) -> ::windows::core::HRESULT {
+impl IGipGameControllerInputSink_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGipGameControllerInputSink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGipGameControllerInputSink_Vtbl {
+        unsafe extern "system" fn OnKeyReceived<Impl: IGipGameControllerInputSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: u64, keycode: u8, ispressed: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnKeyReceived(timestamp, keycode, ispressed).into()
         }
-        unsafe extern "system" fn OnMessageReceived<Impl: IGipGameControllerInputSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: u64, messageclass: GipMessageClass, messageid: u8, sequenceid: u8, messageBuffer_array_size: u32, messagebuffer: *const u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnMessageReceived<Impl: IGipGameControllerInputSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: u64, messageclass: GipMessageClass, messageid: u8, sequenceid: u8, messageBuffer_array_size: u32, messagebuffer: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnMessageReceived(timestamp, messageclass, messageid, sequenceid, ::core::slice::from_raw_parts(::core::mem::transmute_copy(&messagebuffer), messageBuffer_array_size as _)).into()
         }
@@ -297,7 +297,7 @@ impl IGipGameControllerInputSinkVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IGipGameControllerProviderImpl: Sized + IGameControllerProviderImpl {
+pub trait IGipGameControllerProvider_Impl: Sized + IGameControllerProvider_Impl {
     fn SendMessage(&mut self, messageclass: GipMessageClass, messageid: u8, messagebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
     fn SendReceiveMessage(&mut self, messageclass: GipMessageClass, messageid: u8, requestmessagebuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType], responsemessagebuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
     fn UpdateFirmwareAsync(&mut self, firmwareimage: &::core::option::Option<super::super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<GipFirmwareUpdateResult, GipFirmwareUpdateProgress>>;
@@ -307,17 +307,17 @@ impl ::windows::core::RuntimeName for IGipGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IGipGameControllerProvider";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IGipGameControllerProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGipGameControllerProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGipGameControllerProviderVtbl {
-        unsafe extern "system" fn SendMessage<Impl: IGipGameControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, messageclass: GipMessageClass, messageid: u8, messageBuffer_array_size: u32, messagebuffer: *const u8) -> ::windows::core::HRESULT {
+impl IGipGameControllerProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGipGameControllerProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGipGameControllerProvider_Vtbl {
+        unsafe extern "system" fn SendMessage<Impl: IGipGameControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, messageclass: GipMessageClass, messageid: u8, messageBuffer_array_size: u32, messagebuffer: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SendMessage(messageclass, messageid, ::core::slice::from_raw_parts(::core::mem::transmute_copy(&messagebuffer), messageBuffer_array_size as _)).into()
         }
-        unsafe extern "system" fn SendReceiveMessage<Impl: IGipGameControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, messageclass: GipMessageClass, messageid: u8, requestMessageBuffer_array_size: u32, requestmessagebuffer: *const u8, responseMessageBuffer_array_size: u32, responsemessagebuffer: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendReceiveMessage<Impl: IGipGameControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, messageclass: GipMessageClass, messageid: u8, requestMessageBuffer_array_size: u32, requestmessagebuffer: *const u8, responseMessageBuffer_array_size: u32, responsemessagebuffer: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SendReceiveMessage(messageclass, messageid, ::core::slice::from_raw_parts(::core::mem::transmute_copy(&requestmessagebuffer), requestMessageBuffer_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&responsemessagebuffer), responseMessageBuffer_array_size as _)).into()
         }
-        unsafe extern "system" fn UpdateFirmwareAsync<Impl: IGipGameControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, firmwareimage: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateFirmwareAsync<Impl: IGipGameControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, firmwareimage: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateFirmwareAsync(&*(&firmwareimage as *const <super::super::super::Storage::Streams::IInputStream as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IInputStream as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -339,15 +339,15 @@ impl IGipGameControllerProviderVtbl {
         iid == &<IGipGameControllerProvider as ::windows::core::Interface>::IID
     }
 }
-pub trait IHidGameControllerInputSinkImpl: Sized + IGameControllerInputSinkImpl {
+pub trait IHidGameControllerInputSink_Impl: Sized + IGameControllerInputSink_Impl {
     fn OnInputReportReceived(&mut self, timestamp: u64, reportid: u8, reportbuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IHidGameControllerInputSink {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IHidGameControllerInputSink";
 }
-impl IHidGameControllerInputSinkVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidGameControllerInputSinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHidGameControllerInputSinkVtbl {
-        unsafe extern "system" fn OnInputReportReceived<Impl: IHidGameControllerInputSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: u64, reportid: u8, reportBuffer_array_size: u32, reportbuffer: *const u8) -> ::windows::core::HRESULT {
+impl IHidGameControllerInputSink_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidGameControllerInputSink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHidGameControllerInputSink_Vtbl {
+        unsafe extern "system" fn OnInputReportReceived<Impl: IHidGameControllerInputSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: u64, reportid: u8, reportBuffer_array_size: u32, reportbuffer: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnInputReportReceived(timestamp, reportid, ::core::slice::from_raw_parts(::core::mem::transmute_copy(&reportbuffer), reportBuffer_array_size as _)).into()
         }
@@ -361,7 +361,7 @@ impl IHidGameControllerInputSinkVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHidGameControllerProviderImpl: Sized + IGameControllerProviderImpl {
+pub trait IHidGameControllerProvider_Impl: Sized + IGameControllerProvider_Impl {
     fn UsageId(&mut self) -> ::windows::core::Result<u16>;
     fn UsagePage(&mut self) -> ::windows::core::Result<u16>;
     fn GetFeatureReport(&mut self, reportid: u8, reportbuffer: &mut [<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
@@ -373,9 +373,9 @@ impl ::windows::core::RuntimeName for IHidGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IHidGameControllerProvider";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHidGameControllerProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidGameControllerProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHidGameControllerProviderVtbl {
-        unsafe extern "system" fn UsageId<Impl: IHidGameControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+impl IHidGameControllerProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHidGameControllerProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHidGameControllerProvider_Vtbl {
+        unsafe extern "system" fn UsageId<Impl: IHidGameControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UsageId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -386,7 +386,7 @@ impl IHidGameControllerProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UsagePage<Impl: IHidGameControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UsagePage<Impl: IHidGameControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UsagePage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -397,15 +397,15 @@ impl IHidGameControllerProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFeatureReport<Impl: IHidGameControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reportid: u8, reportBuffer_array_size: u32, reportbuffer: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFeatureReport<Impl: IHidGameControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reportid: u8, reportBuffer_array_size: u32, reportbuffer: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetFeatureReport(reportid, ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&reportbuffer), reportBuffer_array_size as _)).into()
         }
-        unsafe extern "system" fn SendFeatureReport<Impl: IHidGameControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reportid: u8, reportBuffer_array_size: u32, reportbuffer: *const u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendFeatureReport<Impl: IHidGameControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reportid: u8, reportBuffer_array_size: u32, reportbuffer: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SendFeatureReport(reportid, ::core::slice::from_raw_parts(::core::mem::transmute_copy(&reportbuffer), reportBuffer_array_size as _)).into()
         }
-        unsafe extern "system" fn SendOutputReport<Impl: IHidGameControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reportid: u8, reportBuffer_array_size: u32, reportbuffer: *const u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendOutputReport<Impl: IHidGameControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reportid: u8, reportBuffer_array_size: u32, reportbuffer: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SendOutputReport(reportid, ::core::slice::from_raw_parts(::core::mem::transmute_copy(&reportbuffer), reportBuffer_array_size as _)).into()
         }
@@ -422,15 +422,15 @@ impl IHidGameControllerProviderVtbl {
         iid == &<IHidGameControllerProvider as ::windows::core::Interface>::IID
     }
 }
-pub trait IXusbGameControllerInputSinkImpl: Sized + IGameControllerInputSinkImpl {
+pub trait IXusbGameControllerInputSink_Impl: Sized + IGameControllerInputSink_Impl {
     fn OnInputReceived(&mut self, timestamp: u64, reportid: u8, inputbuffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IXusbGameControllerInputSink {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IXusbGameControllerInputSink";
 }
-impl IXusbGameControllerInputSinkVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXusbGameControllerInputSinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXusbGameControllerInputSinkVtbl {
-        unsafe extern "system" fn OnInputReceived<Impl: IXusbGameControllerInputSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: u64, reportid: u8, inputBuffer_array_size: u32, inputbuffer: *const u8) -> ::windows::core::HRESULT {
+impl IXusbGameControllerInputSink_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXusbGameControllerInputSink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXusbGameControllerInputSink_Vtbl {
+        unsafe extern "system" fn OnInputReceived<Impl: IXusbGameControllerInputSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: u64, reportid: u8, inputBuffer_array_size: u32, inputbuffer: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnInputReceived(timestamp, reportid, ::core::slice::from_raw_parts(::core::mem::transmute_copy(&inputbuffer), inputBuffer_array_size as _)).into()
         }
@@ -444,7 +444,7 @@ impl IXusbGameControllerInputSinkVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IXusbGameControllerProviderImpl: Sized + IGameControllerProviderImpl {
+pub trait IXusbGameControllerProvider_Impl: Sized + IGameControllerProvider_Impl {
     fn SetVibration(&mut self, lowfrequencymotorspeed: f64, highfrequencymotorspeed: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -452,9 +452,9 @@ impl ::windows::core::RuntimeName for IXusbGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IXusbGameControllerProvider";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IXusbGameControllerProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXusbGameControllerProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXusbGameControllerProviderVtbl {
-        unsafe extern "system" fn SetVibration<Impl: IXusbGameControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lowfrequencymotorspeed: f64, highfrequencymotorspeed: f64) -> ::windows::core::HRESULT {
+impl IXusbGameControllerProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXusbGameControllerProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXusbGameControllerProvider_Vtbl {
+        unsafe extern "system" fn SetVibration<Impl: IXusbGameControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lowfrequencymotorspeed: f64, highfrequencymotorspeed: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVibration(lowfrequencymotorspeed, highfrequencymotorspeed).into()
         }

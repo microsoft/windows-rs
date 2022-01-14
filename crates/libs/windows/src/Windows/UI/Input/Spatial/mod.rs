@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct ISpatialGestureRecognizer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialGestureRecognizer {
-    type Vtable = ISpatialGestureRecognizerVtbl;
+    type Vtable = ISpatialGestureRecognizer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71605bcc_0c35_4673_adbd_cc04caa6ef45);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialGestureRecognizerVtbl {
+pub struct ISpatialGestureRecognizer_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RecognitionStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -131,12 +131,12 @@ pub struct ISpatialGestureRecognizerVtbl {
 #[repr(transparent)]
 pub struct ISpatialGestureRecognizerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialGestureRecognizerFactory {
-    type Vtable = ISpatialGestureRecognizerFactoryVtbl;
+    type Vtable = ISpatialGestureRecognizerFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77214186_57b9_3150_8382_698b24e264d0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialGestureRecognizerFactoryVtbl {
+pub struct ISpatialGestureRecognizerFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settings: SpatialGestureSettings, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -144,12 +144,12 @@ pub struct ISpatialGestureRecognizerFactoryVtbl {
 #[repr(transparent)]
 pub struct ISpatialHoldCanceledEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialHoldCanceledEventArgs {
-    type Vtable = ISpatialHoldCanceledEventArgsVtbl;
+    type Vtable = ISpatialHoldCanceledEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5dfcb667_4caa_4093_8c35_b601a839f31b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialHoldCanceledEventArgsVtbl {
+pub struct ISpatialHoldCanceledEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
 }
@@ -157,12 +157,12 @@ pub struct ISpatialHoldCanceledEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISpatialHoldCompletedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialHoldCompletedEventArgs {
-    type Vtable = ISpatialHoldCompletedEventArgsVtbl;
+    type Vtable = ISpatialHoldCompletedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f64470b_4cfd_43da_8dc4_e64552173971);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialHoldCompletedEventArgsVtbl {
+pub struct ISpatialHoldCompletedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
 }
@@ -170,12 +170,12 @@ pub struct ISpatialHoldCompletedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISpatialHoldStartedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialHoldStartedEventArgs {
-    type Vtable = ISpatialHoldStartedEventArgsVtbl;
+    type Vtable = ISpatialHoldStartedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e343d79_acb6_4144_8615_2cfba8a3cb3f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialHoldStartedEventArgsVtbl {
+pub struct ISpatialHoldStartedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Perception_Spatial")]
@@ -187,12 +187,12 @@ pub struct ISpatialHoldStartedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISpatialInteraction(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteraction {
-    type Vtable = ISpatialInteractionVtbl;
+    type Vtable = ISpatialInteraction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc967639_88e6_4646_9112_4344aaec9dfa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionVtbl {
+pub struct ISpatialInteraction_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SourceState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -200,12 +200,12 @@ pub struct ISpatialInteractionVtbl {
 #[repr(transparent)]
 pub struct ISpatialInteractionController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteractionController {
-    type Vtable = ISpatialInteractionControllerVtbl;
+    type Vtable = ISpatialInteractionController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f0e5ba3_0954_4e97_86c5_e7f30b114dfd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionControllerVtbl {
+pub struct ISpatialInteractionController_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub HasTouchpad: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub HasThumbstick: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -221,12 +221,12 @@ pub struct ISpatialInteractionControllerVtbl {
 #[repr(transparent)]
 pub struct ISpatialInteractionController2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteractionController2 {
-    type Vtable = ISpatialInteractionController2Vtbl;
+    type Vtable = ISpatialInteractionController2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35b6d924_c7a2_49b7_b72e_5436b2fb8f9c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionController2Vtbl {
+pub struct ISpatialInteractionController2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub TryGetRenderableModelAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -237,12 +237,12 @@ pub struct ISpatialInteractionController2Vtbl {
 #[repr(transparent)]
 pub struct ISpatialInteractionController3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteractionController3 {
-    type Vtable = ISpatialInteractionController3Vtbl;
+    type Vtable = ISpatialInteractionController3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x628466a0_9d91_4a0b_888d_165e670a8cd5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionController3Vtbl {
+pub struct ISpatialInteractionController3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Power")]
     pub TryGetBatteryReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -253,12 +253,12 @@ pub struct ISpatialInteractionController3Vtbl {
 #[repr(transparent)]
 pub struct ISpatialInteractionControllerProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteractionControllerProperties {
-    type Vtable = ISpatialInteractionControllerPropertiesVtbl;
+    type Vtable = ISpatialInteractionControllerProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61056fb1_7ba9_4e35_b93f_9272cba9b28b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionControllerPropertiesVtbl {
+pub struct ISpatialInteractionControllerProperties_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsTouchpadTouched: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsTouchpadPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -272,12 +272,12 @@ pub struct ISpatialInteractionControllerPropertiesVtbl {
 #[repr(transparent)]
 pub struct ISpatialInteractionDetectedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteractionDetectedEventArgs {
-    type Vtable = ISpatialInteractionDetectedEventArgsVtbl;
+    type Vtable = ISpatialInteractionDetectedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x075878e4_5961_3b41_9dfb_cea5d89cc38a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionDetectedEventArgsVtbl {
+pub struct ISpatialInteractionDetectedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Perception_Spatial")]
@@ -290,12 +290,12 @@ pub struct ISpatialInteractionDetectedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISpatialInteractionDetectedEventArgs2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteractionDetectedEventArgs2 {
-    type Vtable = ISpatialInteractionDetectedEventArgs2Vtbl;
+    type Vtable = ISpatialInteractionDetectedEventArgs2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b263e93_5f13_419c_97d5_834678266aa6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionDetectedEventArgs2Vtbl {
+pub struct ISpatialInteractionDetectedEventArgs2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InteractionSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -303,12 +303,12 @@ pub struct ISpatialInteractionDetectedEventArgs2Vtbl {
 #[repr(transparent)]
 pub struct ISpatialInteractionManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteractionManager {
-    type Vtable = ISpatialInteractionManagerVtbl;
+    type Vtable = ISpatialInteractionManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32a64ea8_a15a_3995_b8bd_80513cb5adef);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionManagerVtbl {
+pub struct ISpatialInteractionManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SourceDetected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -367,12 +367,12 @@ pub struct ISpatialInteractionManagerVtbl {
 #[repr(transparent)]
 pub struct ISpatialInteractionManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteractionManagerStatics {
-    type Vtable = ISpatialInteractionManagerStaticsVtbl;
+    type Vtable = ISpatialInteractionManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00e31fa6_8ca2_30bf_91fe_d9cb4a008990);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionManagerStaticsVtbl {
+pub struct ISpatialInteractionManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -380,12 +380,12 @@ pub struct ISpatialInteractionManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct ISpatialInteractionManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteractionManagerStatics2 {
-    type Vtable = ISpatialInteractionManagerStatics2Vtbl;
+    type Vtable = ISpatialInteractionManagerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93f16c52_b88a_5929_8d7c_48cb948b081c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionManagerStatics2Vtbl {
+pub struct ISpatialInteractionManagerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsSourceKindSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: SpatialInteractionSourceKind, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -393,12 +393,12 @@ pub struct ISpatialInteractionManagerStatics2Vtbl {
 #[repr(transparent)]
 pub struct ISpatialInteractionSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteractionSource {
-    type Vtable = ISpatialInteractionSourceVtbl;
+    type Vtable = ISpatialInteractionSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb5433ba_b0b3_3148_9f3b_e9f5de568f5d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSourceVtbl {
+pub struct ISpatialInteractionSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
@@ -407,12 +407,12 @@ pub struct ISpatialInteractionSourceVtbl {
 #[repr(transparent)]
 pub struct ISpatialInteractionSource2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteractionSource2 {
-    type Vtable = ISpatialInteractionSource2Vtbl;
+    type Vtable = ISpatialInteractionSource2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4c5b70c_0470_4028_88c0_a0eb44d34efe);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSource2Vtbl {
+pub struct ISpatialInteractionSource2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsPointingSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsMenuSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -427,12 +427,12 @@ pub struct ISpatialInteractionSource2Vtbl {
 #[repr(transparent)]
 pub struct ISpatialInteractionSource3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteractionSource3 {
-    type Vtable = ISpatialInteractionSource3Vtbl;
+    type Vtable = ISpatialInteractionSource3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0406d9f9_9afd_44f9_85dc_700023a962e3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSource3Vtbl {
+pub struct ISpatialInteractionSource3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Handedness: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceHandedness) -> ::windows::core::HRESULT,
 }
@@ -440,12 +440,12 @@ pub struct ISpatialInteractionSource3Vtbl {
 #[repr(transparent)]
 pub struct ISpatialInteractionSource4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteractionSource4 {
-    type Vtable = ISpatialInteractionSource4Vtbl;
+    type Vtable = ISpatialInteractionSource4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0073bc4d_df66_5a91_a2ba_cea3e5c58a19);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSource4Vtbl {
+pub struct ISpatialInteractionSource4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Perception_People")]
     pub TryCreateHandMeshObserver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -460,12 +460,12 @@ pub struct ISpatialInteractionSource4Vtbl {
 #[repr(transparent)]
 pub struct ISpatialInteractionSourceEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteractionSourceEventArgs {
-    type Vtable = ISpatialInteractionSourceEventArgsVtbl;
+    type Vtable = ISpatialInteractionSourceEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23b786cf_ec23_3979_b27c_eb0e12feb7c7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSourceEventArgsVtbl {
+pub struct ISpatialInteractionSourceEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -473,12 +473,12 @@ pub struct ISpatialInteractionSourceEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISpatialInteractionSourceEventArgs2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteractionSourceEventArgs2 {
-    type Vtable = ISpatialInteractionSourceEventArgs2Vtbl;
+    type Vtable = ISpatialInteractionSourceEventArgs2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8b4b467_e648_4d52_ab49_e0d227199f63);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSourceEventArgs2Vtbl {
+pub struct ISpatialInteractionSourceEventArgs2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PressKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionPressKind) -> ::windows::core::HRESULT,
 }
@@ -486,12 +486,12 @@ pub struct ISpatialInteractionSourceEventArgs2Vtbl {
 #[repr(transparent)]
 pub struct ISpatialInteractionSourceLocation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteractionSourceLocation {
-    type Vtable = ISpatialInteractionSourceLocationVtbl;
+    type Vtable = ISpatialInteractionSourceLocation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea4696c4_7e8b_30ca_bcc5_c77189cea30a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSourceLocationVtbl {
+pub struct ISpatialInteractionSourceLocation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -506,12 +506,12 @@ pub struct ISpatialInteractionSourceLocationVtbl {
 #[repr(transparent)]
 pub struct ISpatialInteractionSourceLocation2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteractionSourceLocation2 {
-    type Vtable = ISpatialInteractionSourceLocation2Vtbl;
+    type Vtable = ISpatialInteractionSourceLocation2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c671045_3917_40fc_a9ac_31c9cf5ff91b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSourceLocation2Vtbl {
+pub struct ISpatialInteractionSourceLocation2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
     pub Orientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -522,12 +522,12 @@ pub struct ISpatialInteractionSourceLocation2Vtbl {
 #[repr(transparent)]
 pub struct ISpatialInteractionSourceLocation3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteractionSourceLocation3 {
-    type Vtable = ISpatialInteractionSourceLocation3Vtbl;
+    type Vtable = ISpatialInteractionSourceLocation3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6702e65e_e915_4cfb_9c1b_0538efc86687);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSourceLocation3Vtbl {
+pub struct ISpatialInteractionSourceLocation3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PositionAccuracy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourcePositionAccuracy) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
@@ -540,12 +540,12 @@ pub struct ISpatialInteractionSourceLocation3Vtbl {
 #[repr(transparent)]
 pub struct ISpatialInteractionSourceProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteractionSourceProperties {
-    type Vtable = ISpatialInteractionSourcePropertiesVtbl;
+    type Vtable = ISpatialInteractionSourceProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05604542_3ef7_3222_9f53_63c9cb7e3bc7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSourcePropertiesVtbl {
+pub struct ISpatialInteractionSourceProperties_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub TryGetSourceLossMitigationDirection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -561,12 +561,12 @@ pub struct ISpatialInteractionSourcePropertiesVtbl {
 #[repr(transparent)]
 pub struct ISpatialInteractionSourceState(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteractionSourceState {
-    type Vtable = ISpatialInteractionSourceStateVtbl;
+    type Vtable = ISpatialInteractionSourceState_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5c475ef_4b63_37ec_98b9_9fc652b9d2f2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSourceStateVtbl {
+pub struct ISpatialInteractionSourceState_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -584,12 +584,12 @@ pub struct ISpatialInteractionSourceStateVtbl {
 #[repr(transparent)]
 pub struct ISpatialInteractionSourceState2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteractionSourceState2 {
-    type Vtable = ISpatialInteractionSourceState2Vtbl;
+    type Vtable = ISpatialInteractionSourceState2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45f6d0bd_1773_492e_9ba3_8ac1cbe77c08);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSourceState2Vtbl {
+pub struct ISpatialInteractionSourceState2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsSelectPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsMenuPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -601,12 +601,12 @@ pub struct ISpatialInteractionSourceState2Vtbl {
 #[repr(transparent)]
 pub struct ISpatialInteractionSourceState3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialInteractionSourceState3 {
-    type Vtable = ISpatialInteractionSourceState3Vtbl;
+    type Vtable = ISpatialInteractionSourceState3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2f00bc2_bd2b_4a01_a8fb_323e0158527c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialInteractionSourceState3Vtbl {
+pub struct ISpatialInteractionSourceState3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Perception_People")]
     pub TryGetHandPose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -617,12 +617,12 @@ pub struct ISpatialInteractionSourceState3Vtbl {
 #[repr(transparent)]
 pub struct ISpatialManipulationCanceledEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialManipulationCanceledEventArgs {
-    type Vtable = ISpatialManipulationCanceledEventArgsVtbl;
+    type Vtable = ISpatialManipulationCanceledEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d40d1cb_e7da_4220_b0bf_819301674780);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialManipulationCanceledEventArgsVtbl {
+pub struct ISpatialManipulationCanceledEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
 }
@@ -630,12 +630,12 @@ pub struct ISpatialManipulationCanceledEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISpatialManipulationCompletedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialManipulationCompletedEventArgs {
-    type Vtable = ISpatialManipulationCompletedEventArgsVtbl;
+    type Vtable = ISpatialManipulationCompletedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05086802_f301_4343_9250_2fbaa5f87a37);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialManipulationCompletedEventArgsVtbl {
+pub struct ISpatialManipulationCompletedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Perception_Spatial")]
@@ -647,12 +647,12 @@ pub struct ISpatialManipulationCompletedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISpatialManipulationDelta(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialManipulationDelta {
-    type Vtable = ISpatialManipulationDeltaVtbl;
+    type Vtable = ISpatialManipulationDelta_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7ec967a_d123_3a81_a15b_992923dcbe91);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialManipulationDeltaVtbl {
+pub struct ISpatialManipulationDelta_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub Translation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
@@ -663,12 +663,12 @@ pub struct ISpatialManipulationDeltaVtbl {
 #[repr(transparent)]
 pub struct ISpatialManipulationStartedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialManipulationStartedEventArgs {
-    type Vtable = ISpatialManipulationStartedEventArgsVtbl;
+    type Vtable = ISpatialManipulationStartedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1d6bbce_42a5_377b_ada6_d28e3d384737);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialManipulationStartedEventArgsVtbl {
+pub struct ISpatialManipulationStartedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Perception_Spatial")]
@@ -680,12 +680,12 @@ pub struct ISpatialManipulationStartedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISpatialManipulationUpdatedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialManipulationUpdatedEventArgs {
-    type Vtable = ISpatialManipulationUpdatedEventArgsVtbl;
+    type Vtable = ISpatialManipulationUpdatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f230b9b_60c6_4dc6_bdc9_9f4a6f15fe49);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialManipulationUpdatedEventArgsVtbl {
+pub struct ISpatialManipulationUpdatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Perception_Spatial")]
@@ -697,12 +697,12 @@ pub struct ISpatialManipulationUpdatedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISpatialNavigationCanceledEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialNavigationCanceledEventArgs {
-    type Vtable = ISpatialNavigationCanceledEventArgsVtbl;
+    type Vtable = ISpatialNavigationCanceledEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce503edc_e8a5_46f0_92d4_3c122b35112a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialNavigationCanceledEventArgsVtbl {
+pub struct ISpatialNavigationCanceledEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
 }
@@ -710,12 +710,12 @@ pub struct ISpatialNavigationCanceledEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISpatialNavigationCompletedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialNavigationCompletedEventArgs {
-    type Vtable = ISpatialNavigationCompletedEventArgsVtbl;
+    type Vtable = ISpatialNavigationCompletedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x012e80b7_af3b_42c2_9e41_baaa0e721f3a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialNavigationCompletedEventArgsVtbl {
+pub struct ISpatialNavigationCompletedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
@@ -727,12 +727,12 @@ pub struct ISpatialNavigationCompletedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISpatialNavigationStartedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialNavigationStartedEventArgs {
-    type Vtable = ISpatialNavigationStartedEventArgsVtbl;
+    type Vtable = ISpatialNavigationStartedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x754a348a_fb64_4656_8ebd_9deecaafe475);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialNavigationStartedEventArgsVtbl {
+pub struct ISpatialNavigationStartedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Perception_Spatial")]
@@ -747,12 +747,12 @@ pub struct ISpatialNavigationStartedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISpatialNavigationUpdatedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialNavigationUpdatedEventArgs {
-    type Vtable = ISpatialNavigationUpdatedEventArgsVtbl;
+    type Vtable = ISpatialNavigationUpdatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b713fd7_839d_4a74_8732_45466fc044b5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialNavigationUpdatedEventArgsVtbl {
+pub struct ISpatialNavigationUpdatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
@@ -764,12 +764,12 @@ pub struct ISpatialNavigationUpdatedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISpatialPointerInteractionSourcePose(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialPointerInteractionSourcePose {
-    type Vtable = ISpatialPointerInteractionSourcePoseVtbl;
+    type Vtable = ISpatialPointerInteractionSourcePose_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7104307_2c2b_4d3a_92a7_80ced7c4a0d0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialPointerInteractionSourcePoseVtbl {
+pub struct ISpatialPointerInteractionSourcePose_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
@@ -788,12 +788,12 @@ pub struct ISpatialPointerInteractionSourcePoseVtbl {
 #[repr(transparent)]
 pub struct ISpatialPointerInteractionSourcePose2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialPointerInteractionSourcePose2 {
-    type Vtable = ISpatialPointerInteractionSourcePose2Vtbl;
+    type Vtable = ISpatialPointerInteractionSourcePose2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeccd86b8_52db_469f_9e3f_80c47f74bce9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialPointerInteractionSourcePose2Vtbl {
+pub struct ISpatialPointerInteractionSourcePose2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub Orientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT,
@@ -805,12 +805,12 @@ pub struct ISpatialPointerInteractionSourcePose2Vtbl {
 #[repr(transparent)]
 pub struct ISpatialPointerPose(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialPointerPose {
-    type Vtable = ISpatialPointerPoseVtbl;
+    type Vtable = ISpatialPointerPose_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6953a42e_c17e_357d_97a1_7269d0ed2d10);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialPointerPoseVtbl {
+pub struct ISpatialPointerPose_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Perception")]
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -825,12 +825,12 @@ pub struct ISpatialPointerPoseVtbl {
 #[repr(transparent)]
 pub struct ISpatialPointerPose2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialPointerPose2 {
-    type Vtable = ISpatialPointerPose2Vtbl;
+    type Vtable = ISpatialPointerPose2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d202b17_954e_4e0c_96d1_b6790b6fc2fd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialPointerPose2Vtbl {
+pub struct ISpatialPointerPose2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TryGetInteractionSourcePose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -838,12 +838,12 @@ pub struct ISpatialPointerPose2Vtbl {
 #[repr(transparent)]
 pub struct ISpatialPointerPose3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialPointerPose3 {
-    type Vtable = ISpatialPointerPose3Vtbl;
+    type Vtable = ISpatialPointerPose3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6342f3f0_ec49_5b4b_b8d1_d16cbb16be84);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialPointerPose3Vtbl {
+pub struct ISpatialPointerPose3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Perception_People")]
     pub Eyes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -855,12 +855,12 @@ pub struct ISpatialPointerPose3Vtbl {
 #[repr(transparent)]
 pub struct ISpatialPointerPoseStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialPointerPoseStatics {
-    type Vtable = ISpatialPointerPoseStaticsVtbl;
+    type Vtable = ISpatialPointerPoseStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa25591a9_aca1_3ee0_9816_785cfb2e3fb8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialPointerPoseStaticsVtbl {
+pub struct ISpatialPointerPoseStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Perception", feature = "Perception_Spatial"))]
     pub TryGetAtTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, timestamp: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -871,12 +871,12 @@ pub struct ISpatialPointerPoseStaticsVtbl {
 #[repr(transparent)]
 pub struct ISpatialRecognitionEndedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialRecognitionEndedEventArgs {
-    type Vtable = ISpatialRecognitionEndedEventArgsVtbl;
+    type Vtable = ISpatialRecognitionEndedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e35f5cb_3f75_43f3_ac81_d1dc2df9b1fb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialRecognitionEndedEventArgsVtbl {
+pub struct ISpatialRecognitionEndedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
 }
@@ -884,12 +884,12 @@ pub struct ISpatialRecognitionEndedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISpatialRecognitionStartedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialRecognitionStartedEventArgs {
-    type Vtable = ISpatialRecognitionStartedEventArgsVtbl;
+    type Vtable = ISpatialRecognitionStartedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24da128f_0008_4a6d_aa50_2a76f9cfb264);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialRecognitionStartedEventArgsVtbl {
+pub struct ISpatialRecognitionStartedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Perception_Spatial")]
@@ -902,12 +902,12 @@ pub struct ISpatialRecognitionStartedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISpatialTappedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialTappedEventArgs {
-    type Vtable = ISpatialTappedEventArgsVtbl;
+    type Vtable = ISpatialTappedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x296d83de_f444_4aa1_b2bf_9dc88d567da6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialTappedEventArgsVtbl {
+pub struct ISpatialTappedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InteractionSourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialInteractionSourceKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Perception_Spatial")]
@@ -1189,7 +1189,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialGestureRecognizer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialGestureRecognizer;{71605bcc-0c35-4673-adbd-cc04caa6ef45})");
 }
 unsafe impl ::windows::core::Interface for SpatialGestureRecognizer {
-    type Vtable = ISpatialGestureRecognizerVtbl;
+    type Vtable = ISpatialGestureRecognizer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71605bcc_0c35_4673_adbd_cc04caa6ef45);
 }
 impl ::windows::core::RuntimeName for SpatialGestureRecognizer {
@@ -1340,7 +1340,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialHoldCanceledEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialHoldCanceledEventArgs;{5dfcb667-4caa-4093-8c35-b601a839f31b})");
 }
 unsafe impl ::windows::core::Interface for SpatialHoldCanceledEventArgs {
-    type Vtable = ISpatialHoldCanceledEventArgsVtbl;
+    type Vtable = ISpatialHoldCanceledEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5dfcb667_4caa_4093_8c35_b601a839f31b);
 }
 impl ::windows::core::RuntimeName for SpatialHoldCanceledEventArgs {
@@ -1421,7 +1421,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialHoldCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialHoldCompletedEventArgs;{3f64470b-4cfd-43da-8dc4-e64552173971})");
 }
 unsafe impl ::windows::core::Interface for SpatialHoldCompletedEventArgs {
-    type Vtable = ISpatialHoldCompletedEventArgsVtbl;
+    type Vtable = ISpatialHoldCompletedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f64470b_4cfd_43da_8dc4_e64552173971);
 }
 impl ::windows::core::RuntimeName for SpatialHoldCompletedEventArgs {
@@ -1511,7 +1511,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialHoldStartedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialHoldStartedEventArgs;{8e343d79-acb6-4144-8615-2cfba8a3cb3f})");
 }
 unsafe impl ::windows::core::Interface for SpatialHoldStartedEventArgs {
-    type Vtable = ISpatialHoldStartedEventArgsVtbl;
+    type Vtable = ISpatialHoldStartedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e343d79_acb6_4144_8615_2cfba8a3cb3f);
 }
 impl ::windows::core::RuntimeName for SpatialHoldStartedEventArgs {
@@ -1592,7 +1592,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteraction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteraction;{fc967639-88e6-4646-9112-4344aaec9dfa})");
 }
 unsafe impl ::windows::core::Interface for SpatialInteraction {
-    type Vtable = ISpatialInteractionVtbl;
+    type Vtable = ISpatialInteraction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc967639_88e6_4646_9112_4344aaec9dfa);
 }
 impl ::windows::core::RuntimeName for SpatialInteraction {
@@ -1732,7 +1732,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionController;{5f0e5ba3-0954-4e97-86c5-e7f30b114dfd})");
 }
 unsafe impl ::windows::core::Interface for SpatialInteractionController {
-    type Vtable = ISpatialInteractionControllerVtbl;
+    type Vtable = ISpatialInteractionController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f0e5ba3_0954_4e97_86c5_e7f30b114dfd);
 }
 impl ::windows::core::RuntimeName for SpatialInteractionController {
@@ -1861,7 +1861,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionControllerPropert
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionControllerProperties;{61056fb1-7ba9-4e35-b93f-9272cba9b28b})");
 }
 unsafe impl ::windows::core::Interface for SpatialInteractionControllerProperties {
-    type Vtable = ISpatialInteractionControllerPropertiesVtbl;
+    type Vtable = ISpatialInteractionControllerProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61056fb1_7ba9_4e35_b93f_9272cba9b28b);
 }
 impl ::windows::core::RuntimeName for SpatialInteractionControllerProperties {
@@ -1967,7 +1967,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionDetectedEventArgs
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionDetectedEventArgs;{075878e4-5961-3b41-9dfb-cea5d89cc38a})");
 }
 unsafe impl ::windows::core::Interface for SpatialInteractionDetectedEventArgs {
-    type Vtable = ISpatialInteractionDetectedEventArgsVtbl;
+    type Vtable = ISpatialInteractionDetectedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x075878e4_5961_3b41_9dfb_cea5d89cc38a);
 }
 impl ::windows::core::RuntimeName for SpatialInteractionDetectedEventArgs {
@@ -2163,7 +2163,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionManager;{32a64ea8-a15a-3995-b8bd-80513cb5adef})");
 }
 unsafe impl ::windows::core::Interface for SpatialInteractionManager {
-    type Vtable = ISpatialInteractionManagerVtbl;
+    type Vtable = ISpatialInteractionManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32a64ea8_a15a_3995_b8bd_80513cb5adef);
 }
 impl ::windows::core::RuntimeName for SpatialInteractionManager {
@@ -2356,7 +2356,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSource;{fb5433ba-b0b3-3148-9f3b-e9f5de568f5d})");
 }
 unsafe impl ::windows::core::Interface for SpatialInteractionSource {
-    type Vtable = ISpatialInteractionSourceVtbl;
+    type Vtable = ISpatialInteractionSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb5433ba_b0b3_3148_9f3b_e9f5de568f5d);
 }
 impl ::windows::core::RuntimeName for SpatialInteractionSource {
@@ -2445,7 +2445,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSourceEventArgs;{23b786cf-ec23-3979-b27c-eb0e12feb7c7})");
 }
 unsafe impl ::windows::core::Interface for SpatialInteractionSourceEventArgs {
-    type Vtable = ISpatialInteractionSourceEventArgsVtbl;
+    type Vtable = ISpatialInteractionSourceEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23b786cf_ec23_3979_b27c_eb0e12feb7c7);
 }
 impl ::windows::core::RuntimeName for SpatialInteractionSourceEventArgs {
@@ -2639,7 +2639,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSourceLocation;{ea4696c4-7e8b-30ca-bcc5-c77189cea30a})");
 }
 unsafe impl ::windows::core::Interface for SpatialInteractionSourceLocation {
-    type Vtable = ISpatialInteractionSourceLocationVtbl;
+    type Vtable = ISpatialInteractionSourceLocation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea4696c4_7e8b_30ca_bcc5_c77189cea30a);
 }
 impl ::windows::core::RuntimeName for SpatialInteractionSourceLocation {
@@ -2771,7 +2771,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceProperties 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSourceProperties;{05604542-3ef7-3222-9f53-63c9cb7e3bc7})");
 }
 unsafe impl ::windows::core::Interface for SpatialInteractionSourceProperties {
-    type Vtable = ISpatialInteractionSourcePropertiesVtbl;
+    type Vtable = ISpatialInteractionSourceProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05604542_3ef7_3222_9f53_63c9cb7e3bc7);
 }
 impl ::windows::core::RuntimeName for SpatialInteractionSourceProperties {
@@ -2935,7 +2935,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSourceState;{d5c475ef-4b63-37ec-98b9-9fc652b9d2f2})");
 }
 unsafe impl ::windows::core::Interface for SpatialInteractionSourceState {
-    type Vtable = ISpatialInteractionSourceStateVtbl;
+    type Vtable = ISpatialInteractionSourceState_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5c475ef_4b63_37ec_98b9_9fc652b9d2f2);
 }
 impl ::windows::core::RuntimeName for SpatialInteractionSourceState {
@@ -3016,7 +3016,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialManipulationCanceledEventArg
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationCanceledEventArgs;{2d40d1cb-e7da-4220-b0bf-819301674780})");
 }
 unsafe impl ::windows::core::Interface for SpatialManipulationCanceledEventArgs {
-    type Vtable = ISpatialManipulationCanceledEventArgsVtbl;
+    type Vtable = ISpatialManipulationCanceledEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d40d1cb_e7da_4220_b0bf_819301674780);
 }
 impl ::windows::core::RuntimeName for SpatialManipulationCanceledEventArgs {
@@ -3106,7 +3106,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialManipulationCompletedEventAr
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationCompletedEventArgs;{05086802-f301-4343-9250-2fbaa5f87a37})");
 }
 unsafe impl ::windows::core::Interface for SpatialManipulationCompletedEventArgs {
-    type Vtable = ISpatialManipulationCompletedEventArgsVtbl;
+    type Vtable = ISpatialManipulationCompletedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05086802_f301_4343_9250_2fbaa5f87a37);
 }
 impl ::windows::core::RuntimeName for SpatialManipulationCompletedEventArgs {
@@ -3188,7 +3188,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialManipulationDelta {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationDelta;{a7ec967a-d123-3a81-a15b-992923dcbe91})");
 }
 unsafe impl ::windows::core::Interface for SpatialManipulationDelta {
-    type Vtable = ISpatialManipulationDeltaVtbl;
+    type Vtable = ISpatialManipulationDelta_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7ec967a_d123_3a81_a15b_992923dcbe91);
 }
 impl ::windows::core::RuntimeName for SpatialManipulationDelta {
@@ -3278,7 +3278,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialManipulationStartedEventArgs
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationStartedEventArgs;{a1d6bbce-42a5-377b-ada6-d28e3d384737})");
 }
 unsafe impl ::windows::core::Interface for SpatialManipulationStartedEventArgs {
-    type Vtable = ISpatialManipulationStartedEventArgsVtbl;
+    type Vtable = ISpatialManipulationStartedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1d6bbce_42a5_377b_ada6_d28e3d384737);
 }
 impl ::windows::core::RuntimeName for SpatialManipulationStartedEventArgs {
@@ -3368,7 +3368,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialManipulationUpdatedEventArgs
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationUpdatedEventArgs;{5f230b9b-60c6-4dc6-bdc9-9f4a6f15fe49})");
 }
 unsafe impl ::windows::core::Interface for SpatialManipulationUpdatedEventArgs {
-    type Vtable = ISpatialManipulationUpdatedEventArgsVtbl;
+    type Vtable = ISpatialManipulationUpdatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f230b9b_60c6_4dc6_bdc9_9f4a6f15fe49);
 }
 impl ::windows::core::RuntimeName for SpatialManipulationUpdatedEventArgs {
@@ -3449,7 +3449,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialNavigationCanceledEventArgs 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialNavigationCanceledEventArgs;{ce503edc-e8a5-46f0-92d4-3c122b35112a})");
 }
 unsafe impl ::windows::core::Interface for SpatialNavigationCanceledEventArgs {
-    type Vtable = ISpatialNavigationCanceledEventArgsVtbl;
+    type Vtable = ISpatialNavigationCanceledEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce503edc_e8a5_46f0_92d4_3c122b35112a);
 }
 impl ::windows::core::RuntimeName for SpatialNavigationCanceledEventArgs {
@@ -3539,7 +3539,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialNavigationCompletedEventArgs
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialNavigationCompletedEventArgs;{012e80b7-af3b-42c2-9e41-baaa0e721f3a})");
 }
 unsafe impl ::windows::core::Interface for SpatialNavigationCompletedEventArgs {
-    type Vtable = ISpatialNavigationCompletedEventArgsVtbl;
+    type Vtable = ISpatialNavigationCompletedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x012e80b7_af3b_42c2_9e41_baaa0e721f3a);
 }
 impl ::windows::core::RuntimeName for SpatialNavigationCompletedEventArgs {
@@ -3653,7 +3653,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialNavigationStartedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialNavigationStartedEventArgs;{754a348a-fb64-4656-8ebd-9deecaafe475})");
 }
 unsafe impl ::windows::core::Interface for SpatialNavigationStartedEventArgs {
-    type Vtable = ISpatialNavigationStartedEventArgsVtbl;
+    type Vtable = ISpatialNavigationStartedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x754a348a_fb64_4656_8ebd_9deecaafe475);
 }
 impl ::windows::core::RuntimeName for SpatialNavigationStartedEventArgs {
@@ -3743,7 +3743,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialNavigationUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialNavigationUpdatedEventArgs;{9b713fd7-839d-4a74-8732-45466fc044b5})");
 }
 unsafe impl ::windows::core::Interface for SpatialNavigationUpdatedEventArgs {
-    type Vtable = ISpatialNavigationUpdatedEventArgsVtbl;
+    type Vtable = ISpatialNavigationUpdatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b713fd7_839d_4a74_8732_45466fc044b5);
 }
 impl ::windows::core::RuntimeName for SpatialNavigationUpdatedEventArgs {
@@ -3860,7 +3860,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialPointerInteractionSourcePose
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialPointerInteractionSourcePose;{a7104307-2c2b-4d3a-92a7-80ced7c4a0d0})");
 }
 unsafe impl ::windows::core::Interface for SpatialPointerInteractionSourcePose {
-    type Vtable = ISpatialPointerInteractionSourcePoseVtbl;
+    type Vtable = ISpatialPointerInteractionSourcePose_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7104307_2c2b_4d3a_92a7_80ced7c4a0d0);
 }
 impl ::windows::core::RuntimeName for SpatialPointerInteractionSourcePose {
@@ -3989,7 +3989,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialPointerPose {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialPointerPose;{6953a42e-c17e-357d-97a1-7269d0ed2d10})");
 }
 unsafe impl ::windows::core::Interface for SpatialPointerPose {
-    type Vtable = ISpatialPointerPoseVtbl;
+    type Vtable = ISpatialPointerPose_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6953a42e_c17e_357d_97a1_7269d0ed2d10);
 }
 impl ::windows::core::RuntimeName for SpatialPointerPose {
@@ -4070,7 +4070,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialRecognitionEndedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialRecognitionEndedEventArgs;{0e35f5cb-3f75-43f3-ac81-d1dc2df9b1fb})");
 }
 unsafe impl ::windows::core::Interface for SpatialRecognitionEndedEventArgs {
-    type Vtable = ISpatialRecognitionEndedEventArgsVtbl;
+    type Vtable = ISpatialRecognitionEndedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e35f5cb_3f75_43f3_ac81_d1dc2df9b1fb);
 }
 impl ::windows::core::RuntimeName for SpatialRecognitionEndedEventArgs {
@@ -4168,7 +4168,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialRecognitionStartedEventArgs 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialRecognitionStartedEventArgs;{24da128f-0008-4a6d-aa50-2a76f9cfb264})");
 }
 unsafe impl ::windows::core::Interface for SpatialRecognitionStartedEventArgs {
-    type Vtable = ISpatialRecognitionStartedEventArgsVtbl;
+    type Vtable = ISpatialRecognitionStartedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24da128f_0008_4a6d_aa50_2a76f9cfb264);
 }
 impl ::windows::core::RuntimeName for SpatialRecognitionStartedEventArgs {
@@ -4266,7 +4266,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialTappedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialTappedEventArgs;{296d83de-f444-4aa1-b2bf-9dc88d567da6})");
 }
 unsafe impl ::windows::core::Interface for SpatialTappedEventArgs {
-    type Vtable = ISpatialTappedEventArgsVtbl;
+    type Vtable = ISpatialTappedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x296d83de_f444_4aa1_b2bf_9dc88d567da6);
 }
 impl ::windows::core::RuntimeName for SpatialTappedEventArgs {

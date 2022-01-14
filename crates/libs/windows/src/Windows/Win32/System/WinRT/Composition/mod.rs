@@ -67,12 +67,12 @@ impl ::core::fmt::Debug for ICompositionCapabilitiesInteropFactory {
     }
 }
 unsafe impl ::windows::core::Interface for ICompositionCapabilitiesInteropFactory {
-    type Vtable = ICompositionCapabilitiesInteropFactoryVtbl;
+    type Vtable = ICompositionCapabilitiesInteropFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c9db356_e70d_4642_8298_bc4aa5b4865c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICompositionCapabilitiesInteropFactoryVtbl {
+pub struct ICompositionCapabilitiesInteropFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
     pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, result: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -148,12 +148,12 @@ impl ::core::fmt::Debug for ICompositionDrawingSurfaceInterop {
     }
 }
 unsafe impl ::windows::core::Interface for ICompositionDrawingSurfaceInterop {
-    type Vtable = ICompositionDrawingSurfaceInteropVtbl;
+    type Vtable = ICompositionDrawingSurfaceInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd04e6e3_fe0c_4c3c_ab19_a07601a576ee);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICompositionDrawingSurfaceInteropVtbl {
+pub struct ICompositionDrawingSurfaceInterop_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub BeginDraw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, updaterect: *const super::super::super::Foundation::RECT, iid: *const ::windows::core::GUID, updateobject: *mut *mut ::core::ffi::c_void, updateoffset: *mut super::super::super::Foundation::POINT) -> ::windows::core::HRESULT,
@@ -265,13 +265,13 @@ impl ::core::fmt::Debug for ICompositionDrawingSurfaceInterop2 {
     }
 }
 unsafe impl ::windows::core::Interface for ICompositionDrawingSurfaceInterop2 {
-    type Vtable = ICompositionDrawingSurfaceInterop2Vtbl;
+    type Vtable = ICompositionDrawingSurfaceInterop2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41e64aae_98c0_4239_8e95_a330dd6aa18b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICompositionDrawingSurfaceInterop2Vtbl {
-    pub base: ICompositionDrawingSurfaceInteropVtbl,
+pub struct ICompositionDrawingSurfaceInterop2_Vtbl {
+    pub base: ICompositionDrawingSurfaceInterop_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CopySurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destinationresource: *mut ::core::ffi::c_void, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -328,12 +328,12 @@ impl ::core::fmt::Debug for ICompositionGraphicsDeviceInterop {
     }
 }
 unsafe impl ::windows::core::Interface for ICompositionGraphicsDeviceInterop {
-    type Vtable = ICompositionGraphicsDeviceInteropVtbl;
+    type Vtable = ICompositionGraphicsDeviceInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa116ff71_f8bf_4c8a_9c98_70779a32a9c8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICompositionGraphicsDeviceInteropVtbl {
+pub struct ICompositionGraphicsDeviceInterop_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetRenderingDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetRenderingDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -390,12 +390,12 @@ impl ::core::fmt::Debug for ICompositorDesktopInterop {
     }
 }
 unsafe impl ::windows::core::Interface for ICompositorDesktopInterop {
-    type Vtable = ICompositorDesktopInteropVtbl;
+    type Vtable = ICompositorDesktopInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29e691fa_4567_4dca_b319_d0f207eb6807);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICompositorDesktopInteropVtbl {
+pub struct ICompositorDesktopInterop_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "UI_Composition_Desktop", feature = "Win32_Foundation"))]
     pub CreateDesktopWindowTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndtarget: super::super::super::Foundation::HWND, istopmost: super::super::super::Foundation::BOOL, result: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -463,12 +463,12 @@ impl ::core::fmt::Debug for ICompositorInterop {
     }
 }
 unsafe impl ::windows::core::Interface for ICompositorInterop {
-    type Vtable = ICompositorInteropVtbl;
+    type Vtable = ICompositorInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25297d5c_3ad4_4c9c_b5cf_e36a38512330);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICompositorInteropVtbl {
+pub struct ICompositorInterop_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
     pub CreateCompositionSurfaceForHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, swapchain: super::super::super::Foundation::HANDLE, result: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -531,12 +531,12 @@ impl ::core::fmt::Debug for IDesktopWindowTargetInterop {
     }
 }
 unsafe impl ::windows::core::Interface for IDesktopWindowTargetInterop {
-    type Vtable = IDesktopWindowTargetInteropVtbl;
+    type Vtable = IDesktopWindowTargetInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35dbf59e_e3f9_45b0_81e7_fe75f4145dc9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDesktopWindowTargetInteropVtbl {
+pub struct IDesktopWindowTargetInterop_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Hwnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
@@ -589,12 +589,12 @@ impl ::core::fmt::Debug for ISwapChainInterop {
     }
 }
 unsafe impl ::windows::core::Interface for ISwapChainInterop {
-    type Vtable = ISwapChainInteropVtbl;
+    type Vtable = ISwapChainInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26f496a0_7f38_45fb_88f7_faaabe67dd59);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISwapChainInteropVtbl {
+pub struct ISwapChainInterop_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetSwapChain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, swapchain: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -645,12 +645,12 @@ impl ::core::fmt::Debug for IVisualInteractionSourceInterop {
     }
 }
 unsafe impl ::windows::core::Interface for IVisualInteractionSourceInterop {
-    type Vtable = IVisualInteractionSourceInteropVtbl;
+    type Vtable = IVisualInteractionSourceInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11f62cd1_2f9d_42d3_b05f_d6790d9e9f8e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVisualInteractionSourceInteropVtbl {
+pub struct IVisualInteractionSourceInterop_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
     pub TryRedirectForManipulation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> ::windows::core::HRESULT,

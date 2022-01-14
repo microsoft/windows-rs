@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ICoreTextCompositionCompletedEventArgsImpl: Sized {
+pub trait ICoreTextCompositionCompletedEventArgs_Impl: Sized {
     fn IsCanceled(&mut self) -> ::windows::core::Result<bool>;
     fn CompositionSegments(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<CoreTextCompositionSegment>>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for ICoreTextCompositionCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextCompositionCompletedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ICoreTextCompositionCompletedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextCompositionCompletedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextCompositionCompletedEventArgsVtbl {
-        unsafe extern "system" fn IsCanceled<Impl: ICoreTextCompositionCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ICoreTextCompositionCompletedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextCompositionCompletedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextCompositionCompletedEventArgs_Vtbl {
+        unsafe extern "system" fn IsCanceled<Impl: ICoreTextCompositionCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCanceled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -22,7 +22,7 @@ impl ICoreTextCompositionCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CompositionSegments<Impl: ICoreTextCompositionCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CompositionSegments<Impl: ICoreTextCompositionCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CompositionSegments() {
                 ::core::result::Result::Ok(ok__) => {
@@ -33,7 +33,7 @@ impl ICoreTextCompositionCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: ICoreTextCompositionCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: ICoreTextCompositionCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -56,7 +56,7 @@ impl ICoreTextCompositionCompletedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextCompositionSegmentImpl: Sized {
+pub trait ICoreTextCompositionSegment_Impl: Sized {
     fn PreconversionString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Range(&mut self) -> ::windows::core::Result<CoreTextRange>;
 }
@@ -65,9 +65,9 @@ impl ::windows::core::RuntimeName for ICoreTextCompositionSegment {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextCompositionSegment";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICoreTextCompositionSegmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextCompositionSegmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextCompositionSegmentVtbl {
-        unsafe extern "system" fn PreconversionString<Impl: ICoreTextCompositionSegmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ICoreTextCompositionSegment_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextCompositionSegment_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextCompositionSegment_Vtbl {
+        unsafe extern "system" fn PreconversionString<Impl: ICoreTextCompositionSegment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PreconversionString() {
                 ::core::result::Result::Ok(ok__) => {
@@ -78,7 +78,7 @@ impl ICoreTextCompositionSegmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Range<Impl: ICoreTextCompositionSegmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Range<Impl: ICoreTextCompositionSegment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Range() {
                 ::core::result::Result::Ok(ok__) => {
@@ -100,7 +100,7 @@ impl ICoreTextCompositionSegmentVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICoreTextCompositionStartedEventArgsImpl: Sized {
+pub trait ICoreTextCompositionStartedEventArgs_Impl: Sized {
     fn IsCanceled(&mut self) -> ::windows::core::Result<bool>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
@@ -109,9 +109,9 @@ impl ::windows::core::RuntimeName for ICoreTextCompositionStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextCompositionStartedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICoreTextCompositionStartedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextCompositionStartedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextCompositionStartedEventArgsVtbl {
-        unsafe extern "system" fn IsCanceled<Impl: ICoreTextCompositionStartedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ICoreTextCompositionStartedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextCompositionStartedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextCompositionStartedEventArgs_Vtbl {
+        unsafe extern "system" fn IsCanceled<Impl: ICoreTextCompositionStartedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCanceled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -122,7 +122,7 @@ impl ICoreTextCompositionStartedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: ICoreTextCompositionStartedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: ICoreTextCompositionStartedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -144,7 +144,7 @@ impl ICoreTextCompositionStartedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICoreTextEditContextImpl: Sized {
+pub trait ICoreTextEditContext_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn InputScope(&mut self) -> ::windows::core::Result<CoreTextInputScope>;
@@ -182,9 +182,9 @@ impl ::windows::core::RuntimeName for ICoreTextEditContext {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextEditContext";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICoreTextEditContextVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextEditContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextEditContextVtbl {
-        unsafe extern "system" fn Name<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ICoreTextEditContext_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextEditContext_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextEditContext_Vtbl {
+        unsafe extern "system" fn Name<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -195,11 +195,11 @@ impl ICoreTextEditContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetName<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetName<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InputScope<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextInputScope) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InputScope<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextInputScope) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InputScope() {
                 ::core::result::Result::Ok(ok__) => {
@@ -210,11 +210,11 @@ impl ICoreTextEditContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInputScope<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CoreTextInputScope) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInputScope<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CoreTextInputScope) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInputScope(value).into()
         }
-        unsafe extern "system" fn IsReadOnly<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsReadOnly<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReadOnly() {
                 ::core::result::Result::Ok(ok__) => {
@@ -225,11 +225,11 @@ impl ICoreTextEditContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsReadOnly<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsReadOnly<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsReadOnly(value).into()
         }
-        unsafe extern "system" fn InputPaneDisplayPolicy<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextInputPaneDisplayPolicy) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InputPaneDisplayPolicy<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextInputPaneDisplayPolicy) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InputPaneDisplayPolicy() {
                 ::core::result::Result::Ok(ok__) => {
@@ -240,11 +240,11 @@ impl ICoreTextEditContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInputPaneDisplayPolicy<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CoreTextInputPaneDisplayPolicy) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInputPaneDisplayPolicy<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CoreTextInputPaneDisplayPolicy) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInputPaneDisplayPolicy(value).into()
         }
-        unsafe extern "system" fn TextRequested<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TextRequested<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TextRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextTextRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextTextRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -255,11 +255,11 @@ impl ICoreTextEditContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveTextRequested<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveTextRequested<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTextRequested(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SelectionRequested<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectionRequested<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectionRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextSelectionRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextSelectionRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -270,11 +270,11 @@ impl ICoreTextEditContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSelectionRequested<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSelectionRequested<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSelectionRequested(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn LayoutRequested<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LayoutRequested<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LayoutRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextLayoutRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextLayoutRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -285,11 +285,11 @@ impl ICoreTextEditContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveLayoutRequested<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveLayoutRequested<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveLayoutRequested(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TextUpdating<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TextUpdating<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TextUpdating(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextTextUpdatingEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextTextUpdatingEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -300,11 +300,11 @@ impl ICoreTextEditContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveTextUpdating<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveTextUpdating<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTextUpdating(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SelectionUpdating<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectionUpdating<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectionUpdating(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextSelectionUpdatingEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextSelectionUpdatingEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -315,11 +315,11 @@ impl ICoreTextEditContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSelectionUpdating<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSelectionUpdating<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSelectionUpdating(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FormatUpdating<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FormatUpdating<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FormatUpdating(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextFormatUpdatingEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextFormatUpdatingEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -330,11 +330,11 @@ impl ICoreTextEditContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveFormatUpdating<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveFormatUpdating<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFormatUpdating(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CompositionStarted<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CompositionStarted<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CompositionStarted(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextCompositionStartedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextCompositionStartedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -345,11 +345,11 @@ impl ICoreTextEditContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCompositionStarted<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCompositionStarted<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCompositionStarted(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CompositionCompleted<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CompositionCompleted<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CompositionCompleted(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextCompositionCompletedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextCompositionCompletedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -360,11 +360,11 @@ impl ICoreTextEditContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCompositionCompleted<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCompositionCompleted<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCompositionCompleted(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FocusRemoved<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FocusRemoved<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FocusRemoved(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -375,27 +375,27 @@ impl ICoreTextEditContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveFocusRemoved<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveFocusRemoved<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFocusRemoved(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn NotifyFocusEnter<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NotifyFocusEnter<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).NotifyFocusEnter().into()
         }
-        unsafe extern "system" fn NotifyFocusLeave<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NotifyFocusLeave<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).NotifyFocusLeave().into()
         }
-        unsafe extern "system" fn NotifyTextChanged<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, modifiedrange: CoreTextRange, newlength: i32, newselection: CoreTextRange) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NotifyTextChanged<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, modifiedrange: CoreTextRange, newlength: i32, newselection: CoreTextRange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).NotifyTextChanged(&*(&modifiedrange as *const <CoreTextRange as ::windows::core::Abi>::Abi as *const <CoreTextRange as ::windows::core::DefaultType>::DefaultType), newlength, &*(&newselection as *const <CoreTextRange as ::windows::core::Abi>::Abi as *const <CoreTextRange as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn NotifySelectionChanged<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selection: CoreTextRange) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NotifySelectionChanged<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selection: CoreTextRange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).NotifySelectionChanged(&*(&selection as *const <CoreTextRange as ::windows::core::Abi>::Abi as *const <CoreTextRange as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn NotifyLayoutChanged<Impl: ICoreTextEditContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NotifyLayoutChanged<Impl: ICoreTextEditContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).NotifyLayoutChanged().into()
         }
@@ -439,7 +439,7 @@ impl ICoreTextEditContextVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICoreTextEditContext2Impl: Sized {
+pub trait ICoreTextEditContext2_Impl: Sized {
     fn NotifyFocusLeaveCompleted(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveNotifyFocusLeaveCompleted(&mut self, cookie: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
@@ -448,9 +448,9 @@ impl ::windows::core::RuntimeName for ICoreTextEditContext2 {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextEditContext2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICoreTextEditContext2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextEditContext2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextEditContext2Vtbl {
-        unsafe extern "system" fn NotifyFocusLeaveCompleted<Impl: ICoreTextEditContext2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl ICoreTextEditContext2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextEditContext2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextEditContext2_Vtbl {
+        unsafe extern "system" fn NotifyFocusLeaveCompleted<Impl: ICoreTextEditContext2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NotifyFocusLeaveCompleted(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -461,7 +461,7 @@ impl ICoreTextEditContext2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveNotifyFocusLeaveCompleted<Impl: ICoreTextEditContext2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveNotifyFocusLeaveCompleted<Impl: ICoreTextEditContext2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveNotifyFocusLeaveCompleted(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -476,7 +476,7 @@ impl ICoreTextEditContext2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "UI_ViewManagement", feature = "implement_exclusive"))]
-pub trait ICoreTextFormatUpdatingEventArgsImpl: Sized {
+pub trait ICoreTextFormatUpdatingEventArgs_Impl: Sized {
     fn Range(&mut self) -> ::windows::core::Result<CoreTextRange>;
     fn TextColor(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>>;
     fn BackgroundColor(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>>;
@@ -493,9 +493,9 @@ impl ::windows::core::RuntimeName for ICoreTextFormatUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextFormatUpdatingEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "UI_ViewManagement", feature = "implement_exclusive"))]
-impl ICoreTextFormatUpdatingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextFormatUpdatingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextFormatUpdatingEventArgsVtbl {
-        unsafe extern "system" fn Range<Impl: ICoreTextFormatUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT {
+impl ICoreTextFormatUpdatingEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextFormatUpdatingEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextFormatUpdatingEventArgs_Vtbl {
+        unsafe extern "system" fn Range<Impl: ICoreTextFormatUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Range() {
                 ::core::result::Result::Ok(ok__) => {
@@ -506,7 +506,7 @@ impl ICoreTextFormatUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TextColor<Impl: ICoreTextFormatUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TextColor<Impl: ICoreTextFormatUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TextColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -517,7 +517,7 @@ impl ICoreTextFormatUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BackgroundColor<Impl: ICoreTextFormatUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackgroundColor<Impl: ICoreTextFormatUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackgroundColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -528,7 +528,7 @@ impl ICoreTextFormatUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnderlineColor<Impl: ICoreTextFormatUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnderlineColor<Impl: ICoreTextFormatUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnderlineColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -539,7 +539,7 @@ impl ICoreTextFormatUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnderlineType<Impl: ICoreTextFormatUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnderlineType<Impl: ICoreTextFormatUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnderlineType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -550,7 +550,7 @@ impl ICoreTextFormatUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Reason<Impl: ICoreTextFormatUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextFormatUpdatingReason) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Reason<Impl: ICoreTextFormatUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextFormatUpdatingReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reason() {
                 ::core::result::Result::Ok(ok__) => {
@@ -561,7 +561,7 @@ impl ICoreTextFormatUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Result<Impl: ICoreTextFormatUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextFormatUpdatingResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Result<Impl: ICoreTextFormatUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextFormatUpdatingResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Result() {
                 ::core::result::Result::Ok(ok__) => {
@@ -572,11 +572,11 @@ impl ICoreTextFormatUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetResult<Impl: ICoreTextFormatUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CoreTextFormatUpdatingResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetResult<Impl: ICoreTextFormatUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CoreTextFormatUpdatingResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetResult(value).into()
         }
-        unsafe extern "system" fn IsCanceled<Impl: ICoreTextFormatUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCanceled<Impl: ICoreTextFormatUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCanceled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -587,7 +587,7 @@ impl ICoreTextFormatUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: ICoreTextFormatUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: ICoreTextFormatUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -617,7 +617,7 @@ impl ICoreTextFormatUpdatingEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICoreTextLayoutBoundsImpl: Sized {
+pub trait ICoreTextLayoutBounds_Impl: Sized {
     fn TextBounds(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
     fn SetTextBounds(&mut self, value: &super::super::super::Foundation::Rect) -> ::windows::core::Result<()>;
     fn ControlBounds(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
@@ -628,9 +628,9 @@ impl ::windows::core::RuntimeName for ICoreTextLayoutBounds {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextLayoutBounds";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICoreTextLayoutBoundsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextLayoutBoundsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextLayoutBoundsVtbl {
-        unsafe extern "system" fn TextBounds<Impl: ICoreTextLayoutBoundsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+impl ICoreTextLayoutBounds_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextLayoutBounds_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextLayoutBounds_Vtbl {
+        unsafe extern "system" fn TextBounds<Impl: ICoreTextLayoutBounds_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TextBounds() {
                 ::core::result::Result::Ok(ok__) => {
@@ -641,11 +641,11 @@ impl ICoreTextLayoutBoundsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTextBounds<Impl: ICoreTextLayoutBoundsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTextBounds<Impl: ICoreTextLayoutBounds_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTextBounds(&*(&value as *const <super::super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ControlBounds<Impl: ICoreTextLayoutBoundsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ControlBounds<Impl: ICoreTextLayoutBounds_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ControlBounds() {
                 ::core::result::Result::Ok(ok__) => {
@@ -656,7 +656,7 @@ impl ICoreTextLayoutBoundsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetControlBounds<Impl: ICoreTextLayoutBoundsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetControlBounds<Impl: ICoreTextLayoutBounds_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetControlBounds(&*(&value as *const <super::super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -673,7 +673,7 @@ impl ICoreTextLayoutBoundsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICoreTextLayoutRequestImpl: Sized {
+pub trait ICoreTextLayoutRequest_Impl: Sized {
     fn Range(&mut self) -> ::windows::core::Result<CoreTextRange>;
     fn LayoutBounds(&mut self) -> ::windows::core::Result<CoreTextLayoutBounds>;
     fn IsCanceled(&mut self) -> ::windows::core::Result<bool>;
@@ -684,9 +684,9 @@ impl ::windows::core::RuntimeName for ICoreTextLayoutRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextLayoutRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICoreTextLayoutRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextLayoutRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextLayoutRequestVtbl {
-        unsafe extern "system" fn Range<Impl: ICoreTextLayoutRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT {
+impl ICoreTextLayoutRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextLayoutRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextLayoutRequest_Vtbl {
+        unsafe extern "system" fn Range<Impl: ICoreTextLayoutRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Range() {
                 ::core::result::Result::Ok(ok__) => {
@@ -697,7 +697,7 @@ impl ICoreTextLayoutRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LayoutBounds<Impl: ICoreTextLayoutRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LayoutBounds<Impl: ICoreTextLayoutRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LayoutBounds() {
                 ::core::result::Result::Ok(ok__) => {
@@ -708,7 +708,7 @@ impl ICoreTextLayoutRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsCanceled<Impl: ICoreTextLayoutRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCanceled<Impl: ICoreTextLayoutRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCanceled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -719,7 +719,7 @@ impl ICoreTextLayoutRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: ICoreTextLayoutRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: ICoreTextLayoutRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -743,7 +743,7 @@ impl ICoreTextLayoutRequestVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextLayoutRequest2Impl: Sized {
+pub trait ICoreTextLayoutRequest2_Impl: Sized {
     fn LayoutBoundsVisualPixels(&mut self) -> ::windows::core::Result<CoreTextLayoutBounds>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -751,9 +751,9 @@ impl ::windows::core::RuntimeName for ICoreTextLayoutRequest2 {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextLayoutRequest2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICoreTextLayoutRequest2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextLayoutRequest2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextLayoutRequest2Vtbl {
-        unsafe extern "system" fn LayoutBoundsVisualPixels<Impl: ICoreTextLayoutRequest2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICoreTextLayoutRequest2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextLayoutRequest2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextLayoutRequest2_Vtbl {
+        unsafe extern "system" fn LayoutBoundsVisualPixels<Impl: ICoreTextLayoutRequest2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LayoutBoundsVisualPixels() {
                 ::core::result::Result::Ok(ok__) => {
@@ -774,7 +774,7 @@ impl ICoreTextLayoutRequest2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextLayoutRequestedEventArgsImpl: Sized {
+pub trait ICoreTextLayoutRequestedEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<CoreTextLayoutRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -782,9 +782,9 @@ impl ::windows::core::RuntimeName for ICoreTextLayoutRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextLayoutRequestedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICoreTextLayoutRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextLayoutRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextLayoutRequestedEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: ICoreTextLayoutRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICoreTextLayoutRequestedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextLayoutRequestedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextLayoutRequestedEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: ICoreTextLayoutRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -805,7 +805,7 @@ impl ICoreTextLayoutRequestedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICoreTextSelectionRequestImpl: Sized {
+pub trait ICoreTextSelectionRequest_Impl: Sized {
     fn Selection(&mut self) -> ::windows::core::Result<CoreTextRange>;
     fn SetSelection(&mut self, value: &CoreTextRange) -> ::windows::core::Result<()>;
     fn IsCanceled(&mut self) -> ::windows::core::Result<bool>;
@@ -816,9 +816,9 @@ impl ::windows::core::RuntimeName for ICoreTextSelectionRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextSelectionRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICoreTextSelectionRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextSelectionRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextSelectionRequestVtbl {
-        unsafe extern "system" fn Selection<Impl: ICoreTextSelectionRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT {
+impl ICoreTextSelectionRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextSelectionRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextSelectionRequest_Vtbl {
+        unsafe extern "system" fn Selection<Impl: ICoreTextSelectionRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Selection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -829,11 +829,11 @@ impl ICoreTextSelectionRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSelection<Impl: ICoreTextSelectionRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CoreTextRange) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSelection<Impl: ICoreTextSelectionRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CoreTextRange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSelection(&*(&value as *const <CoreTextRange as ::windows::core::Abi>::Abi as *const <CoreTextRange as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IsCanceled<Impl: ICoreTextSelectionRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCanceled<Impl: ICoreTextSelectionRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCanceled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -844,7 +844,7 @@ impl ICoreTextSelectionRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: ICoreTextSelectionRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: ICoreTextSelectionRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -868,7 +868,7 @@ impl ICoreTextSelectionRequestVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextSelectionRequestedEventArgsImpl: Sized {
+pub trait ICoreTextSelectionRequestedEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<CoreTextSelectionRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -876,9 +876,9 @@ impl ::windows::core::RuntimeName for ICoreTextSelectionRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextSelectionRequestedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICoreTextSelectionRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextSelectionRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextSelectionRequestedEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: ICoreTextSelectionRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICoreTextSelectionRequestedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextSelectionRequestedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextSelectionRequestedEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: ICoreTextSelectionRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -899,7 +899,7 @@ impl ICoreTextSelectionRequestedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICoreTextSelectionUpdatingEventArgsImpl: Sized {
+pub trait ICoreTextSelectionUpdatingEventArgs_Impl: Sized {
     fn Selection(&mut self) -> ::windows::core::Result<CoreTextRange>;
     fn Result(&mut self) -> ::windows::core::Result<CoreTextSelectionUpdatingResult>;
     fn SetResult(&mut self, value: CoreTextSelectionUpdatingResult) -> ::windows::core::Result<()>;
@@ -911,9 +911,9 @@ impl ::windows::core::RuntimeName for ICoreTextSelectionUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextSelectionUpdatingEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICoreTextSelectionUpdatingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextSelectionUpdatingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextSelectionUpdatingEventArgsVtbl {
-        unsafe extern "system" fn Selection<Impl: ICoreTextSelectionUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT {
+impl ICoreTextSelectionUpdatingEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextSelectionUpdatingEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextSelectionUpdatingEventArgs_Vtbl {
+        unsafe extern "system" fn Selection<Impl: ICoreTextSelectionUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Selection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -924,7 +924,7 @@ impl ICoreTextSelectionUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Result<Impl: ICoreTextSelectionUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextSelectionUpdatingResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Result<Impl: ICoreTextSelectionUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextSelectionUpdatingResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Result() {
                 ::core::result::Result::Ok(ok__) => {
@@ -935,11 +935,11 @@ impl ICoreTextSelectionUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetResult<Impl: ICoreTextSelectionUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CoreTextSelectionUpdatingResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetResult<Impl: ICoreTextSelectionUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CoreTextSelectionUpdatingResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetResult(value).into()
         }
-        unsafe extern "system" fn IsCanceled<Impl: ICoreTextSelectionUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCanceled<Impl: ICoreTextSelectionUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCanceled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -950,7 +950,7 @@ impl ICoreTextSelectionUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: ICoreTextSelectionUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: ICoreTextSelectionUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -975,7 +975,7 @@ impl ICoreTextSelectionUpdatingEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Globalization", feature = "implement_exclusive"))]
-pub trait ICoreTextServicesManagerImpl: Sized {
+pub trait ICoreTextServicesManager_Impl: Sized {
     fn InputLanguage(&mut self) -> ::windows::core::Result<super::super::super::Globalization::Language>;
     fn InputLanguageChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<CoreTextServicesManager, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveInputLanguageChanged(&mut self, cookie: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -986,9 +986,9 @@ impl ::windows::core::RuntimeName for ICoreTextServicesManager {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextServicesManager";
 }
 #[cfg(all(feature = "Foundation", feature = "Globalization", feature = "implement_exclusive"))]
-impl ICoreTextServicesManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextServicesManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextServicesManagerVtbl {
-        unsafe extern "system" fn InputLanguage<Impl: ICoreTextServicesManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICoreTextServicesManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextServicesManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextServicesManager_Vtbl {
+        unsafe extern "system" fn InputLanguage<Impl: ICoreTextServicesManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InputLanguage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -999,7 +999,7 @@ impl ICoreTextServicesManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InputLanguageChanged<Impl: ICoreTextServicesManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InputLanguageChanged<Impl: ICoreTextServicesManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InputLanguageChanged(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<CoreTextServicesManager, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<CoreTextServicesManager, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1010,11 +1010,11 @@ impl ICoreTextServicesManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveInputLanguageChanged<Impl: ICoreTextServicesManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveInputLanguageChanged<Impl: ICoreTextServicesManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveInputLanguageChanged(&*(&cookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CreateEditContext<Impl: ICoreTextServicesManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateEditContext<Impl: ICoreTextServicesManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateEditContext() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1038,7 +1038,7 @@ impl ICoreTextServicesManagerVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextServicesManagerStaticsImpl: Sized {
+pub trait ICoreTextServicesManagerStatics_Impl: Sized {
     fn GetForCurrentView(&mut self) -> ::windows::core::Result<CoreTextServicesManager>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1046,9 +1046,9 @@ impl ::windows::core::RuntimeName for ICoreTextServicesManagerStatics {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextServicesManagerStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICoreTextServicesManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextServicesManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextServicesManagerStaticsVtbl {
-        unsafe extern "system" fn GetForCurrentView<Impl: ICoreTextServicesManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICoreTextServicesManagerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextServicesManagerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextServicesManagerStatics_Vtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: ICoreTextServicesManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1069,7 +1069,7 @@ impl ICoreTextServicesManagerStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextServicesStaticsImpl: Sized {
+pub trait ICoreTextServicesStatics_Impl: Sized {
     fn HiddenCharacter(&mut self) -> ::windows::core::Result<u16>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1077,9 +1077,9 @@ impl ::windows::core::RuntimeName for ICoreTextServicesStatics {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextServicesStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICoreTextServicesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextServicesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextServicesStaticsVtbl {
-        unsafe extern "system" fn HiddenCharacter<Impl: ICoreTextServicesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+impl ICoreTextServicesStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextServicesStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextServicesStatics_Vtbl {
+        unsafe extern "system" fn HiddenCharacter<Impl: ICoreTextServicesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HiddenCharacter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1100,7 +1100,7 @@ impl ICoreTextServicesStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICoreTextTextRequestImpl: Sized {
+pub trait ICoreTextTextRequest_Impl: Sized {
     fn Range(&mut self) -> ::windows::core::Result<CoreTextRange>;
     fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -1112,9 +1112,9 @@ impl ::windows::core::RuntimeName for ICoreTextTextRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextTextRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICoreTextTextRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextTextRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextTextRequestVtbl {
-        unsafe extern "system" fn Range<Impl: ICoreTextTextRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT {
+impl ICoreTextTextRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextTextRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextTextRequest_Vtbl {
+        unsafe extern "system" fn Range<Impl: ICoreTextTextRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Range() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1125,7 +1125,7 @@ impl ICoreTextTextRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Text<Impl: ICoreTextTextRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Text<Impl: ICoreTextTextRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1136,11 +1136,11 @@ impl ICoreTextTextRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetText<Impl: ICoreTextTextRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetText<Impl: ICoreTextTextRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IsCanceled<Impl: ICoreTextTextRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCanceled<Impl: ICoreTextTextRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCanceled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1151,7 +1151,7 @@ impl ICoreTextTextRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: ICoreTextTextRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: ICoreTextTextRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1176,7 +1176,7 @@ impl ICoreTextTextRequestVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICoreTextTextRequestedEventArgsImpl: Sized {
+pub trait ICoreTextTextRequestedEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<CoreTextTextRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1184,9 +1184,9 @@ impl ::windows::core::RuntimeName for ICoreTextTextRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextTextRequestedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICoreTextTextRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextTextRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextTextRequestedEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: ICoreTextTextRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICoreTextTextRequestedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextTextRequestedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextTextRequestedEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: ICoreTextTextRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1204,7 +1204,7 @@ impl ICoreTextTextRequestedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Globalization", feature = "implement_exclusive"))]
-pub trait ICoreTextTextUpdatingEventArgsImpl: Sized {
+pub trait ICoreTextTextUpdatingEventArgs_Impl: Sized {
     fn Range(&mut self) -> ::windows::core::Result<CoreTextRange>;
     fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn NewSelection(&mut self) -> ::windows::core::Result<CoreTextRange>;
@@ -1219,9 +1219,9 @@ impl ::windows::core::RuntimeName for ICoreTextTextUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.ICoreTextTextUpdatingEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "Globalization", feature = "implement_exclusive"))]
-impl ICoreTextTextUpdatingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextTextUpdatingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextTextUpdatingEventArgsVtbl {
-        unsafe extern "system" fn Range<Impl: ICoreTextTextUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT {
+impl ICoreTextTextUpdatingEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreTextTextUpdatingEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreTextTextUpdatingEventArgs_Vtbl {
+        unsafe extern "system" fn Range<Impl: ICoreTextTextUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Range() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1232,7 +1232,7 @@ impl ICoreTextTextUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Text<Impl: ICoreTextTextUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Text<Impl: ICoreTextTextUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1243,7 +1243,7 @@ impl ICoreTextTextUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NewSelection<Impl: ICoreTextTextUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NewSelection<Impl: ICoreTextTextUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NewSelection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1254,7 +1254,7 @@ impl ICoreTextTextUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InputLanguage<Impl: ICoreTextTextUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InputLanguage<Impl: ICoreTextTextUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InputLanguage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1265,7 +1265,7 @@ impl ICoreTextTextUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Result<Impl: ICoreTextTextUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextTextUpdatingResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Result<Impl: ICoreTextTextUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreTextTextUpdatingResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Result() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1276,11 +1276,11 @@ impl ICoreTextTextUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetResult<Impl: ICoreTextTextUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CoreTextTextUpdatingResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetResult<Impl: ICoreTextTextUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CoreTextTextUpdatingResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetResult(value).into()
         }
-        unsafe extern "system" fn IsCanceled<Impl: ICoreTextTextUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCanceled<Impl: ICoreTextTextUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCanceled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1291,7 +1291,7 @@ impl ICoreTextTextUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: ICoreTextTextUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: ICoreTextTextUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {

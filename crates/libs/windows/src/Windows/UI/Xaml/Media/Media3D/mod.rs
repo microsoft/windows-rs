@@ -276,7 +276,7 @@ unsafe impl ::windows::core::RuntimeType for CompositeTransform3D {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Media3D.CompositeTransform3D;{8977cb01-af8d-4af5-b084-c08eb9704abe})");
 }
 unsafe impl ::windows::core::Interface for CompositeTransform3D {
-    type Vtable = ICompositeTransform3DVtbl;
+    type Vtable = ICompositeTransform3D_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8977cb01_af8d_4af5_b084_c08eb9704abe);
 }
 impl ::windows::core::RuntimeName for CompositeTransform3D {
@@ -368,12 +368,12 @@ unsafe impl ::core::marker::Sync for CompositeTransform3D {}
 #[repr(transparent)]
 pub struct ICompositeTransform3D(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositeTransform3D {
-    type Vtable = ICompositeTransform3DVtbl;
+    type Vtable = ICompositeTransform3D_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8977cb01_af8d_4af5_b084_c08eb9704abe);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICompositeTransform3DVtbl {
+pub struct ICompositeTransform3D_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetCenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
@@ -404,12 +404,12 @@ pub struct ICompositeTransform3DVtbl {
 #[repr(transparent)]
 pub struct ICompositeTransform3DStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositeTransform3DStatics {
-    type Vtable = ICompositeTransform3DStaticsVtbl;
+    type Vtable = ICompositeTransform3DStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddbf4d67_2a25_48f3_9808_c51ec3d55bec);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICompositeTransform3DStaticsVtbl {
+pub struct ICompositeTransform3DStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CenterXProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CenterYProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -428,24 +428,24 @@ pub struct ICompositeTransform3DStaticsVtbl {
 #[repr(transparent)]
 pub struct IMatrix3DHelper(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMatrix3DHelper {
-    type Vtable = IMatrix3DHelperVtbl;
+    type Vtable = IMatrix3DHelper_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe48c10ef_9927_4c9b_8213_07775512ba04);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMatrix3DHelperVtbl {
+pub struct IMatrix3DHelper_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMatrix3DHelperStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMatrix3DHelperStatics {
-    type Vtable = IMatrix3DHelperStaticsVtbl;
+    type Vtable = IMatrix3DHelperStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9264545e_e158_4e74_8899_689160bd2f8c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMatrix3DHelperStaticsVtbl {
+pub struct IMatrix3DHelperStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Identity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Matrix3D) -> ::windows::core::HRESULT,
     pub Multiply: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix1: Matrix3D, matrix2: Matrix3D, result__: *mut Matrix3D) -> ::windows::core::HRESULT,
@@ -458,12 +458,12 @@ pub struct IMatrix3DHelperStaticsVtbl {
 #[repr(transparent)]
 pub struct IPerspectiveTransform3D(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerspectiveTransform3D {
-    type Vtable = IPerspectiveTransform3DVtbl;
+    type Vtable = IPerspectiveTransform3D_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a7b532a_30f9_40a1_96c9_c59d87f95ac3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerspectiveTransform3DVtbl {
+pub struct IPerspectiveTransform3D_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Depth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
@@ -476,12 +476,12 @@ pub struct IPerspectiveTransform3DVtbl {
 #[repr(transparent)]
 pub struct IPerspectiveTransform3DStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerspectiveTransform3DStatics {
-    type Vtable = IPerspectiveTransform3DStaticsVtbl;
+    type Vtable = IPerspectiveTransform3DStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e6f6400_620c_48c7_844d_3f0984da5b17);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerspectiveTransform3DStaticsVtbl {
+pub struct IPerspectiveTransform3DStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DepthProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OffsetXProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -491,24 +491,24 @@ pub struct IPerspectiveTransform3DStaticsVtbl {
 #[repr(transparent)]
 pub struct ITransform3D(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITransform3D {
-    type Vtable = ITransform3DVtbl;
+    type Vtable = ITransform3D_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae3ed43a_a9fc_4c31_86cd_56d9ca251a69);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITransform3DVtbl {
+pub struct ITransform3D_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITransform3DFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITransform3DFactory {
-    type Vtable = ITransform3DFactoryVtbl;
+    type Vtable = ITransform3DFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x052c1f7a_8d73_48cd_bbb8_d00434caae5d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITransform3DFactoryVtbl {
+pub struct ITransform3DFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -635,7 +635,7 @@ unsafe impl ::windows::core::RuntimeType for Matrix3DHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Media3D.Matrix3DHelper;{e48c10ef-9927-4c9b-8213-07775512ba04})");
 }
 unsafe impl ::windows::core::Interface for Matrix3DHelper {
-    type Vtable = IMatrix3DHelperVtbl;
+    type Vtable = IMatrix3DHelper_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe48c10ef_9927_4c9b_8213_07775512ba04);
 }
 impl ::windows::core::RuntimeName for Matrix3DHelper {
@@ -780,7 +780,7 @@ unsafe impl ::windows::core::RuntimeType for PerspectiveTransform3D {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Media3D.PerspectiveTransform3D;{9a7b532a-30f9-40a1-96c9-c59d87f95ac3})");
 }
 unsafe impl ::windows::core::Interface for PerspectiveTransform3D {
-    type Vtable = IPerspectiveTransform3DVtbl;
+    type Vtable = IPerspectiveTransform3D_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a7b532a_30f9_40a1_96c9_c59d87f95ac3);
 }
 impl ::windows::core::RuntimeName for PerspectiveTransform3D {
@@ -892,7 +892,7 @@ unsafe impl ::windows::core::RuntimeType for Transform3D {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Media3D.Transform3D;{ae3ed43a-a9fc-4c31-86cd-56d9ca251a69})");
 }
 unsafe impl ::windows::core::Interface for Transform3D {
-    type Vtable = ITransform3DVtbl;
+    type Vtable = ITransform3D_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae3ed43a_a9fc_4c31_86cd_56d9ca251a69);
 }
 impl ::windows::core::RuntimeName for Transform3D {

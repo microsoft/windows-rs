@@ -239,12 +239,12 @@ impl ::core::fmt::Debug for IGameExplorer {
     }
 }
 unsafe impl ::windows::core::Interface for IGameExplorer {
-    type Vtable = IGameExplorerVtbl;
+    type Vtable = IGameExplorer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7b2fb72_d728_49b3_a5f2_18ebf5f1349e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameExplorerVtbl {
+pub struct IGameExplorer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddGame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgdfbinarypath: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, bstrgameinstalldirectory: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -315,12 +315,12 @@ impl ::core::fmt::Debug for IGameExplorer2 {
     }
 }
 unsafe impl ::windows::core::Interface for IGameExplorer2 {
-    type Vtable = IGameExplorer2Vtbl;
+    type Vtable = IGameExplorer2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86874aa7_a1ed_450d_a7eb_b89e20b2fff3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameExplorer2Vtbl {
+pub struct IGameExplorer2_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub InstallGame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binarygdfpath: super::Foundation::PWSTR, installdirectory: super::Foundation::PWSTR, installscope: GAME_INSTALL_SCOPE) -> ::windows::core::HRESULT,
@@ -437,12 +437,12 @@ impl ::core::fmt::Debug for IGameStatistics {
     }
 }
 unsafe impl ::windows::core::Interface for IGameStatistics {
-    type Vtable = IGameStatisticsVtbl;
+    type Vtable = IGameStatistics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3887c9ca_04a0_42ae_bc4c_5fa6c7721145);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameStatisticsVtbl {
+pub struct IGameStatistics_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetMaxCategoryLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cch: *mut u32) -> ::windows::core::HRESULT,
     pub GetMaxNameLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cch: *mut u32) -> ::windows::core::HRESULT,
@@ -524,12 +524,12 @@ impl ::core::fmt::Debug for IGameStatisticsMgr {
     }
 }
 unsafe impl ::windows::core::Interface for IGameStatisticsMgr {
-    type Vtable = IGameStatisticsMgrVtbl;
+    type Vtable = IGameStatisticsMgr_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaff3ea11_e70e_407d_95dd_35e612c41ce2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameStatisticsMgrVtbl {
+pub struct IGameStatisticsMgr_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetGameStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gdfbinarypath: super::Foundation::PWSTR, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -627,12 +627,12 @@ impl ::core::fmt::Debug for IXblIdpAuthManager {
     }
 }
 unsafe impl ::windows::core::Interface for IXblIdpAuthManager {
-    type Vtable = IXblIdpAuthManagerVtbl;
+    type Vtable = IXblIdpAuthManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb5ddb08_8bbf_449b_ac21_b02ddeb3b136);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXblIdpAuthManagerVtbl {
+pub struct IXblIdpAuthManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetGamerAccount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, msaaccountid: super::Foundation::PWSTR, xuid: super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -819,12 +819,12 @@ impl ::core::fmt::Debug for IXblIdpAuthTokenResult {
     }
 }
 unsafe impl ::windows::core::Interface for IXblIdpAuthTokenResult {
-    type Vtable = IXblIdpAuthTokenResultVtbl;
+    type Vtable = IXblIdpAuthTokenResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46ce0225_f267_4d68_b299_b2762552dec1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXblIdpAuthTokenResultVtbl {
+pub struct IXblIdpAuthTokenResult_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut XBL_IDP_AUTH_TOKEN_STATUS) -> ::windows::core::HRESULT,
     pub GetErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errorcode: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -961,12 +961,12 @@ impl ::core::fmt::Debug for IXblIdpAuthTokenResult2 {
     }
 }
 unsafe impl ::windows::core::Interface for IXblIdpAuthTokenResult2 {
-    type Vtable = IXblIdpAuthTokenResult2Vtbl;
+    type Vtable = IXblIdpAuthTokenResult2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75d760b0_60b9_412d_994f_26b2cd5f7812);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXblIdpAuthTokenResult2Vtbl {
+pub struct IXblIdpAuthTokenResult2_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetModernGamertag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,

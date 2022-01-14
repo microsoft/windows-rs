@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICivicAddressImpl: Sized {
+pub trait ICivicAddress_Impl: Sized {
     fn Country(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn State(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn City(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -11,9 +11,9 @@ impl ::windows::core::RuntimeName for ICivicAddress {
     const NAME: &'static str = "Windows.Devices.Geolocation.ICivicAddress";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICivicAddressVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICivicAddressImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICivicAddressVtbl {
-        unsafe extern "system" fn Country<Impl: ICivicAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ICivicAddress_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICivicAddress_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICivicAddress_Vtbl {
+        unsafe extern "system" fn Country<Impl: ICivicAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Country() {
                 ::core::result::Result::Ok(ok__) => {
@@ -24,7 +24,7 @@ impl ICivicAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn State<Impl: ICivicAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn State<Impl: ICivicAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -35,7 +35,7 @@ impl ICivicAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn City<Impl: ICivicAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn City<Impl: ICivicAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).City() {
                 ::core::result::Result::Ok(ok__) => {
@@ -46,7 +46,7 @@ impl ICivicAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PostalCode<Impl: ICivicAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PostalCode<Impl: ICivicAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PostalCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -57,7 +57,7 @@ impl ICivicAddressVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Timestamp<Impl: ICivicAddressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Timestamp<Impl: ICivicAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -82,7 +82,7 @@ impl ICivicAddressVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGeoboundingBoxImpl: Sized + IGeoshapeImpl {
+pub trait IGeoboundingBox_Impl: Sized + IGeoshape_Impl {
     fn NorthwestCorner(&mut self) -> ::windows::core::Result<BasicGeoposition>;
     fn SoutheastCorner(&mut self) -> ::windows::core::Result<BasicGeoposition>;
     fn Center(&mut self) -> ::windows::core::Result<BasicGeoposition>;
@@ -94,9 +94,9 @@ impl ::windows::core::RuntimeName for IGeoboundingBox {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeoboundingBox";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGeoboundingBoxVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeoboundingBoxImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeoboundingBoxVtbl {
-        unsafe extern "system" fn NorthwestCorner<Impl: IGeoboundingBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BasicGeoposition) -> ::windows::core::HRESULT {
+impl IGeoboundingBox_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeoboundingBox_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeoboundingBox_Vtbl {
+        unsafe extern "system" fn NorthwestCorner<Impl: IGeoboundingBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BasicGeoposition) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NorthwestCorner() {
                 ::core::result::Result::Ok(ok__) => {
@@ -107,7 +107,7 @@ impl IGeoboundingBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SoutheastCorner<Impl: IGeoboundingBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BasicGeoposition) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SoutheastCorner<Impl: IGeoboundingBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BasicGeoposition) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SoutheastCorner() {
                 ::core::result::Result::Ok(ok__) => {
@@ -118,7 +118,7 @@ impl IGeoboundingBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Center<Impl: IGeoboundingBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BasicGeoposition) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Center<Impl: IGeoboundingBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BasicGeoposition) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Center() {
                 ::core::result::Result::Ok(ok__) => {
@@ -129,7 +129,7 @@ impl IGeoboundingBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MinAltitude<Impl: IGeoboundingBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinAltitude<Impl: IGeoboundingBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinAltitude() {
                 ::core::result::Result::Ok(ok__) => {
@@ -140,7 +140,7 @@ impl IGeoboundingBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxAltitude<Impl: IGeoboundingBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxAltitude<Impl: IGeoboundingBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxAltitude() {
                 ::core::result::Result::Ok(ok__) => {
@@ -165,7 +165,7 @@ impl IGeoboundingBoxVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGeoboundingBoxFactoryImpl: Sized {
+pub trait IGeoboundingBoxFactory_Impl: Sized {
     fn Create(&mut self, northwestcorner: &BasicGeoposition, southeastcorner: &BasicGeoposition) -> ::windows::core::Result<GeoboundingBox>;
     fn CreateWithAltitudeReference(&mut self, northwestcorner: &BasicGeoposition, southeastcorner: &BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows::core::Result<GeoboundingBox>;
     fn CreateWithAltitudeReferenceAndSpatialReference(&mut self, northwestcorner: &BasicGeoposition, southeastcorner: &BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::core::Result<GeoboundingBox>;
@@ -175,9 +175,9 @@ impl ::windows::core::RuntimeName for IGeoboundingBoxFactory {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeoboundingBoxFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGeoboundingBoxFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeoboundingBoxFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeoboundingBoxFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IGeoboundingBoxFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, northwestcorner: BasicGeoposition, southeastcorner: BasicGeoposition, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGeoboundingBoxFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeoboundingBoxFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeoboundingBoxFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IGeoboundingBoxFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, northwestcorner: BasicGeoposition, southeastcorner: BasicGeoposition, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&northwestcorner as *const <BasicGeoposition as ::windows::core::Abi>::Abi as *const <BasicGeoposition as ::windows::core::DefaultType>::DefaultType), &*(&southeastcorner as *const <BasicGeoposition as ::windows::core::Abi>::Abi as *const <BasicGeoposition as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -188,7 +188,7 @@ impl IGeoboundingBoxFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithAltitudeReference<Impl: IGeoboundingBoxFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, northwestcorner: BasicGeoposition, southeastcorner: BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithAltitudeReference<Impl: IGeoboundingBoxFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, northwestcorner: BasicGeoposition, southeastcorner: BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithAltitudeReference(&*(&northwestcorner as *const <BasicGeoposition as ::windows::core::Abi>::Abi as *const <BasicGeoposition as ::windows::core::DefaultType>::DefaultType), &*(&southeastcorner as *const <BasicGeoposition as ::windows::core::Abi>::Abi as *const <BasicGeoposition as ::windows::core::DefaultType>::DefaultType), altitudereferencesystem) {
                 ::core::result::Result::Ok(ok__) => {
@@ -199,7 +199,7 @@ impl IGeoboundingBoxFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithAltitudeReferenceAndSpatialReference<Impl: IGeoboundingBoxFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, northwestcorner: BasicGeoposition, southeastcorner: BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithAltitudeReferenceAndSpatialReference<Impl: IGeoboundingBoxFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, northwestcorner: BasicGeoposition, southeastcorner: BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithAltitudeReferenceAndSpatialReference(&*(&northwestcorner as *const <BasicGeoposition as ::windows::core::Abi>::Abi as *const <BasicGeoposition as ::windows::core::DefaultType>::DefaultType), &*(&southeastcorner as *const <BasicGeoposition as ::windows::core::Abi>::Abi as *const <BasicGeoposition as ::windows::core::DefaultType>::DefaultType), altitudereferencesystem, spatialreferenceid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -222,7 +222,7 @@ impl IGeoboundingBoxFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IGeoboundingBoxStaticsImpl: Sized {
+pub trait IGeoboundingBoxStatics_Impl: Sized {
     fn TryCompute(&mut self, positions: &::core::option::Option<super::super::Foundation::Collections::IIterable<BasicGeoposition>>) -> ::windows::core::Result<GeoboundingBox>;
     fn TryComputeWithAltitudeReference(&mut self, positions: &::core::option::Option<super::super::Foundation::Collections::IIterable<BasicGeoposition>>, altituderefsystem: AltitudeReferenceSystem) -> ::windows::core::Result<GeoboundingBox>;
     fn TryComputeWithAltitudeReferenceAndSpatialReference(&mut self, positions: &::core::option::Option<super::super::Foundation::Collections::IIterable<BasicGeoposition>>, altituderefsystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::core::Result<GeoboundingBox>;
@@ -232,9 +232,9 @@ impl ::windows::core::RuntimeName for IGeoboundingBoxStatics {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeoboundingBoxStatics";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IGeoboundingBoxStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeoboundingBoxStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeoboundingBoxStaticsVtbl {
-        unsafe extern "system" fn TryCompute<Impl: IGeoboundingBoxStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, positions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGeoboundingBoxStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeoboundingBoxStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeoboundingBoxStatics_Vtbl {
+        unsafe extern "system" fn TryCompute<Impl: IGeoboundingBoxStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, positions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCompute(&*(&positions as *const <super::super::Foundation::Collections::IIterable<BasicGeoposition> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<BasicGeoposition> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -245,7 +245,7 @@ impl IGeoboundingBoxStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryComputeWithAltitudeReference<Impl: IGeoboundingBoxStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, positions: ::windows::core::RawPtr, altituderefsystem: AltitudeReferenceSystem, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryComputeWithAltitudeReference<Impl: IGeoboundingBoxStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, positions: ::windows::core::RawPtr, altituderefsystem: AltitudeReferenceSystem, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryComputeWithAltitudeReference(&*(&positions as *const <super::super::Foundation::Collections::IIterable<BasicGeoposition> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<BasicGeoposition> as ::windows::core::DefaultType>::DefaultType), altituderefsystem) {
                 ::core::result::Result::Ok(ok__) => {
@@ -256,7 +256,7 @@ impl IGeoboundingBoxStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryComputeWithAltitudeReferenceAndSpatialReference<Impl: IGeoboundingBoxStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, positions: ::windows::core::RawPtr, altituderefsystem: AltitudeReferenceSystem, spatialreferenceid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryComputeWithAltitudeReferenceAndSpatialReference<Impl: IGeoboundingBoxStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, positions: ::windows::core::RawPtr, altituderefsystem: AltitudeReferenceSystem, spatialreferenceid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryComputeWithAltitudeReferenceAndSpatialReference(&*(&positions as *const <super::super::Foundation::Collections::IIterable<BasicGeoposition> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<BasicGeoposition> as ::windows::core::DefaultType>::DefaultType), altituderefsystem, spatialreferenceid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -279,7 +279,7 @@ impl IGeoboundingBoxStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGeocircleImpl: Sized + IGeoshapeImpl {
+pub trait IGeocircle_Impl: Sized + IGeoshape_Impl {
     fn Center(&mut self) -> ::windows::core::Result<BasicGeoposition>;
     fn Radius(&mut self) -> ::windows::core::Result<f64>;
 }
@@ -288,9 +288,9 @@ impl ::windows::core::RuntimeName for IGeocircle {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeocircle";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGeocircleVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeocircleImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeocircleVtbl {
-        unsafe extern "system" fn Center<Impl: IGeocircleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BasicGeoposition) -> ::windows::core::HRESULT {
+impl IGeocircle_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeocircle_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeocircle_Vtbl {
+        unsafe extern "system" fn Center<Impl: IGeocircle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BasicGeoposition) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Center() {
                 ::core::result::Result::Ok(ok__) => {
@@ -301,7 +301,7 @@ impl IGeocircleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Radius<Impl: IGeocircleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Radius<Impl: IGeocircle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Radius() {
                 ::core::result::Result::Ok(ok__) => {
@@ -323,7 +323,7 @@ impl IGeocircleVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGeocircleFactoryImpl: Sized {
+pub trait IGeocircleFactory_Impl: Sized {
     fn Create(&mut self, position: &BasicGeoposition, radius: f64) -> ::windows::core::Result<Geocircle>;
     fn CreateWithAltitudeReferenceSystem(&mut self, position: &BasicGeoposition, radius: f64, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows::core::Result<Geocircle>;
     fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId(&mut self, position: &BasicGeoposition, radius: f64, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::core::Result<Geocircle>;
@@ -333,9 +333,9 @@ impl ::windows::core::RuntimeName for IGeocircleFactory {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeocircleFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGeocircleFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeocircleFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeocircleFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IGeocircleFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: BasicGeoposition, radius: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGeocircleFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeocircleFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeocircleFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IGeocircleFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: BasicGeoposition, radius: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&position as *const <BasicGeoposition as ::windows::core::Abi>::Abi as *const <BasicGeoposition as ::windows::core::DefaultType>::DefaultType), radius) {
                 ::core::result::Result::Ok(ok__) => {
@@ -346,7 +346,7 @@ impl IGeocircleFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithAltitudeReferenceSystem<Impl: IGeocircleFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: BasicGeoposition, radius: f64, altitudereferencesystem: AltitudeReferenceSystem, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithAltitudeReferenceSystem<Impl: IGeocircleFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: BasicGeoposition, radius: f64, altitudereferencesystem: AltitudeReferenceSystem, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithAltitudeReferenceSystem(&*(&position as *const <BasicGeoposition as ::windows::core::Abi>::Abi as *const <BasicGeoposition as ::windows::core::DefaultType>::DefaultType), radius, altitudereferencesystem) {
                 ::core::result::Result::Ok(ok__) => {
@@ -357,7 +357,7 @@ impl IGeocircleFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId<Impl: IGeocircleFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: BasicGeoposition, radius: f64, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId<Impl: IGeocircleFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: BasicGeoposition, radius: f64, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithAltitudeReferenceSystemAndSpatialReferenceId(&*(&position as *const <BasicGeoposition as ::windows::core::Abi>::Abi as *const <BasicGeoposition as ::windows::core::DefaultType>::DefaultType), radius, altitudereferencesystem, spatialreferenceid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -380,7 +380,7 @@ impl IGeocircleFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGeocoordinateImpl: Sized {
+pub trait IGeocoordinate_Impl: Sized {
     fn Latitude(&mut self) -> ::windows::core::Result<f64>;
     fn Longitude(&mut self) -> ::windows::core::Result<f64>;
     fn Altitude(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
@@ -395,9 +395,9 @@ impl ::windows::core::RuntimeName for IGeocoordinate {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeocoordinate";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGeocoordinateVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeocoordinateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeocoordinateVtbl {
-        unsafe extern "system" fn Latitude<Impl: IGeocoordinateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+impl IGeocoordinate_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeocoordinate_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeocoordinate_Vtbl {
+        unsafe extern "system" fn Latitude<Impl: IGeocoordinate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Latitude() {
                 ::core::result::Result::Ok(ok__) => {
@@ -408,7 +408,7 @@ impl IGeocoordinateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Longitude<Impl: IGeocoordinateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Longitude<Impl: IGeocoordinate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Longitude() {
                 ::core::result::Result::Ok(ok__) => {
@@ -419,7 +419,7 @@ impl IGeocoordinateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Altitude<Impl: IGeocoordinateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Altitude<Impl: IGeocoordinate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Altitude() {
                 ::core::result::Result::Ok(ok__) => {
@@ -430,7 +430,7 @@ impl IGeocoordinateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Accuracy<Impl: IGeocoordinateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Accuracy<Impl: IGeocoordinate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Accuracy() {
                 ::core::result::Result::Ok(ok__) => {
@@ -441,7 +441,7 @@ impl IGeocoordinateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AltitudeAccuracy<Impl: IGeocoordinateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AltitudeAccuracy<Impl: IGeocoordinate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AltitudeAccuracy() {
                 ::core::result::Result::Ok(ok__) => {
@@ -452,7 +452,7 @@ impl IGeocoordinateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Heading<Impl: IGeocoordinateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Heading<Impl: IGeocoordinate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Heading() {
                 ::core::result::Result::Ok(ok__) => {
@@ -463,7 +463,7 @@ impl IGeocoordinateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Speed<Impl: IGeocoordinateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Speed<Impl: IGeocoordinate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Speed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -474,7 +474,7 @@ impl IGeocoordinateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Timestamp<Impl: IGeocoordinateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Timestamp<Impl: IGeocoordinate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -502,7 +502,7 @@ impl IGeocoordinateVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGeocoordinateSatelliteDataImpl: Sized {
+pub trait IGeocoordinateSatelliteData_Impl: Sized {
     fn PositionDilutionOfPrecision(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
     fn HorizontalDilutionOfPrecision(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
     fn VerticalDilutionOfPrecision(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
@@ -512,9 +512,9 @@ impl ::windows::core::RuntimeName for IGeocoordinateSatelliteData {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeocoordinateSatelliteData";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGeocoordinateSatelliteDataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeocoordinateSatelliteDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeocoordinateSatelliteDataVtbl {
-        unsafe extern "system" fn PositionDilutionOfPrecision<Impl: IGeocoordinateSatelliteDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGeocoordinateSatelliteData_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeocoordinateSatelliteData_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeocoordinateSatelliteData_Vtbl {
+        unsafe extern "system" fn PositionDilutionOfPrecision<Impl: IGeocoordinateSatelliteData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionDilutionOfPrecision() {
                 ::core::result::Result::Ok(ok__) => {
@@ -525,7 +525,7 @@ impl IGeocoordinateSatelliteDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HorizontalDilutionOfPrecision<Impl: IGeocoordinateSatelliteDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HorizontalDilutionOfPrecision<Impl: IGeocoordinateSatelliteData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HorizontalDilutionOfPrecision() {
                 ::core::result::Result::Ok(ok__) => {
@@ -536,7 +536,7 @@ impl IGeocoordinateSatelliteDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VerticalDilutionOfPrecision<Impl: IGeocoordinateSatelliteDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VerticalDilutionOfPrecision<Impl: IGeocoordinateSatelliteData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VerticalDilutionOfPrecision() {
                 ::core::result::Result::Ok(ok__) => {
@@ -559,7 +559,7 @@ impl IGeocoordinateSatelliteDataVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGeocoordinateSatelliteData2Impl: Sized {
+pub trait IGeocoordinateSatelliteData2_Impl: Sized {
     fn GeometricDilutionOfPrecision(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
     fn TimeDilutionOfPrecision(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
 }
@@ -568,9 +568,9 @@ impl ::windows::core::RuntimeName for IGeocoordinateSatelliteData2 {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeocoordinateSatelliteData2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGeocoordinateSatelliteData2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeocoordinateSatelliteData2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeocoordinateSatelliteData2Vtbl {
-        unsafe extern "system" fn GeometricDilutionOfPrecision<Impl: IGeocoordinateSatelliteData2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGeocoordinateSatelliteData2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeocoordinateSatelliteData2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeocoordinateSatelliteData2_Vtbl {
+        unsafe extern "system" fn GeometricDilutionOfPrecision<Impl: IGeocoordinateSatelliteData2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GeometricDilutionOfPrecision() {
                 ::core::result::Result::Ok(ok__) => {
@@ -581,7 +581,7 @@ impl IGeocoordinateSatelliteData2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TimeDilutionOfPrecision<Impl: IGeocoordinateSatelliteData2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TimeDilutionOfPrecision<Impl: IGeocoordinateSatelliteData2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimeDilutionOfPrecision() {
                 ::core::result::Result::Ok(ok__) => {
@@ -603,7 +603,7 @@ impl IGeocoordinateSatelliteData2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGeocoordinateWithPointImpl: Sized {
+pub trait IGeocoordinateWithPoint_Impl: Sized {
     fn Point(&mut self) -> ::windows::core::Result<Geopoint>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -611,9 +611,9 @@ impl ::windows::core::RuntimeName for IGeocoordinateWithPoint {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeocoordinateWithPoint";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGeocoordinateWithPointVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeocoordinateWithPointImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeocoordinateWithPointVtbl {
-        unsafe extern "system" fn Point<Impl: IGeocoordinateWithPointImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGeocoordinateWithPoint_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeocoordinateWithPoint_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeocoordinateWithPoint_Vtbl {
+        unsafe extern "system" fn Point<Impl: IGeocoordinateWithPoint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Point() {
                 ::core::result::Result::Ok(ok__) => {
@@ -631,7 +631,7 @@ impl IGeocoordinateWithPointVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGeocoordinateWithPositionDataImpl: Sized + IGeocoordinateImpl {
+pub trait IGeocoordinateWithPositionData_Impl: Sized + IGeocoordinate_Impl {
     fn PositionSource(&mut self) -> ::windows::core::Result<PositionSource>;
     fn SatelliteData(&mut self) -> ::windows::core::Result<GeocoordinateSatelliteData>;
 }
@@ -640,9 +640,9 @@ impl ::windows::core::RuntimeName for IGeocoordinateWithPositionData {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeocoordinateWithPositionData";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGeocoordinateWithPositionDataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeocoordinateWithPositionDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeocoordinateWithPositionDataVtbl {
-        unsafe extern "system" fn PositionSource<Impl: IGeocoordinateWithPositionDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PositionSource) -> ::windows::core::HRESULT {
+impl IGeocoordinateWithPositionData_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeocoordinateWithPositionData_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeocoordinateWithPositionData_Vtbl {
+        unsafe extern "system" fn PositionSource<Impl: IGeocoordinateWithPositionData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PositionSource) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionSource() {
                 ::core::result::Result::Ok(ok__) => {
@@ -653,7 +653,7 @@ impl IGeocoordinateWithPositionDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SatelliteData<Impl: IGeocoordinateWithPositionDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SatelliteData<Impl: IGeocoordinateWithPositionData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SatelliteData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -675,7 +675,7 @@ impl IGeocoordinateWithPositionDataVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGeocoordinateWithPositionSourceTimestampImpl: Sized {
+pub trait IGeocoordinateWithPositionSourceTimestamp_Impl: Sized {
     fn PositionSourceTimestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -683,9 +683,9 @@ impl ::windows::core::RuntimeName for IGeocoordinateWithPositionSourceTimestamp 
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeocoordinateWithPositionSourceTimestamp";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGeocoordinateWithPositionSourceTimestampVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeocoordinateWithPositionSourceTimestampImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeocoordinateWithPositionSourceTimestampVtbl {
-        unsafe extern "system" fn PositionSourceTimestamp<Impl: IGeocoordinateWithPositionSourceTimestampImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGeocoordinateWithPositionSourceTimestamp_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeocoordinateWithPositionSourceTimestamp_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeocoordinateWithPositionSourceTimestamp_Vtbl {
+        unsafe extern "system" fn PositionSourceTimestamp<Impl: IGeocoordinateWithPositionSourceTimestamp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionSourceTimestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -706,7 +706,7 @@ impl IGeocoordinateWithPositionSourceTimestampVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGeocoordinateWithRemoteSourceImpl: Sized {
+pub trait IGeocoordinateWithRemoteSource_Impl: Sized {
     fn IsRemoteSource(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -714,9 +714,9 @@ impl ::windows::core::RuntimeName for IGeocoordinateWithRemoteSource {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeocoordinateWithRemoteSource";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGeocoordinateWithRemoteSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeocoordinateWithRemoteSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeocoordinateWithRemoteSourceVtbl {
-        unsafe extern "system" fn IsRemoteSource<Impl: IGeocoordinateWithRemoteSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IGeocoordinateWithRemoteSource_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeocoordinateWithRemoteSource_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeocoordinateWithRemoteSource_Vtbl {
+        unsafe extern "system" fn IsRemoteSource<Impl: IGeocoordinateWithRemoteSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsRemoteSource() {
                 ::core::result::Result::Ok(ok__) => {
@@ -737,7 +737,7 @@ impl IGeocoordinateWithRemoteSourceVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGeolocatorImpl: Sized {
+pub trait IGeolocator_Impl: Sized {
     fn DesiredAccuracy(&mut self) -> ::windows::core::Result<PositionAccuracy>;
     fn SetDesiredAccuracy(&mut self, value: PositionAccuracy) -> ::windows::core::Result<()>;
     fn MovementThreshold(&mut self) -> ::windows::core::Result<f64>;
@@ -757,9 +757,9 @@ impl ::windows::core::RuntimeName for IGeolocator {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeolocator";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGeolocatorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeolocatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeolocatorVtbl {
-        unsafe extern "system" fn DesiredAccuracy<Impl: IGeolocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PositionAccuracy) -> ::windows::core::HRESULT {
+impl IGeolocator_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeolocator_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeolocator_Vtbl {
+        unsafe extern "system" fn DesiredAccuracy<Impl: IGeolocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PositionAccuracy) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesiredAccuracy() {
                 ::core::result::Result::Ok(ok__) => {
@@ -770,11 +770,11 @@ impl IGeolocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDesiredAccuracy<Impl: IGeolocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PositionAccuracy) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDesiredAccuracy<Impl: IGeolocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PositionAccuracy) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDesiredAccuracy(value).into()
         }
-        unsafe extern "system" fn MovementThreshold<Impl: IGeolocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MovementThreshold<Impl: IGeolocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MovementThreshold() {
                 ::core::result::Result::Ok(ok__) => {
@@ -785,11 +785,11 @@ impl IGeolocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMovementThreshold<Impl: IGeolocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMovementThreshold<Impl: IGeolocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMovementThreshold(value).into()
         }
-        unsafe extern "system" fn ReportInterval<Impl: IGeolocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportInterval<Impl: IGeolocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportInterval() {
                 ::core::result::Result::Ok(ok__) => {
@@ -800,11 +800,11 @@ impl IGeolocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetReportInterval<Impl: IGeolocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetReportInterval<Impl: IGeolocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetReportInterval(value).into()
         }
-        unsafe extern "system" fn LocationStatus<Impl: IGeolocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PositionStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LocationStatus<Impl: IGeolocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PositionStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocationStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -815,7 +815,7 @@ impl IGeolocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetGeopositionAsync<Impl: IGeolocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGeopositionAsync<Impl: IGeolocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetGeopositionAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -826,7 +826,7 @@ impl IGeolocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetGeopositionAsyncWithAgeAndTimeout<Impl: IGeolocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maximumage: super::super::Foundation::TimeSpan, timeout: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGeopositionAsyncWithAgeAndTimeout<Impl: IGeolocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maximumage: super::super::Foundation::TimeSpan, timeout: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetGeopositionAsyncWithAgeAndTimeout(&*(&maximumage as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType), &*(&timeout as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -837,7 +837,7 @@ impl IGeolocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PositionChanged<Impl: IGeolocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PositionChanged<Impl: IGeolocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<Geolocator, PositionChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<Geolocator, PositionChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -848,11 +848,11 @@ impl IGeolocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePositionChanged<Impl: IGeolocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePositionChanged<Impl: IGeolocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePositionChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StatusChanged<Impl: IGeolocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StatusChanged<Impl: IGeolocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StatusChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<Geolocator, StatusChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<Geolocator, StatusChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -863,7 +863,7 @@ impl IGeolocatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStatusChanged<Impl: IGeolocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStatusChanged<Impl: IGeolocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStatusChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -889,7 +889,7 @@ impl IGeolocatorVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGeolocator2Impl: Sized {
+pub trait IGeolocator2_Impl: Sized {
     fn AllowFallbackToConsentlessPositions(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -897,9 +897,9 @@ impl ::windows::core::RuntimeName for IGeolocator2 {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeolocator2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGeolocator2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeolocator2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeolocator2Vtbl {
-        unsafe extern "system" fn AllowFallbackToConsentlessPositions<Impl: IGeolocator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IGeolocator2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeolocator2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeolocator2_Vtbl {
+        unsafe extern "system" fn AllowFallbackToConsentlessPositions<Impl: IGeolocator2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AllowFallbackToConsentlessPositions().into()
         }
@@ -913,7 +913,7 @@ impl IGeolocator2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGeolocatorStaticsImpl: Sized {
+pub trait IGeolocatorStatics_Impl: Sized {
     fn RequestAccessAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GeolocationAccessStatus>>;
     fn GetGeopositionHistoryAsync(&mut self, starttime: &super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>>;
     fn GetGeopositionHistoryWithDurationAsync(&mut self, starttime: &super::super::Foundation::DateTime, duration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>>;
@@ -923,9 +923,9 @@ impl ::windows::core::RuntimeName for IGeolocatorStatics {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeolocatorStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGeolocatorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeolocatorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeolocatorStaticsVtbl {
-        unsafe extern "system" fn RequestAccessAsync<Impl: IGeolocatorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGeolocatorStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeolocatorStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeolocatorStatics_Vtbl {
+        unsafe extern "system" fn RequestAccessAsync<Impl: IGeolocatorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAccessAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -936,7 +936,7 @@ impl IGeolocatorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetGeopositionHistoryAsync<Impl: IGeolocatorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGeopositionHistoryAsync<Impl: IGeolocatorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetGeopositionHistoryAsync(&*(&starttime as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -947,7 +947,7 @@ impl IGeolocatorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetGeopositionHistoryWithDurationAsync<Impl: IGeolocatorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGeopositionHistoryWithDurationAsync<Impl: IGeolocatorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetGeopositionHistoryWithDurationAsync(&*(&starttime as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType), &*(&duration as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -970,7 +970,7 @@ impl IGeolocatorStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGeolocatorStatics2Impl: Sized {
+pub trait IGeolocatorStatics2_Impl: Sized {
     fn IsDefaultGeopositionRecommended(&mut self) -> ::windows::core::Result<bool>;
     fn SetDefaultGeoposition(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<BasicGeoposition>>) -> ::windows::core::Result<()>;
     fn DefaultGeoposition(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<BasicGeoposition>>;
@@ -980,9 +980,9 @@ impl ::windows::core::RuntimeName for IGeolocatorStatics2 {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeolocatorStatics2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGeolocatorStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeolocatorStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeolocatorStatics2Vtbl {
-        unsafe extern "system" fn IsDefaultGeopositionRecommended<Impl: IGeolocatorStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IGeolocatorStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeolocatorStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeolocatorStatics2_Vtbl {
+        unsafe extern "system" fn IsDefaultGeopositionRecommended<Impl: IGeolocatorStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDefaultGeopositionRecommended() {
                 ::core::result::Result::Ok(ok__) => {
@@ -993,11 +993,11 @@ impl IGeolocatorStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDefaultGeoposition<Impl: IGeolocatorStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDefaultGeoposition<Impl: IGeolocatorStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDefaultGeoposition(&*(&value as *const <super::super::Foundation::IReference<BasicGeoposition> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<BasicGeoposition> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DefaultGeoposition<Impl: IGeolocatorStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultGeoposition<Impl: IGeolocatorStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultGeoposition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1020,7 +1020,7 @@ impl IGeolocatorStatics2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGeolocatorWithScalarAccuracyImpl: Sized + IGeolocatorImpl {
+pub trait IGeolocatorWithScalarAccuracy_Impl: Sized + IGeolocator_Impl {
     fn DesiredAccuracyInMeters(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
     fn SetDesiredAccuracyInMeters(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
 }
@@ -1029,9 +1029,9 @@ impl ::windows::core::RuntimeName for IGeolocatorWithScalarAccuracy {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeolocatorWithScalarAccuracy";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGeolocatorWithScalarAccuracyVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeolocatorWithScalarAccuracyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeolocatorWithScalarAccuracyVtbl {
-        unsafe extern "system" fn DesiredAccuracyInMeters<Impl: IGeolocatorWithScalarAccuracyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGeolocatorWithScalarAccuracy_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeolocatorWithScalarAccuracy_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeolocatorWithScalarAccuracy_Vtbl {
+        unsafe extern "system" fn DesiredAccuracyInMeters<Impl: IGeolocatorWithScalarAccuracy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesiredAccuracyInMeters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1042,7 +1042,7 @@ impl IGeolocatorWithScalarAccuracyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDesiredAccuracyInMeters<Impl: IGeolocatorWithScalarAccuracyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDesiredAccuracyInMeters<Impl: IGeolocatorWithScalarAccuracy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDesiredAccuracyInMeters(&*(&value as *const <super::super::Foundation::IReference<u32> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<u32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1057,7 +1057,7 @@ impl IGeolocatorWithScalarAccuracyVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IGeopathImpl: Sized + IGeoshapeImpl {
+pub trait IGeopath_Impl: Sized + IGeoshape_Impl {
     fn Positions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<BasicGeoposition>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -1065,9 +1065,9 @@ impl ::windows::core::RuntimeName for IGeopath {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeopath";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IGeopathVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeopathImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeopathVtbl {
-        unsafe extern "system" fn Positions<Impl: IGeopathImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGeopath_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeopath_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeopath_Vtbl {
+        unsafe extern "system" fn Positions<Impl: IGeopath_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Positions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1085,7 +1085,7 @@ impl IGeopathVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IGeopathFactoryImpl: Sized {
+pub trait IGeopathFactory_Impl: Sized {
     fn Create(&mut self, positions: &::core::option::Option<super::super::Foundation::Collections::IIterable<BasicGeoposition>>) -> ::windows::core::Result<Geopath>;
     fn CreateWithAltitudeReference(&mut self, positions: &::core::option::Option<super::super::Foundation::Collections::IIterable<BasicGeoposition>>, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows::core::Result<Geopath>;
     fn CreateWithAltitudeReferenceAndSpatialReference(&mut self, positions: &::core::option::Option<super::super::Foundation::Collections::IIterable<BasicGeoposition>>, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::core::Result<Geopath>;
@@ -1095,9 +1095,9 @@ impl ::windows::core::RuntimeName for IGeopathFactory {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeopathFactory";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IGeopathFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeopathFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeopathFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IGeopathFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, positions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGeopathFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeopathFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeopathFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IGeopathFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, positions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&positions as *const <super::super::Foundation::Collections::IIterable<BasicGeoposition> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<BasicGeoposition> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1108,7 +1108,7 @@ impl IGeopathFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithAltitudeReference<Impl: IGeopathFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, positions: ::windows::core::RawPtr, altitudereferencesystem: AltitudeReferenceSystem, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithAltitudeReference<Impl: IGeopathFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, positions: ::windows::core::RawPtr, altitudereferencesystem: AltitudeReferenceSystem, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithAltitudeReference(&*(&positions as *const <super::super::Foundation::Collections::IIterable<BasicGeoposition> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<BasicGeoposition> as ::windows::core::DefaultType>::DefaultType), altitudereferencesystem) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1119,7 +1119,7 @@ impl IGeopathFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithAltitudeReferenceAndSpatialReference<Impl: IGeopathFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, positions: ::windows::core::RawPtr, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithAltitudeReferenceAndSpatialReference<Impl: IGeopathFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, positions: ::windows::core::RawPtr, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithAltitudeReferenceAndSpatialReference(&*(&positions as *const <super::super::Foundation::Collections::IIterable<BasicGeoposition> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<BasicGeoposition> as ::windows::core::DefaultType>::DefaultType), altitudereferencesystem, spatialreferenceid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1142,7 +1142,7 @@ impl IGeopathFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGeopointImpl: Sized + IGeoshapeImpl {
+pub trait IGeopoint_Impl: Sized + IGeoshape_Impl {
     fn Position(&mut self) -> ::windows::core::Result<BasicGeoposition>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1150,9 +1150,9 @@ impl ::windows::core::RuntimeName for IGeopoint {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeopoint";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGeopointVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeopointImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeopointVtbl {
-        unsafe extern "system" fn Position<Impl: IGeopointImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BasicGeoposition) -> ::windows::core::HRESULT {
+impl IGeopoint_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeopoint_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeopoint_Vtbl {
+        unsafe extern "system" fn Position<Impl: IGeopoint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BasicGeoposition) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1170,7 +1170,7 @@ impl IGeopointVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGeopointFactoryImpl: Sized {
+pub trait IGeopointFactory_Impl: Sized {
     fn Create(&mut self, position: &BasicGeoposition) -> ::windows::core::Result<Geopoint>;
     fn CreateWithAltitudeReferenceSystem(&mut self, position: &BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows::core::Result<Geopoint>;
     fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId(&mut self, position: &BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::core::Result<Geopoint>;
@@ -1180,9 +1180,9 @@ impl ::windows::core::RuntimeName for IGeopointFactory {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeopointFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGeopointFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeopointFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeopointFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IGeopointFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: BasicGeoposition, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGeopointFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeopointFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeopointFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IGeopointFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: BasicGeoposition, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&position as *const <BasicGeoposition as ::windows::core::Abi>::Abi as *const <BasicGeoposition as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1193,7 +1193,7 @@ impl IGeopointFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithAltitudeReferenceSystem<Impl: IGeopointFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithAltitudeReferenceSystem<Impl: IGeopointFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithAltitudeReferenceSystem(&*(&position as *const <BasicGeoposition as ::windows::core::Abi>::Abi as *const <BasicGeoposition as ::windows::core::DefaultType>::DefaultType), altitudereferencesystem) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1204,7 +1204,7 @@ impl IGeopointFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId<Impl: IGeopointFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId<Impl: IGeopointFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithAltitudeReferenceSystemAndSpatialReferenceId(&*(&position as *const <BasicGeoposition as ::windows::core::Abi>::Abi as *const <BasicGeoposition as ::windows::core::DefaultType>::DefaultType), altitudereferencesystem, spatialreferenceid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1227,7 +1227,7 @@ impl IGeopointFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGeopositionImpl: Sized {
+pub trait IGeoposition_Impl: Sized {
     fn Coordinate(&mut self) -> ::windows::core::Result<Geocoordinate>;
     fn CivicAddress(&mut self) -> ::windows::core::Result<CivicAddress>;
 }
@@ -1236,9 +1236,9 @@ impl ::windows::core::RuntimeName for IGeoposition {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeoposition";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGeopositionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeopositionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeopositionVtbl {
-        unsafe extern "system" fn Coordinate<Impl: IGeopositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGeoposition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeoposition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeoposition_Vtbl {
+        unsafe extern "system" fn Coordinate<Impl: IGeoposition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Coordinate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1249,7 +1249,7 @@ impl IGeopositionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CivicAddress<Impl: IGeopositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CivicAddress<Impl: IGeoposition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CivicAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1271,7 +1271,7 @@ impl IGeopositionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGeoposition2Impl: Sized + IGeopositionImpl {
+pub trait IGeoposition2_Impl: Sized + IGeoposition_Impl {
     fn VenueData(&mut self) -> ::windows::core::Result<VenueData>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1279,9 +1279,9 @@ impl ::windows::core::RuntimeName for IGeoposition2 {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeoposition2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGeoposition2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeoposition2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeoposition2Vtbl {
-        unsafe extern "system" fn VenueData<Impl: IGeoposition2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGeoposition2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeoposition2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeoposition2_Vtbl {
+        unsafe extern "system" fn VenueData<Impl: IGeoposition2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VenueData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1298,7 +1298,7 @@ impl IGeoposition2Vtbl {
         iid == &<IGeoposition2 as ::windows::core::Interface>::IID
     }
 }
-pub trait IGeoshapeImpl: Sized {
+pub trait IGeoshape_Impl: Sized {
     fn GeoshapeType(&mut self) -> ::windows::core::Result<GeoshapeType>;
     fn SpatialReferenceId(&mut self) -> ::windows::core::Result<u32>;
     fn AltitudeReferenceSystem(&mut self) -> ::windows::core::Result<AltitudeReferenceSystem>;
@@ -1306,9 +1306,9 @@ pub trait IGeoshapeImpl: Sized {
 impl ::windows::core::RuntimeName for IGeoshape {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeoshape";
 }
-impl IGeoshapeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeoshapeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeoshapeVtbl {
-        unsafe extern "system" fn GeoshapeType<Impl: IGeoshapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GeoshapeType) -> ::windows::core::HRESULT {
+impl IGeoshape_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeoshape_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeoshape_Vtbl {
+        unsafe extern "system" fn GeoshapeType<Impl: IGeoshape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GeoshapeType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GeoshapeType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1319,7 +1319,7 @@ impl IGeoshapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SpatialReferenceId<Impl: IGeoshapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SpatialReferenceId<Impl: IGeoshape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SpatialReferenceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1330,7 +1330,7 @@ impl IGeoshapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AltitudeReferenceSystem<Impl: IGeoshapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AltitudeReferenceSystem) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AltitudeReferenceSystem<Impl: IGeoshape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AltitudeReferenceSystem) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AltitudeReferenceSystem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1353,7 +1353,7 @@ impl IGeoshapeVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGeovisitImpl: Sized {
+pub trait IGeovisit_Impl: Sized {
     fn Position(&mut self) -> ::windows::core::Result<Geoposition>;
     fn StateChange(&mut self) -> ::windows::core::Result<VisitStateChange>;
     fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
@@ -1363,9 +1363,9 @@ impl ::windows::core::RuntimeName for IGeovisit {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeovisit";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGeovisitVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeovisitImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeovisitVtbl {
-        unsafe extern "system" fn Position<Impl: IGeovisitImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGeovisit_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeovisit_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeovisit_Vtbl {
+        unsafe extern "system" fn Position<Impl: IGeovisit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1376,7 +1376,7 @@ impl IGeovisitVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StateChange<Impl: IGeovisitImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VisitStateChange) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StateChange<Impl: IGeovisit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VisitStateChange) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StateChange() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1387,7 +1387,7 @@ impl IGeovisitVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Timestamp<Impl: IGeovisitImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Timestamp<Impl: IGeovisit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1410,7 +1410,7 @@ impl IGeovisitVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGeovisitMonitorImpl: Sized {
+pub trait IGeovisitMonitor_Impl: Sized {
     fn MonitoringScope(&mut self) -> ::windows::core::Result<VisitMonitoringScope>;
     fn Start(&mut self, value: VisitMonitoringScope) -> ::windows::core::Result<()>;
     fn Stop(&mut self) -> ::windows::core::Result<()>;
@@ -1422,9 +1422,9 @@ impl ::windows::core::RuntimeName for IGeovisitMonitor {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeovisitMonitor";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGeovisitMonitorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeovisitMonitorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeovisitMonitorVtbl {
-        unsafe extern "system" fn MonitoringScope<Impl: IGeovisitMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VisitMonitoringScope) -> ::windows::core::HRESULT {
+impl IGeovisitMonitor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeovisitMonitor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeovisitMonitor_Vtbl {
+        unsafe extern "system" fn MonitoringScope<Impl: IGeovisitMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VisitMonitoringScope) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MonitoringScope() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1435,15 +1435,15 @@ impl IGeovisitMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Start<Impl: IGeovisitMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VisitMonitoringScope) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Start<Impl: IGeovisitMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VisitMonitoringScope) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start(value).into()
         }
-        unsafe extern "system" fn Stop<Impl: IGeovisitMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stop<Impl: IGeovisitMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        unsafe extern "system" fn VisitStateChanged<Impl: IGeovisitMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VisitStateChanged<Impl: IGeovisitMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VisitStateChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<GeovisitMonitor, GeovisitStateChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<GeovisitMonitor, GeovisitStateChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1454,7 +1454,7 @@ impl IGeovisitMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveVisitStateChanged<Impl: IGeovisitMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveVisitStateChanged<Impl: IGeovisitMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveVisitStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1472,7 +1472,7 @@ impl IGeovisitMonitorVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGeovisitMonitorStaticsImpl: Sized {
+pub trait IGeovisitMonitorStatics_Impl: Sized {
     fn GetLastReportAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Geovisit>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -1480,9 +1480,9 @@ impl ::windows::core::RuntimeName for IGeovisitMonitorStatics {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeovisitMonitorStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGeovisitMonitorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeovisitMonitorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeovisitMonitorStaticsVtbl {
-        unsafe extern "system" fn GetLastReportAsync<Impl: IGeovisitMonitorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGeovisitMonitorStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeovisitMonitorStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeovisitMonitorStatics_Vtbl {
+        unsafe extern "system" fn GetLastReportAsync<Impl: IGeovisitMonitorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetLastReportAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1503,7 +1503,7 @@ impl IGeovisitMonitorStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGeovisitStateChangedEventArgsImpl: Sized {
+pub trait IGeovisitStateChangedEventArgs_Impl: Sized {
     fn Visit(&mut self) -> ::windows::core::Result<Geovisit>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1511,9 +1511,9 @@ impl ::windows::core::RuntimeName for IGeovisitStateChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeovisitStateChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGeovisitStateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeovisitStateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeovisitStateChangedEventArgsVtbl {
-        unsafe extern "system" fn Visit<Impl: IGeovisitStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGeovisitStateChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeovisitStateChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeovisitStateChangedEventArgs_Vtbl {
+        unsafe extern "system" fn Visit<Impl: IGeovisitStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Visit() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1531,7 +1531,7 @@ impl IGeovisitStateChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IGeovisitTriggerDetailsImpl: Sized {
+pub trait IGeovisitTriggerDetails_Impl: Sized {
     fn ReadReports(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<Geovisit>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -1539,9 +1539,9 @@ impl ::windows::core::RuntimeName for IGeovisitTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeovisitTriggerDetails";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IGeovisitTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeovisitTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeovisitTriggerDetailsVtbl {
-        unsafe extern "system" fn ReadReports<Impl: IGeovisitTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGeovisitTriggerDetails_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeovisitTriggerDetails_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGeovisitTriggerDetails_Vtbl {
+        unsafe extern "system" fn ReadReports<Impl: IGeovisitTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadReports() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1559,7 +1559,7 @@ impl IGeovisitTriggerDetailsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPositionChangedEventArgsImpl: Sized {
+pub trait IPositionChangedEventArgs_Impl: Sized {
     fn Position(&mut self) -> ::windows::core::Result<Geoposition>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1567,9 +1567,9 @@ impl ::windows::core::RuntimeName for IPositionChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.IPositionChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPositionChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPositionChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPositionChangedEventArgsVtbl {
-        unsafe extern "system" fn Position<Impl: IPositionChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPositionChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPositionChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPositionChangedEventArgs_Vtbl {
+        unsafe extern "system" fn Position<Impl: IPositionChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1587,7 +1587,7 @@ impl IPositionChangedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IStatusChangedEventArgsImpl: Sized {
+pub trait IStatusChangedEventArgs_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<PositionStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1595,9 +1595,9 @@ impl ::windows::core::RuntimeName for IStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.IStatusChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IStatusChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStatusChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStatusChangedEventArgsVtbl {
-        unsafe extern "system" fn Status<Impl: IStatusChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PositionStatus) -> ::windows::core::HRESULT {
+impl IStatusChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStatusChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStatusChangedEventArgs_Vtbl {
+        unsafe extern "system" fn Status<Impl: IStatusChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PositionStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1615,7 +1615,7 @@ impl IStatusChangedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVenueDataImpl: Sized {
+pub trait IVenueData_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Level(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -1624,9 +1624,9 @@ impl ::windows::core::RuntimeName for IVenueData {
     const NAME: &'static str = "Windows.Devices.Geolocation.IVenueData";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVenueDataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVenueDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVenueDataVtbl {
-        unsafe extern "system" fn Id<Impl: IVenueDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IVenueData_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVenueData_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVenueData_Vtbl {
+        unsafe extern "system" fn Id<Impl: IVenueData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1637,7 +1637,7 @@ impl IVenueDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Level<Impl: IVenueDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Level<Impl: IVenueData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Level() {
                 ::core::result::Result::Ok(ok__) => {

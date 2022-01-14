@@ -1,9 +1,9 @@
-pub trait IPrintDocumentSourceImpl: Sized {}
+pub trait IPrintDocumentSource_Impl: Sized {}
 impl ::windows::core::RuntimeName for IPrintDocumentSource {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintDocumentSource";
 }
-impl IPrintDocumentSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintDocumentSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintDocumentSourceVtbl {
+impl IPrintDocumentSource_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintDocumentSource_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintDocumentSource_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPrintDocumentSource, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -11,7 +11,7 @@ impl IPrintDocumentSourceVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPrintManagerImpl: Sized {
+pub trait IPrintManager_Impl: Sized {
     fn PrintTaskRequested(&mut self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PrintManager, PrintTaskRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemovePrintTaskRequested(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
@@ -20,9 +20,9 @@ impl ::windows::core::RuntimeName for IPrintManager {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintManager";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPrintManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintManagerVtbl {
-        unsafe extern "system" fn PrintTaskRequested<Impl: IPrintManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IPrintManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintManager_Vtbl {
+        unsafe extern "system" fn PrintTaskRequested<Impl: IPrintManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrintTaskRequested(&*(&eventhandler as *const <super::super::Foundation::TypedEventHandler<PrintManager, PrintTaskRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PrintManager, PrintTaskRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -33,7 +33,7 @@ impl IPrintManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePrintTaskRequested<Impl: IPrintManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePrintTaskRequested<Impl: IPrintManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePrintTaskRequested(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -48,7 +48,7 @@ impl IPrintManagerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPrintManagerStaticImpl: Sized {
+pub trait IPrintManagerStatic_Impl: Sized {
     fn GetForCurrentView(&mut self) -> ::windows::core::Result<PrintManager>;
     fn ShowPrintUIAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
@@ -57,9 +57,9 @@ impl ::windows::core::RuntimeName for IPrintManagerStatic {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintManagerStatic";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPrintManagerStaticVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintManagerStaticImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintManagerStaticVtbl {
-        unsafe extern "system" fn GetForCurrentView<Impl: IPrintManagerStaticImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPrintManagerStatic_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintManagerStatic_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintManagerStatic_Vtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: IPrintManagerStatic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -70,7 +70,7 @@ impl IPrintManagerStaticVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShowPrintUIAsync<Impl: IPrintManagerStaticImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowPrintUIAsync<Impl: IPrintManagerStatic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowPrintUIAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -92,7 +92,7 @@ impl IPrintManagerStaticVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPrintManagerStatic2Impl: Sized {
+pub trait IPrintManagerStatic2_Impl: Sized {
     fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -100,9 +100,9 @@ impl ::windows::core::RuntimeName for IPrintManagerStatic2 {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintManagerStatic2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPrintManagerStatic2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintManagerStatic2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintManagerStatic2Vtbl {
-        unsafe extern "system" fn IsSupported<Impl: IPrintManagerStatic2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IPrintManagerStatic2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintManagerStatic2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintManagerStatic2_Vtbl {
+        unsafe extern "system" fn IsSupported<Impl: IPrintManagerStatic2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -120,7 +120,7 @@ impl IPrintManagerStatic2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPrintPageInfoImpl: Sized {
+pub trait IPrintPageInfo_Impl: Sized {
     fn SetMediaSize(&mut self, value: PrintMediaSize) -> ::windows::core::Result<()>;
     fn MediaSize(&mut self) -> ::windows::core::Result<PrintMediaSize>;
     fn SetPageSize(&mut self, value: &super::super::Foundation::Size) -> ::windows::core::Result<()>;
@@ -137,13 +137,13 @@ impl ::windows::core::RuntimeName for IPrintPageInfo {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintPageInfo";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPrintPageInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintPageInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintPageInfoVtbl {
-        unsafe extern "system" fn SetMediaSize<Impl: IPrintPageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintMediaSize) -> ::windows::core::HRESULT {
+impl IPrintPageInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintPageInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintPageInfo_Vtbl {
+        unsafe extern "system" fn SetMediaSize<Impl: IPrintPageInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintMediaSize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMediaSize(value).into()
         }
-        unsafe extern "system" fn MediaSize<Impl: IPrintPageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintMediaSize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaSize<Impl: IPrintPageInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintMediaSize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -154,11 +154,11 @@ impl IPrintPageInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPageSize<Impl: IPrintPageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPageSize<Impl: IPrintPageInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPageSize(&*(&value as *const <super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PageSize<Impl: IPrintPageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PageSize<Impl: IPrintPageInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -169,11 +169,11 @@ impl IPrintPageInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDpiX<Impl: IPrintPageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDpiX<Impl: IPrintPageInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDpiX(value).into()
         }
-        unsafe extern "system" fn DpiX<Impl: IPrintPageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DpiX<Impl: IPrintPageInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DpiX() {
                 ::core::result::Result::Ok(ok__) => {
@@ -184,11 +184,11 @@ impl IPrintPageInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDpiY<Impl: IPrintPageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDpiY<Impl: IPrintPageInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDpiY(value).into()
         }
-        unsafe extern "system" fn DpiY<Impl: IPrintPageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DpiY<Impl: IPrintPageInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DpiY() {
                 ::core::result::Result::Ok(ok__) => {
@@ -199,11 +199,11 @@ impl IPrintPageInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOrientation<Impl: IPrintPageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintOrientation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOrientation<Impl: IPrintPageInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintOrientation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOrientation(value).into()
         }
-        unsafe extern "system" fn Orientation<Impl: IPrintPageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintOrientation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Orientation<Impl: IPrintPageInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintOrientation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Orientation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -233,7 +233,7 @@ impl IPrintPageInfoVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPrintPageRangeImpl: Sized {
+pub trait IPrintPageRange_Impl: Sized {
     fn FirstPageNumber(&mut self) -> ::windows::core::Result<i32>;
     fn LastPageNumber(&mut self) -> ::windows::core::Result<i32>;
 }
@@ -242,9 +242,9 @@ impl ::windows::core::RuntimeName for IPrintPageRange {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintPageRange";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPrintPageRangeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintPageRangeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintPageRangeVtbl {
-        unsafe extern "system" fn FirstPageNumber<Impl: IPrintPageRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IPrintPageRange_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintPageRange_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintPageRange_Vtbl {
+        unsafe extern "system" fn FirstPageNumber<Impl: IPrintPageRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FirstPageNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -255,7 +255,7 @@ impl IPrintPageRangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LastPageNumber<Impl: IPrintPageRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LastPageNumber<Impl: IPrintPageRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LastPageNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -277,7 +277,7 @@ impl IPrintPageRangeVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPrintPageRangeFactoryImpl: Sized {
+pub trait IPrintPageRangeFactory_Impl: Sized {
     fn Create(&mut self, firstpage: i32, lastpage: i32) -> ::windows::core::Result<PrintPageRange>;
     fn CreateWithSinglePage(&mut self, page: i32) -> ::windows::core::Result<PrintPageRange>;
 }
@@ -286,9 +286,9 @@ impl ::windows::core::RuntimeName for IPrintPageRangeFactory {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintPageRangeFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPrintPageRangeFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintPageRangeFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintPageRangeFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IPrintPageRangeFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, firstpage: i32, lastpage: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPrintPageRangeFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintPageRangeFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintPageRangeFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IPrintPageRangeFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, firstpage: i32, lastpage: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(firstpage, lastpage) {
                 ::core::result::Result::Ok(ok__) => {
@@ -299,7 +299,7 @@ impl IPrintPageRangeFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithSinglePage<Impl: IPrintPageRangeFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, page: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithSinglePage<Impl: IPrintPageRangeFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, page: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithSinglePage(page) {
                 ::core::result::Result::Ok(ok__) => {
@@ -321,7 +321,7 @@ impl IPrintPageRangeFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPrintPageRangeOptionsImpl: Sized {
+pub trait IPrintPageRangeOptions_Impl: Sized {
     fn SetAllowAllPages(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn AllowAllPages(&mut self) -> ::windows::core::Result<bool>;
     fn SetAllowCurrentPage(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -334,13 +334,13 @@ impl ::windows::core::RuntimeName for IPrintPageRangeOptions {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintPageRangeOptions";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPrintPageRangeOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintPageRangeOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintPageRangeOptionsVtbl {
-        unsafe extern "system" fn SetAllowAllPages<Impl: IPrintPageRangeOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+impl IPrintPageRangeOptions_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintPageRangeOptions_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintPageRangeOptions_Vtbl {
+        unsafe extern "system" fn SetAllowAllPages<Impl: IPrintPageRangeOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowAllPages(value).into()
         }
-        unsafe extern "system" fn AllowAllPages<Impl: IPrintPageRangeOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllowAllPages<Impl: IPrintPageRangeOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowAllPages() {
                 ::core::result::Result::Ok(ok__) => {
@@ -351,11 +351,11 @@ impl IPrintPageRangeOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAllowCurrentPage<Impl: IPrintPageRangeOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAllowCurrentPage<Impl: IPrintPageRangeOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowCurrentPage(value).into()
         }
-        unsafe extern "system" fn AllowCurrentPage<Impl: IPrintPageRangeOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllowCurrentPage<Impl: IPrintPageRangeOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowCurrentPage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -366,11 +366,11 @@ impl IPrintPageRangeOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAllowCustomSetOfPages<Impl: IPrintPageRangeOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAllowCustomSetOfPages<Impl: IPrintPageRangeOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowCustomSetOfPages(value).into()
         }
-        unsafe extern "system" fn AllowCustomSetOfPages<Impl: IPrintPageRangeOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllowCustomSetOfPages<Impl: IPrintPageRangeOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowCustomSetOfPages() {
                 ::core::result::Result::Ok(ok__) => {
@@ -396,7 +396,7 @@ impl IPrintPageRangeOptionsVtbl {
     }
 }
 #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPrintTaskImpl: Sized {
+pub trait IPrintTask_Impl: Sized {
     fn Properties(&mut self) -> ::windows::core::Result<super::super::ApplicationModel::DataTransfer::DataPackagePropertySet>;
     fn Source(&mut self) -> ::windows::core::Result<IPrintDocumentSource>;
     fn Options(&mut self) -> ::windows::core::Result<PrintTaskOptions>;
@@ -414,9 +414,9 @@ impl ::windows::core::RuntimeName for IPrintTask {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTask";
 }
 #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "implement_exclusive"))]
-impl IPrintTaskVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskVtbl {
-        unsafe extern "system" fn Properties<Impl: IPrintTaskImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPrintTask_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTask_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTask_Vtbl {
+        unsafe extern "system" fn Properties<Impl: IPrintTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -427,7 +427,7 @@ impl IPrintTaskVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Source<Impl: IPrintTaskImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Source<Impl: IPrintTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Source() {
                 ::core::result::Result::Ok(ok__) => {
@@ -438,7 +438,7 @@ impl IPrintTaskVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Options<Impl: IPrintTaskImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Options<Impl: IPrintTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Options() {
                 ::core::result::Result::Ok(ok__) => {
@@ -449,7 +449,7 @@ impl IPrintTaskVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Previewing<Impl: IPrintTaskImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Previewing<Impl: IPrintTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Previewing(&*(&eventhandler as *const <super::super::Foundation::TypedEventHandler<PrintTask, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PrintTask, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -460,11 +460,11 @@ impl IPrintTaskVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePreviewing<Impl: IPrintTaskImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePreviewing<Impl: IPrintTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePreviewing(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Submitting<Impl: IPrintTaskImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Submitting<Impl: IPrintTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Submitting(&*(&eventhandler as *const <super::super::Foundation::TypedEventHandler<PrintTask, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PrintTask, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -475,11 +475,11 @@ impl IPrintTaskVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSubmitting<Impl: IPrintTaskImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSubmitting<Impl: IPrintTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSubmitting(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Progressing<Impl: IPrintTaskImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Progressing<Impl: IPrintTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Progressing(&*(&eventhandler as *const <super::super::Foundation::TypedEventHandler<PrintTask, PrintTaskProgressingEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PrintTask, PrintTaskProgressingEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -490,11 +490,11 @@ impl IPrintTaskVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveProgressing<Impl: IPrintTaskImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveProgressing<Impl: IPrintTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveProgressing(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Completed<Impl: IPrintTaskImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Completed<Impl: IPrintTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Completed(&*(&eventhandler as *const <super::super::Foundation::TypedEventHandler<PrintTask, PrintTaskCompletedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PrintTask, PrintTaskCompletedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -505,7 +505,7 @@ impl IPrintTaskVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCompleted<Impl: IPrintTaskImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCompleted<Impl: IPrintTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCompleted(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -529,7 +529,7 @@ impl IPrintTaskVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPrintTask2Impl: Sized {
+pub trait IPrintTask2_Impl: Sized {
     fn SetIsPreviewEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn IsPreviewEnabled(&mut self) -> ::windows::core::Result<bool>;
 }
@@ -538,13 +538,13 @@ impl ::windows::core::RuntimeName for IPrintTask2 {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTask2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPrintTask2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTask2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTask2Vtbl {
-        unsafe extern "system" fn SetIsPreviewEnabled<Impl: IPrintTask2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+impl IPrintTask2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTask2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTask2_Vtbl {
+        unsafe extern "system" fn SetIsPreviewEnabled<Impl: IPrintTask2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsPreviewEnabled(value).into()
         }
-        unsafe extern "system" fn IsPreviewEnabled<Impl: IPrintTask2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPreviewEnabled<Impl: IPrintTask2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPreviewEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -566,7 +566,7 @@ impl IPrintTask2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPrintTaskCompletedEventArgsImpl: Sized {
+pub trait IPrintTaskCompletedEventArgs_Impl: Sized {
     fn Completion(&mut self) -> ::windows::core::Result<PrintTaskCompletion>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -574,9 +574,9 @@ impl ::windows::core::RuntimeName for IPrintTaskCompletedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTaskCompletedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPrintTaskCompletedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskCompletedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskCompletedEventArgsVtbl {
-        unsafe extern "system" fn Completion<Impl: IPrintTaskCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintTaskCompletion) -> ::windows::core::HRESULT {
+impl IPrintTaskCompletedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskCompletedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskCompletedEventArgs_Vtbl {
+        unsafe extern "system" fn Completion<Impl: IPrintTaskCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintTaskCompletion) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Completion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -597,7 +597,7 @@ impl IPrintTaskCompletedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IPrintTaskOptionsImpl: Sized {
+pub trait IPrintTaskOptions_Impl: Sized {
     fn SetBordering(&mut self, value: PrintBordering) -> ::windows::core::Result<()>;
     fn Bordering(&mut self) -> ::windows::core::Result<PrintBordering>;
     fn GetPagePrintTicket(&mut self, printpageinfo: &::core::option::Option<PrintPageInfo>) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream>;
@@ -607,13 +607,13 @@ impl ::windows::core::RuntimeName for IPrintTaskOptions {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTaskOptions";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IPrintTaskOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskOptionsVtbl {
-        unsafe extern "system" fn SetBordering<Impl: IPrintTaskOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintBordering) -> ::windows::core::HRESULT {
+impl IPrintTaskOptions_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskOptions_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskOptions_Vtbl {
+        unsafe extern "system" fn SetBordering<Impl: IPrintTaskOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintBordering) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBordering(value).into()
         }
-        unsafe extern "system" fn Bordering<Impl: IPrintTaskOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintBordering) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Bordering<Impl: IPrintTaskOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintBordering) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bordering() {
                 ::core::result::Result::Ok(ok__) => {
@@ -624,7 +624,7 @@ impl IPrintTaskOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPagePrintTicket<Impl: IPrintTaskOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, printpageinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPagePrintTicket<Impl: IPrintTaskOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, printpageinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPagePrintTicket(&*(&printpageinfo as *const <PrintPageInfo as ::windows::core::Abi>::Abi as *const <PrintPageInfo as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -647,7 +647,7 @@ impl IPrintTaskOptionsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPrintTaskOptions2Impl: Sized {
+pub trait IPrintTaskOptions2_Impl: Sized {
     fn PageRangeOptions(&mut self) -> ::windows::core::Result<PrintPageRangeOptions>;
     fn CustomPageRanges(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<PrintPageRange>>;
 }
@@ -656,9 +656,9 @@ impl ::windows::core::RuntimeName for IPrintTaskOptions2 {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTaskOptions2";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPrintTaskOptions2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskOptions2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskOptions2Vtbl {
-        unsafe extern "system" fn PageRangeOptions<Impl: IPrintTaskOptions2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPrintTaskOptions2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskOptions2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskOptions2_Vtbl {
+        unsafe extern "system" fn PageRangeOptions<Impl: IPrintTaskOptions2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageRangeOptions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -669,7 +669,7 @@ impl IPrintTaskOptions2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CustomPageRanges<Impl: IPrintTaskOptions2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CustomPageRanges<Impl: IPrintTaskOptions2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CustomPageRanges() {
                 ::core::result::Result::Ok(ok__) => {
@@ -691,7 +691,7 @@ impl IPrintTaskOptions2Vtbl {
     }
 }
 #[cfg(feature = "Foundation")]
-pub trait IPrintTaskOptionsCoreImpl: Sized {
+pub trait IPrintTaskOptionsCore_Impl: Sized {
     fn GetPageDescription(&mut self, jobpagenumber: u32) -> ::windows::core::Result<PrintPageDescription>;
 }
 #[cfg(feature = "Foundation")]
@@ -699,9 +699,9 @@ impl ::windows::core::RuntimeName for IPrintTaskOptionsCore {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTaskOptionsCore";
 }
 #[cfg(feature = "Foundation")]
-impl IPrintTaskOptionsCoreVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskOptionsCoreImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskOptionsCoreVtbl {
-        unsafe extern "system" fn GetPageDescription<Impl: IPrintTaskOptionsCoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, jobpagenumber: u32, result__: *mut PrintPageDescription) -> ::windows::core::HRESULT {
+impl IPrintTaskOptionsCore_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskOptionsCore_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskOptionsCore_Vtbl {
+        unsafe extern "system" fn GetPageDescription<Impl: IPrintTaskOptionsCore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, jobpagenumber: u32, result__: *mut PrintPageDescription) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPageDescription(jobpagenumber) {
                 ::core::result::Result::Ok(ok__) => {
@@ -721,7 +721,7 @@ impl IPrintTaskOptionsCoreVtbl {
         iid == &<IPrintTaskOptionsCore as ::windows::core::Interface>::IID
     }
 }
-pub trait IPrintTaskOptionsCorePropertiesImpl: Sized {
+pub trait IPrintTaskOptionsCoreProperties_Impl: Sized {
     fn SetMediaSize(&mut self, value: PrintMediaSize) -> ::windows::core::Result<()>;
     fn MediaSize(&mut self) -> ::windows::core::Result<PrintMediaSize>;
     fn SetMediaType(&mut self, value: PrintMediaType) -> ::windows::core::Result<()>;
@@ -750,13 +750,13 @@ pub trait IPrintTaskOptionsCorePropertiesImpl: Sized {
 impl ::windows::core::RuntimeName for IPrintTaskOptionsCoreProperties {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTaskOptionsCoreProperties";
 }
-impl IPrintTaskOptionsCorePropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskOptionsCorePropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskOptionsCorePropertiesVtbl {
-        unsafe extern "system" fn SetMediaSize<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintMediaSize) -> ::windows::core::HRESULT {
+impl IPrintTaskOptionsCoreProperties_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskOptionsCoreProperties_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskOptionsCoreProperties_Vtbl {
+        unsafe extern "system" fn SetMediaSize<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintMediaSize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMediaSize(value).into()
         }
-        unsafe extern "system" fn MediaSize<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintMediaSize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaSize<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintMediaSize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -767,11 +767,11 @@ impl IPrintTaskOptionsCorePropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMediaType<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintMediaType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMediaType<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintMediaType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMediaType(value).into()
         }
-        unsafe extern "system" fn MediaType<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintMediaType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaType<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintMediaType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -782,11 +782,11 @@ impl IPrintTaskOptionsCorePropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOrientation<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintOrientation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOrientation<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintOrientation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOrientation(value).into()
         }
-        unsafe extern "system" fn Orientation<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintOrientation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Orientation<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintOrientation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Orientation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -797,11 +797,11 @@ impl IPrintTaskOptionsCorePropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPrintQuality<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintQuality) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPrintQuality<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintQuality) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPrintQuality(value).into()
         }
-        unsafe extern "system" fn PrintQuality<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintQuality) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrintQuality<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintQuality) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrintQuality() {
                 ::core::result::Result::Ok(ok__) => {
@@ -812,11 +812,11 @@ impl IPrintTaskOptionsCorePropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetColorMode<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintColorMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetColorMode<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintColorMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetColorMode(value).into()
         }
-        unsafe extern "system" fn ColorMode<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintColorMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ColorMode<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintColorMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ColorMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -827,11 +827,11 @@ impl IPrintTaskOptionsCorePropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDuplex<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintDuplex) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDuplex<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintDuplex) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDuplex(value).into()
         }
-        unsafe extern "system" fn Duplex<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintDuplex) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Duplex<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintDuplex) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Duplex() {
                 ::core::result::Result::Ok(ok__) => {
@@ -842,11 +842,11 @@ impl IPrintTaskOptionsCorePropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCollation<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintCollation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCollation<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintCollation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCollation(value).into()
         }
-        unsafe extern "system" fn Collation<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintCollation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Collation<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintCollation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Collation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -857,11 +857,11 @@ impl IPrintTaskOptionsCorePropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStaple<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintStaple) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStaple<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintStaple) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStaple(value).into()
         }
-        unsafe extern "system" fn Staple<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintStaple) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Staple<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintStaple) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Staple() {
                 ::core::result::Result::Ok(ok__) => {
@@ -872,11 +872,11 @@ impl IPrintTaskOptionsCorePropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHolePunch<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintHolePunch) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHolePunch<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintHolePunch) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHolePunch(value).into()
         }
-        unsafe extern "system" fn HolePunch<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintHolePunch) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HolePunch<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintHolePunch) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HolePunch() {
                 ::core::result::Result::Ok(ok__) => {
@@ -887,11 +887,11 @@ impl IPrintTaskOptionsCorePropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBinding<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintBinding) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBinding<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintBinding) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBinding(value).into()
         }
-        unsafe extern "system" fn Binding<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintBinding) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Binding<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintBinding) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Binding() {
                 ::core::result::Result::Ok(ok__) => {
@@ -902,7 +902,7 @@ impl IPrintTaskOptionsCorePropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MinCopies<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinCopies<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinCopies() {
                 ::core::result::Result::Ok(ok__) => {
@@ -913,7 +913,7 @@ impl IPrintTaskOptionsCorePropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxCopies<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxCopies<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxCopies() {
                 ::core::result::Result::Ok(ok__) => {
@@ -924,11 +924,11 @@ impl IPrintTaskOptionsCorePropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNumberOfCopies<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNumberOfCopies<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNumberOfCopies(value).into()
         }
-        unsafe extern "system" fn NumberOfCopies<Impl: IPrintTaskOptionsCorePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NumberOfCopies<Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NumberOfCopies() {
                 ::core::result::Result::Ok(ok__) => {
@@ -972,7 +972,7 @@ impl IPrintTaskOptionsCorePropertiesVtbl {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IPrintTaskOptionsCoreUIConfigurationImpl: Sized {
+pub trait IPrintTaskOptionsCoreUIConfiguration_Impl: Sized {
     fn DisplayedOptions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -980,9 +980,9 @@ impl ::windows::core::RuntimeName for IPrintTaskOptionsCoreUIConfiguration {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTaskOptionsCoreUIConfiguration";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl IPrintTaskOptionsCoreUIConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskOptionsCoreUIConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskOptionsCoreUIConfigurationVtbl {
-        unsafe extern "system" fn DisplayedOptions<Impl: IPrintTaskOptionsCoreUIConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPrintTaskOptionsCoreUIConfiguration_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskOptionsCoreUIConfiguration_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskOptionsCoreUIConfiguration_Vtbl {
+        unsafe extern "system" fn DisplayedOptions<Impl: IPrintTaskOptionsCoreUIConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayedOptions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1003,7 +1003,7 @@ impl IPrintTaskOptionsCoreUIConfigurationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPrintTaskProgressingEventArgsImpl: Sized {
+pub trait IPrintTaskProgressingEventArgs_Impl: Sized {
     fn DocumentPageCount(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1011,9 +1011,9 @@ impl ::windows::core::RuntimeName for IPrintTaskProgressingEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTaskProgressingEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPrintTaskProgressingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskProgressingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskProgressingEventArgsVtbl {
-        unsafe extern "system" fn DocumentPageCount<Impl: IPrintTaskProgressingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IPrintTaskProgressingEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskProgressingEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskProgressingEventArgs_Vtbl {
+        unsafe extern "system" fn DocumentPageCount<Impl: IPrintTaskProgressingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentPageCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1034,7 +1034,7 @@ impl IPrintTaskProgressingEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPrintTaskRequestImpl: Sized {
+pub trait IPrintTaskRequest_Impl: Sized {
     fn Deadline(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn CreatePrintTask(&mut self, title: &::windows::core::HSTRING, handler: &::core::option::Option<PrintTaskSourceRequestedHandler>) -> ::windows::core::Result<PrintTask>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<PrintTaskRequestedDeferral>;
@@ -1044,9 +1044,9 @@ impl ::windows::core::RuntimeName for IPrintTaskRequest {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTaskRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPrintTaskRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskRequestVtbl {
-        unsafe extern "system" fn Deadline<Impl: IPrintTaskRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+impl IPrintTaskRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskRequest_Vtbl {
+        unsafe extern "system" fn Deadline<Impl: IPrintTaskRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Deadline() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1057,7 +1057,7 @@ impl IPrintTaskRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePrintTask<Impl: IPrintTaskRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, handler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePrintTask<Impl: IPrintTaskRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, handler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePrintTask(&*(&title as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&handler as *const <PrintTaskSourceRequestedHandler as ::windows::core::Abi>::Abi as *const <PrintTaskSourceRequestedHandler as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1068,7 +1068,7 @@ impl IPrintTaskRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IPrintTaskRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IPrintTaskRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1091,7 +1091,7 @@ impl IPrintTaskRequestVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPrintTaskRequestedDeferralImpl: Sized {
+pub trait IPrintTaskRequestedDeferral_Impl: Sized {
     fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1099,9 +1099,9 @@ impl ::windows::core::RuntimeName for IPrintTaskRequestedDeferral {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTaskRequestedDeferral";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPrintTaskRequestedDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskRequestedDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskRequestedDeferralVtbl {
-        unsafe extern "system" fn Complete<Impl: IPrintTaskRequestedDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IPrintTaskRequestedDeferral_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskRequestedDeferral_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskRequestedDeferral_Vtbl {
+        unsafe extern "system" fn Complete<Impl: IPrintTaskRequestedDeferral_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
@@ -1112,7 +1112,7 @@ impl IPrintTaskRequestedDeferralVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPrintTaskRequestedEventArgsImpl: Sized {
+pub trait IPrintTaskRequestedEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<PrintTaskRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1120,9 +1120,9 @@ impl ::windows::core::RuntimeName for IPrintTaskRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTaskRequestedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPrintTaskRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskRequestedEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: IPrintTaskRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPrintTaskRequestedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskRequestedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskRequestedEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: IPrintTaskRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1140,7 +1140,7 @@ impl IPrintTaskRequestedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPrintTaskSourceRequestedArgsImpl: Sized {
+pub trait IPrintTaskSourceRequestedArgs_Impl: Sized {
     fn Deadline(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn SetSource(&mut self, source: &::core::option::Option<IPrintDocumentSource>) -> ::windows::core::Result<()>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<PrintTaskSourceRequestedDeferral>;
@@ -1150,9 +1150,9 @@ impl ::windows::core::RuntimeName for IPrintTaskSourceRequestedArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTaskSourceRequestedArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPrintTaskSourceRequestedArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskSourceRequestedArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskSourceRequestedArgsVtbl {
-        unsafe extern "system" fn Deadline<Impl: IPrintTaskSourceRequestedArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+impl IPrintTaskSourceRequestedArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskSourceRequestedArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskSourceRequestedArgs_Vtbl {
+        unsafe extern "system" fn Deadline<Impl: IPrintTaskSourceRequestedArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Deadline() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1163,11 +1163,11 @@ impl IPrintTaskSourceRequestedArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSource<Impl: IPrintTaskSourceRequestedArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSource<Impl: IPrintTaskSourceRequestedArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSource(&*(&source as *const <IPrintDocumentSource as ::windows::core::Abi>::Abi as *const <IPrintDocumentSource as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetDeferral<Impl: IPrintTaskSourceRequestedArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IPrintTaskSourceRequestedArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1190,7 +1190,7 @@ impl IPrintTaskSourceRequestedArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPrintTaskSourceRequestedDeferralImpl: Sized {
+pub trait IPrintTaskSourceRequestedDeferral_Impl: Sized {
     fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1198,9 +1198,9 @@ impl ::windows::core::RuntimeName for IPrintTaskSourceRequestedDeferral {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTaskSourceRequestedDeferral";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPrintTaskSourceRequestedDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskSourceRequestedDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskSourceRequestedDeferralVtbl {
-        unsafe extern "system" fn Complete<Impl: IPrintTaskSourceRequestedDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IPrintTaskSourceRequestedDeferral_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskSourceRequestedDeferral_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskSourceRequestedDeferral_Vtbl {
+        unsafe extern "system" fn Complete<Impl: IPrintTaskSourceRequestedDeferral_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
@@ -1214,7 +1214,7 @@ impl IPrintTaskSourceRequestedDeferralVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPrintTaskTargetDeviceSupportImpl: Sized {
+pub trait IPrintTaskTargetDeviceSupport_Impl: Sized {
     fn SetIsPrinterTargetEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn IsPrinterTargetEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIs3DManufacturingTargetEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -1225,13 +1225,13 @@ impl ::windows::core::RuntimeName for IPrintTaskTargetDeviceSupport {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTaskTargetDeviceSupport";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPrintTaskTargetDeviceSupportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskTargetDeviceSupportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskTargetDeviceSupportVtbl {
-        unsafe extern "system" fn SetIsPrinterTargetEnabled<Impl: IPrintTaskTargetDeviceSupportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+impl IPrintTaskTargetDeviceSupport_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTaskTargetDeviceSupport_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTaskTargetDeviceSupport_Vtbl {
+        unsafe extern "system" fn SetIsPrinterTargetEnabled<Impl: IPrintTaskTargetDeviceSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsPrinterTargetEnabled(value).into()
         }
-        unsafe extern "system" fn IsPrinterTargetEnabled<Impl: IPrintTaskTargetDeviceSupportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPrinterTargetEnabled<Impl: IPrintTaskTargetDeviceSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPrinterTargetEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1242,11 +1242,11 @@ impl IPrintTaskTargetDeviceSupportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIs3DManufacturingTargetEnabled<Impl: IPrintTaskTargetDeviceSupportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIs3DManufacturingTargetEnabled<Impl: IPrintTaskTargetDeviceSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIs3DManufacturingTargetEnabled(value).into()
         }
-        unsafe extern "system" fn Is3DManufacturingTargetEnabled<Impl: IPrintTaskTargetDeviceSupportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Is3DManufacturingTargetEnabled<Impl: IPrintTaskTargetDeviceSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Is3DManufacturingTargetEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1270,7 +1270,7 @@ impl IPrintTaskTargetDeviceSupportVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IStandardPrintTaskOptionsStaticImpl: Sized {
+pub trait IStandardPrintTaskOptionsStatic_Impl: Sized {
     fn MediaSize(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn MediaType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Orientation(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1290,9 +1290,9 @@ impl ::windows::core::RuntimeName for IStandardPrintTaskOptionsStatic {
     const NAME: &'static str = "Windows.Graphics.Printing.IStandardPrintTaskOptionsStatic";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IStandardPrintTaskOptionsStaticVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStandardPrintTaskOptionsStaticImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStandardPrintTaskOptionsStaticVtbl {
-        unsafe extern "system" fn MediaSize<Impl: IStandardPrintTaskOptionsStaticImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IStandardPrintTaskOptionsStatic_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStandardPrintTaskOptionsStatic_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStandardPrintTaskOptionsStatic_Vtbl {
+        unsafe extern "system" fn MediaSize<Impl: IStandardPrintTaskOptionsStatic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1303,7 +1303,7 @@ impl IStandardPrintTaskOptionsStaticVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MediaType<Impl: IStandardPrintTaskOptionsStaticImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaType<Impl: IStandardPrintTaskOptionsStatic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1314,7 +1314,7 @@ impl IStandardPrintTaskOptionsStaticVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Orientation<Impl: IStandardPrintTaskOptionsStaticImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Orientation<Impl: IStandardPrintTaskOptionsStatic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Orientation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1325,7 +1325,7 @@ impl IStandardPrintTaskOptionsStaticVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrintQuality<Impl: IStandardPrintTaskOptionsStaticImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrintQuality<Impl: IStandardPrintTaskOptionsStatic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrintQuality() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1336,7 +1336,7 @@ impl IStandardPrintTaskOptionsStaticVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ColorMode<Impl: IStandardPrintTaskOptionsStaticImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ColorMode<Impl: IStandardPrintTaskOptionsStatic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ColorMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1347,7 +1347,7 @@ impl IStandardPrintTaskOptionsStaticVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Duplex<Impl: IStandardPrintTaskOptionsStaticImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Duplex<Impl: IStandardPrintTaskOptionsStatic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Duplex() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1358,7 +1358,7 @@ impl IStandardPrintTaskOptionsStaticVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Collation<Impl: IStandardPrintTaskOptionsStaticImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Collation<Impl: IStandardPrintTaskOptionsStatic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Collation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1369,7 +1369,7 @@ impl IStandardPrintTaskOptionsStaticVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Staple<Impl: IStandardPrintTaskOptionsStaticImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Staple<Impl: IStandardPrintTaskOptionsStatic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Staple() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1380,7 +1380,7 @@ impl IStandardPrintTaskOptionsStaticVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HolePunch<Impl: IStandardPrintTaskOptionsStaticImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HolePunch<Impl: IStandardPrintTaskOptionsStatic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HolePunch() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1391,7 +1391,7 @@ impl IStandardPrintTaskOptionsStaticVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Binding<Impl: IStandardPrintTaskOptionsStaticImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Binding<Impl: IStandardPrintTaskOptionsStatic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Binding() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1402,7 +1402,7 @@ impl IStandardPrintTaskOptionsStaticVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Copies<Impl: IStandardPrintTaskOptionsStaticImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Copies<Impl: IStandardPrintTaskOptionsStatic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Copies() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1413,7 +1413,7 @@ impl IStandardPrintTaskOptionsStaticVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NUp<Impl: IStandardPrintTaskOptionsStaticImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NUp<Impl: IStandardPrintTaskOptionsStatic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NUp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1424,7 +1424,7 @@ impl IStandardPrintTaskOptionsStaticVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InputBin<Impl: IStandardPrintTaskOptionsStaticImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InputBin<Impl: IStandardPrintTaskOptionsStatic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InputBin() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1457,7 +1457,7 @@ impl IStandardPrintTaskOptionsStaticVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IStandardPrintTaskOptionsStatic2Impl: Sized {
+pub trait IStandardPrintTaskOptionsStatic2_Impl: Sized {
     fn Bordering(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1465,9 +1465,9 @@ impl ::windows::core::RuntimeName for IStandardPrintTaskOptionsStatic2 {
     const NAME: &'static str = "Windows.Graphics.Printing.IStandardPrintTaskOptionsStatic2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IStandardPrintTaskOptionsStatic2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStandardPrintTaskOptionsStatic2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStandardPrintTaskOptionsStatic2Vtbl {
-        unsafe extern "system" fn Bordering<Impl: IStandardPrintTaskOptionsStatic2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IStandardPrintTaskOptionsStatic2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStandardPrintTaskOptionsStatic2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStandardPrintTaskOptionsStatic2_Vtbl {
+        unsafe extern "system" fn Bordering<Impl: IStandardPrintTaskOptionsStatic2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bordering() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1488,7 +1488,7 @@ impl IStandardPrintTaskOptionsStatic2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IStandardPrintTaskOptionsStatic3Impl: Sized {
+pub trait IStandardPrintTaskOptionsStatic3_Impl: Sized {
     fn CustomPageRanges(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1496,9 +1496,9 @@ impl ::windows::core::RuntimeName for IStandardPrintTaskOptionsStatic3 {
     const NAME: &'static str = "Windows.Graphics.Printing.IStandardPrintTaskOptionsStatic3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IStandardPrintTaskOptionsStatic3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStandardPrintTaskOptionsStatic3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStandardPrintTaskOptionsStatic3Vtbl {
-        unsafe extern "system" fn CustomPageRanges<Impl: IStandardPrintTaskOptionsStatic3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IStandardPrintTaskOptionsStatic3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStandardPrintTaskOptionsStatic3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStandardPrintTaskOptionsStatic3_Vtbl {
+        unsafe extern "system" fn CustomPageRanges<Impl: IStandardPrintTaskOptionsStatic3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CustomPageRanges() {
                 ::core::result::Result::Ok(ok__) => {

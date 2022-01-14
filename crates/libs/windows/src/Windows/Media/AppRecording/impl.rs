@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
-pub trait IAppRecordingManagerImpl: Sized {
+pub trait IAppRecordingManager_Impl: Sized {
     fn GetStatus(&mut self) -> ::windows::core::Result<AppRecordingStatus>;
     fn StartRecordingToFileAsync(&mut self, file: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>>;
     fn RecordTimeSpanToFileAsync(&mut self, starttime: &super::super::Foundation::DateTime, duration: &super::super::Foundation::TimeSpan, file: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>>;
@@ -11,9 +11,9 @@ impl ::windows::core::RuntimeName for IAppRecordingManager {
     const NAME: &'static str = "Windows.Media.AppRecording.IAppRecordingManager";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
-impl IAppRecordingManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppRecordingManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppRecordingManagerVtbl {
-        unsafe extern "system" fn GetStatus<Impl: IAppRecordingManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAppRecordingManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppRecordingManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppRecordingManager_Vtbl {
+        unsafe extern "system" fn GetStatus<Impl: IAppRecordingManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -24,7 +24,7 @@ impl IAppRecordingManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartRecordingToFileAsync<Impl: IAppRecordingManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartRecordingToFileAsync<Impl: IAppRecordingManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartRecordingToFileAsync(&*(&file as *const <super::super::Storage::StorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::StorageFile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -35,7 +35,7 @@ impl IAppRecordingManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RecordTimeSpanToFileAsync<Impl: IAppRecordingManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RecordTimeSpanToFileAsync<Impl: IAppRecordingManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RecordTimeSpanToFileAsync(
                 &*(&starttime as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType),
@@ -50,7 +50,7 @@ impl IAppRecordingManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedScreenshotMediaEncodingSubtypes<Impl: IAppRecordingManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedScreenshotMediaEncodingSubtypes<Impl: IAppRecordingManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedScreenshotMediaEncodingSubtypes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -61,7 +61,7 @@ impl IAppRecordingManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SaveScreenshotToFilesAsync<Impl: IAppRecordingManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, folder: ::windows::core::RawPtr, filenameprefix: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, option: AppRecordingSaveScreenshotOption, requestedformats: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaveScreenshotToFilesAsync<Impl: IAppRecordingManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, folder: ::windows::core::RawPtr, filenameprefix: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, option: AppRecordingSaveScreenshotOption, requestedformats: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SaveScreenshotToFilesAsync(
                 &*(&folder as *const <super::super::Storage::StorageFolder as ::windows::core::Abi>::Abi as *const <super::super::Storage::StorageFolder as ::windows::core::DefaultType>::DefaultType),
@@ -91,7 +91,7 @@ impl IAppRecordingManagerVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppRecordingManagerStaticsImpl: Sized {
+pub trait IAppRecordingManagerStatics_Impl: Sized {
     fn GetDefault(&mut self) -> ::windows::core::Result<AppRecordingManager>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -99,9 +99,9 @@ impl ::windows::core::RuntimeName for IAppRecordingManagerStatics {
     const NAME: &'static str = "Windows.Media.AppRecording.IAppRecordingManagerStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppRecordingManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppRecordingManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppRecordingManagerStaticsVtbl {
-        unsafe extern "system" fn GetDefault<Impl: IAppRecordingManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAppRecordingManagerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppRecordingManagerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppRecordingManagerStatics_Vtbl {
+        unsafe extern "system" fn GetDefault<Impl: IAppRecordingManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
                 ::core::result::Result::Ok(ok__) => {
@@ -122,7 +122,7 @@ impl IAppRecordingManagerStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAppRecordingResultImpl: Sized {
+pub trait IAppRecordingResult_Impl: Sized {
     fn Succeeded(&mut self) -> ::windows::core::Result<bool>;
     fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -133,9 +133,9 @@ impl ::windows::core::RuntimeName for IAppRecordingResult {
     const NAME: &'static str = "Windows.Media.AppRecording.IAppRecordingResult";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAppRecordingResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppRecordingResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppRecordingResultVtbl {
-        unsafe extern "system" fn Succeeded<Impl: IAppRecordingResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IAppRecordingResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppRecordingResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppRecordingResult_Vtbl {
+        unsafe extern "system" fn Succeeded<Impl: IAppRecordingResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Succeeded() {
                 ::core::result::Result::Ok(ok__) => {
@@ -146,7 +146,7 @@ impl IAppRecordingResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedError<Impl: IAppRecordingResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedError<Impl: IAppRecordingResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedError() {
                 ::core::result::Result::Ok(ok__) => {
@@ -157,7 +157,7 @@ impl IAppRecordingResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Duration<Impl: IAppRecordingResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Duration<Impl: IAppRecordingResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Duration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -168,7 +168,7 @@ impl IAppRecordingResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsFileTruncated<Impl: IAppRecordingResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsFileTruncated<Impl: IAppRecordingResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsFileTruncated() {
                 ::core::result::Result::Ok(ok__) => {
@@ -192,7 +192,7 @@ impl IAppRecordingResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IAppRecordingSaveScreenshotResultImpl: Sized {
+pub trait IAppRecordingSaveScreenshotResult_Impl: Sized {
     fn Succeeded(&mut self) -> ::windows::core::Result<bool>;
     fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn SavedScreenshotInfos(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AppRecordingSavedScreenshotInfo>>;
@@ -202,9 +202,9 @@ impl ::windows::core::RuntimeName for IAppRecordingSaveScreenshotResult {
     const NAME: &'static str = "Windows.Media.AppRecording.IAppRecordingSaveScreenshotResult";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IAppRecordingSaveScreenshotResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppRecordingSaveScreenshotResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppRecordingSaveScreenshotResultVtbl {
-        unsafe extern "system" fn Succeeded<Impl: IAppRecordingSaveScreenshotResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IAppRecordingSaveScreenshotResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppRecordingSaveScreenshotResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppRecordingSaveScreenshotResult_Vtbl {
+        unsafe extern "system" fn Succeeded<Impl: IAppRecordingSaveScreenshotResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Succeeded() {
                 ::core::result::Result::Ok(ok__) => {
@@ -215,7 +215,7 @@ impl IAppRecordingSaveScreenshotResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedError<Impl: IAppRecordingSaveScreenshotResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedError<Impl: IAppRecordingSaveScreenshotResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedError() {
                 ::core::result::Result::Ok(ok__) => {
@@ -226,7 +226,7 @@ impl IAppRecordingSaveScreenshotResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SavedScreenshotInfos<Impl: IAppRecordingSaveScreenshotResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SavedScreenshotInfos<Impl: IAppRecordingSaveScreenshotResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SavedScreenshotInfos() {
                 ::core::result::Result::Ok(ok__) => {
@@ -249,7 +249,7 @@ impl IAppRecordingSaveScreenshotResultVtbl {
     }
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
-pub trait IAppRecordingSavedScreenshotInfoImpl: Sized {
+pub trait IAppRecordingSavedScreenshotInfo_Impl: Sized {
     fn File(&mut self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
     fn MediaEncodingSubtype(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -258,9 +258,9 @@ impl ::windows::core::RuntimeName for IAppRecordingSavedScreenshotInfo {
     const NAME: &'static str = "Windows.Media.AppRecording.IAppRecordingSavedScreenshotInfo";
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
-impl IAppRecordingSavedScreenshotInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppRecordingSavedScreenshotInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppRecordingSavedScreenshotInfoVtbl {
-        unsafe extern "system" fn File<Impl: IAppRecordingSavedScreenshotInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAppRecordingSavedScreenshotInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppRecordingSavedScreenshotInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppRecordingSavedScreenshotInfo_Vtbl {
+        unsafe extern "system" fn File<Impl: IAppRecordingSavedScreenshotInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).File() {
                 ::core::result::Result::Ok(ok__) => {
@@ -271,7 +271,7 @@ impl IAppRecordingSavedScreenshotInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MediaEncodingSubtype<Impl: IAppRecordingSavedScreenshotInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaEncodingSubtype<Impl: IAppRecordingSavedScreenshotInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaEncodingSubtype() {
                 ::core::result::Result::Ok(ok__) => {
@@ -293,7 +293,7 @@ impl IAppRecordingSavedScreenshotInfoVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAppRecordingStatusImpl: Sized {
+pub trait IAppRecordingStatus_Impl: Sized {
     fn CanRecord(&mut self) -> ::windows::core::Result<bool>;
     fn CanRecordTimeSpan(&mut self) -> ::windows::core::Result<bool>;
     fn HistoricalBufferDuration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -304,9 +304,9 @@ impl ::windows::core::RuntimeName for IAppRecordingStatus {
     const NAME: &'static str = "Windows.Media.AppRecording.IAppRecordingStatus";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAppRecordingStatusVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppRecordingStatusImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppRecordingStatusVtbl {
-        unsafe extern "system" fn CanRecord<Impl: IAppRecordingStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IAppRecordingStatus_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppRecordingStatus_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppRecordingStatus_Vtbl {
+        unsafe extern "system" fn CanRecord<Impl: IAppRecordingStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanRecord() {
                 ::core::result::Result::Ok(ok__) => {
@@ -317,7 +317,7 @@ impl IAppRecordingStatusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanRecordTimeSpan<Impl: IAppRecordingStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanRecordTimeSpan<Impl: IAppRecordingStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanRecordTimeSpan() {
                 ::core::result::Result::Ok(ok__) => {
@@ -328,7 +328,7 @@ impl IAppRecordingStatusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HistoricalBufferDuration<Impl: IAppRecordingStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HistoricalBufferDuration<Impl: IAppRecordingStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HistoricalBufferDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -339,7 +339,7 @@ impl IAppRecordingStatusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Details<Impl: IAppRecordingStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Details<Impl: IAppRecordingStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Details() {
                 ::core::result::Result::Ok(ok__) => {
@@ -363,7 +363,7 @@ impl IAppRecordingStatusVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppRecordingStatusDetailsImpl: Sized {
+pub trait IAppRecordingStatusDetails_Impl: Sized {
     fn IsAnyAppBroadcasting(&mut self) -> ::windows::core::Result<bool>;
     fn IsCaptureResourceUnavailable(&mut self) -> ::windows::core::Result<bool>;
     fn IsGameStreamInProgress(&mut self) -> ::windows::core::Result<bool>;
@@ -379,9 +379,9 @@ impl ::windows::core::RuntimeName for IAppRecordingStatusDetails {
     const NAME: &'static str = "Windows.Media.AppRecording.IAppRecordingStatusDetails";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppRecordingStatusDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppRecordingStatusDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppRecordingStatusDetailsVtbl {
-        unsafe extern "system" fn IsAnyAppBroadcasting<Impl: IAppRecordingStatusDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IAppRecordingStatusDetails_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppRecordingStatusDetails_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppRecordingStatusDetails_Vtbl {
+        unsafe extern "system" fn IsAnyAppBroadcasting<Impl: IAppRecordingStatusDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAnyAppBroadcasting() {
                 ::core::result::Result::Ok(ok__) => {
@@ -392,7 +392,7 @@ impl IAppRecordingStatusDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsCaptureResourceUnavailable<Impl: IAppRecordingStatusDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCaptureResourceUnavailable<Impl: IAppRecordingStatusDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCaptureResourceUnavailable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -403,7 +403,7 @@ impl IAppRecordingStatusDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsGameStreamInProgress<Impl: IAppRecordingStatusDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsGameStreamInProgress<Impl: IAppRecordingStatusDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsGameStreamInProgress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -414,7 +414,7 @@ impl IAppRecordingStatusDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsTimeSpanRecordingDisabled<Impl: IAppRecordingStatusDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsTimeSpanRecordingDisabled<Impl: IAppRecordingStatusDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTimeSpanRecordingDisabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -425,7 +425,7 @@ impl IAppRecordingStatusDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsGpuConstrained<Impl: IAppRecordingStatusDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsGpuConstrained<Impl: IAppRecordingStatusDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsGpuConstrained() {
                 ::core::result::Result::Ok(ok__) => {
@@ -436,7 +436,7 @@ impl IAppRecordingStatusDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsAppInactive<Impl: IAppRecordingStatusDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsAppInactive<Impl: IAppRecordingStatusDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAppInactive() {
                 ::core::result::Result::Ok(ok__) => {
@@ -447,7 +447,7 @@ impl IAppRecordingStatusDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsBlockedForApp<Impl: IAppRecordingStatusDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsBlockedForApp<Impl: IAppRecordingStatusDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBlockedForApp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -458,7 +458,7 @@ impl IAppRecordingStatusDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDisabledByUser<Impl: IAppRecordingStatusDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDisabledByUser<Impl: IAppRecordingStatusDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDisabledByUser() {
                 ::core::result::Result::Ok(ok__) => {
@@ -469,7 +469,7 @@ impl IAppRecordingStatusDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDisabledBySystem<Impl: IAppRecordingStatusDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDisabledBySystem<Impl: IAppRecordingStatusDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDisabledBySystem() {
                 ::core::result::Result::Ok(ok__) => {

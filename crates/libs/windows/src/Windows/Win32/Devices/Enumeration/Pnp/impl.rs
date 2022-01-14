@@ -1,14 +1,14 @@
-pub trait IUPnPAddressFamilyControlImpl: Sized {
+pub trait IUPnPAddressFamilyControl_Impl: Sized {
     fn SetAddressFamily(&mut self, dwflags: i32) -> ::windows::core::Result<()>;
     fn GetAddressFamily(&mut self) -> ::windows::core::Result<i32>;
 }
-impl IUPnPAddressFamilyControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPAddressFamilyControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPAddressFamilyControlVtbl {
-        unsafe extern "system" fn SetAddressFamily<Impl: IUPnPAddressFamilyControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: i32) -> ::windows::core::HRESULT {
+impl IUPnPAddressFamilyControl_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPAddressFamilyControl_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPAddressFamilyControl_Vtbl {
+        unsafe extern "system" fn SetAddressFamily<Impl: IUPnPAddressFamilyControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAddressFamily(::core::mem::transmute_copy(&dwflags)).into()
         }
-        unsafe extern "system" fn GetAddressFamily<Impl: IUPnPAddressFamilyControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAddressFamily<Impl: IUPnPAddressFamilyControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAddressFamily() {
                 ::core::result::Result::Ok(ok__) => {
@@ -28,12 +28,12 @@ impl IUPnPAddressFamilyControlVtbl {
         iid == &<IUPnPAddressFamilyControl as ::windows::core::Interface>::IID
     }
 }
-pub trait IUPnPAsyncResultImpl: Sized {
+pub trait IUPnPAsyncResult_Impl: Sized {
     fn AsyncOperationComplete(&mut self, ullrequestid: u64) -> ::windows::core::Result<()>;
 }
-impl IUPnPAsyncResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPAsyncResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPAsyncResultVtbl {
-        unsafe extern "system" fn AsyncOperationComplete<Impl: IUPnPAsyncResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ullrequestid: u64) -> ::windows::core::HRESULT {
+impl IUPnPAsyncResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPAsyncResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPAsyncResult_Vtbl {
+        unsafe extern "system" fn AsyncOperationComplete<Impl: IUPnPAsyncResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ullrequestid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AsyncOperationComplete(::core::mem::transmute_copy(&ullrequestid)).into()
         }
@@ -44,7 +44,7 @@ impl IUPnPAsyncResultVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUPnPDescriptionDocumentImpl: Sized + IDispatchImpl {
+pub trait IUPnPDescriptionDocument_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn ReadyState(&mut self) -> ::windows::core::Result<i32>;
     fn Load(&mut self, bstrurl: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn LoadAsync(&mut self, bstrurl: super::super::super::Foundation::BSTR, punkcallback: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
@@ -54,9 +54,9 @@ pub trait IUPnPDescriptionDocumentImpl: Sized + IDispatchImpl {
     fn DeviceByUDN(&mut self, bstrudn: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IUPnPDevice>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUPnPDescriptionDocumentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDescriptionDocumentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDescriptionDocumentVtbl {
-        unsafe extern "system" fn ReadyState<Impl: IUPnPDescriptionDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plreadystate: *mut i32) -> ::windows::core::HRESULT {
+impl IUPnPDescriptionDocument_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDescriptionDocument_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDescriptionDocument_Vtbl {
+        unsafe extern "system" fn ReadyState<Impl: IUPnPDescriptionDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plreadystate: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadyState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -66,15 +66,15 @@ impl IUPnPDescriptionDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Load<Impl: IUPnPDescriptionDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrurl: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Load<Impl: IUPnPDescriptionDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrurl: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Load(::core::mem::transmute_copy(&bstrurl)).into()
         }
-        unsafe extern "system" fn LoadAsync<Impl: IUPnPDescriptionDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrurl: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, punkcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadAsync<Impl: IUPnPDescriptionDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrurl: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, punkcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).LoadAsync(::core::mem::transmute_copy(&bstrurl), ::core::mem::transmute(&punkcallback)).into()
         }
-        unsafe extern "system" fn LoadResult<Impl: IUPnPDescriptionDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phrerror: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadResult<Impl: IUPnPDescriptionDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phrerror: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadResult() {
                 ::core::result::Result::Ok(ok__) => {
@@ -84,11 +84,11 @@ impl IUPnPDescriptionDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Abort<Impl: IUPnPDescriptionDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Abort<Impl: IUPnPDescriptionDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Abort().into()
         }
-        unsafe extern "system" fn RootDevice<Impl: IUPnPDescriptionDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppudrootdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RootDevice<Impl: IUPnPDescriptionDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppudrootdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RootDevice() {
                 ::core::result::Result::Ok(ok__) => {
@@ -98,7 +98,7 @@ impl IUPnPDescriptionDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceByUDN<Impl: IUPnPDescriptionDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrudn: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppuddevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceByUDN<Impl: IUPnPDescriptionDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrudn: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppuddevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceByUDN(::core::mem::transmute_copy(&bstrudn)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -109,7 +109,7 @@ impl IUPnPDescriptionDocumentVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             ReadyState: ReadyState::<Impl, IMPL_OFFSET>,
             Load: Load::<Impl, IMPL_OFFSET>,
             LoadAsync: LoadAsync::<Impl, IMPL_OFFSET>,
@@ -123,12 +123,12 @@ impl IUPnPDescriptionDocumentVtbl {
         iid == &<IUPnPDescriptionDocument as ::windows::core::Interface>::IID
     }
 }
-pub trait IUPnPDescriptionDocumentCallbackImpl: Sized {
+pub trait IUPnPDescriptionDocumentCallback_Impl: Sized {
     fn LoadComplete(&mut self, hrloadresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
-impl IUPnPDescriptionDocumentCallbackVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDescriptionDocumentCallbackImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDescriptionDocumentCallbackVtbl {
-        unsafe extern "system" fn LoadComplete<Impl: IUPnPDescriptionDocumentCallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrloadresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+impl IUPnPDescriptionDocumentCallback_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDescriptionDocumentCallback_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDescriptionDocumentCallback_Vtbl {
+        unsafe extern "system" fn LoadComplete<Impl: IUPnPDescriptionDocumentCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrloadresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).LoadComplete(::core::mem::transmute_copy(&hrloadresult)).into()
         }
@@ -139,7 +139,7 @@ impl IUPnPDescriptionDocumentCallbackVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUPnPDeviceImpl: Sized + IDispatchImpl {
+pub trait IUPnPDevice_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn IsRootDevice(&mut self) -> ::windows::core::Result<i16>;
     fn RootDevice(&mut self) -> ::windows::core::Result<IUPnPDevice>;
     fn ParentDevice(&mut self) -> ::windows::core::Result<IUPnPDevice>;
@@ -161,9 +161,9 @@ pub trait IUPnPDeviceImpl: Sized + IDispatchImpl {
     fn Services(&mut self) -> ::windows::core::Result<IUPnPServices>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUPnPDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDeviceVtbl {
-        unsafe extern "system" fn IsRootDevice<Impl: IUPnPDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarb: *mut i16) -> ::windows::core::HRESULT {
+impl IUPnPDevice_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDevice_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDevice_Vtbl {
+        unsafe extern "system" fn IsRootDevice<Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarb: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsRootDevice() {
                 ::core::result::Result::Ok(ok__) => {
@@ -173,7 +173,7 @@ impl IUPnPDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RootDevice<Impl: IUPnPDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppudrootdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RootDevice<Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppudrootdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RootDevice() {
                 ::core::result::Result::Ok(ok__) => {
@@ -183,7 +183,7 @@ impl IUPnPDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ParentDevice<Impl: IUPnPDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppuddeviceparent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ParentDevice<Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppuddeviceparent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ParentDevice() {
                 ::core::result::Result::Ok(ok__) => {
@@ -193,7 +193,7 @@ impl IUPnPDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasChildren<Impl: IUPnPDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarb: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasChildren<Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarb: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasChildren() {
                 ::core::result::Result::Ok(ok__) => {
@@ -203,7 +203,7 @@ impl IUPnPDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Children<Impl: IUPnPDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppudchildren: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Children<Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppudchildren: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Children() {
                 ::core::result::Result::Ok(ok__) => {
@@ -213,7 +213,7 @@ impl IUPnPDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UniqueDeviceName<Impl: IUPnPDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UniqueDeviceName<Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UniqueDeviceName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -223,7 +223,7 @@ impl IUPnPDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FriendlyName<Impl: IUPnPDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FriendlyName<Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FriendlyName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -233,7 +233,7 @@ impl IUPnPDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Type<Impl: IUPnPDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Type<Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
                 ::core::result::Result::Ok(ok__) => {
@@ -243,7 +243,7 @@ impl IUPnPDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PresentationURL<Impl: IUPnPDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PresentationURL<Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PresentationURL() {
                 ::core::result::Result::Ok(ok__) => {
@@ -253,7 +253,7 @@ impl IUPnPDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ManufacturerName<Impl: IUPnPDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ManufacturerName<Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ManufacturerName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -263,7 +263,7 @@ impl IUPnPDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ManufacturerURL<Impl: IUPnPDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ManufacturerURL<Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ManufacturerURL() {
                 ::core::result::Result::Ok(ok__) => {
@@ -273,7 +273,7 @@ impl IUPnPDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModelName<Impl: IUPnPDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ModelName<Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ModelName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -283,7 +283,7 @@ impl IUPnPDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModelNumber<Impl: IUPnPDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ModelNumber<Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ModelNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -293,7 +293,7 @@ impl IUPnPDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Impl: IUPnPDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -303,7 +303,7 @@ impl IUPnPDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModelURL<Impl: IUPnPDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ModelURL<Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ModelURL() {
                 ::core::result::Result::Ok(ok__) => {
@@ -313,7 +313,7 @@ impl IUPnPDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UPC<Impl: IUPnPDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UPC<Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UPC() {
                 ::core::result::Result::Ok(ok__) => {
@@ -323,7 +323,7 @@ impl IUPnPDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SerialNumber<Impl: IUPnPDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SerialNumber<Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SerialNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -333,7 +333,7 @@ impl IUPnPDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IconURL<Impl: IUPnPDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrencodingformat: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, lsizex: i32, lsizey: i32, lbitdepth: i32, pbstriconurl: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IconURL<Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrencodingformat: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, lsizex: i32, lsizey: i32, lbitdepth: i32, pbstriconurl: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IconURL(::core::mem::transmute_copy(&bstrencodingformat), ::core::mem::transmute_copy(&lsizex), ::core::mem::transmute_copy(&lsizey), ::core::mem::transmute_copy(&lbitdepth)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -343,7 +343,7 @@ impl IUPnPDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Services<Impl: IUPnPDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppusservices: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Services<Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppusservices: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Services() {
                 ::core::result::Result::Ok(ok__) => {
@@ -354,7 +354,7 @@ impl IUPnPDeviceVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             IsRootDevice: IsRootDevice::<Impl, IMPL_OFFSET>,
             RootDevice: RootDevice::<Impl, IMPL_OFFSET>,
             ParentDevice: ParentDevice::<Impl, IMPL_OFFSET>,
@@ -381,18 +381,18 @@ impl IUPnPDeviceVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IUPnPDeviceControlImpl: Sized {
+pub trait IUPnPDeviceControl_Impl: Sized {
     fn Initialize(&mut self, bstrxmldesc: super::super::super::Foundation::BSTR, bstrdeviceidentifier: super::super::super::Foundation::BSTR, bstrinitstring: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetServiceObject(&mut self, bstrudn: super::super::super::Foundation::BSTR, bstrserviceid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl IUPnPDeviceControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDeviceControlVtbl {
-        unsafe extern "system" fn Initialize<Impl: IUPnPDeviceControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrxmldesc: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrdeviceidentifier: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrinitstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+impl IUPnPDeviceControl_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceControl_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDeviceControl_Vtbl {
+        unsafe extern "system" fn Initialize<Impl: IUPnPDeviceControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrxmldesc: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrdeviceidentifier: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrinitstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Initialize(::core::mem::transmute_copy(&bstrxmldesc), ::core::mem::transmute_copy(&bstrdeviceidentifier), ::core::mem::transmute_copy(&bstrinitstring)).into()
         }
-        unsafe extern "system" fn GetServiceObject<Impl: IUPnPDeviceControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrudn: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrserviceid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppdispservice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetServiceObject<Impl: IUPnPDeviceControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrudn: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrserviceid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppdispservice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetServiceObject(::core::mem::transmute_copy(&bstrudn), ::core::mem::transmute_copy(&bstrserviceid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -413,13 +413,13 @@ impl IUPnPDeviceControlVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUPnPDeviceControlHttpHeadersImpl: Sized {
+pub trait IUPnPDeviceControlHttpHeaders_Impl: Sized {
     fn GetAdditionalResponseHeaders(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUPnPDeviceControlHttpHeadersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceControlHttpHeadersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDeviceControlHttpHeadersVtbl {
-        unsafe extern "system" fn GetAdditionalResponseHeaders<Impl: IUPnPDeviceControlHttpHeadersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrhttpresponseheaders: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IUPnPDeviceControlHttpHeaders_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceControlHttpHeaders_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDeviceControlHttpHeaders_Vtbl {
+        unsafe extern "system" fn GetAdditionalResponseHeaders<Impl: IUPnPDeviceControlHttpHeaders_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrhttpresponseheaders: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAdditionalResponseHeaders() {
                 ::core::result::Result::Ok(ok__) => {
@@ -439,13 +439,13 @@ impl IUPnPDeviceControlHttpHeadersVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUPnPDeviceDocumentAccessImpl: Sized {
+pub trait IUPnPDeviceDocumentAccess_Impl: Sized {
     fn GetDocumentURL(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUPnPDeviceDocumentAccessVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceDocumentAccessImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDeviceDocumentAccessVtbl {
-        unsafe extern "system" fn GetDocumentURL<Impl: IUPnPDeviceDocumentAccessImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdocument: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IUPnPDeviceDocumentAccess_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceDocumentAccess_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDeviceDocumentAccess_Vtbl {
+        unsafe extern "system" fn GetDocumentURL<Impl: IUPnPDeviceDocumentAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdocument: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDocumentURL() {
                 ::core::result::Result::Ok(ok__) => {
@@ -462,13 +462,13 @@ impl IUPnPDeviceDocumentAccessVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUPnPDeviceDocumentAccessExImpl: Sized {
+pub trait IUPnPDeviceDocumentAccessEx_Impl: Sized {
     fn GetDocument(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUPnPDeviceDocumentAccessExVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceDocumentAccessExImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDeviceDocumentAccessExVtbl {
-        unsafe extern "system" fn GetDocument<Impl: IUPnPDeviceDocumentAccessExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdocument: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IUPnPDeviceDocumentAccessEx_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceDocumentAccessEx_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDeviceDocumentAccessEx_Vtbl {
+        unsafe extern "system" fn GetDocument<Impl: IUPnPDeviceDocumentAccessEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdocument: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDocument() {
                 ::core::result::Result::Ok(ok__) => {
@@ -485,7 +485,7 @@ impl IUPnPDeviceDocumentAccessExVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUPnPDeviceFinderImpl: Sized + IDispatchImpl {
+pub trait IUPnPDeviceFinder_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn FindByType(&mut self, bstrtypeuri: super::super::super::Foundation::BSTR, dwflags: u32) -> ::windows::core::Result<IUPnPDevices>;
     fn CreateAsyncFind(&mut self, bstrtypeuri: super::super::super::Foundation::BSTR, dwflags: u32, punkdevicefindercallback: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<i32>;
     fn StartAsyncFind(&mut self, lfinddata: i32) -> ::windows::core::Result<()>;
@@ -493,9 +493,9 @@ pub trait IUPnPDeviceFinderImpl: Sized + IDispatchImpl {
     fn FindByUDN(&mut self, bstrudn: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IUPnPDevice>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUPnPDeviceFinderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceFinderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDeviceFinderVtbl {
-        unsafe extern "system" fn FindByType<Impl: IUPnPDeviceFinderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtypeuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, dwflags: u32, pdevices: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUPnPDeviceFinder_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceFinder_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDeviceFinder_Vtbl {
+        unsafe extern "system" fn FindByType<Impl: IUPnPDeviceFinder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtypeuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, dwflags: u32, pdevices: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindByType(::core::mem::transmute_copy(&bstrtypeuri), ::core::mem::transmute_copy(&dwflags)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -505,7 +505,7 @@ impl IUPnPDeviceFinderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateAsyncFind<Impl: IUPnPDeviceFinderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtypeuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, dwflags: u32, punkdevicefindercallback: *mut ::core::ffi::c_void, plfinddata: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateAsyncFind<Impl: IUPnPDeviceFinder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtypeuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, dwflags: u32, punkdevicefindercallback: *mut ::core::ffi::c_void, plfinddata: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAsyncFind(::core::mem::transmute_copy(&bstrtypeuri), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&punkdevicefindercallback)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -515,15 +515,15 @@ impl IUPnPDeviceFinderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartAsyncFind<Impl: IUPnPDeviceFinderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfinddata: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartAsyncFind<Impl: IUPnPDeviceFinder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfinddata: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartAsyncFind(::core::mem::transmute_copy(&lfinddata)).into()
         }
-        unsafe extern "system" fn CancelAsyncFind<Impl: IUPnPDeviceFinderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfinddata: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CancelAsyncFind<Impl: IUPnPDeviceFinder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfinddata: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CancelAsyncFind(::core::mem::transmute_copy(&lfinddata)).into()
         }
-        unsafe extern "system" fn FindByUDN<Impl: IUPnPDeviceFinderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrudn: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindByUDN<Impl: IUPnPDeviceFinder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrudn: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindByUDN(::core::mem::transmute_copy(&bstrudn)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -534,7 +534,7 @@ impl IUPnPDeviceFinderVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             FindByType: FindByType::<Impl, IMPL_OFFSET>,
             CreateAsyncFind: CreateAsyncFind::<Impl, IMPL_OFFSET>,
             StartAsyncFind: StartAsyncFind::<Impl, IMPL_OFFSET>,
@@ -547,13 +547,13 @@ impl IUPnPDeviceFinderVtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IUPnPDeviceFinderAddCallbackWithInterfaceImpl: Sized {
+pub trait IUPnPDeviceFinderAddCallbackWithInterface_Impl: Sized {
     fn DeviceAddedWithInterface(&mut self, lfinddata: i32, pdevice: ::core::option::Option<IUPnPDevice>, pguidinterface: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl IUPnPDeviceFinderAddCallbackWithInterfaceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceFinderAddCallbackWithInterfaceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDeviceFinderAddCallbackWithInterfaceVtbl {
-        unsafe extern "system" fn DeviceAddedWithInterface<Impl: IUPnPDeviceFinderAddCallbackWithInterfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfinddata: i32, pdevice: ::windows::core::RawPtr, pguidinterface: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl IUPnPDeviceFinderAddCallbackWithInterface_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceFinderAddCallbackWithInterface_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDeviceFinderAddCallbackWithInterface_Vtbl {
+        unsafe extern "system" fn DeviceAddedWithInterface<Impl: IUPnPDeviceFinderAddCallbackWithInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfinddata: i32, pdevice: ::windows::core::RawPtr, pguidinterface: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DeviceAddedWithInterface(::core::mem::transmute_copy(&lfinddata), ::core::mem::transmute(&pdevice), ::core::mem::transmute_copy(&pguidinterface)).into()
         }
@@ -564,23 +564,23 @@ impl IUPnPDeviceFinderAddCallbackWithInterfaceVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IUPnPDeviceFinderCallbackImpl: Sized {
+pub trait IUPnPDeviceFinderCallback_Impl: Sized {
     fn DeviceAdded(&mut self, lfinddata: i32, pdevice: ::core::option::Option<IUPnPDevice>) -> ::windows::core::Result<()>;
     fn DeviceRemoved(&mut self, lfinddata: i32, bstrudn: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SearchComplete(&mut self, lfinddata: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl IUPnPDeviceFinderCallbackVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceFinderCallbackImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDeviceFinderCallbackVtbl {
-        unsafe extern "system" fn DeviceAdded<Impl: IUPnPDeviceFinderCallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfinddata: i32, pdevice: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUPnPDeviceFinderCallback_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceFinderCallback_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDeviceFinderCallback_Vtbl {
+        unsafe extern "system" fn DeviceAdded<Impl: IUPnPDeviceFinderCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfinddata: i32, pdevice: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DeviceAdded(::core::mem::transmute_copy(&lfinddata), ::core::mem::transmute(&pdevice)).into()
         }
-        unsafe extern "system" fn DeviceRemoved<Impl: IUPnPDeviceFinderCallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfinddata: i32, bstrudn: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceRemoved<Impl: IUPnPDeviceFinderCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfinddata: i32, bstrudn: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DeviceRemoved(::core::mem::transmute_copy(&lfinddata), ::core::mem::transmute_copy(&bstrudn)).into()
         }
-        unsafe extern "system" fn SearchComplete<Impl: IUPnPDeviceFinderCallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfinddata: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchComplete<Impl: IUPnPDeviceFinderCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfinddata: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SearchComplete(::core::mem::transmute_copy(&lfinddata)).into()
         }
@@ -596,18 +596,18 @@ impl IUPnPDeviceFinderCallbackVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUPnPDeviceProviderImpl: Sized {
+pub trait IUPnPDeviceProvider_Impl: Sized {
     fn Start(&mut self, bstrinitstring: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Stop(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUPnPDeviceProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDeviceProviderVtbl {
-        unsafe extern "system" fn Start<Impl: IUPnPDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinitstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+impl IUPnPDeviceProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDeviceProvider_Vtbl {
+        unsafe extern "system" fn Start<Impl: IUPnPDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinitstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start(::core::mem::transmute_copy(&bstrinitstring)).into()
         }
-        unsafe extern "system" fn Stop<Impl: IUPnPDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stop<Impl: IUPnPDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
@@ -618,15 +618,15 @@ impl IUPnPDeviceProviderVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUPnPDevicesImpl: Sized + IDispatchImpl {
+pub trait IUPnPDevices_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Item(&mut self, bstrudn: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IUPnPDevice>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUPnPDevicesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDevicesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDevicesVtbl {
-        unsafe extern "system" fn Count<Impl: IUPnPDevicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
+impl IUPnPDevices_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDevices_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPDevices_Vtbl {
+        unsafe extern "system" fn Count<Impl: IUPnPDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -636,7 +636,7 @@ impl IUPnPDevicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn _NewEnum<Impl: IUPnPDevicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn _NewEnum<Impl: IUPnPDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -646,7 +646,7 @@ impl IUPnPDevicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Impl: IUPnPDevicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrudn: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Item<Impl: IUPnPDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrudn: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Item(::core::mem::transmute_copy(&bstrudn)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -657,7 +657,7 @@ impl IUPnPDevicesVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Count: Count::<Impl, IMPL_OFFSET>,
             _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
             Item: Item::<Impl, IMPL_OFFSET>,
@@ -668,18 +668,18 @@ impl IUPnPDevicesVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUPnPEventSinkImpl: Sized {
+pub trait IUPnPEventSink_Impl: Sized {
     fn OnStateChanged(&mut self, cchanges: u32, rgdispidchanges: *const i32) -> ::windows::core::Result<()>;
     fn OnStateChangedSafe(&mut self, varsadispidchanges: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUPnPEventSinkVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPEventSinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPEventSinkVtbl {
-        unsafe extern "system" fn OnStateChanged<Impl: IUPnPEventSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchanges: u32, rgdispidchanges: *const i32) -> ::windows::core::HRESULT {
+impl IUPnPEventSink_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPEventSink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPEventSink_Vtbl {
+        unsafe extern "system" fn OnStateChanged<Impl: IUPnPEventSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchanges: u32, rgdispidchanges: *const i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnStateChanged(::core::mem::transmute_copy(&cchanges), ::core::mem::transmute_copy(&rgdispidchanges)).into()
         }
-        unsafe extern "system" fn OnStateChangedSafe<Impl: IUPnPEventSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varsadispidchanges: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnStateChangedSafe<Impl: IUPnPEventSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varsadispidchanges: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnStateChangedSafe(::core::mem::transmute_copy(&varsadispidchanges)).into()
         }
@@ -693,17 +693,17 @@ impl IUPnPEventSinkVtbl {
         iid == &<IUPnPEventSink as ::windows::core::Interface>::IID
     }
 }
-pub trait IUPnPEventSourceImpl: Sized {
+pub trait IUPnPEventSource_Impl: Sized {
     fn Advise(&mut self, pessubscriber: ::core::option::Option<IUPnPEventSink>) -> ::windows::core::Result<()>;
     fn Unadvise(&mut self, pessubscriber: ::core::option::Option<IUPnPEventSink>) -> ::windows::core::Result<()>;
 }
-impl IUPnPEventSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPEventSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPEventSourceVtbl {
-        unsafe extern "system" fn Advise<Impl: IUPnPEventSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pessubscriber: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUPnPEventSource_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPEventSource_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPEventSource_Vtbl {
+        unsafe extern "system" fn Advise<Impl: IUPnPEventSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pessubscriber: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Advise(::core::mem::transmute(&pessubscriber)).into()
         }
-        unsafe extern "system" fn Unadvise<Impl: IUPnPEventSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pessubscriber: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Unadvise<Impl: IUPnPEventSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pessubscriber: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Unadvise(::core::mem::transmute(&pessubscriber)).into()
         }
@@ -718,13 +718,13 @@ impl IUPnPEventSourceVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUPnPHttpHeaderControlImpl: Sized {
+pub trait IUPnPHttpHeaderControl_Impl: Sized {
     fn AddRequestHeaders(&mut self, bstrhttpheaders: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUPnPHttpHeaderControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPHttpHeaderControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPHttpHeaderControlVtbl {
-        unsafe extern "system" fn AddRequestHeaders<Impl: IUPnPHttpHeaderControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrhttpheaders: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+impl IUPnPHttpHeaderControl_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPHttpHeaderControl_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPHttpHeaderControl_Vtbl {
+        unsafe extern "system" fn AddRequestHeaders<Impl: IUPnPHttpHeaderControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrhttpheaders: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddRequestHeaders(::core::mem::transmute_copy(&bstrhttpheaders)).into()
         }
@@ -735,7 +735,7 @@ impl IUPnPHttpHeaderControlVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUPnPRegistrarImpl: Sized {
+pub trait IUPnPRegistrar_Impl: Sized {
     fn RegisterDevice(&mut self, bstrxmldesc: super::super::super::Foundation::BSTR, bstrprogiddevicecontrolclass: super::super::super::Foundation::BSTR, bstrinitstring: super::super::super::Foundation::BSTR, bstrcontainerid: super::super::super::Foundation::BSTR, bstrresourcepath: super::super::super::Foundation::BSTR, nlifetime: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn RegisterRunningDevice(&mut self, bstrxmldesc: super::super::super::Foundation::BSTR, punkdevicecontrol: ::core::option::Option<::windows::core::IUnknown>, bstrinitstring: super::super::super::Foundation::BSTR, bstrresourcepath: super::super::super::Foundation::BSTR, nlifetime: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn RegisterDeviceProvider(&mut self, bstrprovidername: super::super::super::Foundation::BSTR, bstrprogidproviderclass: super::super::super::Foundation::BSTR, bstrinitstring: super::super::super::Foundation::BSTR, bstrcontainerid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
@@ -744,9 +744,9 @@ pub trait IUPnPRegistrarImpl: Sized {
     fn UnregisterDeviceProvider(&mut self, bstrprovidername: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUPnPRegistrarVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPRegistrarImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPRegistrarVtbl {
-        unsafe extern "system" fn RegisterDevice<Impl: IUPnPRegistrarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrxmldesc: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrprogiddevicecontrolclass: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrinitstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrcontainerid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrresourcepath: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, nlifetime: i32, pbstrdeviceidentifier: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IUPnPRegistrar_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPRegistrar_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPRegistrar_Vtbl {
+        unsafe extern "system" fn RegisterDevice<Impl: IUPnPRegistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrxmldesc: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrprogiddevicecontrolclass: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrinitstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrcontainerid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrresourcepath: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, nlifetime: i32, pbstrdeviceidentifier: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterDevice(::core::mem::transmute_copy(&bstrxmldesc), ::core::mem::transmute_copy(&bstrprogiddevicecontrolclass), ::core::mem::transmute_copy(&bstrinitstring), ::core::mem::transmute_copy(&bstrcontainerid), ::core::mem::transmute_copy(&bstrresourcepath), ::core::mem::transmute_copy(&nlifetime)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -756,7 +756,7 @@ impl IUPnPRegistrarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisterRunningDevice<Impl: IUPnPRegistrarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrxmldesc: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, punkdevicecontrol: *mut ::core::ffi::c_void, bstrinitstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrresourcepath: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, nlifetime: i32, pbstrdeviceidentifier: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterRunningDevice<Impl: IUPnPRegistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrxmldesc: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, punkdevicecontrol: *mut ::core::ffi::c_void, bstrinitstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrresourcepath: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, nlifetime: i32, pbstrdeviceidentifier: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterRunningDevice(::core::mem::transmute_copy(&bstrxmldesc), ::core::mem::transmute(&punkdevicecontrol), ::core::mem::transmute_copy(&bstrinitstring), ::core::mem::transmute_copy(&bstrresourcepath), ::core::mem::transmute_copy(&nlifetime)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -766,11 +766,11 @@ impl IUPnPRegistrarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisterDeviceProvider<Impl: IUPnPRegistrarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprovidername: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrprogidproviderclass: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrinitstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrcontainerid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterDeviceProvider<Impl: IUPnPRegistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprovidername: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrprogidproviderclass: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrinitstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrcontainerid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RegisterDeviceProvider(::core::mem::transmute_copy(&bstrprovidername), ::core::mem::transmute_copy(&bstrprogidproviderclass), ::core::mem::transmute_copy(&bstrinitstring), ::core::mem::transmute_copy(&bstrcontainerid)).into()
         }
-        unsafe extern "system" fn GetUniqueDeviceName<Impl: IUPnPRegistrarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdeviceidentifier: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrtemplateudn: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrudn: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetUniqueDeviceName<Impl: IUPnPRegistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdeviceidentifier: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrtemplateudn: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrudn: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetUniqueDeviceName(::core::mem::transmute_copy(&bstrdeviceidentifier), ::core::mem::transmute_copy(&bstrtemplateudn)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -780,11 +780,11 @@ impl IUPnPRegistrarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnregisterDevice<Impl: IUPnPRegistrarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdeviceidentifier: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, fpermanent: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterDevice<Impl: IUPnPRegistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdeviceidentifier: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, fpermanent: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UnregisterDevice(::core::mem::transmute_copy(&bstrdeviceidentifier), ::core::mem::transmute_copy(&fpermanent)).into()
         }
-        unsafe extern "system" fn UnregisterDeviceProvider<Impl: IUPnPRegistrarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprovidername: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterDeviceProvider<Impl: IUPnPRegistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprovidername: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UnregisterDeviceProvider(::core::mem::transmute_copy(&bstrprovidername)).into()
         }
@@ -803,15 +803,15 @@ impl IUPnPRegistrarVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUPnPRemoteEndpointInfoImpl: Sized {
+pub trait IUPnPRemoteEndpointInfo_Impl: Sized {
     fn GetDwordValue(&mut self, bstrvaluename: super::super::super::Foundation::BSTR) -> ::windows::core::Result<u32>;
     fn GetStringValue(&mut self, bstrvaluename: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn GetGuidValue(&mut self, bstrvaluename: super::super::super::Foundation::BSTR) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUPnPRemoteEndpointInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPRemoteEndpointInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPRemoteEndpointInfoVtbl {
-        unsafe extern "system" fn GetDwordValue<Impl: IUPnPRemoteEndpointInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrvaluename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdwvalue: *mut u32) -> ::windows::core::HRESULT {
+impl IUPnPRemoteEndpointInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPRemoteEndpointInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPRemoteEndpointInfo_Vtbl {
+        unsafe extern "system" fn GetDwordValue<Impl: IUPnPRemoteEndpointInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrvaluename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdwvalue: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDwordValue(::core::mem::transmute_copy(&bstrvaluename)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -821,7 +821,7 @@ impl IUPnPRemoteEndpointInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStringValue<Impl: IUPnPRemoteEndpointInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrvaluename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStringValue<Impl: IUPnPRemoteEndpointInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrvaluename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstrvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStringValue(::core::mem::transmute_copy(&bstrvaluename)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -831,7 +831,7 @@ impl IUPnPRemoteEndpointInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetGuidValue<Impl: IUPnPRemoteEndpointInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrvaluename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGuidValue<Impl: IUPnPRemoteEndpointInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrvaluename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pguidvalue: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetGuidValue(::core::mem::transmute_copy(&bstrvaluename)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -853,18 +853,18 @@ impl IUPnPRemoteEndpointInfoVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUPnPReregistrarImpl: Sized {
+pub trait IUPnPReregistrar_Impl: Sized {
     fn ReregisterDevice(&mut self, bstrdeviceidentifier: super::super::super::Foundation::BSTR, bstrxmldesc: super::super::super::Foundation::BSTR, bstrprogiddevicecontrolclass: super::super::super::Foundation::BSTR, bstrinitstring: super::super::super::Foundation::BSTR, bstrcontainerid: super::super::super::Foundation::BSTR, bstrresourcepath: super::super::super::Foundation::BSTR, nlifetime: i32) -> ::windows::core::Result<()>;
     fn ReregisterRunningDevice(&mut self, bstrdeviceidentifier: super::super::super::Foundation::BSTR, bstrxmldesc: super::super::super::Foundation::BSTR, punkdevicecontrol: ::core::option::Option<::windows::core::IUnknown>, bstrinitstring: super::super::super::Foundation::BSTR, bstrresourcepath: super::super::super::Foundation::BSTR, nlifetime: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUPnPReregistrarVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPReregistrarImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPReregistrarVtbl {
-        unsafe extern "system" fn ReregisterDevice<Impl: IUPnPReregistrarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdeviceidentifier: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrxmldesc: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrprogiddevicecontrolclass: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrinitstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrcontainerid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrresourcepath: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, nlifetime: i32) -> ::windows::core::HRESULT {
+impl IUPnPReregistrar_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPReregistrar_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPReregistrar_Vtbl {
+        unsafe extern "system" fn ReregisterDevice<Impl: IUPnPReregistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdeviceidentifier: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrxmldesc: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrprogiddevicecontrolclass: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrinitstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrcontainerid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrresourcepath: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, nlifetime: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReregisterDevice(::core::mem::transmute_copy(&bstrdeviceidentifier), ::core::mem::transmute_copy(&bstrxmldesc), ::core::mem::transmute_copy(&bstrprogiddevicecontrolclass), ::core::mem::transmute_copy(&bstrinitstring), ::core::mem::transmute_copy(&bstrcontainerid), ::core::mem::transmute_copy(&bstrresourcepath), ::core::mem::transmute_copy(&nlifetime)).into()
         }
-        unsafe extern "system" fn ReregisterRunningDevice<Impl: IUPnPReregistrarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdeviceidentifier: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrxmldesc: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, punkdevicecontrol: *mut ::core::ffi::c_void, bstrinitstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrresourcepath: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, nlifetime: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReregisterRunningDevice<Impl: IUPnPReregistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdeviceidentifier: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrxmldesc: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, punkdevicecontrol: *mut ::core::ffi::c_void, bstrinitstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrresourcepath: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, nlifetime: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReregisterRunningDevice(::core::mem::transmute_copy(&bstrdeviceidentifier), ::core::mem::transmute_copy(&bstrxmldesc), ::core::mem::transmute(&punkdevicecontrol), ::core::mem::transmute_copy(&bstrinitstring), ::core::mem::transmute_copy(&bstrresourcepath), ::core::mem::transmute_copy(&nlifetime)).into()
         }
@@ -879,7 +879,7 @@ impl IUPnPReregistrarVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUPnPServiceImpl: Sized + IDispatchImpl {
+pub trait IUPnPService_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn QueryStateVariable(&mut self, bstrvariablename: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn InvokeAction(&mut self, bstractionname: super::super::super::Foundation::BSTR, vinactionargs: super::super::super::System::Com::VARIANT, pvoutactionargs: *mut super::super::super::System::Com::VARIANT, pvretval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn ServiceTypeIdentifier(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
@@ -888,9 +888,9 @@ pub trait IUPnPServiceImpl: Sized + IDispatchImpl {
     fn LastTransportStatus(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUPnPServiceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServiceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPServiceVtbl {
-        unsafe extern "system" fn QueryStateVariable<Impl: IUPnPServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrvariablename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+impl IUPnPService_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPService_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPService_Vtbl {
+        unsafe extern "system" fn QueryStateVariable<Impl: IUPnPService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrvariablename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryStateVariable(::core::mem::transmute_copy(&bstrvariablename)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -900,11 +900,11 @@ impl IUPnPServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InvokeAction<Impl: IUPnPServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstractionname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, vinactionargs: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pvoutactionargs: *mut super::super::super::System::Com::VARIANT, pvretval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InvokeAction<Impl: IUPnPService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstractionname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, vinactionargs: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pvoutactionargs: *mut super::super::super::System::Com::VARIANT, pvretval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InvokeAction(::core::mem::transmute_copy(&bstractionname), ::core::mem::transmute_copy(&vinactionargs), ::core::mem::transmute_copy(&pvoutactionargs), ::core::mem::transmute_copy(&pvretval)).into()
         }
-        unsafe extern "system" fn ServiceTypeIdentifier<Impl: IUPnPServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServiceTypeIdentifier<Impl: IUPnPService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceTypeIdentifier() {
                 ::core::result::Result::Ok(ok__) => {
@@ -914,11 +914,11 @@ impl IUPnPServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddCallback<Impl: IUPnPServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddCallback<Impl: IUPnPService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddCallback(::core::mem::transmute(&punkcallback)).into()
         }
-        unsafe extern "system" fn Id<Impl: IUPnPServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Id<Impl: IUPnPService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -928,7 +928,7 @@ impl IUPnPServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LastTransportStatus<Impl: IUPnPServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plvalue: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LastTransportStatus<Impl: IUPnPService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LastTransportStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -939,7 +939,7 @@ impl IUPnPServiceVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             QueryStateVariable: QueryStateVariable::<Impl, IMPL_OFFSET>,
             InvokeAction: InvokeAction::<Impl, IMPL_OFFSET>,
             ServiceTypeIdentifier: ServiceTypeIdentifier::<Impl, IMPL_OFFSET>,
@@ -953,7 +953,7 @@ impl IUPnPServiceVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUPnPServiceAsyncImpl: Sized {
+pub trait IUPnPServiceAsync_Impl: Sized {
     fn BeginInvokeAction(&mut self, bstractionname: super::super::super::Foundation::BSTR, vinactionargs: super::super::super::System::Com::VARIANT, pasyncresult: ::core::option::Option<IUPnPAsyncResult>) -> ::windows::core::Result<u64>;
     fn EndInvokeAction(&mut self, ullrequestid: u64, pvoutactionargs: *mut super::super::super::System::Com::VARIANT, pvretval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn BeginQueryStateVariable(&mut self, bstrvariablename: super::super::super::Foundation::BSTR, pasyncresult: ::core::option::Option<IUPnPAsyncResult>) -> ::windows::core::Result<u64>;
@@ -965,9 +965,9 @@ pub trait IUPnPServiceAsyncImpl: Sized {
     fn CancelAsyncOperation(&mut self, ullrequestid: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUPnPServiceAsyncVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServiceAsyncImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPServiceAsyncVtbl {
-        unsafe extern "system" fn BeginInvokeAction<Impl: IUPnPServiceAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstractionname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, vinactionargs: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pasyncresult: ::windows::core::RawPtr, pullrequestid: *mut u64) -> ::windows::core::HRESULT {
+impl IUPnPServiceAsync_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServiceAsync_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPServiceAsync_Vtbl {
+        unsafe extern "system" fn BeginInvokeAction<Impl: IUPnPServiceAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstractionname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, vinactionargs: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pasyncresult: ::windows::core::RawPtr, pullrequestid: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BeginInvokeAction(::core::mem::transmute_copy(&bstractionname), ::core::mem::transmute_copy(&vinactionargs), ::core::mem::transmute(&pasyncresult)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -977,11 +977,11 @@ impl IUPnPServiceAsyncVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EndInvokeAction<Impl: IUPnPServiceAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ullrequestid: u64, pvoutactionargs: *mut super::super::super::System::Com::VARIANT, pvretval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EndInvokeAction<Impl: IUPnPServiceAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ullrequestid: u64, pvoutactionargs: *mut super::super::super::System::Com::VARIANT, pvretval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EndInvokeAction(::core::mem::transmute_copy(&ullrequestid), ::core::mem::transmute_copy(&pvoutactionargs), ::core::mem::transmute_copy(&pvretval)).into()
         }
-        unsafe extern "system" fn BeginQueryStateVariable<Impl: IUPnPServiceAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrvariablename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pasyncresult: ::windows::core::RawPtr, pullrequestid: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeginQueryStateVariable<Impl: IUPnPServiceAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrvariablename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pasyncresult: ::windows::core::RawPtr, pullrequestid: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BeginQueryStateVariable(::core::mem::transmute_copy(&bstrvariablename), ::core::mem::transmute(&pasyncresult)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -991,11 +991,11 @@ impl IUPnPServiceAsyncVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EndQueryStateVariable<Impl: IUPnPServiceAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ullrequestid: u64, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EndQueryStateVariable<Impl: IUPnPServiceAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ullrequestid: u64, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EndQueryStateVariable(::core::mem::transmute_copy(&ullrequestid), ::core::mem::transmute_copy(&pvalue)).into()
         }
-        unsafe extern "system" fn BeginSubscribeToEvents<Impl: IUPnPServiceAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkcallback: *mut ::core::ffi::c_void, pasyncresult: ::windows::core::RawPtr, pullrequestid: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeginSubscribeToEvents<Impl: IUPnPServiceAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkcallback: *mut ::core::ffi::c_void, pasyncresult: ::windows::core::RawPtr, pullrequestid: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BeginSubscribeToEvents(::core::mem::transmute(&punkcallback), ::core::mem::transmute(&pasyncresult)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1005,11 +1005,11 @@ impl IUPnPServiceAsyncVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EndSubscribeToEvents<Impl: IUPnPServiceAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ullrequestid: u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EndSubscribeToEvents<Impl: IUPnPServiceAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ullrequestid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EndSubscribeToEvents(::core::mem::transmute_copy(&ullrequestid)).into()
         }
-        unsafe extern "system" fn BeginSCPDDownload<Impl: IUPnPServiceAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pasyncresult: ::windows::core::RawPtr, pullrequestid: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeginSCPDDownload<Impl: IUPnPServiceAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pasyncresult: ::windows::core::RawPtr, pullrequestid: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BeginSCPDDownload(::core::mem::transmute(&pasyncresult)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1019,7 +1019,7 @@ impl IUPnPServiceAsyncVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EndSCPDDownload<Impl: IUPnPServiceAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ullrequestid: u64, pbstrscpddoc: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EndSCPDDownload<Impl: IUPnPServiceAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ullrequestid: u64, pbstrscpddoc: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndSCPDDownload(::core::mem::transmute_copy(&ullrequestid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1029,7 +1029,7 @@ impl IUPnPServiceAsyncVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CancelAsyncOperation<Impl: IUPnPServiceAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ullrequestid: u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CancelAsyncOperation<Impl: IUPnPServiceAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ullrequestid: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CancelAsyncOperation(::core::mem::transmute_copy(&ullrequestid)).into()
         }
@@ -1051,18 +1051,18 @@ impl IUPnPServiceAsyncVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUPnPServiceCallbackImpl: Sized {
+pub trait IUPnPServiceCallback_Impl: Sized {
     fn StateVariableChanged(&mut self, pus: ::core::option::Option<IUPnPService>, pcwszstatevarname: super::super::super::Foundation::PWSTR, vavalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn ServiceInstanceDied(&mut self, pus: ::core::option::Option<IUPnPService>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUPnPServiceCallbackVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServiceCallbackImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPServiceCallbackVtbl {
-        unsafe extern "system" fn StateVariableChanged<Impl: IUPnPServiceCallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pus: ::windows::core::RawPtr, pcwszstatevarname: super::super::super::Foundation::PWSTR, vavalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+impl IUPnPServiceCallback_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServiceCallback_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPServiceCallback_Vtbl {
+        unsafe extern "system" fn StateVariableChanged<Impl: IUPnPServiceCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pus: ::windows::core::RawPtr, pcwszstatevarname: super::super::super::Foundation::PWSTR, vavalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StateVariableChanged(::core::mem::transmute(&pus), ::core::mem::transmute_copy(&pcwszstatevarname), ::core::mem::transmute_copy(&vavalue)).into()
         }
-        unsafe extern "system" fn ServiceInstanceDied<Impl: IUPnPServiceCallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pus: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServiceInstanceDied<Impl: IUPnPServiceCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pus: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ServiceInstanceDied(::core::mem::transmute(&pus)).into()
         }
@@ -1077,14 +1077,14 @@ impl IUPnPServiceCallbackVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUPnPServiceDocumentAccessImpl: Sized {
+pub trait IUPnPServiceDocumentAccess_Impl: Sized {
     fn GetDocumentURL(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn GetDocument(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUPnPServiceDocumentAccessVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServiceDocumentAccessImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPServiceDocumentAccessVtbl {
-        unsafe extern "system" fn GetDocumentURL<Impl: IUPnPServiceDocumentAccessImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdocurl: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IUPnPServiceDocumentAccess_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServiceDocumentAccess_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPServiceDocumentAccess_Vtbl {
+        unsafe extern "system" fn GetDocumentURL<Impl: IUPnPServiceDocumentAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdocurl: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDocumentURL() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1094,7 +1094,7 @@ impl IUPnPServiceDocumentAccessVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDocument<Impl: IUPnPServiceDocumentAccessImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdoc: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDocument<Impl: IUPnPServiceDocumentAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdoc: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDocument() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1114,12 +1114,12 @@ impl IUPnPServiceDocumentAccessVtbl {
         iid == &<IUPnPServiceDocumentAccess as ::windows::core::Interface>::IID
     }
 }
-pub trait IUPnPServiceEnumPropertyImpl: Sized {
+pub trait IUPnPServiceEnumProperty_Impl: Sized {
     fn SetServiceEnumProperty(&mut self, dwmask: u32) -> ::windows::core::Result<()>;
 }
-impl IUPnPServiceEnumPropertyVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServiceEnumPropertyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPServiceEnumPropertyVtbl {
-        unsafe extern "system" fn SetServiceEnumProperty<Impl: IUPnPServiceEnumPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwmask: u32) -> ::windows::core::HRESULT {
+impl IUPnPServiceEnumProperty_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServiceEnumProperty_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPServiceEnumProperty_Vtbl {
+        unsafe extern "system" fn SetServiceEnumProperty<Impl: IUPnPServiceEnumProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwmask: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetServiceEnumProperty(::core::mem::transmute_copy(&dwmask)).into()
         }
@@ -1130,15 +1130,15 @@ impl IUPnPServiceEnumPropertyVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUPnPServicesImpl: Sized + IDispatchImpl {
+pub trait IUPnPServices_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Item(&mut self, bstrserviceid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<IUPnPService>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUPnPServicesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServicesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPServicesVtbl {
-        unsafe extern "system" fn Count<Impl: IUPnPServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
+impl IUPnPServices_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServices_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUPnPServices_Vtbl {
+        unsafe extern "system" fn Count<Impl: IUPnPServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1148,7 +1148,7 @@ impl IUPnPServicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn _NewEnum<Impl: IUPnPServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn _NewEnum<Impl: IUPnPServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1158,7 +1158,7 @@ impl IUPnPServicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Impl: IUPnPServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrserviceid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppservice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Item<Impl: IUPnPServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrserviceid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppservice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Item(::core::mem::transmute_copy(&bstrserviceid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1169,7 +1169,7 @@ impl IUPnPServicesVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Count: Count::<Impl, IMPL_OFFSET>,
             _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
             Item: Item::<Impl, IMPL_OFFSET>,

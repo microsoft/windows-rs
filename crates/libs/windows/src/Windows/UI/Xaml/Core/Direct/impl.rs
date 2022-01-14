@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Media", feature = "UI_Xaml_Media_Media3D", feature = "implement_exclusive"))]
-pub trait IXamlDirectImpl: Sized {
+pub trait IXamlDirect_Impl: Sized {
     fn GetObject(&mut self, xamldirectobject: &::core::option::Option<IXamlDirectObject>) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn GetXamlDirectObject(&mut self, object: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<IXamlDirectObject>;
     fn CreateInstance(&mut self, typeindex: XamlTypeIndex) -> ::windows::core::Result<IXamlDirectObject>;
@@ -58,9 +58,9 @@ impl ::windows::core::RuntimeName for IXamlDirect {
     const NAME: &'static str = "Windows.UI.Xaml.Core.Direct.IXamlDirect";
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Media", feature = "UI_Xaml_Media_Media3D", feature = "implement_exclusive"))]
-impl IXamlDirectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlDirectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlDirectVtbl {
-        unsafe extern "system" fn GetObject<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IXamlDirect_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlDirect_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlDirect_Vtbl {
+        unsafe extern "system" fn GetObject<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetObject(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -71,7 +71,7 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetXamlDirectObject<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetXamlDirectObject<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetXamlDirectObject(&*(&object as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -82,7 +82,7 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateInstance<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, typeindex: XamlTypeIndex, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateInstance<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, typeindex: XamlTypeIndex, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(typeindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -93,83 +93,83 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetObjectProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetObjectProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetObjectProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex, &*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetXamlDirectObjectProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetXamlDirectObjectProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetXamlDirectObjectProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex, &*(&value as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetBooleanProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBooleanProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBooleanProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex, value).into()
         }
-        unsafe extern "system" fn SetDoubleProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDoubleProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDoubleProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex, value).into()
         }
-        unsafe extern "system" fn SetInt32Property<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInt32Property<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInt32Property(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex, value).into()
         }
-        unsafe extern "system" fn SetStringProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStringProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStringProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex, &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetDateTimeProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDateTimeProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDateTimeProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex, &*(&value as *const <super::super::super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetPointProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPointProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPointProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex, &*(&value as *const <super::super::super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetRectProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRectProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRectProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex, &*(&value as *const <super::super::super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetSizeProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSizeProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSizeProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex, &*(&value as *const <super::super::super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetTimeSpanProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTimeSpanProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTimeSpanProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex, &*(&value as *const <super::super::super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetColorProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetColorProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetColorProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex, &*(&value as *const <super::super::super::Color as ::windows::core::Abi>::Abi as *const <super::super::super::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetCornerRadiusProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::CornerRadius) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCornerRadiusProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::CornerRadius) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCornerRadiusProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex, &*(&value as *const <super::super::CornerRadius as ::windows::core::Abi>::Abi as *const <super::super::CornerRadius as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetDurationProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::Duration) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDurationProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::Duration) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDurationProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex, &*(&value as *const <super::super::Duration as ::windows::core::Abi>::Abi as *const <super::super::Duration as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetGridLengthProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::GridLength) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGridLengthProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::GridLength) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetGridLengthProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex, &*(&value as *const <super::super::GridLength as ::windows::core::Abi>::Abi as *const <super::super::GridLength as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetThicknessProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::Thickness) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetThicknessProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::Thickness) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetThicknessProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex, &*(&value as *const <super::super::Thickness as ::windows::core::Abi>::Abi as *const <super::super::Thickness as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetMatrixProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::Media::Matrix) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMatrixProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::Media::Matrix) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMatrixProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex, &*(&value as *const <super::super::Media::Matrix as ::windows::core::Abi>::Abi as *const <super::super::Media::Matrix as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetMatrix3DProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::Media::Media3D::Matrix3D) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMatrix3DProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::Media::Media3D::Matrix3D) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMatrix3DProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex, &*(&value as *const <super::super::Media::Media3D::Matrix3D as ::windows::core::Abi>::Abi as *const <super::super::Media::Media3D::Matrix3D as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetEnumProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnumProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnumProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex, value).into()
         }
-        unsafe extern "system" fn GetObjectProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetObjectProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetObjectProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -180,7 +180,7 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetXamlDirectObjectProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetXamlDirectObjectProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetXamlDirectObjectProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -191,7 +191,7 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBooleanProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBooleanProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetBooleanProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -202,7 +202,7 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDoubleProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDoubleProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDoubleProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -213,7 +213,7 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetInt32Property<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetInt32Property<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetInt32Property(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -224,7 +224,7 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStringProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStringProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStringProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -235,7 +235,7 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDateTimeProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDateTimeProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDateTimeProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -246,7 +246,7 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPointProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPointProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPointProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -257,7 +257,7 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRectProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRectProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRectProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -268,7 +268,7 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSizeProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSizeProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSizeProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -279,7 +279,7 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTimeSpanProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTimeSpanProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTimeSpanProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -290,7 +290,7 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetColorProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetColorProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetColorProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -301,7 +301,7 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCornerRadiusProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::CornerRadius) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCornerRadiusProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::CornerRadius) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCornerRadiusProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -312,7 +312,7 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDurationProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::Duration) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDurationProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::Duration) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDurationProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -323,7 +323,7 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetGridLengthProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::GridLength) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGridLengthProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::GridLength) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetGridLengthProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -334,7 +334,7 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetThicknessProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::Thickness) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetThicknessProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::Thickness) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetThicknessProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -345,7 +345,7 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMatrixProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::Media::Matrix) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMatrixProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::Media::Matrix) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMatrixProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -356,7 +356,7 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMatrix3DProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::Media::Media3D::Matrix3D) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMatrix3DProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::Media::Media3D::Matrix3D) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMatrix3DProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -367,7 +367,7 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEnumProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEnumProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEnumProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -378,11 +378,11 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClearProperty<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearProperty<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, propertyindex: XamlPropertyIndex) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearProperty(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), propertyindex).into()
         }
-        unsafe extern "system" fn GetCollectionCount<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCollectionCount<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCollectionCount(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -393,7 +393,7 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetXamlDirectObjectFromCollectionAt<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, index: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetXamlDirectObjectFromCollectionAt<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, index: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetXamlDirectObjectFromCollectionAt(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), index) {
                 ::core::result::Result::Ok(ok__) => {
@@ -404,15 +404,15 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddToCollection<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddToCollection<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddToCollection(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InsertIntoCollectionAt<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, index: u32, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertIntoCollectionAt<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, index: u32, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertIntoCollectionAt(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), index, &*(&value as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RemoveFromCollection<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, value: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveFromCollection<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, value: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoveFromCollection(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -423,23 +423,23 @@ impl IXamlDirectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveFromCollectionAt<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, index: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveFromCollectionAt<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, index: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFromCollectionAt(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), index).into()
         }
-        unsafe extern "system" fn ClearCollection<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearCollection<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearCollection(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AddEventHandler<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, eventindex: XamlEventIndex, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddEventHandler<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, eventindex: XamlEventIndex, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddEventHandler(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), eventindex, &*(&handler as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AddEventHandler_HandledEventsToo<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, eventindex: XamlEventIndex, handler: *mut ::core::ffi::c_void, handledeventstoo: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddEventHandler_HandledEventsToo<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, eventindex: XamlEventIndex, handler: *mut ::core::ffi::c_void, handledeventstoo: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddEventHandler_HandledEventsToo(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), eventindex, &*(&handler as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), handledeventstoo).into()
         }
-        unsafe extern "system" fn RemoveEventHandler<Impl: IXamlDirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, eventindex: XamlEventIndex, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveEventHandler<Impl: IXamlDirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, eventindex: XamlEventIndex, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveEventHandler(&*(&xamldirectobject as *const <IXamlDirectObject as ::windows::core::Abi>::Abi as *const <IXamlDirectObject as ::windows::core::DefaultType>::DefaultType), eventindex, &*(&handler as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -503,12 +503,12 @@ impl IXamlDirectVtbl {
         iid == &<IXamlDirect as ::windows::core::Interface>::IID
     }
 }
-pub trait IXamlDirectObjectImpl: Sized {}
+pub trait IXamlDirectObject_Impl: Sized {}
 impl ::windows::core::RuntimeName for IXamlDirectObject {
     const NAME: &'static str = "Windows.UI.Xaml.Core.Direct.IXamlDirectObject";
 }
-impl IXamlDirectObjectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlDirectObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlDirectObjectVtbl {
+impl IXamlDirectObject_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlDirectObject_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlDirectObject_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlDirectObject, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -516,7 +516,7 @@ impl IXamlDirectObjectVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IXamlDirectStaticsImpl: Sized {
+pub trait IXamlDirectStatics_Impl: Sized {
     fn GetDefault(&mut self) -> ::windows::core::Result<XamlDirect>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -524,9 +524,9 @@ impl ::windows::core::RuntimeName for IXamlDirectStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Core.Direct.IXamlDirectStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IXamlDirectStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlDirectStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlDirectStaticsVtbl {
-        unsafe extern "system" fn GetDefault<Impl: IXamlDirectStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXamlDirectStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlDirectStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlDirectStatics_Vtbl {
+        unsafe extern "system" fn GetDefault<Impl: IXamlDirectStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
                 ::core::result::Result::Ok(ok__) => {

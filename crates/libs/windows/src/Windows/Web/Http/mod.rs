@@ -128,7 +128,7 @@ unsafe impl ::windows::core::RuntimeType for HttpBufferContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpBufferContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
 }
 unsafe impl ::windows::core::Interface for HttpBufferContent {
-    type Vtable = IHttpContentVtbl;
+    type Vtable = IHttpContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b14a441_fba7_4bd2_af0a_839de7c295da);
 }
 impl ::windows::core::RuntimeName for HttpBufferContent {
@@ -499,7 +499,7 @@ unsafe impl ::windows::core::RuntimeType for HttpClient {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpClient;{7fda1151-3574-4880-a8ba-e6b1e0061f3d})");
 }
 unsafe impl ::windows::core::Interface for HttpClient {
-    type Vtable = IHttpClientVtbl;
+    type Vtable = IHttpClient_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fda1151_3574_4880_a8ba_e6b1e0061f3d);
 }
 impl ::windows::core::RuntimeName for HttpClient {
@@ -756,7 +756,7 @@ unsafe impl ::windows::core::RuntimeType for HttpCookie {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpCookie;{1f5488e2-cc2d-4779-86a7-88f10687d249})");
 }
 unsafe impl ::windows::core::Interface for HttpCookie {
-    type Vtable = IHttpCookieVtbl;
+    type Vtable = IHttpCookie_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f5488e2_cc2d_4779_86a7_88f10687d249);
 }
 impl ::windows::core::RuntimeName for HttpCookie {
@@ -908,7 +908,7 @@ unsafe impl ::windows::core::RuntimeType for HttpCookieCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for HttpCookieCollection {
-    type Vtable = super::super::Foundation::Collections::IVectorViewVtbl<HttpCookie>;
+    type Vtable = super::super::Foundation::Collections::IVectorView_Vtbl<HttpCookie>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1090,7 +1090,7 @@ unsafe impl ::windows::core::RuntimeType for HttpCookieManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpCookieManager;{7a431780-cd4f-4e57-a84a-5b0a53d6bb96})");
 }
 unsafe impl ::windows::core::Interface for HttpCookieManager {
-    type Vtable = IHttpCookieManagerVtbl;
+    type Vtable = IHttpCookieManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a431780_cd4f_4e57_a84a_5b0a53d6bb96);
 }
 impl ::windows::core::RuntimeName for HttpCookieManager {
@@ -1253,7 +1253,7 @@ unsafe impl ::windows::core::RuntimeType for HttpFormUrlEncodedContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpFormUrlEncodedContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
 }
 unsafe impl ::windows::core::Interface for HttpFormUrlEncodedContent {
-    type Vtable = IHttpContentVtbl;
+    type Vtable = IHttpContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b14a441_fba7_4bd2_af0a_839de7c295da);
 }
 impl ::windows::core::RuntimeName for HttpFormUrlEncodedContent {
@@ -1456,7 +1456,7 @@ unsafe impl ::windows::core::RuntimeType for HttpGetBufferResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpGetBufferResult;{53d08e7c-e209-404e-9a49-742d8236fd3a})");
 }
 unsafe impl ::windows::core::Interface for HttpGetBufferResult {
-    type Vtable = IHttpGetBufferResultVtbl;
+    type Vtable = IHttpGetBufferResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53d08e7c_e209_404e_9a49_742d8236fd3a);
 }
 impl ::windows::core::RuntimeName for HttpGetBufferResult {
@@ -1637,7 +1637,7 @@ unsafe impl ::windows::core::RuntimeType for HttpGetInputStreamResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpGetInputStreamResult;{d5d63463-13aa-4ee0-be95-a0c39fe91203})");
 }
 unsafe impl ::windows::core::Interface for HttpGetInputStreamResult {
-    type Vtable = IHttpGetInputStreamResultVtbl;
+    type Vtable = IHttpGetInputStreamResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5d63463_13aa_4ee0_be95_a0c39fe91203);
 }
 impl ::windows::core::RuntimeName for HttpGetInputStreamResult {
@@ -1817,7 +1817,7 @@ unsafe impl ::windows::core::RuntimeType for HttpGetStringResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpGetStringResult;{9bac466d-8509-4775-b16d-8953f47a7f5f})");
 }
 unsafe impl ::windows::core::Interface for HttpGetStringResult {
-    type Vtable = IHttpGetStringResultVtbl;
+    type Vtable = IHttpGetStringResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bac466d_8509_4775_b16d_8953f47a7f5f);
 }
 impl ::windows::core::RuntimeName for HttpGetStringResult {
@@ -2025,7 +2025,7 @@ unsafe impl ::windows::core::RuntimeType for HttpMethod {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpMethod;{728d4022-700d-4fe0-afa5-40299c58dbfd})");
 }
 unsafe impl ::windows::core::Interface for HttpMethod {
-    type Vtable = IHttpMethodVtbl;
+    type Vtable = IHttpMethod_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728d4022_700d_4fe0_afa5_40299c58dbfd);
 }
 impl ::windows::core::RuntimeName for HttpMethod {
@@ -2241,7 +2241,7 @@ unsafe impl ::windows::core::RuntimeType for HttpMultipartContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpMultipartContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
 }
 unsafe impl ::windows::core::Interface for HttpMultipartContent {
-    type Vtable = IHttpContentVtbl;
+    type Vtable = IHttpContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b14a441_fba7_4bd2_af0a_839de7c295da);
 }
 impl ::windows::core::RuntimeName for HttpMultipartContent {
@@ -2550,7 +2550,7 @@ unsafe impl ::windows::core::RuntimeType for HttpMultipartFormDataContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpMultipartFormDataContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
 }
 unsafe impl ::windows::core::Interface for HttpMultipartFormDataContent {
-    type Vtable = IHttpContentVtbl;
+    type Vtable = IHttpContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b14a441_fba7_4bd2_af0a_839de7c295da);
 }
 impl ::windows::core::RuntimeName for HttpMultipartFormDataContent {
@@ -2938,7 +2938,7 @@ unsafe impl ::windows::core::RuntimeType for HttpRequestMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpRequestMessage;{f5762b3c-74d4-4811-b5dc-9f8b4e2f9abf})");
 }
 unsafe impl ::windows::core::Interface for HttpRequestMessage {
-    type Vtable = IHttpRequestMessageVtbl;
+    type Vtable = IHttpRequestMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5762b3c_74d4_4811_b5dc_9f8b4e2f9abf);
 }
 impl ::windows::core::RuntimeName for HttpRequestMessage {
@@ -3110,7 +3110,7 @@ unsafe impl ::windows::core::RuntimeType for HttpRequestResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpRequestResult;{6acf4da8-b5eb-4a35-a902-4217fbe820c5})");
 }
 unsafe impl ::windows::core::Interface for HttpRequestResult {
-    type Vtable = IHttpRequestResultVtbl;
+    type Vtable = IHttpRequestResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6acf4da8_b5eb_4a35_a902_4217fbe820c5);
 }
 impl ::windows::core::RuntimeName for HttpRequestResult {
@@ -3372,7 +3372,7 @@ unsafe impl ::windows::core::RuntimeType for HttpResponseMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpResponseMessage;{fee200fb-8664-44e0-95d9-42696199bffc})");
 }
 unsafe impl ::windows::core::Interface for HttpResponseMessage {
-    type Vtable = IHttpResponseMessageVtbl;
+    type Vtable = IHttpResponseMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfee200fb_8664_44e0_95d9_42696199bffc);
 }
 impl ::windows::core::RuntimeName for HttpResponseMessage {
@@ -3710,7 +3710,7 @@ unsafe impl ::windows::core::RuntimeType for HttpStreamContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpStreamContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
 }
 unsafe impl ::windows::core::Interface for HttpStreamContent {
-    type Vtable = IHttpContentVtbl;
+    type Vtable = IHttpContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b14a441_fba7_4bd2_af0a_839de7c295da);
 }
 impl ::windows::core::RuntimeName for HttpStreamContent {
@@ -3962,7 +3962,7 @@ unsafe impl ::windows::core::RuntimeType for HttpStringContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpStringContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
 }
 unsafe impl ::windows::core::Interface for HttpStringContent {
-    type Vtable = IHttpContentVtbl;
+    type Vtable = IHttpContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b14a441_fba7_4bd2_af0a_839de7c295da);
 }
 impl ::windows::core::RuntimeName for HttpStringContent {
@@ -4154,7 +4154,7 @@ unsafe impl ::windows::core::RuntimeType for HttpTransportInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpTransportInformation;{70127198-c6a7-4ed0-833a-83fd8b8f178d})");
 }
 unsafe impl ::windows::core::Interface for HttpTransportInformation {
-    type Vtable = IHttpTransportInformationVtbl;
+    type Vtable = IHttpTransportInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70127198_c6a7_4ed0_833a_83fd8b8f178d);
 }
 impl ::windows::core::RuntimeName for HttpTransportInformation {
@@ -4267,12 +4267,12 @@ impl ::windows::core::DefaultType for HttpVersion {
 #[repr(transparent)]
 pub struct IHttpBufferContentFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpBufferContentFactory {
-    type Vtable = IHttpBufferContentFactoryVtbl;
+    type Vtable = IHttpBufferContentFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc20c193_c41f_4ff7_9123_6435736eadc2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpBufferContentFactoryVtbl {
+pub struct IHttpBufferContentFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub CreateFromBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4287,12 +4287,12 @@ pub struct IHttpBufferContentFactoryVtbl {
 #[repr(transparent)]
 pub struct IHttpClient(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpClient {
-    type Vtable = IHttpClientVtbl;
+    type Vtable = IHttpClient_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fda1151_3574_4880_a8ba_e6b1e0061f3d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpClientVtbl {
+pub struct IHttpClient_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub DeleteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4343,12 +4343,12 @@ pub struct IHttpClientVtbl {
 #[repr(transparent)]
 pub struct IHttpClient2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpClient2 {
-    type Vtable = IHttpClient2Vtbl;
+    type Vtable = IHttpClient2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdd83348_e8b7_4cec_b1b0_dc455fe72c92);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpClient2Vtbl {
+pub struct IHttpClient2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub TryDeleteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4395,12 +4395,12 @@ pub struct IHttpClient2Vtbl {
 #[repr(transparent)]
 pub struct IHttpClientFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpClientFactory {
-    type Vtable = IHttpClientFactoryVtbl;
+    type Vtable = IHttpClientFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc30c4eca_e3fa_4f99_afb4_63cc65009462);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpClientFactoryVtbl {
+pub struct IHttpClientFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Web_Http_Filters")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4566,12 +4566,12 @@ unsafe impl ::windows::core::RuntimeType for IHttpContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6b14a441-fba7-4bd2-af0a-839de7c295da}");
 }
 unsafe impl ::windows::core::Interface for IHttpContent {
-    type Vtable = IHttpContentVtbl;
+    type Vtable = IHttpContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b14a441_fba7_4bd2_af0a_839de7c295da);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpContentVtbl {
+pub struct IHttpContent_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Web_Http_Headers")]
     pub Headers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4603,12 +4603,12 @@ pub struct IHttpContentVtbl {
 #[repr(transparent)]
 pub struct IHttpCookie(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpCookie {
-    type Vtable = IHttpCookieVtbl;
+    type Vtable = IHttpCookie_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f5488e2_cc2d_4779_86a7_88f10687d249);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpCookieVtbl {
+pub struct IHttpCookie_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Domain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4632,12 +4632,12 @@ pub struct IHttpCookieVtbl {
 #[repr(transparent)]
 pub struct IHttpCookieFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpCookieFactory {
-    type Vtable = IHttpCookieFactoryVtbl;
+    type Vtable = IHttpCookieFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a0585a9_931c_4cd1_a96d_c21701785c5f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpCookieFactoryVtbl {
+pub struct IHttpCookieFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, domain: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, path: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -4645,12 +4645,12 @@ pub struct IHttpCookieFactoryVtbl {
 #[repr(transparent)]
 pub struct IHttpCookieManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpCookieManager {
-    type Vtable = IHttpCookieManagerVtbl;
+    type Vtable = IHttpCookieManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a431780_cd4f_4e57_a84a_5b0a53d6bb96);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpCookieManagerVtbl {
+pub struct IHttpCookieManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetCookie: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetCookieWithThirdParty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: ::windows::core::RawPtr, thirdparty: bool, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -4664,12 +4664,12 @@ pub struct IHttpCookieManagerVtbl {
 #[repr(transparent)]
 pub struct IHttpFormUrlEncodedContentFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpFormUrlEncodedContentFactory {
-    type Vtable = IHttpFormUrlEncodedContentFactoryVtbl;
+    type Vtable = IHttpFormUrlEncodedContentFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43f0138c_2f73_4302_b5f3_eae9238a5e01);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpFormUrlEncodedContentFactoryVtbl {
+pub struct IHttpFormUrlEncodedContentFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4680,12 +4680,12 @@ pub struct IHttpFormUrlEncodedContentFactoryVtbl {
 #[repr(transparent)]
 pub struct IHttpGetBufferResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpGetBufferResult {
-    type Vtable = IHttpGetBufferResultVtbl;
+    type Vtable = IHttpGetBufferResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53d08e7c_e209_404e_9a49_742d8236fd3a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpGetBufferResultVtbl {
+pub struct IHttpGetBufferResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub RequestMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4700,12 +4700,12 @@ pub struct IHttpGetBufferResultVtbl {
 #[repr(transparent)]
 pub struct IHttpGetInputStreamResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpGetInputStreamResult {
-    type Vtable = IHttpGetInputStreamResultVtbl;
+    type Vtable = IHttpGetInputStreamResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5d63463_13aa_4ee0_be95_a0c39fe91203);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpGetInputStreamResultVtbl {
+pub struct IHttpGetInputStreamResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub RequestMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4720,12 +4720,12 @@ pub struct IHttpGetInputStreamResultVtbl {
 #[repr(transparent)]
 pub struct IHttpGetStringResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpGetStringResult {
-    type Vtable = IHttpGetStringResultVtbl;
+    type Vtable = IHttpGetStringResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bac466d_8509_4775_b16d_8953f47a7f5f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpGetStringResultVtbl {
+pub struct IHttpGetStringResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub RequestMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4737,12 +4737,12 @@ pub struct IHttpGetStringResultVtbl {
 #[repr(transparent)]
 pub struct IHttpMethod(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpMethod {
-    type Vtable = IHttpMethodVtbl;
+    type Vtable = IHttpMethod_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728d4022_700d_4fe0_afa5_40299c58dbfd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpMethodVtbl {
+pub struct IHttpMethod_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Method: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -4750,12 +4750,12 @@ pub struct IHttpMethodVtbl {
 #[repr(transparent)]
 pub struct IHttpMethodFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpMethodFactory {
-    type Vtable = IHttpMethodFactoryVtbl;
+    type Vtable = IHttpMethodFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c51d10d_36d7_40f8_a86d_e759caf2f83f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpMethodFactoryVtbl {
+pub struct IHttpMethodFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -4763,12 +4763,12 @@ pub struct IHttpMethodFactoryVtbl {
 #[repr(transparent)]
 pub struct IHttpMethodStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpMethodStatics {
-    type Vtable = IHttpMethodStaticsVtbl;
+    type Vtable = IHttpMethodStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64d171f0_d99a_4153_8dc6_d68cc4cce317);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpMethodStaticsVtbl {
+pub struct IHttpMethodStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4782,12 +4782,12 @@ pub struct IHttpMethodStaticsVtbl {
 #[repr(transparent)]
 pub struct IHttpMultipartContent(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpMultipartContent {
-    type Vtable = IHttpMultipartContentVtbl;
+    type Vtable = IHttpMultipartContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf916aff_9926_4ac9_aaf1_e0d04ef09bb9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpMultipartContentVtbl {
+pub struct IHttpMultipartContent_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -4795,12 +4795,12 @@ pub struct IHttpMultipartContentVtbl {
 #[repr(transparent)]
 pub struct IHttpMultipartContentFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpMultipartContentFactory {
-    type Vtable = IHttpMultipartContentFactoryVtbl;
+    type Vtable = IHttpMultipartContentFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7eb42e62_0222_4f20_b372_47d5db5d33b4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpMultipartContentFactoryVtbl {
+pub struct IHttpMultipartContentFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateWithSubtype: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateWithSubtypeAndBoundary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, boundary: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4809,12 +4809,12 @@ pub struct IHttpMultipartContentFactoryVtbl {
 #[repr(transparent)]
 pub struct IHttpMultipartFormDataContent(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpMultipartFormDataContent {
-    type Vtable = IHttpMultipartFormDataContentVtbl;
+    type Vtable = IHttpMultipartFormDataContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64d337e2_e967_4624_b6d1_cf74604a4a42);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpMultipartFormDataContentVtbl {
+pub struct IHttpMultipartFormDataContent_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AddWithName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4824,12 +4824,12 @@ pub struct IHttpMultipartFormDataContentVtbl {
 #[repr(transparent)]
 pub struct IHttpMultipartFormDataContentFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpMultipartFormDataContentFactory {
-    type Vtable = IHttpMultipartFormDataContentFactoryVtbl;
+    type Vtable = IHttpMultipartFormDataContentFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa04d7311_5017_4622_93a8_49b24a4fcbfc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpMultipartFormDataContentFactoryVtbl {
+pub struct IHttpMultipartFormDataContentFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateWithBoundary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, boundary: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -4837,12 +4837,12 @@ pub struct IHttpMultipartFormDataContentFactoryVtbl {
 #[repr(transparent)]
 pub struct IHttpRequestMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpRequestMessage {
-    type Vtable = IHttpRequestMessageVtbl;
+    type Vtable = IHttpRequestMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5762b3c_74d4_4811_b5dc_9f8b4e2f9abf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpRequestMessageVtbl {
+pub struct IHttpRequestMessage_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4870,12 +4870,12 @@ pub struct IHttpRequestMessageVtbl {
 #[repr(transparent)]
 pub struct IHttpRequestMessageFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpRequestMessageFactory {
-    type Vtable = IHttpRequestMessageFactoryVtbl;
+    type Vtable = IHttpRequestMessageFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bac994e_3886_412e_aec3_52ec7f25616f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpRequestMessageFactoryVtbl {
+pub struct IHttpRequestMessageFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: ::windows::core::RawPtr, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4886,12 +4886,12 @@ pub struct IHttpRequestMessageFactoryVtbl {
 #[repr(transparent)]
 pub struct IHttpRequestResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpRequestResult {
-    type Vtable = IHttpRequestResultVtbl;
+    type Vtable = IHttpRequestResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6acf4da8_b5eb_4a35_a902_4217fbe820c5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpRequestResultVtbl {
+pub struct IHttpRequestResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub RequestMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4902,12 +4902,12 @@ pub struct IHttpRequestResultVtbl {
 #[repr(transparent)]
 pub struct IHttpResponseMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpResponseMessage {
-    type Vtable = IHttpResponseMessageVtbl;
+    type Vtable = IHttpResponseMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfee200fb_8664_44e0_95d9_42696199bffc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpResponseMessageVtbl {
+pub struct IHttpResponseMessage_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4932,12 +4932,12 @@ pub struct IHttpResponseMessageVtbl {
 #[repr(transparent)]
 pub struct IHttpResponseMessageFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpResponseMessageFactory {
-    type Vtable = IHttpResponseMessageFactoryVtbl;
+    type Vtable = IHttpResponseMessageFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52a8af99_f095_43da_b60f_7cfc2bc7ea2f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpResponseMessageFactoryVtbl {
+pub struct IHttpResponseMessageFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, statuscode: HttpStatusCode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -4945,12 +4945,12 @@ pub struct IHttpResponseMessageFactoryVtbl {
 #[repr(transparent)]
 pub struct IHttpStreamContentFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpStreamContentFactory {
-    type Vtable = IHttpStreamContentFactoryVtbl;
+    type Vtable = IHttpStreamContentFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3e64d9d_f725_407e_942f_0eda189809f4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpStreamContentFactoryVtbl {
+pub struct IHttpStreamContentFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub CreateFromInputStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4961,12 +4961,12 @@ pub struct IHttpStreamContentFactoryVtbl {
 #[repr(transparent)]
 pub struct IHttpStringContentFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpStringContentFactory {
-    type Vtable = IHttpStringContentFactoryVtbl;
+    type Vtable = IHttpStringContentFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46649d5b_2e93_48eb_8e61_19677878e57f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpStringContentFactoryVtbl {
+pub struct IHttpStringContentFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateFromString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -4982,12 +4982,12 @@ pub struct IHttpStringContentFactoryVtbl {
 #[repr(transparent)]
 pub struct IHttpTransportInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpTransportInformation {
-    type Vtable = IHttpTransportInformationVtbl;
+    type Vtable = IHttpTransportInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70127198_c6a7_4ed0_833a_83fd8b8f178d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpTransportInformationVtbl {
+pub struct IHttpTransportInformation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub ServerCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

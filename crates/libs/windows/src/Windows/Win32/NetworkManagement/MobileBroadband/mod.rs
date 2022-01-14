@@ -98,14 +98,14 @@ impl ::core::fmt::Debug for IDummyMBNUCMExt {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IDummyMBNUCMExt {
-    type Vtable = IDummyMBNUCMExtVtbl;
+    type Vtable = IDummyMBNUCMExt_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_ffff_4bbb_aaee_338e368af6fa);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDummyMBNUCMExtVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IDummyMBNUCMExt_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_MobileBroadband'*"]
 #[repr(transparent)]
@@ -187,12 +187,12 @@ impl ::core::fmt::Debug for IMbnConnection {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnConnection {
-    type Vtable = IMbnConnectionVtbl;
+    type Vtable = IMbnConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_200d_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnConnectionVtbl {
+pub struct IMbnConnection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ConnectionID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -268,12 +268,12 @@ impl ::core::fmt::Debug for IMbnConnectionContext {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnConnectionContext {
-    type Vtable = IMbnConnectionContextVtbl;
+    type Vtable = IMbnConnectionContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_200b_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnConnectionContextVtbl {
+pub struct IMbnConnectionContext_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetProvisionedContexts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provisionedcontexts: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
@@ -334,12 +334,12 @@ impl ::core::fmt::Debug for IMbnConnectionContextEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnConnectionContextEvents {
-    type Vtable = IMbnConnectionContextEventsVtbl;
+    type Vtable = IMbnConnectionContextEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_200c_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnConnectionContextEventsVtbl {
+pub struct IMbnConnectionContextEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnProvisionedContextListChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OnSetProvisionedContextComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: ::windows::core::RawPtr, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -402,12 +402,12 @@ impl ::core::fmt::Debug for IMbnConnectionEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnConnectionEvents {
-    type Vtable = IMbnConnectionEventsVtbl;
+    type Vtable = IMbnConnectionEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_200e_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnConnectionEventsVtbl {
+pub struct IMbnConnectionEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnConnectComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newconnection: ::windows::core::RawPtr, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub OnDisconnectComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newconnection: ::windows::core::RawPtr, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -468,12 +468,12 @@ impl ::core::fmt::Debug for IMbnConnectionManager {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnConnectionManager {
-    type Vtable = IMbnConnectionManagerVtbl;
+    type Vtable = IMbnConnectionManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_201d_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnConnectionManagerVtbl {
+pub struct IMbnConnectionManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionid: super::super::Foundation::PWSTR, mbnconnection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -534,12 +534,12 @@ impl ::core::fmt::Debug for IMbnConnectionManagerEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnConnectionManagerEvents {
-    type Vtable = IMbnConnectionManagerEventsVtbl;
+    type Vtable = IMbnConnectionManagerEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_201e_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnConnectionManagerEventsVtbl {
+pub struct IMbnConnectionManagerEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnConnectionArrival: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newconnection: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OnConnectionRemoval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldconnection: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -601,12 +601,12 @@ impl ::core::fmt::Debug for IMbnConnectionProfile {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnConnectionProfile {
-    type Vtable = IMbnConnectionProfileVtbl;
+    type Vtable = IMbnConnectionProfile_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2010_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnConnectionProfileVtbl {
+pub struct IMbnConnectionProfile_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetProfileXmlData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiledata: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -664,12 +664,12 @@ impl ::core::fmt::Debug for IMbnConnectionProfileEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnConnectionProfileEvents {
-    type Vtable = IMbnConnectionProfileEventsVtbl;
+    type Vtable = IMbnConnectionProfileEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2011_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnConnectionProfileEventsVtbl {
+pub struct IMbnConnectionProfileEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnProfileUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newprofile: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -732,12 +732,12 @@ impl ::core::fmt::Debug for IMbnConnectionProfileManager {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnConnectionProfileManager {
-    type Vtable = IMbnConnectionProfileManagerVtbl;
+    type Vtable = IMbnConnectionProfileManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_200f_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnConnectionProfileManagerVtbl {
+pub struct IMbnConnectionProfileManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetConnectionProfiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mbninterface: ::windows::core::RawPtr, connectionprofiles: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
@@ -802,12 +802,12 @@ impl ::core::fmt::Debug for IMbnConnectionProfileManagerEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnConnectionProfileManagerEvents {
-    type Vtable = IMbnConnectionProfileManagerEventsVtbl;
+    type Vtable = IMbnConnectionProfileManagerEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_201f_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnConnectionProfileManagerEventsVtbl {
+pub struct IMbnConnectionProfileManagerEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnConnectionProfileArrival: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newconnectionprofile: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OnConnectionProfileRemoval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldconnectionprofile: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -921,12 +921,12 @@ impl ::core::fmt::Debug for IMbnDeviceService {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnDeviceService {
-    type Vtable = IMbnDeviceServiceVtbl;
+    type Vtable = IMbnDeviceService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3bb9a71_dc70_4be9_a4da_7886ae8b191b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnDeviceServiceVtbl {
+pub struct IMbnDeviceService_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub QuerySupportedCommands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: *mut u32) -> ::windows::core::HRESULT,
     pub OpenCommandSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: *mut u32) -> ::windows::core::HRESULT,
@@ -1009,12 +1009,12 @@ impl ::core::fmt::Debug for IMbnDeviceServiceStateEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnDeviceServiceStateEvents {
-    type Vtable = IMbnDeviceServiceStateEventsVtbl;
+    type Vtable = IMbnDeviceServiceStateEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d3ff196_89ee_49d8_8b60_33ffddffc58d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnDeviceServiceStateEventsVtbl {
+pub struct IMbnDeviceServiceStateEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub OnSessionsStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfaceid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, statechange: MBN_DEVICE_SERVICE_SESSIONS_STATE) -> ::windows::core::HRESULT,
@@ -1085,12 +1085,12 @@ impl ::core::fmt::Debug for IMbnDeviceServicesContext {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnDeviceServicesContext {
-    type Vtable = IMbnDeviceServicesContextVtbl;
+    type Vtable = IMbnDeviceServicesContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc5ac347_1592_4068_80bb_6a57580150d8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnDeviceServicesContextVtbl {
+pub struct IMbnDeviceServicesContext_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub EnumerateDeviceServices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceservices: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
@@ -1195,12 +1195,12 @@ impl ::core::fmt::Debug for IMbnDeviceServicesEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnDeviceServicesEvents {
-    type Vtable = IMbnDeviceServicesEventsVtbl;
+    type Vtable = IMbnDeviceServicesEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a900c19_6824_4e97_b76e_cf239d0ca642);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnDeviceServicesEventsVtbl {
+pub struct IMbnDeviceServicesEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub OnQuerySupportedCommandsComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceservice: ::windows::core::RawPtr, commandidlist: *const super::super::System::Com::SAFEARRAY, status: ::windows::core::HRESULT, requestid: u32) -> ::windows::core::HRESULT,
@@ -1280,12 +1280,12 @@ impl ::core::fmt::Debug for IMbnDeviceServicesManager {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnDeviceServicesManager {
-    type Vtable = IMbnDeviceServicesManagerVtbl;
+    type Vtable = IMbnDeviceServicesManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20a26258_6811_4478_ac1d_13324e45e41c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnDeviceServicesManagerVtbl {
+pub struct IMbnDeviceServicesManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetDeviceServicesContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networkinterfaceid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, mbndevicescontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1394,12 +1394,12 @@ impl ::core::fmt::Debug for IMbnInterface {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnInterface {
-    type Vtable = IMbnInterfaceVtbl;
+    type Vtable = IMbnInterface_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2001_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnInterfaceVtbl {
+pub struct IMbnInterface_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub InterfaceID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfaceid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -1505,12 +1505,12 @@ impl ::core::fmt::Debug for IMbnInterfaceEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnInterfaceEvents {
-    type Vtable = IMbnInterfaceEventsVtbl;
+    type Vtable = IMbnInterfaceEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2002_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnInterfaceEventsVtbl {
+pub struct IMbnInterfaceEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnInterfaceCapabilityAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OnSubscriberInformationChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1575,12 +1575,12 @@ impl ::core::fmt::Debug for IMbnInterfaceManager {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnInterfaceManager {
-    type Vtable = IMbnInterfaceManagerVtbl;
+    type Vtable = IMbnInterfaceManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_201b_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnInterfaceManagerVtbl {
+pub struct IMbnInterfaceManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfaceid: super::super::Foundation::PWSTR, mbninterface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1641,12 +1641,12 @@ impl ::core::fmt::Debug for IMbnInterfaceManagerEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnInterfaceManagerEvents {
-    type Vtable = IMbnInterfaceManagerEventsVtbl;
+    type Vtable = IMbnInterfaceManagerEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_201c_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnInterfaceManagerEventsVtbl {
+pub struct IMbnInterfaceManagerEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnInterfaceArrival: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OnInterfaceRemoval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldinterface: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1726,12 +1726,12 @@ impl ::core::fmt::Debug for IMbnMultiCarrier {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnMultiCarrier {
-    type Vtable = IMbnMultiCarrierVtbl;
+    type Vtable = IMbnMultiCarrier_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2020_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnMultiCarrierVtbl {
+pub struct IMbnMultiCarrier_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetHomeProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, homeprovider: *const MBN_PROVIDER2, requestid: *mut u32) -> ::windows::core::HRESULT,
@@ -1814,12 +1814,12 @@ impl ::core::fmt::Debug for IMbnMultiCarrierEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnMultiCarrierEvents {
-    type Vtable = IMbnMultiCarrierEventsVtbl;
+    type Vtable = IMbnMultiCarrierEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcdddab6_2021_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnMultiCarrierEventsVtbl {
+pub struct IMbnMultiCarrierEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnSetHomeProviderComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mbninterface: ::windows::core::RawPtr, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub OnCurrentCellularClassChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mbninterface: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1929,12 +1929,12 @@ impl ::core::fmt::Debug for IMbnPin {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnPin {
-    type Vtable = IMbnPinVtbl;
+    type Vtable = IMbnPin_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2007_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnPinVtbl {
+pub struct IMbnPin_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub PinType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pintype: *mut MBN_PIN_TYPE) -> ::windows::core::HRESULT,
     pub PinFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinformat: *mut MBN_PIN_FORMAT) -> ::windows::core::HRESULT,
@@ -2025,12 +2025,12 @@ impl ::core::fmt::Debug for IMbnPinEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnPinEvents {
-    type Vtable = IMbnPinEventsVtbl;
+    type Vtable = IMbnPinEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2008_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnPinEventsVtbl {
+pub struct IMbnPinEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnEnableComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: ::windows::core::RawPtr, pininfo: *const MBN_PIN_INFO, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub OnDisableComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: ::windows::core::RawPtr, pininfo: *const MBN_PIN_INFO, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -2096,12 +2096,12 @@ impl ::core::fmt::Debug for IMbnPinManager {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnPinManager {
-    type Vtable = IMbnPinManagerVtbl;
+    type Vtable = IMbnPinManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2005_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnPinManagerVtbl {
+pub struct IMbnPinManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetPinList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinlist: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
@@ -2160,12 +2160,12 @@ impl ::core::fmt::Debug for IMbnPinManagerEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnPinManagerEvents {
-    type Vtable = IMbnPinManagerEventsVtbl;
+    type Vtable = IMbnPinManagerEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2006_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnPinManagerEventsVtbl {
+pub struct IMbnPinManagerEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnPinListAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinmanager: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OnGetPinStateComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinmanager: ::windows::core::RawPtr, pininfo: MBN_PIN_INFO, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -2227,12 +2227,12 @@ impl ::core::fmt::Debug for IMbnRadio {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnRadio {
-    type Vtable = IMbnRadioVtbl;
+    type Vtable = IMbnRadio_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdccccab6_201f_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnRadioVtbl {
+pub struct IMbnRadio_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SoftwareRadioState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, softwareradiostate: *mut MBN_RADIO) -> ::windows::core::HRESULT,
     pub HardwareRadioState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hardwareradiostate: *mut MBN_RADIO) -> ::windows::core::HRESULT,
@@ -2288,12 +2288,12 @@ impl ::core::fmt::Debug for IMbnRadioEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnRadioEvents {
-    type Vtable = IMbnRadioEventsVtbl;
+    type Vtable = IMbnRadioEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcdddab6_201f_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnRadioEventsVtbl {
+pub struct IMbnRadioEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnRadioStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OnSetSoftwareRadioStateComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: ::windows::core::RawPtr, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -2394,12 +2394,12 @@ impl ::core::fmt::Debug for IMbnRegistration {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnRegistration {
-    type Vtable = IMbnRegistrationVtbl;
+    type Vtable = IMbnRegistration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2009_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnRegistrationVtbl {
+pub struct IMbnRegistration_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetRegisterState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, registerstate: *mut MBN_REGISTER_STATE) -> ::windows::core::HRESULT,
     pub GetRegisterMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, registermode: *mut MBN_REGISTER_MODE) -> ::windows::core::HRESULT,
@@ -2482,12 +2482,12 @@ impl ::core::fmt::Debug for IMbnRegistrationEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnRegistrationEvents {
-    type Vtable = IMbnRegistrationEventsVtbl;
+    type Vtable = IMbnRegistrationEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_200a_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnRegistrationEventsVtbl {
+pub struct IMbnRegistrationEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnRegisterModeAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OnRegisterStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2542,12 +2542,12 @@ impl ::core::fmt::Debug for IMbnServiceActivation {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnServiceActivation {
-    type Vtable = IMbnServiceActivationVtbl;
+    type Vtable = IMbnServiceActivation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2017_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnServiceActivationVtbl {
+pub struct IMbnServiceActivation_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: *mut u32) -> ::windows::core::HRESULT,
@@ -2601,12 +2601,12 @@ impl ::core::fmt::Debug for IMbnServiceActivationEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnServiceActivationEvents {
-    type Vtable = IMbnServiceActivationEventsVtbl;
+    type Vtable = IMbnServiceActivationEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2018_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnServiceActivationEventsVtbl {
+pub struct IMbnServiceActivationEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub OnActivationComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, serviceactivation: ::windows::core::RawPtr, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: u32, status: ::windows::core::HRESULT, networkerror: u32) -> ::windows::core::HRESULT,
@@ -2665,12 +2665,12 @@ impl ::core::fmt::Debug for IMbnSignal {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnSignal {
-    type Vtable = IMbnSignalVtbl;
+    type Vtable = IMbnSignal_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2003_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnSignalVtbl {
+pub struct IMbnSignal_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetSignalStrength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalstrength: *mut u32) -> ::windows::core::HRESULT,
     pub GetSignalError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalerror: *mut u32) -> ::windows::core::HRESULT,
@@ -2721,12 +2721,12 @@ impl ::core::fmt::Debug for IMbnSignalEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnSignalEvents {
-    type Vtable = IMbnSignalEventsVtbl;
+    type Vtable = IMbnSignalEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2004_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnSignalEventsVtbl {
+pub struct IMbnSignalEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnSignalStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2815,12 +2815,12 @@ impl ::core::fmt::Debug for IMbnSms {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnSms {
-    type Vtable = IMbnSmsVtbl;
+    type Vtable = IMbnSms_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2015_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnSmsVtbl {
+pub struct IMbnSms_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetSmsConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, smsconfiguration: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetSmsConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, smsconfiguration: ::windows::core::RawPtr, requestid: *mut u32) -> ::windows::core::HRESULT,
@@ -2912,12 +2912,12 @@ impl ::core::fmt::Debug for IMbnSmsConfiguration {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnSmsConfiguration {
-    type Vtable = IMbnSmsConfigurationVtbl;
+    type Vtable = IMbnSmsConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2012_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnSmsConfigurationVtbl {
+pub struct IMbnSmsConfiguration_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ServiceCenterAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -3004,12 +3004,12 @@ impl ::core::fmt::Debug for IMbnSmsEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnSmsEvents {
-    type Vtable = IMbnSmsEventsVtbl;
+    type Vtable = IMbnSmsEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2016_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnSmsEventsVtbl {
+pub struct IMbnSmsEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnSmsConfigurationChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sms: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OnSetSmsConfigurationComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sms: ::windows::core::RawPtr, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -3089,12 +3089,12 @@ impl ::core::fmt::Debug for IMbnSmsReadMsgPdu {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnSmsReadMsgPdu {
-    type Vtable = IMbnSmsReadMsgPduVtbl;
+    type Vtable = IMbnSmsReadMsgPdu_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2013_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnSmsReadMsgPduVtbl {
+pub struct IMbnSmsReadMsgPdu_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Index: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: *mut u32) -> ::windows::core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut MBN_MSG_STATUS) -> ::windows::core::HRESULT,
@@ -3192,12 +3192,12 @@ impl ::core::fmt::Debug for IMbnSmsReadMsgTextCdma {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnSmsReadMsgTextCdma {
-    type Vtable = IMbnSmsReadMsgTextCdmaVtbl;
+    type Vtable = IMbnSmsReadMsgTextCdma_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2014_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnSmsReadMsgTextCdmaVtbl {
+pub struct IMbnSmsReadMsgTextCdma_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Index: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: *mut u32) -> ::windows::core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut MBN_MSG_STATUS) -> ::windows::core::HRESULT,
@@ -3277,12 +3277,12 @@ impl ::core::fmt::Debug for IMbnSubscriberInformation {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnSubscriberInformation {
-    type Vtable = IMbnSubscriberInformationVtbl;
+    type Vtable = IMbnSubscriberInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x459ecc43_bcf5_11dc_a8a8_001321f1405f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnSubscriberInformationVtbl {
+pub struct IMbnSubscriberInformation_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SubscriberID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subscriberid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -3349,12 +3349,12 @@ impl ::core::fmt::Debug for IMbnVendorSpecificEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnVendorSpecificEvents {
-    type Vtable = IMbnVendorSpecificEventsVtbl;
+    type Vtable = IMbnVendorSpecificEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_201a_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnVendorSpecificEventsVtbl {
+pub struct IMbnVendorSpecificEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub OnEventNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vendoroperation: ::windows::core::RawPtr, vendorspecificdata: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
@@ -3413,12 +3413,12 @@ impl ::core::fmt::Debug for IMbnVendorSpecificOperation {
     }
 }
 unsafe impl ::windows::core::Interface for IMbnVendorSpecificOperation {
-    type Vtable = IMbnVendorSpecificOperationVtbl;
+    type Vtable = IMbnVendorSpecificOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcbbbab6_2019_4bbb_aaee_338e368af6fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMbnVendorSpecificOperationVtbl {
+pub struct IMbnVendorSpecificOperation_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub SetVendorSpecific: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: *mut u32) -> ::windows::core::HRESULT,

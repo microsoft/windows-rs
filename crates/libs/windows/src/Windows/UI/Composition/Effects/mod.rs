@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct ISceneLightingEffect(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISceneLightingEffect {
-    type Vtable = ISceneLightingEffectVtbl;
+    type Vtable = ISceneLightingEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91bb5e52_95d1_4f8b_9a5a_6408b24b8c6a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISceneLightingEffectVtbl {
+pub struct ISceneLightingEffect_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AmbientAmount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetAmbientAmount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
@@ -31,12 +31,12 @@ pub struct ISceneLightingEffectVtbl {
 #[repr(transparent)]
 pub struct ISceneLightingEffect2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISceneLightingEffect2 {
-    type Vtable = ISceneLightingEffect2Vtbl;
+    type Vtable = ISceneLightingEffect2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e270e81_72f0_4c5c_95f8_8a6e0024f409);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISceneLightingEffect2Vtbl {
+pub struct ISceneLightingEffect2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ReflectanceModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SceneLightingEffectReflectanceModel) -> ::windows::core::HRESULT,
     pub SetReflectanceModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: SceneLightingEffectReflectanceModel) -> ::windows::core::HRESULT,
@@ -168,7 +168,7 @@ unsafe impl ::windows::core::RuntimeType for SceneLightingEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Effects.SceneLightingEffect;{91bb5e52-95d1-4f8b-9a5a-6408b24b8c6a})");
 }
 unsafe impl ::windows::core::Interface for SceneLightingEffect {
-    type Vtable = ISceneLightingEffectVtbl;
+    type Vtable = ISceneLightingEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91bb5e52_95d1_4f8b_9a5a_6408b24b8c6a);
 }
 impl ::windows::core::RuntimeName for SceneLightingEffect {

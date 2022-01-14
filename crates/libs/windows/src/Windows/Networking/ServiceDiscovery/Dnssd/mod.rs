@@ -64,7 +64,7 @@ unsafe impl ::windows::core::RuntimeType for DnssdRegistrationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationResult;{3d786ad2-e606-5350-73ea-7e97f066162f})");
 }
 unsafe impl ::windows::core::Interface for DnssdRegistrationResult {
-    type Vtable = IDnssdRegistrationResultVtbl;
+    type Vtable = IDnssdRegistrationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d786ad2_e606_5350_73ea_7e97f066162f);
 }
 impl ::windows::core::RuntimeName for DnssdRegistrationResult {
@@ -329,7 +329,7 @@ unsafe impl ::windows::core::RuntimeType for DnssdServiceInstance {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstance;{e246db7e-98a5-4ca1-b9e4-c253d33c35ff})");
 }
 unsafe impl ::windows::core::Interface for DnssdServiceInstance {
-    type Vtable = IDnssdServiceInstanceVtbl;
+    type Vtable = IDnssdServiceInstance_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe246db7e_98a5_4ca1_b9e4_c253d33c35ff);
 }
 impl ::windows::core::RuntimeName for DnssdServiceInstance {
@@ -481,7 +481,7 @@ unsafe impl ::windows::core::RuntimeType for DnssdServiceInstanceCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for DnssdServiceInstanceCollection {
-    type Vtable = super::super::super::Foundation::Collections::IVectorViewVtbl<DnssdServiceInstance>;
+    type Vtable = super::super::super::Foundation::Collections::IVectorView_Vtbl<DnssdServiceInstance>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -696,7 +696,7 @@ unsafe impl ::windows::core::RuntimeType for DnssdServiceWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcher;{cc34d9c1-db7d-4b69-983d-c6f83f205682})");
 }
 unsafe impl ::windows::core::Interface for DnssdServiceWatcher {
-    type Vtable = IDnssdServiceWatcherVtbl;
+    type Vtable = IDnssdServiceWatcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc34d9c1_db7d_4b69_983d_c6f83f205682);
 }
 impl ::windows::core::RuntimeName for DnssdServiceWatcher {
@@ -785,12 +785,12 @@ impl ::windows::core::DefaultType for DnssdServiceWatcherStatus {
 #[repr(transparent)]
 pub struct IDnssdRegistrationResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDnssdRegistrationResult {
-    type Vtable = IDnssdRegistrationResultVtbl;
+    type Vtable = IDnssdRegistrationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d786ad2_e606_5350_73ea_7e97f066162f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDnssdRegistrationResultVtbl {
+pub struct IDnssdRegistrationResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DnssdRegistrationStatus) -> ::windows::core::HRESULT,
     pub IPAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -800,12 +800,12 @@ pub struct IDnssdRegistrationResultVtbl {
 #[repr(transparent)]
 pub struct IDnssdServiceInstance(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDnssdServiceInstance {
-    type Vtable = IDnssdServiceInstanceVtbl;
+    type Vtable = IDnssdServiceInstance_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe246db7e_98a5_4ca1_b9e4_c253d33c35ff);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDnssdServiceInstanceVtbl {
+pub struct IDnssdServiceInstance_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DnssdServiceInstanceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetDnssdServiceInstanceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -842,12 +842,12 @@ pub struct IDnssdServiceInstanceVtbl {
 #[repr(transparent)]
 pub struct IDnssdServiceInstanceFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDnssdServiceInstanceFactory {
-    type Vtable = IDnssdServiceInstanceFactoryVtbl;
+    type Vtable = IDnssdServiceInstanceFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cb061a1_c478_4331_9684_4af2186c0a2b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDnssdServiceInstanceFactoryVtbl {
+pub struct IDnssdServiceInstanceFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dnssdserviceinstancename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, hostname: ::windows::core::RawPtr, port: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -855,12 +855,12 @@ pub struct IDnssdServiceInstanceFactoryVtbl {
 #[repr(transparent)]
 pub struct IDnssdServiceWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDnssdServiceWatcher {
-    type Vtable = IDnssdServiceWatcherVtbl;
+    type Vtable = IDnssdServiceWatcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc34d9c1_db7d_4b69_983d_c6f83f205682);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDnssdServiceWatcherVtbl {
+pub struct IDnssdServiceWatcher_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Added: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,

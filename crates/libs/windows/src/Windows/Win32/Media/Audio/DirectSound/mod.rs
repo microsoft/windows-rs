@@ -1759,12 +1759,12 @@ impl ::core::fmt::Debug for IDirectSound {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSound {
-    type Vtable = IDirectSoundVtbl;
+    type Vtable = IDirectSound_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x279afa83_4981_11ce_a521_0020af0be560);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectSoundVtbl {
+pub struct IDirectSound_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateSoundBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdsbufferdesc: *const DSBUFFERDESC, ppdsbuffer: *mut ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdscaps: *mut DSCAPS) -> ::windows::core::HRESULT,
@@ -1905,12 +1905,12 @@ impl ::core::fmt::Debug for IDirectSound3DBuffer {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSound3DBuffer {
-    type Vtable = IDirectSound3DBufferVtbl;
+    type Vtable = IDirectSound3DBuffer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x279afa86_4981_11ce_a521_0020af0be560);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectSound3DBufferVtbl {
+pub struct IDirectSound3DBuffer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub GetAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pds3dbuffer: *mut DS3DBUFFER) -> ::windows::core::HRESULT,
@@ -2059,12 +2059,12 @@ impl ::core::fmt::Debug for IDirectSound3DListener {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSound3DListener {
-    type Vtable = IDirectSound3DListenerVtbl;
+    type Vtable = IDirectSound3DListener_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x279afa84_4981_11ce_a521_0020af0be560);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectSound3DListenerVtbl {
+pub struct IDirectSound3DListener_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub GetAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plistener: *mut DS3DLISTENER) -> ::windows::core::HRESULT,
@@ -2200,13 +2200,13 @@ impl ::core::fmt::Debug for IDirectSound8 {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSound8 {
-    type Vtable = IDirectSound8Vtbl;
+    type Vtable = IDirectSound8_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc50a7e93_f395_4834_9ef6_7fa99de50966);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectSound8Vtbl {
-    pub base: IDirectSoundVtbl,
+pub struct IDirectSound8_Vtbl {
+    pub base: IDirectSound_Vtbl,
     pub VerifyCertification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcertified: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
@@ -2328,12 +2328,12 @@ impl ::core::fmt::Debug for IDirectSoundBuffer {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSoundBuffer {
-    type Vtable = IDirectSoundBufferVtbl;
+    type Vtable = IDirectSoundBuffer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x279afa85_4981_11ce_a521_0020af0be560);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectSoundBufferVtbl {
+pub struct IDirectSoundBuffer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsbuffercaps: *mut DSBCAPS) -> ::windows::core::HRESULT,
     pub GetCurrentPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcurrentplaycursor: *mut u32, pdwcurrentwritecursor: *mut u32) -> ::windows::core::HRESULT,
@@ -2505,13 +2505,13 @@ impl ::core::fmt::Debug for IDirectSoundBuffer8 {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSoundBuffer8 {
-    type Vtable = IDirectSoundBuffer8Vtbl;
+    type Vtable = IDirectSoundBuffer8_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6825a449_7524_4d82_920f_50e36ab3ab1e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectSoundBuffer8Vtbl {
-    pub base: IDirectSoundBufferVtbl,
+pub struct IDirectSoundBuffer8_Vtbl {
+    pub base: IDirectSoundBuffer_Vtbl,
     pub SetFX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweffectscount: u32, pdsfxdesc: *const DSEFFECTDESC, pdwresultcodes: *mut u32) -> ::windows::core::HRESULT,
     pub AcquireResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, dweffectscount: u32, pdwresultcodes: *mut u32) -> ::windows::core::HRESULT,
     pub GetObjectInPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguidobject: *const ::windows::core::GUID, dwindex: u32, rguidinterface: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2571,12 +2571,12 @@ impl ::core::fmt::Debug for IDirectSoundCapture {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSoundCapture {
-    type Vtable = IDirectSoundCaptureVtbl;
+    type Vtable = IDirectSoundCapture_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0210781_89cd_11d0_af08_00a0c925cd16);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectSoundCaptureVtbl {
+pub struct IDirectSoundCapture_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateCaptureBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdscbufferdesc: *const DSCBUFFERDESC, ppdscbuffer: *mut ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsccaps: *mut DSCCAPS) -> ::windows::core::HRESULT,
@@ -2662,12 +2662,12 @@ impl ::core::fmt::Debug for IDirectSoundCaptureBuffer {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSoundCaptureBuffer {
-    type Vtable = IDirectSoundCaptureBufferVtbl;
+    type Vtable = IDirectSoundCaptureBuffer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0210782_89cd_11d0_af08_00a0c925cd16);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectSoundCaptureBufferVtbl {
+pub struct IDirectSoundCaptureBuffer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdscbcaps: *mut DSCBCAPS) -> ::windows::core::HRESULT,
     pub GetCurrentPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcaptureposition: *mut u32, pdwreadposition: *mut u32) -> ::windows::core::HRESULT,
@@ -2787,13 +2787,13 @@ impl ::core::fmt::Debug for IDirectSoundCaptureBuffer8 {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSoundCaptureBuffer8 {
-    type Vtable = IDirectSoundCaptureBuffer8Vtbl;
+    type Vtable = IDirectSoundCaptureBuffer8_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00990df4_0dbb_4872_833e_6d303e80aeb6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectSoundCaptureBuffer8Vtbl {
-    pub base: IDirectSoundCaptureBufferVtbl,
+pub struct IDirectSoundCaptureBuffer8_Vtbl {
+    pub base: IDirectSoundCaptureBuffer_Vtbl,
     pub GetObjectInPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguidobject: *const ::windows::core::GUID, dwindex: u32, rguidinterface: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetFXStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweffectscount: u32, pdwfxstatus: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -2859,12 +2859,12 @@ impl ::core::fmt::Debug for IDirectSoundCaptureFXAec {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSoundCaptureFXAec {
-    type Vtable = IDirectSoundCaptureFXAecVtbl;
+    type Vtable = IDirectSoundCaptureFXAec_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad74143d_903d_4ab7_8066_28d363036d65);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectSoundCaptureFXAecVtbl {
+pub struct IDirectSoundCaptureFXAec_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdscfxaec: *const DSCFXAec) -> ::windows::core::HRESULT,
@@ -2934,12 +2934,12 @@ impl ::core::fmt::Debug for IDirectSoundCaptureFXNoiseSuppress {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSoundCaptureFXNoiseSuppress {
-    type Vtable = IDirectSoundCaptureFXNoiseSuppressVtbl;
+    type Vtable = IDirectSoundCaptureFXNoiseSuppress_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed311e41_fbae_4175_9625_cd0854f693ca);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectSoundCaptureFXNoiseSuppressVtbl {
+pub struct IDirectSoundCaptureFXNoiseSuppress_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdscfxnoisesuppress: *const DSCFXNoiseSuppress) -> ::windows::core::HRESULT,
@@ -3002,12 +3002,12 @@ impl ::core::fmt::Debug for IDirectSoundFXChorus {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSoundFXChorus {
-    type Vtable = IDirectSoundFXChorusVtbl;
+    type Vtable = IDirectSoundFXChorus_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x880842e3_145f_43e6_a934_a71806e50547);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectSoundFXChorusVtbl {
+pub struct IDirectSoundFXChorus_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdsfxchorus: *const DSFXChorus) -> ::windows::core::HRESULT,
     pub GetAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsfxchorus: *mut DSFXChorus) -> ::windows::core::HRESULT,
@@ -3063,12 +3063,12 @@ impl ::core::fmt::Debug for IDirectSoundFXCompressor {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSoundFXCompressor {
-    type Vtable = IDirectSoundFXCompressorVtbl;
+    type Vtable = IDirectSoundFXCompressor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bbd1154_62f6_4e2c_a15c_d3b6c417f7a0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectSoundFXCompressorVtbl {
+pub struct IDirectSoundFXCompressor_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdsfxcompressor: *const DSFXCompressor) -> ::windows::core::HRESULT,
     pub GetAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsfxcompressor: *mut DSFXCompressor) -> ::windows::core::HRESULT,
@@ -3124,12 +3124,12 @@ impl ::core::fmt::Debug for IDirectSoundFXDistortion {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSoundFXDistortion {
-    type Vtable = IDirectSoundFXDistortionVtbl;
+    type Vtable = IDirectSoundFXDistortion_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ecf4326_455f_4d8b_bda9_8d5d3e9e3e0b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectSoundFXDistortionVtbl {
+pub struct IDirectSoundFXDistortion_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdsfxdistortion: *const DSFXDistortion) -> ::windows::core::HRESULT,
     pub GetAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsfxdistortion: *mut DSFXDistortion) -> ::windows::core::HRESULT,
@@ -3185,12 +3185,12 @@ impl ::core::fmt::Debug for IDirectSoundFXEcho {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSoundFXEcho {
-    type Vtable = IDirectSoundFXEchoVtbl;
+    type Vtable = IDirectSoundFXEcho_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bd28edf_50db_4e92_a2bd_445488d1ed42);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectSoundFXEchoVtbl {
+pub struct IDirectSoundFXEcho_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdsfxecho: *const DSFXEcho) -> ::windows::core::HRESULT,
     pub GetAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsfxecho: *mut DSFXEcho) -> ::windows::core::HRESULT,
@@ -3246,12 +3246,12 @@ impl ::core::fmt::Debug for IDirectSoundFXFlanger {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSoundFXFlanger {
-    type Vtable = IDirectSoundFXFlangerVtbl;
+    type Vtable = IDirectSoundFXFlanger_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x903e9878_2c92_4072_9b2c_ea68f5396783);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectSoundFXFlangerVtbl {
+pub struct IDirectSoundFXFlanger_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdsfxflanger: *const DSFXFlanger) -> ::windows::core::HRESULT,
     pub GetAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsfxflanger: *mut DSFXFlanger) -> ::windows::core::HRESULT,
@@ -3307,12 +3307,12 @@ impl ::core::fmt::Debug for IDirectSoundFXGargle {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSoundFXGargle {
-    type Vtable = IDirectSoundFXGargleVtbl;
+    type Vtable = IDirectSoundFXGargle_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd616f352_d622_11ce_aac5_0020af0b99a3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectSoundFXGargleVtbl {
+pub struct IDirectSoundFXGargle_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdsfxgargle: *const DSFXGargle) -> ::windows::core::HRESULT,
     pub GetAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsfxgargle: *mut DSFXGargle) -> ::windows::core::HRESULT,
@@ -3386,12 +3386,12 @@ impl ::core::fmt::Debug for IDirectSoundFXI3DL2Reverb {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSoundFXI3DL2Reverb {
-    type Vtable = IDirectSoundFXI3DL2ReverbVtbl;
+    type Vtable = IDirectSoundFXI3DL2Reverb_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b166a6a_0d66_43f3_80e3_ee6280dee1a4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectSoundFXI3DL2ReverbVtbl {
+pub struct IDirectSoundFXI3DL2Reverb_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdsfxi3dl2reverb: *const DSFXI3DL2Reverb) -> ::windows::core::HRESULT,
     pub GetAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsfxi3dl2reverb: *mut DSFXI3DL2Reverb) -> ::windows::core::HRESULT,
@@ -3451,12 +3451,12 @@ impl ::core::fmt::Debug for IDirectSoundFXParamEq {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSoundFXParamEq {
-    type Vtable = IDirectSoundFXParamEqVtbl;
+    type Vtable = IDirectSoundFXParamEq_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc03ca9fe_fe90_4204_8078_82334cd177da);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectSoundFXParamEqVtbl {
+pub struct IDirectSoundFXParamEq_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdsfxparameq: *const DSFXParamEq) -> ::windows::core::HRESULT,
     pub GetAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsfxparameq: *mut DSFXParamEq) -> ::windows::core::HRESULT,
@@ -3512,12 +3512,12 @@ impl ::core::fmt::Debug for IDirectSoundFXWavesReverb {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSoundFXWavesReverb {
-    type Vtable = IDirectSoundFXWavesReverbVtbl;
+    type Vtable = IDirectSoundFXWavesReverb_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46858c3a_0dc6_45e3_b760_d4eef16cb325);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectSoundFXWavesReverbVtbl {
+pub struct IDirectSoundFXWavesReverb_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdsfxwavesreverb: *const DSFXWavesReverb) -> ::windows::core::HRESULT,
     pub GetAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsfxwavesreverb: *mut DSFXWavesReverb) -> ::windows::core::HRESULT,
@@ -3569,12 +3569,12 @@ impl ::core::fmt::Debug for IDirectSoundFullDuplex {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSoundFullDuplex {
-    type Vtable = IDirectSoundFullDuplexVtbl;
+    type Vtable = IDirectSoundFullDuplex_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedcb4c7a_daab_4216_a42e_6c50596ddc1d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectSoundFullDuplexVtbl {
+pub struct IDirectSoundFullDuplex_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcaptureguid: *const ::windows::core::GUID, prenderguid: *const ::windows::core::GUID, lpdscbufferdesc: *const DSCBUFFERDESC, lpdsbufferdesc: *const DSBUFFERDESC, hwnd: super::super::super::Foundation::HWND, dwlevel: u32, lplpdirectsoundcapturebuffer8: *mut ::windows::core::RawPtr, lplpdirectsoundbuffer8: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3628,12 +3628,12 @@ impl ::core::fmt::Debug for IDirectSoundNotify {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSoundNotify {
-    type Vtable = IDirectSoundNotifyVtbl;
+    type Vtable = IDirectSoundNotify_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0210783_89cd_11d0_af08_00a0c925cd16);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectSoundNotifyVtbl {
+pub struct IDirectSoundNotify_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetNotificationPositions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwpositionnotifies: u32, pcpositionnotifies: *const DSBPOSITIONNOTIFY) -> ::windows::core::HRESULT,

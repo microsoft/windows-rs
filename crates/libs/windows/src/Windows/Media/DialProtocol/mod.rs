@@ -59,7 +59,7 @@ unsafe impl ::windows::core::RuntimeType for DialApp {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialApp;{555ffbd3-45b7-49f3-bbd7-302db6084646})");
 }
 unsafe impl ::windows::core::Interface for DialApp {
-    type Vtable = IDialAppVtbl;
+    type Vtable = IDialApp_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x555ffbd3_45b7_49f3_bbd7_302db6084646);
 }
 impl ::windows::core::RuntimeName for DialApp {
@@ -218,7 +218,7 @@ unsafe impl ::windows::core::RuntimeType for DialAppStateDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialAppStateDetails;{ddc4a4a1-f5de-400d-bea4-8c8466bb2961})");
 }
 unsafe impl ::windows::core::Interface for DialAppStateDetails {
-    type Vtable = IDialAppStateDetailsVtbl;
+    type Vtable = IDialAppStateDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddc4a4a1_f5de_400d_bea4_8c8466bb2961);
 }
 impl ::windows::core::RuntimeName for DialAppStateDetails {
@@ -387,7 +387,7 @@ unsafe impl ::windows::core::RuntimeType for DialDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialDevice;{fff0edaf-759f-41d2-a20a-7f29ce0b3784})");
 }
 unsafe impl ::windows::core::Interface for DialDevice {
-    type Vtable = IDialDeviceVtbl;
+    type Vtable = IDialDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfff0edaf_759f_41d2_a20a_7f29ce0b3784);
 }
 impl ::windows::core::RuntimeName for DialDevice {
@@ -606,7 +606,7 @@ unsafe impl ::windows::core::RuntimeType for DialDevicePicker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialDevicePicker;{ba7e520a-ff59-4f4b-bdac-d89f495ad6e1})");
 }
 unsafe impl ::windows::core::Interface for DialDevicePicker {
-    type Vtable = IDialDevicePickerVtbl;
+    type Vtable = IDialDevicePicker_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba7e520a_ff59_4f4b_bdac_d89f495ad6e1);
 }
 impl ::windows::core::RuntimeName for DialDevicePicker {
@@ -688,7 +688,7 @@ unsafe impl ::windows::core::RuntimeType for DialDevicePickerFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialDevicePickerFilter;{c17c93ba-86c0-485d-b8d6-0f9a8f641590})");
 }
 unsafe impl ::windows::core::Interface for DialDevicePickerFilter {
-    type Vtable = IDialDevicePickerFilterVtbl;
+    type Vtable = IDialDevicePickerFilter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc17c93ba_86c0_485d_b8d6_0f9a8f641590);
 }
 impl ::windows::core::RuntimeName for DialDevicePickerFilter {
@@ -769,7 +769,7 @@ unsafe impl ::windows::core::RuntimeType for DialDeviceSelectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialDeviceSelectedEventArgs;{480b92ad-ac76-47eb-9c06-a19304da0247})");
 }
 unsafe impl ::windows::core::Interface for DialDeviceSelectedEventArgs {
-    type Vtable = IDialDeviceSelectedEventArgsVtbl;
+    type Vtable = IDialDeviceSelectedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x480b92ad_ac76_47eb_9c06_a19304da0247);
 }
 impl ::windows::core::RuntimeName for DialDeviceSelectedEventArgs {
@@ -850,7 +850,7 @@ unsafe impl ::windows::core::RuntimeType for DialDisconnectButtonClickedEventArg
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialDisconnectButtonClickedEventArgs;{52765152-9c81-4e55-adc2-0ebe99cde3b6})");
 }
 unsafe impl ::windows::core::Interface for DialDisconnectButtonClickedEventArgs {
-    type Vtable = IDialDisconnectButtonClickedEventArgsVtbl;
+    type Vtable = IDialDisconnectButtonClickedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52765152_9c81_4e55_adc2_0ebe99cde3b6);
 }
 impl ::windows::core::RuntimeName for DialDisconnectButtonClickedEventArgs {
@@ -962,7 +962,7 @@ unsafe impl ::windows::core::RuntimeType for DialReceiverApp {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialReceiverApp;{fd3e7c57-5045-470e-b304-4dd9b13e7d11})");
 }
 unsafe impl ::windows::core::Interface for DialReceiverApp {
-    type Vtable = IDialReceiverAppVtbl;
+    type Vtable = IDialReceiverApp_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd3e7c57_5045_470e_b304_4dd9b13e7d11);
 }
 impl ::windows::core::RuntimeName for DialReceiverApp {
@@ -1014,12 +1014,12 @@ unsafe impl ::core::marker::Sync for DialReceiverApp {}
 #[repr(transparent)]
 pub struct IDialApp(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDialApp {
-    type Vtable = IDialAppVtbl;
+    type Vtable = IDialApp_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x555ffbd3_45b7_49f3_bbd7_302db6084646);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialAppVtbl {
+pub struct IDialApp_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AppName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1039,12 +1039,12 @@ pub struct IDialAppVtbl {
 #[repr(transparent)]
 pub struct IDialAppStateDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDialAppStateDetails {
-    type Vtable = IDialAppStateDetailsVtbl;
+    type Vtable = IDialAppStateDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddc4a4a1_f5de_400d_bea4_8c8466bb2961);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialAppStateDetailsVtbl {
+pub struct IDialAppStateDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DialAppState) -> ::windows::core::HRESULT,
     pub FullXml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1053,12 +1053,12 @@ pub struct IDialAppStateDetailsVtbl {
 #[repr(transparent)]
 pub struct IDialDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDialDevice {
-    type Vtable = IDialDeviceVtbl;
+    type Vtable = IDialDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfff0edaf_759f_41d2_a20a_7f29ce0b3784);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialDeviceVtbl {
+pub struct IDialDevice_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub GetDialApp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1067,12 +1067,12 @@ pub struct IDialDeviceVtbl {
 #[repr(transparent)]
 pub struct IDialDevice2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDialDevice2 {
-    type Vtable = IDialDevice2Vtbl;
+    type Vtable = IDialDevice2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbab7f3d5_5bfb_4eba_8b32_b57c5c5ee5c9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialDevice2Vtbl {
+pub struct IDialDevice2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -1084,12 +1084,12 @@ pub struct IDialDevice2Vtbl {
 #[repr(transparent)]
 pub struct IDialDevicePicker(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDialDevicePicker {
-    type Vtable = IDialDevicePickerVtbl;
+    type Vtable = IDialDevicePicker_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba7e520a_ff59_4f4b_bdac_d89f495ad6e1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialDevicePickerVtbl {
+pub struct IDialDevicePicker_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Filter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Enumeration")]
@@ -1143,12 +1143,12 @@ pub struct IDialDevicePickerVtbl {
 #[repr(transparent)]
 pub struct IDialDevicePickerFilter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDialDevicePickerFilter {
-    type Vtable = IDialDevicePickerFilterVtbl;
+    type Vtable = IDialDevicePickerFilter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc17c93ba_86c0_485d_b8d6_0f9a8f641590);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialDevicePickerFilterVtbl {
+pub struct IDialDevicePickerFilter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub SupportedAppNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1159,12 +1159,12 @@ pub struct IDialDevicePickerFilterVtbl {
 #[repr(transparent)]
 pub struct IDialDeviceSelectedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDialDeviceSelectedEventArgs {
-    type Vtable = IDialDeviceSelectedEventArgsVtbl;
+    type Vtable = IDialDeviceSelectedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x480b92ad_ac76_47eb_9c06_a19304da0247);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialDeviceSelectedEventArgsVtbl {
+pub struct IDialDeviceSelectedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SelectedDialDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1172,12 +1172,12 @@ pub struct IDialDeviceSelectedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IDialDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDialDeviceStatics {
-    type Vtable = IDialDeviceStaticsVtbl;
+    type Vtable = IDialDeviceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa69cc95_01f8_4758_8461_2bbd1cdc3cf3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialDeviceStaticsVtbl {
+pub struct IDialDeviceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1193,12 +1193,12 @@ pub struct IDialDeviceStaticsVtbl {
 #[repr(transparent)]
 pub struct IDialDisconnectButtonClickedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDialDisconnectButtonClickedEventArgs {
-    type Vtable = IDialDisconnectButtonClickedEventArgsVtbl;
+    type Vtable = IDialDisconnectButtonClickedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52765152_9c81_4e55_adc2_0ebe99cde3b6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialDisconnectButtonClickedEventArgsVtbl {
+pub struct IDialDisconnectButtonClickedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Device: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1206,12 +1206,12 @@ pub struct IDialDisconnectButtonClickedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IDialReceiverApp(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDialReceiverApp {
-    type Vtable = IDialReceiverAppVtbl;
+    type Vtable = IDialReceiverApp_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd3e7c57_5045_470e_b304_4dd9b13e7d11);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialReceiverAppVtbl {
+pub struct IDialReceiverApp_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetAdditionalDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1226,12 +1226,12 @@ pub struct IDialReceiverAppVtbl {
 #[repr(transparent)]
 pub struct IDialReceiverApp2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDialReceiverApp2 {
-    type Vtable = IDialReceiverApp2Vtbl;
+    type Vtable = IDialReceiverApp2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x530c5805_9130_42ac_a504_1977dcb2ea8a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialReceiverApp2Vtbl {
+pub struct IDialReceiverApp2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetUniqueDeviceNameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1242,12 +1242,12 @@ pub struct IDialReceiverApp2Vtbl {
 #[repr(transparent)]
 pub struct IDialReceiverAppStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDialReceiverAppStatics {
-    type Vtable = IDialReceiverAppStaticsVtbl;
+    type Vtable = IDialReceiverAppStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53183a3c_4c36_4d02_b28a_f2a9da38ec52);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialReceiverAppStaticsVtbl {
+pub struct IDialReceiverAppStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }

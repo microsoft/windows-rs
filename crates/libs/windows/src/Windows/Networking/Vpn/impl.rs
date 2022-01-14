@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IVpnAppIdImpl: Sized {
+pub trait IVpnAppId_Impl: Sized {
     fn Type(&mut self) -> ::windows::core::Result<VpnAppIdType>;
     fn SetType(&mut self, value: VpnAppIdType) -> ::windows::core::Result<()>;
     fn Value(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -10,9 +10,9 @@ impl ::windows::core::RuntimeName for IVpnAppId {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnAppId";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVpnAppIdVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnAppIdImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnAppIdVtbl {
-        unsafe extern "system" fn Type<Impl: IVpnAppIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnAppIdType) -> ::windows::core::HRESULT {
+impl IVpnAppId_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnAppId_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnAppId_Vtbl {
+        unsafe extern "system" fn Type<Impl: IVpnAppId_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnAppIdType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
                 ::core::result::Result::Ok(ok__) => {
@@ -23,11 +23,11 @@ impl IVpnAppIdVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetType<Impl: IVpnAppIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VpnAppIdType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetType<Impl: IVpnAppId_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VpnAppIdType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetType(value).into()
         }
-        unsafe extern "system" fn Value<Impl: IVpnAppIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: IVpnAppId_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -38,7 +38,7 @@ impl IVpnAppIdVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Impl: IVpnAppIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Impl: IVpnAppId_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -55,7 +55,7 @@ impl IVpnAppIdVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVpnAppIdFactoryImpl: Sized {
+pub trait IVpnAppIdFactory_Impl: Sized {
     fn Create(&mut self, r#type: VpnAppIdType, value: &::windows::core::HSTRING) -> ::windows::core::Result<VpnAppId>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -63,9 +63,9 @@ impl ::windows::core::RuntimeName for IVpnAppIdFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnAppIdFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVpnAppIdFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnAppIdFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnAppIdFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IVpnAppIdFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: VpnAppIdType, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnAppIdFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnAppIdFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnAppIdFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IVpnAppIdFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: VpnAppIdType, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(r#type, &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -83,7 +83,7 @@ impl IVpnAppIdFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
-pub trait IVpnChannelImpl: Sized {
+pub trait IVpnChannel_Impl: Sized {
     fn AssociateTransport(&mut self, mainoutertunneltransport: &::core::option::Option<::windows::core::IInspectable>, optionaloutertunneltransport: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
     fn Start(&mut self, assignedclientipv4list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, assignedclientipv6list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, vpninterfaceid: &::core::option::Option<VpnInterfaceId>, routescope: &::core::option::Option<VpnRouteAssignment>, namespacescope: &::core::option::Option<VpnNamespaceAssignment>, mtusize: u32, maxframesize: u32, optimizeforlowcostnetwork: bool, mainoutertunneltransport: &::core::option::Option<::windows::core::IInspectable>, optionaloutertunneltransport: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
     fn Stop(&mut self) -> ::windows::core::Result<()>;
@@ -106,13 +106,13 @@ impl ::windows::core::RuntimeName for IVpnChannel {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnChannel";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
-impl IVpnChannelVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannelVtbl {
-        unsafe extern "system" fn AssociateTransport<Impl: IVpnChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mainoutertunneltransport: *mut ::core::ffi::c_void, optionaloutertunneltransport: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IVpnChannel_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannel_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannel_Vtbl {
+        unsafe extern "system" fn AssociateTransport<Impl: IVpnChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mainoutertunneltransport: *mut ::core::ffi::c_void, optionaloutertunneltransport: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AssociateTransport(&*(&mainoutertunneltransport as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&optionaloutertunneltransport as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Start<Impl: IVpnChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, assignedclientipv4list: ::windows::core::RawPtr, assignedclientipv6list: ::windows::core::RawPtr, vpninterfaceid: ::windows::core::RawPtr, routescope: ::windows::core::RawPtr, namespacescope: ::windows::core::RawPtr, mtusize: u32, maxframesize: u32, optimizeforlowcostnetwork: bool, mainoutertunneltransport: *mut ::core::ffi::c_void, optionaloutertunneltransport: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Start<Impl: IVpnChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, assignedclientipv4list: ::windows::core::RawPtr, assignedclientipv6list: ::windows::core::RawPtr, vpninterfaceid: ::windows::core::RawPtr, routescope: ::windows::core::RawPtr, namespacescope: ::windows::core::RawPtr, mtusize: u32, maxframesize: u32, optimizeforlowcostnetwork: bool, mainoutertunneltransport: *mut ::core::ffi::c_void, optionaloutertunneltransport: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .Start(
@@ -129,11 +129,11 @@ impl IVpnChannelVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn Stop<Impl: IVpnChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stop<Impl: IVpnChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        unsafe extern "system" fn RequestCredentials<Impl: IVpnChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, credtype: VpnCredentialType, isretry: bool, issinglesignoncredential: bool, certificate: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestCredentials<Impl: IVpnChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, credtype: VpnCredentialType, isretry: bool, issinglesignoncredential: bool, certificate: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestCredentials(credtype, isretry, issinglesignoncredential, &*(&certificate as *const <super::super::Security::Cryptography::Certificates::Certificate as ::windows::core::Abi>::Abi as *const <super::super::Security::Cryptography::Certificates::Certificate as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -144,15 +144,15 @@ impl IVpnChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestVpnPacketBuffer<Impl: IVpnChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: VpnDataPathType, vpnpacketbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestVpnPacketBuffer<Impl: IVpnChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: VpnDataPathType, vpnpacketbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RequestVpnPacketBuffer(r#type, ::core::mem::transmute_copy(&vpnpacketbuffer)).into()
         }
-        unsafe extern "system" fn LogDiagnosticMessage<Impl: IVpnChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LogDiagnosticMessage<Impl: IVpnChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).LogDiagnosticMessage(&*(&message as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Id<Impl: IVpnChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Id<Impl: IVpnChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -163,7 +163,7 @@ impl IVpnChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Configuration<Impl: IVpnChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Configuration<Impl: IVpnChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Configuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -174,7 +174,7 @@ impl IVpnChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ActivityChange<Impl: IVpnChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ActivityChange<Impl: IVpnChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivityChange(&*(&handler as *const <super::super::Foundation::TypedEventHandler<VpnChannel, VpnChannelActivityEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<VpnChannel, VpnChannelActivityEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -185,15 +185,15 @@ impl IVpnChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveActivityChange<Impl: IVpnChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveActivityChange<Impl: IVpnChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveActivityChange(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetPlugInContext<Impl: IVpnChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPlugInContext<Impl: IVpnChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlugInContext(&*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PlugInContext<Impl: IVpnChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlugInContext<Impl: IVpnChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlugInContext() {
                 ::core::result::Result::Ok(ok__) => {
@@ -204,7 +204,7 @@ impl IVpnChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SystemHealth<Impl: IVpnChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SystemHealth<Impl: IVpnChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemHealth() {
                 ::core::result::Result::Ok(ok__) => {
@@ -215,15 +215,15 @@ impl IVpnChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestCustomPrompt<Impl: IVpnChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customprompt: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestCustomPrompt<Impl: IVpnChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customprompt: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RequestCustomPrompt(&*(&customprompt as *const <super::super::Foundation::Collections::IVectorView<IVpnCustomPrompt> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IVectorView<IVpnCustomPrompt> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetErrorMessage<Impl: IVpnChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetErrorMessage<Impl: IVpnChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetErrorMessage(&*(&message as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetAllowedSslTlsVersions<Impl: IVpnChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tunneltransport: *mut ::core::ffi::c_void, usetls12: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAllowedSslTlsVersions<Impl: IVpnChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tunneltransport: *mut ::core::ffi::c_void, usetls12: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowedSslTlsVersions(&*(&tunneltransport as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), usetls12).into()
         }
@@ -252,7 +252,7 @@ impl IVpnChannelVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
-pub trait IVpnChannel2Impl: Sized {
+pub trait IVpnChannel2_Impl: Sized {
     fn StartWithMainTransport(&mut self, assignedclientipv4list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, assignedclientipv6list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, vpninterfaceid: &::core::option::Option<VpnInterfaceId>, assignedroutes: &::core::option::Option<VpnRouteAssignment>, assigneddomainname: &::core::option::Option<VpnDomainNameAssignment>, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
     fn StartExistingTransports(&mut self, assignedclientipv4list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, assignedclientipv6list: &::core::option::Option<super::super::Foundation::Collections::IVectorView<super::HostName>>, vpninterfaceid: &::core::option::Option<VpnInterfaceId>, assignedroutes: &::core::option::Option<VpnRouteAssignment>, assigneddomainname: &::core::option::Option<VpnDomainNameAssignment>, mtusize: u32, maxframesize: u32, reserved: bool) -> ::windows::core::Result<()>;
     fn ActivityStateChange(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<VpnChannel, VpnChannelActivityStateChangedArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -271,9 +271,9 @@ impl ::windows::core::RuntimeName for IVpnChannel2 {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnChannel2";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
-impl IVpnChannel2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannel2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannel2Vtbl {
-        unsafe extern "system" fn StartWithMainTransport<Impl: IVpnChannel2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, assignedclientipv4list: ::windows::core::RawPtr, assignedclientipv6list: ::windows::core::RawPtr, vpninterfaceid: ::windows::core::RawPtr, assignedroutes: ::windows::core::RawPtr, assigneddomainname: ::windows::core::RawPtr, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IVpnChannel2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannel2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannel2_Vtbl {
+        unsafe extern "system" fn StartWithMainTransport<Impl: IVpnChannel2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, assignedclientipv4list: ::windows::core::RawPtr, assignedclientipv6list: ::windows::core::RawPtr, vpninterfaceid: ::windows::core::RawPtr, assignedroutes: ::windows::core::RawPtr, assigneddomainname: ::windows::core::RawPtr, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .StartWithMainTransport(
@@ -289,7 +289,7 @@ impl IVpnChannel2Vtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn StartExistingTransports<Impl: IVpnChannel2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, assignedclientipv4list: ::windows::core::RawPtr, assignedclientipv6list: ::windows::core::RawPtr, vpninterfaceid: ::windows::core::RawPtr, assignedroutes: ::windows::core::RawPtr, assigneddomainname: ::windows::core::RawPtr, mtusize: u32, maxframesize: u32, reserved: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartExistingTransports<Impl: IVpnChannel2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, assignedclientipv4list: ::windows::core::RawPtr, assignedclientipv6list: ::windows::core::RawPtr, vpninterfaceid: ::windows::core::RawPtr, assignedroutes: ::windows::core::RawPtr, assigneddomainname: ::windows::core::RawPtr, mtusize: u32, maxframesize: u32, reserved: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .StartExistingTransports(
@@ -304,7 +304,7 @@ impl IVpnChannel2Vtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn ActivityStateChange<Impl: IVpnChannel2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ActivityStateChange<Impl: IVpnChannel2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivityStateChange(&*(&handler as *const <super::super::Foundation::TypedEventHandler<VpnChannel, VpnChannelActivityStateChangedArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<VpnChannel, VpnChannelActivityStateChangedArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -315,11 +315,11 @@ impl IVpnChannel2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveActivityStateChange<Impl: IVpnChannel2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveActivityStateChange<Impl: IVpnChannel2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveActivityStateChange(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetVpnSendPacketBuffer<Impl: IVpnChannel2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetVpnSendPacketBuffer<Impl: IVpnChannel2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetVpnSendPacketBuffer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -330,7 +330,7 @@ impl IVpnChannel2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVpnReceivePacketBuffer<Impl: IVpnChannel2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetVpnReceivePacketBuffer<Impl: IVpnChannel2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetVpnReceivePacketBuffer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -341,7 +341,7 @@ impl IVpnChannel2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestCustomPromptAsync<Impl: IVpnChannel2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, custompromptelement: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestCustomPromptAsync<Impl: IVpnChannel2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, custompromptelement: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestCustomPromptAsync(&*(&custompromptelement as *const <super::super::Foundation::Collections::IVectorView<IVpnCustomPromptElement> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IVectorView<IVpnCustomPromptElement> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -352,7 +352,7 @@ impl IVpnChannel2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestCredentialsWithCertificateAsync<Impl: IVpnChannel2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, credtype: VpnCredentialType, credoptions: u32, certificate: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestCredentialsWithCertificateAsync<Impl: IVpnChannel2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, credtype: VpnCredentialType, credoptions: u32, certificate: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestCredentialsWithCertificateAsync(credtype, credoptions, &*(&certificate as *const <super::super::Security::Cryptography::Certificates::Certificate as ::windows::core::Abi>::Abi as *const <super::super::Security::Cryptography::Certificates::Certificate as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -363,7 +363,7 @@ impl IVpnChannel2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestCredentialsWithOptionsAsync<Impl: IVpnChannel2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, credtype: VpnCredentialType, credoptions: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestCredentialsWithOptionsAsync<Impl: IVpnChannel2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, credtype: VpnCredentialType, credoptions: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestCredentialsWithOptionsAsync(credtype, credoptions) {
                 ::core::result::Result::Ok(ok__) => {
@@ -374,7 +374,7 @@ impl IVpnChannel2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestCredentialsSimpleAsync<Impl: IVpnChannel2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, credtype: VpnCredentialType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestCredentialsSimpleAsync<Impl: IVpnChannel2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, credtype: VpnCredentialType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestCredentialsSimpleAsync(credtype) {
                 ::core::result::Result::Ok(ok__) => {
@@ -385,11 +385,11 @@ impl IVpnChannel2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TerminateConnection<Impl: IVpnChannel2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TerminateConnection<Impl: IVpnChannel2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TerminateConnection(&*(&message as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StartWithTrafficFilter<Impl: IVpnChannel2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, assignedclientipv4list: ::windows::core::RawPtr, assignedclientipv6list: ::windows::core::RawPtr, vpninterfaceid: ::windows::core::RawPtr, assignedroutes: ::windows::core::RawPtr, assignednamespace: ::windows::core::RawPtr, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: *mut ::core::ffi::c_void, optionaloutertunneltransport: *mut ::core::ffi::c_void, assignedtrafficfilters: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartWithTrafficFilter<Impl: IVpnChannel2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, assignedclientipv4list: ::windows::core::RawPtr, assignedclientipv6list: ::windows::core::RawPtr, vpninterfaceid: ::windows::core::RawPtr, assignedroutes: ::windows::core::RawPtr, assignednamespace: ::windows::core::RawPtr, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: *mut ::core::ffi::c_void, optionaloutertunneltransport: *mut ::core::ffi::c_void, assignedtrafficfilters: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .StartWithTrafficFilter(
@@ -428,7 +428,7 @@ impl IVpnChannel2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Networking_Sockets", feature = "implement_exclusive"))]
-pub trait IVpnChannel4Impl: Sized {
+pub trait IVpnChannel4_Impl: Sized {
     fn AddAndAssociateTransport(&mut self, transport: &::core::option::Option<::windows::core::IInspectable>, context: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
     fn StartWithMultipleTransports(&mut self, assignedclientipv4addresses: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::HostName>>, assignedclientipv6addresses: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::HostName>>, vpninterfaceid: &::core::option::Option<VpnInterfaceId>, assignedroutes: &::core::option::Option<VpnRouteAssignment>, assignednamespace: &::core::option::Option<VpnDomainNameAssignment>, mtusize: u32, maxframesize: u32, reserved: bool, transports: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>, assignedtrafficfilters: &::core::option::Option<VpnTrafficFilterAssignment>) -> ::windows::core::Result<()>;
     fn ReplaceAndAssociateTransport(&mut self, transport: &::core::option::Option<::windows::core::IInspectable>, context: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
@@ -441,13 +441,13 @@ impl ::windows::core::RuntimeName for IVpnChannel4 {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnChannel4";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Networking_Sockets", feature = "implement_exclusive"))]
-impl IVpnChannel4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannel4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannel4Vtbl {
-        unsafe extern "system" fn AddAndAssociateTransport<Impl: IVpnChannel4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transport: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IVpnChannel4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannel4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannel4_Vtbl {
+        unsafe extern "system" fn AddAndAssociateTransport<Impl: IVpnChannel4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transport: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddAndAssociateTransport(&*(&transport as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&context as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StartWithMultipleTransports<Impl: IVpnChannel4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, assignedclientipv4addresses: ::windows::core::RawPtr, assignedclientipv6addresses: ::windows::core::RawPtr, vpninterfaceid: ::windows::core::RawPtr, assignedroutes: ::windows::core::RawPtr, assignednamespace: ::windows::core::RawPtr, mtusize: u32, maxframesize: u32, reserved: bool, transports: ::windows::core::RawPtr, assignedtrafficfilters: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartWithMultipleTransports<Impl: IVpnChannel4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, assignedclientipv4addresses: ::windows::core::RawPtr, assignedclientipv6addresses: ::windows::core::RawPtr, vpninterfaceid: ::windows::core::RawPtr, assignedroutes: ::windows::core::RawPtr, assignednamespace: ::windows::core::RawPtr, mtusize: u32, maxframesize: u32, reserved: bool, transports: ::windows::core::RawPtr, assignedtrafficfilters: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .StartWithMultipleTransports(
@@ -464,15 +464,15 @@ impl IVpnChannel4Vtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn ReplaceAndAssociateTransport<Impl: IVpnChannel4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transport: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReplaceAndAssociateTransport<Impl: IVpnChannel4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transport: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReplaceAndAssociateTransport(&*(&transport as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&context as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StartReconnectingTransport<Impl: IVpnChannel4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transport: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartReconnectingTransport<Impl: IVpnChannel4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transport: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartReconnectingTransport(&*(&transport as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&context as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetSlotTypeForTransportContext<Impl: IVpnChannel4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, result__: *mut super::Sockets::ControlChannelTriggerStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSlotTypeForTransportContext<Impl: IVpnChannel4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, result__: *mut super::Sockets::ControlChannelTriggerStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSlotTypeForTransportContext(&*(&context as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -483,7 +483,7 @@ impl IVpnChannel4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentRequestTransportContext<Impl: IVpnChannel4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentRequestTransportContext<Impl: IVpnChannel4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentRequestTransportContext() {
                 ::core::result::Result::Ok(ok__) => {
@@ -509,7 +509,7 @@ impl IVpnChannel4Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVpnChannel5Impl: Sized {
+pub trait IVpnChannel5_Impl: Sized {
     fn AppendVpnReceivePacketBuffer(&mut self, decapsulatedpacketbuffer: &::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
     fn AppendVpnSendPacketBuffer(&mut self, encapsulatedpacketbuffer: &::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
     fn FlushVpnReceivePacketBuffers(&mut self) -> ::windows::core::Result<()>;
@@ -520,21 +520,21 @@ impl ::windows::core::RuntimeName for IVpnChannel5 {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnChannel5";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVpnChannel5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannel5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannel5Vtbl {
-        unsafe extern "system" fn AppendVpnReceivePacketBuffer<Impl: IVpnChannel5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, decapsulatedpacketbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnChannel5_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannel5_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannel5_Vtbl {
+        unsafe extern "system" fn AppendVpnReceivePacketBuffer<Impl: IVpnChannel5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, decapsulatedpacketbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AppendVpnReceivePacketBuffer(&*(&decapsulatedpacketbuffer as *const <VpnPacketBuffer as ::windows::core::Abi>::Abi as *const <VpnPacketBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AppendVpnSendPacketBuffer<Impl: IVpnChannel5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encapsulatedpacketbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppendVpnSendPacketBuffer<Impl: IVpnChannel5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encapsulatedpacketbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AppendVpnSendPacketBuffer(&*(&encapsulatedpacketbuffer as *const <VpnPacketBuffer as ::windows::core::Abi>::Abi as *const <VpnPacketBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FlushVpnReceivePacketBuffers<Impl: IVpnChannel5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FlushVpnReceivePacketBuffers<Impl: IVpnChannel5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).FlushVpnReceivePacketBuffers().into()
         }
-        unsafe extern "system" fn FlushVpnSendPacketBuffers<Impl: IVpnChannel5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FlushVpnSendPacketBuffers<Impl: IVpnChannel5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).FlushVpnSendPacketBuffers().into()
         }
@@ -551,7 +551,7 @@ impl IVpnChannel5Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVpnChannel6Impl: Sized {
+pub trait IVpnChannel6_Impl: Sized {
     fn ActivateForeground(&mut self, packagerelativeappid: &::windows::core::HSTRING, sharedcontext: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -559,9 +559,9 @@ impl ::windows::core::RuntimeName for IVpnChannel6 {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnChannel6";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVpnChannel6Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannel6Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannel6Vtbl {
-        unsafe extern "system" fn ActivateForeground<Impl: IVpnChannel6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagerelativeappid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sharedcontext: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnChannel6_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannel6_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannel6_Vtbl {
+        unsafe extern "system" fn ActivateForeground<Impl: IVpnChannel6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagerelativeappid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sharedcontext: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivateForeground(&*(&packagerelativeappid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&sharedcontext as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -582,7 +582,7 @@ impl IVpnChannel6Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVpnChannelActivityEventArgsImpl: Sized {
+pub trait IVpnChannelActivityEventArgs_Impl: Sized {
     fn Type(&mut self) -> ::windows::core::Result<VpnChannelActivityEventType>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -590,9 +590,9 @@ impl ::windows::core::RuntimeName for IVpnChannelActivityEventArgs {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnChannelActivityEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVpnChannelActivityEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelActivityEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannelActivityEventArgsVtbl {
-        unsafe extern "system" fn Type<Impl: IVpnChannelActivityEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnChannelActivityEventType) -> ::windows::core::HRESULT {
+impl IVpnChannelActivityEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelActivityEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannelActivityEventArgs_Vtbl {
+        unsafe extern "system" fn Type<Impl: IVpnChannelActivityEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnChannelActivityEventType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
                 ::core::result::Result::Ok(ok__) => {
@@ -610,7 +610,7 @@ impl IVpnChannelActivityEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVpnChannelActivityStateChangedArgsImpl: Sized {
+pub trait IVpnChannelActivityStateChangedArgs_Impl: Sized {
     fn ActivityState(&mut self) -> ::windows::core::Result<VpnChannelActivityEventType>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -618,9 +618,9 @@ impl ::windows::core::RuntimeName for IVpnChannelActivityStateChangedArgs {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnChannelActivityStateChangedArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVpnChannelActivityStateChangedArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelActivityStateChangedArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannelActivityStateChangedArgsVtbl {
-        unsafe extern "system" fn ActivityState<Impl: IVpnChannelActivityStateChangedArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnChannelActivityEventType) -> ::windows::core::HRESULT {
+impl IVpnChannelActivityStateChangedArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelActivityStateChangedArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannelActivityStateChangedArgs_Vtbl {
+        unsafe extern "system" fn ActivityState<Impl: IVpnChannelActivityStateChangedArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnChannelActivityEventType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivityState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -641,7 +641,7 @@ impl IVpnChannelActivityStateChangedArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVpnChannelConfigurationImpl: Sized {
+pub trait IVpnChannelConfiguration_Impl: Sized {
     fn ServerServiceName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ServerHostNameList(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::HostName>>;
     fn CustomField(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -651,9 +651,9 @@ impl ::windows::core::RuntimeName for IVpnChannelConfiguration {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnChannelConfiguration";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVpnChannelConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannelConfigurationVtbl {
-        unsafe extern "system" fn ServerServiceName<Impl: IVpnChannelConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IVpnChannelConfiguration_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelConfiguration_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannelConfiguration_Vtbl {
+        unsafe extern "system" fn ServerServiceName<Impl: IVpnChannelConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerServiceName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -664,7 +664,7 @@ impl IVpnChannelConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServerHostNameList<Impl: IVpnChannelConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServerHostNameList<Impl: IVpnChannelConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerHostNameList() {
                 ::core::result::Result::Ok(ok__) => {
@@ -675,7 +675,7 @@ impl IVpnChannelConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CustomField<Impl: IVpnChannelConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CustomField<Impl: IVpnChannelConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CustomField() {
                 ::core::result::Result::Ok(ok__) => {
@@ -698,7 +698,7 @@ impl IVpnChannelConfigurationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVpnChannelConfiguration2Impl: Sized {
+pub trait IVpnChannelConfiguration2_Impl: Sized {
     fn ServerUris(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -706,9 +706,9 @@ impl ::windows::core::RuntimeName for IVpnChannelConfiguration2 {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnChannelConfiguration2";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVpnChannelConfiguration2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelConfiguration2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannelConfiguration2Vtbl {
-        unsafe extern "system" fn ServerUris<Impl: IVpnChannelConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnChannelConfiguration2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelConfiguration2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannelConfiguration2_Vtbl {
+        unsafe extern "system" fn ServerUris<Impl: IVpnChannelConfiguration2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerUris() {
                 ::core::result::Result::Ok(ok__) => {
@@ -725,15 +725,15 @@ impl IVpnChannelConfiguration2Vtbl {
         iid == &<IVpnChannelConfiguration2 as ::windows::core::Interface>::IID
     }
 }
-pub trait IVpnChannelStaticsImpl: Sized {
+pub trait IVpnChannelStatics_Impl: Sized {
     fn ProcessEventAsync(&mut self, thirdpartyplugin: &::core::option::Option<::windows::core::IInspectable>, event: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IVpnChannelStatics {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnChannelStatics";
 }
-impl IVpnChannelStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannelStaticsVtbl {
-        unsafe extern "system" fn ProcessEventAsync<Impl: IVpnChannelStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, thirdpartyplugin: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IVpnChannelStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnChannelStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnChannelStatics_Vtbl {
+        unsafe extern "system" fn ProcessEventAsync<Impl: IVpnChannelStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, thirdpartyplugin: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ProcessEventAsync(&*(&thirdpartyplugin as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&event as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -747,7 +747,7 @@ impl IVpnChannelStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
-pub trait IVpnCredentialImpl: Sized {
+pub trait IVpnCredential_Impl: Sized {
     fn PasskeyCredential(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
     fn CertificateCredential(&mut self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
     fn AdditionalPin(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -758,9 +758,9 @@ impl ::windows::core::RuntimeName for IVpnCredential {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnCredential";
 }
 #[cfg(all(feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
-impl IVpnCredentialVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCredentialImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCredentialVtbl {
-        unsafe extern "system" fn PasskeyCredential<Impl: IVpnCredentialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnCredential_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCredential_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCredential_Vtbl {
+        unsafe extern "system" fn PasskeyCredential<Impl: IVpnCredential_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PasskeyCredential() {
                 ::core::result::Result::Ok(ok__) => {
@@ -771,7 +771,7 @@ impl IVpnCredentialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CertificateCredential<Impl: IVpnCredentialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CertificateCredential<Impl: IVpnCredential_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CertificateCredential() {
                 ::core::result::Result::Ok(ok__) => {
@@ -782,7 +782,7 @@ impl IVpnCredentialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AdditionalPin<Impl: IVpnCredentialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AdditionalPin<Impl: IVpnCredential_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AdditionalPin() {
                 ::core::result::Result::Ok(ok__) => {
@@ -793,7 +793,7 @@ impl IVpnCredentialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OldPasswordCredential<Impl: IVpnCredentialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OldPasswordCredential<Impl: IVpnCredential_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OldPasswordCredential() {
                 ::core::result::Result::Ok(ok__) => {
@@ -817,7 +817,7 @@ impl IVpnCredentialVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVpnCustomCheckBoxImpl: Sized + IVpnCustomPromptImpl {
+pub trait IVpnCustomCheckBox_Impl: Sized + IVpnCustomPrompt_Impl {
     fn SetInitialCheckState(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn InitialCheckState(&mut self) -> ::windows::core::Result<bool>;
     fn Checked(&mut self) -> ::windows::core::Result<bool>;
@@ -827,13 +827,13 @@ impl ::windows::core::RuntimeName for IVpnCustomCheckBox {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnCustomCheckBox";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVpnCustomCheckBoxVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomCheckBoxImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomCheckBoxVtbl {
-        unsafe extern "system" fn SetInitialCheckState<Impl: IVpnCustomCheckBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+impl IVpnCustomCheckBox_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomCheckBox_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomCheckBox_Vtbl {
+        unsafe extern "system" fn SetInitialCheckState<Impl: IVpnCustomCheckBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInitialCheckState(value).into()
         }
-        unsafe extern "system" fn InitialCheckState<Impl: IVpnCustomCheckBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitialCheckState<Impl: IVpnCustomCheckBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InitialCheckState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -844,7 +844,7 @@ impl IVpnCustomCheckBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Checked<Impl: IVpnCustomCheckBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Checked<Impl: IVpnCustomCheckBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Checked() {
                 ::core::result::Result::Ok(ok__) => {
@@ -867,7 +867,7 @@ impl IVpnCustomCheckBoxVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVpnCustomComboBoxImpl: Sized + IVpnCustomPromptImpl {
+pub trait IVpnCustomComboBox_Impl: Sized + IVpnCustomPrompt_Impl {
     fn SetOptionsText(&mut self, value: &::core::option::Option<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
     fn OptionsText(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn Selected(&mut self) -> ::windows::core::Result<u32>;
@@ -877,13 +877,13 @@ impl ::windows::core::RuntimeName for IVpnCustomComboBox {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnCustomComboBox";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVpnCustomComboBoxVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomComboBoxImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomComboBoxVtbl {
-        unsafe extern "system" fn SetOptionsText<Impl: IVpnCustomComboBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnCustomComboBox_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomComboBox_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomComboBox_Vtbl {
+        unsafe extern "system" fn SetOptionsText<Impl: IVpnCustomComboBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOptionsText(&*(&value as *const <super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn OptionsText<Impl: IVpnCustomComboBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OptionsText<Impl: IVpnCustomComboBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OptionsText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -894,7 +894,7 @@ impl IVpnCustomComboBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Selected<Impl: IVpnCustomComboBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Selected<Impl: IVpnCustomComboBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Selected() {
                 ::core::result::Result::Ok(ok__) => {
@@ -917,7 +917,7 @@ impl IVpnCustomComboBoxVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVpnCustomEditBoxImpl: Sized + IVpnCustomPromptImpl {
+pub trait IVpnCustomEditBox_Impl: Sized + IVpnCustomPrompt_Impl {
     fn SetDefaultText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn DefaultText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetNoEcho(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -929,13 +929,13 @@ impl ::windows::core::RuntimeName for IVpnCustomEditBox {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnCustomEditBox";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVpnCustomEditBoxVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomEditBoxImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomEditBoxVtbl {
-        unsafe extern "system" fn SetDefaultText<Impl: IVpnCustomEditBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IVpnCustomEditBox_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomEditBox_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomEditBox_Vtbl {
+        unsafe extern "system" fn SetDefaultText<Impl: IVpnCustomEditBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDefaultText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DefaultText<Impl: IVpnCustomEditBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultText<Impl: IVpnCustomEditBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -946,11 +946,11 @@ impl IVpnCustomEditBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNoEcho<Impl: IVpnCustomEditBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNoEcho<Impl: IVpnCustomEditBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNoEcho(value).into()
         }
-        unsafe extern "system" fn NoEcho<Impl: IVpnCustomEditBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NoEcho<Impl: IVpnCustomEditBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NoEcho() {
                 ::core::result::Result::Ok(ok__) => {
@@ -961,7 +961,7 @@ impl IVpnCustomEditBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Text<Impl: IVpnCustomEditBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Text<Impl: IVpnCustomEditBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text() {
                 ::core::result::Result::Ok(ok__) => {
@@ -986,21 +986,21 @@ impl IVpnCustomEditBoxVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVpnCustomErrorBoxImpl: Sized + IVpnCustomPromptImpl {}
+pub trait IVpnCustomErrorBox_Impl: Sized + IVpnCustomPrompt_Impl {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVpnCustomErrorBox {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnCustomErrorBox";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVpnCustomErrorBoxVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomErrorBoxImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomErrorBoxVtbl {
+impl IVpnCustomErrorBox_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomErrorBox_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomErrorBox_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVpnCustomErrorBox, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVpnCustomErrorBox as ::windows::core::Interface>::IID
     }
 }
-pub trait IVpnCustomPromptImpl: Sized {
+pub trait IVpnCustomPrompt_Impl: Sized {
     fn SetLabel(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Label(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetCompulsory(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -1011,13 +1011,13 @@ pub trait IVpnCustomPromptImpl: Sized {
 impl ::windows::core::RuntimeName for IVpnCustomPrompt {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnCustomPrompt";
 }
-impl IVpnCustomPromptVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomPromptVtbl {
-        unsafe extern "system" fn SetLabel<Impl: IVpnCustomPromptImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IVpnCustomPrompt_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPrompt_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomPrompt_Vtbl {
+        unsafe extern "system" fn SetLabel<Impl: IVpnCustomPrompt_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLabel(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Label<Impl: IVpnCustomPromptImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Label<Impl: IVpnCustomPrompt_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Label() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1028,11 +1028,11 @@ impl IVpnCustomPromptVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCompulsory<Impl: IVpnCustomPromptImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCompulsory<Impl: IVpnCustomPrompt_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCompulsory(value).into()
         }
-        unsafe extern "system" fn Compulsory<Impl: IVpnCustomPromptImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Compulsory<Impl: IVpnCustomPrompt_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Compulsory() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1043,11 +1043,11 @@ impl IVpnCustomPromptVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBordered<Impl: IVpnCustomPromptImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBordered<Impl: IVpnCustomPrompt_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBordered(value).into()
         }
-        unsafe extern "system" fn Bordered<Impl: IVpnCustomPromptImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Bordered<Impl: IVpnCustomPrompt_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bordered() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1073,7 +1073,7 @@ impl IVpnCustomPromptVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVpnCustomPromptBooleanInputImpl: Sized + IVpnCustomPromptElementImpl {
+pub trait IVpnCustomPromptBooleanInput_Impl: Sized + IVpnCustomPromptElement_Impl {
     fn SetInitialValue(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn InitialValue(&mut self) -> ::windows::core::Result<bool>;
     fn Value(&mut self) -> ::windows::core::Result<bool>;
@@ -1083,13 +1083,13 @@ impl ::windows::core::RuntimeName for IVpnCustomPromptBooleanInput {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnCustomPromptBooleanInput";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVpnCustomPromptBooleanInputVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptBooleanInputImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomPromptBooleanInputVtbl {
-        unsafe extern "system" fn SetInitialValue<Impl: IVpnCustomPromptBooleanInputImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+impl IVpnCustomPromptBooleanInput_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptBooleanInput_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomPromptBooleanInput_Vtbl {
+        unsafe extern "system" fn SetInitialValue<Impl: IVpnCustomPromptBooleanInput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInitialValue(value).into()
         }
-        unsafe extern "system" fn InitialValue<Impl: IVpnCustomPromptBooleanInputImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitialValue<Impl: IVpnCustomPromptBooleanInput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InitialValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1100,7 +1100,7 @@ impl IVpnCustomPromptBooleanInputVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Impl: IVpnCustomPromptBooleanInputImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: IVpnCustomPromptBooleanInput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1122,7 +1122,7 @@ impl IVpnCustomPromptBooleanInputVtbl {
         iid == &<IVpnCustomPromptBooleanInput as ::windows::core::Interface>::IID
     }
 }
-pub trait IVpnCustomPromptElementImpl: Sized {
+pub trait IVpnCustomPromptElement_Impl: Sized {
     fn SetDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetCompulsory(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -1133,13 +1133,13 @@ pub trait IVpnCustomPromptElementImpl: Sized {
 impl ::windows::core::RuntimeName for IVpnCustomPromptElement {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnCustomPromptElement";
 }
-impl IVpnCustomPromptElementVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptElementImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomPromptElementVtbl {
-        unsafe extern "system" fn SetDisplayName<Impl: IVpnCustomPromptElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IVpnCustomPromptElement_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptElement_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomPromptElement_Vtbl {
+        unsafe extern "system" fn SetDisplayName<Impl: IVpnCustomPromptElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DisplayName<Impl: IVpnCustomPromptElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayName<Impl: IVpnCustomPromptElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1150,11 +1150,11 @@ impl IVpnCustomPromptElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCompulsory<Impl: IVpnCustomPromptElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCompulsory<Impl: IVpnCustomPromptElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCompulsory(value).into()
         }
-        unsafe extern "system" fn Compulsory<Impl: IVpnCustomPromptElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Compulsory<Impl: IVpnCustomPromptElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Compulsory() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1165,11 +1165,11 @@ impl IVpnCustomPromptElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEmphasized<Impl: IVpnCustomPromptElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEmphasized<Impl: IVpnCustomPromptElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEmphasized(value).into()
         }
-        unsafe extern "system" fn Emphasized<Impl: IVpnCustomPromptElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Emphasized<Impl: IVpnCustomPromptElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Emphasized() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1195,7 +1195,7 @@ impl IVpnCustomPromptElementVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVpnCustomPromptOptionSelectorImpl: Sized + IVpnCustomPromptElementImpl {
+pub trait IVpnCustomPromptOptionSelector_Impl: Sized + IVpnCustomPromptElement_Impl {
     fn Options(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
     fn SelectedIndex(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -1204,9 +1204,9 @@ impl ::windows::core::RuntimeName for IVpnCustomPromptOptionSelector {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnCustomPromptOptionSelector";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVpnCustomPromptOptionSelectorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptOptionSelectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomPromptOptionSelectorVtbl {
-        unsafe extern "system" fn Options<Impl: IVpnCustomPromptOptionSelectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnCustomPromptOptionSelector_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptOptionSelector_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomPromptOptionSelector_Vtbl {
+        unsafe extern "system" fn Options<Impl: IVpnCustomPromptOptionSelector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Options() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1217,7 +1217,7 @@ impl IVpnCustomPromptOptionSelectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectedIndex<Impl: IVpnCustomPromptOptionSelectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectedIndex<Impl: IVpnCustomPromptOptionSelector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedIndex() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1239,7 +1239,7 @@ impl IVpnCustomPromptOptionSelectorVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVpnCustomPromptTextImpl: Sized + IVpnCustomPromptElementImpl {
+pub trait IVpnCustomPromptText_Impl: Sized + IVpnCustomPromptElement_Impl {
     fn SetText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -1248,13 +1248,13 @@ impl ::windows::core::RuntimeName for IVpnCustomPromptText {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnCustomPromptText";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVpnCustomPromptTextVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptTextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomPromptTextVtbl {
-        unsafe extern "system" fn SetText<Impl: IVpnCustomPromptTextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IVpnCustomPromptText_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptText_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomPromptText_Vtbl {
+        unsafe extern "system" fn SetText<Impl: IVpnCustomPromptText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Text<Impl: IVpnCustomPromptTextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Text<Impl: IVpnCustomPromptText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1276,7 +1276,7 @@ impl IVpnCustomPromptTextVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVpnCustomPromptTextInputImpl: Sized + IVpnCustomPromptElementImpl {
+pub trait IVpnCustomPromptTextInput_Impl: Sized + IVpnCustomPromptElement_Impl {
     fn SetPlaceholderText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn PlaceholderText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetIsTextHidden(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -1288,13 +1288,13 @@ impl ::windows::core::RuntimeName for IVpnCustomPromptTextInput {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnCustomPromptTextInput";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVpnCustomPromptTextInputVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptTextInputImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomPromptTextInputVtbl {
-        unsafe extern "system" fn SetPlaceholderText<Impl: IVpnCustomPromptTextInputImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IVpnCustomPromptTextInput_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomPromptTextInput_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomPromptTextInput_Vtbl {
+        unsafe extern "system" fn SetPlaceholderText<Impl: IVpnCustomPromptTextInput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlaceholderText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PlaceholderText<Impl: IVpnCustomPromptTextInputImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlaceholderText<Impl: IVpnCustomPromptTextInput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaceholderText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1305,11 +1305,11 @@ impl IVpnCustomPromptTextInputVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsTextHidden<Impl: IVpnCustomPromptTextInputImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsTextHidden<Impl: IVpnCustomPromptTextInput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsTextHidden(value).into()
         }
-        unsafe extern "system" fn IsTextHidden<Impl: IVpnCustomPromptTextInputImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsTextHidden<Impl: IVpnCustomPromptTextInput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTextHidden() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1320,7 +1320,7 @@ impl IVpnCustomPromptTextInputVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Text<Impl: IVpnCustomPromptTextInputImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Text<Impl: IVpnCustomPromptTextInput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1345,7 +1345,7 @@ impl IVpnCustomPromptTextInputVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVpnCustomTextBoxImpl: Sized + IVpnCustomPromptImpl {
+pub trait IVpnCustomTextBox_Impl: Sized + IVpnCustomPrompt_Impl {
     fn SetDisplayText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn DisplayText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -1354,13 +1354,13 @@ impl ::windows::core::RuntimeName for IVpnCustomTextBox {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnCustomTextBox";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVpnCustomTextBoxVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomTextBoxImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomTextBoxVtbl {
-        unsafe extern "system" fn SetDisplayText<Impl: IVpnCustomTextBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IVpnCustomTextBox_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnCustomTextBox_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnCustomTextBox_Vtbl {
+        unsafe extern "system" fn SetDisplayText<Impl: IVpnCustomTextBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DisplayText<Impl: IVpnCustomTextBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayText<Impl: IVpnCustomTextBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1382,7 +1382,7 @@ impl IVpnCustomTextBoxVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVpnDomainNameAssignmentImpl: Sized {
+pub trait IVpnDomainNameAssignment_Impl: Sized {
     fn DomainNameList(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnDomainNameInfo>>;
     fn SetProxyAutoConfigurationUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn ProxyAutoConfigurationUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
@@ -1392,9 +1392,9 @@ impl ::windows::core::RuntimeName for IVpnDomainNameAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnDomainNameAssignment";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVpnDomainNameAssignmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnDomainNameAssignmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnDomainNameAssignmentVtbl {
-        unsafe extern "system" fn DomainNameList<Impl: IVpnDomainNameAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnDomainNameAssignment_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnDomainNameAssignment_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnDomainNameAssignment_Vtbl {
+        unsafe extern "system" fn DomainNameList<Impl: IVpnDomainNameAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DomainNameList() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1405,11 +1405,11 @@ impl IVpnDomainNameAssignmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProxyAutoConfigurationUri<Impl: IVpnDomainNameAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProxyAutoConfigurationUri<Impl: IVpnDomainNameAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProxyAutoConfigurationUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ProxyAutoConfigurationUri<Impl: IVpnDomainNameAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProxyAutoConfigurationUri<Impl: IVpnDomainNameAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProxyAutoConfigurationUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1432,7 +1432,7 @@ impl IVpnDomainNameAssignmentVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVpnDomainNameInfoImpl: Sized {
+pub trait IVpnDomainNameInfo_Impl: Sized {
     fn SetDomainName(&mut self, value: &::core::option::Option<super::HostName>) -> ::windows::core::Result<()>;
     fn DomainName(&mut self) -> ::windows::core::Result<super::HostName>;
     fn SetDomainNameType(&mut self, value: VpnDomainNameType) -> ::windows::core::Result<()>;
@@ -1445,13 +1445,13 @@ impl ::windows::core::RuntimeName for IVpnDomainNameInfo {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnDomainNameInfo";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVpnDomainNameInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnDomainNameInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnDomainNameInfoVtbl {
-        unsafe extern "system" fn SetDomainName<Impl: IVpnDomainNameInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnDomainNameInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnDomainNameInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnDomainNameInfo_Vtbl {
+        unsafe extern "system" fn SetDomainName<Impl: IVpnDomainNameInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDomainName(&*(&value as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DomainName<Impl: IVpnDomainNameInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DomainName<Impl: IVpnDomainNameInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DomainName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1462,11 +1462,11 @@ impl IVpnDomainNameInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDomainNameType<Impl: IVpnDomainNameInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VpnDomainNameType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDomainNameType<Impl: IVpnDomainNameInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VpnDomainNameType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDomainNameType(value).into()
         }
-        unsafe extern "system" fn DomainNameType<Impl: IVpnDomainNameInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnDomainNameType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DomainNameType<Impl: IVpnDomainNameInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnDomainNameType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DomainNameType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1477,7 +1477,7 @@ impl IVpnDomainNameInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DnsServers<Impl: IVpnDomainNameInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DnsServers<Impl: IVpnDomainNameInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DnsServers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1488,7 +1488,7 @@ impl IVpnDomainNameInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WebProxyServers<Impl: IVpnDomainNameInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WebProxyServers<Impl: IVpnDomainNameInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WebProxyServers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1514,7 +1514,7 @@ impl IVpnDomainNameInfoVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVpnDomainNameInfo2Impl: Sized {
+pub trait IVpnDomainNameInfo2_Impl: Sized {
     fn WebProxyUris(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -1522,9 +1522,9 @@ impl ::windows::core::RuntimeName for IVpnDomainNameInfo2 {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnDomainNameInfo2";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVpnDomainNameInfo2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnDomainNameInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnDomainNameInfo2Vtbl {
-        unsafe extern "system" fn WebProxyUris<Impl: IVpnDomainNameInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnDomainNameInfo2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnDomainNameInfo2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnDomainNameInfo2_Vtbl {
+        unsafe extern "system" fn WebProxyUris<Impl: IVpnDomainNameInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WebProxyUris() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1542,7 +1542,7 @@ impl IVpnDomainNameInfo2Vtbl {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IVpnDomainNameInfoFactoryImpl: Sized {
+pub trait IVpnDomainNameInfoFactory_Impl: Sized {
     fn CreateVpnDomainNameInfo(&mut self, name: &::windows::core::HSTRING, nametype: VpnDomainNameType, dnsserverlist: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::HostName>>, proxyserverlist: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::HostName>>) -> ::windows::core::Result<VpnDomainNameInfo>;
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1550,9 +1550,9 @@ impl ::windows::core::RuntimeName for IVpnDomainNameInfoFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnDomainNameInfoFactory";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl IVpnDomainNameInfoFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnDomainNameInfoFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnDomainNameInfoFactoryVtbl {
-        unsafe extern "system" fn CreateVpnDomainNameInfo<Impl: IVpnDomainNameInfoFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, nametype: VpnDomainNameType, dnsserverlist: ::windows::core::RawPtr, proxyserverlist: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnDomainNameInfoFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnDomainNameInfoFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnDomainNameInfoFactory_Vtbl {
+        unsafe extern "system" fn CreateVpnDomainNameInfo<Impl: IVpnDomainNameInfoFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, nametype: VpnDomainNameType, dnsserverlist: ::windows::core::RawPtr, proxyserverlist: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateVpnDomainNameInfo(
                 &*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -1578,7 +1578,7 @@ impl IVpnDomainNameInfoFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVpnForegroundActivatedEventArgsImpl: Sized {
+pub trait IVpnForegroundActivatedEventArgs_Impl: Sized {
     fn ProfileName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SharedContext(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
     fn ActivationOperation(&mut self) -> ::windows::core::Result<VpnForegroundActivationOperation>;
@@ -1588,9 +1588,9 @@ impl ::windows::core::RuntimeName for IVpnForegroundActivatedEventArgs {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnForegroundActivatedEventArgs";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVpnForegroundActivatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnForegroundActivatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnForegroundActivatedEventArgsVtbl {
-        unsafe extern "system" fn ProfileName<Impl: IVpnForegroundActivatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IVpnForegroundActivatedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnForegroundActivatedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnForegroundActivatedEventArgs_Vtbl {
+        unsafe extern "system" fn ProfileName<Impl: IVpnForegroundActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProfileName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1601,7 +1601,7 @@ impl IVpnForegroundActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SharedContext<Impl: IVpnForegroundActivatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SharedContext<Impl: IVpnForegroundActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SharedContext() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1612,7 +1612,7 @@ impl IVpnForegroundActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ActivationOperation<Impl: IVpnForegroundActivatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ActivationOperation<Impl: IVpnForegroundActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivationOperation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1635,7 +1635,7 @@ impl IVpnForegroundActivatedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVpnForegroundActivationOperationImpl: Sized {
+pub trait IVpnForegroundActivationOperation_Impl: Sized {
     fn Complete(&mut self, result: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -1643,9 +1643,9 @@ impl ::windows::core::RuntimeName for IVpnForegroundActivationOperation {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnForegroundActivationOperation";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVpnForegroundActivationOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnForegroundActivationOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnForegroundActivationOperationVtbl {
-        unsafe extern "system" fn Complete<Impl: IVpnForegroundActivationOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnForegroundActivationOperation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnForegroundActivationOperation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnForegroundActivationOperation_Vtbl {
+        unsafe extern "system" fn Complete<Impl: IVpnForegroundActivationOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete(&*(&result as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1659,7 +1659,7 @@ impl IVpnForegroundActivationOperationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVpnInterfaceIdImpl: Sized {
+pub trait IVpnInterfaceId_Impl: Sized {
     fn GetAddressInfo(&mut self, id: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1667,9 +1667,9 @@ impl ::windows::core::RuntimeName for IVpnInterfaceId {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnInterfaceId";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVpnInterfaceIdVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnInterfaceIdImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnInterfaceIdVtbl {
-        unsafe extern "system" fn GetAddressInfo<Impl: IVpnInterfaceIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id_array_size: *mut u32, id: *mut *mut u8) -> ::windows::core::HRESULT {
+impl IVpnInterfaceId_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnInterfaceId_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnInterfaceId_Vtbl {
+        unsafe extern "system" fn GetAddressInfo<Impl: IVpnInterfaceId_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id_array_size: *mut u32, id: *mut *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetAddressInfo(::windows::core::ArrayProxy::from_raw_parts(::core::mem::transmute_copy(&id), id_array_size).as_array()).into()
         }
@@ -1679,15 +1679,15 @@ impl IVpnInterfaceIdVtbl {
         iid == &<IVpnInterfaceId as ::windows::core::Interface>::IID
     }
 }
-pub trait IVpnInterfaceIdFactoryImpl: Sized {
+pub trait IVpnInterfaceIdFactory_Impl: Sized {
     fn CreateVpnInterfaceId(&mut self, address: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<VpnInterfaceId>;
 }
 impl ::windows::core::RuntimeName for IVpnInterfaceIdFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnInterfaceIdFactory";
 }
-impl IVpnInterfaceIdFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnInterfaceIdFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnInterfaceIdFactoryVtbl {
-        unsafe extern "system" fn CreateVpnInterfaceId<Impl: IVpnInterfaceIdFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, address_array_size: u32, address: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnInterfaceIdFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnInterfaceIdFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnInterfaceIdFactory_Vtbl {
+        unsafe extern "system" fn CreateVpnInterfaceId<Impl: IVpnInterfaceIdFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, address_array_size: u32, address: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateVpnInterfaceId(::core::slice::from_raw_parts(::core::mem::transmute_copy(&address), address_array_size as _)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1708,7 +1708,7 @@ impl IVpnInterfaceIdFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
-pub trait IVpnManagementAgentImpl: Sized {
+pub trait IVpnManagementAgent_Impl: Sized {
     fn AddProfileFromXmlAsync(&mut self, xml: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
     fn AddProfileFromObjectAsync(&mut self, profile: &::core::option::Option<IVpnProfile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
     fn UpdateProfileFromXmlAsync(&mut self, xml: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>;
@@ -1724,9 +1724,9 @@ impl ::windows::core::RuntimeName for IVpnManagementAgent {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnManagementAgent";
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
-impl IVpnManagementAgentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnManagementAgentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnManagementAgentVtbl {
-        unsafe extern "system" fn AddProfileFromXmlAsync<Impl: IVpnManagementAgentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xml: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnManagementAgent_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnManagementAgent_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnManagementAgent_Vtbl {
+        unsafe extern "system" fn AddProfileFromXmlAsync<Impl: IVpnManagementAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xml: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddProfileFromXmlAsync(&*(&xml as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1737,7 +1737,7 @@ impl IVpnManagementAgentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddProfileFromObjectAsync<Impl: IVpnManagementAgentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddProfileFromObjectAsync<Impl: IVpnManagementAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddProfileFromObjectAsync(&*(&profile as *const <IVpnProfile as ::windows::core::Abi>::Abi as *const <IVpnProfile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1748,7 +1748,7 @@ impl IVpnManagementAgentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpdateProfileFromXmlAsync<Impl: IVpnManagementAgentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xml: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateProfileFromXmlAsync<Impl: IVpnManagementAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xml: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateProfileFromXmlAsync(&*(&xml as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1759,7 +1759,7 @@ impl IVpnManagementAgentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpdateProfileFromObjectAsync<Impl: IVpnManagementAgentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateProfileFromObjectAsync<Impl: IVpnManagementAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateProfileFromObjectAsync(&*(&profile as *const <IVpnProfile as ::windows::core::Abi>::Abi as *const <IVpnProfile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1770,7 +1770,7 @@ impl IVpnManagementAgentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProfilesAsync<Impl: IVpnManagementAgentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProfilesAsync<Impl: IVpnManagementAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetProfilesAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1781,7 +1781,7 @@ impl IVpnManagementAgentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteProfileAsync<Impl: IVpnManagementAgentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteProfileAsync<Impl: IVpnManagementAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeleteProfileAsync(&*(&profile as *const <IVpnProfile as ::windows::core::Abi>::Abi as *const <IVpnProfile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1792,7 +1792,7 @@ impl IVpnManagementAgentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectProfileAsync<Impl: IVpnManagementAgentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectProfileAsync<Impl: IVpnManagementAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectProfileAsync(&*(&profile as *const <IVpnProfile as ::windows::core::Abi>::Abi as *const <IVpnProfile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1803,7 +1803,7 @@ impl IVpnManagementAgentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectProfileWithPasswordCredentialAsync<Impl: IVpnManagementAgentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profile: ::windows::core::RawPtr, passwordcredential: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectProfileWithPasswordCredentialAsync<Impl: IVpnManagementAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profile: ::windows::core::RawPtr, passwordcredential: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectProfileWithPasswordCredentialAsync(&*(&profile as *const <IVpnProfile as ::windows::core::Abi>::Abi as *const <IVpnProfile as ::windows::core::DefaultType>::DefaultType), &*(&passwordcredential as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::Abi>::Abi as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1814,7 +1814,7 @@ impl IVpnManagementAgentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisconnectProfileAsync<Impl: IVpnManagementAgentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisconnectProfileAsync<Impl: IVpnManagementAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisconnectProfileAsync(&*(&profile as *const <IVpnProfile as ::windows::core::Abi>::Abi as *const <IVpnProfile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1843,7 +1843,7 @@ impl IVpnManagementAgentVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVpnNamespaceAssignmentImpl: Sized {
+pub trait IVpnNamespaceAssignment_Impl: Sized {
     fn SetNamespaceList(&mut self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<VpnNamespaceInfo>>) -> ::windows::core::Result<()>;
     fn NamespaceList(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnNamespaceInfo>>;
     fn SetProxyAutoConfigUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
@@ -1854,13 +1854,13 @@ impl ::windows::core::RuntimeName for IVpnNamespaceAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnNamespaceAssignment";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVpnNamespaceAssignmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnNamespaceAssignmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnNamespaceAssignmentVtbl {
-        unsafe extern "system" fn SetNamespaceList<Impl: IVpnNamespaceAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnNamespaceAssignment_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnNamespaceAssignment_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnNamespaceAssignment_Vtbl {
+        unsafe extern "system" fn SetNamespaceList<Impl: IVpnNamespaceAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNamespaceList(&*(&value as *const <super::super::Foundation::Collections::IVector<VpnNamespaceInfo> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IVector<VpnNamespaceInfo> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn NamespaceList<Impl: IVpnNamespaceAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NamespaceList<Impl: IVpnNamespaceAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NamespaceList() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1871,11 +1871,11 @@ impl IVpnNamespaceAssignmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProxyAutoConfigUri<Impl: IVpnNamespaceAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProxyAutoConfigUri<Impl: IVpnNamespaceAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProxyAutoConfigUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ProxyAutoConfigUri<Impl: IVpnNamespaceAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProxyAutoConfigUri<Impl: IVpnNamespaceAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProxyAutoConfigUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1899,7 +1899,7 @@ impl IVpnNamespaceAssignmentVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVpnNamespaceInfoImpl: Sized {
+pub trait IVpnNamespaceInfo_Impl: Sized {
     fn SetNamespace(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Namespace(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetDnsServers(&mut self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<super::HostName>>) -> ::windows::core::Result<()>;
@@ -1912,13 +1912,13 @@ impl ::windows::core::RuntimeName for IVpnNamespaceInfo {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnNamespaceInfo";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVpnNamespaceInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnNamespaceInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnNamespaceInfoVtbl {
-        unsafe extern "system" fn SetNamespace<Impl: IVpnNamespaceInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IVpnNamespaceInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnNamespaceInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnNamespaceInfo_Vtbl {
+        unsafe extern "system" fn SetNamespace<Impl: IVpnNamespaceInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNamespace(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Namespace<Impl: IVpnNamespaceInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Namespace<Impl: IVpnNamespaceInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Namespace() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1929,11 +1929,11 @@ impl IVpnNamespaceInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDnsServers<Impl: IVpnNamespaceInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDnsServers<Impl: IVpnNamespaceInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDnsServers(&*(&value as *const <super::super::Foundation::Collections::IVector<super::HostName> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IVector<super::HostName> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DnsServers<Impl: IVpnNamespaceInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DnsServers<Impl: IVpnNamespaceInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DnsServers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1944,11 +1944,11 @@ impl IVpnNamespaceInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetWebProxyServers<Impl: IVpnNamespaceInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetWebProxyServers<Impl: IVpnNamespaceInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWebProxyServers(&*(&value as *const <super::super::Foundation::Collections::IVector<super::HostName> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IVector<super::HostName> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn WebProxyServers<Impl: IVpnNamespaceInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WebProxyServers<Impl: IVpnNamespaceInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WebProxyServers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1974,7 +1974,7 @@ impl IVpnNamespaceInfoVtbl {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IVpnNamespaceInfoFactoryImpl: Sized {
+pub trait IVpnNamespaceInfoFactory_Impl: Sized {
     fn CreateVpnNamespaceInfo(&mut self, name: &::windows::core::HSTRING, dnsserverlist: &::core::option::Option<super::super::Foundation::Collections::IVector<super::HostName>>, proxyserverlist: &::core::option::Option<super::super::Foundation::Collections::IVector<super::HostName>>) -> ::windows::core::Result<VpnNamespaceInfo>;
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1982,9 +1982,9 @@ impl ::windows::core::RuntimeName for IVpnNamespaceInfoFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnNamespaceInfoFactory";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl IVpnNamespaceInfoFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnNamespaceInfoFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnNamespaceInfoFactoryVtbl {
-        unsafe extern "system" fn CreateVpnNamespaceInfo<Impl: IVpnNamespaceInfoFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, dnsserverlist: ::windows::core::RawPtr, proxyserverlist: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnNamespaceInfoFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnNamespaceInfoFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnNamespaceInfoFactory_Vtbl {
+        unsafe extern "system" fn CreateVpnNamespaceInfo<Impl: IVpnNamespaceInfoFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, dnsserverlist: ::windows::core::RawPtr, proxyserverlist: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateVpnNamespaceInfo(
                 &*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -2009,7 +2009,7 @@ impl IVpnNamespaceInfoFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVpnNativeProfileImpl: Sized + IVpnProfileImpl {
+pub trait IVpnNativeProfile_Impl: Sized + IVpnProfile_Impl {
     fn Servers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
     fn RoutingPolicyType(&mut self) -> ::windows::core::Result<VpnRoutingPolicyType>;
     fn SetRoutingPolicyType(&mut self, value: VpnRoutingPolicyType) -> ::windows::core::Result<()>;
@@ -2027,9 +2027,9 @@ impl ::windows::core::RuntimeName for IVpnNativeProfile {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnNativeProfile";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVpnNativeProfileVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnNativeProfileImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnNativeProfileVtbl {
-        unsafe extern "system" fn Servers<Impl: IVpnNativeProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnNativeProfile_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnNativeProfile_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnNativeProfile_Vtbl {
+        unsafe extern "system" fn Servers<Impl: IVpnNativeProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Servers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2040,7 +2040,7 @@ impl IVpnNativeProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RoutingPolicyType<Impl: IVpnNativeProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnRoutingPolicyType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RoutingPolicyType<Impl: IVpnNativeProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnRoutingPolicyType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RoutingPolicyType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2051,11 +2051,11 @@ impl IVpnNativeProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRoutingPolicyType<Impl: IVpnNativeProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VpnRoutingPolicyType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRoutingPolicyType<Impl: IVpnNativeProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VpnRoutingPolicyType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRoutingPolicyType(value).into()
         }
-        unsafe extern "system" fn NativeProtocolType<Impl: IVpnNativeProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnNativeProtocolType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NativeProtocolType<Impl: IVpnNativeProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnNativeProtocolType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NativeProtocolType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2066,11 +2066,11 @@ impl IVpnNativeProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNativeProtocolType<Impl: IVpnNativeProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VpnNativeProtocolType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNativeProtocolType<Impl: IVpnNativeProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VpnNativeProtocolType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNativeProtocolType(value).into()
         }
-        unsafe extern "system" fn UserAuthenticationMethod<Impl: IVpnNativeProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnAuthenticationMethod) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UserAuthenticationMethod<Impl: IVpnNativeProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnAuthenticationMethod) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserAuthenticationMethod() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2081,11 +2081,11 @@ impl IVpnNativeProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetUserAuthenticationMethod<Impl: IVpnNativeProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VpnAuthenticationMethod) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUserAuthenticationMethod<Impl: IVpnNativeProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VpnAuthenticationMethod) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUserAuthenticationMethod(value).into()
         }
-        unsafe extern "system" fn TunnelAuthenticationMethod<Impl: IVpnNativeProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnAuthenticationMethod) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TunnelAuthenticationMethod<Impl: IVpnNativeProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnAuthenticationMethod) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TunnelAuthenticationMethod() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2096,11 +2096,11 @@ impl IVpnNativeProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTunnelAuthenticationMethod<Impl: IVpnNativeProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VpnAuthenticationMethod) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTunnelAuthenticationMethod<Impl: IVpnNativeProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VpnAuthenticationMethod) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTunnelAuthenticationMethod(value).into()
         }
-        unsafe extern "system" fn EapConfiguration<Impl: IVpnNativeProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EapConfiguration<Impl: IVpnNativeProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EapConfiguration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2111,7 +2111,7 @@ impl IVpnNativeProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEapConfiguration<Impl: IVpnNativeProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEapConfiguration<Impl: IVpnNativeProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEapConfiguration(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2135,7 +2135,7 @@ impl IVpnNativeProfileVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVpnNativeProfile2Impl: Sized {
+pub trait IVpnNativeProfile2_Impl: Sized {
     fn RequireVpnClientAppUI(&mut self) -> ::windows::core::Result<bool>;
     fn SetRequireVpnClientAppUI(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn ConnectionStatus(&mut self) -> ::windows::core::Result<VpnManagementConnectionStatus>;
@@ -2145,9 +2145,9 @@ impl ::windows::core::RuntimeName for IVpnNativeProfile2 {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnNativeProfile2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVpnNativeProfile2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnNativeProfile2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnNativeProfile2Vtbl {
-        unsafe extern "system" fn RequireVpnClientAppUI<Impl: IVpnNativeProfile2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IVpnNativeProfile2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnNativeProfile2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnNativeProfile2_Vtbl {
+        unsafe extern "system" fn RequireVpnClientAppUI<Impl: IVpnNativeProfile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequireVpnClientAppUI() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2158,11 +2158,11 @@ impl IVpnNativeProfile2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRequireVpnClientAppUI<Impl: IVpnNativeProfile2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRequireVpnClientAppUI<Impl: IVpnNativeProfile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRequireVpnClientAppUI(value).into()
         }
-        unsafe extern "system" fn ConnectionStatus<Impl: IVpnNativeProfile2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnManagementConnectionStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectionStatus<Impl: IVpnNativeProfile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnManagementConnectionStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2185,7 +2185,7 @@ impl IVpnNativeProfile2Vtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IVpnPacketBufferImpl: Sized {
+pub trait IVpnPacketBuffer_Impl: Sized {
     fn Buffer(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::Buffer>;
     fn SetStatus(&mut self, value: VpnPacketBufferStatus) -> ::windows::core::Result<()>;
     fn Status(&mut self) -> ::windows::core::Result<VpnPacketBufferStatus>;
@@ -2197,9 +2197,9 @@ impl ::windows::core::RuntimeName for IVpnPacketBuffer {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPacketBuffer";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IVpnPacketBufferVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBufferImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPacketBufferVtbl {
-        unsafe extern "system" fn Buffer<Impl: IVpnPacketBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnPacketBuffer_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBuffer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPacketBuffer_Vtbl {
+        unsafe extern "system" fn Buffer<Impl: IVpnPacketBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Buffer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2210,11 +2210,11 @@ impl IVpnPacketBufferVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStatus<Impl: IVpnPacketBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VpnPacketBufferStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStatus<Impl: IVpnPacketBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VpnPacketBufferStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStatus(value).into()
         }
-        unsafe extern "system" fn Status<Impl: IVpnPacketBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnPacketBufferStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Status<Impl: IVpnPacketBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnPacketBufferStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2225,11 +2225,11 @@ impl IVpnPacketBufferVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTransportAffinity<Impl: IVpnPacketBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTransportAffinity<Impl: IVpnPacketBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTransportAffinity(value).into()
         }
-        unsafe extern "system" fn TransportAffinity<Impl: IVpnPacketBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransportAffinity<Impl: IVpnPacketBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransportAffinity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2254,7 +2254,7 @@ impl IVpnPacketBufferVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVpnPacketBuffer2Impl: Sized {
+pub trait IVpnPacketBuffer2_Impl: Sized {
     fn AppId(&mut self) -> ::windows::core::Result<VpnAppId>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2262,9 +2262,9 @@ impl ::windows::core::RuntimeName for IVpnPacketBuffer2 {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPacketBuffer2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVpnPacketBuffer2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBuffer2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPacketBuffer2Vtbl {
-        unsafe extern "system" fn AppId<Impl: IVpnPacketBuffer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnPacketBuffer2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBuffer2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPacketBuffer2_Vtbl {
+        unsafe extern "system" fn AppId<Impl: IVpnPacketBuffer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2282,7 +2282,7 @@ impl IVpnPacketBuffer2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVpnPacketBuffer3Impl: Sized {
+pub trait IVpnPacketBuffer3_Impl: Sized {
     fn SetTransportContext(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
     fn TransportContext(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
@@ -2291,13 +2291,13 @@ impl ::windows::core::RuntimeName for IVpnPacketBuffer3 {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPacketBuffer3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVpnPacketBuffer3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBuffer3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPacketBuffer3Vtbl {
-        unsafe extern "system" fn SetTransportContext<Impl: IVpnPacketBuffer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IVpnPacketBuffer3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBuffer3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPacketBuffer3_Vtbl {
+        unsafe extern "system" fn SetTransportContext<Impl: IVpnPacketBuffer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTransportContext(&*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TransportContext<Impl: IVpnPacketBuffer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransportContext<Impl: IVpnPacketBuffer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransportContext() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2318,15 +2318,15 @@ impl IVpnPacketBuffer3Vtbl {
         iid == &<IVpnPacketBuffer3 as ::windows::core::Interface>::IID
     }
 }
-pub trait IVpnPacketBufferFactoryImpl: Sized {
+pub trait IVpnPacketBufferFactory_Impl: Sized {
     fn CreateVpnPacketBuffer(&mut self, parentbuffer: &::core::option::Option<VpnPacketBuffer>, offset: u32, length: u32) -> ::windows::core::Result<VpnPacketBuffer>;
 }
 impl ::windows::core::RuntimeName for IVpnPacketBufferFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPacketBufferFactory";
 }
-impl IVpnPacketBufferFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBufferFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPacketBufferFactoryVtbl {
-        unsafe extern "system" fn CreateVpnPacketBuffer<Impl: IVpnPacketBufferFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parentbuffer: ::windows::core::RawPtr, offset: u32, length: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnPacketBufferFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBufferFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPacketBufferFactory_Vtbl {
+        unsafe extern "system" fn CreateVpnPacketBuffer<Impl: IVpnPacketBufferFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parentbuffer: ::windows::core::RawPtr, offset: u32, length: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateVpnPacketBuffer(&*(&parentbuffer as *const <VpnPacketBuffer as ::windows::core::Abi>::Abi as *const <VpnPacketBuffer as ::windows::core::DefaultType>::DefaultType), offset, length) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2347,7 +2347,7 @@ impl IVpnPacketBufferFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVpnPacketBufferListImpl: Sized + IIterableImpl<VpnPacketBuffer> {
+pub trait IVpnPacketBufferList_Impl: Sized + super::super::Foundation::Collections::IIterable_Impl<VpnPacketBuffer> {
     fn Append(&mut self, nextvpnpacketbuffer: &::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
     fn AddAtBegin(&mut self, nextvpnpacketbuffer: &::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
     fn RemoveAtEnd(&mut self) -> ::windows::core::Result<VpnPacketBuffer>;
@@ -2362,17 +2362,17 @@ impl ::windows::core::RuntimeName for IVpnPacketBufferList {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPacketBufferList";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVpnPacketBufferListVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBufferListImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPacketBufferListVtbl {
-        unsafe extern "system" fn Append<Impl: IVpnPacketBufferListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nextvpnpacketbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnPacketBufferList_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBufferList_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPacketBufferList_Vtbl {
+        unsafe extern "system" fn Append<Impl: IVpnPacketBufferList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nextvpnpacketbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Append(&*(&nextvpnpacketbuffer as *const <VpnPacketBuffer as ::windows::core::Abi>::Abi as *const <VpnPacketBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AddAtBegin<Impl: IVpnPacketBufferListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nextvpnpacketbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddAtBegin<Impl: IVpnPacketBufferList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nextvpnpacketbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddAtBegin(&*(&nextvpnpacketbuffer as *const <VpnPacketBuffer as ::windows::core::Abi>::Abi as *const <VpnPacketBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RemoveAtEnd<Impl: IVpnPacketBufferListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAtEnd<Impl: IVpnPacketBufferList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoveAtEnd() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2383,7 +2383,7 @@ impl IVpnPacketBufferListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAtBegin<Impl: IVpnPacketBufferListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAtBegin<Impl: IVpnPacketBufferList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoveAtBegin() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2394,15 +2394,15 @@ impl IVpnPacketBufferListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Clear<Impl: IVpnPacketBufferListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clear<Impl: IVpnPacketBufferList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Clear().into()
         }
-        unsafe extern "system" fn SetStatus<Impl: IVpnPacketBufferListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VpnPacketBufferStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStatus<Impl: IVpnPacketBufferList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VpnPacketBufferStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStatus(value).into()
         }
-        unsafe extern "system" fn Status<Impl: IVpnPacketBufferListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnPacketBufferStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Status<Impl: IVpnPacketBufferList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnPacketBufferStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2413,7 +2413,7 @@ impl IVpnPacketBufferListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Size<Impl: IVpnPacketBufferListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Size<Impl: IVpnPacketBufferList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Size() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2441,7 +2441,7 @@ impl IVpnPacketBufferListVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVpnPacketBufferList2Impl: Sized + IIterableImpl<VpnPacketBuffer> {
+pub trait IVpnPacketBufferList2_Impl: Sized + super::super::Foundation::Collections::IIterable_Impl<VpnPacketBuffer> {
     fn AddLeadingPacket(&mut self, nextvpnpacketbuffer: &::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
     fn RemoveLeadingPacket(&mut self) -> ::windows::core::Result<VpnPacketBuffer>;
     fn AddTrailingPacket(&mut self, nextvpnpacketbuffer: &::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
@@ -2452,13 +2452,13 @@ impl ::windows::core::RuntimeName for IVpnPacketBufferList2 {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPacketBufferList2";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVpnPacketBufferList2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBufferList2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPacketBufferList2Vtbl {
-        unsafe extern "system" fn AddLeadingPacket<Impl: IVpnPacketBufferList2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nextvpnpacketbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnPacketBufferList2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPacketBufferList2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPacketBufferList2_Vtbl {
+        unsafe extern "system" fn AddLeadingPacket<Impl: IVpnPacketBufferList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nextvpnpacketbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddLeadingPacket(&*(&nextvpnpacketbuffer as *const <VpnPacketBuffer as ::windows::core::Abi>::Abi as *const <VpnPacketBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RemoveLeadingPacket<Impl: IVpnPacketBufferList2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveLeadingPacket<Impl: IVpnPacketBufferList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoveLeadingPacket() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2469,11 +2469,11 @@ impl IVpnPacketBufferList2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddTrailingPacket<Impl: IVpnPacketBufferList2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nextvpnpacketbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddTrailingPacket<Impl: IVpnPacketBufferList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nextvpnpacketbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddTrailingPacket(&*(&nextvpnpacketbuffer as *const <VpnPacketBuffer as ::windows::core::Abi>::Abi as *const <VpnPacketBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RemoveTrailingPacket<Impl: IVpnPacketBufferList2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveTrailingPacket<Impl: IVpnPacketBufferList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoveTrailingPacket() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2497,7 +2497,7 @@ impl IVpnPacketBufferList2Vtbl {
     }
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
-pub trait IVpnPickedCredentialImpl: Sized {
+pub trait IVpnPickedCredential_Impl: Sized {
     fn PasskeyCredential(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
     fn AdditionalPin(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn OldPasswordCredential(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
@@ -2507,9 +2507,9 @@ impl ::windows::core::RuntimeName for IVpnPickedCredential {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPickedCredential";
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
-impl IVpnPickedCredentialVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPickedCredentialImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPickedCredentialVtbl {
-        unsafe extern "system" fn PasskeyCredential<Impl: IVpnPickedCredentialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnPickedCredential_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPickedCredential_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPickedCredential_Vtbl {
+        unsafe extern "system" fn PasskeyCredential<Impl: IVpnPickedCredential_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PasskeyCredential() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2520,7 +2520,7 @@ impl IVpnPickedCredentialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AdditionalPin<Impl: IVpnPickedCredentialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AdditionalPin<Impl: IVpnPickedCredential_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AdditionalPin() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2531,7 +2531,7 @@ impl IVpnPickedCredentialVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OldPasswordCredential<Impl: IVpnPickedCredentialImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OldPasswordCredential<Impl: IVpnPickedCredential_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OldPasswordCredential() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2553,7 +2553,7 @@ impl IVpnPickedCredentialVtbl {
         iid == &<IVpnPickedCredential as ::windows::core::Interface>::IID
     }
 }
-pub trait IVpnPlugInImpl: Sized {
+pub trait IVpnPlugIn_Impl: Sized {
     fn Connect(&mut self, channel: &::core::option::Option<VpnChannel>) -> ::windows::core::Result<()>;
     fn Disconnect(&mut self, channel: &::core::option::Option<VpnChannel>) -> ::windows::core::Result<()>;
     fn GetKeepAlivePayload(&mut self, channel: &::core::option::Option<VpnChannel>, keepalivepacket: &mut ::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
@@ -2563,25 +2563,25 @@ pub trait IVpnPlugInImpl: Sized {
 impl ::windows::core::RuntimeName for IVpnPlugIn {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPlugIn";
 }
-impl IVpnPlugInVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPlugInImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPlugInVtbl {
-        unsafe extern "system" fn Connect<Impl: IVpnPlugInImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnPlugIn_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPlugIn_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPlugIn_Vtbl {
+        unsafe extern "system" fn Connect<Impl: IVpnPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Connect(&*(&channel as *const <VpnChannel as ::windows::core::Abi>::Abi as *const <VpnChannel as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Disconnect<Impl: IVpnPlugInImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Disconnect<Impl: IVpnPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Disconnect(&*(&channel as *const <VpnChannel as ::windows::core::Abi>::Abi as *const <VpnChannel as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetKeepAlivePayload<Impl: IVpnPlugInImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: ::windows::core::RawPtr, keepalivepacket: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetKeepAlivePayload<Impl: IVpnPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: ::windows::core::RawPtr, keepalivepacket: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetKeepAlivePayload(&*(&channel as *const <VpnChannel as ::windows::core::Abi>::Abi as *const <VpnChannel as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&keepalivepacket)).into()
         }
-        unsafe extern "system" fn Encapsulate<Impl: IVpnPlugInImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: ::windows::core::RawPtr, packets: ::windows::core::RawPtr, encapulatedpackets: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Encapsulate<Impl: IVpnPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: ::windows::core::RawPtr, packets: ::windows::core::RawPtr, encapulatedpackets: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Encapsulate(&*(&channel as *const <VpnChannel as ::windows::core::Abi>::Abi as *const <VpnChannel as ::windows::core::DefaultType>::DefaultType), &*(&packets as *const <VpnPacketBufferList as ::windows::core::Abi>::Abi as *const <VpnPacketBufferList as ::windows::core::DefaultType>::DefaultType), &*(&encapulatedpackets as *const <VpnPacketBufferList as ::windows::core::Abi>::Abi as *const <VpnPacketBufferList as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Decapsulate<Impl: IVpnPlugInImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: ::windows::core::RawPtr, encapbuffer: ::windows::core::RawPtr, decapsulatedpackets: ::windows::core::RawPtr, controlpacketstosend: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Decapsulate<Impl: IVpnPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: ::windows::core::RawPtr, encapbuffer: ::windows::core::RawPtr, decapsulatedpackets: ::windows::core::RawPtr, controlpacketstosend: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .Decapsulate(
@@ -2606,7 +2606,7 @@ impl IVpnPlugInVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVpnPlugInProfileImpl: Sized + IVpnProfileImpl {
+pub trait IVpnPlugInProfile_Impl: Sized + IVpnProfile_Impl {
     fn ServerUris(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>;
     fn CustomConfiguration(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetCustomConfiguration(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -2618,9 +2618,9 @@ impl ::windows::core::RuntimeName for IVpnPlugInProfile {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPlugInProfile";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVpnPlugInProfileVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPlugInProfileImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPlugInProfileVtbl {
-        unsafe extern "system" fn ServerUris<Impl: IVpnPlugInProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnPlugInProfile_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPlugInProfile_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPlugInProfile_Vtbl {
+        unsafe extern "system" fn ServerUris<Impl: IVpnPlugInProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerUris() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2631,7 +2631,7 @@ impl IVpnPlugInProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CustomConfiguration<Impl: IVpnPlugInProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CustomConfiguration<Impl: IVpnPlugInProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CustomConfiguration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2642,11 +2642,11 @@ impl IVpnPlugInProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCustomConfiguration<Impl: IVpnPlugInProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCustomConfiguration<Impl: IVpnPlugInProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCustomConfiguration(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn VpnPluginPackageFamilyName<Impl: IVpnPlugInProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VpnPluginPackageFamilyName<Impl: IVpnPlugInProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VpnPluginPackageFamilyName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2657,7 +2657,7 @@ impl IVpnPlugInProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVpnPluginPackageFamilyName<Impl: IVpnPlugInProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVpnPluginPackageFamilyName<Impl: IVpnPlugInProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVpnPluginPackageFamilyName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2675,7 +2675,7 @@ impl IVpnPlugInProfileVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVpnPlugInProfile2Impl: Sized + IVpnProfileImpl {
+pub trait IVpnPlugInProfile2_Impl: Sized + IVpnProfile_Impl {
     fn RequireVpnClientAppUI(&mut self) -> ::windows::core::Result<bool>;
     fn SetRequireVpnClientAppUI(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn ConnectionStatus(&mut self) -> ::windows::core::Result<VpnManagementConnectionStatus>;
@@ -2685,9 +2685,9 @@ impl ::windows::core::RuntimeName for IVpnPlugInProfile2 {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPlugInProfile2";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVpnPlugInProfile2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPlugInProfile2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPlugInProfile2Vtbl {
-        unsafe extern "system" fn RequireVpnClientAppUI<Impl: IVpnPlugInProfile2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IVpnPlugInProfile2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnPlugInProfile2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnPlugInProfile2_Vtbl {
+        unsafe extern "system" fn RequireVpnClientAppUI<Impl: IVpnPlugInProfile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequireVpnClientAppUI() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2698,11 +2698,11 @@ impl IVpnPlugInProfile2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRequireVpnClientAppUI<Impl: IVpnPlugInProfile2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRequireVpnClientAppUI<Impl: IVpnPlugInProfile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRequireVpnClientAppUI(value).into()
         }
-        unsafe extern "system" fn ConnectionStatus<Impl: IVpnPlugInProfile2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnManagementConnectionStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectionStatus<Impl: IVpnPlugInProfile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnManagementConnectionStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2725,7 +2725,7 @@ impl IVpnPlugInProfile2Vtbl {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IVpnProfileImpl: Sized {
+pub trait IVpnProfile_Impl: Sized {
     fn ProfileName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetProfileName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn AppTriggers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnAppId>>;
@@ -2742,9 +2742,9 @@ impl ::windows::core::RuntimeName for IVpnProfile {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnProfile";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl IVpnProfileVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnProfileImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnProfileVtbl {
-        unsafe extern "system" fn ProfileName<Impl: IVpnProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IVpnProfile_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnProfile_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnProfile_Vtbl {
+        unsafe extern "system" fn ProfileName<Impl: IVpnProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProfileName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2755,11 +2755,11 @@ impl IVpnProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProfileName<Impl: IVpnProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProfileName<Impl: IVpnProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProfileName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AppTriggers<Impl: IVpnProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppTriggers<Impl: IVpnProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppTriggers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2770,7 +2770,7 @@ impl IVpnProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Routes<Impl: IVpnProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Routes<Impl: IVpnProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Routes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2781,7 +2781,7 @@ impl IVpnProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DomainNameInfoList<Impl: IVpnProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DomainNameInfoList<Impl: IVpnProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DomainNameInfoList() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2792,7 +2792,7 @@ impl IVpnProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrafficFilters<Impl: IVpnProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrafficFilters<Impl: IVpnProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrafficFilters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2803,7 +2803,7 @@ impl IVpnProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RememberCredentials<Impl: IVpnProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RememberCredentials<Impl: IVpnProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RememberCredentials() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2814,11 +2814,11 @@ impl IVpnProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRememberCredentials<Impl: IVpnProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRememberCredentials<Impl: IVpnProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRememberCredentials(value).into()
         }
-        unsafe extern "system" fn AlwaysOn<Impl: IVpnProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AlwaysOn<Impl: IVpnProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlwaysOn() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2829,7 +2829,7 @@ impl IVpnProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAlwaysOn<Impl: IVpnProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAlwaysOn<Impl: IVpnProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAlwaysOn(value).into()
         }
@@ -2852,7 +2852,7 @@ impl IVpnProfileVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVpnRouteImpl: Sized {
+pub trait IVpnRoute_Impl: Sized {
     fn SetAddress(&mut self, value: &::core::option::Option<super::HostName>) -> ::windows::core::Result<()>;
     fn Address(&mut self) -> ::windows::core::Result<super::HostName>;
     fn SetPrefixSize(&mut self, value: u8) -> ::windows::core::Result<()>;
@@ -2863,13 +2863,13 @@ impl ::windows::core::RuntimeName for IVpnRoute {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnRoute";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVpnRouteVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnRouteImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnRouteVtbl {
-        unsafe extern "system" fn SetAddress<Impl: IVpnRouteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnRoute_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnRoute_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnRoute_Vtbl {
+        unsafe extern "system" fn SetAddress<Impl: IVpnRoute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAddress(&*(&value as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Address<Impl: IVpnRouteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Address<Impl: IVpnRoute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Address() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2880,11 +2880,11 @@ impl IVpnRouteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPrefixSize<Impl: IVpnRouteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPrefixSize<Impl: IVpnRoute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPrefixSize(value).into()
         }
-        unsafe extern "system" fn PrefixSize<Impl: IVpnRouteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrefixSize<Impl: IVpnRoute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrefixSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2908,7 +2908,7 @@ impl IVpnRouteVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVpnRouteAssignmentImpl: Sized {
+pub trait IVpnRouteAssignment_Impl: Sized {
     fn SetIpv4InclusionRoutes(&mut self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<VpnRoute>>) -> ::windows::core::Result<()>;
     fn SetIpv6InclusionRoutes(&mut self, value: &::core::option::Option<super::super::Foundation::Collections::IVector<VpnRoute>>) -> ::windows::core::Result<()>;
     fn Ipv4InclusionRoutes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnRoute>>;
@@ -2925,17 +2925,17 @@ impl ::windows::core::RuntimeName for IVpnRouteAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnRouteAssignment";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVpnRouteAssignmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnRouteAssignmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnRouteAssignmentVtbl {
-        unsafe extern "system" fn SetIpv4InclusionRoutes<Impl: IVpnRouteAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnRouteAssignment_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnRouteAssignment_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnRouteAssignment_Vtbl {
+        unsafe extern "system" fn SetIpv4InclusionRoutes<Impl: IVpnRouteAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIpv4InclusionRoutes(&*(&value as *const <super::super::Foundation::Collections::IVector<VpnRoute> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IVector<VpnRoute> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetIpv6InclusionRoutes<Impl: IVpnRouteAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIpv6InclusionRoutes<Impl: IVpnRouteAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIpv6InclusionRoutes(&*(&value as *const <super::super::Foundation::Collections::IVector<VpnRoute> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IVector<VpnRoute> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Ipv4InclusionRoutes<Impl: IVpnRouteAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ipv4InclusionRoutes<Impl: IVpnRouteAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ipv4InclusionRoutes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2946,7 +2946,7 @@ impl IVpnRouteAssignmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Ipv6InclusionRoutes<Impl: IVpnRouteAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ipv6InclusionRoutes<Impl: IVpnRouteAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ipv6InclusionRoutes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2957,15 +2957,15 @@ impl IVpnRouteAssignmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIpv4ExclusionRoutes<Impl: IVpnRouteAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIpv4ExclusionRoutes<Impl: IVpnRouteAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIpv4ExclusionRoutes(&*(&value as *const <super::super::Foundation::Collections::IVector<VpnRoute> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IVector<VpnRoute> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetIpv6ExclusionRoutes<Impl: IVpnRouteAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIpv6ExclusionRoutes<Impl: IVpnRouteAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIpv6ExclusionRoutes(&*(&value as *const <super::super::Foundation::Collections::IVector<VpnRoute> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IVector<VpnRoute> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Ipv4ExclusionRoutes<Impl: IVpnRouteAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ipv4ExclusionRoutes<Impl: IVpnRouteAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ipv4ExclusionRoutes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2976,7 +2976,7 @@ impl IVpnRouteAssignmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Ipv6ExclusionRoutes<Impl: IVpnRouteAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ipv6ExclusionRoutes<Impl: IVpnRouteAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ipv6ExclusionRoutes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2987,11 +2987,11 @@ impl IVpnRouteAssignmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExcludeLocalSubnets<Impl: IVpnRouteAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetExcludeLocalSubnets<Impl: IVpnRouteAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExcludeLocalSubnets(value).into()
         }
-        unsafe extern "system" fn ExcludeLocalSubnets<Impl: IVpnRouteAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExcludeLocalSubnets<Impl: IVpnRouteAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExcludeLocalSubnets() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3020,15 +3020,15 @@ impl IVpnRouteAssignmentVtbl {
         iid == &<IVpnRouteAssignment as ::windows::core::Interface>::IID
     }
 }
-pub trait IVpnRouteFactoryImpl: Sized {
+pub trait IVpnRouteFactory_Impl: Sized {
     fn CreateVpnRoute(&mut self, address: &::core::option::Option<super::HostName>, prefixsize: u8) -> ::windows::core::Result<VpnRoute>;
 }
 impl ::windows::core::RuntimeName for IVpnRouteFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnRouteFactory";
 }
-impl IVpnRouteFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnRouteFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnRouteFactoryVtbl {
-        unsafe extern "system" fn CreateVpnRoute<Impl: IVpnRouteFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, address: ::windows::core::RawPtr, prefixsize: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnRouteFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnRouteFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnRouteFactory_Vtbl {
+        unsafe extern "system" fn CreateVpnRoute<Impl: IVpnRouteFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, address: ::windows::core::RawPtr, prefixsize: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateVpnRoute(&*(&address as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType), prefixsize) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3046,7 +3046,7 @@ impl IVpnRouteFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IVpnSystemHealthImpl: Sized {
+pub trait IVpnSystemHealth_Impl: Sized {
     fn StatementOfHealth(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::Buffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -3054,9 +3054,9 @@ impl ::windows::core::RuntimeName for IVpnSystemHealth {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnSystemHealth";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IVpnSystemHealthVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnSystemHealthImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnSystemHealthVtbl {
-        unsafe extern "system" fn StatementOfHealth<Impl: IVpnSystemHealthImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnSystemHealth_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnSystemHealth_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnSystemHealth_Vtbl {
+        unsafe extern "system" fn StatementOfHealth<Impl: IVpnSystemHealth_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StatementOfHealth() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3077,7 +3077,7 @@ impl IVpnSystemHealthVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVpnTrafficFilterImpl: Sized {
+pub trait IVpnTrafficFilter_Impl: Sized {
     fn AppId(&mut self) -> ::windows::core::Result<VpnAppId>;
     fn SetAppId(&mut self, value: &::core::option::Option<VpnAppId>) -> ::windows::core::Result<()>;
     fn AppClaims(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
@@ -3095,9 +3095,9 @@ impl ::windows::core::RuntimeName for IVpnTrafficFilter {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnTrafficFilter";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVpnTrafficFilterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnTrafficFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnTrafficFilterVtbl {
-        unsafe extern "system" fn AppId<Impl: IVpnTrafficFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnTrafficFilter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnTrafficFilter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnTrafficFilter_Vtbl {
+        unsafe extern "system" fn AppId<Impl: IVpnTrafficFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3108,11 +3108,11 @@ impl IVpnTrafficFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAppId<Impl: IVpnTrafficFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAppId<Impl: IVpnTrafficFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAppId(&*(&value as *const <VpnAppId as ::windows::core::Abi>::Abi as *const <VpnAppId as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AppClaims<Impl: IVpnTrafficFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppClaims<Impl: IVpnTrafficFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppClaims() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3123,7 +3123,7 @@ impl IVpnTrafficFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Protocol<Impl: IVpnTrafficFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnIPProtocol) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Protocol<Impl: IVpnTrafficFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnIPProtocol) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Protocol() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3134,11 +3134,11 @@ impl IVpnTrafficFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProtocol<Impl: IVpnTrafficFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VpnIPProtocol) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProtocol<Impl: IVpnTrafficFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VpnIPProtocol) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProtocol(value).into()
         }
-        unsafe extern "system" fn LocalPortRanges<Impl: IVpnTrafficFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LocalPortRanges<Impl: IVpnTrafficFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalPortRanges() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3149,7 +3149,7 @@ impl IVpnTrafficFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemotePortRanges<Impl: IVpnTrafficFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemotePortRanges<Impl: IVpnTrafficFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemotePortRanges() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3160,7 +3160,7 @@ impl IVpnTrafficFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocalAddressRanges<Impl: IVpnTrafficFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LocalAddressRanges<Impl: IVpnTrafficFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalAddressRanges() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3171,7 +3171,7 @@ impl IVpnTrafficFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoteAddressRanges<Impl: IVpnTrafficFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoteAddressRanges<Impl: IVpnTrafficFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteAddressRanges() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3182,7 +3182,7 @@ impl IVpnTrafficFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RoutingPolicyType<Impl: IVpnTrafficFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnRoutingPolicyType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RoutingPolicyType<Impl: IVpnTrafficFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VpnRoutingPolicyType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RoutingPolicyType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3193,7 +3193,7 @@ impl IVpnTrafficFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRoutingPolicyType<Impl: IVpnTrafficFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VpnRoutingPolicyType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRoutingPolicyType<Impl: IVpnTrafficFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VpnRoutingPolicyType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRoutingPolicyType(value).into()
         }
@@ -3217,7 +3217,7 @@ impl IVpnTrafficFilterVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVpnTrafficFilterAssignmentImpl: Sized {
+pub trait IVpnTrafficFilterAssignment_Impl: Sized {
     fn TrafficFilterList(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<VpnTrafficFilter>>;
     fn AllowOutbound(&mut self) -> ::windows::core::Result<bool>;
     fn SetAllowOutbound(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -3229,9 +3229,9 @@ impl ::windows::core::RuntimeName for IVpnTrafficFilterAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnTrafficFilterAssignment";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVpnTrafficFilterAssignmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnTrafficFilterAssignmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnTrafficFilterAssignmentVtbl {
-        unsafe extern "system" fn TrafficFilterList<Impl: IVpnTrafficFilterAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnTrafficFilterAssignment_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnTrafficFilterAssignment_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnTrafficFilterAssignment_Vtbl {
+        unsafe extern "system" fn TrafficFilterList<Impl: IVpnTrafficFilterAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrafficFilterList() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3242,7 +3242,7 @@ impl IVpnTrafficFilterAssignmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AllowOutbound<Impl: IVpnTrafficFilterAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllowOutbound<Impl: IVpnTrafficFilterAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowOutbound() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3253,11 +3253,11 @@ impl IVpnTrafficFilterAssignmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAllowOutbound<Impl: IVpnTrafficFilterAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAllowOutbound<Impl: IVpnTrafficFilterAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowOutbound(value).into()
         }
-        unsafe extern "system" fn AllowInbound<Impl: IVpnTrafficFilterAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllowInbound<Impl: IVpnTrafficFilterAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowInbound() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3268,7 +3268,7 @@ impl IVpnTrafficFilterAssignmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAllowInbound<Impl: IVpnTrafficFilterAssignmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAllowInbound<Impl: IVpnTrafficFilterAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowInbound(value).into()
         }
@@ -3286,7 +3286,7 @@ impl IVpnTrafficFilterAssignmentVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVpnTrafficFilterFactoryImpl: Sized {
+pub trait IVpnTrafficFilterFactory_Impl: Sized {
     fn Create(&mut self, appid: &::core::option::Option<VpnAppId>) -> ::windows::core::Result<VpnTrafficFilter>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3294,9 +3294,9 @@ impl ::windows::core::RuntimeName for IVpnTrafficFilterFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnTrafficFilterFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVpnTrafficFilterFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnTrafficFilterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnTrafficFilterFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IVpnTrafficFilterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appid: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVpnTrafficFilterFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVpnTrafficFilterFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVpnTrafficFilterFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IVpnTrafficFilterFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appid: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&appid as *const <VpnAppId as ::windows::core::Abi>::Abi as *const <VpnAppId as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

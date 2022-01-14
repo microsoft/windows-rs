@@ -5,12 +5,12 @@ pub mod System;
 #[repr(transparent)]
 pub struct IWalletBarcode(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWalletBarcode {
-    type Vtable = IWalletBarcodeVtbl;
+    type Vtable = IWalletBarcode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f857b29_de80_4ea4_a1cd_81cd084dac27);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWalletBarcodeVtbl {
+pub struct IWalletBarcode_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Symbology: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WalletBarcodeSymbology) -> ::windows::core::HRESULT,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -23,12 +23,12 @@ pub struct IWalletBarcodeVtbl {
 #[repr(transparent)]
 pub struct IWalletBarcodeFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWalletBarcodeFactory {
-    type Vtable = IWalletBarcodeFactoryVtbl;
+    type Vtable = IWalletBarcodeFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30117161_ed9c_469e_bbfd_306c95ea7108);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWalletBarcodeFactoryVtbl {
+pub struct IWalletBarcodeFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateWalletBarcode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, symbology: WalletBarcodeSymbology, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -40,12 +40,12 @@ pub struct IWalletBarcodeFactoryVtbl {
 #[repr(transparent)]
 pub struct IWalletItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWalletItem {
-    type Vtable = IWalletItemVtbl;
+    type Vtable = IWalletItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20b54be8_118d_4ec4_996c_b963e7bd3e74);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWalletItemVtbl {
+pub struct IWalletItem_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -200,12 +200,12 @@ pub struct IWalletItemVtbl {
 #[repr(transparent)]
 pub struct IWalletItemCustomProperty(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWalletItemCustomProperty {
-    type Vtable = IWalletItemCustomPropertyVtbl;
+    type Vtable = IWalletItemCustomProperty_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb94b40f3_fa00_40fd_98dc_9de46697f1e7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWalletItemCustomPropertyVtbl {
+pub struct IWalletItemCustomProperty_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -222,12 +222,12 @@ pub struct IWalletItemCustomPropertyVtbl {
 #[repr(transparent)]
 pub struct IWalletItemCustomPropertyFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWalletItemCustomPropertyFactory {
-    type Vtable = IWalletItemCustomPropertyFactoryVtbl;
+    type Vtable = IWalletItemCustomPropertyFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0046a44_61a1_41aa_b259_a5610ab5d575);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWalletItemCustomPropertyFactoryVtbl {
+pub struct IWalletItemCustomPropertyFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateWalletItemCustomProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -235,12 +235,12 @@ pub struct IWalletItemCustomPropertyFactoryVtbl {
 #[repr(transparent)]
 pub struct IWalletItemFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWalletItemFactory {
-    type Vtable = IWalletItemFactoryVtbl;
+    type Vtable = IWalletItemFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53e27470_4f0b_4a3e_99e5_0bbb1eab38d4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWalletItemFactoryVtbl {
+pub struct IWalletItemFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateWalletItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: WalletItemKind, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -248,12 +248,12 @@ pub struct IWalletItemFactoryVtbl {
 #[repr(transparent)]
 pub struct IWalletItemStore(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWalletItemStore {
-    type Vtable = IWalletItemStoreVtbl;
+    type Vtable = IWalletItemStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7160484b_6d49_48f8_91a9_40a1d0f13ef4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWalletItemStoreVtbl {
+pub struct IWalletItemStore_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub AddAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, item: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -300,12 +300,12 @@ pub struct IWalletItemStoreVtbl {
 #[repr(transparent)]
 pub struct IWalletItemStore2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWalletItemStore2 {
-    type Vtable = IWalletItemStore2Vtbl;
+    type Vtable = IWalletItemStore2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65e682f0_7009_4a15_bd54_4fff379bffe2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWalletItemStore2Vtbl {
+pub struct IWalletItemStore2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ItemsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -320,12 +320,12 @@ pub struct IWalletItemStore2Vtbl {
 #[repr(transparent)]
 pub struct IWalletManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWalletManagerStatics {
-    type Vtable = IWalletManagerStaticsVtbl;
+    type Vtable = IWalletManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5111d6b8_c9a4_4c64_b4dd_e1e548001c0d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWalletManagerStaticsVtbl {
+pub struct IWalletManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestStoreAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -336,12 +336,12 @@ pub struct IWalletManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IWalletRelevantLocation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWalletRelevantLocation {
-    type Vtable = IWalletRelevantLocationVtbl;
+    type Vtable = IWalletRelevantLocation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fd8782a_e3f9_4de1_bab3_bb192e46b3f3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWalletRelevantLocationVtbl {
+pub struct IWalletRelevantLocation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Geolocation::BasicGeoposition) -> ::windows::core::HRESULT,
@@ -358,12 +358,12 @@ pub struct IWalletRelevantLocationVtbl {
 #[repr(transparent)]
 pub struct IWalletTransaction(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWalletTransaction {
-    type Vtable = IWalletTransactionVtbl;
+    type Vtable = IWalletTransaction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40e1e940_2606_4519_81cb_bff1c60d1f79);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWalletTransactionVtbl {
+pub struct IWalletTransaction_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -388,12 +388,12 @@ pub struct IWalletTransactionVtbl {
 #[repr(transparent)]
 pub struct IWalletVerb(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWalletVerb {
-    type Vtable = IWalletVerbVtbl;
+    type Vtable = IWalletVerb_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17b826d6_e3c1_4c74_8a94_217aadbc4884);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWalletVerbVtbl {
+pub struct IWalletVerb_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -402,12 +402,12 @@ pub struct IWalletVerbVtbl {
 #[repr(transparent)]
 pub struct IWalletVerbFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWalletVerbFactory {
-    type Vtable = IWalletVerbFactoryVtbl;
+    type Vtable = IWalletVerbFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76012771_be58_4d5e_83ed_58b1669c7ad9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWalletVerbFactoryVtbl {
+pub struct IWalletVerbFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateWalletVerb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -517,7 +517,7 @@ unsafe impl ::windows::core::RuntimeType for WalletBarcode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletBarcode;{4f857b29-de80-4ea4-a1cd-81cd084dac27})");
 }
 unsafe impl ::windows::core::Interface for WalletBarcode {
-    type Vtable = IWalletBarcodeVtbl;
+    type Vtable = IWalletBarcode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f857b29_de80_4ea4_a1cd_81cd084dac27);
 }
 impl ::windows::core::RuntimeName for WalletBarcode {
@@ -1070,7 +1070,7 @@ unsafe impl ::windows::core::RuntimeType for WalletItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletItem;{20b54be8-118d-4ec4-996c-b963e7bd3e74})");
 }
 unsafe impl ::windows::core::Interface for WalletItem {
-    type Vtable = IWalletItemVtbl;
+    type Vtable = IWalletItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20b54be8_118d_4ec4_996c_b963e7bd3e74);
 }
 impl ::windows::core::RuntimeName for WalletItem {
@@ -1220,7 +1220,7 @@ unsafe impl ::windows::core::RuntimeType for WalletItemCustomProperty {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletItemCustomProperty;{b94b40f3-fa00-40fd-98dc-9de46697f1e7})");
 }
 unsafe impl ::windows::core::Interface for WalletItemCustomProperty {
-    type Vtable = IWalletItemCustomPropertyVtbl;
+    type Vtable = IWalletItemCustomProperty_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb94b40f3_fa00_40fd_98dc_9de46697f1e7);
 }
 impl ::windows::core::RuntimeName for WalletItemCustomProperty {
@@ -1421,7 +1421,7 @@ unsafe impl ::windows::core::RuntimeType for WalletItemStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletItemStore;{7160484b-6d49-48f8-91a9-40a1d0f13ef4})");
 }
 unsafe impl ::windows::core::Interface for WalletItemStore {
-    type Vtable = IWalletItemStoreVtbl;
+    type Vtable = IWalletItemStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7160484b_6d49_48f8_91a9_40a1d0f13ef4);
 }
 impl ::windows::core::RuntimeName for WalletItemStore {
@@ -1549,7 +1549,7 @@ unsafe impl ::windows::core::RuntimeType for WalletRelevantLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletRelevantLocation;{9fd8782a-e3f9-4de1-bab3-bb192e46b3f3})");
 }
 unsafe impl ::windows::core::Interface for WalletRelevantLocation {
-    type Vtable = IWalletRelevantLocationVtbl;
+    type Vtable = IWalletRelevantLocation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fd8782a_e3f9_4de1_bab3_bb192e46b3f3);
 }
 impl ::windows::core::RuntimeName for WalletRelevantLocation {
@@ -1743,7 +1743,7 @@ unsafe impl ::windows::core::RuntimeType for WalletTransaction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletTransaction;{40e1e940-2606-4519-81cb-bff1c60d1f79})");
 }
 unsafe impl ::windows::core::Interface for WalletTransaction {
-    type Vtable = IWalletTransactionVtbl;
+    type Vtable = IWalletTransaction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40e1e940_2606_4519_81cb_bff1c60d1f79);
 }
 impl ::windows::core::RuntimeName for WalletTransaction {
@@ -1841,7 +1841,7 @@ unsafe impl ::windows::core::RuntimeType for WalletVerb {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletVerb;{17b826d6-e3c1-4c74-8a94-217aadbc4884})");
 }
 unsafe impl ::windows::core::Interface for WalletVerb {
-    type Vtable = IWalletVerbVtbl;
+    type Vtable = IWalletVerb_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17b826d6_e3c1_4c74_8a94_217aadbc4884);
 }
 impl ::windows::core::RuntimeName for WalletVerb {

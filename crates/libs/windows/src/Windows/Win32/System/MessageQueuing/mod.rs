@@ -112,14 +112,14 @@ impl ::core::fmt::Debug for IMSMQApplication {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQApplication {
-    type Vtable = IMSMQApplicationVtbl;
+    type Vtable = IMSMQApplication_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e085_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQApplicationVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQApplication_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub MachineIdOfMachineName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, machinename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrguid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -291,14 +291,14 @@ impl ::core::fmt::Debug for IMSMQApplication2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQApplication2 {
-    type Vtable = IMSMQApplication2Vtbl;
+    type Vtable = IMSMQApplication2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12a30900_7300_11d2_b0e6_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQApplication2Vtbl {
-    pub base: IMSMQApplicationVtbl,
+pub struct IMSMQApplication2_Vtbl {
+    pub base: IMSMQApplication_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub RegisterCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: *const super::Com::VARIANT, externalcertificate: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -558,14 +558,14 @@ impl ::core::fmt::Debug for IMSMQApplication3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQApplication3 {
-    type Vtable = IMSMQApplication3Vtbl;
+    type Vtable = IMSMQApplication3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1f_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQApplication3Vtbl {
-    pub base: IMSMQApplication2Vtbl,
+pub struct IMSMQApplication3_Vtbl {
+    pub base: IMSMQApplication2_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub ActiveQueues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvactivequeues: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -710,14 +710,14 @@ impl ::core::fmt::Debug for IMSMQCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQCollection {
-    type Vtable = IMSMQCollectionVtbl;
+    type Vtable = IMSMQCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0188ac2f_ecb3_4173_9779_635ca2039c72);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQCollectionVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQCollection_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: *const super::Com::VARIANT, pvarret: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -830,14 +830,14 @@ impl ::core::fmt::Debug for IMSMQCoordinatedTransactionDispenser {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQCoordinatedTransactionDispenser {
-    type Vtable = IMSMQCoordinatedTransactionDispenserVtbl;
+    type Vtable = IMSMQCoordinatedTransactionDispenser_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e081_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQCoordinatedTransactionDispenserVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQCoordinatedTransactionDispenser_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub BeginTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -954,14 +954,14 @@ impl ::core::fmt::Debug for IMSMQCoordinatedTransactionDispenser2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQCoordinatedTransactionDispenser2 {
-    type Vtable = IMSMQCoordinatedTransactionDispenser2Vtbl;
+    type Vtable = IMSMQCoordinatedTransactionDispenser2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b10_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQCoordinatedTransactionDispenser2Vtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQCoordinatedTransactionDispenser2_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub BeginTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1082,14 +1082,14 @@ impl ::core::fmt::Debug for IMSMQCoordinatedTransactionDispenser3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQCoordinatedTransactionDispenser3 {
-    type Vtable = IMSMQCoordinatedTransactionDispenser3Vtbl;
+    type Vtable = IMSMQCoordinatedTransactionDispenser3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b14_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQCoordinatedTransactionDispenser3Vtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQCoordinatedTransactionDispenser3_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub BeginTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1272,14 +1272,14 @@ impl ::core::fmt::Debug for IMSMQDestination {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQDestination {
-    type Vtable = IMSMQDestinationVtbl;
+    type Vtable = IMSMQDestination_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b16_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQDestinationVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQDestination_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub IsOpen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfisopen: *mut i16) -> ::windows::core::HRESULT,
@@ -1427,14 +1427,14 @@ impl ::core::fmt::Debug for IMSMQEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQEvent {
-    type Vtable = IMSMQEventVtbl;
+    type Vtable = IMSMQEvent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e077_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQEventVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQEvent_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_System_MessageQueuing', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1565,14 +1565,14 @@ impl ::core::fmt::Debug for IMSMQEvent2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQEvent2 {
-    type Vtable = IMSMQEvent2Vtbl;
+    type Vtable = IMSMQEvent2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b12_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQEvent2Vtbl {
-    pub base: IMSMQEventVtbl,
+pub struct IMSMQEvent2_Vtbl {
+    pub base: IMSMQEvent_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1731,14 +1731,14 @@ impl ::core::fmt::Debug for IMSMQEvent3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQEvent3 {
-    type Vtable = IMSMQEvent3Vtbl;
+    type Vtable = IMSMQEvent3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1c_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQEvent3Vtbl {
-    pub base: IMSMQEvent2Vtbl,
+pub struct IMSMQEvent3_Vtbl {
+    pub base: IMSMQEvent2_Vtbl,
 }
 #[doc = "*Required features: 'Win32_System_MessageQueuing', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1887,14 +1887,14 @@ impl ::core::fmt::Debug for IMSMQManagement {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQManagement {
-    type Vtable = IMSMQManagementVtbl;
+    type Vtable = IMSMQManagement_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe5f0241_e489_4957_8cc4_a452fcf3e23e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQManagementVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQManagement_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, machine: *const super::Com::VARIANT, pathname: *const super::Com::VARIANT, formatname: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -2259,14 +2259,14 @@ impl ::core::fmt::Debug for IMSMQMessage {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQMessage {
-    type Vtable = IMSMQMessageVtbl;
+    type Vtable = IMSMQMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e074_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQMessageVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQMessage_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Class: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plclass: *mut i32) -> ::windows::core::HRESULT,
     pub PrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprivlevel: *mut i32) -> ::windows::core::HRESULT,
     pub SetPrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprivlevel: i32) -> ::windows::core::HRESULT,
@@ -2854,14 +2854,14 @@ impl ::core::fmt::Debug for IMSMQMessage2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQMessage2 {
-    type Vtable = IMSMQMessage2Vtbl;
+    type Vtable = IMSMQMessage2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9933be0_a567_11d2_b0f3_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQMessage2Vtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQMessage2_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Class: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plclass: *mut i32) -> ::windows::core::HRESULT,
     pub PrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprivlevel: *mut i32) -> ::windows::core::HRESULT,
     pub SetPrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprivlevel: i32) -> ::windows::core::HRESULT,
@@ -3615,14 +3615,14 @@ impl ::core::fmt::Debug for IMSMQMessage3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQMessage3 {
-    type Vtable = IMSMQMessage3Vtbl;
+    type Vtable = IMSMQMessage3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1a_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQMessage3Vtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQMessage3_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Class: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plclass: *mut i32) -> ::windows::core::HRESULT,
     pub PrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprivlevel: *mut i32) -> ::windows::core::HRESULT,
     pub SetPrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprivlevel: i32) -> ::windows::core::HRESULT,
@@ -4428,14 +4428,14 @@ impl ::core::fmt::Debug for IMSMQMessage4 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQMessage4 {
-    type Vtable = IMSMQMessage4Vtbl;
+    type Vtable = IMSMQMessage4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b23_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQMessage4Vtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQMessage4_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Class: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plclass: *mut i32) -> ::windows::core::HRESULT,
     pub PrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprivlevel: *mut i32) -> ::windows::core::HRESULT,
     pub SetPrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprivlevel: i32) -> ::windows::core::HRESULT,
@@ -4875,14 +4875,14 @@ impl ::core::fmt::Debug for IMSMQOutgoingQueueManagement {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQOutgoingQueueManagement {
-    type Vtable = IMSMQOutgoingQueueManagementVtbl;
+    type Vtable = IMSMQOutgoingQueueManagement_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64c478fb_f9b0_4695_8a7f_439ac94326d3);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQOutgoingQueueManagementVtbl {
-    pub base: IMSMQManagementVtbl,
+pub struct IMSMQOutgoingQueueManagement_Vtbl {
+    pub base: IMSMQManagement_Vtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstate: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub NextHops: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvnexthops: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -5006,14 +5006,14 @@ impl ::core::fmt::Debug for IMSMQPrivateDestination {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQPrivateDestination {
-    type Vtable = IMSMQPrivateDestinationVtbl;
+    type Vtable = IMSMQPrivateDestination_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b17_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQPrivateDestinationVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQPrivateDestination_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarhandle: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -5137,14 +5137,14 @@ impl ::core::fmt::Debug for IMSMQPrivateEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQPrivateEvent {
-    type Vtable = IMSMQPrivateEventVtbl;
+    type Vtable = IMSMQPrivateEvent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7ab3341_c9d3_11d1_bb47_0080c7c5a2c0);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQPrivateEventVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQPrivateEvent_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Hwnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwnd: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub FireArrivedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pq: ::windows::core::RawPtr, msgcursor: i32) -> ::windows::core::HRESULT,
@@ -5260,14 +5260,14 @@ impl ::core::fmt::Debug for IMSMQQuery {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQQuery {
-    type Vtable = IMSMQQueryVtbl;
+    type Vtable = IMSMQQuery_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e072_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQQueryVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQQuery_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub LookupQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, ppqinfos: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -5384,14 +5384,14 @@ impl ::core::fmt::Debug for IMSMQQuery2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQQuery2 {
-    type Vtable = IMSMQQuery2Vtbl;
+    type Vtable = IMSMQQuery2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b0e_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQQuery2Vtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQQuery2_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub LookupQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, ppqinfos: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -5533,14 +5533,14 @@ impl ::core::fmt::Debug for IMSMQQuery3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQQuery3 {
-    type Vtable = IMSMQQuery3Vtbl;
+    type Vtable = IMSMQQuery3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b19_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQQuery3Vtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQQuery3_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub LookupQueue_v2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, ppqinfos: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -5686,14 +5686,14 @@ impl ::core::fmt::Debug for IMSMQQuery4 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQQuery4 {
-    type Vtable = IMSMQQuery4Vtbl;
+    type Vtable = IMSMQQuery4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b24_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQQuery4Vtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQQuery4_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub LookupQueue_v2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, ppqinfos: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -5875,14 +5875,14 @@ impl ::core::fmt::Debug for IMSMQQueue {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQQueue {
-    type Vtable = IMSMQQueueVtbl;
+    type Vtable = IMSMQQueue_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e076_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQQueueVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQQueue_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Access: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placcess: *mut i32) -> ::windows::core::HRESULT,
     pub ShareMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsharemode: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -6122,14 +6122,14 @@ impl ::core::fmt::Debug for IMSMQQueue2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQQueue2 {
-    type Vtable = IMSMQQueue2Vtbl;
+    type Vtable = IMSMQQueue2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef0574e0_06d8_11d3_b100_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQQueue2Vtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQQueue2_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Access: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placcess: *mut i32) -> ::windows::core::HRESULT,
     pub ShareMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsharemode: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -6468,14 +6468,14 @@ impl ::core::fmt::Debug for IMSMQQueue3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQQueue3 {
-    type Vtable = IMSMQQueue3Vtbl;
+    type Vtable = IMSMQQueue3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1b_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQQueue3Vtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQQueue3_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Access: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placcess: *mut i32) -> ::windows::core::HRESULT,
     pub ShareMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsharemode: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -6866,14 +6866,14 @@ impl ::core::fmt::Debug for IMSMQQueue4 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQQueue4 {
-    type Vtable = IMSMQQueue4Vtbl;
+    type Vtable = IMSMQQueue4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b20_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQQueue4Vtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQQueue4_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Access: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placcess: *mut i32) -> ::windows::core::HRESULT,
     pub ShareMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsharemode: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -7231,14 +7231,14 @@ impl ::core::fmt::Debug for IMSMQQueueInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQQueueInfo {
-    type Vtable = IMSMQQueueInfoVtbl;
+    type Vtable = IMSMQQueueInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e07b_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQQueueInfoVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQQueueInfo_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub QueueGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidqueue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7580,14 +7580,14 @@ impl ::core::fmt::Debug for IMSMQQueueInfo2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQQueueInfo2 {
-    type Vtable = IMSMQQueueInfo2Vtbl;
+    type Vtable = IMSMQQueueInfo2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd174a80_89cf_11d2_b0f2_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQQueueInfo2Vtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQQueueInfo2_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub QueueGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidqueue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7972,14 +7972,14 @@ impl ::core::fmt::Debug for IMSMQQueueInfo3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQQueueInfo3 {
-    type Vtable = IMSMQQueueInfo3Vtbl;
+    type Vtable = IMSMQQueueInfo3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1d_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQQueueInfo3Vtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQQueueInfo3_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub QueueGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidqueue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8378,14 +8378,14 @@ impl ::core::fmt::Debug for IMSMQQueueInfo4 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQQueueInfo4 {
-    type Vtable = IMSMQQueueInfo4Vtbl;
+    type Vtable = IMSMQQueueInfo4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b21_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQQueueInfo4Vtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQQueueInfo4_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub QueueGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidqueue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8595,14 +8595,14 @@ impl ::core::fmt::Debug for IMSMQQueueInfos {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQQueueInfos {
-    type Vtable = IMSMQQueueInfosVtbl;
+    type Vtable = IMSMQQueueInfos_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e07d_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQQueueInfosVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQQueueInfos_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfonext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8724,14 +8724,14 @@ impl ::core::fmt::Debug for IMSMQQueueInfos2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQQueueInfos2 {
-    type Vtable = IMSMQQueueInfos2Vtbl;
+    type Vtable = IMSMQQueueInfos2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b0f_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQQueueInfos2Vtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQQueueInfos2_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfonext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8857,14 +8857,14 @@ impl ::core::fmt::Debug for IMSMQQueueInfos3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQQueueInfos3 {
-    type Vtable = IMSMQQueueInfos3Vtbl;
+    type Vtable = IMSMQQueueInfos3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1e_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQQueueInfos3Vtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQQueueInfos3_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfonext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8990,14 +8990,14 @@ impl ::core::fmt::Debug for IMSMQQueueInfos4 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQQueueInfos4 {
-    type Vtable = IMSMQQueueInfos4Vtbl;
+    type Vtable = IMSMQQueueInfos4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b22_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQQueueInfos4Vtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQQueueInfos4_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfonext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9196,14 +9196,14 @@ impl ::core::fmt::Debug for IMSMQQueueManagement {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQQueueManagement {
-    type Vtable = IMSMQQueueManagementVtbl;
+    type Vtable = IMSMQQueueManagement_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fbe7759_5760_444d_b8a5_5e7ab9a84cce);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQQueueManagementVtbl {
-    pub base: IMSMQManagementVtbl,
+pub struct IMSMQQueueManagement_Vtbl {
+    pub base: IMSMQManagement_Vtbl,
     pub JournalMessageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournalmessagecount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub BytesInJournal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbytesinjournal: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -9328,14 +9328,14 @@ impl ::core::fmt::Debug for IMSMQTransaction {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQTransaction {
-    type Vtable = IMSMQTransactionVtbl;
+    type Vtable = IMSMQTransaction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e07f_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQTransactionVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQTransaction_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Transaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pltransaction: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fretaining: *const super::Com::VARIANT, grftc: *const super::Com::VARIANT, grfrm: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -9495,14 +9495,14 @@ impl ::core::fmt::Debug for IMSMQTransaction2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQTransaction2 {
-    type Vtable = IMSMQTransaction2Vtbl;
+    type Vtable = IMSMQTransaction2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ce0c5b0_6e67_11d2_b0e6_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQTransaction2Vtbl {
-    pub base: IMSMQTransactionVtbl,
+pub struct IMSMQTransaction2_Vtbl {
+    pub base: IMSMQTransaction_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub InitNew: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vartransaction: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -9691,14 +9691,14 @@ impl ::core::fmt::Debug for IMSMQTransaction3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQTransaction3 {
-    type Vtable = IMSMQTransaction3Vtbl;
+    type Vtable = IMSMQTransaction3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b13_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQTransaction3Vtbl {
-    pub base: IMSMQTransaction2Vtbl,
+pub struct IMSMQTransaction3_Vtbl {
+    pub base: IMSMQTransaction2_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub ITransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvaritransaction: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -9809,14 +9809,14 @@ impl ::core::fmt::Debug for IMSMQTransactionDispenser {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQTransactionDispenser {
-    type Vtable = IMSMQTransactionDispenserVtbl;
+    type Vtable = IMSMQTransactionDispenser_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e083_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQTransactionDispenserVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQTransactionDispenser_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub BeginTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -9933,14 +9933,14 @@ impl ::core::fmt::Debug for IMSMQTransactionDispenser2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQTransactionDispenser2 {
-    type Vtable = IMSMQTransactionDispenser2Vtbl;
+    type Vtable = IMSMQTransactionDispenser2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b11_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQTransactionDispenser2Vtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQTransactionDispenser2_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub BeginTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -10061,14 +10061,14 @@ impl ::core::fmt::Debug for IMSMQTransactionDispenser3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSMQTransactionDispenser3 {
-    type Vtable = IMSMQTransactionDispenser3Vtbl;
+    type Vtable = IMSMQTransactionDispenser3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b15_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSMQTransactionDispenser3Vtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IMSMQTransactionDispenser3_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub BeginTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -11188,14 +11188,14 @@ impl ::core::fmt::Debug for _DMSMQEventEvents {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for _DMSMQEventEvents {
-    type Vtable = _DMSMQEventEventsVtbl;
+    type Vtable = _DMSMQEventEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e078_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct _DMSMQEventEventsVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct _DMSMQEventEvents_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

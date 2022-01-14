@@ -37,7 +37,7 @@ unsafe impl ::windows::core::RuntimeType for BackPressedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.UI.Input.BackPressedEventArgs;{f6f555ff-64ec-42a2-b93b-2fbc0c36a121})");
 }
 unsafe impl ::windows::core::Interface for BackPressedEventArgs {
-    type Vtable = IBackPressedEventArgsVtbl;
+    type Vtable = IBackPressedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6f555ff_64ec_42a2_b93b_2fbc0c36a121);
 }
 impl ::windows::core::RuntimeName for BackPressedEventArgs {
@@ -109,7 +109,7 @@ unsafe impl ::windows::core::RuntimeType for CameraEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.UI.Input.CameraEventArgs;{b4063bda-201f-473d-bc69-e9e4ac57c9d0})");
 }
 unsafe impl ::windows::core::Interface for CameraEventArgs {
-    type Vtable = ICameraEventArgsVtbl;
+    type Vtable = ICameraEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4063bda_201f_473d_bc69_e9e4ac57c9d0);
 }
 impl ::windows::core::RuntimeName for CameraEventArgs {
@@ -230,12 +230,12 @@ impl ::windows::core::RuntimeName for HardwareButtons {
 #[repr(transparent)]
 pub struct IBackPressedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackPressedEventArgs {
-    type Vtable = IBackPressedEventArgsVtbl;
+    type Vtable = IBackPressedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6f555ff_64ec_42a2_b93b_2fbc0c36a121);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackPressedEventArgsVtbl {
+pub struct IBackPressedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -244,24 +244,24 @@ pub struct IBackPressedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICameraEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICameraEventArgs {
-    type Vtable = ICameraEventArgsVtbl;
+    type Vtable = ICameraEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4063bda_201f_473d_bc69_e9e4ac57c9d0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICameraEventArgsVtbl {
+pub struct ICameraEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHardwareButtonsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHardwareButtonsStatics {
-    type Vtable = IHardwareButtonsStaticsVtbl;
+    type Vtable = IHardwareButtonsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x594b8780_da66_4fd8_a776_7506bd0cbfa7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHardwareButtonsStaticsVtbl {
+pub struct IHardwareButtonsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub BackPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -276,12 +276,12 @@ pub struct IHardwareButtonsStaticsVtbl {
 #[repr(transparent)]
 pub struct IHardwareButtonsStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHardwareButtonsStatics2 {
-    type Vtable = IHardwareButtonsStatics2Vtbl;
+    type Vtable = IHardwareButtonsStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39c6c274_993f_40dd_854c_831a8934b92e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHardwareButtonsStatics2Vtbl {
+pub struct IHardwareButtonsStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CameraHalfPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,

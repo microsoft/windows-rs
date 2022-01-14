@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IHttpDiagnosticProviderImpl: Sized {
+pub trait IHttpDiagnosticProvider_Impl: Sized {
     fn Start(&mut self) -> ::windows::core::Result<()>;
     fn Stop(&mut self) -> ::windows::core::Result<()>;
     fn RequestSent(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderRequestSentEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
@@ -14,17 +14,17 @@ impl ::windows::core::RuntimeName for IHttpDiagnosticProvider {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IHttpDiagnosticProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpDiagnosticProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpDiagnosticProviderVtbl {
-        unsafe extern "system" fn Start<Impl: IHttpDiagnosticProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IHttpDiagnosticProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpDiagnosticProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpDiagnosticProvider_Vtbl {
+        unsafe extern "system" fn Start<Impl: IHttpDiagnosticProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        unsafe extern "system" fn Stop<Impl: IHttpDiagnosticProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stop<Impl: IHttpDiagnosticProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        unsafe extern "system" fn RequestSent<Impl: IHttpDiagnosticProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestSent<Impl: IHttpDiagnosticProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestSent(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderRequestSentEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderRequestSentEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -35,11 +35,11 @@ impl IHttpDiagnosticProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRequestSent<Impl: IHttpDiagnosticProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveRequestSent<Impl: IHttpDiagnosticProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRequestSent(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ResponseReceived<Impl: IHttpDiagnosticProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResponseReceived<Impl: IHttpDiagnosticProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResponseReceived(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderResponseReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderResponseReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -50,11 +50,11 @@ impl IHttpDiagnosticProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveResponseReceived<Impl: IHttpDiagnosticProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveResponseReceived<Impl: IHttpDiagnosticProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveResponseReceived(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RequestResponseCompleted<Impl: IHttpDiagnosticProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestResponseCompleted<Impl: IHttpDiagnosticProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestResponseCompleted(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderRequestResponseCompletedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderRequestResponseCompletedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -65,7 +65,7 @@ impl IHttpDiagnosticProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRequestResponseCompleted<Impl: IHttpDiagnosticProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveRequestResponseCompleted<Impl: IHttpDiagnosticProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRequestResponseCompleted(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -86,7 +86,7 @@ impl IHttpDiagnosticProviderVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IHttpDiagnosticProviderRequestResponseCompletedEventArgsImpl: Sized {
+pub trait IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Impl: Sized {
     fn ActivityId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Timestamps(&mut self) -> ::windows::core::Result<HttpDiagnosticProviderRequestResponseTimestamps>;
     fn RequestedUri(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
@@ -100,9 +100,9 @@ impl ::windows::core::RuntimeName for IHttpDiagnosticProviderRequestResponseComp
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseCompletedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IHttpDiagnosticProviderRequestResponseCompletedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpDiagnosticProviderRequestResponseCompletedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpDiagnosticProviderRequestResponseCompletedEventArgsVtbl {
-        unsafe extern "system" fn ActivityId<Impl: IHttpDiagnosticProviderRequestResponseCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl {
+        unsafe extern "system" fn ActivityId<Impl: IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivityId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -113,7 +113,7 @@ impl IHttpDiagnosticProviderRequestResponseCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Timestamps<Impl: IHttpDiagnosticProviderRequestResponseCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Timestamps<Impl: IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamps() {
                 ::core::result::Result::Ok(ok__) => {
@@ -124,7 +124,7 @@ impl IHttpDiagnosticProviderRequestResponseCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestedUri<Impl: IHttpDiagnosticProviderRequestResponseCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestedUri<Impl: IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestedUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -135,7 +135,7 @@ impl IHttpDiagnosticProviderRequestResponseCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProcessId<Impl: IHttpDiagnosticProviderRequestResponseCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProcessId<Impl: IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProcessId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -146,7 +146,7 @@ impl IHttpDiagnosticProviderRequestResponseCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ThreadId<Impl: IHttpDiagnosticProviderRequestResponseCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ThreadId<Impl: IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ThreadId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -157,7 +157,7 @@ impl IHttpDiagnosticProviderRequestResponseCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Initiator<Impl: IHttpDiagnosticProviderRequestResponseCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HttpDiagnosticRequestInitiator) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initiator<Impl: IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HttpDiagnosticRequestInitiator) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Initiator() {
                 ::core::result::Result::Ok(ok__) => {
@@ -168,7 +168,7 @@ impl IHttpDiagnosticProviderRequestResponseCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SourceLocations<Impl: IHttpDiagnosticProviderRequestResponseCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SourceLocations<Impl: IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceLocations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -195,7 +195,7 @@ impl IHttpDiagnosticProviderRequestResponseCompletedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IHttpDiagnosticProviderRequestResponseTimestampsImpl: Sized {
+pub trait IHttpDiagnosticProviderRequestResponseTimestamps_Impl: Sized {
     fn CacheCheckedTimestamp(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
     fn ConnectionInitiatedTimestamp(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
     fn NameResolvedTimestamp(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
@@ -211,9 +211,9 @@ impl ::windows::core::RuntimeName for IHttpDiagnosticProviderRequestResponseTime
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseTimestamps";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IHttpDiagnosticProviderRequestResponseTimestampsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpDiagnosticProviderRequestResponseTimestampsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpDiagnosticProviderRequestResponseTimestampsVtbl {
-        unsafe extern "system" fn CacheCheckedTimestamp<Impl: IHttpDiagnosticProviderRequestResponseTimestampsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpDiagnosticProviderRequestResponseTimestamps_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl {
+        unsafe extern "system" fn CacheCheckedTimestamp<Impl: IHttpDiagnosticProviderRequestResponseTimestamps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CacheCheckedTimestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -224,7 +224,7 @@ impl IHttpDiagnosticProviderRequestResponseTimestampsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectionInitiatedTimestamp<Impl: IHttpDiagnosticProviderRequestResponseTimestampsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectionInitiatedTimestamp<Impl: IHttpDiagnosticProviderRequestResponseTimestamps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionInitiatedTimestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -235,7 +235,7 @@ impl IHttpDiagnosticProviderRequestResponseTimestampsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NameResolvedTimestamp<Impl: IHttpDiagnosticProviderRequestResponseTimestampsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NameResolvedTimestamp<Impl: IHttpDiagnosticProviderRequestResponseTimestamps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NameResolvedTimestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -246,7 +246,7 @@ impl IHttpDiagnosticProviderRequestResponseTimestampsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SslNegotiatedTimestamp<Impl: IHttpDiagnosticProviderRequestResponseTimestampsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SslNegotiatedTimestamp<Impl: IHttpDiagnosticProviderRequestResponseTimestamps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SslNegotiatedTimestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -257,7 +257,7 @@ impl IHttpDiagnosticProviderRequestResponseTimestampsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectionCompletedTimestamp<Impl: IHttpDiagnosticProviderRequestResponseTimestampsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectionCompletedTimestamp<Impl: IHttpDiagnosticProviderRequestResponseTimestamps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionCompletedTimestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -268,7 +268,7 @@ impl IHttpDiagnosticProviderRequestResponseTimestampsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestSentTimestamp<Impl: IHttpDiagnosticProviderRequestResponseTimestampsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestSentTimestamp<Impl: IHttpDiagnosticProviderRequestResponseTimestamps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestSentTimestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -279,7 +279,7 @@ impl IHttpDiagnosticProviderRequestResponseTimestampsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestCompletedTimestamp<Impl: IHttpDiagnosticProviderRequestResponseTimestampsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestCompletedTimestamp<Impl: IHttpDiagnosticProviderRequestResponseTimestamps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestCompletedTimestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -290,7 +290,7 @@ impl IHttpDiagnosticProviderRequestResponseTimestampsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResponseReceivedTimestamp<Impl: IHttpDiagnosticProviderRequestResponseTimestampsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResponseReceivedTimestamp<Impl: IHttpDiagnosticProviderRequestResponseTimestamps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResponseReceivedTimestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -301,7 +301,7 @@ impl IHttpDiagnosticProviderRequestResponseTimestampsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResponseCompletedTimestamp<Impl: IHttpDiagnosticProviderRequestResponseTimestampsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResponseCompletedTimestamp<Impl: IHttpDiagnosticProviderRequestResponseTimestamps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResponseCompletedTimestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -330,7 +330,7 @@ impl IHttpDiagnosticProviderRequestResponseTimestampsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IHttpDiagnosticProviderRequestSentEventArgsImpl: Sized {
+pub trait IHttpDiagnosticProviderRequestSentEventArgs_Impl: Sized {
     fn Timestamp(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
     fn ActivityId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Message(&mut self) -> ::windows::core::Result<super::HttpRequestMessage>;
@@ -344,9 +344,9 @@ impl ::windows::core::RuntimeName for IHttpDiagnosticProviderRequestSentEventArg
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestSentEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IHttpDiagnosticProviderRequestSentEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpDiagnosticProviderRequestSentEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpDiagnosticProviderRequestSentEventArgsVtbl {
-        unsafe extern "system" fn Timestamp<Impl: IHttpDiagnosticProviderRequestSentEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+impl IHttpDiagnosticProviderRequestSentEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpDiagnosticProviderRequestSentEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpDiagnosticProviderRequestSentEventArgs_Vtbl {
+        unsafe extern "system" fn Timestamp<Impl: IHttpDiagnosticProviderRequestSentEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -357,7 +357,7 @@ impl IHttpDiagnosticProviderRequestSentEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ActivityId<Impl: IHttpDiagnosticProviderRequestSentEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ActivityId<Impl: IHttpDiagnosticProviderRequestSentEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivityId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -368,7 +368,7 @@ impl IHttpDiagnosticProviderRequestSentEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Message<Impl: IHttpDiagnosticProviderRequestSentEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Message<Impl: IHttpDiagnosticProviderRequestSentEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Message() {
                 ::core::result::Result::Ok(ok__) => {
@@ -379,7 +379,7 @@ impl IHttpDiagnosticProviderRequestSentEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProcessId<Impl: IHttpDiagnosticProviderRequestSentEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProcessId<Impl: IHttpDiagnosticProviderRequestSentEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProcessId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -390,7 +390,7 @@ impl IHttpDiagnosticProviderRequestSentEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ThreadId<Impl: IHttpDiagnosticProviderRequestSentEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ThreadId<Impl: IHttpDiagnosticProviderRequestSentEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ThreadId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -401,7 +401,7 @@ impl IHttpDiagnosticProviderRequestSentEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Initiator<Impl: IHttpDiagnosticProviderRequestSentEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HttpDiagnosticRequestInitiator) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initiator<Impl: IHttpDiagnosticProviderRequestSentEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HttpDiagnosticRequestInitiator) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Initiator() {
                 ::core::result::Result::Ok(ok__) => {
@@ -412,7 +412,7 @@ impl IHttpDiagnosticProviderRequestSentEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SourceLocations<Impl: IHttpDiagnosticProviderRequestSentEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SourceLocations<Impl: IHttpDiagnosticProviderRequestSentEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceLocations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -439,7 +439,7 @@ impl IHttpDiagnosticProviderRequestSentEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IHttpDiagnosticProviderResponseReceivedEventArgsImpl: Sized {
+pub trait IHttpDiagnosticProviderResponseReceivedEventArgs_Impl: Sized {
     fn Timestamp(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
     fn ActivityId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Message(&mut self) -> ::windows::core::Result<super::HttpResponseMessage>;
@@ -449,9 +449,9 @@ impl ::windows::core::RuntimeName for IHttpDiagnosticProviderResponseReceivedEve
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderResponseReceivedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IHttpDiagnosticProviderResponseReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpDiagnosticProviderResponseReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpDiagnosticProviderResponseReceivedEventArgsVtbl {
-        unsafe extern "system" fn Timestamp<Impl: IHttpDiagnosticProviderResponseReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+impl IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpDiagnosticProviderResponseReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn Timestamp<Impl: IHttpDiagnosticProviderResponseReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -462,7 +462,7 @@ impl IHttpDiagnosticProviderResponseReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ActivityId<Impl: IHttpDiagnosticProviderResponseReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ActivityId<Impl: IHttpDiagnosticProviderResponseReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivityId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -473,7 +473,7 @@ impl IHttpDiagnosticProviderResponseReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Message<Impl: IHttpDiagnosticProviderResponseReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Message<Impl: IHttpDiagnosticProviderResponseReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Message() {
                 ::core::result::Result::Ok(ok__) => {
@@ -496,7 +496,7 @@ impl IHttpDiagnosticProviderResponseReceivedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "System_Diagnostics", feature = "implement_exclusive"))]
-pub trait IHttpDiagnosticProviderStaticsImpl: Sized {
+pub trait IHttpDiagnosticProviderStatics_Impl: Sized {
     fn CreateFromProcessDiagnosticInfo(&mut self, processdiagnosticinfo: &::core::option::Option<super::super::super::System::Diagnostics::ProcessDiagnosticInfo>) -> ::windows::core::Result<HttpDiagnosticProvider>;
 }
 #[cfg(all(feature = "System_Diagnostics", feature = "implement_exclusive"))]
@@ -504,9 +504,9 @@ impl ::windows::core::RuntimeName for IHttpDiagnosticProviderStatics {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderStatics";
 }
 #[cfg(all(feature = "System_Diagnostics", feature = "implement_exclusive"))]
-impl IHttpDiagnosticProviderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpDiagnosticProviderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpDiagnosticProviderStaticsVtbl {
-        unsafe extern "system" fn CreateFromProcessDiagnosticInfo<Impl: IHttpDiagnosticProviderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, processdiagnosticinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpDiagnosticProviderStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpDiagnosticProviderStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpDiagnosticProviderStatics_Vtbl {
+        unsafe extern "system" fn CreateFromProcessDiagnosticInfo<Impl: IHttpDiagnosticProviderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, processdiagnosticinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromProcessDiagnosticInfo(&*(&processdiagnosticinfo as *const <super::super::super::System::Diagnostics::ProcessDiagnosticInfo as ::windows::core::Abi>::Abi as *const <super::super::super::System::Diagnostics::ProcessDiagnosticInfo as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -527,7 +527,7 @@ impl IHttpDiagnosticProviderStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IHttpDiagnosticSourceLocationImpl: Sized {
+pub trait IHttpDiagnosticSourceLocation_Impl: Sized {
     fn SourceUri(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
     fn LineNumber(&mut self) -> ::windows::core::Result<u64>;
     fn ColumnNumber(&mut self) -> ::windows::core::Result<u64>;
@@ -537,9 +537,9 @@ impl ::windows::core::RuntimeName for IHttpDiagnosticSourceLocation {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.IHttpDiagnosticSourceLocation";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IHttpDiagnosticSourceLocationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpDiagnosticSourceLocationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpDiagnosticSourceLocationVtbl {
-        unsafe extern "system" fn SourceUri<Impl: IHttpDiagnosticSourceLocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpDiagnosticSourceLocation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpDiagnosticSourceLocation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpDiagnosticSourceLocation_Vtbl {
+        unsafe extern "system" fn SourceUri<Impl: IHttpDiagnosticSourceLocation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -550,7 +550,7 @@ impl IHttpDiagnosticSourceLocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LineNumber<Impl: IHttpDiagnosticSourceLocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LineNumber<Impl: IHttpDiagnosticSourceLocation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LineNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -561,7 +561,7 @@ impl IHttpDiagnosticSourceLocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ColumnNumber<Impl: IHttpDiagnosticSourceLocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ColumnNumber<Impl: IHttpDiagnosticSourceLocation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ColumnNumber() {
                 ::core::result::Result::Ok(ok__) => {

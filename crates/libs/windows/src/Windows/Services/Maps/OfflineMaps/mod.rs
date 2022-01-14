@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IOfflineMapPackage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOfflineMapPackage {
-    type Vtable = IOfflineMapPackageVtbl;
+    type Vtable = IOfflineMapPackage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa797673b_a5b5_4144_b525_e68c8862664b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOfflineMapPackageVtbl {
+pub struct IOfflineMapPackage_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut OfflineMapPackageStatus) -> ::windows::core::HRESULT,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -31,12 +31,12 @@ pub struct IOfflineMapPackageVtbl {
 #[repr(transparent)]
 pub struct IOfflineMapPackageQueryResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOfflineMapPackageQueryResult {
-    type Vtable = IOfflineMapPackageQueryResultVtbl;
+    type Vtable = IOfflineMapPackageQueryResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55585411_39e1_4e41_a4e1_5f4872bee199);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOfflineMapPackageQueryResultVtbl {
+pub struct IOfflineMapPackageQueryResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut OfflineMapPackageQueryStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -48,12 +48,12 @@ pub struct IOfflineMapPackageQueryResultVtbl {
 #[repr(transparent)]
 pub struct IOfflineMapPackageStartDownloadResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOfflineMapPackageStartDownloadResult {
-    type Vtable = IOfflineMapPackageStartDownloadResultVtbl;
+    type Vtable = IOfflineMapPackageStartDownloadResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd965b918_d4d6_4afe_9378_3ec71ef11c3d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOfflineMapPackageStartDownloadResultVtbl {
+pub struct IOfflineMapPackageStartDownloadResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut OfflineMapPackageStartDownloadStatus) -> ::windows::core::HRESULT,
 }
@@ -61,12 +61,12 @@ pub struct IOfflineMapPackageStartDownloadResultVtbl {
 #[repr(transparent)]
 pub struct IOfflineMapPackageStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOfflineMapPackageStatics {
-    type Vtable = IOfflineMapPackageStaticsVtbl;
+    type Vtable = IOfflineMapPackageStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185e7922_a831_4ab0_941f_6998fa929285);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOfflineMapPackageStaticsVtbl {
+pub struct IOfflineMapPackageStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub FindPackagesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, querypoint: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -191,7 +191,7 @@ unsafe impl ::windows::core::RuntimeType for OfflineMapPackage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.OfflineMaps.OfflineMapPackage;{a797673b-a5b5-4144-b525-e68c8862664b})");
 }
 unsafe impl ::windows::core::Interface for OfflineMapPackage {
-    type Vtable = IOfflineMapPackageVtbl;
+    type Vtable = IOfflineMapPackage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa797673b_a5b5_4144_b525_e68c8862664b);
 }
 impl ::windows::core::RuntimeName for OfflineMapPackage {
@@ -281,7 +281,7 @@ unsafe impl ::windows::core::RuntimeType for OfflineMapPackageQueryResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryResult;{55585411-39e1-4e41-a4e1-5f4872bee199})");
 }
 unsafe impl ::windows::core::Interface for OfflineMapPackageQueryResult {
-    type Vtable = IOfflineMapPackageQueryResultVtbl;
+    type Vtable = IOfflineMapPackageQueryResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55585411_39e1_4e41_a4e1_5f4872bee199);
 }
 impl ::windows::core::RuntimeName for OfflineMapPackageQueryResult {
@@ -397,7 +397,7 @@ unsafe impl ::windows::core::RuntimeType for OfflineMapPackageStartDownloadResul
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadResult;{d965b918-d4d6-4afe-9378-3ec71ef11c3d})");
 }
 unsafe impl ::windows::core::Interface for OfflineMapPackageStartDownloadResult {
-    type Vtable = IOfflineMapPackageStartDownloadResultVtbl;
+    type Vtable = IOfflineMapPackageStartDownloadResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd965b918_d4d6_4afe_9378_3ec71ef11c3d);
 }
 impl ::windows::core::RuntimeName for OfflineMapPackageStartDownloadResult {

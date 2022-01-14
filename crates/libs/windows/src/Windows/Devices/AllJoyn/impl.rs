@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynAboutDataImpl: Sized {
+pub trait IAllJoynAboutData_Impl: Sized {
     fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn DefaultAppName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -27,9 +27,9 @@ impl ::windows::core::RuntimeName for IAllJoynAboutData {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynAboutData";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynAboutDataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAboutDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynAboutDataVtbl {
-        unsafe extern "system" fn IsEnabled<Impl: IAllJoynAboutDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IAllJoynAboutData_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAboutData_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynAboutData_Vtbl {
+        unsafe extern "system" fn IsEnabled<Impl: IAllJoynAboutData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -40,11 +40,11 @@ impl IAllJoynAboutDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsEnabled<Impl: IAllJoynAboutDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsEnabled<Impl: IAllJoynAboutData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsEnabled(value).into()
         }
-        unsafe extern "system" fn DefaultAppName<Impl: IAllJoynAboutDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultAppName<Impl: IAllJoynAboutData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultAppName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -55,11 +55,11 @@ impl IAllJoynAboutDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDefaultAppName<Impl: IAllJoynAboutDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDefaultAppName<Impl: IAllJoynAboutData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDefaultAppName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AppNames<Impl: IAllJoynAboutDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppNames<Impl: IAllJoynAboutData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppNames() {
                 ::core::result::Result::Ok(ok__) => {
@@ -70,7 +70,7 @@ impl IAllJoynAboutDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DateOfManufacture<Impl: IAllJoynAboutDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DateOfManufacture<Impl: IAllJoynAboutData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DateOfManufacture() {
                 ::core::result::Result::Ok(ok__) => {
@@ -81,11 +81,11 @@ impl IAllJoynAboutDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDateOfManufacture<Impl: IAllJoynAboutDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDateOfManufacture<Impl: IAllJoynAboutData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDateOfManufacture(&*(&value as *const <super::super::Foundation::IReference<super::super::Foundation::DateTime> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::super::Foundation::DateTime> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DefaultDescription<Impl: IAllJoynAboutDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultDescription<Impl: IAllJoynAboutData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -96,11 +96,11 @@ impl IAllJoynAboutDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDefaultDescription<Impl: IAllJoynAboutDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDefaultDescription<Impl: IAllJoynAboutData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDefaultDescription(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Descriptions<Impl: IAllJoynAboutDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Descriptions<Impl: IAllJoynAboutData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Descriptions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -111,7 +111,7 @@ impl IAllJoynAboutDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DefaultManufacturer<Impl: IAllJoynAboutDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultManufacturer<Impl: IAllJoynAboutData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultManufacturer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -122,11 +122,11 @@ impl IAllJoynAboutDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDefaultManufacturer<Impl: IAllJoynAboutDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDefaultManufacturer<Impl: IAllJoynAboutData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDefaultManufacturer(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Manufacturers<Impl: IAllJoynAboutDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Manufacturers<Impl: IAllJoynAboutData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Manufacturers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -137,7 +137,7 @@ impl IAllJoynAboutDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModelNumber<Impl: IAllJoynAboutDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ModelNumber<Impl: IAllJoynAboutData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ModelNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -148,11 +148,11 @@ impl IAllJoynAboutDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetModelNumber<Impl: IAllJoynAboutDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetModelNumber<Impl: IAllJoynAboutData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetModelNumber(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SoftwareVersion<Impl: IAllJoynAboutDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SoftwareVersion<Impl: IAllJoynAboutData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SoftwareVersion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -163,11 +163,11 @@ impl IAllJoynAboutDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSoftwareVersion<Impl: IAllJoynAboutDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSoftwareVersion<Impl: IAllJoynAboutData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSoftwareVersion(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SupportUrl<Impl: IAllJoynAboutDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportUrl<Impl: IAllJoynAboutData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportUrl() {
                 ::core::result::Result::Ok(ok__) => {
@@ -178,11 +178,11 @@ impl IAllJoynAboutDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSupportUrl<Impl: IAllJoynAboutDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSupportUrl<Impl: IAllJoynAboutData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSupportUrl(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AppId<Impl: IAllJoynAboutDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppId<Impl: IAllJoynAboutData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -193,7 +193,7 @@ impl IAllJoynAboutDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAppId<Impl: IAllJoynAboutDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAppId<Impl: IAllJoynAboutData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAppId(&*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -227,7 +227,7 @@ impl IAllJoynAboutDataVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Globalization", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynAboutDataViewImpl: Sized {
+pub trait IAllJoynAboutDataView_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<i32>;
     fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
     fn AJSoftwareVersion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -250,9 +250,9 @@ impl ::windows::core::RuntimeName for IAllJoynAboutDataView {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynAboutDataView";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Globalization", feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynAboutDataViewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAboutDataViewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynAboutDataViewVtbl {
-        unsafe extern "system" fn Status<Impl: IAllJoynAboutDataViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IAllJoynAboutDataView_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAboutDataView_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynAboutDataView_Vtbl {
+        unsafe extern "system" fn Status<Impl: IAllJoynAboutDataView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -263,7 +263,7 @@ impl IAllJoynAboutDataViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Properties<Impl: IAllJoynAboutDataViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Properties<Impl: IAllJoynAboutDataView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -274,7 +274,7 @@ impl IAllJoynAboutDataViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AJSoftwareVersion<Impl: IAllJoynAboutDataViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AJSoftwareVersion<Impl: IAllJoynAboutDataView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AJSoftwareVersion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -285,7 +285,7 @@ impl IAllJoynAboutDataViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppId<Impl: IAllJoynAboutDataViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppId<Impl: IAllJoynAboutDataView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -296,7 +296,7 @@ impl IAllJoynAboutDataViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DateOfManufacture<Impl: IAllJoynAboutDataViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DateOfManufacture<Impl: IAllJoynAboutDataView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DateOfManufacture() {
                 ::core::result::Result::Ok(ok__) => {
@@ -307,7 +307,7 @@ impl IAllJoynAboutDataViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DefaultLanguage<Impl: IAllJoynAboutDataViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultLanguage<Impl: IAllJoynAboutDataView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultLanguage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -318,7 +318,7 @@ impl IAllJoynAboutDataViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceId<Impl: IAllJoynAboutDataViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceId<Impl: IAllJoynAboutDataView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -329,7 +329,7 @@ impl IAllJoynAboutDataViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HardwareVersion<Impl: IAllJoynAboutDataViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HardwareVersion<Impl: IAllJoynAboutDataView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HardwareVersion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -340,7 +340,7 @@ impl IAllJoynAboutDataViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModelNumber<Impl: IAllJoynAboutDataViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ModelNumber<Impl: IAllJoynAboutDataView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ModelNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -351,7 +351,7 @@ impl IAllJoynAboutDataViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SoftwareVersion<Impl: IAllJoynAboutDataViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SoftwareVersion<Impl: IAllJoynAboutDataView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SoftwareVersion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -362,7 +362,7 @@ impl IAllJoynAboutDataViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedLanguages<Impl: IAllJoynAboutDataViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedLanguages<Impl: IAllJoynAboutDataView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedLanguages() {
                 ::core::result::Result::Ok(ok__) => {
@@ -373,7 +373,7 @@ impl IAllJoynAboutDataViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportUrl<Impl: IAllJoynAboutDataViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportUrl<Impl: IAllJoynAboutDataView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportUrl() {
                 ::core::result::Result::Ok(ok__) => {
@@ -384,7 +384,7 @@ impl IAllJoynAboutDataViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppName<Impl: IAllJoynAboutDataViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppName<Impl: IAllJoynAboutDataView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -395,7 +395,7 @@ impl IAllJoynAboutDataViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Impl: IAllJoynAboutDataViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Impl: IAllJoynAboutDataView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -406,7 +406,7 @@ impl IAllJoynAboutDataViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceName<Impl: IAllJoynAboutDataViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceName<Impl: IAllJoynAboutDataView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -417,7 +417,7 @@ impl IAllJoynAboutDataViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Manufacturer<Impl: IAllJoynAboutDataViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Manufacturer<Impl: IAllJoynAboutDataView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Manufacturer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -453,7 +453,7 @@ impl IAllJoynAboutDataViewVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Globalization", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynAboutDataViewStaticsImpl: Sized {
+pub trait IAllJoynAboutDataViewStatics_Impl: Sized {
     fn GetDataBySessionPortAsync(&mut self, uniquename: &::windows::core::HSTRING, busattachment: &::core::option::Option<AllJoynBusAttachment>, sessionport: u16) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>;
     fn GetDataBySessionPortWithLanguageAsync(&mut self, uniquename: &::windows::core::HSTRING, busattachment: &::core::option::Option<AllJoynBusAttachment>, sessionport: u16, language: &::core::option::Option<super::super::Globalization::Language>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>;
 }
@@ -462,9 +462,9 @@ impl ::windows::core::RuntimeName for IAllJoynAboutDataViewStatics {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynAboutDataViewStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Globalization", feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynAboutDataViewStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAboutDataViewStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynAboutDataViewStaticsVtbl {
-        unsafe extern "system" fn GetDataBySessionPortAsync<Impl: IAllJoynAboutDataViewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, busattachment: ::windows::core::RawPtr, sessionport: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAllJoynAboutDataViewStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAboutDataViewStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynAboutDataViewStatics_Vtbl {
+        unsafe extern "system" fn GetDataBySessionPortAsync<Impl: IAllJoynAboutDataViewStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, busattachment: ::windows::core::RawPtr, sessionport: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDataBySessionPortAsync(&*(&uniquename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&busattachment as *const <AllJoynBusAttachment as ::windows::core::Abi>::Abi as *const <AllJoynBusAttachment as ::windows::core::DefaultType>::DefaultType), sessionport) {
                 ::core::result::Result::Ok(ok__) => {
@@ -475,7 +475,7 @@ impl IAllJoynAboutDataViewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDataBySessionPortWithLanguageAsync<Impl: IAllJoynAboutDataViewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, busattachment: ::windows::core::RawPtr, sessionport: u16, language: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDataBySessionPortWithLanguageAsync<Impl: IAllJoynAboutDataViewStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, busattachment: ::windows::core::RawPtr, sessionport: u16, language: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDataBySessionPortWithLanguageAsync(
                 &*(&uniquename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -502,7 +502,7 @@ impl IAllJoynAboutDataViewStaticsVtbl {
     }
 }
 #[cfg(feature = "deprecated")]
-pub trait IAllJoynAcceptSessionJoinerImpl: Sized {
+pub trait IAllJoynAcceptSessionJoiner_Impl: Sized {
     fn Accept(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "deprecated")]
@@ -510,9 +510,9 @@ impl ::windows::core::RuntimeName for IAllJoynAcceptSessionJoiner {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynAcceptSessionJoiner";
 }
 #[cfg(feature = "deprecated")]
-impl IAllJoynAcceptSessionJoinerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAcceptSessionJoinerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynAcceptSessionJoinerVtbl {
-        unsafe extern "system" fn Accept<Impl: IAllJoynAcceptSessionJoinerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IAllJoynAcceptSessionJoiner_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAcceptSessionJoiner_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynAcceptSessionJoiner_Vtbl {
+        unsafe extern "system" fn Accept<Impl: IAllJoynAcceptSessionJoiner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Accept().into()
         }
@@ -523,7 +523,7 @@ impl IAllJoynAcceptSessionJoinerVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynAcceptSessionJoinerEventArgsImpl: Sized {
+pub trait IAllJoynAcceptSessionJoinerEventArgs_Impl: Sized {
     fn UniqueName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SessionPort(&mut self) -> ::windows::core::Result<u16>;
     fn TrafficType(&mut self) -> ::windows::core::Result<AllJoynTrafficType>;
@@ -536,9 +536,9 @@ impl ::windows::core::RuntimeName for IAllJoynAcceptSessionJoinerEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynAcceptSessionJoinerEventArgs";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynAcceptSessionJoinerEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAcceptSessionJoinerEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynAcceptSessionJoinerEventArgsVtbl {
-        unsafe extern "system" fn UniqueName<Impl: IAllJoynAcceptSessionJoinerEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAllJoynAcceptSessionJoinerEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAcceptSessionJoinerEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynAcceptSessionJoinerEventArgs_Vtbl {
+        unsafe extern "system" fn UniqueName<Impl: IAllJoynAcceptSessionJoinerEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UniqueName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -549,7 +549,7 @@ impl IAllJoynAcceptSessionJoinerEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SessionPort<Impl: IAllJoynAcceptSessionJoinerEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SessionPort<Impl: IAllJoynAcceptSessionJoinerEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionPort() {
                 ::core::result::Result::Ok(ok__) => {
@@ -560,7 +560,7 @@ impl IAllJoynAcceptSessionJoinerEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrafficType<Impl: IAllJoynAcceptSessionJoinerEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AllJoynTrafficType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrafficType<Impl: IAllJoynAcceptSessionJoinerEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AllJoynTrafficType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrafficType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -571,7 +571,7 @@ impl IAllJoynAcceptSessionJoinerEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SamePhysicalNode<Impl: IAllJoynAcceptSessionJoinerEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SamePhysicalNode<Impl: IAllJoynAcceptSessionJoinerEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SamePhysicalNode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -582,7 +582,7 @@ impl IAllJoynAcceptSessionJoinerEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SameNetwork<Impl: IAllJoynAcceptSessionJoinerEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SameNetwork<Impl: IAllJoynAcceptSessionJoinerEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SameNetwork() {
                 ::core::result::Result::Ok(ok__) => {
@@ -593,7 +593,7 @@ impl IAllJoynAcceptSessionJoinerEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Accept<Impl: IAllJoynAcceptSessionJoinerEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Accept<Impl: IAllJoynAcceptSessionJoinerEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Accept().into()
         }
@@ -612,7 +612,7 @@ impl IAllJoynAcceptSessionJoinerEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynAcceptSessionJoinerEventArgsFactoryImpl: Sized {
+pub trait IAllJoynAcceptSessionJoinerEventArgsFactory_Impl: Sized {
     fn Create(&mut self, uniquename: &::windows::core::HSTRING, sessionport: u16, traffictype: AllJoynTrafficType, proximity: u8, acceptsessionjoiner: &::core::option::Option<IAllJoynAcceptSessionJoiner>) -> ::windows::core::Result<AllJoynAcceptSessionJoinerEventArgs>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -620,9 +620,9 @@ impl ::windows::core::RuntimeName for IAllJoynAcceptSessionJoinerEventArgsFactor
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynAcceptSessionJoinerEventArgsFactory";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynAcceptSessionJoinerEventArgsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAcceptSessionJoinerEventArgsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynAcceptSessionJoinerEventArgsFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IAllJoynAcceptSessionJoinerEventArgsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionport: u16, traffictype: AllJoynTrafficType, proximity: u8, acceptsessionjoiner: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAllJoynAcceptSessionJoinerEventArgsFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAcceptSessionJoinerEventArgsFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynAcceptSessionJoinerEventArgsFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IAllJoynAcceptSessionJoinerEventArgsFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionport: u16, traffictype: AllJoynTrafficType, proximity: u8, acceptsessionjoiner: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&uniquename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), sessionport, traffictype, proximity, &*(&acceptsessionjoiner as *const <IAllJoynAcceptSessionJoiner as ::windows::core::Abi>::Abi as *const <IAllJoynAcceptSessionJoiner as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -643,7 +643,7 @@ impl IAllJoynAcceptSessionJoinerEventArgsFactoryVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynAuthenticationCompleteEventArgsImpl: Sized {
+pub trait IAllJoynAuthenticationCompleteEventArgs_Impl: Sized {
     fn AuthenticationMechanism(&mut self) -> ::windows::core::Result<AllJoynAuthenticationMechanism>;
     fn PeerUniqueName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Succeeded(&mut self) -> ::windows::core::Result<bool>;
@@ -653,9 +653,9 @@ impl ::windows::core::RuntimeName for IAllJoynAuthenticationCompleteEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynAuthenticationCompleteEventArgs";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynAuthenticationCompleteEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAuthenticationCompleteEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynAuthenticationCompleteEventArgsVtbl {
-        unsafe extern "system" fn AuthenticationMechanism<Impl: IAllJoynAuthenticationCompleteEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AllJoynAuthenticationMechanism) -> ::windows::core::HRESULT {
+impl IAllJoynAuthenticationCompleteEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAuthenticationCompleteEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynAuthenticationCompleteEventArgs_Vtbl {
+        unsafe extern "system" fn AuthenticationMechanism<Impl: IAllJoynAuthenticationCompleteEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AllJoynAuthenticationMechanism) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticationMechanism() {
                 ::core::result::Result::Ok(ok__) => {
@@ -666,7 +666,7 @@ impl IAllJoynAuthenticationCompleteEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeerUniqueName<Impl: IAllJoynAuthenticationCompleteEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PeerUniqueName<Impl: IAllJoynAuthenticationCompleteEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PeerUniqueName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -677,7 +677,7 @@ impl IAllJoynAuthenticationCompleteEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Succeeded<Impl: IAllJoynAuthenticationCompleteEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Succeeded<Impl: IAllJoynAuthenticationCompleteEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Succeeded() {
                 ::core::result::Result::Ok(ok__) => {
@@ -700,7 +700,7 @@ impl IAllJoynAuthenticationCompleteEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynBusAttachmentImpl: Sized {
+pub trait IAllJoynBusAttachment_Impl: Sized {
     fn AboutData(&mut self) -> ::windows::core::Result<AllJoynAboutData>;
     fn ConnectionSpecification(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn State(&mut self) -> ::windows::core::Result<AllJoynBusAttachmentState>;
@@ -723,9 +723,9 @@ impl ::windows::core::RuntimeName for IAllJoynBusAttachment {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynBusAttachment";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynBusAttachmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusAttachmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusAttachmentVtbl {
-        unsafe extern "system" fn AboutData<Impl: IAllJoynBusAttachmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAllJoynBusAttachment_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusAttachment_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusAttachment_Vtbl {
+        unsafe extern "system" fn AboutData<Impl: IAllJoynBusAttachment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AboutData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -736,7 +736,7 @@ impl IAllJoynBusAttachmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectionSpecification<Impl: IAllJoynBusAttachmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectionSpecification<Impl: IAllJoynBusAttachment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionSpecification() {
                 ::core::result::Result::Ok(ok__) => {
@@ -747,7 +747,7 @@ impl IAllJoynBusAttachmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn State<Impl: IAllJoynBusAttachmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AllJoynBusAttachmentState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn State<Impl: IAllJoynBusAttachment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AllJoynBusAttachmentState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -758,7 +758,7 @@ impl IAllJoynBusAttachmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UniqueName<Impl: IAllJoynBusAttachmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UniqueName<Impl: IAllJoynBusAttachment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UniqueName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -769,7 +769,7 @@ impl IAllJoynBusAttachmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PingAsync<Impl: IAllJoynBusAttachmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PingAsync<Impl: IAllJoynBusAttachment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PingAsync(&*(&uniquename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -780,15 +780,15 @@ impl IAllJoynBusAttachmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Connect<Impl: IAllJoynBusAttachmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Connect<Impl: IAllJoynBusAttachment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Connect().into()
         }
-        unsafe extern "system" fn Disconnect<Impl: IAllJoynBusAttachmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Disconnect<Impl: IAllJoynBusAttachment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Disconnect().into()
         }
-        unsafe extern "system" fn StateChanged<Impl: IAllJoynBusAttachmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StateChanged<Impl: IAllJoynBusAttachment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StateChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynBusAttachmentStateChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynBusAttachmentStateChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -799,11 +799,11 @@ impl IAllJoynBusAttachmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStateChanged<Impl: IAllJoynBusAttachmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStateChanged<Impl: IAllJoynBusAttachment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AuthenticationMechanisms<Impl: IAllJoynBusAttachmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AuthenticationMechanisms<Impl: IAllJoynBusAttachment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticationMechanisms() {
                 ::core::result::Result::Ok(ok__) => {
@@ -814,7 +814,7 @@ impl IAllJoynBusAttachmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CredentialsRequested<Impl: IAllJoynBusAttachmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CredentialsRequested<Impl: IAllJoynBusAttachment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CredentialsRequested(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynCredentialsRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynCredentialsRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -825,11 +825,11 @@ impl IAllJoynBusAttachmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCredentialsRequested<Impl: IAllJoynBusAttachmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCredentialsRequested<Impl: IAllJoynBusAttachment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCredentialsRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CredentialsVerificationRequested<Impl: IAllJoynBusAttachmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CredentialsVerificationRequested<Impl: IAllJoynBusAttachment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CredentialsVerificationRequested(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynCredentialsVerificationRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynCredentialsVerificationRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -840,11 +840,11 @@ impl IAllJoynBusAttachmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCredentialsVerificationRequested<Impl: IAllJoynBusAttachmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCredentialsVerificationRequested<Impl: IAllJoynBusAttachment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCredentialsVerificationRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AuthenticationComplete<Impl: IAllJoynBusAttachmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AuthenticationComplete<Impl: IAllJoynBusAttachment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticationComplete(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynAuthenticationCompleteEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynAuthenticationCompleteEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -855,7 +855,7 @@ impl IAllJoynBusAttachmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAuthenticationComplete<Impl: IAllJoynBusAttachmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAuthenticationComplete<Impl: IAllJoynBusAttachment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAuthenticationComplete(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -884,7 +884,7 @@ impl IAllJoynBusAttachmentVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Globalization", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynBusAttachment2Impl: Sized {
+pub trait IAllJoynBusAttachment2_Impl: Sized {
     fn GetAboutDataAsync(&mut self, serviceinfo: &::core::option::Option<AllJoynServiceInfo>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>;
     fn GetAboutDataWithLanguageAsync(&mut self, serviceinfo: &::core::option::Option<AllJoynServiceInfo>, language: &::core::option::Option<super::super::Globalization::Language>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>;
     fn AcceptSessionJoinerRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynAcceptSessionJoinerEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -897,9 +897,9 @@ impl ::windows::core::RuntimeName for IAllJoynBusAttachment2 {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynBusAttachment2";
 }
 #[cfg(all(feature = "Foundation", feature = "Globalization", feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynBusAttachment2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusAttachment2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusAttachment2Vtbl {
-        unsafe extern "system" fn GetAboutDataAsync<Impl: IAllJoynBusAttachment2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAllJoynBusAttachment2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusAttachment2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusAttachment2_Vtbl {
+        unsafe extern "system" fn GetAboutDataAsync<Impl: IAllJoynBusAttachment2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAboutDataAsync(&*(&serviceinfo as *const <AllJoynServiceInfo as ::windows::core::Abi>::Abi as *const <AllJoynServiceInfo as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -910,7 +910,7 @@ impl IAllJoynBusAttachment2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAboutDataWithLanguageAsync<Impl: IAllJoynBusAttachment2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceinfo: ::windows::core::RawPtr, language: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAboutDataWithLanguageAsync<Impl: IAllJoynBusAttachment2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceinfo: ::windows::core::RawPtr, language: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAboutDataWithLanguageAsync(&*(&serviceinfo as *const <AllJoynServiceInfo as ::windows::core::Abi>::Abi as *const <AllJoynServiceInfo as ::windows::core::DefaultType>::DefaultType), &*(&language as *const <super::super::Globalization::Language as ::windows::core::Abi>::Abi as *const <super::super::Globalization::Language as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -921,7 +921,7 @@ impl IAllJoynBusAttachment2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AcceptSessionJoinerRequested<Impl: IAllJoynBusAttachment2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AcceptSessionJoinerRequested<Impl: IAllJoynBusAttachment2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AcceptSessionJoinerRequested(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynAcceptSessionJoinerEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynAcceptSessionJoinerEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -932,11 +932,11 @@ impl IAllJoynBusAttachment2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAcceptSessionJoinerRequested<Impl: IAllJoynBusAttachment2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAcceptSessionJoinerRequested<Impl: IAllJoynBusAttachment2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAcceptSessionJoinerRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SessionJoined<Impl: IAllJoynBusAttachment2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SessionJoined<Impl: IAllJoynBusAttachment2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionJoined(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynSessionJoinedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynSessionJoinedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -947,7 +947,7 @@ impl IAllJoynBusAttachment2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSessionJoined<Impl: IAllJoynBusAttachment2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSessionJoined<Impl: IAllJoynBusAttachment2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSessionJoined(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -966,7 +966,7 @@ impl IAllJoynBusAttachment2Vtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynBusAttachmentFactoryImpl: Sized {
+pub trait IAllJoynBusAttachmentFactory_Impl: Sized {
     fn Create(&mut self, connectionspecification: &::windows::core::HSTRING) -> ::windows::core::Result<AllJoynBusAttachment>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -974,9 +974,9 @@ impl ::windows::core::RuntimeName for IAllJoynBusAttachmentFactory {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynBusAttachmentFactory";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynBusAttachmentFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusAttachmentFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusAttachmentFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IAllJoynBusAttachmentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionspecification: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAllJoynBusAttachmentFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusAttachmentFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusAttachmentFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IAllJoynBusAttachmentFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionspecification: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&connectionspecification as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -994,7 +994,7 @@ impl IAllJoynBusAttachmentFactoryVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynBusAttachmentStateChangedEventArgsImpl: Sized {
+pub trait IAllJoynBusAttachmentStateChangedEventArgs_Impl: Sized {
     fn State(&mut self) -> ::windows::core::Result<AllJoynBusAttachmentState>;
     fn Status(&mut self) -> ::windows::core::Result<i32>;
 }
@@ -1003,9 +1003,9 @@ impl ::windows::core::RuntimeName for IAllJoynBusAttachmentStateChangedEventArgs
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynBusAttachmentStateChangedEventArgs";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynBusAttachmentStateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusAttachmentStateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusAttachmentStateChangedEventArgsVtbl {
-        unsafe extern "system" fn State<Impl: IAllJoynBusAttachmentStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AllJoynBusAttachmentState) -> ::windows::core::HRESULT {
+impl IAllJoynBusAttachmentStateChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusAttachmentStateChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusAttachmentStateChangedEventArgs_Vtbl {
+        unsafe extern "system" fn State<Impl: IAllJoynBusAttachmentStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AllJoynBusAttachmentState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1016,7 +1016,7 @@ impl IAllJoynBusAttachmentStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Status<Impl: IAllJoynBusAttachmentStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Status<Impl: IAllJoynBusAttachmentStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1038,7 +1038,7 @@ impl IAllJoynBusAttachmentStateChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynBusAttachmentStaticsImpl: Sized {
+pub trait IAllJoynBusAttachmentStatics_Impl: Sized {
     fn GetDefault(&mut self) -> ::windows::core::Result<AllJoynBusAttachment>;
     fn GetWatcher(&mut self, requiredinterfaces: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::Enumeration::DeviceWatcher>;
 }
@@ -1047,9 +1047,9 @@ impl ::windows::core::RuntimeName for IAllJoynBusAttachmentStatics {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynBusAttachmentStatics";
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynBusAttachmentStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusAttachmentStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusAttachmentStaticsVtbl {
-        unsafe extern "system" fn GetDefault<Impl: IAllJoynBusAttachmentStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAllJoynBusAttachmentStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusAttachmentStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusAttachmentStatics_Vtbl {
+        unsafe extern "system" fn GetDefault<Impl: IAllJoynBusAttachmentStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1060,7 +1060,7 @@ impl IAllJoynBusAttachmentStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetWatcher<Impl: IAllJoynBusAttachmentStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requiredinterfaces: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetWatcher<Impl: IAllJoynBusAttachmentStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requiredinterfaces: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetWatcher(&*(&requiredinterfaces as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1082,7 +1082,7 @@ impl IAllJoynBusAttachmentStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynBusObjectImpl: Sized {
+pub trait IAllJoynBusObject_Impl: Sized {
     fn Start(&mut self) -> ::windows::core::Result<()>;
     fn Stop(&mut self) -> ::windows::core::Result<()>;
     fn AddProducer(&mut self, producer: &::core::option::Option<IAllJoynProducer>) -> ::windows::core::Result<()>;
@@ -1096,21 +1096,21 @@ impl ::windows::core::RuntimeName for IAllJoynBusObject {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynBusObject";
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynBusObjectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusObjectVtbl {
-        unsafe extern "system" fn Start<Impl: IAllJoynBusObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IAllJoynBusObject_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusObject_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusObject_Vtbl {
+        unsafe extern "system" fn Start<Impl: IAllJoynBusObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        unsafe extern "system" fn Stop<Impl: IAllJoynBusObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stop<Impl: IAllJoynBusObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        unsafe extern "system" fn AddProducer<Impl: IAllJoynBusObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddProducer<Impl: IAllJoynBusObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddProducer(&*(&producer as *const <IAllJoynProducer as ::windows::core::Abi>::Abi as *const <IAllJoynProducer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BusAttachment<Impl: IAllJoynBusObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BusAttachment<Impl: IAllJoynBusObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BusAttachment() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1121,7 +1121,7 @@ impl IAllJoynBusObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Session<Impl: IAllJoynBusObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Session<Impl: IAllJoynBusObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Session() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1132,7 +1132,7 @@ impl IAllJoynBusObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Stopped<Impl: IAllJoynBusObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stopped<Impl: IAllJoynBusObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Stopped(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AllJoynBusObject, AllJoynBusObjectStoppedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AllJoynBusObject, AllJoynBusObjectStoppedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1143,7 +1143,7 @@ impl IAllJoynBusObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStopped<Impl: IAllJoynBusObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStopped<Impl: IAllJoynBusObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStopped(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1163,7 +1163,7 @@ impl IAllJoynBusObjectVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynBusObjectFactoryImpl: Sized {
+pub trait IAllJoynBusObjectFactory_Impl: Sized {
     fn Create(&mut self, objectpath: &::windows::core::HSTRING) -> ::windows::core::Result<AllJoynBusObject>;
     fn CreateWithBusAttachment(&mut self, objectpath: &::windows::core::HSTRING, busattachment: &::core::option::Option<AllJoynBusAttachment>) -> ::windows::core::Result<AllJoynBusObject>;
 }
@@ -1172,9 +1172,9 @@ impl ::windows::core::RuntimeName for IAllJoynBusObjectFactory {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynBusObjectFactory";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynBusObjectFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusObjectFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusObjectFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IAllJoynBusObjectFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objectpath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAllJoynBusObjectFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusObjectFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusObjectFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IAllJoynBusObjectFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objectpath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&objectpath as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1185,7 +1185,7 @@ impl IAllJoynBusObjectFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithBusAttachment<Impl: IAllJoynBusObjectFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objectpath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, busattachment: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithBusAttachment<Impl: IAllJoynBusObjectFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objectpath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, busattachment: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithBusAttachment(&*(&objectpath as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&busattachment as *const <AllJoynBusAttachment as ::windows::core::Abi>::Abi as *const <AllJoynBusAttachment as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1207,7 +1207,7 @@ impl IAllJoynBusObjectFactoryVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynBusObjectStoppedEventArgsImpl: Sized {
+pub trait IAllJoynBusObjectStoppedEventArgs_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1215,9 +1215,9 @@ impl ::windows::core::RuntimeName for IAllJoynBusObjectStoppedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynBusObjectStoppedEventArgs";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynBusObjectStoppedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusObjectStoppedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusObjectStoppedEventArgsVtbl {
-        unsafe extern "system" fn Status<Impl: IAllJoynBusObjectStoppedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IAllJoynBusObjectStoppedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusObjectStoppedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusObjectStoppedEventArgs_Vtbl {
+        unsafe extern "system" fn Status<Impl: IAllJoynBusObjectStoppedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1235,7 +1235,7 @@ impl IAllJoynBusObjectStoppedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynBusObjectStoppedEventArgsFactoryImpl: Sized {
+pub trait IAllJoynBusObjectStoppedEventArgsFactory_Impl: Sized {
     fn Create(&mut self, status: i32) -> ::windows::core::Result<AllJoynBusObjectStoppedEventArgs>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1243,9 +1243,9 @@ impl ::windows::core::RuntimeName for IAllJoynBusObjectStoppedEventArgsFactory {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynBusObjectStoppedEventArgsFactory";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynBusObjectStoppedEventArgsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusObjectStoppedEventArgsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusObjectStoppedEventArgsFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IAllJoynBusObjectStoppedEventArgsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAllJoynBusObjectStoppedEventArgsFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynBusObjectStoppedEventArgsFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynBusObjectStoppedEventArgsFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IAllJoynBusObjectStoppedEventArgsFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(status) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1266,7 +1266,7 @@ impl IAllJoynBusObjectStoppedEventArgsFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynCredentialsImpl: Sized {
+pub trait IAllJoynCredentials_Impl: Sized {
     fn AuthenticationMechanism(&mut self) -> ::windows::core::Result<AllJoynAuthenticationMechanism>;
     fn Certificate(&mut self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
     fn SetCertificate(&mut self, value: &::core::option::Option<super::super::Security::Cryptography::Certificates::Certificate>) -> ::windows::core::Result<()>;
@@ -1280,9 +1280,9 @@ impl ::windows::core::RuntimeName for IAllJoynCredentials {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynCredentials";
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates", feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynCredentialsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynCredentialsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynCredentialsVtbl {
-        unsafe extern "system" fn AuthenticationMechanism<Impl: IAllJoynCredentialsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AllJoynAuthenticationMechanism) -> ::windows::core::HRESULT {
+impl IAllJoynCredentials_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynCredentials_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynCredentials_Vtbl {
+        unsafe extern "system" fn AuthenticationMechanism<Impl: IAllJoynCredentials_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AllJoynAuthenticationMechanism) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticationMechanism() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1293,7 +1293,7 @@ impl IAllJoynCredentialsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Certificate<Impl: IAllJoynCredentialsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Certificate<Impl: IAllJoynCredentials_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Certificate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1304,11 +1304,11 @@ impl IAllJoynCredentialsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCertificate<Impl: IAllJoynCredentialsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCertificate<Impl: IAllJoynCredentials_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCertificate(&*(&value as *const <super::super::Security::Cryptography::Certificates::Certificate as ::windows::core::Abi>::Abi as *const <super::super::Security::Cryptography::Certificates::Certificate as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PasswordCredential<Impl: IAllJoynCredentialsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PasswordCredential<Impl: IAllJoynCredentials_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PasswordCredential() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1319,11 +1319,11 @@ impl IAllJoynCredentialsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPasswordCredential<Impl: IAllJoynCredentialsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPasswordCredential<Impl: IAllJoynCredentials_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPasswordCredential(&*(&value as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::Abi>::Abi as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Timeout<Impl: IAllJoynCredentialsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Timeout<Impl: IAllJoynCredentials_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timeout() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1334,7 +1334,7 @@ impl IAllJoynCredentialsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTimeout<Impl: IAllJoynCredentialsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTimeout<Impl: IAllJoynCredentials_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTimeout(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1354,7 +1354,7 @@ impl IAllJoynCredentialsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynCredentialsRequestedEventArgsImpl: Sized {
+pub trait IAllJoynCredentialsRequestedEventArgs_Impl: Sized {
     fn AttemptCount(&mut self) -> ::windows::core::Result<u16>;
     fn Credentials(&mut self) -> ::windows::core::Result<AllJoynCredentials>;
     fn PeerUniqueName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1366,9 +1366,9 @@ impl ::windows::core::RuntimeName for IAllJoynCredentialsRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynCredentialsRequestedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynCredentialsRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynCredentialsRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynCredentialsRequestedEventArgsVtbl {
-        unsafe extern "system" fn AttemptCount<Impl: IAllJoynCredentialsRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+impl IAllJoynCredentialsRequestedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynCredentialsRequestedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynCredentialsRequestedEventArgs_Vtbl {
+        unsafe extern "system" fn AttemptCount<Impl: IAllJoynCredentialsRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AttemptCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1379,7 +1379,7 @@ impl IAllJoynCredentialsRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Credentials<Impl: IAllJoynCredentialsRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Credentials<Impl: IAllJoynCredentialsRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Credentials() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1390,7 +1390,7 @@ impl IAllJoynCredentialsRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeerUniqueName<Impl: IAllJoynCredentialsRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PeerUniqueName<Impl: IAllJoynCredentialsRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PeerUniqueName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1401,7 +1401,7 @@ impl IAllJoynCredentialsRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestedUserName<Impl: IAllJoynCredentialsRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestedUserName<Impl: IAllJoynCredentialsRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestedUserName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1412,7 +1412,7 @@ impl IAllJoynCredentialsRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IAllJoynCredentialsRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IAllJoynCredentialsRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1437,7 +1437,7 @@ impl IAllJoynCredentialsRequestedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking_Sockets", feature = "Security_Cryptography_Certificates", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynCredentialsVerificationRequestedEventArgsImpl: Sized {
+pub trait IAllJoynCredentialsVerificationRequestedEventArgs_Impl: Sized {
     fn AuthenticationMechanism(&mut self) -> ::windows::core::Result<AllJoynAuthenticationMechanism>;
     fn PeerUniqueName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn PeerCertificate(&mut self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
@@ -1452,9 +1452,9 @@ impl ::windows::core::RuntimeName for IAllJoynCredentialsVerificationRequestedEv
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynCredentialsVerificationRequestedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Networking_Sockets", feature = "Security_Cryptography_Certificates", feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynCredentialsVerificationRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynCredentialsVerificationRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynCredentialsVerificationRequestedEventArgsVtbl {
-        unsafe extern "system" fn AuthenticationMechanism<Impl: IAllJoynCredentialsVerificationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AllJoynAuthenticationMechanism) -> ::windows::core::HRESULT {
+impl IAllJoynCredentialsVerificationRequestedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynCredentialsVerificationRequestedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynCredentialsVerificationRequestedEventArgs_Vtbl {
+        unsafe extern "system" fn AuthenticationMechanism<Impl: IAllJoynCredentialsVerificationRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AllJoynAuthenticationMechanism) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticationMechanism() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1465,7 +1465,7 @@ impl IAllJoynCredentialsVerificationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeerUniqueName<Impl: IAllJoynCredentialsVerificationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PeerUniqueName<Impl: IAllJoynCredentialsVerificationRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PeerUniqueName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1476,7 +1476,7 @@ impl IAllJoynCredentialsVerificationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeerCertificate<Impl: IAllJoynCredentialsVerificationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PeerCertificate<Impl: IAllJoynCredentialsVerificationRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PeerCertificate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1487,7 +1487,7 @@ impl IAllJoynCredentialsVerificationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeerCertificateErrorSeverity<Impl: IAllJoynCredentialsVerificationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Networking::Sockets::SocketSslErrorSeverity) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PeerCertificateErrorSeverity<Impl: IAllJoynCredentialsVerificationRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Networking::Sockets::SocketSslErrorSeverity) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PeerCertificateErrorSeverity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1498,7 +1498,7 @@ impl IAllJoynCredentialsVerificationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeerCertificateErrors<Impl: IAllJoynCredentialsVerificationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PeerCertificateErrors<Impl: IAllJoynCredentialsVerificationRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PeerCertificateErrors() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1509,7 +1509,7 @@ impl IAllJoynCredentialsVerificationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeerIntermediateCertificates<Impl: IAllJoynCredentialsVerificationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PeerIntermediateCertificates<Impl: IAllJoynCredentialsVerificationRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PeerIntermediateCertificates() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1520,11 +1520,11 @@ impl IAllJoynCredentialsVerificationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Accept<Impl: IAllJoynCredentialsVerificationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Accept<Impl: IAllJoynCredentialsVerificationRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Accept().into()
         }
-        unsafe extern "system" fn GetDeferral<Impl: IAllJoynCredentialsVerificationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IAllJoynCredentialsVerificationRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1552,7 +1552,7 @@ impl IAllJoynCredentialsVerificationRequestedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynMessageInfoImpl: Sized {
+pub trait IAllJoynMessageInfo_Impl: Sized {
     fn SenderUniqueName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1560,9 +1560,9 @@ impl ::windows::core::RuntimeName for IAllJoynMessageInfo {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynMessageInfo";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynMessageInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynMessageInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynMessageInfoVtbl {
-        unsafe extern "system" fn SenderUniqueName<Impl: IAllJoynMessageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAllJoynMessageInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynMessageInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynMessageInfo_Vtbl {
+        unsafe extern "system" fn SenderUniqueName<Impl: IAllJoynMessageInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SenderUniqueName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1583,7 +1583,7 @@ impl IAllJoynMessageInfoVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynMessageInfoFactoryImpl: Sized {
+pub trait IAllJoynMessageInfoFactory_Impl: Sized {
     fn Create(&mut self, senderuniquename: &::windows::core::HSTRING) -> ::windows::core::Result<AllJoynMessageInfo>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1591,9 +1591,9 @@ impl ::windows::core::RuntimeName for IAllJoynMessageInfoFactory {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynMessageInfoFactory";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynMessageInfoFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynMessageInfoFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynMessageInfoFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IAllJoynMessageInfoFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, senderuniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAllJoynMessageInfoFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynMessageInfoFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynMessageInfoFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IAllJoynMessageInfoFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, senderuniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&senderuniquename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1611,7 +1611,7 @@ impl IAllJoynMessageInfoFactoryVtbl {
     }
 }
 #[cfg(feature = "deprecated")]
-pub trait IAllJoynProducerImpl: Sized {
+pub trait IAllJoynProducer_Impl: Sized {
     fn SetBusObject(&mut self, busobject: &::core::option::Option<AllJoynBusObject>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "deprecated")]
@@ -1619,9 +1619,9 @@ impl ::windows::core::RuntimeName for IAllJoynProducer {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynProducer";
 }
 #[cfg(feature = "deprecated")]
-impl IAllJoynProducerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynProducerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynProducerVtbl {
-        unsafe extern "system" fn SetBusObject<Impl: IAllJoynProducerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, busobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAllJoynProducer_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynProducer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynProducer_Vtbl {
+        unsafe extern "system" fn SetBusObject<Impl: IAllJoynProducer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, busobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBusObject(&*(&busobject as *const <AllJoynBusObject as ::windows::core::Abi>::Abi as *const <AllJoynBusObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1632,7 +1632,7 @@ impl IAllJoynProducerVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynProducerStoppedEventArgsImpl: Sized {
+pub trait IAllJoynProducerStoppedEventArgs_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1640,9 +1640,9 @@ impl ::windows::core::RuntimeName for IAllJoynProducerStoppedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynProducerStoppedEventArgs";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynProducerStoppedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynProducerStoppedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynProducerStoppedEventArgsVtbl {
-        unsafe extern "system" fn Status<Impl: IAllJoynProducerStoppedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IAllJoynProducerStoppedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynProducerStoppedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynProducerStoppedEventArgs_Vtbl {
+        unsafe extern "system" fn Status<Impl: IAllJoynProducerStoppedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1660,7 +1660,7 @@ impl IAllJoynProducerStoppedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynProducerStoppedEventArgsFactoryImpl: Sized {
+pub trait IAllJoynProducerStoppedEventArgsFactory_Impl: Sized {
     fn Create(&mut self, status: i32) -> ::windows::core::Result<AllJoynProducerStoppedEventArgs>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1668,9 +1668,9 @@ impl ::windows::core::RuntimeName for IAllJoynProducerStoppedEventArgsFactory {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynProducerStoppedEventArgsFactory";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynProducerStoppedEventArgsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynProducerStoppedEventArgsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynProducerStoppedEventArgsFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IAllJoynProducerStoppedEventArgsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAllJoynProducerStoppedEventArgsFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynProducerStoppedEventArgsFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynProducerStoppedEventArgsFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IAllJoynProducerStoppedEventArgsFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(status) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1691,7 +1691,7 @@ impl IAllJoynProducerStoppedEventArgsFactoryVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynServiceInfoImpl: Sized {
+pub trait IAllJoynServiceInfo_Impl: Sized {
     fn UniqueName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ObjectPath(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SessionPort(&mut self) -> ::windows::core::Result<u16>;
@@ -1701,9 +1701,9 @@ impl ::windows::core::RuntimeName for IAllJoynServiceInfo {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynServiceInfo";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynServiceInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynServiceInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynServiceInfoVtbl {
-        unsafe extern "system" fn UniqueName<Impl: IAllJoynServiceInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAllJoynServiceInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynServiceInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynServiceInfo_Vtbl {
+        unsafe extern "system" fn UniqueName<Impl: IAllJoynServiceInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UniqueName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1714,7 +1714,7 @@ impl IAllJoynServiceInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ObjectPath<Impl: IAllJoynServiceInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ObjectPath<Impl: IAllJoynServiceInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ObjectPath() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1725,7 +1725,7 @@ impl IAllJoynServiceInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SessionPort<Impl: IAllJoynServiceInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SessionPort<Impl: IAllJoynServiceInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionPort() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1748,7 +1748,7 @@ impl IAllJoynServiceInfoVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynServiceInfoFactoryImpl: Sized {
+pub trait IAllJoynServiceInfoFactory_Impl: Sized {
     fn Create(&mut self, uniquename: &::windows::core::HSTRING, objectpath: &::windows::core::HSTRING, sessionport: u16) -> ::windows::core::Result<AllJoynServiceInfo>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1756,9 +1756,9 @@ impl ::windows::core::RuntimeName for IAllJoynServiceInfoFactory {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynServiceInfoFactory";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynServiceInfoFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynServiceInfoFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynServiceInfoFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IAllJoynServiceInfoFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, objectpath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionport: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAllJoynServiceInfoFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynServiceInfoFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynServiceInfoFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IAllJoynServiceInfoFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, objectpath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionport: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&uniquename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&objectpath as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), sessionport) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1776,7 +1776,7 @@ impl IAllJoynServiceInfoFactoryVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynServiceInfoRemovedEventArgsImpl: Sized {
+pub trait IAllJoynServiceInfoRemovedEventArgs_Impl: Sized {
     fn UniqueName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1784,9 +1784,9 @@ impl ::windows::core::RuntimeName for IAllJoynServiceInfoRemovedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynServiceInfoRemovedEventArgs";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynServiceInfoRemovedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynServiceInfoRemovedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynServiceInfoRemovedEventArgsVtbl {
-        unsafe extern "system" fn UniqueName<Impl: IAllJoynServiceInfoRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAllJoynServiceInfoRemovedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynServiceInfoRemovedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynServiceInfoRemovedEventArgs_Vtbl {
+        unsafe extern "system" fn UniqueName<Impl: IAllJoynServiceInfoRemovedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UniqueName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1807,7 +1807,7 @@ impl IAllJoynServiceInfoRemovedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynServiceInfoRemovedEventArgsFactoryImpl: Sized {
+pub trait IAllJoynServiceInfoRemovedEventArgsFactory_Impl: Sized {
     fn Create(&mut self, uniquename: &::windows::core::HSTRING) -> ::windows::core::Result<AllJoynServiceInfoRemovedEventArgs>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1815,9 +1815,9 @@ impl ::windows::core::RuntimeName for IAllJoynServiceInfoRemovedEventArgsFactory
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynServiceInfoRemovedEventArgsFactory";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynServiceInfoRemovedEventArgsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynServiceInfoRemovedEventArgsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynServiceInfoRemovedEventArgsFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IAllJoynServiceInfoRemovedEventArgsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAllJoynServiceInfoRemovedEventArgsFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynServiceInfoRemovedEventArgsFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynServiceInfoRemovedEventArgsFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IAllJoynServiceInfoRemovedEventArgsFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&uniquename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1838,7 +1838,7 @@ impl IAllJoynServiceInfoRemovedEventArgsFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynServiceInfoStaticsImpl: Sized {
+pub trait IAllJoynServiceInfoStatics_Impl: Sized {
     fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynServiceInfo>>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
@@ -1846,9 +1846,9 @@ impl ::windows::core::RuntimeName for IAllJoynServiceInfoStatics {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynServiceInfoStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynServiceInfoStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynServiceInfoStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynServiceInfoStaticsVtbl {
-        unsafe extern "system" fn FromIdAsync<Impl: IAllJoynServiceInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAllJoynServiceInfoStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynServiceInfoStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynServiceInfoStatics_Vtbl {
+        unsafe extern "system" fn FromIdAsync<Impl: IAllJoynServiceInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1869,7 +1869,7 @@ impl IAllJoynServiceInfoStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynSessionImpl: Sized {
+pub trait IAllJoynSession_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<i32>;
     fn Status(&mut self) -> ::windows::core::Result<i32>;
     fn RemoveMemberAsync(&mut self, uniquename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<i32>>;
@@ -1885,9 +1885,9 @@ impl ::windows::core::RuntimeName for IAllJoynSession {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynSession";
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionVtbl {
-        unsafe extern "system" fn Id<Impl: IAllJoynSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IAllJoynSession_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSession_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSession_Vtbl {
+        unsafe extern "system" fn Id<Impl: IAllJoynSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1898,7 +1898,7 @@ impl IAllJoynSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Status<Impl: IAllJoynSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Status<Impl: IAllJoynSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1909,7 +1909,7 @@ impl IAllJoynSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMemberAsync<Impl: IAllJoynSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMemberAsync<Impl: IAllJoynSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoveMemberAsync(&*(&uniquename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1920,7 +1920,7 @@ impl IAllJoynSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MemberAdded<Impl: IAllJoynSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MemberAdded<Impl: IAllJoynSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MemberAdded(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AllJoynSession, AllJoynSessionMemberAddedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AllJoynSession, AllJoynSessionMemberAddedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1931,11 +1931,11 @@ impl IAllJoynSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMemberAdded<Impl: IAllJoynSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMemberAdded<Impl: IAllJoynSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMemberAdded(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MemberRemoved<Impl: IAllJoynSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MemberRemoved<Impl: IAllJoynSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MemberRemoved(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AllJoynSession, AllJoynSessionMemberRemovedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AllJoynSession, AllJoynSessionMemberRemovedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1946,11 +1946,11 @@ impl IAllJoynSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMemberRemoved<Impl: IAllJoynSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMemberRemoved<Impl: IAllJoynSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMemberRemoved(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Lost<Impl: IAllJoynSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Lost<Impl: IAllJoynSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Lost(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AllJoynSession, AllJoynSessionLostEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AllJoynSession, AllJoynSessionLostEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1961,7 +1961,7 @@ impl IAllJoynSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveLost<Impl: IAllJoynSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveLost<Impl: IAllJoynSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveLost(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1983,7 +1983,7 @@ impl IAllJoynSessionVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynSessionJoinedEventArgsImpl: Sized {
+pub trait IAllJoynSessionJoinedEventArgs_Impl: Sized {
     fn Session(&mut self) -> ::windows::core::Result<AllJoynSession>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1991,9 +1991,9 @@ impl ::windows::core::RuntimeName for IAllJoynSessionJoinedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynSessionJoinedEventArgs";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynSessionJoinedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionJoinedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionJoinedEventArgsVtbl {
-        unsafe extern "system" fn Session<Impl: IAllJoynSessionJoinedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAllJoynSessionJoinedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionJoinedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionJoinedEventArgs_Vtbl {
+        unsafe extern "system" fn Session<Impl: IAllJoynSessionJoinedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Session() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2011,7 +2011,7 @@ impl IAllJoynSessionJoinedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynSessionJoinedEventArgsFactoryImpl: Sized {
+pub trait IAllJoynSessionJoinedEventArgsFactory_Impl: Sized {
     fn Create(&mut self, session: &::core::option::Option<AllJoynSession>) -> ::windows::core::Result<AllJoynSessionJoinedEventArgs>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -2019,9 +2019,9 @@ impl ::windows::core::RuntimeName for IAllJoynSessionJoinedEventArgsFactory {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynSessionJoinedEventArgsFactory";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynSessionJoinedEventArgsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionJoinedEventArgsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionJoinedEventArgsFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IAllJoynSessionJoinedEventArgsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, session: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAllJoynSessionJoinedEventArgsFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionJoinedEventArgsFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionJoinedEventArgsFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IAllJoynSessionJoinedEventArgsFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, session: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&session as *const <AllJoynSession as ::windows::core::Abi>::Abi as *const <AllJoynSession as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2042,7 +2042,7 @@ impl IAllJoynSessionJoinedEventArgsFactoryVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynSessionLostEventArgsImpl: Sized {
+pub trait IAllJoynSessionLostEventArgs_Impl: Sized {
     fn Reason(&mut self) -> ::windows::core::Result<AllJoynSessionLostReason>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -2050,9 +2050,9 @@ impl ::windows::core::RuntimeName for IAllJoynSessionLostEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynSessionLostEventArgs";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynSessionLostEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionLostEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionLostEventArgsVtbl {
-        unsafe extern "system" fn Reason<Impl: IAllJoynSessionLostEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AllJoynSessionLostReason) -> ::windows::core::HRESULT {
+impl IAllJoynSessionLostEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionLostEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionLostEventArgs_Vtbl {
+        unsafe extern "system" fn Reason<Impl: IAllJoynSessionLostEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AllJoynSessionLostReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reason() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2070,7 +2070,7 @@ impl IAllJoynSessionLostEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynSessionLostEventArgsFactoryImpl: Sized {
+pub trait IAllJoynSessionLostEventArgsFactory_Impl: Sized {
     fn Create(&mut self, reason: AllJoynSessionLostReason) -> ::windows::core::Result<AllJoynSessionLostEventArgs>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -2078,9 +2078,9 @@ impl ::windows::core::RuntimeName for IAllJoynSessionLostEventArgsFactory {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynSessionLostEventArgsFactory";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynSessionLostEventArgsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionLostEventArgsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionLostEventArgsFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IAllJoynSessionLostEventArgsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: AllJoynSessionLostReason, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAllJoynSessionLostEventArgsFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionLostEventArgsFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionLostEventArgsFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IAllJoynSessionLostEventArgsFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: AllJoynSessionLostReason, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(reason) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2101,7 +2101,7 @@ impl IAllJoynSessionLostEventArgsFactoryVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynSessionMemberAddedEventArgsImpl: Sized {
+pub trait IAllJoynSessionMemberAddedEventArgs_Impl: Sized {
     fn UniqueName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -2109,9 +2109,9 @@ impl ::windows::core::RuntimeName for IAllJoynSessionMemberAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynSessionMemberAddedEventArgs";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynSessionMemberAddedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionMemberAddedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionMemberAddedEventArgsVtbl {
-        unsafe extern "system" fn UniqueName<Impl: IAllJoynSessionMemberAddedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAllJoynSessionMemberAddedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionMemberAddedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionMemberAddedEventArgs_Vtbl {
+        unsafe extern "system" fn UniqueName<Impl: IAllJoynSessionMemberAddedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UniqueName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2132,7 +2132,7 @@ impl IAllJoynSessionMemberAddedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynSessionMemberAddedEventArgsFactoryImpl: Sized {
+pub trait IAllJoynSessionMemberAddedEventArgsFactory_Impl: Sized {
     fn Create(&mut self, uniquename: &::windows::core::HSTRING) -> ::windows::core::Result<AllJoynSessionMemberAddedEventArgs>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -2140,9 +2140,9 @@ impl ::windows::core::RuntimeName for IAllJoynSessionMemberAddedEventArgsFactory
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynSessionMemberAddedEventArgsFactory";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynSessionMemberAddedEventArgsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionMemberAddedEventArgsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionMemberAddedEventArgsFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IAllJoynSessionMemberAddedEventArgsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAllJoynSessionMemberAddedEventArgsFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionMemberAddedEventArgsFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionMemberAddedEventArgsFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IAllJoynSessionMemberAddedEventArgsFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&uniquename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2163,7 +2163,7 @@ impl IAllJoynSessionMemberAddedEventArgsFactoryVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynSessionMemberRemovedEventArgsImpl: Sized {
+pub trait IAllJoynSessionMemberRemovedEventArgs_Impl: Sized {
     fn UniqueName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -2171,9 +2171,9 @@ impl ::windows::core::RuntimeName for IAllJoynSessionMemberRemovedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynSessionMemberRemovedEventArgs";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynSessionMemberRemovedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionMemberRemovedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionMemberRemovedEventArgsVtbl {
-        unsafe extern "system" fn UniqueName<Impl: IAllJoynSessionMemberRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAllJoynSessionMemberRemovedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionMemberRemovedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionMemberRemovedEventArgs_Vtbl {
+        unsafe extern "system" fn UniqueName<Impl: IAllJoynSessionMemberRemovedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UniqueName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2194,7 +2194,7 @@ impl IAllJoynSessionMemberRemovedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynSessionMemberRemovedEventArgsFactoryImpl: Sized {
+pub trait IAllJoynSessionMemberRemovedEventArgsFactory_Impl: Sized {
     fn Create(&mut self, uniquename: &::windows::core::HSTRING) -> ::windows::core::Result<AllJoynSessionMemberRemovedEventArgs>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -2202,9 +2202,9 @@ impl ::windows::core::RuntimeName for IAllJoynSessionMemberRemovedEventArgsFacto
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynSessionMemberRemovedEventArgsFactory";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynSessionMemberRemovedEventArgsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionMemberRemovedEventArgsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionMemberRemovedEventArgsFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IAllJoynSessionMemberRemovedEventArgsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAllJoynSessionMemberRemovedEventArgsFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionMemberRemovedEventArgsFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionMemberRemovedEventArgsFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IAllJoynSessionMemberRemovedEventArgsFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&uniquename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2225,7 +2225,7 @@ impl IAllJoynSessionMemberRemovedEventArgsFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynSessionStaticsImpl: Sized {
+pub trait IAllJoynSessionStatics_Impl: Sized {
     fn GetFromServiceInfoAsync(&mut self, serviceinfo: &::core::option::Option<AllJoynServiceInfo>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynSession>>;
     fn GetFromServiceInfoAndBusAttachmentAsync(&mut self, serviceinfo: &::core::option::Option<AllJoynServiceInfo>, busattachment: &::core::option::Option<AllJoynBusAttachment>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynSession>>;
 }
@@ -2234,9 +2234,9 @@ impl ::windows::core::RuntimeName for IAllJoynSessionStatics {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynSessionStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynSessionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionStaticsVtbl {
-        unsafe extern "system" fn GetFromServiceInfoAsync<Impl: IAllJoynSessionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAllJoynSessionStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynSessionStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynSessionStatics_Vtbl {
+        unsafe extern "system" fn GetFromServiceInfoAsync<Impl: IAllJoynSessionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFromServiceInfoAsync(&*(&serviceinfo as *const <AllJoynServiceInfo as ::windows::core::Abi>::Abi as *const <AllJoynServiceInfo as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2247,7 +2247,7 @@ impl IAllJoynSessionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFromServiceInfoAndBusAttachmentAsync<Impl: IAllJoynSessionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceinfo: ::windows::core::RawPtr, busattachment: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFromServiceInfoAndBusAttachmentAsync<Impl: IAllJoynSessionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceinfo: ::windows::core::RawPtr, busattachment: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFromServiceInfoAndBusAttachmentAsync(&*(&serviceinfo as *const <AllJoynServiceInfo as ::windows::core::Abi>::Abi as *const <AllJoynServiceInfo as ::windows::core::DefaultType>::DefaultType), &*(&busattachment as *const <AllJoynBusAttachment as ::windows::core::Abi>::Abi as *const <AllJoynBusAttachment as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2269,7 +2269,7 @@ impl IAllJoynSessionStaticsVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynStatusStaticsImpl: Sized {
+pub trait IAllJoynStatusStatics_Impl: Sized {
     fn Ok(&mut self) -> ::windows::core::Result<i32>;
     fn Fail(&mut self) -> ::windows::core::Result<i32>;
     fn OperationTimedOut(&mut self) -> ::windows::core::Result<i32>;
@@ -2294,9 +2294,9 @@ impl ::windows::core::RuntimeName for IAllJoynStatusStatics {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynStatusStatics";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynStatusStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynStatusStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynStatusStaticsVtbl {
-        unsafe extern "system" fn Ok<Impl: IAllJoynStatusStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IAllJoynStatusStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynStatusStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynStatusStatics_Vtbl {
+        unsafe extern "system" fn Ok<Impl: IAllJoynStatusStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ok() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2307,7 +2307,7 @@ impl IAllJoynStatusStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Fail<Impl: IAllJoynStatusStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Fail<Impl: IAllJoynStatusStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Fail() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2318,7 +2318,7 @@ impl IAllJoynStatusStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OperationTimedOut<Impl: IAllJoynStatusStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OperationTimedOut<Impl: IAllJoynStatusStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OperationTimedOut() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2329,7 +2329,7 @@ impl IAllJoynStatusStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OtherEndClosed<Impl: IAllJoynStatusStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OtherEndClosed<Impl: IAllJoynStatusStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OtherEndClosed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2340,7 +2340,7 @@ impl IAllJoynStatusStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectionRefused<Impl: IAllJoynStatusStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectionRefused<Impl: IAllJoynStatusStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionRefused() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2351,7 +2351,7 @@ impl IAllJoynStatusStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AuthenticationFailed<Impl: IAllJoynStatusStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AuthenticationFailed<Impl: IAllJoynStatusStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticationFailed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2362,7 +2362,7 @@ impl IAllJoynStatusStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AuthenticationRejectedByUser<Impl: IAllJoynStatusStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AuthenticationRejectedByUser<Impl: IAllJoynStatusStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticationRejectedByUser() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2373,7 +2373,7 @@ impl IAllJoynStatusStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SslConnectFailed<Impl: IAllJoynStatusStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SslConnectFailed<Impl: IAllJoynStatusStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SslConnectFailed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2384,7 +2384,7 @@ impl IAllJoynStatusStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SslIdentityVerificationFailed<Impl: IAllJoynStatusStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SslIdentityVerificationFailed<Impl: IAllJoynStatusStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SslIdentityVerificationFailed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2395,7 +2395,7 @@ impl IAllJoynStatusStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InsufficientSecurity<Impl: IAllJoynStatusStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsufficientSecurity<Impl: IAllJoynStatusStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InsufficientSecurity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2406,7 +2406,7 @@ impl IAllJoynStatusStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InvalidArgument1<Impl: IAllJoynStatusStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InvalidArgument1<Impl: IAllJoynStatusStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InvalidArgument1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2417,7 +2417,7 @@ impl IAllJoynStatusStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InvalidArgument2<Impl: IAllJoynStatusStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InvalidArgument2<Impl: IAllJoynStatusStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InvalidArgument2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2428,7 +2428,7 @@ impl IAllJoynStatusStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InvalidArgument3<Impl: IAllJoynStatusStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InvalidArgument3<Impl: IAllJoynStatusStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InvalidArgument3() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2439,7 +2439,7 @@ impl IAllJoynStatusStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InvalidArgument4<Impl: IAllJoynStatusStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InvalidArgument4<Impl: IAllJoynStatusStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InvalidArgument4() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2450,7 +2450,7 @@ impl IAllJoynStatusStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InvalidArgument5<Impl: IAllJoynStatusStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InvalidArgument5<Impl: IAllJoynStatusStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InvalidArgument5() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2461,7 +2461,7 @@ impl IAllJoynStatusStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InvalidArgument6<Impl: IAllJoynStatusStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InvalidArgument6<Impl: IAllJoynStatusStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InvalidArgument6() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2472,7 +2472,7 @@ impl IAllJoynStatusStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InvalidArgument7<Impl: IAllJoynStatusStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InvalidArgument7<Impl: IAllJoynStatusStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InvalidArgument7() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2483,7 +2483,7 @@ impl IAllJoynStatusStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InvalidArgument8<Impl: IAllJoynStatusStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InvalidArgument8<Impl: IAllJoynStatusStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InvalidArgument8() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2521,7 +2521,7 @@ impl IAllJoynStatusStaticsVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynWatcherStoppedEventArgsImpl: Sized {
+pub trait IAllJoynWatcherStoppedEventArgs_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -2529,9 +2529,9 @@ impl ::windows::core::RuntimeName for IAllJoynWatcherStoppedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynWatcherStoppedEventArgs";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynWatcherStoppedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynWatcherStoppedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynWatcherStoppedEventArgsVtbl {
-        unsafe extern "system" fn Status<Impl: IAllJoynWatcherStoppedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IAllJoynWatcherStoppedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynWatcherStoppedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynWatcherStoppedEventArgs_Vtbl {
+        unsafe extern "system" fn Status<Impl: IAllJoynWatcherStoppedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2549,7 +2549,7 @@ impl IAllJoynWatcherStoppedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAllJoynWatcherStoppedEventArgsFactoryImpl: Sized {
+pub trait IAllJoynWatcherStoppedEventArgsFactory_Impl: Sized {
     fn Create(&mut self, status: i32) -> ::windows::core::Result<AllJoynWatcherStoppedEventArgs>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -2557,9 +2557,9 @@ impl ::windows::core::RuntimeName for IAllJoynWatcherStoppedEventArgsFactory {
     const NAME: &'static str = "Windows.Devices.AllJoyn.IAllJoynWatcherStoppedEventArgsFactory";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IAllJoynWatcherStoppedEventArgsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynWatcherStoppedEventArgsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynWatcherStoppedEventArgsFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IAllJoynWatcherStoppedEventArgsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAllJoynWatcherStoppedEventArgsFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynWatcherStoppedEventArgsFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAllJoynWatcherStoppedEventArgsFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IAllJoynWatcherStoppedEventArgsFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(status) {
                 ::core::result::Result::Ok(ok__) => {

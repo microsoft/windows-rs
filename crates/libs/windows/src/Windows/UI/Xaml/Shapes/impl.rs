@@ -1,12 +1,12 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IEllipseImpl: Sized {}
+pub trait IEllipse_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IEllipse {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.IEllipse";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEllipseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEllipseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEllipseVtbl {
+impl IEllipse_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEllipse_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEllipse_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IEllipse, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -14,7 +14,7 @@ impl IEllipseVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILineImpl: Sized {
+pub trait ILine_Impl: Sized {
     fn X1(&mut self) -> ::windows::core::Result<f64>;
     fn SetX1(&mut self, value: f64) -> ::windows::core::Result<()>;
     fn Y1(&mut self) -> ::windows::core::Result<f64>;
@@ -29,9 +29,9 @@ impl ::windows::core::RuntimeName for ILine {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.ILine";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILineVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineVtbl {
-        unsafe extern "system" fn X1<Impl: ILineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+impl ILine_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILine_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILine_Vtbl {
+        unsafe extern "system" fn X1<Impl: ILine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).X1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -42,11 +42,11 @@ impl ILineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetX1<Impl: ILineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetX1<Impl: ILine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetX1(value).into()
         }
-        unsafe extern "system" fn Y1<Impl: ILineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Y1<Impl: ILine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Y1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -57,11 +57,11 @@ impl ILineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetY1<Impl: ILineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetY1<Impl: ILine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetY1(value).into()
         }
-        unsafe extern "system" fn X2<Impl: ILineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn X2<Impl: ILine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).X2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -72,11 +72,11 @@ impl ILineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetX2<Impl: ILineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetX2<Impl: ILine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetX2(value).into()
         }
-        unsafe extern "system" fn Y2<Impl: ILineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Y2<Impl: ILine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Y2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -87,7 +87,7 @@ impl ILineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetY2<Impl: ILineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetY2<Impl: ILine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetY2(value).into()
         }
@@ -108,7 +108,7 @@ impl ILineVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILineStaticsImpl: Sized {
+pub trait ILineStatics_Impl: Sized {
     fn X1Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
     fn Y1Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
     fn X2Property(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
@@ -119,9 +119,9 @@ impl ::windows::core::RuntimeName for ILineStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.ILineStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILineStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineStaticsVtbl {
-        unsafe extern "system" fn X1Property<Impl: ILineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILineStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineStatics_Vtbl {
+        unsafe extern "system" fn X1Property<Impl: ILineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).X1Property() {
                 ::core::result::Result::Ok(ok__) => {
@@ -132,7 +132,7 @@ impl ILineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Y1Property<Impl: ILineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Y1Property<Impl: ILineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Y1Property() {
                 ::core::result::Result::Ok(ok__) => {
@@ -143,7 +143,7 @@ impl ILineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn X2Property<Impl: ILineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn X2Property<Impl: ILineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).X2Property() {
                 ::core::result::Result::Ok(ok__) => {
@@ -154,7 +154,7 @@ impl ILineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Y2Property<Impl: ILineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Y2Property<Impl: ILineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Y2Property() {
                 ::core::result::Result::Ok(ok__) => {
@@ -178,7 +178,7 @@ impl ILineStaticsVtbl {
     }
 }
 #[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
-pub trait IPathImpl: Sized {
+pub trait IPath_Impl: Sized {
     fn Data(&mut self) -> ::windows::core::Result<super::Media::Geometry>;
     fn SetData(&mut self, value: &::core::option::Option<super::Media::Geometry>) -> ::windows::core::Result<()>;
 }
@@ -187,9 +187,9 @@ impl ::windows::core::RuntimeName for IPath {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.IPath";
 }
 #[cfg(all(feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
-impl IPathVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPathImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPathVtbl {
-        unsafe extern "system" fn Data<Impl: IPathImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPath_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPath_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPath_Vtbl {
+        unsafe extern "system" fn Data<Impl: IPath_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
                 ::core::result::Result::Ok(ok__) => {
@@ -200,7 +200,7 @@ impl IPathVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetData<Impl: IPathImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetData<Impl: IPath_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetData(&*(&value as *const <super::Media::Geometry as ::windows::core::Abi>::Abi as *const <super::Media::Geometry as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -215,7 +215,7 @@ impl IPathVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPathFactoryImpl: Sized {
+pub trait IPathFactory_Impl: Sized {
     fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<Path>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -223,9 +223,9 @@ impl ::windows::core::RuntimeName for IPathFactory {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.IPathFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPathFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPathFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPathFactoryVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: IPathFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPathFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPathFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPathFactory_Vtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IPathFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -243,7 +243,7 @@ impl IPathFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPathStaticsImpl: Sized {
+pub trait IPathStatics_Impl: Sized {
     fn DataProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -251,9 +251,9 @@ impl ::windows::core::RuntimeName for IPathStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.IPathStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPathStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPathStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPathStaticsVtbl {
-        unsafe extern "system" fn DataProperty<Impl: IPathStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPathStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPathStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPathStatics_Vtbl {
+        unsafe extern "system" fn DataProperty<Impl: IPathStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -271,7 +271,7 @@ impl IPathStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
-pub trait IPolygonImpl: Sized {
+pub trait IPolygon_Impl: Sized {
     fn FillRule(&mut self) -> ::windows::core::Result<super::Media::FillRule>;
     fn SetFillRule(&mut self, value: super::Media::FillRule) -> ::windows::core::Result<()>;
     fn Points(&mut self) -> ::windows::core::Result<super::Media::PointCollection>;
@@ -282,9 +282,9 @@ impl ::windows::core::RuntimeName for IPolygon {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.IPolygon";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
-impl IPolygonVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPolygonImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPolygonVtbl {
-        unsafe extern "system" fn FillRule<Impl: IPolygonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Media::FillRule) -> ::windows::core::HRESULT {
+impl IPolygon_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPolygon_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPolygon_Vtbl {
+        unsafe extern "system" fn FillRule<Impl: IPolygon_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Media::FillRule) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FillRule() {
                 ::core::result::Result::Ok(ok__) => {
@@ -295,11 +295,11 @@ impl IPolygonVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFillRule<Impl: IPolygonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Media::FillRule) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFillRule<Impl: IPolygon_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Media::FillRule) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFillRule(value).into()
         }
-        unsafe extern "system" fn Points<Impl: IPolygonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Points<Impl: IPolygon_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Points() {
                 ::core::result::Result::Ok(ok__) => {
@@ -310,7 +310,7 @@ impl IPolygonVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPoints<Impl: IPolygonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPoints<Impl: IPolygon_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPoints(&*(&value as *const <super::Media::PointCollection as ::windows::core::Abi>::Abi as *const <super::Media::PointCollection as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -327,7 +327,7 @@ impl IPolygonVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPolygonStaticsImpl: Sized {
+pub trait IPolygonStatics_Impl: Sized {
     fn FillRuleProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
     fn PointsProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
@@ -336,9 +336,9 @@ impl ::windows::core::RuntimeName for IPolygonStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.IPolygonStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPolygonStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPolygonStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPolygonStaticsVtbl {
-        unsafe extern "system" fn FillRuleProperty<Impl: IPolygonStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPolygonStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPolygonStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPolygonStatics_Vtbl {
+        unsafe extern "system" fn FillRuleProperty<Impl: IPolygonStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FillRuleProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -349,7 +349,7 @@ impl IPolygonStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PointsProperty<Impl: IPolygonStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PointsProperty<Impl: IPolygonStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointsProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -371,7 +371,7 @@ impl IPolygonStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
-pub trait IPolylineImpl: Sized {
+pub trait IPolyline_Impl: Sized {
     fn FillRule(&mut self) -> ::windows::core::Result<super::Media::FillRule>;
     fn SetFillRule(&mut self, value: super::Media::FillRule) -> ::windows::core::Result<()>;
     fn Points(&mut self) -> ::windows::core::Result<super::Media::PointCollection>;
@@ -382,9 +382,9 @@ impl ::windows::core::RuntimeName for IPolyline {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.IPolyline";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
-impl IPolylineVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPolylineImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPolylineVtbl {
-        unsafe extern "system" fn FillRule<Impl: IPolylineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Media::FillRule) -> ::windows::core::HRESULT {
+impl IPolyline_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPolyline_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPolyline_Vtbl {
+        unsafe extern "system" fn FillRule<Impl: IPolyline_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Media::FillRule) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FillRule() {
                 ::core::result::Result::Ok(ok__) => {
@@ -395,11 +395,11 @@ impl IPolylineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFillRule<Impl: IPolylineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Media::FillRule) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFillRule<Impl: IPolyline_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Media::FillRule) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFillRule(value).into()
         }
-        unsafe extern "system" fn Points<Impl: IPolylineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Points<Impl: IPolyline_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Points() {
                 ::core::result::Result::Ok(ok__) => {
@@ -410,7 +410,7 @@ impl IPolylineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPoints<Impl: IPolylineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPoints<Impl: IPolyline_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPoints(&*(&value as *const <super::Media::PointCollection as ::windows::core::Abi>::Abi as *const <super::Media::PointCollection as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -427,7 +427,7 @@ impl IPolylineVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPolylineStaticsImpl: Sized {
+pub trait IPolylineStatics_Impl: Sized {
     fn FillRuleProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
     fn PointsProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
@@ -436,9 +436,9 @@ impl ::windows::core::RuntimeName for IPolylineStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.IPolylineStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPolylineStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPolylineStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPolylineStaticsVtbl {
-        unsafe extern "system" fn FillRuleProperty<Impl: IPolylineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPolylineStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPolylineStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPolylineStatics_Vtbl {
+        unsafe extern "system" fn FillRuleProperty<Impl: IPolylineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FillRuleProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -449,7 +449,7 @@ impl IPolylineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PointsProperty<Impl: IPolylineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PointsProperty<Impl: IPolylineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointsProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -471,7 +471,7 @@ impl IPolylineStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRectangleImpl: Sized {
+pub trait IRectangle_Impl: Sized {
     fn RadiusX(&mut self) -> ::windows::core::Result<f64>;
     fn SetRadiusX(&mut self, value: f64) -> ::windows::core::Result<()>;
     fn RadiusY(&mut self) -> ::windows::core::Result<f64>;
@@ -482,9 +482,9 @@ impl ::windows::core::RuntimeName for IRectangle {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.IRectangle";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRectangleVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRectangleImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRectangleVtbl {
-        unsafe extern "system" fn RadiusX<Impl: IRectangleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+impl IRectangle_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRectangle_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRectangle_Vtbl {
+        unsafe extern "system" fn RadiusX<Impl: IRectangle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RadiusX() {
                 ::core::result::Result::Ok(ok__) => {
@@ -495,11 +495,11 @@ impl IRectangleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRadiusX<Impl: IRectangleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRadiusX<Impl: IRectangle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRadiusX(value).into()
         }
-        unsafe extern "system" fn RadiusY<Impl: IRectangleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RadiusY<Impl: IRectangle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RadiusY() {
                 ::core::result::Result::Ok(ok__) => {
@@ -510,7 +510,7 @@ impl IRectangleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRadiusY<Impl: IRectangleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRadiusY<Impl: IRectangle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRadiusY(value).into()
         }
@@ -527,7 +527,7 @@ impl IRectangleVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRectangleStaticsImpl: Sized {
+pub trait IRectangleStatics_Impl: Sized {
     fn RadiusXProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
     fn RadiusYProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
 }
@@ -536,9 +536,9 @@ impl ::windows::core::RuntimeName for IRectangleStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.IRectangleStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRectangleStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRectangleStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRectangleStaticsVtbl {
-        unsafe extern "system" fn RadiusXProperty<Impl: IRectangleStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRectangleStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRectangleStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRectangleStatics_Vtbl {
+        unsafe extern "system" fn RadiusXProperty<Impl: IRectangleStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RadiusXProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -549,7 +549,7 @@ impl IRectangleStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RadiusYProperty<Impl: IRectangleStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RadiusYProperty<Impl: IRectangleStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RadiusYProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -571,7 +571,7 @@ impl IRectangleStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
-pub trait IShapeImpl: Sized {
+pub trait IShape_Impl: Sized {
     fn Fill(&mut self) -> ::windows::core::Result<super::Media::Brush>;
     fn SetFill(&mut self, value: &::core::option::Option<super::Media::Brush>) -> ::windows::core::Result<()>;
     fn Stroke(&mut self) -> ::windows::core::Result<super::Media::Brush>;
@@ -601,9 +601,9 @@ impl ::windows::core::RuntimeName for IShape {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.IShape";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media", feature = "implement_exclusive"))]
-impl IShapeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShapeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShapeVtbl {
-        unsafe extern "system" fn Fill<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IShape_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShape_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShape_Vtbl {
+        unsafe extern "system" fn Fill<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Fill() {
                 ::core::result::Result::Ok(ok__) => {
@@ -614,11 +614,11 @@ impl IShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFill<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFill<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFill(&*(&value as *const <super::Media::Brush as ::windows::core::Abi>::Abi as *const <super::Media::Brush as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Stroke<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stroke<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Stroke() {
                 ::core::result::Result::Ok(ok__) => {
@@ -629,11 +629,11 @@ impl IShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStroke<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStroke<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStroke(&*(&value as *const <super::Media::Brush as ::windows::core::Abi>::Abi as *const <super::Media::Brush as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StrokeMiterLimit<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeMiterLimit<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeMiterLimit() {
                 ::core::result::Result::Ok(ok__) => {
@@ -644,11 +644,11 @@ impl IShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStrokeMiterLimit<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStrokeMiterLimit<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStrokeMiterLimit(value).into()
         }
-        unsafe extern "system" fn StrokeThickness<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeThickness<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeThickness() {
                 ::core::result::Result::Ok(ok__) => {
@@ -659,11 +659,11 @@ impl IShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStrokeThickness<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStrokeThickness<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStrokeThickness(value).into()
         }
-        unsafe extern "system" fn StrokeStartLineCap<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Media::PenLineCap) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeStartLineCap<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Media::PenLineCap) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeStartLineCap() {
                 ::core::result::Result::Ok(ok__) => {
@@ -674,11 +674,11 @@ impl IShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStrokeStartLineCap<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Media::PenLineCap) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStrokeStartLineCap<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Media::PenLineCap) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStrokeStartLineCap(value).into()
         }
-        unsafe extern "system" fn StrokeEndLineCap<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Media::PenLineCap) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeEndLineCap<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Media::PenLineCap) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeEndLineCap() {
                 ::core::result::Result::Ok(ok__) => {
@@ -689,11 +689,11 @@ impl IShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStrokeEndLineCap<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Media::PenLineCap) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStrokeEndLineCap<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Media::PenLineCap) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStrokeEndLineCap(value).into()
         }
-        unsafe extern "system" fn StrokeLineJoin<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Media::PenLineJoin) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeLineJoin<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Media::PenLineJoin) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeLineJoin() {
                 ::core::result::Result::Ok(ok__) => {
@@ -704,11 +704,11 @@ impl IShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStrokeLineJoin<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Media::PenLineJoin) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStrokeLineJoin<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Media::PenLineJoin) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStrokeLineJoin(value).into()
         }
-        unsafe extern "system" fn StrokeDashOffset<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeDashOffset<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeDashOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -719,11 +719,11 @@ impl IShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStrokeDashOffset<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStrokeDashOffset<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStrokeDashOffset(value).into()
         }
-        unsafe extern "system" fn StrokeDashCap<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Media::PenLineCap) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeDashCap<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Media::PenLineCap) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeDashCap() {
                 ::core::result::Result::Ok(ok__) => {
@@ -734,11 +734,11 @@ impl IShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStrokeDashCap<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Media::PenLineCap) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStrokeDashCap<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Media::PenLineCap) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStrokeDashCap(value).into()
         }
-        unsafe extern "system" fn StrokeDashArray<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeDashArray<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeDashArray() {
                 ::core::result::Result::Ok(ok__) => {
@@ -749,11 +749,11 @@ impl IShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStrokeDashArray<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStrokeDashArray<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStrokeDashArray(&*(&value as *const <super::Media::DoubleCollection as ::windows::core::Abi>::Abi as *const <super::Media::DoubleCollection as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Stretch<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Media::Stretch) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stretch<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Media::Stretch) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Stretch() {
                 ::core::result::Result::Ok(ok__) => {
@@ -764,11 +764,11 @@ impl IShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStretch<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Media::Stretch) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStretch<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Media::Stretch) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStretch(value).into()
         }
-        unsafe extern "system" fn GeometryTransform<Impl: IShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GeometryTransform<Impl: IShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GeometryTransform() {
                 ::core::result::Result::Ok(ok__) => {
@@ -811,7 +811,7 @@ impl IShapeVtbl {
     }
 }
 #[cfg(all(feature = "UI_Composition", feature = "implement_exclusive"))]
-pub trait IShape2Impl: Sized {
+pub trait IShape2_Impl: Sized {
     fn GetAlphaMask(&mut self) -> ::windows::core::Result<super::super::Composition::CompositionBrush>;
 }
 #[cfg(all(feature = "UI_Composition", feature = "implement_exclusive"))]
@@ -819,9 +819,9 @@ impl ::windows::core::RuntimeName for IShape2 {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.IShape2";
 }
 #[cfg(all(feature = "UI_Composition", feature = "implement_exclusive"))]
-impl IShape2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShape2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShape2Vtbl {
-        unsafe extern "system" fn GetAlphaMask<Impl: IShape2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IShape2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShape2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShape2_Vtbl {
+        unsafe extern "system" fn GetAlphaMask<Impl: IShape2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAlphaMask() {
                 ::core::result::Result::Ok(ok__) => {
@@ -839,7 +839,7 @@ impl IShape2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IShapeFactoryImpl: Sized {
+pub trait IShapeFactory_Impl: Sized {
     fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<Shape>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -847,9 +847,9 @@ impl ::windows::core::RuntimeName for IShapeFactory {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.IShapeFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IShapeFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShapeFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShapeFactoryVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: IShapeFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IShapeFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShapeFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShapeFactory_Vtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IShapeFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -867,7 +867,7 @@ impl IShapeFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IShapeStaticsImpl: Sized {
+pub trait IShapeStatics_Impl: Sized {
     fn FillProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
     fn StrokeProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
     fn StrokeMiterLimitProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
@@ -885,9 +885,9 @@ impl ::windows::core::RuntimeName for IShapeStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.IShapeStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IShapeStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShapeStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShapeStaticsVtbl {
-        unsafe extern "system" fn FillProperty<Impl: IShapeStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IShapeStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShapeStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShapeStatics_Vtbl {
+        unsafe extern "system" fn FillProperty<Impl: IShapeStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FillProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -898,7 +898,7 @@ impl IShapeStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StrokeProperty<Impl: IShapeStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeProperty<Impl: IShapeStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -909,7 +909,7 @@ impl IShapeStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StrokeMiterLimitProperty<Impl: IShapeStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeMiterLimitProperty<Impl: IShapeStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeMiterLimitProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -920,7 +920,7 @@ impl IShapeStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StrokeThicknessProperty<Impl: IShapeStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeThicknessProperty<Impl: IShapeStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeThicknessProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -931,7 +931,7 @@ impl IShapeStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StrokeStartLineCapProperty<Impl: IShapeStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeStartLineCapProperty<Impl: IShapeStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeStartLineCapProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -942,7 +942,7 @@ impl IShapeStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StrokeEndLineCapProperty<Impl: IShapeStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeEndLineCapProperty<Impl: IShapeStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeEndLineCapProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -953,7 +953,7 @@ impl IShapeStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StrokeLineJoinProperty<Impl: IShapeStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeLineJoinProperty<Impl: IShapeStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeLineJoinProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -964,7 +964,7 @@ impl IShapeStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StrokeDashOffsetProperty<Impl: IShapeStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeDashOffsetProperty<Impl: IShapeStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeDashOffsetProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -975,7 +975,7 @@ impl IShapeStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StrokeDashCapProperty<Impl: IShapeStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeDashCapProperty<Impl: IShapeStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeDashCapProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -986,7 +986,7 @@ impl IShapeStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StrokeDashArrayProperty<Impl: IShapeStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeDashArrayProperty<Impl: IShapeStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeDashArrayProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -997,7 +997,7 @@ impl IShapeStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StretchProperty<Impl: IShapeStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StretchProperty<Impl: IShapeStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StretchProperty() {
                 ::core::result::Result::Ok(ok__) => {

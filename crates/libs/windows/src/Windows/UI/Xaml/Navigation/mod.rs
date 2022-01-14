@@ -64,7 +64,7 @@ unsafe impl ::windows::core::RuntimeType for FrameNavigationOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Navigation.FrameNavigationOptions;{b539ad2a-9fb7-520a-8f41-57a50c59cf92})");
 }
 unsafe impl ::windows::core::Interface for FrameNavigationOptions {
-    type Vtable = IFrameNavigationOptionsVtbl;
+    type Vtable = IFrameNavigationOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb539ad2a_9fb7_520a_8f41_57a50c59cf92);
 }
 impl ::windows::core::RuntimeName for FrameNavigationOptions {
@@ -116,12 +116,12 @@ unsafe impl ::core::marker::Sync for FrameNavigationOptions {}
 #[repr(transparent)]
 pub struct IFrameNavigationOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameNavigationOptions {
-    type Vtable = IFrameNavigationOptionsVtbl;
+    type Vtable = IFrameNavigationOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb539ad2a_9fb7_520a_8f41_57a50c59cf92);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFrameNavigationOptionsVtbl {
+pub struct IFrameNavigationOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsNavigationStackEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsNavigationStackEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -138,12 +138,12 @@ pub struct IFrameNavigationOptionsVtbl {
 #[repr(transparent)]
 pub struct IFrameNavigationOptionsFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameNavigationOptionsFactory {
-    type Vtable = IFrameNavigationOptionsFactoryVtbl;
+    type Vtable = IFrameNavigationOptionsFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4681e41_7e6d_5c7c_aca0_478681cc6fce);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFrameNavigationOptionsFactoryVtbl {
+pub struct IFrameNavigationOptionsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -151,12 +151,12 @@ pub struct IFrameNavigationOptionsFactoryVtbl {
 #[repr(transparent)]
 pub struct INavigatingCancelEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INavigatingCancelEventArgs {
-    type Vtable = INavigatingCancelEventArgsVtbl;
+    type Vtable = INavigatingCancelEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd1d67ae_eafb_4079_be80_6dc92a03aedf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INavigatingCancelEventArgsVtbl {
+pub struct INavigatingCancelEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetCancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -170,12 +170,12 @@ pub struct INavigatingCancelEventArgsVtbl {
 #[repr(transparent)]
 pub struct INavigatingCancelEventArgs2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INavigatingCancelEventArgs2 {
-    type Vtable = INavigatingCancelEventArgs2Vtbl;
+    type Vtable = INavigatingCancelEventArgs2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5407b704_8147_4343_838f_dd1ee908c137);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INavigatingCancelEventArgs2Vtbl {
+pub struct INavigatingCancelEventArgs2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Parameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Xaml_Media_Animation")]
@@ -187,12 +187,12 @@ pub struct INavigatingCancelEventArgs2Vtbl {
 #[repr(transparent)]
 pub struct INavigationEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INavigationEventArgs {
-    type Vtable = INavigationEventArgsVtbl;
+    type Vtable = INavigationEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6aa9834_6691_44d1_bdf7_58820c27b0d0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INavigationEventArgsVtbl {
+pub struct INavigationEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Parameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -214,12 +214,12 @@ pub struct INavigationEventArgsVtbl {
 #[repr(transparent)]
 pub struct INavigationEventArgs2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INavigationEventArgs2 {
-    type Vtable = INavigationEventArgs2Vtbl;
+    type Vtable = INavigationEventArgs2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbff71d9_979a_4b2e_a49b_3bb17fdef574);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INavigationEventArgs2Vtbl {
+pub struct INavigationEventArgs2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Media_Animation")]
     pub NavigationTransitionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -230,12 +230,12 @@ pub struct INavigationEventArgs2Vtbl {
 #[repr(transparent)]
 pub struct INavigationFailedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INavigationFailedEventArgs {
-    type Vtable = INavigationFailedEventArgsVtbl;
+    type Vtable = INavigationFailedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11c1dff7_36c2_4102_b2ef_0217a97289b3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INavigationFailedEventArgsVtbl {
+pub struct INavigationFailedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Exception: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -249,12 +249,12 @@ pub struct INavigationFailedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPageStackEntry(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPageStackEntry {
-    type Vtable = IPageStackEntryVtbl;
+    type Vtable = IPageStackEntry_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef8814a6_9388_4aca_8572_405194069080);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPageStackEntryVtbl {
+pub struct IPageStackEntry_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Interop")]
     pub SourcePageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<super::Interop::TypeName>) -> ::windows::core::HRESULT,
@@ -270,12 +270,12 @@ pub struct IPageStackEntryVtbl {
 #[repr(transparent)]
 pub struct IPageStackEntryFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPageStackEntryFactory {
-    type Vtable = IPageStackEntryFactoryVtbl;
+    type Vtable = IPageStackEntryFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4454048a_a8b9_4f78_9b84_1f51f58851ff);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPageStackEntryFactoryVtbl {
+pub struct IPageStackEntryFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "UI_Xaml_Interop", feature = "UI_Xaml_Media_Animation"))]
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcepagetype: ::core::mem::ManuallyDrop<super::Interop::TypeName>, parameter: *mut ::core::ffi::c_void, navigationtransitioninfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -286,12 +286,12 @@ pub struct IPageStackEntryFactoryVtbl {
 #[repr(transparent)]
 pub struct IPageStackEntryStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPageStackEntryStatics {
-    type Vtable = IPageStackEntryStaticsVtbl;
+    type Vtable = IPageStackEntryStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaceff8e3_246c_4033_9f01_01cb0da5254e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPageStackEntryStaticsVtbl {
+pub struct IPageStackEntryStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SourcePageTypeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -311,12 +311,12 @@ impl LoadCompletedEventHandler {
 }
 #[repr(C)]
 struct LoadCompletedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<NavigationEventArgs>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const LoadCompletedEventHandlerVtbl,
+    vtable: *const LoadCompletedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<NavigationEventArgs>) -> ::windows::core::Result<()> + 'static> LoadCompletedEventHandlerBox<F> {
-    const VTABLE: LoadCompletedEventHandlerVtbl = LoadCompletedEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: LoadCompletedEventHandler_Vtbl = LoadCompletedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<LoadCompletedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -361,7 +361,7 @@ impl ::core::fmt::Debug for LoadCompletedEventHandler {
     }
 }
 unsafe impl ::windows::core::Interface for LoadCompletedEventHandler {
-    type Vtable = LoadCompletedEventHandlerVtbl;
+    type Vtable = LoadCompletedEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaebaf785_43fc_4e2c_95c3_97ae84eabc8e);
 }
 unsafe impl ::windows::core::RuntimeType for LoadCompletedEventHandler {
@@ -369,7 +369,7 @@ unsafe impl ::windows::core::RuntimeType for LoadCompletedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct LoadCompletedEventHandlerVtbl {
+pub struct LoadCompletedEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -389,12 +389,12 @@ impl NavigatedEventHandler {
 }
 #[repr(C)]
 struct NavigatedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<NavigationEventArgs>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const NavigatedEventHandlerVtbl,
+    vtable: *const NavigatedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<NavigationEventArgs>) -> ::windows::core::Result<()> + 'static> NavigatedEventHandlerBox<F> {
-    const VTABLE: NavigatedEventHandlerVtbl = NavigatedEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: NavigatedEventHandler_Vtbl = NavigatedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<NavigatedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -439,7 +439,7 @@ impl ::core::fmt::Debug for NavigatedEventHandler {
     }
 }
 unsafe impl ::windows::core::Interface for NavigatedEventHandler {
-    type Vtable = NavigatedEventHandlerVtbl;
+    type Vtable = NavigatedEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bd1cf54_23cf_4cce_b2f5_4ce78d96896e);
 }
 unsafe impl ::windows::core::RuntimeType for NavigatedEventHandler {
@@ -447,7 +447,7 @@ unsafe impl ::windows::core::RuntimeType for NavigatedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct NavigatedEventHandlerVtbl {
+pub struct NavigatedEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -523,7 +523,7 @@ unsafe impl ::windows::core::RuntimeType for NavigatingCancelEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Navigation.NavigatingCancelEventArgs;{fd1d67ae-eafb-4079-be80-6dc92a03aedf})");
 }
 unsafe impl ::windows::core::Interface for NavigatingCancelEventArgs {
-    type Vtable = INavigatingCancelEventArgsVtbl;
+    type Vtable = INavigatingCancelEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd1d67ae_eafb_4079_be80_6dc92a03aedf);
 }
 impl ::windows::core::RuntimeName for NavigatingCancelEventArgs {
@@ -587,12 +587,12 @@ impl NavigatingCancelEventHandler {
 }
 #[repr(C)]
 struct NavigatingCancelEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<NavigatingCancelEventArgs>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const NavigatingCancelEventHandlerVtbl,
+    vtable: *const NavigatingCancelEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<NavigatingCancelEventArgs>) -> ::windows::core::Result<()> + 'static> NavigatingCancelEventHandlerBox<F> {
-    const VTABLE: NavigatingCancelEventHandlerVtbl = NavigatingCancelEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: NavigatingCancelEventHandler_Vtbl = NavigatingCancelEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<NavigatingCancelEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -637,7 +637,7 @@ impl ::core::fmt::Debug for NavigatingCancelEventHandler {
     }
 }
 unsafe impl ::windows::core::Interface for NavigatingCancelEventHandler {
-    type Vtable = NavigatingCancelEventHandlerVtbl;
+    type Vtable = NavigatingCancelEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75d6a78f_a302_4489_9898_24ea49182910);
 }
 unsafe impl ::windows::core::RuntimeType for NavigatingCancelEventHandler {
@@ -645,7 +645,7 @@ unsafe impl ::windows::core::RuntimeType for NavigatingCancelEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct NavigatingCancelEventHandlerVtbl {
+pub struct NavigatingCancelEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -765,7 +765,7 @@ unsafe impl ::windows::core::RuntimeType for NavigationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Navigation.NavigationEventArgs;{b6aa9834-6691-44d1-bdf7-58820c27b0d0})");
 }
 unsafe impl ::windows::core::Interface for NavigationEventArgs {
-    type Vtable = INavigationEventArgsVtbl;
+    type Vtable = INavigationEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6aa9834_6691_44d1_bdf7_58820c27b0d0);
 }
 impl ::windows::core::RuntimeName for NavigationEventArgs {
@@ -868,7 +868,7 @@ unsafe impl ::windows::core::RuntimeType for NavigationFailedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Navigation.NavigationFailedEventArgs;{11c1dff7-36c2-4102-b2ef-0217a97289b3})");
 }
 unsafe impl ::windows::core::Interface for NavigationFailedEventArgs {
-    type Vtable = INavigationFailedEventArgsVtbl;
+    type Vtable = INavigationFailedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11c1dff7_36c2_4102_b2ef_0217a97289b3);
 }
 impl ::windows::core::RuntimeName for NavigationFailedEventArgs {
@@ -932,12 +932,12 @@ impl NavigationFailedEventHandler {
 }
 #[repr(C)]
 struct NavigationFailedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<NavigationFailedEventArgs>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const NavigationFailedEventHandlerVtbl,
+    vtable: *const NavigationFailedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<NavigationFailedEventArgs>) -> ::windows::core::Result<()> + 'static> NavigationFailedEventHandlerBox<F> {
-    const VTABLE: NavigationFailedEventHandlerVtbl = NavigationFailedEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: NavigationFailedEventHandler_Vtbl = NavigationFailedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<NavigationFailedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -982,7 +982,7 @@ impl ::core::fmt::Debug for NavigationFailedEventHandler {
     }
 }
 unsafe impl ::windows::core::Interface for NavigationFailedEventHandler {
-    type Vtable = NavigationFailedEventHandlerVtbl;
+    type Vtable = NavigationFailedEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4dab4671_12b2_43c7_b892_9be2dcd3e88d);
 }
 unsafe impl ::windows::core::RuntimeType for NavigationFailedEventHandler {
@@ -990,7 +990,7 @@ unsafe impl ::windows::core::RuntimeType for NavigationFailedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct NavigationFailedEventHandlerVtbl {
+pub struct NavigationFailedEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1045,12 +1045,12 @@ impl NavigationStoppedEventHandler {
 }
 #[repr(C)]
 struct NavigationStoppedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<NavigationEventArgs>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const NavigationStoppedEventHandlerVtbl,
+    vtable: *const NavigationStoppedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<NavigationEventArgs>) -> ::windows::core::Result<()> + 'static> NavigationStoppedEventHandlerBox<F> {
-    const VTABLE: NavigationStoppedEventHandlerVtbl = NavigationStoppedEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: NavigationStoppedEventHandler_Vtbl = NavigationStoppedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<NavigationStoppedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -1095,7 +1095,7 @@ impl ::core::fmt::Debug for NavigationStoppedEventHandler {
     }
 }
 unsafe impl ::windows::core::Interface for NavigationStoppedEventHandler {
-    type Vtable = NavigationStoppedEventHandlerVtbl;
+    type Vtable = NavigationStoppedEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0117ddb_12fa_4d8d_8b26_b383d09c2b3c);
 }
 unsafe impl ::windows::core::RuntimeType for NavigationStoppedEventHandler {
@@ -1103,7 +1103,7 @@ unsafe impl ::windows::core::RuntimeType for NavigationStoppedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct NavigationStoppedEventHandlerVtbl {
+pub struct NavigationStoppedEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1183,7 +1183,7 @@ unsafe impl ::windows::core::RuntimeType for PageStackEntry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Navigation.PageStackEntry;{ef8814a6-9388-4aca-8572-405194069080})");
 }
 unsafe impl ::windows::core::Interface for PageStackEntry {
-    type Vtable = IPageStackEntryVtbl;
+    type Vtable = IPageStackEntry_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef8814a6_9388_4aca_8572_405194069080);
 }
 impl ::windows::core::RuntimeName for PageStackEntry {

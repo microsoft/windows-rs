@@ -79,7 +79,7 @@ unsafe impl ::windows::core::RuntimeType for DataProtectionProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.DataProtection.DataProtectionProvider;{09639948-ed22-4270-bd1c-6d72c00f8787})");
 }
 unsafe impl ::windows::core::Interface for DataProtectionProvider {
-    type Vtable = IDataProtectionProviderVtbl;
+    type Vtable = IDataProtectionProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09639948_ed22_4270_bd1c_6d72c00f8787);
 }
 impl ::windows::core::RuntimeName for DataProtectionProvider {
@@ -131,12 +131,12 @@ unsafe impl ::core::marker::Sync for DataProtectionProvider {}
 #[repr(transparent)]
 pub struct IDataProtectionProvider(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDataProtectionProvider {
-    type Vtable = IDataProtectionProviderVtbl;
+    type Vtable = IDataProtectionProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09639948_ed22_4270_bd1c_6d72c00f8787);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDataProtectionProviderVtbl {
+pub struct IDataProtectionProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub ProtectAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -159,12 +159,12 @@ pub struct IDataProtectionProviderVtbl {
 #[repr(transparent)]
 pub struct IDataProtectionProviderFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDataProtectionProviderFactory {
-    type Vtable = IDataProtectionProviderFactoryVtbl;
+    type Vtable = IDataProtectionProviderFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadf33dac_4932_4cdf_ac41_7214333514ca);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDataProtectionProviderFactoryVtbl {
+pub struct IDataProtectionProviderFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateOverloadExplicit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, protectiondescriptor: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }

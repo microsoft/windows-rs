@@ -82,7 +82,7 @@ unsafe impl ::windows::core::RuntimeType for Battery {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Power.Battery;{bc894fc6-0072-47c8-8b5d-614aaa7a437e})");
 }
 unsafe impl ::windows::core::Interface for Battery {
-    type Vtable = IBatteryVtbl;
+    type Vtable = IBattery_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc894fc6_0072_47c8_8b5d_614aaa7a437e);
 }
 impl ::windows::core::RuntimeName for Battery {
@@ -200,7 +200,7 @@ unsafe impl ::windows::core::RuntimeType for BatteryReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Power.BatteryReport;{c9858c3a-4e13-420a-a8d0-24f18f395401})");
 }
 unsafe impl ::windows::core::Interface for BatteryReport {
-    type Vtable = IBatteryReportVtbl;
+    type Vtable = IBatteryReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9858c3a_4e13_420a_a8d0_24f18f395401);
 }
 impl ::windows::core::RuntimeName for BatteryReport {
@@ -252,12 +252,12 @@ unsafe impl ::core::marker::Sync for BatteryReport {}
 #[repr(transparent)]
 pub struct IBattery(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBattery {
-    type Vtable = IBatteryVtbl;
+    type Vtable = IBattery_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc894fc6_0072_47c8_8b5d_614aaa7a437e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBatteryVtbl {
+pub struct IBattery_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub GetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -274,12 +274,12 @@ pub struct IBatteryVtbl {
 #[repr(transparent)]
 pub struct IBatteryReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBatteryReport {
-    type Vtable = IBatteryReportVtbl;
+    type Vtable = IBatteryReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9858c3a_4e13_420a_a8d0_24f18f395401);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBatteryReportVtbl {
+pub struct IBatteryReport_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ChargeRateInMilliwatts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -306,12 +306,12 @@ pub struct IBatteryReportVtbl {
 #[repr(transparent)]
 pub struct IBatteryStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBatteryStatics {
-    type Vtable = IBatteryStaticsVtbl;
+    type Vtable = IBatteryStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79cd72b6_9e5e_4452_bea6_dfcd541e597f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBatteryStaticsVtbl {
+pub struct IBatteryStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AggregateBattery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]

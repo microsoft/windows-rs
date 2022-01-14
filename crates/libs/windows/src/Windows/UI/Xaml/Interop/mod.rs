@@ -15,12 +15,12 @@ impl BindableVectorChangedEventHandler {
 }
 #[repr(C)]
 struct BindableVectorChangedEventHandlerBox<F: FnMut(&::core::option::Option<IBindableObservableVector>, &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const BindableVectorChangedEventHandlerVtbl,
+    vtable: *const BindableVectorChangedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<IBindableObservableVector>, &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> + 'static> BindableVectorChangedEventHandlerBox<F> {
-    const VTABLE: BindableVectorChangedEventHandlerVtbl = BindableVectorChangedEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: BindableVectorChangedEventHandler_Vtbl = BindableVectorChangedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<BindableVectorChangedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -65,7 +65,7 @@ impl ::core::fmt::Debug for BindableVectorChangedEventHandler {
     }
 }
 unsafe impl ::windows::core::Interface for BindableVectorChangedEventHandler {
-    type Vtable = BindableVectorChangedEventHandlerVtbl;
+    type Vtable = BindableVectorChangedEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x624cd4e1_d007_43b1_9c03_af4d3e6258c4);
 }
 unsafe impl ::windows::core::RuntimeType for BindableVectorChangedEventHandler {
@@ -73,7 +73,7 @@ unsafe impl ::windows::core::RuntimeType for BindableVectorChangedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct BindableVectorChangedEventHandlerVtbl {
+pub struct BindableVectorChangedEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vector: ::windows::core::RawPtr, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -150,12 +150,12 @@ unsafe impl ::windows::core::RuntimeType for IBindableIterable {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{036d2c08-df29-41af-8aa2-d774be62ba6f}");
 }
 unsafe impl ::windows::core::Interface for IBindableIterable {
-    type Vtable = IBindableIterableVtbl;
+    type Vtable = IBindableIterable_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x036d2c08_df29_41af_8aa2_d774be62ba6f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBindableIterableVtbl {
+pub struct IBindableIterable_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub First: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -248,12 +248,12 @@ unsafe impl ::windows::core::RuntimeType for IBindableIterator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6a1d6c07-076d-49f2-8314-f52c9c9a8331}");
 }
 unsafe impl ::windows::core::Interface for IBindableIterator {
-    type Vtable = IBindableIteratorVtbl;
+    type Vtable = IBindableIterator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a1d6c07_076d_49f2_8314_f52c9c9a8331);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBindableIteratorVtbl {
+pub struct IBindableIterator_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub HasCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -453,12 +453,12 @@ unsafe impl ::windows::core::RuntimeType for IBindableObservableVector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fe1eb536-7e7f-4f90-ac9a-474984aae512}");
 }
 unsafe impl ::windows::core::Interface for IBindableObservableVector {
-    type Vtable = IBindableObservableVectorVtbl;
+    type Vtable = IBindableObservableVector_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe1eb536_7e7f_4f90_ac9a_474984aae512);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBindableObservableVectorVtbl {
+pub struct IBindableObservableVector_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub VectorChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -626,12 +626,12 @@ unsafe impl ::windows::core::RuntimeType for IBindableVector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{393de7de-6fd0-4c0d-bb71-47244a113e93}");
 }
 unsafe impl ::windows::core::Interface for IBindableVector {
-    type Vtable = IBindableVectorVtbl;
+    type Vtable = IBindableVector_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x393de7de_6fd0_4c0d_bb71_47244a113e93);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBindableVectorVtbl {
+pub struct IBindableVector_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -763,12 +763,12 @@ unsafe impl ::windows::core::RuntimeType for IBindableVectorView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{346dd6e7-976e-4bc3-815d-ece243bc0f33}");
 }
 unsafe impl ::windows::core::Interface for IBindableVectorView {
-    type Vtable = IBindableVectorViewVtbl;
+    type Vtable = IBindableVectorView_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x346dd6e7_976e_4bc3_815d_ece243bc0f33);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBindableVectorViewVtbl {
+pub struct IBindableVectorView_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -854,12 +854,12 @@ unsafe impl ::windows::core::RuntimeType for INotifyCollectionChanged {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{28b167d5-1a31-465b-9b25-d5c3ae686c40}");
 }
 unsafe impl ::windows::core::Interface for INotifyCollectionChanged {
-    type Vtable = INotifyCollectionChangedVtbl;
+    type Vtable = INotifyCollectionChanged_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28b167d5_1a31_465b_9b25_d5c3ae686c40);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INotifyCollectionChangedVtbl {
+pub struct INotifyCollectionChanged_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CollectionChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -874,12 +874,12 @@ pub struct INotifyCollectionChangedVtbl {
 #[repr(transparent)]
 pub struct INotifyCollectionChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INotifyCollectionChangedEventArgs {
-    type Vtable = INotifyCollectionChangedEventArgsVtbl;
+    type Vtable = INotifyCollectionChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cf68d33_e3f2_4964_b85e_945b4f7e2f21);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INotifyCollectionChangedEventArgsVtbl {
+pub struct INotifyCollectionChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Action: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut NotifyCollectionChangedAction) -> ::windows::core::HRESULT,
     pub NewItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -891,12 +891,12 @@ pub struct INotifyCollectionChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct INotifyCollectionChangedEventArgsFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INotifyCollectionChangedEventArgsFactory {
-    type Vtable = INotifyCollectionChangedEventArgsFactoryVtbl;
+    type Vtable = INotifyCollectionChangedEventArgsFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb30c3e3a_df8d_44a5_9a38_7ac0d08ce63d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INotifyCollectionChangedEventArgsFactoryVtbl {
+pub struct INotifyCollectionChangedEventArgsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstanceWithAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, action: NotifyCollectionChangedAction, newitems: ::windows::core::RawPtr, olditems: ::windows::core::RawPtr, newindex: i32, oldindex: i32, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1013,7 +1013,7 @@ unsafe impl ::windows::core::RuntimeType for NotifyCollectionChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Interop.NotifyCollectionChangedEventArgs;{4cf68d33-e3f2-4964-b85e-945b4f7e2f21})");
 }
 unsafe impl ::windows::core::Interface for NotifyCollectionChangedEventArgs {
-    type Vtable = INotifyCollectionChangedEventArgsVtbl;
+    type Vtable = INotifyCollectionChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cf68d33_e3f2_4964_b85e_945b4f7e2f21);
 }
 impl ::windows::core::RuntimeName for NotifyCollectionChangedEventArgs {
@@ -1077,12 +1077,12 @@ impl NotifyCollectionChangedEventHandler {
 }
 #[repr(C)]
 struct NotifyCollectionChangedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<NotifyCollectionChangedEventArgs>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const NotifyCollectionChangedEventHandlerVtbl,
+    vtable: *const NotifyCollectionChangedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<NotifyCollectionChangedEventArgs>) -> ::windows::core::Result<()> + 'static> NotifyCollectionChangedEventHandlerBox<F> {
-    const VTABLE: NotifyCollectionChangedEventHandlerVtbl = NotifyCollectionChangedEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: NotifyCollectionChangedEventHandler_Vtbl = NotifyCollectionChangedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<NotifyCollectionChangedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -1127,7 +1127,7 @@ impl ::core::fmt::Debug for NotifyCollectionChangedEventHandler {
     }
 }
 unsafe impl ::windows::core::Interface for NotifyCollectionChangedEventHandler {
-    type Vtable = NotifyCollectionChangedEventHandlerVtbl;
+    type Vtable = NotifyCollectionChangedEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca10b37c_f382_4591_8557_5e24965279b0);
 }
 unsafe impl ::windows::core::RuntimeType for NotifyCollectionChangedEventHandler {
@@ -1135,7 +1135,7 @@ unsafe impl ::windows::core::RuntimeType for NotifyCollectionChangedEventHandler
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct NotifyCollectionChangedEventHandlerVtbl {
+pub struct NotifyCollectionChangedEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }

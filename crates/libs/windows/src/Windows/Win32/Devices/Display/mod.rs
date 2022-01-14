@@ -7045,12 +7045,12 @@ impl ::core::fmt::Debug for ICloneViewHelper {
     }
 }
 unsafe impl ::windows::core::Interface for ICloneViewHelper {
-    type Vtable = ICloneViewHelperVtbl;
+    type Vtable = ICloneViewHelper_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6a3d4c4_5632_4d83_b0a1_fb88712b1eb7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICloneViewHelperVtbl {
+pub struct ICloneViewHelper_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetConnectedIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszadaptorname: super::super::Foundation::PWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::core::HRESULT,
@@ -7898,12 +7898,12 @@ impl ::core::fmt::Debug for IViewHelper {
     }
 }
 unsafe impl ::windows::core::Interface for IViewHelper {
-    type Vtable = IViewHelperVtbl;
+    type Vtable = IViewHelper_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe85ccef5_aaaa_47f0_b5e3_61f7aecdc4c1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IViewHelperVtbl {
+pub struct IViewHelper_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetConnectedIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszadaptorname: super::super::Foundation::PWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::core::HRESULT,

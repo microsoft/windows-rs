@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IJsonArray(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJsonArray {
-    type Vtable = IJsonArrayVtbl;
+    type Vtable = IJsonArray_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c1ddb6_0cbd_4a9a_b5d3_2f852dc37e81);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IJsonArrayVtbl {
+pub struct IJsonArray_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetObjectAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetArrayAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -20,12 +20,12 @@ pub struct IJsonArrayVtbl {
 #[repr(transparent)]
 pub struct IJsonArrayStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJsonArrayStatics {
-    type Vtable = IJsonArrayStaticsVtbl;
+    type Vtable = IJsonArrayStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb1434a9_e164_499f_93e2_8a8f49bb90ba);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IJsonArrayStaticsVtbl {
+pub struct IJsonArrayStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Parse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub TryParse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -34,12 +34,12 @@ pub struct IJsonArrayStaticsVtbl {
 #[repr(transparent)]
 pub struct IJsonErrorStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJsonErrorStatics2 {
-    type Vtable = IJsonErrorStatics2Vtbl;
+    type Vtable = IJsonErrorStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x404030da_87d0_436c_83ab_fc7b12c0cc26);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IJsonErrorStatics2Vtbl {
+pub struct IJsonErrorStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetJsonStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut JsonErrorStatus) -> ::windows::core::HRESULT,
 }
@@ -47,12 +47,12 @@ pub struct IJsonErrorStatics2Vtbl {
 #[repr(transparent)]
 pub struct IJsonObject(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJsonObject {
-    type Vtable = IJsonObjectVtbl;
+    type Vtable = IJsonObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x064e24dd_29c2_4f83_9ac1_9ee11578beb3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IJsonObjectVtbl {
+pub struct IJsonObject_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetNamedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetNamedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -66,12 +66,12 @@ pub struct IJsonObjectVtbl {
 #[repr(transparent)]
 pub struct IJsonObjectStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJsonObjectStatics {
-    type Vtable = IJsonObjectStaticsVtbl;
+    type Vtable = IJsonObjectStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2289f159_54de_45d8_abcc_22603fa066a0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IJsonObjectStaticsVtbl {
+pub struct IJsonObjectStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Parse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub TryParse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -80,12 +80,12 @@ pub struct IJsonObjectStaticsVtbl {
 #[repr(transparent)]
 pub struct IJsonObjectWithDefaultValues(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJsonObjectWithDefaultValues {
-    type Vtable = IJsonObjectWithDefaultValuesVtbl;
+    type Vtable = IJsonObjectWithDefaultValues_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd960d2a2_b7f0_4f00_8e44_d82cf415ea13);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IJsonObjectWithDefaultValuesVtbl {
+pub struct IJsonObjectWithDefaultValues_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetNamedValueOrDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, defaultvalue: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetNamedObjectOrDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, defaultvalue: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -215,12 +215,12 @@ unsafe impl ::windows::core::RuntimeType for IJsonValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a3219ecb-f0b3-4dcd-beee-19d48cd3ed1e}");
 }
 unsafe impl ::windows::core::Interface for IJsonValue {
-    type Vtable = IJsonValueVtbl;
+    type Vtable = IJsonValue_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3219ecb_f0b3_4dcd_beee_19d48cd3ed1e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IJsonValueVtbl {
+pub struct IJsonValue_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ValueType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut JsonValueType) -> ::windows::core::HRESULT,
     pub Stringify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -234,12 +234,12 @@ pub struct IJsonValueVtbl {
 #[repr(transparent)]
 pub struct IJsonValueStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJsonValueStatics {
-    type Vtable = IJsonValueStaticsVtbl;
+    type Vtable = IJsonValueStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f6b544a_2f53_48e1_91a3_f78b50a6345c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IJsonValueStaticsVtbl {
+pub struct IJsonValueStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Parse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub TryParse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -251,12 +251,12 @@ pub struct IJsonValueStaticsVtbl {
 #[repr(transparent)]
 pub struct IJsonValueStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJsonValueStatics2 {
-    type Vtable = IJsonValueStatics2Vtbl;
+    type Vtable = IJsonValueStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d9ecbe4_3fe8_4335_8392_93d8e36865f0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IJsonValueStatics2Vtbl {
+pub struct IJsonValueStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateNullValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -512,7 +512,7 @@ unsafe impl ::windows::core::RuntimeType for JsonArray {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Json.JsonArray;{08c1ddb6-0cbd-4a9a-b5d3-2f852dc37e81})");
 }
 unsafe impl ::windows::core::Interface for JsonArray {
-    type Vtable = IJsonArrayVtbl;
+    type Vtable = IJsonArray_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c1ddb6_0cbd_4a9a_b5d3_2f852dc37e81);
 }
 impl ::windows::core::RuntimeName for JsonArray {
@@ -1014,7 +1014,7 @@ unsafe impl ::windows::core::RuntimeType for JsonObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Json.JsonObject;{064e24dd-29c2-4f83-9ac1-9ee11578beb3})");
 }
 unsafe impl ::windows::core::Interface for JsonObject {
-    type Vtable = IJsonObjectVtbl;
+    type Vtable = IJsonObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x064e24dd_29c2_4f83_9ac1_9ee11578beb3);
 }
 impl ::windows::core::RuntimeName for JsonObject {
@@ -1320,7 +1320,7 @@ unsafe impl ::windows::core::RuntimeType for JsonValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Json.JsonValue;{a3219ecb-f0b3-4dcd-beee-19d48cd3ed1e})");
 }
 unsafe impl ::windows::core::Interface for JsonValue {
-    type Vtable = IJsonValueVtbl;
+    type Vtable = IJsonValue_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3219ecb_f0b3_4dcd_beee_19d48cd3ed1e);
 }
 impl ::windows::core::RuntimeName for JsonValue {

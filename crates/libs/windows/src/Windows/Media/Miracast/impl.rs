@@ -1,5 +1,5 @@
 #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMiracastReceiverImpl: Sized {
+pub trait IMiracastReceiver_Impl: Sized {
     fn GetDefaultSettings(&mut self) -> ::windows::core::Result<MiracastReceiverSettings>;
     fn GetCurrentSettings(&mut self) -> ::windows::core::Result<MiracastReceiverSettings>;
     fn GetCurrentSettingsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MiracastReceiverSettings>>;
@@ -19,9 +19,9 @@ impl ::windows::core::RuntimeName for IMiracastReceiver {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiver";
 }
 #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "implement_exclusive"))]
-impl IMiracastReceiverVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverVtbl {
-        unsafe extern "system" fn GetDefaultSettings<Impl: IMiracastReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMiracastReceiver_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiver_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiver_Vtbl {
+        unsafe extern "system" fn GetDefaultSettings<Impl: IMiracastReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultSettings() {
                 ::core::result::Result::Ok(ok__) => {
@@ -32,7 +32,7 @@ impl IMiracastReceiverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentSettings<Impl: IMiracastReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentSettings<Impl: IMiracastReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentSettings() {
                 ::core::result::Result::Ok(ok__) => {
@@ -43,7 +43,7 @@ impl IMiracastReceiverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentSettingsAsync<Impl: IMiracastReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentSettingsAsync<Impl: IMiracastReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentSettingsAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -54,7 +54,7 @@ impl IMiracastReceiverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisconnectAllAndApplySettings<Impl: IMiracastReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisconnectAllAndApplySettings<Impl: IMiracastReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisconnectAllAndApplySettings(&*(&settings as *const <MiracastReceiverSettings as ::windows::core::Abi>::Abi as *const <MiracastReceiverSettings as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -65,7 +65,7 @@ impl IMiracastReceiverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisconnectAllAndApplySettingsAsync<Impl: IMiracastReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisconnectAllAndApplySettingsAsync<Impl: IMiracastReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisconnectAllAndApplySettingsAsync(&*(&settings as *const <MiracastReceiverSettings as ::windows::core::Abi>::Abi as *const <MiracastReceiverSettings as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -76,7 +76,7 @@ impl IMiracastReceiverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStatus<Impl: IMiracastReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStatus<Impl: IMiracastReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -87,7 +87,7 @@ impl IMiracastReceiverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStatusAsync<Impl: IMiracastReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStatusAsync<Impl: IMiracastReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStatusAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -98,7 +98,7 @@ impl IMiracastReceiverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StatusChanged<Impl: IMiracastReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StatusChanged<Impl: IMiracastReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StatusChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MiracastReceiver, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MiracastReceiver, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -109,11 +109,11 @@ impl IMiracastReceiverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStatusChanged<Impl: IMiracastReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStatusChanged<Impl: IMiracastReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStatusChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CreateSession<Impl: IMiracastReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, view: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSession<Impl: IMiracastReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, view: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSession(&*(&view as *const <super::super::ApplicationModel::Core::CoreApplicationView as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::Core::CoreApplicationView as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -124,7 +124,7 @@ impl IMiracastReceiverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSessionAsync<Impl: IMiracastReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, view: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSessionAsync<Impl: IMiracastReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, view: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSessionAsync(&*(&view as *const <super::super::ApplicationModel::Core::CoreApplicationView as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::Core::CoreApplicationView as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -135,11 +135,11 @@ impl IMiracastReceiverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClearKnownTransmitters<Impl: IMiracastReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearKnownTransmitters<Impl: IMiracastReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearKnownTransmitters().into()
         }
-        unsafe extern "system" fn RemoveKnownTransmitter<Impl: IMiracastReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transmitter: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveKnownTransmitter<Impl: IMiracastReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transmitter: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveKnownTransmitter(&*(&transmitter as *const <MiracastTransmitter as ::windows::core::Abi>::Abi as *const <MiracastTransmitter as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -165,7 +165,7 @@ impl IMiracastReceiverVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMiracastReceiverApplySettingsResultImpl: Sized {
+pub trait IMiracastReceiverApplySettingsResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<MiracastReceiverApplySettingsStatus>;
     fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
@@ -174,9 +174,9 @@ impl ::windows::core::RuntimeName for IMiracastReceiverApplySettingsResult {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverApplySettingsResult";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMiracastReceiverApplySettingsResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverApplySettingsResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverApplySettingsResultVtbl {
-        unsafe extern "system" fn Status<Impl: IMiracastReceiverApplySettingsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MiracastReceiverApplySettingsStatus) -> ::windows::core::HRESULT {
+impl IMiracastReceiverApplySettingsResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverApplySettingsResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverApplySettingsResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IMiracastReceiverApplySettingsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MiracastReceiverApplySettingsStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -187,7 +187,7 @@ impl IMiracastReceiverApplySettingsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedError<Impl: IMiracastReceiverApplySettingsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedError<Impl: IMiracastReceiverApplySettingsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedError() {
                 ::core::result::Result::Ok(ok__) => {
@@ -209,7 +209,7 @@ impl IMiracastReceiverApplySettingsResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMiracastReceiverConnectionImpl: Sized {
+pub trait IMiracastReceiverConnection_Impl: Sized {
     fn Disconnect(&mut self, reason: MiracastReceiverDisconnectReason) -> ::windows::core::Result<()>;
     fn DisconnectWithMessage(&mut self, reason: MiracastReceiverDisconnectReason, message: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Pause(&mut self) -> ::windows::core::Result<()>;
@@ -226,21 +226,21 @@ impl ::windows::core::RuntimeName for IMiracastReceiverConnection {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverConnection";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMiracastReceiverConnectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverConnectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverConnectionVtbl {
-        unsafe extern "system" fn Disconnect<Impl: IMiracastReceiverConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: MiracastReceiverDisconnectReason) -> ::windows::core::HRESULT {
+impl IMiracastReceiverConnection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverConnection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverConnection_Vtbl {
+        unsafe extern "system" fn Disconnect<Impl: IMiracastReceiverConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: MiracastReceiverDisconnectReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Disconnect(reason).into()
         }
-        unsafe extern "system" fn DisconnectWithMessage<Impl: IMiracastReceiverConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: MiracastReceiverDisconnectReason, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisconnectWithMessage<Impl: IMiracastReceiverConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: MiracastReceiverDisconnectReason, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DisconnectWithMessage(reason, &*(&message as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Pause<Impl: IMiracastReceiverConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pause<Impl: IMiracastReceiverConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Pause().into()
         }
-        unsafe extern "system" fn PauseAsync<Impl: IMiracastReceiverConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PauseAsync<Impl: IMiracastReceiverConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PauseAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -251,11 +251,11 @@ impl IMiracastReceiverConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Resume<Impl: IMiracastReceiverConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Resume<Impl: IMiracastReceiverConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Resume().into()
         }
-        unsafe extern "system" fn ResumeAsync<Impl: IMiracastReceiverConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResumeAsync<Impl: IMiracastReceiverConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResumeAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -266,7 +266,7 @@ impl IMiracastReceiverConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Transmitter<Impl: IMiracastReceiverConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Transmitter<Impl: IMiracastReceiverConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Transmitter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -277,7 +277,7 @@ impl IMiracastReceiverConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InputDevices<Impl: IMiracastReceiverConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InputDevices<Impl: IMiracastReceiverConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InputDevices() {
                 ::core::result::Result::Ok(ok__) => {
@@ -288,7 +288,7 @@ impl IMiracastReceiverConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CursorImageChannel<Impl: IMiracastReceiverConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CursorImageChannel<Impl: IMiracastReceiverConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CursorImageChannel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -299,7 +299,7 @@ impl IMiracastReceiverConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StreamControl<Impl: IMiracastReceiverConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StreamControl<Impl: IMiracastReceiverConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StreamControl() {
                 ::core::result::Result::Ok(ok__) => {
@@ -329,7 +329,7 @@ impl IMiracastReceiverConnectionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMiracastReceiverConnectionCreatedEventArgsImpl: Sized {
+pub trait IMiracastReceiverConnectionCreatedEventArgs_Impl: Sized {
     fn Connection(&mut self) -> ::windows::core::Result<MiracastReceiverConnection>;
     fn Pin(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
@@ -339,9 +339,9 @@ impl ::windows::core::RuntimeName for IMiracastReceiverConnectionCreatedEventArg
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverConnectionCreatedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMiracastReceiverConnectionCreatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverConnectionCreatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverConnectionCreatedEventArgsVtbl {
-        unsafe extern "system" fn Connection<Impl: IMiracastReceiverConnectionCreatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMiracastReceiverConnectionCreatedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverConnectionCreatedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverConnectionCreatedEventArgs_Vtbl {
+        unsafe extern "system" fn Connection<Impl: IMiracastReceiverConnectionCreatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Connection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -352,7 +352,7 @@ impl IMiracastReceiverConnectionCreatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Pin<Impl: IMiracastReceiverConnectionCreatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pin<Impl: IMiracastReceiverConnectionCreatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pin() {
                 ::core::result::Result::Ok(ok__) => {
@@ -363,7 +363,7 @@ impl IMiracastReceiverConnectionCreatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IMiracastReceiverConnectionCreatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IMiracastReceiverConnectionCreatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -386,7 +386,7 @@ impl IMiracastReceiverConnectionCreatedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMiracastReceiverCursorImageChannelImpl: Sized {
+pub trait IMiracastReceiverCursorImageChannel_Impl: Sized {
     fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn MaxImageSize(&mut self) -> ::windows::core::Result<super::super::Graphics::SizeInt32>;
     fn Position(&mut self) -> ::windows::core::Result<super::super::Graphics::PointInt32>;
@@ -401,9 +401,9 @@ impl ::windows::core::RuntimeName for IMiracastReceiverCursorImageChannel {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverCursorImageChannel";
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMiracastReceiverCursorImageChannelVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverCursorImageChannelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverCursorImageChannelVtbl {
-        unsafe extern "system" fn IsEnabled<Impl: IMiracastReceiverCursorImageChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMiracastReceiverCursorImageChannel_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverCursorImageChannel_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverCursorImageChannel_Vtbl {
+        unsafe extern "system" fn IsEnabled<Impl: IMiracastReceiverCursorImageChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -414,7 +414,7 @@ impl IMiracastReceiverCursorImageChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxImageSize<Impl: IMiracastReceiverCursorImageChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxImageSize<Impl: IMiracastReceiverCursorImageChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxImageSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -425,7 +425,7 @@ impl IMiracastReceiverCursorImageChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: IMiracastReceiverCursorImageChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::PointInt32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: IMiracastReceiverCursorImageChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::PointInt32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -436,7 +436,7 @@ impl IMiracastReceiverCursorImageChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImageStream<Impl: IMiracastReceiverCursorImageChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImageStream<Impl: IMiracastReceiverCursorImageChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImageStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -447,7 +447,7 @@ impl IMiracastReceiverCursorImageChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImageStreamChanged<Impl: IMiracastReceiverCursorImageChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImageStreamChanged<Impl: IMiracastReceiverCursorImageChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImageStreamChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MiracastReceiverCursorImageChannel, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MiracastReceiverCursorImageChannel, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -458,11 +458,11 @@ impl IMiracastReceiverCursorImageChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveImageStreamChanged<Impl: IMiracastReceiverCursorImageChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveImageStreamChanged<Impl: IMiracastReceiverCursorImageChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveImageStreamChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PositionChanged<Impl: IMiracastReceiverCursorImageChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PositionChanged<Impl: IMiracastReceiverCursorImageChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MiracastReceiverCursorImageChannel, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MiracastReceiverCursorImageChannel, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -473,7 +473,7 @@ impl IMiracastReceiverCursorImageChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePositionChanged<Impl: IMiracastReceiverCursorImageChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePositionChanged<Impl: IMiracastReceiverCursorImageChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePositionChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -494,7 +494,7 @@ impl IMiracastReceiverCursorImageChannelVtbl {
     }
 }
 #[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
-pub trait IMiracastReceiverCursorImageChannelSettingsImpl: Sized {
+pub trait IMiracastReceiverCursorImageChannelSettings_Impl: Sized {
     fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn MaxImageSize(&mut self) -> ::windows::core::Result<super::super::Graphics::SizeInt32>;
@@ -505,9 +505,9 @@ impl ::windows::core::RuntimeName for IMiracastReceiverCursorImageChannelSetting
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverCursorImageChannelSettings";
 }
 #[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
-impl IMiracastReceiverCursorImageChannelSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverCursorImageChannelSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverCursorImageChannelSettingsVtbl {
-        unsafe extern "system" fn IsEnabled<Impl: IMiracastReceiverCursorImageChannelSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMiracastReceiverCursorImageChannelSettings_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverCursorImageChannelSettings_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverCursorImageChannelSettings_Vtbl {
+        unsafe extern "system" fn IsEnabled<Impl: IMiracastReceiverCursorImageChannelSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -518,11 +518,11 @@ impl IMiracastReceiverCursorImageChannelSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsEnabled<Impl: IMiracastReceiverCursorImageChannelSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsEnabled<Impl: IMiracastReceiverCursorImageChannelSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsEnabled(value).into()
         }
-        unsafe extern "system" fn MaxImageSize<Impl: IMiracastReceiverCursorImageChannelSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxImageSize<Impl: IMiracastReceiverCursorImageChannelSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxImageSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -533,7 +533,7 @@ impl IMiracastReceiverCursorImageChannelSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxImageSize<Impl: IMiracastReceiverCursorImageChannelSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxImageSize<Impl: IMiracastReceiverCursorImageChannelSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxImageSize(&*(&value as *const <super::super::Graphics::SizeInt32 as ::windows::core::Abi>::Abi as *const <super::super::Graphics::SizeInt32 as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -550,7 +550,7 @@ impl IMiracastReceiverCursorImageChannelSettingsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMiracastReceiverDisconnectedEventArgsImpl: Sized {
+pub trait IMiracastReceiverDisconnectedEventArgs_Impl: Sized {
     fn Connection(&mut self) -> ::windows::core::Result<MiracastReceiverConnection>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -558,9 +558,9 @@ impl ::windows::core::RuntimeName for IMiracastReceiverDisconnectedEventArgs {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverDisconnectedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMiracastReceiverDisconnectedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverDisconnectedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverDisconnectedEventArgsVtbl {
-        unsafe extern "system" fn Connection<Impl: IMiracastReceiverDisconnectedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMiracastReceiverDisconnectedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverDisconnectedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverDisconnectedEventArgs_Vtbl {
+        unsafe extern "system" fn Connection<Impl: IMiracastReceiverDisconnectedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Connection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -581,7 +581,7 @@ impl IMiracastReceiverDisconnectedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMiracastReceiverGameControllerDeviceImpl: Sized {
+pub trait IMiracastReceiverGameControllerDevice_Impl: Sized {
     fn TransmitInput(&mut self) -> ::windows::core::Result<bool>;
     fn SetTransmitInput(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn IsRequestedByTransmitter(&mut self) -> ::windows::core::Result<bool>;
@@ -596,9 +596,9 @@ impl ::windows::core::RuntimeName for IMiracastReceiverGameControllerDevice {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverGameControllerDevice";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMiracastReceiverGameControllerDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverGameControllerDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverGameControllerDeviceVtbl {
-        unsafe extern "system" fn TransmitInput<Impl: IMiracastReceiverGameControllerDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMiracastReceiverGameControllerDevice_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverGameControllerDevice_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverGameControllerDevice_Vtbl {
+        unsafe extern "system" fn TransmitInput<Impl: IMiracastReceiverGameControllerDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransmitInput() {
                 ::core::result::Result::Ok(ok__) => {
@@ -609,11 +609,11 @@ impl IMiracastReceiverGameControllerDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTransmitInput<Impl: IMiracastReceiverGameControllerDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTransmitInput<Impl: IMiracastReceiverGameControllerDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTransmitInput(value).into()
         }
-        unsafe extern "system" fn IsRequestedByTransmitter<Impl: IMiracastReceiverGameControllerDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsRequestedByTransmitter<Impl: IMiracastReceiverGameControllerDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsRequestedByTransmitter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -624,7 +624,7 @@ impl IMiracastReceiverGameControllerDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsTransmittingInput<Impl: IMiracastReceiverGameControllerDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsTransmittingInput<Impl: IMiracastReceiverGameControllerDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTransmittingInput() {
                 ::core::result::Result::Ok(ok__) => {
@@ -635,7 +635,7 @@ impl IMiracastReceiverGameControllerDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Mode<Impl: IMiracastReceiverGameControllerDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MiracastReceiverGameControllerDeviceUsageMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Mode<Impl: IMiracastReceiverGameControllerDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MiracastReceiverGameControllerDeviceUsageMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Mode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -646,11 +646,11 @@ impl IMiracastReceiverGameControllerDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMode<Impl: IMiracastReceiverGameControllerDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MiracastReceiverGameControllerDeviceUsageMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMode<Impl: IMiracastReceiverGameControllerDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MiracastReceiverGameControllerDeviceUsageMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMode(value).into()
         }
-        unsafe extern "system" fn Changed<Impl: IMiracastReceiverGameControllerDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Changed<Impl: IMiracastReceiverGameControllerDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Changed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MiracastReceiverGameControllerDevice, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MiracastReceiverGameControllerDevice, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -661,7 +661,7 @@ impl IMiracastReceiverGameControllerDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveChanged<Impl: IMiracastReceiverGameControllerDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveChanged<Impl: IMiracastReceiverGameControllerDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -682,7 +682,7 @@ impl IMiracastReceiverGameControllerDeviceVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMiracastReceiverInputDevicesImpl: Sized {
+pub trait IMiracastReceiverInputDevices_Impl: Sized {
     fn Keyboard(&mut self) -> ::windows::core::Result<MiracastReceiverKeyboardDevice>;
     fn GameController(&mut self) -> ::windows::core::Result<MiracastReceiverGameControllerDevice>;
 }
@@ -691,9 +691,9 @@ impl ::windows::core::RuntimeName for IMiracastReceiverInputDevices {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverInputDevices";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMiracastReceiverInputDevicesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverInputDevicesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverInputDevicesVtbl {
-        unsafe extern "system" fn Keyboard<Impl: IMiracastReceiverInputDevicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMiracastReceiverInputDevices_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverInputDevices_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverInputDevices_Vtbl {
+        unsafe extern "system" fn Keyboard<Impl: IMiracastReceiverInputDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Keyboard() {
                 ::core::result::Result::Ok(ok__) => {
@@ -704,7 +704,7 @@ impl IMiracastReceiverInputDevicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GameController<Impl: IMiracastReceiverInputDevicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GameController<Impl: IMiracastReceiverInputDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GameController() {
                 ::core::result::Result::Ok(ok__) => {
@@ -726,7 +726,7 @@ impl IMiracastReceiverInputDevicesVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMiracastReceiverKeyboardDeviceImpl: Sized {
+pub trait IMiracastReceiverKeyboardDevice_Impl: Sized {
     fn TransmitInput(&mut self) -> ::windows::core::Result<bool>;
     fn SetTransmitInput(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn IsRequestedByTransmitter(&mut self) -> ::windows::core::Result<bool>;
@@ -739,9 +739,9 @@ impl ::windows::core::RuntimeName for IMiracastReceiverKeyboardDevice {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverKeyboardDevice";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMiracastReceiverKeyboardDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverKeyboardDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverKeyboardDeviceVtbl {
-        unsafe extern "system" fn TransmitInput<Impl: IMiracastReceiverKeyboardDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMiracastReceiverKeyboardDevice_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverKeyboardDevice_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverKeyboardDevice_Vtbl {
+        unsafe extern "system" fn TransmitInput<Impl: IMiracastReceiverKeyboardDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransmitInput() {
                 ::core::result::Result::Ok(ok__) => {
@@ -752,11 +752,11 @@ impl IMiracastReceiverKeyboardDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTransmitInput<Impl: IMiracastReceiverKeyboardDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTransmitInput<Impl: IMiracastReceiverKeyboardDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTransmitInput(value).into()
         }
-        unsafe extern "system" fn IsRequestedByTransmitter<Impl: IMiracastReceiverKeyboardDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsRequestedByTransmitter<Impl: IMiracastReceiverKeyboardDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsRequestedByTransmitter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -767,7 +767,7 @@ impl IMiracastReceiverKeyboardDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsTransmittingInput<Impl: IMiracastReceiverKeyboardDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsTransmittingInput<Impl: IMiracastReceiverKeyboardDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTransmittingInput() {
                 ::core::result::Result::Ok(ok__) => {
@@ -778,7 +778,7 @@ impl IMiracastReceiverKeyboardDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Changed<Impl: IMiracastReceiverKeyboardDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Changed<Impl: IMiracastReceiverKeyboardDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Changed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MiracastReceiverKeyboardDevice, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MiracastReceiverKeyboardDevice, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -789,7 +789,7 @@ impl IMiracastReceiverKeyboardDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveChanged<Impl: IMiracastReceiverKeyboardDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveChanged<Impl: IMiracastReceiverKeyboardDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -808,7 +808,7 @@ impl IMiracastReceiverKeyboardDeviceVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "implement_exclusive"))]
-pub trait IMiracastReceiverMediaSourceCreatedEventArgsImpl: Sized {
+pub trait IMiracastReceiverMediaSourceCreatedEventArgs_Impl: Sized {
     fn Connection(&mut self) -> ::windows::core::Result<MiracastReceiverConnection>;
     fn MediaSource(&mut self) -> ::windows::core::Result<super::Core::MediaSource>;
     fn CursorImageChannelSettings(&mut self) -> ::windows::core::Result<MiracastReceiverCursorImageChannelSettings>;
@@ -819,9 +819,9 @@ impl ::windows::core::RuntimeName for IMiracastReceiverMediaSourceCreatedEventAr
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverMediaSourceCreatedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "implement_exclusive"))]
-impl IMiracastReceiverMediaSourceCreatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverMediaSourceCreatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverMediaSourceCreatedEventArgsVtbl {
-        unsafe extern "system" fn Connection<Impl: IMiracastReceiverMediaSourceCreatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMiracastReceiverMediaSourceCreatedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverMediaSourceCreatedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverMediaSourceCreatedEventArgs_Vtbl {
+        unsafe extern "system" fn Connection<Impl: IMiracastReceiverMediaSourceCreatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Connection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -832,7 +832,7 @@ impl IMiracastReceiverMediaSourceCreatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MediaSource<Impl: IMiracastReceiverMediaSourceCreatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaSource<Impl: IMiracastReceiverMediaSourceCreatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaSource() {
                 ::core::result::Result::Ok(ok__) => {
@@ -843,7 +843,7 @@ impl IMiracastReceiverMediaSourceCreatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CursorImageChannelSettings<Impl: IMiracastReceiverMediaSourceCreatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CursorImageChannelSettings<Impl: IMiracastReceiverMediaSourceCreatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CursorImageChannelSettings() {
                 ::core::result::Result::Ok(ok__) => {
@@ -854,7 +854,7 @@ impl IMiracastReceiverMediaSourceCreatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IMiracastReceiverMediaSourceCreatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IMiracastReceiverMediaSourceCreatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -878,7 +878,7 @@ impl IMiracastReceiverMediaSourceCreatedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMiracastReceiverSessionImpl: Sized {
+pub trait IMiracastReceiverSession_Impl: Sized {
     fn ConnectionCreated(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverConnectionCreatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveConnectionCreated(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn MediaSourceCreated(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverMediaSourceCreatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -897,9 +897,9 @@ impl ::windows::core::RuntimeName for IMiracastReceiverSession {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverSession";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMiracastReceiverSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverSessionVtbl {
-        unsafe extern "system" fn ConnectionCreated<Impl: IMiracastReceiverSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IMiracastReceiverSession_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverSession_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverSession_Vtbl {
+        unsafe extern "system" fn ConnectionCreated<Impl: IMiracastReceiverSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionCreated(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverConnectionCreatedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverConnectionCreatedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -910,11 +910,11 @@ impl IMiracastReceiverSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveConnectionCreated<Impl: IMiracastReceiverSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveConnectionCreated<Impl: IMiracastReceiverSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveConnectionCreated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MediaSourceCreated<Impl: IMiracastReceiverSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaSourceCreated<Impl: IMiracastReceiverSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaSourceCreated(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverMediaSourceCreatedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverMediaSourceCreatedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -925,11 +925,11 @@ impl IMiracastReceiverSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMediaSourceCreated<Impl: IMiracastReceiverSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMediaSourceCreated<Impl: IMiracastReceiverSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMediaSourceCreated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Disconnected<Impl: IMiracastReceiverSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Disconnected<Impl: IMiracastReceiverSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Disconnected(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverDisconnectedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverDisconnectedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -940,11 +940,11 @@ impl IMiracastReceiverSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDisconnected<Impl: IMiracastReceiverSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDisconnected<Impl: IMiracastReceiverSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDisconnected(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AllowConnectionTakeover<Impl: IMiracastReceiverSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllowConnectionTakeover<Impl: IMiracastReceiverSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowConnectionTakeover() {
                 ::core::result::Result::Ok(ok__) => {
@@ -955,11 +955,11 @@ impl IMiracastReceiverSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAllowConnectionTakeover<Impl: IMiracastReceiverSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAllowConnectionTakeover<Impl: IMiracastReceiverSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowConnectionTakeover(value).into()
         }
-        unsafe extern "system" fn MaxSimultaneousConnections<Impl: IMiracastReceiverSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxSimultaneousConnections<Impl: IMiracastReceiverSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxSimultaneousConnections() {
                 ::core::result::Result::Ok(ok__) => {
@@ -970,11 +970,11 @@ impl IMiracastReceiverSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxSimultaneousConnections<Impl: IMiracastReceiverSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxSimultaneousConnections<Impl: IMiracastReceiverSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxSimultaneousConnections(value).into()
         }
-        unsafe extern "system" fn Start<Impl: IMiracastReceiverSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Start<Impl: IMiracastReceiverSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Start() {
                 ::core::result::Result::Ok(ok__) => {
@@ -985,7 +985,7 @@ impl IMiracastReceiverSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartAsync<Impl: IMiracastReceiverSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartAsync<Impl: IMiracastReceiverSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1017,7 +1017,7 @@ impl IMiracastReceiverSessionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMiracastReceiverSessionStartResultImpl: Sized {
+pub trait IMiracastReceiverSessionStartResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<MiracastReceiverSessionStartStatus>;
     fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
@@ -1026,9 +1026,9 @@ impl ::windows::core::RuntimeName for IMiracastReceiverSessionStartResult {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverSessionStartResult";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMiracastReceiverSessionStartResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverSessionStartResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverSessionStartResultVtbl {
-        unsafe extern "system" fn Status<Impl: IMiracastReceiverSessionStartResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MiracastReceiverSessionStartStatus) -> ::windows::core::HRESULT {
+impl IMiracastReceiverSessionStartResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverSessionStartResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverSessionStartResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IMiracastReceiverSessionStartResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MiracastReceiverSessionStartStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1039,7 +1039,7 @@ impl IMiracastReceiverSessionStartResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedError<Impl: IMiracastReceiverSessionStartResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedError<Impl: IMiracastReceiverSessionStartResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedError() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1061,7 +1061,7 @@ impl IMiracastReceiverSessionStartResultVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMiracastReceiverSettingsImpl: Sized {
+pub trait IMiracastReceiverSettings_Impl: Sized {
     fn FriendlyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetFriendlyName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn ModelName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1078,9 +1078,9 @@ impl ::windows::core::RuntimeName for IMiracastReceiverSettings {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverSettings";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMiracastReceiverSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverSettingsVtbl {
-        unsafe extern "system" fn FriendlyName<Impl: IMiracastReceiverSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IMiracastReceiverSettings_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverSettings_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverSettings_Vtbl {
+        unsafe extern "system" fn FriendlyName<Impl: IMiracastReceiverSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FriendlyName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1091,11 +1091,11 @@ impl IMiracastReceiverSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFriendlyName<Impl: IMiracastReceiverSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFriendlyName<Impl: IMiracastReceiverSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFriendlyName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ModelName<Impl: IMiracastReceiverSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ModelName<Impl: IMiracastReceiverSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ModelName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1106,11 +1106,11 @@ impl IMiracastReceiverSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetModelName<Impl: IMiracastReceiverSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetModelName<Impl: IMiracastReceiverSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetModelName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ModelNumber<Impl: IMiracastReceiverSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ModelNumber<Impl: IMiracastReceiverSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ModelNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1121,11 +1121,11 @@ impl IMiracastReceiverSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetModelNumber<Impl: IMiracastReceiverSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetModelNumber<Impl: IMiracastReceiverSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetModelNumber(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AuthorizationMethod<Impl: IMiracastReceiverSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MiracastReceiverAuthorizationMethod) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AuthorizationMethod<Impl: IMiracastReceiverSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MiracastReceiverAuthorizationMethod) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthorizationMethod() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1136,11 +1136,11 @@ impl IMiracastReceiverSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAuthorizationMethod<Impl: IMiracastReceiverSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MiracastReceiverAuthorizationMethod) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAuthorizationMethod<Impl: IMiracastReceiverSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MiracastReceiverAuthorizationMethod) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAuthorizationMethod(value).into()
         }
-        unsafe extern "system" fn RequireAuthorizationFromKnownTransmitters<Impl: IMiracastReceiverSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequireAuthorizationFromKnownTransmitters<Impl: IMiracastReceiverSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequireAuthorizationFromKnownTransmitters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1151,7 +1151,7 @@ impl IMiracastReceiverSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRequireAuthorizationFromKnownTransmitters<Impl: IMiracastReceiverSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRequireAuthorizationFromKnownTransmitters<Impl: IMiracastReceiverSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRequireAuthorizationFromKnownTransmitters(value).into()
         }
@@ -1174,7 +1174,7 @@ impl IMiracastReceiverSettingsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IMiracastReceiverStatusImpl: Sized {
+pub trait IMiracastReceiverStatus_Impl: Sized {
     fn ListeningStatus(&mut self) -> ::windows::core::Result<MiracastReceiverListeningStatus>;
     fn WiFiStatus(&mut self) -> ::windows::core::Result<MiracastReceiverWiFiStatus>;
     fn IsConnectionTakeoverSupported(&mut self) -> ::windows::core::Result<bool>;
@@ -1186,9 +1186,9 @@ impl ::windows::core::RuntimeName for IMiracastReceiverStatus {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverStatus";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IMiracastReceiverStatusVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverStatusImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverStatusVtbl {
-        unsafe extern "system" fn ListeningStatus<Impl: IMiracastReceiverStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MiracastReceiverListeningStatus) -> ::windows::core::HRESULT {
+impl IMiracastReceiverStatus_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverStatus_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverStatus_Vtbl {
+        unsafe extern "system" fn ListeningStatus<Impl: IMiracastReceiverStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MiracastReceiverListeningStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ListeningStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1199,7 +1199,7 @@ impl IMiracastReceiverStatusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WiFiStatus<Impl: IMiracastReceiverStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MiracastReceiverWiFiStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WiFiStatus<Impl: IMiracastReceiverStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MiracastReceiverWiFiStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WiFiStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1210,7 +1210,7 @@ impl IMiracastReceiverStatusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsConnectionTakeoverSupported<Impl: IMiracastReceiverStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsConnectionTakeoverSupported<Impl: IMiracastReceiverStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsConnectionTakeoverSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1221,7 +1221,7 @@ impl IMiracastReceiverStatusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxSimultaneousConnections<Impl: IMiracastReceiverStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxSimultaneousConnections<Impl: IMiracastReceiverStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxSimultaneousConnections() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1232,7 +1232,7 @@ impl IMiracastReceiverStatusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn KnownTransmitters<Impl: IMiracastReceiverStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KnownTransmitters<Impl: IMiracastReceiverStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KnownTransmitters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1257,7 +1257,7 @@ impl IMiracastReceiverStatusVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMiracastReceiverStreamControlImpl: Sized {
+pub trait IMiracastReceiverStreamControl_Impl: Sized {
     fn GetVideoStreamSettings(&mut self) -> ::windows::core::Result<MiracastReceiverVideoStreamSettings>;
     fn GetVideoStreamSettingsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MiracastReceiverVideoStreamSettings>>;
     fn SuggestVideoStreamSettings(&mut self, settings: &::core::option::Option<MiracastReceiverVideoStreamSettings>) -> ::windows::core::Result<()>;
@@ -1270,9 +1270,9 @@ impl ::windows::core::RuntimeName for IMiracastReceiverStreamControl {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverStreamControl";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMiracastReceiverStreamControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverStreamControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverStreamControlVtbl {
-        unsafe extern "system" fn GetVideoStreamSettings<Impl: IMiracastReceiverStreamControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMiracastReceiverStreamControl_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverStreamControl_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverStreamControl_Vtbl {
+        unsafe extern "system" fn GetVideoStreamSettings<Impl: IMiracastReceiverStreamControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetVideoStreamSettings() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1283,7 +1283,7 @@ impl IMiracastReceiverStreamControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVideoStreamSettingsAsync<Impl: IMiracastReceiverStreamControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetVideoStreamSettingsAsync<Impl: IMiracastReceiverStreamControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetVideoStreamSettingsAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1294,11 +1294,11 @@ impl IMiracastReceiverStreamControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SuggestVideoStreamSettings<Impl: IMiracastReceiverStreamControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SuggestVideoStreamSettings<Impl: IMiracastReceiverStreamControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SuggestVideoStreamSettings(&*(&settings as *const <MiracastReceiverVideoStreamSettings as ::windows::core::Abi>::Abi as *const <MiracastReceiverVideoStreamSettings as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SuggestVideoStreamSettingsAsync<Impl: IMiracastReceiverStreamControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SuggestVideoStreamSettingsAsync<Impl: IMiracastReceiverStreamControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SuggestVideoStreamSettingsAsync(&*(&settings as *const <MiracastReceiverVideoStreamSettings as ::windows::core::Abi>::Abi as *const <MiracastReceiverVideoStreamSettings as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1309,7 +1309,7 @@ impl IMiracastReceiverStreamControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MuteAudio<Impl: IMiracastReceiverStreamControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MuteAudio<Impl: IMiracastReceiverStreamControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MuteAudio() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1320,7 +1320,7 @@ impl IMiracastReceiverStreamControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMuteAudio<Impl: IMiracastReceiverStreamControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMuteAudio<Impl: IMiracastReceiverStreamControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMuteAudio(value).into()
         }
@@ -1339,7 +1339,7 @@ impl IMiracastReceiverStreamControlVtbl {
     }
 }
 #[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
-pub trait IMiracastReceiverVideoStreamSettingsImpl: Sized {
+pub trait IMiracastReceiverVideoStreamSettings_Impl: Sized {
     fn Size(&mut self) -> ::windows::core::Result<super::super::Graphics::SizeInt32>;
     fn SetSize(&mut self, value: &super::super::Graphics::SizeInt32) -> ::windows::core::Result<()>;
     fn Bitrate(&mut self) -> ::windows::core::Result<i32>;
@@ -1350,9 +1350,9 @@ impl ::windows::core::RuntimeName for IMiracastReceiverVideoStreamSettings {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastReceiverVideoStreamSettings";
 }
 #[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
-impl IMiracastReceiverVideoStreamSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverVideoStreamSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverVideoStreamSettingsVtbl {
-        unsafe extern "system" fn Size<Impl: IMiracastReceiverVideoStreamSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT {
+impl IMiracastReceiverVideoStreamSettings_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastReceiverVideoStreamSettings_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastReceiverVideoStreamSettings_Vtbl {
+        unsafe extern "system" fn Size<Impl: IMiracastReceiverVideoStreamSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Size() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1363,11 +1363,11 @@ impl IMiracastReceiverVideoStreamSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSize<Impl: IMiracastReceiverVideoStreamSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSize<Impl: IMiracastReceiverVideoStreamSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSize(&*(&value as *const <super::super::Graphics::SizeInt32 as ::windows::core::Abi>::Abi as *const <super::super::Graphics::SizeInt32 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Bitrate<Impl: IMiracastReceiverVideoStreamSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Bitrate<Impl: IMiracastReceiverVideoStreamSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bitrate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1378,7 +1378,7 @@ impl IMiracastReceiverVideoStreamSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBitrate<Impl: IMiracastReceiverVideoStreamSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBitrate<Impl: IMiracastReceiverVideoStreamSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBitrate(value).into()
         }
@@ -1395,7 +1395,7 @@ impl IMiracastReceiverVideoStreamSettingsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IMiracastTransmitterImpl: Sized {
+pub trait IMiracastTransmitter_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn AuthorizationStatus(&mut self) -> ::windows::core::Result<MiracastTransmitterAuthorizationStatus>;
@@ -1409,9 +1409,9 @@ impl ::windows::core::RuntimeName for IMiracastTransmitter {
     const NAME: &'static str = "Windows.Media.Miracast.IMiracastTransmitter";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IMiracastTransmitterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastTransmitterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastTransmitterVtbl {
-        unsafe extern "system" fn Name<Impl: IMiracastTransmitterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IMiracastTransmitter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMiracastTransmitter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMiracastTransmitter_Vtbl {
+        unsafe extern "system" fn Name<Impl: IMiracastTransmitter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1422,11 +1422,11 @@ impl IMiracastTransmitterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetName<Impl: IMiracastTransmitterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetName<Impl: IMiracastTransmitter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AuthorizationStatus<Impl: IMiracastTransmitterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MiracastTransmitterAuthorizationStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AuthorizationStatus<Impl: IMiracastTransmitter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MiracastTransmitterAuthorizationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthorizationStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1437,11 +1437,11 @@ impl IMiracastTransmitterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAuthorizationStatus<Impl: IMiracastTransmitterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MiracastTransmitterAuthorizationStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAuthorizationStatus<Impl: IMiracastTransmitter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MiracastTransmitterAuthorizationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAuthorizationStatus(value).into()
         }
-        unsafe extern "system" fn GetConnections<Impl: IMiracastTransmitterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetConnections<Impl: IMiracastTransmitter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetConnections() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1452,7 +1452,7 @@ impl IMiracastTransmitterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MacAddress<Impl: IMiracastTransmitterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MacAddress<Impl: IMiracastTransmitter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MacAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1463,7 +1463,7 @@ impl IMiracastTransmitterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LastConnectionTime<Impl: IMiracastTransmitterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LastConnectionTime<Impl: IMiracastTransmitter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LastConnectionTime() {
                 ::core::result::Result::Ok(ok__) => {

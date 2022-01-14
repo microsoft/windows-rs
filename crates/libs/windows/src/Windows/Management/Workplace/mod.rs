@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IMdmAllowPolicyStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMdmAllowPolicyStatics {
-    type Vtable = IMdmAllowPolicyStaticsVtbl;
+    type Vtable = IMdmAllowPolicyStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc39709e7_741c_41f2_a4b6_314c31502586);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMdmAllowPolicyStaticsVtbl {
+pub struct IMdmAllowPolicyStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsBrowserAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsCameraAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -19,12 +19,12 @@ pub struct IMdmAllowPolicyStaticsVtbl {
 #[repr(transparent)]
 pub struct IMdmPolicyStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMdmPolicyStatics2 {
-    type Vtable = IMdmPolicyStatics2Vtbl;
+    type Vtable = IMdmPolicyStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc99c7526_03d4_49f9_a993_43efccd265c4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMdmPolicyStatics2Vtbl {
+pub struct IMdmPolicyStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetMessagingSyncPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MessagingSyncPolicy) -> ::windows::core::HRESULT,
 }
@@ -32,12 +32,12 @@ pub struct IMdmPolicyStatics2Vtbl {
 #[repr(transparent)]
 pub struct IWorkplaceSettingsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWorkplaceSettingsStatics {
-    type Vtable = IWorkplaceSettingsStaticsVtbl;
+    type Vtable = IWorkplaceSettingsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4676ffd_2d92_4c08_bad4_f6590b54a6d3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWorkplaceSettingsStaticsVtbl {
+pub struct IWorkplaceSettingsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsMicrosoftAccountOptional: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }

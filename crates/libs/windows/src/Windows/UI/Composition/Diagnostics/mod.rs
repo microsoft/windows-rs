@@ -44,7 +44,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionDebugHeatMaps {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Diagnostics.CompositionDebugHeatMaps;{e49c90ac-2ff3-5805-718c-b725ee07650f})");
 }
 unsafe impl ::windows::core::Interface for CompositionDebugHeatMaps {
-    type Vtable = ICompositionDebugHeatMapsVtbl;
+    type Vtable = ICompositionDebugHeatMaps_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe49c90ac_2ff3_5805_718c_b725ee07650f);
 }
 impl ::windows::core::RuntimeName for CompositionDebugHeatMaps {
@@ -205,7 +205,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionDebugSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Diagnostics.CompositionDebugSettings;{2831987e-1d82-4d38-b7b7-efd11c7bc3d1})");
 }
 unsafe impl ::windows::core::Interface for CompositionDebugSettings {
-    type Vtable = ICompositionDebugSettingsVtbl;
+    type Vtable = ICompositionDebugSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2831987e_1d82_4d38_b7b7_efd11c7bc3d1);
 }
 impl ::windows::core::RuntimeName for CompositionDebugSettings {
@@ -257,12 +257,12 @@ unsafe impl ::core::marker::Sync for CompositionDebugSettings {}
 #[repr(transparent)]
 pub struct ICompositionDebugHeatMaps(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionDebugHeatMaps {
-    type Vtable = ICompositionDebugHeatMapsVtbl;
+    type Vtable = ICompositionDebugHeatMaps_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe49c90ac_2ff3_5805_718c_b725ee07650f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICompositionDebugHeatMapsVtbl {
+pub struct ICompositionDebugHeatMaps_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Hide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtree: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ShowMemoryUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtree: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -273,12 +273,12 @@ pub struct ICompositionDebugHeatMapsVtbl {
 #[repr(transparent)]
 pub struct ICompositionDebugSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionDebugSettings {
-    type Vtable = ICompositionDebugSettingsVtbl;
+    type Vtable = ICompositionDebugSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2831987e_1d82_4d38_b7b7_efd11c7bc3d1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICompositionDebugSettingsVtbl {
+pub struct ICompositionDebugSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub HeatMaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -286,12 +286,12 @@ pub struct ICompositionDebugSettingsVtbl {
 #[repr(transparent)]
 pub struct ICompositionDebugSettingsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositionDebugSettingsStatics {
-    type Vtable = ICompositionDebugSettingsStaticsVtbl;
+    type Vtable = ICompositionDebugSettingsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64ec1f1e_6af8_4af8_b814_c870fd5a9505);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICompositionDebugSettingsStaticsVtbl {
+pub struct ICompositionDebugSettingsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TryGetSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }

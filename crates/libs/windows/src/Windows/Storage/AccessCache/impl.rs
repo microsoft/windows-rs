@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IItemRemovedEventArgsImpl: Sized {
+pub trait IItemRemovedEventArgs_Impl: Sized {
     fn RemovedEntry(&mut self) -> ::windows::core::Result<AccessListEntry>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7,9 +7,9 @@ impl ::windows::core::RuntimeName for IItemRemovedEventArgs {
     const NAME: &'static str = "Windows.Storage.AccessCache.IItemRemovedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IItemRemovedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IItemRemovedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IItemRemovedEventArgsVtbl {
-        unsafe extern "system" fn RemovedEntry<Impl: IItemRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<AccessListEntry>) -> ::windows::core::HRESULT {
+impl IItemRemovedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IItemRemovedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IItemRemovedEventArgs_Vtbl {
+        unsafe extern "system" fn RemovedEntry<Impl: IItemRemovedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<AccessListEntry>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemovedEntry() {
                 ::core::result::Result::Ok(ok__) => {
@@ -27,7 +27,7 @@ impl IItemRemovedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IStorageApplicationPermissionsStaticsImpl: Sized {
+pub trait IStorageApplicationPermissionsStatics_Impl: Sized {
     fn FutureAccessList(&mut self) -> ::windows::core::Result<StorageItemAccessList>;
     fn MostRecentlyUsedList(&mut self) -> ::windows::core::Result<StorageItemMostRecentlyUsedList>;
 }
@@ -36,9 +36,9 @@ impl ::windows::core::RuntimeName for IStorageApplicationPermissionsStatics {
     const NAME: &'static str = "Windows.Storage.AccessCache.IStorageApplicationPermissionsStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IStorageApplicationPermissionsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageApplicationPermissionsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageApplicationPermissionsStaticsVtbl {
-        unsafe extern "system" fn FutureAccessList<Impl: IStorageApplicationPermissionsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStorageApplicationPermissionsStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageApplicationPermissionsStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageApplicationPermissionsStatics_Vtbl {
+        unsafe extern "system" fn FutureAccessList<Impl: IStorageApplicationPermissionsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FutureAccessList() {
                 ::core::result::Result::Ok(ok__) => {
@@ -49,7 +49,7 @@ impl IStorageApplicationPermissionsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MostRecentlyUsedList<Impl: IStorageApplicationPermissionsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MostRecentlyUsedList<Impl: IStorageApplicationPermissionsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MostRecentlyUsedList() {
                 ::core::result::Result::Ok(ok__) => {
@@ -71,7 +71,7 @@ impl IStorageApplicationPermissionsStaticsVtbl {
     }
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-pub trait IStorageApplicationPermissionsStatics2Impl: Sized {
+pub trait IStorageApplicationPermissionsStatics2_Impl: Sized {
     fn GetFutureAccessListForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<StorageItemAccessList>;
     fn GetMostRecentlyUsedListForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<StorageItemMostRecentlyUsedList>;
 }
@@ -80,9 +80,9 @@ impl ::windows::core::RuntimeName for IStorageApplicationPermissionsStatics2 {
     const NAME: &'static str = "Windows.Storage.AccessCache.IStorageApplicationPermissionsStatics2";
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-impl IStorageApplicationPermissionsStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageApplicationPermissionsStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageApplicationPermissionsStatics2Vtbl {
-        unsafe extern "system" fn GetFutureAccessListForUser<Impl: IStorageApplicationPermissionsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStorageApplicationPermissionsStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageApplicationPermissionsStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageApplicationPermissionsStatics2_Vtbl {
+        unsafe extern "system" fn GetFutureAccessListForUser<Impl: IStorageApplicationPermissionsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFutureAccessListForUser(&*(&user as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -93,7 +93,7 @@ impl IStorageApplicationPermissionsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMostRecentlyUsedListForUser<Impl: IStorageApplicationPermissionsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMostRecentlyUsedListForUser<Impl: IStorageApplicationPermissionsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMostRecentlyUsedListForUser(&*(&user as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -115,7 +115,7 @@ impl IStorageApplicationPermissionsStatics2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-pub trait IStorageItemAccessListImpl: Sized {
+pub trait IStorageItemAccessList_Impl: Sized {
     fn AddOverloadDefaultMetadata(&mut self, file: &::core::option::Option<super::IStorageItem>) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Add(&mut self, file: &::core::option::Option<super::IStorageItem>, metadata: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn AddOrReplaceOverloadDefaultMetadata(&mut self, token: &::windows::core::HSTRING, file: &::core::option::Option<super::IStorageItem>) -> ::windows::core::Result<()>;
@@ -138,9 +138,9 @@ impl ::windows::core::RuntimeName for IStorageItemAccessList {
     const NAME: &'static str = "Windows.Storage.AccessCache.IStorageItemAccessList";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-impl IStorageItemAccessListVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemAccessListImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageItemAccessListVtbl {
-        unsafe extern "system" fn AddOverloadDefaultMetadata<Impl: IStorageItemAccessListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IStorageItemAccessList_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemAccessList_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageItemAccessList_Vtbl {
+        unsafe extern "system" fn AddOverloadDefaultMetadata<Impl: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddOverloadDefaultMetadata(&*(&file as *const <super::IStorageItem as ::windows::core::Abi>::Abi as *const <super::IStorageItem as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -151,7 +151,7 @@ impl IStorageItemAccessListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Impl: IStorageItemAccessListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, metadata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Impl: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, metadata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Add(&*(&file as *const <super::IStorageItem as ::windows::core::Abi>::Abi as *const <super::IStorageItem as ::windows::core::DefaultType>::DefaultType), &*(&metadata as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -162,17 +162,17 @@ impl IStorageItemAccessListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddOrReplaceOverloadDefaultMetadata<Impl: IStorageItemAccessListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, file: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddOrReplaceOverloadDefaultMetadata<Impl: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, file: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddOrReplaceOverloadDefaultMetadata(&*(&token as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&file as *const <super::IStorageItem as ::windows::core::Abi>::Abi as *const <super::IStorageItem as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AddOrReplace<Impl: IStorageItemAccessListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, file: ::windows::core::RawPtr, metadata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddOrReplace<Impl: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, file: ::windows::core::RawPtr, metadata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .AddOrReplace(&*(&token as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&file as *const <super::IStorageItem as ::windows::core::Abi>::Abi as *const <super::IStorageItem as ::windows::core::DefaultType>::DefaultType), &*(&metadata as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType))
                 .into()
         }
-        unsafe extern "system" fn GetItemAsync<Impl: IStorageItemAccessListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetItemAsync<Impl: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItemAsync(&*(&token as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -183,7 +183,7 @@ impl IStorageItemAccessListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFileAsync<Impl: IStorageItemAccessListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFileAsync<Impl: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFileAsync(&*(&token as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -194,7 +194,7 @@ impl IStorageItemAccessListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFolderAsync<Impl: IStorageItemAccessListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFolderAsync<Impl: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFolderAsync(&*(&token as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -205,7 +205,7 @@ impl IStorageItemAccessListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetItemWithOptionsAsync<Impl: IStorageItemAccessListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: AccessCacheOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetItemWithOptionsAsync<Impl: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: AccessCacheOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItemWithOptionsAsync(&*(&token as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), options) {
                 ::core::result::Result::Ok(ok__) => {
@@ -216,7 +216,7 @@ impl IStorageItemAccessListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFileWithOptionsAsync<Impl: IStorageItemAccessListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: AccessCacheOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFileWithOptionsAsync<Impl: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: AccessCacheOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFileWithOptionsAsync(&*(&token as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), options) {
                 ::core::result::Result::Ok(ok__) => {
@@ -227,7 +227,7 @@ impl IStorageItemAccessListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFolderWithOptionsAsync<Impl: IStorageItemAccessListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: AccessCacheOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFolderWithOptionsAsync<Impl: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: AccessCacheOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFolderWithOptionsAsync(&*(&token as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), options) {
                 ::core::result::Result::Ok(ok__) => {
@@ -238,11 +238,11 @@ impl IStorageItemAccessListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Remove<Impl: IStorageItemAccessListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Remove<Impl: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Remove(&*(&token as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ContainsItem<Impl: IStorageItemAccessListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContainsItem<Impl: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContainsItem(&*(&token as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -253,11 +253,11 @@ impl IStorageItemAccessListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Clear<Impl: IStorageItemAccessListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clear<Impl: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Clear().into()
         }
-        unsafe extern "system" fn CheckAccess<Impl: IStorageItemAccessListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CheckAccess<Impl: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CheckAccess(&*(&file as *const <super::IStorageItem as ::windows::core::Abi>::Abi as *const <super::IStorageItem as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -268,7 +268,7 @@ impl IStorageItemAccessListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Entries<Impl: IStorageItemAccessListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Entries<Impl: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Entries() {
                 ::core::result::Result::Ok(ok__) => {
@@ -279,7 +279,7 @@ impl IStorageItemAccessListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaximumItemsAllowed<Impl: IStorageItemAccessListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaximumItemsAllowed<Impl: IStorageItemAccessList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaximumItemsAllowed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -315,7 +315,7 @@ impl IStorageItemAccessListVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IStorageItemMostRecentlyUsedListImpl: Sized + IStorageItemAccessListImpl {
+pub trait IStorageItemMostRecentlyUsedList_Impl: Sized + IStorageItemAccessList_Impl {
     fn ItemRemoved(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<StorageItemMostRecentlyUsedList, ItemRemovedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveItemRemoved(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
@@ -324,9 +324,9 @@ impl ::windows::core::RuntimeName for IStorageItemMostRecentlyUsedList {
     const NAME: &'static str = "Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IStorageItemMostRecentlyUsedListVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemMostRecentlyUsedListImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageItemMostRecentlyUsedListVtbl {
-        unsafe extern "system" fn ItemRemoved<Impl: IStorageItemMostRecentlyUsedListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IStorageItemMostRecentlyUsedList_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemMostRecentlyUsedList_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageItemMostRecentlyUsedList_Vtbl {
+        unsafe extern "system" fn ItemRemoved<Impl: IStorageItemMostRecentlyUsedList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ItemRemoved(&*(&handler as *const <super::super::Foundation::TypedEventHandler<StorageItemMostRecentlyUsedList, ItemRemovedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<StorageItemMostRecentlyUsedList, ItemRemovedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -337,7 +337,7 @@ impl IStorageItemMostRecentlyUsedListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveItemRemoved<Impl: IStorageItemMostRecentlyUsedListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveItemRemoved<Impl: IStorageItemMostRecentlyUsedList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveItemRemoved(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -352,7 +352,7 @@ impl IStorageItemMostRecentlyUsedListVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IStorageItemMostRecentlyUsedList2Impl: Sized + IStorageItemAccessListImpl + IStorageItemMostRecentlyUsedListImpl {
+pub trait IStorageItemMostRecentlyUsedList2_Impl: Sized + IStorageItemAccessList_Impl + IStorageItemMostRecentlyUsedList_Impl {
     fn AddWithMetadataAndVisibility(&mut self, file: &::core::option::Option<super::IStorageItem>, metadata: &::windows::core::HSTRING, visibility: RecentStorageItemVisibility) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn AddOrReplaceWithMetadataAndVisibility(&mut self, token: &::windows::core::HSTRING, file: &::core::option::Option<super::IStorageItem>, metadata: &::windows::core::HSTRING, visibility: RecentStorageItemVisibility) -> ::windows::core::Result<()>;
 }
@@ -361,9 +361,9 @@ impl ::windows::core::RuntimeName for IStorageItemMostRecentlyUsedList2 {
     const NAME: &'static str = "Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList2";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IStorageItemMostRecentlyUsedList2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemMostRecentlyUsedList2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageItemMostRecentlyUsedList2Vtbl {
-        unsafe extern "system" fn AddWithMetadataAndVisibility<Impl: IStorageItemMostRecentlyUsedList2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, metadata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, visibility: RecentStorageItemVisibility, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IStorageItemMostRecentlyUsedList2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemMostRecentlyUsedList2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageItemMostRecentlyUsedList2_Vtbl {
+        unsafe extern "system" fn AddWithMetadataAndVisibility<Impl: IStorageItemMostRecentlyUsedList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, metadata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, visibility: RecentStorageItemVisibility, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddWithMetadataAndVisibility(&*(&file as *const <super::IStorageItem as ::windows::core::Abi>::Abi as *const <super::IStorageItem as ::windows::core::DefaultType>::DefaultType), &*(&metadata as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), visibility) {
                 ::core::result::Result::Ok(ok__) => {
@@ -374,7 +374,7 @@ impl IStorageItemMostRecentlyUsedList2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddOrReplaceWithMetadataAndVisibility<Impl: IStorageItemMostRecentlyUsedList2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, file: ::windows::core::RawPtr, metadata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, visibility: RecentStorageItemVisibility) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddOrReplaceWithMetadataAndVisibility<Impl: IStorageItemMostRecentlyUsedList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, file: ::windows::core::RawPtr, metadata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, visibility: RecentStorageItemVisibility) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .AddOrReplaceWithMetadataAndVisibility(

@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ITwoPanelHingedDevicePosturePreviewImpl: Sized {
+pub trait ITwoPanelHingedDevicePosturePreview_Impl: Sized {
     fn GetCurrentPostureAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TwoPanelHingedDevicePosturePreviewReading>>;
     fn PostureChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<TwoPanelHingedDevicePosturePreview, TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemovePostureChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for ITwoPanelHingedDevicePosturePreview {
     const NAME: &'static str = "Windows.System.Preview.ITwoPanelHingedDevicePosturePreview";
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
-impl ITwoPanelHingedDevicePosturePreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITwoPanelHingedDevicePosturePreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITwoPanelHingedDevicePosturePreviewVtbl {
-        unsafe extern "system" fn GetCurrentPostureAsync<Impl: ITwoPanelHingedDevicePosturePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITwoPanelHingedDevicePosturePreview_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITwoPanelHingedDevicePosturePreview_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITwoPanelHingedDevicePosturePreview_Vtbl {
+        unsafe extern "system" fn GetCurrentPostureAsync<Impl: ITwoPanelHingedDevicePosturePreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentPostureAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -22,7 +22,7 @@ impl ITwoPanelHingedDevicePosturePreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PostureChanged<Impl: ITwoPanelHingedDevicePosturePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PostureChanged<Impl: ITwoPanelHingedDevicePosturePreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PostureChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<TwoPanelHingedDevicePosturePreview, TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<TwoPanelHingedDevicePosturePreview, TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -33,7 +33,7 @@ impl ITwoPanelHingedDevicePosturePreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePostureChanged<Impl: ITwoPanelHingedDevicePosturePreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePostureChanged<Impl: ITwoPanelHingedDevicePosturePreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePostureChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -49,7 +49,7 @@ impl ITwoPanelHingedDevicePosturePreviewVtbl {
     }
 }
 #[cfg(all(feature = "Devices_Sensors", feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ITwoPanelHingedDevicePosturePreviewReadingImpl: Sized {
+pub trait ITwoPanelHingedDevicePosturePreviewReading_Impl: Sized {
     fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn HingeState(&mut self) -> ::windows::core::Result<HingeState>;
     fn Panel1Orientation(&mut self) -> ::windows::core::Result<super::super::Devices::Sensors::SimpleOrientation>;
@@ -62,9 +62,9 @@ impl ::windows::core::RuntimeName for ITwoPanelHingedDevicePosturePreviewReading
     const NAME: &'static str = "Windows.System.Preview.ITwoPanelHingedDevicePosturePreviewReading";
 }
 #[cfg(all(feature = "Devices_Sensors", feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
-impl ITwoPanelHingedDevicePosturePreviewReadingVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITwoPanelHingedDevicePosturePreviewReadingImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITwoPanelHingedDevicePosturePreviewReadingVtbl {
-        unsafe extern "system" fn Timestamp<Impl: ITwoPanelHingedDevicePosturePreviewReadingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+impl ITwoPanelHingedDevicePosturePreviewReading_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITwoPanelHingedDevicePosturePreviewReading_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITwoPanelHingedDevicePosturePreviewReading_Vtbl {
+        unsafe extern "system" fn Timestamp<Impl: ITwoPanelHingedDevicePosturePreviewReading_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -75,7 +75,7 @@ impl ITwoPanelHingedDevicePosturePreviewReadingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HingeState<Impl: ITwoPanelHingedDevicePosturePreviewReadingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HingeState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HingeState<Impl: ITwoPanelHingedDevicePosturePreviewReading_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HingeState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HingeState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -86,7 +86,7 @@ impl ITwoPanelHingedDevicePosturePreviewReadingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Panel1Orientation<Impl: ITwoPanelHingedDevicePosturePreviewReadingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Sensors::SimpleOrientation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Panel1Orientation<Impl: ITwoPanelHingedDevicePosturePreviewReading_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Sensors::SimpleOrientation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Panel1Orientation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -97,7 +97,7 @@ impl ITwoPanelHingedDevicePosturePreviewReadingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Panel1Id<Impl: ITwoPanelHingedDevicePosturePreviewReadingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Panel1Id<Impl: ITwoPanelHingedDevicePosturePreviewReading_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Panel1Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -108,7 +108,7 @@ impl ITwoPanelHingedDevicePosturePreviewReadingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Panel2Orientation<Impl: ITwoPanelHingedDevicePosturePreviewReadingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Sensors::SimpleOrientation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Panel2Orientation<Impl: ITwoPanelHingedDevicePosturePreviewReading_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Sensors::SimpleOrientation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Panel2Orientation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -119,7 +119,7 @@ impl ITwoPanelHingedDevicePosturePreviewReadingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Panel2Id<Impl: ITwoPanelHingedDevicePosturePreviewReadingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Panel2Id<Impl: ITwoPanelHingedDevicePosturePreviewReading_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Panel2Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -145,7 +145,7 @@ impl ITwoPanelHingedDevicePosturePreviewReadingVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgsImpl: Sized {
+pub trait ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs_Impl: Sized {
     fn Reading(&mut self) -> ::windows::core::Result<TwoPanelHingedDevicePosturePreviewReading>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -153,9 +153,9 @@ impl ::windows::core::RuntimeName for ITwoPanelHingedDevicePosturePreviewReading
     const NAME: &'static str = "Windows.System.Preview.ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgsVtbl {
-        unsafe extern "system" fn Reading<Impl: ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs_Vtbl {
+        unsafe extern "system" fn Reading<Impl: ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reading() {
                 ::core::result::Result::Ok(ok__) => {
@@ -176,7 +176,7 @@ impl ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ITwoPanelHingedDevicePosturePreviewStaticsImpl: Sized {
+pub trait ITwoPanelHingedDevicePosturePreviewStatics_Impl: Sized {
     fn GetDefaultAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TwoPanelHingedDevicePosturePreview>>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
@@ -184,9 +184,9 @@ impl ::windows::core::RuntimeName for ITwoPanelHingedDevicePosturePreviewStatics
     const NAME: &'static str = "Windows.System.Preview.ITwoPanelHingedDevicePosturePreviewStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
-impl ITwoPanelHingedDevicePosturePreviewStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITwoPanelHingedDevicePosturePreviewStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITwoPanelHingedDevicePosturePreviewStaticsVtbl {
-        unsafe extern "system" fn GetDefaultAsync<Impl: ITwoPanelHingedDevicePosturePreviewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITwoPanelHingedDevicePosturePreviewStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITwoPanelHingedDevicePosturePreviewStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITwoPanelHingedDevicePosturePreviewStatics_Vtbl {
+        unsafe extern "system" fn GetDefaultAsync<Impl: ITwoPanelHingedDevicePosturePreviewStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultAsync() {
                 ::core::result::Result::Ok(ok__) => {

@@ -131,13 +131,13 @@ impl ::core::fmt::Debug for IChannelCredentials {
     }
 }
 unsafe impl ::windows::core::Interface for IChannelCredentials {
-    type Vtable = IChannelCredentialsVtbl;
+    type Vtable = IChannelCredentials_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x181b448c_c17c_4b17_ac6d_06699b93198f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChannelCredentialsVtbl {
-    pub base: super::IDispatchVtbl,
+pub struct IChannelCredentials_Vtbl {
+    pub base: super::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetWindowsCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, domain: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, username: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, password: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, impersonationlevel: i32, allowntlm: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]

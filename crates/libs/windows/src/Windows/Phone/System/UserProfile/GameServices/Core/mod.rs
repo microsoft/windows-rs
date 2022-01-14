@@ -150,7 +150,7 @@ unsafe impl ::windows::core::RuntimeType for GameServicePropertyCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.System.UserProfile.GameServices.Core.GameServicePropertyCollection;{07e57fc8-debb-4609-9cc8-529d16bc2bd9})");
 }
 unsafe impl ::windows::core::Interface for GameServicePropertyCollection {
-    type Vtable = IGameServicePropertyCollectionVtbl;
+    type Vtable = IGameServicePropertyCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07e57fc8_debb_4609_9cc8_529d16bc2bd9);
 }
 impl ::windows::core::RuntimeName for GameServicePropertyCollection {
@@ -235,12 +235,12 @@ impl ::windows::core::DefaultType for GameServiceScoreKind {
 #[repr(transparent)]
 pub struct IGameService(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameService {
-    type Vtable = IGameServiceVtbl;
+    type Vtable = IGameService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e2d5098_48a9_4efc_afd6_8e6da09003fb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameServiceVtbl {
+pub struct IGameService_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ServiceUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -273,12 +273,12 @@ pub struct IGameServiceVtbl {
 #[repr(transparent)]
 pub struct IGameService2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameService2 {
-    type Vtable = IGameService2Vtbl;
+    type Vtable = IGameService2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2364ef6_ea17_4be5_8d8a_c860885e051f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameService2Vtbl {
+pub struct IGameService2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub NotifyPartnerTokenExpired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, audienceuri: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -290,12 +290,12 @@ pub struct IGameService2Vtbl {
 #[repr(transparent)]
 pub struct IGameServicePropertyCollection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameServicePropertyCollection {
-    type Vtable = IGameServicePropertyCollectionVtbl;
+    type Vtable = IGameServicePropertyCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07e57fc8_debb_4609_9cc8_529d16bc2bd9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameServicePropertyCollectionVtbl {
+pub struct IGameServicePropertyCollection_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetPropertyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

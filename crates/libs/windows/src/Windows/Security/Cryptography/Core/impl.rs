@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IAsymmetricAlgorithmNamesStaticsImpl: Sized {
+pub trait IAsymmetricAlgorithmNamesStatics_Impl: Sized {
     fn RsaPkcs1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn RsaOaepSha1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn RsaOaepSha256(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -24,9 +24,9 @@ impl ::windows::core::RuntimeName for IAsymmetricAlgorithmNamesStatics {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IAsymmetricAlgorithmNamesStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAsymmetricAlgorithmNamesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsymmetricAlgorithmNamesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAsymmetricAlgorithmNamesStaticsVtbl {
-        unsafe extern "system" fn RsaPkcs1<Impl: IAsymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAsymmetricAlgorithmNamesStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsymmetricAlgorithmNamesStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAsymmetricAlgorithmNamesStatics_Vtbl {
+        unsafe extern "system" fn RsaPkcs1<Impl: IAsymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RsaPkcs1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -37,7 +37,7 @@ impl IAsymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RsaOaepSha1<Impl: IAsymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RsaOaepSha1<Impl: IAsymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RsaOaepSha1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -48,7 +48,7 @@ impl IAsymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RsaOaepSha256<Impl: IAsymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RsaOaepSha256<Impl: IAsymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RsaOaepSha256() {
                 ::core::result::Result::Ok(ok__) => {
@@ -59,7 +59,7 @@ impl IAsymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RsaOaepSha384<Impl: IAsymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RsaOaepSha384<Impl: IAsymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RsaOaepSha384() {
                 ::core::result::Result::Ok(ok__) => {
@@ -70,7 +70,7 @@ impl IAsymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RsaOaepSha512<Impl: IAsymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RsaOaepSha512<Impl: IAsymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RsaOaepSha512() {
                 ::core::result::Result::Ok(ok__) => {
@@ -81,7 +81,7 @@ impl IAsymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EcdsaP256Sha256<Impl: IAsymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EcdsaP256Sha256<Impl: IAsymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EcdsaP256Sha256() {
                 ::core::result::Result::Ok(ok__) => {
@@ -92,7 +92,7 @@ impl IAsymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EcdsaP384Sha384<Impl: IAsymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EcdsaP384Sha384<Impl: IAsymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EcdsaP384Sha384() {
                 ::core::result::Result::Ok(ok__) => {
@@ -103,7 +103,7 @@ impl IAsymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EcdsaP521Sha512<Impl: IAsymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EcdsaP521Sha512<Impl: IAsymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EcdsaP521Sha512() {
                 ::core::result::Result::Ok(ok__) => {
@@ -114,7 +114,7 @@ impl IAsymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DsaSha1<Impl: IAsymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DsaSha1<Impl: IAsymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DsaSha1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -125,7 +125,7 @@ impl IAsymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DsaSha256<Impl: IAsymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DsaSha256<Impl: IAsymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DsaSha256() {
                 ::core::result::Result::Ok(ok__) => {
@@ -136,7 +136,7 @@ impl IAsymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RsaSignPkcs1Sha1<Impl: IAsymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RsaSignPkcs1Sha1<Impl: IAsymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RsaSignPkcs1Sha1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -147,7 +147,7 @@ impl IAsymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RsaSignPkcs1Sha256<Impl: IAsymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RsaSignPkcs1Sha256<Impl: IAsymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RsaSignPkcs1Sha256() {
                 ::core::result::Result::Ok(ok__) => {
@@ -158,7 +158,7 @@ impl IAsymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RsaSignPkcs1Sha384<Impl: IAsymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RsaSignPkcs1Sha384<Impl: IAsymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RsaSignPkcs1Sha384() {
                 ::core::result::Result::Ok(ok__) => {
@@ -169,7 +169,7 @@ impl IAsymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RsaSignPkcs1Sha512<Impl: IAsymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RsaSignPkcs1Sha512<Impl: IAsymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RsaSignPkcs1Sha512() {
                 ::core::result::Result::Ok(ok__) => {
@@ -180,7 +180,7 @@ impl IAsymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RsaSignPssSha1<Impl: IAsymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RsaSignPssSha1<Impl: IAsymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RsaSignPssSha1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -191,7 +191,7 @@ impl IAsymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RsaSignPssSha256<Impl: IAsymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RsaSignPssSha256<Impl: IAsymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RsaSignPssSha256() {
                 ::core::result::Result::Ok(ok__) => {
@@ -202,7 +202,7 @@ impl IAsymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RsaSignPssSha384<Impl: IAsymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RsaSignPssSha384<Impl: IAsymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RsaSignPssSha384() {
                 ::core::result::Result::Ok(ok__) => {
@@ -213,7 +213,7 @@ impl IAsymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RsaSignPssSha512<Impl: IAsymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RsaSignPssSha512<Impl: IAsymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RsaSignPssSha512() {
                 ::core::result::Result::Ok(ok__) => {
@@ -251,7 +251,7 @@ impl IAsymmetricAlgorithmNamesStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAsymmetricAlgorithmNamesStatics2Impl: Sized {
+pub trait IAsymmetricAlgorithmNamesStatics2_Impl: Sized {
     fn EcdsaSha256(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn EcdsaSha384(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn EcdsaSha512(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -261,9 +261,9 @@ impl ::windows::core::RuntimeName for IAsymmetricAlgorithmNamesStatics2 {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IAsymmetricAlgorithmNamesStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAsymmetricAlgorithmNamesStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsymmetricAlgorithmNamesStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAsymmetricAlgorithmNamesStatics2Vtbl {
-        unsafe extern "system" fn EcdsaSha256<Impl: IAsymmetricAlgorithmNamesStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAsymmetricAlgorithmNamesStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsymmetricAlgorithmNamesStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAsymmetricAlgorithmNamesStatics2_Vtbl {
+        unsafe extern "system" fn EcdsaSha256<Impl: IAsymmetricAlgorithmNamesStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EcdsaSha256() {
                 ::core::result::Result::Ok(ok__) => {
@@ -274,7 +274,7 @@ impl IAsymmetricAlgorithmNamesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EcdsaSha384<Impl: IAsymmetricAlgorithmNamesStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EcdsaSha384<Impl: IAsymmetricAlgorithmNamesStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EcdsaSha384() {
                 ::core::result::Result::Ok(ok__) => {
@@ -285,7 +285,7 @@ impl IAsymmetricAlgorithmNamesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EcdsaSha512<Impl: IAsymmetricAlgorithmNamesStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EcdsaSha512<Impl: IAsymmetricAlgorithmNamesStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EcdsaSha512() {
                 ::core::result::Result::Ok(ok__) => {
@@ -308,7 +308,7 @@ impl IAsymmetricAlgorithmNamesStatics2Vtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IAsymmetricKeyAlgorithmProviderImpl: Sized {
+pub trait IAsymmetricKeyAlgorithmProvider_Impl: Sized {
     fn AlgorithmName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn CreateKeyPair(&mut self, keysize: u32) -> ::windows::core::Result<CryptographicKey>;
     fn ImportDefaultPrivateKeyBlob(&mut self, keyblob: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CryptographicKey>;
@@ -321,9 +321,9 @@ impl ::windows::core::RuntimeName for IAsymmetricKeyAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IAsymmetricKeyAlgorithmProvider";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IAsymmetricKeyAlgorithmProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsymmetricKeyAlgorithmProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAsymmetricKeyAlgorithmProviderVtbl {
-        unsafe extern "system" fn AlgorithmName<Impl: IAsymmetricKeyAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAsymmetricKeyAlgorithmProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsymmetricKeyAlgorithmProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAsymmetricKeyAlgorithmProvider_Vtbl {
+        unsafe extern "system" fn AlgorithmName<Impl: IAsymmetricKeyAlgorithmProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlgorithmName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -334,7 +334,7 @@ impl IAsymmetricKeyAlgorithmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateKeyPair<Impl: IAsymmetricKeyAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keysize: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateKeyPair<Impl: IAsymmetricKeyAlgorithmProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keysize: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateKeyPair(keysize) {
                 ::core::result::Result::Ok(ok__) => {
@@ -345,7 +345,7 @@ impl IAsymmetricKeyAlgorithmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImportDefaultPrivateKeyBlob<Impl: IAsymmetricKeyAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keyblob: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImportDefaultPrivateKeyBlob<Impl: IAsymmetricKeyAlgorithmProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keyblob: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImportDefaultPrivateKeyBlob(&*(&keyblob as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -356,7 +356,7 @@ impl IAsymmetricKeyAlgorithmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImportKeyPairWithBlobType<Impl: IAsymmetricKeyAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keyblob: ::windows::core::RawPtr, blobtype: CryptographicPrivateKeyBlobType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImportKeyPairWithBlobType<Impl: IAsymmetricKeyAlgorithmProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keyblob: ::windows::core::RawPtr, blobtype: CryptographicPrivateKeyBlobType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImportKeyPairWithBlobType(&*(&keyblob as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType), blobtype) {
                 ::core::result::Result::Ok(ok__) => {
@@ -367,7 +367,7 @@ impl IAsymmetricKeyAlgorithmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImportDefaultPublicKeyBlob<Impl: IAsymmetricKeyAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keyblob: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImportDefaultPublicKeyBlob<Impl: IAsymmetricKeyAlgorithmProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keyblob: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImportDefaultPublicKeyBlob(&*(&keyblob as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -378,7 +378,7 @@ impl IAsymmetricKeyAlgorithmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImportPublicKeyWithBlobType<Impl: IAsymmetricKeyAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keyblob: ::windows::core::RawPtr, blobtype: CryptographicPublicKeyBlobType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImportPublicKeyWithBlobType<Impl: IAsymmetricKeyAlgorithmProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keyblob: ::windows::core::RawPtr, blobtype: CryptographicPublicKeyBlobType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImportPublicKeyWithBlobType(&*(&keyblob as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType), blobtype) {
                 ::core::result::Result::Ok(ok__) => {
@@ -404,7 +404,7 @@ impl IAsymmetricKeyAlgorithmProviderVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAsymmetricKeyAlgorithmProvider2Impl: Sized {
+pub trait IAsymmetricKeyAlgorithmProvider2_Impl: Sized {
     fn CreateKeyPairWithCurveName(&mut self, curvename: &::windows::core::HSTRING) -> ::windows::core::Result<CryptographicKey>;
     fn CreateKeyPairWithCurveParameters(&mut self, parameters: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<CryptographicKey>;
 }
@@ -413,9 +413,9 @@ impl ::windows::core::RuntimeName for IAsymmetricKeyAlgorithmProvider2 {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IAsymmetricKeyAlgorithmProvider2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAsymmetricKeyAlgorithmProvider2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsymmetricKeyAlgorithmProvider2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAsymmetricKeyAlgorithmProvider2Vtbl {
-        unsafe extern "system" fn CreateKeyPairWithCurveName<Impl: IAsymmetricKeyAlgorithmProvider2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, curvename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAsymmetricKeyAlgorithmProvider2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsymmetricKeyAlgorithmProvider2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAsymmetricKeyAlgorithmProvider2_Vtbl {
+        unsafe extern "system" fn CreateKeyPairWithCurveName<Impl: IAsymmetricKeyAlgorithmProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, curvename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateKeyPairWithCurveName(&*(&curvename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -426,7 +426,7 @@ impl IAsymmetricKeyAlgorithmProvider2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateKeyPairWithCurveParameters<Impl: IAsymmetricKeyAlgorithmProvider2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parameters_array_size: u32, parameters: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateKeyPairWithCurveParameters<Impl: IAsymmetricKeyAlgorithmProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parameters_array_size: u32, parameters: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateKeyPairWithCurveParameters(::core::slice::from_raw_parts(::core::mem::transmute_copy(&parameters), parameters_array_size as _)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -448,7 +448,7 @@ impl IAsymmetricKeyAlgorithmProvider2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAsymmetricKeyAlgorithmProviderStaticsImpl: Sized {
+pub trait IAsymmetricKeyAlgorithmProviderStatics_Impl: Sized {
     fn OpenAlgorithm(&mut self, algorithm: &::windows::core::HSTRING) -> ::windows::core::Result<AsymmetricKeyAlgorithmProvider>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -456,9 +456,9 @@ impl ::windows::core::RuntimeName for IAsymmetricKeyAlgorithmProviderStatics {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IAsymmetricKeyAlgorithmProviderStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAsymmetricKeyAlgorithmProviderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsymmetricKeyAlgorithmProviderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAsymmetricKeyAlgorithmProviderStaticsVtbl {
-        unsafe extern "system" fn OpenAlgorithm<Impl: IAsymmetricKeyAlgorithmProviderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, algorithm: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAsymmetricKeyAlgorithmProviderStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsymmetricKeyAlgorithmProviderStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAsymmetricKeyAlgorithmProviderStatics_Vtbl {
+        unsafe extern "system" fn OpenAlgorithm<Impl: IAsymmetricKeyAlgorithmProviderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, algorithm: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenAlgorithm(&*(&algorithm as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -479,7 +479,7 @@ impl IAsymmetricKeyAlgorithmProviderStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ICryptographicEngineStaticsImpl: Sized {
+pub trait ICryptographicEngineStatics_Impl: Sized {
     fn Encrypt(&mut self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, iv: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
     fn Decrypt(&mut self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, iv: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
     fn EncryptAndAuthenticate(&mut self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, nonce: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, authenticateddata: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<EncryptedAndAuthenticatedData>;
@@ -493,9 +493,9 @@ impl ::windows::core::RuntimeName for ICryptographicEngineStatics {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.ICryptographicEngineStatics";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ICryptographicEngineStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICryptographicEngineStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICryptographicEngineStaticsVtbl {
-        unsafe extern "system" fn Encrypt<Impl: ICryptographicEngineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, iv: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICryptographicEngineStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICryptographicEngineStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICryptographicEngineStatics_Vtbl {
+        unsafe extern "system" fn Encrypt<Impl: ICryptographicEngineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, iv: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Encrypt(
                 &*(&key as *const <CryptographicKey as ::windows::core::Abi>::Abi as *const <CryptographicKey as ::windows::core::DefaultType>::DefaultType),
@@ -510,7 +510,7 @@ impl ICryptographicEngineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Decrypt<Impl: ICryptographicEngineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, iv: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Decrypt<Impl: ICryptographicEngineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, iv: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Decrypt(
                 &*(&key as *const <CryptographicKey as ::windows::core::Abi>::Abi as *const <CryptographicKey as ::windows::core::DefaultType>::DefaultType),
@@ -525,7 +525,7 @@ impl ICryptographicEngineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EncryptAndAuthenticate<Impl: ICryptographicEngineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, nonce: ::windows::core::RawPtr, authenticateddata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EncryptAndAuthenticate<Impl: ICryptographicEngineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, nonce: ::windows::core::RawPtr, authenticateddata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EncryptAndAuthenticate(
                 &*(&key as *const <CryptographicKey as ::windows::core::Abi>::Abi as *const <CryptographicKey as ::windows::core::DefaultType>::DefaultType),
@@ -541,7 +541,7 @@ impl ICryptographicEngineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DecryptAndAuthenticate<Impl: ICryptographicEngineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, nonce: ::windows::core::RawPtr, authenticationtag: ::windows::core::RawPtr, authenticateddata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DecryptAndAuthenticate<Impl: ICryptographicEngineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, nonce: ::windows::core::RawPtr, authenticationtag: ::windows::core::RawPtr, authenticateddata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DecryptAndAuthenticate(
                 &*(&key as *const <CryptographicKey as ::windows::core::Abi>::Abi as *const <CryptographicKey as ::windows::core::DefaultType>::DefaultType),
@@ -558,7 +558,7 @@ impl ICryptographicEngineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Sign<Impl: ICryptographicEngineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Sign<Impl: ICryptographicEngineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sign(&*(&key as *const <CryptographicKey as ::windows::core::Abi>::Abi as *const <CryptographicKey as ::windows::core::DefaultType>::DefaultType), &*(&data as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -569,7 +569,7 @@ impl ICryptographicEngineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VerifySignature<Impl: ICryptographicEngineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, signature: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VerifySignature<Impl: ICryptographicEngineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, signature: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VerifySignature(
                 &*(&key as *const <CryptographicKey as ::windows::core::Abi>::Abi as *const <CryptographicKey as ::windows::core::DefaultType>::DefaultType),
@@ -584,7 +584,7 @@ impl ICryptographicEngineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeriveKeyMaterial<Impl: ICryptographicEngineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, parameters: ::windows::core::RawPtr, desiredkeysize: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeriveKeyMaterial<Impl: ICryptographicEngineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, parameters: ::windows::core::RawPtr, desiredkeysize: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeriveKeyMaterial(&*(&key as *const <CryptographicKey as ::windows::core::Abi>::Abi as *const <CryptographicKey as ::windows::core::DefaultType>::DefaultType), &*(&parameters as *const <KeyDerivationParameters as ::windows::core::Abi>::Abi as *const <KeyDerivationParameters as ::windows::core::DefaultType>::DefaultType), desiredkeysize) {
                 ::core::result::Result::Ok(ok__) => {
@@ -611,7 +611,7 @@ impl ICryptographicEngineStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ICryptographicEngineStatics2Impl: Sized {
+pub trait ICryptographicEngineStatics2_Impl: Sized {
     fn SignHashedData(&mut self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
     fn VerifySignatureWithHashInput(&mut self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, signature: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<bool>;
     fn DecryptAsync(&mut self, key: &::core::option::Option<CryptographicKey>, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, iv: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>;
@@ -623,9 +623,9 @@ impl ::windows::core::RuntimeName for ICryptographicEngineStatics2 {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.ICryptographicEngineStatics2";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ICryptographicEngineStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICryptographicEngineStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICryptographicEngineStatics2Vtbl {
-        unsafe extern "system" fn SignHashedData<Impl: ICryptographicEngineStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICryptographicEngineStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICryptographicEngineStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICryptographicEngineStatics2_Vtbl {
+        unsafe extern "system" fn SignHashedData<Impl: ICryptographicEngineStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignHashedData(&*(&key as *const <CryptographicKey as ::windows::core::Abi>::Abi as *const <CryptographicKey as ::windows::core::DefaultType>::DefaultType), &*(&data as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -636,7 +636,7 @@ impl ICryptographicEngineStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VerifySignatureWithHashInput<Impl: ICryptographicEngineStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, signature: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VerifySignatureWithHashInput<Impl: ICryptographicEngineStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, signature: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VerifySignatureWithHashInput(
                 &*(&key as *const <CryptographicKey as ::windows::core::Abi>::Abi as *const <CryptographicKey as ::windows::core::DefaultType>::DefaultType),
@@ -651,7 +651,7 @@ impl ICryptographicEngineStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DecryptAsync<Impl: ICryptographicEngineStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, iv: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DecryptAsync<Impl: ICryptographicEngineStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, iv: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DecryptAsync(
                 &*(&key as *const <CryptographicKey as ::windows::core::Abi>::Abi as *const <CryptographicKey as ::windows::core::DefaultType>::DefaultType),
@@ -666,7 +666,7 @@ impl ICryptographicEngineStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SignAsync<Impl: ICryptographicEngineStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignAsync<Impl: ICryptographicEngineStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignAsync(&*(&key as *const <CryptographicKey as ::windows::core::Abi>::Abi as *const <CryptographicKey as ::windows::core::DefaultType>::DefaultType), &*(&data as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -677,7 +677,7 @@ impl ICryptographicEngineStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SignHashedDataAsync<Impl: ICryptographicEngineStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignHashedDataAsync<Impl: ICryptographicEngineStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows::core::RawPtr, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignHashedDataAsync(&*(&key as *const <CryptographicKey as ::windows::core::Abi>::Abi as *const <CryptographicKey as ::windows::core::DefaultType>::DefaultType), &*(&data as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -702,7 +702,7 @@ impl ICryptographicEngineStatics2Vtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ICryptographicKeyImpl: Sized {
+pub trait ICryptographicKey_Impl: Sized {
     fn KeySize(&mut self) -> ::windows::core::Result<u32>;
     fn ExportDefaultPrivateKeyBlobType(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
     fn ExportPrivateKeyWithBlobType(&mut self, blobtype: CryptographicPrivateKeyBlobType) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
@@ -714,9 +714,9 @@ impl ::windows::core::RuntimeName for ICryptographicKey {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.ICryptographicKey";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ICryptographicKeyVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICryptographicKeyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICryptographicKeyVtbl {
-        unsafe extern "system" fn KeySize<Impl: ICryptographicKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl ICryptographicKey_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICryptographicKey_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICryptographicKey_Vtbl {
+        unsafe extern "system" fn KeySize<Impl: ICryptographicKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeySize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -727,7 +727,7 @@ impl ICryptographicKeyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExportDefaultPrivateKeyBlobType<Impl: ICryptographicKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExportDefaultPrivateKeyBlobType<Impl: ICryptographicKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExportDefaultPrivateKeyBlobType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -738,7 +738,7 @@ impl ICryptographicKeyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExportPrivateKeyWithBlobType<Impl: ICryptographicKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blobtype: CryptographicPrivateKeyBlobType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExportPrivateKeyWithBlobType<Impl: ICryptographicKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blobtype: CryptographicPrivateKeyBlobType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExportPrivateKeyWithBlobType(blobtype) {
                 ::core::result::Result::Ok(ok__) => {
@@ -749,7 +749,7 @@ impl ICryptographicKeyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExportDefaultPublicKeyBlobType<Impl: ICryptographicKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExportDefaultPublicKeyBlobType<Impl: ICryptographicKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExportDefaultPublicKeyBlobType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -760,7 +760,7 @@ impl ICryptographicKeyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExportPublicKeyWithBlobType<Impl: ICryptographicKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blobtype: CryptographicPublicKeyBlobType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExportPublicKeyWithBlobType<Impl: ICryptographicKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blobtype: CryptographicPublicKeyBlobType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExportPublicKeyWithBlobType(blobtype) {
                 ::core::result::Result::Ok(ok__) => {
@@ -785,7 +785,7 @@ impl ICryptographicKeyVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IEccCurveNamesStaticsImpl: Sized {
+pub trait IEccCurveNamesStatics_Impl: Sized {
     fn BrainpoolP160r1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn BrainpoolP160t1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn BrainpoolP192r1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -838,9 +838,9 @@ impl ::windows::core::RuntimeName for IEccCurveNamesStatics {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IEccCurveNamesStatics";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IEccCurveNamesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEccCurveNamesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEccCurveNamesStaticsVtbl {
-        unsafe extern "system" fn BrainpoolP160r1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IEccCurveNamesStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEccCurveNamesStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEccCurveNamesStatics_Vtbl {
+        unsafe extern "system" fn BrainpoolP160r1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BrainpoolP160r1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -851,7 +851,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BrainpoolP160t1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BrainpoolP160t1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BrainpoolP160t1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -862,7 +862,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BrainpoolP192r1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BrainpoolP192r1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BrainpoolP192r1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -873,7 +873,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BrainpoolP192t1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BrainpoolP192t1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BrainpoolP192t1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -884,7 +884,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BrainpoolP224r1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BrainpoolP224r1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BrainpoolP224r1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -895,7 +895,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BrainpoolP224t1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BrainpoolP224t1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BrainpoolP224t1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -906,7 +906,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BrainpoolP256r1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BrainpoolP256r1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BrainpoolP256r1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -917,7 +917,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BrainpoolP256t1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BrainpoolP256t1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BrainpoolP256t1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -928,7 +928,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BrainpoolP320r1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BrainpoolP320r1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BrainpoolP320r1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -939,7 +939,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BrainpoolP320t1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BrainpoolP320t1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BrainpoolP320t1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -950,7 +950,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BrainpoolP384r1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BrainpoolP384r1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BrainpoolP384r1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -961,7 +961,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BrainpoolP384t1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BrainpoolP384t1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BrainpoolP384t1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -972,7 +972,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BrainpoolP512r1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BrainpoolP512r1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BrainpoolP512r1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -983,7 +983,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BrainpoolP512t1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BrainpoolP512t1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BrainpoolP512t1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -994,7 +994,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Curve25519<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Curve25519<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Curve25519() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1005,7 +1005,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Ec192wapi<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ec192wapi<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ec192wapi() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1016,7 +1016,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NistP192<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NistP192<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NistP192() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1027,7 +1027,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NistP224<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NistP224<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NistP224() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1038,7 +1038,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NistP256<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NistP256<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NistP256() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1049,7 +1049,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NistP384<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NistP384<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NistP384() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1060,7 +1060,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NistP521<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NistP521<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NistP521() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1071,7 +1071,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NumsP256t1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NumsP256t1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NumsP256t1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1082,7 +1082,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NumsP384t1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NumsP384t1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NumsP384t1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1093,7 +1093,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NumsP512t1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NumsP512t1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NumsP512t1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1104,7 +1104,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SecP160k1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SecP160k1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SecP160k1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1115,7 +1115,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SecP160r1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SecP160r1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SecP160r1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1126,7 +1126,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SecP160r2<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SecP160r2<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SecP160r2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1137,7 +1137,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SecP192k1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SecP192k1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SecP192k1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1148,7 +1148,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SecP192r1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SecP192r1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SecP192r1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1159,7 +1159,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SecP224k1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SecP224k1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SecP224k1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1170,7 +1170,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SecP224r1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SecP224r1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SecP224r1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1181,7 +1181,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SecP256k1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SecP256k1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SecP256k1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1192,7 +1192,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SecP256r1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SecP256r1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SecP256r1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1203,7 +1203,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SecP384r1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SecP384r1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SecP384r1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1214,7 +1214,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SecP521r1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SecP521r1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SecP521r1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1225,7 +1225,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Wtls7<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Wtls7<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Wtls7() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1236,7 +1236,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Wtls9<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Wtls9<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Wtls9() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1247,7 +1247,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Wtls12<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Wtls12<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Wtls12() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1258,7 +1258,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn X962P192v1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn X962P192v1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).X962P192v1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1269,7 +1269,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn X962P192v2<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn X962P192v2<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).X962P192v2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1280,7 +1280,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn X962P192v3<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn X962P192v3<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).X962P192v3() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1291,7 +1291,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn X962P239v1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn X962P239v1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).X962P239v1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1302,7 +1302,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn X962P239v2<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn X962P239v2<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).X962P239v2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1313,7 +1313,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn X962P239v3<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn X962P239v3<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).X962P239v3() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1324,7 +1324,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn X962P256v1<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn X962P256v1<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).X962P256v1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1335,7 +1335,7 @@ impl IEccCurveNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AllEccCurveNames<Impl: IEccCurveNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllEccCurveNames<Impl: IEccCurveNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllEccCurveNames() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1401,7 +1401,7 @@ impl IEccCurveNamesStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IEncryptedAndAuthenticatedDataImpl: Sized {
+pub trait IEncryptedAndAuthenticatedData_Impl: Sized {
     fn EncryptedData(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
     fn AuthenticationTag(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
 }
@@ -1410,9 +1410,9 @@ impl ::windows::core::RuntimeName for IEncryptedAndAuthenticatedData {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IEncryptedAndAuthenticatedData";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IEncryptedAndAuthenticatedDataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEncryptedAndAuthenticatedDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEncryptedAndAuthenticatedDataVtbl {
-        unsafe extern "system" fn EncryptedData<Impl: IEncryptedAndAuthenticatedDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEncryptedAndAuthenticatedData_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEncryptedAndAuthenticatedData_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEncryptedAndAuthenticatedData_Vtbl {
+        unsafe extern "system" fn EncryptedData<Impl: IEncryptedAndAuthenticatedData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EncryptedData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1423,7 +1423,7 @@ impl IEncryptedAndAuthenticatedDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AuthenticationTag<Impl: IEncryptedAndAuthenticatedDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AuthenticationTag<Impl: IEncryptedAndAuthenticatedData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticationTag() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1445,7 +1445,7 @@ impl IEncryptedAndAuthenticatedDataVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHashAlgorithmNamesStaticsImpl: Sized {
+pub trait IHashAlgorithmNamesStatics_Impl: Sized {
     fn Md5(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Sha1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Sha256(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1457,9 +1457,9 @@ impl ::windows::core::RuntimeName for IHashAlgorithmNamesStatics {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IHashAlgorithmNamesStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHashAlgorithmNamesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHashAlgorithmNamesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHashAlgorithmNamesStaticsVtbl {
-        unsafe extern "system" fn Md5<Impl: IHashAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHashAlgorithmNamesStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHashAlgorithmNamesStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHashAlgorithmNamesStatics_Vtbl {
+        unsafe extern "system" fn Md5<Impl: IHashAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Md5() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1470,7 +1470,7 @@ impl IHashAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Sha1<Impl: IHashAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Sha1<Impl: IHashAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sha1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1481,7 +1481,7 @@ impl IHashAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Sha256<Impl: IHashAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Sha256<Impl: IHashAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sha256() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1492,7 +1492,7 @@ impl IHashAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Sha384<Impl: IHashAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Sha384<Impl: IHashAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sha384() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1503,7 +1503,7 @@ impl IHashAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Sha512<Impl: IHashAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Sha512<Impl: IHashAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sha512() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1528,7 +1528,7 @@ impl IHashAlgorithmNamesStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IHashAlgorithmProviderImpl: Sized {
+pub trait IHashAlgorithmProvider_Impl: Sized {
     fn AlgorithmName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn HashLength(&mut self) -> ::windows::core::Result<u32>;
     fn HashData(&mut self, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
@@ -1539,9 +1539,9 @@ impl ::windows::core::RuntimeName for IHashAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IHashAlgorithmProvider";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IHashAlgorithmProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHashAlgorithmProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHashAlgorithmProviderVtbl {
-        unsafe extern "system" fn AlgorithmName<Impl: IHashAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHashAlgorithmProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHashAlgorithmProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHashAlgorithmProvider_Vtbl {
+        unsafe extern "system" fn AlgorithmName<Impl: IHashAlgorithmProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlgorithmName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1552,7 +1552,7 @@ impl IHashAlgorithmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HashLength<Impl: IHashAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HashLength<Impl: IHashAlgorithmProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HashLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1563,7 +1563,7 @@ impl IHashAlgorithmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HashData<Impl: IHashAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HashData<Impl: IHashAlgorithmProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HashData(&*(&data as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1574,7 +1574,7 @@ impl IHashAlgorithmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateHash<Impl: IHashAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateHash<Impl: IHashAlgorithmProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateHash() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1598,7 +1598,7 @@ impl IHashAlgorithmProviderVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHashAlgorithmProviderStaticsImpl: Sized {
+pub trait IHashAlgorithmProviderStatics_Impl: Sized {
     fn OpenAlgorithm(&mut self, algorithm: &::windows::core::HSTRING) -> ::windows::core::Result<HashAlgorithmProvider>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1606,9 +1606,9 @@ impl ::windows::core::RuntimeName for IHashAlgorithmProviderStatics {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IHashAlgorithmProviderStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHashAlgorithmProviderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHashAlgorithmProviderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHashAlgorithmProviderStaticsVtbl {
-        unsafe extern "system" fn OpenAlgorithm<Impl: IHashAlgorithmProviderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, algorithm: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHashAlgorithmProviderStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHashAlgorithmProviderStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHashAlgorithmProviderStatics_Vtbl {
+        unsafe extern "system" fn OpenAlgorithm<Impl: IHashAlgorithmProviderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, algorithm: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenAlgorithm(&*(&algorithm as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1629,7 +1629,7 @@ impl IHashAlgorithmProviderStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IHashComputationImpl: Sized {
+pub trait IHashComputation_Impl: Sized {
     fn Append(&mut self, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
     fn GetValueAndReset(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
 }
@@ -1638,13 +1638,13 @@ impl ::windows::core::RuntimeName for IHashComputation {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IHashComputation";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IHashComputationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHashComputationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHashComputationVtbl {
-        unsafe extern "system" fn Append<Impl: IHashComputationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHashComputation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHashComputation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHashComputation_Vtbl {
+        unsafe extern "system" fn Append<Impl: IHashComputation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Append(&*(&data as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetValueAndReset<Impl: IHashComputationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetValueAndReset<Impl: IHashComputation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetValueAndReset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1666,7 +1666,7 @@ impl IHashComputationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IKeyDerivationAlgorithmNamesStaticsImpl: Sized {
+pub trait IKeyDerivationAlgorithmNamesStatics_Impl: Sized {
     fn Pbkdf2Md5(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Pbkdf2Sha1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Pbkdf2Sha256(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1688,9 +1688,9 @@ impl ::windows::core::RuntimeName for IKeyDerivationAlgorithmNamesStatics {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmNamesStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IKeyDerivationAlgorithmNamesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationAlgorithmNamesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationAlgorithmNamesStaticsVtbl {
-        unsafe extern "system" fn Pbkdf2Md5<Impl: IKeyDerivationAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IKeyDerivationAlgorithmNamesStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationAlgorithmNamesStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationAlgorithmNamesStatics_Vtbl {
+        unsafe extern "system" fn Pbkdf2Md5<Impl: IKeyDerivationAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pbkdf2Md5() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1701,7 +1701,7 @@ impl IKeyDerivationAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Pbkdf2Sha1<Impl: IKeyDerivationAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pbkdf2Sha1<Impl: IKeyDerivationAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pbkdf2Sha1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1712,7 +1712,7 @@ impl IKeyDerivationAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Pbkdf2Sha256<Impl: IKeyDerivationAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pbkdf2Sha256<Impl: IKeyDerivationAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pbkdf2Sha256() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1723,7 +1723,7 @@ impl IKeyDerivationAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Pbkdf2Sha384<Impl: IKeyDerivationAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pbkdf2Sha384<Impl: IKeyDerivationAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pbkdf2Sha384() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1734,7 +1734,7 @@ impl IKeyDerivationAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Pbkdf2Sha512<Impl: IKeyDerivationAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pbkdf2Sha512<Impl: IKeyDerivationAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pbkdf2Sha512() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1745,7 +1745,7 @@ impl IKeyDerivationAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Sp800108CtrHmacMd5<Impl: IKeyDerivationAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Sp800108CtrHmacMd5<Impl: IKeyDerivationAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sp800108CtrHmacMd5() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1756,7 +1756,7 @@ impl IKeyDerivationAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Sp800108CtrHmacSha1<Impl: IKeyDerivationAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Sp800108CtrHmacSha1<Impl: IKeyDerivationAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sp800108CtrHmacSha1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1767,7 +1767,7 @@ impl IKeyDerivationAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Sp800108CtrHmacSha256<Impl: IKeyDerivationAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Sp800108CtrHmacSha256<Impl: IKeyDerivationAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sp800108CtrHmacSha256() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1778,7 +1778,7 @@ impl IKeyDerivationAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Sp800108CtrHmacSha384<Impl: IKeyDerivationAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Sp800108CtrHmacSha384<Impl: IKeyDerivationAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sp800108CtrHmacSha384() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1789,7 +1789,7 @@ impl IKeyDerivationAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Sp800108CtrHmacSha512<Impl: IKeyDerivationAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Sp800108CtrHmacSha512<Impl: IKeyDerivationAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sp800108CtrHmacSha512() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1800,7 +1800,7 @@ impl IKeyDerivationAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Sp80056aConcatMd5<Impl: IKeyDerivationAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Sp80056aConcatMd5<Impl: IKeyDerivationAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sp80056aConcatMd5() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1811,7 +1811,7 @@ impl IKeyDerivationAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Sp80056aConcatSha1<Impl: IKeyDerivationAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Sp80056aConcatSha1<Impl: IKeyDerivationAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sp80056aConcatSha1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1822,7 +1822,7 @@ impl IKeyDerivationAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Sp80056aConcatSha256<Impl: IKeyDerivationAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Sp80056aConcatSha256<Impl: IKeyDerivationAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sp80056aConcatSha256() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1833,7 +1833,7 @@ impl IKeyDerivationAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Sp80056aConcatSha384<Impl: IKeyDerivationAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Sp80056aConcatSha384<Impl: IKeyDerivationAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sp80056aConcatSha384() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1844,7 +1844,7 @@ impl IKeyDerivationAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Sp80056aConcatSha512<Impl: IKeyDerivationAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Sp80056aConcatSha512<Impl: IKeyDerivationAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sp80056aConcatSha512() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1879,7 +1879,7 @@ impl IKeyDerivationAlgorithmNamesStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IKeyDerivationAlgorithmNamesStatics2Impl: Sized {
+pub trait IKeyDerivationAlgorithmNamesStatics2_Impl: Sized {
     fn CapiKdfMd5(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn CapiKdfSha1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn CapiKdfSha256(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1891,9 +1891,9 @@ impl ::windows::core::RuntimeName for IKeyDerivationAlgorithmNamesStatics2 {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmNamesStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IKeyDerivationAlgorithmNamesStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationAlgorithmNamesStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationAlgorithmNamesStatics2Vtbl {
-        unsafe extern "system" fn CapiKdfMd5<Impl: IKeyDerivationAlgorithmNamesStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IKeyDerivationAlgorithmNamesStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationAlgorithmNamesStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationAlgorithmNamesStatics2_Vtbl {
+        unsafe extern "system" fn CapiKdfMd5<Impl: IKeyDerivationAlgorithmNamesStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CapiKdfMd5() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1904,7 +1904,7 @@ impl IKeyDerivationAlgorithmNamesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CapiKdfSha1<Impl: IKeyDerivationAlgorithmNamesStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CapiKdfSha1<Impl: IKeyDerivationAlgorithmNamesStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CapiKdfSha1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1915,7 +1915,7 @@ impl IKeyDerivationAlgorithmNamesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CapiKdfSha256<Impl: IKeyDerivationAlgorithmNamesStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CapiKdfSha256<Impl: IKeyDerivationAlgorithmNamesStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CapiKdfSha256() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1926,7 +1926,7 @@ impl IKeyDerivationAlgorithmNamesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CapiKdfSha384<Impl: IKeyDerivationAlgorithmNamesStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CapiKdfSha384<Impl: IKeyDerivationAlgorithmNamesStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CapiKdfSha384() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1937,7 +1937,7 @@ impl IKeyDerivationAlgorithmNamesStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CapiKdfSha512<Impl: IKeyDerivationAlgorithmNamesStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CapiKdfSha512<Impl: IKeyDerivationAlgorithmNamesStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CapiKdfSha512() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1962,7 +1962,7 @@ impl IKeyDerivationAlgorithmNamesStatics2Vtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IKeyDerivationAlgorithmProviderImpl: Sized {
+pub trait IKeyDerivationAlgorithmProvider_Impl: Sized {
     fn AlgorithmName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn CreateKey(&mut self, keymaterial: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CryptographicKey>;
 }
@@ -1971,9 +1971,9 @@ impl ::windows::core::RuntimeName for IKeyDerivationAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmProvider";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IKeyDerivationAlgorithmProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationAlgorithmProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationAlgorithmProviderVtbl {
-        unsafe extern "system" fn AlgorithmName<Impl: IKeyDerivationAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IKeyDerivationAlgorithmProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationAlgorithmProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationAlgorithmProvider_Vtbl {
+        unsafe extern "system" fn AlgorithmName<Impl: IKeyDerivationAlgorithmProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlgorithmName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1984,7 +1984,7 @@ impl IKeyDerivationAlgorithmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateKey<Impl: IKeyDerivationAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keymaterial: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateKey<Impl: IKeyDerivationAlgorithmProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keymaterial: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateKey(&*(&keymaterial as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2006,7 +2006,7 @@ impl IKeyDerivationAlgorithmProviderVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IKeyDerivationAlgorithmProviderStaticsImpl: Sized {
+pub trait IKeyDerivationAlgorithmProviderStatics_Impl: Sized {
     fn OpenAlgorithm(&mut self, algorithm: &::windows::core::HSTRING) -> ::windows::core::Result<KeyDerivationAlgorithmProvider>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2014,9 +2014,9 @@ impl ::windows::core::RuntimeName for IKeyDerivationAlgorithmProviderStatics {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmProviderStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IKeyDerivationAlgorithmProviderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationAlgorithmProviderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationAlgorithmProviderStaticsVtbl {
-        unsafe extern "system" fn OpenAlgorithm<Impl: IKeyDerivationAlgorithmProviderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, algorithm: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IKeyDerivationAlgorithmProviderStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationAlgorithmProviderStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationAlgorithmProviderStatics_Vtbl {
+        unsafe extern "system" fn OpenAlgorithm<Impl: IKeyDerivationAlgorithmProviderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, algorithm: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenAlgorithm(&*(&algorithm as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2037,7 +2037,7 @@ impl IKeyDerivationAlgorithmProviderStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IKeyDerivationParametersImpl: Sized {
+pub trait IKeyDerivationParameters_Impl: Sized {
     fn KdfGenericBinary(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
     fn SetKdfGenericBinary(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
     fn IterationCount(&mut self) -> ::windows::core::Result<u32>;
@@ -2047,9 +2047,9 @@ impl ::windows::core::RuntimeName for IKeyDerivationParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IKeyDerivationParameters";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IKeyDerivationParametersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationParametersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationParametersVtbl {
-        unsafe extern "system" fn KdfGenericBinary<Impl: IKeyDerivationParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IKeyDerivationParameters_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationParameters_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationParameters_Vtbl {
+        unsafe extern "system" fn KdfGenericBinary<Impl: IKeyDerivationParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KdfGenericBinary() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2060,11 +2060,11 @@ impl IKeyDerivationParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetKdfGenericBinary<Impl: IKeyDerivationParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetKdfGenericBinary<Impl: IKeyDerivationParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKdfGenericBinary(&*(&value as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IterationCount<Impl: IKeyDerivationParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IterationCount<Impl: IKeyDerivationParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IterationCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2087,7 +2087,7 @@ impl IKeyDerivationParametersVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IKeyDerivationParameters2Impl: Sized {
+pub trait IKeyDerivationParameters2_Impl: Sized {
     fn Capi1KdfTargetAlgorithm(&mut self) -> ::windows::core::Result<Capi1KdfTargetAlgorithm>;
     fn SetCapi1KdfTargetAlgorithm(&mut self, value: Capi1KdfTargetAlgorithm) -> ::windows::core::Result<()>;
 }
@@ -2096,9 +2096,9 @@ impl ::windows::core::RuntimeName for IKeyDerivationParameters2 {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IKeyDerivationParameters2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IKeyDerivationParameters2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationParameters2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationParameters2Vtbl {
-        unsafe extern "system" fn Capi1KdfTargetAlgorithm<Impl: IKeyDerivationParameters2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Capi1KdfTargetAlgorithm) -> ::windows::core::HRESULT {
+impl IKeyDerivationParameters2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationParameters2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationParameters2_Vtbl {
+        unsafe extern "system" fn Capi1KdfTargetAlgorithm<Impl: IKeyDerivationParameters2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Capi1KdfTargetAlgorithm) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Capi1KdfTargetAlgorithm() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2109,7 +2109,7 @@ impl IKeyDerivationParameters2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCapi1KdfTargetAlgorithm<Impl: IKeyDerivationParameters2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: Capi1KdfTargetAlgorithm) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCapi1KdfTargetAlgorithm<Impl: IKeyDerivationParameters2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: Capi1KdfTargetAlgorithm) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCapi1KdfTargetAlgorithm(value).into()
         }
@@ -2124,7 +2124,7 @@ impl IKeyDerivationParameters2Vtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IKeyDerivationParametersStaticsImpl: Sized {
+pub trait IKeyDerivationParametersStatics_Impl: Sized {
     fn BuildForPbkdf2(&mut self, pbkdf2salt: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, iterationcount: u32) -> ::windows::core::Result<KeyDerivationParameters>;
     fn BuildForSP800108(&mut self, label: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, context: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<KeyDerivationParameters>;
     fn BuildForSP80056a(&mut self, algorithmid: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, partyuinfo: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, partyvinfo: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, supppubinfo: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>, suppprivinfo: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<KeyDerivationParameters>;
@@ -2134,9 +2134,9 @@ impl ::windows::core::RuntimeName for IKeyDerivationParametersStatics {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IKeyDerivationParametersStatics";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IKeyDerivationParametersStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationParametersStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationParametersStaticsVtbl {
-        unsafe extern "system" fn BuildForPbkdf2<Impl: IKeyDerivationParametersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbkdf2salt: ::windows::core::RawPtr, iterationcount: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IKeyDerivationParametersStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationParametersStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationParametersStatics_Vtbl {
+        unsafe extern "system" fn BuildForPbkdf2<Impl: IKeyDerivationParametersStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbkdf2salt: ::windows::core::RawPtr, iterationcount: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BuildForPbkdf2(&*(&pbkdf2salt as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType), iterationcount) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2147,7 +2147,7 @@ impl IKeyDerivationParametersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BuildForSP800108<Impl: IKeyDerivationParametersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, label: ::windows::core::RawPtr, context: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BuildForSP800108<Impl: IKeyDerivationParametersStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, label: ::windows::core::RawPtr, context: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BuildForSP800108(&*(&label as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType), &*(&context as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2158,7 +2158,7 @@ impl IKeyDerivationParametersStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BuildForSP80056a<Impl: IKeyDerivationParametersStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, algorithmid: ::windows::core::RawPtr, partyuinfo: ::windows::core::RawPtr, partyvinfo: ::windows::core::RawPtr, supppubinfo: ::windows::core::RawPtr, suppprivinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BuildForSP80056a<Impl: IKeyDerivationParametersStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, algorithmid: ::windows::core::RawPtr, partyuinfo: ::windows::core::RawPtr, partyvinfo: ::windows::core::RawPtr, supppubinfo: ::windows::core::RawPtr, suppprivinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BuildForSP80056a(
                 &*(&algorithmid as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType),
@@ -2187,7 +2187,7 @@ impl IKeyDerivationParametersStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IKeyDerivationParametersStatics2Impl: Sized {
+pub trait IKeyDerivationParametersStatics2_Impl: Sized {
     fn BuildForCapi1Kdf(&mut self, capi1kdftargetalgorithm: Capi1KdfTargetAlgorithm) -> ::windows::core::Result<KeyDerivationParameters>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2195,9 +2195,9 @@ impl ::windows::core::RuntimeName for IKeyDerivationParametersStatics2 {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IKeyDerivationParametersStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IKeyDerivationParametersStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationParametersStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationParametersStatics2Vtbl {
-        unsafe extern "system" fn BuildForCapi1Kdf<Impl: IKeyDerivationParametersStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, capi1kdftargetalgorithm: Capi1KdfTargetAlgorithm, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IKeyDerivationParametersStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyDerivationParametersStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyDerivationParametersStatics2_Vtbl {
+        unsafe extern "system" fn BuildForCapi1Kdf<Impl: IKeyDerivationParametersStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, capi1kdftargetalgorithm: Capi1KdfTargetAlgorithm, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BuildForCapi1Kdf(capi1kdftargetalgorithm) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2218,7 +2218,7 @@ impl IKeyDerivationParametersStatics2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMacAlgorithmNamesStaticsImpl: Sized {
+pub trait IMacAlgorithmNamesStatics_Impl: Sized {
     fn HmacMd5(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn HmacSha1(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn HmacSha256(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -2231,9 +2231,9 @@ impl ::windows::core::RuntimeName for IMacAlgorithmNamesStatics {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IMacAlgorithmNamesStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMacAlgorithmNamesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMacAlgorithmNamesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMacAlgorithmNamesStaticsVtbl {
-        unsafe extern "system" fn HmacMd5<Impl: IMacAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IMacAlgorithmNamesStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMacAlgorithmNamesStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMacAlgorithmNamesStatics_Vtbl {
+        unsafe extern "system" fn HmacMd5<Impl: IMacAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HmacMd5() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2244,7 +2244,7 @@ impl IMacAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HmacSha1<Impl: IMacAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HmacSha1<Impl: IMacAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HmacSha1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2255,7 +2255,7 @@ impl IMacAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HmacSha256<Impl: IMacAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HmacSha256<Impl: IMacAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HmacSha256() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2266,7 +2266,7 @@ impl IMacAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HmacSha384<Impl: IMacAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HmacSha384<Impl: IMacAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HmacSha384() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2277,7 +2277,7 @@ impl IMacAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HmacSha512<Impl: IMacAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HmacSha512<Impl: IMacAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HmacSha512() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2288,7 +2288,7 @@ impl IMacAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AesCmac<Impl: IMacAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AesCmac<Impl: IMacAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AesCmac() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2314,7 +2314,7 @@ impl IMacAlgorithmNamesStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMacAlgorithmProviderImpl: Sized {
+pub trait IMacAlgorithmProvider_Impl: Sized {
     fn AlgorithmName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn MacLength(&mut self) -> ::windows::core::Result<u32>;
     fn CreateKey(&mut self, keymaterial: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CryptographicKey>;
@@ -2324,9 +2324,9 @@ impl ::windows::core::RuntimeName for IMacAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IMacAlgorithmProvider";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMacAlgorithmProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMacAlgorithmProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMacAlgorithmProviderVtbl {
-        unsafe extern "system" fn AlgorithmName<Impl: IMacAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IMacAlgorithmProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMacAlgorithmProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMacAlgorithmProvider_Vtbl {
+        unsafe extern "system" fn AlgorithmName<Impl: IMacAlgorithmProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlgorithmName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2337,7 +2337,7 @@ impl IMacAlgorithmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MacLength<Impl: IMacAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MacLength<Impl: IMacAlgorithmProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MacLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2348,7 +2348,7 @@ impl IMacAlgorithmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateKey<Impl: IMacAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keymaterial: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateKey<Impl: IMacAlgorithmProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keymaterial: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateKey(&*(&keymaterial as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2371,7 +2371,7 @@ impl IMacAlgorithmProviderVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMacAlgorithmProvider2Impl: Sized {
+pub trait IMacAlgorithmProvider2_Impl: Sized {
     fn CreateHash(&mut self, keymaterial: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CryptographicHash>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -2379,9 +2379,9 @@ impl ::windows::core::RuntimeName for IMacAlgorithmProvider2 {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IMacAlgorithmProvider2";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMacAlgorithmProvider2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMacAlgorithmProvider2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMacAlgorithmProvider2Vtbl {
-        unsafe extern "system" fn CreateHash<Impl: IMacAlgorithmProvider2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keymaterial: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMacAlgorithmProvider2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMacAlgorithmProvider2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMacAlgorithmProvider2_Vtbl {
+        unsafe extern "system" fn CreateHash<Impl: IMacAlgorithmProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keymaterial: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateHash(&*(&keymaterial as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2399,7 +2399,7 @@ impl IMacAlgorithmProvider2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMacAlgorithmProviderStaticsImpl: Sized {
+pub trait IMacAlgorithmProviderStatics_Impl: Sized {
     fn OpenAlgorithm(&mut self, algorithm: &::windows::core::HSTRING) -> ::windows::core::Result<MacAlgorithmProvider>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2407,9 +2407,9 @@ impl ::windows::core::RuntimeName for IMacAlgorithmProviderStatics {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IMacAlgorithmProviderStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMacAlgorithmProviderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMacAlgorithmProviderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMacAlgorithmProviderStaticsVtbl {
-        unsafe extern "system" fn OpenAlgorithm<Impl: IMacAlgorithmProviderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, algorithm: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMacAlgorithmProviderStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMacAlgorithmProviderStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMacAlgorithmProviderStatics_Vtbl {
+        unsafe extern "system" fn OpenAlgorithm<Impl: IMacAlgorithmProviderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, algorithm: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenAlgorithm(&*(&algorithm as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2430,7 +2430,7 @@ impl IMacAlgorithmProviderStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
-pub trait IPersistedKeyProviderStaticsImpl: Sized {
+pub trait IPersistedKeyProviderStatics_Impl: Sized {
     fn OpenKeyPairFromCertificateAsync(&mut self, certificate: &::core::option::Option<super::Certificates::Certificate>, hashalgorithmname: &::windows::core::HSTRING, padding: CryptographicPadding) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CryptographicKey>>;
     fn OpenPublicKeyFromCertificate(&mut self, certificate: &::core::option::Option<super::Certificates::Certificate>, hashalgorithmname: &::windows::core::HSTRING, padding: CryptographicPadding) -> ::windows::core::Result<CryptographicKey>;
 }
@@ -2439,9 +2439,9 @@ impl ::windows::core::RuntimeName for IPersistedKeyProviderStatics {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.IPersistedKeyProviderStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
-impl IPersistedKeyProviderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPersistedKeyProviderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPersistedKeyProviderStaticsVtbl {
-        unsafe extern "system" fn OpenKeyPairFromCertificateAsync<Impl: IPersistedKeyProviderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificate: ::windows::core::RawPtr, hashalgorithmname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, padding: CryptographicPadding, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPersistedKeyProviderStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPersistedKeyProviderStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPersistedKeyProviderStatics_Vtbl {
+        unsafe extern "system" fn OpenKeyPairFromCertificateAsync<Impl: IPersistedKeyProviderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificate: ::windows::core::RawPtr, hashalgorithmname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, padding: CryptographicPadding, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenKeyPairFromCertificateAsync(&*(&certificate as *const <super::Certificates::Certificate as ::windows::core::Abi>::Abi as *const <super::Certificates::Certificate as ::windows::core::DefaultType>::DefaultType), &*(&hashalgorithmname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), padding) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2452,7 +2452,7 @@ impl IPersistedKeyProviderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OpenPublicKeyFromCertificate<Impl: IPersistedKeyProviderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificate: ::windows::core::RawPtr, hashalgorithmname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, padding: CryptographicPadding, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenPublicKeyFromCertificate<Impl: IPersistedKeyProviderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificate: ::windows::core::RawPtr, hashalgorithmname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, padding: CryptographicPadding, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenPublicKeyFromCertificate(&*(&certificate as *const <super::Certificates::Certificate as ::windows::core::Abi>::Abi as *const <super::Certificates::Certificate as ::windows::core::DefaultType>::DefaultType), &*(&hashalgorithmname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), padding) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2474,7 +2474,7 @@ impl IPersistedKeyProviderStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISymmetricAlgorithmNamesStaticsImpl: Sized {
+pub trait ISymmetricAlgorithmNamesStatics_Impl: Sized {
     fn DesCbc(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DesEcb(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn TripleDesCbc(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -2500,9 +2500,9 @@ impl ::windows::core::RuntimeName for ISymmetricAlgorithmNamesStatics {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.ISymmetricAlgorithmNamesStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISymmetricAlgorithmNamesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISymmetricAlgorithmNamesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISymmetricAlgorithmNamesStaticsVtbl {
-        unsafe extern "system" fn DesCbc<Impl: ISymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISymmetricAlgorithmNamesStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISymmetricAlgorithmNamesStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISymmetricAlgorithmNamesStatics_Vtbl {
+        unsafe extern "system" fn DesCbc<Impl: ISymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesCbc() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2513,7 +2513,7 @@ impl ISymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DesEcb<Impl: ISymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DesEcb<Impl: ISymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesEcb() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2524,7 +2524,7 @@ impl ISymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TripleDesCbc<Impl: ISymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TripleDesCbc<Impl: ISymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TripleDesCbc() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2535,7 +2535,7 @@ impl ISymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TripleDesEcb<Impl: ISymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TripleDesEcb<Impl: ISymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TripleDesEcb() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2546,7 +2546,7 @@ impl ISymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Rc2Cbc<Impl: ISymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Rc2Cbc<Impl: ISymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Rc2Cbc() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2557,7 +2557,7 @@ impl ISymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Rc2Ecb<Impl: ISymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Rc2Ecb<Impl: ISymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Rc2Ecb() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2568,7 +2568,7 @@ impl ISymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AesCbc<Impl: ISymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AesCbc<Impl: ISymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AesCbc() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2579,7 +2579,7 @@ impl ISymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AesEcb<Impl: ISymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AesEcb<Impl: ISymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AesEcb() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2590,7 +2590,7 @@ impl ISymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AesGcm<Impl: ISymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AesGcm<Impl: ISymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AesGcm() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2601,7 +2601,7 @@ impl ISymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AesCcm<Impl: ISymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AesCcm<Impl: ISymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AesCcm() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2612,7 +2612,7 @@ impl ISymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AesCbcPkcs7<Impl: ISymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AesCbcPkcs7<Impl: ISymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AesCbcPkcs7() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2623,7 +2623,7 @@ impl ISymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AesEcbPkcs7<Impl: ISymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AesEcbPkcs7<Impl: ISymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AesEcbPkcs7() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2634,7 +2634,7 @@ impl ISymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DesCbcPkcs7<Impl: ISymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DesCbcPkcs7<Impl: ISymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesCbcPkcs7() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2645,7 +2645,7 @@ impl ISymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DesEcbPkcs7<Impl: ISymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DesEcbPkcs7<Impl: ISymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesEcbPkcs7() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2656,7 +2656,7 @@ impl ISymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TripleDesCbcPkcs7<Impl: ISymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TripleDesCbcPkcs7<Impl: ISymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TripleDesCbcPkcs7() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2667,7 +2667,7 @@ impl ISymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TripleDesEcbPkcs7<Impl: ISymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TripleDesEcbPkcs7<Impl: ISymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TripleDesEcbPkcs7() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2678,7 +2678,7 @@ impl ISymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Rc2CbcPkcs7<Impl: ISymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Rc2CbcPkcs7<Impl: ISymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Rc2CbcPkcs7() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2689,7 +2689,7 @@ impl ISymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Rc2EcbPkcs7<Impl: ISymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Rc2EcbPkcs7<Impl: ISymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Rc2EcbPkcs7() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2700,7 +2700,7 @@ impl ISymmetricAlgorithmNamesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Rc4<Impl: ISymmetricAlgorithmNamesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Rc4<Impl: ISymmetricAlgorithmNamesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Rc4() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2739,7 +2739,7 @@ impl ISymmetricAlgorithmNamesStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISymmetricKeyAlgorithmProviderImpl: Sized {
+pub trait ISymmetricKeyAlgorithmProvider_Impl: Sized {
     fn AlgorithmName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn BlockLength(&mut self) -> ::windows::core::Result<u32>;
     fn CreateSymmetricKey(&mut self, keymaterial: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<CryptographicKey>;
@@ -2749,9 +2749,9 @@ impl ::windows::core::RuntimeName for ISymmetricKeyAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.ISymmetricKeyAlgorithmProvider";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISymmetricKeyAlgorithmProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISymmetricKeyAlgorithmProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISymmetricKeyAlgorithmProviderVtbl {
-        unsafe extern "system" fn AlgorithmName<Impl: ISymmetricKeyAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISymmetricKeyAlgorithmProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISymmetricKeyAlgorithmProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISymmetricKeyAlgorithmProvider_Vtbl {
+        unsafe extern "system" fn AlgorithmName<Impl: ISymmetricKeyAlgorithmProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlgorithmName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2762,7 +2762,7 @@ impl ISymmetricKeyAlgorithmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BlockLength<Impl: ISymmetricKeyAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BlockLength<Impl: ISymmetricKeyAlgorithmProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BlockLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2773,7 +2773,7 @@ impl ISymmetricKeyAlgorithmProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSymmetricKey<Impl: ISymmetricKeyAlgorithmProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keymaterial: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSymmetricKey<Impl: ISymmetricKeyAlgorithmProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keymaterial: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSymmetricKey(&*(&keymaterial as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2796,7 +2796,7 @@ impl ISymmetricKeyAlgorithmProviderVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISymmetricKeyAlgorithmProviderStaticsImpl: Sized {
+pub trait ISymmetricKeyAlgorithmProviderStatics_Impl: Sized {
     fn OpenAlgorithm(&mut self, algorithm: &::windows::core::HSTRING) -> ::windows::core::Result<SymmetricKeyAlgorithmProvider>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2804,9 +2804,9 @@ impl ::windows::core::RuntimeName for ISymmetricKeyAlgorithmProviderStatics {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.ISymmetricKeyAlgorithmProviderStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISymmetricKeyAlgorithmProviderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISymmetricKeyAlgorithmProviderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISymmetricKeyAlgorithmProviderStaticsVtbl {
-        unsafe extern "system" fn OpenAlgorithm<Impl: ISymmetricKeyAlgorithmProviderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, algorithm: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISymmetricKeyAlgorithmProviderStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISymmetricKeyAlgorithmProviderStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISymmetricKeyAlgorithmProviderStatics_Vtbl {
+        unsafe extern "system" fn OpenAlgorithm<Impl: ISymmetricKeyAlgorithmProviderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, algorithm: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenAlgorithm(&*(&algorithm as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

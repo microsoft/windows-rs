@@ -102,12 +102,12 @@ impl ::core::fmt::Debug for IDontSupportEventSubscription {
     }
 }
 unsafe impl ::windows::core::Interface for IDontSupportEventSubscription {
-    type Vtable = IDontSupportEventSubscriptionVtbl;
+    type Vtable = IDontSupportEventSubscription_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x784121f1_62a6_4b89_855f_d65f296de83a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDontSupportEventSubscriptionVtbl {
+pub struct IDontSupportEventSubscription_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
 }
 #[doc = "*Required features: 'Win32_System_Com_Events'*"]
@@ -169,12 +169,12 @@ impl ::core::fmt::Debug for IEnumEventObject {
     }
 }
 unsafe impl ::windows::core::Interface for IEnumEventObject {
-    type Vtable = IEnumEventObjectVtbl;
+    type Vtable = IEnumEventObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4a07d63_2e25_11d1_9964_00c04fbbb345);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumEventObjectVtbl {
+pub struct IEnumEventObject_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppinterface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, creqelem: u32, ppinterface: *mut *mut ::core::ffi::c_void, cretelem: *mut u32) -> ::windows::core::HRESULT,
@@ -340,13 +340,13 @@ impl ::core::fmt::Debug for IEventClass {
     }
 }
 unsafe impl ::windows::core::Interface for IEventClass {
-    type Vtable = IEventClassVtbl;
+    type Vtable = IEventClass_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb2b72a0_7a68_11d1_88f9_0080c7d771bf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEventClassVtbl {
-    pub base: super::IDispatchVtbl,
+pub struct IEventClass_Vtbl {
+    pub base: super::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub EventClassID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstreventclassid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -627,13 +627,13 @@ impl ::core::fmt::Debug for IEventClass2 {
     }
 }
 unsafe impl ::windows::core::Interface for IEventClass2 {
-    type Vtable = IEventClass2Vtbl;
+    type Vtable = IEventClass2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb2b72a1_7a68_11d1_88f9_0080c7d771bf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEventClass2Vtbl {
-    pub base: IEventClassVtbl,
+pub struct IEventClass2_Vtbl {
+    pub base: IEventClass_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub PublisherID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpublisherid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -777,13 +777,13 @@ impl ::core::fmt::Debug for IEventControl {
     }
 }
 unsafe impl ::windows::core::Interface for IEventControl {
-    type Vtable = IEventControlVtbl;
+    type Vtable = IEventControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0343e2f4_86f6_11d1_b760_00c04fb926af);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEventControlVtbl {
-    pub base: super::IDispatchVtbl,
+pub struct IEventControl_Vtbl {
+    pub base: super::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetPublisherFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, methodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppublisherfilter: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -862,12 +862,12 @@ impl ::core::fmt::Debug for IEventObjectChange {
     }
 }
 unsafe impl ::windows::core::Interface for IEventObjectChange {
-    type Vtable = IEventObjectChangeVtbl;
+    type Vtable = IEventObjectChange_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4a07d70_2e25_11d1_9964_00c04fbbb345);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEventObjectChangeVtbl {
+pub struct IEventObjectChange_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ChangedSubscription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changetype: EOC_ChangeType, bstrsubscriptionid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -934,12 +934,12 @@ impl ::core::fmt::Debug for IEventObjectChange2 {
     }
 }
 unsafe impl ::windows::core::Interface for IEventObjectChange2 {
-    type Vtable = IEventObjectChange2Vtbl;
+    type Vtable = IEventObjectChange2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7701a9c3_bd68_438f_83e0_67bf4f53a422);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEventObjectChange2Vtbl {
+pub struct IEventObjectChange2_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ChangedSubscription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMEVENTSYSCHANGEINFO) -> ::windows::core::HRESULT,
@@ -1063,13 +1063,13 @@ impl ::core::fmt::Debug for IEventObjectCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IEventObjectCollection {
-    type Vtable = IEventObjectCollectionVtbl;
+    type Vtable = IEventObjectCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf89ac270_d4eb_11d1_b682_00805fc79216);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEventObjectCollectionVtbl {
-    pub base: super::IDispatchVtbl,
+pub struct IEventObjectCollection_Vtbl {
+    pub base: super::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pitem: *mut super::VARIANT) -> ::windows::core::HRESULT,
@@ -1190,13 +1190,13 @@ impl ::core::fmt::Debug for IEventProperty {
     }
 }
 unsafe impl ::windows::core::Interface for IEventProperty {
-    type Vtable = IEventPropertyVtbl;
+    type Vtable = IEventProperty_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda538ee2_f4de_11d1_b6bb_00805fc79216);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEventPropertyVtbl {
-    pub base: super::IDispatchVtbl,
+pub struct IEventProperty_Vtbl {
+    pub base: super::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1372,13 +1372,13 @@ impl ::core::fmt::Debug for IEventPublisher {
     }
 }
 unsafe impl ::windows::core::Interface for IEventPublisher {
-    type Vtable = IEventPublisherVtbl;
+    type Vtable = IEventPublisher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe341516b_2e32_11d1_9964_00c04fbbb345);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEventPublisherVtbl {
-    pub base: super::IDispatchVtbl,
+pub struct IEventPublisher_Vtbl {
+    pub base: super::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub PublisherID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpublisherid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1698,13 +1698,13 @@ impl ::core::fmt::Debug for IEventSubscription {
     }
 }
 unsafe impl ::windows::core::Interface for IEventSubscription {
-    type Vtable = IEventSubscriptionVtbl;
+    type Vtable = IEventSubscription_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a6b0e15_2e38_11d1_9965_00c04fbbb345);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEventSubscriptionVtbl {
-    pub base: super::IDispatchVtbl,
+pub struct IEventSubscription_Vtbl {
+    pub base: super::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SubscriptionID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsubscriptionid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1945,13 +1945,13 @@ impl ::core::fmt::Debug for IEventSystem {
     }
 }
 unsafe impl ::windows::core::Interface for IEventSystem {
-    type Vtable = IEventSystemVtbl;
+    type Vtable = IEventSystem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e14fb9f_2e22_11d1_9964_00c04fbbb345);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEventSystemVtbl {
-    pub base: super::IDispatchVtbl,
+pub struct IEventSystem_Vtbl {
+    pub base: super::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Query: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, progid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, querycriteria: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, errorindex: *mut i32, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2063,13 +2063,13 @@ impl ::core::fmt::Debug for IFiringControl {
     }
 }
 unsafe impl ::windows::core::Interface for IFiringControl {
-    type Vtable = IFiringControlVtbl;
+    type Vtable = IFiringControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0498c93_4efe_11d1_9971_00c04fbbb345);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFiringControlVtbl {
-    pub base: super::IDispatchVtbl,
+pub struct IFiringControl_Vtbl {
+    pub base: super::IDispatch_Vtbl,
     pub FireSubscription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subscription: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_Com_Events'*"]
@@ -2152,12 +2152,12 @@ impl ::core::fmt::Debug for IMultiInterfaceEventControl {
     }
 }
 unsafe impl ::windows::core::Interface for IMultiInterfaceEventControl {
-    type Vtable = IMultiInterfaceEventControlVtbl;
+    type Vtable = IMultiInterfaceEventControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0343e2f5_86f6_11d1_b760_00c04fb926af);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMultiInterfaceEventControlVtbl {
+pub struct IMultiInterfaceEventControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetMultiInterfacePublisherFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classfilter: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -2236,12 +2236,12 @@ impl ::core::fmt::Debug for IMultiInterfacePublisherFilter {
     }
 }
 unsafe impl ::windows::core::Interface for IMultiInterfacePublisherFilter {
-    type Vtable = IMultiInterfacePublisherFilterVtbl;
+    type Vtable = IMultiInterfacePublisherFilter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x465e5cc1_7b26_11d1_88fb_0080c7d771bf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMultiInterfacePublisherFilterVtbl {
+pub struct IMultiInterfacePublisherFilter_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peic: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -2301,12 +2301,12 @@ impl ::core::fmt::Debug for IPublisherFilter {
     }
 }
 unsafe impl ::windows::core::Interface for IPublisherFilter {
-    type Vtable = IPublisherFilterVtbl;
+    type Vtable = IPublisherFilter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x465e5cc0_7b26_11d1_88fb_0080c7d771bf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPublisherFilterVtbl {
+pub struct IPublisherFilter_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, methodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, dispuserdefined: ::windows::core::RawPtr) -> ::windows::core::HRESULT,

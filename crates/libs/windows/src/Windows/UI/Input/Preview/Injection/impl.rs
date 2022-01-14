@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Gaming_Input", feature = "implement_exclusive"))]
-pub trait IInjectedInputGamepadInfoImpl: Sized {
+pub trait IInjectedInputGamepadInfo_Impl: Sized {
     fn Buttons(&mut self) -> ::windows::core::Result<super::super::super::super::Gaming::Input::GamepadButtons>;
     fn SetButtons(&mut self, value: super::super::super::super::Gaming::Input::GamepadButtons) -> ::windows::core::Result<()>;
     fn LeftThumbstickX(&mut self) -> ::windows::core::Result<f64>;
@@ -20,9 +20,9 @@ impl ::windows::core::RuntimeName for IInjectedInputGamepadInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfo";
 }
 #[cfg(all(feature = "Gaming_Input", feature = "implement_exclusive"))]
-impl IInjectedInputGamepadInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputGamepadInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInjectedInputGamepadInfoVtbl {
-        unsafe extern "system" fn Buttons<Impl: IInjectedInputGamepadInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Gaming::Input::GamepadButtons) -> ::windows::core::HRESULT {
+impl IInjectedInputGamepadInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputGamepadInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInjectedInputGamepadInfo_Vtbl {
+        unsafe extern "system" fn Buttons<Impl: IInjectedInputGamepadInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Gaming::Input::GamepadButtons) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Buttons() {
                 ::core::result::Result::Ok(ok__) => {
@@ -33,11 +33,11 @@ impl IInjectedInputGamepadInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetButtons<Impl: IInjectedInputGamepadInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::super::Gaming::Input::GamepadButtons) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetButtons<Impl: IInjectedInputGamepadInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::super::Gaming::Input::GamepadButtons) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetButtons(value).into()
         }
-        unsafe extern "system" fn LeftThumbstickX<Impl: IInjectedInputGamepadInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LeftThumbstickX<Impl: IInjectedInputGamepadInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LeftThumbstickX() {
                 ::core::result::Result::Ok(ok__) => {
@@ -48,11 +48,11 @@ impl IInjectedInputGamepadInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLeftThumbstickX<Impl: IInjectedInputGamepadInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLeftThumbstickX<Impl: IInjectedInputGamepadInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLeftThumbstickX(value).into()
         }
-        unsafe extern "system" fn LeftThumbstickY<Impl: IInjectedInputGamepadInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LeftThumbstickY<Impl: IInjectedInputGamepadInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LeftThumbstickY() {
                 ::core::result::Result::Ok(ok__) => {
@@ -63,11 +63,11 @@ impl IInjectedInputGamepadInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLeftThumbstickY<Impl: IInjectedInputGamepadInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLeftThumbstickY<Impl: IInjectedInputGamepadInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLeftThumbstickY(value).into()
         }
-        unsafe extern "system" fn LeftTrigger<Impl: IInjectedInputGamepadInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LeftTrigger<Impl: IInjectedInputGamepadInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LeftTrigger() {
                 ::core::result::Result::Ok(ok__) => {
@@ -78,11 +78,11 @@ impl IInjectedInputGamepadInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLeftTrigger<Impl: IInjectedInputGamepadInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLeftTrigger<Impl: IInjectedInputGamepadInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLeftTrigger(value).into()
         }
-        unsafe extern "system" fn RightThumbstickX<Impl: IInjectedInputGamepadInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RightThumbstickX<Impl: IInjectedInputGamepadInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RightThumbstickX() {
                 ::core::result::Result::Ok(ok__) => {
@@ -93,11 +93,11 @@ impl IInjectedInputGamepadInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRightThumbstickX<Impl: IInjectedInputGamepadInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRightThumbstickX<Impl: IInjectedInputGamepadInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRightThumbstickX(value).into()
         }
-        unsafe extern "system" fn RightThumbstickY<Impl: IInjectedInputGamepadInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RightThumbstickY<Impl: IInjectedInputGamepadInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RightThumbstickY() {
                 ::core::result::Result::Ok(ok__) => {
@@ -108,11 +108,11 @@ impl IInjectedInputGamepadInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRightThumbstickY<Impl: IInjectedInputGamepadInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRightThumbstickY<Impl: IInjectedInputGamepadInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRightThumbstickY(value).into()
         }
-        unsafe extern "system" fn RightTrigger<Impl: IInjectedInputGamepadInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RightTrigger<Impl: IInjectedInputGamepadInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RightTrigger() {
                 ::core::result::Result::Ok(ok__) => {
@@ -123,7 +123,7 @@ impl IInjectedInputGamepadInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRightTrigger<Impl: IInjectedInputGamepadInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRightTrigger<Impl: IInjectedInputGamepadInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRightTrigger(value).into()
         }
@@ -150,7 +150,7 @@ impl IInjectedInputGamepadInfoVtbl {
     }
 }
 #[cfg(all(feature = "Gaming_Input", feature = "implement_exclusive"))]
-pub trait IInjectedInputGamepadInfoFactoryImpl: Sized {
+pub trait IInjectedInputGamepadInfoFactory_Impl: Sized {
     fn CreateInstanceFromGamepadReading(&mut self, reading: &super::super::super::super::Gaming::Input::GamepadReading) -> ::windows::core::Result<InjectedInputGamepadInfo>;
 }
 #[cfg(all(feature = "Gaming_Input", feature = "implement_exclusive"))]
@@ -158,9 +158,9 @@ impl ::windows::core::RuntimeName for IInjectedInputGamepadInfoFactory {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfoFactory";
 }
 #[cfg(all(feature = "Gaming_Input", feature = "implement_exclusive"))]
-impl IInjectedInputGamepadInfoFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputGamepadInfoFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInjectedInputGamepadInfoFactoryVtbl {
-        unsafe extern "system" fn CreateInstanceFromGamepadReading<Impl: IInjectedInputGamepadInfoFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reading: super::super::super::super::Gaming::Input::GamepadReading, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IInjectedInputGamepadInfoFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputGamepadInfoFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInjectedInputGamepadInfoFactory_Vtbl {
+        unsafe extern "system" fn CreateInstanceFromGamepadReading<Impl: IInjectedInputGamepadInfoFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reading: super::super::super::super::Gaming::Input::GamepadReading, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstanceFromGamepadReading(&*(&reading as *const <super::super::super::super::Gaming::Input::GamepadReading as ::windows::core::Abi>::Abi as *const <super::super::super::super::Gaming::Input::GamepadReading as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -181,7 +181,7 @@ impl IInjectedInputGamepadInfoFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInjectedInputKeyboardInfoImpl: Sized {
+pub trait IInjectedInputKeyboardInfo_Impl: Sized {
     fn KeyOptions(&mut self) -> ::windows::core::Result<InjectedInputKeyOptions>;
     fn SetKeyOptions(&mut self, value: InjectedInputKeyOptions) -> ::windows::core::Result<()>;
     fn ScanCode(&mut self) -> ::windows::core::Result<u16>;
@@ -194,9 +194,9 @@ impl ::windows::core::RuntimeName for IInjectedInputKeyboardInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.IInjectedInputKeyboardInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInjectedInputKeyboardInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputKeyboardInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInjectedInputKeyboardInfoVtbl {
-        unsafe extern "system" fn KeyOptions<Impl: IInjectedInputKeyboardInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputKeyOptions) -> ::windows::core::HRESULT {
+impl IInjectedInputKeyboardInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputKeyboardInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInjectedInputKeyboardInfo_Vtbl {
+        unsafe extern "system" fn KeyOptions<Impl: IInjectedInputKeyboardInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputKeyOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyOptions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -207,11 +207,11 @@ impl IInjectedInputKeyboardInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetKeyOptions<Impl: IInjectedInputKeyboardInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InjectedInputKeyOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetKeyOptions<Impl: IInjectedInputKeyboardInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InjectedInputKeyOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKeyOptions(value).into()
         }
-        unsafe extern "system" fn ScanCode<Impl: IInjectedInputKeyboardInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScanCode<Impl: IInjectedInputKeyboardInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScanCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -222,11 +222,11 @@ impl IInjectedInputKeyboardInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetScanCode<Impl: IInjectedInputKeyboardInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScanCode<Impl: IInjectedInputKeyboardInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScanCode(value).into()
         }
-        unsafe extern "system" fn VirtualKey<Impl: IInjectedInputKeyboardInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VirtualKey<Impl: IInjectedInputKeyboardInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VirtualKey() {
                 ::core::result::Result::Ok(ok__) => {
@@ -237,7 +237,7 @@ impl IInjectedInputKeyboardInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVirtualKey<Impl: IInjectedInputKeyboardInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVirtualKey<Impl: IInjectedInputKeyboardInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVirtualKey(value).into()
         }
@@ -256,7 +256,7 @@ impl IInjectedInputKeyboardInfoVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInjectedInputMouseInfoImpl: Sized {
+pub trait IInjectedInputMouseInfo_Impl: Sized {
     fn MouseOptions(&mut self) -> ::windows::core::Result<InjectedInputMouseOptions>;
     fn SetMouseOptions(&mut self, value: InjectedInputMouseOptions) -> ::windows::core::Result<()>;
     fn MouseData(&mut self) -> ::windows::core::Result<u32>;
@@ -273,9 +273,9 @@ impl ::windows::core::RuntimeName for IInjectedInputMouseInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.IInjectedInputMouseInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInjectedInputMouseInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputMouseInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInjectedInputMouseInfoVtbl {
-        unsafe extern "system" fn MouseOptions<Impl: IInjectedInputMouseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputMouseOptions) -> ::windows::core::HRESULT {
+impl IInjectedInputMouseInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputMouseInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInjectedInputMouseInfo_Vtbl {
+        unsafe extern "system" fn MouseOptions<Impl: IInjectedInputMouseInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputMouseOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MouseOptions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -286,11 +286,11 @@ impl IInjectedInputMouseInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMouseOptions<Impl: IInjectedInputMouseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InjectedInputMouseOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMouseOptions<Impl: IInjectedInputMouseInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InjectedInputMouseOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMouseOptions(value).into()
         }
-        unsafe extern "system" fn MouseData<Impl: IInjectedInputMouseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MouseData<Impl: IInjectedInputMouseInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MouseData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -301,11 +301,11 @@ impl IInjectedInputMouseInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMouseData<Impl: IInjectedInputMouseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMouseData<Impl: IInjectedInputMouseInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMouseData(value).into()
         }
-        unsafe extern "system" fn DeltaY<Impl: IInjectedInputMouseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeltaY<Impl: IInjectedInputMouseInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeltaY() {
                 ::core::result::Result::Ok(ok__) => {
@@ -316,11 +316,11 @@ impl IInjectedInputMouseInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDeltaY<Impl: IInjectedInputMouseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDeltaY<Impl: IInjectedInputMouseInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDeltaY(value).into()
         }
-        unsafe extern "system" fn DeltaX<Impl: IInjectedInputMouseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeltaX<Impl: IInjectedInputMouseInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeltaX() {
                 ::core::result::Result::Ok(ok__) => {
@@ -331,11 +331,11 @@ impl IInjectedInputMouseInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDeltaX<Impl: IInjectedInputMouseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDeltaX<Impl: IInjectedInputMouseInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDeltaX(value).into()
         }
-        unsafe extern "system" fn TimeOffsetInMilliseconds<Impl: IInjectedInputMouseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TimeOffsetInMilliseconds<Impl: IInjectedInputMouseInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimeOffsetInMilliseconds() {
                 ::core::result::Result::Ok(ok__) => {
@@ -346,7 +346,7 @@ impl IInjectedInputMouseInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTimeOffsetInMilliseconds<Impl: IInjectedInputMouseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTimeOffsetInMilliseconds<Impl: IInjectedInputMouseInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTimeOffsetInMilliseconds(value).into()
         }
@@ -369,7 +369,7 @@ impl IInjectedInputMouseInfoVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInjectedInputPenInfoImpl: Sized {
+pub trait IInjectedInputPenInfo_Impl: Sized {
     fn PointerInfo(&mut self) -> ::windows::core::Result<InjectedInputPointerInfo>;
     fn SetPointerInfo(&mut self, value: &InjectedInputPointerInfo) -> ::windows::core::Result<()>;
     fn PenButtons(&mut self) -> ::windows::core::Result<InjectedInputPenButtons>;
@@ -390,9 +390,9 @@ impl ::windows::core::RuntimeName for IInjectedInputPenInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.IInjectedInputPenInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInjectedInputPenInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputPenInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInjectedInputPenInfoVtbl {
-        unsafe extern "system" fn PointerInfo<Impl: IInjectedInputPenInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputPointerInfo) -> ::windows::core::HRESULT {
+impl IInjectedInputPenInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputPenInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInjectedInputPenInfo_Vtbl {
+        unsafe extern "system" fn PointerInfo<Impl: IInjectedInputPenInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputPointerInfo) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -403,11 +403,11 @@ impl IInjectedInputPenInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPointerInfo<Impl: IInjectedInputPenInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InjectedInputPointerInfo) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPointerInfo<Impl: IInjectedInputPenInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InjectedInputPointerInfo) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPointerInfo(&*(&value as *const <InjectedInputPointerInfo as ::windows::core::Abi>::Abi as *const <InjectedInputPointerInfo as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PenButtons<Impl: IInjectedInputPenInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputPenButtons) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PenButtons<Impl: IInjectedInputPenInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputPenButtons) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PenButtons() {
                 ::core::result::Result::Ok(ok__) => {
@@ -418,11 +418,11 @@ impl IInjectedInputPenInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPenButtons<Impl: IInjectedInputPenInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InjectedInputPenButtons) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPenButtons<Impl: IInjectedInputPenInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InjectedInputPenButtons) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPenButtons(value).into()
         }
-        unsafe extern "system" fn PenParameters<Impl: IInjectedInputPenInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputPenParameters) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PenParameters<Impl: IInjectedInputPenInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputPenParameters) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PenParameters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -433,11 +433,11 @@ impl IInjectedInputPenInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPenParameters<Impl: IInjectedInputPenInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InjectedInputPenParameters) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPenParameters<Impl: IInjectedInputPenInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InjectedInputPenParameters) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPenParameters(value).into()
         }
-        unsafe extern "system" fn Pressure<Impl: IInjectedInputPenInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pressure<Impl: IInjectedInputPenInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pressure() {
                 ::core::result::Result::Ok(ok__) => {
@@ -448,11 +448,11 @@ impl IInjectedInputPenInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPressure<Impl: IInjectedInputPenInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPressure<Impl: IInjectedInputPenInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPressure(value).into()
         }
-        unsafe extern "system" fn Rotation<Impl: IInjectedInputPenInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Rotation<Impl: IInjectedInputPenInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Rotation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -463,11 +463,11 @@ impl IInjectedInputPenInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRotation<Impl: IInjectedInputPenInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRotation<Impl: IInjectedInputPenInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRotation(value).into()
         }
-        unsafe extern "system" fn TiltX<Impl: IInjectedInputPenInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TiltX<Impl: IInjectedInputPenInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TiltX() {
                 ::core::result::Result::Ok(ok__) => {
@@ -478,11 +478,11 @@ impl IInjectedInputPenInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTiltX<Impl: IInjectedInputPenInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTiltX<Impl: IInjectedInputPenInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTiltX(value).into()
         }
-        unsafe extern "system" fn TiltY<Impl: IInjectedInputPenInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TiltY<Impl: IInjectedInputPenInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TiltY() {
                 ::core::result::Result::Ok(ok__) => {
@@ -493,7 +493,7 @@ impl IInjectedInputPenInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTiltY<Impl: IInjectedInputPenInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTiltY<Impl: IInjectedInputPenInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTiltY(value).into()
         }
@@ -520,7 +520,7 @@ impl IInjectedInputPenInfoVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInjectedInputTouchInfoImpl: Sized {
+pub trait IInjectedInputTouchInfo_Impl: Sized {
     fn Contact(&mut self) -> ::windows::core::Result<InjectedInputRectangle>;
     fn SetContact(&mut self, value: &InjectedInputRectangle) -> ::windows::core::Result<()>;
     fn Orientation(&mut self) -> ::windows::core::Result<i32>;
@@ -537,9 +537,9 @@ impl ::windows::core::RuntimeName for IInjectedInputTouchInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.IInjectedInputTouchInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInjectedInputTouchInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputTouchInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInjectedInputTouchInfoVtbl {
-        unsafe extern "system" fn Contact<Impl: IInjectedInputTouchInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputRectangle) -> ::windows::core::HRESULT {
+impl IInjectedInputTouchInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInjectedInputTouchInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInjectedInputTouchInfo_Vtbl {
+        unsafe extern "system" fn Contact<Impl: IInjectedInputTouchInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputRectangle) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contact() {
                 ::core::result::Result::Ok(ok__) => {
@@ -550,11 +550,11 @@ impl IInjectedInputTouchInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContact<Impl: IInjectedInputTouchInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InjectedInputRectangle) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContact<Impl: IInjectedInputTouchInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InjectedInputRectangle) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContact(&*(&value as *const <InjectedInputRectangle as ::windows::core::Abi>::Abi as *const <InjectedInputRectangle as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Orientation<Impl: IInjectedInputTouchInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Orientation<Impl: IInjectedInputTouchInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Orientation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -565,11 +565,11 @@ impl IInjectedInputTouchInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOrientation<Impl: IInjectedInputTouchInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOrientation<Impl: IInjectedInputTouchInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOrientation(value).into()
         }
-        unsafe extern "system" fn PointerInfo<Impl: IInjectedInputTouchInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputPointerInfo) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PointerInfo<Impl: IInjectedInputTouchInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputPointerInfo) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -580,11 +580,11 @@ impl IInjectedInputTouchInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPointerInfo<Impl: IInjectedInputTouchInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InjectedInputPointerInfo) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPointerInfo<Impl: IInjectedInputTouchInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InjectedInputPointerInfo) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPointerInfo(&*(&value as *const <InjectedInputPointerInfo as ::windows::core::Abi>::Abi as *const <InjectedInputPointerInfo as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Pressure<Impl: IInjectedInputTouchInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pressure<Impl: IInjectedInputTouchInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pressure() {
                 ::core::result::Result::Ok(ok__) => {
@@ -595,11 +595,11 @@ impl IInjectedInputTouchInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPressure<Impl: IInjectedInputTouchInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPressure<Impl: IInjectedInputTouchInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPressure(value).into()
         }
-        unsafe extern "system" fn TouchParameters<Impl: IInjectedInputTouchInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputTouchParameters) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TouchParameters<Impl: IInjectedInputTouchInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputTouchParameters) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TouchParameters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -610,7 +610,7 @@ impl IInjectedInputTouchInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTouchParameters<Impl: IInjectedInputTouchInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InjectedInputTouchParameters) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTouchParameters<Impl: IInjectedInputTouchInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InjectedInputTouchParameters) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTouchParameters(value).into()
         }
@@ -633,7 +633,7 @@ impl IInjectedInputTouchInfoVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IInputInjectorImpl: Sized {
+pub trait IInputInjector_Impl: Sized {
     fn InjectKeyboardInput(&mut self, input: &::core::option::Option<super::super::super::super::Foundation::Collections::IIterable<InjectedInputKeyboardInfo>>) -> ::windows::core::Result<()>;
     fn InjectMouseInput(&mut self, input: &::core::option::Option<super::super::super::super::Foundation::Collections::IIterable<InjectedInputMouseInfo>>) -> ::windows::core::Result<()>;
     fn InitializeTouchInjection(&mut self, visualmode: InjectedInputVisualizationMode) -> ::windows::core::Result<()>;
@@ -649,41 +649,41 @@ impl ::windows::core::RuntimeName for IInputInjector {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.IInputInjector";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IInputInjectorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputInjectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputInjectorVtbl {
-        unsafe extern "system" fn InjectKeyboardInput<Impl: IInputInjectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IInputInjector_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputInjector_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputInjector_Vtbl {
+        unsafe extern "system" fn InjectKeyboardInput<Impl: IInputInjector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InjectKeyboardInput(&*(&input as *const <super::super::super::super::Foundation::Collections::IIterable<InjectedInputKeyboardInfo> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Collections::IIterable<InjectedInputKeyboardInfo> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InjectMouseInput<Impl: IInputInjectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InjectMouseInput<Impl: IInputInjector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InjectMouseInput(&*(&input as *const <super::super::super::super::Foundation::Collections::IIterable<InjectedInputMouseInfo> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Collections::IIterable<InjectedInputMouseInfo> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InitializeTouchInjection<Impl: IInputInjectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visualmode: InjectedInputVisualizationMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeTouchInjection<Impl: IInputInjector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visualmode: InjectedInputVisualizationMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InitializeTouchInjection(visualmode).into()
         }
-        unsafe extern "system" fn InjectTouchInput<Impl: IInputInjectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InjectTouchInput<Impl: IInputInjector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InjectTouchInput(&*(&input as *const <super::super::super::super::Foundation::Collections::IIterable<InjectedInputTouchInfo> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Collections::IIterable<InjectedInputTouchInfo> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn UninitializeTouchInjection<Impl: IInputInjectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UninitializeTouchInjection<Impl: IInputInjector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UninitializeTouchInjection().into()
         }
-        unsafe extern "system" fn InitializePenInjection<Impl: IInputInjectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visualmode: InjectedInputVisualizationMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializePenInjection<Impl: IInputInjector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visualmode: InjectedInputVisualizationMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InitializePenInjection(visualmode).into()
         }
-        unsafe extern "system" fn InjectPenInput<Impl: IInputInjectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InjectPenInput<Impl: IInputInjector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InjectPenInput(&*(&input as *const <InjectedInputPenInfo as ::windows::core::Abi>::Abi as *const <InjectedInputPenInfo as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn UninitializePenInjection<Impl: IInputInjectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UninitializePenInjection<Impl: IInputInjector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UninitializePenInjection().into()
         }
-        unsafe extern "system" fn InjectShortcut<Impl: IInputInjectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shortcut: InjectedInputShortcut) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InjectShortcut<Impl: IInputInjector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shortcut: InjectedInputShortcut) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InjectShortcut(shortcut).into()
         }
@@ -705,7 +705,7 @@ impl IInputInjectorVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IInputInjector2Impl: Sized + IInputInjectorImpl {
+pub trait IInputInjector2_Impl: Sized + IInputInjector_Impl {
     fn InitializeGamepadInjection(&mut self) -> ::windows::core::Result<()>;
     fn InjectGamepadInput(&mut self, input: &::core::option::Option<InjectedInputGamepadInfo>) -> ::windows::core::Result<()>;
     fn UninitializeGamepadInjection(&mut self) -> ::windows::core::Result<()>;
@@ -715,17 +715,17 @@ impl ::windows::core::RuntimeName for IInputInjector2 {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.IInputInjector2";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IInputInjector2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputInjector2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputInjector2Vtbl {
-        unsafe extern "system" fn InitializeGamepadInjection<Impl: IInputInjector2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IInputInjector2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputInjector2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputInjector2_Vtbl {
+        unsafe extern "system" fn InitializeGamepadInjection<Impl: IInputInjector2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InitializeGamepadInjection().into()
         }
-        unsafe extern "system" fn InjectGamepadInput<Impl: IInputInjector2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InjectGamepadInput<Impl: IInputInjector2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InjectGamepadInput(&*(&input as *const <InjectedInputGamepadInfo as ::windows::core::Abi>::Abi as *const <InjectedInputGamepadInfo as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn UninitializeGamepadInjection<Impl: IInputInjector2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UninitializeGamepadInjection<Impl: IInputInjector2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UninitializeGamepadInjection().into()
         }
@@ -741,7 +741,7 @@ impl IInputInjector2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInputInjectorStaticsImpl: Sized {
+pub trait IInputInjectorStatics_Impl: Sized {
     fn TryCreate(&mut self) -> ::windows::core::Result<InputInjector>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -749,9 +749,9 @@ impl ::windows::core::RuntimeName for IInputInjectorStatics {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.IInputInjectorStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInputInjectorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputInjectorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputInjectorStaticsVtbl {
-        unsafe extern "system" fn TryCreate<Impl: IInputInjectorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IInputInjectorStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputInjectorStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputInjectorStatics_Vtbl {
+        unsafe extern "system" fn TryCreate<Impl: IInputInjectorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -769,7 +769,7 @@ impl IInputInjectorStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInputInjectorStatics2Impl: Sized + IInputInjectorStaticsImpl {
+pub trait IInputInjectorStatics2_Impl: Sized + IInputInjectorStatics_Impl {
     fn TryCreateForAppBroadcastOnly(&mut self) -> ::windows::core::Result<InputInjector>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -777,9 +777,9 @@ impl ::windows::core::RuntimeName for IInputInjectorStatics2 {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.IInputInjectorStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInputInjectorStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputInjectorStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputInjectorStatics2Vtbl {
-        unsafe extern "system" fn TryCreateForAppBroadcastOnly<Impl: IInputInjectorStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IInputInjectorStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputInjectorStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputInjectorStatics2_Vtbl {
+        unsafe extern "system" fn TryCreateForAppBroadcastOnly<Impl: IInputInjectorStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreateForAppBroadcastOnly() {
                 ::core::result::Result::Ok(ok__) => {

@@ -118,7 +118,7 @@ unsafe impl ::windows::core::RuntimeType for Geofence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.Geofence;{9c090823-edb8-47e0-8245-5bf61d321f2d})");
 }
 unsafe impl ::windows::core::Interface for Geofence {
-    type Vtable = IGeofenceVtbl;
+    type Vtable = IGeofence_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c090823_edb8_47e0_8245_5bf61d321f2d);
 }
 impl ::windows::core::RuntimeName for Geofence {
@@ -267,7 +267,7 @@ unsafe impl ::windows::core::RuntimeType for GeofenceMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.GeofenceMonitor;{4c0f5f78-1c1f-4621-bbbd-833b92247226})");
 }
 unsafe impl ::windows::core::Interface for GeofenceMonitor {
-    type Vtable = IGeofenceMonitorVtbl;
+    type Vtable = IGeofenceMonitor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c0f5f78_1c1f_4621_bbbd_833b92247226);
 }
 impl ::windows::core::RuntimeName for GeofenceMonitor {
@@ -505,7 +505,7 @@ unsafe impl ::windows::core::RuntimeType for GeofenceStateChangeReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport;{9a243c18-2464-4c89-be05-b3ffff5babc5})");
 }
 unsafe impl ::windows::core::Interface for GeofenceStateChangeReport {
-    type Vtable = IGeofenceStateChangeReportVtbl;
+    type Vtable = IGeofenceStateChangeReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a243c18_2464_4c89_be05_b3ffff5babc5);
 }
 impl ::windows::core::RuntimeName for GeofenceStateChangeReport {
@@ -557,12 +557,12 @@ unsafe impl ::core::marker::Sync for GeofenceStateChangeReport {}
 #[repr(transparent)]
 pub struct IGeofence(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeofence {
-    type Vtable = IGeofenceVtbl;
+    type Vtable = IGeofence_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c090823_edb8_47e0_8245_5bf61d321f2d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGeofenceVtbl {
+pub struct IGeofence_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub StartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -585,12 +585,12 @@ pub struct IGeofenceVtbl {
 #[repr(transparent)]
 pub struct IGeofenceFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeofenceFactory {
-    type Vtable = IGeofenceFactoryVtbl;
+    type Vtable = IGeofenceFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x841f624b_325f_4b90_bca7_2b8022a93796);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGeofenceFactoryVtbl {
+pub struct IGeofenceFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, geoshape: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateWithMonitorStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, geoshape: ::windows::core::RawPtr, monitoredstates: MonitoredGeofenceStates, singleuse: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -607,12 +607,12 @@ pub struct IGeofenceFactoryVtbl {
 #[repr(transparent)]
 pub struct IGeofenceMonitor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeofenceMonitor {
-    type Vtable = IGeofenceMonitorVtbl;
+    type Vtable = IGeofenceMonitor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c0f5f78_1c1f_4621_bbbd_833b92247226);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGeofenceMonitorVtbl {
+pub struct IGeofenceMonitor_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GeofenceMonitorStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -645,12 +645,12 @@ pub struct IGeofenceMonitorVtbl {
 #[repr(transparent)]
 pub struct IGeofenceMonitorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeofenceMonitorStatics {
-    type Vtable = IGeofenceMonitorStaticsVtbl;
+    type Vtable = IGeofenceMonitorStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dd32fcf_7e75_4899_ace3_2bd0a65cce06);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGeofenceMonitorStaticsVtbl {
+pub struct IGeofenceMonitorStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -658,12 +658,12 @@ pub struct IGeofenceMonitorStaticsVtbl {
 #[repr(transparent)]
 pub struct IGeofenceStateChangeReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeofenceStateChangeReport {
-    type Vtable = IGeofenceStateChangeReportVtbl;
+    type Vtable = IGeofenceStateChangeReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a243c18_2464_4c89_be05_b3ffff5babc5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGeofenceStateChangeReportVtbl {
+pub struct IGeofenceStateChangeReport_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub NewState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GeofenceState) -> ::windows::core::HRESULT,
     pub Geofence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

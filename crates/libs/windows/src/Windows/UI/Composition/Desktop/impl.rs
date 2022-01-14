@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IDesktopWindowTargetImpl: Sized {
+pub trait IDesktopWindowTarget_Impl: Sized {
     fn IsTopmost(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7,9 +7,9 @@ impl ::windows::core::RuntimeName for IDesktopWindowTarget {
     const NAME: &'static str = "Windows.UI.Composition.Desktop.IDesktopWindowTarget";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDesktopWindowTargetVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDesktopWindowTargetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDesktopWindowTargetVtbl {
-        unsafe extern "system" fn IsTopmost<Impl: IDesktopWindowTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IDesktopWindowTarget_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDesktopWindowTarget_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDesktopWindowTarget_Vtbl {
+        unsafe extern "system" fn IsTopmost<Impl: IDesktopWindowTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTopmost() {
                 ::core::result::Result::Ok(ok__) => {

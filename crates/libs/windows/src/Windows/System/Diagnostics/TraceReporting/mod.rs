@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IPlatformDiagnosticActionsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlatformDiagnosticActionsStatics {
-    type Vtable = IPlatformDiagnosticActionsStaticsVtbl;
+    type Vtable = IPlatformDiagnosticActionsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1145cfa_9292_4267_890a_9ea3ed072312);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlatformDiagnosticActionsStaticsVtbl {
+pub struct IPlatformDiagnosticActionsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsScenarioEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scenarioid: ::windows::core::GUID, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -32,12 +32,12 @@ pub struct IPlatformDiagnosticActionsStaticsVtbl {
 #[repr(transparent)]
 pub struct IPlatformDiagnosticTraceInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlatformDiagnosticTraceInfo {
-    type Vtable = IPlatformDiagnosticTraceInfoVtbl;
+    type Vtable = IPlatformDiagnosticTraceInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf870ed97_d597_4bf7_88dc_cf5c7dc2a1d2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlatformDiagnosticTraceInfoVtbl {
+pub struct IPlatformDiagnosticTraceInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ScenarioId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub ProfileHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
@@ -50,12 +50,12 @@ pub struct IPlatformDiagnosticTraceInfoVtbl {
 #[repr(transparent)]
 pub struct IPlatformDiagnosticTraceRuntimeInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlatformDiagnosticTraceRuntimeInfo {
-    type Vtable = IPlatformDiagnosticTraceRuntimeInfoVtbl;
+    type Vtable = IPlatformDiagnosticTraceRuntimeInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d4d5e2d_01d8_4768_8554_1eb1ca610986);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlatformDiagnosticTraceRuntimeInfoVtbl {
+pub struct IPlatformDiagnosticTraceRuntimeInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RuntimeFileTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT,
     pub EtwRuntimeFileTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT,
@@ -333,7 +333,7 @@ unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTraceInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo;{f870ed97-d597-4bf7-88dc-cf5c7dc2a1d2})");
 }
 unsafe impl ::windows::core::Interface for PlatformDiagnosticTraceInfo {
-    type Vtable = IPlatformDiagnosticTraceInfoVtbl;
+    type Vtable = IPlatformDiagnosticTraceInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf870ed97_d597_4bf7_88dc_cf5c7dc2a1d2);
 }
 impl ::windows::core::RuntimeName for PlatformDiagnosticTraceInfo {
@@ -455,7 +455,7 @@ unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTraceRuntimeInfo 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceRuntimeInfo;{3d4d5e2d-01d8-4768-8554-1eb1ca610986})");
 }
 unsafe impl ::windows::core::Interface for PlatformDiagnosticTraceRuntimeInfo {
-    type Vtable = IPlatformDiagnosticTraceRuntimeInfoVtbl;
+    type Vtable = IPlatformDiagnosticTraceRuntimeInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d4d5e2d_01d8_4768_8554_1eb1ca610986);
 }
 impl ::windows::core::RuntimeName for PlatformDiagnosticTraceRuntimeInfo {

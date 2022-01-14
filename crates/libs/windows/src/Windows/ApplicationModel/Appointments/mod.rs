@@ -381,7 +381,7 @@ unsafe impl ::windows::core::RuntimeType for Appointment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.Appointment;{dd002f2f-2bdd-4076-90a3-22c275312965})");
 }
 unsafe impl ::windows::core::Interface for Appointment {
-    type Vtable = IAppointmentVtbl;
+    type Vtable = IAppointment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd002f2f_2bdd_4076_90a3_22c275312965);
 }
 impl ::windows::core::RuntimeName for Appointment {
@@ -886,7 +886,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentCalendar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentCalendar;{5273819d-8339-3d4f-a02f-64084452bb5d})");
 }
 unsafe impl ::windows::core::Interface for AppointmentCalendar {
-    type Vtable = IAppointmentCalendarVtbl;
+    type Vtable = IAppointmentCalendar_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5273819d_8339_3d4f_a02f_64084452bb5d);
 }
 impl ::windows::core::RuntimeName for AppointmentCalendar {
@@ -1095,7 +1095,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentCalendarSyncManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentCalendarSyncManager;{2b21b3a0-4aff-4392-bc5f-5645ffcffb17})");
 }
 unsafe impl ::windows::core::Interface for AppointmentCalendarSyncManager {
-    type Vtable = IAppointmentCalendarSyncManagerVtbl;
+    type Vtable = IAppointmentCalendarSyncManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b21b3a0_4aff_4392_bc5f_5645ffcffb17);
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarSyncManager {
@@ -1223,7 +1223,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentConflictResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentConflictResult;{d5cdf0be-2f2f-3b7d-af0a-a7e20f3a46e3})");
 }
 unsafe impl ::windows::core::Interface for AppointmentConflictResult {
-    type Vtable = IAppointmentConflictResultVtbl;
+    type Vtable = IAppointmentConflictResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5cdf0be_2f2f_3b7d_af0a_a7e20f3a46e3);
 }
 impl ::windows::core::RuntimeName for AppointmentConflictResult {
@@ -1455,7 +1455,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentException {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentException;{a2076767-16f6-4bce-9f5a-8600b8019fcb})");
 }
 unsafe impl ::windows::core::Interface for AppointmentException {
-    type Vtable = IAppointmentExceptionVtbl;
+    type Vtable = IAppointmentException_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2076767_16f6_4bce_9f5a_8600b8019fcb);
 }
 impl ::windows::core::RuntimeName for AppointmentException {
@@ -1587,7 +1587,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentInvitee {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentInvitee;{13bf0796-9842-495b-b0e7-ef8f79c0701d})");
 }
 unsafe impl ::windows::core::Interface for AppointmentInvitee {
-    type Vtable = IAppointmentInviteeVtbl;
+    type Vtable = IAppointmentInvitee_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13bf0796_9842_495b_b0e7_ef8f79c0701d);
 }
 impl ::windows::core::RuntimeName for AppointmentInvitee {
@@ -1942,7 +1942,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentManagerForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentManagerForUser;{70261423-73cc-4660-b318-b01365302a03})");
 }
 unsafe impl ::windows::core::Interface for AppointmentManagerForUser {
-    type Vtable = IAppointmentManagerForUserVtbl;
+    type Vtable = IAppointmentManagerForUser_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70261423_73cc_4660_b318_b01365302a03);
 }
 impl ::windows::core::RuntimeName for AppointmentManagerForUser {
@@ -2048,7 +2048,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentOrganizer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentOrganizer;{615e2902-9718-467b-83fb-b293a19121de})");
 }
 unsafe impl ::windows::core::Interface for AppointmentOrganizer {
-    type Vtable = IAppointmentParticipantVtbl;
+    type Vtable = IAppointmentParticipant_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x615e2902_9718_467b_83fb_b293a19121de);
 }
 impl ::windows::core::RuntimeName for AppointmentOrganizer {
@@ -2557,7 +2557,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentRecurrence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentRecurrence;{d87b3e83-15a6-487b-b959-0c361e60e954})");
 }
 unsafe impl ::windows::core::Interface for AppointmentRecurrence {
-    type Vtable = IAppointmentRecurrenceVtbl;
+    type Vtable = IAppointmentRecurrence_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd87b3e83_15a6_487b_b959_0c361e60e954);
 }
 impl ::windows::core::RuntimeName for AppointmentRecurrence {
@@ -2920,7 +2920,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStore;{a461918c-7a47-4d96-96c9-15cd8a05a735})");
 }
 unsafe impl ::windows::core::Interface for AppointmentStore {
-    type Vtable = IAppointmentStoreVtbl;
+    type Vtable = IAppointmentStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa461918c_7a47_4d96_96c9_15cd8a05a735);
 }
 impl ::windows::core::RuntimeName for AppointmentStore {
@@ -3051,7 +3051,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentStoreChange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChange;{a5a6e035-0a33-3654-8463-b543e90c3b79})");
 }
 unsafe impl ::windows::core::Interface for AppointmentStoreChange {
-    type Vtable = IAppointmentStoreChangeVtbl;
+    type Vtable = IAppointmentStoreChange_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5a6e035_0a33_3654_8463_b543e90c3b79);
 }
 impl ::windows::core::RuntimeName for AppointmentStoreChange {
@@ -3143,7 +3143,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChangeReader;{8b2409f1-65f3-42a0-961d-4c209bf30370})");
 }
 unsafe impl ::windows::core::Interface for AppointmentStoreChangeReader {
-    type Vtable = IAppointmentStoreChangeReaderVtbl;
+    type Vtable = IAppointmentStoreChangeReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b2409f1_65f3_42a0_961d_4c209bf30370);
 }
 impl ::windows::core::RuntimeName for AppointmentStoreChangeReader {
@@ -3242,7 +3242,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangeTracker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChangeTracker;{1b25f4b1-8ece-4f17-93c8-e6412458fd5c})");
 }
 unsafe impl ::windows::core::Interface for AppointmentStoreChangeTracker {
-    type Vtable = IAppointmentStoreChangeTrackerVtbl;
+    type Vtable = IAppointmentStoreChangeTracker_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b25f4b1_8ece_4f17_93c8_e6412458fd5c);
 }
 impl ::windows::core::RuntimeName for AppointmentStoreChangeTracker {
@@ -3358,7 +3358,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangedDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChangedDeferral;{4cb82026-fedb-4bc3-9662-95a9befdf4df})");
 }
 unsafe impl ::windows::core::Interface for AppointmentStoreChangedDeferral {
-    type Vtable = IAppointmentStoreChangedDeferralVtbl;
+    type Vtable = IAppointmentStoreChangedDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cb82026_fedb_4bc3_9662_95a9befdf4df);
 }
 impl ::windows::core::RuntimeName for AppointmentStoreChangedDeferral {
@@ -3439,7 +3439,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChangedEventArgs;{2285f8b9-0791-417e-bfea-cc6d41636c8c})");
 }
 unsafe impl ::windows::core::Interface for AppointmentStoreChangedEventArgs {
-    type Vtable = IAppointmentStoreChangedEventArgsVtbl;
+    type Vtable = IAppointmentStoreChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2285f8b9_0791_417e_bfea_cc6d41636c8c);
 }
 impl ::windows::core::RuntimeName for AppointmentStoreChangedEventArgs {
@@ -3511,7 +3511,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentStoreNotificationTrigger
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreNotificationTriggerDetails;{9b33cb11-c301-421e-afef-047ecfa76adb})");
 }
 unsafe impl ::windows::core::Interface for AppointmentStoreNotificationTriggerDetails {
-    type Vtable = IAppointmentStoreNotificationTriggerDetailsVtbl;
+    type Vtable = IAppointmentStoreNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b33cb11_c301_421e_afef_047ecfa76adb);
 }
 impl ::windows::core::RuntimeName for AppointmentStoreNotificationTriggerDetails {
@@ -3765,7 +3765,7 @@ unsafe impl ::windows::core::RuntimeType for FindAppointmentsOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.FindAppointmentsOptions;{55f7dc55-9942-3086-82b5-2cb29f64d5f5})");
 }
 unsafe impl ::windows::core::Interface for FindAppointmentsOptions {
-    type Vtable = IFindAppointmentsOptionsVtbl;
+    type Vtable = IFindAppointmentsOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55f7dc55_9942_3086_82b5_2cb29f64d5f5);
 }
 impl ::windows::core::RuntimeName for FindAppointmentsOptions {
@@ -3817,12 +3817,12 @@ unsafe impl ::core::marker::Sync for FindAppointmentsOptions {}
 #[repr(transparent)]
 pub struct IAppointment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointment {
-    type Vtable = IAppointmentVtbl;
+    type Vtable = IAppointment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd002f2f_2bdd_4076_90a3_22c275312965);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentVtbl {
+pub struct IAppointment_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub StartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -3881,12 +3881,12 @@ pub struct IAppointmentVtbl {
 #[repr(transparent)]
 pub struct IAppointment2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointment2 {
-    type Vtable = IAppointment2Vtbl;
+    type Vtable = IAppointment2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e85983c_540f_3452_9b5c_0dd7ad4c65a2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointment2Vtbl {
+pub struct IAppointment2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LocalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub CalendarId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3922,12 +3922,12 @@ pub struct IAppointment2Vtbl {
 #[repr(transparent)]
 pub struct IAppointment3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointment3 {
-    type Vtable = IAppointment3Vtbl;
+    type Vtable = IAppointment3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfcc45a9_8961_4991_934b_c48768e5a96c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointment3Vtbl {
+pub struct IAppointment3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ChangeNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
     pub RemoteChangeNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
@@ -3939,12 +3939,12 @@ pub struct IAppointment3Vtbl {
 #[repr(transparent)]
 pub struct IAppointmentCalendar(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentCalendar {
-    type Vtable = IAppointmentCalendarVtbl;
+    type Vtable = IAppointmentCalendar_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5273819d_8339_3d4f_a02f_64084452bb5d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarVtbl {
+pub struct IAppointmentCalendar_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI")]
     pub DisplayColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT,
@@ -4022,12 +4022,12 @@ pub struct IAppointmentCalendarVtbl {
 #[repr(transparent)]
 pub struct IAppointmentCalendar2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentCalendar2 {
-    type Vtable = IAppointmentCalendar2Vtbl;
+    type Vtable = IAppointmentCalendar2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18e7e422_2467_4e1c_a459_d8a29303d092);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentCalendar2Vtbl {
+pub struct IAppointmentCalendar2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SyncManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RemoteId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4077,12 +4077,12 @@ pub struct IAppointmentCalendar2Vtbl {
 #[repr(transparent)]
 pub struct IAppointmentCalendar3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentCalendar3 {
-    type Vtable = IAppointmentCalendar3Vtbl;
+    type Vtable = IAppointmentCalendar3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb23d22b_a685_42ae_8495_b3119adb4167);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentCalendar3Vtbl {
+pub struct IAppointmentCalendar3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RegisterSyncManagerAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4093,12 +4093,12 @@ pub struct IAppointmentCalendar3Vtbl {
 #[repr(transparent)]
 pub struct IAppointmentCalendarSyncManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentCalendarSyncManager {
-    type Vtable = IAppointmentCalendarSyncManagerVtbl;
+    type Vtable = IAppointmentCalendarSyncManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b21b3a0_4aff_4392_bc5f_5645ffcffb17);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarSyncManagerVtbl {
+pub struct IAppointmentCalendarSyncManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppointmentCalendarSyncStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -4126,12 +4126,12 @@ pub struct IAppointmentCalendarSyncManagerVtbl {
 #[repr(transparent)]
 pub struct IAppointmentCalendarSyncManager2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentCalendarSyncManager2 {
-    type Vtable = IAppointmentCalendarSyncManager2Vtbl;
+    type Vtable = IAppointmentCalendarSyncManager2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x647528ad_0d29_4c7c_aaa7_bf996805537c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarSyncManager2Vtbl {
+pub struct IAppointmentCalendarSyncManager2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: AppointmentCalendarSyncStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -4147,12 +4147,12 @@ pub struct IAppointmentCalendarSyncManager2Vtbl {
 #[repr(transparent)]
 pub struct IAppointmentConflictResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentConflictResult {
-    type Vtable = IAppointmentConflictResultVtbl;
+    type Vtable = IAppointmentConflictResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5cdf0be_2f2f_3b7d_af0a_a7e20f3a46e3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentConflictResultVtbl {
+pub struct IAppointmentConflictResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppointmentConflictType) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -4164,12 +4164,12 @@ pub struct IAppointmentConflictResultVtbl {
 #[repr(transparent)]
 pub struct IAppointmentException(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentException {
-    type Vtable = IAppointmentExceptionVtbl;
+    type Vtable = IAppointmentException_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2076767_16f6_4bce_9f5a_8600b8019fcb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentExceptionVtbl {
+pub struct IAppointmentException_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Appointment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -4182,12 +4182,12 @@ pub struct IAppointmentExceptionVtbl {
 #[repr(transparent)]
 pub struct IAppointmentInvitee(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentInvitee {
-    type Vtable = IAppointmentInviteeVtbl;
+    type Vtable = IAppointmentInvitee_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13bf0796_9842_495b_b0e7_ef8f79c0701d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentInviteeVtbl {
+pub struct IAppointmentInvitee_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Role: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppointmentParticipantRole) -> ::windows::core::HRESULT,
     pub SetRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: AppointmentParticipantRole) -> ::windows::core::HRESULT,
@@ -4198,12 +4198,12 @@ pub struct IAppointmentInviteeVtbl {
 #[repr(transparent)]
 pub struct IAppointmentManagerForUser(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentManagerForUser {
-    type Vtable = IAppointmentManagerForUserVtbl;
+    type Vtable = IAppointmentManagerForUser_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70261423_73cc_4660_b318_b01365302a03);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentManagerForUserVtbl {
+pub struct IAppointmentManagerForUser_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ShowAddAppointmentAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appointment: ::windows::core::RawPtr, selection: super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4266,12 +4266,12 @@ pub struct IAppointmentManagerForUserVtbl {
 #[repr(transparent)]
 pub struct IAppointmentManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentManagerStatics {
-    type Vtable = IAppointmentManagerStaticsVtbl;
+    type Vtable = IAppointmentManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a30fa01_5c40_499d_b33f_a43050f74fc4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentManagerStaticsVtbl {
+pub struct IAppointmentManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ShowAddAppointmentAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appointment: ::windows::core::RawPtr, selection: super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4314,12 +4314,12 @@ pub struct IAppointmentManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IAppointmentManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentManagerStatics2 {
-    type Vtable = IAppointmentManagerStatics2Vtbl;
+    type Vtable = IAppointmentManagerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a81f60d_d04f_4034_af72_a36573b45ff0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentManagerStatics2Vtbl {
+pub struct IAppointmentManagerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ShowAppointmentDetailsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appointmentid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4342,12 +4342,12 @@ pub struct IAppointmentManagerStatics2Vtbl {
 #[repr(transparent)]
 pub struct IAppointmentManagerStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentManagerStatics3 {
-    type Vtable = IAppointmentManagerStatics3Vtbl;
+    type Vtable = IAppointmentManagerStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f9ae09c_b34c_4dc7_a35d_cafd88ae3ec6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentManagerStatics3Vtbl {
+pub struct IAppointmentManagerStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4445,12 +4445,12 @@ unsafe impl ::windows::core::RuntimeType for IAppointmentParticipant {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{615e2902-9718-467b-83fb-b293a19121de}");
 }
 unsafe impl ::windows::core::Interface for IAppointmentParticipant {
-    type Vtable = IAppointmentParticipantVtbl;
+    type Vtable = IAppointmentParticipant_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x615e2902_9718_467b_83fb_b293a19121de);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentParticipantVtbl {
+pub struct IAppointmentParticipant_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4461,12 +4461,12 @@ pub struct IAppointmentParticipantVtbl {
 #[repr(transparent)]
 pub struct IAppointmentPropertiesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentPropertiesStatics {
-    type Vtable = IAppointmentPropertiesStaticsVtbl;
+    type Vtable = IAppointmentPropertiesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25141fe9_68ae_3aae_855f_bc4441caa234);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentPropertiesStaticsVtbl {
+pub struct IAppointmentPropertiesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Subject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Location: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4499,12 +4499,12 @@ pub struct IAppointmentPropertiesStaticsVtbl {
 #[repr(transparent)]
 pub struct IAppointmentPropertiesStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentPropertiesStatics2 {
-    type Vtable = IAppointmentPropertiesStatics2Vtbl;
+    type Vtable = IAppointmentPropertiesStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdffc434b_b017_45dd_8af5_d163d10801bb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentPropertiesStatics2Vtbl {
+pub struct IAppointmentPropertiesStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ChangeNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub RemoteChangeNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4514,12 +4514,12 @@ pub struct IAppointmentPropertiesStatics2Vtbl {
 #[repr(transparent)]
 pub struct IAppointmentRecurrence(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentRecurrence {
-    type Vtable = IAppointmentRecurrenceVtbl;
+    type Vtable = IAppointmentRecurrence_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd87b3e83_15a6_487b_b959_0c361e60e954);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentRecurrenceVtbl {
+pub struct IAppointmentRecurrence_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Unit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppointmentRecurrenceUnit) -> ::windows::core::HRESULT,
     pub SetUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: AppointmentRecurrenceUnit) -> ::windows::core::HRESULT,
@@ -4554,12 +4554,12 @@ pub struct IAppointmentRecurrenceVtbl {
 #[repr(transparent)]
 pub struct IAppointmentRecurrence2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentRecurrence2 {
-    type Vtable = IAppointmentRecurrence2Vtbl;
+    type Vtable = IAppointmentRecurrence2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3df3a2e0_05a7_4f50_9f86_b03f9436254d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentRecurrence2Vtbl {
+pub struct IAppointmentRecurrence2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RecurrenceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut RecurrenceType) -> ::windows::core::HRESULT,
     pub TimeZone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4569,12 +4569,12 @@ pub struct IAppointmentRecurrence2Vtbl {
 #[repr(transparent)]
 pub struct IAppointmentRecurrence3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentRecurrence3 {
-    type Vtable = IAppointmentRecurrence3Vtbl;
+    type Vtable = IAppointmentRecurrence3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89ff96d9_da4d_4a17_8dd2_1cebc2b5ff9d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentRecurrence3Vtbl {
+pub struct IAppointmentRecurrence3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CalendarIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -4582,12 +4582,12 @@ pub struct IAppointmentRecurrence3Vtbl {
 #[repr(transparent)]
 pub struct IAppointmentStore(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentStore {
-    type Vtable = IAppointmentStoreVtbl;
+    type Vtable = IAppointmentStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa461918c_7a47_4d96_96c9_15cd8a05a735);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentStoreVtbl {
+pub struct IAppointmentStore_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ChangeTracker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -4675,12 +4675,12 @@ pub struct IAppointmentStoreVtbl {
 #[repr(transparent)]
 pub struct IAppointmentStore2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentStore2 {
-    type Vtable = IAppointmentStore2Vtbl;
+    type Vtable = IAppointmentStore2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25c48c20_1c41_424f_8084_67c1cfe0a854);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentStore2Vtbl {
+pub struct IAppointmentStore2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub StoreChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -4699,12 +4699,12 @@ pub struct IAppointmentStore2Vtbl {
 #[repr(transparent)]
 pub struct IAppointmentStore3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentStore3 {
-    type Vtable = IAppointmentStore3Vtbl;
+    type Vtable = IAppointmentStore3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4251940b_b078_470a_9a40_c2e01761f72f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentStore3Vtbl {
+pub struct IAppointmentStore3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetChangeTracker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -4712,12 +4712,12 @@ pub struct IAppointmentStore3Vtbl {
 #[repr(transparent)]
 pub struct IAppointmentStoreChange(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentStoreChange {
-    type Vtable = IAppointmentStoreChangeVtbl;
+    type Vtable = IAppointmentStoreChange_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5a6e035_0a33_3654_8463_b543e90c3b79);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentStoreChangeVtbl {
+pub struct IAppointmentStoreChange_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Appointment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ChangeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppointmentStoreChangeType) -> ::windows::core::HRESULT,
@@ -4726,12 +4726,12 @@ pub struct IAppointmentStoreChangeVtbl {
 #[repr(transparent)]
 pub struct IAppointmentStoreChange2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentStoreChange2 {
-    type Vtable = IAppointmentStoreChange2Vtbl;
+    type Vtable = IAppointmentStoreChange2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb37d0dce_5211_4402_a608_a96fe70b8ee2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentStoreChange2Vtbl {
+pub struct IAppointmentStoreChange2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AppointmentCalendar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -4739,12 +4739,12 @@ pub struct IAppointmentStoreChange2Vtbl {
 #[repr(transparent)]
 pub struct IAppointmentStoreChangeReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentStoreChangeReader {
-    type Vtable = IAppointmentStoreChangeReaderVtbl;
+    type Vtable = IAppointmentStoreChangeReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b2409f1_65f3_42a0_961d_4c209bf30370);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentStoreChangeReaderVtbl {
+pub struct IAppointmentStoreChangeReader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub ReadBatchAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4757,12 +4757,12 @@ pub struct IAppointmentStoreChangeReaderVtbl {
 #[repr(transparent)]
 pub struct IAppointmentStoreChangeTracker(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentStoreChangeTracker {
-    type Vtable = IAppointmentStoreChangeTrackerVtbl;
+    type Vtable = IAppointmentStoreChangeTracker_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b25f4b1_8ece_4f17_93c8_e6412458fd5c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentStoreChangeTrackerVtbl {
+pub struct IAppointmentStoreChangeTracker_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetChangeReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Enable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4772,12 +4772,12 @@ pub struct IAppointmentStoreChangeTrackerVtbl {
 #[repr(transparent)]
 pub struct IAppointmentStoreChangeTracker2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentStoreChangeTracker2 {
-    type Vtable = IAppointmentStoreChangeTracker2Vtbl;
+    type Vtable = IAppointmentStoreChangeTracker2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb66aaf45_9542_4cf7_8550_eb370e0c08d3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentStoreChangeTracker2Vtbl {
+pub struct IAppointmentStoreChangeTracker2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsTracking: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -4785,12 +4785,12 @@ pub struct IAppointmentStoreChangeTracker2Vtbl {
 #[repr(transparent)]
 pub struct IAppointmentStoreChangedDeferral(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentStoreChangedDeferral {
-    type Vtable = IAppointmentStoreChangedDeferralVtbl;
+    type Vtable = IAppointmentStoreChangedDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cb82026_fedb_4bc3_9662_95a9befdf4df);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentStoreChangedDeferralVtbl {
+pub struct IAppointmentStoreChangedDeferral_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -4798,12 +4798,12 @@ pub struct IAppointmentStoreChangedDeferralVtbl {
 #[repr(transparent)]
 pub struct IAppointmentStoreChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentStoreChangedEventArgs {
-    type Vtable = IAppointmentStoreChangedEventArgsVtbl;
+    type Vtable = IAppointmentStoreChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2285f8b9_0791_417e_bfea_cc6d41636c8c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentStoreChangedEventArgsVtbl {
+pub struct IAppointmentStoreChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -4811,24 +4811,24 @@ pub struct IAppointmentStoreChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAppointmentStoreNotificationTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentStoreNotificationTriggerDetails {
-    type Vtable = IAppointmentStoreNotificationTriggerDetailsVtbl;
+    type Vtable = IAppointmentStoreNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b33cb11_c301_421e_afef_047ecfa76adb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentStoreNotificationTriggerDetailsVtbl {
+pub struct IAppointmentStoreNotificationTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IFindAppointmentsOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFindAppointmentsOptions {
-    type Vtable = IFindAppointmentsOptionsVtbl;
+    type Vtable = IFindAppointmentsOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55f7dc55_9942_3086_82b5_2cb29f64d5f5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFindAppointmentsOptionsVtbl {
+pub struct IFindAppointmentsOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub CalendarIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

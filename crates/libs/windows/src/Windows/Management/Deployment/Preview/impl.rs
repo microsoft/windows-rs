@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IClassicAppManagerStaticsImpl: Sized {
+pub trait IClassicAppManagerStatics_Impl: Sized {
     fn FindInstalledApp(&mut self, appuninstallkey: &::windows::core::HSTRING) -> ::windows::core::Result<InstalledClassicAppInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7,9 +7,9 @@ impl ::windows::core::RuntimeName for IClassicAppManagerStatics {
     const NAME: &'static str = "Windows.Management.Deployment.Preview.IClassicAppManagerStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IClassicAppManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClassicAppManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClassicAppManagerStaticsVtbl {
-        unsafe extern "system" fn FindInstalledApp<Impl: IClassicAppManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appuninstallkey: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IClassicAppManagerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClassicAppManagerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClassicAppManagerStatics_Vtbl {
+        unsafe extern "system" fn FindInstalledApp<Impl: IClassicAppManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appuninstallkey: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindInstalledApp(&*(&appuninstallkey as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -30,7 +30,7 @@ impl IClassicAppManagerStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInstalledClassicAppInfoImpl: Sized {
+pub trait IInstalledClassicAppInfo_Impl: Sized {
     fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DisplayVersion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -39,9 +39,9 @@ impl ::windows::core::RuntimeName for IInstalledClassicAppInfo {
     const NAME: &'static str = "Windows.Management.Deployment.Preview.IInstalledClassicAppInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInstalledClassicAppInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInstalledClassicAppInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInstalledClassicAppInfoVtbl {
-        unsafe extern "system" fn DisplayName<Impl: IInstalledClassicAppInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IInstalledClassicAppInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInstalledClassicAppInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInstalledClassicAppInfo_Vtbl {
+        unsafe extern "system" fn DisplayName<Impl: IInstalledClassicAppInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -52,7 +52,7 @@ impl IInstalledClassicAppInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayVersion<Impl: IInstalledClassicAppInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayVersion<Impl: IInstalledClassicAppInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayVersion() {
                 ::core::result::Result::Ok(ok__) => {

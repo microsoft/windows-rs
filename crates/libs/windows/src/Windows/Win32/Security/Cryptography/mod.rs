@@ -22223,14 +22223,14 @@ impl ::core::fmt::Debug for ICertSrvSetup {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ICertSrvSetup {
-    type Vtable = ICertSrvSetupVtbl;
+    type Vtable = ICertSrvSetup_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb760a1bb_4784_44c0_8f12_555f0780ff25);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICertSrvSetupVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct ICertSrvSetup_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub CAErrorId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub CAErrorString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -22455,14 +22455,14 @@ impl ::core::fmt::Debug for ICertSrvSetupKeyInformation {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ICertSrvSetupKeyInformation {
-    type Vtable = ICertSrvSetupKeyInformationVtbl;
+    type Vtable = ICertSrvSetupKeyInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ba73778_36da_4c39_8a85_bcfa7d000793);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICertSrvSetupKeyInformationVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct ICertSrvSetupKeyInformation_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -22620,14 +22620,14 @@ impl ::core::fmt::Debug for ICertSrvSetupKeyInformationCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ICertSrvSetupKeyInformationCollection {
-    type Vtable = ICertSrvSetupKeyInformationCollectionVtbl;
+    type Vtable = ICertSrvSetupKeyInformationCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe65c8b00_e58f_41f9_a9ec_a28d7427c844);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICertSrvSetupKeyInformationCollectionVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct ICertSrvSetupKeyInformationCollection_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -22768,14 +22768,14 @@ impl ::core::fmt::Debug for ICertificateEnrollmentPolicyServerSetup {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ICertificateEnrollmentPolicyServerSetup {
-    type Vtable = ICertificateEnrollmentPolicyServerSetupVtbl;
+    type Vtable = ICertificateEnrollmentPolicyServerSetup_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x859252cc_238c_4a88_b8fd_a37e7d04e68b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICertificateEnrollmentPolicyServerSetupVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct ICertificateEnrollmentPolicyServerSetup_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ErrorString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -22929,14 +22929,14 @@ impl ::core::fmt::Debug for ICertificateEnrollmentServerSetup {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ICertificateEnrollmentServerSetup {
-    type Vtable = ICertificateEnrollmentServerSetupVtbl;
+    type Vtable = ICertificateEnrollmentServerSetup_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70027fdb_9dd9_4921_8944_b35cb31bd2ec);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICertificateEnrollmentServerSetupVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct ICertificateEnrollmentServerSetup_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ErrorString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -23125,14 +23125,14 @@ impl ::core::fmt::Debug for IMSCEPSetup {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSCEPSetup {
-    type Vtable = IMSCEPSetupVtbl;
+    type Vtable = IMSCEPSetup_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f7761bb_9f3b_4592_9ee0_9a73259c313e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSCEPSetupVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IMSCEPSetup_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub MSCEPErrorId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub MSCEPErrorString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,

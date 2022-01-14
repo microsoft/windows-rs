@@ -7,12 +7,12 @@ pub mod Provider;
 #[repr(transparent)]
 pub struct IWebAuthenticationBrokerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAuthenticationBrokerStatics {
-    type Vtable = IWebAuthenticationBrokerStaticsVtbl;
+    type Vtable = IWebAuthenticationBrokerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f149f1a_e673_40b5_bc22_201a6864a37b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAuthenticationBrokerStaticsVtbl {
+pub struct IWebAuthenticationBrokerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub AuthenticateWithCallbackUriAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: WebAuthenticationOptions, requesturi: ::windows::core::RawPtr, callbackuri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -31,12 +31,12 @@ pub struct IWebAuthenticationBrokerStaticsVtbl {
 #[repr(transparent)]
 pub struct IWebAuthenticationBrokerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAuthenticationBrokerStatics2 {
-    type Vtable = IWebAuthenticationBrokerStatics2Vtbl;
+    type Vtable = IWebAuthenticationBrokerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73cdfb9e_14e7_41da_a971_aaf4410b621e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAuthenticationBrokerStatics2Vtbl {
+pub struct IWebAuthenticationBrokerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub AuthenticateAndContinue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requesturi: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -63,12 +63,12 @@ pub struct IWebAuthenticationBrokerStatics2Vtbl {
 #[repr(transparent)]
 pub struct IWebAuthenticationResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAuthenticationResult {
-    type Vtable = IWebAuthenticationResultVtbl;
+    type Vtable = IWebAuthenticationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64002b4b_ede9_470a_a5cd_0323faf6e262);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAuthenticationResultVtbl {
+pub struct IWebAuthenticationResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ResponseData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ResponseStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WebAuthenticationStatus) -> ::windows::core::HRESULT,
@@ -293,7 +293,7 @@ unsafe impl ::windows::core::RuntimeType for WebAuthenticationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.WebAuthenticationResult;{64002b4b-ede9-470a-a5cd-0323faf6e262})");
 }
 unsafe impl ::windows::core::Interface for WebAuthenticationResult {
-    type Vtable = IWebAuthenticationResultVtbl;
+    type Vtable = IWebAuthenticationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64002b4b_ede9_470a_a5cd_0323faf6e262);
 }
 impl ::windows::core::RuntimeName for WebAuthenticationResult {

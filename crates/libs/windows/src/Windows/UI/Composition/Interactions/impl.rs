@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionConditionalValueImpl: Sized {
+pub trait ICompositionConditionalValue_Impl: Sized {
     fn Condition(&mut self) -> ::windows::core::Result<super::ExpressionAnimation>;
     fn SetCondition(&mut self, value: &::core::option::Option<super::ExpressionAnimation>) -> ::windows::core::Result<()>;
     fn Value(&mut self) -> ::windows::core::Result<super::ExpressionAnimation>;
@@ -10,9 +10,9 @@ impl ::windows::core::RuntimeName for ICompositionConditionalValue {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.ICompositionConditionalValue";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionConditionalValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionConditionalValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionConditionalValueVtbl {
-        unsafe extern "system" fn Condition<Impl: ICompositionConditionalValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionConditionalValue_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionConditionalValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionConditionalValue_Vtbl {
+        unsafe extern "system" fn Condition<Impl: ICompositionConditionalValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Condition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -23,11 +23,11 @@ impl ICompositionConditionalValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCondition<Impl: ICompositionConditionalValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCondition<Impl: ICompositionConditionalValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCondition(&*(&value as *const <super::ExpressionAnimation as ::windows::core::Abi>::Abi as *const <super::ExpressionAnimation as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Value<Impl: ICompositionConditionalValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: ICompositionConditionalValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -38,7 +38,7 @@ impl ICompositionConditionalValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Impl: ICompositionConditionalValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Impl: ICompositionConditionalValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <super::ExpressionAnimation as ::windows::core::Abi>::Abi as *const <super::ExpressionAnimation as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -55,7 +55,7 @@ impl ICompositionConditionalValueVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionConditionalValueStaticsImpl: Sized {
+pub trait ICompositionConditionalValueStatics_Impl: Sized {
     fn Create(&mut self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<CompositionConditionalValue>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -63,9 +63,9 @@ impl ::windows::core::RuntimeName for ICompositionConditionalValueStatics {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.ICompositionConditionalValueStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionConditionalValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionConditionalValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionConditionalValueStaticsVtbl {
-        unsafe extern "system" fn Create<Impl: ICompositionConditionalValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionConditionalValueStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionConditionalValueStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionConditionalValueStatics_Vtbl {
+        unsafe extern "system" fn Create<Impl: ICompositionConditionalValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&compositor as *const <super::Compositor as ::windows::core::Abi>::Abi as *const <super::Compositor as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -85,12 +85,12 @@ impl ICompositionConditionalValueStaticsVtbl {
         iid == &<ICompositionConditionalValueStatics as ::windows::core::Interface>::IID
     }
 }
-pub trait ICompositionInteractionSourceImpl: Sized {}
+pub trait ICompositionInteractionSource_Impl: Sized {}
 impl ::windows::core::RuntimeName for ICompositionInteractionSource {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.ICompositionInteractionSource";
 }
-impl ICompositionInteractionSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionInteractionSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionInteractionSourceVtbl {
+impl ICompositionInteractionSource_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionInteractionSource_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionInteractionSource_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionInteractionSource, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -98,7 +98,7 @@ impl ICompositionInteractionSourceVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionInteractionSourceCollectionImpl: Sized {
+pub trait ICompositionInteractionSourceCollection_Impl: Sized {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn Add(&mut self, value: &::core::option::Option<ICompositionInteractionSource>) -> ::windows::core::Result<()>;
     fn Remove(&mut self, value: &::core::option::Option<ICompositionInteractionSource>) -> ::windows::core::Result<()>;
@@ -109,9 +109,9 @@ impl ::windows::core::RuntimeName for ICompositionInteractionSourceCollection {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.ICompositionInteractionSourceCollection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionInteractionSourceCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionInteractionSourceCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionInteractionSourceCollectionVtbl {
-        unsafe extern "system" fn Count<Impl: ICompositionInteractionSourceCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl ICompositionInteractionSourceCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionInteractionSourceCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionInteractionSourceCollection_Vtbl {
+        unsafe extern "system" fn Count<Impl: ICompositionInteractionSourceCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -122,15 +122,15 @@ impl ICompositionInteractionSourceCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Impl: ICompositionInteractionSourceCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Impl: ICompositionInteractionSourceCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Add(&*(&value as *const <ICompositionInteractionSource as ::windows::core::Abi>::Abi as *const <ICompositionInteractionSource as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Remove<Impl: ICompositionInteractionSourceCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Remove<Impl: ICompositionInteractionSourceCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Remove(&*(&value as *const <ICompositionInteractionSource as ::windows::core::Abi>::Abi as *const <ICompositionInteractionSource as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RemoveAll<Impl: ICompositionInteractionSourceCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAll<Impl: ICompositionInteractionSourceCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAll().into()
         }
@@ -147,7 +147,7 @@ impl ICompositionInteractionSourceCollectionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionSourceConfigurationImpl: Sized {
+pub trait IInteractionSourceConfiguration_Impl: Sized {
     fn PositionXSourceMode(&mut self) -> ::windows::core::Result<InteractionSourceRedirectionMode>;
     fn SetPositionXSourceMode(&mut self, value: InteractionSourceRedirectionMode) -> ::windows::core::Result<()>;
     fn PositionYSourceMode(&mut self) -> ::windows::core::Result<InteractionSourceRedirectionMode>;
@@ -160,9 +160,9 @@ impl ::windows::core::RuntimeName for IInteractionSourceConfiguration {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionSourceConfiguration";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionSourceConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionSourceConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionSourceConfigurationVtbl {
-        unsafe extern "system" fn PositionXSourceMode<Impl: IInteractionSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InteractionSourceRedirectionMode) -> ::windows::core::HRESULT {
+impl IInteractionSourceConfiguration_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionSourceConfiguration_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionSourceConfiguration_Vtbl {
+        unsafe extern "system" fn PositionXSourceMode<Impl: IInteractionSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InteractionSourceRedirectionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionXSourceMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -173,11 +173,11 @@ impl IInteractionSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPositionXSourceMode<Impl: IInteractionSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InteractionSourceRedirectionMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPositionXSourceMode<Impl: IInteractionSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InteractionSourceRedirectionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPositionXSourceMode(value).into()
         }
-        unsafe extern "system" fn PositionYSourceMode<Impl: IInteractionSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InteractionSourceRedirectionMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PositionYSourceMode<Impl: IInteractionSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InteractionSourceRedirectionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionYSourceMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -188,11 +188,11 @@ impl IInteractionSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPositionYSourceMode<Impl: IInteractionSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InteractionSourceRedirectionMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPositionYSourceMode<Impl: IInteractionSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InteractionSourceRedirectionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPositionYSourceMode(value).into()
         }
-        unsafe extern "system" fn ScaleSourceMode<Impl: IInteractionSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InteractionSourceRedirectionMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScaleSourceMode<Impl: IInteractionSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InteractionSourceRedirectionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScaleSourceMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -203,7 +203,7 @@ impl IInteractionSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetScaleSourceMode<Impl: IInteractionSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InteractionSourceRedirectionMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScaleSourceMode<Impl: IInteractionSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InteractionSourceRedirectionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScaleSourceMode(value).into()
         }
@@ -222,7 +222,7 @@ impl IInteractionSourceConfigurationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IInteractionTrackerImpl: Sized {
+pub trait IInteractionTracker_Impl: Sized {
     fn InteractionSources(&mut self) -> ::windows::core::Result<CompositionInteractionSourceCollection>;
     fn IsPositionRoundingSuggested(&mut self) -> ::windows::core::Result<bool>;
     fn MaxPosition(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
@@ -262,9 +262,9 @@ impl ::windows::core::RuntimeName for IInteractionTracker {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTracker";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IInteractionTrackerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerVtbl {
-        unsafe extern "system" fn InteractionSources<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IInteractionTracker_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTracker_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTracker_Vtbl {
+        unsafe extern "system" fn InteractionSources<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InteractionSources() {
                 ::core::result::Result::Ok(ok__) => {
@@ -275,7 +275,7 @@ impl IInteractionTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsPositionRoundingSuggested<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPositionRoundingSuggested<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPositionRoundingSuggested() {
                 ::core::result::Result::Ok(ok__) => {
@@ -286,7 +286,7 @@ impl IInteractionTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxPosition<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxPosition<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxPosition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -297,11 +297,11 @@ impl IInteractionTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxPosition<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxPosition<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxPosition(&*(&value as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MaxScale<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxScale<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxScale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -312,11 +312,11 @@ impl IInteractionTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxScale<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxScale<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxScale(value).into()
         }
-        unsafe extern "system" fn MinPosition<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinPosition<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinPosition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -327,11 +327,11 @@ impl IInteractionTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMinPosition<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMinPosition<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMinPosition(&*(&value as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MinScale<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinScale<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinScale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -342,11 +342,11 @@ impl IInteractionTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMinScale<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMinScale<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMinScale(value).into()
         }
-        unsafe extern "system" fn NaturalRestingPosition<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NaturalRestingPosition<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NaturalRestingPosition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -357,7 +357,7 @@ impl IInteractionTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NaturalRestingScale<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NaturalRestingScale<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NaturalRestingScale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -368,7 +368,7 @@ impl IInteractionTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Owner<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Owner<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Owner() {
                 ::core::result::Result::Ok(ok__) => {
@@ -379,7 +379,7 @@ impl IInteractionTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -390,7 +390,7 @@ impl IInteractionTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PositionInertiaDecayRate<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PositionInertiaDecayRate<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionInertiaDecayRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -401,11 +401,11 @@ impl IInteractionTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPositionInertiaDecayRate<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPositionInertiaDecayRate<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPositionInertiaDecayRate(&*(&value as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PositionVelocityInPixelsPerSecond<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PositionVelocityInPixelsPerSecond<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionVelocityInPixelsPerSecond() {
                 ::core::result::Result::Ok(ok__) => {
@@ -416,7 +416,7 @@ impl IInteractionTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Scale<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Scale<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Scale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -427,7 +427,7 @@ impl IInteractionTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ScaleInertiaDecayRate<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScaleInertiaDecayRate<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScaleInertiaDecayRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -438,11 +438,11 @@ impl IInteractionTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetScaleInertiaDecayRate<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScaleInertiaDecayRate<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScaleInertiaDecayRate(&*(&value as *const <super::super::super::Foundation::IReference<f32> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<f32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ScaleVelocityInPercentPerSecond<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScaleVelocityInPercentPerSecond<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScaleVelocityInPercentPerSecond() {
                 ::core::result::Result::Ok(ok__) => {
@@ -453,27 +453,27 @@ impl IInteractionTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AdjustPositionXIfGreaterThanThreshold<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, adjustment: f32, positionthreshold: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AdjustPositionXIfGreaterThanThreshold<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, adjustment: f32, positionthreshold: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AdjustPositionXIfGreaterThanThreshold(adjustment, positionthreshold).into()
         }
-        unsafe extern "system" fn AdjustPositionYIfGreaterThanThreshold<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, adjustment: f32, positionthreshold: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AdjustPositionYIfGreaterThanThreshold<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, adjustment: f32, positionthreshold: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AdjustPositionYIfGreaterThanThreshold(adjustment, positionthreshold).into()
         }
-        unsafe extern "system" fn ConfigurePositionXInertiaModifiers<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, modifiers: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConfigurePositionXInertiaModifiers<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, modifiers: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ConfigurePositionXInertiaModifiers(&*(&modifiers as *const <super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ConfigurePositionYInertiaModifiers<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, modifiers: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConfigurePositionYInertiaModifiers<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, modifiers: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ConfigurePositionYInertiaModifiers(&*(&modifiers as *const <super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ConfigureScaleInertiaModifiers<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, modifiers: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConfigureScaleInertiaModifiers<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, modifiers: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ConfigureScaleInertiaModifiers(&*(&modifiers as *const <super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryUpdatePosition<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector3, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryUpdatePosition<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector3, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryUpdatePosition(&*(&value as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -484,7 +484,7 @@ impl IInteractionTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryUpdatePositionBy<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, amount: super::super::super::Foundation::Numerics::Vector3, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryUpdatePositionBy<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, amount: super::super::super::Foundation::Numerics::Vector3, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryUpdatePositionBy(&*(&amount as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -495,7 +495,7 @@ impl IInteractionTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryUpdatePositionWithAnimation<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryUpdatePositionWithAnimation<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryUpdatePositionWithAnimation(&*(&animation as *const <super::CompositionAnimation as ::windows::core::Abi>::Abi as *const <super::CompositionAnimation as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -506,7 +506,7 @@ impl IInteractionTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryUpdatePositionWithAdditionalVelocity<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, velocityinpixelspersecond: super::super::super::Foundation::Numerics::Vector3, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryUpdatePositionWithAdditionalVelocity<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, velocityinpixelspersecond: super::super::super::Foundation::Numerics::Vector3, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryUpdatePositionWithAdditionalVelocity(&*(&velocityinpixelspersecond as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -517,7 +517,7 @@ impl IInteractionTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryUpdateScale<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32, centerpoint: super::super::super::Foundation::Numerics::Vector3, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryUpdateScale<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32, centerpoint: super::super::super::Foundation::Numerics::Vector3, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryUpdateScale(value, &*(&centerpoint as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -528,7 +528,7 @@ impl IInteractionTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryUpdateScaleWithAnimation<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr, centerpoint: super::super::super::Foundation::Numerics::Vector3, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryUpdateScaleWithAnimation<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr, centerpoint: super::super::super::Foundation::Numerics::Vector3, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryUpdateScaleWithAnimation(&*(&animation as *const <super::CompositionAnimation as ::windows::core::Abi>::Abi as *const <super::CompositionAnimation as ::windows::core::DefaultType>::DefaultType), &*(&centerpoint as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -539,7 +539,7 @@ impl IInteractionTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryUpdateScaleWithAdditionalVelocity<Impl: IInteractionTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, velocityinpercentpersecond: f32, centerpoint: super::super::super::Foundation::Numerics::Vector3, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryUpdateScaleWithAdditionalVelocity<Impl: IInteractionTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, velocityinpercentpersecond: f32, centerpoint: super::super::super::Foundation::Numerics::Vector3, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryUpdateScaleWithAdditionalVelocity(velocityinpercentpersecond, &*(&centerpoint as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -592,7 +592,7 @@ impl IInteractionTrackerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IInteractionTracker2Impl: Sized {
+pub trait IInteractionTracker2_Impl: Sized {
     fn ConfigureCenterPointXInertiaModifiers(&mut self, conditionalvalues: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>) -> ::windows::core::Result<()>;
     fn ConfigureCenterPointYInertiaModifiers(&mut self, conditionalvalues: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>) -> ::windows::core::Result<()>;
 }
@@ -601,13 +601,13 @@ impl ::windows::core::RuntimeName for IInteractionTracker2 {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTracker2";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IInteractionTracker2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTracker2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTracker2Vtbl {
-        unsafe extern "system" fn ConfigureCenterPointXInertiaModifiers<Impl: IInteractionTracker2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditionalvalues: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IInteractionTracker2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTracker2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTracker2_Vtbl {
+        unsafe extern "system" fn ConfigureCenterPointXInertiaModifiers<Impl: IInteractionTracker2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditionalvalues: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ConfigureCenterPointXInertiaModifiers(&*(&conditionalvalues as *const <super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ConfigureCenterPointYInertiaModifiers<Impl: IInteractionTracker2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditionalvalues: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConfigureCenterPointYInertiaModifiers<Impl: IInteractionTracker2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditionalvalues: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ConfigureCenterPointYInertiaModifiers(&*(&conditionalvalues as *const <super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue> as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -622,7 +622,7 @@ impl IInteractionTracker2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IInteractionTracker3Impl: Sized {
+pub trait IInteractionTracker3_Impl: Sized {
     fn ConfigureVector2PositionInertiaModifiers(&mut self, modifiers: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<InteractionTrackerVector2InertiaModifier>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -630,9 +630,9 @@ impl ::windows::core::RuntimeName for IInteractionTracker3 {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTracker3";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IInteractionTracker3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTracker3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTracker3Vtbl {
-        unsafe extern "system" fn ConfigureVector2PositionInertiaModifiers<Impl: IInteractionTracker3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, modifiers: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IInteractionTracker3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTracker3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTracker3_Vtbl {
+        unsafe extern "system" fn ConfigureVector2PositionInertiaModifiers<Impl: IInteractionTracker3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, modifiers: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ConfigureVector2PositionInertiaModifiers(&*(&modifiers as *const <super::super::super::Foundation::Collections::IIterable<InteractionTrackerVector2InertiaModifier> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<InteractionTrackerVector2InertiaModifier> as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -646,7 +646,7 @@ impl IInteractionTracker3Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IInteractionTracker4Impl: Sized {
+pub trait IInteractionTracker4_Impl: Sized {
     fn TryUpdatePositionWithOption(&mut self, value: &super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption) -> ::windows::core::Result<i32>;
     fn TryUpdatePositionByWithOption(&mut self, amount: &super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption) -> ::windows::core::Result<i32>;
     fn IsInertiaFromImpulse(&mut self) -> ::windows::core::Result<bool>;
@@ -656,9 +656,9 @@ impl ::windows::core::RuntimeName for IInteractionTracker4 {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTracker4";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IInteractionTracker4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTracker4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTracker4Vtbl {
-        unsafe extern "system" fn TryUpdatePositionWithOption<Impl: IInteractionTracker4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IInteractionTracker4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTracker4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTracker4_Vtbl {
+        unsafe extern "system" fn TryUpdatePositionWithOption<Impl: IInteractionTracker4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryUpdatePositionWithOption(&*(&value as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType), option) {
                 ::core::result::Result::Ok(ok__) => {
@@ -669,7 +669,7 @@ impl IInteractionTracker4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryUpdatePositionByWithOption<Impl: IInteractionTracker4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, amount: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryUpdatePositionByWithOption<Impl: IInteractionTracker4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, amount: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryUpdatePositionByWithOption(&*(&amount as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType), option) {
                 ::core::result::Result::Ok(ok__) => {
@@ -680,7 +680,7 @@ impl IInteractionTracker4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsInertiaFromImpulse<Impl: IInteractionTracker4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsInertiaFromImpulse<Impl: IInteractionTracker4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsInertiaFromImpulse() {
                 ::core::result::Result::Ok(ok__) => {
@@ -703,7 +703,7 @@ impl IInteractionTracker4Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IInteractionTracker5Impl: Sized {
+pub trait IInteractionTracker5_Impl: Sized {
     fn TryUpdatePositionWithOption(&mut self, value: &super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption, posupdateoption: InteractionTrackerPositionUpdateOption) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
@@ -711,9 +711,9 @@ impl ::windows::core::RuntimeName for IInteractionTracker5 {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTracker5";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IInteractionTracker5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTracker5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTracker5Vtbl {
-        unsafe extern "system" fn TryUpdatePositionWithOption<Impl: IInteractionTracker5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption, posupdateoption: InteractionTrackerPositionUpdateOption, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IInteractionTracker5_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTracker5_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTracker5_Vtbl {
+        unsafe extern "system" fn TryUpdatePositionWithOption<Impl: IInteractionTracker5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption, posupdateoption: InteractionTrackerPositionUpdateOption, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryUpdatePositionWithOption(&*(&value as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType), option, posupdateoption) {
                 ::core::result::Result::Ok(ok__) => {
@@ -734,7 +734,7 @@ impl IInteractionTracker5Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerCustomAnimationStateEnteredArgsImpl: Sized {
+pub trait IInteractionTrackerCustomAnimationStateEnteredArgs_Impl: Sized {
     fn RequestId(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -742,9 +742,9 @@ impl ::windows::core::RuntimeName for IInteractionTrackerCustomAnimationStateEnt
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerCustomAnimationStateEnteredArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerCustomAnimationStateEnteredArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerCustomAnimationStateEnteredArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerCustomAnimationStateEnteredArgsVtbl {
-        unsafe extern "system" fn RequestId<Impl: IInteractionTrackerCustomAnimationStateEnteredArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IInteractionTrackerCustomAnimationStateEnteredArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerCustomAnimationStateEnteredArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerCustomAnimationStateEnteredArgs_Vtbl {
+        unsafe extern "system" fn RequestId<Impl: IInteractionTrackerCustomAnimationStateEnteredArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -765,7 +765,7 @@ impl IInteractionTrackerCustomAnimationStateEnteredArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerCustomAnimationStateEnteredArgs2Impl: Sized {
+pub trait IInteractionTrackerCustomAnimationStateEnteredArgs2_Impl: Sized {
     fn IsFromBinding(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -773,9 +773,9 @@ impl ::windows::core::RuntimeName for IInteractionTrackerCustomAnimationStateEnt
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerCustomAnimationStateEnteredArgs2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerCustomAnimationStateEnteredArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerCustomAnimationStateEnteredArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerCustomAnimationStateEnteredArgs2Vtbl {
-        unsafe extern "system" fn IsFromBinding<Impl: IInteractionTrackerCustomAnimationStateEnteredArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IInteractionTrackerCustomAnimationStateEnteredArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerCustomAnimationStateEnteredArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerCustomAnimationStateEnteredArgs2_Vtbl {
+        unsafe extern "system" fn IsFromBinding<Impl: IInteractionTrackerCustomAnimationStateEnteredArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsFromBinding() {
                 ::core::result::Result::Ok(ok__) => {
@@ -796,7 +796,7 @@ impl IInteractionTrackerCustomAnimationStateEnteredArgs2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerIdleStateEnteredArgsImpl: Sized {
+pub trait IInteractionTrackerIdleStateEnteredArgs_Impl: Sized {
     fn RequestId(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -804,9 +804,9 @@ impl ::windows::core::RuntimeName for IInteractionTrackerIdleStateEnteredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerIdleStateEnteredArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerIdleStateEnteredArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerIdleStateEnteredArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerIdleStateEnteredArgsVtbl {
-        unsafe extern "system" fn RequestId<Impl: IInteractionTrackerIdleStateEnteredArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IInteractionTrackerIdleStateEnteredArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerIdleStateEnteredArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerIdleStateEnteredArgs_Vtbl {
+        unsafe extern "system" fn RequestId<Impl: IInteractionTrackerIdleStateEnteredArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -827,7 +827,7 @@ impl IInteractionTrackerIdleStateEnteredArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerIdleStateEnteredArgs2Impl: Sized {
+pub trait IInteractionTrackerIdleStateEnteredArgs2_Impl: Sized {
     fn IsFromBinding(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -835,9 +835,9 @@ impl ::windows::core::RuntimeName for IInteractionTrackerIdleStateEnteredArgs2 {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerIdleStateEnteredArgs2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerIdleStateEnteredArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerIdleStateEnteredArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerIdleStateEnteredArgs2Vtbl {
-        unsafe extern "system" fn IsFromBinding<Impl: IInteractionTrackerIdleStateEnteredArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IInteractionTrackerIdleStateEnteredArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerIdleStateEnteredArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerIdleStateEnteredArgs2_Vtbl {
+        unsafe extern "system" fn IsFromBinding<Impl: IInteractionTrackerIdleStateEnteredArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsFromBinding() {
                 ::core::result::Result::Ok(ok__) => {
@@ -858,14 +858,14 @@ impl IInteractionTrackerIdleStateEnteredArgs2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerInertiaModifierImpl: Sized {}
+pub trait IInteractionTrackerInertiaModifier_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerInertiaModifier {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerInertiaModifier";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerInertiaModifierVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaModifierImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaModifierVtbl {
+impl IInteractionTrackerInertiaModifier_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaModifier_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaModifier_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInteractionTrackerInertiaModifier, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -873,14 +873,14 @@ impl IInteractionTrackerInertiaModifierVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerInertiaModifierFactoryImpl: Sized {}
+pub trait IInteractionTrackerInertiaModifierFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerInertiaModifierFactory {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerInertiaModifierFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerInertiaModifierFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaModifierFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaModifierFactoryVtbl {
+impl IInteractionTrackerInertiaModifierFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaModifierFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaModifierFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInteractionTrackerInertiaModifierFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -888,7 +888,7 @@ impl IInteractionTrackerInertiaModifierFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerInertiaMotionImpl: Sized {
+pub trait IInteractionTrackerInertiaMotion_Impl: Sized {
     fn Condition(&mut self) -> ::windows::core::Result<super::ExpressionAnimation>;
     fn SetCondition(&mut self, value: &::core::option::Option<super::ExpressionAnimation>) -> ::windows::core::Result<()>;
     fn Motion(&mut self) -> ::windows::core::Result<super::ExpressionAnimation>;
@@ -899,9 +899,9 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInertiaMotion {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerInertiaMotion";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerInertiaMotionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaMotionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaMotionVtbl {
-        unsafe extern "system" fn Condition<Impl: IInteractionTrackerInertiaMotionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IInteractionTrackerInertiaMotion_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaMotion_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaMotion_Vtbl {
+        unsafe extern "system" fn Condition<Impl: IInteractionTrackerInertiaMotion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Condition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -912,11 +912,11 @@ impl IInteractionTrackerInertiaMotionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCondition<Impl: IInteractionTrackerInertiaMotionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCondition<Impl: IInteractionTrackerInertiaMotion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCondition(&*(&value as *const <super::ExpressionAnimation as ::windows::core::Abi>::Abi as *const <super::ExpressionAnimation as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Motion<Impl: IInteractionTrackerInertiaMotionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Motion<Impl: IInteractionTrackerInertiaMotion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Motion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -927,7 +927,7 @@ impl IInteractionTrackerInertiaMotionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMotion<Impl: IInteractionTrackerInertiaMotionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMotion<Impl: IInteractionTrackerInertiaMotion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMotion(&*(&value as *const <super::ExpressionAnimation as ::windows::core::Abi>::Abi as *const <super::ExpressionAnimation as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -944,7 +944,7 @@ impl IInteractionTrackerInertiaMotionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerInertiaMotionStaticsImpl: Sized {
+pub trait IInteractionTrackerInertiaMotionStatics_Impl: Sized {
     fn Create(&mut self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<InteractionTrackerInertiaMotion>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -952,9 +952,9 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInertiaMotionStatics {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerInertiaMotionStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerInertiaMotionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaMotionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaMotionStaticsVtbl {
-        unsafe extern "system" fn Create<Impl: IInteractionTrackerInertiaMotionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IInteractionTrackerInertiaMotionStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaMotionStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaMotionStatics_Vtbl {
+        unsafe extern "system" fn Create<Impl: IInteractionTrackerInertiaMotionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&compositor as *const <super::Compositor as ::windows::core::Abi>::Abi as *const <super::Compositor as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -975,7 +975,7 @@ impl IInteractionTrackerInertiaMotionStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerInertiaNaturalMotionImpl: Sized {
+pub trait IInteractionTrackerInertiaNaturalMotion_Impl: Sized {
     fn Condition(&mut self) -> ::windows::core::Result<super::ExpressionAnimation>;
     fn SetCondition(&mut self, value: &::core::option::Option<super::ExpressionAnimation>) -> ::windows::core::Result<()>;
     fn NaturalMotion(&mut self) -> ::windows::core::Result<super::ScalarNaturalMotionAnimation>;
@@ -986,9 +986,9 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInertiaNaturalMotion {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerInertiaNaturalMotion";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerInertiaNaturalMotionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaNaturalMotionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaNaturalMotionVtbl {
-        unsafe extern "system" fn Condition<Impl: IInteractionTrackerInertiaNaturalMotionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IInteractionTrackerInertiaNaturalMotion_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaNaturalMotion_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaNaturalMotion_Vtbl {
+        unsafe extern "system" fn Condition<Impl: IInteractionTrackerInertiaNaturalMotion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Condition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -999,11 +999,11 @@ impl IInteractionTrackerInertiaNaturalMotionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCondition<Impl: IInteractionTrackerInertiaNaturalMotionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCondition<Impl: IInteractionTrackerInertiaNaturalMotion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCondition(&*(&value as *const <super::ExpressionAnimation as ::windows::core::Abi>::Abi as *const <super::ExpressionAnimation as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn NaturalMotion<Impl: IInteractionTrackerInertiaNaturalMotionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NaturalMotion<Impl: IInteractionTrackerInertiaNaturalMotion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NaturalMotion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1014,7 +1014,7 @@ impl IInteractionTrackerInertiaNaturalMotionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNaturalMotion<Impl: IInteractionTrackerInertiaNaturalMotionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNaturalMotion<Impl: IInteractionTrackerInertiaNaturalMotion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNaturalMotion(&*(&value as *const <super::ScalarNaturalMotionAnimation as ::windows::core::Abi>::Abi as *const <super::ScalarNaturalMotionAnimation as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1031,7 +1031,7 @@ impl IInteractionTrackerInertiaNaturalMotionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerInertiaNaturalMotionStaticsImpl: Sized {
+pub trait IInteractionTrackerInertiaNaturalMotionStatics_Impl: Sized {
     fn Create(&mut self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<InteractionTrackerInertiaNaturalMotion>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1039,9 +1039,9 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInertiaNaturalMotionSta
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerInertiaNaturalMotionStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerInertiaNaturalMotionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaNaturalMotionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaNaturalMotionStaticsVtbl {
-        unsafe extern "system" fn Create<Impl: IInteractionTrackerInertiaNaturalMotionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IInteractionTrackerInertiaNaturalMotionStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaNaturalMotionStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaNaturalMotionStatics_Vtbl {
+        unsafe extern "system" fn Create<Impl: IInteractionTrackerInertiaNaturalMotionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&compositor as *const <super::Compositor as ::windows::core::Abi>::Abi as *const <super::Compositor as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1062,7 +1062,7 @@ impl IInteractionTrackerInertiaNaturalMotionStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerInertiaRestingValueImpl: Sized {
+pub trait IInteractionTrackerInertiaRestingValue_Impl: Sized {
     fn Condition(&mut self) -> ::windows::core::Result<super::ExpressionAnimation>;
     fn SetCondition(&mut self, value: &::core::option::Option<super::ExpressionAnimation>) -> ::windows::core::Result<()>;
     fn RestingValue(&mut self) -> ::windows::core::Result<super::ExpressionAnimation>;
@@ -1073,9 +1073,9 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInertiaRestingValue {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerInertiaRestingValue";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerInertiaRestingValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaRestingValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaRestingValueVtbl {
-        unsafe extern "system" fn Condition<Impl: IInteractionTrackerInertiaRestingValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IInteractionTrackerInertiaRestingValue_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaRestingValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaRestingValue_Vtbl {
+        unsafe extern "system" fn Condition<Impl: IInteractionTrackerInertiaRestingValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Condition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1086,11 +1086,11 @@ impl IInteractionTrackerInertiaRestingValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCondition<Impl: IInteractionTrackerInertiaRestingValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCondition<Impl: IInteractionTrackerInertiaRestingValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCondition(&*(&value as *const <super::ExpressionAnimation as ::windows::core::Abi>::Abi as *const <super::ExpressionAnimation as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RestingValue<Impl: IInteractionTrackerInertiaRestingValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RestingValue<Impl: IInteractionTrackerInertiaRestingValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RestingValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1101,7 +1101,7 @@ impl IInteractionTrackerInertiaRestingValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRestingValue<Impl: IInteractionTrackerInertiaRestingValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRestingValue<Impl: IInteractionTrackerInertiaRestingValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRestingValue(&*(&value as *const <super::ExpressionAnimation as ::windows::core::Abi>::Abi as *const <super::ExpressionAnimation as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1118,7 +1118,7 @@ impl IInteractionTrackerInertiaRestingValueVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerInertiaRestingValueStaticsImpl: Sized {
+pub trait IInteractionTrackerInertiaRestingValueStatics_Impl: Sized {
     fn Create(&mut self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<InteractionTrackerInertiaRestingValue>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1126,9 +1126,9 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInertiaRestingValueStat
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerInertiaRestingValueStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerInertiaRestingValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaRestingValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaRestingValueStaticsVtbl {
-        unsafe extern "system" fn Create<Impl: IInteractionTrackerInertiaRestingValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IInteractionTrackerInertiaRestingValueStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaRestingValueStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaRestingValueStatics_Vtbl {
+        unsafe extern "system" fn Create<Impl: IInteractionTrackerInertiaRestingValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&compositor as *const <super::Compositor as ::windows::core::Abi>::Abi as *const <super::Compositor as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1149,7 +1149,7 @@ impl IInteractionTrackerInertiaRestingValueStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IInteractionTrackerInertiaStateEnteredArgsImpl: Sized {
+pub trait IInteractionTrackerInertiaStateEnteredArgs_Impl: Sized {
     fn ModifiedRestingPosition(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>;
     fn ModifiedRestingScale(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>>;
     fn NaturalRestingPosition(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
@@ -1163,9 +1163,9 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInertiaStateEnteredArgs
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerInertiaStateEnteredArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IInteractionTrackerInertiaStateEnteredArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaStateEnteredArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaStateEnteredArgsVtbl {
-        unsafe extern "system" fn ModifiedRestingPosition<Impl: IInteractionTrackerInertiaStateEnteredArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IInteractionTrackerInertiaStateEnteredArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaStateEnteredArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaStateEnteredArgs_Vtbl {
+        unsafe extern "system" fn ModifiedRestingPosition<Impl: IInteractionTrackerInertiaStateEnteredArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ModifiedRestingPosition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1176,7 +1176,7 @@ impl IInteractionTrackerInertiaStateEnteredArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModifiedRestingScale<Impl: IInteractionTrackerInertiaStateEnteredArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ModifiedRestingScale<Impl: IInteractionTrackerInertiaStateEnteredArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ModifiedRestingScale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1187,7 +1187,7 @@ impl IInteractionTrackerInertiaStateEnteredArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NaturalRestingPosition<Impl: IInteractionTrackerInertiaStateEnteredArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NaturalRestingPosition<Impl: IInteractionTrackerInertiaStateEnteredArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NaturalRestingPosition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1198,7 +1198,7 @@ impl IInteractionTrackerInertiaStateEnteredArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NaturalRestingScale<Impl: IInteractionTrackerInertiaStateEnteredArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NaturalRestingScale<Impl: IInteractionTrackerInertiaStateEnteredArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NaturalRestingScale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1209,7 +1209,7 @@ impl IInteractionTrackerInertiaStateEnteredArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PositionVelocityInPixelsPerSecond<Impl: IInteractionTrackerInertiaStateEnteredArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PositionVelocityInPixelsPerSecond<Impl: IInteractionTrackerInertiaStateEnteredArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionVelocityInPixelsPerSecond() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1220,7 +1220,7 @@ impl IInteractionTrackerInertiaStateEnteredArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestId<Impl: IInteractionTrackerInertiaStateEnteredArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestId<Impl: IInteractionTrackerInertiaStateEnteredArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1231,7 +1231,7 @@ impl IInteractionTrackerInertiaStateEnteredArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ScaleVelocityInPercentPerSecond<Impl: IInteractionTrackerInertiaStateEnteredArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScaleVelocityInPercentPerSecond<Impl: IInteractionTrackerInertiaStateEnteredArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScaleVelocityInPercentPerSecond() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1258,7 +1258,7 @@ impl IInteractionTrackerInertiaStateEnteredArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerInertiaStateEnteredArgs2Impl: Sized {
+pub trait IInteractionTrackerInertiaStateEnteredArgs2_Impl: Sized {
     fn IsInertiaFromImpulse(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1266,9 +1266,9 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInertiaStateEnteredArgs
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerInertiaStateEnteredArgs2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerInertiaStateEnteredArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaStateEnteredArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaStateEnteredArgs2Vtbl {
-        unsafe extern "system" fn IsInertiaFromImpulse<Impl: IInteractionTrackerInertiaStateEnteredArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IInteractionTrackerInertiaStateEnteredArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaStateEnteredArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaStateEnteredArgs2_Vtbl {
+        unsafe extern "system" fn IsInertiaFromImpulse<Impl: IInteractionTrackerInertiaStateEnteredArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsInertiaFromImpulse() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1289,7 +1289,7 @@ impl IInteractionTrackerInertiaStateEnteredArgs2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerInertiaStateEnteredArgs3Impl: Sized {
+pub trait IInteractionTrackerInertiaStateEnteredArgs3_Impl: Sized {
     fn IsFromBinding(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1297,9 +1297,9 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInertiaStateEnteredArgs
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerInertiaStateEnteredArgs3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerInertiaStateEnteredArgs3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaStateEnteredArgs3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaStateEnteredArgs3Vtbl {
-        unsafe extern "system" fn IsFromBinding<Impl: IInteractionTrackerInertiaStateEnteredArgs3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IInteractionTrackerInertiaStateEnteredArgs3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInertiaStateEnteredArgs3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInertiaStateEnteredArgs3_Vtbl {
+        unsafe extern "system" fn IsFromBinding<Impl: IInteractionTrackerInertiaStateEnteredArgs3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsFromBinding() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1320,7 +1320,7 @@ impl IInteractionTrackerInertiaStateEnteredArgs3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerInteractingStateEnteredArgsImpl: Sized {
+pub trait IInteractionTrackerInteractingStateEnteredArgs_Impl: Sized {
     fn RequestId(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1328,9 +1328,9 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInteractingStateEntered
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerInteractingStateEnteredArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerInteractingStateEnteredArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInteractingStateEnteredArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInteractingStateEnteredArgsVtbl {
-        unsafe extern "system" fn RequestId<Impl: IInteractionTrackerInteractingStateEnteredArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IInteractionTrackerInteractingStateEnteredArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInteractingStateEnteredArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInteractingStateEnteredArgs_Vtbl {
+        unsafe extern "system" fn RequestId<Impl: IInteractionTrackerInteractingStateEnteredArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1351,7 +1351,7 @@ impl IInteractionTrackerInteractingStateEnteredArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerInteractingStateEnteredArgs2Impl: Sized {
+pub trait IInteractionTrackerInteractingStateEnteredArgs2_Impl: Sized {
     fn IsFromBinding(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1359,9 +1359,9 @@ impl ::windows::core::RuntimeName for IInteractionTrackerInteractingStateEntered
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerInteractingStateEnteredArgs2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerInteractingStateEnteredArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInteractingStateEnteredArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInteractingStateEnteredArgs2Vtbl {
-        unsafe extern "system" fn IsFromBinding<Impl: IInteractionTrackerInteractingStateEnteredArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IInteractionTrackerInteractingStateEnteredArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerInteractingStateEnteredArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerInteractingStateEnteredArgs2_Vtbl {
+        unsafe extern "system" fn IsFromBinding<Impl: IInteractionTrackerInteractingStateEnteredArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsFromBinding() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1381,7 +1381,7 @@ impl IInteractionTrackerInteractingStateEnteredArgs2Vtbl {
         iid == &<IInteractionTrackerInteractingStateEnteredArgs2 as ::windows::core::Interface>::IID
     }
 }
-pub trait IInteractionTrackerOwnerImpl: Sized {
+pub trait IInteractionTrackerOwner_Impl: Sized {
     fn CustomAnimationStateEntered(&mut self, sender: &::core::option::Option<InteractionTracker>, args: &::core::option::Option<InteractionTrackerCustomAnimationStateEnteredArgs>) -> ::windows::core::Result<()>;
     fn IdleStateEntered(&mut self, sender: &::core::option::Option<InteractionTracker>, args: &::core::option::Option<InteractionTrackerIdleStateEnteredArgs>) -> ::windows::core::Result<()>;
     fn InertiaStateEntered(&mut self, sender: &::core::option::Option<InteractionTracker>, args: &::core::option::Option<InteractionTrackerInertiaStateEnteredArgs>) -> ::windows::core::Result<()>;
@@ -1392,29 +1392,29 @@ pub trait IInteractionTrackerOwnerImpl: Sized {
 impl ::windows::core::RuntimeName for IInteractionTrackerOwner {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerOwner";
 }
-impl IInteractionTrackerOwnerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerOwnerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerOwnerVtbl {
-        unsafe extern "system" fn CustomAnimationStateEntered<Impl: IInteractionTrackerOwnerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IInteractionTrackerOwner_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerOwner_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerOwner_Vtbl {
+        unsafe extern "system" fn CustomAnimationStateEntered<Impl: IInteractionTrackerOwner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CustomAnimationStateEntered(&*(&sender as *const <InteractionTracker as ::windows::core::Abi>::Abi as *const <InteractionTracker as ::windows::core::DefaultType>::DefaultType), &*(&args as *const <InteractionTrackerCustomAnimationStateEnteredArgs as ::windows::core::Abi>::Abi as *const <InteractionTrackerCustomAnimationStateEnteredArgs as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IdleStateEntered<Impl: IInteractionTrackerOwnerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IdleStateEntered<Impl: IInteractionTrackerOwner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).IdleStateEntered(&*(&sender as *const <InteractionTracker as ::windows::core::Abi>::Abi as *const <InteractionTracker as ::windows::core::DefaultType>::DefaultType), &*(&args as *const <InteractionTrackerIdleStateEnteredArgs as ::windows::core::Abi>::Abi as *const <InteractionTrackerIdleStateEnteredArgs as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InertiaStateEntered<Impl: IInteractionTrackerOwnerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InertiaStateEntered<Impl: IInteractionTrackerOwner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InertiaStateEntered(&*(&sender as *const <InteractionTracker as ::windows::core::Abi>::Abi as *const <InteractionTracker as ::windows::core::DefaultType>::DefaultType), &*(&args as *const <InteractionTrackerInertiaStateEnteredArgs as ::windows::core::Abi>::Abi as *const <InteractionTrackerInertiaStateEnteredArgs as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InteractingStateEntered<Impl: IInteractionTrackerOwnerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InteractingStateEntered<Impl: IInteractionTrackerOwner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InteractingStateEntered(&*(&sender as *const <InteractionTracker as ::windows::core::Abi>::Abi as *const <InteractionTracker as ::windows::core::DefaultType>::DefaultType), &*(&args as *const <InteractionTrackerInteractingStateEnteredArgs as ::windows::core::Abi>::Abi as *const <InteractionTrackerInteractingStateEnteredArgs as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RequestIgnored<Impl: IInteractionTrackerOwnerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestIgnored<Impl: IInteractionTrackerOwner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RequestIgnored(&*(&sender as *const <InteractionTracker as ::windows::core::Abi>::Abi as *const <InteractionTracker as ::windows::core::DefaultType>::DefaultType), &*(&args as *const <InteractionTrackerRequestIgnoredArgs as ::windows::core::Abi>::Abi as *const <InteractionTrackerRequestIgnoredArgs as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ValuesChanged<Impl: IInteractionTrackerOwnerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ValuesChanged<Impl: IInteractionTrackerOwner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ValuesChanged(&*(&sender as *const <InteractionTracker as ::windows::core::Abi>::Abi as *const <InteractionTracker as ::windows::core::DefaultType>::DefaultType), &*(&args as *const <InteractionTrackerValuesChangedArgs as ::windows::core::Abi>::Abi as *const <InteractionTrackerValuesChangedArgs as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1433,7 +1433,7 @@ impl IInteractionTrackerOwnerVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerRequestIgnoredArgsImpl: Sized {
+pub trait IInteractionTrackerRequestIgnoredArgs_Impl: Sized {
     fn RequestId(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1441,9 +1441,9 @@ impl ::windows::core::RuntimeName for IInteractionTrackerRequestIgnoredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerRequestIgnoredArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerRequestIgnoredArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerRequestIgnoredArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerRequestIgnoredArgsVtbl {
-        unsafe extern "system" fn RequestId<Impl: IInteractionTrackerRequestIgnoredArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IInteractionTrackerRequestIgnoredArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerRequestIgnoredArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerRequestIgnoredArgs_Vtbl {
+        unsafe extern "system" fn RequestId<Impl: IInteractionTrackerRequestIgnoredArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1464,7 +1464,7 @@ impl IInteractionTrackerRequestIgnoredArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerStaticsImpl: Sized {
+pub trait IInteractionTrackerStatics_Impl: Sized {
     fn Create(&mut self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<InteractionTracker>;
     fn CreateWithOwner(&mut self, compositor: &::core::option::Option<super::Compositor>, owner: &::core::option::Option<IInteractionTrackerOwner>) -> ::windows::core::Result<InteractionTracker>;
 }
@@ -1473,9 +1473,9 @@ impl ::windows::core::RuntimeName for IInteractionTrackerStatics {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerStaticsVtbl {
-        unsafe extern "system" fn Create<Impl: IInteractionTrackerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IInteractionTrackerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerStatics_Vtbl {
+        unsafe extern "system" fn Create<Impl: IInteractionTrackerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&compositor as *const <super::Compositor as ::windows::core::Abi>::Abi as *const <super::Compositor as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1486,7 +1486,7 @@ impl IInteractionTrackerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithOwner<Impl: IInteractionTrackerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, owner: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithOwner<Impl: IInteractionTrackerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, owner: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithOwner(&*(&compositor as *const <super::Compositor as ::windows::core::Abi>::Abi as *const <super::Compositor as ::windows::core::DefaultType>::DefaultType), &*(&owner as *const <IInteractionTrackerOwner as ::windows::core::Abi>::Abi as *const <IInteractionTrackerOwner as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1508,7 +1508,7 @@ impl IInteractionTrackerStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerStatics2Impl: Sized {
+pub trait IInteractionTrackerStatics2_Impl: Sized {
     fn SetBindingMode(&mut self, boundtracker1: &::core::option::Option<InteractionTracker>, boundtracker2: &::core::option::Option<InteractionTracker>, axismode: InteractionBindingAxisModes) -> ::windows::core::Result<()>;
     fn GetBindingMode(&mut self, boundtracker1: &::core::option::Option<InteractionTracker>, boundtracker2: &::core::option::Option<InteractionTracker>) -> ::windows::core::Result<InteractionBindingAxisModes>;
 }
@@ -1517,13 +1517,13 @@ impl ::windows::core::RuntimeName for IInteractionTrackerStatics2 {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerStatics2Vtbl {
-        unsafe extern "system" fn SetBindingMode<Impl: IInteractionTrackerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, boundtracker1: ::windows::core::RawPtr, boundtracker2: ::windows::core::RawPtr, axismode: InteractionBindingAxisModes) -> ::windows::core::HRESULT {
+impl IInteractionTrackerStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerStatics2_Vtbl {
+        unsafe extern "system" fn SetBindingMode<Impl: IInteractionTrackerStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, boundtracker1: ::windows::core::RawPtr, boundtracker2: ::windows::core::RawPtr, axismode: InteractionBindingAxisModes) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBindingMode(&*(&boundtracker1 as *const <InteractionTracker as ::windows::core::Abi>::Abi as *const <InteractionTracker as ::windows::core::DefaultType>::DefaultType), &*(&boundtracker2 as *const <InteractionTracker as ::windows::core::Abi>::Abi as *const <InteractionTracker as ::windows::core::DefaultType>::DefaultType), axismode).into()
         }
-        unsafe extern "system" fn GetBindingMode<Impl: IInteractionTrackerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, boundtracker1: ::windows::core::RawPtr, boundtracker2: ::windows::core::RawPtr, result__: *mut InteractionBindingAxisModes) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBindingMode<Impl: IInteractionTrackerStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, boundtracker1: ::windows::core::RawPtr, boundtracker2: ::windows::core::RawPtr, result__: *mut InteractionBindingAxisModes) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetBindingMode(&*(&boundtracker1 as *const <InteractionTracker as ::windows::core::Abi>::Abi as *const <InteractionTracker as ::windows::core::DefaultType>::DefaultType), &*(&boundtracker2 as *const <InteractionTracker as ::windows::core::Abi>::Abi as *const <InteractionTracker as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1545,7 +1545,7 @@ impl IInteractionTrackerStatics2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IInteractionTrackerValuesChangedArgsImpl: Sized {
+pub trait IInteractionTrackerValuesChangedArgs_Impl: Sized {
     fn Position(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
     fn RequestId(&mut self) -> ::windows::core::Result<i32>;
     fn Scale(&mut self) -> ::windows::core::Result<f32>;
@@ -1555,9 +1555,9 @@ impl ::windows::core::RuntimeName for IInteractionTrackerValuesChangedArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerValuesChangedArgs";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IInteractionTrackerValuesChangedArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerValuesChangedArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerValuesChangedArgsVtbl {
-        unsafe extern "system" fn Position<Impl: IInteractionTrackerValuesChangedArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+impl IInteractionTrackerValuesChangedArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerValuesChangedArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerValuesChangedArgs_Vtbl {
+        unsafe extern "system" fn Position<Impl: IInteractionTrackerValuesChangedArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1568,7 +1568,7 @@ impl IInteractionTrackerValuesChangedArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestId<Impl: IInteractionTrackerValuesChangedArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestId<Impl: IInteractionTrackerValuesChangedArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1579,7 +1579,7 @@ impl IInteractionTrackerValuesChangedArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Scale<Impl: IInteractionTrackerValuesChangedArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Scale<Impl: IInteractionTrackerValuesChangedArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Scale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1602,14 +1602,14 @@ impl IInteractionTrackerValuesChangedArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerVector2InertiaModifierImpl: Sized {}
+pub trait IInteractionTrackerVector2InertiaModifier_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerVector2InertiaModifier {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaModifier";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerVector2InertiaModifierVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerVector2InertiaModifierImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerVector2InertiaModifierVtbl {
+impl IInteractionTrackerVector2InertiaModifier_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerVector2InertiaModifier_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerVector2InertiaModifier_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInteractionTrackerVector2InertiaModifier, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1617,14 +1617,14 @@ impl IInteractionTrackerVector2InertiaModifierVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerVector2InertiaModifierFactoryImpl: Sized {}
+pub trait IInteractionTrackerVector2InertiaModifierFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IInteractionTrackerVector2InertiaModifierFactory {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaModifierFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerVector2InertiaModifierFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerVector2InertiaModifierFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerVector2InertiaModifierFactoryVtbl {
+impl IInteractionTrackerVector2InertiaModifierFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerVector2InertiaModifierFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerVector2InertiaModifierFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IInteractionTrackerVector2InertiaModifierFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1632,7 +1632,7 @@ impl IInteractionTrackerVector2InertiaModifierFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerVector2InertiaNaturalMotionImpl: Sized {
+pub trait IInteractionTrackerVector2InertiaNaturalMotion_Impl: Sized {
     fn Condition(&mut self) -> ::windows::core::Result<super::ExpressionAnimation>;
     fn SetCondition(&mut self, value: &::core::option::Option<super::ExpressionAnimation>) -> ::windows::core::Result<()>;
     fn NaturalMotion(&mut self) -> ::windows::core::Result<super::Vector2NaturalMotionAnimation>;
@@ -1643,9 +1643,9 @@ impl ::windows::core::RuntimeName for IInteractionTrackerVector2InertiaNaturalMo
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaNaturalMotion";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerVector2InertiaNaturalMotionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerVector2InertiaNaturalMotionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerVector2InertiaNaturalMotionVtbl {
-        unsafe extern "system" fn Condition<Impl: IInteractionTrackerVector2InertiaNaturalMotionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IInteractionTrackerVector2InertiaNaturalMotion_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerVector2InertiaNaturalMotion_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerVector2InertiaNaturalMotion_Vtbl {
+        unsafe extern "system" fn Condition<Impl: IInteractionTrackerVector2InertiaNaturalMotion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Condition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1656,11 +1656,11 @@ impl IInteractionTrackerVector2InertiaNaturalMotionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCondition<Impl: IInteractionTrackerVector2InertiaNaturalMotionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCondition<Impl: IInteractionTrackerVector2InertiaNaturalMotion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCondition(&*(&value as *const <super::ExpressionAnimation as ::windows::core::Abi>::Abi as *const <super::ExpressionAnimation as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn NaturalMotion<Impl: IInteractionTrackerVector2InertiaNaturalMotionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NaturalMotion<Impl: IInteractionTrackerVector2InertiaNaturalMotion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NaturalMotion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1671,7 +1671,7 @@ impl IInteractionTrackerVector2InertiaNaturalMotionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNaturalMotion<Impl: IInteractionTrackerVector2InertiaNaturalMotionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNaturalMotion<Impl: IInteractionTrackerVector2InertiaNaturalMotion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNaturalMotion(&*(&value as *const <super::Vector2NaturalMotionAnimation as ::windows::core::Abi>::Abi as *const <super::Vector2NaturalMotionAnimation as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1688,7 +1688,7 @@ impl IInteractionTrackerVector2InertiaNaturalMotionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInteractionTrackerVector2InertiaNaturalMotionStaticsImpl: Sized {
+pub trait IInteractionTrackerVector2InertiaNaturalMotionStatics_Impl: Sized {
     fn Create(&mut self, compositor: &::core::option::Option<super::Compositor>) -> ::windows::core::Result<InteractionTrackerVector2InertiaNaturalMotion>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1696,9 +1696,9 @@ impl ::windows::core::RuntimeName for IInteractionTrackerVector2InertiaNaturalMo
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaNaturalMotionStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInteractionTrackerVector2InertiaNaturalMotionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerVector2InertiaNaturalMotionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerVector2InertiaNaturalMotionStaticsVtbl {
-        unsafe extern "system" fn Create<Impl: IInteractionTrackerVector2InertiaNaturalMotionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IInteractionTrackerVector2InertiaNaturalMotionStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInteractionTrackerVector2InertiaNaturalMotionStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInteractionTrackerVector2InertiaNaturalMotionStatics_Vtbl {
+        unsafe extern "system" fn Create<Impl: IInteractionTrackerVector2InertiaNaturalMotionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&compositor as *const <super::Compositor as ::windows::core::Abi>::Abi as *const <super::Compositor as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1719,7 +1719,7 @@ impl IInteractionTrackerVector2InertiaNaturalMotionStaticsVtbl {
     }
 }
 #[cfg(all(feature = "UI_Input", feature = "implement_exclusive"))]
-pub trait IVisualInteractionSourceImpl: Sized {
+pub trait IVisualInteractionSource_Impl: Sized {
     fn IsPositionXRailsEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsPositionXRailsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn IsPositionYRailsEnabled(&mut self) -> ::windows::core::Result<bool>;
@@ -1746,9 +1746,9 @@ impl ::windows::core::RuntimeName for IVisualInteractionSource {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IVisualInteractionSource";
 }
 #[cfg(all(feature = "UI_Input", feature = "implement_exclusive"))]
-impl IVisualInteractionSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualInteractionSourceVtbl {
-        unsafe extern "system" fn IsPositionXRailsEnabled<Impl: IVisualInteractionSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IVisualInteractionSource_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSource_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualInteractionSource_Vtbl {
+        unsafe extern "system" fn IsPositionXRailsEnabled<Impl: IVisualInteractionSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPositionXRailsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1759,11 +1759,11 @@ impl IVisualInteractionSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsPositionXRailsEnabled<Impl: IVisualInteractionSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsPositionXRailsEnabled<Impl: IVisualInteractionSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsPositionXRailsEnabled(value).into()
         }
-        unsafe extern "system" fn IsPositionYRailsEnabled<Impl: IVisualInteractionSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPositionYRailsEnabled<Impl: IVisualInteractionSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPositionYRailsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1774,11 +1774,11 @@ impl IVisualInteractionSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsPositionYRailsEnabled<Impl: IVisualInteractionSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsPositionYRailsEnabled<Impl: IVisualInteractionSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsPositionYRailsEnabled(value).into()
         }
-        unsafe extern "system" fn ManipulationRedirectionMode<Impl: IVisualInteractionSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VisualInteractionSourceRedirectionMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ManipulationRedirectionMode<Impl: IVisualInteractionSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VisualInteractionSourceRedirectionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ManipulationRedirectionMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1789,11 +1789,11 @@ impl IVisualInteractionSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetManipulationRedirectionMode<Impl: IVisualInteractionSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VisualInteractionSourceRedirectionMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetManipulationRedirectionMode<Impl: IVisualInteractionSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VisualInteractionSourceRedirectionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetManipulationRedirectionMode(value).into()
         }
-        unsafe extern "system" fn PositionXChainingMode<Impl: IVisualInteractionSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InteractionChainingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PositionXChainingMode<Impl: IVisualInteractionSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InteractionChainingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionXChainingMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1804,11 +1804,11 @@ impl IVisualInteractionSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPositionXChainingMode<Impl: IVisualInteractionSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InteractionChainingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPositionXChainingMode<Impl: IVisualInteractionSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InteractionChainingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPositionXChainingMode(value).into()
         }
-        unsafe extern "system" fn PositionXSourceMode<Impl: IVisualInteractionSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InteractionSourceMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PositionXSourceMode<Impl: IVisualInteractionSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InteractionSourceMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionXSourceMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1819,11 +1819,11 @@ impl IVisualInteractionSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPositionXSourceMode<Impl: IVisualInteractionSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InteractionSourceMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPositionXSourceMode<Impl: IVisualInteractionSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InteractionSourceMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPositionXSourceMode(value).into()
         }
-        unsafe extern "system" fn PositionYChainingMode<Impl: IVisualInteractionSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InteractionChainingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PositionYChainingMode<Impl: IVisualInteractionSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InteractionChainingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionYChainingMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1834,11 +1834,11 @@ impl IVisualInteractionSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPositionYChainingMode<Impl: IVisualInteractionSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InteractionChainingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPositionYChainingMode<Impl: IVisualInteractionSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InteractionChainingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPositionYChainingMode(value).into()
         }
-        unsafe extern "system" fn PositionYSourceMode<Impl: IVisualInteractionSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InteractionSourceMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PositionYSourceMode<Impl: IVisualInteractionSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InteractionSourceMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionYSourceMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1849,11 +1849,11 @@ impl IVisualInteractionSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPositionYSourceMode<Impl: IVisualInteractionSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InteractionSourceMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPositionYSourceMode<Impl: IVisualInteractionSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InteractionSourceMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPositionYSourceMode(value).into()
         }
-        unsafe extern "system" fn ScaleChainingMode<Impl: IVisualInteractionSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InteractionChainingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScaleChainingMode<Impl: IVisualInteractionSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InteractionChainingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScaleChainingMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1864,11 +1864,11 @@ impl IVisualInteractionSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetScaleChainingMode<Impl: IVisualInteractionSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InteractionChainingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScaleChainingMode<Impl: IVisualInteractionSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InteractionChainingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScaleChainingMode(value).into()
         }
-        unsafe extern "system" fn ScaleSourceMode<Impl: IVisualInteractionSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InteractionSourceMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScaleSourceMode<Impl: IVisualInteractionSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InteractionSourceMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScaleSourceMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1879,11 +1879,11 @@ impl IVisualInteractionSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetScaleSourceMode<Impl: IVisualInteractionSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InteractionSourceMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScaleSourceMode<Impl: IVisualInteractionSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: InteractionSourceMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScaleSourceMode(value).into()
         }
-        unsafe extern "system" fn Source<Impl: IVisualInteractionSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Source<Impl: IVisualInteractionSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Source() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1894,7 +1894,7 @@ impl IVisualInteractionSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryRedirectForManipulation<Impl: IVisualInteractionSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pointerpoint: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryRedirectForManipulation<Impl: IVisualInteractionSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pointerpoint: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TryRedirectForManipulation(&*(&pointerpoint as *const <super::super::Input::PointerPoint as ::windows::core::Abi>::Abi as *const <super::super::Input::PointerPoint as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1927,7 +1927,7 @@ impl IVisualInteractionSourceVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IVisualInteractionSource2Impl: Sized {
+pub trait IVisualInteractionSource2_Impl: Sized {
     fn DeltaPosition(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
     fn DeltaScale(&mut self) -> ::windows::core::Result<f32>;
     fn Position(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3>;
@@ -1945,9 +1945,9 @@ impl ::windows::core::RuntimeName for IVisualInteractionSource2 {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IVisualInteractionSource2";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IVisualInteractionSource2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSource2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualInteractionSource2Vtbl {
-        unsafe extern "system" fn DeltaPosition<Impl: IVisualInteractionSource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+impl IVisualInteractionSource2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSource2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualInteractionSource2_Vtbl {
+        unsafe extern "system" fn DeltaPosition<Impl: IVisualInteractionSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeltaPosition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1958,7 +1958,7 @@ impl IVisualInteractionSource2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeltaScale<Impl: IVisualInteractionSource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeltaScale<Impl: IVisualInteractionSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeltaScale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1969,7 +1969,7 @@ impl IVisualInteractionSource2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: IVisualInteractionSource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: IVisualInteractionSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1980,7 +1980,7 @@ impl IVisualInteractionSource2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PositionVelocity<Impl: IVisualInteractionSource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PositionVelocity<Impl: IVisualInteractionSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionVelocity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1991,7 +1991,7 @@ impl IVisualInteractionSource2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Scale<Impl: IVisualInteractionSource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Scale<Impl: IVisualInteractionSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Scale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2002,7 +2002,7 @@ impl IVisualInteractionSource2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ScaleVelocity<Impl: IVisualInteractionSource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScaleVelocity<Impl: IVisualInteractionSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScaleVelocity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2013,23 +2013,23 @@ impl IVisualInteractionSource2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConfigureCenterPointXModifiers<Impl: IVisualInteractionSource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditionalvalues: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConfigureCenterPointXModifiers<Impl: IVisualInteractionSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditionalvalues: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ConfigureCenterPointXModifiers(&*(&conditionalvalues as *const <super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ConfigureCenterPointYModifiers<Impl: IVisualInteractionSource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditionalvalues: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConfigureCenterPointYModifiers<Impl: IVisualInteractionSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditionalvalues: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ConfigureCenterPointYModifiers(&*(&conditionalvalues as *const <super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ConfigureDeltaPositionXModifiers<Impl: IVisualInteractionSource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditionalvalues: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConfigureDeltaPositionXModifiers<Impl: IVisualInteractionSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditionalvalues: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ConfigureDeltaPositionXModifiers(&*(&conditionalvalues as *const <super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ConfigureDeltaPositionYModifiers<Impl: IVisualInteractionSource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditionalvalues: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConfigureDeltaPositionYModifiers<Impl: IVisualInteractionSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditionalvalues: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ConfigureDeltaPositionYModifiers(&*(&conditionalvalues as *const <super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ConfigureDeltaScaleModifiers<Impl: IVisualInteractionSource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditionalvalues: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConfigureDeltaScaleModifiers<Impl: IVisualInteractionSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditionalvalues: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ConfigureDeltaScaleModifiers(&*(&conditionalvalues as *const <super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue> as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2053,7 +2053,7 @@ impl IVisualInteractionSource2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVisualInteractionSource3Impl: Sized {
+pub trait IVisualInteractionSource3_Impl: Sized {
     fn PointerWheelConfig(&mut self) -> ::windows::core::Result<InteractionSourceConfiguration>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2061,9 +2061,9 @@ impl ::windows::core::RuntimeName for IVisualInteractionSource3 {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IVisualInteractionSource3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVisualInteractionSource3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSource3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualInteractionSource3Vtbl {
-        unsafe extern "system" fn PointerWheelConfig<Impl: IVisualInteractionSource3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVisualInteractionSource3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSource3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualInteractionSource3_Vtbl {
+        unsafe extern "system" fn PointerWheelConfig<Impl: IVisualInteractionSource3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerWheelConfig() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2084,14 +2084,14 @@ impl IVisualInteractionSource3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVisualInteractionSourceObjectFactoryImpl: Sized {}
+pub trait IVisualInteractionSourceObjectFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVisualInteractionSourceObjectFactory {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IVisualInteractionSourceObjectFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVisualInteractionSourceObjectFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSourceObjectFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualInteractionSourceObjectFactoryVtbl {
+impl IVisualInteractionSourceObjectFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSourceObjectFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualInteractionSourceObjectFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVisualInteractionSourceObjectFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -2099,7 +2099,7 @@ impl IVisualInteractionSourceObjectFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVisualInteractionSourceStaticsImpl: Sized {
+pub trait IVisualInteractionSourceStatics_Impl: Sized {
     fn Create(&mut self, source: &::core::option::Option<super::Visual>) -> ::windows::core::Result<VisualInteractionSource>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2107,9 +2107,9 @@ impl ::windows::core::RuntimeName for IVisualInteractionSourceStatics {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IVisualInteractionSourceStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVisualInteractionSourceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSourceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualInteractionSourceStaticsVtbl {
-        unsafe extern "system" fn Create<Impl: IVisualInteractionSourceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVisualInteractionSourceStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSourceStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualInteractionSourceStatics_Vtbl {
+        unsafe extern "system" fn Create<Impl: IVisualInteractionSourceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&source as *const <super::Visual as ::windows::core::Abi>::Abi as *const <super::Visual as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2127,7 +2127,7 @@ impl IVisualInteractionSourceStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVisualInteractionSourceStatics2Impl: Sized {
+pub trait IVisualInteractionSourceStatics2_Impl: Sized {
     fn CreateFromIVisualElement(&mut self, source: &::core::option::Option<super::IVisualElement>) -> ::windows::core::Result<VisualInteractionSource>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2135,9 +2135,9 @@ impl ::windows::core::RuntimeName for IVisualInteractionSourceStatics2 {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.IVisualInteractionSourceStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVisualInteractionSourceStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSourceStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualInteractionSourceStatics2Vtbl {
-        unsafe extern "system" fn CreateFromIVisualElement<Impl: IVisualInteractionSourceStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVisualInteractionSourceStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSourceStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualInteractionSourceStatics2_Vtbl {
+        unsafe extern "system" fn CreateFromIVisualElement<Impl: IVisualInteractionSourceStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromIVisualElement(&*(&source as *const <super::IVisualElement as ::windows::core::Abi>::Abi as *const <super::IVisualElement as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

@@ -863,7 +863,7 @@ unsafe impl ::windows::core::RuntimeType for Calendar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.Calendar;{ca30221d-86d9-40fb-a26b-d44eb7cf08ea})");
 }
 unsafe impl ::windows::core::Interface for Calendar {
-    type Vtable = ICalendarVtbl;
+    type Vtable = ICalendar_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca30221d_86d9_40fb_a26b_d44eb7cf08ea);
 }
 impl ::windows::core::RuntimeName for Calendar {
@@ -1117,7 +1117,7 @@ unsafe impl ::windows::core::RuntimeType for CurrencyAmount {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.CurrencyAmount;{74b49942-eb75-443a-95b3-7d723f56f93c})");
 }
 unsafe impl ::windows::core::Interface for CurrencyAmount {
-    type Vtable = ICurrencyAmountVtbl;
+    type Vtable = ICurrencyAmount_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74b49942_eb75_443a_95b3_7d723f56f93c);
 }
 impl ::windows::core::RuntimeName for CurrencyAmount {
@@ -2472,7 +2472,7 @@ unsafe impl ::windows::core::RuntimeType for GeographicRegion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.GeographicRegion;{01e9a621-4a64-4ed9-954f-9edeb07bd903})");
 }
 unsafe impl ::windows::core::Interface for GeographicRegion {
-    type Vtable = IGeographicRegionVtbl;
+    type Vtable = IGeographicRegion_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01e9a621_4a64_4ed9_954f_9edeb07bd903);
 }
 impl ::windows::core::RuntimeName for GeographicRegion {
@@ -2524,12 +2524,12 @@ unsafe impl ::core::marker::Sync for GeographicRegion {}
 #[repr(transparent)]
 pub struct IApplicationLanguagesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IApplicationLanguagesStatics {
-    type Vtable = IApplicationLanguagesStaticsVtbl;
+    type Vtable = IApplicationLanguagesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75b40847_0a4c_4a92_9565_fd63c95f7aed);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IApplicationLanguagesStaticsVtbl {
+pub struct IApplicationLanguagesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PrimaryLanguageOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetPrimaryLanguageOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2546,12 +2546,12 @@ pub struct IApplicationLanguagesStaticsVtbl {
 #[repr(transparent)]
 pub struct IApplicationLanguagesStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IApplicationLanguagesStatics2 {
-    type Vtable = IApplicationLanguagesStatics2Vtbl;
+    type Vtable = IApplicationLanguagesStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1df0de4f_072b_4d7b_8f06_cb2db40f2bb5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IApplicationLanguagesStatics2Vtbl {
+pub struct IApplicationLanguagesStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
     pub GetLanguagesForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2562,12 +2562,12 @@ pub struct IApplicationLanguagesStatics2Vtbl {
 #[repr(transparent)]
 pub struct ICalendar(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICalendar {
-    type Vtable = ICalendarVtbl;
+    type Vtable = ICalendar_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca30221d_86d9_40fb_a26b_d44eb7cf08ea);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICalendarVtbl {
+pub struct ICalendar_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetToMin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2684,12 +2684,12 @@ pub struct ICalendarVtbl {
 #[repr(transparent)]
 pub struct ICalendarFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICalendarFactory {
-    type Vtable = ICalendarFactoryVtbl;
+    type Vtable = ICalendarFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83f58412_e56b_4c75_a66e_0f63d57758a6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICalendarFactoryVtbl {
+pub struct ICalendarFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateCalendarDefaultCalendarAndClock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languages: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2704,12 +2704,12 @@ pub struct ICalendarFactoryVtbl {
 #[repr(transparent)]
 pub struct ICalendarFactory2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICalendarFactory2 {
-    type Vtable = ICalendarFactory2Vtbl;
+    type Vtable = ICalendarFactory2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb44b378c_ca7e_4590_9e72_ea2bec1a5115);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICalendarFactory2Vtbl {
+pub struct ICalendarFactory2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateCalendarWithTimeZone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languages: ::windows::core::RawPtr, calendar: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, clock: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, timezoneid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2720,12 +2720,12 @@ pub struct ICalendarFactory2Vtbl {
 #[repr(transparent)]
 pub struct ICalendarIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICalendarIdentifiersStatics {
-    type Vtable = ICalendarIdentifiersStaticsVtbl;
+    type Vtable = ICalendarIdentifiersStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80653f68_2cb2_4c1f_b590_f0f52bf4fd1a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICalendarIdentifiersStaticsVtbl {
+pub struct ICalendarIdentifiersStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Gregorian: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Hebrew: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2741,12 +2741,12 @@ pub struct ICalendarIdentifiersStaticsVtbl {
 #[repr(transparent)]
 pub struct ICalendarIdentifiersStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICalendarIdentifiersStatics2 {
-    type Vtable = ICalendarIdentifiersStatics2Vtbl;
+    type Vtable = ICalendarIdentifiersStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7df4d488_5fd0_42a7_95b5_7d98d823075f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICalendarIdentifiersStatics2Vtbl {
+pub struct ICalendarIdentifiersStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Persian: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -2754,12 +2754,12 @@ pub struct ICalendarIdentifiersStatics2Vtbl {
 #[repr(transparent)]
 pub struct ICalendarIdentifiersStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICalendarIdentifiersStatics3 {
-    type Vtable = ICalendarIdentifiersStatics3Vtbl;
+    type Vtable = ICalendarIdentifiersStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c225423_1fad_40c0_9334_a8eb90db04f5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICalendarIdentifiersStatics3Vtbl {
+pub struct ICalendarIdentifiersStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ChineseLunar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub JapaneseLunar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2771,12 +2771,12 @@ pub struct ICalendarIdentifiersStatics3Vtbl {
 #[repr(transparent)]
 pub struct IClockIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClockIdentifiersStatics {
-    type Vtable = IClockIdentifiersStaticsVtbl;
+    type Vtable = IClockIdentifiersStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x523805bb_12ec_4f83_bc31_b1b4376b0808);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClockIdentifiersStaticsVtbl {
+pub struct IClockIdentifiersStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TwelveHour: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub TwentyFourHour: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2785,12 +2785,12 @@ pub struct IClockIdentifiersStaticsVtbl {
 #[repr(transparent)]
 pub struct ICurrencyAmount(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICurrencyAmount {
-    type Vtable = ICurrencyAmountVtbl;
+    type Vtable = ICurrencyAmount_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74b49942_eb75_443a_95b3_7d723f56f93c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICurrencyAmountVtbl {
+pub struct ICurrencyAmount_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Amount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Currency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2799,12 +2799,12 @@ pub struct ICurrencyAmountVtbl {
 #[repr(transparent)]
 pub struct ICurrencyAmountFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICurrencyAmountFactory {
-    type Vtable = ICurrencyAmountFactoryVtbl;
+    type Vtable = ICurrencyAmountFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48d7168f_ef3b_4aee_a6a1_4b036fe03ff0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICurrencyAmountFactoryVtbl {
+pub struct ICurrencyAmountFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amount: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, currency: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2812,12 +2812,12 @@ pub struct ICurrencyAmountFactoryVtbl {
 #[repr(transparent)]
 pub struct ICurrencyIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICurrencyIdentifiersStatics {
-    type Vtable = ICurrencyIdentifiersStaticsVtbl;
+    type Vtable = ICurrencyIdentifiersStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f1d091b_d586_4913_9b6a_a9bd2dc12874);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICurrencyIdentifiersStaticsVtbl {
+pub struct ICurrencyIdentifiersStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AED: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub AFN: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2981,12 +2981,12 @@ pub struct ICurrencyIdentifiersStaticsVtbl {
 #[repr(transparent)]
 pub struct ICurrencyIdentifiersStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICurrencyIdentifiersStatics2 {
-    type Vtable = ICurrencyIdentifiersStatics2Vtbl;
+    type Vtable = ICurrencyIdentifiersStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1814797f_c3b2_4c33_9591_980011950d37);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICurrencyIdentifiersStatics2Vtbl {
+pub struct ICurrencyIdentifiersStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub BYN: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -2994,12 +2994,12 @@ pub struct ICurrencyIdentifiersStatics2Vtbl {
 #[repr(transparent)]
 pub struct ICurrencyIdentifiersStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICurrencyIdentifiersStatics3 {
-    type Vtable = ICurrencyIdentifiersStatics3Vtbl;
+    type Vtable = ICurrencyIdentifiersStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fb23bfa_ed25_4f4d_857f_237f1748c21c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICurrencyIdentifiersStatics3Vtbl {
+pub struct ICurrencyIdentifiersStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MRU: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SSP: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3010,12 +3010,12 @@ pub struct ICurrencyIdentifiersStatics3Vtbl {
 #[repr(transparent)]
 pub struct IGeographicRegion(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeographicRegion {
-    type Vtable = IGeographicRegionVtbl;
+    type Vtable = IGeographicRegion_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01e9a621_4a64_4ed9_954f_9edeb07bd903);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGeographicRegionVtbl {
+pub struct IGeographicRegion_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Code: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub CodeTwoLetter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3032,12 +3032,12 @@ pub struct IGeographicRegionVtbl {
 #[repr(transparent)]
 pub struct IGeographicRegionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeographicRegionFactory {
-    type Vtable = IGeographicRegionFactoryVtbl;
+    type Vtable = IGeographicRegionFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53425270_77b4_426b_859f_81e19d512546);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGeographicRegionFactoryVtbl {
+pub struct IGeographicRegionFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateGeographicRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, geographicregioncode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -3045,12 +3045,12 @@ pub struct IGeographicRegionFactoryVtbl {
 #[repr(transparent)]
 pub struct IGeographicRegionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGeographicRegionStatics {
-    type Vtable = IGeographicRegionStaticsVtbl;
+    type Vtable = IGeographicRegionStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29e28974_7ad9_4ef4_8799_b3b44fadec08);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGeographicRegionStaticsVtbl {
+pub struct IGeographicRegionStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, geographicregioncode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -3058,12 +3058,12 @@ pub struct IGeographicRegionStaticsVtbl {
 #[repr(transparent)]
 pub struct IJapanesePhoneme(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJapanesePhoneme {
-    type Vtable = IJapanesePhonemeVtbl;
+    type Vtable = IJapanesePhoneme_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f6a9300_e85b_43e6_897d_5d82f862df21);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IJapanesePhonemeVtbl {
+pub struct IJapanesePhoneme_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DisplayText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub YomiText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3073,12 +3073,12 @@ pub struct IJapanesePhonemeVtbl {
 #[repr(transparent)]
 pub struct IJapanesePhoneticAnalyzerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJapanesePhoneticAnalyzerStatics {
-    type Vtable = IJapanesePhoneticAnalyzerStaticsVtbl;
+    type Vtable = IJapanesePhoneticAnalyzerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88ab9e90_93de_41b2_b4d5_8edb227fd1c2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IJapanesePhoneticAnalyzerStaticsVtbl {
+pub struct IJapanesePhoneticAnalyzerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetWords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3093,12 +3093,12 @@ pub struct IJapanesePhoneticAnalyzerStaticsVtbl {
 #[repr(transparent)]
 pub struct ILanguage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILanguage {
-    type Vtable = ILanguageVtbl;
+    type Vtable = ILanguage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea79a752_f7c2_4265_b1bd_c4dec4e4f080);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILanguageVtbl {
+pub struct ILanguage_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LanguageTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3109,12 +3109,12 @@ pub struct ILanguageVtbl {
 #[repr(transparent)]
 pub struct ILanguage2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILanguage2 {
-    type Vtable = ILanguage2Vtbl;
+    type Vtable = ILanguage2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a47e5b5_d94d_4886_a404_a5a5b9d5b494);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILanguage2Vtbl {
+pub struct ILanguage2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LayoutDirection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut LanguageLayoutDirection) -> ::windows::core::HRESULT,
 }
@@ -3122,12 +3122,12 @@ pub struct ILanguage2Vtbl {
 #[repr(transparent)]
 pub struct ILanguage3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILanguage3 {
-    type Vtable = ILanguage3Vtbl;
+    type Vtable = ILanguage3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6af3d10_641a_5ba4_bb43_5e12aed75954);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILanguage3Vtbl {
+pub struct ILanguage3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AbbreviatedName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -3135,12 +3135,12 @@ pub struct ILanguage3Vtbl {
 #[repr(transparent)]
 pub struct ILanguageExtensionSubtags(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILanguageExtensionSubtags {
-    type Vtable = ILanguageExtensionSubtagsVtbl;
+    type Vtable = ILanguageExtensionSubtags_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d7daf45_368d_4364_852b_dec927037b85);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILanguageExtensionSubtagsVtbl {
+pub struct ILanguageExtensionSubtags_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetExtensionSubtags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, singleton: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3151,12 +3151,12 @@ pub struct ILanguageExtensionSubtagsVtbl {
 #[repr(transparent)]
 pub struct ILanguageFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILanguageFactory {
-    type Vtable = ILanguageFactoryVtbl;
+    type Vtable = ILanguageFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b0252ac_0c27_44f8_b792_9793fb66c63e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILanguageFactoryVtbl {
+pub struct ILanguageFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -3164,12 +3164,12 @@ pub struct ILanguageFactoryVtbl {
 #[repr(transparent)]
 pub struct ILanguageStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILanguageStatics {
-    type Vtable = ILanguageStaticsVtbl;
+    type Vtable = ILanguageStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb23cd557_0865_46d4_89b8_d59be8990f0d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILanguageStaticsVtbl {
+pub struct ILanguageStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsWellFormed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
     pub CurrentInputMethodLanguageTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3178,12 +3178,12 @@ pub struct ILanguageStaticsVtbl {
 #[repr(transparent)]
 pub struct ILanguageStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILanguageStatics2 {
-    type Vtable = ILanguageStatics2Vtbl;
+    type Vtable = ILanguageStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30199f6e_914b_4b2a_9d6e_e3b0e27dbe4f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILanguageStatics2Vtbl {
+pub struct ILanguageStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TrySetInputMethodLanguageTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -3191,12 +3191,12 @@ pub struct ILanguageStatics2Vtbl {
 #[repr(transparent)]
 pub struct ILanguageStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILanguageStatics3 {
-    type Vtable = ILanguageStatics3Vtbl;
+    type Vtable = ILanguageStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd15ecb5a_71de_5752_9542_fac5b4f27261);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILanguageStatics3Vtbl {
+pub struct ILanguageStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetMuiCompatibleLanguageListFromLanguageTags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languagetags: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3207,12 +3207,12 @@ pub struct ILanguageStatics3Vtbl {
 #[repr(transparent)]
 pub struct INumeralSystemIdentifiersStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INumeralSystemIdentifiersStatics {
-    type Vtable = INumeralSystemIdentifiersStaticsVtbl;
+    type Vtable = INumeralSystemIdentifiersStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5c662c3_68c9_4d3d_b765_972029e21dec);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INumeralSystemIdentifiersStaticsVtbl {
+pub struct INumeralSystemIdentifiersStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Arab: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ArabExt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3255,12 +3255,12 @@ pub struct INumeralSystemIdentifiersStaticsVtbl {
 #[repr(transparent)]
 pub struct INumeralSystemIdentifiersStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INumeralSystemIdentifiersStatics2 {
-    type Vtable = INumeralSystemIdentifiersStatics2Vtbl;
+    type Vtable = INumeralSystemIdentifiersStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f003228_9ddb_4a34_9104_0260c091a7c7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INumeralSystemIdentifiersStatics2Vtbl {
+pub struct INumeralSystemIdentifiersStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Brah: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Osma: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3279,12 +3279,12 @@ pub struct INumeralSystemIdentifiersStatics2Vtbl {
 #[repr(transparent)]
 pub struct ITimeZoneOnCalendar(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITimeZoneOnCalendar {
-    type Vtable = ITimeZoneOnCalendarVtbl;
+    type Vtable = ITimeZoneOnCalendar_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb3c25e5_46cf_4317_a3f5_02621ad54478);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITimeZoneOnCalendarVtbl {
+pub struct ITimeZoneOnCalendar_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetTimeZone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ChangeTimeZone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timezoneid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3340,7 +3340,7 @@ unsafe impl ::windows::core::RuntimeType for JapanesePhoneme {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.JapanesePhoneme;{2f6a9300-e85b-43e6-897d-5d82f862df21})");
 }
 unsafe impl ::windows::core::Interface for JapanesePhoneme {
-    type Vtable = IJapanesePhonemeVtbl;
+    type Vtable = IJapanesePhoneme_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f6a9300_e85b_43e6_897d_5d82f862df21);
 }
 impl ::windows::core::RuntimeName for JapanesePhoneme {
@@ -3552,7 +3552,7 @@ unsafe impl ::windows::core::RuntimeType for Language {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.Language;{ea79a752-f7c2-4265-b1bd-c4dec4e4f080})");
 }
 unsafe impl ::windows::core::Interface for Language {
-    type Vtable = ILanguageVtbl;
+    type Vtable = ILanguage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea79a752_f7c2_4265_b1bd_c4dec4e4f080);
 }
 impl ::windows::core::RuntimeName for Language {

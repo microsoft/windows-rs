@@ -72,12 +72,12 @@ unsafe impl ::windows::core::RuntimeType for II2cControllerProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{61c2bb82-4510-4163-a87c-4e15a9558980}");
 }
 unsafe impl ::windows::core::Interface for II2cControllerProvider {
-    type Vtable = II2cControllerProviderVtbl;
+    type Vtable = II2cControllerProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61c2bb82_4510_4163_a87c_4e15a9558980);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct II2cControllerProviderVtbl {
+pub struct II2cControllerProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -225,12 +225,12 @@ unsafe impl ::windows::core::RuntimeType for II2cDeviceProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ad342654-57e8-453e-8329-d1e447d103a9}");
 }
 unsafe impl ::windows::core::Interface for II2cDeviceProvider {
-    type Vtable = II2cDeviceProviderVtbl;
+    type Vtable = II2cDeviceProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad342654_57e8_453e_8329_d1e447d103a9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct II2cDeviceProviderVtbl {
+pub struct II2cDeviceProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *const u8) -> ::windows::core::HRESULT,
@@ -314,12 +314,12 @@ unsafe impl ::windows::core::RuntimeType for II2cProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6f13083e-bf62-4fe2-a95a-f08999669818}");
 }
 unsafe impl ::windows::core::Interface for II2cProvider {
-    type Vtable = II2cProviderVtbl;
+    type Vtable = II2cProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f13083e_bf62_4fe2_a95a_f08999669818);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct II2cProviderVtbl {
+pub struct II2cProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetControllersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -330,12 +330,12 @@ pub struct II2cProviderVtbl {
 #[repr(transparent)]
 pub struct IProviderI2cConnectionSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProviderI2cConnectionSettings {
-    type Vtable = IProviderI2cConnectionSettingsVtbl;
+    type Vtable = IProviderI2cConnectionSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9db4e34_e510_44b7_809d_f2f85b555339);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProviderI2cConnectionSettingsVtbl {
+pub struct IProviderI2cConnectionSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SlaveAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetSlaveAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
@@ -441,7 +441,7 @@ unsafe impl ::windows::core::RuntimeType for ProviderI2cConnectionSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.I2c.Provider.ProviderI2cConnectionSettings;{e9db4e34-e510-44b7-809d-f2f85b555339})");
 }
 unsafe impl ::windows::core::Interface for ProviderI2cConnectionSettings {
-    type Vtable = IProviderI2cConnectionSettingsVtbl;
+    type Vtable = IProviderI2cConnectionSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9db4e34_e510_44b7_809d_f2f85b555339);
 }
 impl ::windows::core::RuntimeName for ProviderI2cConnectionSettings {

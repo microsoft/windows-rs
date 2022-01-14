@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IAmbientLightImpl: Sized {
+pub trait IAmbientLight_Impl: Sized {
     fn Color(&mut self) -> ::windows::core::Result<super::Color>;
     fn SetColor(&mut self, value: &super::Color) -> ::windows::core::Result<()>;
 }
@@ -8,9 +8,9 @@ impl ::windows::core::RuntimeName for IAmbientLight {
     const NAME: &'static str = "Windows.UI.Composition.IAmbientLight";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAmbientLightVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAmbientLightImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAmbientLightVtbl {
-        unsafe extern "system" fn Color<Impl: IAmbientLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT {
+impl IAmbientLight_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAmbientLight_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAmbientLight_Vtbl {
+        unsafe extern "system" fn Color<Impl: IAmbientLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Color() {
                 ::core::result::Result::Ok(ok__) => {
@@ -21,7 +21,7 @@ impl IAmbientLightVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetColor<Impl: IAmbientLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetColor<Impl: IAmbientLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetColor(&*(&value as *const <super::Color as ::windows::core::Abi>::Abi as *const <super::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -36,7 +36,7 @@ impl IAmbientLightVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAmbientLight2Impl: Sized {
+pub trait IAmbientLight2_Impl: Sized {
     fn Intensity(&mut self) -> ::windows::core::Result<f32>;
     fn SetIntensity(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
@@ -45,9 +45,9 @@ impl ::windows::core::RuntimeName for IAmbientLight2 {
     const NAME: &'static str = "Windows.UI.Composition.IAmbientLight2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAmbientLight2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAmbientLight2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAmbientLight2Vtbl {
-        unsafe extern "system" fn Intensity<Impl: IAmbientLight2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl IAmbientLight2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAmbientLight2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAmbientLight2_Vtbl {
+        unsafe extern "system" fn Intensity<Impl: IAmbientLight2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Intensity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -58,7 +58,7 @@ impl IAmbientLight2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIntensity<Impl: IAmbientLight2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIntensity<Impl: IAmbientLight2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIntensity(value).into()
         }
@@ -73,7 +73,7 @@ impl IAmbientLight2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAnimationControllerImpl: Sized {
+pub trait IAnimationController_Impl: Sized {
     fn PlaybackRate(&mut self) -> ::windows::core::Result<f32>;
     fn SetPlaybackRate(&mut self, value: f32) -> ::windows::core::Result<()>;
     fn Progress(&mut self) -> ::windows::core::Result<f32>;
@@ -88,9 +88,9 @@ impl ::windows::core::RuntimeName for IAnimationController {
     const NAME: &'static str = "Windows.UI.Composition.IAnimationController";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAnimationControllerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnimationControllerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnimationControllerVtbl {
-        unsafe extern "system" fn PlaybackRate<Impl: IAnimationControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl IAnimationController_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnimationController_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnimationController_Vtbl {
+        unsafe extern "system" fn PlaybackRate<Impl: IAnimationController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -101,11 +101,11 @@ impl IAnimationControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlaybackRate<Impl: IAnimationControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPlaybackRate<Impl: IAnimationController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlaybackRate(value).into()
         }
-        unsafe extern "system" fn Progress<Impl: IAnimationControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Progress<Impl: IAnimationController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Progress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -116,11 +116,11 @@ impl IAnimationControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProgress<Impl: IAnimationControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProgress<Impl: IAnimationController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProgress(value).into()
         }
-        unsafe extern "system" fn ProgressBehavior<Impl: IAnimationControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AnimationControllerProgressBehavior) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProgressBehavior<Impl: IAnimationController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AnimationControllerProgressBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProgressBehavior() {
                 ::core::result::Result::Ok(ok__) => {
@@ -131,15 +131,15 @@ impl IAnimationControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProgressBehavior<Impl: IAnimationControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AnimationControllerProgressBehavior) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProgressBehavior<Impl: IAnimationController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AnimationControllerProgressBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProgressBehavior(value).into()
         }
-        unsafe extern "system" fn Pause<Impl: IAnimationControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pause<Impl: IAnimationController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Pause().into()
         }
-        unsafe extern "system" fn Resume<Impl: IAnimationControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Resume<Impl: IAnimationController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Resume().into()
         }
@@ -160,7 +160,7 @@ impl IAnimationControllerVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAnimationControllerStaticsImpl: Sized {
+pub trait IAnimationControllerStatics_Impl: Sized {
     fn MaxPlaybackRate(&mut self) -> ::windows::core::Result<f32>;
     fn MinPlaybackRate(&mut self) -> ::windows::core::Result<f32>;
 }
@@ -169,9 +169,9 @@ impl ::windows::core::RuntimeName for IAnimationControllerStatics {
     const NAME: &'static str = "Windows.UI.Composition.IAnimationControllerStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAnimationControllerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnimationControllerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnimationControllerStaticsVtbl {
-        unsafe extern "system" fn MaxPlaybackRate<Impl: IAnimationControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl IAnimationControllerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnimationControllerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnimationControllerStatics_Vtbl {
+        unsafe extern "system" fn MaxPlaybackRate<Impl: IAnimationControllerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxPlaybackRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -182,7 +182,7 @@ impl IAnimationControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MinPlaybackRate<Impl: IAnimationControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinPlaybackRate<Impl: IAnimationControllerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinPlaybackRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -203,15 +203,15 @@ impl IAnimationControllerStaticsVtbl {
         iid == &<IAnimationControllerStatics as ::windows::core::Interface>::IID
     }
 }
-pub trait IAnimationObjectImpl: Sized {
+pub trait IAnimationObject_Impl: Sized {
     fn PopulatePropertyInfo(&mut self, propertyname: &::windows::core::HSTRING, propertyinfo: &::core::option::Option<AnimationPropertyInfo>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IAnimationObject {
     const NAME: &'static str = "Windows.UI.Composition.IAnimationObject";
 }
-impl IAnimationObjectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnimationObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnimationObjectVtbl {
-        unsafe extern "system" fn PopulatePropertyInfo<Impl: IAnimationObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertyinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAnimationObject_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnimationObject_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnimationObject_Vtbl {
+        unsafe extern "system" fn PopulatePropertyInfo<Impl: IAnimationObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertyinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PopulatePropertyInfo(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&propertyinfo as *const <AnimationPropertyInfo as ::windows::core::Abi>::Abi as *const <AnimationPropertyInfo as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -225,7 +225,7 @@ impl IAnimationObjectVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAnimationPropertyInfoImpl: Sized {
+pub trait IAnimationPropertyInfo_Impl: Sized {
     fn AccessMode(&mut self) -> ::windows::core::Result<AnimationPropertyAccessMode>;
     fn SetAccessMode(&mut self, value: AnimationPropertyAccessMode) -> ::windows::core::Result<()>;
 }
@@ -234,9 +234,9 @@ impl ::windows::core::RuntimeName for IAnimationPropertyInfo {
     const NAME: &'static str = "Windows.UI.Composition.IAnimationPropertyInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAnimationPropertyInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnimationPropertyInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnimationPropertyInfoVtbl {
-        unsafe extern "system" fn AccessMode<Impl: IAnimationPropertyInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AnimationPropertyAccessMode) -> ::windows::core::HRESULT {
+impl IAnimationPropertyInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnimationPropertyInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnimationPropertyInfo_Vtbl {
+        unsafe extern "system" fn AccessMode<Impl: IAnimationPropertyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AnimationPropertyAccessMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AccessMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -247,7 +247,7 @@ impl IAnimationPropertyInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAccessMode<Impl: IAnimationPropertyInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AnimationPropertyAccessMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAccessMode<Impl: IAnimationPropertyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AnimationPropertyAccessMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAccessMode(value).into()
         }
@@ -262,7 +262,7 @@ impl IAnimationPropertyInfoVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAnimationPropertyInfo2Impl: Sized {
+pub trait IAnimationPropertyInfo2_Impl: Sized {
     fn GetResolvedCompositionObject(&mut self) -> ::windows::core::Result<CompositionObject>;
     fn GetResolvedCompositionObjectProperty(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -271,9 +271,9 @@ impl ::windows::core::RuntimeName for IAnimationPropertyInfo2 {
     const NAME: &'static str = "Windows.UI.Composition.IAnimationPropertyInfo2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAnimationPropertyInfo2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnimationPropertyInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnimationPropertyInfo2Vtbl {
-        unsafe extern "system" fn GetResolvedCompositionObject<Impl: IAnimationPropertyInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAnimationPropertyInfo2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnimationPropertyInfo2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnimationPropertyInfo2_Vtbl {
+        unsafe extern "system" fn GetResolvedCompositionObject<Impl: IAnimationPropertyInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetResolvedCompositionObject() {
                 ::core::result::Result::Ok(ok__) => {
@@ -284,7 +284,7 @@ impl IAnimationPropertyInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetResolvedCompositionObjectProperty<Impl: IAnimationPropertyInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetResolvedCompositionObjectProperty<Impl: IAnimationPropertyInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetResolvedCompositionObjectProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -306,7 +306,7 @@ impl IAnimationPropertyInfo2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBackEasingFunctionImpl: Sized {
+pub trait IBackEasingFunction_Impl: Sized {
     fn Mode(&mut self) -> ::windows::core::Result<CompositionEasingFunctionMode>;
     fn Amplitude(&mut self) -> ::windows::core::Result<f32>;
 }
@@ -315,9 +315,9 @@ impl ::windows::core::RuntimeName for IBackEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.IBackEasingFunction";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBackEasingFunctionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackEasingFunctionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackEasingFunctionVtbl {
-        unsafe extern "system" fn Mode<Impl: IBackEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionEasingFunctionMode) -> ::windows::core::HRESULT {
+impl IBackEasingFunction_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackEasingFunction_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackEasingFunction_Vtbl {
+        unsafe extern "system" fn Mode<Impl: IBackEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionEasingFunctionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Mode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -328,7 +328,7 @@ impl IBackEasingFunctionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Amplitude<Impl: IBackEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Amplitude<Impl: IBackEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Amplitude() {
                 ::core::result::Result::Ok(ok__) => {
@@ -350,7 +350,7 @@ impl IBackEasingFunctionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBooleanKeyFrameAnimationImpl: Sized {
+pub trait IBooleanKeyFrameAnimation_Impl: Sized {
     fn InsertKeyFrame(&mut self, normalizedprogresskey: f32, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -358,9 +358,9 @@ impl ::windows::core::RuntimeName for IBooleanKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.IBooleanKeyFrameAnimation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBooleanKeyFrameAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBooleanKeyFrameAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBooleanKeyFrameAnimationVtbl {
-        unsafe extern "system" fn InsertKeyFrame<Impl: IBooleanKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: bool) -> ::windows::core::HRESULT {
+impl IBooleanKeyFrameAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBooleanKeyFrameAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBooleanKeyFrameAnimation_Vtbl {
+        unsafe extern "system" fn InsertKeyFrame<Impl: IBooleanKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertKeyFrame(normalizedprogresskey, value).into()
         }
@@ -374,7 +374,7 @@ impl IBooleanKeyFrameAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBounceEasingFunctionImpl: Sized {
+pub trait IBounceEasingFunction_Impl: Sized {
     fn Mode(&mut self) -> ::windows::core::Result<CompositionEasingFunctionMode>;
     fn Bounces(&mut self) -> ::windows::core::Result<i32>;
     fn Bounciness(&mut self) -> ::windows::core::Result<f32>;
@@ -384,9 +384,9 @@ impl ::windows::core::RuntimeName for IBounceEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.IBounceEasingFunction";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBounceEasingFunctionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBounceEasingFunctionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBounceEasingFunctionVtbl {
-        unsafe extern "system" fn Mode<Impl: IBounceEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionEasingFunctionMode) -> ::windows::core::HRESULT {
+impl IBounceEasingFunction_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBounceEasingFunction_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBounceEasingFunction_Vtbl {
+        unsafe extern "system" fn Mode<Impl: IBounceEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionEasingFunctionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Mode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -397,7 +397,7 @@ impl IBounceEasingFunctionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Bounces<Impl: IBounceEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Bounces<Impl: IBounceEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bounces() {
                 ::core::result::Result::Ok(ok__) => {
@@ -408,7 +408,7 @@ impl IBounceEasingFunctionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Bounciness<Impl: IBounceEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Bounciness<Impl: IBounceEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bounciness() {
                 ::core::result::Result::Ok(ok__) => {
@@ -431,7 +431,7 @@ impl IBounceEasingFunctionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBounceScalarNaturalMotionAnimationImpl: Sized {
+pub trait IBounceScalarNaturalMotionAnimation_Impl: Sized {
     fn Acceleration(&mut self) -> ::windows::core::Result<f32>;
     fn SetAcceleration(&mut self, value: f32) -> ::windows::core::Result<()>;
     fn Restitution(&mut self) -> ::windows::core::Result<f32>;
@@ -442,9 +442,9 @@ impl ::windows::core::RuntimeName for IBounceScalarNaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.IBounceScalarNaturalMotionAnimation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBounceScalarNaturalMotionAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBounceScalarNaturalMotionAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBounceScalarNaturalMotionAnimationVtbl {
-        unsafe extern "system" fn Acceleration<Impl: IBounceScalarNaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl IBounceScalarNaturalMotionAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBounceScalarNaturalMotionAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBounceScalarNaturalMotionAnimation_Vtbl {
+        unsafe extern "system" fn Acceleration<Impl: IBounceScalarNaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Acceleration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -455,11 +455,11 @@ impl IBounceScalarNaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAcceleration<Impl: IBounceScalarNaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAcceleration<Impl: IBounceScalarNaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAcceleration(value).into()
         }
-        unsafe extern "system" fn Restitution<Impl: IBounceScalarNaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Restitution<Impl: IBounceScalarNaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Restitution() {
                 ::core::result::Result::Ok(ok__) => {
@@ -470,7 +470,7 @@ impl IBounceScalarNaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRestitution<Impl: IBounceScalarNaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRestitution<Impl: IBounceScalarNaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRestitution(value).into()
         }
@@ -487,7 +487,7 @@ impl IBounceScalarNaturalMotionAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBounceVector2NaturalMotionAnimationImpl: Sized {
+pub trait IBounceVector2NaturalMotionAnimation_Impl: Sized {
     fn Acceleration(&mut self) -> ::windows::core::Result<f32>;
     fn SetAcceleration(&mut self, value: f32) -> ::windows::core::Result<()>;
     fn Restitution(&mut self) -> ::windows::core::Result<f32>;
@@ -498,9 +498,9 @@ impl ::windows::core::RuntimeName for IBounceVector2NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.IBounceVector2NaturalMotionAnimation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBounceVector2NaturalMotionAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBounceVector2NaturalMotionAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBounceVector2NaturalMotionAnimationVtbl {
-        unsafe extern "system" fn Acceleration<Impl: IBounceVector2NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl IBounceVector2NaturalMotionAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBounceVector2NaturalMotionAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBounceVector2NaturalMotionAnimation_Vtbl {
+        unsafe extern "system" fn Acceleration<Impl: IBounceVector2NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Acceleration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -511,11 +511,11 @@ impl IBounceVector2NaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAcceleration<Impl: IBounceVector2NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAcceleration<Impl: IBounceVector2NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAcceleration(value).into()
         }
-        unsafe extern "system" fn Restitution<Impl: IBounceVector2NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Restitution<Impl: IBounceVector2NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Restitution() {
                 ::core::result::Result::Ok(ok__) => {
@@ -526,7 +526,7 @@ impl IBounceVector2NaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRestitution<Impl: IBounceVector2NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRestitution<Impl: IBounceVector2NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRestitution(value).into()
         }
@@ -543,7 +543,7 @@ impl IBounceVector2NaturalMotionAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBounceVector3NaturalMotionAnimationImpl: Sized {
+pub trait IBounceVector3NaturalMotionAnimation_Impl: Sized {
     fn Acceleration(&mut self) -> ::windows::core::Result<f32>;
     fn SetAcceleration(&mut self, value: f32) -> ::windows::core::Result<()>;
     fn Restitution(&mut self) -> ::windows::core::Result<f32>;
@@ -554,9 +554,9 @@ impl ::windows::core::RuntimeName for IBounceVector3NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.IBounceVector3NaturalMotionAnimation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBounceVector3NaturalMotionAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBounceVector3NaturalMotionAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBounceVector3NaturalMotionAnimationVtbl {
-        unsafe extern "system" fn Acceleration<Impl: IBounceVector3NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl IBounceVector3NaturalMotionAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBounceVector3NaturalMotionAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBounceVector3NaturalMotionAnimation_Vtbl {
+        unsafe extern "system" fn Acceleration<Impl: IBounceVector3NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Acceleration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -567,11 +567,11 @@ impl IBounceVector3NaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAcceleration<Impl: IBounceVector3NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAcceleration<Impl: IBounceVector3NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAcceleration(value).into()
         }
-        unsafe extern "system" fn Restitution<Impl: IBounceVector3NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Restitution<Impl: IBounceVector3NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Restitution() {
                 ::core::result::Result::Ok(ok__) => {
@@ -582,7 +582,7 @@ impl IBounceVector3NaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRestitution<Impl: IBounceVector3NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRestitution<Impl: IBounceVector3NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRestitution(value).into()
         }
@@ -599,7 +599,7 @@ impl IBounceVector3NaturalMotionAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICircleEasingFunctionImpl: Sized {
+pub trait ICircleEasingFunction_Impl: Sized {
     fn Mode(&mut self) -> ::windows::core::Result<CompositionEasingFunctionMode>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -607,9 +607,9 @@ impl ::windows::core::RuntimeName for ICircleEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.ICircleEasingFunction";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICircleEasingFunctionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICircleEasingFunctionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICircleEasingFunctionVtbl {
-        unsafe extern "system" fn Mode<Impl: ICircleEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionEasingFunctionMode) -> ::windows::core::HRESULT {
+impl ICircleEasingFunction_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICircleEasingFunction_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICircleEasingFunction_Vtbl {
+        unsafe extern "system" fn Mode<Impl: ICircleEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionEasingFunctionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Mode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -627,7 +627,7 @@ impl ICircleEasingFunctionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IColorKeyFrameAnimationImpl: Sized {
+pub trait IColorKeyFrameAnimation_Impl: Sized {
     fn InterpolationColorSpace(&mut self) -> ::windows::core::Result<CompositionColorSpace>;
     fn SetInterpolationColorSpace(&mut self, value: CompositionColorSpace) -> ::windows::core::Result<()>;
     fn InsertKeyFrame(&mut self, normalizedprogresskey: f32, value: &super::Color) -> ::windows::core::Result<()>;
@@ -638,9 +638,9 @@ impl ::windows::core::RuntimeName for IColorKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.IColorKeyFrameAnimation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IColorKeyFrameAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorKeyFrameAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorKeyFrameAnimationVtbl {
-        unsafe extern "system" fn InterpolationColorSpace<Impl: IColorKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionColorSpace) -> ::windows::core::HRESULT {
+impl IColorKeyFrameAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColorKeyFrameAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColorKeyFrameAnimation_Vtbl {
+        unsafe extern "system" fn InterpolationColorSpace<Impl: IColorKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionColorSpace) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InterpolationColorSpace() {
                 ::core::result::Result::Ok(ok__) => {
@@ -651,15 +651,15 @@ impl IColorKeyFrameAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInterpolationColorSpace<Impl: IColorKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionColorSpace) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInterpolationColorSpace<Impl: IColorKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionColorSpace) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInterpolationColorSpace(value).into()
         }
-        unsafe extern "system" fn InsertKeyFrame<Impl: IColorKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertKeyFrame<Impl: IColorKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertKeyFrame(normalizedprogresskey, &*(&value as *const <super::Color as ::windows::core::Abi>::Abi as *const <super::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InsertKeyFrameWithEasingFunction<Impl: IColorKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::Color, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertKeyFrameWithEasingFunction<Impl: IColorKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::Color, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertKeyFrameWithEasingFunction(normalizedprogresskey, &*(&value as *const <super::Color as ::windows::core::Abi>::Abi as *const <super::Color as ::windows::core::DefaultType>::DefaultType), &*(&easingfunction as *const <CompositionEasingFunction as ::windows::core::Abi>::Abi as *const <CompositionEasingFunction as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -676,7 +676,7 @@ impl IColorKeyFrameAnimationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ICompositionAnimationImpl: Sized {
+pub trait ICompositionAnimation_Impl: Sized {
     fn ClearAllParameters(&mut self) -> ::windows::core::Result<()>;
     fn ClearParameter(&mut self, key: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn SetColorParameter(&mut self, key: &::windows::core::HSTRING, value: &super::Color) -> ::windows::core::Result<()>;
@@ -694,49 +694,49 @@ impl ::windows::core::RuntimeName for ICompositionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionAnimation";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ICompositionAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionAnimationVtbl {
-        unsafe extern "system" fn ClearAllParameters<Impl: ICompositionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl ICompositionAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionAnimation_Vtbl {
+        unsafe extern "system" fn ClearAllParameters<Impl: ICompositionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearAllParameters().into()
         }
-        unsafe extern "system" fn ClearParameter<Impl: ICompositionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearParameter<Impl: ICompositionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearParameter(&*(&key as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetColorParameter<Impl: ICompositionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetColorParameter<Impl: ICompositionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetColorParameter(&*(&key as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::Color as ::windows::core::Abi>::Abi as *const <super::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetMatrix3x2Parameter<Impl: ICompositionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMatrix3x2Parameter<Impl: ICompositionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMatrix3x2Parameter(&*(&key as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetMatrix4x4Parameter<Impl: ICompositionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMatrix4x4Parameter<Impl: ICompositionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMatrix4x4Parameter(&*(&key as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::super::Foundation::Numerics::Matrix4x4 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Matrix4x4 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetQuaternionParameter<Impl: ICompositionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetQuaternionParameter<Impl: ICompositionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetQuaternionParameter(&*(&key as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetReferenceParameter<Impl: ICompositionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, compositionobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetReferenceParameter<Impl: ICompositionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, compositionobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetReferenceParameter(&*(&key as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&compositionobject as *const <CompositionObject as ::windows::core::Abi>::Abi as *const <CompositionObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetScalarParameter<Impl: ICompositionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScalarParameter<Impl: ICompositionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScalarParameter(&*(&key as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn SetVector2Parameter<Impl: ICompositionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVector2Parameter<Impl: ICompositionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVector2Parameter(&*(&key as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetVector3Parameter<Impl: ICompositionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVector3Parameter<Impl: ICompositionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVector3Parameter(&*(&key as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetVector4Parameter<Impl: ICompositionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVector4Parameter<Impl: ICompositionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVector4Parameter(&*(&key as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::super::Foundation::Numerics::Vector4 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector4 as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -760,7 +760,7 @@ impl ICompositionAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionAnimation2Impl: Sized {
+pub trait ICompositionAnimation2_Impl: Sized {
     fn SetBooleanParameter(&mut self, key: &::windows::core::HSTRING, value: bool) -> ::windows::core::Result<()>;
     fn Target(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTarget(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -770,13 +770,13 @@ impl ::windows::core::RuntimeName for ICompositionAnimation2 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionAnimation2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionAnimation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionAnimation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionAnimation2Vtbl {
-        unsafe extern "system" fn SetBooleanParameter<Impl: ICompositionAnimation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: bool) -> ::windows::core::HRESULT {
+impl ICompositionAnimation2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionAnimation2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionAnimation2_Vtbl {
+        unsafe extern "system" fn SetBooleanParameter<Impl: ICompositionAnimation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBooleanParameter(&*(&key as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn Target<Impl: ICompositionAnimation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Target<Impl: ICompositionAnimation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Target() {
                 ::core::result::Result::Ok(ok__) => {
@@ -787,7 +787,7 @@ impl ICompositionAnimation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTarget<Impl: ICompositionAnimation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTarget<Impl: ICompositionAnimation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTarget(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -803,7 +803,7 @@ impl ICompositionAnimation2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ICompositionAnimation3Impl: Sized {
+pub trait ICompositionAnimation3_Impl: Sized {
     fn InitialValueExpressions(&mut self) -> ::windows::core::Result<InitialValueExpressionCollection>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -811,9 +811,9 @@ impl ::windows::core::RuntimeName for ICompositionAnimation3 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionAnimation3";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ICompositionAnimation3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionAnimation3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionAnimation3Vtbl {
-        unsafe extern "system" fn InitialValueExpressions<Impl: ICompositionAnimation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionAnimation3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionAnimation3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionAnimation3_Vtbl {
+        unsafe extern "system" fn InitialValueExpressions<Impl: ICompositionAnimation3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InitialValueExpressions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -834,7 +834,7 @@ impl ICompositionAnimation3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionAnimation4Impl: Sized {
+pub trait ICompositionAnimation4_Impl: Sized {
     fn SetExpressionReferenceParameter(&mut self, parametername: &::windows::core::HSTRING, source: &::core::option::Option<IAnimationObject>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -842,9 +842,9 @@ impl ::windows::core::RuntimeName for ICompositionAnimation4 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionAnimation4";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionAnimation4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionAnimation4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionAnimation4Vtbl {
-        unsafe extern "system" fn SetExpressionReferenceParameter<Impl: ICompositionAnimation4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parametername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, source: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionAnimation4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionAnimation4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionAnimation4_Vtbl {
+        unsafe extern "system" fn SetExpressionReferenceParameter<Impl: ICompositionAnimation4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parametername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, source: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExpressionReferenceParameter(&*(&parametername as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&source as *const <IAnimationObject as ::windows::core::Abi>::Abi as *const <IAnimationObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -857,12 +857,12 @@ impl ICompositionAnimation4Vtbl {
         iid == &<ICompositionAnimation4 as ::windows::core::Interface>::IID
     }
 }
-pub trait ICompositionAnimationBaseImpl: Sized {}
+pub trait ICompositionAnimationBase_Impl: Sized {}
 impl ::windows::core::RuntimeName for ICompositionAnimationBase {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionAnimationBase";
 }
-impl ICompositionAnimationBaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionAnimationBaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionAnimationBaseVtbl {
+impl ICompositionAnimationBase_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionAnimationBase_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionAnimationBase_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionAnimationBase, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -870,14 +870,14 @@ impl ICompositionAnimationBaseVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionAnimationFactoryImpl: Sized {}
+pub trait ICompositionAnimationFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionAnimationFactory {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionAnimationFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionAnimationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionAnimationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionAnimationFactoryVtbl {
+impl ICompositionAnimationFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionAnimationFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionAnimationFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionAnimationFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -885,7 +885,7 @@ impl ICompositionAnimationFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionAnimationGroupImpl: Sized {
+pub trait ICompositionAnimationGroup_Impl: Sized {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn Add(&mut self, value: &::core::option::Option<CompositionAnimation>) -> ::windows::core::Result<()>;
     fn Remove(&mut self, value: &::core::option::Option<CompositionAnimation>) -> ::windows::core::Result<()>;
@@ -896,9 +896,9 @@ impl ::windows::core::RuntimeName for ICompositionAnimationGroup {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionAnimationGroup";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionAnimationGroupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionAnimationGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionAnimationGroupVtbl {
-        unsafe extern "system" fn Count<Impl: ICompositionAnimationGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl ICompositionAnimationGroup_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionAnimationGroup_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionAnimationGroup_Vtbl {
+        unsafe extern "system" fn Count<Impl: ICompositionAnimationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -909,15 +909,15 @@ impl ICompositionAnimationGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Impl: ICompositionAnimationGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Impl: ICompositionAnimationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Add(&*(&value as *const <CompositionAnimation as ::windows::core::Abi>::Abi as *const <CompositionAnimation as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Remove<Impl: ICompositionAnimationGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Remove<Impl: ICompositionAnimationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Remove(&*(&value as *const <CompositionAnimation as ::windows::core::Abi>::Abi as *const <CompositionAnimation as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RemoveAll<Impl: ICompositionAnimationGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAll<Impl: ICompositionAnimationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAll().into()
         }
@@ -934,14 +934,14 @@ impl ICompositionAnimationGroupVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionBackdropBrushImpl: Sized {}
+pub trait ICompositionBackdropBrush_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionBackdropBrush {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionBackdropBrush";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionBackdropBrushVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionBackdropBrushImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionBackdropBrushVtbl {
+impl ICompositionBackdropBrush_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionBackdropBrush_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionBackdropBrush_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionBackdropBrush, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -949,14 +949,14 @@ impl ICompositionBackdropBrushVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionBatchCompletedEventArgsImpl: Sized {}
+pub trait ICompositionBatchCompletedEventArgs_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionBatchCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionBatchCompletedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionBatchCompletedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionBatchCompletedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionBatchCompletedEventArgsVtbl {
+impl ICompositionBatchCompletedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionBatchCompletedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionBatchCompletedEventArgs_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionBatchCompletedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -964,14 +964,14 @@ impl ICompositionBatchCompletedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionBrushImpl: Sized {}
+pub trait ICompositionBrush_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionBrush {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionBrush";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionBrushVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionBrushImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionBrushVtbl {
+impl ICompositionBrush_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionBrush_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionBrush_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionBrush, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -979,14 +979,14 @@ impl ICompositionBrushVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionBrushFactoryImpl: Sized {}
+pub trait ICompositionBrushFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionBrushFactory {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionBrushFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionBrushFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionBrushFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionBrushFactoryVtbl {
+impl ICompositionBrushFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionBrushFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionBrushFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionBrushFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -994,7 +994,7 @@ impl ICompositionBrushFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICompositionCapabilitiesImpl: Sized {
+pub trait ICompositionCapabilities_Impl: Sized {
     fn AreEffectsSupported(&mut self) -> ::windows::core::Result<bool>;
     fn AreEffectsFast(&mut self) -> ::windows::core::Result<bool>;
     fn Changed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CompositionCapabilities, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -1005,9 +1005,9 @@ impl ::windows::core::RuntimeName for ICompositionCapabilities {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionCapabilities";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICompositionCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionCapabilitiesVtbl {
-        unsafe extern "system" fn AreEffectsSupported<Impl: ICompositionCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ICompositionCapabilities_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionCapabilities_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionCapabilities_Vtbl {
+        unsafe extern "system" fn AreEffectsSupported<Impl: ICompositionCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AreEffectsSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1018,7 +1018,7 @@ impl ICompositionCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AreEffectsFast<Impl: ICompositionCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AreEffectsFast<Impl: ICompositionCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AreEffectsFast() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1029,7 +1029,7 @@ impl ICompositionCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Changed<Impl: ICompositionCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Changed<Impl: ICompositionCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Changed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<CompositionCapabilities, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<CompositionCapabilities, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1040,7 +1040,7 @@ impl ICompositionCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveChanged<Impl: ICompositionCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveChanged<Impl: ICompositionCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1057,7 +1057,7 @@ impl ICompositionCapabilitiesVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionCapabilitiesStaticsImpl: Sized {
+pub trait ICompositionCapabilitiesStatics_Impl: Sized {
     fn GetForCurrentView(&mut self) -> ::windows::core::Result<CompositionCapabilities>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1065,9 +1065,9 @@ impl ::windows::core::RuntimeName for ICompositionCapabilitiesStatics {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionCapabilitiesStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionCapabilitiesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionCapabilitiesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionCapabilitiesStaticsVtbl {
-        unsafe extern "system" fn GetForCurrentView<Impl: ICompositionCapabilitiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionCapabilitiesStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionCapabilitiesStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionCapabilitiesStatics_Vtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: ICompositionCapabilitiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1088,14 +1088,14 @@ impl ICompositionCapabilitiesStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionClipImpl: Sized {}
+pub trait ICompositionClip_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionClip {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionClip";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionClipVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionClipImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionClipVtbl {
+impl ICompositionClip_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionClip_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionClip_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionClip, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1103,7 +1103,7 @@ impl ICompositionClipVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ICompositionClip2Impl: Sized {
+pub trait ICompositionClip2_Impl: Sized {
     fn AnchorPoint(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
     fn SetAnchorPoint(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
     fn CenterPoint(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
@@ -1124,9 +1124,9 @@ impl ::windows::core::RuntimeName for ICompositionClip2 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionClip2";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ICompositionClip2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionClip2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionClip2Vtbl {
-        unsafe extern "system" fn AnchorPoint<Impl: ICompositionClip2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+impl ICompositionClip2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionClip2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionClip2_Vtbl {
+        unsafe extern "system" fn AnchorPoint<Impl: ICompositionClip2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AnchorPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1137,11 +1137,11 @@ impl ICompositionClip2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAnchorPoint<Impl: ICompositionClip2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAnchorPoint<Impl: ICompositionClip2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAnchorPoint(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CenterPoint<Impl: ICompositionClip2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CenterPoint<Impl: ICompositionClip2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CenterPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1152,11 +1152,11 @@ impl ICompositionClip2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCenterPoint<Impl: ICompositionClip2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCenterPoint<Impl: ICompositionClip2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCenterPoint(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Offset<Impl: ICompositionClip2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Offset<Impl: ICompositionClip2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Offset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1167,11 +1167,11 @@ impl ICompositionClip2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOffset<Impl: ICompositionClip2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffset<Impl: ICompositionClip2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOffset(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RotationAngle<Impl: ICompositionClip2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RotationAngle<Impl: ICompositionClip2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RotationAngle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1182,11 +1182,11 @@ impl ICompositionClip2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRotationAngle<Impl: ICompositionClip2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRotationAngle<Impl: ICompositionClip2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRotationAngle(value).into()
         }
-        unsafe extern "system" fn RotationAngleInDegrees<Impl: ICompositionClip2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RotationAngleInDegrees<Impl: ICompositionClip2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RotationAngleInDegrees() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1197,11 +1197,11 @@ impl ICompositionClip2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRotationAngleInDegrees<Impl: ICompositionClip2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRotationAngleInDegrees<Impl: ICompositionClip2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRotationAngleInDegrees(value).into()
         }
-        unsafe extern "system" fn Scale<Impl: ICompositionClip2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Scale<Impl: ICompositionClip2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Scale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1212,11 +1212,11 @@ impl ICompositionClip2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetScale<Impl: ICompositionClip2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScale<Impl: ICompositionClip2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScale(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TransformMatrix<Impl: ICompositionClip2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransformMatrix<Impl: ICompositionClip2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransformMatrix() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1227,7 +1227,7 @@ impl ICompositionClip2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTransformMatrix<Impl: ICompositionClip2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTransformMatrix<Impl: ICompositionClip2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTransformMatrix(&*(&value as *const <super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1254,14 +1254,14 @@ impl ICompositionClip2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionClipFactoryImpl: Sized {}
+pub trait ICompositionClipFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionClipFactory {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionClipFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionClipFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionClipFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionClipFactoryVtbl {
+impl ICompositionClipFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionClipFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionClipFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionClipFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1269,7 +1269,7 @@ impl ICompositionClipFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionColorBrushImpl: Sized {
+pub trait ICompositionColorBrush_Impl: Sized {
     fn Color(&mut self) -> ::windows::core::Result<super::Color>;
     fn SetColor(&mut self, value: &super::Color) -> ::windows::core::Result<()>;
 }
@@ -1278,9 +1278,9 @@ impl ::windows::core::RuntimeName for ICompositionColorBrush {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionColorBrush";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionColorBrushVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionColorBrushImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionColorBrushVtbl {
-        unsafe extern "system" fn Color<Impl: ICompositionColorBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT {
+impl ICompositionColorBrush_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionColorBrush_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionColorBrush_Vtbl {
+        unsafe extern "system" fn Color<Impl: ICompositionColorBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Color() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1291,7 +1291,7 @@ impl ICompositionColorBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetColor<Impl: ICompositionColorBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetColor<Impl: ICompositionColorBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetColor(&*(&value as *const <super::Color as ::windows::core::Abi>::Abi as *const <super::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1306,7 +1306,7 @@ impl ICompositionColorBrushVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionColorGradientStopImpl: Sized {
+pub trait ICompositionColorGradientStop_Impl: Sized {
     fn Color(&mut self) -> ::windows::core::Result<super::Color>;
     fn SetColor(&mut self, value: &super::Color) -> ::windows::core::Result<()>;
     fn Offset(&mut self) -> ::windows::core::Result<f32>;
@@ -1317,9 +1317,9 @@ impl ::windows::core::RuntimeName for ICompositionColorGradientStop {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionColorGradientStop";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionColorGradientStopVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionColorGradientStopImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionColorGradientStopVtbl {
-        unsafe extern "system" fn Color<Impl: ICompositionColorGradientStopImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT {
+impl ICompositionColorGradientStop_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionColorGradientStop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionColorGradientStop_Vtbl {
+        unsafe extern "system" fn Color<Impl: ICompositionColorGradientStop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Color() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1330,11 +1330,11 @@ impl ICompositionColorGradientStopVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetColor<Impl: ICompositionColorGradientStopImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetColor<Impl: ICompositionColorGradientStop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetColor(&*(&value as *const <super::Color as ::windows::core::Abi>::Abi as *const <super::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Offset<Impl: ICompositionColorGradientStopImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Offset<Impl: ICompositionColorGradientStop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Offset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1345,7 +1345,7 @@ impl ICompositionColorGradientStopVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOffset<Impl: ICompositionColorGradientStopImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffset<Impl: ICompositionColorGradientStop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOffset(value).into()
         }
@@ -1362,14 +1362,14 @@ impl ICompositionColorGradientStopVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionColorGradientStopCollectionImpl: Sized {}
+pub trait ICompositionColorGradientStopCollection_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionColorGradientStopCollection {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionColorGradientStopCollection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionColorGradientStopCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionColorGradientStopCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionColorGradientStopCollectionVtbl {
+impl ICompositionColorGradientStopCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionColorGradientStopCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionColorGradientStopCollection_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionColorGradientStopCollection, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1377,7 +1377,7 @@ impl ICompositionColorGradientStopCollectionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICompositionCommitBatchImpl: Sized {
+pub trait ICompositionCommitBatch_Impl: Sized {
     fn IsActive(&mut self) -> ::windows::core::Result<bool>;
     fn IsEnded(&mut self) -> ::windows::core::Result<bool>;
     fn Completed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, CompositionBatchCompletedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -1388,9 +1388,9 @@ impl ::windows::core::RuntimeName for ICompositionCommitBatch {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionCommitBatch";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICompositionCommitBatchVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionCommitBatchImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionCommitBatchVtbl {
-        unsafe extern "system" fn IsActive<Impl: ICompositionCommitBatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ICompositionCommitBatch_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionCommitBatch_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionCommitBatch_Vtbl {
+        unsafe extern "system" fn IsActive<Impl: ICompositionCommitBatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsActive() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1401,7 +1401,7 @@ impl ICompositionCommitBatchVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsEnded<Impl: ICompositionCommitBatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEnded<Impl: ICompositionCommitBatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnded() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1412,7 +1412,7 @@ impl ICompositionCommitBatchVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Completed<Impl: ICompositionCommitBatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Completed<Impl: ICompositionCommitBatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Completed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, CompositionBatchCompletedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, CompositionBatchCompletedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1423,7 +1423,7 @@ impl ICompositionCommitBatchVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCompleted<Impl: ICompositionCommitBatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCompleted<Impl: ICompositionCommitBatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCompleted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1440,7 +1440,7 @@ impl ICompositionCommitBatchVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ICompositionContainerShapeImpl: Sized {
+pub trait ICompositionContainerShape_Impl: Sized {
     fn Shapes(&mut self) -> ::windows::core::Result<CompositionShapeCollection>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -1448,9 +1448,9 @@ impl ::windows::core::RuntimeName for ICompositionContainerShape {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionContainerShape";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ICompositionContainerShapeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionContainerShapeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionContainerShapeVtbl {
-        unsafe extern "system" fn Shapes<Impl: ICompositionContainerShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionContainerShape_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionContainerShape_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionContainerShape_Vtbl {
+        unsafe extern "system" fn Shapes<Impl: ICompositionContainerShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Shapes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1468,7 +1468,7 @@ impl ICompositionContainerShapeVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
-pub trait ICompositionDrawingSurfaceImpl: Sized {
+pub trait ICompositionDrawingSurface_Impl: Sized {
     fn AlphaMode(&mut self) -> ::windows::core::Result<super::super::Graphics::DirectX::DirectXAlphaMode>;
     fn PixelFormat(&mut self) -> ::windows::core::Result<super::super::Graphics::DirectX::DirectXPixelFormat>;
     fn Size(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
@@ -1478,9 +1478,9 @@ impl ::windows::core::RuntimeName for ICompositionDrawingSurface {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionDrawingSurface";
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
-impl ICompositionDrawingSurfaceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionDrawingSurfaceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionDrawingSurfaceVtbl {
-        unsafe extern "system" fn AlphaMode<Impl: ICompositionDrawingSurfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::HRESULT {
+impl ICompositionDrawingSurface_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionDrawingSurface_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionDrawingSurface_Vtbl {
+        unsafe extern "system" fn AlphaMode<Impl: ICompositionDrawingSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlphaMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1491,7 +1491,7 @@ impl ICompositionDrawingSurfaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PixelFormat<Impl: ICompositionDrawingSurfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PixelFormat<Impl: ICompositionDrawingSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PixelFormat() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1502,7 +1502,7 @@ impl ICompositionDrawingSurfaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Size<Impl: ICompositionDrawingSurfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Size<Impl: ICompositionDrawingSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Size() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1525,7 +1525,7 @@ impl ICompositionDrawingSurfaceVtbl {
     }
 }
 #[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
-pub trait ICompositionDrawingSurface2Impl: Sized {
+pub trait ICompositionDrawingSurface2_Impl: Sized {
     fn SizeInt32(&mut self) -> ::windows::core::Result<super::super::Graphics::SizeInt32>;
     fn Resize(&mut self, sizepixels: &super::super::Graphics::SizeInt32) -> ::windows::core::Result<()>;
     fn Scroll(&mut self, offset: &super::super::Graphics::PointInt32) -> ::windows::core::Result<()>;
@@ -1538,9 +1538,9 @@ impl ::windows::core::RuntimeName for ICompositionDrawingSurface2 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionDrawingSurface2";
 }
 #[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
-impl ICompositionDrawingSurface2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionDrawingSurface2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionDrawingSurface2Vtbl {
-        unsafe extern "system" fn SizeInt32<Impl: ICompositionDrawingSurface2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT {
+impl ICompositionDrawingSurface2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionDrawingSurface2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionDrawingSurface2_Vtbl {
+        unsafe extern "system" fn SizeInt32<Impl: ICompositionDrawingSurface2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SizeInt32() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1551,23 +1551,23 @@ impl ICompositionDrawingSurface2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Resize<Impl: ICompositionDrawingSurface2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sizepixels: super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Resize<Impl: ICompositionDrawingSurface2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sizepixels: super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Resize(&*(&sizepixels as *const <super::super::Graphics::SizeInt32 as ::windows::core::Abi>::Abi as *const <super::super::Graphics::SizeInt32 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Scroll<Impl: ICompositionDrawingSurface2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: super::super::Graphics::PointInt32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Scroll<Impl: ICompositionDrawingSurface2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: super::super::Graphics::PointInt32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Scroll(&*(&offset as *const <super::super::Graphics::PointInt32 as ::windows::core::Abi>::Abi as *const <super::super::Graphics::PointInt32 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ScrollRect<Impl: ICompositionDrawingSurface2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: super::super::Graphics::PointInt32, scrollrect: super::super::Graphics::RectInt32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScrollRect<Impl: ICompositionDrawingSurface2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: super::super::Graphics::PointInt32, scrollrect: super::super::Graphics::RectInt32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ScrollRect(&*(&offset as *const <super::super::Graphics::PointInt32 as ::windows::core::Abi>::Abi as *const <super::super::Graphics::PointInt32 as ::windows::core::DefaultType>::DefaultType), &*(&scrollrect as *const <super::super::Graphics::RectInt32 as ::windows::core::Abi>::Abi as *const <super::super::Graphics::RectInt32 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ScrollWithClip<Impl: ICompositionDrawingSurface2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: super::super::Graphics::PointInt32, cliprect: super::super::Graphics::RectInt32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScrollWithClip<Impl: ICompositionDrawingSurface2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: super::super::Graphics::PointInt32, cliprect: super::super::Graphics::RectInt32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ScrollWithClip(&*(&offset as *const <super::super::Graphics::PointInt32 as ::windows::core::Abi>::Abi as *const <super::super::Graphics::PointInt32 as ::windows::core::DefaultType>::DefaultType), &*(&cliprect as *const <super::super::Graphics::RectInt32 as ::windows::core::Abi>::Abi as *const <super::super::Graphics::RectInt32 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ScrollRectWithClip<Impl: ICompositionDrawingSurface2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: super::super::Graphics::PointInt32, cliprect: super::super::Graphics::RectInt32, scrollrect: super::super::Graphics::RectInt32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScrollRectWithClip<Impl: ICompositionDrawingSurface2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: super::super::Graphics::PointInt32, cliprect: super::super::Graphics::RectInt32, scrollrect: super::super::Graphics::RectInt32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .ScrollRectWithClip(
@@ -1592,14 +1592,14 @@ impl ICompositionDrawingSurface2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionDrawingSurfaceFactoryImpl: Sized {}
+pub trait ICompositionDrawingSurfaceFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionDrawingSurfaceFactory {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionDrawingSurfaceFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionDrawingSurfaceFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionDrawingSurfaceFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionDrawingSurfaceFactoryVtbl {
+impl ICompositionDrawingSurfaceFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionDrawingSurfaceFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionDrawingSurfaceFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionDrawingSurfaceFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1607,14 +1607,14 @@ impl ICompositionDrawingSurfaceFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionEasingFunctionImpl: Sized {}
+pub trait ICompositionEasingFunction_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionEasingFunction";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionEasingFunctionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionEasingFunctionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionEasingFunctionVtbl {
+impl ICompositionEasingFunction_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionEasingFunction_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionEasingFunction_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionEasingFunction, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1622,14 +1622,14 @@ impl ICompositionEasingFunctionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionEasingFunctionFactoryImpl: Sized {}
+pub trait ICompositionEasingFunctionFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionEasingFunctionFactory {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionEasingFunctionFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionEasingFunctionFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionEasingFunctionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionEasingFunctionFactoryVtbl {
+impl ICompositionEasingFunctionFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionEasingFunctionFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionEasingFunctionFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionEasingFunctionFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1637,7 +1637,7 @@ impl ICompositionEasingFunctionFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ICompositionEasingFunctionStaticsImpl: Sized {
+pub trait ICompositionEasingFunctionStatics_Impl: Sized {
     fn CreateCubicBezierEasingFunction(&mut self, owner: &::core::option::Option<Compositor>, controlpoint1: &super::super::Foundation::Numerics::Vector2, controlpoint2: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<CubicBezierEasingFunction>;
     fn CreateLinearEasingFunction(&mut self, owner: &::core::option::Option<Compositor>) -> ::windows::core::Result<LinearEasingFunction>;
     fn CreateStepEasingFunction(&mut self, owner: &::core::option::Option<Compositor>) -> ::windows::core::Result<StepEasingFunction>;
@@ -1655,9 +1655,9 @@ impl ::windows::core::RuntimeName for ICompositionEasingFunctionStatics {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionEasingFunctionStatics";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ICompositionEasingFunctionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionEasingFunctionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionEasingFunctionStaticsVtbl {
-        unsafe extern "system" fn CreateCubicBezierEasingFunction<Impl: ICompositionEasingFunctionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, controlpoint1: super::super::Foundation::Numerics::Vector2, controlpoint2: super::super::Foundation::Numerics::Vector2, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionEasingFunctionStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionEasingFunctionStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionEasingFunctionStatics_Vtbl {
+        unsafe extern "system" fn CreateCubicBezierEasingFunction<Impl: ICompositionEasingFunctionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, controlpoint1: super::super::Foundation::Numerics::Vector2, controlpoint2: super::super::Foundation::Numerics::Vector2, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCubicBezierEasingFunction(
                 &*(&owner as *const <Compositor as ::windows::core::Abi>::Abi as *const <Compositor as ::windows::core::DefaultType>::DefaultType),
@@ -1672,7 +1672,7 @@ impl ICompositionEasingFunctionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateLinearEasingFunction<Impl: ICompositionEasingFunctionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateLinearEasingFunction<Impl: ICompositionEasingFunctionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateLinearEasingFunction(&*(&owner as *const <Compositor as ::windows::core::Abi>::Abi as *const <Compositor as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1683,7 +1683,7 @@ impl ICompositionEasingFunctionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateStepEasingFunction<Impl: ICompositionEasingFunctionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateStepEasingFunction<Impl: ICompositionEasingFunctionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateStepEasingFunction(&*(&owner as *const <Compositor as ::windows::core::Abi>::Abi as *const <Compositor as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1694,7 +1694,7 @@ impl ICompositionEasingFunctionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateStepEasingFunctionWithStepCount<Impl: ICompositionEasingFunctionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, stepcount: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateStepEasingFunctionWithStepCount<Impl: ICompositionEasingFunctionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, stepcount: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateStepEasingFunctionWithStepCount(&*(&owner as *const <Compositor as ::windows::core::Abi>::Abi as *const <Compositor as ::windows::core::DefaultType>::DefaultType), stepcount) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1705,7 +1705,7 @@ impl ICompositionEasingFunctionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateBackEasingFunction<Impl: ICompositionEasingFunctionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, mode: CompositionEasingFunctionMode, amplitude: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateBackEasingFunction<Impl: ICompositionEasingFunctionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, mode: CompositionEasingFunctionMode, amplitude: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateBackEasingFunction(&*(&owner as *const <Compositor as ::windows::core::Abi>::Abi as *const <Compositor as ::windows::core::DefaultType>::DefaultType), mode, amplitude) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1716,7 +1716,7 @@ impl ICompositionEasingFunctionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateBounceEasingFunction<Impl: ICompositionEasingFunctionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, mode: CompositionEasingFunctionMode, bounces: i32, bounciness: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateBounceEasingFunction<Impl: ICompositionEasingFunctionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, mode: CompositionEasingFunctionMode, bounces: i32, bounciness: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateBounceEasingFunction(&*(&owner as *const <Compositor as ::windows::core::Abi>::Abi as *const <Compositor as ::windows::core::DefaultType>::DefaultType), mode, bounces, bounciness) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1727,7 +1727,7 @@ impl ICompositionEasingFunctionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateCircleEasingFunction<Impl: ICompositionEasingFunctionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, mode: CompositionEasingFunctionMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCircleEasingFunction<Impl: ICompositionEasingFunctionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, mode: CompositionEasingFunctionMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCircleEasingFunction(&*(&owner as *const <Compositor as ::windows::core::Abi>::Abi as *const <Compositor as ::windows::core::DefaultType>::DefaultType), mode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1738,7 +1738,7 @@ impl ICompositionEasingFunctionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateElasticEasingFunction<Impl: ICompositionEasingFunctionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, mode: CompositionEasingFunctionMode, oscillations: i32, springiness: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateElasticEasingFunction<Impl: ICompositionEasingFunctionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, mode: CompositionEasingFunctionMode, oscillations: i32, springiness: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateElasticEasingFunction(&*(&owner as *const <Compositor as ::windows::core::Abi>::Abi as *const <Compositor as ::windows::core::DefaultType>::DefaultType), mode, oscillations, springiness) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1749,7 +1749,7 @@ impl ICompositionEasingFunctionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateExponentialEasingFunction<Impl: ICompositionEasingFunctionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, mode: CompositionEasingFunctionMode, exponent: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateExponentialEasingFunction<Impl: ICompositionEasingFunctionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, mode: CompositionEasingFunctionMode, exponent: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateExponentialEasingFunction(&*(&owner as *const <Compositor as ::windows::core::Abi>::Abi as *const <Compositor as ::windows::core::DefaultType>::DefaultType), mode, exponent) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1760,7 +1760,7 @@ impl ICompositionEasingFunctionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePowerEasingFunction<Impl: ICompositionEasingFunctionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, mode: CompositionEasingFunctionMode, power: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePowerEasingFunction<Impl: ICompositionEasingFunctionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, mode: CompositionEasingFunctionMode, power: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePowerEasingFunction(&*(&owner as *const <Compositor as ::windows::core::Abi>::Abi as *const <Compositor as ::windows::core::DefaultType>::DefaultType), mode, power) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1771,7 +1771,7 @@ impl ICompositionEasingFunctionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSineEasingFunction<Impl: ICompositionEasingFunctionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, mode: CompositionEasingFunctionMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSineEasingFunction<Impl: ICompositionEasingFunctionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, mode: CompositionEasingFunctionMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSineEasingFunction(&*(&owner as *const <Compositor as ::windows::core::Abi>::Abi as *const <Compositor as ::windows::core::DefaultType>::DefaultType), mode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1802,7 +1802,7 @@ impl ICompositionEasingFunctionStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionEffectBrushImpl: Sized {
+pub trait ICompositionEffectBrush_Impl: Sized {
     fn GetSourceParameter(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<CompositionBrush>;
     fn SetSourceParameter(&mut self, name: &::windows::core::HSTRING, source: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
 }
@@ -1811,9 +1811,9 @@ impl ::windows::core::RuntimeName for ICompositionEffectBrush {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionEffectBrush";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionEffectBrushVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionEffectBrushImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionEffectBrushVtbl {
-        unsafe extern "system" fn GetSourceParameter<Impl: ICompositionEffectBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionEffectBrush_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionEffectBrush_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionEffectBrush_Vtbl {
+        unsafe extern "system" fn GetSourceParameter<Impl: ICompositionEffectBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSourceParameter(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1824,7 +1824,7 @@ impl ICompositionEffectBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSourceParameter<Impl: ICompositionEffectBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, source: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSourceParameter<Impl: ICompositionEffectBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, source: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSourceParameter(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&source as *const <CompositionBrush as ::windows::core::Abi>::Abi as *const <CompositionBrush as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1839,7 +1839,7 @@ impl ICompositionEffectBrushVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionEffectFactoryImpl: Sized {
+pub trait ICompositionEffectFactory_Impl: Sized {
     fn CreateBrush(&mut self) -> ::windows::core::Result<CompositionEffectBrush>;
     fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn LoadStatus(&mut self) -> ::windows::core::Result<CompositionEffectFactoryLoadStatus>;
@@ -1849,9 +1849,9 @@ impl ::windows::core::RuntimeName for ICompositionEffectFactory {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionEffectFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionEffectFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionEffectFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionEffectFactoryVtbl {
-        unsafe extern "system" fn CreateBrush<Impl: ICompositionEffectFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionEffectFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionEffectFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionEffectFactory_Vtbl {
+        unsafe extern "system" fn CreateBrush<Impl: ICompositionEffectFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateBrush() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1862,7 +1862,7 @@ impl ICompositionEffectFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedError<Impl: ICompositionEffectFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedError<Impl: ICompositionEffectFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedError() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1873,7 +1873,7 @@ impl ICompositionEffectFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadStatus<Impl: ICompositionEffectFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionEffectFactoryLoadStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadStatus<Impl: ICompositionEffectFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionEffectFactoryLoadStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1896,7 +1896,7 @@ impl ICompositionEffectFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionEffectSourceParameterImpl: Sized {
+pub trait ICompositionEffectSourceParameter_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1904,9 +1904,9 @@ impl ::windows::core::RuntimeName for ICompositionEffectSourceParameter {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionEffectSourceParameter";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionEffectSourceParameterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionEffectSourceParameterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionEffectSourceParameterVtbl {
-        unsafe extern "system" fn Name<Impl: ICompositionEffectSourceParameterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ICompositionEffectSourceParameter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionEffectSourceParameter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionEffectSourceParameter_Vtbl {
+        unsafe extern "system" fn Name<Impl: ICompositionEffectSourceParameter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1924,7 +1924,7 @@ impl ICompositionEffectSourceParameterVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionEffectSourceParameterFactoryImpl: Sized {
+pub trait ICompositionEffectSourceParameterFactory_Impl: Sized {
     fn Create(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<CompositionEffectSourceParameter>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1932,9 +1932,9 @@ impl ::windows::core::RuntimeName for ICompositionEffectSourceParameterFactory {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionEffectSourceParameterFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionEffectSourceParameterFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionEffectSourceParameterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionEffectSourceParameterFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: ICompositionEffectSourceParameterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionEffectSourceParameterFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionEffectSourceParameterFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionEffectSourceParameterFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: ICompositionEffectSourceParameterFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1955,7 +1955,7 @@ impl ICompositionEffectSourceParameterFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ICompositionEllipseGeometryImpl: Sized {
+pub trait ICompositionEllipseGeometry_Impl: Sized {
     fn Center(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
     fn SetCenter(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
     fn Radius(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
@@ -1966,9 +1966,9 @@ impl ::windows::core::RuntimeName for ICompositionEllipseGeometry {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionEllipseGeometry";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ICompositionEllipseGeometryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionEllipseGeometryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionEllipseGeometryVtbl {
-        unsafe extern "system" fn Center<Impl: ICompositionEllipseGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+impl ICompositionEllipseGeometry_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionEllipseGeometry_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionEllipseGeometry_Vtbl {
+        unsafe extern "system" fn Center<Impl: ICompositionEllipseGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Center() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1979,11 +1979,11 @@ impl ICompositionEllipseGeometryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCenter<Impl: ICompositionEllipseGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCenter<Impl: ICompositionEllipseGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCenter(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Radius<Impl: ICompositionEllipseGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Radius<Impl: ICompositionEllipseGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Radius() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1994,7 +1994,7 @@ impl ICompositionEllipseGeometryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRadius<Impl: ICompositionEllipseGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRadius<Impl: ICompositionEllipseGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRadius(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2011,7 +2011,7 @@ impl ICompositionEllipseGeometryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionGeometricClipImpl: Sized {
+pub trait ICompositionGeometricClip_Impl: Sized {
     fn Geometry(&mut self) -> ::windows::core::Result<CompositionGeometry>;
     fn SetGeometry(&mut self, value: &::core::option::Option<CompositionGeometry>) -> ::windows::core::Result<()>;
     fn ViewBox(&mut self) -> ::windows::core::Result<CompositionViewBox>;
@@ -2022,9 +2022,9 @@ impl ::windows::core::RuntimeName for ICompositionGeometricClip {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionGeometricClip";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionGeometricClipVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGeometricClipImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionGeometricClipVtbl {
-        unsafe extern "system" fn Geometry<Impl: ICompositionGeometricClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionGeometricClip_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGeometricClip_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionGeometricClip_Vtbl {
+        unsafe extern "system" fn Geometry<Impl: ICompositionGeometricClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Geometry() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2035,11 +2035,11 @@ impl ICompositionGeometricClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGeometry<Impl: ICompositionGeometricClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGeometry<Impl: ICompositionGeometricClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetGeometry(&*(&value as *const <CompositionGeometry as ::windows::core::Abi>::Abi as *const <CompositionGeometry as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ViewBox<Impl: ICompositionGeometricClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ViewBox<Impl: ICompositionGeometricClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ViewBox() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2050,7 +2050,7 @@ impl ICompositionGeometricClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetViewBox<Impl: ICompositionGeometricClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetViewBox<Impl: ICompositionGeometricClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetViewBox(&*(&value as *const <CompositionViewBox as ::windows::core::Abi>::Abi as *const <CompositionViewBox as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2067,7 +2067,7 @@ impl ICompositionGeometricClipVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionGeometryImpl: Sized {
+pub trait ICompositionGeometry_Impl: Sized {
     fn TrimEnd(&mut self) -> ::windows::core::Result<f32>;
     fn SetTrimEnd(&mut self, value: f32) -> ::windows::core::Result<()>;
     fn TrimOffset(&mut self) -> ::windows::core::Result<f32>;
@@ -2080,9 +2080,9 @@ impl ::windows::core::RuntimeName for ICompositionGeometry {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionGeometry";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionGeometryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGeometryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionGeometryVtbl {
-        unsafe extern "system" fn TrimEnd<Impl: ICompositionGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl ICompositionGeometry_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGeometry_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionGeometry_Vtbl {
+        unsafe extern "system" fn TrimEnd<Impl: ICompositionGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrimEnd() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2093,11 +2093,11 @@ impl ICompositionGeometryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTrimEnd<Impl: ICompositionGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTrimEnd<Impl: ICompositionGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTrimEnd(value).into()
         }
-        unsafe extern "system" fn TrimOffset<Impl: ICompositionGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrimOffset<Impl: ICompositionGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrimOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2108,11 +2108,11 @@ impl ICompositionGeometryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTrimOffset<Impl: ICompositionGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTrimOffset<Impl: ICompositionGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTrimOffset(value).into()
         }
-        unsafe extern "system" fn TrimStart<Impl: ICompositionGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrimStart<Impl: ICompositionGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrimStart() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2123,7 +2123,7 @@ impl ICompositionGeometryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTrimStart<Impl: ICompositionGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTrimStart<Impl: ICompositionGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTrimStart(value).into()
         }
@@ -2142,14 +2142,14 @@ impl ICompositionGeometryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionGeometryFactoryImpl: Sized {}
+pub trait ICompositionGeometryFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionGeometryFactory {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionGeometryFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionGeometryFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGeometryFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionGeometryFactoryVtbl {
+impl ICompositionGeometryFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGeometryFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionGeometryFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionGeometryFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -2157,7 +2157,7 @@ impl ICompositionGeometryFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ICompositionGradientBrushImpl: Sized {
+pub trait ICompositionGradientBrush_Impl: Sized {
     fn AnchorPoint(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
     fn SetAnchorPoint(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
     fn CenterPoint(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
@@ -2183,9 +2183,9 @@ impl ::windows::core::RuntimeName for ICompositionGradientBrush {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionGradientBrush";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ICompositionGradientBrushVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGradientBrushImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionGradientBrushVtbl {
-        unsafe extern "system" fn AnchorPoint<Impl: ICompositionGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+impl ICompositionGradientBrush_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGradientBrush_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionGradientBrush_Vtbl {
+        unsafe extern "system" fn AnchorPoint<Impl: ICompositionGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AnchorPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2196,11 +2196,11 @@ impl ICompositionGradientBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAnchorPoint<Impl: ICompositionGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAnchorPoint<Impl: ICompositionGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAnchorPoint(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CenterPoint<Impl: ICompositionGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CenterPoint<Impl: ICompositionGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CenterPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2211,11 +2211,11 @@ impl ICompositionGradientBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCenterPoint<Impl: ICompositionGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCenterPoint<Impl: ICompositionGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCenterPoint(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ColorStops<Impl: ICompositionGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ColorStops<Impl: ICompositionGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ColorStops() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2226,7 +2226,7 @@ impl ICompositionGradientBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendMode<Impl: ICompositionGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionGradientExtendMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendMode<Impl: ICompositionGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionGradientExtendMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2237,11 +2237,11 @@ impl ICompositionGradientBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExtendMode<Impl: ICompositionGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionGradientExtendMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetExtendMode<Impl: ICompositionGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionGradientExtendMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExtendMode(value).into()
         }
-        unsafe extern "system" fn InterpolationSpace<Impl: ICompositionGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionColorSpace) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InterpolationSpace<Impl: ICompositionGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionColorSpace) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InterpolationSpace() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2252,11 +2252,11 @@ impl ICompositionGradientBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInterpolationSpace<Impl: ICompositionGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionColorSpace) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInterpolationSpace<Impl: ICompositionGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionColorSpace) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInterpolationSpace(value).into()
         }
-        unsafe extern "system" fn Offset<Impl: ICompositionGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Offset<Impl: ICompositionGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Offset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2267,11 +2267,11 @@ impl ICompositionGradientBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOffset<Impl: ICompositionGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffset<Impl: ICompositionGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOffset(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RotationAngle<Impl: ICompositionGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RotationAngle<Impl: ICompositionGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RotationAngle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2282,11 +2282,11 @@ impl ICompositionGradientBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRotationAngle<Impl: ICompositionGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRotationAngle<Impl: ICompositionGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRotationAngle(value).into()
         }
-        unsafe extern "system" fn RotationAngleInDegrees<Impl: ICompositionGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RotationAngleInDegrees<Impl: ICompositionGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RotationAngleInDegrees() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2297,11 +2297,11 @@ impl ICompositionGradientBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRotationAngleInDegrees<Impl: ICompositionGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRotationAngleInDegrees<Impl: ICompositionGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRotationAngleInDegrees(value).into()
         }
-        unsafe extern "system" fn Scale<Impl: ICompositionGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Scale<Impl: ICompositionGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Scale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2312,11 +2312,11 @@ impl ICompositionGradientBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetScale<Impl: ICompositionGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScale<Impl: ICompositionGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScale(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TransformMatrix<Impl: ICompositionGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransformMatrix<Impl: ICompositionGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransformMatrix() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2327,7 +2327,7 @@ impl ICompositionGradientBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTransformMatrix<Impl: ICompositionGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTransformMatrix<Impl: ICompositionGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTransformMatrix(&*(&value as *const <super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2359,7 +2359,7 @@ impl ICompositionGradientBrushVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionGradientBrush2Impl: Sized {
+pub trait ICompositionGradientBrush2_Impl: Sized {
     fn MappingMode(&mut self) -> ::windows::core::Result<CompositionMappingMode>;
     fn SetMappingMode(&mut self, value: CompositionMappingMode) -> ::windows::core::Result<()>;
 }
@@ -2368,9 +2368,9 @@ impl ::windows::core::RuntimeName for ICompositionGradientBrush2 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionGradientBrush2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionGradientBrush2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGradientBrush2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionGradientBrush2Vtbl {
-        unsafe extern "system" fn MappingMode<Impl: ICompositionGradientBrush2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionMappingMode) -> ::windows::core::HRESULT {
+impl ICompositionGradientBrush2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGradientBrush2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionGradientBrush2_Vtbl {
+        unsafe extern "system" fn MappingMode<Impl: ICompositionGradientBrush2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionMappingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MappingMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2381,7 +2381,7 @@ impl ICompositionGradientBrush2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMappingMode<Impl: ICompositionGradientBrush2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionMappingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMappingMode<Impl: ICompositionGradientBrush2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionMappingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMappingMode(value).into()
         }
@@ -2396,14 +2396,14 @@ impl ICompositionGradientBrush2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionGradientBrushFactoryImpl: Sized {}
+pub trait ICompositionGradientBrushFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionGradientBrushFactory {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionGradientBrushFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionGradientBrushFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGradientBrushFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionGradientBrushFactoryVtbl {
+impl ICompositionGradientBrushFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGradientBrushFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionGradientBrushFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionGradientBrushFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -2411,7 +2411,7 @@ impl ICompositionGradientBrushFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
-pub trait ICompositionGraphicsDeviceImpl: Sized {
+pub trait ICompositionGraphicsDevice_Impl: Sized {
     fn CreateDrawingSurface(&mut self, sizepixels: &super::super::Foundation::Size, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionDrawingSurface>;
     fn RenderingDeviceReplaced(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CompositionGraphicsDevice, RenderingDeviceReplacedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveRenderingDeviceReplaced(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -2421,9 +2421,9 @@ impl ::windows::core::RuntimeName for ICompositionGraphicsDevice {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionGraphicsDevice";
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
-impl ICompositionGraphicsDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGraphicsDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionGraphicsDeviceVtbl {
-        unsafe extern "system" fn CreateDrawingSurface<Impl: ICompositionGraphicsDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sizepixels: super::super::Foundation::Size, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionGraphicsDevice_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGraphicsDevice_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionGraphicsDevice_Vtbl {
+        unsafe extern "system" fn CreateDrawingSurface<Impl: ICompositionGraphicsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sizepixels: super::super::Foundation::Size, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDrawingSurface(&*(&sizepixels as *const <super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType), pixelformat, alphamode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2434,7 +2434,7 @@ impl ICompositionGraphicsDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RenderingDeviceReplaced<Impl: ICompositionGraphicsDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RenderingDeviceReplaced<Impl: ICompositionGraphicsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RenderingDeviceReplaced(&*(&handler as *const <super::super::Foundation::TypedEventHandler<CompositionGraphicsDevice, RenderingDeviceReplacedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<CompositionGraphicsDevice, RenderingDeviceReplacedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2445,7 +2445,7 @@ impl ICompositionGraphicsDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRenderingDeviceReplaced<Impl: ICompositionGraphicsDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveRenderingDeviceReplaced<Impl: ICompositionGraphicsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRenderingDeviceReplaced(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2461,7 +2461,7 @@ impl ICompositionGraphicsDeviceVtbl {
     }
 }
 #[cfg(all(feature = "Graphics", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
-pub trait ICompositionGraphicsDevice2Impl: Sized {
+pub trait ICompositionGraphicsDevice2_Impl: Sized {
     fn CreateDrawingSurface2(&mut self, sizepixels: &super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionDrawingSurface>;
     fn CreateVirtualDrawingSurface(&mut self, sizepixels: &super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionVirtualDrawingSurface>;
 }
@@ -2470,9 +2470,9 @@ impl ::windows::core::RuntimeName for ICompositionGraphicsDevice2 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionGraphicsDevice2";
 }
 #[cfg(all(feature = "Graphics", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
-impl ICompositionGraphicsDevice2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGraphicsDevice2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionGraphicsDevice2Vtbl {
-        unsafe extern "system" fn CreateDrawingSurface2<Impl: ICompositionGraphicsDevice2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionGraphicsDevice2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGraphicsDevice2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionGraphicsDevice2_Vtbl {
+        unsafe extern "system" fn CreateDrawingSurface2<Impl: ICompositionGraphicsDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDrawingSurface2(&*(&sizepixels as *const <super::super::Graphics::SizeInt32 as ::windows::core::Abi>::Abi as *const <super::super::Graphics::SizeInt32 as ::windows::core::DefaultType>::DefaultType), pixelformat, alphamode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2483,7 +2483,7 @@ impl ICompositionGraphicsDevice2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateVirtualDrawingSurface<Impl: ICompositionGraphicsDevice2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateVirtualDrawingSurface<Impl: ICompositionGraphicsDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateVirtualDrawingSurface(&*(&sizepixels as *const <super::super::Graphics::SizeInt32 as ::windows::core::Abi>::Abi as *const <super::super::Graphics::SizeInt32 as ::windows::core::DefaultType>::DefaultType), pixelformat, alphamode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2505,7 +2505,7 @@ impl ICompositionGraphicsDevice2Vtbl {
     }
 }
 #[cfg(all(feature = "Graphics", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
-pub trait ICompositionGraphicsDevice3Impl: Sized {
+pub trait ICompositionGraphicsDevice3_Impl: Sized {
     fn CreateMipmapSurface(&mut self, sizepixels: &super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionMipmapSurface>;
     fn Trim(&mut self) -> ::windows::core::Result<()>;
 }
@@ -2514,9 +2514,9 @@ impl ::windows::core::RuntimeName for ICompositionGraphicsDevice3 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionGraphicsDevice3";
 }
 #[cfg(all(feature = "Graphics", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
-impl ICompositionGraphicsDevice3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGraphicsDevice3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionGraphicsDevice3Vtbl {
-        unsafe extern "system" fn CreateMipmapSurface<Impl: ICompositionGraphicsDevice3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionGraphicsDevice3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGraphicsDevice3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionGraphicsDevice3_Vtbl {
+        unsafe extern "system" fn CreateMipmapSurface<Impl: ICompositionGraphicsDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMipmapSurface(&*(&sizepixels as *const <super::super::Graphics::SizeInt32 as ::windows::core::Abi>::Abi as *const <super::super::Graphics::SizeInt32 as ::windows::core::DefaultType>::DefaultType), pixelformat, alphamode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2527,7 +2527,7 @@ impl ICompositionGraphicsDevice3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Trim<Impl: ICompositionGraphicsDevice3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Trim<Impl: ICompositionGraphicsDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Trim().into()
         }
@@ -2542,7 +2542,7 @@ impl ICompositionGraphicsDevice3Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
-pub trait ICompositionGraphicsDevice4Impl: Sized {
+pub trait ICompositionGraphicsDevice4_Impl: Sized {
     fn CaptureAsync(&mut self, capturevisual: &::core::option::Option<Visual>, size: &super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, sdrboost: f32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ICompositionSurface>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
@@ -2550,9 +2550,9 @@ impl ::windows::core::RuntimeName for ICompositionGraphicsDevice4 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionGraphicsDevice4";
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
-impl ICompositionGraphicsDevice4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGraphicsDevice4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionGraphicsDevice4Vtbl {
-        unsafe extern "system" fn CaptureAsync<Impl: ICompositionGraphicsDevice4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, capturevisual: ::windows::core::RawPtr, size: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, sdrboost: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionGraphicsDevice4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGraphicsDevice4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionGraphicsDevice4_Vtbl {
+        unsafe extern "system" fn CaptureAsync<Impl: ICompositionGraphicsDevice4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, capturevisual: ::windows::core::RawPtr, size: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, sdrboost: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CaptureAsync(&*(&capturevisual as *const <Visual as ::windows::core::Abi>::Abi as *const <Visual as ::windows::core::DefaultType>::DefaultType), &*(&size as *const <super::super::Graphics::SizeInt32 as ::windows::core::Abi>::Abi as *const <super::super::Graphics::SizeInt32 as ::windows::core::DefaultType>::DefaultType), pixelformat, alphamode, sdrboost) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2573,7 +2573,7 @@ impl ICompositionGraphicsDevice4Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionLightImpl: Sized {
+pub trait ICompositionLight_Impl: Sized {
     fn Targets(&mut self) -> ::windows::core::Result<VisualUnorderedCollection>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2581,9 +2581,9 @@ impl ::windows::core::RuntimeName for ICompositionLight {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionLight";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionLightVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionLightImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionLightVtbl {
-        unsafe extern "system" fn Targets<Impl: ICompositionLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionLight_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionLight_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionLight_Vtbl {
+        unsafe extern "system" fn Targets<Impl: ICompositionLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Targets() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2601,7 +2601,7 @@ impl ICompositionLightVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionLight2Impl: Sized {
+pub trait ICompositionLight2_Impl: Sized {
     fn ExclusionsFromTargets(&mut self) -> ::windows::core::Result<VisualUnorderedCollection>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2609,9 +2609,9 @@ impl ::windows::core::RuntimeName for ICompositionLight2 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionLight2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionLight2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionLight2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionLight2Vtbl {
-        unsafe extern "system" fn ExclusionsFromTargets<Impl: ICompositionLight2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionLight2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionLight2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionLight2_Vtbl {
+        unsafe extern "system" fn ExclusionsFromTargets<Impl: ICompositionLight2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExclusionsFromTargets() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2632,7 +2632,7 @@ impl ICompositionLight2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionLight3Impl: Sized {
+pub trait ICompositionLight3_Impl: Sized {
     fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
@@ -2641,9 +2641,9 @@ impl ::windows::core::RuntimeName for ICompositionLight3 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionLight3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionLight3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionLight3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionLight3Vtbl {
-        unsafe extern "system" fn IsEnabled<Impl: ICompositionLight3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ICompositionLight3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionLight3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionLight3_Vtbl {
+        unsafe extern "system" fn IsEnabled<Impl: ICompositionLight3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2654,7 +2654,7 @@ impl ICompositionLight3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsEnabled<Impl: ICompositionLight3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsEnabled<Impl: ICompositionLight3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsEnabled(value).into()
         }
@@ -2669,14 +2669,14 @@ impl ICompositionLight3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionLightFactoryImpl: Sized {}
+pub trait ICompositionLightFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionLightFactory {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionLightFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionLightFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionLightFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionLightFactoryVtbl {
+impl ICompositionLightFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionLightFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionLightFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionLightFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -2684,7 +2684,7 @@ impl ICompositionLightFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ICompositionLineGeometryImpl: Sized {
+pub trait ICompositionLineGeometry_Impl: Sized {
     fn Start(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
     fn SetStart(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
     fn End(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
@@ -2695,9 +2695,9 @@ impl ::windows::core::RuntimeName for ICompositionLineGeometry {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionLineGeometry";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ICompositionLineGeometryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionLineGeometryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionLineGeometryVtbl {
-        unsafe extern "system" fn Start<Impl: ICompositionLineGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+impl ICompositionLineGeometry_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionLineGeometry_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionLineGeometry_Vtbl {
+        unsafe extern "system" fn Start<Impl: ICompositionLineGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Start() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2708,11 +2708,11 @@ impl ICompositionLineGeometryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStart<Impl: ICompositionLineGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStart<Impl: ICompositionLineGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStart(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn End<Impl: ICompositionLineGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn End<Impl: ICompositionLineGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).End() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2723,7 +2723,7 @@ impl ICompositionLineGeometryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEnd<Impl: ICompositionLineGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnd<Impl: ICompositionLineGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnd(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2740,7 +2740,7 @@ impl ICompositionLineGeometryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ICompositionLinearGradientBrushImpl: Sized {
+pub trait ICompositionLinearGradientBrush_Impl: Sized {
     fn EndPoint(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
     fn SetEndPoint(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
     fn StartPoint(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
@@ -2751,9 +2751,9 @@ impl ::windows::core::RuntimeName for ICompositionLinearGradientBrush {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionLinearGradientBrush";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ICompositionLinearGradientBrushVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionLinearGradientBrushImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionLinearGradientBrushVtbl {
-        unsafe extern "system" fn EndPoint<Impl: ICompositionLinearGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+impl ICompositionLinearGradientBrush_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionLinearGradientBrush_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionLinearGradientBrush_Vtbl {
+        unsafe extern "system" fn EndPoint<Impl: ICompositionLinearGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2764,11 +2764,11 @@ impl ICompositionLinearGradientBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEndPoint<Impl: ICompositionLinearGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEndPoint<Impl: ICompositionLinearGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEndPoint(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StartPoint<Impl: ICompositionLinearGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartPoint<Impl: ICompositionLinearGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2779,7 +2779,7 @@ impl ICompositionLinearGradientBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStartPoint<Impl: ICompositionLinearGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStartPoint<Impl: ICompositionLinearGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStartPoint(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2796,7 +2796,7 @@ impl ICompositionLinearGradientBrushVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionMaskBrushImpl: Sized {
+pub trait ICompositionMaskBrush_Impl: Sized {
     fn Mask(&mut self) -> ::windows::core::Result<CompositionBrush>;
     fn SetMask(&mut self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
     fn Source(&mut self) -> ::windows::core::Result<CompositionBrush>;
@@ -2807,9 +2807,9 @@ impl ::windows::core::RuntimeName for ICompositionMaskBrush {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionMaskBrush";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionMaskBrushVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionMaskBrushImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionMaskBrushVtbl {
-        unsafe extern "system" fn Mask<Impl: ICompositionMaskBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionMaskBrush_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionMaskBrush_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionMaskBrush_Vtbl {
+        unsafe extern "system" fn Mask<Impl: ICompositionMaskBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Mask() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2820,11 +2820,11 @@ impl ICompositionMaskBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMask<Impl: ICompositionMaskBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMask<Impl: ICompositionMaskBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMask(&*(&value as *const <CompositionBrush as ::windows::core::Abi>::Abi as *const <CompositionBrush as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Source<Impl: ICompositionMaskBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Source<Impl: ICompositionMaskBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Source() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2835,7 +2835,7 @@ impl ICompositionMaskBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSource<Impl: ICompositionMaskBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSource<Impl: ICompositionMaskBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSource(&*(&value as *const <CompositionBrush as ::windows::core::Abi>::Abi as *const <CompositionBrush as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2852,7 +2852,7 @@ impl ICompositionMaskBrushVtbl {
     }
 }
 #[cfg(all(feature = "Graphics", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
-pub trait ICompositionMipmapSurfaceImpl: Sized {
+pub trait ICompositionMipmapSurface_Impl: Sized {
     fn LevelCount(&mut self) -> ::windows::core::Result<u32>;
     fn AlphaMode(&mut self) -> ::windows::core::Result<super::super::Graphics::DirectX::DirectXAlphaMode>;
     fn PixelFormat(&mut self) -> ::windows::core::Result<super::super::Graphics::DirectX::DirectXPixelFormat>;
@@ -2864,9 +2864,9 @@ impl ::windows::core::RuntimeName for ICompositionMipmapSurface {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionMipmapSurface";
 }
 #[cfg(all(feature = "Graphics", feature = "Graphics_DirectX", feature = "implement_exclusive"))]
-impl ICompositionMipmapSurfaceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionMipmapSurfaceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionMipmapSurfaceVtbl {
-        unsafe extern "system" fn LevelCount<Impl: ICompositionMipmapSurfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl ICompositionMipmapSurface_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionMipmapSurface_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionMipmapSurface_Vtbl {
+        unsafe extern "system" fn LevelCount<Impl: ICompositionMipmapSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LevelCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2877,7 +2877,7 @@ impl ICompositionMipmapSurfaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AlphaMode<Impl: ICompositionMipmapSurfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AlphaMode<Impl: ICompositionMipmapSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlphaMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2888,7 +2888,7 @@ impl ICompositionMipmapSurfaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PixelFormat<Impl: ICompositionMipmapSurfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PixelFormat<Impl: ICompositionMipmapSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PixelFormat() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2899,7 +2899,7 @@ impl ICompositionMipmapSurfaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SizeInt32<Impl: ICompositionMipmapSurfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SizeInt32<Impl: ICompositionMipmapSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SizeInt32() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2910,7 +2910,7 @@ impl ICompositionMipmapSurfaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDrawingSurfaceForLevel<Impl: ICompositionMipmapSurfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDrawingSurfaceForLevel<Impl: ICompositionMipmapSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDrawingSurfaceForLevel(level) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2935,7 +2935,7 @@ impl ICompositionMipmapSurfaceVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionNineGridBrushImpl: Sized {
+pub trait ICompositionNineGridBrush_Impl: Sized {
     fn BottomInset(&mut self) -> ::windows::core::Result<f32>;
     fn SetBottomInset(&mut self, value: f32) -> ::windows::core::Result<()>;
     fn BottomInsetScale(&mut self) -> ::windows::core::Result<f32>;
@@ -2966,9 +2966,9 @@ impl ::windows::core::RuntimeName for ICompositionNineGridBrush {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionNineGridBrush";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionNineGridBrushVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionNineGridBrushImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionNineGridBrushVtbl {
-        unsafe extern "system" fn BottomInset<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl ICompositionNineGridBrush_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionNineGridBrush_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionNineGridBrush_Vtbl {
+        unsafe extern "system" fn BottomInset<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BottomInset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2979,11 +2979,11 @@ impl ICompositionNineGridBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBottomInset<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBottomInset<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBottomInset(value).into()
         }
-        unsafe extern "system" fn BottomInsetScale<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BottomInsetScale<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BottomInsetScale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2994,11 +2994,11 @@ impl ICompositionNineGridBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBottomInsetScale<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBottomInsetScale<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBottomInsetScale(value).into()
         }
-        unsafe extern "system" fn IsCenterHollow<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCenterHollow<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCenterHollow() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3009,11 +3009,11 @@ impl ICompositionNineGridBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsCenterHollow<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsCenterHollow<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsCenterHollow(value).into()
         }
-        unsafe extern "system" fn LeftInset<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LeftInset<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LeftInset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3024,11 +3024,11 @@ impl ICompositionNineGridBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLeftInset<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLeftInset<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLeftInset(value).into()
         }
-        unsafe extern "system" fn LeftInsetScale<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LeftInsetScale<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LeftInsetScale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3039,11 +3039,11 @@ impl ICompositionNineGridBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLeftInsetScale<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLeftInsetScale<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLeftInsetScale(value).into()
         }
-        unsafe extern "system" fn RightInset<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RightInset<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RightInset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3054,11 +3054,11 @@ impl ICompositionNineGridBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRightInset<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRightInset<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRightInset(value).into()
         }
-        unsafe extern "system" fn RightInsetScale<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RightInsetScale<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RightInsetScale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3069,11 +3069,11 @@ impl ICompositionNineGridBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRightInsetScale<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRightInsetScale<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRightInsetScale(value).into()
         }
-        unsafe extern "system" fn Source<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Source<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Source() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3084,11 +3084,11 @@ impl ICompositionNineGridBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSource<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSource<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSource(&*(&value as *const <CompositionBrush as ::windows::core::Abi>::Abi as *const <CompositionBrush as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TopInset<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TopInset<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TopInset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3099,11 +3099,11 @@ impl ICompositionNineGridBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTopInset<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTopInset<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTopInset(value).into()
         }
-        unsafe extern "system" fn TopInsetScale<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TopInsetScale<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TopInsetScale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3114,23 +3114,23 @@ impl ICompositionNineGridBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTopInsetScale<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTopInsetScale<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTopInsetScale(value).into()
         }
-        unsafe extern "system" fn SetInsets<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inset: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInsets<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inset: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInsets(inset).into()
         }
-        unsafe extern "system" fn SetInsetsWithValues<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, left: f32, top: f32, right: f32, bottom: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInsetsWithValues<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, left: f32, top: f32, right: f32, bottom: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInsetsWithValues(left, top, right, bottom).into()
         }
-        unsafe extern "system" fn SetInsetScales<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scale: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInsetScales<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scale: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInsetScales(scale).into()
         }
-        unsafe extern "system" fn SetInsetScalesWithValues<Impl: ICompositionNineGridBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, left: f32, top: f32, right: f32, bottom: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInsetScalesWithValues<Impl: ICompositionNineGridBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, left: f32, top: f32, right: f32, bottom: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInsetScalesWithValues(left, top, right, bottom).into()
         }
@@ -3167,7 +3167,7 @@ impl ICompositionNineGridBrushVtbl {
     }
 }
 #[cfg(all(feature = "UI_Core", feature = "implement_exclusive"))]
-pub trait ICompositionObjectImpl: Sized {
+pub trait ICompositionObject_Impl: Sized {
     fn Compositor(&mut self) -> ::windows::core::Result<Compositor>;
     fn Dispatcher(&mut self) -> ::windows::core::Result<super::Core::CoreDispatcher>;
     fn Properties(&mut self) -> ::windows::core::Result<CompositionPropertySet>;
@@ -3179,9 +3179,9 @@ impl ::windows::core::RuntimeName for ICompositionObject {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionObject";
 }
 #[cfg(all(feature = "UI_Core", feature = "implement_exclusive"))]
-impl ICompositionObjectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionObjectVtbl {
-        unsafe extern "system" fn Compositor<Impl: ICompositionObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionObject_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionObject_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionObject_Vtbl {
+        unsafe extern "system" fn Compositor<Impl: ICompositionObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Compositor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3192,7 +3192,7 @@ impl ICompositionObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Dispatcher<Impl: ICompositionObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Dispatcher<Impl: ICompositionObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Dispatcher() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3203,7 +3203,7 @@ impl ICompositionObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Properties<Impl: ICompositionObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Properties<Impl: ICompositionObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3214,11 +3214,11 @@ impl ICompositionObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartAnimation<Impl: ICompositionObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartAnimation<Impl: ICompositionObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartAnimation(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&animation as *const <CompositionAnimation as ::windows::core::Abi>::Abi as *const <CompositionAnimation as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StopAnimation<Impl: ICompositionObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopAnimation<Impl: ICompositionObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StopAnimation(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3236,7 +3236,7 @@ impl ICompositionObjectVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionObject2Impl: Sized {
+pub trait ICompositionObject2_Impl: Sized {
     fn Comment(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetComment(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn ImplicitAnimations(&mut self) -> ::windows::core::Result<ImplicitAnimationCollection>;
@@ -3249,9 +3249,9 @@ impl ::windows::core::RuntimeName for ICompositionObject2 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionObject2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionObject2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionObject2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionObject2Vtbl {
-        unsafe extern "system" fn Comment<Impl: ICompositionObject2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ICompositionObject2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionObject2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionObject2_Vtbl {
+        unsafe extern "system" fn Comment<Impl: ICompositionObject2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Comment() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3262,11 +3262,11 @@ impl ICompositionObject2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetComment<Impl: ICompositionObject2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetComment<Impl: ICompositionObject2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetComment(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ImplicitAnimations<Impl: ICompositionObject2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImplicitAnimations<Impl: ICompositionObject2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImplicitAnimations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3277,15 +3277,15 @@ impl ICompositionObject2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetImplicitAnimations<Impl: ICompositionObject2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetImplicitAnimations<Impl: ICompositionObject2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetImplicitAnimations(&*(&value as *const <ImplicitAnimationCollection as ::windows::core::Abi>::Abi as *const <ImplicitAnimationCollection as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StartAnimationGroup<Impl: ICompositionObject2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartAnimationGroup<Impl: ICompositionObject2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartAnimationGroup(&*(&value as *const <ICompositionAnimationBase as ::windows::core::Abi>::Abi as *const <ICompositionAnimationBase as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StopAnimationGroup<Impl: ICompositionObject2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopAnimationGroup<Impl: ICompositionObject2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StopAnimationGroup(&*(&value as *const <ICompositionAnimationBase as ::windows::core::Abi>::Abi as *const <ICompositionAnimationBase as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3304,7 +3304,7 @@ impl ICompositionObject2Vtbl {
     }
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-pub trait ICompositionObject3Impl: Sized {
+pub trait ICompositionObject3_Impl: Sized {
     fn DispatcherQueue(&mut self) -> ::windows::core::Result<super::super::System::DispatcherQueue>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
@@ -3312,9 +3312,9 @@ impl ::windows::core::RuntimeName for ICompositionObject3 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionObject3";
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-impl ICompositionObject3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionObject3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionObject3Vtbl {
-        unsafe extern "system" fn DispatcherQueue<Impl: ICompositionObject3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionObject3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionObject3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionObject3_Vtbl {
+        unsafe extern "system" fn DispatcherQueue<Impl: ICompositionObject3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DispatcherQueue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3335,7 +3335,7 @@ impl ICompositionObject3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionObject4Impl: Sized {
+pub trait ICompositionObject4_Impl: Sized {
     fn TryGetAnimationController(&mut self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<AnimationController>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3343,9 +3343,9 @@ impl ::windows::core::RuntimeName for ICompositionObject4 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionObject4";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionObject4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionObject4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionObject4Vtbl {
-        unsafe extern "system" fn TryGetAnimationController<Impl: ICompositionObject4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionObject4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionObject4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionObject4_Vtbl {
+        unsafe extern "system" fn TryGetAnimationController<Impl: ICompositionObject4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetAnimationController(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3366,14 +3366,14 @@ impl ICompositionObject4Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionObjectFactoryImpl: Sized {}
+pub trait ICompositionObjectFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionObjectFactory {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionObjectFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionObjectFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionObjectFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionObjectFactoryVtbl {
+impl ICompositionObjectFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionObjectFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionObjectFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionObjectFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -3381,7 +3381,7 @@ impl ICompositionObjectFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionObjectStaticsImpl: Sized {
+pub trait ICompositionObjectStatics_Impl: Sized {
     fn StartAnimationWithIAnimationObject(&mut self, target: &::core::option::Option<IAnimationObject>, propertyname: &::windows::core::HSTRING, animation: &::core::option::Option<CompositionAnimation>) -> ::windows::core::Result<()>;
     fn StartAnimationGroupWithIAnimationObject(&mut self, target: &::core::option::Option<IAnimationObject>, animation: &::core::option::Option<ICompositionAnimationBase>) -> ::windows::core::Result<()>;
 }
@@ -3390,15 +3390,15 @@ impl ::windows::core::RuntimeName for ICompositionObjectStatics {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionObjectStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionObjectStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionObjectStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionObjectStaticsVtbl {
-        unsafe extern "system" fn StartAnimationWithIAnimationObject<Impl: ICompositionObjectStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionObjectStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionObjectStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionObjectStatics_Vtbl {
+        unsafe extern "system" fn StartAnimationWithIAnimationObject<Impl: ICompositionObjectStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .StartAnimationWithIAnimationObject(&*(&target as *const <IAnimationObject as ::windows::core::Abi>::Abi as *const <IAnimationObject as ::windows::core::DefaultType>::DefaultType), &*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&animation as *const <CompositionAnimation as ::windows::core::Abi>::Abi as *const <CompositionAnimation as ::windows::core::DefaultType>::DefaultType))
                 .into()
         }
-        unsafe extern "system" fn StartAnimationGroupWithIAnimationObject<Impl: ICompositionObjectStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartAnimationGroupWithIAnimationObject<Impl: ICompositionObjectStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartAnimationGroupWithIAnimationObject(&*(&target as *const <IAnimationObject as ::windows::core::Abi>::Abi as *const <IAnimationObject as ::windows::core::DefaultType>::DefaultType), &*(&animation as *const <ICompositionAnimationBase as ::windows::core::Abi>::Abi as *const <ICompositionAnimationBase as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3413,14 +3413,14 @@ impl ICompositionObjectStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionPathImpl: Sized {}
+pub trait ICompositionPath_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionPath {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionPath";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionPathVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionPathImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionPathVtbl {
+impl ICompositionPath_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionPath_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionPath_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionPath, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -3428,7 +3428,7 @@ impl ICompositionPathVtbl {
     }
 }
 #[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
-pub trait ICompositionPathFactoryImpl: Sized {
+pub trait ICompositionPathFactory_Impl: Sized {
     fn Create(&mut self, source: &::core::option::Option<super::super::Graphics::IGeometrySource2D>) -> ::windows::core::Result<CompositionPath>;
 }
 #[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
@@ -3436,9 +3436,9 @@ impl ::windows::core::RuntimeName for ICompositionPathFactory {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionPathFactory";
 }
 #[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
-impl ICompositionPathFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionPathFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionPathFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: ICompositionPathFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionPathFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionPathFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionPathFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: ICompositionPathFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&source as *const <super::super::Graphics::IGeometrySource2D as ::windows::core::Abi>::Abi as *const <super::super::Graphics::IGeometrySource2D as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3456,7 +3456,7 @@ impl ICompositionPathFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionPathGeometryImpl: Sized {
+pub trait ICompositionPathGeometry_Impl: Sized {
     fn Path(&mut self) -> ::windows::core::Result<CompositionPath>;
     fn SetPath(&mut self, value: &::core::option::Option<CompositionPath>) -> ::windows::core::Result<()>;
 }
@@ -3465,9 +3465,9 @@ impl ::windows::core::RuntimeName for ICompositionPathGeometry {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionPathGeometry";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionPathGeometryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionPathGeometryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionPathGeometryVtbl {
-        unsafe extern "system" fn Path<Impl: ICompositionPathGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionPathGeometry_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionPathGeometry_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionPathGeometry_Vtbl {
+        unsafe extern "system" fn Path<Impl: ICompositionPathGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Path() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3478,7 +3478,7 @@ impl ICompositionPathGeometryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPath<Impl: ICompositionPathGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPath<Impl: ICompositionPathGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPath(&*(&value as *const <CompositionPath as ::windows::core::Abi>::Abi as *const <CompositionPath as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3493,7 +3493,7 @@ impl ICompositionPathGeometryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionProjectedShadowImpl: Sized {
+pub trait ICompositionProjectedShadow_Impl: Sized {
     fn BlurRadiusMultiplier(&mut self) -> ::windows::core::Result<f32>;
     fn SetBlurRadiusMultiplier(&mut self, value: f32) -> ::windows::core::Result<()>;
     fn Casters(&mut self) -> ::windows::core::Result<CompositionProjectedShadowCasterCollection>;
@@ -3510,9 +3510,9 @@ impl ::windows::core::RuntimeName for ICompositionProjectedShadow {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionProjectedShadow";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionProjectedShadowVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionProjectedShadowImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionProjectedShadowVtbl {
-        unsafe extern "system" fn BlurRadiusMultiplier<Impl: ICompositionProjectedShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl ICompositionProjectedShadow_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionProjectedShadow_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionProjectedShadow_Vtbl {
+        unsafe extern "system" fn BlurRadiusMultiplier<Impl: ICompositionProjectedShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BlurRadiusMultiplier() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3523,11 +3523,11 @@ impl ICompositionProjectedShadowVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBlurRadiusMultiplier<Impl: ICompositionProjectedShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBlurRadiusMultiplier<Impl: ICompositionProjectedShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBlurRadiusMultiplier(value).into()
         }
-        unsafe extern "system" fn Casters<Impl: ICompositionProjectedShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Casters<Impl: ICompositionProjectedShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Casters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3538,7 +3538,7 @@ impl ICompositionProjectedShadowVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LightSource<Impl: ICompositionProjectedShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LightSource<Impl: ICompositionProjectedShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LightSource() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3549,11 +3549,11 @@ impl ICompositionProjectedShadowVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLightSource<Impl: ICompositionProjectedShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLightSource<Impl: ICompositionProjectedShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLightSource(&*(&value as *const <CompositionLight as ::windows::core::Abi>::Abi as *const <CompositionLight as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MaxBlurRadius<Impl: ICompositionProjectedShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxBlurRadius<Impl: ICompositionProjectedShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxBlurRadius() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3564,11 +3564,11 @@ impl ICompositionProjectedShadowVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxBlurRadius<Impl: ICompositionProjectedShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxBlurRadius<Impl: ICompositionProjectedShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxBlurRadius(value).into()
         }
-        unsafe extern "system" fn MinBlurRadius<Impl: ICompositionProjectedShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinBlurRadius<Impl: ICompositionProjectedShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinBlurRadius() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3579,11 +3579,11 @@ impl ICompositionProjectedShadowVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMinBlurRadius<Impl: ICompositionProjectedShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMinBlurRadius<Impl: ICompositionProjectedShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMinBlurRadius(value).into()
         }
-        unsafe extern "system" fn Receivers<Impl: ICompositionProjectedShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Receivers<Impl: ICompositionProjectedShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Receivers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3613,7 +3613,7 @@ impl ICompositionProjectedShadowVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionProjectedShadowCasterImpl: Sized {
+pub trait ICompositionProjectedShadowCaster_Impl: Sized {
     fn Brush(&mut self) -> ::windows::core::Result<CompositionBrush>;
     fn SetBrush(&mut self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
     fn CastingVisual(&mut self) -> ::windows::core::Result<Visual>;
@@ -3624,9 +3624,9 @@ impl ::windows::core::RuntimeName for ICompositionProjectedShadowCaster {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionProjectedShadowCaster";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionProjectedShadowCasterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionProjectedShadowCasterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionProjectedShadowCasterVtbl {
-        unsafe extern "system" fn Brush<Impl: ICompositionProjectedShadowCasterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionProjectedShadowCaster_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionProjectedShadowCaster_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionProjectedShadowCaster_Vtbl {
+        unsafe extern "system" fn Brush<Impl: ICompositionProjectedShadowCaster_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Brush() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3637,11 +3637,11 @@ impl ICompositionProjectedShadowCasterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBrush<Impl: ICompositionProjectedShadowCasterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBrush<Impl: ICompositionProjectedShadowCaster_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBrush(&*(&value as *const <CompositionBrush as ::windows::core::Abi>::Abi as *const <CompositionBrush as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CastingVisual<Impl: ICompositionProjectedShadowCasterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CastingVisual<Impl: ICompositionProjectedShadowCaster_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CastingVisual() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3652,7 +3652,7 @@ impl ICompositionProjectedShadowCasterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCastingVisual<Impl: ICompositionProjectedShadowCasterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCastingVisual<Impl: ICompositionProjectedShadowCaster_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCastingVisual(&*(&value as *const <Visual as ::windows::core::Abi>::Abi as *const <Visual as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3669,7 +3669,7 @@ impl ICompositionProjectedShadowCasterVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionProjectedShadowCasterCollectionImpl: Sized {
+pub trait ICompositionProjectedShadowCasterCollection_Impl: Sized {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn InsertAbove(&mut self, newcaster: &::core::option::Option<CompositionProjectedShadowCaster>, reference: &::core::option::Option<CompositionProjectedShadowCaster>) -> ::windows::core::Result<()>;
     fn InsertAtBottom(&mut self, newcaster: &::core::option::Option<CompositionProjectedShadowCaster>) -> ::windows::core::Result<()>;
@@ -3683,9 +3683,9 @@ impl ::windows::core::RuntimeName for ICompositionProjectedShadowCasterCollectio
     const NAME: &'static str = "Windows.UI.Composition.ICompositionProjectedShadowCasterCollection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionProjectedShadowCasterCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionProjectedShadowCasterCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionProjectedShadowCasterCollectionVtbl {
-        unsafe extern "system" fn Count<Impl: ICompositionProjectedShadowCasterCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl ICompositionProjectedShadowCasterCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionProjectedShadowCasterCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionProjectedShadowCasterCollection_Vtbl {
+        unsafe extern "system" fn Count<Impl: ICompositionProjectedShadowCasterCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3696,27 +3696,27 @@ impl ICompositionProjectedShadowCasterCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InsertAbove<Impl: ICompositionProjectedShadowCasterCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newcaster: ::windows::core::RawPtr, reference: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertAbove<Impl: ICompositionProjectedShadowCasterCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newcaster: ::windows::core::RawPtr, reference: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertAbove(&*(&newcaster as *const <CompositionProjectedShadowCaster as ::windows::core::Abi>::Abi as *const <CompositionProjectedShadowCaster as ::windows::core::DefaultType>::DefaultType), &*(&reference as *const <CompositionProjectedShadowCaster as ::windows::core::Abi>::Abi as *const <CompositionProjectedShadowCaster as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InsertAtBottom<Impl: ICompositionProjectedShadowCasterCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newcaster: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertAtBottom<Impl: ICompositionProjectedShadowCasterCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newcaster: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertAtBottom(&*(&newcaster as *const <CompositionProjectedShadowCaster as ::windows::core::Abi>::Abi as *const <CompositionProjectedShadowCaster as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InsertAtTop<Impl: ICompositionProjectedShadowCasterCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newcaster: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertAtTop<Impl: ICompositionProjectedShadowCasterCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newcaster: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertAtTop(&*(&newcaster as *const <CompositionProjectedShadowCaster as ::windows::core::Abi>::Abi as *const <CompositionProjectedShadowCaster as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InsertBelow<Impl: ICompositionProjectedShadowCasterCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newcaster: ::windows::core::RawPtr, reference: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertBelow<Impl: ICompositionProjectedShadowCasterCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newcaster: ::windows::core::RawPtr, reference: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertBelow(&*(&newcaster as *const <CompositionProjectedShadowCaster as ::windows::core::Abi>::Abi as *const <CompositionProjectedShadowCaster as ::windows::core::DefaultType>::DefaultType), &*(&reference as *const <CompositionProjectedShadowCaster as ::windows::core::Abi>::Abi as *const <CompositionProjectedShadowCaster as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Remove<Impl: ICompositionProjectedShadowCasterCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, caster: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Remove<Impl: ICompositionProjectedShadowCasterCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, caster: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Remove(&*(&caster as *const <CompositionProjectedShadowCaster as ::windows::core::Abi>::Abi as *const <CompositionProjectedShadowCaster as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RemoveAll<Impl: ICompositionProjectedShadowCasterCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAll<Impl: ICompositionProjectedShadowCasterCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAll().into()
         }
@@ -3736,7 +3736,7 @@ impl ICompositionProjectedShadowCasterCollectionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionProjectedShadowCasterCollectionStaticsImpl: Sized {
+pub trait ICompositionProjectedShadowCasterCollectionStatics_Impl: Sized {
     fn MaxRespectedCasters(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3744,9 +3744,9 @@ impl ::windows::core::RuntimeName for ICompositionProjectedShadowCasterCollectio
     const NAME: &'static str = "Windows.UI.Composition.ICompositionProjectedShadowCasterCollectionStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionProjectedShadowCasterCollectionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionProjectedShadowCasterCollectionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionProjectedShadowCasterCollectionStaticsVtbl {
-        unsafe extern "system" fn MaxRespectedCasters<Impl: ICompositionProjectedShadowCasterCollectionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl ICompositionProjectedShadowCasterCollectionStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionProjectedShadowCasterCollectionStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionProjectedShadowCasterCollectionStatics_Vtbl {
+        unsafe extern "system" fn MaxRespectedCasters<Impl: ICompositionProjectedShadowCasterCollectionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxRespectedCasters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3767,7 +3767,7 @@ impl ICompositionProjectedShadowCasterCollectionStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionProjectedShadowReceiverImpl: Sized {
+pub trait ICompositionProjectedShadowReceiver_Impl: Sized {
     fn ReceivingVisual(&mut self) -> ::windows::core::Result<Visual>;
     fn SetReceivingVisual(&mut self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
 }
@@ -3776,9 +3776,9 @@ impl ::windows::core::RuntimeName for ICompositionProjectedShadowReceiver {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionProjectedShadowReceiver";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionProjectedShadowReceiverVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionProjectedShadowReceiverImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionProjectedShadowReceiverVtbl {
-        unsafe extern "system" fn ReceivingVisual<Impl: ICompositionProjectedShadowReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionProjectedShadowReceiver_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionProjectedShadowReceiver_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionProjectedShadowReceiver_Vtbl {
+        unsafe extern "system" fn ReceivingVisual<Impl: ICompositionProjectedShadowReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReceivingVisual() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3789,7 +3789,7 @@ impl ICompositionProjectedShadowReceiverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetReceivingVisual<Impl: ICompositionProjectedShadowReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetReceivingVisual<Impl: ICompositionProjectedShadowReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetReceivingVisual(&*(&value as *const <Visual as ::windows::core::Abi>::Abi as *const <Visual as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3804,7 +3804,7 @@ impl ICompositionProjectedShadowReceiverVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionProjectedShadowReceiverUnorderedCollectionImpl: Sized {
+pub trait ICompositionProjectedShadowReceiverUnorderedCollection_Impl: Sized {
     fn Add(&mut self, value: &::core::option::Option<CompositionProjectedShadowReceiver>) -> ::windows::core::Result<()>;
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn Remove(&mut self, value: &::core::option::Option<CompositionProjectedShadowReceiver>) -> ::windows::core::Result<()>;
@@ -3815,13 +3815,13 @@ impl ::windows::core::RuntimeName for ICompositionProjectedShadowReceiverUnorder
     const NAME: &'static str = "Windows.UI.Composition.ICompositionProjectedShadowReceiverUnorderedCollection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionProjectedShadowReceiverUnorderedCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionProjectedShadowReceiverUnorderedCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionProjectedShadowReceiverUnorderedCollectionVtbl {
-        unsafe extern "system" fn Add<Impl: ICompositionProjectedShadowReceiverUnorderedCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionProjectedShadowReceiverUnorderedCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionProjectedShadowReceiverUnorderedCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionProjectedShadowReceiverUnorderedCollection_Vtbl {
+        unsafe extern "system" fn Add<Impl: ICompositionProjectedShadowReceiverUnorderedCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Add(&*(&value as *const <CompositionProjectedShadowReceiver as ::windows::core::Abi>::Abi as *const <CompositionProjectedShadowReceiver as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Count<Impl: ICompositionProjectedShadowReceiverUnorderedCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Count<Impl: ICompositionProjectedShadowReceiverUnorderedCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3832,11 +3832,11 @@ impl ICompositionProjectedShadowReceiverUnorderedCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Remove<Impl: ICompositionProjectedShadowReceiverUnorderedCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Remove<Impl: ICompositionProjectedShadowReceiverUnorderedCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Remove(&*(&value as *const <CompositionProjectedShadowReceiver as ::windows::core::Abi>::Abi as *const <CompositionProjectedShadowReceiver as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RemoveAll<Impl: ICompositionProjectedShadowReceiverUnorderedCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAll<Impl: ICompositionProjectedShadowReceiverUnorderedCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAll().into()
         }
@@ -3853,7 +3853,7 @@ impl ICompositionProjectedShadowReceiverUnorderedCollectionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ICompositionPropertySetImpl: Sized {
+pub trait ICompositionPropertySet_Impl: Sized {
     fn InsertColor(&mut self, propertyname: &::windows::core::HSTRING, value: &super::Color) -> ::windows::core::Result<()>;
     fn InsertMatrix3x2(&mut self, propertyname: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()>;
     fn InsertMatrix4x4(&mut self, propertyname: &::windows::core::HSTRING, value: &super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()>;
@@ -3876,41 +3876,41 @@ impl ::windows::core::RuntimeName for ICompositionPropertySet {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionPropertySet";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ICompositionPropertySetVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionPropertySetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionPropertySetVtbl {
-        unsafe extern "system" fn InsertColor<Impl: ICompositionPropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Color) -> ::windows::core::HRESULT {
+impl ICompositionPropertySet_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionPropertySet_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionPropertySet_Vtbl {
+        unsafe extern "system" fn InsertColor<Impl: ICompositionPropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertColor(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::Color as ::windows::core::Abi>::Abi as *const <super::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InsertMatrix3x2<Impl: ICompositionPropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertMatrix3x2<Impl: ICompositionPropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertMatrix3x2(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InsertMatrix4x4<Impl: ICompositionPropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertMatrix4x4<Impl: ICompositionPropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertMatrix4x4(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::super::Foundation::Numerics::Matrix4x4 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Matrix4x4 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InsertQuaternion<Impl: ICompositionPropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertQuaternion<Impl: ICompositionPropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertQuaternion(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InsertScalar<Impl: ICompositionPropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertScalar<Impl: ICompositionPropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertScalar(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn InsertVector2<Impl: ICompositionPropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertVector2<Impl: ICompositionPropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertVector2(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InsertVector3<Impl: ICompositionPropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertVector3<Impl: ICompositionPropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertVector3(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InsertVector4<Impl: ICompositionPropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertVector4<Impl: ICompositionPropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertVector4(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::super::Foundation::Numerics::Vector4 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector4 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryGetColor<Impl: ICompositionPropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut super::Color, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryGetColor<Impl: ICompositionPropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut super::Color, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetColor(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&value)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3921,7 +3921,7 @@ impl ICompositionPropertySetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryGetMatrix3x2<Impl: ICompositionPropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut super::super::Foundation::Numerics::Matrix3x2, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryGetMatrix3x2<Impl: ICompositionPropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut super::super::Foundation::Numerics::Matrix3x2, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetMatrix3x2(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&value)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3932,7 +3932,7 @@ impl ICompositionPropertySetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryGetMatrix4x4<Impl: ICompositionPropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut super::super::Foundation::Numerics::Matrix4x4, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryGetMatrix4x4<Impl: ICompositionPropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut super::super::Foundation::Numerics::Matrix4x4, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetMatrix4x4(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&value)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3943,7 +3943,7 @@ impl ICompositionPropertySetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryGetQuaternion<Impl: ICompositionPropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut super::super::Foundation::Numerics::Quaternion, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryGetQuaternion<Impl: ICompositionPropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut super::super::Foundation::Numerics::Quaternion, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetQuaternion(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&value)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3954,7 +3954,7 @@ impl ICompositionPropertySetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryGetScalar<Impl: ICompositionPropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut f32, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryGetScalar<Impl: ICompositionPropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut f32, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetScalar(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&value)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3965,7 +3965,7 @@ impl ICompositionPropertySetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryGetVector2<Impl: ICompositionPropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut super::super::Foundation::Numerics::Vector2, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryGetVector2<Impl: ICompositionPropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut super::super::Foundation::Numerics::Vector2, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetVector2(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&value)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3976,7 +3976,7 @@ impl ICompositionPropertySetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryGetVector3<Impl: ICompositionPropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut super::super::Foundation::Numerics::Vector3, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryGetVector3<Impl: ICompositionPropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut super::super::Foundation::Numerics::Vector3, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetVector3(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&value)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3987,7 +3987,7 @@ impl ICompositionPropertySetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryGetVector4<Impl: ICompositionPropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut super::super::Foundation::Numerics::Vector4, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryGetVector4<Impl: ICompositionPropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut super::super::Foundation::Numerics::Vector4, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetVector4(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&value)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4023,7 +4023,7 @@ impl ICompositionPropertySetVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionPropertySet2Impl: Sized {
+pub trait ICompositionPropertySet2_Impl: Sized {
     fn InsertBoolean(&mut self, propertyname: &::windows::core::HSTRING, value: bool) -> ::windows::core::Result<()>;
     fn TryGetBoolean(&mut self, propertyname: &::windows::core::HSTRING, value: &mut bool) -> ::windows::core::Result<CompositionGetValueStatus>;
 }
@@ -4032,13 +4032,13 @@ impl ::windows::core::RuntimeName for ICompositionPropertySet2 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionPropertySet2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionPropertySet2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionPropertySet2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionPropertySet2Vtbl {
-        unsafe extern "system" fn InsertBoolean<Impl: ICompositionPropertySet2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: bool) -> ::windows::core::HRESULT {
+impl ICompositionPropertySet2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionPropertySet2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionPropertySet2_Vtbl {
+        unsafe extern "system" fn InsertBoolean<Impl: ICompositionPropertySet2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertBoolean(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn TryGetBoolean<Impl: ICompositionPropertySet2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut bool, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryGetBoolean<Impl: ICompositionPropertySet2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut bool, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetBoolean(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&value)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4060,7 +4060,7 @@ impl ICompositionPropertySet2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ICompositionRadialGradientBrushImpl: Sized {
+pub trait ICompositionRadialGradientBrush_Impl: Sized {
     fn EllipseCenter(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
     fn SetEllipseCenter(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
     fn EllipseRadius(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
@@ -4073,9 +4073,9 @@ impl ::windows::core::RuntimeName for ICompositionRadialGradientBrush {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionRadialGradientBrush";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ICompositionRadialGradientBrushVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionRadialGradientBrushImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionRadialGradientBrushVtbl {
-        unsafe extern "system" fn EllipseCenter<Impl: ICompositionRadialGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+impl ICompositionRadialGradientBrush_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionRadialGradientBrush_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionRadialGradientBrush_Vtbl {
+        unsafe extern "system" fn EllipseCenter<Impl: ICompositionRadialGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EllipseCenter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4086,11 +4086,11 @@ impl ICompositionRadialGradientBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEllipseCenter<Impl: ICompositionRadialGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEllipseCenter<Impl: ICompositionRadialGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEllipseCenter(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EllipseRadius<Impl: ICompositionRadialGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EllipseRadius<Impl: ICompositionRadialGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EllipseRadius() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4101,11 +4101,11 @@ impl ICompositionRadialGradientBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEllipseRadius<Impl: ICompositionRadialGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEllipseRadius<Impl: ICompositionRadialGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEllipseRadius(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GradientOriginOffset<Impl: ICompositionRadialGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GradientOriginOffset<Impl: ICompositionRadialGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GradientOriginOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4116,7 +4116,7 @@ impl ICompositionRadialGradientBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGradientOriginOffset<Impl: ICompositionRadialGradientBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGradientOriginOffset<Impl: ICompositionRadialGradientBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetGradientOriginOffset(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -4135,7 +4135,7 @@ impl ICompositionRadialGradientBrushVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ICompositionRectangleGeometryImpl: Sized {
+pub trait ICompositionRectangleGeometry_Impl: Sized {
     fn Offset(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
     fn SetOffset(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
     fn Size(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
@@ -4146,9 +4146,9 @@ impl ::windows::core::RuntimeName for ICompositionRectangleGeometry {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionRectangleGeometry";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ICompositionRectangleGeometryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionRectangleGeometryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionRectangleGeometryVtbl {
-        unsafe extern "system" fn Offset<Impl: ICompositionRectangleGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+impl ICompositionRectangleGeometry_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionRectangleGeometry_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionRectangleGeometry_Vtbl {
+        unsafe extern "system" fn Offset<Impl: ICompositionRectangleGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Offset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4159,11 +4159,11 @@ impl ICompositionRectangleGeometryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOffset<Impl: ICompositionRectangleGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffset<Impl: ICompositionRectangleGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOffset(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Size<Impl: ICompositionRectangleGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Size<Impl: ICompositionRectangleGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Size() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4174,7 +4174,7 @@ impl ICompositionRectangleGeometryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSize<Impl: ICompositionRectangleGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSize<Impl: ICompositionRectangleGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSize(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -4191,7 +4191,7 @@ impl ICompositionRectangleGeometryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ICompositionRoundedRectangleGeometryImpl: Sized {
+pub trait ICompositionRoundedRectangleGeometry_Impl: Sized {
     fn CornerRadius(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
     fn SetCornerRadius(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
     fn Offset(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
@@ -4204,9 +4204,9 @@ impl ::windows::core::RuntimeName for ICompositionRoundedRectangleGeometry {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionRoundedRectangleGeometry";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ICompositionRoundedRectangleGeometryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionRoundedRectangleGeometryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionRoundedRectangleGeometryVtbl {
-        unsafe extern "system" fn CornerRadius<Impl: ICompositionRoundedRectangleGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+impl ICompositionRoundedRectangleGeometry_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionRoundedRectangleGeometry_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionRoundedRectangleGeometry_Vtbl {
+        unsafe extern "system" fn CornerRadius<Impl: ICompositionRoundedRectangleGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CornerRadius() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4217,11 +4217,11 @@ impl ICompositionRoundedRectangleGeometryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCornerRadius<Impl: ICompositionRoundedRectangleGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCornerRadius<Impl: ICompositionRoundedRectangleGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCornerRadius(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Offset<Impl: ICompositionRoundedRectangleGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Offset<Impl: ICompositionRoundedRectangleGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Offset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4232,11 +4232,11 @@ impl ICompositionRoundedRectangleGeometryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOffset<Impl: ICompositionRoundedRectangleGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffset<Impl: ICompositionRoundedRectangleGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOffset(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Size<Impl: ICompositionRoundedRectangleGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Size<Impl: ICompositionRoundedRectangleGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Size() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4247,7 +4247,7 @@ impl ICompositionRoundedRectangleGeometryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSize<Impl: ICompositionRoundedRectangleGeometryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSize<Impl: ICompositionRoundedRectangleGeometry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSize(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -4266,7 +4266,7 @@ impl ICompositionRoundedRectangleGeometryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICompositionScopedBatchImpl: Sized {
+pub trait ICompositionScopedBatch_Impl: Sized {
     fn IsActive(&mut self) -> ::windows::core::Result<bool>;
     fn IsEnded(&mut self) -> ::windows::core::Result<bool>;
     fn End(&mut self) -> ::windows::core::Result<()>;
@@ -4280,9 +4280,9 @@ impl ::windows::core::RuntimeName for ICompositionScopedBatch {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionScopedBatch";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICompositionScopedBatchVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionScopedBatchImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionScopedBatchVtbl {
-        unsafe extern "system" fn IsActive<Impl: ICompositionScopedBatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ICompositionScopedBatch_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionScopedBatch_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionScopedBatch_Vtbl {
+        unsafe extern "system" fn IsActive<Impl: ICompositionScopedBatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsActive() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4293,7 +4293,7 @@ impl ICompositionScopedBatchVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsEnded<Impl: ICompositionScopedBatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEnded<Impl: ICompositionScopedBatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnded() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4304,19 +4304,19 @@ impl ICompositionScopedBatchVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn End<Impl: ICompositionScopedBatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn End<Impl: ICompositionScopedBatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).End().into()
         }
-        unsafe extern "system" fn Resume<Impl: ICompositionScopedBatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Resume<Impl: ICompositionScopedBatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Resume().into()
         }
-        unsafe extern "system" fn Suspend<Impl: ICompositionScopedBatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Suspend<Impl: ICompositionScopedBatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Suspend().into()
         }
-        unsafe extern "system" fn Completed<Impl: ICompositionScopedBatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Completed<Impl: ICompositionScopedBatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Completed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, CompositionBatchCompletedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, CompositionBatchCompletedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4327,7 +4327,7 @@ impl ICompositionScopedBatchVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCompleted<Impl: ICompositionScopedBatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCompleted<Impl: ICompositionScopedBatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCompleted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -4347,14 +4347,14 @@ impl ICompositionScopedBatchVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionShadowImpl: Sized {}
+pub trait ICompositionShadow_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionShadow {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionShadow";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionShadowVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionShadowImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionShadowVtbl {
+impl ICompositionShadow_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionShadow_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionShadow_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionShadow, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -4362,14 +4362,14 @@ impl ICompositionShadowVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionShadowFactoryImpl: Sized {}
+pub trait ICompositionShadowFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionShadowFactory {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionShadowFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionShadowFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionShadowFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionShadowFactoryVtbl {
+impl ICompositionShadowFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionShadowFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionShadowFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionShadowFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -4377,7 +4377,7 @@ impl ICompositionShadowFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ICompositionShapeImpl: Sized {
+pub trait ICompositionShape_Impl: Sized {
     fn CenterPoint(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
     fn SetCenterPoint(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
     fn Offset(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
@@ -4396,9 +4396,9 @@ impl ::windows::core::RuntimeName for ICompositionShape {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionShape";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ICompositionShapeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionShapeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionShapeVtbl {
-        unsafe extern "system" fn CenterPoint<Impl: ICompositionShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+impl ICompositionShape_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionShape_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionShape_Vtbl {
+        unsafe extern "system" fn CenterPoint<Impl: ICompositionShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CenterPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4409,11 +4409,11 @@ impl ICompositionShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCenterPoint<Impl: ICompositionShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCenterPoint<Impl: ICompositionShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCenterPoint(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Offset<Impl: ICompositionShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Offset<Impl: ICompositionShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Offset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4424,11 +4424,11 @@ impl ICompositionShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOffset<Impl: ICompositionShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffset<Impl: ICompositionShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOffset(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RotationAngle<Impl: ICompositionShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RotationAngle<Impl: ICompositionShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RotationAngle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4439,11 +4439,11 @@ impl ICompositionShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRotationAngle<Impl: ICompositionShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRotationAngle<Impl: ICompositionShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRotationAngle(value).into()
         }
-        unsafe extern "system" fn RotationAngleInDegrees<Impl: ICompositionShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RotationAngleInDegrees<Impl: ICompositionShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RotationAngleInDegrees() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4454,11 +4454,11 @@ impl ICompositionShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRotationAngleInDegrees<Impl: ICompositionShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRotationAngleInDegrees<Impl: ICompositionShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRotationAngleInDegrees(value).into()
         }
-        unsafe extern "system" fn Scale<Impl: ICompositionShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Scale<Impl: ICompositionShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Scale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4469,11 +4469,11 @@ impl ICompositionShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetScale<Impl: ICompositionShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScale<Impl: ICompositionShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScale(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TransformMatrix<Impl: ICompositionShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransformMatrix<Impl: ICompositionShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransformMatrix() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4484,7 +4484,7 @@ impl ICompositionShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTransformMatrix<Impl: ICompositionShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTransformMatrix<Impl: ICompositionShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTransformMatrix(&*(&value as *const <super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -4509,14 +4509,14 @@ impl ICompositionShapeVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionShapeFactoryImpl: Sized {}
+pub trait ICompositionShapeFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionShapeFactory {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionShapeFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionShapeFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionShapeFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionShapeFactoryVtbl {
+impl ICompositionShapeFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionShapeFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionShapeFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionShapeFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -4524,7 +4524,7 @@ impl ICompositionShapeFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ICompositionSpriteShapeImpl: Sized {
+pub trait ICompositionSpriteShape_Impl: Sized {
     fn FillBrush(&mut self) -> ::windows::core::Result<CompositionBrush>;
     fn SetFillBrush(&mut self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
     fn Geometry(&mut self) -> ::windows::core::Result<CompositionGeometry>;
@@ -4554,9 +4554,9 @@ impl ::windows::core::RuntimeName for ICompositionSpriteShape {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionSpriteShape";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ICompositionSpriteShapeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionSpriteShapeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionSpriteShapeVtbl {
-        unsafe extern "system" fn FillBrush<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionSpriteShape_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionSpriteShape_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionSpriteShape_Vtbl {
+        unsafe extern "system" fn FillBrush<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FillBrush() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4567,11 +4567,11 @@ impl ICompositionSpriteShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFillBrush<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFillBrush<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFillBrush(&*(&value as *const <CompositionBrush as ::windows::core::Abi>::Abi as *const <CompositionBrush as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Geometry<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Geometry<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Geometry() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4582,11 +4582,11 @@ impl ICompositionSpriteShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGeometry<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGeometry<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetGeometry(&*(&value as *const <CompositionGeometry as ::windows::core::Abi>::Abi as *const <CompositionGeometry as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IsStrokeNonScaling<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStrokeNonScaling<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStrokeNonScaling() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4597,11 +4597,11 @@ impl ICompositionSpriteShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsStrokeNonScaling<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsStrokeNonScaling<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsStrokeNonScaling(value).into()
         }
-        unsafe extern "system" fn StrokeBrush<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeBrush<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeBrush() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4612,11 +4612,11 @@ impl ICompositionSpriteShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStrokeBrush<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStrokeBrush<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStrokeBrush(&*(&value as *const <CompositionBrush as ::windows::core::Abi>::Abi as *const <CompositionBrush as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StrokeDashArray<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeDashArray<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeDashArray() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4627,7 +4627,7 @@ impl ICompositionSpriteShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StrokeDashCap<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionStrokeCap) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeDashCap<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionStrokeCap) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeDashCap() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4638,11 +4638,11 @@ impl ICompositionSpriteShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStrokeDashCap<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionStrokeCap) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStrokeDashCap<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionStrokeCap) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStrokeDashCap(value).into()
         }
-        unsafe extern "system" fn StrokeDashOffset<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeDashOffset<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeDashOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4653,11 +4653,11 @@ impl ICompositionSpriteShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStrokeDashOffset<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStrokeDashOffset<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStrokeDashOffset(value).into()
         }
-        unsafe extern "system" fn StrokeEndCap<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionStrokeCap) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeEndCap<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionStrokeCap) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeEndCap() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4668,11 +4668,11 @@ impl ICompositionSpriteShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStrokeEndCap<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionStrokeCap) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStrokeEndCap<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionStrokeCap) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStrokeEndCap(value).into()
         }
-        unsafe extern "system" fn StrokeLineJoin<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionStrokeLineJoin) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeLineJoin<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionStrokeLineJoin) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeLineJoin() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4683,11 +4683,11 @@ impl ICompositionSpriteShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStrokeLineJoin<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionStrokeLineJoin) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStrokeLineJoin<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionStrokeLineJoin) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStrokeLineJoin(value).into()
         }
-        unsafe extern "system" fn StrokeMiterLimit<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeMiterLimit<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeMiterLimit() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4698,11 +4698,11 @@ impl ICompositionSpriteShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStrokeMiterLimit<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStrokeMiterLimit<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStrokeMiterLimit(value).into()
         }
-        unsafe extern "system" fn StrokeStartCap<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionStrokeCap) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeStartCap<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionStrokeCap) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeStartCap() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4713,11 +4713,11 @@ impl ICompositionSpriteShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStrokeStartCap<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionStrokeCap) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStrokeStartCap<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionStrokeCap) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStrokeStartCap(value).into()
         }
-        unsafe extern "system" fn StrokeThickness<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrokeThickness<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StrokeThickness() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4728,7 +4728,7 @@ impl ICompositionSpriteShapeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStrokeThickness<Impl: ICompositionSpriteShapeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStrokeThickness<Impl: ICompositionSpriteShape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStrokeThickness(value).into()
         }
@@ -4763,16 +4763,16 @@ impl ICompositionSpriteShapeVtbl {
         iid == &<ICompositionSpriteShape as ::windows::core::Interface>::IID
     }
 }
-pub trait ICompositionSupportsSystemBackdropImpl: Sized {
+pub trait ICompositionSupportsSystemBackdrop_Impl: Sized {
     fn SystemBackdrop(&mut self) -> ::windows::core::Result<CompositionBrush>;
     fn SetSystemBackdrop(&mut self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ICompositionSupportsSystemBackdrop {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionSupportsSystemBackdrop";
 }
-impl ICompositionSupportsSystemBackdropVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionSupportsSystemBackdropImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionSupportsSystemBackdropVtbl {
-        unsafe extern "system" fn SystemBackdrop<Impl: ICompositionSupportsSystemBackdropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionSupportsSystemBackdrop_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionSupportsSystemBackdrop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionSupportsSystemBackdrop_Vtbl {
+        unsafe extern "system" fn SystemBackdrop<Impl: ICompositionSupportsSystemBackdrop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemBackdrop() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4783,7 +4783,7 @@ impl ICompositionSupportsSystemBackdropVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSystemBackdrop<Impl: ICompositionSupportsSystemBackdropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSystemBackdrop<Impl: ICompositionSupportsSystemBackdrop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSystemBackdrop(&*(&value as *const <CompositionBrush as ::windows::core::Abi>::Abi as *const <CompositionBrush as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -4797,12 +4797,12 @@ impl ICompositionSupportsSystemBackdropVtbl {
         iid == &<ICompositionSupportsSystemBackdrop as ::windows::core::Interface>::IID
     }
 }
-pub trait ICompositionSurfaceImpl: Sized {}
+pub trait ICompositionSurface_Impl: Sized {}
 impl ::windows::core::RuntimeName for ICompositionSurface {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionSurface";
 }
-impl ICompositionSurfaceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionSurfaceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionSurfaceVtbl {
+impl ICompositionSurface_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionSurface_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionSurface_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionSurface, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -4810,7 +4810,7 @@ impl ICompositionSurfaceVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionSurfaceBrushImpl: Sized {
+pub trait ICompositionSurfaceBrush_Impl: Sized {
     fn BitmapInterpolationMode(&mut self) -> ::windows::core::Result<CompositionBitmapInterpolationMode>;
     fn SetBitmapInterpolationMode(&mut self, value: CompositionBitmapInterpolationMode) -> ::windows::core::Result<()>;
     fn HorizontalAlignmentRatio(&mut self) -> ::windows::core::Result<f32>;
@@ -4827,9 +4827,9 @@ impl ::windows::core::RuntimeName for ICompositionSurfaceBrush {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionSurfaceBrush";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionSurfaceBrushVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionSurfaceBrushImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionSurfaceBrushVtbl {
-        unsafe extern "system" fn BitmapInterpolationMode<Impl: ICompositionSurfaceBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionBitmapInterpolationMode) -> ::windows::core::HRESULT {
+impl ICompositionSurfaceBrush_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionSurfaceBrush_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionSurfaceBrush_Vtbl {
+        unsafe extern "system" fn BitmapInterpolationMode<Impl: ICompositionSurfaceBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionBitmapInterpolationMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BitmapInterpolationMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4840,11 +4840,11 @@ impl ICompositionSurfaceBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBitmapInterpolationMode<Impl: ICompositionSurfaceBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionBitmapInterpolationMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBitmapInterpolationMode<Impl: ICompositionSurfaceBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionBitmapInterpolationMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBitmapInterpolationMode(value).into()
         }
-        unsafe extern "system" fn HorizontalAlignmentRatio<Impl: ICompositionSurfaceBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HorizontalAlignmentRatio<Impl: ICompositionSurfaceBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HorizontalAlignmentRatio() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4855,11 +4855,11 @@ impl ICompositionSurfaceBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHorizontalAlignmentRatio<Impl: ICompositionSurfaceBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHorizontalAlignmentRatio<Impl: ICompositionSurfaceBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHorizontalAlignmentRatio(value).into()
         }
-        unsafe extern "system" fn Stretch<Impl: ICompositionSurfaceBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionStretch) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stretch<Impl: ICompositionSurfaceBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionStretch) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Stretch() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4870,11 +4870,11 @@ impl ICompositionSurfaceBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStretch<Impl: ICompositionSurfaceBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionStretch) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStretch<Impl: ICompositionSurfaceBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionStretch) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStretch(value).into()
         }
-        unsafe extern "system" fn Surface<Impl: ICompositionSurfaceBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Surface<Impl: ICompositionSurfaceBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Surface() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4885,11 +4885,11 @@ impl ICompositionSurfaceBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSurface<Impl: ICompositionSurfaceBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSurface<Impl: ICompositionSurfaceBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSurface(&*(&value as *const <ICompositionSurface as ::windows::core::Abi>::Abi as *const <ICompositionSurface as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn VerticalAlignmentRatio<Impl: ICompositionSurfaceBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VerticalAlignmentRatio<Impl: ICompositionSurfaceBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VerticalAlignmentRatio() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4900,7 +4900,7 @@ impl ICompositionSurfaceBrushVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVerticalAlignmentRatio<Impl: ICompositionSurfaceBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVerticalAlignmentRatio<Impl: ICompositionSurfaceBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVerticalAlignmentRatio(value).into()
         }
@@ -4923,7 +4923,7 @@ impl ICompositionSurfaceBrushVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ICompositionSurfaceBrush2Impl: Sized {
+pub trait ICompositionSurfaceBrush2_Impl: Sized {
     fn AnchorPoint(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
     fn SetAnchorPoint(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
     fn CenterPoint(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
@@ -4944,9 +4944,9 @@ impl ::windows::core::RuntimeName for ICompositionSurfaceBrush2 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionSurfaceBrush2";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ICompositionSurfaceBrush2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionSurfaceBrush2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionSurfaceBrush2Vtbl {
-        unsafe extern "system" fn AnchorPoint<Impl: ICompositionSurfaceBrush2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+impl ICompositionSurfaceBrush2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionSurfaceBrush2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionSurfaceBrush2_Vtbl {
+        unsafe extern "system" fn AnchorPoint<Impl: ICompositionSurfaceBrush2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AnchorPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4957,11 +4957,11 @@ impl ICompositionSurfaceBrush2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAnchorPoint<Impl: ICompositionSurfaceBrush2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAnchorPoint<Impl: ICompositionSurfaceBrush2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAnchorPoint(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CenterPoint<Impl: ICompositionSurfaceBrush2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CenterPoint<Impl: ICompositionSurfaceBrush2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CenterPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4972,11 +4972,11 @@ impl ICompositionSurfaceBrush2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCenterPoint<Impl: ICompositionSurfaceBrush2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCenterPoint<Impl: ICompositionSurfaceBrush2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCenterPoint(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Offset<Impl: ICompositionSurfaceBrush2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Offset<Impl: ICompositionSurfaceBrush2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Offset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4987,11 +4987,11 @@ impl ICompositionSurfaceBrush2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOffset<Impl: ICompositionSurfaceBrush2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffset<Impl: ICompositionSurfaceBrush2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOffset(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RotationAngle<Impl: ICompositionSurfaceBrush2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RotationAngle<Impl: ICompositionSurfaceBrush2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RotationAngle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5002,11 +5002,11 @@ impl ICompositionSurfaceBrush2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRotationAngle<Impl: ICompositionSurfaceBrush2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRotationAngle<Impl: ICompositionSurfaceBrush2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRotationAngle(value).into()
         }
-        unsafe extern "system" fn RotationAngleInDegrees<Impl: ICompositionSurfaceBrush2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RotationAngleInDegrees<Impl: ICompositionSurfaceBrush2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RotationAngleInDegrees() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5017,11 +5017,11 @@ impl ICompositionSurfaceBrush2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRotationAngleInDegrees<Impl: ICompositionSurfaceBrush2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRotationAngleInDegrees<Impl: ICompositionSurfaceBrush2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRotationAngleInDegrees(value).into()
         }
-        unsafe extern "system" fn Scale<Impl: ICompositionSurfaceBrush2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Scale<Impl: ICompositionSurfaceBrush2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Scale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5032,11 +5032,11 @@ impl ICompositionSurfaceBrush2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetScale<Impl: ICompositionSurfaceBrush2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScale<Impl: ICompositionSurfaceBrush2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScale(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TransformMatrix<Impl: ICompositionSurfaceBrush2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransformMatrix<Impl: ICompositionSurfaceBrush2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransformMatrix() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5047,7 +5047,7 @@ impl ICompositionSurfaceBrush2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTransformMatrix<Impl: ICompositionSurfaceBrush2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTransformMatrix<Impl: ICompositionSurfaceBrush2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTransformMatrix(&*(&value as *const <super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Matrix3x2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -5074,7 +5074,7 @@ impl ICompositionSurfaceBrush2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionSurfaceBrush3Impl: Sized {
+pub trait ICompositionSurfaceBrush3_Impl: Sized {
     fn SnapToPixels(&mut self) -> ::windows::core::Result<bool>;
     fn SetSnapToPixels(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
@@ -5083,9 +5083,9 @@ impl ::windows::core::RuntimeName for ICompositionSurfaceBrush3 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionSurfaceBrush3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionSurfaceBrush3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionSurfaceBrush3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionSurfaceBrush3Vtbl {
-        unsafe extern "system" fn SnapToPixels<Impl: ICompositionSurfaceBrush3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ICompositionSurfaceBrush3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionSurfaceBrush3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionSurfaceBrush3_Vtbl {
+        unsafe extern "system" fn SnapToPixels<Impl: ICompositionSurfaceBrush3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SnapToPixels() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5096,7 +5096,7 @@ impl ICompositionSurfaceBrush3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSnapToPixels<Impl: ICompositionSurfaceBrush3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSnapToPixels<Impl: ICompositionSurfaceBrush3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSnapToPixels(value).into()
         }
@@ -5110,15 +5110,15 @@ impl ICompositionSurfaceBrush3Vtbl {
         iid == &<ICompositionSurfaceBrush3 as ::windows::core::Interface>::IID
     }
 }
-pub trait ICompositionSurfaceFacadeImpl: Sized {
+pub trait ICompositionSurfaceFacade_Impl: Sized {
     fn GetRealSurface(&mut self) -> ::windows::core::Result<ICompositionSurface>;
 }
 impl ::windows::core::RuntimeName for ICompositionSurfaceFacade {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionSurfaceFacade";
 }
-impl ICompositionSurfaceFacadeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionSurfaceFacadeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionSurfaceFacadeVtbl {
-        unsafe extern "system" fn GetRealSurface<Impl: ICompositionSurfaceFacadeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionSurfaceFacade_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionSurfaceFacade_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionSurfaceFacade_Vtbl {
+        unsafe extern "system" fn GetRealSurface<Impl: ICompositionSurfaceFacade_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRealSurface() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5139,7 +5139,7 @@ impl ICompositionSurfaceFacadeVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionTargetImpl: Sized {
+pub trait ICompositionTarget_Impl: Sized {
     fn Root(&mut self) -> ::windows::core::Result<Visual>;
     fn SetRoot(&mut self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
 }
@@ -5148,9 +5148,9 @@ impl ::windows::core::RuntimeName for ICompositionTarget {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionTarget";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionTargetVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionTargetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionTargetVtbl {
-        unsafe extern "system" fn Root<Impl: ICompositionTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionTarget_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionTarget_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionTarget_Vtbl {
+        unsafe extern "system" fn Root<Impl: ICompositionTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Root() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5161,7 +5161,7 @@ impl ICompositionTargetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRoot<Impl: ICompositionTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRoot<Impl: ICompositionTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRoot(&*(&value as *const <Visual as ::windows::core::Abi>::Abi as *const <Visual as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -5176,14 +5176,14 @@ impl ICompositionTargetVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionTargetFactoryImpl: Sized {}
+pub trait ICompositionTargetFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionTargetFactory {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionTargetFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionTargetFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionTargetFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionTargetFactoryVtbl {
+impl ICompositionTargetFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionTargetFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionTargetFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionTargetFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -5191,14 +5191,14 @@ impl ICompositionTargetFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionTransformImpl: Sized {}
+pub trait ICompositionTransform_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionTransform {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionTransform";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionTransformVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionTransformImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionTransformVtbl {
+impl ICompositionTransform_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionTransform_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionTransform_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionTransform, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -5206,14 +5206,14 @@ impl ICompositionTransformVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionTransformFactoryImpl: Sized {}
+pub trait ICompositionTransformFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionTransformFactory {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionTransformFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionTransformFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionTransformFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionTransformFactoryVtbl {
+impl ICompositionTransformFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionTransformFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionTransformFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionTransformFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -5221,7 +5221,7 @@ impl ICompositionTransformFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ICompositionViewBoxImpl: Sized {
+pub trait ICompositionViewBox_Impl: Sized {
     fn HorizontalAlignmentRatio(&mut self) -> ::windows::core::Result<f32>;
     fn SetHorizontalAlignmentRatio(&mut self, value: f32) -> ::windows::core::Result<()>;
     fn Offset(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
@@ -5238,9 +5238,9 @@ impl ::windows::core::RuntimeName for ICompositionViewBox {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionViewBox";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ICompositionViewBoxVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionViewBoxImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionViewBoxVtbl {
-        unsafe extern "system" fn HorizontalAlignmentRatio<Impl: ICompositionViewBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl ICompositionViewBox_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionViewBox_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionViewBox_Vtbl {
+        unsafe extern "system" fn HorizontalAlignmentRatio<Impl: ICompositionViewBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HorizontalAlignmentRatio() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5251,11 +5251,11 @@ impl ICompositionViewBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHorizontalAlignmentRatio<Impl: ICompositionViewBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHorizontalAlignmentRatio<Impl: ICompositionViewBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHorizontalAlignmentRatio(value).into()
         }
-        unsafe extern "system" fn Offset<Impl: ICompositionViewBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Offset<Impl: ICompositionViewBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Offset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5266,11 +5266,11 @@ impl ICompositionViewBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOffset<Impl: ICompositionViewBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffset<Impl: ICompositionViewBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOffset(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Size<Impl: ICompositionViewBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Size<Impl: ICompositionViewBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Size() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5281,11 +5281,11 @@ impl ICompositionViewBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSize<Impl: ICompositionViewBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSize<Impl: ICompositionViewBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSize(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Stretch<Impl: ICompositionViewBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionStretch) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stretch<Impl: ICompositionViewBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionStretch) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Stretch() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5296,11 +5296,11 @@ impl ICompositionViewBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStretch<Impl: ICompositionViewBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionStretch) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStretch<Impl: ICompositionViewBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionStretch) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStretch(value).into()
         }
-        unsafe extern "system" fn VerticalAlignmentRatio<Impl: ICompositionViewBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VerticalAlignmentRatio<Impl: ICompositionViewBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VerticalAlignmentRatio() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5311,7 +5311,7 @@ impl ICompositionViewBoxVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVerticalAlignmentRatio<Impl: ICompositionViewBoxImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVerticalAlignmentRatio<Impl: ICompositionViewBox_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVerticalAlignmentRatio(value).into()
         }
@@ -5334,7 +5334,7 @@ impl ICompositionViewBoxVtbl {
     }
 }
 #[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
-pub trait ICompositionVirtualDrawingSurfaceImpl: Sized {
+pub trait ICompositionVirtualDrawingSurface_Impl: Sized {
     fn Trim(&mut self, rects: &[<super::super::Graphics::RectInt32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
@@ -5342,9 +5342,9 @@ impl ::windows::core::RuntimeName for ICompositionVirtualDrawingSurface {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionVirtualDrawingSurface";
 }
 #[cfg(all(feature = "Graphics", feature = "implement_exclusive"))]
-impl ICompositionVirtualDrawingSurfaceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionVirtualDrawingSurfaceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionVirtualDrawingSurfaceVtbl {
-        unsafe extern "system" fn Trim<Impl: ICompositionVirtualDrawingSurfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rects_array_size: u32, rects: *const super::super::Graphics::RectInt32) -> ::windows::core::HRESULT {
+impl ICompositionVirtualDrawingSurface_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionVirtualDrawingSurface_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionVirtualDrawingSurface_Vtbl {
+        unsafe extern "system" fn Trim<Impl: ICompositionVirtualDrawingSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rects_array_size: u32, rects: *const super::super::Graphics::RectInt32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Trim(::core::slice::from_raw_parts(::core::mem::transmute_copy(&rects), rects_array_size as _)).into()
         }
@@ -5355,14 +5355,14 @@ impl ICompositionVirtualDrawingSurfaceVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositionVirtualDrawingSurfaceFactoryImpl: Sized {}
+pub trait ICompositionVirtualDrawingSurfaceFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICompositionVirtualDrawingSurfaceFactory {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionVirtualDrawingSurfaceFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositionVirtualDrawingSurfaceFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionVirtualDrawingSurfaceFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionVirtualDrawingSurfaceFactoryVtbl {
+impl ICompositionVirtualDrawingSurfaceFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionVirtualDrawingSurfaceFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionVirtualDrawingSurfaceFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionVirtualDrawingSurfaceFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -5370,7 +5370,7 @@ impl ICompositionVirtualDrawingSurfaceFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ICompositionVisualSurfaceImpl: Sized {
+pub trait ICompositionVisualSurface_Impl: Sized {
     fn SourceVisual(&mut self) -> ::windows::core::Result<Visual>;
     fn SetSourceVisual(&mut self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
     fn SourceOffset(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
@@ -5383,9 +5383,9 @@ impl ::windows::core::RuntimeName for ICompositionVisualSurface {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionVisualSurface";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ICompositionVisualSurfaceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionVisualSurfaceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionVisualSurfaceVtbl {
-        unsafe extern "system" fn SourceVisual<Impl: ICompositionVisualSurfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositionVisualSurface_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionVisualSurface_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositionVisualSurface_Vtbl {
+        unsafe extern "system" fn SourceVisual<Impl: ICompositionVisualSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceVisual() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5396,11 +5396,11 @@ impl ICompositionVisualSurfaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSourceVisual<Impl: ICompositionVisualSurfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSourceVisual<Impl: ICompositionVisualSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSourceVisual(&*(&value as *const <Visual as ::windows::core::Abi>::Abi as *const <Visual as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SourceOffset<Impl: ICompositionVisualSurfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SourceOffset<Impl: ICompositionVisualSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5411,11 +5411,11 @@ impl ICompositionVisualSurfaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSourceOffset<Impl: ICompositionVisualSurfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSourceOffset<Impl: ICompositionVisualSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSourceOffset(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SourceSize<Impl: ICompositionVisualSurfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SourceSize<Impl: ICompositionVisualSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5426,7 +5426,7 @@ impl ICompositionVisualSurfaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSourceSize<Impl: ICompositionVisualSurfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSourceSize<Impl: ICompositionVisualSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSourceSize(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -5445,7 +5445,7 @@ impl ICompositionVisualSurfaceVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "Graphics_Effects", feature = "implement_exclusive"))]
-pub trait ICompositorImpl: Sized {
+pub trait ICompositor_Impl: Sized {
     fn CreateColorKeyFrameAnimation(&mut self) -> ::windows::core::Result<ColorKeyFrameAnimation>;
     fn CreateColorBrush(&mut self) -> ::windows::core::Result<CompositionColorBrush>;
     fn CreateColorBrushWithColor(&mut self, color: &super::Color) -> ::windows::core::Result<CompositionColorBrush>;
@@ -5476,9 +5476,9 @@ impl ::windows::core::RuntimeName for ICompositor {
     const NAME: &'static str = "Windows.UI.Composition.ICompositor";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Foundation_Numerics", feature = "Graphics_Effects", feature = "implement_exclusive"))]
-impl ICompositorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositorVtbl {
-        unsafe extern "system" fn CreateColorKeyFrameAnimation<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositor_Vtbl {
+        unsafe extern "system" fn CreateColorKeyFrameAnimation<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateColorKeyFrameAnimation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5489,7 +5489,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateColorBrush<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateColorBrush<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateColorBrush() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5500,7 +5500,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateColorBrushWithColor<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: super::Color, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateColorBrushWithColor<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: super::Color, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateColorBrushWithColor(&*(&color as *const <super::Color as ::windows::core::Abi>::Abi as *const <super::Color as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5511,7 +5511,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateContainerVisual<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateContainerVisual<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateContainerVisual() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5522,7 +5522,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateCubicBezierEasingFunction<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, controlpoint1: super::super::Foundation::Numerics::Vector2, controlpoint2: super::super::Foundation::Numerics::Vector2, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCubicBezierEasingFunction<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, controlpoint1: super::super::Foundation::Numerics::Vector2, controlpoint2: super::super::Foundation::Numerics::Vector2, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCubicBezierEasingFunction(&*(&controlpoint1 as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType), &*(&controlpoint2 as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5533,7 +5533,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateEffectFactory<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, graphicseffect: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateEffectFactory<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, graphicseffect: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateEffectFactory(&*(&graphicseffect as *const <super::super::Graphics::Effects::IGraphicsEffect as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Effects::IGraphicsEffect as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5544,7 +5544,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateEffectFactoryWithProperties<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, graphicseffect: ::windows::core::RawPtr, animatableproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateEffectFactoryWithProperties<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, graphicseffect: ::windows::core::RawPtr, animatableproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateEffectFactoryWithProperties(
                 &*(&graphicseffect as *const <super::super::Graphics::Effects::IGraphicsEffect as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Effects::IGraphicsEffect as ::windows::core::DefaultType>::DefaultType),
@@ -5558,7 +5558,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateExpressionAnimation<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateExpressionAnimation<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateExpressionAnimation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5569,7 +5569,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateExpressionAnimationWithExpression<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, expression: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateExpressionAnimationWithExpression<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, expression: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateExpressionAnimationWithExpression(&*(&expression as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5580,7 +5580,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateInsetClip<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateInsetClip<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInsetClip() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5591,7 +5591,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateInsetClipWithInsets<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, leftinset: f32, topinset: f32, rightinset: f32, bottominset: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateInsetClipWithInsets<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, leftinset: f32, topinset: f32, rightinset: f32, bottominset: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInsetClipWithInsets(leftinset, topinset, rightinset, bottominset) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5602,7 +5602,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateLinearEasingFunction<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateLinearEasingFunction<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateLinearEasingFunction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5613,7 +5613,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePropertySet<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePropertySet<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePropertySet() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5624,7 +5624,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateQuaternionKeyFrameAnimation<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateQuaternionKeyFrameAnimation<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateQuaternionKeyFrameAnimation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5635,7 +5635,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateScalarKeyFrameAnimation<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateScalarKeyFrameAnimation<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateScalarKeyFrameAnimation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5646,7 +5646,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateScopedBatch<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, batchtype: CompositionBatchTypes, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateScopedBatch<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, batchtype: CompositionBatchTypes, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateScopedBatch(batchtype) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5657,7 +5657,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSpriteVisual<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSpriteVisual<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSpriteVisual() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5668,7 +5668,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSurfaceBrush<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSurfaceBrush<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSurfaceBrush() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5679,7 +5679,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSurfaceBrushWithSurface<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, surface: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSurfaceBrushWithSurface<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, surface: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSurfaceBrushWithSurface(&*(&surface as *const <ICompositionSurface as ::windows::core::Abi>::Abi as *const <ICompositionSurface as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5690,7 +5690,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTargetForCurrentView<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTargetForCurrentView<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateTargetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5701,7 +5701,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateVector2KeyFrameAnimation<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateVector2KeyFrameAnimation<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateVector2KeyFrameAnimation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5712,7 +5712,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateVector3KeyFrameAnimation<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateVector3KeyFrameAnimation<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateVector3KeyFrameAnimation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5723,7 +5723,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateVector4KeyFrameAnimation<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateVector4KeyFrameAnimation<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateVector4KeyFrameAnimation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5734,7 +5734,7 @@ impl ICompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCommitBatch<Impl: ICompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, batchtype: CompositionBatchTypes, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCommitBatch<Impl: ICompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, batchtype: CompositionBatchTypes, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCommitBatch(batchtype) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5778,7 +5778,7 @@ impl ICompositorVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositor2Impl: Sized {
+pub trait ICompositor2_Impl: Sized {
     fn CreateAmbientLight(&mut self) -> ::windows::core::Result<AmbientLight>;
     fn CreateAnimationGroup(&mut self) -> ::windows::core::Result<CompositionAnimationGroup>;
     fn CreateBackdropBrush(&mut self) -> ::windows::core::Result<CompositionBackdropBrush>;
@@ -5798,9 +5798,9 @@ impl ::windows::core::RuntimeName for ICompositor2 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositor2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositor2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositor2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositor2Vtbl {
-        unsafe extern "system" fn CreateAmbientLight<Impl: ICompositor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositor2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositor2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositor2_Vtbl {
+        unsafe extern "system" fn CreateAmbientLight<Impl: ICompositor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAmbientLight() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5811,7 +5811,7 @@ impl ICompositor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateAnimationGroup<Impl: ICompositor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateAnimationGroup<Impl: ICompositor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAnimationGroup() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5822,7 +5822,7 @@ impl ICompositor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateBackdropBrush<Impl: ICompositor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateBackdropBrush<Impl: ICompositor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateBackdropBrush() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5833,7 +5833,7 @@ impl ICompositor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateDistantLight<Impl: ICompositor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDistantLight<Impl: ICompositor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDistantLight() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5844,7 +5844,7 @@ impl ICompositor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateDropShadow<Impl: ICompositor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDropShadow<Impl: ICompositor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDropShadow() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5855,7 +5855,7 @@ impl ICompositor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateImplicitAnimationCollection<Impl: ICompositor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateImplicitAnimationCollection<Impl: ICompositor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateImplicitAnimationCollection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5866,7 +5866,7 @@ impl ICompositor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateLayerVisual<Impl: ICompositor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateLayerVisual<Impl: ICompositor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateLayerVisual() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5877,7 +5877,7 @@ impl ICompositor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateMaskBrush<Impl: ICompositor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateMaskBrush<Impl: ICompositor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMaskBrush() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5888,7 +5888,7 @@ impl ICompositor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateNineGridBrush<Impl: ICompositor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateNineGridBrush<Impl: ICompositor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateNineGridBrush() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5899,7 +5899,7 @@ impl ICompositor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePointLight<Impl: ICompositor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePointLight<Impl: ICompositor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePointLight() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5910,7 +5910,7 @@ impl ICompositor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSpotLight<Impl: ICompositor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSpotLight<Impl: ICompositor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSpotLight() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5921,7 +5921,7 @@ impl ICompositor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateStepEasingFunction<Impl: ICompositor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateStepEasingFunction<Impl: ICompositor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateStepEasingFunction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5932,7 +5932,7 @@ impl ICompositor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateStepEasingFunctionWithStepCount<Impl: ICompositor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stepcount: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateStepEasingFunctionWithStepCount<Impl: ICompositor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stepcount: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateStepEasingFunctionWithStepCount(stepcount) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5965,7 +5965,7 @@ impl ICompositor2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositor3Impl: Sized {
+pub trait ICompositor3_Impl: Sized {
     fn CreateHostBackdropBrush(&mut self) -> ::windows::core::Result<CompositionBackdropBrush>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5973,9 +5973,9 @@ impl ::windows::core::RuntimeName for ICompositor3 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositor3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositor3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositor3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositor3Vtbl {
-        unsafe extern "system" fn CreateHostBackdropBrush<Impl: ICompositor3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositor3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositor3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositor3_Vtbl {
+        unsafe extern "system" fn CreateHostBackdropBrush<Impl: ICompositor3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateHostBackdropBrush() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5996,7 +5996,7 @@ impl ICompositor3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositor4Impl: Sized {
+pub trait ICompositor4_Impl: Sized {
     fn CreateColorGradientStop(&mut self) -> ::windows::core::Result<CompositionColorGradientStop>;
     fn CreateColorGradientStopWithOffsetAndColor(&mut self, offset: f32, color: &super::Color) -> ::windows::core::Result<CompositionColorGradientStop>;
     fn CreateLinearGradientBrush(&mut self) -> ::windows::core::Result<CompositionLinearGradientBrush>;
@@ -6009,9 +6009,9 @@ impl ::windows::core::RuntimeName for ICompositor4 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositor4";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositor4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositor4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositor4Vtbl {
-        unsafe extern "system" fn CreateColorGradientStop<Impl: ICompositor4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositor4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositor4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositor4_Vtbl {
+        unsafe extern "system" fn CreateColorGradientStop<Impl: ICompositor4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateColorGradientStop() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6022,7 +6022,7 @@ impl ICompositor4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateColorGradientStopWithOffsetAndColor<Impl: ICompositor4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: f32, color: super::Color, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateColorGradientStopWithOffsetAndColor<Impl: ICompositor4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: f32, color: super::Color, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateColorGradientStopWithOffsetAndColor(offset, &*(&color as *const <super::Color as ::windows::core::Abi>::Abi as *const <super::Color as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6033,7 +6033,7 @@ impl ICompositor4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateLinearGradientBrush<Impl: ICompositor4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateLinearGradientBrush<Impl: ICompositor4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateLinearGradientBrush() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6044,7 +6044,7 @@ impl ICompositor4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSpringScalarAnimation<Impl: ICompositor4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSpringScalarAnimation<Impl: ICompositor4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSpringScalarAnimation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6055,7 +6055,7 @@ impl ICompositor4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSpringVector2Animation<Impl: ICompositor4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSpringVector2Animation<Impl: ICompositor4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSpringVector2Animation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6066,7 +6066,7 @@ impl ICompositor4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSpringVector3Animation<Impl: ICompositor4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSpringVector3Animation<Impl: ICompositor4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSpringVector3Animation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6092,7 +6092,7 @@ impl ICompositor4Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICompositor5Impl: Sized {
+pub trait ICompositor5_Impl: Sized {
     fn Comment(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetComment(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn GlobalPlaybackRate(&mut self) -> ::windows::core::Result<f32>;
@@ -6119,9 +6119,9 @@ impl ::windows::core::RuntimeName for ICompositor5 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositor5";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICompositor5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositor5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositor5Vtbl {
-        unsafe extern "system" fn Comment<Impl: ICompositor5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ICompositor5_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositor5_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositor5_Vtbl {
+        unsafe extern "system" fn Comment<Impl: ICompositor5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Comment() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6132,11 +6132,11 @@ impl ICompositor5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetComment<Impl: ICompositor5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetComment<Impl: ICompositor5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetComment(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GlobalPlaybackRate<Impl: ICompositor5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GlobalPlaybackRate<Impl: ICompositor5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GlobalPlaybackRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6147,11 +6147,11 @@ impl ICompositor5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGlobalPlaybackRate<Impl: ICompositor5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGlobalPlaybackRate<Impl: ICompositor5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetGlobalPlaybackRate(value).into()
         }
-        unsafe extern "system" fn CreateBounceScalarAnimation<Impl: ICompositor5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateBounceScalarAnimation<Impl: ICompositor5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateBounceScalarAnimation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6162,7 +6162,7 @@ impl ICompositor5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateBounceVector2Animation<Impl: ICompositor5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateBounceVector2Animation<Impl: ICompositor5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateBounceVector2Animation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6173,7 +6173,7 @@ impl ICompositor5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateBounceVector3Animation<Impl: ICompositor5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateBounceVector3Animation<Impl: ICompositor5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateBounceVector3Animation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6184,7 +6184,7 @@ impl ICompositor5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateContainerShape<Impl: ICompositor5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateContainerShape<Impl: ICompositor5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateContainerShape() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6195,7 +6195,7 @@ impl ICompositor5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateEllipseGeometry<Impl: ICompositor5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateEllipseGeometry<Impl: ICompositor5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateEllipseGeometry() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6206,7 +6206,7 @@ impl ICompositor5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateLineGeometry<Impl: ICompositor5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateLineGeometry<Impl: ICompositor5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateLineGeometry() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6217,7 +6217,7 @@ impl ICompositor5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePathGeometry<Impl: ICompositor5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePathGeometry<Impl: ICompositor5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePathGeometry() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6228,7 +6228,7 @@ impl ICompositor5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePathGeometryWithPath<Impl: ICompositor5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePathGeometryWithPath<Impl: ICompositor5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePathGeometryWithPath(&*(&path as *const <CompositionPath as ::windows::core::Abi>::Abi as *const <CompositionPath as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6239,7 +6239,7 @@ impl ICompositor5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePathKeyFrameAnimation<Impl: ICompositor5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePathKeyFrameAnimation<Impl: ICompositor5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePathKeyFrameAnimation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6250,7 +6250,7 @@ impl ICompositor5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateRectangleGeometry<Impl: ICompositor5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateRectangleGeometry<Impl: ICompositor5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateRectangleGeometry() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6261,7 +6261,7 @@ impl ICompositor5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateRoundedRectangleGeometry<Impl: ICompositor5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateRoundedRectangleGeometry<Impl: ICompositor5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateRoundedRectangleGeometry() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6272,7 +6272,7 @@ impl ICompositor5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateShapeVisual<Impl: ICompositor5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateShapeVisual<Impl: ICompositor5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateShapeVisual() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6283,7 +6283,7 @@ impl ICompositor5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSpriteShape<Impl: ICompositor5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSpriteShape<Impl: ICompositor5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSpriteShape() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6294,7 +6294,7 @@ impl ICompositor5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSpriteShapeWithGeometry<Impl: ICompositor5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, geometry: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSpriteShapeWithGeometry<Impl: ICompositor5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, geometry: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSpriteShapeWithGeometry(&*(&geometry as *const <CompositionGeometry as ::windows::core::Abi>::Abi as *const <CompositionGeometry as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6305,7 +6305,7 @@ impl ICompositor5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateViewBox<Impl: ICompositor5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateViewBox<Impl: ICompositor5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateViewBox() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6316,7 +6316,7 @@ impl ICompositor5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestCommitAsync<Impl: ICompositor5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestCommitAsync<Impl: ICompositor5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestCommitAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6356,7 +6356,7 @@ impl ICompositor5Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositor6Impl: Sized {
+pub trait ICompositor6_Impl: Sized {
     fn CreateGeometricClip(&mut self) -> ::windows::core::Result<CompositionGeometricClip>;
     fn CreateGeometricClipWithGeometry(&mut self, geometry: &::core::option::Option<CompositionGeometry>) -> ::windows::core::Result<CompositionGeometricClip>;
     fn CreateRedirectVisual(&mut self) -> ::windows::core::Result<RedirectVisual>;
@@ -6368,9 +6368,9 @@ impl ::windows::core::RuntimeName for ICompositor6 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositor6";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositor6Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositor6Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositor6Vtbl {
-        unsafe extern "system" fn CreateGeometricClip<Impl: ICompositor6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositor6_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositor6_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositor6_Vtbl {
+        unsafe extern "system" fn CreateGeometricClip<Impl: ICompositor6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateGeometricClip() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6381,7 +6381,7 @@ impl ICompositor6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateGeometricClipWithGeometry<Impl: ICompositor6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, geometry: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateGeometricClipWithGeometry<Impl: ICompositor6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, geometry: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateGeometricClipWithGeometry(&*(&geometry as *const <CompositionGeometry as ::windows::core::Abi>::Abi as *const <CompositionGeometry as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6392,7 +6392,7 @@ impl ICompositor6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateRedirectVisual<Impl: ICompositor6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateRedirectVisual<Impl: ICompositor6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateRedirectVisual() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6403,7 +6403,7 @@ impl ICompositor6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateRedirectVisualWithSourceVisual<Impl: ICompositor6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateRedirectVisualWithSourceVisual<Impl: ICompositor6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateRedirectVisualWithSourceVisual(&*(&source as *const <Visual as ::windows::core::Abi>::Abi as *const <Visual as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6414,7 +6414,7 @@ impl ICompositor6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateBooleanKeyFrameAnimation<Impl: ICompositor6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateBooleanKeyFrameAnimation<Impl: ICompositor6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateBooleanKeyFrameAnimation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6439,7 +6439,7 @@ impl ICompositor6Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "System", feature = "implement_exclusive"))]
-pub trait ICompositor7Impl: Sized {
+pub trait ICompositor7_Impl: Sized {
     fn DispatcherQueue(&mut self) -> ::windows::core::Result<super::super::System::DispatcherQueue>;
     fn CreateAnimationPropertyInfo(&mut self) -> ::windows::core::Result<AnimationPropertyInfo>;
     fn CreateRectangleClip(&mut self) -> ::windows::core::Result<RectangleClip>;
@@ -6451,9 +6451,9 @@ impl ::windows::core::RuntimeName for ICompositor7 {
     const NAME: &'static str = "Windows.UI.Composition.ICompositor7";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "System", feature = "implement_exclusive"))]
-impl ICompositor7Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositor7Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositor7Vtbl {
-        unsafe extern "system" fn DispatcherQueue<Impl: ICompositor7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositor7_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositor7_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositor7_Vtbl {
+        unsafe extern "system" fn DispatcherQueue<Impl: ICompositor7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DispatcherQueue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6464,7 +6464,7 @@ impl ICompositor7Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateAnimationPropertyInfo<Impl: ICompositor7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateAnimationPropertyInfo<Impl: ICompositor7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAnimationPropertyInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6475,7 +6475,7 @@ impl ICompositor7Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateRectangleClip<Impl: ICompositor7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateRectangleClip<Impl: ICompositor7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateRectangleClip() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6486,7 +6486,7 @@ impl ICompositor7Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateRectangleClipWithSides<Impl: ICompositor7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, left: f32, top: f32, right: f32, bottom: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateRectangleClipWithSides<Impl: ICompositor7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, left: f32, top: f32, right: f32, bottom: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateRectangleClipWithSides(left, top, right, bottom) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6497,7 +6497,7 @@ impl ICompositor7Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateRectangleClipWithSidesAndRadius<Impl: ICompositor7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, left: f32, top: f32, right: f32, bottom: f32, topleftradius: super::super::Foundation::Numerics::Vector2, toprightradius: super::super::Foundation::Numerics::Vector2, bottomrightradius: super::super::Foundation::Numerics::Vector2, bottomleftradius: super::super::Foundation::Numerics::Vector2, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateRectangleClipWithSidesAndRadius<Impl: ICompositor7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, left: f32, top: f32, right: f32, bottom: f32, topleftradius: super::super::Foundation::Numerics::Vector2, toprightradius: super::super::Foundation::Numerics::Vector2, bottomrightradius: super::super::Foundation::Numerics::Vector2, bottomleftradius: super::super::Foundation::Numerics::Vector2, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateRectangleClipWithSidesAndRadius(
                 left,
@@ -6531,7 +6531,7 @@ impl ICompositor7Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositorStaticsImpl: Sized {
+pub trait ICompositorStatics_Impl: Sized {
     fn MaxGlobalPlaybackRate(&mut self) -> ::windows::core::Result<f32>;
     fn MinGlobalPlaybackRate(&mut self) -> ::windows::core::Result<f32>;
 }
@@ -6540,9 +6540,9 @@ impl ::windows::core::RuntimeName for ICompositorStatics {
     const NAME: &'static str = "Windows.UI.Composition.ICompositorStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositorStaticsVtbl {
-        unsafe extern "system" fn MaxGlobalPlaybackRate<Impl: ICompositorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl ICompositorStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositorStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositorStatics_Vtbl {
+        unsafe extern "system" fn MaxGlobalPlaybackRate<Impl: ICompositorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxGlobalPlaybackRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6553,7 +6553,7 @@ impl ICompositorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MinGlobalPlaybackRate<Impl: ICompositorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinGlobalPlaybackRate<Impl: ICompositorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinGlobalPlaybackRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6575,7 +6575,7 @@ impl ICompositorStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositorWithBlurredWallpaperBackdropBrushImpl: Sized {
+pub trait ICompositorWithBlurredWallpaperBackdropBrush_Impl: Sized {
     fn TryCreateBlurredWallpaperBackdropBrush(&mut self) -> ::windows::core::Result<CompositionBackdropBrush>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6583,9 +6583,9 @@ impl ::windows::core::RuntimeName for ICompositorWithBlurredWallpaperBackdropBru
     const NAME: &'static str = "Windows.UI.Composition.ICompositorWithBlurredWallpaperBackdropBrush";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositorWithBlurredWallpaperBackdropBrushVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositorWithBlurredWallpaperBackdropBrushImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositorWithBlurredWallpaperBackdropBrushVtbl {
-        unsafe extern "system" fn TryCreateBlurredWallpaperBackdropBrush<Impl: ICompositorWithBlurredWallpaperBackdropBrushImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositorWithBlurredWallpaperBackdropBrush_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositorWithBlurredWallpaperBackdropBrush_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositorWithBlurredWallpaperBackdropBrush_Vtbl {
+        unsafe extern "system" fn TryCreateBlurredWallpaperBackdropBrush<Impl: ICompositorWithBlurredWallpaperBackdropBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreateBlurredWallpaperBackdropBrush() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6606,7 +6606,7 @@ impl ICompositorWithBlurredWallpaperBackdropBrushVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositorWithProjectedShadowImpl: Sized {
+pub trait ICompositorWithProjectedShadow_Impl: Sized {
     fn CreateProjectedShadowCaster(&mut self) -> ::windows::core::Result<CompositionProjectedShadowCaster>;
     fn CreateProjectedShadow(&mut self) -> ::windows::core::Result<CompositionProjectedShadow>;
     fn CreateProjectedShadowReceiver(&mut self) -> ::windows::core::Result<CompositionProjectedShadowReceiver>;
@@ -6616,9 +6616,9 @@ impl ::windows::core::RuntimeName for ICompositorWithProjectedShadow {
     const NAME: &'static str = "Windows.UI.Composition.ICompositorWithProjectedShadow";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositorWithProjectedShadowVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositorWithProjectedShadowImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositorWithProjectedShadowVtbl {
-        unsafe extern "system" fn CreateProjectedShadowCaster<Impl: ICompositorWithProjectedShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositorWithProjectedShadow_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositorWithProjectedShadow_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositorWithProjectedShadow_Vtbl {
+        unsafe extern "system" fn CreateProjectedShadowCaster<Impl: ICompositorWithProjectedShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateProjectedShadowCaster() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6629,7 +6629,7 @@ impl ICompositorWithProjectedShadowVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateProjectedShadow<Impl: ICompositorWithProjectedShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateProjectedShadow<Impl: ICompositorWithProjectedShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateProjectedShadow() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6640,7 +6640,7 @@ impl ICompositorWithProjectedShadowVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateProjectedShadowReceiver<Impl: ICompositorWithProjectedShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateProjectedShadowReceiver<Impl: ICompositorWithProjectedShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateProjectedShadowReceiver() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6663,7 +6663,7 @@ impl ICompositorWithProjectedShadowVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositorWithRadialGradientImpl: Sized {
+pub trait ICompositorWithRadialGradient_Impl: Sized {
     fn CreateRadialGradientBrush(&mut self) -> ::windows::core::Result<CompositionRadialGradientBrush>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6671,9 +6671,9 @@ impl ::windows::core::RuntimeName for ICompositorWithRadialGradient {
     const NAME: &'static str = "Windows.UI.Composition.ICompositorWithRadialGradient";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositorWithRadialGradientVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositorWithRadialGradientImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositorWithRadialGradientVtbl {
-        unsafe extern "system" fn CreateRadialGradientBrush<Impl: ICompositorWithRadialGradientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositorWithRadialGradient_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositorWithRadialGradient_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositorWithRadialGradient_Vtbl {
+        unsafe extern "system" fn CreateRadialGradientBrush<Impl: ICompositorWithRadialGradient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateRadialGradientBrush() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6694,7 +6694,7 @@ impl ICompositorWithRadialGradientVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICompositorWithVisualSurfaceImpl: Sized {
+pub trait ICompositorWithVisualSurface_Impl: Sized {
     fn CreateVisualSurface(&mut self) -> ::windows::core::Result<CompositionVisualSurface>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6702,9 +6702,9 @@ impl ::windows::core::RuntimeName for ICompositorWithVisualSurface {
     const NAME: &'static str = "Windows.UI.Composition.ICompositorWithVisualSurface";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICompositorWithVisualSurfaceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositorWithVisualSurfaceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositorWithVisualSurfaceVtbl {
-        unsafe extern "system" fn CreateVisualSurface<Impl: ICompositorWithVisualSurfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositorWithVisualSurface_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositorWithVisualSurface_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositorWithVisualSurface_Vtbl {
+        unsafe extern "system" fn CreateVisualSurface<Impl: ICompositorWithVisualSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateVisualSurface() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6725,7 +6725,7 @@ impl ICompositorWithVisualSurfaceVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IContainerVisualImpl: Sized {
+pub trait IContainerVisual_Impl: Sized {
     fn Children(&mut self) -> ::windows::core::Result<VisualCollection>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6733,9 +6733,9 @@ impl ::windows::core::RuntimeName for IContainerVisual {
     const NAME: &'static str = "Windows.UI.Composition.IContainerVisual";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IContainerVisualVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContainerVisualImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContainerVisualVtbl {
-        unsafe extern "system" fn Children<Impl: IContainerVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IContainerVisual_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContainerVisual_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContainerVisual_Vtbl {
+        unsafe extern "system" fn Children<Impl: IContainerVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Children() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6753,14 +6753,14 @@ impl IContainerVisualVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IContainerVisualFactoryImpl: Sized {}
+pub trait IContainerVisualFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IContainerVisualFactory {
     const NAME: &'static str = "Windows.UI.Composition.IContainerVisualFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IContainerVisualFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContainerVisualFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContainerVisualFactoryVtbl {
+impl IContainerVisualFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContainerVisualFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContainerVisualFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IContainerVisualFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -6768,7 +6768,7 @@ impl IContainerVisualFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ICubicBezierEasingFunctionImpl: Sized {
+pub trait ICubicBezierEasingFunction_Impl: Sized {
     fn ControlPoint1(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
     fn ControlPoint2(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
 }
@@ -6777,9 +6777,9 @@ impl ::windows::core::RuntimeName for ICubicBezierEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.ICubicBezierEasingFunction";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ICubicBezierEasingFunctionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICubicBezierEasingFunctionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICubicBezierEasingFunctionVtbl {
-        unsafe extern "system" fn ControlPoint1<Impl: ICubicBezierEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+impl ICubicBezierEasingFunction_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICubicBezierEasingFunction_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICubicBezierEasingFunction_Vtbl {
+        unsafe extern "system" fn ControlPoint1<Impl: ICubicBezierEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ControlPoint1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6790,7 +6790,7 @@ impl ICubicBezierEasingFunctionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ControlPoint2<Impl: ICubicBezierEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ControlPoint2<Impl: ICubicBezierEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ControlPoint2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6812,7 +6812,7 @@ impl ICubicBezierEasingFunctionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IDelegatedInkTrailVisualImpl: Sized {
+pub trait IDelegatedInkTrailVisual_Impl: Sized {
     fn AddTrailPoints(&mut self, inkpoints: &[<InkTrailPoint as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32>;
     fn AddTrailPointsWithPrediction(&mut self, inkpoints: &[<InkTrailPoint as ::windows::core::DefaultType>::DefaultType], predictedinkpoints: &[<InkTrailPoint as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32>;
     fn RemoveTrailPoints(&mut self, generationid: u32) -> ::windows::core::Result<()>;
@@ -6823,9 +6823,9 @@ impl ::windows::core::RuntimeName for IDelegatedInkTrailVisual {
     const NAME: &'static str = "Windows.UI.Composition.IDelegatedInkTrailVisual";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IDelegatedInkTrailVisualVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDelegatedInkTrailVisualImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDelegatedInkTrailVisualVtbl {
-        unsafe extern "system" fn AddTrailPoints<Impl: IDelegatedInkTrailVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inkPoints_array_size: u32, inkpoints: *const InkTrailPoint, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IDelegatedInkTrailVisual_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDelegatedInkTrailVisual_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDelegatedInkTrailVisual_Vtbl {
+        unsafe extern "system" fn AddTrailPoints<Impl: IDelegatedInkTrailVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inkPoints_array_size: u32, inkpoints: *const InkTrailPoint, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddTrailPoints(::core::slice::from_raw_parts(::core::mem::transmute_copy(&inkpoints), inkPoints_array_size as _)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6836,7 +6836,7 @@ impl IDelegatedInkTrailVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddTrailPointsWithPrediction<Impl: IDelegatedInkTrailVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inkPoints_array_size: u32, inkpoints: *const InkTrailPoint, predictedInkPoints_array_size: u32, predictedinkpoints: *const InkTrailPoint, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddTrailPointsWithPrediction<Impl: IDelegatedInkTrailVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inkPoints_array_size: u32, inkpoints: *const InkTrailPoint, predictedInkPoints_array_size: u32, predictedinkpoints: *const InkTrailPoint, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddTrailPointsWithPrediction(::core::slice::from_raw_parts(::core::mem::transmute_copy(&inkpoints), inkPoints_array_size as _), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&predictedinkpoints), predictedInkPoints_array_size as _)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6847,11 +6847,11 @@ impl IDelegatedInkTrailVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveTrailPoints<Impl: IDelegatedInkTrailVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, generationid: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveTrailPoints<Impl: IDelegatedInkTrailVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, generationid: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTrailPoints(generationid).into()
         }
-        unsafe extern "system" fn StartNewTrail<Impl: IDelegatedInkTrailVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartNewTrail<Impl: IDelegatedInkTrailVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartNewTrail(&*(&color as *const <super::Color as ::windows::core::Abi>::Abi as *const <super::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -6868,7 +6868,7 @@ impl IDelegatedInkTrailVisualVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDelegatedInkTrailVisualStaticsImpl: Sized {
+pub trait IDelegatedInkTrailVisualStatics_Impl: Sized {
     fn Create(&mut self, compositor: &::core::option::Option<Compositor>) -> ::windows::core::Result<DelegatedInkTrailVisual>;
     fn CreateForSwapChain(&mut self, compositor: &::core::option::Option<Compositor>, swapchain: &::core::option::Option<ICompositionSurface>) -> ::windows::core::Result<DelegatedInkTrailVisual>;
 }
@@ -6877,9 +6877,9 @@ impl ::windows::core::RuntimeName for IDelegatedInkTrailVisualStatics {
     const NAME: &'static str = "Windows.UI.Composition.IDelegatedInkTrailVisualStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDelegatedInkTrailVisualStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDelegatedInkTrailVisualStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDelegatedInkTrailVisualStaticsVtbl {
-        unsafe extern "system" fn Create<Impl: IDelegatedInkTrailVisualStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDelegatedInkTrailVisualStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDelegatedInkTrailVisualStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDelegatedInkTrailVisualStatics_Vtbl {
+        unsafe extern "system" fn Create<Impl: IDelegatedInkTrailVisualStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&compositor as *const <Compositor as ::windows::core::Abi>::Abi as *const <Compositor as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6890,7 +6890,7 @@ impl IDelegatedInkTrailVisualStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateForSwapChain<Impl: IDelegatedInkTrailVisualStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, swapchain: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateForSwapChain<Impl: IDelegatedInkTrailVisualStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, swapchain: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateForSwapChain(&*(&compositor as *const <Compositor as ::windows::core::Abi>::Abi as *const <Compositor as ::windows::core::DefaultType>::DefaultType), &*(&swapchain as *const <ICompositionSurface as ::windows::core::Abi>::Abi as *const <ICompositionSurface as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6912,7 +6912,7 @@ impl IDelegatedInkTrailVisualStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IDistantLightImpl: Sized {
+pub trait IDistantLight_Impl: Sized {
     fn Color(&mut self) -> ::windows::core::Result<super::Color>;
     fn SetColor(&mut self, value: &super::Color) -> ::windows::core::Result<()>;
     fn CoordinateSpace(&mut self) -> ::windows::core::Result<Visual>;
@@ -6925,9 +6925,9 @@ impl ::windows::core::RuntimeName for IDistantLight {
     const NAME: &'static str = "Windows.UI.Composition.IDistantLight";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IDistantLightVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDistantLightImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDistantLightVtbl {
-        unsafe extern "system" fn Color<Impl: IDistantLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT {
+impl IDistantLight_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDistantLight_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDistantLight_Vtbl {
+        unsafe extern "system" fn Color<Impl: IDistantLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Color() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6938,11 +6938,11 @@ impl IDistantLightVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetColor<Impl: IDistantLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetColor<Impl: IDistantLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetColor(&*(&value as *const <super::Color as ::windows::core::Abi>::Abi as *const <super::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CoordinateSpace<Impl: IDistantLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CoordinateSpace<Impl: IDistantLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CoordinateSpace() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6953,11 +6953,11 @@ impl IDistantLightVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCoordinateSpace<Impl: IDistantLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCoordinateSpace<Impl: IDistantLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCoordinateSpace(&*(&value as *const <Visual as ::windows::core::Abi>::Abi as *const <Visual as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Direction<Impl: IDistantLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Direction<Impl: IDistantLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Direction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6968,7 +6968,7 @@ impl IDistantLightVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDirection<Impl: IDistantLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDirection<Impl: IDistantLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDirection(&*(&value as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -6987,7 +6987,7 @@ impl IDistantLightVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDistantLight2Impl: Sized {
+pub trait IDistantLight2_Impl: Sized {
     fn Intensity(&mut self) -> ::windows::core::Result<f32>;
     fn SetIntensity(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
@@ -6996,9 +6996,9 @@ impl ::windows::core::RuntimeName for IDistantLight2 {
     const NAME: &'static str = "Windows.UI.Composition.IDistantLight2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDistantLight2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDistantLight2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDistantLight2Vtbl {
-        unsafe extern "system" fn Intensity<Impl: IDistantLight2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl IDistantLight2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDistantLight2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDistantLight2_Vtbl {
+        unsafe extern "system" fn Intensity<Impl: IDistantLight2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Intensity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7009,7 +7009,7 @@ impl IDistantLight2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIntensity<Impl: IDistantLight2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIntensity<Impl: IDistantLight2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIntensity(value).into()
         }
@@ -7024,7 +7024,7 @@ impl IDistantLight2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IDropShadowImpl: Sized {
+pub trait IDropShadow_Impl: Sized {
     fn BlurRadius(&mut self) -> ::windows::core::Result<f32>;
     fn SetBlurRadius(&mut self, value: f32) -> ::windows::core::Result<()>;
     fn Color(&mut self) -> ::windows::core::Result<super::Color>;
@@ -7041,9 +7041,9 @@ impl ::windows::core::RuntimeName for IDropShadow {
     const NAME: &'static str = "Windows.UI.Composition.IDropShadow";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IDropShadowVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDropShadowImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDropShadowVtbl {
-        unsafe extern "system" fn BlurRadius<Impl: IDropShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl IDropShadow_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDropShadow_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDropShadow_Vtbl {
+        unsafe extern "system" fn BlurRadius<Impl: IDropShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BlurRadius() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7054,11 +7054,11 @@ impl IDropShadowVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBlurRadius<Impl: IDropShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBlurRadius<Impl: IDropShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBlurRadius(value).into()
         }
-        unsafe extern "system" fn Color<Impl: IDropShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Color<Impl: IDropShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Color() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7069,11 +7069,11 @@ impl IDropShadowVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetColor<Impl: IDropShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetColor<Impl: IDropShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetColor(&*(&value as *const <super::Color as ::windows::core::Abi>::Abi as *const <super::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Mask<Impl: IDropShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Mask<Impl: IDropShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Mask() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7084,11 +7084,11 @@ impl IDropShadowVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMask<Impl: IDropShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMask<Impl: IDropShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMask(&*(&value as *const <CompositionBrush as ::windows::core::Abi>::Abi as *const <CompositionBrush as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Offset<Impl: IDropShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Offset<Impl: IDropShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Offset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7099,11 +7099,11 @@ impl IDropShadowVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOffset<Impl: IDropShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffset<Impl: IDropShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOffset(&*(&value as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Opacity<Impl: IDropShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Opacity<Impl: IDropShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Opacity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7114,7 +7114,7 @@ impl IDropShadowVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOpacity<Impl: IDropShadowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOpacity<Impl: IDropShadow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOpacity(value).into()
         }
@@ -7137,7 +7137,7 @@ impl IDropShadowVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDropShadow2Impl: Sized {
+pub trait IDropShadow2_Impl: Sized {
     fn SourcePolicy(&mut self) -> ::windows::core::Result<CompositionDropShadowSourcePolicy>;
     fn SetSourcePolicy(&mut self, value: CompositionDropShadowSourcePolicy) -> ::windows::core::Result<()>;
 }
@@ -7146,9 +7146,9 @@ impl ::windows::core::RuntimeName for IDropShadow2 {
     const NAME: &'static str = "Windows.UI.Composition.IDropShadow2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDropShadow2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDropShadow2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDropShadow2Vtbl {
-        unsafe extern "system" fn SourcePolicy<Impl: IDropShadow2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionDropShadowSourcePolicy) -> ::windows::core::HRESULT {
+impl IDropShadow2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDropShadow2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDropShadow2_Vtbl {
+        unsafe extern "system" fn SourcePolicy<Impl: IDropShadow2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionDropShadowSourcePolicy) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourcePolicy() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7159,7 +7159,7 @@ impl IDropShadow2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSourcePolicy<Impl: IDropShadow2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionDropShadowSourcePolicy) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSourcePolicy<Impl: IDropShadow2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionDropShadowSourcePolicy) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSourcePolicy(value).into()
         }
@@ -7174,7 +7174,7 @@ impl IDropShadow2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IElasticEasingFunctionImpl: Sized {
+pub trait IElasticEasingFunction_Impl: Sized {
     fn Mode(&mut self) -> ::windows::core::Result<CompositionEasingFunctionMode>;
     fn Oscillations(&mut self) -> ::windows::core::Result<i32>;
     fn Springiness(&mut self) -> ::windows::core::Result<f32>;
@@ -7184,9 +7184,9 @@ impl ::windows::core::RuntimeName for IElasticEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.IElasticEasingFunction";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IElasticEasingFunctionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IElasticEasingFunctionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IElasticEasingFunctionVtbl {
-        unsafe extern "system" fn Mode<Impl: IElasticEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionEasingFunctionMode) -> ::windows::core::HRESULT {
+impl IElasticEasingFunction_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IElasticEasingFunction_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IElasticEasingFunction_Vtbl {
+        unsafe extern "system" fn Mode<Impl: IElasticEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionEasingFunctionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Mode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7197,7 +7197,7 @@ impl IElasticEasingFunctionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Oscillations<Impl: IElasticEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Oscillations<Impl: IElasticEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Oscillations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7208,7 +7208,7 @@ impl IElasticEasingFunctionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Springiness<Impl: IElasticEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Springiness<Impl: IElasticEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Springiness() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7231,7 +7231,7 @@ impl IElasticEasingFunctionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IExponentialEasingFunctionImpl: Sized {
+pub trait IExponentialEasingFunction_Impl: Sized {
     fn Mode(&mut self) -> ::windows::core::Result<CompositionEasingFunctionMode>;
     fn Exponent(&mut self) -> ::windows::core::Result<f32>;
 }
@@ -7240,9 +7240,9 @@ impl ::windows::core::RuntimeName for IExponentialEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.IExponentialEasingFunction";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IExponentialEasingFunctionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExponentialEasingFunctionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IExponentialEasingFunctionVtbl {
-        unsafe extern "system" fn Mode<Impl: IExponentialEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionEasingFunctionMode) -> ::windows::core::HRESULT {
+impl IExponentialEasingFunction_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExponentialEasingFunction_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IExponentialEasingFunction_Vtbl {
+        unsafe extern "system" fn Mode<Impl: IExponentialEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionEasingFunctionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Mode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7253,7 +7253,7 @@ impl IExponentialEasingFunctionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Exponent<Impl: IExponentialEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Exponent<Impl: IExponentialEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Exponent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7275,7 +7275,7 @@ impl IExponentialEasingFunctionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IExpressionAnimationImpl: Sized {
+pub trait IExpressionAnimation_Impl: Sized {
     fn Expression(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetExpression(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
@@ -7284,9 +7284,9 @@ impl ::windows::core::RuntimeName for IExpressionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.IExpressionAnimation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IExpressionAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExpressionAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IExpressionAnimationVtbl {
-        unsafe extern "system" fn Expression<Impl: IExpressionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IExpressionAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExpressionAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IExpressionAnimation_Vtbl {
+        unsafe extern "system" fn Expression<Impl: IExpressionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Expression() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7297,7 +7297,7 @@ impl IExpressionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExpression<Impl: IExpressionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetExpression<Impl: IExpressionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExpression(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -7312,14 +7312,14 @@ impl IExpressionAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IImplicitAnimationCollectionImpl: Sized {}
+pub trait IImplicitAnimationCollection_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IImplicitAnimationCollection {
     const NAME: &'static str = "Windows.UI.Composition.IImplicitAnimationCollection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IImplicitAnimationCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImplicitAnimationCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImplicitAnimationCollectionVtbl {
+impl IImplicitAnimationCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImplicitAnimationCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImplicitAnimationCollection_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IImplicitAnimationCollection, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -7327,7 +7327,7 @@ impl IImplicitAnimationCollectionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInsetClipImpl: Sized {
+pub trait IInsetClip_Impl: Sized {
     fn BottomInset(&mut self) -> ::windows::core::Result<f32>;
     fn SetBottomInset(&mut self, value: f32) -> ::windows::core::Result<()>;
     fn LeftInset(&mut self) -> ::windows::core::Result<f32>;
@@ -7342,9 +7342,9 @@ impl ::windows::core::RuntimeName for IInsetClip {
     const NAME: &'static str = "Windows.UI.Composition.IInsetClip";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInsetClipVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInsetClipImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInsetClipVtbl {
-        unsafe extern "system" fn BottomInset<Impl: IInsetClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl IInsetClip_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInsetClip_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInsetClip_Vtbl {
+        unsafe extern "system" fn BottomInset<Impl: IInsetClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BottomInset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7355,11 +7355,11 @@ impl IInsetClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBottomInset<Impl: IInsetClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBottomInset<Impl: IInsetClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBottomInset(value).into()
         }
-        unsafe extern "system" fn LeftInset<Impl: IInsetClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LeftInset<Impl: IInsetClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LeftInset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7370,11 +7370,11 @@ impl IInsetClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLeftInset<Impl: IInsetClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLeftInset<Impl: IInsetClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLeftInset(value).into()
         }
-        unsafe extern "system" fn RightInset<Impl: IInsetClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RightInset<Impl: IInsetClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RightInset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7385,11 +7385,11 @@ impl IInsetClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRightInset<Impl: IInsetClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRightInset<Impl: IInsetClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRightInset(value).into()
         }
-        unsafe extern "system" fn TopInset<Impl: IInsetClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TopInset<Impl: IInsetClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TopInset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7400,7 +7400,7 @@ impl IInsetClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTopInset<Impl: IInsetClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTopInset<Impl: IInsetClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTopInset(value).into()
         }
@@ -7421,7 +7421,7 @@ impl IInsetClipVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IKeyFrameAnimationImpl: Sized {
+pub trait IKeyFrameAnimation_Impl: Sized {
     fn DelayTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn SetDelayTime(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
     fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -7441,9 +7441,9 @@ impl ::windows::core::RuntimeName for IKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.IKeyFrameAnimation";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IKeyFrameAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyFrameAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyFrameAnimationVtbl {
-        unsafe extern "system" fn DelayTime<Impl: IKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+impl IKeyFrameAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyFrameAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyFrameAnimation_Vtbl {
+        unsafe extern "system" fn DelayTime<Impl: IKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DelayTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7454,11 +7454,11 @@ impl IKeyFrameAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDelayTime<Impl: IKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDelayTime<Impl: IKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDelayTime(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Duration<Impl: IKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Duration<Impl: IKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Duration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7469,11 +7469,11 @@ impl IKeyFrameAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDuration<Impl: IKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDuration<Impl: IKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDuration(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IterationBehavior<Impl: IKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AnimationIterationBehavior) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IterationBehavior<Impl: IKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AnimationIterationBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IterationBehavior() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7484,11 +7484,11 @@ impl IKeyFrameAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIterationBehavior<Impl: IKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AnimationIterationBehavior) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIterationBehavior<Impl: IKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AnimationIterationBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIterationBehavior(value).into()
         }
-        unsafe extern "system" fn IterationCount<Impl: IKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IterationCount<Impl: IKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IterationCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7499,11 +7499,11 @@ impl IKeyFrameAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIterationCount<Impl: IKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIterationCount<Impl: IKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIterationCount(value).into()
         }
-        unsafe extern "system" fn KeyFrameCount<Impl: IKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KeyFrameCount<Impl: IKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyFrameCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7514,7 +7514,7 @@ impl IKeyFrameAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StopBehavior<Impl: IKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AnimationStopBehavior) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopBehavior<Impl: IKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AnimationStopBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StopBehavior() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7525,15 +7525,15 @@ impl IKeyFrameAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStopBehavior<Impl: IKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AnimationStopBehavior) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStopBehavior<Impl: IKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AnimationStopBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStopBehavior(value).into()
         }
-        unsafe extern "system" fn InsertExpressionKeyFrame<Impl: IKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertExpressionKeyFrame<Impl: IKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertExpressionKeyFrame(normalizedprogresskey, &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InsertExpressionKeyFrameWithEasingFunction<Impl: IKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertExpressionKeyFrameWithEasingFunction<Impl: IKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertExpressionKeyFrameWithEasingFunction(normalizedprogresskey, &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&easingfunction as *const <CompositionEasingFunction as ::windows::core::Abi>::Abi as *const <CompositionEasingFunction as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -7559,7 +7559,7 @@ impl IKeyFrameAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IKeyFrameAnimation2Impl: Sized {
+pub trait IKeyFrameAnimation2_Impl: Sized {
     fn Direction(&mut self) -> ::windows::core::Result<AnimationDirection>;
     fn SetDirection(&mut self, value: AnimationDirection) -> ::windows::core::Result<()>;
 }
@@ -7568,9 +7568,9 @@ impl ::windows::core::RuntimeName for IKeyFrameAnimation2 {
     const NAME: &'static str = "Windows.UI.Composition.IKeyFrameAnimation2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IKeyFrameAnimation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyFrameAnimation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyFrameAnimation2Vtbl {
-        unsafe extern "system" fn Direction<Impl: IKeyFrameAnimation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AnimationDirection) -> ::windows::core::HRESULT {
+impl IKeyFrameAnimation2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyFrameAnimation2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyFrameAnimation2_Vtbl {
+        unsafe extern "system" fn Direction<Impl: IKeyFrameAnimation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AnimationDirection) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Direction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7581,7 +7581,7 @@ impl IKeyFrameAnimation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDirection<Impl: IKeyFrameAnimation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AnimationDirection) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDirection<Impl: IKeyFrameAnimation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AnimationDirection) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDirection(value).into()
         }
@@ -7596,7 +7596,7 @@ impl IKeyFrameAnimation2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IKeyFrameAnimation3Impl: Sized {
+pub trait IKeyFrameAnimation3_Impl: Sized {
     fn DelayBehavior(&mut self) -> ::windows::core::Result<AnimationDelayBehavior>;
     fn SetDelayBehavior(&mut self, value: AnimationDelayBehavior) -> ::windows::core::Result<()>;
 }
@@ -7605,9 +7605,9 @@ impl ::windows::core::RuntimeName for IKeyFrameAnimation3 {
     const NAME: &'static str = "Windows.UI.Composition.IKeyFrameAnimation3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IKeyFrameAnimation3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyFrameAnimation3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyFrameAnimation3Vtbl {
-        unsafe extern "system" fn DelayBehavior<Impl: IKeyFrameAnimation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AnimationDelayBehavior) -> ::windows::core::HRESULT {
+impl IKeyFrameAnimation3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyFrameAnimation3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyFrameAnimation3_Vtbl {
+        unsafe extern "system" fn DelayBehavior<Impl: IKeyFrameAnimation3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AnimationDelayBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DelayBehavior() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7618,7 +7618,7 @@ impl IKeyFrameAnimation3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDelayBehavior<Impl: IKeyFrameAnimation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AnimationDelayBehavior) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDelayBehavior<Impl: IKeyFrameAnimation3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AnimationDelayBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDelayBehavior(value).into()
         }
@@ -7633,14 +7633,14 @@ impl IKeyFrameAnimation3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IKeyFrameAnimationFactoryImpl: Sized {}
+pub trait IKeyFrameAnimationFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IKeyFrameAnimationFactory {
     const NAME: &'static str = "Windows.UI.Composition.IKeyFrameAnimationFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IKeyFrameAnimationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyFrameAnimationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyFrameAnimationFactoryVtbl {
+impl IKeyFrameAnimationFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyFrameAnimationFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyFrameAnimationFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyFrameAnimationFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -7648,7 +7648,7 @@ impl IKeyFrameAnimationFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILayerVisualImpl: Sized {
+pub trait ILayerVisual_Impl: Sized {
     fn Effect(&mut self) -> ::windows::core::Result<CompositionEffectBrush>;
     fn SetEffect(&mut self, value: &::core::option::Option<CompositionEffectBrush>) -> ::windows::core::Result<()>;
 }
@@ -7657,9 +7657,9 @@ impl ::windows::core::RuntimeName for ILayerVisual {
     const NAME: &'static str = "Windows.UI.Composition.ILayerVisual";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILayerVisualVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILayerVisualImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILayerVisualVtbl {
-        unsafe extern "system" fn Effect<Impl: ILayerVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILayerVisual_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILayerVisual_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILayerVisual_Vtbl {
+        unsafe extern "system" fn Effect<Impl: ILayerVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Effect() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7670,7 +7670,7 @@ impl ILayerVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEffect<Impl: ILayerVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEffect<Impl: ILayerVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEffect(&*(&value as *const <CompositionEffectBrush as ::windows::core::Abi>::Abi as *const <CompositionEffectBrush as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -7685,7 +7685,7 @@ impl ILayerVisualVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILayerVisual2Impl: Sized {
+pub trait ILayerVisual2_Impl: Sized {
     fn Shadow(&mut self) -> ::windows::core::Result<CompositionShadow>;
     fn SetShadow(&mut self, value: &::core::option::Option<CompositionShadow>) -> ::windows::core::Result<()>;
 }
@@ -7694,9 +7694,9 @@ impl ::windows::core::RuntimeName for ILayerVisual2 {
     const NAME: &'static str = "Windows.UI.Composition.ILayerVisual2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILayerVisual2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILayerVisual2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILayerVisual2Vtbl {
-        unsafe extern "system" fn Shadow<Impl: ILayerVisual2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILayerVisual2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILayerVisual2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILayerVisual2_Vtbl {
+        unsafe extern "system" fn Shadow<Impl: ILayerVisual2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Shadow() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7707,7 +7707,7 @@ impl ILayerVisual2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetShadow<Impl: ILayerVisual2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetShadow<Impl: ILayerVisual2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetShadow(&*(&value as *const <CompositionShadow as ::windows::core::Abi>::Abi as *const <CompositionShadow as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -7722,14 +7722,14 @@ impl ILayerVisual2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILinearEasingFunctionImpl: Sized {}
+pub trait ILinearEasingFunction_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ILinearEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.ILinearEasingFunction";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILinearEasingFunctionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILinearEasingFunctionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILinearEasingFunctionVtbl {
+impl ILinearEasingFunction_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILinearEasingFunction_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILinearEasingFunction_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILinearEasingFunction, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -7737,7 +7737,7 @@ impl ILinearEasingFunctionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait INaturalMotionAnimationImpl: Sized {
+pub trait INaturalMotionAnimation_Impl: Sized {
     fn DelayBehavior(&mut self) -> ::windows::core::Result<AnimationDelayBehavior>;
     fn SetDelayBehavior(&mut self, value: AnimationDelayBehavior) -> ::windows::core::Result<()>;
     fn DelayTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -7750,9 +7750,9 @@ impl ::windows::core::RuntimeName for INaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.INaturalMotionAnimation";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl INaturalMotionAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INaturalMotionAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INaturalMotionAnimationVtbl {
-        unsafe extern "system" fn DelayBehavior<Impl: INaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AnimationDelayBehavior) -> ::windows::core::HRESULT {
+impl INaturalMotionAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INaturalMotionAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INaturalMotionAnimation_Vtbl {
+        unsafe extern "system" fn DelayBehavior<Impl: INaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AnimationDelayBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DelayBehavior() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7763,11 +7763,11 @@ impl INaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDelayBehavior<Impl: INaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AnimationDelayBehavior) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDelayBehavior<Impl: INaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AnimationDelayBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDelayBehavior(value).into()
         }
-        unsafe extern "system" fn DelayTime<Impl: INaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DelayTime<Impl: INaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DelayTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7778,11 +7778,11 @@ impl INaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDelayTime<Impl: INaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDelayTime<Impl: INaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDelayTime(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StopBehavior<Impl: INaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AnimationStopBehavior) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopBehavior<Impl: INaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AnimationStopBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StopBehavior() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7793,7 +7793,7 @@ impl INaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStopBehavior<Impl: INaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AnimationStopBehavior) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStopBehavior<Impl: INaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AnimationStopBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStopBehavior(value).into()
         }
@@ -7812,14 +7812,14 @@ impl INaturalMotionAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait INaturalMotionAnimationFactoryImpl: Sized {}
+pub trait INaturalMotionAnimationFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for INaturalMotionAnimationFactory {
     const NAME: &'static str = "Windows.UI.Composition.INaturalMotionAnimationFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl INaturalMotionAnimationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INaturalMotionAnimationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INaturalMotionAnimationFactoryVtbl {
+impl INaturalMotionAnimationFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INaturalMotionAnimationFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INaturalMotionAnimationFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, INaturalMotionAnimationFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -7827,7 +7827,7 @@ impl INaturalMotionAnimationFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPathKeyFrameAnimationImpl: Sized {
+pub trait IPathKeyFrameAnimation_Impl: Sized {
     fn InsertKeyFrame(&mut self, normalizedprogresskey: f32, path: &::core::option::Option<CompositionPath>) -> ::windows::core::Result<()>;
     fn InsertKeyFrameWithEasingFunction(&mut self, normalizedprogresskey: f32, path: &::core::option::Option<CompositionPath>, easingfunction: &::core::option::Option<CompositionEasingFunction>) -> ::windows::core::Result<()>;
 }
@@ -7836,13 +7836,13 @@ impl ::windows::core::RuntimeName for IPathKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.IPathKeyFrameAnimation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPathKeyFrameAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPathKeyFrameAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPathKeyFrameAnimationVtbl {
-        unsafe extern "system" fn InsertKeyFrame<Impl: IPathKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, path: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPathKeyFrameAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPathKeyFrameAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPathKeyFrameAnimation_Vtbl {
+        unsafe extern "system" fn InsertKeyFrame<Impl: IPathKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, path: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertKeyFrame(normalizedprogresskey, &*(&path as *const <CompositionPath as ::windows::core::Abi>::Abi as *const <CompositionPath as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InsertKeyFrameWithEasingFunction<Impl: IPathKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, path: ::windows::core::RawPtr, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertKeyFrameWithEasingFunction<Impl: IPathKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, path: ::windows::core::RawPtr, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertKeyFrameWithEasingFunction(normalizedprogresskey, &*(&path as *const <CompositionPath as ::windows::core::Abi>::Abi as *const <CompositionPath as ::windows::core::DefaultType>::DefaultType), &*(&easingfunction as *const <CompositionEasingFunction as ::windows::core::Abi>::Abi as *const <CompositionEasingFunction as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -7857,7 +7857,7 @@ impl IPathKeyFrameAnimationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IPointLightImpl: Sized {
+pub trait IPointLight_Impl: Sized {
     fn Color(&mut self) -> ::windows::core::Result<super::Color>;
     fn SetColor(&mut self, value: &super::Color) -> ::windows::core::Result<()>;
     fn ConstantAttenuation(&mut self) -> ::windows::core::Result<f32>;
@@ -7876,9 +7876,9 @@ impl ::windows::core::RuntimeName for IPointLight {
     const NAME: &'static str = "Windows.UI.Composition.IPointLight";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IPointLightVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointLightImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointLightVtbl {
-        unsafe extern "system" fn Color<Impl: IPointLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT {
+impl IPointLight_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointLight_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointLight_Vtbl {
+        unsafe extern "system" fn Color<Impl: IPointLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Color() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7889,11 +7889,11 @@ impl IPointLightVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetColor<Impl: IPointLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetColor<Impl: IPointLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetColor(&*(&value as *const <super::Color as ::windows::core::Abi>::Abi as *const <super::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ConstantAttenuation<Impl: IPointLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConstantAttenuation<Impl: IPointLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConstantAttenuation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7904,11 +7904,11 @@ impl IPointLightVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetConstantAttenuation<Impl: IPointLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetConstantAttenuation<Impl: IPointLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetConstantAttenuation(value).into()
         }
-        unsafe extern "system" fn CoordinateSpace<Impl: IPointLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CoordinateSpace<Impl: IPointLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CoordinateSpace() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7919,11 +7919,11 @@ impl IPointLightVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCoordinateSpace<Impl: IPointLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCoordinateSpace<Impl: IPointLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCoordinateSpace(&*(&value as *const <Visual as ::windows::core::Abi>::Abi as *const <Visual as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn LinearAttenuation<Impl: IPointLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LinearAttenuation<Impl: IPointLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LinearAttenuation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7934,11 +7934,11 @@ impl IPointLightVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLinearAttenuation<Impl: IPointLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLinearAttenuation<Impl: IPointLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLinearAttenuation(value).into()
         }
-        unsafe extern "system" fn Offset<Impl: IPointLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Offset<Impl: IPointLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Offset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7949,11 +7949,11 @@ impl IPointLightVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOffset<Impl: IPointLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffset<Impl: IPointLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOffset(&*(&value as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn QuadraticAttenuation<Impl: IPointLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QuadraticAttenuation<Impl: IPointLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QuadraticAttenuation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7964,7 +7964,7 @@ impl IPointLightVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetQuadraticAttenuation<Impl: IPointLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetQuadraticAttenuation<Impl: IPointLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetQuadraticAttenuation(value).into()
         }
@@ -7989,7 +7989,7 @@ impl IPointLightVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPointLight2Impl: Sized {
+pub trait IPointLight2_Impl: Sized {
     fn Intensity(&mut self) -> ::windows::core::Result<f32>;
     fn SetIntensity(&mut self, value: f32) -> ::windows::core::Result<()>;
 }
@@ -7998,9 +7998,9 @@ impl ::windows::core::RuntimeName for IPointLight2 {
     const NAME: &'static str = "Windows.UI.Composition.IPointLight2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPointLight2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointLight2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointLight2Vtbl {
-        unsafe extern "system" fn Intensity<Impl: IPointLight2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl IPointLight2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointLight2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointLight2_Vtbl {
+        unsafe extern "system" fn Intensity<Impl: IPointLight2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Intensity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8011,7 +8011,7 @@ impl IPointLight2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIntensity<Impl: IPointLight2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIntensity<Impl: IPointLight2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIntensity(value).into()
         }
@@ -8026,7 +8026,7 @@ impl IPointLight2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPointLight3Impl: Sized {
+pub trait IPointLight3_Impl: Sized {
     fn MinAttenuationCutoff(&mut self) -> ::windows::core::Result<f32>;
     fn SetMinAttenuationCutoff(&mut self, value: f32) -> ::windows::core::Result<()>;
     fn MaxAttenuationCutoff(&mut self) -> ::windows::core::Result<f32>;
@@ -8037,9 +8037,9 @@ impl ::windows::core::RuntimeName for IPointLight3 {
     const NAME: &'static str = "Windows.UI.Composition.IPointLight3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPointLight3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointLight3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointLight3Vtbl {
-        unsafe extern "system" fn MinAttenuationCutoff<Impl: IPointLight3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl IPointLight3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointLight3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointLight3_Vtbl {
+        unsafe extern "system" fn MinAttenuationCutoff<Impl: IPointLight3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinAttenuationCutoff() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8050,11 +8050,11 @@ impl IPointLight3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMinAttenuationCutoff<Impl: IPointLight3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMinAttenuationCutoff<Impl: IPointLight3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMinAttenuationCutoff(value).into()
         }
-        unsafe extern "system" fn MaxAttenuationCutoff<Impl: IPointLight3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxAttenuationCutoff<Impl: IPointLight3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxAttenuationCutoff() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8065,7 +8065,7 @@ impl IPointLight3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxAttenuationCutoff<Impl: IPointLight3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxAttenuationCutoff<Impl: IPointLight3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxAttenuationCutoff(value).into()
         }
@@ -8082,7 +8082,7 @@ impl IPointLight3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPowerEasingFunctionImpl: Sized {
+pub trait IPowerEasingFunction_Impl: Sized {
     fn Mode(&mut self) -> ::windows::core::Result<CompositionEasingFunctionMode>;
     fn Power(&mut self) -> ::windows::core::Result<f32>;
 }
@@ -8091,9 +8091,9 @@ impl ::windows::core::RuntimeName for IPowerEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.IPowerEasingFunction";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPowerEasingFunctionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPowerEasingFunctionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPowerEasingFunctionVtbl {
-        unsafe extern "system" fn Mode<Impl: IPowerEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionEasingFunctionMode) -> ::windows::core::HRESULT {
+impl IPowerEasingFunction_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPowerEasingFunction_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPowerEasingFunction_Vtbl {
+        unsafe extern "system" fn Mode<Impl: IPowerEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionEasingFunctionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Mode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8104,7 +8104,7 @@ impl IPowerEasingFunctionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Power<Impl: IPowerEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Power<Impl: IPowerEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Power() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8126,7 +8126,7 @@ impl IPowerEasingFunctionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IQuaternionKeyFrameAnimationImpl: Sized {
+pub trait IQuaternionKeyFrameAnimation_Impl: Sized {
     fn InsertKeyFrame(&mut self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>;
     fn InsertKeyFrameWithEasingFunction(&mut self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Quaternion, easingfunction: &::core::option::Option<CompositionEasingFunction>) -> ::windows::core::Result<()>;
 }
@@ -8135,13 +8135,13 @@ impl ::windows::core::RuntimeName for IQuaternionKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.IQuaternionKeyFrameAnimation";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IQuaternionKeyFrameAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQuaternionKeyFrameAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQuaternionKeyFrameAnimationVtbl {
-        unsafe extern "system" fn InsertKeyFrame<Impl: IQuaternionKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
+impl IQuaternionKeyFrameAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQuaternionKeyFrameAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQuaternionKeyFrameAnimation_Vtbl {
+        unsafe extern "system" fn InsertKeyFrame<Impl: IQuaternionKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertKeyFrame(normalizedprogresskey, &*(&value as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InsertKeyFrameWithEasingFunction<Impl: IQuaternionKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Quaternion, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertKeyFrameWithEasingFunction<Impl: IQuaternionKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Quaternion, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertKeyFrameWithEasingFunction(normalizedprogresskey, &*(&value as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::DefaultType>::DefaultType), &*(&easingfunction as *const <CompositionEasingFunction as ::windows::core::Abi>::Abi as *const <CompositionEasingFunction as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -8156,7 +8156,7 @@ impl IQuaternionKeyFrameAnimationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IRectangleClipImpl: Sized {
+pub trait IRectangleClip_Impl: Sized {
     fn Bottom(&mut self) -> ::windows::core::Result<f32>;
     fn SetBottom(&mut self, value: f32) -> ::windows::core::Result<()>;
     fn BottomLeftRadius(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
@@ -8179,9 +8179,9 @@ impl ::windows::core::RuntimeName for IRectangleClip {
     const NAME: &'static str = "Windows.UI.Composition.IRectangleClip";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IRectangleClipVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRectangleClipImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRectangleClipVtbl {
-        unsafe extern "system" fn Bottom<Impl: IRectangleClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl IRectangleClip_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRectangleClip_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRectangleClip_Vtbl {
+        unsafe extern "system" fn Bottom<Impl: IRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bottom() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8192,11 +8192,11 @@ impl IRectangleClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBottom<Impl: IRectangleClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBottom<Impl: IRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBottom(value).into()
         }
-        unsafe extern "system" fn BottomLeftRadius<Impl: IRectangleClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BottomLeftRadius<Impl: IRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BottomLeftRadius() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8207,11 +8207,11 @@ impl IRectangleClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBottomLeftRadius<Impl: IRectangleClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBottomLeftRadius<Impl: IRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBottomLeftRadius(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BottomRightRadius<Impl: IRectangleClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BottomRightRadius<Impl: IRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BottomRightRadius() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8222,11 +8222,11 @@ impl IRectangleClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBottomRightRadius<Impl: IRectangleClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBottomRightRadius<Impl: IRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBottomRightRadius(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Left<Impl: IRectangleClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Left<Impl: IRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Left() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8237,11 +8237,11 @@ impl IRectangleClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLeft<Impl: IRectangleClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLeft<Impl: IRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLeft(value).into()
         }
-        unsafe extern "system" fn Right<Impl: IRectangleClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Right<Impl: IRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Right() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8252,11 +8252,11 @@ impl IRectangleClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRight<Impl: IRectangleClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRight<Impl: IRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRight(value).into()
         }
-        unsafe extern "system" fn Top<Impl: IRectangleClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Top<Impl: IRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Top() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8267,11 +8267,11 @@ impl IRectangleClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTop<Impl: IRectangleClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTop<Impl: IRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTop(value).into()
         }
-        unsafe extern "system" fn TopLeftRadius<Impl: IRectangleClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TopLeftRadius<Impl: IRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TopLeftRadius() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8282,11 +8282,11 @@ impl IRectangleClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTopLeftRadius<Impl: IRectangleClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTopLeftRadius<Impl: IRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTopLeftRadius(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TopRightRadius<Impl: IRectangleClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TopRightRadius<Impl: IRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TopRightRadius() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8297,7 +8297,7 @@ impl IRectangleClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTopRightRadius<Impl: IRectangleClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTopRightRadius<Impl: IRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTopRightRadius(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -8326,7 +8326,7 @@ impl IRectangleClipVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRedirectVisualImpl: Sized {
+pub trait IRedirectVisual_Impl: Sized {
     fn Source(&mut self) -> ::windows::core::Result<Visual>;
     fn SetSource(&mut self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
 }
@@ -8335,9 +8335,9 @@ impl ::windows::core::RuntimeName for IRedirectVisual {
     const NAME: &'static str = "Windows.UI.Composition.IRedirectVisual";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRedirectVisualVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRedirectVisualImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRedirectVisualVtbl {
-        unsafe extern "system" fn Source<Impl: IRedirectVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRedirectVisual_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRedirectVisual_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRedirectVisual_Vtbl {
+        unsafe extern "system" fn Source<Impl: IRedirectVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Source() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8348,7 +8348,7 @@ impl IRedirectVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSource<Impl: IRedirectVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSource<Impl: IRedirectVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSource(&*(&value as *const <Visual as ::windows::core::Abi>::Abi as *const <Visual as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -8363,7 +8363,7 @@ impl IRedirectVisualVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRenderingDeviceReplacedEventArgsImpl: Sized {
+pub trait IRenderingDeviceReplacedEventArgs_Impl: Sized {
     fn GraphicsDevice(&mut self) -> ::windows::core::Result<CompositionGraphicsDevice>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -8371,9 +8371,9 @@ impl ::windows::core::RuntimeName for IRenderingDeviceReplacedEventArgs {
     const NAME: &'static str = "Windows.UI.Composition.IRenderingDeviceReplacedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRenderingDeviceReplacedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRenderingDeviceReplacedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRenderingDeviceReplacedEventArgsVtbl {
-        unsafe extern "system" fn GraphicsDevice<Impl: IRenderingDeviceReplacedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRenderingDeviceReplacedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRenderingDeviceReplacedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRenderingDeviceReplacedEventArgs_Vtbl {
+        unsafe extern "system" fn GraphicsDevice<Impl: IRenderingDeviceReplacedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GraphicsDevice() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8394,7 +8394,7 @@ impl IRenderingDeviceReplacedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IScalarKeyFrameAnimationImpl: Sized {
+pub trait IScalarKeyFrameAnimation_Impl: Sized {
     fn InsertKeyFrame(&mut self, normalizedprogresskey: f32, value: f32) -> ::windows::core::Result<()>;
     fn InsertKeyFrameWithEasingFunction(&mut self, normalizedprogresskey: f32, value: f32, easingfunction: &::core::option::Option<CompositionEasingFunction>) -> ::windows::core::Result<()>;
 }
@@ -8403,13 +8403,13 @@ impl ::windows::core::RuntimeName for IScalarKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.IScalarKeyFrameAnimation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IScalarKeyFrameAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScalarKeyFrameAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScalarKeyFrameAnimationVtbl {
-        unsafe extern "system" fn InsertKeyFrame<Impl: IScalarKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: f32) -> ::windows::core::HRESULT {
+impl IScalarKeyFrameAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScalarKeyFrameAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScalarKeyFrameAnimation_Vtbl {
+        unsafe extern "system" fn InsertKeyFrame<Impl: IScalarKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertKeyFrame(normalizedprogresskey, value).into()
         }
-        unsafe extern "system" fn InsertKeyFrameWithEasingFunction<Impl: IScalarKeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: f32, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertKeyFrameWithEasingFunction<Impl: IScalarKeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: f32, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertKeyFrameWithEasingFunction(normalizedprogresskey, value, &*(&easingfunction as *const <CompositionEasingFunction as ::windows::core::Abi>::Abi as *const <CompositionEasingFunction as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -8424,7 +8424,7 @@ impl IScalarKeyFrameAnimationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IScalarNaturalMotionAnimationImpl: Sized {
+pub trait IScalarNaturalMotionAnimation_Impl: Sized {
     fn FinalValue(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>>;
     fn SetFinalValue(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<f32>>) -> ::windows::core::Result<()>;
     fn InitialValue(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>>;
@@ -8437,9 +8437,9 @@ impl ::windows::core::RuntimeName for IScalarNaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.IScalarNaturalMotionAnimation";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IScalarNaturalMotionAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScalarNaturalMotionAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScalarNaturalMotionAnimationVtbl {
-        unsafe extern "system" fn FinalValue<Impl: IScalarNaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IScalarNaturalMotionAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScalarNaturalMotionAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScalarNaturalMotionAnimation_Vtbl {
+        unsafe extern "system" fn FinalValue<Impl: IScalarNaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FinalValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8450,11 +8450,11 @@ impl IScalarNaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFinalValue<Impl: IScalarNaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFinalValue<Impl: IScalarNaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFinalValue(&*(&value as *const <super::super::Foundation::IReference<f32> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<f32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InitialValue<Impl: IScalarNaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitialValue<Impl: IScalarNaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InitialValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8465,11 +8465,11 @@ impl IScalarNaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInitialValue<Impl: IScalarNaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInitialValue<Impl: IScalarNaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInitialValue(&*(&value as *const <super::super::Foundation::IReference<f32> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<f32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InitialVelocity<Impl: IScalarNaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitialVelocity<Impl: IScalarNaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InitialVelocity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8480,7 +8480,7 @@ impl IScalarNaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInitialVelocity<Impl: IScalarNaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInitialVelocity<Impl: IScalarNaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInitialVelocity(value).into()
         }
@@ -8499,14 +8499,14 @@ impl IScalarNaturalMotionAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IScalarNaturalMotionAnimationFactoryImpl: Sized {}
+pub trait IScalarNaturalMotionAnimationFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IScalarNaturalMotionAnimationFactory {
     const NAME: &'static str = "Windows.UI.Composition.IScalarNaturalMotionAnimationFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IScalarNaturalMotionAnimationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScalarNaturalMotionAnimationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScalarNaturalMotionAnimationFactoryVtbl {
+impl IScalarNaturalMotionAnimationFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScalarNaturalMotionAnimationFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScalarNaturalMotionAnimationFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IScalarNaturalMotionAnimationFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -8514,7 +8514,7 @@ impl IScalarNaturalMotionAnimationFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IShapeVisualImpl: Sized {
+pub trait IShapeVisual_Impl: Sized {
     fn Shapes(&mut self) -> ::windows::core::Result<CompositionShapeCollection>;
     fn ViewBox(&mut self) -> ::windows::core::Result<CompositionViewBox>;
     fn SetViewBox(&mut self, value: &::core::option::Option<CompositionViewBox>) -> ::windows::core::Result<()>;
@@ -8524,9 +8524,9 @@ impl ::windows::core::RuntimeName for IShapeVisual {
     const NAME: &'static str = "Windows.UI.Composition.IShapeVisual";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IShapeVisualVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShapeVisualImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShapeVisualVtbl {
-        unsafe extern "system" fn Shapes<Impl: IShapeVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IShapeVisual_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShapeVisual_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShapeVisual_Vtbl {
+        unsafe extern "system" fn Shapes<Impl: IShapeVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Shapes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8537,7 +8537,7 @@ impl IShapeVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ViewBox<Impl: IShapeVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ViewBox<Impl: IShapeVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ViewBox() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8548,7 +8548,7 @@ impl IShapeVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetViewBox<Impl: IShapeVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetViewBox<Impl: IShapeVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetViewBox(&*(&value as *const <CompositionViewBox as ::windows::core::Abi>::Abi as *const <CompositionViewBox as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -8564,7 +8564,7 @@ impl IShapeVisualVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISineEasingFunctionImpl: Sized {
+pub trait ISineEasingFunction_Impl: Sized {
     fn Mode(&mut self) -> ::windows::core::Result<CompositionEasingFunctionMode>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -8572,9 +8572,9 @@ impl ::windows::core::RuntimeName for ISineEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.ISineEasingFunction";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISineEasingFunctionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISineEasingFunctionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISineEasingFunctionVtbl {
-        unsafe extern "system" fn Mode<Impl: ISineEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionEasingFunctionMode) -> ::windows::core::HRESULT {
+impl ISineEasingFunction_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISineEasingFunction_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISineEasingFunction_Vtbl {
+        unsafe extern "system" fn Mode<Impl: ISineEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionEasingFunctionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Mode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8592,7 +8592,7 @@ impl ISineEasingFunctionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait ISpotLightImpl: Sized {
+pub trait ISpotLight_Impl: Sized {
     fn ConstantAttenuation(&mut self) -> ::windows::core::Result<f32>;
     fn SetConstantAttenuation(&mut self, value: f32) -> ::windows::core::Result<()>;
     fn CoordinateSpace(&mut self) -> ::windows::core::Result<Visual>;
@@ -8623,9 +8623,9 @@ impl ::windows::core::RuntimeName for ISpotLight {
     const NAME: &'static str = "Windows.UI.Composition.ISpotLight";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl ISpotLightVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpotLightImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpotLightVtbl {
-        unsafe extern "system" fn ConstantAttenuation<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl ISpotLight_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpotLight_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpotLight_Vtbl {
+        unsafe extern "system" fn ConstantAttenuation<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConstantAttenuation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8636,11 +8636,11 @@ impl ISpotLightVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetConstantAttenuation<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetConstantAttenuation<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetConstantAttenuation(value).into()
         }
-        unsafe extern "system" fn CoordinateSpace<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CoordinateSpace<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CoordinateSpace() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8651,11 +8651,11 @@ impl ISpotLightVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCoordinateSpace<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCoordinateSpace<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCoordinateSpace(&*(&value as *const <Visual as ::windows::core::Abi>::Abi as *const <Visual as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Direction<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Direction<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Direction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8666,11 +8666,11 @@ impl ISpotLightVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDirection<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDirection<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDirection(&*(&value as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InnerConeAngle<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InnerConeAngle<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InnerConeAngle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8681,11 +8681,11 @@ impl ISpotLightVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInnerConeAngle<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInnerConeAngle<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInnerConeAngle(value).into()
         }
-        unsafe extern "system" fn InnerConeAngleInDegrees<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InnerConeAngleInDegrees<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InnerConeAngleInDegrees() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8696,11 +8696,11 @@ impl ISpotLightVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInnerConeAngleInDegrees<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInnerConeAngleInDegrees<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInnerConeAngleInDegrees(value).into()
         }
-        unsafe extern "system" fn InnerConeColor<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InnerConeColor<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InnerConeColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8711,11 +8711,11 @@ impl ISpotLightVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInnerConeColor<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInnerConeColor<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInnerConeColor(&*(&value as *const <super::Color as ::windows::core::Abi>::Abi as *const <super::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn LinearAttenuation<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LinearAttenuation<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LinearAttenuation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8726,11 +8726,11 @@ impl ISpotLightVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLinearAttenuation<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLinearAttenuation<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLinearAttenuation(value).into()
         }
-        unsafe extern "system" fn Offset<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Offset<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Offset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8741,11 +8741,11 @@ impl ISpotLightVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOffset<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffset<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOffset(&*(&value as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn OuterConeAngle<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OuterConeAngle<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OuterConeAngle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8756,11 +8756,11 @@ impl ISpotLightVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOuterConeAngle<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOuterConeAngle<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOuterConeAngle(value).into()
         }
-        unsafe extern "system" fn OuterConeAngleInDegrees<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OuterConeAngleInDegrees<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OuterConeAngleInDegrees() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8771,11 +8771,11 @@ impl ISpotLightVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOuterConeAngleInDegrees<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOuterConeAngleInDegrees<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOuterConeAngleInDegrees(value).into()
         }
-        unsafe extern "system" fn OuterConeColor<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OuterConeColor<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OuterConeColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8786,11 +8786,11 @@ impl ISpotLightVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOuterConeColor<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOuterConeColor<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOuterConeColor(&*(&value as *const <super::Color as ::windows::core::Abi>::Abi as *const <super::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn QuadraticAttenuation<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QuadraticAttenuation<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QuadraticAttenuation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8801,7 +8801,7 @@ impl ISpotLightVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetQuadraticAttenuation<Impl: ISpotLightImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetQuadraticAttenuation<Impl: ISpotLight_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetQuadraticAttenuation(value).into()
         }
@@ -8838,7 +8838,7 @@ impl ISpotLightVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISpotLight2Impl: Sized {
+pub trait ISpotLight2_Impl: Sized {
     fn InnerConeIntensity(&mut self) -> ::windows::core::Result<f32>;
     fn SetInnerConeIntensity(&mut self, value: f32) -> ::windows::core::Result<()>;
     fn OuterConeIntensity(&mut self) -> ::windows::core::Result<f32>;
@@ -8849,9 +8849,9 @@ impl ::windows::core::RuntimeName for ISpotLight2 {
     const NAME: &'static str = "Windows.UI.Composition.ISpotLight2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISpotLight2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpotLight2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpotLight2Vtbl {
-        unsafe extern "system" fn InnerConeIntensity<Impl: ISpotLight2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl ISpotLight2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpotLight2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpotLight2_Vtbl {
+        unsafe extern "system" fn InnerConeIntensity<Impl: ISpotLight2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InnerConeIntensity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8862,11 +8862,11 @@ impl ISpotLight2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInnerConeIntensity<Impl: ISpotLight2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInnerConeIntensity<Impl: ISpotLight2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInnerConeIntensity(value).into()
         }
-        unsafe extern "system" fn OuterConeIntensity<Impl: ISpotLight2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OuterConeIntensity<Impl: ISpotLight2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OuterConeIntensity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8877,7 +8877,7 @@ impl ISpotLight2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOuterConeIntensity<Impl: ISpotLight2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOuterConeIntensity<Impl: ISpotLight2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOuterConeIntensity(value).into()
         }
@@ -8894,7 +8894,7 @@ impl ISpotLight2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISpotLight3Impl: Sized {
+pub trait ISpotLight3_Impl: Sized {
     fn MinAttenuationCutoff(&mut self) -> ::windows::core::Result<f32>;
     fn SetMinAttenuationCutoff(&mut self, value: f32) -> ::windows::core::Result<()>;
     fn MaxAttenuationCutoff(&mut self) -> ::windows::core::Result<f32>;
@@ -8905,9 +8905,9 @@ impl ::windows::core::RuntimeName for ISpotLight3 {
     const NAME: &'static str = "Windows.UI.Composition.ISpotLight3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISpotLight3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpotLight3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpotLight3Vtbl {
-        unsafe extern "system" fn MinAttenuationCutoff<Impl: ISpotLight3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl ISpotLight3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpotLight3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpotLight3_Vtbl {
+        unsafe extern "system" fn MinAttenuationCutoff<Impl: ISpotLight3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinAttenuationCutoff() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8918,11 +8918,11 @@ impl ISpotLight3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMinAttenuationCutoff<Impl: ISpotLight3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMinAttenuationCutoff<Impl: ISpotLight3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMinAttenuationCutoff(value).into()
         }
-        unsafe extern "system" fn MaxAttenuationCutoff<Impl: ISpotLight3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxAttenuationCutoff<Impl: ISpotLight3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxAttenuationCutoff() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8933,7 +8933,7 @@ impl ISpotLight3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxAttenuationCutoff<Impl: ISpotLight3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxAttenuationCutoff<Impl: ISpotLight3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxAttenuationCutoff(value).into()
         }
@@ -8950,7 +8950,7 @@ impl ISpotLight3Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISpringScalarNaturalMotionAnimationImpl: Sized {
+pub trait ISpringScalarNaturalMotionAnimation_Impl: Sized {
     fn DampingRatio(&mut self) -> ::windows::core::Result<f32>;
     fn SetDampingRatio(&mut self, value: f32) -> ::windows::core::Result<()>;
     fn Period(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -8961,9 +8961,9 @@ impl ::windows::core::RuntimeName for ISpringScalarNaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ISpringScalarNaturalMotionAnimation";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISpringScalarNaturalMotionAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpringScalarNaturalMotionAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpringScalarNaturalMotionAnimationVtbl {
-        unsafe extern "system" fn DampingRatio<Impl: ISpringScalarNaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl ISpringScalarNaturalMotionAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpringScalarNaturalMotionAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpringScalarNaturalMotionAnimation_Vtbl {
+        unsafe extern "system" fn DampingRatio<Impl: ISpringScalarNaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DampingRatio() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8974,11 +8974,11 @@ impl ISpringScalarNaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDampingRatio<Impl: ISpringScalarNaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDampingRatio<Impl: ISpringScalarNaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDampingRatio(value).into()
         }
-        unsafe extern "system" fn Period<Impl: ISpringScalarNaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Period<Impl: ISpringScalarNaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Period() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8989,7 +8989,7 @@ impl ISpringScalarNaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPeriod<Impl: ISpringScalarNaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPeriod<Impl: ISpringScalarNaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPeriod(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -9006,7 +9006,7 @@ impl ISpringScalarNaturalMotionAnimationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISpringVector2NaturalMotionAnimationImpl: Sized {
+pub trait ISpringVector2NaturalMotionAnimation_Impl: Sized {
     fn DampingRatio(&mut self) -> ::windows::core::Result<f32>;
     fn SetDampingRatio(&mut self, value: f32) -> ::windows::core::Result<()>;
     fn Period(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -9017,9 +9017,9 @@ impl ::windows::core::RuntimeName for ISpringVector2NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ISpringVector2NaturalMotionAnimation";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISpringVector2NaturalMotionAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpringVector2NaturalMotionAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpringVector2NaturalMotionAnimationVtbl {
-        unsafe extern "system" fn DampingRatio<Impl: ISpringVector2NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl ISpringVector2NaturalMotionAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpringVector2NaturalMotionAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpringVector2NaturalMotionAnimation_Vtbl {
+        unsafe extern "system" fn DampingRatio<Impl: ISpringVector2NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DampingRatio() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9030,11 +9030,11 @@ impl ISpringVector2NaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDampingRatio<Impl: ISpringVector2NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDampingRatio<Impl: ISpringVector2NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDampingRatio(value).into()
         }
-        unsafe extern "system" fn Period<Impl: ISpringVector2NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Period<Impl: ISpringVector2NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Period() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9045,7 +9045,7 @@ impl ISpringVector2NaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPeriod<Impl: ISpringVector2NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPeriod<Impl: ISpringVector2NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPeriod(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -9062,7 +9062,7 @@ impl ISpringVector2NaturalMotionAnimationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISpringVector3NaturalMotionAnimationImpl: Sized {
+pub trait ISpringVector3NaturalMotionAnimation_Impl: Sized {
     fn DampingRatio(&mut self) -> ::windows::core::Result<f32>;
     fn SetDampingRatio(&mut self, value: f32) -> ::windows::core::Result<()>;
     fn Period(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -9073,9 +9073,9 @@ impl ::windows::core::RuntimeName for ISpringVector3NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ISpringVector3NaturalMotionAnimation";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISpringVector3NaturalMotionAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpringVector3NaturalMotionAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpringVector3NaturalMotionAnimationVtbl {
-        unsafe extern "system" fn DampingRatio<Impl: ISpringVector3NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl ISpringVector3NaturalMotionAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpringVector3NaturalMotionAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpringVector3NaturalMotionAnimation_Vtbl {
+        unsafe extern "system" fn DampingRatio<Impl: ISpringVector3NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DampingRatio() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9086,11 +9086,11 @@ impl ISpringVector3NaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDampingRatio<Impl: ISpringVector3NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDampingRatio<Impl: ISpringVector3NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDampingRatio(value).into()
         }
-        unsafe extern "system" fn Period<Impl: ISpringVector3NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Period<Impl: ISpringVector3NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Period() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9101,7 +9101,7 @@ impl ISpringVector3NaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPeriod<Impl: ISpringVector3NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPeriod<Impl: ISpringVector3NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPeriod(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -9118,7 +9118,7 @@ impl ISpringVector3NaturalMotionAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISpriteVisualImpl: Sized {
+pub trait ISpriteVisual_Impl: Sized {
     fn Brush(&mut self) -> ::windows::core::Result<CompositionBrush>;
     fn SetBrush(&mut self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
 }
@@ -9127,9 +9127,9 @@ impl ::windows::core::RuntimeName for ISpriteVisual {
     const NAME: &'static str = "Windows.UI.Composition.ISpriteVisual";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISpriteVisualVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpriteVisualImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpriteVisualVtbl {
-        unsafe extern "system" fn Brush<Impl: ISpriteVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISpriteVisual_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpriteVisual_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpriteVisual_Vtbl {
+        unsafe extern "system" fn Brush<Impl: ISpriteVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Brush() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9140,7 +9140,7 @@ impl ISpriteVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBrush<Impl: ISpriteVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBrush<Impl: ISpriteVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBrush(&*(&value as *const <CompositionBrush as ::windows::core::Abi>::Abi as *const <CompositionBrush as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -9155,7 +9155,7 @@ impl ISpriteVisualVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISpriteVisual2Impl: Sized {
+pub trait ISpriteVisual2_Impl: Sized {
     fn Shadow(&mut self) -> ::windows::core::Result<CompositionShadow>;
     fn SetShadow(&mut self, value: &::core::option::Option<CompositionShadow>) -> ::windows::core::Result<()>;
 }
@@ -9164,9 +9164,9 @@ impl ::windows::core::RuntimeName for ISpriteVisual2 {
     const NAME: &'static str = "Windows.UI.Composition.ISpriteVisual2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISpriteVisual2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpriteVisual2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpriteVisual2Vtbl {
-        unsafe extern "system" fn Shadow<Impl: ISpriteVisual2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISpriteVisual2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpriteVisual2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpriteVisual2_Vtbl {
+        unsafe extern "system" fn Shadow<Impl: ISpriteVisual2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Shadow() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9177,7 +9177,7 @@ impl ISpriteVisual2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetShadow<Impl: ISpriteVisual2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetShadow<Impl: ISpriteVisual2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetShadow(&*(&value as *const <CompositionShadow as ::windows::core::Abi>::Abi as *const <CompositionShadow as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -9192,7 +9192,7 @@ impl ISpriteVisual2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IStepEasingFunctionImpl: Sized {
+pub trait IStepEasingFunction_Impl: Sized {
     fn FinalStep(&mut self) -> ::windows::core::Result<i32>;
     fn SetFinalStep(&mut self, value: i32) -> ::windows::core::Result<()>;
     fn InitialStep(&mut self) -> ::windows::core::Result<i32>;
@@ -9209,9 +9209,9 @@ impl ::windows::core::RuntimeName for IStepEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.IStepEasingFunction";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IStepEasingFunctionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStepEasingFunctionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStepEasingFunctionVtbl {
-        unsafe extern "system" fn FinalStep<Impl: IStepEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IStepEasingFunction_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStepEasingFunction_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStepEasingFunction_Vtbl {
+        unsafe extern "system" fn FinalStep<Impl: IStepEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FinalStep() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9222,11 +9222,11 @@ impl IStepEasingFunctionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFinalStep<Impl: IStepEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFinalStep<Impl: IStepEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFinalStep(value).into()
         }
-        unsafe extern "system" fn InitialStep<Impl: IStepEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitialStep<Impl: IStepEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InitialStep() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9237,11 +9237,11 @@ impl IStepEasingFunctionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInitialStep<Impl: IStepEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInitialStep<Impl: IStepEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInitialStep(value).into()
         }
-        unsafe extern "system" fn IsFinalStepSingleFrame<Impl: IStepEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsFinalStepSingleFrame<Impl: IStepEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsFinalStepSingleFrame() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9252,11 +9252,11 @@ impl IStepEasingFunctionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsFinalStepSingleFrame<Impl: IStepEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsFinalStepSingleFrame<Impl: IStepEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsFinalStepSingleFrame(value).into()
         }
-        unsafe extern "system" fn IsInitialStepSingleFrame<Impl: IStepEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsInitialStepSingleFrame<Impl: IStepEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsInitialStepSingleFrame() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9267,11 +9267,11 @@ impl IStepEasingFunctionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsInitialStepSingleFrame<Impl: IStepEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsInitialStepSingleFrame<Impl: IStepEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsInitialStepSingleFrame(value).into()
         }
-        unsafe extern "system" fn StepCount<Impl: IStepEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StepCount<Impl: IStepEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StepCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9282,7 +9282,7 @@ impl IStepEasingFunctionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStepCount<Impl: IStepEasingFunctionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStepCount<Impl: IStepEasingFunction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStepCount(value).into()
         }
@@ -9305,7 +9305,7 @@ impl IStepEasingFunctionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IVector2KeyFrameAnimationImpl: Sized {
+pub trait IVector2KeyFrameAnimation_Impl: Sized {
     fn InsertKeyFrame(&mut self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
     fn InsertKeyFrameWithEasingFunction(&mut self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Vector2, easingfunction: &::core::option::Option<CompositionEasingFunction>) -> ::windows::core::Result<()>;
 }
@@ -9314,13 +9314,13 @@ impl ::windows::core::RuntimeName for IVector2KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.IVector2KeyFrameAnimation";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IVector2KeyFrameAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVector2KeyFrameAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVector2KeyFrameAnimationVtbl {
-        unsafe extern "system" fn InsertKeyFrame<Impl: IVector2KeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+impl IVector2KeyFrameAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVector2KeyFrameAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVector2KeyFrameAnimation_Vtbl {
+        unsafe extern "system" fn InsertKeyFrame<Impl: IVector2KeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertKeyFrame(normalizedprogresskey, &*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InsertKeyFrameWithEasingFunction<Impl: IVector2KeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector2, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertKeyFrameWithEasingFunction<Impl: IVector2KeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector2, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertKeyFrameWithEasingFunction(normalizedprogresskey, &*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType), &*(&easingfunction as *const <CompositionEasingFunction as ::windows::core::Abi>::Abi as *const <CompositionEasingFunction as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -9335,7 +9335,7 @@ impl IVector2KeyFrameAnimationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IVector2NaturalMotionAnimationImpl: Sized {
+pub trait IVector2NaturalMotionAnimation_Impl: Sized {
     fn FinalValue(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>;
     fn SetFinalValue(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>) -> ::windows::core::Result<()>;
     fn InitialValue(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>;
@@ -9348,9 +9348,9 @@ impl ::windows::core::RuntimeName for IVector2NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.IVector2NaturalMotionAnimation";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IVector2NaturalMotionAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVector2NaturalMotionAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVector2NaturalMotionAnimationVtbl {
-        unsafe extern "system" fn FinalValue<Impl: IVector2NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVector2NaturalMotionAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVector2NaturalMotionAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVector2NaturalMotionAnimation_Vtbl {
+        unsafe extern "system" fn FinalValue<Impl: IVector2NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FinalValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9361,11 +9361,11 @@ impl IVector2NaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFinalValue<Impl: IVector2NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFinalValue<Impl: IVector2NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFinalValue(&*(&value as *const <super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InitialValue<Impl: IVector2NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitialValue<Impl: IVector2NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InitialValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9376,11 +9376,11 @@ impl IVector2NaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInitialValue<Impl: IVector2NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInitialValue<Impl: IVector2NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInitialValue(&*(&value as *const <super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InitialVelocity<Impl: IVector2NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitialVelocity<Impl: IVector2NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InitialVelocity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9391,7 +9391,7 @@ impl IVector2NaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInitialVelocity<Impl: IVector2NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInitialVelocity<Impl: IVector2NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInitialVelocity(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -9410,14 +9410,14 @@ impl IVector2NaturalMotionAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVector2NaturalMotionAnimationFactoryImpl: Sized {}
+pub trait IVector2NaturalMotionAnimationFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVector2NaturalMotionAnimationFactory {
     const NAME: &'static str = "Windows.UI.Composition.IVector2NaturalMotionAnimationFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVector2NaturalMotionAnimationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVector2NaturalMotionAnimationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVector2NaturalMotionAnimationFactoryVtbl {
+impl IVector2NaturalMotionAnimationFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVector2NaturalMotionAnimationFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVector2NaturalMotionAnimationFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVector2NaturalMotionAnimationFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -9425,7 +9425,7 @@ impl IVector2NaturalMotionAnimationFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IVector3KeyFrameAnimationImpl: Sized {
+pub trait IVector3KeyFrameAnimation_Impl: Sized {
     fn InsertKeyFrame(&mut self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>;
     fn InsertKeyFrameWithEasingFunction(&mut self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Vector3, easingfunction: &::core::option::Option<CompositionEasingFunction>) -> ::windows::core::Result<()>;
 }
@@ -9434,13 +9434,13 @@ impl ::windows::core::RuntimeName for IVector3KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.IVector3KeyFrameAnimation";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IVector3KeyFrameAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVector3KeyFrameAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVector3KeyFrameAnimationVtbl {
-        unsafe extern "system" fn InsertKeyFrame<Impl: IVector3KeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+impl IVector3KeyFrameAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVector3KeyFrameAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVector3KeyFrameAnimation_Vtbl {
+        unsafe extern "system" fn InsertKeyFrame<Impl: IVector3KeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertKeyFrame(normalizedprogresskey, &*(&value as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InsertKeyFrameWithEasingFunction<Impl: IVector3KeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector3, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertKeyFrameWithEasingFunction<Impl: IVector3KeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector3, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertKeyFrameWithEasingFunction(normalizedprogresskey, &*(&value as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType), &*(&easingfunction as *const <CompositionEasingFunction as ::windows::core::Abi>::Abi as *const <CompositionEasingFunction as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -9455,7 +9455,7 @@ impl IVector3KeyFrameAnimationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IVector3NaturalMotionAnimationImpl: Sized {
+pub trait IVector3NaturalMotionAnimation_Impl: Sized {
     fn FinalValue(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>;
     fn SetFinalValue(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>) -> ::windows::core::Result<()>;
     fn InitialValue(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>;
@@ -9468,9 +9468,9 @@ impl ::windows::core::RuntimeName for IVector3NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.IVector3NaturalMotionAnimation";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IVector3NaturalMotionAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVector3NaturalMotionAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVector3NaturalMotionAnimationVtbl {
-        unsafe extern "system" fn FinalValue<Impl: IVector3NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVector3NaturalMotionAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVector3NaturalMotionAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVector3NaturalMotionAnimation_Vtbl {
+        unsafe extern "system" fn FinalValue<Impl: IVector3NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FinalValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9481,11 +9481,11 @@ impl IVector3NaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFinalValue<Impl: IVector3NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFinalValue<Impl: IVector3NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFinalValue(&*(&value as *const <super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InitialValue<Impl: IVector3NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitialValue<Impl: IVector3NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InitialValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9496,11 +9496,11 @@ impl IVector3NaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInitialValue<Impl: IVector3NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInitialValue<Impl: IVector3NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInitialValue(&*(&value as *const <super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InitialVelocity<Impl: IVector3NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitialVelocity<Impl: IVector3NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InitialVelocity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9511,7 +9511,7 @@ impl IVector3NaturalMotionAnimationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInitialVelocity<Impl: IVector3NaturalMotionAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInitialVelocity<Impl: IVector3NaturalMotionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInitialVelocity(&*(&value as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -9530,14 +9530,14 @@ impl IVector3NaturalMotionAnimationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVector3NaturalMotionAnimationFactoryImpl: Sized {}
+pub trait IVector3NaturalMotionAnimationFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVector3NaturalMotionAnimationFactory {
     const NAME: &'static str = "Windows.UI.Composition.IVector3NaturalMotionAnimationFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVector3NaturalMotionAnimationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVector3NaturalMotionAnimationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVector3NaturalMotionAnimationFactoryVtbl {
+impl IVector3NaturalMotionAnimationFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVector3NaturalMotionAnimationFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVector3NaturalMotionAnimationFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVector3NaturalMotionAnimationFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -9545,7 +9545,7 @@ impl IVector3NaturalMotionAnimationFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IVector4KeyFrameAnimationImpl: Sized {
+pub trait IVector4KeyFrameAnimation_Impl: Sized {
     fn InsertKeyFrame(&mut self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()>;
     fn InsertKeyFrameWithEasingFunction(&mut self, normalizedprogresskey: f32, value: &super::super::Foundation::Numerics::Vector4, easingfunction: &::core::option::Option<CompositionEasingFunction>) -> ::windows::core::Result<()>;
 }
@@ -9554,13 +9554,13 @@ impl ::windows::core::RuntimeName for IVector4KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.IVector4KeyFrameAnimation";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IVector4KeyFrameAnimationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVector4KeyFrameAnimationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVector4KeyFrameAnimationVtbl {
-        unsafe extern "system" fn InsertKeyFrame<Impl: IVector4KeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::HRESULT {
+impl IVector4KeyFrameAnimation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVector4KeyFrameAnimation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVector4KeyFrameAnimation_Vtbl {
+        unsafe extern "system" fn InsertKeyFrame<Impl: IVector4KeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertKeyFrame(normalizedprogresskey, &*(&value as *const <super::super::Foundation::Numerics::Vector4 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector4 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InsertKeyFrameWithEasingFunction<Impl: IVector4KeyFrameAnimationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector4, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertKeyFrameWithEasingFunction<Impl: IVector4KeyFrameAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector4, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertKeyFrameWithEasingFunction(normalizedprogresskey, &*(&value as *const <super::super::Foundation::Numerics::Vector4 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector4 as ::windows::core::DefaultType>::DefaultType), &*(&easingfunction as *const <CompositionEasingFunction as ::windows::core::Abi>::Abi as *const <CompositionEasingFunction as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -9575,7 +9575,7 @@ impl IVector4KeyFrameAnimationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IVisualImpl: Sized {
+pub trait IVisual_Impl: Sized {
     fn AnchorPoint(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2>;
     fn SetAnchorPoint(&mut self, value: &super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>;
     fn BackfaceVisibility(&mut self) -> ::windows::core::Result<CompositionBackfaceVisibility>;
@@ -9615,9 +9615,9 @@ impl ::windows::core::RuntimeName for IVisual {
     const NAME: &'static str = "Windows.UI.Composition.IVisual";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IVisualVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualVtbl {
-        unsafe extern "system" fn AnchorPoint<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+impl IVisual_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisual_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisual_Vtbl {
+        unsafe extern "system" fn AnchorPoint<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AnchorPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9628,11 +9628,11 @@ impl IVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAnchorPoint<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAnchorPoint<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAnchorPoint(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BackfaceVisibility<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionBackfaceVisibility) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackfaceVisibility<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionBackfaceVisibility) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackfaceVisibility() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9643,11 +9643,11 @@ impl IVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBackfaceVisibility<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionBackfaceVisibility) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBackfaceVisibility<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionBackfaceVisibility) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBackfaceVisibility(value).into()
         }
-        unsafe extern "system" fn BorderMode<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionBorderMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BorderMode<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionBorderMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BorderMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9658,11 +9658,11 @@ impl IVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBorderMode<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionBorderMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBorderMode<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionBorderMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBorderMode(value).into()
         }
-        unsafe extern "system" fn CenterPoint<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CenterPoint<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CenterPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9673,11 +9673,11 @@ impl IVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCenterPoint<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCenterPoint<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCenterPoint(&*(&value as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Clip<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clip<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Clip() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9688,11 +9688,11 @@ impl IVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClip<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClip<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetClip(&*(&value as *const <CompositionClip as ::windows::core::Abi>::Abi as *const <CompositionClip as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CompositeMode<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionCompositeMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CompositeMode<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CompositionCompositeMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CompositeMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9703,11 +9703,11 @@ impl IVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCompositeMode<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionCompositeMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCompositeMode<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CompositionCompositeMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCompositeMode(value).into()
         }
-        unsafe extern "system" fn IsVisible<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsVisible<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsVisible() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9718,11 +9718,11 @@ impl IVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsVisible<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsVisible<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsVisible(value).into()
         }
-        unsafe extern "system" fn Offset<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Offset<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Offset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9733,11 +9733,11 @@ impl IVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOffset<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffset<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOffset(&*(&value as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Opacity<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Opacity<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Opacity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9748,11 +9748,11 @@ impl IVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOpacity<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOpacity<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOpacity(value).into()
         }
-        unsafe extern "system" fn Orientation<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Orientation<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Orientation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9763,11 +9763,11 @@ impl IVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOrientation<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOrientation<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOrientation(&*(&value as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Parent<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Parent<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9778,7 +9778,7 @@ impl IVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RotationAngle<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RotationAngle<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RotationAngle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9789,11 +9789,11 @@ impl IVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRotationAngle<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRotationAngle<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRotationAngle(value).into()
         }
-        unsafe extern "system" fn RotationAngleInDegrees<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RotationAngleInDegrees<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RotationAngleInDegrees() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9804,11 +9804,11 @@ impl IVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRotationAngleInDegrees<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRotationAngleInDegrees<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRotationAngleInDegrees(value).into()
         }
-        unsafe extern "system" fn RotationAxis<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RotationAxis<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RotationAxis() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9819,11 +9819,11 @@ impl IVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRotationAxis<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRotationAxis<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRotationAxis(&*(&value as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Scale<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Scale<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Scale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9834,11 +9834,11 @@ impl IVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetScale<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScale<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScale(&*(&value as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Size<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Size<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Size() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9849,11 +9849,11 @@ impl IVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSize<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSize<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSize(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TransformMatrix<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransformMatrix<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransformMatrix() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9864,7 +9864,7 @@ impl IVisualVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTransformMatrix<Impl: IVisualImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTransformMatrix<Impl: IVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTransformMatrix(&*(&value as *const <super::super::Foundation::Numerics::Matrix4x4 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Matrix4x4 as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -9910,7 +9910,7 @@ impl IVisualVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IVisual2Impl: Sized {
+pub trait IVisual2_Impl: Sized {
     fn ParentForTransform(&mut self) -> ::windows::core::Result<Visual>;
     fn SetParentForTransform(&mut self, value: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
     fn RelativeOffsetAdjustment(&mut self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>;
@@ -9923,9 +9923,9 @@ impl ::windows::core::RuntimeName for IVisual2 {
     const NAME: &'static str = "Windows.UI.Composition.IVisual2";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IVisual2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisual2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisual2Vtbl {
-        unsafe extern "system" fn ParentForTransform<Impl: IVisual2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVisual2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisual2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisual2_Vtbl {
+        unsafe extern "system" fn ParentForTransform<Impl: IVisual2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ParentForTransform() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9936,11 +9936,11 @@ impl IVisual2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetParentForTransform<Impl: IVisual2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetParentForTransform<Impl: IVisual2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetParentForTransform(&*(&value as *const <Visual as ::windows::core::Abi>::Abi as *const <Visual as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RelativeOffsetAdjustment<Impl: IVisual2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RelativeOffsetAdjustment<Impl: IVisual2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RelativeOffsetAdjustment() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9951,11 +9951,11 @@ impl IVisual2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRelativeOffsetAdjustment<Impl: IVisual2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRelativeOffsetAdjustment<Impl: IVisual2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRelativeOffsetAdjustment(&*(&value as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RelativeSizeAdjustment<Impl: IVisual2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RelativeSizeAdjustment<Impl: IVisual2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RelativeSizeAdjustment() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9966,7 +9966,7 @@ impl IVisual2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRelativeSizeAdjustment<Impl: IVisual2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRelativeSizeAdjustment<Impl: IVisual2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRelativeSizeAdjustment(&*(&value as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Vector2 as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -9985,7 +9985,7 @@ impl IVisual2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVisual3Impl: Sized {
+pub trait IVisual3_Impl: Sized {
     fn IsHitTestVisible(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsHitTestVisible(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
@@ -9994,9 +9994,9 @@ impl ::windows::core::RuntimeName for IVisual3 {
     const NAME: &'static str = "Windows.UI.Composition.IVisual3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVisual3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisual3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisual3Vtbl {
-        unsafe extern "system" fn IsHitTestVisible<Impl: IVisual3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IVisual3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisual3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisual3_Vtbl {
+        unsafe extern "system" fn IsHitTestVisible<Impl: IVisual3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsHitTestVisible() {
                 ::core::result::Result::Ok(ok__) => {
@@ -10007,7 +10007,7 @@ impl IVisual3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsHitTestVisible<Impl: IVisual3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsHitTestVisible<Impl: IVisual3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsHitTestVisible(value).into()
         }
@@ -10022,7 +10022,7 @@ impl IVisual3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVisual4Impl: Sized {
+pub trait IVisual4_Impl: Sized {
     fn IsPixelSnappingEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsPixelSnappingEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
@@ -10031,9 +10031,9 @@ impl ::windows::core::RuntimeName for IVisual4 {
     const NAME: &'static str = "Windows.UI.Composition.IVisual4";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVisual4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisual4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisual4Vtbl {
-        unsafe extern "system" fn IsPixelSnappingEnabled<Impl: IVisual4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IVisual4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisual4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisual4_Vtbl {
+        unsafe extern "system" fn IsPixelSnappingEnabled<Impl: IVisual4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPixelSnappingEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -10044,7 +10044,7 @@ impl IVisual4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsPixelSnappingEnabled<Impl: IVisual4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsPixelSnappingEnabled<Impl: IVisual4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsPixelSnappingEnabled(value).into()
         }
@@ -10059,7 +10059,7 @@ impl IVisual4Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVisualCollectionImpl: Sized {
+pub trait IVisualCollection_Impl: Sized {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn InsertAbove(&mut self, newchild: &::core::option::Option<Visual>, sibling: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
     fn InsertAtBottom(&mut self, newchild: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
@@ -10073,9 +10073,9 @@ impl ::windows::core::RuntimeName for IVisualCollection {
     const NAME: &'static str = "Windows.UI.Composition.IVisualCollection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVisualCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualCollectionVtbl {
-        unsafe extern "system" fn Count<Impl: IVisualCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IVisualCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualCollection_Vtbl {
+        unsafe extern "system" fn Count<Impl: IVisualCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -10086,27 +10086,27 @@ impl IVisualCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InsertAbove<Impl: IVisualCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newchild: ::windows::core::RawPtr, sibling: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertAbove<Impl: IVisualCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newchild: ::windows::core::RawPtr, sibling: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertAbove(&*(&newchild as *const <Visual as ::windows::core::Abi>::Abi as *const <Visual as ::windows::core::DefaultType>::DefaultType), &*(&sibling as *const <Visual as ::windows::core::Abi>::Abi as *const <Visual as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InsertAtBottom<Impl: IVisualCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newchild: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertAtBottom<Impl: IVisualCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newchild: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertAtBottom(&*(&newchild as *const <Visual as ::windows::core::Abi>::Abi as *const <Visual as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InsertAtTop<Impl: IVisualCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newchild: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertAtTop<Impl: IVisualCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newchild: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertAtTop(&*(&newchild as *const <Visual as ::windows::core::Abi>::Abi as *const <Visual as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InsertBelow<Impl: IVisualCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newchild: ::windows::core::RawPtr, sibling: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertBelow<Impl: IVisualCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newchild: ::windows::core::RawPtr, sibling: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertBelow(&*(&newchild as *const <Visual as ::windows::core::Abi>::Abi as *const <Visual as ::windows::core::DefaultType>::DefaultType), &*(&sibling as *const <Visual as ::windows::core::Abi>::Abi as *const <Visual as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Remove<Impl: IVisualCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, child: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Remove<Impl: IVisualCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, child: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Remove(&*(&child as *const <Visual as ::windows::core::Abi>::Abi as *const <Visual as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RemoveAll<Impl: IVisualCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAll<Impl: IVisualCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAll().into()
         }
@@ -10125,27 +10125,27 @@ impl IVisualCollectionVtbl {
         iid == &<IVisualCollection as ::windows::core::Interface>::IID
     }
 }
-pub trait IVisualElementImpl: Sized {}
+pub trait IVisualElement_Impl: Sized {}
 impl ::windows::core::RuntimeName for IVisualElement {
     const NAME: &'static str = "Windows.UI.Composition.IVisualElement";
 }
-impl IVisualElementVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualElementImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualElementVtbl {
+impl IVisualElement_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualElement_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualElement_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVisualElement, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVisualElement as ::windows::core::Interface>::IID
     }
 }
-pub trait IVisualElement2Impl: Sized {
+pub trait IVisualElement2_Impl: Sized {
     fn GetVisualInternal(&mut self) -> ::windows::core::Result<Visual>;
 }
 impl ::windows::core::RuntimeName for IVisualElement2 {
     const NAME: &'static str = "Windows.UI.Composition.IVisualElement2";
 }
-impl IVisualElement2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualElement2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualElement2Vtbl {
-        unsafe extern "system" fn GetVisualInternal<Impl: IVisualElement2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVisualElement2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualElement2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualElement2_Vtbl {
+        unsafe extern "system" fn GetVisualInternal<Impl: IVisualElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetVisualInternal() {
                 ::core::result::Result::Ok(ok__) => {
@@ -10166,14 +10166,14 @@ impl IVisualElement2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVisualFactoryImpl: Sized {}
+pub trait IVisualFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IVisualFactory {
     const NAME: &'static str = "Windows.UI.Composition.IVisualFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVisualFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualFactoryVtbl {
+impl IVisualFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IVisualFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -10181,7 +10181,7 @@ impl IVisualFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVisualUnorderedCollectionImpl: Sized {
+pub trait IVisualUnorderedCollection_Impl: Sized {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn Add(&mut self, newvisual: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
     fn Remove(&mut self, visual: &::core::option::Option<Visual>) -> ::windows::core::Result<()>;
@@ -10192,9 +10192,9 @@ impl ::windows::core::RuntimeName for IVisualUnorderedCollection {
     const NAME: &'static str = "Windows.UI.Composition.IVisualUnorderedCollection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVisualUnorderedCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualUnorderedCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualUnorderedCollectionVtbl {
-        unsafe extern "system" fn Count<Impl: IVisualUnorderedCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IVisualUnorderedCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualUnorderedCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualUnorderedCollection_Vtbl {
+        unsafe extern "system" fn Count<Impl: IVisualUnorderedCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -10205,15 +10205,15 @@ impl IVisualUnorderedCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Impl: IVisualUnorderedCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newvisual: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Impl: IVisualUnorderedCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newvisual: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Add(&*(&newvisual as *const <Visual as ::windows::core::Abi>::Abi as *const <Visual as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Remove<Impl: IVisualUnorderedCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visual: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Remove<Impl: IVisualUnorderedCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visual: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Remove(&*(&visual as *const <Visual as ::windows::core::Abi>::Abi as *const <Visual as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RemoveAll<Impl: IVisualUnorderedCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAll<Impl: IVisualUnorderedCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAll().into()
         }

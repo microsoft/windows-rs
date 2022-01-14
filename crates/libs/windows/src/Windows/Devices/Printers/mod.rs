@@ -5,12 +5,12 @@ pub mod Extensions;
 #[repr(transparent)]
 pub struct IIppAttributeError(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIppAttributeError {
-    type Vtable = IIppAttributeErrorVtbl;
+    type Vtable = IIppAttributeError_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x750feda1_9eef_5c39_93e4_46149bbcef27);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIppAttributeErrorVtbl {
+pub struct IIppAttributeError_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IppAttributeErrorReason) -> ::windows::core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -23,12 +23,12 @@ pub struct IIppAttributeErrorVtbl {
 #[repr(transparent)]
 pub struct IIppAttributeValue(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIppAttributeValue {
-    type Vtable = IIppAttributeValueVtbl;
+    type Vtable = IIppAttributeValue_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99407fed_e2bb_59a3_988b_28a974052a26);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIppAttributeValueVtbl {
+pub struct IIppAttributeValue_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IppAttributeValueKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -108,12 +108,12 @@ pub struct IIppAttributeValueVtbl {
 #[repr(transparent)]
 pub struct IIppAttributeValueStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIppAttributeValueStatics {
-    type Vtable = IIppAttributeValueStaticsVtbl;
+    type Vtable = IIppAttributeValueStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10d43942_dd94_5998_b235_afafb6fa7935);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIppAttributeValueStaticsVtbl {
+pub struct IIppAttributeValueStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateUnsupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateUnknown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -225,12 +225,12 @@ pub struct IIppAttributeValueStaticsVtbl {
 #[repr(transparent)]
 pub struct IIppIntegerRange(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIppIntegerRange {
-    type Vtable = IIppIntegerRangeVtbl;
+    type Vtable = IIppIntegerRange_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92907346_c3ea_5ed6_bdb1_3752c62c6f7f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIppIntegerRangeVtbl {
+pub struct IIppIntegerRange_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub End: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -239,12 +239,12 @@ pub struct IIppIntegerRangeVtbl {
 #[repr(transparent)]
 pub struct IIppIntegerRangeFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIppIntegerRangeFactory {
-    type Vtable = IIppIntegerRangeFactoryVtbl;
+    type Vtable = IIppIntegerRangeFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75d4ecae_f87e_54ad_b5d0_465204db7553);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIppIntegerRangeFactoryVtbl {
+pub struct IIppIntegerRangeFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, start: i32, end: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -252,12 +252,12 @@ pub struct IIppIntegerRangeFactoryVtbl {
 #[repr(transparent)]
 pub struct IIppPrintDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIppPrintDevice {
-    type Vtable = IIppPrintDeviceVtbl;
+    type Vtable = IIppPrintDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd748ac56_76f3_5dc6_afd4_c2a8686b9359);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIppPrintDeviceVtbl {
+pub struct IIppPrintDevice_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PrinterName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -285,12 +285,12 @@ pub struct IIppPrintDeviceVtbl {
 #[repr(transparent)]
 pub struct IIppResolution(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIppResolution {
-    type Vtable = IIppResolutionVtbl;
+    type Vtable = IIppResolution_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb493f86_6bf3_56f5_86ce_263d08aead63);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIppResolutionVtbl {
+pub struct IIppResolution_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Width: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub Height: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -300,12 +300,12 @@ pub struct IIppResolutionVtbl {
 #[repr(transparent)]
 pub struct IIppResolutionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIppResolutionFactory {
-    type Vtable = IIppResolutionFactoryVtbl;
+    type Vtable = IIppResolutionFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe481c2ae_251a_5326_b173_95543ed99a35);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIppResolutionFactoryVtbl {
+pub struct IIppResolutionFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: i32, height: i32, unit: IppResolutionUnit, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -313,12 +313,12 @@ pub struct IIppResolutionFactoryVtbl {
 #[repr(transparent)]
 pub struct IIppSetAttributesResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIppSetAttributesResult {
-    type Vtable = IIppSetAttributesResultVtbl;
+    type Vtable = IIppSetAttributesResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d1c7f55_aa9d_58a3_90e9_17bdc5281f07);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIppSetAttributesResultVtbl {
+pub struct IIppSetAttributesResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Succeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -330,12 +330,12 @@ pub struct IIppSetAttributesResultVtbl {
 #[repr(transparent)]
 pub struct IIppTextWithLanguage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIppTextWithLanguage {
-    type Vtable = IIppTextWithLanguageVtbl;
+    type Vtable = IIppTextWithLanguage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x326447a6_5149_5936_90e8_0c736036bf77);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIppTextWithLanguageVtbl {
+pub struct IIppTextWithLanguage_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Language: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -344,12 +344,12 @@ pub struct IIppTextWithLanguageVtbl {
 #[repr(transparent)]
 pub struct IIppTextWithLanguageFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIppTextWithLanguageFactory {
-    type Vtable = IIppTextWithLanguageFactoryVtbl;
+    type Vtable = IIppTextWithLanguageFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca4a1e8d_2968_5775_997c_8a46f1a574ed);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIppTextWithLanguageFactoryVtbl {
+pub struct IIppTextWithLanguageFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, language: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -357,12 +357,12 @@ pub struct IIppTextWithLanguageFactoryVtbl {
 #[repr(transparent)]
 pub struct IPrint3DDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrint3DDevice {
-    type Vtable = IPrint3DDeviceVtbl;
+    type Vtable = IPrint3DDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x041c3d19_9713_42a2_9813_7dc3337428d3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrint3DDeviceVtbl {
+pub struct IPrint3DDevice_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PrintSchema: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -370,12 +370,12 @@ pub struct IPrint3DDeviceVtbl {
 #[repr(transparent)]
 pub struct IPrint3DDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrint3DDeviceStatics {
-    type Vtable = IPrint3DDeviceStaticsVtbl;
+    type Vtable = IPrint3DDeviceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfde3620a_67cd_41b7_a344_5150a1fd75b5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrint3DDeviceStaticsVtbl {
+pub struct IPrint3DDeviceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -387,12 +387,12 @@ pub struct IPrint3DDeviceStaticsVtbl {
 #[repr(transparent)]
 pub struct IPrintSchema(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintSchema {
-    type Vtable = IPrintSchemaVtbl;
+    type Vtable = IPrintSchema_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2b98316_26b8_4bfb_8138_9f962c22a35b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintSchemaVtbl {
+pub struct IPrintSchema_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub GetDefaultPrintTicketAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -457,7 +457,7 @@ unsafe impl ::windows::core::RuntimeType for IppAttributeError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppAttributeError;{750feda1-9eef-5c39-93e4-46149bbcef27})");
 }
 unsafe impl ::windows::core::Interface for IppAttributeError {
-    type Vtable = IIppAttributeErrorVtbl;
+    type Vtable = IIppAttributeError_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x750feda1_9eef_5c39_93e4_46149bbcef27);
 }
 impl ::windows::core::RuntimeName for IppAttributeError {
@@ -1036,7 +1036,7 @@ unsafe impl ::windows::core::RuntimeType for IppAttributeValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppAttributeValue;{99407fed-e2bb-59a3-988b-28a974052a26})");
 }
 unsafe impl ::windows::core::Interface for IppAttributeValue {
-    type Vtable = IIppAttributeValueVtbl;
+    type Vtable = IIppAttributeValue_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99407fed_e2bb_59a3_988b_28a974052a26);
 }
 impl ::windows::core::RuntimeName for IppAttributeValue {
@@ -1189,7 +1189,7 @@ unsafe impl ::windows::core::RuntimeType for IppIntegerRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppIntegerRange;{92907346-c3ea-5ed6-bdb1-3752c62c6f7f})");
 }
 unsafe impl ::windows::core::Interface for IppIntegerRange {
-    type Vtable = IIppIntegerRangeVtbl;
+    type Vtable = IIppIntegerRange_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92907346_c3ea_5ed6_bdb1_3752c62c6f7f);
 }
 impl ::windows::core::RuntimeName for IppIntegerRange {
@@ -1315,7 +1315,7 @@ unsafe impl ::windows::core::RuntimeType for IppPrintDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppPrintDevice;{d748ac56-76f3-5dc6-afd4-c2a8686b9359})");
 }
 unsafe impl ::windows::core::Interface for IppPrintDevice {
-    type Vtable = IIppPrintDeviceVtbl;
+    type Vtable = IIppPrintDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd748ac56_76f3_5dc6_afd4_c2a8686b9359);
 }
 impl ::windows::core::RuntimeName for IppPrintDevice {
@@ -1424,7 +1424,7 @@ unsafe impl ::windows::core::RuntimeType for IppResolution {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppResolution;{cb493f86-6bf3-56f5-86ce-263d08aead63})");
 }
 unsafe impl ::windows::core::Interface for IppResolution {
-    type Vtable = IIppResolutionVtbl;
+    type Vtable = IIppResolution_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb493f86_6bf3_56f5_86ce_263d08aead63);
 }
 impl ::windows::core::RuntimeName for IppResolution {
@@ -1547,7 +1547,7 @@ unsafe impl ::windows::core::RuntimeType for IppSetAttributesResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppSetAttributesResult;{7d1c7f55-aa9d-58a3-90e9-17bdc5281f07})");
 }
 unsafe impl ::windows::core::Interface for IppSetAttributesResult {
-    type Vtable = IIppSetAttributesResultVtbl;
+    type Vtable = IIppSetAttributesResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d1c7f55_aa9d_58a3_90e9_17bdc5281f07);
 }
 impl ::windows::core::RuntimeName for IppSetAttributesResult {
@@ -1648,7 +1648,7 @@ unsafe impl ::windows::core::RuntimeType for IppTextWithLanguage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppTextWithLanguage;{326447a6-5149-5936-90e8-0c736036bf77})");
 }
 unsafe impl ::windows::core::Interface for IppTextWithLanguage {
-    type Vtable = IIppTextWithLanguageVtbl;
+    type Vtable = IIppTextWithLanguage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x326447a6_5149_5936_90e8_0c736036bf77);
 }
 impl ::windows::core::RuntimeName for IppTextWithLanguage {
@@ -1749,7 +1749,7 @@ unsafe impl ::windows::core::RuntimeType for Print3DDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Print3DDevice;{041c3d19-9713-42a2-9813-7dc3337428d3})");
 }
 unsafe impl ::windows::core::Interface for Print3DDevice {
-    type Vtable = IPrint3DDeviceVtbl;
+    type Vtable = IPrint3DDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x041c3d19_9713_42a2_9813_7dc3337428d3);
 }
 impl ::windows::core::RuntimeName for Print3DDevice {
@@ -1849,7 +1849,7 @@ unsafe impl ::windows::core::RuntimeType for PrintSchema {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PrintSchema;{c2b98316-26b8-4bfb-8138-9f962c22a35b})");
 }
 unsafe impl ::windows::core::Interface for PrintSchema {
-    type Vtable = IPrintSchemaVtbl;
+    type Vtable = IPrintSchema_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2b98316_26b8_4bfb_8138_9f962c22a35b);
 }
 impl ::windows::core::RuntimeName for PrintSchema {

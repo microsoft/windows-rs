@@ -72,12 +72,12 @@ impl ::core::fmt::Debug for IContentPrefetcherTaskTrigger {
     }
 }
 unsafe impl ::windows::core::Interface for IContentPrefetcherTaskTrigger {
-    type Vtable = IContentPrefetcherTaskTriggerVtbl;
+    type Vtable = IContentPrefetcherTaskTrigger_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b35a14a_6094_4799_a60e_e474e15d4dc9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContentPrefetcherTaskTriggerVtbl {
+pub struct IContentPrefetcherTaskTrigger_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub TriggerContentPrefetcherTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,

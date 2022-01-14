@@ -46,12 +46,12 @@ impl ::core::fmt::Debug for INotificationActivationCallback {
     }
 }
 unsafe impl ::windows::core::Interface for INotificationActivationCallback {
-    type Vtable = INotificationActivationCallbackVtbl;
+    type Vtable = INotificationActivationCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53e31837_6600_4a81_9395_75cffe746f94);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INotificationActivationCallbackVtbl {
+pub struct INotificationActivationCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appusermodelid: super::super::Foundation::PWSTR, invokedargs: super::super::Foundation::PWSTR, data: *const NOTIFICATION_USER_INPUT_DATA, count: u32) -> ::windows::core::HRESULT,

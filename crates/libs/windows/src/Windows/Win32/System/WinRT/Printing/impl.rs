@@ -1,5 +1,5 @@
 #[cfg(feature = "Win32_Foundation")]
-pub trait IPrintManagerInteropImpl: Sized {
+pub trait IPrintManagerInterop_Impl: Sized {
     fn GetForWindow(&mut self, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, printmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn ShowPrintUIForWindowAsync(&mut self, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
@@ -8,13 +8,13 @@ impl ::windows::core::RuntimeName for IPrintManagerInterop {
     const NAME: &'static str = "";
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IPrintManagerInteropVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintManagerInteropImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintManagerInteropVtbl {
-        unsafe extern "system" fn GetForWindow<Impl: IPrintManagerInteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, printmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IPrintManagerInterop_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintManagerInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintManagerInterop_Vtbl {
+        unsafe extern "system" fn GetForWindow<Impl: IPrintManagerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, printmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetForWindow(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&printmanager)).into()
         }
-        unsafe extern "system" fn ShowPrintUIForWindowAsync<Impl: IPrintManagerInteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowPrintUIForWindowAsync<Impl: IPrintManagerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowPrintUIForWindowAsync(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&asyncoperation)).into()
         }
@@ -29,15 +29,15 @@ impl IPrintManagerInteropVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
-pub trait IPrintWorkflowConfigurationNativeImpl: Sized {
+pub trait IPrintWorkflowConfigurationNative_Impl: Sized {
     fn PrinterQueue(&mut self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrinterQueue>;
     fn DriverProperties(&mut self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrinterPropertyBag>;
     fn UserProperties(&mut self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrinterPropertyBag>;
 }
 #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
-impl IPrintWorkflowConfigurationNativeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowConfigurationNativeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowConfigurationNativeVtbl {
-        unsafe extern "system" fn PrinterQueue<Impl: IPrintWorkflowConfigurationNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPrintWorkflowConfigurationNative_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowConfigurationNative_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowConfigurationNative_Vtbl {
+        unsafe extern "system" fn PrinterQueue<Impl: IPrintWorkflowConfigurationNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrinterQueue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -47,7 +47,7 @@ impl IPrintWorkflowConfigurationNativeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DriverProperties<Impl: IPrintWorkflowConfigurationNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DriverProperties<Impl: IPrintWorkflowConfigurationNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DriverProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -57,7 +57,7 @@ impl IPrintWorkflowConfigurationNativeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UserProperties<Impl: IPrintWorkflowConfigurationNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UserProperties<Impl: IPrintWorkflowConfigurationNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -79,18 +79,18 @@ impl IPrintWorkflowConfigurationNativeVtbl {
     }
 }
 #[cfg(feature = "Win32_Storage_Xps")]
-pub trait IPrintWorkflowObjectModelSourceFileContentNativeImpl: Sized {
+pub trait IPrintWorkflowObjectModelSourceFileContentNative_Impl: Sized {
     fn StartXpsOMGeneration(&mut self, receiver: ::core::option::Option<IPrintWorkflowXpsReceiver>) -> ::windows::core::Result<()>;
     fn ObjectFactory(&mut self) -> ::windows::core::Result<super::super::super::Storage::Xps::IXpsOMObjectFactory1>;
 }
 #[cfg(feature = "Win32_Storage_Xps")]
-impl IPrintWorkflowObjectModelSourceFileContentNativeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowObjectModelSourceFileContentNativeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowObjectModelSourceFileContentNativeVtbl {
-        unsafe extern "system" fn StartXpsOMGeneration<Impl: IPrintWorkflowObjectModelSourceFileContentNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, receiver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPrintWorkflowObjectModelSourceFileContentNative_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowObjectModelSourceFileContentNative_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowObjectModelSourceFileContentNative_Vtbl {
+        unsafe extern "system" fn StartXpsOMGeneration<Impl: IPrintWorkflowObjectModelSourceFileContentNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, receiver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartXpsOMGeneration(::core::mem::transmute(&receiver)).into()
         }
-        unsafe extern "system" fn ObjectFactory<Impl: IPrintWorkflowObjectModelSourceFileContentNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ObjectFactory<Impl: IPrintWorkflowObjectModelSourceFileContentNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ObjectFactory() {
                 ::core::result::Result::Ok(ok__) => {
@@ -111,13 +111,13 @@ impl IPrintWorkflowObjectModelSourceFileContentNativeVtbl {
     }
 }
 #[cfg(feature = "Win32_Storage_Xps")]
-pub trait IPrintWorkflowXpsObjectModelTargetPackageNativeImpl: Sized {
+pub trait IPrintWorkflowXpsObjectModelTargetPackageNative_Impl: Sized {
     fn DocumentPackageTarget(&mut self) -> ::windows::core::Result<super::super::super::Storage::Xps::IXpsDocumentPackageTarget>;
 }
 #[cfg(feature = "Win32_Storage_Xps")]
-impl IPrintWorkflowXpsObjectModelTargetPackageNativeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowXpsObjectModelTargetPackageNativeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowXpsObjectModelTargetPackageNativeVtbl {
-        unsafe extern "system" fn DocumentPackageTarget<Impl: IPrintWorkflowXpsObjectModelTargetPackageNativeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPrintWorkflowXpsObjectModelTargetPackageNative_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowXpsObjectModelTargetPackageNative_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowXpsObjectModelTargetPackageNative_Vtbl {
+        unsafe extern "system" fn DocumentPackageTarget<Impl: IPrintWorkflowXpsObjectModelTargetPackageNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentPackageTarget() {
                 ::core::result::Result::Ok(ok__) => {
@@ -134,7 +134,7 @@ impl IPrintWorkflowXpsObjectModelTargetPackageNativeVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
-pub trait IPrintWorkflowXpsReceiverImpl: Sized {
+pub trait IPrintWorkflowXpsReceiver_Impl: Sized {
     fn SetDocumentSequencePrintTicket(&mut self, documentsequenceprintticket: ::core::option::Option<super::super::Com::IStream>) -> ::windows::core::Result<()>;
     fn SetDocumentSequenceUri(&mut self, documentsequenceuri: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn AddDocumentData(&mut self, documentid: u32, documentprintticket: ::core::option::Option<super::super::Com::IStream>, documenturi: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
@@ -142,25 +142,25 @@ pub trait IPrintWorkflowXpsReceiverImpl: Sized {
     fn Close(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
-impl IPrintWorkflowXpsReceiverVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowXpsReceiverImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowXpsReceiverVtbl {
-        unsafe extern "system" fn SetDocumentSequencePrintTicket<Impl: IPrintWorkflowXpsReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, documentsequenceprintticket: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPrintWorkflowXpsReceiver_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowXpsReceiver_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowXpsReceiver_Vtbl {
+        unsafe extern "system" fn SetDocumentSequencePrintTicket<Impl: IPrintWorkflowXpsReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, documentsequenceprintticket: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDocumentSequencePrintTicket(::core::mem::transmute(&documentsequenceprintticket)).into()
         }
-        unsafe extern "system" fn SetDocumentSequenceUri<Impl: IPrintWorkflowXpsReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, documentsequenceuri: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDocumentSequenceUri<Impl: IPrintWorkflowXpsReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, documentsequenceuri: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDocumentSequenceUri(::core::mem::transmute_copy(&documentsequenceuri)).into()
         }
-        unsafe extern "system" fn AddDocumentData<Impl: IPrintWorkflowXpsReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, documentid: u32, documentprintticket: ::windows::core::RawPtr, documenturi: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDocumentData<Impl: IPrintWorkflowXpsReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, documentid: u32, documentprintticket: ::windows::core::RawPtr, documenturi: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddDocumentData(::core::mem::transmute_copy(&documentid), ::core::mem::transmute(&documentprintticket), ::core::mem::transmute_copy(&documenturi)).into()
         }
-        unsafe extern "system" fn AddPage<Impl: IPrintWorkflowXpsReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, documentid: u32, pageid: u32, pagereference: ::windows::core::RawPtr, pageuri: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddPage<Impl: IPrintWorkflowXpsReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, documentid: u32, pageid: u32, pagereference: ::windows::core::RawPtr, pageuri: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddPage(::core::mem::transmute_copy(&documentid), ::core::mem::transmute_copy(&pageid), ::core::mem::transmute(&pagereference), ::core::mem::transmute_copy(&pageuri)).into()
         }
-        unsafe extern "system" fn Close<Impl: IPrintWorkflowXpsReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Close<Impl: IPrintWorkflowXpsReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Close().into()
         }
@@ -178,24 +178,24 @@ impl IPrintWorkflowXpsReceiverVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
-pub trait IPrintWorkflowXpsReceiver2Impl: Sized + IPrintWorkflowXpsReceiverImpl {
+pub trait IPrintWorkflowXpsReceiver2_Impl: Sized + IPrintWorkflowXpsReceiver_Impl {
     fn Failed(&mut self, xpserror: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
-impl IPrintWorkflowXpsReceiver2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowXpsReceiver2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowXpsReceiver2Vtbl {
-        unsafe extern "system" fn Failed<Impl: IPrintWorkflowXpsReceiver2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xpserror: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+impl IPrintWorkflowXpsReceiver2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowXpsReceiver2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintWorkflowXpsReceiver2_Vtbl {
+        unsafe extern "system" fn Failed<Impl: IPrintWorkflowXpsReceiver2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xpserror: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Failed(::core::mem::transmute_copy(&xpserror)).into()
         }
-        Self { base: IPrintWorkflowXpsReceiverVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Failed: Failed::<Impl, IMPL_OFFSET> }
+        Self { base: IPrintWorkflowXpsReceiver_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Failed: Failed::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPrintWorkflowXpsReceiver2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IPrinting3DManagerInteropImpl: Sized {
+pub trait IPrinting3DManagerInterop_Impl: Sized {
     fn GetForWindow(&mut self, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, printmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn ShowPrintUIForWindowAsync(&mut self, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
@@ -204,13 +204,13 @@ impl ::windows::core::RuntimeName for IPrinting3DManagerInterop {
     const NAME: &'static str = "";
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IPrinting3DManagerInteropVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DManagerInteropImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DManagerInteropVtbl {
-        unsafe extern "system" fn GetForWindow<Impl: IPrinting3DManagerInteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, printmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IPrinting3DManagerInterop_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DManagerInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrinting3DManagerInterop_Vtbl {
+        unsafe extern "system" fn GetForWindow<Impl: IPrinting3DManagerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, printmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetForWindow(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&printmanager)).into()
         }
-        unsafe extern "system" fn ShowPrintUIForWindowAsync<Impl: IPrinting3DManagerInteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowPrintUIForWindowAsync<Impl: IPrinting3DManagerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowPrintUIForWindowAsync(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&asyncoperation)).into()
         }

@@ -272,13 +272,13 @@ impl ::windows::core::RuntimeName for ForegroundEnergyManager {
 pub struct IBackgroundEnergyManagerStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IBackgroundEnergyManagerStatics {
-    type Vtable = IBackgroundEnergyManagerStaticsVtbl;
+    type Vtable = IBackgroundEnergyManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3161d95_1180_4376_96e1_4095568147ce);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundEnergyManagerStaticsVtbl {
+pub struct IBackgroundEnergyManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub LowUsageLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -335,13 +335,13 @@ pub struct IBackgroundEnergyManagerStaticsVtbl {
 pub struct IForegroundEnergyManagerStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IForegroundEnergyManagerStatics {
-    type Vtable = IForegroundEnergyManagerStaticsVtbl;
+    type Vtable = IForegroundEnergyManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ff86872_e677_4814_9a20_5337ca732b98);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IForegroundEnergyManagerStaticsVtbl {
+pub struct IForegroundEnergyManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub LowUsageLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -388,12 +388,12 @@ pub struct IForegroundEnergyManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IPowerManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPowerManagerStatics {
-    type Vtable = IPowerManagerStaticsVtbl;
+    type Vtable = IPowerManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1394825d_62ce_4364_98d5_aa28c7fbd15b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPowerManagerStaticsVtbl {
+pub struct IPowerManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EnergySaverStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EnergySaverStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]

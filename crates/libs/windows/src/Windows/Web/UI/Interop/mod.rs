@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IWebViewControlAcceleratorKeyPressedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebViewControlAcceleratorKeyPressedEventArgs {
-    type Vtable = IWebViewControlAcceleratorKeyPressedEventArgsVtbl;
+    type Vtable = IWebViewControlAcceleratorKeyPressedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77a2a53e_7c74_437d_a290_3ac0d8cd5655);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebViewControlAcceleratorKeyPressedEventArgsVtbl {
+pub struct IWebViewControlAcceleratorKeyPressedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Core")]
     pub EventType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::UI::Core::CoreAcceleratorKeyEventType) -> ::windows::core::HRESULT,
@@ -30,12 +30,12 @@ pub struct IWebViewControlAcceleratorKeyPressedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IWebViewControlMoveFocusRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebViewControlMoveFocusRequestedEventArgs {
-    type Vtable = IWebViewControlMoveFocusRequestedEventArgsVtbl;
+    type Vtable = IWebViewControlMoveFocusRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b2a340d_4bd0_405e_b7c1_1e72a492f446);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebViewControlMoveFocusRequestedEventArgsVtbl {
+pub struct IWebViewControlMoveFocusRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WebViewControlMoveFocusReason) -> ::windows::core::HRESULT,
 }
@@ -43,12 +43,12 @@ pub struct IWebViewControlMoveFocusRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IWebViewControlProcess(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebViewControlProcess {
-    type Vtable = IWebViewControlProcessVtbl;
+    type Vtable = IWebViewControlProcess_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02c723ec_98d6_424a_b63e_c6136c36a0f2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebViewControlProcessVtbl {
+pub struct IWebViewControlProcess_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ProcessId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub EnterpriseId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -75,12 +75,12 @@ pub struct IWebViewControlProcessVtbl {
 #[repr(transparent)]
 pub struct IWebViewControlProcessFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebViewControlProcessFactory {
-    type Vtable = IWebViewControlProcessFactoryVtbl;
+    type Vtable = IWebViewControlProcessFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47b65cf9_a2d2_453c_b097_f6779d4b8e02);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebViewControlProcessFactoryVtbl {
+pub struct IWebViewControlProcessFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateWithOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, processoptions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -88,12 +88,12 @@ pub struct IWebViewControlProcessFactoryVtbl {
 #[repr(transparent)]
 pub struct IWebViewControlProcessOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebViewControlProcessOptions {
-    type Vtable = IWebViewControlProcessOptionsVtbl;
+    type Vtable = IWebViewControlProcessOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cca72a7_3bd6_4826_8261_6c8189505d89);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebViewControlProcessOptionsVtbl {
+pub struct IWebViewControlProcessOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetEnterpriseId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub EnterpriseId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -104,12 +104,12 @@ pub struct IWebViewControlProcessOptionsVtbl {
 #[repr(transparent)]
 pub struct IWebViewControlSite(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebViewControlSite {
-    type Vtable = IWebViewControlSiteVtbl;
+    type Vtable = IWebViewControlSite_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x133f47c6_12dc_4898_bd47_04967de648ba);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebViewControlSiteVtbl {
+pub struct IWebViewControlSite_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Process: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetScale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
@@ -147,12 +147,12 @@ pub struct IWebViewControlSiteVtbl {
 #[repr(transparent)]
 pub struct IWebViewControlSite2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebViewControlSite2 {
-    type Vtable = IWebViewControlSite2Vtbl;
+    type Vtable = IWebViewControlSite2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd13b2e3f_48ee_4730_8243_d2ed0c05606a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebViewControlSite2Vtbl {
+pub struct IWebViewControlSite2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GotFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -738,7 +738,7 @@ unsafe impl ::windows::core::RuntimeType for WebViewControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControl;{3f921316-bc70-4bda-9136-c94370899fab})");
 }
 unsafe impl ::windows::core::Interface for WebViewControl {
-    type Vtable = super::IWebViewControlVtbl;
+    type Vtable = super::IWebViewControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f921316_bc70_4bda_9136_c94370899fab);
 }
 impl ::windows::core::RuntimeName for WebViewControl {
@@ -901,7 +901,7 @@ unsafe impl ::windows::core::RuntimeType for WebViewControlAcceleratorKeyPressed
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControlAcceleratorKeyPressedEventArgs;{77a2a53e-7c74-437d-a290-3ac0d8cd5655})");
 }
 unsafe impl ::windows::core::Interface for WebViewControlAcceleratorKeyPressedEventArgs {
-    type Vtable = IWebViewControlAcceleratorKeyPressedEventArgsVtbl;
+    type Vtable = IWebViewControlAcceleratorKeyPressedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77a2a53e_7c74_437d_a290_3ac0d8cd5655);
 }
 impl ::windows::core::RuntimeName for WebViewControlAcceleratorKeyPressedEventArgs {
@@ -1047,7 +1047,7 @@ unsafe impl ::windows::core::RuntimeType for WebViewControlMoveFocusRequestedEve
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControlMoveFocusRequestedEventArgs;{6b2a340d-4bd0-405e-b7c1-1e72a492f446})");
 }
 unsafe impl ::windows::core::Interface for WebViewControlMoveFocusRequestedEventArgs {
-    type Vtable = IWebViewControlMoveFocusRequestedEventArgsVtbl;
+    type Vtable = IWebViewControlMoveFocusRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b2a340d_4bd0_405e_b7c1_1e72a492f446);
 }
 impl ::windows::core::RuntimeName for WebViewControlMoveFocusRequestedEventArgs {
@@ -1199,7 +1199,7 @@ unsafe impl ::windows::core::RuntimeType for WebViewControlProcess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControlProcess;{02c723ec-98d6-424a-b63e-c6136c36a0f2})");
 }
 unsafe impl ::windows::core::Interface for WebViewControlProcess {
-    type Vtable = IWebViewControlProcessVtbl;
+    type Vtable = IWebViewControlProcess_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02c723ec_98d6_424a_b63e_c6136c36a0f2);
 }
 impl ::windows::core::RuntimeName for WebViewControlProcess {
@@ -1337,7 +1337,7 @@ unsafe impl ::windows::core::RuntimeType for WebViewControlProcessOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControlProcessOptions;{1cca72a7-3bd6-4826-8261-6c8189505d89})");
 }
 unsafe impl ::windows::core::Interface for WebViewControlProcessOptions {
-    type Vtable = IWebViewControlProcessOptionsVtbl;
+    type Vtable = IWebViewControlProcessOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cca72a7_3bd6_4826_8261_6c8189505d89);
 }
 impl ::windows::core::RuntimeName for WebViewControlProcessOptions {

@@ -1,5 +1,5 @@
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IBackgroundEnergyDiagnosticsStaticsImpl: Sized {
+pub trait IBackgroundEnergyDiagnosticsStatics_Impl: Sized {
     fn DeviceSpecificConversionFactor(&mut self) -> ::windows::core::Result<f64>;
     fn ComputeTotalEnergyUsage(&mut self) -> ::windows::core::Result<u64>;
     fn ResetTotalEnergyUsage(&mut self) -> ::windows::core::Result<()>;
@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for IBackgroundEnergyDiagnosticsStatics {
     const NAME: &'static str = "Windows.System.Power.Diagnostics.IBackgroundEnergyDiagnosticsStatics";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IBackgroundEnergyDiagnosticsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundEnergyDiagnosticsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundEnergyDiagnosticsStaticsVtbl {
-        unsafe extern "system" fn DeviceSpecificConversionFactor<Impl: IBackgroundEnergyDiagnosticsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+impl IBackgroundEnergyDiagnosticsStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundEnergyDiagnosticsStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundEnergyDiagnosticsStatics_Vtbl {
+        unsafe extern "system" fn DeviceSpecificConversionFactor<Impl: IBackgroundEnergyDiagnosticsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceSpecificConversionFactor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -22,7 +22,7 @@ impl IBackgroundEnergyDiagnosticsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ComputeTotalEnergyUsage<Impl: IBackgroundEnergyDiagnosticsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ComputeTotalEnergyUsage<Impl: IBackgroundEnergyDiagnosticsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ComputeTotalEnergyUsage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -33,7 +33,7 @@ impl IBackgroundEnergyDiagnosticsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResetTotalEnergyUsage<Impl: IBackgroundEnergyDiagnosticsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResetTotalEnergyUsage<Impl: IBackgroundEnergyDiagnosticsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ResetTotalEnergyUsage().into()
         }
@@ -49,7 +49,7 @@ impl IBackgroundEnergyDiagnosticsStaticsVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IForegroundEnergyDiagnosticsStaticsImpl: Sized {
+pub trait IForegroundEnergyDiagnosticsStatics_Impl: Sized {
     fn DeviceSpecificConversionFactor(&mut self) -> ::windows::core::Result<f64>;
     fn ComputeTotalEnergyUsage(&mut self) -> ::windows::core::Result<u64>;
     fn ResetTotalEnergyUsage(&mut self) -> ::windows::core::Result<()>;
@@ -59,9 +59,9 @@ impl ::windows::core::RuntimeName for IForegroundEnergyDiagnosticsStatics {
     const NAME: &'static str = "Windows.System.Power.Diagnostics.IForegroundEnergyDiagnosticsStatics";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IForegroundEnergyDiagnosticsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IForegroundEnergyDiagnosticsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IForegroundEnergyDiagnosticsStaticsVtbl {
-        unsafe extern "system" fn DeviceSpecificConversionFactor<Impl: IForegroundEnergyDiagnosticsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+impl IForegroundEnergyDiagnosticsStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IForegroundEnergyDiagnosticsStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IForegroundEnergyDiagnosticsStatics_Vtbl {
+        unsafe extern "system" fn DeviceSpecificConversionFactor<Impl: IForegroundEnergyDiagnosticsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceSpecificConversionFactor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -72,7 +72,7 @@ impl IForegroundEnergyDiagnosticsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ComputeTotalEnergyUsage<Impl: IForegroundEnergyDiagnosticsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ComputeTotalEnergyUsage<Impl: IForegroundEnergyDiagnosticsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ComputeTotalEnergyUsage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -83,7 +83,7 @@ impl IForegroundEnergyDiagnosticsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResetTotalEnergyUsage<Impl: IForegroundEnergyDiagnosticsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResetTotalEnergyUsage<Impl: IForegroundEnergyDiagnosticsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ResetTotalEnergyUsage().into()
         }

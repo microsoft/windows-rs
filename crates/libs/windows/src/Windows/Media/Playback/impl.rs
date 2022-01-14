@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IBackgroundMediaPlayerStaticsImpl: Sized {
+pub trait IBackgroundMediaPlayerStatics_Impl: Sized {
     fn Current(&mut self) -> ::windows::core::Result<MediaPlayer>;
     fn MessageReceivedFromBackground(&mut self, value: &::core::option::Option<super::super::Foundation::EventHandler<MediaPlayerDataReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveMessageReceivedFromBackground(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -15,9 +15,9 @@ impl ::windows::core::RuntimeName for IBackgroundMediaPlayerStatics {
     const NAME: &'static str = "Windows.Media.Playback.IBackgroundMediaPlayerStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
-impl IBackgroundMediaPlayerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundMediaPlayerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundMediaPlayerStaticsVtbl {
-        unsafe extern "system" fn Current<Impl: IBackgroundMediaPlayerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBackgroundMediaPlayerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundMediaPlayerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundMediaPlayerStatics_Vtbl {
+        unsafe extern "system" fn Current<Impl: IBackgroundMediaPlayerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Current() {
                 ::core::result::Result::Ok(ok__) => {
@@ -28,7 +28,7 @@ impl IBackgroundMediaPlayerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MessageReceivedFromBackground<Impl: IBackgroundMediaPlayerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MessageReceivedFromBackground<Impl: IBackgroundMediaPlayerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageReceivedFromBackground(&*(&value as *const <super::super::Foundation::EventHandler<MediaPlayerDataReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<MediaPlayerDataReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -39,11 +39,11 @@ impl IBackgroundMediaPlayerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMessageReceivedFromBackground<Impl: IBackgroundMediaPlayerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMessageReceivedFromBackground<Impl: IBackgroundMediaPlayerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMessageReceivedFromBackground(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MessageReceivedFromForeground<Impl: IBackgroundMediaPlayerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MessageReceivedFromForeground<Impl: IBackgroundMediaPlayerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageReceivedFromForeground(&*(&value as *const <super::super::Foundation::EventHandler<MediaPlayerDataReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<MediaPlayerDataReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -54,19 +54,19 @@ impl IBackgroundMediaPlayerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMessageReceivedFromForeground<Impl: IBackgroundMediaPlayerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMessageReceivedFromForeground<Impl: IBackgroundMediaPlayerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMessageReceivedFromForeground(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SendMessageToBackground<Impl: IBackgroundMediaPlayerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendMessageToBackground<Impl: IBackgroundMediaPlayerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SendMessageToBackground(&*(&value as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SendMessageToForeground<Impl: IBackgroundMediaPlayerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendMessageToForeground<Impl: IBackgroundMediaPlayerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SendMessageToForeground(&*(&value as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IsMediaPlaying<Impl: IBackgroundMediaPlayerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsMediaPlaying<Impl: IBackgroundMediaPlayerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsMediaPlaying() {
                 ::core::result::Result::Ok(ok__) => {
@@ -77,7 +77,7 @@ impl IBackgroundMediaPlayerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Shutdown<Impl: IBackgroundMediaPlayerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Shutdown<Impl: IBackgroundMediaPlayerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Shutdown().into()
         }
@@ -99,7 +99,7 @@ impl IBackgroundMediaPlayerStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICurrentMediaPlaybackItemChangedEventArgsImpl: Sized {
+pub trait ICurrentMediaPlaybackItemChangedEventArgs_Impl: Sized {
     fn NewItem(&mut self) -> ::windows::core::Result<MediaPlaybackItem>;
     fn OldItem(&mut self) -> ::windows::core::Result<MediaPlaybackItem>;
 }
@@ -108,9 +108,9 @@ impl ::windows::core::RuntimeName for ICurrentMediaPlaybackItemChangedEventArgs 
     const NAME: &'static str = "Windows.Media.Playback.ICurrentMediaPlaybackItemChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICurrentMediaPlaybackItemChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentMediaPlaybackItemChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentMediaPlaybackItemChangedEventArgsVtbl {
-        unsafe extern "system" fn NewItem<Impl: ICurrentMediaPlaybackItemChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICurrentMediaPlaybackItemChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentMediaPlaybackItemChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentMediaPlaybackItemChangedEventArgs_Vtbl {
+        unsafe extern "system" fn NewItem<Impl: ICurrentMediaPlaybackItemChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NewItem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -121,7 +121,7 @@ impl ICurrentMediaPlaybackItemChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OldItem<Impl: ICurrentMediaPlaybackItemChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OldItem<Impl: ICurrentMediaPlaybackItemChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OldItem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -143,7 +143,7 @@ impl ICurrentMediaPlaybackItemChangedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICurrentMediaPlaybackItemChangedEventArgs2Impl: Sized + ICurrentMediaPlaybackItemChangedEventArgsImpl {
+pub trait ICurrentMediaPlaybackItemChangedEventArgs2_Impl: Sized + ICurrentMediaPlaybackItemChangedEventArgs_Impl {
     fn Reason(&mut self) -> ::windows::core::Result<MediaPlaybackItemChangedReason>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -151,9 +151,9 @@ impl ::windows::core::RuntimeName for ICurrentMediaPlaybackItemChangedEventArgs2
     const NAME: &'static str = "Windows.Media.Playback.ICurrentMediaPlaybackItemChangedEventArgs2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICurrentMediaPlaybackItemChangedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentMediaPlaybackItemChangedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentMediaPlaybackItemChangedEventArgs2Vtbl {
-        unsafe extern "system" fn Reason<Impl: ICurrentMediaPlaybackItemChangedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaPlaybackItemChangedReason) -> ::windows::core::HRESULT {
+impl ICurrentMediaPlaybackItemChangedEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentMediaPlaybackItemChangedEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentMediaPlaybackItemChangedEventArgs2_Vtbl {
+        unsafe extern "system" fn Reason<Impl: ICurrentMediaPlaybackItemChangedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaPlaybackItemChangedReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reason() {
                 ::core::result::Result::Ok(ok__) => {
@@ -174,7 +174,7 @@ impl ICurrentMediaPlaybackItemChangedEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IMediaBreakImpl: Sized {
+pub trait IMediaBreak_Impl: Sized {
     fn PlaybackList(&mut self) -> ::windows::core::Result<MediaPlaybackList>;
     fn PresentationPosition(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
     fn InsertionMethod(&mut self) -> ::windows::core::Result<MediaBreakInsertionMethod>;
@@ -187,9 +187,9 @@ impl ::windows::core::RuntimeName for IMediaBreak {
     const NAME: &'static str = "Windows.Media.Playback.IMediaBreak";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IMediaBreakVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaBreakImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaBreakVtbl {
-        unsafe extern "system" fn PlaybackList<Impl: IMediaBreakImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaBreak_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaBreak_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaBreak_Vtbl {
+        unsafe extern "system" fn PlaybackList<Impl: IMediaBreak_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackList() {
                 ::core::result::Result::Ok(ok__) => {
@@ -200,7 +200,7 @@ impl IMediaBreakVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PresentationPosition<Impl: IMediaBreakImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PresentationPosition<Impl: IMediaBreak_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PresentationPosition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -211,7 +211,7 @@ impl IMediaBreakVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InsertionMethod<Impl: IMediaBreakImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaBreakInsertionMethod) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertionMethod<Impl: IMediaBreak_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaBreakInsertionMethod) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InsertionMethod() {
                 ::core::result::Result::Ok(ok__) => {
@@ -222,7 +222,7 @@ impl IMediaBreakVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CustomProperties<Impl: IMediaBreakImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CustomProperties<Impl: IMediaBreak_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CustomProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -233,7 +233,7 @@ impl IMediaBreakVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanStart<Impl: IMediaBreakImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanStart<Impl: IMediaBreak_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanStart() {
                 ::core::result::Result::Ok(ok__) => {
@@ -244,7 +244,7 @@ impl IMediaBreakVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCanStart<Impl: IMediaBreakImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCanStart<Impl: IMediaBreak_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCanStart(value).into()
         }
@@ -263,7 +263,7 @@ impl IMediaBreakVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMediaBreakEndedEventArgsImpl: Sized {
+pub trait IMediaBreakEndedEventArgs_Impl: Sized {
     fn MediaBreak(&mut self) -> ::windows::core::Result<MediaBreak>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -271,9 +271,9 @@ impl ::windows::core::RuntimeName for IMediaBreakEndedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.IMediaBreakEndedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMediaBreakEndedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaBreakEndedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaBreakEndedEventArgsVtbl {
-        unsafe extern "system" fn MediaBreak<Impl: IMediaBreakEndedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaBreakEndedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaBreakEndedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaBreakEndedEventArgs_Vtbl {
+        unsafe extern "system" fn MediaBreak<Impl: IMediaBreakEndedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaBreak() {
                 ::core::result::Result::Ok(ok__) => {
@@ -291,7 +291,7 @@ impl IMediaBreakEndedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMediaBreakFactoryImpl: Sized {
+pub trait IMediaBreakFactory_Impl: Sized {
     fn Create(&mut self, insertionmethod: MediaBreakInsertionMethod) -> ::windows::core::Result<MediaBreak>;
     fn CreateWithPresentationPosition(&mut self, insertionmethod: MediaBreakInsertionMethod, presentationposition: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaBreak>;
 }
@@ -300,9 +300,9 @@ impl ::windows::core::RuntimeName for IMediaBreakFactory {
     const NAME: &'static str = "Windows.Media.Playback.IMediaBreakFactory";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMediaBreakFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaBreakFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaBreakFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IMediaBreakFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, insertionmethod: MediaBreakInsertionMethod, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaBreakFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaBreakFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaBreakFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IMediaBreakFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, insertionmethod: MediaBreakInsertionMethod, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(insertionmethod) {
                 ::core::result::Result::Ok(ok__) => {
@@ -313,7 +313,7 @@ impl IMediaBreakFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithPresentationPosition<Impl: IMediaBreakFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, insertionmethod: MediaBreakInsertionMethod, presentationposition: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithPresentationPosition<Impl: IMediaBreakFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, insertionmethod: MediaBreakInsertionMethod, presentationposition: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithPresentationPosition(insertionmethod, &*(&presentationposition as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -335,7 +335,7 @@ impl IMediaBreakFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMediaBreakManagerImpl: Sized {
+pub trait IMediaBreakManager_Impl: Sized {
     fn BreaksSeekedOver(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaBreakManager, MediaBreakSeekedOverEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveBreaksSeekedOver(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn BreakStarted(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaBreakManager, MediaBreakStartedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -354,9 +354,9 @@ impl ::windows::core::RuntimeName for IMediaBreakManager {
     const NAME: &'static str = "Windows.Media.Playback.IMediaBreakManager";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMediaBreakManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaBreakManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaBreakManagerVtbl {
-        unsafe extern "system" fn BreaksSeekedOver<Impl: IMediaBreakManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IMediaBreakManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaBreakManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaBreakManager_Vtbl {
+        unsafe extern "system" fn BreaksSeekedOver<Impl: IMediaBreakManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BreaksSeekedOver(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaBreakManager, MediaBreakSeekedOverEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaBreakManager, MediaBreakSeekedOverEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -367,11 +367,11 @@ impl IMediaBreakManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveBreaksSeekedOver<Impl: IMediaBreakManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveBreaksSeekedOver<Impl: IMediaBreakManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveBreaksSeekedOver(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BreakStarted<Impl: IMediaBreakManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BreakStarted<Impl: IMediaBreakManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BreakStarted(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaBreakManager, MediaBreakStartedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaBreakManager, MediaBreakStartedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -382,11 +382,11 @@ impl IMediaBreakManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveBreakStarted<Impl: IMediaBreakManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveBreakStarted<Impl: IMediaBreakManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveBreakStarted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BreakEnded<Impl: IMediaBreakManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BreakEnded<Impl: IMediaBreakManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BreakEnded(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaBreakManager, MediaBreakEndedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaBreakManager, MediaBreakEndedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -397,11 +397,11 @@ impl IMediaBreakManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveBreakEnded<Impl: IMediaBreakManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveBreakEnded<Impl: IMediaBreakManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveBreakEnded(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BreakSkipped<Impl: IMediaBreakManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BreakSkipped<Impl: IMediaBreakManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BreakSkipped(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaBreakManager, MediaBreakSkippedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaBreakManager, MediaBreakSkippedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -412,11 +412,11 @@ impl IMediaBreakManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveBreakSkipped<Impl: IMediaBreakManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveBreakSkipped<Impl: IMediaBreakManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveBreakSkipped(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CurrentBreak<Impl: IMediaBreakManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentBreak<Impl: IMediaBreakManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentBreak() {
                 ::core::result::Result::Ok(ok__) => {
@@ -427,7 +427,7 @@ impl IMediaBreakManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PlaybackSession<Impl: IMediaBreakManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlaybackSession<Impl: IMediaBreakManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackSession() {
                 ::core::result::Result::Ok(ok__) => {
@@ -438,11 +438,11 @@ impl IMediaBreakManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PlayBreak<Impl: IMediaBreakManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlayBreak<Impl: IMediaBreakManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PlayBreak(&*(&value as *const <MediaBreak as ::windows::core::Abi>::Abi as *const <MediaBreak as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SkipCurrentBreak<Impl: IMediaBreakManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SkipCurrentBreak<Impl: IMediaBreakManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SkipCurrentBreak().into()
         }
@@ -467,7 +467,7 @@ impl IMediaBreakManagerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IMediaBreakScheduleImpl: Sized {
+pub trait IMediaBreakSchedule_Impl: Sized {
     fn ScheduleChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaBreakSchedule, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveScheduleChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn InsertMidrollBreak(&mut self, mediabreak: &::core::option::Option<MediaBreak>) -> ::windows::core::Result<()>;
@@ -484,9 +484,9 @@ impl ::windows::core::RuntimeName for IMediaBreakSchedule {
     const NAME: &'static str = "Windows.Media.Playback.IMediaBreakSchedule";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IMediaBreakScheduleVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaBreakScheduleImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaBreakScheduleVtbl {
-        unsafe extern "system" fn ScheduleChanged<Impl: IMediaBreakScheduleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IMediaBreakSchedule_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaBreakSchedule_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaBreakSchedule_Vtbl {
+        unsafe extern "system" fn ScheduleChanged<Impl: IMediaBreakSchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScheduleChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaBreakSchedule, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaBreakSchedule, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -497,19 +497,19 @@ impl IMediaBreakScheduleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveScheduleChanged<Impl: IMediaBreakScheduleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveScheduleChanged<Impl: IMediaBreakSchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveScheduleChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InsertMidrollBreak<Impl: IMediaBreakScheduleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediabreak: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertMidrollBreak<Impl: IMediaBreakSchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediabreak: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertMidrollBreak(&*(&mediabreak as *const <MediaBreak as ::windows::core::Abi>::Abi as *const <MediaBreak as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RemoveMidrollBreak<Impl: IMediaBreakScheduleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediabreak: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMidrollBreak<Impl: IMediaBreakSchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediabreak: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMidrollBreak(&*(&mediabreak as *const <MediaBreak as ::windows::core::Abi>::Abi as *const <MediaBreak as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MidrollBreaks<Impl: IMediaBreakScheduleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MidrollBreaks<Impl: IMediaBreakSchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MidrollBreaks() {
                 ::core::result::Result::Ok(ok__) => {
@@ -520,11 +520,11 @@ impl IMediaBreakScheduleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPrerollBreak<Impl: IMediaBreakScheduleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPrerollBreak<Impl: IMediaBreakSchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPrerollBreak(&*(&value as *const <MediaBreak as ::windows::core::Abi>::Abi as *const <MediaBreak as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PrerollBreak<Impl: IMediaBreakScheduleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrerollBreak<Impl: IMediaBreakSchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrerollBreak() {
                 ::core::result::Result::Ok(ok__) => {
@@ -535,11 +535,11 @@ impl IMediaBreakScheduleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPostrollBreak<Impl: IMediaBreakScheduleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPostrollBreak<Impl: IMediaBreakSchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPostrollBreak(&*(&value as *const <MediaBreak as ::windows::core::Abi>::Abi as *const <MediaBreak as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PostrollBreak<Impl: IMediaBreakScheduleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PostrollBreak<Impl: IMediaBreakSchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PostrollBreak() {
                 ::core::result::Result::Ok(ok__) => {
@@ -550,7 +550,7 @@ impl IMediaBreakScheduleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PlaybackItem<Impl: IMediaBreakScheduleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlaybackItem<Impl: IMediaBreakSchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackItem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -580,7 +580,7 @@ impl IMediaBreakScheduleVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IMediaBreakSeekedOverEventArgsImpl: Sized {
+pub trait IMediaBreakSeekedOverEventArgs_Impl: Sized {
     fn SeekedOverBreaks(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaBreak>>;
     fn OldPosition(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn NewPosition(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -590,9 +590,9 @@ impl ::windows::core::RuntimeName for IMediaBreakSeekedOverEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.IMediaBreakSeekedOverEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IMediaBreakSeekedOverEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaBreakSeekedOverEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaBreakSeekedOverEventArgsVtbl {
-        unsafe extern "system" fn SeekedOverBreaks<Impl: IMediaBreakSeekedOverEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaBreakSeekedOverEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaBreakSeekedOverEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaBreakSeekedOverEventArgs_Vtbl {
+        unsafe extern "system" fn SeekedOverBreaks<Impl: IMediaBreakSeekedOverEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SeekedOverBreaks() {
                 ::core::result::Result::Ok(ok__) => {
@@ -603,7 +603,7 @@ impl IMediaBreakSeekedOverEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OldPosition<Impl: IMediaBreakSeekedOverEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OldPosition<Impl: IMediaBreakSeekedOverEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OldPosition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -614,7 +614,7 @@ impl IMediaBreakSeekedOverEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NewPosition<Impl: IMediaBreakSeekedOverEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NewPosition<Impl: IMediaBreakSeekedOverEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NewPosition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -637,7 +637,7 @@ impl IMediaBreakSeekedOverEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMediaBreakSkippedEventArgsImpl: Sized {
+pub trait IMediaBreakSkippedEventArgs_Impl: Sized {
     fn MediaBreak(&mut self) -> ::windows::core::Result<MediaBreak>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -645,9 +645,9 @@ impl ::windows::core::RuntimeName for IMediaBreakSkippedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.IMediaBreakSkippedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMediaBreakSkippedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaBreakSkippedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaBreakSkippedEventArgsVtbl {
-        unsafe extern "system" fn MediaBreak<Impl: IMediaBreakSkippedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaBreakSkippedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaBreakSkippedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaBreakSkippedEventArgs_Vtbl {
+        unsafe extern "system" fn MediaBreak<Impl: IMediaBreakSkippedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaBreak() {
                 ::core::result::Result::Ok(ok__) => {
@@ -668,7 +668,7 @@ impl IMediaBreakSkippedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMediaBreakStartedEventArgsImpl: Sized {
+pub trait IMediaBreakStartedEventArgs_Impl: Sized {
     fn MediaBreak(&mut self) -> ::windows::core::Result<MediaBreak>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -676,9 +676,9 @@ impl ::windows::core::RuntimeName for IMediaBreakStartedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.IMediaBreakStartedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMediaBreakStartedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaBreakStartedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaBreakStartedEventArgsVtbl {
-        unsafe extern "system" fn MediaBreak<Impl: IMediaBreakStartedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaBreakStartedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaBreakStartedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaBreakStartedEventArgs_Vtbl {
+        unsafe extern "system" fn MediaBreak<Impl: IMediaBreakStartedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaBreak() {
                 ::core::result::Result::Ok(ok__) => {
@@ -699,7 +699,7 @@ impl IMediaBreakStartedEventArgsVtbl {
     }
 }
 #[cfg(feature = "deprecated")]
-pub trait IMediaEnginePlaybackSourceImpl: Sized {
+pub trait IMediaEnginePlaybackSource_Impl: Sized {
     fn CurrentItem(&mut self) -> ::windows::core::Result<MediaPlaybackItem>;
     fn SetPlaybackSource(&mut self, source: &::core::option::Option<IMediaPlaybackSource>) -> ::windows::core::Result<()>;
 }
@@ -708,9 +708,9 @@ impl ::windows::core::RuntimeName for IMediaEnginePlaybackSource {
     const NAME: &'static str = "Windows.Media.Playback.IMediaEnginePlaybackSource";
 }
 #[cfg(feature = "deprecated")]
-impl IMediaEnginePlaybackSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaEnginePlaybackSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaEnginePlaybackSourceVtbl {
-        unsafe extern "system" fn CurrentItem<Impl: IMediaEnginePlaybackSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaEnginePlaybackSource_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaEnginePlaybackSource_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaEnginePlaybackSource_Vtbl {
+        unsafe extern "system" fn CurrentItem<Impl: IMediaEnginePlaybackSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentItem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -721,7 +721,7 @@ impl IMediaEnginePlaybackSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlaybackSource<Impl: IMediaEnginePlaybackSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPlaybackSource<Impl: IMediaEnginePlaybackSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlaybackSource(&*(&source as *const <IMediaPlaybackSource as ::windows::core::Abi>::Abi as *const <IMediaPlaybackSource as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -736,7 +736,7 @@ impl IMediaEnginePlaybackSourceVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMediaItemDisplayPropertiesImpl: Sized {
+pub trait IMediaItemDisplayProperties_Impl: Sized {
     fn Type(&mut self) -> ::windows::core::Result<super::MediaPlaybackType>;
     fn SetType(&mut self, value: super::MediaPlaybackType) -> ::windows::core::Result<()>;
     fn MusicProperties(&mut self) -> ::windows::core::Result<super::MusicDisplayProperties>;
@@ -750,9 +750,9 @@ impl ::windows::core::RuntimeName for IMediaItemDisplayProperties {
     const NAME: &'static str = "Windows.Media.Playback.IMediaItemDisplayProperties";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMediaItemDisplayPropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaItemDisplayPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaItemDisplayPropertiesVtbl {
-        unsafe extern "system" fn Type<Impl: IMediaItemDisplayPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::MediaPlaybackType) -> ::windows::core::HRESULT {
+impl IMediaItemDisplayProperties_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaItemDisplayProperties_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaItemDisplayProperties_Vtbl {
+        unsafe extern "system" fn Type<Impl: IMediaItemDisplayProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::MediaPlaybackType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
                 ::core::result::Result::Ok(ok__) => {
@@ -763,11 +763,11 @@ impl IMediaItemDisplayPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetType<Impl: IMediaItemDisplayPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::MediaPlaybackType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetType<Impl: IMediaItemDisplayProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::MediaPlaybackType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetType(value).into()
         }
-        unsafe extern "system" fn MusicProperties<Impl: IMediaItemDisplayPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MusicProperties<Impl: IMediaItemDisplayProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MusicProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -778,7 +778,7 @@ impl IMediaItemDisplayPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideoProperties<Impl: IMediaItemDisplayPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoProperties<Impl: IMediaItemDisplayProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -789,7 +789,7 @@ impl IMediaItemDisplayPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Thumbnail<Impl: IMediaItemDisplayPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Thumbnail<Impl: IMediaItemDisplayProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Thumbnail() {
                 ::core::result::Result::Ok(ok__) => {
@@ -800,11 +800,11 @@ impl IMediaItemDisplayPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetThumbnail<Impl: IMediaItemDisplayPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetThumbnail<Impl: IMediaItemDisplayProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetThumbnail(&*(&value as *const <super::super::Storage::Streams::RandomAccessStreamReference as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::RandomAccessStreamReference as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ClearAll<Impl: IMediaItemDisplayPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearAll<Impl: IMediaItemDisplayProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearAll().into()
         }
@@ -824,7 +824,7 @@ impl IMediaItemDisplayPropertiesVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackCommandManagerImpl: Sized {
+pub trait IMediaPlaybackCommandManager_Impl: Sized {
     fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn MediaPlayer(&mut self) -> ::windows::core::Result<MediaPlayer>;
@@ -864,9 +864,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackCommandManager {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackCommandManager";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMediaPlaybackCommandManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerVtbl {
-        unsafe extern "system" fn IsEnabled<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMediaPlaybackCommandManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManager_Vtbl {
+        unsafe extern "system" fn IsEnabled<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -877,11 +877,11 @@ impl IMediaPlaybackCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsEnabled<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsEnabled<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsEnabled(value).into()
         }
-        unsafe extern "system" fn MediaPlayer<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaPlayer<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaPlayer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -892,7 +892,7 @@ impl IMediaPlaybackCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PlayBehavior<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlayBehavior<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlayBehavior() {
                 ::core::result::Result::Ok(ok__) => {
@@ -903,7 +903,7 @@ impl IMediaPlaybackCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PauseBehavior<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PauseBehavior<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PauseBehavior() {
                 ::core::result::Result::Ok(ok__) => {
@@ -914,7 +914,7 @@ impl IMediaPlaybackCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NextBehavior<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NextBehavior<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NextBehavior() {
                 ::core::result::Result::Ok(ok__) => {
@@ -925,7 +925,7 @@ impl IMediaPlaybackCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PreviousBehavior<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PreviousBehavior<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PreviousBehavior() {
                 ::core::result::Result::Ok(ok__) => {
@@ -936,7 +936,7 @@ impl IMediaPlaybackCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FastForwardBehavior<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FastForwardBehavior<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FastForwardBehavior() {
                 ::core::result::Result::Ok(ok__) => {
@@ -947,7 +947,7 @@ impl IMediaPlaybackCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RewindBehavior<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RewindBehavior<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RewindBehavior() {
                 ::core::result::Result::Ok(ok__) => {
@@ -958,7 +958,7 @@ impl IMediaPlaybackCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShuffleBehavior<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShuffleBehavior<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShuffleBehavior() {
                 ::core::result::Result::Ok(ok__) => {
@@ -969,7 +969,7 @@ impl IMediaPlaybackCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AutoRepeatModeBehavior<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AutoRepeatModeBehavior<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutoRepeatModeBehavior() {
                 ::core::result::Result::Ok(ok__) => {
@@ -980,7 +980,7 @@ impl IMediaPlaybackCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PositionBehavior<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PositionBehavior<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionBehavior() {
                 ::core::result::Result::Ok(ok__) => {
@@ -991,7 +991,7 @@ impl IMediaPlaybackCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RateBehavior<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RateBehavior<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RateBehavior() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1002,7 +1002,7 @@ impl IMediaPlaybackCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PlayReceived<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlayReceived<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlayReceived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerPlayReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerPlayReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1013,11 +1013,11 @@ impl IMediaPlaybackCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePlayReceived<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePlayReceived<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePlayReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PauseReceived<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PauseReceived<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PauseReceived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerPauseReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerPauseReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1028,11 +1028,11 @@ impl IMediaPlaybackCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePauseReceived<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePauseReceived<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePauseReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn NextReceived<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NextReceived<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NextReceived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerNextReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerNextReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1043,11 +1043,11 @@ impl IMediaPlaybackCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveNextReceived<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveNextReceived<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveNextReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PreviousReceived<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PreviousReceived<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PreviousReceived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerPreviousReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerPreviousReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1058,11 +1058,11 @@ impl IMediaPlaybackCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePreviousReceived<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePreviousReceived<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePreviousReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FastForwardReceived<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FastForwardReceived<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FastForwardReceived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerFastForwardReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerFastForwardReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1073,11 +1073,11 @@ impl IMediaPlaybackCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveFastForwardReceived<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveFastForwardReceived<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFastForwardReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RewindReceived<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RewindReceived<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RewindReceived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerRewindReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerRewindReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1088,11 +1088,11 @@ impl IMediaPlaybackCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRewindReceived<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveRewindReceived<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRewindReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ShuffleReceived<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShuffleReceived<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShuffleReceived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerShuffleReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerShuffleReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1103,11 +1103,11 @@ impl IMediaPlaybackCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveShuffleReceived<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveShuffleReceived<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveShuffleReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AutoRepeatModeReceived<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AutoRepeatModeReceived<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutoRepeatModeReceived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1118,11 +1118,11 @@ impl IMediaPlaybackCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAutoRepeatModeReceived<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAutoRepeatModeReceived<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAutoRepeatModeReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PositionReceived<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PositionReceived<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionReceived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerPositionReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerPositionReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1133,11 +1133,11 @@ impl IMediaPlaybackCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePositionReceived<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePositionReceived<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePositionReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RateReceived<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RateReceived<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RateReceived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerRateReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerRateReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1148,7 +1148,7 @@ impl IMediaPlaybackCommandManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRateReceived<Impl: IMediaPlaybackCommandManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveRateReceived<Impl: IMediaPlaybackCommandManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRateReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1194,7 +1194,7 @@ impl IMediaPlaybackCommandManagerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgsImpl: Sized {
+pub trait IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_Impl: Sized {
     fn Handled(&mut self) -> ::windows::core::Result<bool>;
     fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn AutoRepeatMode(&mut self) -> ::windows::core::Result<super::MediaPlaybackAutoRepeatMode>;
@@ -1205,9 +1205,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackCommandManagerAutoRepeatMode
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgsVtbl {
-        unsafe extern "system" fn Handled<Impl: IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn Handled<Impl: IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1218,11 +1218,11 @@ impl IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandled<Impl: IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHandled<Impl: IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        unsafe extern "system" fn AutoRepeatMode<Impl: IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::MediaPlaybackAutoRepeatMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AutoRepeatMode<Impl: IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::MediaPlaybackAutoRepeatMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutoRepeatMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1233,7 +1233,7 @@ impl IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1257,7 +1257,7 @@ impl IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackCommandManagerCommandBehaviorImpl: Sized {
+pub trait IMediaPlaybackCommandManagerCommandBehavior_Impl: Sized {
     fn CommandManager(&mut self) -> ::windows::core::Result<MediaPlaybackCommandManager>;
     fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn EnablingRule(&mut self) -> ::windows::core::Result<MediaCommandEnablingRule>;
@@ -1270,9 +1270,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackCommandManagerCommandBehavio
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackCommandManagerCommandBehavior";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMediaPlaybackCommandManagerCommandBehaviorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerCommandBehaviorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerCommandBehaviorVtbl {
-        unsafe extern "system" fn CommandManager<Impl: IMediaPlaybackCommandManagerCommandBehaviorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaPlaybackCommandManagerCommandBehavior_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerCommandBehavior_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerCommandBehavior_Vtbl {
+        unsafe extern "system" fn CommandManager<Impl: IMediaPlaybackCommandManagerCommandBehavior_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CommandManager() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1283,7 +1283,7 @@ impl IMediaPlaybackCommandManagerCommandBehaviorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsEnabled<Impl: IMediaPlaybackCommandManagerCommandBehaviorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEnabled<Impl: IMediaPlaybackCommandManagerCommandBehavior_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1294,7 +1294,7 @@ impl IMediaPlaybackCommandManagerCommandBehaviorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnablingRule<Impl: IMediaPlaybackCommandManagerCommandBehaviorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaCommandEnablingRule) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnablingRule<Impl: IMediaPlaybackCommandManagerCommandBehavior_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaCommandEnablingRule) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnablingRule() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1305,11 +1305,11 @@ impl IMediaPlaybackCommandManagerCommandBehaviorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEnablingRule<Impl: IMediaPlaybackCommandManagerCommandBehaviorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MediaCommandEnablingRule) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnablingRule<Impl: IMediaPlaybackCommandManagerCommandBehavior_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MediaCommandEnablingRule) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnablingRule(value).into()
         }
-        unsafe extern "system" fn IsEnabledChanged<Impl: IMediaPlaybackCommandManagerCommandBehaviorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEnabledChanged<Impl: IMediaPlaybackCommandManagerCommandBehavior_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabledChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManagerCommandBehavior, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManagerCommandBehavior, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1320,7 +1320,7 @@ impl IMediaPlaybackCommandManagerCommandBehaviorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveIsEnabledChanged<Impl: IMediaPlaybackCommandManagerCommandBehaviorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveIsEnabledChanged<Impl: IMediaPlaybackCommandManagerCommandBehavior_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveIsEnabledChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1339,7 +1339,7 @@ impl IMediaPlaybackCommandManagerCommandBehaviorVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackCommandManagerFastForwardReceivedEventArgsImpl: Sized {
+pub trait IMediaPlaybackCommandManagerFastForwardReceivedEventArgs_Impl: Sized {
     fn Handled(&mut self) -> ::windows::core::Result<bool>;
     fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
@@ -1349,9 +1349,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackCommandManagerFastForwardRec
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackCommandManagerFastForwardReceivedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMediaPlaybackCommandManagerFastForwardReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerFastForwardReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerFastForwardReceivedEventArgsVtbl {
-        unsafe extern "system" fn Handled<Impl: IMediaPlaybackCommandManagerFastForwardReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMediaPlaybackCommandManagerFastForwardReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerFastForwardReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerFastForwardReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn Handled<Impl: IMediaPlaybackCommandManagerFastForwardReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1362,11 +1362,11 @@ impl IMediaPlaybackCommandManagerFastForwardReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandled<Impl: IMediaPlaybackCommandManagerFastForwardReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHandled<Impl: IMediaPlaybackCommandManagerFastForwardReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        unsafe extern "system" fn GetDeferral<Impl: IMediaPlaybackCommandManagerFastForwardReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IMediaPlaybackCommandManagerFastForwardReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1389,7 +1389,7 @@ impl IMediaPlaybackCommandManagerFastForwardReceivedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackCommandManagerNextReceivedEventArgsImpl: Sized {
+pub trait IMediaPlaybackCommandManagerNextReceivedEventArgs_Impl: Sized {
     fn Handled(&mut self) -> ::windows::core::Result<bool>;
     fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
@@ -1399,9 +1399,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackCommandManagerNextReceivedEv
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackCommandManagerNextReceivedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMediaPlaybackCommandManagerNextReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerNextReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerNextReceivedEventArgsVtbl {
-        unsafe extern "system" fn Handled<Impl: IMediaPlaybackCommandManagerNextReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMediaPlaybackCommandManagerNextReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerNextReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerNextReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn Handled<Impl: IMediaPlaybackCommandManagerNextReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1412,11 +1412,11 @@ impl IMediaPlaybackCommandManagerNextReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandled<Impl: IMediaPlaybackCommandManagerNextReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHandled<Impl: IMediaPlaybackCommandManagerNextReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        unsafe extern "system" fn GetDeferral<Impl: IMediaPlaybackCommandManagerNextReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IMediaPlaybackCommandManagerNextReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1439,7 +1439,7 @@ impl IMediaPlaybackCommandManagerNextReceivedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackCommandManagerPauseReceivedEventArgsImpl: Sized {
+pub trait IMediaPlaybackCommandManagerPauseReceivedEventArgs_Impl: Sized {
     fn Handled(&mut self) -> ::windows::core::Result<bool>;
     fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
@@ -1449,9 +1449,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackCommandManagerPauseReceivedE
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackCommandManagerPauseReceivedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMediaPlaybackCommandManagerPauseReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerPauseReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerPauseReceivedEventArgsVtbl {
-        unsafe extern "system" fn Handled<Impl: IMediaPlaybackCommandManagerPauseReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMediaPlaybackCommandManagerPauseReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerPauseReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerPauseReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn Handled<Impl: IMediaPlaybackCommandManagerPauseReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1462,11 +1462,11 @@ impl IMediaPlaybackCommandManagerPauseReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandled<Impl: IMediaPlaybackCommandManagerPauseReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHandled<Impl: IMediaPlaybackCommandManagerPauseReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        unsafe extern "system" fn GetDeferral<Impl: IMediaPlaybackCommandManagerPauseReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IMediaPlaybackCommandManagerPauseReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1489,7 +1489,7 @@ impl IMediaPlaybackCommandManagerPauseReceivedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackCommandManagerPlayReceivedEventArgsImpl: Sized {
+pub trait IMediaPlaybackCommandManagerPlayReceivedEventArgs_Impl: Sized {
     fn Handled(&mut self) -> ::windows::core::Result<bool>;
     fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
@@ -1499,9 +1499,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackCommandManagerPlayReceivedEv
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackCommandManagerPlayReceivedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMediaPlaybackCommandManagerPlayReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerPlayReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerPlayReceivedEventArgsVtbl {
-        unsafe extern "system" fn Handled<Impl: IMediaPlaybackCommandManagerPlayReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMediaPlaybackCommandManagerPlayReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerPlayReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerPlayReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn Handled<Impl: IMediaPlaybackCommandManagerPlayReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1512,11 +1512,11 @@ impl IMediaPlaybackCommandManagerPlayReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandled<Impl: IMediaPlaybackCommandManagerPlayReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHandled<Impl: IMediaPlaybackCommandManagerPlayReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        unsafe extern "system" fn GetDeferral<Impl: IMediaPlaybackCommandManagerPlayReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IMediaPlaybackCommandManagerPlayReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1539,7 +1539,7 @@ impl IMediaPlaybackCommandManagerPlayReceivedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackCommandManagerPositionReceivedEventArgsImpl: Sized {
+pub trait IMediaPlaybackCommandManagerPositionReceivedEventArgs_Impl: Sized {
     fn Handled(&mut self) -> ::windows::core::Result<bool>;
     fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn Position(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -1550,9 +1550,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackCommandManagerPositionReceiv
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackCommandManagerPositionReceivedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMediaPlaybackCommandManagerPositionReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerPositionReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerPositionReceivedEventArgsVtbl {
-        unsafe extern "system" fn Handled<Impl: IMediaPlaybackCommandManagerPositionReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMediaPlaybackCommandManagerPositionReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerPositionReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerPositionReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn Handled<Impl: IMediaPlaybackCommandManagerPositionReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1563,11 +1563,11 @@ impl IMediaPlaybackCommandManagerPositionReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandled<Impl: IMediaPlaybackCommandManagerPositionReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHandled<Impl: IMediaPlaybackCommandManagerPositionReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        unsafe extern "system" fn Position<Impl: IMediaPlaybackCommandManagerPositionReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: IMediaPlaybackCommandManagerPositionReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1578,7 +1578,7 @@ impl IMediaPlaybackCommandManagerPositionReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IMediaPlaybackCommandManagerPositionReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IMediaPlaybackCommandManagerPositionReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1602,7 +1602,7 @@ impl IMediaPlaybackCommandManagerPositionReceivedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackCommandManagerPreviousReceivedEventArgsImpl: Sized {
+pub trait IMediaPlaybackCommandManagerPreviousReceivedEventArgs_Impl: Sized {
     fn Handled(&mut self) -> ::windows::core::Result<bool>;
     fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
@@ -1612,9 +1612,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackCommandManagerPreviousReceiv
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackCommandManagerPreviousReceivedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMediaPlaybackCommandManagerPreviousReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerPreviousReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerPreviousReceivedEventArgsVtbl {
-        unsafe extern "system" fn Handled<Impl: IMediaPlaybackCommandManagerPreviousReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMediaPlaybackCommandManagerPreviousReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerPreviousReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerPreviousReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn Handled<Impl: IMediaPlaybackCommandManagerPreviousReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1625,11 +1625,11 @@ impl IMediaPlaybackCommandManagerPreviousReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandled<Impl: IMediaPlaybackCommandManagerPreviousReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHandled<Impl: IMediaPlaybackCommandManagerPreviousReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        unsafe extern "system" fn GetDeferral<Impl: IMediaPlaybackCommandManagerPreviousReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IMediaPlaybackCommandManagerPreviousReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1652,7 +1652,7 @@ impl IMediaPlaybackCommandManagerPreviousReceivedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackCommandManagerRateReceivedEventArgsImpl: Sized {
+pub trait IMediaPlaybackCommandManagerRateReceivedEventArgs_Impl: Sized {
     fn Handled(&mut self) -> ::windows::core::Result<bool>;
     fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn PlaybackRate(&mut self) -> ::windows::core::Result<f64>;
@@ -1663,9 +1663,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackCommandManagerRateReceivedEv
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackCommandManagerRateReceivedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMediaPlaybackCommandManagerRateReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerRateReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerRateReceivedEventArgsVtbl {
-        unsafe extern "system" fn Handled<Impl: IMediaPlaybackCommandManagerRateReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMediaPlaybackCommandManagerRateReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerRateReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerRateReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn Handled<Impl: IMediaPlaybackCommandManagerRateReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1676,11 +1676,11 @@ impl IMediaPlaybackCommandManagerRateReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandled<Impl: IMediaPlaybackCommandManagerRateReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHandled<Impl: IMediaPlaybackCommandManagerRateReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        unsafe extern "system" fn PlaybackRate<Impl: IMediaPlaybackCommandManagerRateReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlaybackRate<Impl: IMediaPlaybackCommandManagerRateReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1691,7 +1691,7 @@ impl IMediaPlaybackCommandManagerRateReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IMediaPlaybackCommandManagerRateReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IMediaPlaybackCommandManagerRateReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1715,7 +1715,7 @@ impl IMediaPlaybackCommandManagerRateReceivedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackCommandManagerRewindReceivedEventArgsImpl: Sized {
+pub trait IMediaPlaybackCommandManagerRewindReceivedEventArgs_Impl: Sized {
     fn Handled(&mut self) -> ::windows::core::Result<bool>;
     fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
@@ -1725,9 +1725,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackCommandManagerRewindReceived
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackCommandManagerRewindReceivedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMediaPlaybackCommandManagerRewindReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerRewindReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerRewindReceivedEventArgsVtbl {
-        unsafe extern "system" fn Handled<Impl: IMediaPlaybackCommandManagerRewindReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMediaPlaybackCommandManagerRewindReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerRewindReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerRewindReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn Handled<Impl: IMediaPlaybackCommandManagerRewindReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1738,11 +1738,11 @@ impl IMediaPlaybackCommandManagerRewindReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandled<Impl: IMediaPlaybackCommandManagerRewindReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHandled<Impl: IMediaPlaybackCommandManagerRewindReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        unsafe extern "system" fn GetDeferral<Impl: IMediaPlaybackCommandManagerRewindReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IMediaPlaybackCommandManagerRewindReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1765,7 +1765,7 @@ impl IMediaPlaybackCommandManagerRewindReceivedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackCommandManagerShuffleReceivedEventArgsImpl: Sized {
+pub trait IMediaPlaybackCommandManagerShuffleReceivedEventArgs_Impl: Sized {
     fn Handled(&mut self) -> ::windows::core::Result<bool>;
     fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn IsShuffleRequested(&mut self) -> ::windows::core::Result<bool>;
@@ -1776,9 +1776,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackCommandManagerShuffleReceive
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackCommandManagerShuffleReceivedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMediaPlaybackCommandManagerShuffleReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerShuffleReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerShuffleReceivedEventArgsVtbl {
-        unsafe extern "system" fn Handled<Impl: IMediaPlaybackCommandManagerShuffleReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMediaPlaybackCommandManagerShuffleReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackCommandManagerShuffleReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackCommandManagerShuffleReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn Handled<Impl: IMediaPlaybackCommandManagerShuffleReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1789,11 +1789,11 @@ impl IMediaPlaybackCommandManagerShuffleReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandled<Impl: IMediaPlaybackCommandManagerShuffleReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHandled<Impl: IMediaPlaybackCommandManagerShuffleReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        unsafe extern "system" fn IsShuffleRequested<Impl: IMediaPlaybackCommandManagerShuffleReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsShuffleRequested<Impl: IMediaPlaybackCommandManagerShuffleReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsShuffleRequested() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1804,7 +1804,7 @@ impl IMediaPlaybackCommandManagerShuffleReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IMediaPlaybackCommandManagerShuffleReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IMediaPlaybackCommandManagerShuffleReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1828,7 +1828,7 @@ impl IMediaPlaybackCommandManagerShuffleReceivedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Core", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackItemImpl: Sized + IMediaPlaybackSourceImpl {
+pub trait IMediaPlaybackItem_Impl: Sized + IMediaPlaybackSource_Impl {
     fn AudioTracksChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaPlaybackItem, super::super::Foundation::Collections::IVectorChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveAudioTracksChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn VideoTracksChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaPlaybackItem, super::super::Foundation::Collections::IVectorChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -1845,9 +1845,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackItem {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackItem";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Core", feature = "implement_exclusive"))]
-impl IMediaPlaybackItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackItemVtbl {
-        unsafe extern "system" fn AudioTracksChanged<Impl: IMediaPlaybackItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IMediaPlaybackItem_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackItem_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackItem_Vtbl {
+        unsafe extern "system" fn AudioTracksChanged<Impl: IMediaPlaybackItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioTracksChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackItem, super::super::Foundation::Collections::IVectorChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackItem, super::super::Foundation::Collections::IVectorChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1858,11 +1858,11 @@ impl IMediaPlaybackItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAudioTracksChanged<Impl: IMediaPlaybackItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAudioTracksChanged<Impl: IMediaPlaybackItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAudioTracksChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn VideoTracksChanged<Impl: IMediaPlaybackItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoTracksChanged<Impl: IMediaPlaybackItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoTracksChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackItem, super::super::Foundation::Collections::IVectorChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackItem, super::super::Foundation::Collections::IVectorChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1873,11 +1873,11 @@ impl IMediaPlaybackItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveVideoTracksChanged<Impl: IMediaPlaybackItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveVideoTracksChanged<Impl: IMediaPlaybackItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveVideoTracksChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TimedMetadataTracksChanged<Impl: IMediaPlaybackItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TimedMetadataTracksChanged<Impl: IMediaPlaybackItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimedMetadataTracksChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackItem, super::super::Foundation::Collections::IVectorChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackItem, super::super::Foundation::Collections::IVectorChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1888,11 +1888,11 @@ impl IMediaPlaybackItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveTimedMetadataTracksChanged<Impl: IMediaPlaybackItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveTimedMetadataTracksChanged<Impl: IMediaPlaybackItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTimedMetadataTracksChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Source<Impl: IMediaPlaybackItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Source<Impl: IMediaPlaybackItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Source() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1903,7 +1903,7 @@ impl IMediaPlaybackItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AudioTracks<Impl: IMediaPlaybackItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioTracks<Impl: IMediaPlaybackItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioTracks() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1914,7 +1914,7 @@ impl IMediaPlaybackItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideoTracks<Impl: IMediaPlaybackItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoTracks<Impl: IMediaPlaybackItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoTracks() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1925,7 +1925,7 @@ impl IMediaPlaybackItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TimedMetadataTracks<Impl: IMediaPlaybackItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TimedMetadataTracks<Impl: IMediaPlaybackItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimedMetadataTracks() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1955,7 +1955,7 @@ impl IMediaPlaybackItemVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Core", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackItem2Impl: Sized + IMediaPlaybackItemImpl + IMediaPlaybackSourceImpl {
+pub trait IMediaPlaybackItem2_Impl: Sized + IMediaPlaybackItem_Impl + IMediaPlaybackSource_Impl {
     fn BreakSchedule(&mut self) -> ::windows::core::Result<MediaBreakSchedule>;
     fn StartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn DurationLimit(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
@@ -1969,9 +1969,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackItem2 {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackItem2";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Core", feature = "implement_exclusive"))]
-impl IMediaPlaybackItem2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackItem2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackItem2Vtbl {
-        unsafe extern "system" fn BreakSchedule<Impl: IMediaPlaybackItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaPlaybackItem2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackItem2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackItem2_Vtbl {
+        unsafe extern "system" fn BreakSchedule<Impl: IMediaPlaybackItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BreakSchedule() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1982,7 +1982,7 @@ impl IMediaPlaybackItem2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartTime<Impl: IMediaPlaybackItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartTime<Impl: IMediaPlaybackItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1993,7 +1993,7 @@ impl IMediaPlaybackItem2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DurationLimit<Impl: IMediaPlaybackItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DurationLimit<Impl: IMediaPlaybackItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DurationLimit() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2004,7 +2004,7 @@ impl IMediaPlaybackItem2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanSkip<Impl: IMediaPlaybackItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanSkip<Impl: IMediaPlaybackItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanSkip() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2015,11 +2015,11 @@ impl IMediaPlaybackItem2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCanSkip<Impl: IMediaPlaybackItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCanSkip<Impl: IMediaPlaybackItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCanSkip(value).into()
         }
-        unsafe extern "system" fn GetDisplayProperties<Impl: IMediaPlaybackItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDisplayProperties<Impl: IMediaPlaybackItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDisplayProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2030,7 +2030,7 @@ impl IMediaPlaybackItem2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ApplyDisplayProperties<Impl: IMediaPlaybackItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ApplyDisplayProperties<Impl: IMediaPlaybackItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ApplyDisplayProperties(&*(&value as *const <MediaItemDisplayProperties as ::windows::core::Abi>::Abi as *const <MediaItemDisplayProperties as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2050,7 +2050,7 @@ impl IMediaPlaybackItem2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Core", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackItem3Impl: Sized + IMediaPlaybackItemImpl + IMediaPlaybackItem2Impl + IMediaPlaybackSourceImpl {
+pub trait IMediaPlaybackItem3_Impl: Sized + IMediaPlaybackItem_Impl + IMediaPlaybackItem2_Impl + IMediaPlaybackSource_Impl {
     fn IsDisabledInPlaybackList(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsDisabledInPlaybackList(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn TotalDownloadProgress(&mut self) -> ::windows::core::Result<f64>;
@@ -2062,9 +2062,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackItem3 {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackItem3";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Core", feature = "implement_exclusive"))]
-impl IMediaPlaybackItem3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackItem3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackItem3Vtbl {
-        unsafe extern "system" fn IsDisabledInPlaybackList<Impl: IMediaPlaybackItem3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMediaPlaybackItem3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackItem3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackItem3_Vtbl {
+        unsafe extern "system" fn IsDisabledInPlaybackList<Impl: IMediaPlaybackItem3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDisabledInPlaybackList() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2075,11 +2075,11 @@ impl IMediaPlaybackItem3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsDisabledInPlaybackList<Impl: IMediaPlaybackItem3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsDisabledInPlaybackList<Impl: IMediaPlaybackItem3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsDisabledInPlaybackList(value).into()
         }
-        unsafe extern "system" fn TotalDownloadProgress<Impl: IMediaPlaybackItem3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TotalDownloadProgress<Impl: IMediaPlaybackItem3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TotalDownloadProgress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2090,7 +2090,7 @@ impl IMediaPlaybackItem3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AutoLoadedDisplayProperties<Impl: IMediaPlaybackItem3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AutoLoadedDisplayPropertyKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AutoLoadedDisplayProperties<Impl: IMediaPlaybackItem3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AutoLoadedDisplayPropertyKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutoLoadedDisplayProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2101,7 +2101,7 @@ impl IMediaPlaybackItem3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAutoLoadedDisplayProperties<Impl: IMediaPlaybackItem3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AutoLoadedDisplayPropertyKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAutoLoadedDisplayProperties<Impl: IMediaPlaybackItem3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AutoLoadedDisplayPropertyKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAutoLoadedDisplayProperties(value).into()
         }
@@ -2119,7 +2119,7 @@ impl IMediaPlaybackItem3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMediaPlaybackItemErrorImpl: Sized {
+pub trait IMediaPlaybackItemError_Impl: Sized {
     fn ErrorCode(&mut self) -> ::windows::core::Result<MediaPlaybackItemErrorCode>;
     fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
@@ -2128,9 +2128,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackItemError {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackItemError";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMediaPlaybackItemErrorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackItemErrorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackItemErrorVtbl {
-        unsafe extern "system" fn ErrorCode<Impl: IMediaPlaybackItemErrorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaPlaybackItemErrorCode) -> ::windows::core::HRESULT {
+impl IMediaPlaybackItemError_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackItemError_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackItemError_Vtbl {
+        unsafe extern "system" fn ErrorCode<Impl: IMediaPlaybackItemError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaPlaybackItemErrorCode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ErrorCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2141,7 +2141,7 @@ impl IMediaPlaybackItemErrorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedError<Impl: IMediaPlaybackItemErrorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedError<Impl: IMediaPlaybackItemError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedError() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2163,7 +2163,7 @@ impl IMediaPlaybackItemErrorVtbl {
     }
 }
 #[cfg(all(feature = "Media_Core", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackItemFactoryImpl: Sized {
+pub trait IMediaPlaybackItemFactory_Impl: Sized {
     fn Create(&mut self, source: &::core::option::Option<super::Core::MediaSource>) -> ::windows::core::Result<MediaPlaybackItem>;
 }
 #[cfg(all(feature = "Media_Core", feature = "implement_exclusive"))]
@@ -2171,9 +2171,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackItemFactory {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackItemFactory";
 }
 #[cfg(all(feature = "Media_Core", feature = "implement_exclusive"))]
-impl IMediaPlaybackItemFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackItemFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackItemFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IMediaPlaybackItemFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaPlaybackItemFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackItemFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackItemFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IMediaPlaybackItemFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&source as *const <super::Core::MediaSource as ::windows::core::Abi>::Abi as *const <super::Core::MediaSource as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2191,7 +2191,7 @@ impl IMediaPlaybackItemFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackItemFactory2Impl: Sized + IMediaPlaybackItemFactoryImpl {
+pub trait IMediaPlaybackItemFactory2_Impl: Sized + IMediaPlaybackItemFactory_Impl {
     fn CreateWithStartTime(&mut self, source: &::core::option::Option<super::Core::MediaSource>, starttime: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaPlaybackItem>;
     fn CreateWithStartTimeAndDurationLimit(&mut self, source: &::core::option::Option<super::Core::MediaSource>, starttime: &super::super::Foundation::TimeSpan, durationlimit: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaPlaybackItem>;
 }
@@ -2200,9 +2200,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackItemFactory2 {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackItemFactory2";
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "implement_exclusive"))]
-impl IMediaPlaybackItemFactory2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackItemFactory2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackItemFactory2Vtbl {
-        unsafe extern "system" fn CreateWithStartTime<Impl: IMediaPlaybackItemFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, starttime: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaPlaybackItemFactory2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackItemFactory2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackItemFactory2_Vtbl {
+        unsafe extern "system" fn CreateWithStartTime<Impl: IMediaPlaybackItemFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, starttime: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithStartTime(&*(&source as *const <super::Core::MediaSource as ::windows::core::Abi>::Abi as *const <super::Core::MediaSource as ::windows::core::DefaultType>::DefaultType), &*(&starttime as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2213,7 +2213,7 @@ impl IMediaPlaybackItemFactory2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithStartTimeAndDurationLimit<Impl: IMediaPlaybackItemFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, starttime: super::super::Foundation::TimeSpan, durationlimit: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithStartTimeAndDurationLimit<Impl: IMediaPlaybackItemFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, starttime: super::super::Foundation::TimeSpan, durationlimit: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithStartTimeAndDurationLimit(
                 &*(&source as *const <super::Core::MediaSource as ::windows::core::Abi>::Abi as *const <super::Core::MediaSource as ::windows::core::DefaultType>::DefaultType),
@@ -2239,7 +2239,7 @@ impl IMediaPlaybackItemFactory2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMediaPlaybackItemFailedEventArgsImpl: Sized {
+pub trait IMediaPlaybackItemFailedEventArgs_Impl: Sized {
     fn Item(&mut self) -> ::windows::core::Result<MediaPlaybackItem>;
     fn Error(&mut self) -> ::windows::core::Result<MediaPlaybackItemError>;
 }
@@ -2248,9 +2248,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackItemFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackItemFailedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMediaPlaybackItemFailedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackItemFailedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackItemFailedEventArgsVtbl {
-        unsafe extern "system" fn Item<Impl: IMediaPlaybackItemFailedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaPlaybackItemFailedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackItemFailedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackItemFailedEventArgs_Vtbl {
+        unsafe extern "system" fn Item<Impl: IMediaPlaybackItemFailedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Item() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2261,7 +2261,7 @@ impl IMediaPlaybackItemFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Error<Impl: IMediaPlaybackItemFailedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Error<Impl: IMediaPlaybackItemFailedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Error() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2283,7 +2283,7 @@ impl IMediaPlaybackItemFailedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMediaPlaybackItemOpenedEventArgsImpl: Sized {
+pub trait IMediaPlaybackItemOpenedEventArgs_Impl: Sized {
     fn Item(&mut self) -> ::windows::core::Result<MediaPlaybackItem>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2291,9 +2291,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackItemOpenedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackItemOpenedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMediaPlaybackItemOpenedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackItemOpenedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackItemOpenedEventArgsVtbl {
-        unsafe extern "system" fn Item<Impl: IMediaPlaybackItemOpenedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaPlaybackItemOpenedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackItemOpenedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackItemOpenedEventArgs_Vtbl {
+        unsafe extern "system" fn Item<Impl: IMediaPlaybackItemOpenedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Item() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2311,7 +2311,7 @@ impl IMediaPlaybackItemOpenedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Media_Core", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackItemStaticsImpl: Sized {
+pub trait IMediaPlaybackItemStatics_Impl: Sized {
     fn FindFromMediaSource(&mut self, source: &::core::option::Option<super::Core::MediaSource>) -> ::windows::core::Result<MediaPlaybackItem>;
 }
 #[cfg(all(feature = "Media_Core", feature = "implement_exclusive"))]
@@ -2319,9 +2319,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackItemStatics {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackItemStatics";
 }
 #[cfg(all(feature = "Media_Core", feature = "implement_exclusive"))]
-impl IMediaPlaybackItemStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackItemStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackItemStaticsVtbl {
-        unsafe extern "system" fn FindFromMediaSource<Impl: IMediaPlaybackItemStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaPlaybackItemStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackItemStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackItemStatics_Vtbl {
+        unsafe extern "system" fn FindFromMediaSource<Impl: IMediaPlaybackItemStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindFromMediaSource(&*(&source as *const <super::Core::MediaSource as ::windows::core::Abi>::Abi as *const <super::Core::MediaSource as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2342,7 +2342,7 @@ impl IMediaPlaybackItemStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackListImpl: Sized + IMediaPlaybackSourceImpl {
+pub trait IMediaPlaybackList_Impl: Sized + IMediaPlaybackSource_Impl {
     fn ItemFailed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaPlaybackList, MediaPlaybackItemFailedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveItemFailed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn CurrentItemChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaPlaybackList, CurrentMediaPlaybackItemChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -2365,9 +2365,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackList {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackList";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IMediaPlaybackListVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackListImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackListVtbl {
-        unsafe extern "system" fn ItemFailed<Impl: IMediaPlaybackListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IMediaPlaybackList_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackList_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackList_Vtbl {
+        unsafe extern "system" fn ItemFailed<Impl: IMediaPlaybackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ItemFailed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackList, MediaPlaybackItemFailedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackList, MediaPlaybackItemFailedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2378,11 +2378,11 @@ impl IMediaPlaybackListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveItemFailed<Impl: IMediaPlaybackListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveItemFailed<Impl: IMediaPlaybackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveItemFailed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CurrentItemChanged<Impl: IMediaPlaybackListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentItemChanged<Impl: IMediaPlaybackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentItemChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackList, CurrentMediaPlaybackItemChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackList, CurrentMediaPlaybackItemChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2393,11 +2393,11 @@ impl IMediaPlaybackListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCurrentItemChanged<Impl: IMediaPlaybackListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCurrentItemChanged<Impl: IMediaPlaybackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCurrentItemChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ItemOpened<Impl: IMediaPlaybackListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ItemOpened<Impl: IMediaPlaybackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ItemOpened(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackList, MediaPlaybackItemOpenedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackList, MediaPlaybackItemOpenedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2408,11 +2408,11 @@ impl IMediaPlaybackListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveItemOpened<Impl: IMediaPlaybackListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveItemOpened<Impl: IMediaPlaybackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveItemOpened(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Items<Impl: IMediaPlaybackListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Items<Impl: IMediaPlaybackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Items() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2423,7 +2423,7 @@ impl IMediaPlaybackListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AutoRepeatEnabled<Impl: IMediaPlaybackListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AutoRepeatEnabled<Impl: IMediaPlaybackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutoRepeatEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2434,11 +2434,11 @@ impl IMediaPlaybackListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAutoRepeatEnabled<Impl: IMediaPlaybackListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAutoRepeatEnabled<Impl: IMediaPlaybackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAutoRepeatEnabled(value).into()
         }
-        unsafe extern "system" fn ShuffleEnabled<Impl: IMediaPlaybackListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShuffleEnabled<Impl: IMediaPlaybackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShuffleEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2449,11 +2449,11 @@ impl IMediaPlaybackListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetShuffleEnabled<Impl: IMediaPlaybackListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetShuffleEnabled<Impl: IMediaPlaybackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetShuffleEnabled(value).into()
         }
-        unsafe extern "system" fn CurrentItem<Impl: IMediaPlaybackListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentItem<Impl: IMediaPlaybackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentItem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2464,7 +2464,7 @@ impl IMediaPlaybackListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentItemIndex<Impl: IMediaPlaybackListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentItemIndex<Impl: IMediaPlaybackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentItemIndex() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2475,7 +2475,7 @@ impl IMediaPlaybackListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveNext<Impl: IMediaPlaybackListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MoveNext<Impl: IMediaPlaybackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2486,7 +2486,7 @@ impl IMediaPlaybackListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MovePrevious<Impl: IMediaPlaybackListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MovePrevious<Impl: IMediaPlaybackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MovePrevious() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2497,7 +2497,7 @@ impl IMediaPlaybackListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveTo<Impl: IMediaPlaybackListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemindex: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MoveTo<Impl: IMediaPlaybackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemindex: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MoveTo(itemindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2533,7 +2533,7 @@ impl IMediaPlaybackListVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackList2Impl: Sized + IMediaPlaybackListImpl + IMediaPlaybackSourceImpl {
+pub trait IMediaPlaybackList2_Impl: Sized + IMediaPlaybackList_Impl + IMediaPlaybackSource_Impl {
     fn MaxPrefetchTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
     fn SetMaxPrefetchTime(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
     fn StartingItem(&mut self) -> ::windows::core::Result<MediaPlaybackItem>;
@@ -2546,9 +2546,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackList2 {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackList2";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IMediaPlaybackList2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackList2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackList2Vtbl {
-        unsafe extern "system" fn MaxPrefetchTime<Impl: IMediaPlaybackList2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaPlaybackList2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackList2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackList2_Vtbl {
+        unsafe extern "system" fn MaxPrefetchTime<Impl: IMediaPlaybackList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxPrefetchTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2559,11 +2559,11 @@ impl IMediaPlaybackList2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxPrefetchTime<Impl: IMediaPlaybackList2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxPrefetchTime<Impl: IMediaPlaybackList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxPrefetchTime(&*(&value as *const <super::super::Foundation::IReference<super::super::Foundation::TimeSpan> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::super::Foundation::TimeSpan> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StartingItem<Impl: IMediaPlaybackList2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartingItem<Impl: IMediaPlaybackList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartingItem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2574,11 +2574,11 @@ impl IMediaPlaybackList2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStartingItem<Impl: IMediaPlaybackList2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStartingItem<Impl: IMediaPlaybackList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStartingItem(&*(&value as *const <MediaPlaybackItem as ::windows::core::Abi>::Abi as *const <MediaPlaybackItem as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ShuffledItems<Impl: IMediaPlaybackList2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShuffledItems<Impl: IMediaPlaybackList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShuffledItems() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2589,7 +2589,7 @@ impl IMediaPlaybackList2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetShuffledItems<Impl: IMediaPlaybackList2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetShuffledItems<Impl: IMediaPlaybackList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetShuffledItems(&*(&value as *const <super::super::Foundation::Collections::IIterable<MediaPlaybackItem> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<MediaPlaybackItem> as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2608,7 +2608,7 @@ impl IMediaPlaybackList2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackList3Impl: Sized + IMediaPlaybackListImpl + IMediaPlaybackList2Impl + IMediaPlaybackSourceImpl {
+pub trait IMediaPlaybackList3_Impl: Sized + IMediaPlaybackList_Impl + IMediaPlaybackList2_Impl + IMediaPlaybackSource_Impl {
     fn MaxPlayedItemsToKeepOpen(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
     fn SetMaxPlayedItemsToKeepOpen(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
 }
@@ -2617,9 +2617,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackList3 {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackList3";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IMediaPlaybackList3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackList3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackList3Vtbl {
-        unsafe extern "system" fn MaxPlayedItemsToKeepOpen<Impl: IMediaPlaybackList3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaPlaybackList3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackList3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackList3_Vtbl {
+        unsafe extern "system" fn MaxPlayedItemsToKeepOpen<Impl: IMediaPlaybackList3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxPlayedItemsToKeepOpen() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2630,7 +2630,7 @@ impl IMediaPlaybackList3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxPlayedItemsToKeepOpen<Impl: IMediaPlaybackList3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxPlayedItemsToKeepOpen<Impl: IMediaPlaybackList3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxPlayedItemsToKeepOpen(&*(&value as *const <super::super::Foundation::IReference<u32> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<u32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2645,7 +2645,7 @@ impl IMediaPlaybackList3Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackSessionImpl: Sized {
+pub trait IMediaPlaybackSession_Impl: Sized {
     fn PlaybackStateChanged(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemovePlaybackStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn PlaybackRateChanged(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -2690,9 +2690,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackSession {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackSession";
 }
 #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
-impl IMediaPlaybackSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackSessionVtbl {
-        unsafe extern "system" fn PlaybackStateChanged<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IMediaPlaybackSession_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackSession_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackSession_Vtbl {
+        unsafe extern "system" fn PlaybackStateChanged<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackStateChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2703,11 +2703,11 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePlaybackStateChanged<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePlaybackStateChanged<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePlaybackStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PlaybackRateChanged<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlaybackRateChanged<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackRateChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2718,11 +2718,11 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePlaybackRateChanged<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePlaybackRateChanged<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePlaybackRateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SeekCompleted<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SeekCompleted<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SeekCompleted(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2733,11 +2733,11 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSeekCompleted<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSeekCompleted<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSeekCompleted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BufferingStarted<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BufferingStarted<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BufferingStarted(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2748,11 +2748,11 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveBufferingStarted<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveBufferingStarted<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveBufferingStarted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BufferingEnded<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BufferingEnded<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BufferingEnded(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2763,11 +2763,11 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveBufferingEnded<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveBufferingEnded<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveBufferingEnded(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BufferingProgressChanged<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BufferingProgressChanged<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BufferingProgressChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2778,11 +2778,11 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveBufferingProgressChanged<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveBufferingProgressChanged<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveBufferingProgressChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DownloadProgressChanged<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DownloadProgressChanged<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DownloadProgressChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2793,11 +2793,11 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDownloadProgressChanged<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDownloadProgressChanged<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDownloadProgressChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn NaturalDurationChanged<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NaturalDurationChanged<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NaturalDurationChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2808,11 +2808,11 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveNaturalDurationChanged<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveNaturalDurationChanged<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveNaturalDurationChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PositionChanged<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PositionChanged<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2823,11 +2823,11 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePositionChanged<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePositionChanged<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePositionChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn NaturalVideoSizeChanged<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NaturalVideoSizeChanged<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NaturalVideoSizeChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2838,11 +2838,11 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveNaturalVideoSizeChanged<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveNaturalVideoSizeChanged<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveNaturalVideoSizeChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MediaPlayer<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaPlayer<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaPlayer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2853,7 +2853,7 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NaturalDuration<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NaturalDuration<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NaturalDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2864,7 +2864,7 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2875,11 +2875,11 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPosition<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPosition<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPosition(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PlaybackState<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaPlaybackState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlaybackState<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaPlaybackState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2890,7 +2890,7 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanSeek<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanSeek<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanSeek() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2901,7 +2901,7 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanPause<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanPause<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanPause() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2912,7 +2912,7 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsProtected<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsProtected<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsProtected() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2923,7 +2923,7 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PlaybackRate<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlaybackRate<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2934,11 +2934,11 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlaybackRate<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPlaybackRate<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlaybackRate(value).into()
         }
-        unsafe extern "system" fn BufferingProgress<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BufferingProgress<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BufferingProgress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2949,7 +2949,7 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DownloadProgress<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DownloadProgress<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DownloadProgress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2960,7 +2960,7 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NaturalVideoHeight<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NaturalVideoHeight<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NaturalVideoHeight() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2971,7 +2971,7 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NaturalVideoWidth<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NaturalVideoWidth<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NaturalVideoWidth() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2982,7 +2982,7 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NormalizedSourceRect<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NormalizedSourceRect<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NormalizedSourceRect() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2993,11 +2993,11 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNormalizedSourceRect<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNormalizedSourceRect<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNormalizedSourceRect(&*(&value as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StereoscopicVideoPackingMode<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::MediaProperties::StereoscopicVideoPackingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StereoscopicVideoPackingMode<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::MediaProperties::StereoscopicVideoPackingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StereoscopicVideoPackingMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3008,7 +3008,7 @@ impl IMediaPlaybackSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStereoscopicVideoPackingMode<Impl: IMediaPlaybackSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::MediaProperties::StereoscopicVideoPackingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStereoscopicVideoPackingMode<Impl: IMediaPlaybackSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::MediaProperties::StereoscopicVideoPackingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStereoscopicVideoPackingMode(value).into()
         }
@@ -3059,7 +3059,7 @@ impl IMediaPlaybackSessionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackSession2Impl: Sized {
+pub trait IMediaPlaybackSession2_Impl: Sized {
     fn BufferedRangesChanged(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveBufferedRangesChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn PlayedRangesChanged(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -3081,9 +3081,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackSession2 {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackSession2";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IMediaPlaybackSession2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackSession2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackSession2Vtbl {
-        unsafe extern "system" fn BufferedRangesChanged<Impl: IMediaPlaybackSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IMediaPlaybackSession2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackSession2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackSession2_Vtbl {
+        unsafe extern "system" fn BufferedRangesChanged<Impl: IMediaPlaybackSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BufferedRangesChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3094,11 +3094,11 @@ impl IMediaPlaybackSession2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveBufferedRangesChanged<Impl: IMediaPlaybackSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveBufferedRangesChanged<Impl: IMediaPlaybackSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveBufferedRangesChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PlayedRangesChanged<Impl: IMediaPlaybackSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlayedRangesChanged<Impl: IMediaPlaybackSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlayedRangesChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3109,11 +3109,11 @@ impl IMediaPlaybackSession2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePlayedRangesChanged<Impl: IMediaPlaybackSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePlayedRangesChanged<Impl: IMediaPlaybackSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePlayedRangesChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SeekableRangesChanged<Impl: IMediaPlaybackSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SeekableRangesChanged<Impl: IMediaPlaybackSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SeekableRangesChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3124,11 +3124,11 @@ impl IMediaPlaybackSession2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSeekableRangesChanged<Impl: IMediaPlaybackSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSeekableRangesChanged<Impl: IMediaPlaybackSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSeekableRangesChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SupportedPlaybackRatesChanged<Impl: IMediaPlaybackSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedPlaybackRatesChanged<Impl: IMediaPlaybackSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedPlaybackRatesChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3139,11 +3139,11 @@ impl IMediaPlaybackSession2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSupportedPlaybackRatesChanged<Impl: IMediaPlaybackSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSupportedPlaybackRatesChanged<Impl: IMediaPlaybackSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSupportedPlaybackRatesChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SphericalVideoProjection<Impl: IMediaPlaybackSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SphericalVideoProjection<Impl: IMediaPlaybackSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SphericalVideoProjection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3154,7 +3154,7 @@ impl IMediaPlaybackSession2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsMirroring<Impl: IMediaPlaybackSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsMirroring<Impl: IMediaPlaybackSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsMirroring() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3165,11 +3165,11 @@ impl IMediaPlaybackSession2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsMirroring<Impl: IMediaPlaybackSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsMirroring<Impl: IMediaPlaybackSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsMirroring(value).into()
         }
-        unsafe extern "system" fn GetBufferedRanges<Impl: IMediaPlaybackSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBufferedRanges<Impl: IMediaPlaybackSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetBufferedRanges() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3180,7 +3180,7 @@ impl IMediaPlaybackSession2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPlayedRanges<Impl: IMediaPlaybackSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPlayedRanges<Impl: IMediaPlaybackSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPlayedRanges() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3191,7 +3191,7 @@ impl IMediaPlaybackSession2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSeekableRanges<Impl: IMediaPlaybackSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSeekableRanges<Impl: IMediaPlaybackSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSeekableRanges() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3202,7 +3202,7 @@ impl IMediaPlaybackSession2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSupportedPlaybackRateRange<Impl: IMediaPlaybackSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rate1: f64, rate2: f64, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSupportedPlaybackRateRange<Impl: IMediaPlaybackSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rate1: f64, rate2: f64, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupportedPlaybackRateRange(rate1, rate2) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3237,7 +3237,7 @@ impl IMediaPlaybackSession2Vtbl {
     }
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackSession3Impl: Sized {
+pub trait IMediaPlaybackSession3_Impl: Sized {
     fn PlaybackRotation(&mut self) -> ::windows::core::Result<super::MediaProperties::MediaRotation>;
     fn SetPlaybackRotation(&mut self, value: super::MediaProperties::MediaRotation) -> ::windows::core::Result<()>;
     fn GetOutputDegradationPolicyState(&mut self) -> ::windows::core::Result<MediaPlaybackSessionOutputDegradationPolicyState>;
@@ -3247,9 +3247,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackSession3 {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackSession3";
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
-impl IMediaPlaybackSession3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackSession3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackSession3Vtbl {
-        unsafe extern "system" fn PlaybackRotation<Impl: IMediaPlaybackSession3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::MediaProperties::MediaRotation) -> ::windows::core::HRESULT {
+impl IMediaPlaybackSession3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackSession3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackSession3_Vtbl {
+        unsafe extern "system" fn PlaybackRotation<Impl: IMediaPlaybackSession3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::MediaProperties::MediaRotation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackRotation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3260,11 +3260,11 @@ impl IMediaPlaybackSession3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlaybackRotation<Impl: IMediaPlaybackSession3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::MediaProperties::MediaRotation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPlaybackRotation<Impl: IMediaPlaybackSession3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::MediaProperties::MediaRotation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlaybackRotation(value).into()
         }
-        unsafe extern "system" fn GetOutputDegradationPolicyState<Impl: IMediaPlaybackSession3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOutputDegradationPolicyState<Impl: IMediaPlaybackSession3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetOutputDegradationPolicyState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3287,7 +3287,7 @@ impl IMediaPlaybackSession3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMediaPlaybackSessionBufferingStartedEventArgsImpl: Sized {
+pub trait IMediaPlaybackSessionBufferingStartedEventArgs_Impl: Sized {
     fn IsPlaybackInterruption(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3295,9 +3295,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackSessionBufferingStartedEvent
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackSessionBufferingStartedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMediaPlaybackSessionBufferingStartedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackSessionBufferingStartedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackSessionBufferingStartedEventArgsVtbl {
-        unsafe extern "system" fn IsPlaybackInterruption<Impl: IMediaPlaybackSessionBufferingStartedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMediaPlaybackSessionBufferingStartedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackSessionBufferingStartedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackSessionBufferingStartedEventArgs_Vtbl {
+        unsafe extern "system" fn IsPlaybackInterruption<Impl: IMediaPlaybackSessionBufferingStartedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPlaybackInterruption() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3318,7 +3318,7 @@ impl IMediaPlaybackSessionBufferingStartedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMediaPlaybackSessionOutputDegradationPolicyStateImpl: Sized {
+pub trait IMediaPlaybackSessionOutputDegradationPolicyState_Impl: Sized {
     fn VideoConstrictionReason(&mut self) -> ::windows::core::Result<MediaPlaybackSessionVideoConstrictionReason>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3326,9 +3326,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackSessionOutputDegradationPoli
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackSessionOutputDegradationPolicyState";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMediaPlaybackSessionOutputDegradationPolicyStateVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackSessionOutputDegradationPolicyStateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackSessionOutputDegradationPolicyStateVtbl {
-        unsafe extern "system" fn VideoConstrictionReason<Impl: IMediaPlaybackSessionOutputDegradationPolicyStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaPlaybackSessionVideoConstrictionReason) -> ::windows::core::HRESULT {
+impl IMediaPlaybackSessionOutputDegradationPolicyState_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackSessionOutputDegradationPolicyState_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackSessionOutputDegradationPolicyState_Vtbl {
+        unsafe extern "system" fn VideoConstrictionReason<Impl: IMediaPlaybackSessionOutputDegradationPolicyState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaPlaybackSessionVideoConstrictionReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoConstrictionReason() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3348,12 +3348,12 @@ impl IMediaPlaybackSessionOutputDegradationPolicyStateVtbl {
         iid == &<IMediaPlaybackSessionOutputDegradationPolicyState as ::windows::core::Interface>::IID
     }
 }
-pub trait IMediaPlaybackSourceImpl: Sized {}
+pub trait IMediaPlaybackSource_Impl: Sized {}
 impl ::windows::core::RuntimeName for IMediaPlaybackSource {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackSource";
 }
-impl IMediaPlaybackSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackSourceVtbl {
+impl IMediaPlaybackSource_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackSource_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackSource_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPlaybackSource, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -3361,7 +3361,7 @@ impl IMediaPlaybackSourceVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackSphericalVideoProjectionImpl: Sized {
+pub trait IMediaPlaybackSphericalVideoProjection_Impl: Sized {
     fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn FrameFormat(&mut self) -> ::windows::core::Result<super::MediaProperties::SphericalVideoFrameFormat>;
@@ -3378,9 +3378,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackSphericalVideoProjection {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackSphericalVideoProjection";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
-impl IMediaPlaybackSphericalVideoProjectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackSphericalVideoProjectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackSphericalVideoProjectionVtbl {
-        unsafe extern "system" fn IsEnabled<Impl: IMediaPlaybackSphericalVideoProjectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMediaPlaybackSphericalVideoProjection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackSphericalVideoProjection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackSphericalVideoProjection_Vtbl {
+        unsafe extern "system" fn IsEnabled<Impl: IMediaPlaybackSphericalVideoProjection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3391,11 +3391,11 @@ impl IMediaPlaybackSphericalVideoProjectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsEnabled<Impl: IMediaPlaybackSphericalVideoProjectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsEnabled<Impl: IMediaPlaybackSphericalVideoProjection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsEnabled(value).into()
         }
-        unsafe extern "system" fn FrameFormat<Impl: IMediaPlaybackSphericalVideoProjectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::MediaProperties::SphericalVideoFrameFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FrameFormat<Impl: IMediaPlaybackSphericalVideoProjection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::MediaProperties::SphericalVideoFrameFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameFormat() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3406,11 +3406,11 @@ impl IMediaPlaybackSphericalVideoProjectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFrameFormat<Impl: IMediaPlaybackSphericalVideoProjectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::MediaProperties::SphericalVideoFrameFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFrameFormat<Impl: IMediaPlaybackSphericalVideoProjection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::MediaProperties::SphericalVideoFrameFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFrameFormat(value).into()
         }
-        unsafe extern "system" fn HorizontalFieldOfViewInDegrees<Impl: IMediaPlaybackSphericalVideoProjectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HorizontalFieldOfViewInDegrees<Impl: IMediaPlaybackSphericalVideoProjection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HorizontalFieldOfViewInDegrees() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3421,11 +3421,11 @@ impl IMediaPlaybackSphericalVideoProjectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHorizontalFieldOfViewInDegrees<Impl: IMediaPlaybackSphericalVideoProjectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHorizontalFieldOfViewInDegrees<Impl: IMediaPlaybackSphericalVideoProjection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHorizontalFieldOfViewInDegrees(value).into()
         }
-        unsafe extern "system" fn ViewOrientation<Impl: IMediaPlaybackSphericalVideoProjectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ViewOrientation<Impl: IMediaPlaybackSphericalVideoProjection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ViewOrientation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3436,11 +3436,11 @@ impl IMediaPlaybackSphericalVideoProjectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetViewOrientation<Impl: IMediaPlaybackSphericalVideoProjectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetViewOrientation<Impl: IMediaPlaybackSphericalVideoProjection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetViewOrientation(&*(&value as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ProjectionMode<Impl: IMediaPlaybackSphericalVideoProjectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SphericalVideoProjectionMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProjectionMode<Impl: IMediaPlaybackSphericalVideoProjection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SphericalVideoProjectionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProjectionMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3451,7 +3451,7 @@ impl IMediaPlaybackSphericalVideoProjectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProjectionMode<Impl: IMediaPlaybackSphericalVideoProjectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SphericalVideoProjectionMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProjectionMode<Impl: IMediaPlaybackSphericalVideoProjection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SphericalVideoProjectionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProjectionMode(value).into()
         }
@@ -3474,7 +3474,7 @@ impl IMediaPlaybackSphericalVideoProjectionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IMediaPlaybackTimedMetadataTrackListImpl: Sized {
+pub trait IMediaPlaybackTimedMetadataTrackList_Impl: Sized {
     fn PresentationModeChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaPlaybackTimedMetadataTrackList, TimedMetadataPresentationModeChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemovePresentationModeChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn GetPresentationMode(&mut self, index: u32) -> ::windows::core::Result<TimedMetadataTrackPresentationMode>;
@@ -3485,9 +3485,9 @@ impl ::windows::core::RuntimeName for IMediaPlaybackTimedMetadataTrackList {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackTimedMetadataTrackList";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IMediaPlaybackTimedMetadataTrackListVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackTimedMetadataTrackListImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackTimedMetadataTrackListVtbl {
-        unsafe extern "system" fn PresentationModeChanged<Impl: IMediaPlaybackTimedMetadataTrackListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IMediaPlaybackTimedMetadataTrackList_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlaybackTimedMetadataTrackList_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlaybackTimedMetadataTrackList_Vtbl {
+        unsafe extern "system" fn PresentationModeChanged<Impl: IMediaPlaybackTimedMetadataTrackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PresentationModeChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackTimedMetadataTrackList, TimedMetadataPresentationModeChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlaybackTimedMetadataTrackList, TimedMetadataPresentationModeChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3498,11 +3498,11 @@ impl IMediaPlaybackTimedMetadataTrackListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePresentationModeChanged<Impl: IMediaPlaybackTimedMetadataTrackListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePresentationModeChanged<Impl: IMediaPlaybackTimedMetadataTrackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePresentationModeChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetPresentationMode<Impl: IMediaPlaybackTimedMetadataTrackListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut TimedMetadataTrackPresentationMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPresentationMode<Impl: IMediaPlaybackTimedMetadataTrackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut TimedMetadataTrackPresentationMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPresentationMode(index) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3513,7 +3513,7 @@ impl IMediaPlaybackTimedMetadataTrackListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPresentationMode<Impl: IMediaPlaybackTimedMetadataTrackListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, value: TimedMetadataTrackPresentationMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPresentationMode<Impl: IMediaPlaybackTimedMetadataTrackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, value: TimedMetadataTrackPresentationMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPresentationMode(index, value).into()
         }
@@ -3530,7 +3530,7 @@ impl IMediaPlaybackTimedMetadataTrackListVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMediaPlayerImpl: Sized {
+pub trait IMediaPlayer_Impl: Sized {
     fn AutoPlay(&mut self) -> ::windows::core::Result<bool>;
     fn SetAutoPlay(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn NaturalDuration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -3579,9 +3579,9 @@ impl ::windows::core::RuntimeName for IMediaPlayer {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlayer";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMediaPlayerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayerVtbl {
-        unsafe extern "system" fn AutoPlay<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMediaPlayer_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayer_Vtbl {
+        unsafe extern "system" fn AutoPlay<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutoPlay() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3592,11 +3592,11 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAutoPlay<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAutoPlay<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAutoPlay(value).into()
         }
-        unsafe extern "system" fn NaturalDuration<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NaturalDuration<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NaturalDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3607,7 +3607,7 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3618,11 +3618,11 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPosition<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPosition<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPosition(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BufferingProgress<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BufferingProgress<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BufferingProgress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3633,7 +3633,7 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentState<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaPlayerState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentState<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaPlayerState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3644,7 +3644,7 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanSeek<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanSeek<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanSeek() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3655,7 +3655,7 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanPause<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanPause<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanPause() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3666,7 +3666,7 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsLoopingEnabled<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsLoopingEnabled<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsLoopingEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3677,11 +3677,11 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsLoopingEnabled<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsLoopingEnabled<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsLoopingEnabled(value).into()
         }
-        unsafe extern "system" fn IsProtected<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsProtected<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsProtected() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3692,7 +3692,7 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsMuted<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsMuted<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsMuted() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3703,11 +3703,11 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsMuted<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsMuted<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsMuted(value).into()
         }
-        unsafe extern "system" fn PlaybackRate<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlaybackRate<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3718,11 +3718,11 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlaybackRate<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPlaybackRate<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlaybackRate(value).into()
         }
-        unsafe extern "system" fn Volume<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Volume<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Volume() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3733,11 +3733,11 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVolume<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVolume<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVolume(value).into()
         }
-        unsafe extern "system" fn PlaybackMediaMarkers<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlaybackMediaMarkers<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackMediaMarkers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3748,7 +3748,7 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MediaOpened<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaOpened<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaOpened(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3759,11 +3759,11 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMediaOpened<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMediaOpened<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMediaOpened(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MediaEnded<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaEnded<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaEnded(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3774,11 +3774,11 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMediaEnded<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMediaEnded<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMediaEnded(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MediaFailed<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaFailed<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaFailed(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, MediaPlayerFailedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, MediaPlayerFailedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3789,11 +3789,11 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMediaFailed<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMediaFailed<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMediaFailed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CurrentStateChanged<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentStateChanged<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentStateChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3804,11 +3804,11 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCurrentStateChanged<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCurrentStateChanged<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCurrentStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PlaybackMediaMarkerReached<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlaybackMediaMarkerReached<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackMediaMarkerReached(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, PlaybackMediaMarkerReachedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, PlaybackMediaMarkerReachedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3819,11 +3819,11 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePlaybackMediaMarkerReached<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePlaybackMediaMarkerReached<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePlaybackMediaMarkerReached(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MediaPlayerRateChanged<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaPlayerRateChanged<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaPlayerRateChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, MediaPlayerRateChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, MediaPlayerRateChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3834,11 +3834,11 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMediaPlayerRateChanged<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMediaPlayerRateChanged<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMediaPlayerRateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn VolumeChanged<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VolumeChanged<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VolumeChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3849,11 +3849,11 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveVolumeChanged<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveVolumeChanged<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveVolumeChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SeekCompleted<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SeekCompleted<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SeekCompleted(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3864,11 +3864,11 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSeekCompleted<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSeekCompleted<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSeekCompleted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BufferingStarted<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BufferingStarted<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BufferingStarted(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3879,11 +3879,11 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveBufferingStarted<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveBufferingStarted<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveBufferingStarted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BufferingEnded<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BufferingEnded<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BufferingEnded(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3894,19 +3894,19 @@ impl IMediaPlayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveBufferingEnded<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveBufferingEnded<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveBufferingEnded(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Play<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Play<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Play().into()
         }
-        unsafe extern "system" fn Pause<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pause<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Pause().into()
         }
-        unsafe extern "system" fn SetUriSource<Impl: IMediaPlayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUriSource<Impl: IMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUriSource(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3961,7 +3961,7 @@ impl IMediaPlayerVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMediaPlayer2Impl: Sized {
+pub trait IMediaPlayer2_Impl: Sized {
     fn SystemMediaTransportControls(&mut self) -> ::windows::core::Result<super::SystemMediaTransportControls>;
     fn AudioCategory(&mut self) -> ::windows::core::Result<MediaPlayerAudioCategory>;
     fn SetAudioCategory(&mut self, value: MediaPlayerAudioCategory) -> ::windows::core::Result<()>;
@@ -3973,9 +3973,9 @@ impl ::windows::core::RuntimeName for IMediaPlayer2 {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlayer2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMediaPlayer2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayer2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayer2Vtbl {
-        unsafe extern "system" fn SystemMediaTransportControls<Impl: IMediaPlayer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaPlayer2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayer2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayer2_Vtbl {
+        unsafe extern "system" fn SystemMediaTransportControls<Impl: IMediaPlayer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemMediaTransportControls() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3986,7 +3986,7 @@ impl IMediaPlayer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AudioCategory<Impl: IMediaPlayer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaPlayerAudioCategory) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioCategory<Impl: IMediaPlayer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaPlayerAudioCategory) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioCategory() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3997,11 +3997,11 @@ impl IMediaPlayer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAudioCategory<Impl: IMediaPlayer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MediaPlayerAudioCategory) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAudioCategory<Impl: IMediaPlayer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MediaPlayerAudioCategory) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAudioCategory(value).into()
         }
-        unsafe extern "system" fn AudioDeviceType<Impl: IMediaPlayer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaPlayerAudioDeviceType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioDeviceType<Impl: IMediaPlayer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaPlayerAudioDeviceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioDeviceType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4012,7 +4012,7 @@ impl IMediaPlayer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAudioDeviceType<Impl: IMediaPlayer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MediaPlayerAudioDeviceType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAudioDeviceType<Impl: IMediaPlayer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MediaPlayerAudioDeviceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAudioDeviceType(value).into()
         }
@@ -4030,7 +4030,7 @@ impl IMediaPlayer2Vtbl {
     }
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Casting", feature = "implement_exclusive"))]
-pub trait IMediaPlayer3Impl: Sized {
+pub trait IMediaPlayer3_Impl: Sized {
     fn IsMutedChanged(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveIsMutedChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn SourceChanged(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -4059,9 +4059,9 @@ impl ::windows::core::RuntimeName for IMediaPlayer3 {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlayer3";
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Casting", feature = "implement_exclusive"))]
-impl IMediaPlayer3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayer3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayer3Vtbl {
-        unsafe extern "system" fn IsMutedChanged<Impl: IMediaPlayer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IMediaPlayer3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayer3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayer3_Vtbl {
+        unsafe extern "system" fn IsMutedChanged<Impl: IMediaPlayer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsMutedChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4072,11 +4072,11 @@ impl IMediaPlayer3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveIsMutedChanged<Impl: IMediaPlayer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveIsMutedChanged<Impl: IMediaPlayer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveIsMutedChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SourceChanged<Impl: IMediaPlayer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SourceChanged<Impl: IMediaPlayer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4087,11 +4087,11 @@ impl IMediaPlayer3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSourceChanged<Impl: IMediaPlayer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSourceChanged<Impl: IMediaPlayer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSourceChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AudioBalance<Impl: IMediaPlayer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioBalance<Impl: IMediaPlayer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioBalance() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4102,11 +4102,11 @@ impl IMediaPlayer3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAudioBalance<Impl: IMediaPlayer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAudioBalance<Impl: IMediaPlayer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAudioBalance(value).into()
         }
-        unsafe extern "system" fn RealTimePlayback<Impl: IMediaPlayer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RealTimePlayback<Impl: IMediaPlayer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RealTimePlayback() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4117,11 +4117,11 @@ impl IMediaPlayer3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRealTimePlayback<Impl: IMediaPlayer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRealTimePlayback<Impl: IMediaPlayer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRealTimePlayback(value).into()
         }
-        unsafe extern "system" fn StereoscopicVideoRenderMode<Impl: IMediaPlayer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut StereoscopicVideoRenderMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StereoscopicVideoRenderMode<Impl: IMediaPlayer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut StereoscopicVideoRenderMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StereoscopicVideoRenderMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4132,11 +4132,11 @@ impl IMediaPlayer3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStereoscopicVideoRenderMode<Impl: IMediaPlayer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: StereoscopicVideoRenderMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStereoscopicVideoRenderMode<Impl: IMediaPlayer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: StereoscopicVideoRenderMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStereoscopicVideoRenderMode(value).into()
         }
-        unsafe extern "system" fn BreakManager<Impl: IMediaPlayer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BreakManager<Impl: IMediaPlayer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BreakManager() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4147,7 +4147,7 @@ impl IMediaPlayer3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CommandManager<Impl: IMediaPlayer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CommandManager<Impl: IMediaPlayer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CommandManager() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4158,7 +4158,7 @@ impl IMediaPlayer3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AudioDevice<Impl: IMediaPlayer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioDevice<Impl: IMediaPlayer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioDevice() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4169,11 +4169,11 @@ impl IMediaPlayer3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAudioDevice<Impl: IMediaPlayer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAudioDevice<Impl: IMediaPlayer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAudioDevice(&*(&value as *const <super::super::Devices::Enumeration::DeviceInformation as ::windows::core::Abi>::Abi as *const <super::super::Devices::Enumeration::DeviceInformation as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TimelineController<Impl: IMediaPlayer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TimelineController<Impl: IMediaPlayer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimelineController() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4184,11 +4184,11 @@ impl IMediaPlayer3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTimelineController<Impl: IMediaPlayer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTimelineController<Impl: IMediaPlayer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTimelineController(&*(&value as *const <super::MediaTimelineController as ::windows::core::Abi>::Abi as *const <super::MediaTimelineController as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TimelineControllerPositionOffset<Impl: IMediaPlayer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TimelineControllerPositionOffset<Impl: IMediaPlayer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimelineControllerPositionOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4199,11 +4199,11 @@ impl IMediaPlayer3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTimelineControllerPositionOffset<Impl: IMediaPlayer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTimelineControllerPositionOffset<Impl: IMediaPlayer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTimelineControllerPositionOffset(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PlaybackSession<Impl: IMediaPlayer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlaybackSession<Impl: IMediaPlayer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackSession() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4214,15 +4214,15 @@ impl IMediaPlayer3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StepForwardOneFrame<Impl: IMediaPlayer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StepForwardOneFrame<Impl: IMediaPlayer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StepForwardOneFrame().into()
         }
-        unsafe extern "system" fn StepBackwardOneFrame<Impl: IMediaPlayer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StepBackwardOneFrame<Impl: IMediaPlayer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StepBackwardOneFrame().into()
         }
-        unsafe extern "system" fn GetAsCastingSource<Impl: IMediaPlayer3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAsCastingSource<Impl: IMediaPlayer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAsCastingSource() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4264,7 +4264,7 @@ impl IMediaPlayer3Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Composition", feature = "implement_exclusive"))]
-pub trait IMediaPlayer4Impl: Sized {
+pub trait IMediaPlayer4_Impl: Sized {
     fn SetSurfaceSize(&mut self, size: &super::super::Foundation::Size) -> ::windows::core::Result<()>;
     fn GetSurface(&mut self, compositor: &::core::option::Option<super::super::UI::Composition::Compositor>) -> ::windows::core::Result<MediaPlayerSurface>;
 }
@@ -4273,13 +4273,13 @@ impl ::windows::core::RuntimeName for IMediaPlayer4 {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlayer4";
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Composition", feature = "implement_exclusive"))]
-impl IMediaPlayer4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayer4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayer4Vtbl {
-        unsafe extern "system" fn SetSurfaceSize<Impl: IMediaPlayer4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: super::super::Foundation::Size) -> ::windows::core::HRESULT {
+impl IMediaPlayer4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayer4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayer4_Vtbl {
+        unsafe extern "system" fn SetSurfaceSize<Impl: IMediaPlayer4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSurfaceSize(&*(&size as *const <super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetSurface<Impl: IMediaPlayer4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSurface<Impl: IMediaPlayer4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSurface(&*(&compositor as *const <super::super::UI::Composition::Compositor as ::windows::core::Abi>::Abi as *const <super::super::UI::Composition::Compositor as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4301,7 +4301,7 @@ impl IMediaPlayer4Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
-pub trait IMediaPlayer5Impl: Sized {
+pub trait IMediaPlayer5_Impl: Sized {
     fn VideoFrameAvailable(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveVideoFrameAvailable(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn IsVideoFrameServerEnabled(&mut self) -> ::windows::core::Result<bool>;
@@ -4315,9 +4315,9 @@ impl ::windows::core::RuntimeName for IMediaPlayer5 {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlayer5";
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
-impl IMediaPlayer5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayer5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayer5Vtbl {
-        unsafe extern "system" fn VideoFrameAvailable<Impl: IMediaPlayer5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IMediaPlayer5_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayer5_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayer5_Vtbl {
+        unsafe extern "system" fn VideoFrameAvailable<Impl: IMediaPlayer5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoFrameAvailable(&*(&value as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4328,11 +4328,11 @@ impl IMediaPlayer5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveVideoFrameAvailable<Impl: IMediaPlayer5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveVideoFrameAvailable<Impl: IMediaPlayer5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveVideoFrameAvailable(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IsVideoFrameServerEnabled<Impl: IMediaPlayer5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsVideoFrameServerEnabled<Impl: IMediaPlayer5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsVideoFrameServerEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4343,19 +4343,19 @@ impl IMediaPlayer5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsVideoFrameServerEnabled<Impl: IMediaPlayer5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsVideoFrameServerEnabled<Impl: IMediaPlayer5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsVideoFrameServerEnabled(value).into()
         }
-        unsafe extern "system" fn CopyFrameToVideoSurface<Impl: IMediaPlayer5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CopyFrameToVideoSurface<Impl: IMediaPlayer5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CopyFrameToVideoSurface(&*(&destination as *const <super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface as ::windows::core::Abi>::Abi as *const <super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CopyFrameToVideoSurfaceWithTargetRectangle<Impl: IMediaPlayer5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr, targetrectangle: super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CopyFrameToVideoSurfaceWithTargetRectangle<Impl: IMediaPlayer5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr, targetrectangle: super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CopyFrameToVideoSurfaceWithTargetRectangle(&*(&destination as *const <super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface as ::windows::core::Abi>::Abi as *const <super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface as ::windows::core::DefaultType>::DefaultType), &*(&targetrectangle as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CopyFrameToStereoscopicVideoSurfaces<Impl: IMediaPlayer5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destinationlefteye: ::windows::core::RawPtr, destinationrighteye: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CopyFrameToStereoscopicVideoSurfaces<Impl: IMediaPlayer5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destinationlefteye: ::windows::core::RawPtr, destinationrighteye: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .CopyFrameToStereoscopicVideoSurfaces(
@@ -4380,7 +4380,7 @@ impl IMediaPlayer5Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
-pub trait IMediaPlayer6Impl: Sized {
+pub trait IMediaPlayer6_Impl: Sized {
     fn SubtitleFrameChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSubtitleFrameChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn RenderSubtitlesToSurface(&mut self, destination: &::core::option::Option<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>) -> ::windows::core::Result<bool>;
@@ -4391,9 +4391,9 @@ impl ::windows::core::RuntimeName for IMediaPlayer6 {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlayer6";
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
-impl IMediaPlayer6Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayer6Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayer6Vtbl {
-        unsafe extern "system" fn SubtitleFrameChanged<Impl: IMediaPlayer6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IMediaPlayer6_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayer6_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayer6_Vtbl {
+        unsafe extern "system" fn SubtitleFrameChanged<Impl: IMediaPlayer6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SubtitleFrameChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4404,11 +4404,11 @@ impl IMediaPlayer6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSubtitleFrameChanged<Impl: IMediaPlayer6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSubtitleFrameChanged<Impl: IMediaPlayer6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSubtitleFrameChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RenderSubtitlesToSurface<Impl: IMediaPlayer6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RenderSubtitlesToSurface<Impl: IMediaPlayer6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RenderSubtitlesToSurface(&*(&destination as *const <super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface as ::windows::core::Abi>::Abi as *const <super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4419,7 +4419,7 @@ impl IMediaPlayer6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RenderSubtitlesToSurfaceWithTargetRectangle<Impl: IMediaPlayer6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr, targetrectangle: super::super::Foundation::Rect, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RenderSubtitlesToSurfaceWithTargetRectangle<Impl: IMediaPlayer6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr, targetrectangle: super::super::Foundation::Rect, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RenderSubtitlesToSurfaceWithTargetRectangle(&*(&destination as *const <super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface as ::windows::core::Abi>::Abi as *const <super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface as ::windows::core::DefaultType>::DefaultType), &*(&targetrectangle as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4443,7 +4443,7 @@ impl IMediaPlayer6Vtbl {
     }
 }
 #[cfg(all(feature = "Media_Audio", feature = "implement_exclusive"))]
-pub trait IMediaPlayer7Impl: Sized {
+pub trait IMediaPlayer7_Impl: Sized {
     fn AudioStateMonitor(&mut self) -> ::windows::core::Result<super::Audio::AudioStateMonitor>;
 }
 #[cfg(all(feature = "Media_Audio", feature = "implement_exclusive"))]
@@ -4451,9 +4451,9 @@ impl ::windows::core::RuntimeName for IMediaPlayer7 {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlayer7";
 }
 #[cfg(all(feature = "Media_Audio", feature = "implement_exclusive"))]
-impl IMediaPlayer7Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayer7Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayer7Vtbl {
-        unsafe extern "system" fn AudioStateMonitor<Impl: IMediaPlayer7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaPlayer7_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayer7_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayer7_Vtbl {
+        unsafe extern "system" fn AudioStateMonitor<Impl: IMediaPlayer7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioStateMonitor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4474,7 +4474,7 @@ impl IMediaPlayer7Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IMediaPlayerDataReceivedEventArgsImpl: Sized {
+pub trait IMediaPlayerDataReceivedEventArgs_Impl: Sized {
     fn Data(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -4482,9 +4482,9 @@ impl ::windows::core::RuntimeName for IMediaPlayerDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlayerDataReceivedEventArgs";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IMediaPlayerDataReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayerDataReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayerDataReceivedEventArgsVtbl {
-        unsafe extern "system" fn Data<Impl: IMediaPlayerDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaPlayerDataReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayerDataReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayerDataReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn Data<Impl: IMediaPlayerDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4502,7 +4502,7 @@ impl IMediaPlayerDataReceivedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IMediaPlayerEffectsImpl: Sized {
+pub trait IMediaPlayerEffects_Impl: Sized {
     fn AddAudioEffect(&mut self, activatableclassid: &::windows::core::HSTRING, effectoptional: bool, configuration: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<()>;
     fn RemoveAllEffects(&mut self) -> ::windows::core::Result<()>;
 }
@@ -4511,13 +4511,13 @@ impl ::windows::core::RuntimeName for IMediaPlayerEffects {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlayerEffects";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IMediaPlayerEffectsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayerEffectsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayerEffectsVtbl {
-        unsafe extern "system" fn AddAudioEffect<Impl: IMediaPlayerEffectsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, effectoptional: bool, configuration: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaPlayerEffects_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayerEffects_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayerEffects_Vtbl {
+        unsafe extern "system" fn AddAudioEffect<Impl: IMediaPlayerEffects_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, effectoptional: bool, configuration: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddAudioEffect(&*(&activatableclassid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), effectoptional, &*(&configuration as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RemoveAllEffects<Impl: IMediaPlayerEffectsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAllEffects<Impl: IMediaPlayerEffects_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAllEffects().into()
         }
@@ -4532,7 +4532,7 @@ impl IMediaPlayerEffectsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IMediaPlayerEffects2Impl: Sized {
+pub trait IMediaPlayerEffects2_Impl: Sized {
     fn AddVideoEffect(&mut self, activatableclassid: &::windows::core::HSTRING, effectoptional: bool, effectconfiguration: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -4540,9 +4540,9 @@ impl ::windows::core::RuntimeName for IMediaPlayerEffects2 {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlayerEffects2";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IMediaPlayerEffects2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayerEffects2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayerEffects2Vtbl {
-        unsafe extern "system" fn AddVideoEffect<Impl: IMediaPlayerEffects2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, effectoptional: bool, effectconfiguration: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaPlayerEffects2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayerEffects2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayerEffects2_Vtbl {
+        unsafe extern "system" fn AddVideoEffect<Impl: IMediaPlayerEffects2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, effectoptional: bool, effectconfiguration: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddVideoEffect(&*(&activatableclassid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), effectoptional, &*(&effectconfiguration as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -4556,7 +4556,7 @@ impl IMediaPlayerEffects2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMediaPlayerFailedEventArgsImpl: Sized {
+pub trait IMediaPlayerFailedEventArgs_Impl: Sized {
     fn Error(&mut self) -> ::windows::core::Result<MediaPlayerError>;
     fn ExtendedErrorCode(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn ErrorMessage(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -4566,9 +4566,9 @@ impl ::windows::core::RuntimeName for IMediaPlayerFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlayerFailedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMediaPlayerFailedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayerFailedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayerFailedEventArgsVtbl {
-        unsafe extern "system" fn Error<Impl: IMediaPlayerFailedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaPlayerError) -> ::windows::core::HRESULT {
+impl IMediaPlayerFailedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayerFailedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayerFailedEventArgs_Vtbl {
+        unsafe extern "system" fn Error<Impl: IMediaPlayerFailedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaPlayerError) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Error() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4579,7 +4579,7 @@ impl IMediaPlayerFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedErrorCode<Impl: IMediaPlayerFailedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedErrorCode<Impl: IMediaPlayerFailedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedErrorCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4590,7 +4590,7 @@ impl IMediaPlayerFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ErrorMessage<Impl: IMediaPlayerFailedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ErrorMessage<Impl: IMediaPlayerFailedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ErrorMessage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4613,7 +4613,7 @@ impl IMediaPlayerFailedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMediaPlayerRateChangedEventArgsImpl: Sized {
+pub trait IMediaPlayerRateChangedEventArgs_Impl: Sized {
     fn NewRate(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4621,9 +4621,9 @@ impl ::windows::core::RuntimeName for IMediaPlayerRateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlayerRateChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMediaPlayerRateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayerRateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayerRateChangedEventArgsVtbl {
-        unsafe extern "system" fn NewRate<Impl: IMediaPlayerRateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+impl IMediaPlayerRateChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayerRateChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayerRateChangedEventArgs_Vtbl {
+        unsafe extern "system" fn NewRate<Impl: IMediaPlayerRateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NewRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4641,7 +4641,7 @@ impl IMediaPlayerRateChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Media_Core", feature = "Media_Protection", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMediaPlayerSourceImpl: Sized {
+pub trait IMediaPlayerSource_Impl: Sized {
     fn ProtectionManager(&mut self) -> ::windows::core::Result<super::Protection::MediaProtectionManager>;
     fn SetProtectionManager(&mut self, value: &::core::option::Option<super::Protection::MediaProtectionManager>) -> ::windows::core::Result<()>;
     fn SetFileSource(&mut self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<()>;
@@ -4653,9 +4653,9 @@ impl ::windows::core::RuntimeName for IMediaPlayerSource {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlayerSource";
 }
 #[cfg(all(feature = "Media_Core", feature = "Media_Protection", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMediaPlayerSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayerSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayerSourceVtbl {
-        unsafe extern "system" fn ProtectionManager<Impl: IMediaPlayerSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaPlayerSource_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayerSource_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayerSource_Vtbl {
+        unsafe extern "system" fn ProtectionManager<Impl: IMediaPlayerSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtectionManager() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4666,19 +4666,19 @@ impl IMediaPlayerSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProtectionManager<Impl: IMediaPlayerSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProtectionManager<Impl: IMediaPlayerSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProtectionManager(&*(&value as *const <super::Protection::MediaProtectionManager as ::windows::core::Abi>::Abi as *const <super::Protection::MediaProtectionManager as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetFileSource<Impl: IMediaPlayerSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFileSource<Impl: IMediaPlayerSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFileSource(&*(&file as *const <super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetStreamSource<Impl: IMediaPlayerSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStreamSource<Impl: IMediaPlayerSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStreamSource(&*(&stream as *const <super::super::Storage::Streams::IRandomAccessStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStream as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetMediaSource<Impl: IMediaPlayerSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMediaSource<Impl: IMediaPlayerSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMediaSource(&*(&source as *const <super::Core::IMediaSource as ::windows::core::Abi>::Abi as *const <super::Core::IMediaSource as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -4696,7 +4696,7 @@ impl IMediaPlayerSourceVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMediaPlayerSource2Impl: Sized {
+pub trait IMediaPlayerSource2_Impl: Sized {
     fn Source(&mut self) -> ::windows::core::Result<IMediaPlaybackSource>;
     fn SetSource(&mut self, value: &::core::option::Option<IMediaPlaybackSource>) -> ::windows::core::Result<()>;
 }
@@ -4705,9 +4705,9 @@ impl ::windows::core::RuntimeName for IMediaPlayerSource2 {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlayerSource2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMediaPlayerSource2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayerSource2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayerSource2Vtbl {
-        unsafe extern "system" fn Source<Impl: IMediaPlayerSource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaPlayerSource2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayerSource2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayerSource2_Vtbl {
+        unsafe extern "system" fn Source<Impl: IMediaPlayerSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Source() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4718,7 +4718,7 @@ impl IMediaPlayerSource2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSource<Impl: IMediaPlayerSource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSource<Impl: IMediaPlayerSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSource(&*(&value as *const <IMediaPlaybackSource as ::windows::core::Abi>::Abi as *const <IMediaPlaybackSource as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -4733,7 +4733,7 @@ impl IMediaPlayerSource2Vtbl {
     }
 }
 #[cfg(all(feature = "UI_Composition", feature = "implement_exclusive"))]
-pub trait IMediaPlayerSurfaceImpl: Sized {
+pub trait IMediaPlayerSurface_Impl: Sized {
     fn CompositionSurface(&mut self) -> ::windows::core::Result<super::super::UI::Composition::ICompositionSurface>;
     fn Compositor(&mut self) -> ::windows::core::Result<super::super::UI::Composition::Compositor>;
     fn MediaPlayer(&mut self) -> ::windows::core::Result<MediaPlayer>;
@@ -4743,9 +4743,9 @@ impl ::windows::core::RuntimeName for IMediaPlayerSurface {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlayerSurface";
 }
 #[cfg(all(feature = "UI_Composition", feature = "implement_exclusive"))]
-impl IMediaPlayerSurfaceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayerSurfaceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayerSurfaceVtbl {
-        unsafe extern "system" fn CompositionSurface<Impl: IMediaPlayerSurfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaPlayerSurface_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPlayerSurface_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPlayerSurface_Vtbl {
+        unsafe extern "system" fn CompositionSurface<Impl: IMediaPlayerSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CompositionSurface() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4756,7 +4756,7 @@ impl IMediaPlayerSurfaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Compositor<Impl: IMediaPlayerSurfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Compositor<Impl: IMediaPlayerSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Compositor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4767,7 +4767,7 @@ impl IMediaPlayerSurfaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MediaPlayer<Impl: IMediaPlayerSurfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaPlayer<Impl: IMediaPlayerSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaPlayer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4790,7 +4790,7 @@ impl IMediaPlayerSurfaceVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPlaybackMediaMarkerImpl: Sized {
+pub trait IPlaybackMediaMarker_Impl: Sized {
     fn Time(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn MediaMarkerType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -4800,9 +4800,9 @@ impl ::windows::core::RuntimeName for IPlaybackMediaMarker {
     const NAME: &'static str = "Windows.Media.Playback.IPlaybackMediaMarker";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPlaybackMediaMarkerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaybackMediaMarkerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlaybackMediaMarkerVtbl {
-        unsafe extern "system" fn Time<Impl: IPlaybackMediaMarkerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+impl IPlaybackMediaMarker_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaybackMediaMarker_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlaybackMediaMarker_Vtbl {
+        unsafe extern "system" fn Time<Impl: IPlaybackMediaMarker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Time() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4813,7 +4813,7 @@ impl IPlaybackMediaMarkerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MediaMarkerType<Impl: IPlaybackMediaMarkerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaMarkerType<Impl: IPlaybackMediaMarker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaMarkerType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4824,7 +4824,7 @@ impl IPlaybackMediaMarkerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Text<Impl: IPlaybackMediaMarkerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Text<Impl: IPlaybackMediaMarker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4847,7 +4847,7 @@ impl IPlaybackMediaMarkerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPlaybackMediaMarkerFactoryImpl: Sized {
+pub trait IPlaybackMediaMarkerFactory_Impl: Sized {
     fn CreateFromTime(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<PlaybackMediaMarker>;
     fn Create(&mut self, value: &super::super::Foundation::TimeSpan, mediamarkettype: &::windows::core::HSTRING, text: &::windows::core::HSTRING) -> ::windows::core::Result<PlaybackMediaMarker>;
 }
@@ -4856,9 +4856,9 @@ impl ::windows::core::RuntimeName for IPlaybackMediaMarkerFactory {
     const NAME: &'static str = "Windows.Media.Playback.IPlaybackMediaMarkerFactory";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPlaybackMediaMarkerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaybackMediaMarkerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlaybackMediaMarkerFactoryVtbl {
-        unsafe extern "system" fn CreateFromTime<Impl: IPlaybackMediaMarkerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPlaybackMediaMarkerFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaybackMediaMarkerFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlaybackMediaMarkerFactory_Vtbl {
+        unsafe extern "system" fn CreateFromTime<Impl: IPlaybackMediaMarkerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromTime(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4869,7 +4869,7 @@ impl IPlaybackMediaMarkerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Create<Impl: IPlaybackMediaMarkerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan, mediamarkettype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Create<Impl: IPlaybackMediaMarkerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan, mediamarkettype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(
                 &*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType),
@@ -4895,7 +4895,7 @@ impl IPlaybackMediaMarkerFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPlaybackMediaMarkerReachedEventArgsImpl: Sized {
+pub trait IPlaybackMediaMarkerReachedEventArgs_Impl: Sized {
     fn PlaybackMediaMarker(&mut self) -> ::windows::core::Result<PlaybackMediaMarker>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4903,9 +4903,9 @@ impl ::windows::core::RuntimeName for IPlaybackMediaMarkerReachedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.IPlaybackMediaMarkerReachedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPlaybackMediaMarkerReachedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaybackMediaMarkerReachedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlaybackMediaMarkerReachedEventArgsVtbl {
-        unsafe extern "system" fn PlaybackMediaMarker<Impl: IPlaybackMediaMarkerReachedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPlaybackMediaMarkerReachedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaybackMediaMarkerReachedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlaybackMediaMarkerReachedEventArgs_Vtbl {
+        unsafe extern "system" fn PlaybackMediaMarker<Impl: IPlaybackMediaMarkerReachedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackMediaMarker() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4926,7 +4926,7 @@ impl IPlaybackMediaMarkerReachedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPlaybackMediaMarkerSequenceImpl: Sized + IIterableImpl<PlaybackMediaMarker> {
+pub trait IPlaybackMediaMarkerSequence_Impl: Sized + super::super::Foundation::Collections::IIterable_Impl<PlaybackMediaMarker> {
     fn Size(&mut self) -> ::windows::core::Result<u32>;
     fn Insert(&mut self, value: &::core::option::Option<PlaybackMediaMarker>) -> ::windows::core::Result<()>;
     fn Clear(&mut self) -> ::windows::core::Result<()>;
@@ -4936,9 +4936,9 @@ impl ::windows::core::RuntimeName for IPlaybackMediaMarkerSequence {
     const NAME: &'static str = "Windows.Media.Playback.IPlaybackMediaMarkerSequence";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPlaybackMediaMarkerSequenceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaybackMediaMarkerSequenceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlaybackMediaMarkerSequenceVtbl {
-        unsafe extern "system" fn Size<Impl: IPlaybackMediaMarkerSequenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IPlaybackMediaMarkerSequence_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaybackMediaMarkerSequence_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlaybackMediaMarkerSequence_Vtbl {
+        unsafe extern "system" fn Size<Impl: IPlaybackMediaMarkerSequence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Size() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4949,11 +4949,11 @@ impl IPlaybackMediaMarkerSequenceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Insert<Impl: IPlaybackMediaMarkerSequenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Insert<Impl: IPlaybackMediaMarkerSequence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Insert(&*(&value as *const <PlaybackMediaMarker as ::windows::core::Abi>::Abi as *const <PlaybackMediaMarker as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Clear<Impl: IPlaybackMediaMarkerSequenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clear<Impl: IPlaybackMediaMarkerSequence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Clear().into()
         }
@@ -4969,7 +4969,7 @@ impl IPlaybackMediaMarkerSequenceVtbl {
     }
 }
 #[cfg(all(feature = "Media_Core", feature = "implement_exclusive"))]
-pub trait ITimedMetadataPresentationModeChangedEventArgsImpl: Sized {
+pub trait ITimedMetadataPresentationModeChangedEventArgs_Impl: Sized {
     fn Track(&mut self) -> ::windows::core::Result<super::Core::TimedMetadataTrack>;
     fn OldPresentationMode(&mut self) -> ::windows::core::Result<TimedMetadataTrackPresentationMode>;
     fn NewPresentationMode(&mut self) -> ::windows::core::Result<TimedMetadataTrackPresentationMode>;
@@ -4979,9 +4979,9 @@ impl ::windows::core::RuntimeName for ITimedMetadataPresentationModeChangedEvent
     const NAME: &'static str = "Windows.Media.Playback.ITimedMetadataPresentationModeChangedEventArgs";
 }
 #[cfg(all(feature = "Media_Core", feature = "implement_exclusive"))]
-impl ITimedMetadataPresentationModeChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimedMetadataPresentationModeChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITimedMetadataPresentationModeChangedEventArgsVtbl {
-        unsafe extern "system" fn Track<Impl: ITimedMetadataPresentationModeChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITimedMetadataPresentationModeChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimedMetadataPresentationModeChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITimedMetadataPresentationModeChangedEventArgs_Vtbl {
+        unsafe extern "system" fn Track<Impl: ITimedMetadataPresentationModeChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Track() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4992,7 +4992,7 @@ impl ITimedMetadataPresentationModeChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OldPresentationMode<Impl: ITimedMetadataPresentationModeChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TimedMetadataTrackPresentationMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OldPresentationMode<Impl: ITimedMetadataPresentationModeChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TimedMetadataTrackPresentationMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OldPresentationMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5003,7 +5003,7 @@ impl ITimedMetadataPresentationModeChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NewPresentationMode<Impl: ITimedMetadataPresentationModeChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TimedMetadataTrackPresentationMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NewPresentationMode<Impl: ITimedMetadataPresentationModeChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TimedMetadataTrackPresentationMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NewPresentationMode() {
                 ::core::result::Result::Ok(ok__) => {

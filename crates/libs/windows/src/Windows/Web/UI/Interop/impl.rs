@@ -1,5 +1,5 @@
 #[cfg(all(feature = "System", feature = "UI_Core", feature = "implement_exclusive"))]
-pub trait IWebViewControlAcceleratorKeyPressedEventArgsImpl: Sized {
+pub trait IWebViewControlAcceleratorKeyPressedEventArgs_Impl: Sized {
     fn EventType(&mut self) -> ::windows::core::Result<super::super::super::UI::Core::CoreAcceleratorKeyEventType>;
     fn VirtualKey(&mut self) -> ::windows::core::Result<super::super::super::System::VirtualKey>;
     fn KeyStatus(&mut self) -> ::windows::core::Result<super::super::super::UI::Core::CorePhysicalKeyStatus>;
@@ -12,9 +12,9 @@ impl ::windows::core::RuntimeName for IWebViewControlAcceleratorKeyPressedEventA
     const NAME: &'static str = "Windows.Web.UI.Interop.IWebViewControlAcceleratorKeyPressedEventArgs";
 }
 #[cfg(all(feature = "System", feature = "UI_Core", feature = "implement_exclusive"))]
-impl IWebViewControlAcceleratorKeyPressedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebViewControlAcceleratorKeyPressedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebViewControlAcceleratorKeyPressedEventArgsVtbl {
-        unsafe extern "system" fn EventType<Impl: IWebViewControlAcceleratorKeyPressedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::UI::Core::CoreAcceleratorKeyEventType) -> ::windows::core::HRESULT {
+impl IWebViewControlAcceleratorKeyPressedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebViewControlAcceleratorKeyPressedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebViewControlAcceleratorKeyPressedEventArgs_Vtbl {
+        unsafe extern "system" fn EventType<Impl: IWebViewControlAcceleratorKeyPressedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::UI::Core::CoreAcceleratorKeyEventType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EventType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -25,7 +25,7 @@ impl IWebViewControlAcceleratorKeyPressedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VirtualKey<Impl: IWebViewControlAcceleratorKeyPressedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::System::VirtualKey) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VirtualKey<Impl: IWebViewControlAcceleratorKeyPressedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::System::VirtualKey) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VirtualKey() {
                 ::core::result::Result::Ok(ok__) => {
@@ -36,7 +36,7 @@ impl IWebViewControlAcceleratorKeyPressedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn KeyStatus<Impl: IWebViewControlAcceleratorKeyPressedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::UI::Core::CorePhysicalKeyStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KeyStatus<Impl: IWebViewControlAcceleratorKeyPressedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::UI::Core::CorePhysicalKeyStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -47,7 +47,7 @@ impl IWebViewControlAcceleratorKeyPressedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RoutingStage<Impl: IWebViewControlAcceleratorKeyPressedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WebViewControlAcceleratorKeyRoutingStage) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RoutingStage<Impl: IWebViewControlAcceleratorKeyPressedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WebViewControlAcceleratorKeyRoutingStage) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RoutingStage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -58,7 +58,7 @@ impl IWebViewControlAcceleratorKeyPressedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Handled<Impl: IWebViewControlAcceleratorKeyPressedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Handled<Impl: IWebViewControlAcceleratorKeyPressedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -69,7 +69,7 @@ impl IWebViewControlAcceleratorKeyPressedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandled<Impl: IWebViewControlAcceleratorKeyPressedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHandled<Impl: IWebViewControlAcceleratorKeyPressedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
@@ -88,7 +88,7 @@ impl IWebViewControlAcceleratorKeyPressedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlMoveFocusRequestedEventArgsImpl: Sized {
+pub trait IWebViewControlMoveFocusRequestedEventArgs_Impl: Sized {
     fn Reason(&mut self) -> ::windows::core::Result<WebViewControlMoveFocusReason>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -96,9 +96,9 @@ impl ::windows::core::RuntimeName for IWebViewControlMoveFocusRequestedEventArgs
     const NAME: &'static str = "Windows.Web.UI.Interop.IWebViewControlMoveFocusRequestedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IWebViewControlMoveFocusRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebViewControlMoveFocusRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebViewControlMoveFocusRequestedEventArgsVtbl {
-        unsafe extern "system" fn Reason<Impl: IWebViewControlMoveFocusRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WebViewControlMoveFocusReason) -> ::windows::core::HRESULT {
+impl IWebViewControlMoveFocusRequestedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebViewControlMoveFocusRequestedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebViewControlMoveFocusRequestedEventArgs_Vtbl {
+        unsafe extern "system" fn Reason<Impl: IWebViewControlMoveFocusRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WebViewControlMoveFocusReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reason() {
                 ::core::result::Result::Ok(ok__) => {
@@ -119,7 +119,7 @@ impl IWebViewControlMoveFocusRequestedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IWebViewControlProcessImpl: Sized {
+pub trait IWebViewControlProcess_Impl: Sized {
     fn ProcessId(&mut self) -> ::windows::core::Result<u32>;
     fn EnterpriseId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IsPrivateNetworkClientServerCapabilityEnabled(&mut self) -> ::windows::core::Result<bool>;
@@ -134,9 +134,9 @@ impl ::windows::core::RuntimeName for IWebViewControlProcess {
     const NAME: &'static str = "Windows.Web.UI.Interop.IWebViewControlProcess";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IWebViewControlProcessVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebViewControlProcessImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebViewControlProcessVtbl {
-        unsafe extern "system" fn ProcessId<Impl: IWebViewControlProcessImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IWebViewControlProcess_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebViewControlProcess_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebViewControlProcess_Vtbl {
+        unsafe extern "system" fn ProcessId<Impl: IWebViewControlProcess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProcessId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -147,7 +147,7 @@ impl IWebViewControlProcessVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnterpriseId<Impl: IWebViewControlProcessImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnterpriseId<Impl: IWebViewControlProcess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnterpriseId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -158,7 +158,7 @@ impl IWebViewControlProcessVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsPrivateNetworkClientServerCapabilityEnabled<Impl: IWebViewControlProcessImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPrivateNetworkClientServerCapabilityEnabled<Impl: IWebViewControlProcess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPrivateNetworkClientServerCapabilityEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -169,7 +169,7 @@ impl IWebViewControlProcessVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWebViewControlAsync<Impl: IWebViewControlProcessImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hostwindowhandle: i64, bounds: super::super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWebViewControlAsync<Impl: IWebViewControlProcess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hostwindowhandle: i64, bounds: super::super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWebViewControlAsync(hostwindowhandle, &*(&bounds as *const <super::super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -180,7 +180,7 @@ impl IWebViewControlProcessVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetWebViewControls<Impl: IWebViewControlProcessImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetWebViewControls<Impl: IWebViewControlProcess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetWebViewControls() {
                 ::core::result::Result::Ok(ok__) => {
@@ -191,11 +191,11 @@ impl IWebViewControlProcessVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Terminate<Impl: IWebViewControlProcessImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Terminate<Impl: IWebViewControlProcess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Terminate().into()
         }
-        unsafe extern "system" fn ProcessExited<Impl: IWebViewControlProcessImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProcessExited<Impl: IWebViewControlProcess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProcessExited(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<WebViewControlProcess, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<WebViewControlProcess, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -206,7 +206,7 @@ impl IWebViewControlProcessVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveProcessExited<Impl: IWebViewControlProcessImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveProcessExited<Impl: IWebViewControlProcess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveProcessExited(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -227,7 +227,7 @@ impl IWebViewControlProcessVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlProcessFactoryImpl: Sized {
+pub trait IWebViewControlProcessFactory_Impl: Sized {
     fn CreateWithOptions(&mut self, processoptions: &::core::option::Option<WebViewControlProcessOptions>) -> ::windows::core::Result<WebViewControlProcess>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -235,9 +235,9 @@ impl ::windows::core::RuntimeName for IWebViewControlProcessFactory {
     const NAME: &'static str = "Windows.Web.UI.Interop.IWebViewControlProcessFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IWebViewControlProcessFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebViewControlProcessFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebViewControlProcessFactoryVtbl {
-        unsafe extern "system" fn CreateWithOptions<Impl: IWebViewControlProcessFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, processoptions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IWebViewControlProcessFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebViewControlProcessFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebViewControlProcessFactory_Vtbl {
+        unsafe extern "system" fn CreateWithOptions<Impl: IWebViewControlProcessFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, processoptions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithOptions(&*(&processoptions as *const <WebViewControlProcessOptions as ::windows::core::Abi>::Abi as *const <WebViewControlProcessOptions as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -258,7 +258,7 @@ impl IWebViewControlProcessFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IWebViewControlProcessOptionsImpl: Sized {
+pub trait IWebViewControlProcessOptions_Impl: Sized {
     fn SetEnterpriseId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn EnterpriseId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetPrivateNetworkClientServerCapability(&mut self, value: WebViewControlProcessCapabilityState) -> ::windows::core::Result<()>;
@@ -269,13 +269,13 @@ impl ::windows::core::RuntimeName for IWebViewControlProcessOptions {
     const NAME: &'static str = "Windows.Web.UI.Interop.IWebViewControlProcessOptions";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IWebViewControlProcessOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebViewControlProcessOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebViewControlProcessOptionsVtbl {
-        unsafe extern "system" fn SetEnterpriseId<Impl: IWebViewControlProcessOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IWebViewControlProcessOptions_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebViewControlProcessOptions_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebViewControlProcessOptions_Vtbl {
+        unsafe extern "system" fn SetEnterpriseId<Impl: IWebViewControlProcessOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnterpriseId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EnterpriseId<Impl: IWebViewControlProcessOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnterpriseId<Impl: IWebViewControlProcessOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnterpriseId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -286,11 +286,11 @@ impl IWebViewControlProcessOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPrivateNetworkClientServerCapability<Impl: IWebViewControlProcessOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: WebViewControlProcessCapabilityState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPrivateNetworkClientServerCapability<Impl: IWebViewControlProcessOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: WebViewControlProcessCapabilityState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPrivateNetworkClientServerCapability(value).into()
         }
-        unsafe extern "system" fn PrivateNetworkClientServerCapability<Impl: IWebViewControlProcessOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WebViewControlProcessCapabilityState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrivateNetworkClientServerCapability<Impl: IWebViewControlProcessOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WebViewControlProcessCapabilityState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrivateNetworkClientServerCapability() {
                 ::core::result::Result::Ok(ok__) => {
@@ -314,7 +314,7 @@ impl IWebViewControlProcessOptionsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IWebViewControlSiteImpl: Sized {
+pub trait IWebViewControlSite_Impl: Sized {
     fn Process(&mut self) -> ::windows::core::Result<WebViewControlProcess>;
     fn SetScale(&mut self, value: f64) -> ::windows::core::Result<()>;
     fn Scale(&mut self) -> ::windows::core::Result<f64>;
@@ -334,9 +334,9 @@ impl ::windows::core::RuntimeName for IWebViewControlSite {
     const NAME: &'static str = "Windows.Web.UI.Interop.IWebViewControlSite";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IWebViewControlSiteVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebViewControlSiteImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebViewControlSiteVtbl {
-        unsafe extern "system" fn Process<Impl: IWebViewControlSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IWebViewControlSite_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebViewControlSite_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebViewControlSite_Vtbl {
+        unsafe extern "system" fn Process<Impl: IWebViewControlSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Process() {
                 ::core::result::Result::Ok(ok__) => {
@@ -347,11 +347,11 @@ impl IWebViewControlSiteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetScale<Impl: IWebViewControlSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScale<Impl: IWebViewControlSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScale(value).into()
         }
-        unsafe extern "system" fn Scale<Impl: IWebViewControlSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Scale<Impl: IWebViewControlSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Scale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -362,11 +362,11 @@ impl IWebViewControlSiteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBounds<Impl: IWebViewControlSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBounds<Impl: IWebViewControlSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBounds(&*(&value as *const <super::super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Bounds<Impl: IWebViewControlSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Bounds<Impl: IWebViewControlSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bounds() {
                 ::core::result::Result::Ok(ok__) => {
@@ -377,11 +377,11 @@ impl IWebViewControlSiteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsVisible<Impl: IWebViewControlSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsVisible<Impl: IWebViewControlSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsVisible(value).into()
         }
-        unsafe extern "system" fn IsVisible<Impl: IWebViewControlSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsVisible<Impl: IWebViewControlSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsVisible() {
                 ::core::result::Result::Ok(ok__) => {
@@ -392,15 +392,15 @@ impl IWebViewControlSiteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Close<Impl: IWebViewControlSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Close<Impl: IWebViewControlSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Close().into()
         }
-        unsafe extern "system" fn MoveFocus<Impl: IWebViewControlSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: WebViewControlMoveFocusReason) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MoveFocus<Impl: IWebViewControlSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: WebViewControlMoveFocusReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).MoveFocus(reason).into()
         }
-        unsafe extern "system" fn MoveFocusRequested<Impl: IWebViewControlSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MoveFocusRequested<Impl: IWebViewControlSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MoveFocusRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<WebViewControl, WebViewControlMoveFocusRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<WebViewControl, WebViewControlMoveFocusRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -411,11 +411,11 @@ impl IWebViewControlSiteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMoveFocusRequested<Impl: IWebViewControlSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMoveFocusRequested<Impl: IWebViewControlSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMoveFocusRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AcceleratorKeyPressed<Impl: IWebViewControlSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AcceleratorKeyPressed<Impl: IWebViewControlSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AcceleratorKeyPressed(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<WebViewControl, WebViewControlAcceleratorKeyPressedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<WebViewControl, WebViewControlAcceleratorKeyPressedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -426,7 +426,7 @@ impl IWebViewControlSiteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAcceleratorKeyPressed<Impl: IWebViewControlSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAcceleratorKeyPressed<Impl: IWebViewControlSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAcceleratorKeyPressed(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -452,7 +452,7 @@ impl IWebViewControlSiteVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IWebViewControlSite2Impl: Sized {
+pub trait IWebViewControlSite2_Impl: Sized {
     fn GotFocus(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<WebViewControl, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveGotFocus(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn LostFocus(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<WebViewControl, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
@@ -463,9 +463,9 @@ impl ::windows::core::RuntimeName for IWebViewControlSite2 {
     const NAME: &'static str = "Windows.Web.UI.Interop.IWebViewControlSite2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IWebViewControlSite2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebViewControlSite2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebViewControlSite2Vtbl {
-        unsafe extern "system" fn GotFocus<Impl: IWebViewControlSite2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IWebViewControlSite2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebViewControlSite2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebViewControlSite2_Vtbl {
+        unsafe extern "system" fn GotFocus<Impl: IWebViewControlSite2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GotFocus(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<WebViewControl, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<WebViewControl, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -476,11 +476,11 @@ impl IWebViewControlSite2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveGotFocus<Impl: IWebViewControlSite2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveGotFocus<Impl: IWebViewControlSite2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveGotFocus(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn LostFocus<Impl: IWebViewControlSite2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LostFocus<Impl: IWebViewControlSite2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LostFocus(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<WebViewControl, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<WebViewControl, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -491,7 +491,7 @@ impl IWebViewControlSite2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveLostFocus<Impl: IWebViewControlSite2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveLostFocus<Impl: IWebViewControlSite2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveLostFocus(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }

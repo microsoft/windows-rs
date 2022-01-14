@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IMicrosoftAccountMultiFactorAuthenticationManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMicrosoftAccountMultiFactorAuthenticationManager {
-    type Vtable = IMicrosoftAccountMultiFactorAuthenticationManagerVtbl;
+    type Vtable = IMicrosoftAccountMultiFactorAuthenticationManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fd340a5_f574_4320_a08e_0a19a82322aa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMicrosoftAccountMultiFactorAuthenticationManagerVtbl {
+pub struct IMicrosoftAccountMultiFactorAuthenticationManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetOneTimePassCodeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, useraccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, codelength: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -55,12 +55,12 @@ pub struct IMicrosoftAccountMultiFactorAuthenticationManagerVtbl {
 #[repr(transparent)]
 pub struct IMicrosoftAccountMultiFactorAuthenticatorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMicrosoftAccountMultiFactorAuthenticatorStatics {
-    type Vtable = IMicrosoftAccountMultiFactorAuthenticatorStaticsVtbl;
+    type Vtable = IMicrosoftAccountMultiFactorAuthenticatorStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd964c2e6_f446_4c71_8b79_6ea4024aa9b8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMicrosoftAccountMultiFactorAuthenticatorStaticsVtbl {
+pub struct IMicrosoftAccountMultiFactorAuthenticatorStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -68,12 +68,12 @@ pub struct IMicrosoftAccountMultiFactorAuthenticatorStaticsVtbl {
 #[repr(transparent)]
 pub struct IMicrosoftAccountMultiFactorGetSessionsResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMicrosoftAccountMultiFactorGetSessionsResult {
-    type Vtable = IMicrosoftAccountMultiFactorGetSessionsResultVtbl;
+    type Vtable = IMicrosoftAccountMultiFactorGetSessionsResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e23a9a0_e9fa_497a_95de_6d5747bf974c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMicrosoftAccountMultiFactorGetSessionsResultVtbl {
+pub struct IMicrosoftAccountMultiFactorGetSessionsResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Sessions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -85,12 +85,12 @@ pub struct IMicrosoftAccountMultiFactorGetSessionsResultVtbl {
 #[repr(transparent)]
 pub struct IMicrosoftAccountMultiFactorOneTimeCodedInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMicrosoftAccountMultiFactorOneTimeCodedInfo {
-    type Vtable = IMicrosoftAccountMultiFactorOneTimeCodedInfoVtbl;
+    type Vtable = IMicrosoftAccountMultiFactorOneTimeCodedInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82ba264b_d87c_4668_a976_40cfae547d08);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMicrosoftAccountMultiFactorOneTimeCodedInfoVtbl {
+pub struct IMicrosoftAccountMultiFactorOneTimeCodedInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Code: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -107,12 +107,12 @@ pub struct IMicrosoftAccountMultiFactorOneTimeCodedInfoVtbl {
 #[repr(transparent)]
 pub struct IMicrosoftAccountMultiFactorSessionInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMicrosoftAccountMultiFactorSessionInfo {
-    type Vtable = IMicrosoftAccountMultiFactorSessionInfoVtbl;
+    type Vtable = IMicrosoftAccountMultiFactorSessionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f7eabb4_a278_4635_b765_b494eb260af4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMicrosoftAccountMultiFactorSessionInfoVtbl {
+pub struct IMicrosoftAccountMultiFactorSessionInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub UserAccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SessionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -132,12 +132,12 @@ pub struct IMicrosoftAccountMultiFactorSessionInfoVtbl {
 #[repr(transparent)]
 pub struct IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
-    type Vtable = IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoVtbl;
+    type Vtable = IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa7ec5fb_da3f_4088_a20d_5618afadb2e5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoVtbl {
+pub struct IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Sessions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -276,7 +276,7 @@ unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorAuthenti
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationManager;{0fd340a5-f574-4320-a08e-0a19a82322aa})");
 }
 unsafe impl ::windows::core::Interface for MicrosoftAccountMultiFactorAuthenticationManager {
-    type Vtable = IMicrosoftAccountMultiFactorAuthenticationManagerVtbl;
+    type Vtable = IMicrosoftAccountMultiFactorAuthenticationManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fd340a5_f574_4320_a08e_0a19a82322aa);
 }
 impl ::windows::core::RuntimeName for MicrosoftAccountMultiFactorAuthenticationManager {
@@ -399,7 +399,7 @@ unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorGetSessi
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorGetSessionsResult;{4e23a9a0-e9fa-497a-95de-6d5747bf974c})");
 }
 unsafe impl ::windows::core::Interface for MicrosoftAccountMultiFactorGetSessionsResult {
-    type Vtable = IMicrosoftAccountMultiFactorGetSessionsResultVtbl;
+    type Vtable = IMicrosoftAccountMultiFactorGetSessionsResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e23a9a0_e9fa_497a_95de_6d5747bf974c);
 }
 impl ::windows::core::RuntimeName for MicrosoftAccountMultiFactorGetSessionsResult {
@@ -506,7 +506,7 @@ unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorOneTimeC
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorOneTimeCodedInfo;{82ba264b-d87c-4668-a976-40cfae547d08})");
 }
 unsafe impl ::windows::core::Interface for MicrosoftAccountMultiFactorOneTimeCodedInfo {
-    type Vtable = IMicrosoftAccountMultiFactorOneTimeCodedInfoVtbl;
+    type Vtable = IMicrosoftAccountMultiFactorOneTimeCodedInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82ba264b_d87c_4668_a976_40cfae547d08);
 }
 impl ::windows::core::RuntimeName for MicrosoftAccountMultiFactorOneTimeCodedInfo {
@@ -757,7 +757,7 @@ unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorSessionI
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionInfo;{5f7eabb4-a278-4635-b765-b494eb260af4})");
 }
 unsafe impl ::windows::core::Interface for MicrosoftAccountMultiFactorSessionInfo {
-    type Vtable = IMicrosoftAccountMultiFactorSessionInfoVtbl;
+    type Vtable = IMicrosoftAccountMultiFactorSessionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f7eabb4_a278_4635_b765_b494eb260af4);
 }
 impl ::windows::core::RuntimeName for MicrosoftAccountMultiFactorSessionInfo {
@@ -856,7 +856,7 @@ unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorUnregist
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo;{aa7ec5fb-da3f-4088-a20d-5618afadb2e5})");
 }
 unsafe impl ::windows::core::Interface for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
-    type Vtable = IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoVtbl;
+    type Vtable = IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa7ec5fb_da3f_4088_a20d_5618afadb2e5);
 }
 impl ::windows::core::RuntimeName for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {

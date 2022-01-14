@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ICompressorImpl: Sized + IClosableImpl + IOutputStreamImpl {
+pub trait ICompressor_Impl: Sized + super::super::Foundation::IClosable_Impl + super::Streams::IOutputStream_Impl {
     fn FinishAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn DetachStream(&mut self) -> ::windows::core::Result<super::Streams::IOutputStream>;
 }
@@ -8,9 +8,9 @@ impl ::windows::core::RuntimeName for ICompressor {
     const NAME: &'static str = "Windows.Storage.Compression.ICompressor";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ICompressorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompressorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompressorVtbl {
-        unsafe extern "system" fn FinishAsync<Impl: ICompressorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompressor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompressor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompressor_Vtbl {
+        unsafe extern "system" fn FinishAsync<Impl: ICompressor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FinishAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -21,7 +21,7 @@ impl ICompressorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DetachStream<Impl: ICompressorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DetachStream<Impl: ICompressor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DetachStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -43,7 +43,7 @@ impl ICompressorVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ICompressorFactoryImpl: Sized {
+pub trait ICompressorFactory_Impl: Sized {
     fn CreateCompressor(&mut self, underlyingstream: &::core::option::Option<super::Streams::IOutputStream>) -> ::windows::core::Result<Compressor>;
     fn CreateCompressorEx(&mut self, underlyingstream: &::core::option::Option<super::Streams::IOutputStream>, algorithm: CompressAlgorithm, blocksize: u32) -> ::windows::core::Result<Compressor>;
 }
@@ -52,9 +52,9 @@ impl ::windows::core::RuntimeName for ICompressorFactory {
     const NAME: &'static str = "Windows.Storage.Compression.ICompressorFactory";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ICompressorFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompressorFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompressorFactoryVtbl {
-        unsafe extern "system" fn CreateCompressor<Impl: ICompressorFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, underlyingstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompressorFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompressorFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompressorFactory_Vtbl {
+        unsafe extern "system" fn CreateCompressor<Impl: ICompressorFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, underlyingstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCompressor(&*(&underlyingstream as *const <super::Streams::IOutputStream as ::windows::core::Abi>::Abi as *const <super::Streams::IOutputStream as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -65,7 +65,7 @@ impl ICompressorFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateCompressorEx<Impl: ICompressorFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, underlyingstream: ::windows::core::RawPtr, algorithm: CompressAlgorithm, blocksize: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCompressorEx<Impl: ICompressorFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, underlyingstream: ::windows::core::RawPtr, algorithm: CompressAlgorithm, blocksize: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCompressorEx(&*(&underlyingstream as *const <super::Streams::IOutputStream as ::windows::core::Abi>::Abi as *const <super::Streams::IOutputStream as ::windows::core::DefaultType>::DefaultType), algorithm, blocksize) {
                 ::core::result::Result::Ok(ok__) => {
@@ -87,7 +87,7 @@ impl ICompressorFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IDecompressorImpl: Sized + IClosableImpl + IInputStreamImpl {
+pub trait IDecompressor_Impl: Sized + super::super::Foundation::IClosable_Impl + super::Streams::IInputStream_Impl {
     fn DetachStream(&mut self) -> ::windows::core::Result<super::Streams::IInputStream>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -95,9 +95,9 @@ impl ::windows::core::RuntimeName for IDecompressor {
     const NAME: &'static str = "Windows.Storage.Compression.IDecompressor";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IDecompressorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDecompressorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDecompressorVtbl {
-        unsafe extern "system" fn DetachStream<Impl: IDecompressorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDecompressor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDecompressor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDecompressor_Vtbl {
+        unsafe extern "system" fn DetachStream<Impl: IDecompressor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DetachStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -115,7 +115,7 @@ impl IDecompressorVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IDecompressorFactoryImpl: Sized {
+pub trait IDecompressorFactory_Impl: Sized {
     fn CreateDecompressor(&mut self, underlyingstream: &::core::option::Option<super::Streams::IInputStream>) -> ::windows::core::Result<Decompressor>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -123,9 +123,9 @@ impl ::windows::core::RuntimeName for IDecompressorFactory {
     const NAME: &'static str = "Windows.Storage.Compression.IDecompressorFactory";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IDecompressorFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDecompressorFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDecompressorFactoryVtbl {
-        unsafe extern "system" fn CreateDecompressor<Impl: IDecompressorFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, underlyingstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDecompressorFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDecompressorFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDecompressorFactory_Vtbl {
+        unsafe extern "system" fn CreateDecompressor<Impl: IDecompressorFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, underlyingstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDecompressor(&*(&underlyingstream as *const <super::Streams::IInputStream as ::windows::core::Abi>::Abi as *const <super::Streams::IInputStream as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

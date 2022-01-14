@@ -213,7 +213,7 @@ unsafe impl ::windows::core::RuntimeType for ContentIndexer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.ContentIndexer;{b1767f8d-f698-4982-b05f-3a6e8cab01a2})");
 }
 unsafe impl ::windows::core::Interface for ContentIndexer {
-    type Vtable = IContentIndexerVtbl;
+    type Vtable = IContentIndexer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1767f8d_f698_4982_b05f_3a6e8cab01a2);
 }
 impl ::windows::core::RuntimeName for ContentIndexer {
@@ -339,7 +339,7 @@ unsafe impl ::windows::core::RuntimeType for ContentIndexerQuery {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.ContentIndexerQuery;{70e3b0f8-4bfc-428a-8889-cc51da9a7b9d})");
 }
 unsafe impl ::windows::core::Interface for ContentIndexerQuery {
-    type Vtable = IContentIndexerQueryVtbl;
+    type Vtable = IContentIndexerQuery_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70e3b0f8_4bfc_428a_8889_cc51da9a7b9d);
 }
 impl ::windows::core::RuntimeName for ContentIndexerQuery {
@@ -458,12 +458,12 @@ impl ::windows::core::DefaultType for FolderDepth {
 #[repr(transparent)]
 pub struct IContentIndexer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContentIndexer {
-    type Vtable = IContentIndexerVtbl;
+    type Vtable = IContentIndexer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1767f8d_f698_4982_b05f_3a6e8cab01a2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContentIndexerVtbl {
+pub struct IContentIndexer_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub AddAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexablecontent: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -495,12 +495,12 @@ pub struct IContentIndexerVtbl {
 #[repr(transparent)]
 pub struct IContentIndexerQuery(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContentIndexerQuery {
-    type Vtable = IContentIndexerQueryVtbl;
+    type Vtable = IContentIndexerQuery_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70e3b0f8_4bfc_428a_8889_cc51da9a7b9d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContentIndexerQueryVtbl {
+pub struct IContentIndexerQuery_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetCountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -528,12 +528,12 @@ pub struct IContentIndexerQueryVtbl {
 #[repr(transparent)]
 pub struct IContentIndexerQueryOperations(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContentIndexerQueryOperations {
-    type Vtable = IContentIndexerQueryOperationsVtbl;
+    type Vtable = IContentIndexerQueryOperations_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28823e10_4786_42f1_9730_792b3566b150);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContentIndexerQueryOperationsVtbl {
+pub struct IContentIndexerQueryOperations_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateQueryWithSortOrderAndLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, searchfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertiestoretrieve: ::windows::core::RawPtr, sortorder: ::windows::core::RawPtr, searchfilterlanguage: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -552,12 +552,12 @@ pub struct IContentIndexerQueryOperationsVtbl {
 #[repr(transparent)]
 pub struct IContentIndexerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContentIndexerStatics {
-    type Vtable = IContentIndexerStaticsVtbl;
+    type Vtable = IContentIndexerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c488375_b37e_4c60_9ba8_b760fda3e59d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContentIndexerStaticsVtbl {
+pub struct IContentIndexerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetIndexerWithName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetIndexer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -677,12 +677,12 @@ unsafe impl ::windows::core::RuntimeType for IIndexableContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ccf1a05f-d4b5-483a-b06e-e0db1ec420e4}");
 }
 unsafe impl ::windows::core::Interface for IIndexableContent {
-    type Vtable = IIndexableContentVtbl;
+    type Vtable = IIndexableContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccf1a05f_d4b5_483a_b06e_e0db1ec420e4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIndexableContentVtbl {
+pub struct IIndexableContent_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -705,12 +705,12 @@ pub struct IIndexableContentVtbl {
 #[repr(transparent)]
 pub struct IQueryOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IQueryOptions {
-    type Vtable = IQueryOptionsVtbl;
+    type Vtable = IQueryOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e5e46ee_0f45_4838_a8e9_d0479d446c30);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IQueryOptionsVtbl {
+pub struct IQueryOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub FileTypeFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -747,12 +747,12 @@ pub struct IQueryOptionsVtbl {
 #[repr(transparent)]
 pub struct IQueryOptionsFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IQueryOptionsFactory {
-    type Vtable = IQueryOptionsFactoryVtbl;
+    type Vtable = IQueryOptionsFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x032e1f8c_a9c1_4e71_8011_0dee9d4811a3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IQueryOptionsFactoryVtbl {
+pub struct IQueryOptionsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateCommonFileQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, query: CommonFileQuery, filetypefilter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -764,12 +764,12 @@ pub struct IQueryOptionsFactoryVtbl {
 #[repr(transparent)]
 pub struct IQueryOptionsWithProviderFilter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IQueryOptionsWithProviderFilter {
-    type Vtable = IQueryOptionsWithProviderFilterVtbl;
+    type Vtable = IQueryOptionsWithProviderFilter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b9d1026_15c4_44dd_b89a_47a59b7d7c4f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IQueryOptionsWithProviderFilterVtbl {
+pub struct IQueryOptionsWithProviderFilter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub StorageProviderIdFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -780,12 +780,12 @@ pub struct IQueryOptionsWithProviderFilterVtbl {
 #[repr(transparent)]
 pub struct IStorageFileQueryResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageFileQueryResult {
-    type Vtable = IStorageFileQueryResultVtbl;
+    type Vtable = IStorageFileQueryResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52fda447_2baa_412c_b29f_d4b1778efa1e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageFileQueryResultVtbl {
+pub struct IStorageFileQueryResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetFilesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, maxnumberofitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -800,12 +800,12 @@ pub struct IStorageFileQueryResultVtbl {
 #[repr(transparent)]
 pub struct IStorageFileQueryResult2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageFileQueryResult2 {
-    type Vtable = IStorageFileQueryResult2Vtbl;
+    type Vtable = IStorageFileQueryResult2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e5db9dd_7141_46c4_8be3_e9dc9e27275c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageFileQueryResult2Vtbl {
+pub struct IStorageFileQueryResult2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Data_Text", feature = "Foundation_Collections"))]
     pub GetMatchingPropertiesWithRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1019,12 +1019,12 @@ unsafe impl ::windows::core::RuntimeType for IStorageFolderQueryOperations {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cb43ccc9-446b-4a4f-be97-757771be5203}");
 }
 unsafe impl ::windows::core::Interface for IStorageFolderQueryOperations {
-    type Vtable = IStorageFolderQueryOperationsVtbl;
+    type Vtable = IStorageFolderQueryOperations_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb43ccc9_446b_4a4f_be97_757771be5203);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageFolderQueryOperationsVtbl {
+pub struct IStorageFolderQueryOperations_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetIndexedStateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1066,12 +1066,12 @@ pub struct IStorageFolderQueryOperationsVtbl {
 #[repr(transparent)]
 pub struct IStorageFolderQueryResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageFolderQueryResult {
-    type Vtable = IStorageFolderQueryResultVtbl;
+    type Vtable = IStorageFolderQueryResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6654c911_7d66_46fa_aecf_e4a4baa93ab8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageFolderQueryResultVtbl {
+pub struct IStorageFolderQueryResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetFoldersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, maxnumberofitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1086,12 +1086,12 @@ pub struct IStorageFolderQueryResultVtbl {
 #[repr(transparent)]
 pub struct IStorageItemQueryResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageItemQueryResult {
-    type Vtable = IStorageItemQueryResultVtbl;
+    type Vtable = IStorageItemQueryResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8948079_9d58_47b8_b2b2_41b07f4795f9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageItemQueryResultVtbl {
+pub struct IStorageItemQueryResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetItemsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, maxnumberofitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1106,12 +1106,12 @@ pub struct IStorageItemQueryResultVtbl {
 #[repr(transparent)]
 pub struct IStorageLibraryChangeTrackerTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageLibraryChangeTrackerTriggerDetails {
-    type Vtable = IStorageLibraryChangeTrackerTriggerDetailsVtbl;
+    type Vtable = IStorageLibraryChangeTrackerTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dc7a369_b7a3_4df2_9d61_eba85a0343d2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageLibraryChangeTrackerTriggerDetailsVtbl {
+pub struct IStorageLibraryChangeTrackerTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Folder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ChangeTracker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1120,12 +1120,12 @@ pub struct IStorageLibraryChangeTrackerTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IStorageLibraryContentChangedTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageLibraryContentChangedTriggerDetails {
-    type Vtable = IStorageLibraryContentChangedTriggerDetailsVtbl;
+    type Vtable = IStorageLibraryContentChangedTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a371977_abbf_4e1d_8aa5_6385d8884799);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageLibraryContentChangedTriggerDetailsVtbl {
+pub struct IStorageLibraryContentChangedTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Folder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1267,12 +1267,12 @@ unsafe impl ::windows::core::RuntimeType for IStorageQueryResultBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c297d70d-7353-47ab-ba58-8c61425dc54b}");
 }
 unsafe impl ::windows::core::Interface for IStorageQueryResultBase {
-    type Vtable = IStorageQueryResultBaseVtbl;
+    type Vtable = IStorageQueryResultBase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc297d70d_7353_47ab_ba58_8c61425dc54b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageQueryResultBaseVtbl {
+pub struct IStorageQueryResultBase_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetItemCountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1306,12 +1306,12 @@ pub struct IStorageQueryResultBaseVtbl {
 #[repr(transparent)]
 pub struct IValueAndLanguage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IValueAndLanguage {
-    type Vtable = IValueAndLanguageVtbl;
+    type Vtable = IValueAndLanguage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9914881_a1ee_4bc4_92a5_466968e30436);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IValueAndLanguageVtbl {
+pub struct IValueAndLanguage_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Language: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1400,7 +1400,7 @@ unsafe impl ::windows::core::RuntimeType for IndexableContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.IndexableContent;{ccf1a05f-d4b5-483a-b06e-e0db1ec420e4})");
 }
 unsafe impl ::windows::core::Interface for IndexableContent {
-    type Vtable = IIndexableContentVtbl;
+    type Vtable = IIndexableContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccf1a05f_d4b5_483a_b06e_e0db1ec420e4);
 }
 impl ::windows::core::RuntimeName for IndexableContent {
@@ -1725,7 +1725,7 @@ unsafe impl ::windows::core::RuntimeType for QueryOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.QueryOptions;{1e5e46ee-0f45-4838-a8e9-d0479d446c30})");
 }
 unsafe impl ::windows::core::Interface for QueryOptions {
-    type Vtable = IQueryOptionsVtbl;
+    type Vtable = IQueryOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e5e46ee_0f45_4838_a8e9_d0479d446c30);
 }
 impl ::windows::core::RuntimeName for QueryOptions {
@@ -1938,7 +1938,7 @@ unsafe impl ::windows::core::RuntimeType for SortEntryVector {
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for SortEntryVector {
-    type Vtable = super::super::Foundation::Collections::IVectorVtbl<SortEntry>;
+    type Vtable = super::super::Foundation::Collections::IVector_Vtbl<SortEntry>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2182,7 +2182,7 @@ unsafe impl ::windows::core::RuntimeType for StorageFileQueryResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageFileQueryResult;{52fda447-2baa-412c-b29f-d4b1778efa1e})");
 }
 unsafe impl ::windows::core::Interface for StorageFileQueryResult {
-    type Vtable = IStorageFileQueryResultVtbl;
+    type Vtable = IStorageFileQueryResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52fda447_2baa_412c_b29f_d4b1778efa1e);
 }
 impl ::windows::core::RuntimeName for StorageFileQueryResult {
@@ -2362,7 +2362,7 @@ unsafe impl ::windows::core::RuntimeType for StorageFolderQueryResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageFolderQueryResult;{6654c911-7d66-46fa-aecf-e4a4baa93ab8})");
 }
 unsafe impl ::windows::core::Interface for StorageFolderQueryResult {
-    type Vtable = IStorageFolderQueryResultVtbl;
+    type Vtable = IStorageFolderQueryResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6654c911_7d66_46fa_aecf_e4a4baa93ab8);
 }
 impl ::windows::core::RuntimeName for StorageFolderQueryResult {
@@ -2542,7 +2542,7 @@ unsafe impl ::windows::core::RuntimeType for StorageItemQueryResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageItemQueryResult;{e8948079-9d58-47b8-b2b2-41b07f4795f9})");
 }
 unsafe impl ::windows::core::Interface for StorageItemQueryResult {
-    type Vtable = IStorageItemQueryResultVtbl;
+    type Vtable = IStorageItemQueryResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8948079_9d58_47b8_b2b2_41b07f4795f9);
 }
 impl ::windows::core::RuntimeName for StorageItemQueryResult {
@@ -2651,7 +2651,7 @@ unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeTrackerTriggerD
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageLibraryChangeTrackerTriggerDetails;{1dc7a369-b7a3-4df2-9d61-eba85a0343d2})");
 }
 unsafe impl ::windows::core::Interface for StorageLibraryChangeTrackerTriggerDetails {
-    type Vtable = IStorageLibraryChangeTrackerTriggerDetailsVtbl;
+    type Vtable = IStorageLibraryChangeTrackerTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dc7a369_b7a3_4df2_9d61_eba85a0343d2);
 }
 impl ::windows::core::RuntimeName for StorageLibraryChangeTrackerTriggerDetails {
@@ -2739,7 +2739,7 @@ unsafe impl ::windows::core::RuntimeType for StorageLibraryContentChangedTrigger
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageLibraryContentChangedTriggerDetails;{2a371977-abbf-4e1d-8aa5-6385d8884799})");
 }
 unsafe impl ::windows::core::Interface for StorageLibraryContentChangedTriggerDetails {
-    type Vtable = IStorageLibraryContentChangedTriggerDetailsVtbl;
+    type Vtable = IStorageLibraryContentChangedTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a371977_abbf_4e1d_8aa5_6385d8884799);
 }
 impl ::windows::core::RuntimeName for StorageLibraryContentChangedTriggerDetails {
@@ -2843,7 +2843,7 @@ unsafe impl ::windows::core::RuntimeType for ValueAndLanguage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.ValueAndLanguage;{b9914881-a1ee-4bc4-92a5-466968e30436})");
 }
 unsafe impl ::windows::core::Interface for ValueAndLanguage {
-    type Vtable = IValueAndLanguageVtbl;
+    type Vtable = IValueAndLanguage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9914881_a1ee_4bc4_92a5_466968e30436);
 }
 impl ::windows::core::RuntimeName for ValueAndLanguage {

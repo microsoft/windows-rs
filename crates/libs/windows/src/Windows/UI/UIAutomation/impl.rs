@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IAutomationConnectionImpl: Sized {
+pub trait IAutomationConnection_Impl: Sized {
     fn IsRemoteSystem(&mut self) -> ::windows::core::Result<bool>;
     fn AppUserModelId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ExecutableFileName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for IAutomationConnection {
     const NAME: &'static str = "Windows.UI.UIAutomation.IAutomationConnection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAutomationConnectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationConnectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationConnectionVtbl {
-        unsafe extern "system" fn IsRemoteSystem<Impl: IAutomationConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IAutomationConnection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationConnection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationConnection_Vtbl {
+        unsafe extern "system" fn IsRemoteSystem<Impl: IAutomationConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsRemoteSystem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -22,7 +22,7 @@ impl IAutomationConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppUserModelId<Impl: IAutomationConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppUserModelId<Impl: IAutomationConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppUserModelId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -33,7 +33,7 @@ impl IAutomationConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExecutableFileName<Impl: IAutomationConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExecutableFileName<Impl: IAutomationConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExecutableFileName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -56,7 +56,7 @@ impl IAutomationConnectionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAutomationConnectionBoundObjectImpl: Sized {
+pub trait IAutomationConnectionBoundObject_Impl: Sized {
     fn Connection(&mut self) -> ::windows::core::Result<AutomationConnection>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -64,9 +64,9 @@ impl ::windows::core::RuntimeName for IAutomationConnectionBoundObject {
     const NAME: &'static str = "Windows.UI.UIAutomation.IAutomationConnectionBoundObject";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAutomationConnectionBoundObjectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationConnectionBoundObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationConnectionBoundObjectVtbl {
-        unsafe extern "system" fn Connection<Impl: IAutomationConnectionBoundObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAutomationConnectionBoundObject_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationConnectionBoundObject_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationConnectionBoundObject_Vtbl {
+        unsafe extern "system" fn Connection<Impl: IAutomationConnectionBoundObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Connection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -87,7 +87,7 @@ impl IAutomationConnectionBoundObjectVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAutomationElementImpl: Sized {
+pub trait IAutomationElement_Impl: Sized {
     fn IsRemoteSystem(&mut self) -> ::windows::core::Result<bool>;
     fn AppUserModelId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ExecutableFileName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -97,9 +97,9 @@ impl ::windows::core::RuntimeName for IAutomationElement {
     const NAME: &'static str = "Windows.UI.UIAutomation.IAutomationElement";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAutomationElementVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationElementImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationElementVtbl {
-        unsafe extern "system" fn IsRemoteSystem<Impl: IAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IAutomationElement_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationElement_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationElement_Vtbl {
+        unsafe extern "system" fn IsRemoteSystem<Impl: IAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsRemoteSystem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -110,7 +110,7 @@ impl IAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppUserModelId<Impl: IAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppUserModelId<Impl: IAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppUserModelId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -121,7 +121,7 @@ impl IAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExecutableFileName<Impl: IAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExecutableFileName<Impl: IAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExecutableFileName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -144,14 +144,14 @@ impl IAutomationElementVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAutomationTextRangeImpl: Sized {}
+pub trait IAutomationTextRange_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAutomationTextRange {
     const NAME: &'static str = "Windows.UI.UIAutomation.IAutomationTextRange";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAutomationTextRangeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationTextRangeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationTextRangeVtbl {
+impl IAutomationTextRange_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationTextRange_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAutomationTextRange_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAutomationTextRange, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

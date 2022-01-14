@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IConditionForceEffectImpl: Sized + IForceFeedbackEffectImpl {
+pub trait IConditionForceEffect_Impl: Sized + IForceFeedbackEffect_Impl {
     fn Kind(&mut self) -> ::windows::core::Result<ConditionForceEffectKind>;
     fn SetParameters(&mut self, direction: &super::super::super::Foundation::Numerics::Vector3, positivecoefficient: f32, negativecoefficient: f32, maxpositivemagnitude: f32, maxnegativemagnitude: f32, deadzone: f32, bias: f32) -> ::windows::core::Result<()>;
 }
@@ -8,9 +8,9 @@ impl ::windows::core::RuntimeName for IConditionForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.IConditionForceEffect";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IConditionForceEffectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConditionForceEffectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConditionForceEffectVtbl {
-        unsafe extern "system" fn Kind<Impl: IConditionForceEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ConditionForceEffectKind) -> ::windows::core::HRESULT {
+impl IConditionForceEffect_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConditionForceEffect_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConditionForceEffect_Vtbl {
+        unsafe extern "system" fn Kind<Impl: IConditionForceEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ConditionForceEffectKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -21,7 +21,7 @@ impl IConditionForceEffectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetParameters<Impl: IConditionForceEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, direction: super::super::super::Foundation::Numerics::Vector3, positivecoefficient: f32, negativecoefficient: f32, maxpositivemagnitude: f32, maxnegativemagnitude: f32, deadzone: f32, bias: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetParameters<Impl: IConditionForceEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, direction: super::super::super::Foundation::Numerics::Vector3, positivecoefficient: f32, negativecoefficient: f32, maxpositivemagnitude: f32, maxnegativemagnitude: f32, deadzone: f32, bias: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetParameters(&*(&direction as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType), positivecoefficient, negativecoefficient, maxpositivemagnitude, maxnegativemagnitude, deadzone, bias).into()
         }
@@ -36,7 +36,7 @@ impl IConditionForceEffectVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IConditionForceEffectFactoryImpl: Sized {
+pub trait IConditionForceEffectFactory_Impl: Sized {
     fn CreateInstance(&mut self, effectkind: ConditionForceEffectKind) -> ::windows::core::Result<ConditionForceEffect>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -44,9 +44,9 @@ impl ::windows::core::RuntimeName for IConditionForceEffectFactory {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.IConditionForceEffectFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IConditionForceEffectFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConditionForceEffectFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConditionForceEffectFactoryVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: IConditionForceEffectFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectkind: ConditionForceEffectKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IConditionForceEffectFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConditionForceEffectFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConditionForceEffectFactory_Vtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IConditionForceEffectFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectkind: ConditionForceEffectKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(effectkind) {
                 ::core::result::Result::Ok(ok__) => {
@@ -67,7 +67,7 @@ impl IConditionForceEffectFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IConstantForceEffectImpl: Sized + IForceFeedbackEffectImpl {
+pub trait IConstantForceEffect_Impl: Sized + IForceFeedbackEffect_Impl {
     fn SetParameters(&mut self, vector: &super::super::super::Foundation::Numerics::Vector3, duration: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
     fn SetParametersWithEnvelope(&mut self, vector: &super::super::super::Foundation::Numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: &super::super::super::Foundation::TimeSpan, attackduration: &super::super::super::Foundation::TimeSpan, sustainduration: &super::super::super::Foundation::TimeSpan, releaseduration: &super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::Result<()>;
 }
@@ -76,13 +76,13 @@ impl ::windows::core::RuntimeName for IConstantForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.IConstantForceEffect";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IConstantForceEffectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConstantForceEffectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConstantForceEffectVtbl {
-        unsafe extern "system" fn SetParameters<Impl: IConstantForceEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vector: super::super::super::Foundation::Numerics::Vector3, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+impl IConstantForceEffect_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConstantForceEffect_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConstantForceEffect_Vtbl {
+        unsafe extern "system" fn SetParameters<Impl: IConstantForceEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vector: super::super::super::Foundation::Numerics::Vector3, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetParameters(&*(&vector as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType), &*(&duration as *const <super::super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetParametersWithEnvelope<Impl: IConstantForceEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vector: super::super::super::Foundation::Numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetParametersWithEnvelope<Impl: IConstantForceEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vector: super::super::super::Foundation::Numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetParametersWithEnvelope(
@@ -108,7 +108,7 @@ impl IConstantForceEffectVtbl {
         iid == &<IConstantForceEffect as ::windows::core::Interface>::IID
     }
 }
-pub trait IForceFeedbackEffectImpl: Sized {
+pub trait IForceFeedbackEffect_Impl: Sized {
     fn Gain(&mut self) -> ::windows::core::Result<f64>;
     fn SetGain(&mut self, value: f64) -> ::windows::core::Result<()>;
     fn State(&mut self) -> ::windows::core::Result<ForceFeedbackEffectState>;
@@ -118,9 +118,9 @@ pub trait IForceFeedbackEffectImpl: Sized {
 impl ::windows::core::RuntimeName for IForceFeedbackEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect";
 }
-impl IForceFeedbackEffectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IForceFeedbackEffectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IForceFeedbackEffectVtbl {
-        unsafe extern "system" fn Gain<Impl: IForceFeedbackEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+impl IForceFeedbackEffect_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IForceFeedbackEffect_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IForceFeedbackEffect_Vtbl {
+        unsafe extern "system" fn Gain<Impl: IForceFeedbackEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Gain() {
                 ::core::result::Result::Ok(ok__) => {
@@ -131,11 +131,11 @@ impl IForceFeedbackEffectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGain<Impl: IForceFeedbackEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGain<Impl: IForceFeedbackEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetGain(value).into()
         }
-        unsafe extern "system" fn State<Impl: IForceFeedbackEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ForceFeedbackEffectState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn State<Impl: IForceFeedbackEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ForceFeedbackEffectState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -146,11 +146,11 @@ impl IForceFeedbackEffectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Start<Impl: IForceFeedbackEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Start<Impl: IForceFeedbackEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        unsafe extern "system" fn Stop<Impl: IForceFeedbackEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stop<Impl: IForceFeedbackEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
@@ -168,7 +168,7 @@ impl IForceFeedbackEffectVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IForceFeedbackMotorImpl: Sized {
+pub trait IForceFeedbackMotor_Impl: Sized {
     fn AreEffectsPaused(&mut self) -> ::windows::core::Result<bool>;
     fn MasterGain(&mut self) -> ::windows::core::Result<f64>;
     fn SetMasterGain(&mut self, value: f64) -> ::windows::core::Result<()>;
@@ -188,9 +188,9 @@ impl ::windows::core::RuntimeName for IForceFeedbackMotor {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.IForceFeedbackMotor";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IForceFeedbackMotorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IForceFeedbackMotorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IForceFeedbackMotorVtbl {
-        unsafe extern "system" fn AreEffectsPaused<Impl: IForceFeedbackMotorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IForceFeedbackMotor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IForceFeedbackMotor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IForceFeedbackMotor_Vtbl {
+        unsafe extern "system" fn AreEffectsPaused<Impl: IForceFeedbackMotor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AreEffectsPaused() {
                 ::core::result::Result::Ok(ok__) => {
@@ -201,7 +201,7 @@ impl IForceFeedbackMotorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MasterGain<Impl: IForceFeedbackMotorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MasterGain<Impl: IForceFeedbackMotor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MasterGain() {
                 ::core::result::Result::Ok(ok__) => {
@@ -212,11 +212,11 @@ impl IForceFeedbackMotorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMasterGain<Impl: IForceFeedbackMotorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMasterGain<Impl: IForceFeedbackMotor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMasterGain(value).into()
         }
-        unsafe extern "system" fn IsEnabled<Impl: IForceFeedbackMotorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEnabled<Impl: IForceFeedbackMotor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -227,7 +227,7 @@ impl IForceFeedbackMotorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedAxes<Impl: IForceFeedbackMotorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ForceFeedbackEffectAxes) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedAxes<Impl: IForceFeedbackMotor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ForceFeedbackEffectAxes) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedAxes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -238,7 +238,7 @@ impl IForceFeedbackMotorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadEffectAsync<Impl: IForceFeedbackMotorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effect: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadEffectAsync<Impl: IForceFeedbackMotor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effect: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadEffectAsync(&*(&effect as *const <IForceFeedbackEffect as ::windows::core::Abi>::Abi as *const <IForceFeedbackEffect as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -249,19 +249,19 @@ impl IForceFeedbackMotorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PauseAllEffects<Impl: IForceFeedbackMotorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PauseAllEffects<Impl: IForceFeedbackMotor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PauseAllEffects().into()
         }
-        unsafe extern "system" fn ResumeAllEffects<Impl: IForceFeedbackMotorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResumeAllEffects<Impl: IForceFeedbackMotor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ResumeAllEffects().into()
         }
-        unsafe extern "system" fn StopAllEffects<Impl: IForceFeedbackMotorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopAllEffects<Impl: IForceFeedbackMotor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StopAllEffects().into()
         }
-        unsafe extern "system" fn TryDisableAsync<Impl: IForceFeedbackMotorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryDisableAsync<Impl: IForceFeedbackMotor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryDisableAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -272,7 +272,7 @@ impl IForceFeedbackMotorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryEnableAsync<Impl: IForceFeedbackMotorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryEnableAsync<Impl: IForceFeedbackMotor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryEnableAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -283,7 +283,7 @@ impl IForceFeedbackMotorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryResetAsync<Impl: IForceFeedbackMotorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryResetAsync<Impl: IForceFeedbackMotor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryResetAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -294,7 +294,7 @@ impl IForceFeedbackMotorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryUnloadEffectAsync<Impl: IForceFeedbackMotorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effect: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryUnloadEffectAsync<Impl: IForceFeedbackMotor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effect: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryUnloadEffectAsync(&*(&effect as *const <IForceFeedbackEffect as ::windows::core::Abi>::Abi as *const <IForceFeedbackEffect as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -327,7 +327,7 @@ impl IForceFeedbackMotorVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IPeriodicForceEffectImpl: Sized + IForceFeedbackEffectImpl {
+pub trait IPeriodicForceEffect_Impl: Sized + IForceFeedbackEffect_Impl {
     fn Kind(&mut self) -> ::windows::core::Result<PeriodicForceEffectKind>;
     fn SetParameters(&mut self, vector: &super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, duration: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
     fn SetParametersWithEnvelope(&mut self, vector: &super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: &super::super::super::Foundation::TimeSpan, attackduration: &super::super::super::Foundation::TimeSpan, sustainduration: &super::super::super::Foundation::TimeSpan, releaseduration: &super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::Result<()>;
@@ -337,9 +337,9 @@ impl ::windows::core::RuntimeName for IPeriodicForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.IPeriodicForceEffect";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IPeriodicForceEffectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPeriodicForceEffectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPeriodicForceEffectVtbl {
-        unsafe extern "system" fn Kind<Impl: IPeriodicForceEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PeriodicForceEffectKind) -> ::windows::core::HRESULT {
+impl IPeriodicForceEffect_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPeriodicForceEffect_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPeriodicForceEffect_Vtbl {
+        unsafe extern "system" fn Kind<Impl: IPeriodicForceEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PeriodicForceEffectKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -350,11 +350,11 @@ impl IPeriodicForceEffectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetParameters<Impl: IPeriodicForceEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vector: super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetParameters<Impl: IPeriodicForceEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vector: super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetParameters(&*(&vector as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Numerics::Vector3 as ::windows::core::DefaultType>::DefaultType), frequency, phase, bias, &*(&duration as *const <super::super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetParametersWithEnvelope<Impl: IPeriodicForceEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vector: super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetParametersWithEnvelope<Impl: IPeriodicForceEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vector: super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetParametersWithEnvelope(
@@ -385,7 +385,7 @@ impl IPeriodicForceEffectVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPeriodicForceEffectFactoryImpl: Sized {
+pub trait IPeriodicForceEffectFactory_Impl: Sized {
     fn CreateInstance(&mut self, effectkind: PeriodicForceEffectKind) -> ::windows::core::Result<PeriodicForceEffect>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -393,9 +393,9 @@ impl ::windows::core::RuntimeName for IPeriodicForceEffectFactory {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.IPeriodicForceEffectFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPeriodicForceEffectFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPeriodicForceEffectFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPeriodicForceEffectFactoryVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: IPeriodicForceEffectFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectkind: PeriodicForceEffectKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPeriodicForceEffectFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPeriodicForceEffectFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPeriodicForceEffectFactory_Vtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IPeriodicForceEffectFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectkind: PeriodicForceEffectKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(effectkind) {
                 ::core::result::Result::Ok(ok__) => {
@@ -416,7 +416,7 @@ impl IPeriodicForceEffectFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-pub trait IRampForceEffectImpl: Sized + IForceFeedbackEffectImpl {
+pub trait IRampForceEffect_Impl: Sized + IForceFeedbackEffect_Impl {
     fn SetParameters(&mut self, startvector: &super::super::super::Foundation::Numerics::Vector3, endvector: &super::super::super::Foundation::Numerics::Vector3, duration: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
     fn SetParametersWithEnvelope(&mut self, startvector: &super::super::super::Foundation::Numerics::Vector3, endvector: &super::super::super::Foundation::Numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: &super::super::super::Foundation::TimeSpan, attackduration: &super::super::super::Foundation::TimeSpan, sustainduration: &super::super::super::Foundation::TimeSpan, releaseduration: &super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::Result<()>;
 }
@@ -425,9 +425,9 @@ impl ::windows::core::RuntimeName for IRampForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.IRampForceEffect";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "implement_exclusive"))]
-impl IRampForceEffectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRampForceEffectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRampForceEffectVtbl {
-        unsafe extern "system" fn SetParameters<Impl: IRampForceEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startvector: super::super::super::Foundation::Numerics::Vector3, endvector: super::super::super::Foundation::Numerics::Vector3, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+impl IRampForceEffect_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRampForceEffect_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRampForceEffect_Vtbl {
+        unsafe extern "system" fn SetParameters<Impl: IRampForceEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startvector: super::super::super::Foundation::Numerics::Vector3, endvector: super::super::super::Foundation::Numerics::Vector3, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetParameters(
@@ -437,7 +437,7 @@ impl IRampForceEffectVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn SetParametersWithEnvelope<Impl: IRampForceEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startvector: super::super::super::Foundation::Numerics::Vector3, endvector: super::super::super::Foundation::Numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetParametersWithEnvelope<Impl: IRampForceEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startvector: super::super::super::Foundation::Numerics::Vector3, endvector: super::super::super::Foundation::Numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetParametersWithEnvelope(

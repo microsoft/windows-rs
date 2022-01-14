@@ -98,12 +98,12 @@ impl ::core::fmt::Debug for IUPnPAddressFamilyControl {
     }
 }
 unsafe impl ::windows::core::Interface for IUPnPAddressFamilyControl {
-    type Vtable = IUPnPAddressFamilyControlVtbl;
+    type Vtable = IUPnPAddressFamilyControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3bf6178_694e_459f_a5a6_191ea0ffa1c7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPAddressFamilyControlVtbl {
+pub struct IUPnPAddressFamilyControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetAddressFamily: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: i32) -> ::windows::core::HRESULT,
     pub GetAddressFamily: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut i32) -> ::windows::core::HRESULT,
@@ -154,12 +154,12 @@ impl ::core::fmt::Debug for IUPnPAsyncResult {
     }
 }
 unsafe impl ::windows::core::Interface for IUPnPAsyncResult {
-    type Vtable = IUPnPAsyncResultVtbl;
+    type Vtable = IUPnPAsyncResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d65fd08_d13e_4274_9c8b_dd8d028c8644);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPAsyncResultVtbl {
+pub struct IUPnPAsyncResult_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub AsyncOperationComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ullrequestid: u64) -> ::windows::core::HRESULT,
 }
@@ -298,14 +298,14 @@ impl ::core::fmt::Debug for IUPnPDescriptionDocument {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUPnPDescriptionDocument {
-    type Vtable = IUPnPDescriptionDocumentVtbl;
+    type Vtable = IUPnPDescriptionDocument_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11d1c1b2_7daa_4c9e_9595_7f82ed206d1e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPDescriptionDocumentVtbl {
-    pub base: super::super::super::System::Com::IDispatchVtbl,
+pub struct IUPnPDescriptionDocument_Vtbl {
+    pub base: super::super::super::System::Com::IDispatch_Vtbl,
     pub ReadyState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plreadystate: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrurl: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -372,12 +372,12 @@ impl ::core::fmt::Debug for IUPnPDescriptionDocumentCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IUPnPDescriptionDocumentCallback {
-    type Vtable = IUPnPDescriptionDocumentCallbackVtbl;
+    type Vtable = IUPnPDescriptionDocumentCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77394c69_5486_40d6_9bc3_4991983e02da);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPDescriptionDocumentCallbackVtbl {
+pub struct IUPnPDescriptionDocumentCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub LoadComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrloadresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
@@ -592,14 +592,14 @@ impl ::core::fmt::Debug for IUPnPDevice {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUPnPDevice {
-    type Vtable = IUPnPDeviceVtbl;
+    type Vtable = IUPnPDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d44d0d1_98c9_4889_acd1_f9d674bf2221);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPDeviceVtbl {
-    pub base: super::super::super::System::Com::IDispatchVtbl,
+pub struct IUPnPDevice_Vtbl {
+    pub base: super::super::super::System::Com::IDispatch_Vtbl,
     pub IsRootDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarb: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub RootDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppudrootdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -724,12 +724,12 @@ impl ::core::fmt::Debug for IUPnPDeviceControl {
     }
 }
 unsafe impl ::windows::core::Interface for IUPnPDeviceControl {
-    type Vtable = IUPnPDeviceControlVtbl;
+    type Vtable = IUPnPDeviceControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204810ba_73b2_11d4_bf42_00b0d0118b56);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPDeviceControlVtbl {
+pub struct IUPnPDeviceControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxmldesc: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrdeviceidentifier: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrinitstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -788,12 +788,12 @@ impl ::core::fmt::Debug for IUPnPDeviceControlHttpHeaders {
     }
 }
 unsafe impl ::windows::core::Interface for IUPnPDeviceControlHttpHeaders {
-    type Vtable = IUPnPDeviceControlHttpHeadersVtbl;
+    type Vtable = IUPnPDeviceControlHttpHeaders_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204810bb_73b2_11d4_bf42_00b0d0118b56);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPDeviceControlHttpHeadersVtbl {
+pub struct IUPnPDeviceControlHttpHeaders_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetAdditionalResponseHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrhttpresponseheaders: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -848,12 +848,12 @@ impl ::core::fmt::Debug for IUPnPDeviceDocumentAccess {
     }
 }
 unsafe impl ::windows::core::Interface for IUPnPDeviceDocumentAccess {
-    type Vtable = IUPnPDeviceDocumentAccessVtbl;
+    type Vtable = IUPnPDeviceDocumentAccess_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7772804_3287_418e_9072_cf2b47238981);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPDeviceDocumentAccessVtbl {
+pub struct IUPnPDeviceDocumentAccess_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetDocumentURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdocument: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -908,12 +908,12 @@ impl ::core::fmt::Debug for IUPnPDeviceDocumentAccessEx {
     }
 }
 unsafe impl ::windows::core::Interface for IUPnPDeviceDocumentAccessEx {
-    type Vtable = IUPnPDeviceDocumentAccessExVtbl;
+    type Vtable = IUPnPDeviceDocumentAccessEx_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4bc4050_6178_4bd1_a4b8_6398321f3247);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPDeviceDocumentAccessExVtbl {
+pub struct IUPnPDeviceDocumentAccessEx_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdocument: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -1045,14 +1045,14 @@ impl ::core::fmt::Debug for IUPnPDeviceFinder {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUPnPDeviceFinder {
-    type Vtable = IUPnPDeviceFinderVtbl;
+    type Vtable = IUPnPDeviceFinder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadda3d55_6f72_4319_bff9_18600a539b10);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPDeviceFinderVtbl {
-    pub base: super::super::super::System::Com::IDispatchVtbl,
+pub struct IUPnPDeviceFinder_Vtbl {
+    pub base: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub FindByType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtypeuri: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, dwflags: u32, pdevices: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -1115,12 +1115,12 @@ impl ::core::fmt::Debug for IUPnPDeviceFinderAddCallbackWithInterface {
     }
 }
 unsafe impl ::windows::core::Interface for IUPnPDeviceFinderAddCallbackWithInterface {
-    type Vtable = IUPnPDeviceFinderAddCallbackWithInterfaceVtbl;
+    type Vtable = IUPnPDeviceFinderAddCallbackWithInterface_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x983dfc0b_1796_44df_8975_ca545b620ee5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPDeviceFinderAddCallbackWithInterfaceVtbl {
+pub struct IUPnPDeviceFinderAddCallbackWithInterface_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub DeviceAddedWithInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lfinddata: i32, pdevice: ::windows::core::RawPtr, pguidinterface: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -1183,12 +1183,12 @@ impl ::core::fmt::Debug for IUPnPDeviceFinderCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IUPnPDeviceFinderCallback {
-    type Vtable = IUPnPDeviceFinderCallbackVtbl;
+    type Vtable = IUPnPDeviceFinderCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x415a984a_88b3_49f3_92af_0508bedf0d6c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPDeviceFinderCallbackVtbl {
+pub struct IUPnPDeviceFinderCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub DeviceAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lfinddata: i32, pdevice: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1251,12 +1251,12 @@ impl ::core::fmt::Debug for IUPnPDeviceProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IUPnPDeviceProvider {
-    type Vtable = IUPnPDeviceProviderVtbl;
+    type Vtable = IUPnPDeviceProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204810b8_73b2_11d4_bf42_00b0d0118b56);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPDeviceProviderVtbl {
+pub struct IUPnPDeviceProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinitstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -1379,14 +1379,14 @@ impl ::core::fmt::Debug for IUPnPDevices {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUPnPDevices {
-    type Vtable = IUPnPDevicesVtbl;
+    type Vtable = IUPnPDevices_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdbc0c73_bda3_4c66_ac4f_f2d96fdad68c);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPDevicesVtbl {
-    pub base: super::super::super::System::Com::IDispatchVtbl,
+pub struct IUPnPDevices_Vtbl {
+    pub base: super::super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1445,12 +1445,12 @@ impl ::core::fmt::Debug for IUPnPEventSink {
     }
 }
 unsafe impl ::windows::core::Interface for IUPnPEventSink {
-    type Vtable = IUPnPEventSinkVtbl;
+    type Vtable = IUPnPEventSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204810b4_73b2_11d4_bf42_00b0d0118b56);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPEventSinkVtbl {
+pub struct IUPnPEventSink_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchanges: u32, rgdispidchanges: *const i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1508,12 +1508,12 @@ impl ::core::fmt::Debug for IUPnPEventSource {
     }
 }
 unsafe impl ::windows::core::Interface for IUPnPEventSource {
-    type Vtable = IUPnPEventSourceVtbl;
+    type Vtable = IUPnPEventSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204810b5_73b2_11d4_bf42_00b0d0118b56);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPEventSourceVtbl {
+pub struct IUPnPEventSource_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pessubscriber: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pessubscriber: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1565,12 +1565,12 @@ impl ::core::fmt::Debug for IUPnPHttpHeaderControl {
     }
 }
 unsafe impl ::windows::core::Interface for IUPnPHttpHeaderControl {
-    type Vtable = IUPnPHttpHeaderControlVtbl;
+    type Vtable = IUPnPHttpHeaderControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0405af4f_8b5c_447c_80f2_b75984a31f3c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPHttpHeaderControlVtbl {
+pub struct IUPnPHttpHeaderControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddRequestHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrhttpheaders: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -1652,12 +1652,12 @@ impl ::core::fmt::Debug for IUPnPRegistrar {
     }
 }
 unsafe impl ::windows::core::Interface for IUPnPRegistrar {
-    type Vtable = IUPnPRegistrarVtbl;
+    type Vtable = IUPnPRegistrar_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204810b6_73b2_11d4_bf42_00b0d0118b56);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPRegistrarVtbl {
+pub struct IUPnPRegistrar_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RegisterDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxmldesc: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrprogiddevicecontrolclass: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrinitstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrcontainerid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrresourcepath: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, nlifetime: i32, pbstrdeviceidentifier: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -1744,12 +1744,12 @@ impl ::core::fmt::Debug for IUPnPRemoteEndpointInfo {
     }
 }
 unsafe impl ::windows::core::Interface for IUPnPRemoteEndpointInfo {
-    type Vtable = IUPnPRemoteEndpointInfoVtbl;
+    type Vtable = IUPnPRemoteEndpointInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc92eb863_0269_4aff_9c72_75321bba2952);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPRemoteEndpointInfoVtbl {
+pub struct IUPnPRemoteEndpointInfo_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetDwordValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrvaluename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdwvalue: *mut u32) -> ::windows::core::HRESULT,
@@ -1816,12 +1816,12 @@ impl ::core::fmt::Debug for IUPnPReregistrar {
     }
 }
 unsafe impl ::windows::core::Interface for IUPnPReregistrar {
-    type Vtable = IUPnPReregistrarVtbl;
+    type Vtable = IUPnPReregistrar_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204810b7_73b2_11d4_bf42_00b0d0118b56);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPReregistrarVtbl {
+pub struct IUPnPReregistrar_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ReregisterDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdeviceidentifier: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrxmldesc: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrprogiddevicecontrolclass: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrinitstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrcontainerid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrresourcepath: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, nlifetime: i32) -> ::windows::core::HRESULT,
@@ -1963,14 +1963,14 @@ impl ::core::fmt::Debug for IUPnPService {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUPnPService {
-    type Vtable = IUPnPServiceVtbl;
+    type Vtable = IUPnPService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa295019c_dc65_47dd_90dc_7fe918a1ab44);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPServiceVtbl {
-    pub base: super::super::super::System::Com::IDispatchVtbl,
+pub struct IUPnPService_Vtbl {
+    pub base: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub QueryStateVariable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrvariablename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -2078,12 +2078,12 @@ impl ::core::fmt::Debug for IUPnPServiceAsync {
     }
 }
 unsafe impl ::windows::core::Interface for IUPnPServiceAsync {
-    type Vtable = IUPnPServiceAsyncVtbl;
+    type Vtable = IUPnPServiceAsync_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x098bdaf5_5ec1_49e7_a260_b3a11dd8680c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPServiceAsyncVtbl {
+pub struct IUPnPServiceAsync_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub BeginInvokeAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstractionname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, vinactionargs: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pasyncresult: ::windows::core::RawPtr, pullrequestid: *mut u64) -> ::windows::core::HRESULT,
@@ -2162,12 +2162,12 @@ impl ::core::fmt::Debug for IUPnPServiceCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IUPnPServiceCallback {
-    type Vtable = IUPnPServiceCallbackVtbl;
+    type Vtable = IUPnPServiceCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31fadca9_ab73_464b_b67d_5c1d0f83c8b8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPServiceCallbackVtbl {
+pub struct IUPnPServiceCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub StateVariableChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pus: ::windows::core::RawPtr, pcwszstatevarname: super::super::super::Foundation::PWSTR, vavalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
@@ -2232,12 +2232,12 @@ impl ::core::fmt::Debug for IUPnPServiceDocumentAccess {
     }
 }
 unsafe impl ::windows::core::Interface for IUPnPServiceDocumentAccess {
-    type Vtable = IUPnPServiceDocumentAccessVtbl;
+    type Vtable = IUPnPServiceDocumentAccess_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21905529_0a5e_4589_825d_7e6d87ea6998);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPServiceDocumentAccessVtbl {
+pub struct IUPnPServiceDocumentAccess_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetDocumentURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdocurl: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -2294,12 +2294,12 @@ impl ::core::fmt::Debug for IUPnPServiceEnumProperty {
     }
 }
 unsafe impl ::windows::core::Interface for IUPnPServiceEnumProperty {
-    type Vtable = IUPnPServiceEnumPropertyVtbl;
+    type Vtable = IUPnPServiceEnumProperty_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38873b37_91bb_49f4_b249_2e8efbb8a816);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPServiceEnumPropertyVtbl {
+pub struct IUPnPServiceEnumProperty_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetServiceEnumProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmask: u32) -> ::windows::core::HRESULT,
 }
@@ -2418,14 +2418,14 @@ impl ::core::fmt::Debug for IUPnPServices {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUPnPServices {
-    type Vtable = IUPnPServicesVtbl;
+    type Vtable = IUPnPServices_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f8c8e9e_9a7a_4dc8_bc41_ff31fa374956);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUPnPServicesVtbl {
-    pub base: super::super::super::System::Com::IDispatchVtbl,
+pub struct IUPnPServices_Vtbl {
+    pub base: super::super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]

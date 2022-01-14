@@ -123,14 +123,14 @@ impl ::core::fmt::Debug for IEnumNetworkConnections {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IEnumNetworkConnections {
-    type Vtable = IEnumNetworkConnectionsVtbl;
+    type Vtable = IEnumNetworkConnections_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00006_570f_4a9b_8d69_199fdba5723b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumNetworkConnectionsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IEnumNetworkConnections_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Ole")]
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumvar: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
@@ -270,14 +270,14 @@ impl ::core::fmt::Debug for IEnumNetworks {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IEnumNetworks {
-    type Vtable = IEnumNetworksVtbl;
+    type Vtable = IEnumNetworks_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00003_570f_4a9b_8d69_199fdba5723b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumNetworksVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IEnumNetworks_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Ole")]
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumvar: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
@@ -458,14 +458,14 @@ impl ::core::fmt::Debug for INetwork {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for INetwork {
-    type Vtable = INetworkVtbl;
+    type Vtable = INetwork_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00002_570f_4a9b_8d69_199fdba5723b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetworkVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct INetwork_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psznetworkname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -630,14 +630,14 @@ impl ::core::fmt::Debug for INetworkConnection {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for INetworkConnection {
-    type Vtable = INetworkConnectionVtbl;
+    type Vtable = INetworkConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00005_570f_4a9b_8d69_199fdba5723b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetworkConnectionVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct INetworkConnection_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetNetwork: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnetwork: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -702,12 +702,12 @@ impl ::core::fmt::Debug for INetworkConnectionCost {
     }
 }
 unsafe impl ::windows::core::Interface for INetworkConnectionCost {
-    type Vtable = INetworkConnectionCostVtbl;
+    type Vtable = INetworkConnectionCost_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb0000a_570f_4a9b_8d69_199fdba5723b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetworkConnectionCostVtbl {
+pub struct INetworkConnectionCost_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcost: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -765,12 +765,12 @@ impl ::core::fmt::Debug for INetworkConnectionCostEvents {
     }
 }
 unsafe impl ::windows::core::Interface for INetworkConnectionCostEvents {
-    type Vtable = INetworkConnectionCostEventsVtbl;
+    type Vtable = INetworkConnectionCostEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb0000b_570f_4a9b_8d69_199fdba5723b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetworkConnectionCostEventsVtbl {
+pub struct INetworkConnectionCostEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub ConnectionCostChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionid: ::windows::core::GUID, newcost: u32) -> ::windows::core::HRESULT,
     pub ConnectionDataPlanStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionid: ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -825,12 +825,12 @@ impl ::core::fmt::Debug for INetworkConnectionEvents {
     }
 }
 unsafe impl ::windows::core::Interface for INetworkConnectionEvents {
-    type Vtable = INetworkConnectionEventsVtbl;
+    type Vtable = INetworkConnectionEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00007_570f_4a9b_8d69_199fdba5723b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetworkConnectionEventsVtbl {
+pub struct INetworkConnectionEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub NetworkConnectionConnectivityChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionid: ::windows::core::GUID, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::HRESULT,
     pub NetworkConnectionPropertyChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionid: ::windows::core::GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> ::windows::core::HRESULT,
@@ -890,12 +890,12 @@ impl ::core::fmt::Debug for INetworkCostManager {
     }
 }
 unsafe impl ::windows::core::Interface for INetworkCostManager {
-    type Vtable = INetworkCostManagerVtbl;
+    type Vtable = INetworkCostManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00008_570f_4a9b_8d69_199fdba5723b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetworkCostManagerVtbl {
+pub struct INetworkCostManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcost: *mut u32, pdestipaddr: *const NLM_SOCKADDR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -954,12 +954,12 @@ impl ::core::fmt::Debug for INetworkCostManagerEvents {
     }
 }
 unsafe impl ::windows::core::Interface for INetworkCostManagerEvents {
-    type Vtable = INetworkCostManagerEventsVtbl;
+    type Vtable = INetworkCostManagerEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00009_570f_4a9b_8d69_199fdba5723b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetworkCostManagerEventsVtbl {
+pub struct INetworkCostManagerEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CostChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcost: u32, pdestaddr: *const NLM_SOCKADDR) -> ::windows::core::HRESULT,
     pub DataPlanStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdestaddr: *const NLM_SOCKADDR) -> ::windows::core::HRESULT,
@@ -1022,12 +1022,12 @@ impl ::core::fmt::Debug for INetworkEvents {
     }
 }
 unsafe impl ::windows::core::Interface for INetworkEvents {
-    type Vtable = INetworkEventsVtbl;
+    type Vtable = INetworkEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00004_570f_4a9b_8d69_199fdba5723b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetworkEventsVtbl {
+pub struct INetworkEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub NetworkAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networkid: ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub NetworkDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networkid: ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -1180,14 +1180,14 @@ impl ::core::fmt::Debug for INetworkListManager {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for INetworkListManager {
-    type Vtable = INetworkListManagerVtbl;
+    type Vtable = INetworkListManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00000_570f_4a9b_8d69_199fdba5723b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetworkListManagerVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct INetworkListManager_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetNetworks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: NLM_ENUM_NETWORK, ppenumnetwork: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1256,12 +1256,12 @@ impl ::core::fmt::Debug for INetworkListManagerEvents {
     }
 }
 unsafe impl ::windows::core::Interface for INetworkListManagerEvents {
-    type Vtable = INetworkListManagerEventsVtbl;
+    type Vtable = INetworkListManagerEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb00001_570f_4a9b_8d69_199fdba5723b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetworkListManagerEventsVtbl {
+pub struct INetworkListManagerEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub ConnectivityChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::HRESULT,
 }

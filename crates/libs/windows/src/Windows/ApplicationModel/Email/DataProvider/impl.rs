@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailDataProviderConnectionImpl: Sized {
+pub trait IEmailDataProviderConnection_Impl: Sized {
     fn MailboxSyncRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxSyncManagerSyncRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveMailboxSyncRequested(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn DownloadMessageRequested(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxDownloadMessageRequestEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
@@ -37,9 +37,9 @@ impl ::windows::core::RuntimeName for IEmailDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailDataProviderConnectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailDataProviderConnectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailDataProviderConnectionVtbl {
-        unsafe extern "system" fn MailboxSyncRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IEmailDataProviderConnection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailDataProviderConnection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailDataProviderConnection_Vtbl {
+        unsafe extern "system" fn MailboxSyncRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MailboxSyncRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxSyncManagerSyncRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxSyncManagerSyncRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -50,11 +50,11 @@ impl IEmailDataProviderConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMailboxSyncRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMailboxSyncRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMailboxSyncRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DownloadMessageRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DownloadMessageRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DownloadMessageRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxDownloadMessageRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxDownloadMessageRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -65,11 +65,11 @@ impl IEmailDataProviderConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDownloadMessageRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDownloadMessageRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDownloadMessageRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DownloadAttachmentRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DownloadAttachmentRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DownloadAttachmentRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxDownloadAttachmentRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxDownloadAttachmentRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -80,11 +80,11 @@ impl IEmailDataProviderConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDownloadAttachmentRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDownloadAttachmentRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDownloadAttachmentRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CreateFolderRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFolderRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFolderRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxCreateFolderRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxCreateFolderRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -95,11 +95,11 @@ impl IEmailDataProviderConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCreateFolderRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCreateFolderRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCreateFolderRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DeleteFolderRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteFolderRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeleteFolderRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxDeleteFolderRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxDeleteFolderRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -110,11 +110,11 @@ impl IEmailDataProviderConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDeleteFolderRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDeleteFolderRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDeleteFolderRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EmptyFolderRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EmptyFolderRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmptyFolderRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxEmptyFolderRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxEmptyFolderRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -125,11 +125,11 @@ impl IEmailDataProviderConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveEmptyFolderRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveEmptyFolderRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveEmptyFolderRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MoveFolderRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MoveFolderRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MoveFolderRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxMoveFolderRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxMoveFolderRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -140,11 +140,11 @@ impl IEmailDataProviderConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMoveFolderRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMoveFolderRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMoveFolderRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn UpdateMeetingResponseRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateMeetingResponseRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateMeetingResponseRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxUpdateMeetingResponseRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxUpdateMeetingResponseRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -155,11 +155,11 @@ impl IEmailDataProviderConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveUpdateMeetingResponseRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveUpdateMeetingResponseRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveUpdateMeetingResponseRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ForwardMeetingRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ForwardMeetingRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ForwardMeetingRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxForwardMeetingRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxForwardMeetingRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -170,11 +170,11 @@ impl IEmailDataProviderConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveForwardMeetingRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveForwardMeetingRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveForwardMeetingRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ProposeNewTimeForMeetingRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProposeNewTimeForMeetingRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProposeNewTimeForMeetingRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxProposeNewTimeForMeetingRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxProposeNewTimeForMeetingRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -185,11 +185,11 @@ impl IEmailDataProviderConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveProposeNewTimeForMeetingRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveProposeNewTimeForMeetingRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveProposeNewTimeForMeetingRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetAutoReplySettingsRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAutoReplySettingsRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetAutoReplySettingsRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxSetAutoReplySettingsRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxSetAutoReplySettingsRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -200,11 +200,11 @@ impl IEmailDataProviderConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSetAutoReplySettingsRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSetAutoReplySettingsRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSetAutoReplySettingsRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetAutoReplySettingsRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAutoReplySettingsRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAutoReplySettingsRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxGetAutoReplySettingsRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxGetAutoReplySettingsRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -215,11 +215,11 @@ impl IEmailDataProviderConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveGetAutoReplySettingsRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveGetAutoReplySettingsRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveGetAutoReplySettingsRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ResolveRecipientsRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResolveRecipientsRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResolveRecipientsRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxResolveRecipientsRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxResolveRecipientsRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -230,11 +230,11 @@ impl IEmailDataProviderConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveResolveRecipientsRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveResolveRecipientsRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveResolveRecipientsRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ValidateCertificatesRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ValidateCertificatesRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ValidateCertificatesRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxValidateCertificatesRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxValidateCertificatesRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -245,11 +245,11 @@ impl IEmailDataProviderConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveValidateCertificatesRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveValidateCertificatesRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveValidateCertificatesRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ServerSearchReadBatchRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServerSearchReadBatchRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerSearchReadBatchRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxServerSearchReadBatchRequestEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxServerSearchReadBatchRequestEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -260,11 +260,11 @@ impl IEmailDataProviderConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveServerSearchReadBatchRequested<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveServerSearchReadBatchRequested<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveServerSearchReadBatchRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Start<Impl: IEmailDataProviderConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Start<Impl: IEmailDataProviderConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
@@ -308,7 +308,7 @@ impl IEmailDataProviderConnectionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEmailDataProviderTriggerDetailsImpl: Sized {
+pub trait IEmailDataProviderTriggerDetails_Impl: Sized {
     fn Connection(&mut self) -> ::windows::core::Result<EmailDataProviderConnection>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -316,9 +316,9 @@ impl ::windows::core::RuntimeName for IEmailDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderTriggerDetails";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEmailDataProviderTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailDataProviderTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailDataProviderTriggerDetailsVtbl {
-        unsafe extern "system" fn Connection<Impl: IEmailDataProviderTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEmailDataProviderTriggerDetails_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailDataProviderTriggerDetails_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailDataProviderTriggerDetails_Vtbl {
+        unsafe extern "system" fn Connection<Impl: IEmailDataProviderTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Connection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -339,7 +339,7 @@ impl IEmailDataProviderTriggerDetailsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxCreateFolderRequestImpl: Sized {
+pub trait IEmailMailboxCreateFolderRequest_Impl: Sized {
     fn EmailMailboxId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ParentFolderId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -351,9 +351,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxCreateFolderRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxCreateFolderRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxCreateFolderRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxCreateFolderRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxCreateFolderRequestVtbl {
-        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxCreateFolderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IEmailMailboxCreateFolderRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxCreateFolderRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxCreateFolderRequest_Vtbl {
+        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxCreateFolderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailMailboxId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -364,7 +364,7 @@ impl IEmailMailboxCreateFolderRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ParentFolderId<Impl: IEmailMailboxCreateFolderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ParentFolderId<Impl: IEmailMailboxCreateFolderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ParentFolderId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -375,7 +375,7 @@ impl IEmailMailboxCreateFolderRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Impl: IEmailMailboxCreateFolderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Impl: IEmailMailboxCreateFolderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -386,7 +386,7 @@ impl IEmailMailboxCreateFolderRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxCreateFolderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, folder: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxCreateFolderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, folder: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportCompletedAsync(&*(&folder as *const <super::EmailFolder as ::windows::core::Abi>::Abi as *const <super::EmailFolder as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -397,7 +397,7 @@ impl IEmailMailboxCreateFolderRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxCreateFolderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: super::EmailMailboxCreateFolderStatus, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxCreateFolderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: super::EmailMailboxCreateFolderStatus, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportFailedAsync(status) {
                 ::core::result::Result::Ok(ok__) => {
@@ -422,7 +422,7 @@ impl IEmailMailboxCreateFolderRequestVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxCreateFolderRequestEventArgsImpl: Sized {
+pub trait IEmailMailboxCreateFolderRequestEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<EmailMailboxCreateFolderRequest>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
@@ -431,9 +431,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxCreateFolderRequestEventArgs 
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxCreateFolderRequestEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxCreateFolderRequestEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxCreateFolderRequestEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxCreateFolderRequestEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: IEmailMailboxCreateFolderRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEmailMailboxCreateFolderRequestEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxCreateFolderRequestEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxCreateFolderRequestEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: IEmailMailboxCreateFolderRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -444,7 +444,7 @@ impl IEmailMailboxCreateFolderRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxCreateFolderRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxCreateFolderRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -466,7 +466,7 @@ impl IEmailMailboxCreateFolderRequestEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxDeleteFolderRequestImpl: Sized {
+pub trait IEmailMailboxDeleteFolderRequest_Impl: Sized {
     fn EmailMailboxId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn EmailFolderId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ReportCompletedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
@@ -477,9 +477,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxDeleteFolderRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDeleteFolderRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxDeleteFolderRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxDeleteFolderRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxDeleteFolderRequestVtbl {
-        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxDeleteFolderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IEmailMailboxDeleteFolderRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxDeleteFolderRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxDeleteFolderRequest_Vtbl {
+        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxDeleteFolderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailMailboxId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -490,7 +490,7 @@ impl IEmailMailboxDeleteFolderRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EmailFolderId<Impl: IEmailMailboxDeleteFolderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EmailFolderId<Impl: IEmailMailboxDeleteFolderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailFolderId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -501,7 +501,7 @@ impl IEmailMailboxDeleteFolderRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxDeleteFolderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxDeleteFolderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportCompletedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -512,7 +512,7 @@ impl IEmailMailboxDeleteFolderRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxDeleteFolderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: super::EmailMailboxDeleteFolderStatus, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxDeleteFolderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: super::EmailMailboxDeleteFolderStatus, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportFailedAsync(status) {
                 ::core::result::Result::Ok(ok__) => {
@@ -536,7 +536,7 @@ impl IEmailMailboxDeleteFolderRequestVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxDeleteFolderRequestEventArgsImpl: Sized {
+pub trait IEmailMailboxDeleteFolderRequestEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<EmailMailboxDeleteFolderRequest>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
@@ -545,9 +545,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxDeleteFolderRequestEventArgs 
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDeleteFolderRequestEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxDeleteFolderRequestEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxDeleteFolderRequestEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxDeleteFolderRequestEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: IEmailMailboxDeleteFolderRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEmailMailboxDeleteFolderRequestEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxDeleteFolderRequestEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxDeleteFolderRequestEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: IEmailMailboxDeleteFolderRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -558,7 +558,7 @@ impl IEmailMailboxDeleteFolderRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxDeleteFolderRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxDeleteFolderRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -580,7 +580,7 @@ impl IEmailMailboxDeleteFolderRequestEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxDownloadAttachmentRequestImpl: Sized {
+pub trait IEmailMailboxDownloadAttachmentRequest_Impl: Sized {
     fn EmailMailboxId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn EmailMessageId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn EmailAttachmentId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -592,9 +592,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxDownloadAttachmentRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadAttachmentRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxDownloadAttachmentRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxDownloadAttachmentRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxDownloadAttachmentRequestVtbl {
-        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxDownloadAttachmentRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IEmailMailboxDownloadAttachmentRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxDownloadAttachmentRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxDownloadAttachmentRequest_Vtbl {
+        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxDownloadAttachmentRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailMailboxId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -605,7 +605,7 @@ impl IEmailMailboxDownloadAttachmentRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EmailMessageId<Impl: IEmailMailboxDownloadAttachmentRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EmailMessageId<Impl: IEmailMailboxDownloadAttachmentRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailMessageId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -616,7 +616,7 @@ impl IEmailMailboxDownloadAttachmentRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EmailAttachmentId<Impl: IEmailMailboxDownloadAttachmentRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EmailAttachmentId<Impl: IEmailMailboxDownloadAttachmentRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailAttachmentId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -627,7 +627,7 @@ impl IEmailMailboxDownloadAttachmentRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxDownloadAttachmentRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxDownloadAttachmentRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportCompletedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -638,7 +638,7 @@ impl IEmailMailboxDownloadAttachmentRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxDownloadAttachmentRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxDownloadAttachmentRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportFailedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -663,7 +663,7 @@ impl IEmailMailboxDownloadAttachmentRequestVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxDownloadAttachmentRequestEventArgsImpl: Sized {
+pub trait IEmailMailboxDownloadAttachmentRequestEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<EmailMailboxDownloadAttachmentRequest>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
@@ -672,9 +672,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxDownloadAttachmentRequestEven
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadAttachmentRequestEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxDownloadAttachmentRequestEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxDownloadAttachmentRequestEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxDownloadAttachmentRequestEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: IEmailMailboxDownloadAttachmentRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEmailMailboxDownloadAttachmentRequestEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxDownloadAttachmentRequestEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxDownloadAttachmentRequestEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: IEmailMailboxDownloadAttachmentRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -685,7 +685,7 @@ impl IEmailMailboxDownloadAttachmentRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxDownloadAttachmentRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxDownloadAttachmentRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -707,7 +707,7 @@ impl IEmailMailboxDownloadAttachmentRequestEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxDownloadMessageRequestImpl: Sized {
+pub trait IEmailMailboxDownloadMessageRequest_Impl: Sized {
     fn EmailMailboxId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn EmailMessageId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ReportCompletedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
@@ -718,9 +718,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxDownloadMessageRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadMessageRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxDownloadMessageRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxDownloadMessageRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxDownloadMessageRequestVtbl {
-        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxDownloadMessageRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IEmailMailboxDownloadMessageRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxDownloadMessageRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxDownloadMessageRequest_Vtbl {
+        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxDownloadMessageRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailMailboxId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -731,7 +731,7 @@ impl IEmailMailboxDownloadMessageRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EmailMessageId<Impl: IEmailMailboxDownloadMessageRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EmailMessageId<Impl: IEmailMailboxDownloadMessageRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailMessageId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -742,7 +742,7 @@ impl IEmailMailboxDownloadMessageRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxDownloadMessageRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxDownloadMessageRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportCompletedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -753,7 +753,7 @@ impl IEmailMailboxDownloadMessageRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxDownloadMessageRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxDownloadMessageRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportFailedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -777,7 +777,7 @@ impl IEmailMailboxDownloadMessageRequestVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxDownloadMessageRequestEventArgsImpl: Sized {
+pub trait IEmailMailboxDownloadMessageRequestEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<EmailMailboxDownloadMessageRequest>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
@@ -786,9 +786,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxDownloadMessageRequestEventAr
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadMessageRequestEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxDownloadMessageRequestEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxDownloadMessageRequestEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxDownloadMessageRequestEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: IEmailMailboxDownloadMessageRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEmailMailboxDownloadMessageRequestEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxDownloadMessageRequestEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxDownloadMessageRequestEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: IEmailMailboxDownloadMessageRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -799,7 +799,7 @@ impl IEmailMailboxDownloadMessageRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxDownloadMessageRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxDownloadMessageRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -821,7 +821,7 @@ impl IEmailMailboxDownloadMessageRequestEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxEmptyFolderRequestImpl: Sized {
+pub trait IEmailMailboxEmptyFolderRequest_Impl: Sized {
     fn EmailMailboxId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn EmailFolderId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ReportCompletedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
@@ -832,9 +832,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxEmptyFolderRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxEmptyFolderRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxEmptyFolderRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxEmptyFolderRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxEmptyFolderRequestVtbl {
-        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxEmptyFolderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IEmailMailboxEmptyFolderRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxEmptyFolderRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxEmptyFolderRequest_Vtbl {
+        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxEmptyFolderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailMailboxId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -845,7 +845,7 @@ impl IEmailMailboxEmptyFolderRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EmailFolderId<Impl: IEmailMailboxEmptyFolderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EmailFolderId<Impl: IEmailMailboxEmptyFolderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailFolderId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -856,7 +856,7 @@ impl IEmailMailboxEmptyFolderRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxEmptyFolderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxEmptyFolderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportCompletedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -867,7 +867,7 @@ impl IEmailMailboxEmptyFolderRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxEmptyFolderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: super::EmailMailboxEmptyFolderStatus, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxEmptyFolderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: super::EmailMailboxEmptyFolderStatus, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportFailedAsync(status) {
                 ::core::result::Result::Ok(ok__) => {
@@ -891,7 +891,7 @@ impl IEmailMailboxEmptyFolderRequestVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxEmptyFolderRequestEventArgsImpl: Sized {
+pub trait IEmailMailboxEmptyFolderRequestEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<EmailMailboxEmptyFolderRequest>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
@@ -900,9 +900,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxEmptyFolderRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxEmptyFolderRequestEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxEmptyFolderRequestEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxEmptyFolderRequestEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxEmptyFolderRequestEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: IEmailMailboxEmptyFolderRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEmailMailboxEmptyFolderRequestEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxEmptyFolderRequestEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxEmptyFolderRequestEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: IEmailMailboxEmptyFolderRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -913,7 +913,7 @@ impl IEmailMailboxEmptyFolderRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxEmptyFolderRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxEmptyFolderRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -935,7 +935,7 @@ impl IEmailMailboxEmptyFolderRequestEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IEmailMailboxForwardMeetingRequestImpl: Sized {
+pub trait IEmailMailboxForwardMeetingRequest_Impl: Sized {
     fn EmailMailboxId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn EmailMessageId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Recipients(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::EmailRecipient>>;
@@ -951,9 +951,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxForwardMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxForwardMeetingRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IEmailMailboxForwardMeetingRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxForwardMeetingRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxForwardMeetingRequestVtbl {
-        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxForwardMeetingRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IEmailMailboxForwardMeetingRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxForwardMeetingRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxForwardMeetingRequest_Vtbl {
+        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxForwardMeetingRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailMailboxId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -964,7 +964,7 @@ impl IEmailMailboxForwardMeetingRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EmailMessageId<Impl: IEmailMailboxForwardMeetingRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EmailMessageId<Impl: IEmailMailboxForwardMeetingRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailMessageId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -975,7 +975,7 @@ impl IEmailMailboxForwardMeetingRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Recipients<Impl: IEmailMailboxForwardMeetingRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Recipients<Impl: IEmailMailboxForwardMeetingRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Recipients() {
                 ::core::result::Result::Ok(ok__) => {
@@ -986,7 +986,7 @@ impl IEmailMailboxForwardMeetingRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Subject<Impl: IEmailMailboxForwardMeetingRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Subject<Impl: IEmailMailboxForwardMeetingRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Subject() {
                 ::core::result::Result::Ok(ok__) => {
@@ -997,7 +997,7 @@ impl IEmailMailboxForwardMeetingRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ForwardHeaderType<Impl: IEmailMailboxForwardMeetingRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::EmailMessageBodyKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ForwardHeaderType<Impl: IEmailMailboxForwardMeetingRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::EmailMessageBodyKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ForwardHeaderType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1008,7 +1008,7 @@ impl IEmailMailboxForwardMeetingRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ForwardHeader<Impl: IEmailMailboxForwardMeetingRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ForwardHeader<Impl: IEmailMailboxForwardMeetingRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ForwardHeader() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1019,7 +1019,7 @@ impl IEmailMailboxForwardMeetingRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Comment<Impl: IEmailMailboxForwardMeetingRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Comment<Impl: IEmailMailboxForwardMeetingRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Comment() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1030,7 +1030,7 @@ impl IEmailMailboxForwardMeetingRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxForwardMeetingRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxForwardMeetingRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportCompletedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1041,7 +1041,7 @@ impl IEmailMailboxForwardMeetingRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxForwardMeetingRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxForwardMeetingRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportFailedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1070,7 +1070,7 @@ impl IEmailMailboxForwardMeetingRequestVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxForwardMeetingRequestEventArgsImpl: Sized {
+pub trait IEmailMailboxForwardMeetingRequestEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<EmailMailboxForwardMeetingRequest>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
@@ -1079,9 +1079,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxForwardMeetingRequestEventArg
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxForwardMeetingRequestEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxForwardMeetingRequestEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxForwardMeetingRequestEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxForwardMeetingRequestEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: IEmailMailboxForwardMeetingRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEmailMailboxForwardMeetingRequestEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxForwardMeetingRequestEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxForwardMeetingRequestEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: IEmailMailboxForwardMeetingRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1092,7 +1092,7 @@ impl IEmailMailboxForwardMeetingRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxForwardMeetingRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxForwardMeetingRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1114,7 +1114,7 @@ impl IEmailMailboxForwardMeetingRequestEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxGetAutoReplySettingsRequestImpl: Sized {
+pub trait IEmailMailboxGetAutoReplySettingsRequest_Impl: Sized {
     fn EmailMailboxId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn RequestedFormat(&mut self) -> ::windows::core::Result<super::EmailMailboxAutoReplyMessageResponseKind>;
     fn ReportCompletedAsync(&mut self, autoreplysettings: &::core::option::Option<super::EmailMailboxAutoReplySettings>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
@@ -1125,9 +1125,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxGetAutoReplySettingsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxGetAutoReplySettingsRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxGetAutoReplySettingsRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxGetAutoReplySettingsRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxGetAutoReplySettingsRequestVtbl {
-        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxGetAutoReplySettingsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IEmailMailboxGetAutoReplySettingsRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxGetAutoReplySettingsRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxGetAutoReplySettingsRequest_Vtbl {
+        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxGetAutoReplySettingsRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailMailboxId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1138,7 +1138,7 @@ impl IEmailMailboxGetAutoReplySettingsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestedFormat<Impl: IEmailMailboxGetAutoReplySettingsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::EmailMailboxAutoReplyMessageResponseKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestedFormat<Impl: IEmailMailboxGetAutoReplySettingsRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::EmailMailboxAutoReplyMessageResponseKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestedFormat() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1149,7 +1149,7 @@ impl IEmailMailboxGetAutoReplySettingsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxGetAutoReplySettingsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, autoreplysettings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxGetAutoReplySettingsRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, autoreplysettings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportCompletedAsync(&*(&autoreplysettings as *const <super::EmailMailboxAutoReplySettings as ::windows::core::Abi>::Abi as *const <super::EmailMailboxAutoReplySettings as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1160,7 +1160,7 @@ impl IEmailMailboxGetAutoReplySettingsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxGetAutoReplySettingsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxGetAutoReplySettingsRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportFailedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1184,7 +1184,7 @@ impl IEmailMailboxGetAutoReplySettingsRequestVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxGetAutoReplySettingsRequestEventArgsImpl: Sized {
+pub trait IEmailMailboxGetAutoReplySettingsRequestEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<EmailMailboxGetAutoReplySettingsRequest>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
@@ -1193,9 +1193,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxGetAutoReplySettingsRequestEv
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxGetAutoReplySettingsRequestEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxGetAutoReplySettingsRequestEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxGetAutoReplySettingsRequestEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxGetAutoReplySettingsRequestEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: IEmailMailboxGetAutoReplySettingsRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEmailMailboxGetAutoReplySettingsRequestEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxGetAutoReplySettingsRequestEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxGetAutoReplySettingsRequestEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: IEmailMailboxGetAutoReplySettingsRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1206,7 +1206,7 @@ impl IEmailMailboxGetAutoReplySettingsRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxGetAutoReplySettingsRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxGetAutoReplySettingsRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1228,7 +1228,7 @@ impl IEmailMailboxGetAutoReplySettingsRequestEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxMoveFolderRequestImpl: Sized {
+pub trait IEmailMailboxMoveFolderRequest_Impl: Sized {
     fn EmailMailboxId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn EmailFolderId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn NewParentFolderId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1241,9 +1241,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxMoveFolderRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxMoveFolderRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxMoveFolderRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxMoveFolderRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxMoveFolderRequestVtbl {
-        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxMoveFolderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IEmailMailboxMoveFolderRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxMoveFolderRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxMoveFolderRequest_Vtbl {
+        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxMoveFolderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailMailboxId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1254,7 +1254,7 @@ impl IEmailMailboxMoveFolderRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EmailFolderId<Impl: IEmailMailboxMoveFolderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EmailFolderId<Impl: IEmailMailboxMoveFolderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailFolderId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1265,7 +1265,7 @@ impl IEmailMailboxMoveFolderRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NewParentFolderId<Impl: IEmailMailboxMoveFolderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NewParentFolderId<Impl: IEmailMailboxMoveFolderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NewParentFolderId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1276,7 +1276,7 @@ impl IEmailMailboxMoveFolderRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NewFolderName<Impl: IEmailMailboxMoveFolderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NewFolderName<Impl: IEmailMailboxMoveFolderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NewFolderName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1287,7 +1287,7 @@ impl IEmailMailboxMoveFolderRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxMoveFolderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxMoveFolderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportCompletedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1298,7 +1298,7 @@ impl IEmailMailboxMoveFolderRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxMoveFolderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxMoveFolderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportFailedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1324,7 +1324,7 @@ impl IEmailMailboxMoveFolderRequestVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxMoveFolderRequestEventArgsImpl: Sized {
+pub trait IEmailMailboxMoveFolderRequestEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<EmailMailboxMoveFolderRequest>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
@@ -1333,9 +1333,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxMoveFolderRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxMoveFolderRequestEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxMoveFolderRequestEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxMoveFolderRequestEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxMoveFolderRequestEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: IEmailMailboxMoveFolderRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEmailMailboxMoveFolderRequestEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxMoveFolderRequestEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxMoveFolderRequestEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: IEmailMailboxMoveFolderRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1346,7 +1346,7 @@ impl IEmailMailboxMoveFolderRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxMoveFolderRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxMoveFolderRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1368,7 +1368,7 @@ impl IEmailMailboxMoveFolderRequestEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxProposeNewTimeForMeetingRequestImpl: Sized {
+pub trait IEmailMailboxProposeNewTimeForMeetingRequest_Impl: Sized {
     fn EmailMailboxId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn EmailMessageId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn NewStartTime(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
@@ -1383,9 +1383,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxProposeNewTimeForMeetingReque
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxProposeNewTimeForMeetingRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxProposeNewTimeForMeetingRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxProposeNewTimeForMeetingRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxProposeNewTimeForMeetingRequestVtbl {
-        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxProposeNewTimeForMeetingRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IEmailMailboxProposeNewTimeForMeetingRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxProposeNewTimeForMeetingRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxProposeNewTimeForMeetingRequest_Vtbl {
+        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxProposeNewTimeForMeetingRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailMailboxId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1396,7 +1396,7 @@ impl IEmailMailboxProposeNewTimeForMeetingRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EmailMessageId<Impl: IEmailMailboxProposeNewTimeForMeetingRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EmailMessageId<Impl: IEmailMailboxProposeNewTimeForMeetingRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailMessageId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1407,7 +1407,7 @@ impl IEmailMailboxProposeNewTimeForMeetingRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NewStartTime<Impl: IEmailMailboxProposeNewTimeForMeetingRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NewStartTime<Impl: IEmailMailboxProposeNewTimeForMeetingRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NewStartTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1418,7 +1418,7 @@ impl IEmailMailboxProposeNewTimeForMeetingRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NewDuration<Impl: IEmailMailboxProposeNewTimeForMeetingRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NewDuration<Impl: IEmailMailboxProposeNewTimeForMeetingRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NewDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1429,7 +1429,7 @@ impl IEmailMailboxProposeNewTimeForMeetingRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Subject<Impl: IEmailMailboxProposeNewTimeForMeetingRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Subject<Impl: IEmailMailboxProposeNewTimeForMeetingRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Subject() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1440,7 +1440,7 @@ impl IEmailMailboxProposeNewTimeForMeetingRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Comment<Impl: IEmailMailboxProposeNewTimeForMeetingRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Comment<Impl: IEmailMailboxProposeNewTimeForMeetingRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Comment() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1451,7 +1451,7 @@ impl IEmailMailboxProposeNewTimeForMeetingRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxProposeNewTimeForMeetingRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxProposeNewTimeForMeetingRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportCompletedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1462,7 +1462,7 @@ impl IEmailMailboxProposeNewTimeForMeetingRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxProposeNewTimeForMeetingRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxProposeNewTimeForMeetingRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportFailedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1490,7 +1490,7 @@ impl IEmailMailboxProposeNewTimeForMeetingRequestVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxProposeNewTimeForMeetingRequestEventArgsImpl: Sized {
+pub trait IEmailMailboxProposeNewTimeForMeetingRequestEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<EmailMailboxProposeNewTimeForMeetingRequest>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
@@ -1499,9 +1499,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxProposeNewTimeForMeetingReque
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxProposeNewTimeForMeetingRequestEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxProposeNewTimeForMeetingRequestEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxProposeNewTimeForMeetingRequestEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxProposeNewTimeForMeetingRequestEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: IEmailMailboxProposeNewTimeForMeetingRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEmailMailboxProposeNewTimeForMeetingRequestEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxProposeNewTimeForMeetingRequestEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxProposeNewTimeForMeetingRequestEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: IEmailMailboxProposeNewTimeForMeetingRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1512,7 +1512,7 @@ impl IEmailMailboxProposeNewTimeForMeetingRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxProposeNewTimeForMeetingRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxProposeNewTimeForMeetingRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1534,7 +1534,7 @@ impl IEmailMailboxProposeNewTimeForMeetingRequestEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IEmailMailboxResolveRecipientsRequestImpl: Sized {
+pub trait IEmailMailboxResolveRecipientsRequest_Impl: Sized {
     fn EmailMailboxId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Recipients(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn ReportCompletedAsync(&mut self, resolutionresults: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::EmailRecipientResolutionResult>>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
@@ -1545,9 +1545,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxResolveRecipientsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxResolveRecipientsRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IEmailMailboxResolveRecipientsRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxResolveRecipientsRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxResolveRecipientsRequestVtbl {
-        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxResolveRecipientsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IEmailMailboxResolveRecipientsRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxResolveRecipientsRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxResolveRecipientsRequest_Vtbl {
+        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxResolveRecipientsRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailMailboxId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1558,7 +1558,7 @@ impl IEmailMailboxResolveRecipientsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Recipients<Impl: IEmailMailboxResolveRecipientsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Recipients<Impl: IEmailMailboxResolveRecipientsRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Recipients() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1569,7 +1569,7 @@ impl IEmailMailboxResolveRecipientsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxResolveRecipientsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resolutionresults: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxResolveRecipientsRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resolutionresults: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportCompletedAsync(&*(&resolutionresults as *const <super::super::super::Foundation::Collections::IIterable<super::EmailRecipientResolutionResult> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<super::EmailRecipientResolutionResult> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1580,7 +1580,7 @@ impl IEmailMailboxResolveRecipientsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxResolveRecipientsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxResolveRecipientsRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportFailedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1604,7 +1604,7 @@ impl IEmailMailboxResolveRecipientsRequestVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxResolveRecipientsRequestEventArgsImpl: Sized {
+pub trait IEmailMailboxResolveRecipientsRequestEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<EmailMailboxResolveRecipientsRequest>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
@@ -1613,9 +1613,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxResolveRecipientsRequestEvent
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxResolveRecipientsRequestEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxResolveRecipientsRequestEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxResolveRecipientsRequestEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxResolveRecipientsRequestEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: IEmailMailboxResolveRecipientsRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEmailMailboxResolveRecipientsRequestEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxResolveRecipientsRequestEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxResolveRecipientsRequestEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: IEmailMailboxResolveRecipientsRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1626,7 +1626,7 @@ impl IEmailMailboxResolveRecipientsRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxResolveRecipientsRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxResolveRecipientsRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1648,7 +1648,7 @@ impl IEmailMailboxResolveRecipientsRequestEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxServerSearchReadBatchRequestImpl: Sized {
+pub trait IEmailMailboxServerSearchReadBatchRequest_Impl: Sized {
     fn SessionId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn EmailMailboxId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn EmailFolderId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1663,9 +1663,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxServerSearchReadBatchRequest 
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxServerSearchReadBatchRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxServerSearchReadBatchRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxServerSearchReadBatchRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxServerSearchReadBatchRequestVtbl {
-        unsafe extern "system" fn SessionId<Impl: IEmailMailboxServerSearchReadBatchRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IEmailMailboxServerSearchReadBatchRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxServerSearchReadBatchRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxServerSearchReadBatchRequest_Vtbl {
+        unsafe extern "system" fn SessionId<Impl: IEmailMailboxServerSearchReadBatchRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1676,7 +1676,7 @@ impl IEmailMailboxServerSearchReadBatchRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxServerSearchReadBatchRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxServerSearchReadBatchRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailMailboxId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1687,7 +1687,7 @@ impl IEmailMailboxServerSearchReadBatchRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EmailFolderId<Impl: IEmailMailboxServerSearchReadBatchRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EmailFolderId<Impl: IEmailMailboxServerSearchReadBatchRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailFolderId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1698,7 +1698,7 @@ impl IEmailMailboxServerSearchReadBatchRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Options<Impl: IEmailMailboxServerSearchReadBatchRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Options<Impl: IEmailMailboxServerSearchReadBatchRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Options() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1709,7 +1709,7 @@ impl IEmailMailboxServerSearchReadBatchRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SuggestedBatchSize<Impl: IEmailMailboxServerSearchReadBatchRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SuggestedBatchSize<Impl: IEmailMailboxServerSearchReadBatchRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SuggestedBatchSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1720,7 +1720,7 @@ impl IEmailMailboxServerSearchReadBatchRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SaveMessageAsync<Impl: IEmailMailboxServerSearchReadBatchRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaveMessageAsync<Impl: IEmailMailboxServerSearchReadBatchRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SaveMessageAsync(&*(&message as *const <super::EmailMessage as ::windows::core::Abi>::Abi as *const <super::EmailMessage as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1731,7 +1731,7 @@ impl IEmailMailboxServerSearchReadBatchRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxServerSearchReadBatchRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxServerSearchReadBatchRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportCompletedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1742,7 +1742,7 @@ impl IEmailMailboxServerSearchReadBatchRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxServerSearchReadBatchRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, batchstatus: super::EmailBatchStatus, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxServerSearchReadBatchRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, batchstatus: super::EmailBatchStatus, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportFailedAsync(batchstatus) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1770,7 +1770,7 @@ impl IEmailMailboxServerSearchReadBatchRequestVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxServerSearchReadBatchRequestEventArgsImpl: Sized {
+pub trait IEmailMailboxServerSearchReadBatchRequestEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<EmailMailboxServerSearchReadBatchRequest>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
@@ -1779,9 +1779,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxServerSearchReadBatchRequestE
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxServerSearchReadBatchRequestEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxServerSearchReadBatchRequestEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxServerSearchReadBatchRequestEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxServerSearchReadBatchRequestEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: IEmailMailboxServerSearchReadBatchRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEmailMailboxServerSearchReadBatchRequestEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxServerSearchReadBatchRequestEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxServerSearchReadBatchRequestEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: IEmailMailboxServerSearchReadBatchRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1792,7 +1792,7 @@ impl IEmailMailboxServerSearchReadBatchRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxServerSearchReadBatchRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxServerSearchReadBatchRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1814,7 +1814,7 @@ impl IEmailMailboxServerSearchReadBatchRequestEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxSetAutoReplySettingsRequestImpl: Sized {
+pub trait IEmailMailboxSetAutoReplySettingsRequest_Impl: Sized {
     fn EmailMailboxId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn AutoReplySettings(&mut self) -> ::windows::core::Result<super::EmailMailboxAutoReplySettings>;
     fn ReportCompletedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
@@ -1825,9 +1825,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxSetAutoReplySettingsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSetAutoReplySettingsRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxSetAutoReplySettingsRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxSetAutoReplySettingsRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxSetAutoReplySettingsRequestVtbl {
-        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxSetAutoReplySettingsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IEmailMailboxSetAutoReplySettingsRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxSetAutoReplySettingsRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxSetAutoReplySettingsRequest_Vtbl {
+        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxSetAutoReplySettingsRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailMailboxId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1838,7 +1838,7 @@ impl IEmailMailboxSetAutoReplySettingsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AutoReplySettings<Impl: IEmailMailboxSetAutoReplySettingsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AutoReplySettings<Impl: IEmailMailboxSetAutoReplySettingsRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutoReplySettings() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1849,7 +1849,7 @@ impl IEmailMailboxSetAutoReplySettingsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxSetAutoReplySettingsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxSetAutoReplySettingsRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportCompletedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1860,7 +1860,7 @@ impl IEmailMailboxSetAutoReplySettingsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxSetAutoReplySettingsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxSetAutoReplySettingsRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportFailedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1884,7 +1884,7 @@ impl IEmailMailboxSetAutoReplySettingsRequestVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxSetAutoReplySettingsRequestEventArgsImpl: Sized {
+pub trait IEmailMailboxSetAutoReplySettingsRequestEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<EmailMailboxSetAutoReplySettingsRequest>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
@@ -1893,9 +1893,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxSetAutoReplySettingsRequestEv
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSetAutoReplySettingsRequestEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxSetAutoReplySettingsRequestEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxSetAutoReplySettingsRequestEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxSetAutoReplySettingsRequestEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: IEmailMailboxSetAutoReplySettingsRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEmailMailboxSetAutoReplySettingsRequestEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxSetAutoReplySettingsRequestEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxSetAutoReplySettingsRequestEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: IEmailMailboxSetAutoReplySettingsRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1906,7 +1906,7 @@ impl IEmailMailboxSetAutoReplySettingsRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxSetAutoReplySettingsRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxSetAutoReplySettingsRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1928,7 +1928,7 @@ impl IEmailMailboxSetAutoReplySettingsRequestEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxSyncManagerSyncRequestImpl: Sized {
+pub trait IEmailMailboxSyncManagerSyncRequest_Impl: Sized {
     fn EmailMailboxId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ReportCompletedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
     fn ReportFailedAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
@@ -1938,9 +1938,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSyncManagerSyncRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxSyncManagerSyncRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxSyncManagerSyncRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxSyncManagerSyncRequestVtbl {
-        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxSyncManagerSyncRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IEmailMailboxSyncManagerSyncRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxSyncManagerSyncRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxSyncManagerSyncRequest_Vtbl {
+        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxSyncManagerSyncRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailMailboxId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1951,7 +1951,7 @@ impl IEmailMailboxSyncManagerSyncRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxSyncManagerSyncRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxSyncManagerSyncRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportCompletedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1962,7 +1962,7 @@ impl IEmailMailboxSyncManagerSyncRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxSyncManagerSyncRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxSyncManagerSyncRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportFailedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1985,7 +1985,7 @@ impl IEmailMailboxSyncManagerSyncRequestVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxSyncManagerSyncRequestEventArgsImpl: Sized {
+pub trait IEmailMailboxSyncManagerSyncRequestEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<EmailMailboxSyncManagerSyncRequest>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
@@ -1994,9 +1994,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxSyncManagerSyncRequestEventAr
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSyncManagerSyncRequestEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxSyncManagerSyncRequestEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxSyncManagerSyncRequestEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxSyncManagerSyncRequestEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: IEmailMailboxSyncManagerSyncRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEmailMailboxSyncManagerSyncRequestEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxSyncManagerSyncRequestEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxSyncManagerSyncRequestEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: IEmailMailboxSyncManagerSyncRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2007,7 +2007,7 @@ impl IEmailMailboxSyncManagerSyncRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxSyncManagerSyncRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxSyncManagerSyncRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2029,7 +2029,7 @@ impl IEmailMailboxSyncManagerSyncRequestEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxUpdateMeetingResponseRequestImpl: Sized {
+pub trait IEmailMailboxUpdateMeetingResponseRequest_Impl: Sized {
     fn EmailMailboxId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn EmailMessageId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Response(&mut self) -> ::windows::core::Result<super::EmailMeetingResponseType>;
@@ -2044,9 +2044,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxUpdateMeetingResponseRequest 
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxUpdateMeetingResponseRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxUpdateMeetingResponseRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxUpdateMeetingResponseRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxUpdateMeetingResponseRequestVtbl {
-        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxUpdateMeetingResponseRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IEmailMailboxUpdateMeetingResponseRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxUpdateMeetingResponseRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxUpdateMeetingResponseRequest_Vtbl {
+        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxUpdateMeetingResponseRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailMailboxId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2057,7 +2057,7 @@ impl IEmailMailboxUpdateMeetingResponseRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EmailMessageId<Impl: IEmailMailboxUpdateMeetingResponseRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EmailMessageId<Impl: IEmailMailboxUpdateMeetingResponseRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailMessageId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2068,7 +2068,7 @@ impl IEmailMailboxUpdateMeetingResponseRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Response<Impl: IEmailMailboxUpdateMeetingResponseRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::EmailMeetingResponseType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Response<Impl: IEmailMailboxUpdateMeetingResponseRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::EmailMeetingResponseType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Response() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2079,7 +2079,7 @@ impl IEmailMailboxUpdateMeetingResponseRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Subject<Impl: IEmailMailboxUpdateMeetingResponseRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Subject<Impl: IEmailMailboxUpdateMeetingResponseRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Subject() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2090,7 +2090,7 @@ impl IEmailMailboxUpdateMeetingResponseRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Comment<Impl: IEmailMailboxUpdateMeetingResponseRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Comment<Impl: IEmailMailboxUpdateMeetingResponseRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Comment() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2101,7 +2101,7 @@ impl IEmailMailboxUpdateMeetingResponseRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SendUpdate<Impl: IEmailMailboxUpdateMeetingResponseRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendUpdate<Impl: IEmailMailboxUpdateMeetingResponseRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SendUpdate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2112,7 +2112,7 @@ impl IEmailMailboxUpdateMeetingResponseRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxUpdateMeetingResponseRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxUpdateMeetingResponseRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportCompletedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2123,7 +2123,7 @@ impl IEmailMailboxUpdateMeetingResponseRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxUpdateMeetingResponseRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxUpdateMeetingResponseRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportFailedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2151,7 +2151,7 @@ impl IEmailMailboxUpdateMeetingResponseRequestVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxUpdateMeetingResponseRequestEventArgsImpl: Sized {
+pub trait IEmailMailboxUpdateMeetingResponseRequestEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<EmailMailboxUpdateMeetingResponseRequest>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
@@ -2160,9 +2160,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxUpdateMeetingResponseRequestE
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxUpdateMeetingResponseRequestEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxUpdateMeetingResponseRequestEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxUpdateMeetingResponseRequestEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxUpdateMeetingResponseRequestEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: IEmailMailboxUpdateMeetingResponseRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEmailMailboxUpdateMeetingResponseRequestEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxUpdateMeetingResponseRequestEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxUpdateMeetingResponseRequestEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: IEmailMailboxUpdateMeetingResponseRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2173,7 +2173,7 @@ impl IEmailMailboxUpdateMeetingResponseRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxUpdateMeetingResponseRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxUpdateMeetingResponseRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2195,7 +2195,7 @@ impl IEmailMailboxUpdateMeetingResponseRequestEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
-pub trait IEmailMailboxValidateCertificatesRequestImpl: Sized {
+pub trait IEmailMailboxValidateCertificatesRequest_Impl: Sized {
     fn EmailMailboxId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Certificates(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::Certificate>>;
     fn ReportCompletedAsync(&mut self, validationstatuses: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::EmailCertificateValidationStatus>>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
@@ -2206,9 +2206,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxValidateCertificatesRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxValidateCertificatesRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
-impl IEmailMailboxValidateCertificatesRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxValidateCertificatesRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxValidateCertificatesRequestVtbl {
-        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxValidateCertificatesRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IEmailMailboxValidateCertificatesRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxValidateCertificatesRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxValidateCertificatesRequest_Vtbl {
+        unsafe extern "system" fn EmailMailboxId<Impl: IEmailMailboxValidateCertificatesRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmailMailboxId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2219,7 +2219,7 @@ impl IEmailMailboxValidateCertificatesRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Certificates<Impl: IEmailMailboxValidateCertificatesRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Certificates<Impl: IEmailMailboxValidateCertificatesRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Certificates() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2230,7 +2230,7 @@ impl IEmailMailboxValidateCertificatesRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxValidateCertificatesRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, validationstatuses: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCompletedAsync<Impl: IEmailMailboxValidateCertificatesRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, validationstatuses: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportCompletedAsync(&*(&validationstatuses as *const <super::super::super::Foundation::Collections::IIterable<super::EmailCertificateValidationStatus> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<super::EmailCertificateValidationStatus> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2241,7 +2241,7 @@ impl IEmailMailboxValidateCertificatesRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxValidateCertificatesRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportFailedAsync<Impl: IEmailMailboxValidateCertificatesRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportFailedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2265,7 +2265,7 @@ impl IEmailMailboxValidateCertificatesRequestVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEmailMailboxValidateCertificatesRequestEventArgsImpl: Sized {
+pub trait IEmailMailboxValidateCertificatesRequestEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<EmailMailboxValidateCertificatesRequest>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
 }
@@ -2274,9 +2274,9 @@ impl ::windows::core::RuntimeName for IEmailMailboxValidateCertificatesRequestEv
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.IEmailMailboxValidateCertificatesRequestEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEmailMailboxValidateCertificatesRequestEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxValidateCertificatesRequestEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxValidateCertificatesRequestEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: IEmailMailboxValidateCertificatesRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEmailMailboxValidateCertificatesRequestEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailMailboxValidateCertificatesRequestEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmailMailboxValidateCertificatesRequestEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: IEmailMailboxValidateCertificatesRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2287,7 +2287,7 @@ impl IEmailMailboxValidateCertificatesRequestEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxValidateCertificatesRequestEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IEmailMailboxValidateCertificatesRequestEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {

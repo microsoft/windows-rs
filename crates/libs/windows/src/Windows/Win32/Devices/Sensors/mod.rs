@@ -344,12 +344,12 @@ impl ::core::fmt::Debug for ILocationPermissions {
     }
 }
 unsafe impl ::windows::core::Interface for ILocationPermissions {
-    type Vtable = ILocationPermissionsVtbl;
+    type Vtable = ILocationPermissions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5fb0a7f_e74e_44f5_8e02_4806863a274f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILocationPermissionsVtbl {
+pub struct ILocationPermissions_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetGlobalLocationPermission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -477,12 +477,12 @@ impl ::core::fmt::Debug for ISensor {
     }
 }
 unsafe impl ::windows::core::Interface for ISensor {
-    type Vtable = ISensorVtbl;
+    type Vtable = ISensor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fa08f80_2657_458e_af75_46f73fa6ac5c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISensorVtbl {
+pub struct ISensor_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psensorcategory: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -586,12 +586,12 @@ impl ::core::fmt::Debug for ISensorCollection {
     }
 }
 unsafe impl ::windows::core::Interface for ISensorCollection {
-    type Vtable = ISensorCollectionVtbl;
+    type Vtable = ISensorCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23571e11_e545_4dd8_a337_b89bf44b10df);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISensorCollectionVtbl {
+pub struct ISensorCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulindex: u32, ppsensor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT,
@@ -660,12 +660,12 @@ impl ::core::fmt::Debug for ISensorDataReport {
     }
 }
 unsafe impl ::windows::core::Interface for ISensorDataReport {
-    type Vtable = ISensorDataReportVtbl;
+    type Vtable = ISensorDataReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ab9df9b_c4b5_4796_8898_0470706a2e1d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISensorDataReportVtbl {
+pub struct ISensorDataReport_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptimestamp: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT,
@@ -739,12 +739,12 @@ impl ::core::fmt::Debug for ISensorEvents {
     }
 }
 unsafe impl ::windows::core::Interface for ISensorEvents {
-    type Vtable = ISensorEventsVtbl;
+    type Vtable = ISensorEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d8dcc91_4641_47e7_b7c3_b74f48a6c391);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISensorEventsVtbl {
+pub struct ISensorEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psensor: ::windows::core::RawPtr, state: SensorState) -> ::windows::core::HRESULT,
     pub OnDataUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psensor: ::windows::core::RawPtr, pnewdata: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -820,12 +820,12 @@ impl ::core::fmt::Debug for ISensorManager {
     }
 }
 unsafe impl ::windows::core::Interface for ISensorManager {
-    type Vtable = ISensorManagerVtbl;
+    type Vtable = ISensorManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd77db67_45a8_42dc_8d00_6dcf15f8377a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISensorManagerVtbl {
+pub struct ISensorManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetSensorsByCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sensorcategory: *const ::windows::core::GUID, ppsensorsfound: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetSensorsByType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sensortype: *const ::windows::core::GUID, ppsensorsfound: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -882,12 +882,12 @@ impl ::core::fmt::Debug for ISensorManagerEvents {
     }
 }
 unsafe impl ::windows::core::Interface for ISensorManagerEvents {
-    type Vtable = ISensorManagerEventsVtbl;
+    type Vtable = ISensorManagerEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b3b0b86_266a_4aad_b21f_fde5501001b7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISensorManagerEventsVtbl {
+pub struct ISensorManagerEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnSensorEnter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psensor: ::windows::core::RawPtr, state: SensorState) -> ::windows::core::HRESULT,
 }

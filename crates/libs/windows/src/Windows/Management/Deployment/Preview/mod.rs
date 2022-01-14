@@ -22,12 +22,12 @@ impl ::windows::core::RuntimeName for ClassicAppManager {
 #[repr(transparent)]
 pub struct IClassicAppManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClassicAppManagerStatics {
-    type Vtable = IClassicAppManagerStaticsVtbl;
+    type Vtable = IClassicAppManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2fad668_882c_4f33_b035_0df7b90d67e6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClassicAppManagerStaticsVtbl {
+pub struct IClassicAppManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FindInstalledApp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appuninstallkey: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -35,12 +35,12 @@ pub struct IClassicAppManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IInstalledClassicAppInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInstalledClassicAppInfo {
-    type Vtable = IInstalledClassicAppInfoVtbl;
+    type Vtable = IInstalledClassicAppInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a7d3da3_65d0_4086_80d6_0610d760207d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInstalledClassicAppInfoVtbl {
+pub struct IInstalledClassicAppInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DisplayVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -86,7 +86,7 @@ unsafe impl ::windows::core::RuntimeType for InstalledClassicAppInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.Preview.InstalledClassicAppInfo;{0a7d3da3-65d0-4086-80d6-0610d760207d})");
 }
 unsafe impl ::windows::core::Interface for InstalledClassicAppInfo {
-    type Vtable = IInstalledClassicAppInfoVtbl;
+    type Vtable = IInstalledClassicAppInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a7d3da3_65d0_4086_80d6_0610d760207d);
 }
 impl ::windows::core::RuntimeName for InstalledClassicAppInfo {

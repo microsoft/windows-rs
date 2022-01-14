@@ -4299,12 +4299,12 @@ impl ::core::fmt::Debug for IDialBranding {
     }
 }
 unsafe impl ::windows::core::Interface for IDialBranding {
-    type Vtable = IDialBrandingVtbl;
+    type Vtable = IDialBranding_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8aecafa9_4306_43cc_8c5a_765f2979cc16);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialBrandingVtbl {
+pub struct IDialBranding_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzconnectoid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -4390,12 +4390,12 @@ impl ::core::fmt::Debug for IDialEngine {
     }
 }
 unsafe impl ::windows::core::Interface for IDialEngine {
-    type Vtable = IDialEngineVtbl;
+    type Vtable = IDialEngine_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39fd782b_7905_40d5_9148_3c9b190423d5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialEngineVtbl {
+pub struct IDialEngine_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzconnectoid: super::super::Foundation::PWSTR, pides: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4460,12 +4460,12 @@ impl ::core::fmt::Debug for IDialEventSink {
     }
 }
 unsafe impl ::windows::core::Interface for IDialEventSink {
-    type Vtable = IDialEventSinkVtbl;
+    type Vtable = IDialEventSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d86f4ff_6e2d_4488_b2e9_6934afd41bea);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialEventSinkVtbl {
+pub struct IDialEventSink_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwevent: u32, dwstatus: u32) -> ::windows::core::HRESULT,
 }
@@ -7119,12 +7119,12 @@ impl ::core::fmt::Debug for IProofOfPossessionCookieInfoManager {
     }
 }
 unsafe impl ::windows::core::Interface for IProofOfPossessionCookieInfoManager {
-    type Vtable = IProofOfPossessionCookieInfoManagerVtbl;
+    type Vtable = IProofOfPossessionCookieInfoManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdaece56_4edf_43df_b113_88e4556fa1bb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProofOfPossessionCookieInfoManagerVtbl {
+pub struct IProofOfPossessionCookieInfoManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetCookieInfoForUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: super::super::Foundation::PWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::HRESULT,
@@ -7178,12 +7178,12 @@ impl ::core::fmt::Debug for IProofOfPossessionCookieInfoManager2 {
     }
 }
 unsafe impl ::windows::core::Interface for IProofOfPossessionCookieInfoManager2 {
-    type Vtable = IProofOfPossessionCookieInfoManager2Vtbl;
+    type Vtable = IProofOfPossessionCookieInfoManager2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15e41407_b42f_4ae7_9966_34a087b2d713);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProofOfPossessionCookieInfoManager2Vtbl {
+pub struct IProofOfPossessionCookieInfoManager2_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetCookieInfoWithUriForAccount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, uri: super::super::Foundation::PWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::HRESULT,

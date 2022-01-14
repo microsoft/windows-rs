@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPlatformDiagnosticActionsStaticsImpl: Sized {
+pub trait IPlatformDiagnosticActionsStatics_Impl: Sized {
     fn IsScenarioEnabled(&mut self, scenarioid: &::windows::core::GUID) -> ::windows::core::Result<bool>;
     fn TryEscalateScenario(&mut self, scenarioid: &::windows::core::GUID, escalationtype: PlatformDiagnosticEscalationType, outputdirectory: &::windows::core::HSTRING, timestampoutputdirectory: bool, forceescalationupload: bool, triggers: &::core::option::Option<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>) -> ::windows::core::Result<bool>;
     fn DownloadLatestSettingsForNamespace(&mut self, partner: &::windows::core::HSTRING, feature: &::windows::core::HSTRING, isscenarionamespace: bool, downloadovercostednetwork: bool, downloadoverbattery: bool) -> ::windows::core::Result<PlatformDiagnosticActionState>;
@@ -14,9 +14,9 @@ impl ::windows::core::RuntimeName for IPlatformDiagnosticActionsStatics {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.IPlatformDiagnosticActionsStatics";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPlatformDiagnosticActionsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlatformDiagnosticActionsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlatformDiagnosticActionsStaticsVtbl {
-        unsafe extern "system" fn IsScenarioEnabled<Impl: IPlatformDiagnosticActionsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scenarioid: ::windows::core::GUID, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IPlatformDiagnosticActionsStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlatformDiagnosticActionsStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlatformDiagnosticActionsStatics_Vtbl {
+        unsafe extern "system" fn IsScenarioEnabled<Impl: IPlatformDiagnosticActionsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scenarioid: ::windows::core::GUID, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsScenarioEnabled(&*(&scenarioid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -27,7 +27,7 @@ impl IPlatformDiagnosticActionsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryEscalateScenario<Impl: IPlatformDiagnosticActionsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scenarioid: ::windows::core::GUID, escalationtype: PlatformDiagnosticEscalationType, outputdirectory: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, timestampoutputdirectory: bool, forceescalationupload: bool, triggers: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryEscalateScenario<Impl: IPlatformDiagnosticActionsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scenarioid: ::windows::core::GUID, escalationtype: PlatformDiagnosticEscalationType, outputdirectory: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, timestampoutputdirectory: bool, forceescalationupload: bool, triggers: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryEscalateScenario(
                 &*(&scenarioid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType),
@@ -45,7 +45,7 @@ impl IPlatformDiagnosticActionsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DownloadLatestSettingsForNamespace<Impl: IPlatformDiagnosticActionsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partner: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, feature: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, isscenarionamespace: bool, downloadovercostednetwork: bool, downloadoverbattery: bool, result__: *mut PlatformDiagnosticActionState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DownloadLatestSettingsForNamespace<Impl: IPlatformDiagnosticActionsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partner: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, feature: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, isscenarionamespace: bool, downloadovercostednetwork: bool, downloadoverbattery: bool, result__: *mut PlatformDiagnosticActionState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DownloadLatestSettingsForNamespace(&*(&partner as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&feature as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), isscenarionamespace, downloadovercostednetwork, downloadoverbattery) {
                 ::core::result::Result::Ok(ok__) => {
@@ -56,7 +56,7 @@ impl IPlatformDiagnosticActionsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetActiveScenarioList<Impl: IPlatformDiagnosticActionsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetActiveScenarioList<Impl: IPlatformDiagnosticActionsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetActiveScenarioList() {
                 ::core::result::Result::Ok(ok__) => {
@@ -67,7 +67,7 @@ impl IPlatformDiagnosticActionsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ForceUpload<Impl: IPlatformDiagnosticActionsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, latency: PlatformDiagnosticEventBufferLatencies, uploadovercostednetwork: bool, uploadoverbattery: bool, result__: *mut PlatformDiagnosticActionState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ForceUpload<Impl: IPlatformDiagnosticActionsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, latency: PlatformDiagnosticEventBufferLatencies, uploadovercostednetwork: bool, uploadoverbattery: bool, result__: *mut PlatformDiagnosticActionState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ForceUpload(latency, uploadovercostednetwork, uploadoverbattery) {
                 ::core::result::Result::Ok(ok__) => {
@@ -78,7 +78,7 @@ impl IPlatformDiagnosticActionsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsTraceRunning<Impl: IPlatformDiagnosticActionsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, slottype: PlatformDiagnosticTraceSlotType, scenarioid: ::windows::core::GUID, traceprofilehash: u64, result__: *mut PlatformDiagnosticTraceSlotState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsTraceRunning<Impl: IPlatformDiagnosticActionsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, slottype: PlatformDiagnosticTraceSlotType, scenarioid: ::windows::core::GUID, traceprofilehash: u64, result__: *mut PlatformDiagnosticTraceSlotState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTraceRunning(slottype, &*(&scenarioid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), traceprofilehash) {
                 ::core::result::Result::Ok(ok__) => {
@@ -89,7 +89,7 @@ impl IPlatformDiagnosticActionsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetActiveTraceRuntime<Impl: IPlatformDiagnosticActionsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, slottype: PlatformDiagnosticTraceSlotType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetActiveTraceRuntime<Impl: IPlatformDiagnosticActionsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, slottype: PlatformDiagnosticTraceSlotType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetActiveTraceRuntime(slottype) {
                 ::core::result::Result::Ok(ok__) => {
@@ -100,7 +100,7 @@ impl IPlatformDiagnosticActionsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetKnownTraceList<Impl: IPlatformDiagnosticActionsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, slottype: PlatformDiagnosticTraceSlotType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetKnownTraceList<Impl: IPlatformDiagnosticActionsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, slottype: PlatformDiagnosticTraceSlotType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetKnownTraceList(slottype) {
                 ::core::result::Result::Ok(ok__) => {
@@ -128,7 +128,7 @@ impl IPlatformDiagnosticActionsStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPlatformDiagnosticTraceInfoImpl: Sized {
+pub trait IPlatformDiagnosticTraceInfo_Impl: Sized {
     fn ScenarioId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn ProfileHash(&mut self) -> ::windows::core::Result<u64>;
     fn IsExclusive(&mut self) -> ::windows::core::Result<bool>;
@@ -141,9 +141,9 @@ impl ::windows::core::RuntimeName for IPlatformDiagnosticTraceInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.IPlatformDiagnosticTraceInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPlatformDiagnosticTraceInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlatformDiagnosticTraceInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlatformDiagnosticTraceInfoVtbl {
-        unsafe extern "system" fn ScenarioId<Impl: IPlatformDiagnosticTraceInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl IPlatformDiagnosticTraceInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlatformDiagnosticTraceInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlatformDiagnosticTraceInfo_Vtbl {
+        unsafe extern "system" fn ScenarioId<Impl: IPlatformDiagnosticTraceInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScenarioId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -154,7 +154,7 @@ impl IPlatformDiagnosticTraceInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProfileHash<Impl: IPlatformDiagnosticTraceInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProfileHash<Impl: IPlatformDiagnosticTraceInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProfileHash() {
                 ::core::result::Result::Ok(ok__) => {
@@ -165,7 +165,7 @@ impl IPlatformDiagnosticTraceInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsExclusive<Impl: IPlatformDiagnosticTraceInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsExclusive<Impl: IPlatformDiagnosticTraceInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsExclusive() {
                 ::core::result::Result::Ok(ok__) => {
@@ -176,7 +176,7 @@ impl IPlatformDiagnosticTraceInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsAutoLogger<Impl: IPlatformDiagnosticTraceInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsAutoLogger<Impl: IPlatformDiagnosticTraceInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAutoLogger() {
                 ::core::result::Result::Ok(ok__) => {
@@ -187,7 +187,7 @@ impl IPlatformDiagnosticTraceInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxTraceDurationFileTime<Impl: IPlatformDiagnosticTraceInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxTraceDurationFileTime<Impl: IPlatformDiagnosticTraceInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxTraceDurationFileTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -198,7 +198,7 @@ impl IPlatformDiagnosticTraceInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Priority<Impl: IPlatformDiagnosticTraceInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PlatformDiagnosticTracePriority) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Priority<Impl: IPlatformDiagnosticTraceInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PlatformDiagnosticTracePriority) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Priority() {
                 ::core::result::Result::Ok(ok__) => {
@@ -224,7 +224,7 @@ impl IPlatformDiagnosticTraceInfoVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPlatformDiagnosticTraceRuntimeInfoImpl: Sized {
+pub trait IPlatformDiagnosticTraceRuntimeInfo_Impl: Sized {
     fn RuntimeFileTime(&mut self) -> ::windows::core::Result<i64>;
     fn EtwRuntimeFileTime(&mut self) -> ::windows::core::Result<i64>;
 }
@@ -233,9 +233,9 @@ impl ::windows::core::RuntimeName for IPlatformDiagnosticTraceRuntimeInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.IPlatformDiagnosticTraceRuntimeInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPlatformDiagnosticTraceRuntimeInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlatformDiagnosticTraceRuntimeInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlatformDiagnosticTraceRuntimeInfoVtbl {
-        unsafe extern "system" fn RuntimeFileTime<Impl: IPlatformDiagnosticTraceRuntimeInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
+impl IPlatformDiagnosticTraceRuntimeInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlatformDiagnosticTraceRuntimeInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlatformDiagnosticTraceRuntimeInfo_Vtbl {
+        unsafe extern "system" fn RuntimeFileTime<Impl: IPlatformDiagnosticTraceRuntimeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RuntimeFileTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -246,7 +246,7 @@ impl IPlatformDiagnosticTraceRuntimeInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EtwRuntimeFileTime<Impl: IPlatformDiagnosticTraceRuntimeInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EtwRuntimeFileTime<Impl: IPlatformDiagnosticTraceRuntimeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EtwRuntimeFileTime() {
                 ::core::result::Result::Ok(ok__) => {

@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IWebUICommandBarImpl: Sized {
+pub trait IWebUICommandBar_Impl: Sized {
     fn Visible(&mut self) -> ::windows::core::Result<bool>;
     fn SetVisible(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn Opacity(&mut self) -> ::windows::core::Result<f64>;
@@ -27,9 +27,9 @@ impl ::windows::core::RuntimeName for IWebUICommandBar {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBar";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IWebUICommandBarVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarVtbl {
-        unsafe extern "system" fn Visible<Impl: IWebUICommandBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IWebUICommandBar_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBar_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBar_Vtbl {
+        unsafe extern "system" fn Visible<Impl: IWebUICommandBar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Visible() {
                 ::core::result::Result::Ok(ok__) => {
@@ -40,11 +40,11 @@ impl IWebUICommandBarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVisible<Impl: IWebUICommandBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVisible<Impl: IWebUICommandBar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVisible(value).into()
         }
-        unsafe extern "system" fn Opacity<Impl: IWebUICommandBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Opacity<Impl: IWebUICommandBar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Opacity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -55,11 +55,11 @@ impl IWebUICommandBarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOpacity<Impl: IWebUICommandBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOpacity<Impl: IWebUICommandBar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOpacity(value).into()
         }
-        unsafe extern "system" fn ForegroundColor<Impl: IWebUICommandBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ForegroundColor<Impl: IWebUICommandBar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ForegroundColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -70,11 +70,11 @@ impl IWebUICommandBarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetForegroundColor<Impl: IWebUICommandBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetForegroundColor<Impl: IWebUICommandBar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetForegroundColor(&*(&value as *const <super::super::Color as ::windows::core::Abi>::Abi as *const <super::super::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BackgroundColor<Impl: IWebUICommandBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackgroundColor<Impl: IWebUICommandBar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackgroundColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -85,11 +85,11 @@ impl IWebUICommandBarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBackgroundColor<Impl: IWebUICommandBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBackgroundColor<Impl: IWebUICommandBar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBackgroundColor(&*(&value as *const <super::super::Color as ::windows::core::Abi>::Abi as *const <super::super::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ClosedDisplayMode<Impl: IWebUICommandBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WebUICommandBarClosedDisplayMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClosedDisplayMode<Impl: IWebUICommandBar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WebUICommandBarClosedDisplayMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClosedDisplayMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -100,11 +100,11 @@ impl IWebUICommandBarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClosedDisplayMode<Impl: IWebUICommandBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: WebUICommandBarClosedDisplayMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClosedDisplayMode<Impl: IWebUICommandBar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: WebUICommandBarClosedDisplayMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetClosedDisplayMode(value).into()
         }
-        unsafe extern "system" fn IsOpen<Impl: IWebUICommandBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsOpen<Impl: IWebUICommandBar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsOpen() {
                 ::core::result::Result::Ok(ok__) => {
@@ -115,11 +115,11 @@ impl IWebUICommandBarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsOpen<Impl: IWebUICommandBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsOpen<Impl: IWebUICommandBar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsOpen(value).into()
         }
-        unsafe extern "system" fn Size<Impl: IWebUICommandBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Size<Impl: IWebUICommandBar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Size() {
                 ::core::result::Result::Ok(ok__) => {
@@ -130,7 +130,7 @@ impl IWebUICommandBarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrimaryCommands<Impl: IWebUICommandBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrimaryCommands<Impl: IWebUICommandBar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrimaryCommands() {
                 ::core::result::Result::Ok(ok__) => {
@@ -141,7 +141,7 @@ impl IWebUICommandBarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SecondaryCommands<Impl: IWebUICommandBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SecondaryCommands<Impl: IWebUICommandBar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SecondaryCommands() {
                 ::core::result::Result::Ok(ok__) => {
@@ -152,7 +152,7 @@ impl IWebUICommandBarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MenuOpened<Impl: IWebUICommandBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MenuOpened<Impl: IWebUICommandBar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MenuOpened(&*(&handler as *const <MenuOpenedEventHandler as ::windows::core::Abi>::Abi as *const <MenuOpenedEventHandler as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -163,11 +163,11 @@ impl IWebUICommandBarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMenuOpened<Impl: IWebUICommandBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMenuOpened<Impl: IWebUICommandBar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMenuOpened(&*(&value as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MenuClosed<Impl: IWebUICommandBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MenuClosed<Impl: IWebUICommandBar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MenuClosed(&*(&handler as *const <MenuClosedEventHandler as ::windows::core::Abi>::Abi as *const <MenuClosedEventHandler as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -178,11 +178,11 @@ impl IWebUICommandBarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMenuClosed<Impl: IWebUICommandBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMenuClosed<Impl: IWebUICommandBar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMenuClosed(&*(&value as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SizeChanged<Impl: IWebUICommandBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SizeChanged<Impl: IWebUICommandBar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SizeChanged(&*(&handler as *const <SizeChangedEventHandler as ::windows::core::Abi>::Abi as *const <SizeChangedEventHandler as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -193,7 +193,7 @@ impl IWebUICommandBarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSizeChanged<Impl: IWebUICommandBarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSizeChanged<Impl: IWebUICommandBar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSizeChanged(&*(&value as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -227,7 +227,7 @@ impl IWebUICommandBarVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IWebUICommandBarBitmapIconImpl: Sized + IWebUICommandBarIconImpl {
+pub trait IWebUICommandBarBitmapIcon_Impl: Sized + IWebUICommandBarIcon_Impl {
     fn Uri(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
     fn SetUri(&mut self, value: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
@@ -236,9 +236,9 @@ impl ::windows::core::RuntimeName for IWebUICommandBarBitmapIcon {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarBitmapIcon";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IWebUICommandBarBitmapIconVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarBitmapIconImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarBitmapIconVtbl {
-        unsafe extern "system" fn Uri<Impl: IWebUICommandBarBitmapIconImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IWebUICommandBarBitmapIcon_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarBitmapIcon_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarBitmapIcon_Vtbl {
+        unsafe extern "system" fn Uri<Impl: IWebUICommandBarBitmapIcon_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -249,7 +249,7 @@ impl IWebUICommandBarBitmapIconVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetUri<Impl: IWebUICommandBarBitmapIconImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUri<Impl: IWebUICommandBarBitmapIcon_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUri(&*(&value as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -264,7 +264,7 @@ impl IWebUICommandBarBitmapIconVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IWebUICommandBarBitmapIconFactoryImpl: Sized {
+pub trait IWebUICommandBarBitmapIconFactory_Impl: Sized {
     fn Create(&mut self, uri: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<WebUICommandBarBitmapIcon>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -272,9 +272,9 @@ impl ::windows::core::RuntimeName for IWebUICommandBarBitmapIconFactory {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarBitmapIconFactory";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IWebUICommandBarBitmapIconFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarBitmapIconFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarBitmapIconFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IWebUICommandBarBitmapIconFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IWebUICommandBarBitmapIconFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarBitmapIconFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarBitmapIconFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IWebUICommandBarBitmapIconFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&uri as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -292,7 +292,7 @@ impl IWebUICommandBarBitmapIconFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IWebUICommandBarConfirmationButtonImpl: Sized + IWebUICommandBarElementImpl {
+pub trait IWebUICommandBarConfirmationButton_Impl: Sized + IWebUICommandBarElement_Impl {
     fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn ItemInvoked(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<WebUICommandBarConfirmationButton, WebUICommandBarItemInvokedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
@@ -303,9 +303,9 @@ impl ::windows::core::RuntimeName for IWebUICommandBarConfirmationButton {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarConfirmationButton";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IWebUICommandBarConfirmationButtonVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarConfirmationButtonImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarConfirmationButtonVtbl {
-        unsafe extern "system" fn Text<Impl: IWebUICommandBarConfirmationButtonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IWebUICommandBarConfirmationButton_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarConfirmationButton_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarConfirmationButton_Vtbl {
+        unsafe extern "system" fn Text<Impl: IWebUICommandBarConfirmationButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text() {
                 ::core::result::Result::Ok(ok__) => {
@@ -316,11 +316,11 @@ impl IWebUICommandBarConfirmationButtonVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetText<Impl: IWebUICommandBarConfirmationButtonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetText<Impl: IWebUICommandBarConfirmationButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ItemInvoked<Impl: IWebUICommandBarConfirmationButtonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ItemInvoked<Impl: IWebUICommandBarConfirmationButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ItemInvoked(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<WebUICommandBarConfirmationButton, WebUICommandBarItemInvokedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<WebUICommandBarConfirmationButton, WebUICommandBarItemInvokedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -331,7 +331,7 @@ impl IWebUICommandBarConfirmationButtonVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveItemInvoked<Impl: IWebUICommandBarConfirmationButtonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveItemInvoked<Impl: IWebUICommandBarConfirmationButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveItemInvoked(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -347,24 +347,24 @@ impl IWebUICommandBarConfirmationButtonVtbl {
         iid == &<IWebUICommandBarConfirmationButton as ::windows::core::Interface>::IID
     }
 }
-pub trait IWebUICommandBarElementImpl: Sized {}
+pub trait IWebUICommandBarElement_Impl: Sized {}
 impl ::windows::core::RuntimeName for IWebUICommandBarElement {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarElement";
 }
-impl IWebUICommandBarElementVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarElementImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarElementVtbl {
+impl IWebUICommandBarElement_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarElement_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarElement_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebUICommandBarElement, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWebUICommandBarElement as ::windows::core::Interface>::IID
     }
 }
-pub trait IWebUICommandBarIconImpl: Sized {}
+pub trait IWebUICommandBarIcon_Impl: Sized {}
 impl ::windows::core::RuntimeName for IWebUICommandBarIcon {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarIcon";
 }
-impl IWebUICommandBarIconVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarIconImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarIconVtbl {
+impl IWebUICommandBarIcon_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarIcon_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarIcon_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IWebUICommandBarIcon, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -372,7 +372,7 @@ impl IWebUICommandBarIconVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IWebUICommandBarIconButtonImpl: Sized + IWebUICommandBarElementImpl {
+pub trait IWebUICommandBarIconButton_Impl: Sized + IWebUICommandBarElement_Impl {
     fn Enabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn Label(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -391,9 +391,9 @@ impl ::windows::core::RuntimeName for IWebUICommandBarIconButton {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarIconButton";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IWebUICommandBarIconButtonVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarIconButtonImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarIconButtonVtbl {
-        unsafe extern "system" fn Enabled<Impl: IWebUICommandBarIconButtonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IWebUICommandBarIconButton_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarIconButton_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarIconButton_Vtbl {
+        unsafe extern "system" fn Enabled<Impl: IWebUICommandBarIconButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Enabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -404,11 +404,11 @@ impl IWebUICommandBarIconButtonVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEnabled<Impl: IWebUICommandBarIconButtonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnabled<Impl: IWebUICommandBarIconButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnabled(value).into()
         }
-        unsafe extern "system" fn Label<Impl: IWebUICommandBarIconButtonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Label<Impl: IWebUICommandBarIconButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Label() {
                 ::core::result::Result::Ok(ok__) => {
@@ -419,11 +419,11 @@ impl IWebUICommandBarIconButtonVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLabel<Impl: IWebUICommandBarIconButtonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLabel<Impl: IWebUICommandBarIconButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLabel(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IsToggleButton<Impl: IWebUICommandBarIconButtonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsToggleButton<Impl: IWebUICommandBarIconButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsToggleButton() {
                 ::core::result::Result::Ok(ok__) => {
@@ -434,11 +434,11 @@ impl IWebUICommandBarIconButtonVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsToggleButton<Impl: IWebUICommandBarIconButtonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsToggleButton<Impl: IWebUICommandBarIconButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsToggleButton(value).into()
         }
-        unsafe extern "system" fn IsChecked<Impl: IWebUICommandBarIconButtonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsChecked<Impl: IWebUICommandBarIconButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsChecked() {
                 ::core::result::Result::Ok(ok__) => {
@@ -449,11 +449,11 @@ impl IWebUICommandBarIconButtonVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsChecked<Impl: IWebUICommandBarIconButtonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsChecked<Impl: IWebUICommandBarIconButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsChecked(value).into()
         }
-        unsafe extern "system" fn Icon<Impl: IWebUICommandBarIconButtonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Icon<Impl: IWebUICommandBarIconButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Icon() {
                 ::core::result::Result::Ok(ok__) => {
@@ -464,11 +464,11 @@ impl IWebUICommandBarIconButtonVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIcon<Impl: IWebUICommandBarIconButtonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIcon<Impl: IWebUICommandBarIconButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIcon(&*(&value as *const <IWebUICommandBarIcon as ::windows::core::Abi>::Abi as *const <IWebUICommandBarIcon as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ItemInvoked<Impl: IWebUICommandBarIconButtonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ItemInvoked<Impl: IWebUICommandBarIconButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ItemInvoked(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<WebUICommandBarIconButton, WebUICommandBarItemInvokedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<WebUICommandBarIconButton, WebUICommandBarItemInvokedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -479,7 +479,7 @@ impl IWebUICommandBarIconButtonVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveItemInvoked<Impl: IWebUICommandBarIconButtonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveItemInvoked<Impl: IWebUICommandBarIconButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveItemInvoked(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -504,7 +504,7 @@ impl IWebUICommandBarIconButtonVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IWebUICommandBarItemInvokedEventArgsImpl: Sized {
+pub trait IWebUICommandBarItemInvokedEventArgs_Impl: Sized {
     fn IsPrimaryCommand(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -512,9 +512,9 @@ impl ::windows::core::RuntimeName for IWebUICommandBarItemInvokedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarItemInvokedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IWebUICommandBarItemInvokedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarItemInvokedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarItemInvokedEventArgsVtbl {
-        unsafe extern "system" fn IsPrimaryCommand<Impl: IWebUICommandBarItemInvokedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IWebUICommandBarItemInvokedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarItemInvokedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarItemInvokedEventArgs_Vtbl {
+        unsafe extern "system" fn IsPrimaryCommand<Impl: IWebUICommandBarItemInvokedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPrimaryCommand() {
                 ::core::result::Result::Ok(ok__) => {
@@ -535,7 +535,7 @@ impl IWebUICommandBarItemInvokedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IWebUICommandBarSizeChangedEventArgsImpl: Sized {
+pub trait IWebUICommandBarSizeChangedEventArgs_Impl: Sized {
     fn Size(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Size>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -543,9 +543,9 @@ impl ::windows::core::RuntimeName for IWebUICommandBarSizeChangedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarSizeChangedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IWebUICommandBarSizeChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarSizeChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarSizeChangedEventArgsVtbl {
-        unsafe extern "system" fn Size<Impl: IWebUICommandBarSizeChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Size) -> ::windows::core::HRESULT {
+impl IWebUICommandBarSizeChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarSizeChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarSizeChangedEventArgs_Vtbl {
+        unsafe extern "system" fn Size<Impl: IWebUICommandBarSizeChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Size() {
                 ::core::result::Result::Ok(ok__) => {
@@ -563,7 +563,7 @@ impl IWebUICommandBarSizeChangedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IWebUICommandBarStaticsImpl: Sized {
+pub trait IWebUICommandBarStatics_Impl: Sized {
     fn GetForCurrentView(&mut self) -> ::windows::core::Result<WebUICommandBar>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -571,9 +571,9 @@ impl ::windows::core::RuntimeName for IWebUICommandBarStatics {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IWebUICommandBarStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarStaticsVtbl {
-        unsafe extern "system" fn GetForCurrentView<Impl: IWebUICommandBarStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IWebUICommandBarStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarStatics_Vtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: IWebUICommandBarStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -594,7 +594,7 @@ impl IWebUICommandBarStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IWebUICommandBarSymbolIconImpl: Sized + IWebUICommandBarIconImpl {
+pub trait IWebUICommandBarSymbolIcon_Impl: Sized + IWebUICommandBarIcon_Impl {
     fn Symbol(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetSymbol(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
@@ -603,9 +603,9 @@ impl ::windows::core::RuntimeName for IWebUICommandBarSymbolIcon {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarSymbolIcon";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IWebUICommandBarSymbolIconVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarSymbolIconImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarSymbolIconVtbl {
-        unsafe extern "system" fn Symbol<Impl: IWebUICommandBarSymbolIconImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IWebUICommandBarSymbolIcon_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarSymbolIcon_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarSymbolIcon_Vtbl {
+        unsafe extern "system" fn Symbol<Impl: IWebUICommandBarSymbolIcon_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Symbol() {
                 ::core::result::Result::Ok(ok__) => {
@@ -616,7 +616,7 @@ impl IWebUICommandBarSymbolIconVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSymbol<Impl: IWebUICommandBarSymbolIconImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSymbol<Impl: IWebUICommandBarSymbolIcon_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSymbol(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -631,7 +631,7 @@ impl IWebUICommandBarSymbolIconVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IWebUICommandBarSymbolIconFactoryImpl: Sized {
+pub trait IWebUICommandBarSymbolIconFactory_Impl: Sized {
     fn Create(&mut self, symbol: &::windows::core::HSTRING) -> ::windows::core::Result<WebUICommandBarSymbolIcon>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -639,9 +639,9 @@ impl ::windows::core::RuntimeName for IWebUICommandBarSymbolIconFactory {
     const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarSymbolIconFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IWebUICommandBarSymbolIconFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarSymbolIconFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarSymbolIconFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IWebUICommandBarSymbolIconFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, symbol: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IWebUICommandBarSymbolIconFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebUICommandBarSymbolIconFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebUICommandBarSymbolIconFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IWebUICommandBarSymbolIconFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, symbol: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&symbol as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

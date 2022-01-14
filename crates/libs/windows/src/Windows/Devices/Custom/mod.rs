@@ -80,7 +80,7 @@ unsafe impl ::windows::core::RuntimeType for CustomDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Custom.CustomDevice;{dd30251f-c48b-43bd-bcb1-dec88f15143e})");
 }
 unsafe impl ::windows::core::Interface for CustomDevice {
-    type Vtable = ICustomDeviceVtbl;
+    type Vtable = ICustomDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd30251f_c48b_43bd_bcb1_dec88f15143e);
 }
 impl ::windows::core::RuntimeName for CustomDevice {
@@ -199,12 +199,12 @@ impl ::windows::core::DefaultType for DeviceSharingMode {
 #[repr(transparent)]
 pub struct ICustomDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICustomDevice {
-    type Vtable = ICustomDeviceVtbl;
+    type Vtable = ICustomDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd30251f_c48b_43bd_bcb1_dec88f15143e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICustomDeviceVtbl {
+pub struct ICustomDevice_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub InputStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -227,12 +227,12 @@ pub struct ICustomDeviceVtbl {
 #[repr(transparent)]
 pub struct ICustomDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICustomDeviceStatics {
-    type Vtable = ICustomDeviceStaticsVtbl;
+    type Vtable = ICustomDeviceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8220312_ef4c_46b1_a58e_eeb308dc8917);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICustomDeviceStaticsVtbl {
+pub struct ICustomDeviceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classguid: ::windows::core::GUID, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -345,12 +345,12 @@ unsafe impl ::windows::core::RuntimeType for IIOControlCode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0e9559e7-60c8-4375-a761-7f8808066c60}");
 }
 unsafe impl ::windows::core::Interface for IIOControlCode {
-    type Vtable = IIOControlCodeVtbl;
+    type Vtable = IIOControlCode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e9559e7_60c8_4375_a761_7f8808066c60);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIOControlCodeVtbl {
+pub struct IIOControlCode_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AccessMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IOControlAccessMode) -> ::windows::core::HRESULT,
     pub BufferingMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IOControlBufferingMethod) -> ::windows::core::HRESULT,
@@ -362,12 +362,12 @@ pub struct IIOControlCodeVtbl {
 #[repr(transparent)]
 pub struct IIOControlCodeFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIOControlCodeFactory {
-    type Vtable = IIOControlCodeFactoryVtbl;
+    type Vtable = IIOControlCodeFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x856a7cf0_4c11_44ae_afc6_b8d4a212788f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIOControlCodeFactoryVtbl {
+pub struct IIOControlCodeFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateIOControlCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, devicetype: u16, function: u16, accessmode: IOControlAccessMode, bufferingmethod: IOControlBufferingMethod, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -375,12 +375,12 @@ pub struct IIOControlCodeFactoryVtbl {
 #[repr(transparent)]
 pub struct IKnownDeviceTypesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKnownDeviceTypesStatics {
-    type Vtable = IKnownDeviceTypesStaticsVtbl;
+    type Vtable = IKnownDeviceTypesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee5479c2_5448_45da_ad1b_24948c239094);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKnownDeviceTypesStaticsVtbl {
+pub struct IKnownDeviceTypesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Unknown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
 }
@@ -531,7 +531,7 @@ unsafe impl ::windows::core::RuntimeType for IOControlCode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Custom.IOControlCode;{0e9559e7-60c8-4375-a761-7f8808066c60})");
 }
 unsafe impl ::windows::core::Interface for IOControlCode {
-    type Vtable = IIOControlCodeVtbl;
+    type Vtable = IIOControlCode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e9559e7_60c8_4375_a761_7f8808066c60);
 }
 impl ::windows::core::RuntimeName for IOControlCode {

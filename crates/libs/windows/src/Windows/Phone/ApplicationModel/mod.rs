@@ -83,12 +83,12 @@ impl ::windows::core::DefaultType for ApplicationProfileModes {
 #[repr(transparent)]
 pub struct IApplicationProfileStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IApplicationProfileStatics {
-    type Vtable = IApplicationProfileStaticsVtbl;
+    type Vtable = IApplicationProfileStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5008ab4_7e7a_11e1_a7f2_b0a14824019b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IApplicationProfileStaticsVtbl {
+pub struct IApplicationProfileStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Modes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ApplicationProfileModes) -> ::windows::core::HRESULT,
 }

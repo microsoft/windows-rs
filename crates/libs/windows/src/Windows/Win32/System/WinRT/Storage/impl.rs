@@ -1,9 +1,9 @@
-pub trait IOplockBreakingHandlerImpl: Sized {
+pub trait IOplockBreakingHandler_Impl: Sized {
     fn OplockBreaking(&mut self) -> ::windows::core::Result<()>;
 }
-impl IOplockBreakingHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOplockBreakingHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOplockBreakingHandlerVtbl {
-        unsafe extern "system" fn OplockBreaking<Impl: IOplockBreakingHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IOplockBreakingHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOplockBreakingHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOplockBreakingHandler_Vtbl {
+        unsafe extern "system" fn OplockBreaking<Impl: IOplockBreakingHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OplockBreaking().into()
         }
@@ -13,12 +13,12 @@ impl IOplockBreakingHandlerVtbl {
         iid == &<IOplockBreakingHandler as ::windows::core::Interface>::IID
     }
 }
-pub trait IRandomAccessStreamFileAccessModeImpl: Sized {
+pub trait IRandomAccessStreamFileAccessMode_Impl: Sized {
     fn GetMode(&mut self) -> ::windows::core::Result<u32>;
 }
-impl IRandomAccessStreamFileAccessModeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStreamFileAccessModeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRandomAccessStreamFileAccessModeVtbl {
-        unsafe extern "system" fn GetMode<Impl: IRandomAccessStreamFileAccessModeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fileaccessmode: *mut u32) -> ::windows::core::HRESULT {
+impl IRandomAccessStreamFileAccessMode_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStreamFileAccessMode_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRandomAccessStreamFileAccessMode_Vtbl {
+        unsafe extern "system" fn GetMode<Impl: IRandomAccessStreamFileAccessMode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fileaccessmode: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -35,13 +35,13 @@ impl IRandomAccessStreamFileAccessModeVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IStorageFolderHandleAccessImpl: Sized {
+pub trait IStorageFolderHandleAccess_Impl: Sized {
     fn Create(&mut self, filename: super::super::super::Foundation::PWSTR, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: ::core::option::Option<IOplockBreakingHandler>) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IStorageFolderHandleAccessVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFolderHandleAccessImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageFolderHandleAccessVtbl {
-        unsafe extern "system" fn Create<Impl: IStorageFolderHandleAccessImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: ::windows::core::RawPtr, interophandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
+impl IStorageFolderHandleAccess_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFolderHandleAccess_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageFolderHandleAccess_Vtbl {
+        unsafe extern "system" fn Create<Impl: IStorageFolderHandleAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: ::windows::core::RawPtr, interophandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(::core::mem::transmute_copy(&filename), ::core::mem::transmute_copy(&creationoptions), ::core::mem::transmute_copy(&accessoptions), ::core::mem::transmute_copy(&sharingoptions), ::core::mem::transmute_copy(&options), ::core::mem::transmute(&oplockbreakinghandler)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -58,13 +58,13 @@ impl IStorageFolderHandleAccessVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IStorageItemHandleAccessImpl: Sized {
+pub trait IStorageItemHandleAccess_Impl: Sized {
     fn Create(&mut self, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: ::core::option::Option<IOplockBreakingHandler>) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IStorageItemHandleAccessVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemHandleAccessImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageItemHandleAccessVtbl {
-        unsafe extern "system" fn Create<Impl: IStorageItemHandleAccessImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: ::windows::core::RawPtr, interophandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
+impl IStorageItemHandleAccess_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemHandleAccess_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageItemHandleAccess_Vtbl {
+        unsafe extern "system" fn Create<Impl: IStorageItemHandleAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: ::windows::core::RawPtr, interophandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(::core::mem::transmute_copy(&accessoptions), ::core::mem::transmute_copy(&sharingoptions), ::core::mem::transmute_copy(&options), ::core::mem::transmute(&oplockbreakinghandler)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -80,12 +80,12 @@ impl IStorageItemHandleAccessVtbl {
         iid == &<IStorageItemHandleAccess as ::windows::core::Interface>::IID
     }
 }
-pub trait IUnbufferedFileHandleOplockCallbackImpl: Sized {
+pub trait IUnbufferedFileHandleOplockCallback_Impl: Sized {
     fn OnBrokenCallback(&mut self) -> ::windows::core::Result<()>;
 }
-impl IUnbufferedFileHandleOplockCallbackVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnbufferedFileHandleOplockCallbackImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUnbufferedFileHandleOplockCallbackVtbl {
-        unsafe extern "system" fn OnBrokenCallback<Impl: IUnbufferedFileHandleOplockCallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IUnbufferedFileHandleOplockCallback_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnbufferedFileHandleOplockCallback_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUnbufferedFileHandleOplockCallback_Vtbl {
+        unsafe extern "system" fn OnBrokenCallback<Impl: IUnbufferedFileHandleOplockCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnBrokenCallback().into()
         }
@@ -95,13 +95,13 @@ impl IUnbufferedFileHandleOplockCallbackVtbl {
         iid == &<IUnbufferedFileHandleOplockCallback as ::windows::core::Interface>::IID
     }
 }
-pub trait IUnbufferedFileHandleProviderImpl: Sized {
+pub trait IUnbufferedFileHandleProvider_Impl: Sized {
     fn OpenUnbufferedFileHandle(&mut self, oplockbreakcallback: ::core::option::Option<IUnbufferedFileHandleOplockCallback>) -> ::windows::core::Result<usize>;
     fn CloseUnbufferedFileHandle(&mut self) -> ::windows::core::Result<()>;
 }
-impl IUnbufferedFileHandleProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnbufferedFileHandleProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUnbufferedFileHandleProviderVtbl {
-        unsafe extern "system" fn OpenUnbufferedFileHandle<Impl: IUnbufferedFileHandleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oplockbreakcallback: ::windows::core::RawPtr, filehandle: *mut usize) -> ::windows::core::HRESULT {
+impl IUnbufferedFileHandleProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnbufferedFileHandleProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUnbufferedFileHandleProvider_Vtbl {
+        unsafe extern "system" fn OpenUnbufferedFileHandle<Impl: IUnbufferedFileHandleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oplockbreakcallback: ::windows::core::RawPtr, filehandle: *mut usize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenUnbufferedFileHandle(::core::mem::transmute(&oplockbreakcallback)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -111,7 +111,7 @@ impl IUnbufferedFileHandleProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CloseUnbufferedFileHandle<Impl: IUnbufferedFileHandleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CloseUnbufferedFileHandle<Impl: IUnbufferedFileHandleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CloseUnbufferedFileHandle().into()
         }

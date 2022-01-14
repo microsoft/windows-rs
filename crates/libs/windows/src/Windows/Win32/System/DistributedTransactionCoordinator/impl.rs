@@ -1,14 +1,14 @@
-pub trait IDtcLuConfigureImpl: Sized {
+pub trait IDtcLuConfigure_Impl: Sized {
     fn Add(&mut self, puclupair: *const u8, cblupair: u32) -> ::windows::core::Result<()>;
     fn Delete(&mut self, puclupair: *const u8, cblupair: u32) -> ::windows::core::Result<()>;
 }
-impl IDtcLuConfigureVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuConfigureImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuConfigureVtbl {
-        unsafe extern "system" fn Add<Impl: IDtcLuConfigureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puclupair: *const u8, cblupair: u32) -> ::windows::core::HRESULT {
+impl IDtcLuConfigure_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuConfigure_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuConfigure_Vtbl {
+        unsafe extern "system" fn Add<Impl: IDtcLuConfigure_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puclupair: *const u8, cblupair: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Add(::core::mem::transmute_copy(&puclupair), ::core::mem::transmute_copy(&cblupair)).into()
         }
-        unsafe extern "system" fn Delete<Impl: IDtcLuConfigureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puclupair: *const u8, cblupair: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Delete<Impl: IDtcLuConfigure_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puclupair: *const u8, cblupair: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Delete(::core::mem::transmute_copy(&puclupair), ::core::mem::transmute_copy(&cblupair)).into()
         }
@@ -18,21 +18,21 @@ impl IDtcLuConfigureVtbl {
         iid == &<IDtcLuConfigure as ::windows::core::Interface>::IID
     }
 }
-pub trait IDtcLuRecoveryImpl: Sized {}
-impl IDtcLuRecoveryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuRecoveryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuRecoveryVtbl {
+pub trait IDtcLuRecovery_Impl: Sized {}
+impl IDtcLuRecovery_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuRecovery_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuRecovery_Vtbl {
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDtcLuRecovery as ::windows::core::Interface>::IID
     }
 }
-pub trait IDtcLuRecoveryFactoryImpl: Sized {
+pub trait IDtcLuRecoveryFactory_Impl: Sized {
     fn Create(&mut self, puclupair: *const u8, cblupair: u32) -> ::windows::core::Result<IDtcLuRecovery>;
 }
-impl IDtcLuRecoveryFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuRecoveryFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuRecoveryFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IDtcLuRecoveryFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puclupair: *const u8, cblupair: u32, pprecovery: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDtcLuRecoveryFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuRecoveryFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuRecoveryFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IDtcLuRecoveryFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puclupair: *const u8, cblupair: u32, pprecovery: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(::core::mem::transmute_copy(&puclupair), ::core::mem::transmute_copy(&cblupair)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -48,12 +48,12 @@ impl IDtcLuRecoveryFactoryVtbl {
         iid == &<IDtcLuRecoveryFactory as ::windows::core::Interface>::IID
     }
 }
-pub trait IDtcLuRecoveryInitiatedByDtcImpl: Sized {
+pub trait IDtcLuRecoveryInitiatedByDtc_Impl: Sized {
     fn GetWork(&mut self, pwork: *mut _DtcLu_LocalRecovery_Work, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
-impl IDtcLuRecoveryInitiatedByDtcVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuRecoveryInitiatedByDtcImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuRecoveryInitiatedByDtcVtbl {
-        unsafe extern "system" fn GetWork<Impl: IDtcLuRecoveryInitiatedByDtcImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwork: *mut _DtcLu_LocalRecovery_Work, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IDtcLuRecoveryInitiatedByDtc_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuRecoveryInitiatedByDtc_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuRecoveryInitiatedByDtc_Vtbl {
+        unsafe extern "system" fn GetWork<Impl: IDtcLuRecoveryInitiatedByDtc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwork: *mut _DtcLu_LocalRecovery_Work, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetWork(::core::mem::transmute_copy(&pwork), ::core::mem::transmute_copy(&ppv)).into()
         }
@@ -63,12 +63,12 @@ impl IDtcLuRecoveryInitiatedByDtcVtbl {
         iid == &<IDtcLuRecoveryInitiatedByDtc as ::windows::core::Interface>::IID
     }
 }
-pub trait IDtcLuRecoveryInitiatedByDtcStatusWorkImpl: Sized {
+pub trait IDtcLuRecoveryInitiatedByDtcStatusWork_Impl: Sized {
     fn HandleCheckLuStatus(&mut self, lrecoveryseqnum: i32) -> ::windows::core::Result<()>;
 }
-impl IDtcLuRecoveryInitiatedByDtcStatusWorkVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuRecoveryInitiatedByDtcStatusWorkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuRecoveryInitiatedByDtcStatusWorkVtbl {
-        unsafe extern "system" fn HandleCheckLuStatus<Impl: IDtcLuRecoveryInitiatedByDtcStatusWorkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lrecoveryseqnum: i32) -> ::windows::core::HRESULT {
+impl IDtcLuRecoveryInitiatedByDtcStatusWork_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuRecoveryInitiatedByDtcStatusWork_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuRecoveryInitiatedByDtcStatusWork_Vtbl {
+        unsafe extern "system" fn HandleCheckLuStatus<Impl: IDtcLuRecoveryInitiatedByDtcStatusWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lrecoveryseqnum: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HandleCheckLuStatus(::core::mem::transmute_copy(&lrecoveryseqnum)).into()
         }
@@ -79,7 +79,7 @@ impl IDtcLuRecoveryInitiatedByDtcStatusWorkVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDtcLuRecoveryInitiatedByDtcTransWorkImpl: Sized {
+pub trait IDtcLuRecoveryInitiatedByDtcTransWork_Impl: Sized {
     fn GetLogNameSizes(&mut self, pcbourlogname: *mut u32, pcbremotelogname: *mut u32) -> ::windows::core::Result<()>;
     fn GetOurXln(&mut self, pxln: *mut _DtcLu_Xln, pourlogname: *mut u8, premotelogname: *mut u8, pdwprotocol: *mut u32) -> ::windows::core::Result<()>;
     fn HandleConfirmationFromOurXln(&mut self, confirmation: _DtcLu_Xln_Confirmation) -> ::windows::core::Result<()>;
@@ -95,57 +95,57 @@ pub trait IDtcLuRecoveryInitiatedByDtcTransWorkImpl: Sized {
     fn ObsoleteRecoverySeqNum(&mut self, lnewrecoveryseqnum: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IDtcLuRecoveryInitiatedByDtcTransWorkVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuRecoveryInitiatedByDtcTransWorkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuRecoveryInitiatedByDtcTransWorkVtbl {
-        unsafe extern "system" fn GetLogNameSizes<Impl: IDtcLuRecoveryInitiatedByDtcTransWorkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbourlogname: *mut u32, pcbremotelogname: *mut u32) -> ::windows::core::HRESULT {
+impl IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
+        unsafe extern "system" fn GetLogNameSizes<Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbourlogname: *mut u32, pcbremotelogname: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetLogNameSizes(::core::mem::transmute_copy(&pcbourlogname), ::core::mem::transmute_copy(&pcbremotelogname)).into()
         }
-        unsafe extern "system" fn GetOurXln<Impl: IDtcLuRecoveryInitiatedByDtcTransWorkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxln: *mut _DtcLu_Xln, pourlogname: *mut u8, premotelogname: *mut u8, pdwprotocol: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOurXln<Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxln: *mut _DtcLu_Xln, pourlogname: *mut u8, premotelogname: *mut u8, pdwprotocol: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetOurXln(::core::mem::transmute_copy(&pxln), ::core::mem::transmute_copy(&pourlogname), ::core::mem::transmute_copy(&premotelogname), ::core::mem::transmute_copy(&pdwprotocol)).into()
         }
-        unsafe extern "system" fn HandleConfirmationFromOurXln<Impl: IDtcLuRecoveryInitiatedByDtcTransWorkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, confirmation: _DtcLu_Xln_Confirmation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleConfirmationFromOurXln<Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, confirmation: _DtcLu_Xln_Confirmation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HandleConfirmationFromOurXln(::core::mem::transmute_copy(&confirmation)).into()
         }
-        unsafe extern "system" fn HandleTheirXlnResponse<Impl: IDtcLuRecoveryInitiatedByDtcTransWorkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xln: _DtcLu_Xln, premotelogname: *mut u8, cbremotelogname: u32, dwprotocol: u32, pconfirmation: *mut _DtcLu_Xln_Confirmation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleTheirXlnResponse<Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xln: _DtcLu_Xln, premotelogname: *mut u8, cbremotelogname: u32, dwprotocol: u32, pconfirmation: *mut _DtcLu_Xln_Confirmation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HandleTheirXlnResponse(::core::mem::transmute_copy(&xln), ::core::mem::transmute_copy(&premotelogname), ::core::mem::transmute_copy(&cbremotelogname), ::core::mem::transmute_copy(&dwprotocol), ::core::mem::transmute_copy(&pconfirmation)).into()
         }
-        unsafe extern "system" fn HandleErrorFromOurXln<Impl: IDtcLuRecoveryInitiatedByDtcTransWorkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, error: _DtcLu_Xln_Error) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleErrorFromOurXln<Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, error: _DtcLu_Xln_Error) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HandleErrorFromOurXln(::core::mem::transmute_copy(&error)).into()
         }
-        unsafe extern "system" fn CheckForCompareStates<Impl: IDtcLuRecoveryInitiatedByDtcTransWorkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fcomparestates: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CheckForCompareStates<Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fcomparestates: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CheckForCompareStates(::core::mem::transmute_copy(&fcomparestates)).into()
         }
-        unsafe extern "system" fn GetOurTransIdSize<Impl: IDtcLuRecoveryInitiatedByDtcTransWorkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbourtransid: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOurTransIdSize<Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbourtransid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetOurTransIdSize(::core::mem::transmute_copy(&pcbourtransid)).into()
         }
-        unsafe extern "system" fn GetOurCompareStates<Impl: IDtcLuRecoveryInitiatedByDtcTransWorkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pourtransid: *mut u8, pcomparestate: *mut _DtcLu_CompareState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOurCompareStates<Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pourtransid: *mut u8, pcomparestate: *mut _DtcLu_CompareState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetOurCompareStates(::core::mem::transmute_copy(&pourtransid), ::core::mem::transmute_copy(&pcomparestate)).into()
         }
-        unsafe extern "system" fn HandleTheirCompareStatesResponse<Impl: IDtcLuRecoveryInitiatedByDtcTransWorkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, comparestate: _DtcLu_CompareState, pconfirmation: *mut _DtcLu_CompareStates_Confirmation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleTheirCompareStatesResponse<Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, comparestate: _DtcLu_CompareState, pconfirmation: *mut _DtcLu_CompareStates_Confirmation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HandleTheirCompareStatesResponse(::core::mem::transmute_copy(&comparestate), ::core::mem::transmute_copy(&pconfirmation)).into()
         }
-        unsafe extern "system" fn HandleErrorFromOurCompareStates<Impl: IDtcLuRecoveryInitiatedByDtcTransWorkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, error: _DtcLu_CompareStates_Error) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleErrorFromOurCompareStates<Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, error: _DtcLu_CompareStates_Error) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HandleErrorFromOurCompareStates(::core::mem::transmute_copy(&error)).into()
         }
-        unsafe extern "system" fn ConversationLost<Impl: IDtcLuRecoveryInitiatedByDtcTransWorkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConversationLost<Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ConversationLost().into()
         }
-        unsafe extern "system" fn GetRecoverySeqNum<Impl: IDtcLuRecoveryInitiatedByDtcTransWorkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plrecoveryseqnum: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRecoverySeqNum<Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plrecoveryseqnum: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetRecoverySeqNum(::core::mem::transmute_copy(&plrecoveryseqnum)).into()
         }
-        unsafe extern "system" fn ObsoleteRecoverySeqNum<Impl: IDtcLuRecoveryInitiatedByDtcTransWorkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnewrecoveryseqnum: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ObsoleteRecoverySeqNum<Impl: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnewrecoveryseqnum: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ObsoleteRecoverySeqNum(::core::mem::transmute_copy(&lnewrecoveryseqnum)).into()
         }
@@ -170,12 +170,12 @@ impl IDtcLuRecoveryInitiatedByDtcTransWorkVtbl {
         iid == &<IDtcLuRecoveryInitiatedByDtcTransWork as ::windows::core::Interface>::IID
     }
 }
-pub trait IDtcLuRecoveryInitiatedByLuImpl: Sized {
+pub trait IDtcLuRecoveryInitiatedByLu_Impl: Sized {
     fn GetObjectToHandleWorkFromLu(&mut self) -> ::windows::core::Result<IDtcLuRecoveryInitiatedByLuWork>;
 }
-impl IDtcLuRecoveryInitiatedByLuVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuRecoveryInitiatedByLuImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuRecoveryInitiatedByLuVtbl {
-        unsafe extern "system" fn GetObjectToHandleWorkFromLu<Impl: IDtcLuRecoveryInitiatedByLuImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwork: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDtcLuRecoveryInitiatedByLu_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuRecoveryInitiatedByLu_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuRecoveryInitiatedByLu_Vtbl {
+        unsafe extern "system" fn GetObjectToHandleWorkFromLu<Impl: IDtcLuRecoveryInitiatedByLu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwork: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetObjectToHandleWorkFromLu() {
                 ::core::result::Result::Ok(ok__) => {
@@ -194,7 +194,7 @@ impl IDtcLuRecoveryInitiatedByLuVtbl {
         iid == &<IDtcLuRecoveryInitiatedByLu as ::windows::core::Interface>::IID
     }
 }
-pub trait IDtcLuRecoveryInitiatedByLuWorkImpl: Sized {
+pub trait IDtcLuRecoveryInitiatedByLuWork_Impl: Sized {
     fn HandleTheirXln(&mut self, lrecoveryseqnum: i32, xln: _DtcLu_Xln, premotelogname: *mut u8, cbremotelogname: u32, pourlogname: *mut u8, cbourlogname: u32, dwprotocol: u32, presponse: *mut _DtcLu_Xln_Response) -> ::windows::core::Result<()>;
     fn GetOurLogNameSize(&mut self, pcbourlogname: *mut u32) -> ::windows::core::Result<()>;
     fn GetOurXln(&mut self, pxln: *mut _DtcLu_Xln, pourlogname: *mut u8, pdwprotocol: *mut u32) -> ::windows::core::Result<()>;
@@ -204,37 +204,37 @@ pub trait IDtcLuRecoveryInitiatedByLuWorkImpl: Sized {
     fn HandleErrorFromOurCompareStates(&mut self, error: _DtcLu_CompareStates_Error) -> ::windows::core::Result<()>;
     fn ConversationLost(&mut self) -> ::windows::core::Result<()>;
 }
-impl IDtcLuRecoveryInitiatedByLuWorkVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuRecoveryInitiatedByLuWorkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuRecoveryInitiatedByLuWorkVtbl {
-        unsafe extern "system" fn HandleTheirXln<Impl: IDtcLuRecoveryInitiatedByLuWorkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lrecoveryseqnum: i32, xln: _DtcLu_Xln, premotelogname: *mut u8, cbremotelogname: u32, pourlogname: *mut u8, cbourlogname: u32, dwprotocol: u32, presponse: *mut _DtcLu_Xln_Response) -> ::windows::core::HRESULT {
+impl IDtcLuRecoveryInitiatedByLuWork_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuRecoveryInitiatedByLuWork_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuRecoveryInitiatedByLuWork_Vtbl {
+        unsafe extern "system" fn HandleTheirXln<Impl: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lrecoveryseqnum: i32, xln: _DtcLu_Xln, premotelogname: *mut u8, cbremotelogname: u32, pourlogname: *mut u8, cbourlogname: u32, dwprotocol: u32, presponse: *mut _DtcLu_Xln_Response) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HandleTheirXln(::core::mem::transmute_copy(&lrecoveryseqnum), ::core::mem::transmute_copy(&xln), ::core::mem::transmute_copy(&premotelogname), ::core::mem::transmute_copy(&cbremotelogname), ::core::mem::transmute_copy(&pourlogname), ::core::mem::transmute_copy(&cbourlogname), ::core::mem::transmute_copy(&dwprotocol), ::core::mem::transmute_copy(&presponse)).into()
         }
-        unsafe extern "system" fn GetOurLogNameSize<Impl: IDtcLuRecoveryInitiatedByLuWorkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbourlogname: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOurLogNameSize<Impl: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbourlogname: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetOurLogNameSize(::core::mem::transmute_copy(&pcbourlogname)).into()
         }
-        unsafe extern "system" fn GetOurXln<Impl: IDtcLuRecoveryInitiatedByLuWorkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxln: *mut _DtcLu_Xln, pourlogname: *mut u8, pdwprotocol: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOurXln<Impl: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxln: *mut _DtcLu_Xln, pourlogname: *mut u8, pdwprotocol: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetOurXln(::core::mem::transmute_copy(&pxln), ::core::mem::transmute_copy(&pourlogname), ::core::mem::transmute_copy(&pdwprotocol)).into()
         }
-        unsafe extern "system" fn HandleConfirmationOfOurXln<Impl: IDtcLuRecoveryInitiatedByLuWorkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, confirmation: _DtcLu_Xln_Confirmation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleConfirmationOfOurXln<Impl: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, confirmation: _DtcLu_Xln_Confirmation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HandleConfirmationOfOurXln(::core::mem::transmute_copy(&confirmation)).into()
         }
-        unsafe extern "system" fn HandleTheirCompareStates<Impl: IDtcLuRecoveryInitiatedByLuWorkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, premotetransid: *mut u8, cbremotetransid: u32, comparestate: _DtcLu_CompareState, presponse: *mut _DtcLu_CompareStates_Response, pcomparestate: *mut _DtcLu_CompareState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleTheirCompareStates<Impl: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, premotetransid: *mut u8, cbremotetransid: u32, comparestate: _DtcLu_CompareState, presponse: *mut _DtcLu_CompareStates_Response, pcomparestate: *mut _DtcLu_CompareState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HandleTheirCompareStates(::core::mem::transmute_copy(&premotetransid), ::core::mem::transmute_copy(&cbremotetransid), ::core::mem::transmute_copy(&comparestate), ::core::mem::transmute_copy(&presponse), ::core::mem::transmute_copy(&pcomparestate)).into()
         }
-        unsafe extern "system" fn HandleConfirmationOfOurCompareStates<Impl: IDtcLuRecoveryInitiatedByLuWorkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, confirmation: _DtcLu_CompareStates_Confirmation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleConfirmationOfOurCompareStates<Impl: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, confirmation: _DtcLu_CompareStates_Confirmation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HandleConfirmationOfOurCompareStates(::core::mem::transmute_copy(&confirmation)).into()
         }
-        unsafe extern "system" fn HandleErrorFromOurCompareStates<Impl: IDtcLuRecoveryInitiatedByLuWorkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, error: _DtcLu_CompareStates_Error) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HandleErrorFromOurCompareStates<Impl: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, error: _DtcLu_CompareStates_Error) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HandleErrorFromOurCompareStates(::core::mem::transmute_copy(&error)).into()
         }
-        unsafe extern "system" fn ConversationLost<Impl: IDtcLuRecoveryInitiatedByLuWorkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConversationLost<Impl: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ConversationLost().into()
         }
@@ -255,7 +255,7 @@ impl IDtcLuRecoveryInitiatedByLuWorkVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDtcLuRmEnlistmentImpl: Sized {
+pub trait IDtcLuRmEnlistment_Impl: Sized {
     fn Unplug(&mut self, fconversationlost: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn BackedOut(&mut self) -> ::windows::core::Result<()>;
     fn BackOut(&mut self) -> ::windows::core::Result<()>;
@@ -264,29 +264,29 @@ pub trait IDtcLuRmEnlistmentImpl: Sized {
     fn RequestCommit(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IDtcLuRmEnlistmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuRmEnlistmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuRmEnlistmentVtbl {
-        unsafe extern "system" fn Unplug<Impl: IDtcLuRmEnlistmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fconversationlost: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+impl IDtcLuRmEnlistment_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuRmEnlistment_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuRmEnlistment_Vtbl {
+        unsafe extern "system" fn Unplug<Impl: IDtcLuRmEnlistment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fconversationlost: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Unplug(::core::mem::transmute_copy(&fconversationlost)).into()
         }
-        unsafe extern "system" fn BackedOut<Impl: IDtcLuRmEnlistmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackedOut<Impl: IDtcLuRmEnlistment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).BackedOut().into()
         }
-        unsafe extern "system" fn BackOut<Impl: IDtcLuRmEnlistmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackOut<Impl: IDtcLuRmEnlistment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).BackOut().into()
         }
-        unsafe extern "system" fn Committed<Impl: IDtcLuRmEnlistmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Committed<Impl: IDtcLuRmEnlistment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Committed().into()
         }
-        unsafe extern "system" fn Forget<Impl: IDtcLuRmEnlistmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Forget<Impl: IDtcLuRmEnlistment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Forget().into()
         }
-        unsafe extern "system" fn RequestCommit<Impl: IDtcLuRmEnlistmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestCommit<Impl: IDtcLuRmEnlistment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RequestCommit().into()
         }
@@ -304,12 +304,12 @@ impl IDtcLuRmEnlistmentVtbl {
         iid == &<IDtcLuRmEnlistment as ::windows::core::Interface>::IID
     }
 }
-pub trait IDtcLuRmEnlistmentFactoryImpl: Sized {
+pub trait IDtcLuRmEnlistmentFactory_Impl: Sized {
     fn Create(&mut self, puclupair: *mut u8, cblupair: u32, pitransaction: ::core::option::Option<ITransaction>, ptransid: *mut u8, cbtransid: u32, prmenlistmentsink: ::core::option::Option<IDtcLuRmEnlistmentSink>, pprmenlistment: *mut ::core::option::Option<IDtcLuRmEnlistment>) -> ::windows::core::Result<()>;
 }
-impl IDtcLuRmEnlistmentFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuRmEnlistmentFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuRmEnlistmentFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IDtcLuRmEnlistmentFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puclupair: *mut u8, cblupair: u32, pitransaction: ::windows::core::RawPtr, ptransid: *mut u8, cbtransid: u32, prmenlistmentsink: ::windows::core::RawPtr, pprmenlistment: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDtcLuRmEnlistmentFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuRmEnlistmentFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuRmEnlistmentFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IDtcLuRmEnlistmentFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puclupair: *mut u8, cblupair: u32, pitransaction: ::windows::core::RawPtr, ptransid: *mut u8, cbtransid: u32, prmenlistmentsink: ::windows::core::RawPtr, pprmenlistment: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Create(::core::mem::transmute_copy(&puclupair), ::core::mem::transmute_copy(&cblupair), ::core::mem::transmute(&pitransaction), ::core::mem::transmute_copy(&ptransid), ::core::mem::transmute_copy(&cbtransid), ::core::mem::transmute(&prmenlistmentsink), ::core::mem::transmute_copy(&pprmenlistment)).into()
         }
@@ -319,7 +319,7 @@ impl IDtcLuRmEnlistmentFactoryVtbl {
         iid == &<IDtcLuRmEnlistmentFactory as ::windows::core::Interface>::IID
     }
 }
-pub trait IDtcLuRmEnlistmentSinkImpl: Sized {
+pub trait IDtcLuRmEnlistmentSink_Impl: Sized {
     fn AckUnplug(&mut self) -> ::windows::core::Result<()>;
     fn TmDown(&mut self) -> ::windows::core::Result<()>;
     fn SessionLost(&mut self) -> ::windows::core::Result<()>;
@@ -330,41 +330,41 @@ pub trait IDtcLuRmEnlistmentSinkImpl: Sized {
     fn Prepare(&mut self) -> ::windows::core::Result<()>;
     fn RequestCommit(&mut self) -> ::windows::core::Result<()>;
 }
-impl IDtcLuRmEnlistmentSinkVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuRmEnlistmentSinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuRmEnlistmentSinkVtbl {
-        unsafe extern "system" fn AckUnplug<Impl: IDtcLuRmEnlistmentSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IDtcLuRmEnlistmentSink_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuRmEnlistmentSink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuRmEnlistmentSink_Vtbl {
+        unsafe extern "system" fn AckUnplug<Impl: IDtcLuRmEnlistmentSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AckUnplug().into()
         }
-        unsafe extern "system" fn TmDown<Impl: IDtcLuRmEnlistmentSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TmDown<Impl: IDtcLuRmEnlistmentSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TmDown().into()
         }
-        unsafe extern "system" fn SessionLost<Impl: IDtcLuRmEnlistmentSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SessionLost<Impl: IDtcLuRmEnlistmentSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SessionLost().into()
         }
-        unsafe extern "system" fn BackedOut<Impl: IDtcLuRmEnlistmentSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackedOut<Impl: IDtcLuRmEnlistmentSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).BackedOut().into()
         }
-        unsafe extern "system" fn BackOut<Impl: IDtcLuRmEnlistmentSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackOut<Impl: IDtcLuRmEnlistmentSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).BackOut().into()
         }
-        unsafe extern "system" fn Committed<Impl: IDtcLuRmEnlistmentSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Committed<Impl: IDtcLuRmEnlistmentSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Committed().into()
         }
-        unsafe extern "system" fn Forget<Impl: IDtcLuRmEnlistmentSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Forget<Impl: IDtcLuRmEnlistmentSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Forget().into()
         }
-        unsafe extern "system" fn Prepare<Impl: IDtcLuRmEnlistmentSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Prepare<Impl: IDtcLuRmEnlistmentSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Prepare().into()
         }
-        unsafe extern "system" fn RequestCommit<Impl: IDtcLuRmEnlistmentSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestCommit<Impl: IDtcLuRmEnlistmentSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RequestCommit().into()
         }
@@ -386,7 +386,7 @@ impl IDtcLuRmEnlistmentSinkVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDtcLuSubordinateDtcImpl: Sized {
+pub trait IDtcLuSubordinateDtc_Impl: Sized {
     fn Unplug(&mut self, fconversationlost: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn BackedOut(&mut self) -> ::windows::core::Result<()>;
     fn BackOut(&mut self) -> ::windows::core::Result<()>;
@@ -396,33 +396,33 @@ pub trait IDtcLuSubordinateDtcImpl: Sized {
     fn RequestCommit(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IDtcLuSubordinateDtcVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuSubordinateDtcImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuSubordinateDtcVtbl {
-        unsafe extern "system" fn Unplug<Impl: IDtcLuSubordinateDtcImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fconversationlost: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+impl IDtcLuSubordinateDtc_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuSubordinateDtc_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuSubordinateDtc_Vtbl {
+        unsafe extern "system" fn Unplug<Impl: IDtcLuSubordinateDtc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fconversationlost: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Unplug(::core::mem::transmute_copy(&fconversationlost)).into()
         }
-        unsafe extern "system" fn BackedOut<Impl: IDtcLuSubordinateDtcImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackedOut<Impl: IDtcLuSubordinateDtc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).BackedOut().into()
         }
-        unsafe extern "system" fn BackOut<Impl: IDtcLuSubordinateDtcImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackOut<Impl: IDtcLuSubordinateDtc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).BackOut().into()
         }
-        unsafe extern "system" fn Committed<Impl: IDtcLuSubordinateDtcImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Committed<Impl: IDtcLuSubordinateDtc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Committed().into()
         }
-        unsafe extern "system" fn Forget<Impl: IDtcLuSubordinateDtcImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Forget<Impl: IDtcLuSubordinateDtc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Forget().into()
         }
-        unsafe extern "system" fn Prepare<Impl: IDtcLuSubordinateDtcImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Prepare<Impl: IDtcLuSubordinateDtc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Prepare().into()
         }
-        unsafe extern "system" fn RequestCommit<Impl: IDtcLuSubordinateDtcImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestCommit<Impl: IDtcLuSubordinateDtc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RequestCommit().into()
         }
@@ -441,12 +441,12 @@ impl IDtcLuSubordinateDtcVtbl {
         iid == &<IDtcLuSubordinateDtc as ::windows::core::Interface>::IID
     }
 }
-pub trait IDtcLuSubordinateDtcFactoryImpl: Sized {
+pub trait IDtcLuSubordinateDtcFactory_Impl: Sized {
     fn Create(&mut self, puclupair: *mut u8, cblupair: u32, punktransactionouter: ::core::option::Option<::windows::core::IUnknown>, isolevel: i32, isoflags: u32, poptions: ::core::option::Option<ITransactionOptions>, pptransaction: *mut ::core::option::Option<ITransaction>, ptransid: *mut u8, cbtransid: u32, psubordinatedtcsink: ::core::option::Option<IDtcLuSubordinateDtcSink>, ppsubordinatedtc: *mut ::core::option::Option<IDtcLuSubordinateDtc>) -> ::windows::core::Result<()>;
 }
-impl IDtcLuSubordinateDtcFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuSubordinateDtcFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuSubordinateDtcFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IDtcLuSubordinateDtcFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puclupair: *mut u8, cblupair: u32, punktransactionouter: *mut ::core::ffi::c_void, isolevel: i32, isoflags: u32, poptions: ::windows::core::RawPtr, pptransaction: *mut ::windows::core::RawPtr, ptransid: *mut u8, cbtransid: u32, psubordinatedtcsink: ::windows::core::RawPtr, ppsubordinatedtc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDtcLuSubordinateDtcFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuSubordinateDtcFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuSubordinateDtcFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IDtcLuSubordinateDtcFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puclupair: *mut u8, cblupair: u32, punktransactionouter: *mut ::core::ffi::c_void, isolevel: i32, isoflags: u32, poptions: ::windows::core::RawPtr, pptransaction: *mut ::windows::core::RawPtr, ptransid: *mut u8, cbtransid: u32, psubordinatedtcsink: ::windows::core::RawPtr, ppsubordinatedtc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .Create(::core::mem::transmute_copy(&puclupair), ::core::mem::transmute_copy(&cblupair), ::core::mem::transmute(&punktransactionouter), ::core::mem::transmute_copy(&isolevel), ::core::mem::transmute_copy(&isoflags), ::core::mem::transmute(&poptions), ::core::mem::transmute_copy(&pptransaction), ::core::mem::transmute_copy(&ptransid), ::core::mem::transmute_copy(&cbtransid), ::core::mem::transmute(&psubordinatedtcsink), ::core::mem::transmute_copy(&ppsubordinatedtc))
@@ -458,7 +458,7 @@ impl IDtcLuSubordinateDtcFactoryVtbl {
         iid == &<IDtcLuSubordinateDtcFactory as ::windows::core::Interface>::IID
     }
 }
-pub trait IDtcLuSubordinateDtcSinkImpl: Sized {
+pub trait IDtcLuSubordinateDtcSink_Impl: Sized {
     fn AckUnplug(&mut self) -> ::windows::core::Result<()>;
     fn TmDown(&mut self) -> ::windows::core::Result<()>;
     fn SessionLost(&mut self) -> ::windows::core::Result<()>;
@@ -468,37 +468,37 @@ pub trait IDtcLuSubordinateDtcSinkImpl: Sized {
     fn Forget(&mut self) -> ::windows::core::Result<()>;
     fn RequestCommit(&mut self) -> ::windows::core::Result<()>;
 }
-impl IDtcLuSubordinateDtcSinkVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuSubordinateDtcSinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuSubordinateDtcSinkVtbl {
-        unsafe extern "system" fn AckUnplug<Impl: IDtcLuSubordinateDtcSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IDtcLuSubordinateDtcSink_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcLuSubordinateDtcSink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcLuSubordinateDtcSink_Vtbl {
+        unsafe extern "system" fn AckUnplug<Impl: IDtcLuSubordinateDtcSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AckUnplug().into()
         }
-        unsafe extern "system" fn TmDown<Impl: IDtcLuSubordinateDtcSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TmDown<Impl: IDtcLuSubordinateDtcSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TmDown().into()
         }
-        unsafe extern "system" fn SessionLost<Impl: IDtcLuSubordinateDtcSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SessionLost<Impl: IDtcLuSubordinateDtcSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SessionLost().into()
         }
-        unsafe extern "system" fn BackedOut<Impl: IDtcLuSubordinateDtcSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackedOut<Impl: IDtcLuSubordinateDtcSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).BackedOut().into()
         }
-        unsafe extern "system" fn BackOut<Impl: IDtcLuSubordinateDtcSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackOut<Impl: IDtcLuSubordinateDtcSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).BackOut().into()
         }
-        unsafe extern "system" fn Committed<Impl: IDtcLuSubordinateDtcSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Committed<Impl: IDtcLuSubordinateDtcSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Committed().into()
         }
-        unsafe extern "system" fn Forget<Impl: IDtcLuSubordinateDtcSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Forget<Impl: IDtcLuSubordinateDtcSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Forget().into()
         }
-        unsafe extern "system" fn RequestCommit<Impl: IDtcLuSubordinateDtcSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestCommit<Impl: IDtcLuSubordinateDtcSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RequestCommit().into()
         }
@@ -519,7 +519,7 @@ impl IDtcLuSubordinateDtcSinkVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDtcNetworkAccessConfigImpl: Sized {
+pub trait IDtcNetworkAccessConfig_Impl: Sized {
     fn GetAnyNetworkAccess(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetAnyNetworkAccess(&mut self, banynetworkaccess: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetNetworkAdministrationAccess(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -535,9 +535,9 @@ pub trait IDtcNetworkAccessConfigImpl: Sized {
     fn RestartDtcService(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IDtcNetworkAccessConfigVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcNetworkAccessConfigImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcNetworkAccessConfigVtbl {
-        unsafe extern "system" fn GetAnyNetworkAccess<Impl: IDtcNetworkAccessConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbanynetworkaccess: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+impl IDtcNetworkAccessConfig_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcNetworkAccessConfig_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcNetworkAccessConfig_Vtbl {
+        unsafe extern "system" fn GetAnyNetworkAccess<Impl: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbanynetworkaccess: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAnyNetworkAccess() {
                 ::core::result::Result::Ok(ok__) => {
@@ -547,11 +547,11 @@ impl IDtcNetworkAccessConfigVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAnyNetworkAccess<Impl: IDtcNetworkAccessConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, banynetworkaccess: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAnyNetworkAccess<Impl: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, banynetworkaccess: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAnyNetworkAccess(::core::mem::transmute_copy(&banynetworkaccess)).into()
         }
-        unsafe extern "system" fn GetNetworkAdministrationAccess<Impl: IDtcNetworkAccessConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbnetworkadministrationaccess: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNetworkAdministrationAccess<Impl: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbnetworkadministrationaccess: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNetworkAdministrationAccess() {
                 ::core::result::Result::Ok(ok__) => {
@@ -561,11 +561,11 @@ impl IDtcNetworkAccessConfigVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNetworkAdministrationAccess<Impl: IDtcNetworkAccessConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bnetworkadministrationaccess: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNetworkAdministrationAccess<Impl: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bnetworkadministrationaccess: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNetworkAdministrationAccess(::core::mem::transmute_copy(&bnetworkadministrationaccess)).into()
         }
-        unsafe extern "system" fn GetNetworkTransactionAccess<Impl: IDtcNetworkAccessConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbnetworktransactionaccess: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNetworkTransactionAccess<Impl: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbnetworktransactionaccess: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNetworkTransactionAccess() {
                 ::core::result::Result::Ok(ok__) => {
@@ -575,11 +575,11 @@ impl IDtcNetworkAccessConfigVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNetworkTransactionAccess<Impl: IDtcNetworkAccessConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bnetworktransactionaccess: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNetworkTransactionAccess<Impl: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bnetworktransactionaccess: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNetworkTransactionAccess(::core::mem::transmute_copy(&bnetworktransactionaccess)).into()
         }
-        unsafe extern "system" fn GetNetworkClientAccess<Impl: IDtcNetworkAccessConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbnetworkclientaccess: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNetworkClientAccess<Impl: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbnetworkclientaccess: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNetworkClientAccess() {
                 ::core::result::Result::Ok(ok__) => {
@@ -589,11 +589,11 @@ impl IDtcNetworkAccessConfigVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNetworkClientAccess<Impl: IDtcNetworkAccessConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bnetworkclientaccess: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNetworkClientAccess<Impl: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bnetworkclientaccess: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNetworkClientAccess(::core::mem::transmute_copy(&bnetworkclientaccess)).into()
         }
-        unsafe extern "system" fn GetNetworkTIPAccess<Impl: IDtcNetworkAccessConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbnetworktipaccess: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNetworkTIPAccess<Impl: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbnetworktipaccess: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNetworkTIPAccess() {
                 ::core::result::Result::Ok(ok__) => {
@@ -603,11 +603,11 @@ impl IDtcNetworkAccessConfigVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNetworkTIPAccess<Impl: IDtcNetworkAccessConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bnetworktipaccess: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNetworkTIPAccess<Impl: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bnetworktipaccess: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNetworkTIPAccess(::core::mem::transmute_copy(&bnetworktipaccess)).into()
         }
-        unsafe extern "system" fn GetXAAccess<Impl: IDtcNetworkAccessConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbxaaccess: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetXAAccess<Impl: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbxaaccess: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetXAAccess() {
                 ::core::result::Result::Ok(ok__) => {
@@ -617,11 +617,11 @@ impl IDtcNetworkAccessConfigVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetXAAccess<Impl: IDtcNetworkAccessConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bxaaccess: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetXAAccess<Impl: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bxaaccess: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetXAAccess(::core::mem::transmute_copy(&bxaaccess)).into()
         }
-        unsafe extern "system" fn RestartDtcService<Impl: IDtcNetworkAccessConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RestartDtcService<Impl: IDtcNetworkAccessConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RestartDtcService().into()
         }
@@ -647,7 +647,7 @@ impl IDtcNetworkAccessConfigVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDtcNetworkAccessConfig2Impl: Sized + IDtcNetworkAccessConfigImpl {
+pub trait IDtcNetworkAccessConfig2_Impl: Sized + IDtcNetworkAccessConfig_Impl {
     fn GetNetworkInboundAccess(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn GetNetworkOutboundAccess(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetNetworkInboundAccess(&mut self, binbound: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -656,9 +656,9 @@ pub trait IDtcNetworkAccessConfig2Impl: Sized + IDtcNetworkAccessConfigImpl {
     fn SetAuthenticationLevel(&mut self, authlevel: AUTHENTICATION_LEVEL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IDtcNetworkAccessConfig2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcNetworkAccessConfig2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcNetworkAccessConfig2Vtbl {
-        unsafe extern "system" fn GetNetworkInboundAccess<Impl: IDtcNetworkAccessConfig2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbinbound: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+impl IDtcNetworkAccessConfig2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcNetworkAccessConfig2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcNetworkAccessConfig2_Vtbl {
+        unsafe extern "system" fn GetNetworkInboundAccess<Impl: IDtcNetworkAccessConfig2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbinbound: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNetworkInboundAccess() {
                 ::core::result::Result::Ok(ok__) => {
@@ -668,7 +668,7 @@ impl IDtcNetworkAccessConfig2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNetworkOutboundAccess<Impl: IDtcNetworkAccessConfig2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pboutbound: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNetworkOutboundAccess<Impl: IDtcNetworkAccessConfig2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pboutbound: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNetworkOutboundAccess() {
                 ::core::result::Result::Ok(ok__) => {
@@ -678,15 +678,15 @@ impl IDtcNetworkAccessConfig2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNetworkInboundAccess<Impl: IDtcNetworkAccessConfig2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, binbound: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNetworkInboundAccess<Impl: IDtcNetworkAccessConfig2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, binbound: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNetworkInboundAccess(::core::mem::transmute_copy(&binbound)).into()
         }
-        unsafe extern "system" fn SetNetworkOutboundAccess<Impl: IDtcNetworkAccessConfig2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, boutbound: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNetworkOutboundAccess<Impl: IDtcNetworkAccessConfig2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, boutbound: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNetworkOutboundAccess(::core::mem::transmute_copy(&boutbound)).into()
         }
-        unsafe extern "system" fn GetAuthenticationLevel<Impl: IDtcNetworkAccessConfig2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pauthlevel: *mut AUTHENTICATION_LEVEL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAuthenticationLevel<Impl: IDtcNetworkAccessConfig2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pauthlevel: *mut AUTHENTICATION_LEVEL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAuthenticationLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -696,12 +696,12 @@ impl IDtcNetworkAccessConfig2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAuthenticationLevel<Impl: IDtcNetworkAccessConfig2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, authlevel: AUTHENTICATION_LEVEL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAuthenticationLevel<Impl: IDtcNetworkAccessConfig2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, authlevel: AUTHENTICATION_LEVEL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAuthenticationLevel(::core::mem::transmute_copy(&authlevel)).into()
         }
         Self {
-            base: IDtcNetworkAccessConfigVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IDtcNetworkAccessConfig_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             GetNetworkInboundAccess: GetNetworkInboundAccess::<Impl, IMPL_OFFSET>,
             GetNetworkOutboundAccess: GetNetworkOutboundAccess::<Impl, IMPL_OFFSET>,
             SetNetworkInboundAccess: SetNetworkInboundAccess::<Impl, IMPL_OFFSET>,
@@ -715,14 +715,14 @@ impl IDtcNetworkAccessConfig2Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDtcNetworkAccessConfig3Impl: Sized + IDtcNetworkAccessConfigImpl + IDtcNetworkAccessConfig2Impl {
+pub trait IDtcNetworkAccessConfig3_Impl: Sized + IDtcNetworkAccessConfig_Impl + IDtcNetworkAccessConfig2_Impl {
     fn GetLUAccess(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetLUAccess(&mut self, bluaccess: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IDtcNetworkAccessConfig3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcNetworkAccessConfig3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcNetworkAccessConfig3Vtbl {
-        unsafe extern "system" fn GetLUAccess<Impl: IDtcNetworkAccessConfig3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbluaccess: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+impl IDtcNetworkAccessConfig3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcNetworkAccessConfig3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcNetworkAccessConfig3_Vtbl {
+        unsafe extern "system" fn GetLUAccess<Impl: IDtcNetworkAccessConfig3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbluaccess: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetLUAccess() {
                 ::core::result::Result::Ok(ok__) => {
@@ -732,12 +732,12 @@ impl IDtcNetworkAccessConfig3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLUAccess<Impl: IDtcNetworkAccessConfig3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bluaccess: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLUAccess<Impl: IDtcNetworkAccessConfig3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bluaccess: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLUAccess(::core::mem::transmute_copy(&bluaccess)).into()
         }
         Self {
-            base: IDtcNetworkAccessConfig2Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IDtcNetworkAccessConfig2_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             GetLUAccess: GetLUAccess::<Impl, IMPL_OFFSET>,
             SetLUAccess: SetLUAccess::<Impl, IMPL_OFFSET>,
         }
@@ -747,18 +747,18 @@ impl IDtcNetworkAccessConfig3Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDtcToXaHelperImpl: Sized {
+pub trait IDtcToXaHelper_Impl: Sized {
     fn Close(&mut self, i_fdorecovery: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn TranslateTridToXid(&mut self, pitransaction: ::core::option::Option<ITransaction>, pguidbqual: *const ::windows::core::GUID) -> ::windows::core::Result<xid_t>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IDtcToXaHelperVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcToXaHelperImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcToXaHelperVtbl {
-        unsafe extern "system" fn Close<Impl: IDtcToXaHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, i_fdorecovery: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+impl IDtcToXaHelper_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcToXaHelper_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcToXaHelper_Vtbl {
+        unsafe extern "system" fn Close<Impl: IDtcToXaHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, i_fdorecovery: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Close(::core::mem::transmute_copy(&i_fdorecovery)).into()
         }
-        unsafe extern "system" fn TranslateTridToXid<Impl: IDtcToXaHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitransaction: ::windows::core::RawPtr, pguidbqual: *const ::windows::core::GUID, pxid: *mut xid_t) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TranslateTridToXid<Impl: IDtcToXaHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitransaction: ::windows::core::RawPtr, pguidbqual: *const ::windows::core::GUID, pxid: *mut xid_t) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TranslateTridToXid(::core::mem::transmute(&pitransaction), ::core::mem::transmute_copy(&pguidbqual)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -779,13 +779,13 @@ impl IDtcToXaHelperVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDtcToXaHelperFactoryImpl: Sized {
+pub trait IDtcToXaHelperFactory_Impl: Sized {
     fn Create(&mut self, pszdsn: super::super::Foundation::PSTR, pszclientdllname: super::super::Foundation::PSTR, pguidrm: *mut ::windows::core::GUID, ppxahelper: *mut ::core::option::Option<IDtcToXaHelper>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IDtcToXaHelperFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcToXaHelperFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcToXaHelperFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IDtcToXaHelperFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdsn: super::super::Foundation::PSTR, pszclientdllname: super::super::Foundation::PSTR, pguidrm: *mut ::windows::core::GUID, ppxahelper: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDtcToXaHelperFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcToXaHelperFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcToXaHelperFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IDtcToXaHelperFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdsn: super::super::Foundation::PSTR, pszclientdllname: super::super::Foundation::PSTR, pguidrm: *mut ::windows::core::GUID, ppxahelper: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Create(::core::mem::transmute_copy(&pszdsn), ::core::mem::transmute_copy(&pszclientdllname), ::core::mem::transmute_copy(&pguidrm), ::core::mem::transmute_copy(&ppxahelper)).into()
         }
@@ -796,24 +796,24 @@ impl IDtcToXaHelperFactoryVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDtcToXaHelperSinglePipeImpl: Sized {
+pub trait IDtcToXaHelperSinglePipe_Impl: Sized {
     fn XARMCreate(&mut self, pszdsn: super::super::Foundation::PSTR, pszclientdll: super::super::Foundation::PSTR, pdwrmcookie: *mut u32) -> ::windows::core::Result<()>;
     fn ConvertTridToXID(&mut self, pdwitrans: *mut u32, dwrmcookie: u32, pxid: *mut xid_t) -> ::windows::core::Result<()>;
     fn EnlistWithRM(&mut self, dwrmcookie: u32, i_pitransaction: ::core::option::Option<ITransaction>, i_pitransres: ::core::option::Option<ITransactionResourceAsync>) -> ::windows::core::Result<ITransactionEnlistmentAsync>;
     fn ReleaseRMCookie(&mut self, i_dwrmcookie: u32, i_fnormal: super::super::Foundation::BOOL);
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IDtcToXaHelperSinglePipeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcToXaHelperSinglePipeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcToXaHelperSinglePipeVtbl {
-        unsafe extern "system" fn XARMCreate<Impl: IDtcToXaHelperSinglePipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdsn: super::super::Foundation::PSTR, pszclientdll: super::super::Foundation::PSTR, pdwrmcookie: *mut u32) -> ::windows::core::HRESULT {
+impl IDtcToXaHelperSinglePipe_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcToXaHelperSinglePipe_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcToXaHelperSinglePipe_Vtbl {
+        unsafe extern "system" fn XARMCreate<Impl: IDtcToXaHelperSinglePipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdsn: super::super::Foundation::PSTR, pszclientdll: super::super::Foundation::PSTR, pdwrmcookie: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).XARMCreate(::core::mem::transmute_copy(&pszdsn), ::core::mem::transmute_copy(&pszclientdll), ::core::mem::transmute_copy(&pdwrmcookie)).into()
         }
-        unsafe extern "system" fn ConvertTridToXID<Impl: IDtcToXaHelperSinglePipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwitrans: *mut u32, dwrmcookie: u32, pxid: *mut xid_t) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConvertTridToXID<Impl: IDtcToXaHelperSinglePipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwitrans: *mut u32, dwrmcookie: u32, pxid: *mut xid_t) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ConvertTridToXID(::core::mem::transmute_copy(&pdwitrans), ::core::mem::transmute_copy(&dwrmcookie), ::core::mem::transmute_copy(&pxid)).into()
         }
-        unsafe extern "system" fn EnlistWithRM<Impl: IDtcToXaHelperSinglePipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwrmcookie: u32, i_pitransaction: ::windows::core::RawPtr, i_pitransres: ::windows::core::RawPtr, o_ppitransenslitment: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnlistWithRM<Impl: IDtcToXaHelperSinglePipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwrmcookie: u32, i_pitransaction: ::windows::core::RawPtr, i_pitransres: ::windows::core::RawPtr, o_ppitransenslitment: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnlistWithRM(::core::mem::transmute_copy(&dwrmcookie), ::core::mem::transmute(&i_pitransaction), ::core::mem::transmute(&i_pitransres)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -823,7 +823,7 @@ impl IDtcToXaHelperSinglePipeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReleaseRMCookie<Impl: IDtcToXaHelperSinglePipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, i_dwrmcookie: u32, i_fnormal: super::super::Foundation::BOOL) {
+        unsafe extern "system" fn ReleaseRMCookie<Impl: IDtcToXaHelperSinglePipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, i_dwrmcookie: u32, i_fnormal: super::super::Foundation::BOOL) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReleaseRMCookie(::core::mem::transmute_copy(&i_dwrmcookie), ::core::mem::transmute_copy(&i_fnormal))
         }
@@ -840,28 +840,28 @@ impl IDtcToXaHelperSinglePipeVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDtcToXaMapperImpl: Sized {
+pub trait IDtcToXaMapper_Impl: Sized {
     fn RequestNewResourceManager(&mut self, pszdsn: super::super::Foundation::PSTR, pszclientdllname: super::super::Foundation::PSTR, pdwrmcookie: *mut u32) -> ::windows::core::Result<()>;
     fn TranslateTridToXid(&mut self, pdwitransaction: *const u32, dwrmcookie: u32, pxid: *mut xid_t) -> ::windows::core::Result<()>;
     fn EnlistResourceManager(&mut self, dwrmcookie: u32, pdwitransaction: *const u32) -> ::windows::core::Result<()>;
     fn ReleaseResourceManager(&mut self, dwrmcookie: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IDtcToXaMapperVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcToXaMapperImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcToXaMapperVtbl {
-        unsafe extern "system" fn RequestNewResourceManager<Impl: IDtcToXaMapperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdsn: super::super::Foundation::PSTR, pszclientdllname: super::super::Foundation::PSTR, pdwrmcookie: *mut u32) -> ::windows::core::HRESULT {
+impl IDtcToXaMapper_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcToXaMapper_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDtcToXaMapper_Vtbl {
+        unsafe extern "system" fn RequestNewResourceManager<Impl: IDtcToXaMapper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdsn: super::super::Foundation::PSTR, pszclientdllname: super::super::Foundation::PSTR, pdwrmcookie: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RequestNewResourceManager(::core::mem::transmute_copy(&pszdsn), ::core::mem::transmute_copy(&pszclientdllname), ::core::mem::transmute_copy(&pdwrmcookie)).into()
         }
-        unsafe extern "system" fn TranslateTridToXid<Impl: IDtcToXaMapperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwitransaction: *const u32, dwrmcookie: u32, pxid: *mut xid_t) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TranslateTridToXid<Impl: IDtcToXaMapper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwitransaction: *const u32, dwrmcookie: u32, pxid: *mut xid_t) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TranslateTridToXid(::core::mem::transmute_copy(&pdwitransaction), ::core::mem::transmute_copy(&dwrmcookie), ::core::mem::transmute_copy(&pxid)).into()
         }
-        unsafe extern "system" fn EnlistResourceManager<Impl: IDtcToXaMapperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwrmcookie: u32, pdwitransaction: *const u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnlistResourceManager<Impl: IDtcToXaMapper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwrmcookie: u32, pdwitransaction: *const u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EnlistResourceManager(::core::mem::transmute_copy(&dwrmcookie), ::core::mem::transmute_copy(&pdwitransaction)).into()
         }
-        unsafe extern "system" fn ReleaseResourceManager<Impl: IDtcToXaMapperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwrmcookie: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReleaseResourceManager<Impl: IDtcToXaMapper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwrmcookie: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReleaseResourceManager(::core::mem::transmute_copy(&dwrmcookie)).into()
         }
@@ -877,12 +877,12 @@ impl IDtcToXaMapperVtbl {
         iid == &<IDtcToXaMapper as ::windows::core::Interface>::IID
     }
 }
-pub trait IGetDispenserImpl: Sized {
+pub trait IGetDispenser_Impl: Sized {
     fn GetDispenser(&mut self, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
-impl IGetDispenserVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGetDispenserImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGetDispenserVtbl {
-        unsafe extern "system" fn GetDispenser<Impl: IGetDispenserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IGetDispenser_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGetDispenser_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGetDispenser_Vtbl {
+        unsafe extern "system" fn GetDispenser<Impl: IGetDispenser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetDispenser(::core::mem::transmute_copy(&iid), ::core::mem::transmute_copy(&ppvobject)).into()
         }
@@ -893,13 +893,13 @@ impl IGetDispenserVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IKernelTransactionImpl: Sized {
+pub trait IKernelTransaction_Impl: Sized {
     fn GetHandle(&mut self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IKernelTransactionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKernelTransactionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKernelTransactionVtbl {
-        unsafe extern "system" fn GetHandle<Impl: IKernelTransactionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
+impl IKernelTransaction_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKernelTransaction_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKernelTransaction_Vtbl {
+        unsafe extern "system" fn GetHandle<Impl: IKernelTransaction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetHandle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -915,17 +915,17 @@ impl IKernelTransactionVtbl {
         iid == &<IKernelTransaction as ::windows::core::Interface>::IID
     }
 }
-pub trait ILastResourceManagerImpl: Sized {
+pub trait ILastResourceManager_Impl: Sized {
     fn TransactionCommitted(&mut self, pprepinfo: *const u8, cbprepinfo: u32) -> ::windows::core::Result<()>;
     fn RecoveryDone(&mut self) -> ::windows::core::Result<()>;
 }
-impl ILastResourceManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILastResourceManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILastResourceManagerVtbl {
-        unsafe extern "system" fn TransactionCommitted<Impl: ILastResourceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprepinfo: *const u8, cbprepinfo: u32) -> ::windows::core::HRESULT {
+impl ILastResourceManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILastResourceManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILastResourceManager_Vtbl {
+        unsafe extern "system" fn TransactionCommitted<Impl: ILastResourceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprepinfo: *const u8, cbprepinfo: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TransactionCommitted(::core::mem::transmute_copy(&pprepinfo), ::core::mem::transmute_copy(&cbprepinfo)).into()
         }
-        unsafe extern "system" fn RecoveryDone<Impl: ILastResourceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RecoveryDone<Impl: ILastResourceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RecoveryDone().into()
         }
@@ -939,17 +939,17 @@ impl ILastResourceManagerVtbl {
         iid == &<ILastResourceManager as ::windows::core::Interface>::IID
     }
 }
-pub trait IPrepareInfoImpl: Sized {
+pub trait IPrepareInfo_Impl: Sized {
     fn GetPrepareInfoSize(&mut self, pcbprepinfo: *mut u32) -> ::windows::core::Result<()>;
     fn GetPrepareInfo(&mut self, pprepinfo: *mut u8) -> ::windows::core::Result<()>;
 }
-impl IPrepareInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrepareInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrepareInfoVtbl {
-        unsafe extern "system" fn GetPrepareInfoSize<Impl: IPrepareInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbprepinfo: *mut u32) -> ::windows::core::HRESULT {
+impl IPrepareInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrepareInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrepareInfo_Vtbl {
+        unsafe extern "system" fn GetPrepareInfoSize<Impl: IPrepareInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbprepinfo: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetPrepareInfoSize(::core::mem::transmute_copy(&pcbprepinfo)).into()
         }
-        unsafe extern "system" fn GetPrepareInfo<Impl: IPrepareInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprepinfo: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPrepareInfo<Impl: IPrepareInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprepinfo: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetPrepareInfo(::core::mem::transmute_copy(&pprepinfo)).into()
         }
@@ -963,13 +963,13 @@ impl IPrepareInfoVtbl {
         iid == &<IPrepareInfo as ::windows::core::Interface>::IID
     }
 }
-pub trait IPrepareInfo2Impl: Sized {
+pub trait IPrepareInfo2_Impl: Sized {
     fn GetPrepareInfoSize(&mut self) -> ::windows::core::Result<u32>;
     fn GetPrepareInfo(&mut self, cbprepareinfo: u32, pprepinfo: *mut u8) -> ::windows::core::Result<()>;
 }
-impl IPrepareInfo2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrepareInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrepareInfo2Vtbl {
-        unsafe extern "system" fn GetPrepareInfoSize<Impl: IPrepareInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbprepinfo: *mut u32) -> ::windows::core::HRESULT {
+impl IPrepareInfo2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrepareInfo2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrepareInfo2_Vtbl {
+        unsafe extern "system" fn GetPrepareInfoSize<Impl: IPrepareInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbprepinfo: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPrepareInfoSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -979,7 +979,7 @@ impl IPrepareInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPrepareInfo<Impl: IPrepareInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbprepareinfo: u32, pprepinfo: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPrepareInfo<Impl: IPrepareInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbprepareinfo: u32, pprepinfo: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetPrepareInfo(::core::mem::transmute_copy(&cbprepareinfo), ::core::mem::transmute_copy(&pprepinfo)).into()
         }
@@ -994,18 +994,18 @@ impl IPrepareInfo2Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IRMHelperImpl: Sized {
+pub trait IRMHelper_Impl: Sized {
     fn RMCount(&mut self, dwctotalnumberofrms: u32) -> ::windows::core::Result<()>;
     fn RMInfo(&mut self, pxa_switch: *mut xa_switch_t, fcdeclcallingconv: super::super::Foundation::BOOL, pszopenstring: super::super::Foundation::PSTR, pszclosestring: super::super::Foundation::PSTR, guidrmrecovery: ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IRMHelperVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRMHelperImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRMHelperVtbl {
-        unsafe extern "system" fn RMCount<Impl: IRMHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwctotalnumberofrms: u32) -> ::windows::core::HRESULT {
+impl IRMHelper_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRMHelper_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRMHelper_Vtbl {
+        unsafe extern "system" fn RMCount<Impl: IRMHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwctotalnumberofrms: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RMCount(::core::mem::transmute_copy(&dwctotalnumberofrms)).into()
         }
-        unsafe extern "system" fn RMInfo<Impl: IRMHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxa_switch: *mut xa_switch_t, fcdeclcallingconv: super::super::Foundation::BOOL, pszopenstring: super::super::Foundation::PSTR, pszclosestring: super::super::Foundation::PSTR, guidrmrecovery: ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RMInfo<Impl: IRMHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxa_switch: *mut xa_switch_t, fcdeclcallingconv: super::super::Foundation::BOOL, pszopenstring: super::super::Foundation::PSTR, pszclosestring: super::super::Foundation::PSTR, guidrmrecovery: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RMInfo(::core::mem::transmute_copy(&pxa_switch), ::core::mem::transmute_copy(&fcdeclcallingconv), ::core::mem::transmute_copy(&pszopenstring), ::core::mem::transmute_copy(&pszclosestring), ::core::mem::transmute_copy(&guidrmrecovery)).into()
         }
@@ -1015,19 +1015,19 @@ impl IRMHelperVtbl {
         iid == &<IRMHelper as ::windows::core::Interface>::IID
     }
 }
-pub trait IResourceManagerImpl: Sized {
+pub trait IResourceManager_Impl: Sized {
     fn Enlist(&mut self, ptransaction: ::core::option::Option<ITransaction>, pres: ::core::option::Option<ITransactionResourceAsync>, puow: *mut BOID, pisolevel: *mut i32, ppenlist: *mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()>;
     fn Reenlist(&mut self, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32) -> ::windows::core::Result<XACTSTAT>;
     fn ReenlistmentComplete(&mut self) -> ::windows::core::Result<()>;
     fn GetDistributedTransactionManager(&mut self, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
-impl IResourceManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceManagerVtbl {
-        unsafe extern "system" fn Enlist<Impl: IResourceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptransaction: ::windows::core::RawPtr, pres: ::windows::core::RawPtr, puow: *mut BOID, pisolevel: *mut i32, ppenlist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IResourceManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceManager_Vtbl {
+        unsafe extern "system" fn Enlist<Impl: IResourceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptransaction: ::windows::core::RawPtr, pres: ::windows::core::RawPtr, puow: *mut BOID, pisolevel: *mut i32, ppenlist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Enlist(::core::mem::transmute(&ptransaction), ::core::mem::transmute(&pres), ::core::mem::transmute_copy(&puow), ::core::mem::transmute_copy(&pisolevel), ::core::mem::transmute_copy(&ppenlist)).into()
         }
-        unsafe extern "system" fn Reenlist<Impl: IResourceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32, pxactstat: *mut XACTSTAT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Reenlist<Impl: IResourceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32, pxactstat: *mut XACTSTAT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reenlist(::core::mem::transmute_copy(&pprepinfo), ::core::mem::transmute_copy(&cbprepinfo), ::core::mem::transmute_copy(&ltimeout)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1037,11 +1037,11 @@ impl IResourceManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReenlistmentComplete<Impl: IResourceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReenlistmentComplete<Impl: IResourceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReenlistmentComplete().into()
         }
-        unsafe extern "system" fn GetDistributedTransactionManager<Impl: IResourceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDistributedTransactionManager<Impl: IResourceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetDistributedTransactionManager(::core::mem::transmute_copy(&iid), ::core::mem::transmute_copy(&ppvobject)).into()
         }
@@ -1058,18 +1058,18 @@ impl IResourceManagerVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IResourceManager2Impl: Sized + IResourceManagerImpl {
+pub trait IResourceManager2_Impl: Sized + IResourceManager_Impl {
     fn Enlist2(&mut self, ptransaction: ::core::option::Option<ITransaction>, presasync: ::core::option::Option<ITransactionResourceAsync>, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut xid_t, ppenlist: *mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()>;
     fn Reenlist2(&mut self, pxid: *const xid_t, dwtimeout: u32) -> ::windows::core::Result<XACTSTAT>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IResourceManager2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManager2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceManager2Vtbl {
-        unsafe extern "system" fn Enlist2<Impl: IResourceManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptransaction: ::windows::core::RawPtr, presasync: ::windows::core::RawPtr, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut xid_t, ppenlist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IResourceManager2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManager2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceManager2_Vtbl {
+        unsafe extern "system" fn Enlist2<Impl: IResourceManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptransaction: ::windows::core::RawPtr, presasync: ::windows::core::RawPtr, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut xid_t, ppenlist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Enlist2(::core::mem::transmute(&ptransaction), ::core::mem::transmute(&presasync), ::core::mem::transmute_copy(&puow), ::core::mem::transmute_copy(&pisolevel), ::core::mem::transmute_copy(&pxid), ::core::mem::transmute_copy(&ppenlist)).into()
         }
-        unsafe extern "system" fn Reenlist2<Impl: IResourceManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxid: *const xid_t, dwtimeout: u32, pxactstat: *mut XACTSTAT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Reenlist2<Impl: IResourceManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxid: *const xid_t, dwtimeout: u32, pxactstat: *mut XACTSTAT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reenlist2(::core::mem::transmute_copy(&pxid), ::core::mem::transmute_copy(&dwtimeout)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1080,7 +1080,7 @@ impl IResourceManager2Vtbl {
             }
         }
         Self {
-            base: IResourceManagerVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IResourceManager_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Enlist2: Enlist2::<Impl, IMPL_OFFSET>,
             Reenlist2: Reenlist2::<Impl, IMPL_OFFSET>,
         }
@@ -1090,13 +1090,13 @@ impl IResourceManager2Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IResourceManagerFactoryImpl: Sized {
+pub trait IResourceManagerFactory_Impl: Sized {
     fn Create(&mut self, pguidrm: *const ::windows::core::GUID, pszrmname: super::super::Foundation::PSTR, piresmgrsink: ::core::option::Option<IResourceManagerSink>) -> ::windows::core::Result<IResourceManager>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IResourceManagerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManagerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceManagerFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IResourceManagerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidrm: *const ::windows::core::GUID, pszrmname: super::super::Foundation::PSTR, piresmgrsink: ::windows::core::RawPtr, ppresmgr: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IResourceManagerFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManagerFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceManagerFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IResourceManagerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidrm: *const ::windows::core::GUID, pszrmname: super::super::Foundation::PSTR, piresmgrsink: ::windows::core::RawPtr, ppresmgr: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(::core::mem::transmute_copy(&pguidrm), ::core::mem::transmute_copy(&pszrmname), ::core::mem::transmute(&piresmgrsink)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1113,30 +1113,30 @@ impl IResourceManagerFactoryVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IResourceManagerFactory2Impl: Sized + IResourceManagerFactoryImpl {
+pub trait IResourceManagerFactory2_Impl: Sized + IResourceManagerFactory_Impl {
     fn CreateEx(&mut self, pguidrm: *const ::windows::core::GUID, pszrmname: super::super::Foundation::PSTR, piresmgrsink: ::core::option::Option<IResourceManagerSink>, riidrequested: *const ::windows::core::GUID, ppvresmgr: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IResourceManagerFactory2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManagerFactory2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceManagerFactory2Vtbl {
-        unsafe extern "system" fn CreateEx<Impl: IResourceManagerFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidrm: *const ::windows::core::GUID, pszrmname: super::super::Foundation::PSTR, piresmgrsink: ::windows::core::RawPtr, riidrequested: *const ::windows::core::GUID, ppvresmgr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IResourceManagerFactory2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManagerFactory2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceManagerFactory2_Vtbl {
+        unsafe extern "system" fn CreateEx<Impl: IResourceManagerFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidrm: *const ::windows::core::GUID, pszrmname: super::super::Foundation::PSTR, piresmgrsink: ::windows::core::RawPtr, riidrequested: *const ::windows::core::GUID, ppvresmgr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CreateEx(::core::mem::transmute_copy(&pguidrm), ::core::mem::transmute_copy(&pszrmname), ::core::mem::transmute(&piresmgrsink), ::core::mem::transmute_copy(&riidrequested), ::core::mem::transmute_copy(&ppvresmgr)).into()
         }
-        Self { base: IResourceManagerFactoryVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), CreateEx: CreateEx::<Impl, IMPL_OFFSET> }
+        Self { base: IResourceManagerFactory_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), CreateEx: CreateEx::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IResourceManagerFactory2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IResourceManagerRejoinableImpl: Sized + IResourceManagerImpl + IResourceManager2Impl {
+pub trait IResourceManagerRejoinable_Impl: Sized + IResourceManager_Impl + IResourceManager2_Impl {
     fn Rejoin(&mut self, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32) -> ::windows::core::Result<XACTSTAT>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IResourceManagerRejoinableVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManagerRejoinableImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceManagerRejoinableVtbl {
-        unsafe extern "system" fn Rejoin<Impl: IResourceManagerRejoinableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32, pxactstat: *mut XACTSTAT) -> ::windows::core::HRESULT {
+impl IResourceManagerRejoinable_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManagerRejoinable_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceManagerRejoinable_Vtbl {
+        unsafe extern "system" fn Rejoin<Impl: IResourceManagerRejoinable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32, pxactstat: *mut XACTSTAT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Rejoin(::core::mem::transmute_copy(&pprepinfo), ::core::mem::transmute_copy(&cbprepinfo), ::core::mem::transmute_copy(&ltimeout)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1146,18 +1146,18 @@ impl IResourceManagerRejoinableVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IResourceManager2Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Rejoin: Rejoin::<Impl, IMPL_OFFSET> }
+        Self { base: IResourceManager2_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Rejoin: Rejoin::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IResourceManagerRejoinable as ::windows::core::Interface>::IID
     }
 }
-pub trait IResourceManagerSinkImpl: Sized {
+pub trait IResourceManagerSink_Impl: Sized {
     fn TMDown(&mut self) -> ::windows::core::Result<()>;
 }
-impl IResourceManagerSinkVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManagerSinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceManagerSinkVtbl {
-        unsafe extern "system" fn TMDown<Impl: IResourceManagerSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IResourceManagerSink_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManagerSink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResourceManagerSink_Vtbl {
+        unsafe extern "system" fn TMDown<Impl: IResourceManagerSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TMDown().into()
         }
@@ -1167,14 +1167,14 @@ impl IResourceManagerSinkVtbl {
         iid == &<IResourceManagerSink as ::windows::core::Interface>::IID
     }
 }
-pub trait ITipHelperImpl: Sized {
+pub trait ITipHelper_Impl: Sized {
     fn Pull(&mut self, i_psztxurl: *const u8) -> ::windows::core::Result<ITransaction>;
     fn PullAsync(&mut self, i_psztxurl: *const u8, i_ptippullsink: ::core::option::Option<ITipPullSink>) -> ::windows::core::Result<ITransaction>;
     fn GetLocalTmUrl(&mut self) -> ::windows::core::Result<*mut u8>;
 }
-impl ITipHelperVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITipHelperImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITipHelperVtbl {
-        unsafe extern "system" fn Pull<Impl: ITipHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, i_psztxurl: *const u8, o_ppitransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITipHelper_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITipHelper_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITipHelper_Vtbl {
+        unsafe extern "system" fn Pull<Impl: ITipHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, i_psztxurl: *const u8, o_ppitransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pull(::core::mem::transmute_copy(&i_psztxurl)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1184,7 +1184,7 @@ impl ITipHelperVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PullAsync<Impl: ITipHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, i_psztxurl: *const u8, i_ptippullsink: ::windows::core::RawPtr, o_ppitransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PullAsync<Impl: ITipHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, i_psztxurl: *const u8, i_ptippullsink: ::windows::core::RawPtr, o_ppitransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PullAsync(::core::mem::transmute_copy(&i_psztxurl), ::core::mem::transmute(&i_ptippullsink)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1194,7 +1194,7 @@ impl ITipHelperVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetLocalTmUrl<Impl: ITipHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, o_ppszlocaltmurl: *mut *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLocalTmUrl<Impl: ITipHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, o_ppszlocaltmurl: *mut *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetLocalTmUrl() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1215,12 +1215,12 @@ impl ITipHelperVtbl {
         iid == &<ITipHelper as ::windows::core::Interface>::IID
     }
 }
-pub trait ITipPullSinkImpl: Sized {
+pub trait ITipPullSink_Impl: Sized {
     fn PullComplete(&mut self, i_hrpull: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
-impl ITipPullSinkVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITipPullSinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITipPullSinkVtbl {
-        unsafe extern "system" fn PullComplete<Impl: ITipPullSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, i_hrpull: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+impl ITipPullSink_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITipPullSink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITipPullSink_Vtbl {
+        unsafe extern "system" fn PullComplete<Impl: ITipPullSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, i_hrpull: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PullComplete(::core::mem::transmute_copy(&i_hrpull)).into()
         }
@@ -1231,14 +1231,14 @@ impl ITipPullSinkVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ITipTransactionImpl: Sized {
+pub trait ITipTransaction_Impl: Sized {
     fn Push(&mut self, i_pszremotetmurl: *const u8) -> ::windows::core::Result<super::super::Foundation::PSTR>;
     fn GetTransactionUrl(&mut self) -> ::windows::core::Result<super::super::Foundation::PSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ITipTransactionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITipTransactionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITipTransactionVtbl {
-        unsafe extern "system" fn Push<Impl: ITipTransactionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, i_pszremotetmurl: *const u8, o_ppszremotetxurl: *mut super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
+impl ITipTransaction_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITipTransaction_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITipTransaction_Vtbl {
+        unsafe extern "system" fn Push<Impl: ITipTransaction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, i_pszremotetmurl: *const u8, o_ppszremotetxurl: *mut super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Push(::core::mem::transmute_copy(&i_pszremotetmurl)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1248,7 +1248,7 @@ impl ITipTransactionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTransactionUrl<Impl: ITipTransactionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, o_ppszlocaltxurl: *mut super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTransactionUrl<Impl: ITipTransaction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, o_ppszlocaltxurl: *mut super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTransactionUrl() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1269,14 +1269,14 @@ impl ITipTransactionVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ITmNodeNameImpl: Sized {
+pub trait ITmNodeName_Impl: Sized {
     fn GetNodeNameSize(&mut self) -> ::windows::core::Result<u32>;
     fn GetNodeName(&mut self, cbnodenamebuffersize: u32, pnodenamebuffer: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ITmNodeNameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITmNodeNameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITmNodeNameVtbl {
-        unsafe extern "system" fn GetNodeNameSize<Impl: ITmNodeNameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbnodenamesize: *mut u32) -> ::windows::core::HRESULT {
+impl ITmNodeName_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITmNodeName_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITmNodeName_Vtbl {
+        unsafe extern "system" fn GetNodeNameSize<Impl: ITmNodeName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbnodenamesize: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNodeNameSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1286,7 +1286,7 @@ impl ITmNodeNameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNodeName<Impl: ITmNodeNameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbnodenamebuffersize: u32, pnodenamebuffer: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNodeName<Impl: ITmNodeName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbnodenamebuffersize: u32, pnodenamebuffer: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetNodeName(::core::mem::transmute_copy(&cbnodenamebuffersize), ::core::mem::transmute_copy(&pnodenamebuffer)).into()
         }
@@ -1301,23 +1301,23 @@ impl ITmNodeNameVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ITransactionImpl: Sized {
+pub trait ITransaction_Impl: Sized {
     fn Commit(&mut self, fretaining: super::super::Foundation::BOOL, grftc: u32, grfrm: u32) -> ::windows::core::Result<()>;
     fn Abort(&mut self, pboidreason: *const BOID, fretaining: super::super::Foundation::BOOL, fasync: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetTransactionInfo(&mut self) -> ::windows::core::Result<XACTTRANSINFO>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ITransactionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionVtbl {
-        unsafe extern "system" fn Commit<Impl: ITransactionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fretaining: super::super::Foundation::BOOL, grftc: u32, grfrm: u32) -> ::windows::core::HRESULT {
+impl ITransaction_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransaction_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransaction_Vtbl {
+        unsafe extern "system" fn Commit<Impl: ITransaction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fretaining: super::super::Foundation::BOOL, grftc: u32, grfrm: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Commit(::core::mem::transmute_copy(&fretaining), ::core::mem::transmute_copy(&grftc), ::core::mem::transmute_copy(&grfrm)).into()
         }
-        unsafe extern "system" fn Abort<Impl: ITransactionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pboidreason: *const BOID, fretaining: super::super::Foundation::BOOL, fasync: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Abort<Impl: ITransaction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pboidreason: *const BOID, fretaining: super::super::Foundation::BOOL, fasync: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Abort(::core::mem::transmute_copy(&pboidreason), ::core::mem::transmute_copy(&fretaining), ::core::mem::transmute_copy(&fasync)).into()
         }
-        unsafe extern "system" fn GetTransactionInfo<Impl: ITransactionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *mut XACTTRANSINFO) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTransactionInfo<Impl: ITransaction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *mut XACTTRANSINFO) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTransactionInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1339,13 +1339,13 @@ impl ITransactionVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ITransaction2Impl: Sized + ITransactionImpl + ITransactionClonerImpl {
+pub trait ITransaction2_Impl: Sized + ITransaction_Impl + ITransactionCloner_Impl {
     fn GetTransactionInfo2(&mut self) -> ::windows::core::Result<XACTTRANSINFO>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ITransaction2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransaction2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransaction2Vtbl {
-        unsafe extern "system" fn GetTransactionInfo2<Impl: ITransaction2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *mut XACTTRANSINFO) -> ::windows::core::HRESULT {
+impl ITransaction2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransaction2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransaction2_Vtbl {
+        unsafe extern "system" fn GetTransactionInfo2<Impl: ITransaction2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *mut XACTTRANSINFO) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTransactionInfo2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1355,20 +1355,20 @@ impl ITransaction2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ITransactionClonerVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetTransactionInfo2: GetTransactionInfo2::<Impl, IMPL_OFFSET> }
+        Self { base: ITransactionCloner_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetTransactionInfo2: GetTransactionInfo2::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITransaction2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ITransactionClonerImpl: Sized + ITransactionImpl {
+pub trait ITransactionCloner_Impl: Sized + ITransaction_Impl {
     fn CloneWithCommitDisabled(&mut self) -> ::windows::core::Result<ITransaction>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ITransactionClonerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionClonerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionClonerVtbl {
-        unsafe extern "system" fn CloneWithCommitDisabled<Impl: ITransactionClonerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppitransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITransactionCloner_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionCloner_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionCloner_Vtbl {
+        unsafe extern "system" fn CloneWithCommitDisabled<Impl: ITransactionCloner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppitransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CloneWithCommitDisabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1378,19 +1378,22 @@ impl ITransactionClonerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: ITransactionVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), CloneWithCommitDisabled: CloneWithCommitDisabled::<Impl, IMPL_OFFSET> }
+        Self {
+            base: ITransaction_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            CloneWithCommitDisabled: CloneWithCommitDisabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITransactionCloner as ::windows::core::Interface>::IID
     }
 }
-pub trait ITransactionDispenserImpl: Sized {
+pub trait ITransactionDispenser_Impl: Sized {
     fn GetOptionsObject(&mut self) -> ::windows::core::Result<ITransactionOptions>;
     fn BeginTransaction(&mut self, punkouter: ::core::option::Option<::windows::core::IUnknown>, isolevel: i32, isoflags: u32, poptions: ::core::option::Option<ITransactionOptions>) -> ::windows::core::Result<ITransaction>;
 }
-impl ITransactionDispenserVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionDispenserImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionDispenserVtbl {
-        unsafe extern "system" fn GetOptionsObject<Impl: ITransactionDispenserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppoptions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITransactionDispenser_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionDispenser_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionDispenser_Vtbl {
+        unsafe extern "system" fn GetOptionsObject<Impl: ITransactionDispenser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppoptions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetOptionsObject() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1400,7 +1403,7 @@ impl ITransactionDispenserVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BeginTransaction<Impl: ITransactionDispenserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, isolevel: i32, isoflags: u32, poptions: ::windows::core::RawPtr, pptransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeginTransaction<Impl: ITransactionDispenser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, isolevel: i32, isoflags: u32, poptions: ::windows::core::RawPtr, pptransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BeginTransaction(::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&isolevel), ::core::mem::transmute_copy(&isoflags), ::core::mem::transmute(&poptions)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1421,23 +1424,23 @@ impl ITransactionDispenserVtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait ITransactionEnlistmentAsyncImpl: Sized {
+pub trait ITransactionEnlistmentAsync_Impl: Sized {
     fn PrepareRequestDone(&mut self, hr: ::windows::core::HRESULT, pmk: ::core::option::Option<super::Com::IMoniker>, pboidreason: *const BOID) -> ::windows::core::Result<()>;
     fn CommitRequestDone(&mut self, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn AbortRequestDone(&mut self, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ITransactionEnlistmentAsyncVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionEnlistmentAsyncImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionEnlistmentAsyncVtbl {
-        unsafe extern "system" fn PrepareRequestDone<Impl: ITransactionEnlistmentAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT, pmk: ::windows::core::RawPtr, pboidreason: *const BOID) -> ::windows::core::HRESULT {
+impl ITransactionEnlistmentAsync_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionEnlistmentAsync_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionEnlistmentAsync_Vtbl {
+        unsafe extern "system" fn PrepareRequestDone<Impl: ITransactionEnlistmentAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT, pmk: ::windows::core::RawPtr, pboidreason: *const BOID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PrepareRequestDone(::core::mem::transmute_copy(&hr), ::core::mem::transmute(&pmk), ::core::mem::transmute_copy(&pboidreason)).into()
         }
-        unsafe extern "system" fn CommitRequestDone<Impl: ITransactionEnlistmentAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CommitRequestDone<Impl: ITransactionEnlistmentAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CommitRequestDone(::core::mem::transmute_copy(&hr)).into()
         }
-        unsafe extern "system" fn AbortRequestDone<Impl: ITransactionEnlistmentAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AbortRequestDone<Impl: ITransactionEnlistmentAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AbortRequestDone(::core::mem::transmute_copy(&hr)).into()
         }
@@ -1452,13 +1455,13 @@ impl ITransactionEnlistmentAsyncVtbl {
         iid == &<ITransactionEnlistmentAsync as ::windows::core::Interface>::IID
     }
 }
-pub trait ITransactionExportImpl: Sized {
+pub trait ITransactionExport_Impl: Sized {
     fn Export(&mut self, punktransaction: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<u32>;
     fn GetTransactionCookie(&mut self, punktransaction: ::core::option::Option<::windows::core::IUnknown>, cbtransactioncookie: u32, rgbtransactioncookie: *mut u8, pcbused: *mut u32) -> ::windows::core::Result<()>;
 }
-impl ITransactionExportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionExportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionExportVtbl {
-        unsafe extern "system" fn Export<Impl: ITransactionExportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punktransaction: *mut ::core::ffi::c_void, pcbtransactioncookie: *mut u32) -> ::windows::core::HRESULT {
+impl ITransactionExport_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionExport_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionExport_Vtbl {
+        unsafe extern "system" fn Export<Impl: ITransactionExport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punktransaction: *mut ::core::ffi::c_void, pcbtransactioncookie: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Export(::core::mem::transmute(&punktransaction)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1468,7 +1471,7 @@ impl ITransactionExportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTransactionCookie<Impl: ITransactionExportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punktransaction: *mut ::core::ffi::c_void, cbtransactioncookie: u32, rgbtransactioncookie: *mut u8, pcbused: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTransactionCookie<Impl: ITransactionExport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punktransaction: *mut ::core::ffi::c_void, cbtransactioncookie: u32, rgbtransactioncookie: *mut u8, pcbused: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetTransactionCookie(::core::mem::transmute(&punktransaction), ::core::mem::transmute_copy(&cbtransactioncookie), ::core::mem::transmute_copy(&rgbtransactioncookie), ::core::mem::transmute_copy(&pcbused)).into()
         }
@@ -1482,13 +1485,13 @@ impl ITransactionExportVtbl {
         iid == &<ITransactionExport as ::windows::core::Interface>::IID
     }
 }
-pub trait ITransactionExportFactoryImpl: Sized {
+pub trait ITransactionExportFactory_Impl: Sized {
     fn GetRemoteClassId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Create(&mut self, cbwhereabouts: u32, rgbwhereabouts: *const u8) -> ::windows::core::Result<ITransactionExport>;
 }
-impl ITransactionExportFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionExportFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionExportFactoryVtbl {
-        unsafe extern "system" fn GetRemoteClassId<Impl: ITransactionExportFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl ITransactionExportFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionExportFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionExportFactory_Vtbl {
+        unsafe extern "system" fn GetRemoteClassId<Impl: ITransactionExportFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRemoteClassId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1498,7 +1501,7 @@ impl ITransactionExportFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Create<Impl: ITransactionExportFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbwhereabouts: u32, rgbwhereabouts: *const u8, ppexport: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Create<Impl: ITransactionExportFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbwhereabouts: u32, rgbwhereabouts: *const u8, ppexport: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(::core::mem::transmute_copy(&cbwhereabouts), ::core::mem::transmute_copy(&rgbwhereabouts)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1518,12 +1521,12 @@ impl ITransactionExportFactoryVtbl {
         iid == &<ITransactionExportFactory as ::windows::core::Interface>::IID
     }
 }
-pub trait ITransactionImportImpl: Sized {
+pub trait ITransactionImport_Impl: Sized {
     fn Import(&mut self, cbtransactioncookie: u32, rgbtransactioncookie: *const u8, piid: *const ::windows::core::GUID, ppvtransaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
-impl ITransactionImportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionImportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionImportVtbl {
-        unsafe extern "system" fn Import<Impl: ITransactionImportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbtransactioncookie: u32, rgbtransactioncookie: *const u8, piid: *const ::windows::core::GUID, ppvtransaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl ITransactionImport_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionImport_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionImport_Vtbl {
+        unsafe extern "system" fn Import<Impl: ITransactionImport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbtransactioncookie: u32, rgbtransactioncookie: *const u8, piid: *const ::windows::core::GUID, ppvtransaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Import(::core::mem::transmute_copy(&cbtransactioncookie), ::core::mem::transmute_copy(&rgbtransactioncookie), ::core::mem::transmute_copy(&piid), ::core::mem::transmute_copy(&ppvtransaction)).into()
         }
@@ -1533,13 +1536,13 @@ impl ITransactionImportVtbl {
         iid == &<ITransactionImport as ::windows::core::Interface>::IID
     }
 }
-pub trait ITransactionImportWhereaboutsImpl: Sized {
+pub trait ITransactionImportWhereabouts_Impl: Sized {
     fn GetWhereaboutsSize(&mut self) -> ::windows::core::Result<u32>;
     fn GetWhereabouts(&mut self, cbwhereabouts: u32, rgbwhereabouts: *mut u8, pcbused: *mut u32) -> ::windows::core::Result<()>;
 }
-impl ITransactionImportWhereaboutsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionImportWhereaboutsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionImportWhereaboutsVtbl {
-        unsafe extern "system" fn GetWhereaboutsSize<Impl: ITransactionImportWhereaboutsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbwhereabouts: *mut u32) -> ::windows::core::HRESULT {
+impl ITransactionImportWhereabouts_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionImportWhereabouts_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionImportWhereabouts_Vtbl {
+        unsafe extern "system" fn GetWhereaboutsSize<Impl: ITransactionImportWhereabouts_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbwhereabouts: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetWhereaboutsSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1549,7 +1552,7 @@ impl ITransactionImportWhereaboutsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetWhereabouts<Impl: ITransactionImportWhereaboutsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbwhereabouts: u32, rgbwhereabouts: *mut u8, pcbused: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetWhereabouts<Impl: ITransactionImportWhereabouts_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbwhereabouts: u32, rgbwhereabouts: *mut u8, pcbused: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetWhereabouts(::core::mem::transmute_copy(&cbwhereabouts), ::core::mem::transmute_copy(&rgbwhereabouts), ::core::mem::transmute_copy(&pcbused)).into()
         }
@@ -1563,12 +1566,12 @@ impl ITransactionImportWhereaboutsVtbl {
         iid == &<ITransactionImportWhereabouts as ::windows::core::Interface>::IID
     }
 }
-pub trait ITransactionLastEnlistmentAsyncImpl: Sized {
+pub trait ITransactionLastEnlistmentAsync_Impl: Sized {
     fn TransactionOutcome(&mut self, xactstat: XACTSTAT, pboidreason: *const BOID) -> ::windows::core::Result<()>;
 }
-impl ITransactionLastEnlistmentAsyncVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionLastEnlistmentAsyncImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionLastEnlistmentAsyncVtbl {
-        unsafe extern "system" fn TransactionOutcome<Impl: ITransactionLastEnlistmentAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xactstat: XACTSTAT, pboidreason: *const BOID) -> ::windows::core::HRESULT {
+impl ITransactionLastEnlistmentAsync_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionLastEnlistmentAsync_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionLastEnlistmentAsync_Vtbl {
+        unsafe extern "system" fn TransactionOutcome<Impl: ITransactionLastEnlistmentAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xactstat: XACTSTAT, pboidreason: *const BOID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TransactionOutcome(::core::mem::transmute_copy(&xactstat), ::core::mem::transmute_copy(&pboidreason)).into()
         }
@@ -1578,17 +1581,17 @@ impl ITransactionLastEnlistmentAsyncVtbl {
         iid == &<ITransactionLastEnlistmentAsync as ::windows::core::Interface>::IID
     }
 }
-pub trait ITransactionLastResourceAsyncImpl: Sized {
+pub trait ITransactionLastResourceAsync_Impl: Sized {
     fn DelegateCommit(&mut self, grfrm: u32) -> ::windows::core::Result<()>;
     fn ForgetRequest(&mut self, pnewuow: *const BOID) -> ::windows::core::Result<()>;
 }
-impl ITransactionLastResourceAsyncVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionLastResourceAsyncImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionLastResourceAsyncVtbl {
-        unsafe extern "system" fn DelegateCommit<Impl: ITransactionLastResourceAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grfrm: u32) -> ::windows::core::HRESULT {
+impl ITransactionLastResourceAsync_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionLastResourceAsync_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionLastResourceAsync_Vtbl {
+        unsafe extern "system" fn DelegateCommit<Impl: ITransactionLastResourceAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grfrm: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DelegateCommit(::core::mem::transmute_copy(&grfrm)).into()
         }
-        unsafe extern "system" fn ForgetRequest<Impl: ITransactionLastResourceAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnewuow: *const BOID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ForgetRequest<Impl: ITransactionLastResourceAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnewuow: *const BOID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ForgetRequest(::core::mem::transmute_copy(&pnewuow)).into()
         }
@@ -1602,17 +1605,17 @@ impl ITransactionLastResourceAsyncVtbl {
         iid == &<ITransactionLastResourceAsync as ::windows::core::Interface>::IID
     }
 }
-pub trait ITransactionOptionsImpl: Sized {
+pub trait ITransactionOptions_Impl: Sized {
     fn SetOptions(&mut self, poptions: *const XACTOPT) -> ::windows::core::Result<()>;
     fn GetOptions(&mut self, poptions: *mut XACTOPT) -> ::windows::core::Result<()>;
 }
-impl ITransactionOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionOptionsVtbl {
-        unsafe extern "system" fn SetOptions<Impl: ITransactionOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poptions: *const XACTOPT) -> ::windows::core::HRESULT {
+impl ITransactionOptions_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionOptions_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionOptions_Vtbl {
+        unsafe extern "system" fn SetOptions<Impl: ITransactionOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poptions: *const XACTOPT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOptions(::core::mem::transmute_copy(&poptions)).into()
         }
-        unsafe extern "system" fn GetOptions<Impl: ITransactionOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poptions: *mut XACTOPT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOptions<Impl: ITransactionOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poptions: *mut XACTOPT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetOptions(::core::mem::transmute_copy(&poptions)).into()
         }
@@ -1627,28 +1630,28 @@ impl ITransactionOptionsVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ITransactionOutcomeEventsImpl: Sized {
+pub trait ITransactionOutcomeEvents_Impl: Sized {
     fn Committed(&mut self, fretaining: super::super::Foundation::BOOL, pnewuow: *const BOID, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn Aborted(&mut self, pboidreason: *const BOID, fretaining: super::super::Foundation::BOOL, pnewuow: *const BOID, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn HeuristicDecision(&mut self, dwdecision: u32, pboidreason: *const BOID, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn Indoubt(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ITransactionOutcomeEventsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionOutcomeEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionOutcomeEventsVtbl {
-        unsafe extern "system" fn Committed<Impl: ITransactionOutcomeEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fretaining: super::super::Foundation::BOOL, pnewuow: *const BOID, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+impl ITransactionOutcomeEvents_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionOutcomeEvents_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionOutcomeEvents_Vtbl {
+        unsafe extern "system" fn Committed<Impl: ITransactionOutcomeEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fretaining: super::super::Foundation::BOOL, pnewuow: *const BOID, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Committed(::core::mem::transmute_copy(&fretaining), ::core::mem::transmute_copy(&pnewuow), ::core::mem::transmute_copy(&hr)).into()
         }
-        unsafe extern "system" fn Aborted<Impl: ITransactionOutcomeEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pboidreason: *const BOID, fretaining: super::super::Foundation::BOOL, pnewuow: *const BOID, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Aborted<Impl: ITransactionOutcomeEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pboidreason: *const BOID, fretaining: super::super::Foundation::BOOL, pnewuow: *const BOID, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Aborted(::core::mem::transmute_copy(&pboidreason), ::core::mem::transmute_copy(&fretaining), ::core::mem::transmute_copy(&pnewuow), ::core::mem::transmute_copy(&hr)).into()
         }
-        unsafe extern "system" fn HeuristicDecision<Impl: ITransactionOutcomeEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwdecision: u32, pboidreason: *const BOID, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HeuristicDecision<Impl: ITransactionOutcomeEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwdecision: u32, pboidreason: *const BOID, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HeuristicDecision(::core::mem::transmute_copy(&dwdecision), ::core::mem::transmute_copy(&pboidreason), ::core::mem::transmute_copy(&hr)).into()
         }
-        unsafe extern "system" fn Indoubt<Impl: ITransactionOutcomeEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Indoubt<Impl: ITransactionOutcomeEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Indoubt().into()
         }
@@ -1664,32 +1667,32 @@ impl ITransactionOutcomeEventsVtbl {
         iid == &<ITransactionOutcomeEvents as ::windows::core::Interface>::IID
     }
 }
-pub trait ITransactionPhase0EnlistmentAsyncImpl: Sized {
+pub trait ITransactionPhase0EnlistmentAsync_Impl: Sized {
     fn Enable(&mut self) -> ::windows::core::Result<()>;
     fn WaitForEnlistment(&mut self) -> ::windows::core::Result<()>;
     fn Phase0Done(&mut self) -> ::windows::core::Result<()>;
     fn Unenlist(&mut self) -> ::windows::core::Result<()>;
     fn GetTransaction(&mut self) -> ::windows::core::Result<ITransaction>;
 }
-impl ITransactionPhase0EnlistmentAsyncVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionPhase0EnlistmentAsyncImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionPhase0EnlistmentAsyncVtbl {
-        unsafe extern "system" fn Enable<Impl: ITransactionPhase0EnlistmentAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl ITransactionPhase0EnlistmentAsync_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionPhase0EnlistmentAsync_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionPhase0EnlistmentAsync_Vtbl {
+        unsafe extern "system" fn Enable<Impl: ITransactionPhase0EnlistmentAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Enable().into()
         }
-        unsafe extern "system" fn WaitForEnlistment<Impl: ITransactionPhase0EnlistmentAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WaitForEnlistment<Impl: ITransactionPhase0EnlistmentAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).WaitForEnlistment().into()
         }
-        unsafe extern "system" fn Phase0Done<Impl: ITransactionPhase0EnlistmentAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Phase0Done<Impl: ITransactionPhase0EnlistmentAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Phase0Done().into()
         }
-        unsafe extern "system" fn Unenlist<Impl: ITransactionPhase0EnlistmentAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Unenlist<Impl: ITransactionPhase0EnlistmentAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Unenlist().into()
         }
-        unsafe extern "system" fn GetTransaction<Impl: ITransactionPhase0EnlistmentAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppitransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTransaction<Impl: ITransactionPhase0EnlistmentAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppitransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTransaction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1712,12 +1715,12 @@ impl ITransactionPhase0EnlistmentAsyncVtbl {
         iid == &<ITransactionPhase0EnlistmentAsync as ::windows::core::Interface>::IID
     }
 }
-pub trait ITransactionPhase0FactoryImpl: Sized {
+pub trait ITransactionPhase0Factory_Impl: Sized {
     fn Create(&mut self, pphase0notify: ::core::option::Option<ITransactionPhase0NotifyAsync>) -> ::windows::core::Result<ITransactionPhase0EnlistmentAsync>;
 }
-impl ITransactionPhase0FactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionPhase0FactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionPhase0FactoryVtbl {
-        unsafe extern "system" fn Create<Impl: ITransactionPhase0FactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphase0notify: ::windows::core::RawPtr, ppphase0enlistment: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITransactionPhase0Factory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionPhase0Factory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionPhase0Factory_Vtbl {
+        unsafe extern "system" fn Create<Impl: ITransactionPhase0Factory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphase0notify: ::windows::core::RawPtr, ppphase0enlistment: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(::core::mem::transmute(&pphase0notify)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1734,18 +1737,18 @@ impl ITransactionPhase0FactoryVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ITransactionPhase0NotifyAsyncImpl: Sized {
+pub trait ITransactionPhase0NotifyAsync_Impl: Sized {
     fn Phase0Request(&mut self, fabortinghint: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn EnlistCompleted(&mut self, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ITransactionPhase0NotifyAsyncVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionPhase0NotifyAsyncImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionPhase0NotifyAsyncVtbl {
-        unsafe extern "system" fn Phase0Request<Impl: ITransactionPhase0NotifyAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fabortinghint: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+impl ITransactionPhase0NotifyAsync_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionPhase0NotifyAsync_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionPhase0NotifyAsync_Vtbl {
+        unsafe extern "system" fn Phase0Request<Impl: ITransactionPhase0NotifyAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fabortinghint: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Phase0Request(::core::mem::transmute_copy(&fabortinghint)).into()
         }
-        unsafe extern "system" fn EnlistCompleted<Impl: ITransactionPhase0NotifyAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnlistCompleted<Impl: ITransactionPhase0NotifyAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EnlistCompleted(::core::mem::transmute_copy(&status)).into()
         }
@@ -1759,15 +1762,15 @@ impl ITransactionPhase0NotifyAsyncVtbl {
         iid == &<ITransactionPhase0NotifyAsync as ::windows::core::Interface>::IID
     }
 }
-pub trait ITransactionReceiverImpl: Sized {
+pub trait ITransactionReceiver_Impl: Sized {
     fn UnmarshalPropagationToken(&mut self, cbtoken: u32, rgbtoken: *const u8) -> ::windows::core::Result<ITransaction>;
     fn GetReturnTokenSize(&mut self) -> ::windows::core::Result<u32>;
     fn MarshalReturnToken(&mut self, cbreturntoken: u32, rgbreturntoken: *mut u8, pcbused: *mut u32) -> ::windows::core::Result<()>;
     fn Reset(&mut self) -> ::windows::core::Result<()>;
 }
-impl ITransactionReceiverVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionReceiverImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionReceiverVtbl {
-        unsafe extern "system" fn UnmarshalPropagationToken<Impl: ITransactionReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbtoken: u32, rgbtoken: *const u8, pptransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITransactionReceiver_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionReceiver_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionReceiver_Vtbl {
+        unsafe extern "system" fn UnmarshalPropagationToken<Impl: ITransactionReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbtoken: u32, rgbtoken: *const u8, pptransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnmarshalPropagationToken(::core::mem::transmute_copy(&cbtoken), ::core::mem::transmute_copy(&rgbtoken)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1777,7 +1780,7 @@ impl ITransactionReceiverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetReturnTokenSize<Impl: ITransactionReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbreturntoken: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetReturnTokenSize<Impl: ITransactionReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbreturntoken: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetReturnTokenSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1787,11 +1790,11 @@ impl ITransactionReceiverVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MarshalReturnToken<Impl: ITransactionReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbreturntoken: u32, rgbreturntoken: *mut u8, pcbused: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MarshalReturnToken<Impl: ITransactionReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbreturntoken: u32, rgbreturntoken: *mut u8, pcbused: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).MarshalReturnToken(::core::mem::transmute_copy(&cbreturntoken), ::core::mem::transmute_copy(&rgbreturntoken), ::core::mem::transmute_copy(&pcbused)).into()
         }
-        unsafe extern "system" fn Reset<Impl: ITransactionReceiverImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Reset<Impl: ITransactionReceiver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Reset().into()
         }
@@ -1807,12 +1810,12 @@ impl ITransactionReceiverVtbl {
         iid == &<ITransactionReceiver as ::windows::core::Interface>::IID
     }
 }
-pub trait ITransactionReceiverFactoryImpl: Sized {
+pub trait ITransactionReceiverFactory_Impl: Sized {
     fn Create(&mut self) -> ::windows::core::Result<ITransactionReceiver>;
 }
-impl ITransactionReceiverFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionReceiverFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionReceiverFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: ITransactionReceiverFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppreceiver: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITransactionReceiverFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionReceiverFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionReceiverFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: ITransactionReceiverFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppreceiver: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1829,28 +1832,28 @@ impl ITransactionReceiverFactoryVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ITransactionResourceImpl: Sized {
+pub trait ITransactionResource_Impl: Sized {
     fn PrepareRequest(&mut self, fretaining: super::super::Foundation::BOOL, grfrm: u32, fwantmoniker: super::super::Foundation::BOOL, fsinglephase: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn CommitRequest(&mut self, grfrm: u32, pnewuow: *const BOID) -> ::windows::core::Result<()>;
     fn AbortRequest(&mut self, pboidreason: *const BOID, fretaining: super::super::Foundation::BOOL, pnewuow: *const BOID) -> ::windows::core::Result<()>;
     fn TMDown(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ITransactionResourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionResourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionResourceVtbl {
-        unsafe extern "system" fn PrepareRequest<Impl: ITransactionResourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fretaining: super::super::Foundation::BOOL, grfrm: u32, fwantmoniker: super::super::Foundation::BOOL, fsinglephase: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+impl ITransactionResource_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionResource_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionResource_Vtbl {
+        unsafe extern "system" fn PrepareRequest<Impl: ITransactionResource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fretaining: super::super::Foundation::BOOL, grfrm: u32, fwantmoniker: super::super::Foundation::BOOL, fsinglephase: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PrepareRequest(::core::mem::transmute_copy(&fretaining), ::core::mem::transmute_copy(&grfrm), ::core::mem::transmute_copy(&fwantmoniker), ::core::mem::transmute_copy(&fsinglephase)).into()
         }
-        unsafe extern "system" fn CommitRequest<Impl: ITransactionResourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grfrm: u32, pnewuow: *const BOID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CommitRequest<Impl: ITransactionResource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grfrm: u32, pnewuow: *const BOID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CommitRequest(::core::mem::transmute_copy(&grfrm), ::core::mem::transmute_copy(&pnewuow)).into()
         }
-        unsafe extern "system" fn AbortRequest<Impl: ITransactionResourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pboidreason: *const BOID, fretaining: super::super::Foundation::BOOL, pnewuow: *const BOID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AbortRequest<Impl: ITransactionResource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pboidreason: *const BOID, fretaining: super::super::Foundation::BOOL, pnewuow: *const BOID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AbortRequest(::core::mem::transmute_copy(&pboidreason), ::core::mem::transmute_copy(&fretaining), ::core::mem::transmute_copy(&pnewuow)).into()
         }
-        unsafe extern "system" fn TMDown<Impl: ITransactionResourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TMDown<Impl: ITransactionResource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TMDown().into()
         }
@@ -1867,28 +1870,28 @@ impl ITransactionResourceVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ITransactionResourceAsyncImpl: Sized {
+pub trait ITransactionResourceAsync_Impl: Sized {
     fn PrepareRequest(&mut self, fretaining: super::super::Foundation::BOOL, grfrm: u32, fwantmoniker: super::super::Foundation::BOOL, fsinglephase: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn CommitRequest(&mut self, grfrm: u32, pnewuow: *const BOID) -> ::windows::core::Result<()>;
     fn AbortRequest(&mut self, pboidreason: *const BOID, fretaining: super::super::Foundation::BOOL, pnewuow: *const BOID) -> ::windows::core::Result<()>;
     fn TMDown(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ITransactionResourceAsyncVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionResourceAsyncImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionResourceAsyncVtbl {
-        unsafe extern "system" fn PrepareRequest<Impl: ITransactionResourceAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fretaining: super::super::Foundation::BOOL, grfrm: u32, fwantmoniker: super::super::Foundation::BOOL, fsinglephase: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+impl ITransactionResourceAsync_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionResourceAsync_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionResourceAsync_Vtbl {
+        unsafe extern "system" fn PrepareRequest<Impl: ITransactionResourceAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fretaining: super::super::Foundation::BOOL, grfrm: u32, fwantmoniker: super::super::Foundation::BOOL, fsinglephase: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PrepareRequest(::core::mem::transmute_copy(&fretaining), ::core::mem::transmute_copy(&grfrm), ::core::mem::transmute_copy(&fwantmoniker), ::core::mem::transmute_copy(&fsinglephase)).into()
         }
-        unsafe extern "system" fn CommitRequest<Impl: ITransactionResourceAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grfrm: u32, pnewuow: *const BOID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CommitRequest<Impl: ITransactionResourceAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grfrm: u32, pnewuow: *const BOID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CommitRequest(::core::mem::transmute_copy(&grfrm), ::core::mem::transmute_copy(&pnewuow)).into()
         }
-        unsafe extern "system" fn AbortRequest<Impl: ITransactionResourceAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pboidreason: *const BOID, fretaining: super::super::Foundation::BOOL, pnewuow: *const BOID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AbortRequest<Impl: ITransactionResourceAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pboidreason: *const BOID, fretaining: super::super::Foundation::BOOL, pnewuow: *const BOID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AbortRequest(::core::mem::transmute_copy(&pboidreason), ::core::mem::transmute_copy(&fretaining), ::core::mem::transmute_copy(&pnewuow)).into()
         }
-        unsafe extern "system" fn TMDown<Impl: ITransactionResourceAsyncImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TMDown<Impl: ITransactionResourceAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TMDown().into()
         }
@@ -1904,20 +1907,20 @@ impl ITransactionResourceAsyncVtbl {
         iid == &<ITransactionResourceAsync as ::windows::core::Interface>::IID
     }
 }
-pub trait ITransactionTransmitterImpl: Sized {
+pub trait ITransactionTransmitter_Impl: Sized {
     fn Set(&mut self, ptransaction: ::core::option::Option<ITransaction>) -> ::windows::core::Result<()>;
     fn GetPropagationTokenSize(&mut self) -> ::windows::core::Result<u32>;
     fn MarshalPropagationToken(&mut self, cbtoken: u32, rgbtoken: *mut u8, pcbused: *mut u32) -> ::windows::core::Result<()>;
     fn UnmarshalReturnToken(&mut self, cbreturntoken: u32, rgbreturntoken: *const u8) -> ::windows::core::Result<()>;
     fn Reset(&mut self) -> ::windows::core::Result<()>;
 }
-impl ITransactionTransmitterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionTransmitterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionTransmitterVtbl {
-        unsafe extern "system" fn Set<Impl: ITransactionTransmitterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptransaction: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITransactionTransmitter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionTransmitter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionTransmitter_Vtbl {
+        unsafe extern "system" fn Set<Impl: ITransactionTransmitter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptransaction: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Set(::core::mem::transmute(&ptransaction)).into()
         }
-        unsafe extern "system" fn GetPropagationTokenSize<Impl: ITransactionTransmitterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbtoken: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropagationTokenSize<Impl: ITransactionTransmitter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbtoken: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPropagationTokenSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1927,15 +1930,15 @@ impl ITransactionTransmitterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MarshalPropagationToken<Impl: ITransactionTransmitterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbtoken: u32, rgbtoken: *mut u8, pcbused: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MarshalPropagationToken<Impl: ITransactionTransmitter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbtoken: u32, rgbtoken: *mut u8, pcbused: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).MarshalPropagationToken(::core::mem::transmute_copy(&cbtoken), ::core::mem::transmute_copy(&rgbtoken), ::core::mem::transmute_copy(&pcbused)).into()
         }
-        unsafe extern "system" fn UnmarshalReturnToken<Impl: ITransactionTransmitterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbreturntoken: u32, rgbreturntoken: *const u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnmarshalReturnToken<Impl: ITransactionTransmitter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbreturntoken: u32, rgbreturntoken: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UnmarshalReturnToken(::core::mem::transmute_copy(&cbreturntoken), ::core::mem::transmute_copy(&rgbreturntoken)).into()
         }
-        unsafe extern "system" fn Reset<Impl: ITransactionTransmitterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Reset<Impl: ITransactionTransmitter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Reset().into()
         }
@@ -1952,12 +1955,12 @@ impl ITransactionTransmitterVtbl {
         iid == &<ITransactionTransmitter as ::windows::core::Interface>::IID
     }
 }
-pub trait ITransactionTransmitterFactoryImpl: Sized {
+pub trait ITransactionTransmitterFactory_Impl: Sized {
     fn Create(&mut self) -> ::windows::core::Result<ITransactionTransmitter>;
 }
-impl ITransactionTransmitterFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionTransmitterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionTransmitterFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: ITransactionTransmitterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptransmitter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITransactionTransmitterFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionTransmitterFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionTransmitterFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: ITransactionTransmitterFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptransmitter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1973,12 +1976,12 @@ impl ITransactionTransmitterFactoryVtbl {
         iid == &<ITransactionTransmitterFactory as ::windows::core::Interface>::IID
     }
 }
-pub trait ITransactionVoterBallotAsync2Impl: Sized {
+pub trait ITransactionVoterBallotAsync2_Impl: Sized {
     fn VoteRequestDone(&mut self, hr: ::windows::core::HRESULT, pboidreason: *const BOID) -> ::windows::core::Result<()>;
 }
-impl ITransactionVoterBallotAsync2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionVoterBallotAsync2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionVoterBallotAsync2Vtbl {
-        unsafe extern "system" fn VoteRequestDone<Impl: ITransactionVoterBallotAsync2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT, pboidreason: *const BOID) -> ::windows::core::HRESULT {
+impl ITransactionVoterBallotAsync2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionVoterBallotAsync2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionVoterBallotAsync2_Vtbl {
+        unsafe extern "system" fn VoteRequestDone<Impl: ITransactionVoterBallotAsync2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT, pboidreason: *const BOID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).VoteRequestDone(::core::mem::transmute_copy(&hr), ::core::mem::transmute_copy(&pboidreason)).into()
         }
@@ -1988,12 +1991,12 @@ impl ITransactionVoterBallotAsync2Vtbl {
         iid == &<ITransactionVoterBallotAsync2 as ::windows::core::Interface>::IID
     }
 }
-pub trait ITransactionVoterFactory2Impl: Sized {
+pub trait ITransactionVoterFactory2_Impl: Sized {
     fn Create(&mut self, ptransaction: ::core::option::Option<ITransaction>, pvoternotify: ::core::option::Option<ITransactionVoterNotifyAsync2>) -> ::windows::core::Result<ITransactionVoterBallotAsync2>;
 }
-impl ITransactionVoterFactory2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionVoterFactory2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionVoterFactory2Vtbl {
-        unsafe extern "system" fn Create<Impl: ITransactionVoterFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptransaction: ::windows::core::RawPtr, pvoternotify: ::windows::core::RawPtr, ppvoterballot: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITransactionVoterFactory2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionVoterFactory2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionVoterFactory2_Vtbl {
+        unsafe extern "system" fn Create<Impl: ITransactionVoterFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptransaction: ::windows::core::RawPtr, pvoternotify: ::windows::core::RawPtr, ppvoterballot: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(::core::mem::transmute(&ptransaction), ::core::mem::transmute(&pvoternotify)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2010,33 +2013,33 @@ impl ITransactionVoterFactory2Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ITransactionVoterNotifyAsync2Impl: Sized + ITransactionOutcomeEventsImpl {
+pub trait ITransactionVoterNotifyAsync2_Impl: Sized + ITransactionOutcomeEvents_Impl {
     fn VoteRequest(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ITransactionVoterNotifyAsync2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionVoterNotifyAsync2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionVoterNotifyAsync2Vtbl {
-        unsafe extern "system" fn VoteRequest<Impl: ITransactionVoterNotifyAsync2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl ITransactionVoterNotifyAsync2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionVoterNotifyAsync2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionVoterNotifyAsync2_Vtbl {
+        unsafe extern "system" fn VoteRequest<Impl: ITransactionVoterNotifyAsync2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).VoteRequest().into()
         }
-        Self { base: ITransactionOutcomeEventsVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), VoteRequest: VoteRequest::<Impl, IMPL_OFFSET> }
+        Self { base: ITransactionOutcomeEvents_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), VoteRequest: VoteRequest::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITransactionVoterNotifyAsync2 as ::windows::core::Interface>::IID
     }
 }
-pub trait IXAConfigImpl: Sized {
+pub trait IXAConfig_Impl: Sized {
     fn Initialize(&mut self, clsidhelperdll: ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn Terminate(&mut self) -> ::windows::core::Result<()>;
 }
-impl IXAConfigVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXAConfigImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXAConfigVtbl {
-        unsafe extern "system" fn Initialize<Impl: IXAConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidhelperdll: ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl IXAConfig_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXAConfig_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXAConfig_Vtbl {
+        unsafe extern "system" fn Initialize<Impl: IXAConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidhelperdll: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Initialize(::core::mem::transmute_copy(&clsidhelperdll)).into()
         }
-        unsafe extern "system" fn Terminate<Impl: IXAConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Terminate<Impl: IXAConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Terminate().into()
         }
@@ -2050,12 +2053,12 @@ impl IXAConfigVtbl {
         iid == &<IXAConfig as ::windows::core::Interface>::IID
     }
 }
-pub trait IXAObtainRMInfoImpl: Sized {
+pub trait IXAObtainRMInfo_Impl: Sized {
     fn ObtainRMInfo(&mut self, pirmhelper: ::core::option::Option<IRMHelper>) -> ::windows::core::Result<()>;
 }
-impl IXAObtainRMInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXAObtainRMInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXAObtainRMInfoVtbl {
-        unsafe extern "system" fn ObtainRMInfo<Impl: IXAObtainRMInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pirmhelper: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXAObtainRMInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXAObtainRMInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXAObtainRMInfo_Vtbl {
+        unsafe extern "system" fn ObtainRMInfo<Impl: IXAObtainRMInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pirmhelper: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ObtainRMInfo(::core::mem::transmute(&pirmhelper)).into()
         }
@@ -2065,12 +2068,12 @@ impl IXAObtainRMInfoVtbl {
         iid == &<IXAObtainRMInfo as ::windows::core::Interface>::IID
     }
 }
-pub trait IXATransLookupImpl: Sized {
+pub trait IXATransLookup_Impl: Sized {
     fn Lookup(&mut self) -> ::windows::core::Result<ITransaction>;
 }
-impl IXATransLookupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXATransLookupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXATransLookupVtbl {
-        unsafe extern "system" fn Lookup<Impl: IXATransLookupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXATransLookup_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXATransLookup_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXATransLookup_Vtbl {
+        unsafe extern "system" fn Lookup<Impl: IXATransLookup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Lookup() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2087,13 +2090,13 @@ impl IXATransLookupVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IXATransLookup2Impl: Sized {
+pub trait IXATransLookup2_Impl: Sized {
     fn Lookup(&mut self, pxid: *const xid_t) -> ::windows::core::Result<ITransaction>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IXATransLookup2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXATransLookup2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXATransLookup2Vtbl {
-        unsafe extern "system" fn Lookup<Impl: IXATransLookup2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxid: *const xid_t, pptransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXATransLookup2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXATransLookup2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXATransLookup2_Vtbl {
+        unsafe extern "system" fn Lookup<Impl: IXATransLookup2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxid: *const xid_t, pptransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Lookup(::core::mem::transmute_copy(&pxid)) {
                 ::core::result::Result::Ok(ok__) => {

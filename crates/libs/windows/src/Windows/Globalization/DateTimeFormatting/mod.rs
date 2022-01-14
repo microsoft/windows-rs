@@ -268,7 +268,7 @@ unsafe impl ::windows::core::RuntimeType for DateTimeFormatter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.DateTimeFormatting.DateTimeFormatter;{95eeca10-73e0-4e4b-a183-3d6ad0ba35ec})");
 }
 unsafe impl ::windows::core::Interface for DateTimeFormatter {
-    type Vtable = IDateTimeFormatterVtbl;
+    type Vtable = IDateTimeFormatter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95eeca10_73e0_4e4b_a183_3d6ad0ba35ec);
 }
 impl ::windows::core::RuntimeName for DateTimeFormatter {
@@ -421,12 +421,12 @@ impl ::windows::core::DefaultType for HourFormat {
 #[repr(transparent)]
 pub struct IDateTimeFormatter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDateTimeFormatter {
-    type Vtable = IDateTimeFormatterVtbl;
+    type Vtable = IDateTimeFormatter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95eeca10_73e0_4e4b_a183_3d6ad0ba35ec);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDateTimeFormatterVtbl {
+pub struct IDateTimeFormatter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Languages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -460,12 +460,12 @@ pub struct IDateTimeFormatterVtbl {
 #[repr(transparent)]
 pub struct IDateTimeFormatter2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDateTimeFormatter2 {
-    type Vtable = IDateTimeFormatter2Vtbl;
+    type Vtable = IDateTimeFormatter2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27c91a86_bdaa_4fd0_9e36_671d5aa5ee03);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDateTimeFormatter2Vtbl {
+pub struct IDateTimeFormatter2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FormatUsingTimeZone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datetime: super::super::Foundation::DateTime, timezoneid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -476,12 +476,12 @@ pub struct IDateTimeFormatter2Vtbl {
 #[repr(transparent)]
 pub struct IDateTimeFormatterFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDateTimeFormatterFactory {
-    type Vtable = IDateTimeFormatterFactoryVtbl;
+    type Vtable = IDateTimeFormatterFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec8d8a53_1a2e_412d_8815_3b745fb1a2a0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDateTimeFormatterFactoryVtbl {
+pub struct IDateTimeFormatterFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateDateTimeFormatter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, formattemplate: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -507,12 +507,12 @@ pub struct IDateTimeFormatterFactoryVtbl {
 #[repr(transparent)]
 pub struct IDateTimeFormatterStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDateTimeFormatterStatics {
-    type Vtable = IDateTimeFormatterStaticsVtbl;
+    type Vtable = IDateTimeFormatterStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfcde7c0_df4c_4a2e_9012_f47daf3f1212);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDateTimeFormatterStaticsVtbl {
+pub struct IDateTimeFormatterStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LongDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub LongTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

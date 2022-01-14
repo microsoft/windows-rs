@@ -59,12 +59,12 @@ impl ::core::fmt::Debug for IWSDAddress {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDAddress {
-    type Vtable = IWSDAddressVtbl;
+    type Vtable = IWSDAddress_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9574c6c_12a6_4f74_93a1_3318ff605759);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDAddressVtbl {
+pub struct IWSDAddress_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Serialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszbuffer: super::super::Foundation::PWSTR, cchlength: u32, fsafe: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -121,12 +121,12 @@ impl ::core::fmt::Debug for IWSDAsyncCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDAsyncCallback {
-    type Vtable = IWSDAsyncCallbackVtbl;
+    type Vtable = IWSDAsyncCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa63e109d_ce72_49e2_ba98_e845f5ee1666);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDAsyncCallbackVtbl {
+pub struct IWSDAsyncCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub AsyncOperationComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pasyncresult: ::windows::core::RawPtr, pasyncstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -205,12 +205,12 @@ impl ::core::fmt::Debug for IWSDAsyncResult {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDAsyncResult {
-    type Vtable = IWSDAsyncResultVtbl;
+    type Vtable = IWSDAsyncResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11a9852a_8dd8_423e_b537_9356db4fbfb8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDAsyncResultVtbl {
+pub struct IWSDAsyncResult_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, pasyncstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -267,12 +267,12 @@ impl ::core::fmt::Debug for IWSDAttachment {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDAttachment {
-    type Vtable = IWSDAttachmentVtbl;
+    type Vtable = IWSDAttachment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d55a616_9df8_4b09_b156_9ba351a48b76);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDAttachmentVtbl {
+pub struct IWSDAttachment_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
 }
 #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
@@ -375,12 +375,12 @@ impl ::core::fmt::Debug for IWSDDeviceHost {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDDeviceHost {
-    type Vtable = IWSDDeviceHostVtbl;
+    type Vtable = IWSDDeviceHost_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x917fe891_3d13_4138_9809_934c8abeb12c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDDeviceHostVtbl {
+pub struct IWSDDeviceHost_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszlocalid: super::super::Foundation::PWSTR, pcontext: ::windows::core::RawPtr, pphostaddresses: *const ::windows::core::RawPtr, dwhostaddresscount: u32) -> ::windows::core::HRESULT,
@@ -473,12 +473,12 @@ impl ::core::fmt::Debug for IWSDDeviceHostNotify {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDDeviceHostNotify {
-    type Vtable = IWSDDeviceHostNotifyVtbl;
+    type Vtable = IWSDDeviceHostNotify_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5bee9f9_eeda_41fe_96f7_f45e14990fb0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDDeviceHostNotifyVtbl {
+pub struct IWSDDeviceHostNotify_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszserviceid: super::super::Foundation::PWSTR, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -582,12 +582,12 @@ impl ::core::fmt::Debug for IWSDDeviceProxy {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDDeviceProxy {
-    type Vtable = IWSDDeviceProxyVtbl;
+    type Vtable = IWSDDeviceProxy_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeee0c031_c578_4c0e_9a3b_973c35f409db);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDDeviceProxyVtbl {
+pub struct IWSDDeviceProxy_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdeviceid: super::super::Foundation::PWSTR, pdeviceaddress: ::windows::core::RawPtr, pszlocalid: super::super::Foundation::PWSTR, pcontext: ::windows::core::RawPtr, psponsor: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -700,12 +700,12 @@ impl ::core::fmt::Debug for IWSDEndpointProxy {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDEndpointProxy {
-    type Vtable = IWSDEndpointProxyVtbl;
+    type Vtable = IWSDEndpointProxy_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1860d430_b24c_4975_9f90_dbb39baa24ec);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDEndpointProxyVtbl {
+pub struct IWSDEndpointProxy_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SendOneWayRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION) -> ::windows::core::HRESULT,
@@ -790,12 +790,12 @@ impl ::core::fmt::Debug for IWSDEventingStatus {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDEventingStatus {
-    type Vtable = IWSDEventingStatusVtbl;
+    type Vtable = IWSDEventingStatus_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49b17f52_637a_407a_ae99_fbe82a4d38c0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDEventingStatusVtbl {
+pub struct IWSDEventingStatus_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SubscriptionRenewed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsubscriptionaction: super::super::Foundation::PWSTR),
@@ -948,13 +948,13 @@ impl ::core::fmt::Debug for IWSDHttpAddress {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDHttpAddress {
-    type Vtable = IWSDHttpAddressVtbl;
+    type Vtable = IWSDHttpAddress_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd09ac7bd_2a3e_4b85_8605_2737ff3e4ea0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDHttpAddressVtbl {
-    pub base: IWSDTransportAddressVtbl,
+pub struct IWSDHttpAddress_Vtbl {
+    pub base: IWSDTransportAddress_Vtbl,
     pub GetSecure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetSecure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fsecure: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -1022,12 +1022,12 @@ impl ::core::fmt::Debug for IWSDHttpAuthParameters {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDHttpAuthParameters {
-    type Vtable = IWSDHttpAuthParametersVtbl;
+    type Vtable = IWSDHttpAuthParameters_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b476df0_8dac_480d_b05c_99781a5884aa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDHttpAuthParametersVtbl {
+pub struct IWSDHttpAuthParameters_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetClientAccessToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phtoken: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
@@ -1166,13 +1166,13 @@ impl ::core::fmt::Debug for IWSDHttpMessageParameters {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDHttpMessageParameters {
-    type Vtable = IWSDHttpMessageParametersVtbl;
+    type Vtable = IWSDHttpMessageParameters_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x540bd122_5c83_4dec_b396_ea62a2697fdf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDHttpMessageParametersVtbl {
-    pub base: IWSDMessageParametersVtbl,
+pub struct IWSDHttpMessageParameters_Vtbl {
+    pub base: IWSDMessageParameters_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetInboundHttpHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszheaders: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1271,13 +1271,13 @@ impl ::core::fmt::Debug for IWSDInboundAttachment {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDInboundAttachment {
-    type Vtable = IWSDInboundAttachmentVtbl;
+    type Vtable = IWSDInboundAttachment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bd6ca65_233c_4fb8_9f7a_2641619655c9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDInboundAttachmentVtbl {
-    pub base: IWSDAttachmentVtbl,
+pub struct IWSDInboundAttachment_Vtbl {
+    pub base: IWSDAttachment_Vtbl,
     pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *mut u8, dwbytestoread: u32, pdwnumberofbytesread: *mut u32) -> ::windows::core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -1346,12 +1346,12 @@ impl ::core::fmt::Debug for IWSDMessageParameters {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDMessageParameters {
-    type Vtable = IWSDMessageParametersVtbl;
+    type Vtable = IWSDMessageParameters_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fafe8a2_e6fc_4b80_b6cf_b7d45c416d7c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDMessageParametersVtbl {
+pub struct IWSDMessageParameters_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetLocalAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppaddress: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetLocalAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddress: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1407,12 +1407,12 @@ impl ::core::fmt::Debug for IWSDMetadataExchange {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDMetadataExchange {
-    type Vtable = IWSDMetadataExchangeVtbl;
+    type Vtable = IWSDMetadataExchange_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06996d57_1d67_4928_9307_3d7833fdb846);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDMetadataExchangeVtbl {
+pub struct IWSDMetadataExchange_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, metadataout: *mut *mut WSD_METADATA_SECTION_LIST) -> ::windows::core::HRESULT,
@@ -1494,13 +1494,13 @@ impl ::core::fmt::Debug for IWSDOutboundAttachment {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDOutboundAttachment {
-    type Vtable = IWSDOutboundAttachmentVtbl;
+    type Vtable = IWSDOutboundAttachment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa302f8d_5a22_4ba5_b392_aa8486f4c15d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDOutboundAttachmentVtbl {
-    pub base: IWSDAttachmentVtbl,
+pub struct IWSDOutboundAttachment_Vtbl {
+    pub base: IWSDAttachment_Vtbl,
     pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *const u8, dwbytestowrite: u32, pdwnumberofbyteswritten: *mut u32) -> ::windows::core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1559,12 +1559,12 @@ impl ::core::fmt::Debug for IWSDSSLClientCertificate {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDSSLClientCertificate {
-    type Vtable = IWSDSSLClientCertificateVtbl;
+    type Vtable = IWSDSSLClientCertificate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde105e87_a0da_418e_98ad_27b9eed87bdc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDSSLClientCertificateVtbl {
+pub struct IWSDSSLClientCertificate_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub GetClientCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcertcontext: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::HRESULT,
@@ -1629,12 +1629,12 @@ impl ::core::fmt::Debug for IWSDScopeMatchingRule {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDScopeMatchingRule {
-    type Vtable = IWSDScopeMatchingRuleVtbl;
+    type Vtable = IWSDScopeMatchingRule_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcafe424_fef5_481a_bd9f_33ce0574256f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDScopeMatchingRuleVtbl {
+pub struct IWSDScopeMatchingRule_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetScopeRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszscopematchingrule: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -1697,12 +1697,12 @@ impl ::core::fmt::Debug for IWSDServiceMessaging {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDServiceMessaging {
-    type Vtable = IWSDServiceMessagingVtbl;
+    type Vtable = IWSDServiceMessaging_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94974cf4_0cab_460d_a3f6_7a0ad623c0e6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDServiceMessagingVtbl {
+pub struct IWSDServiceMessaging_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SendResponse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, pmessageparameters: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1818,13 +1818,13 @@ impl ::core::fmt::Debug for IWSDServiceProxy {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDServiceProxy {
-    type Vtable = IWSDServiceProxyVtbl;
+    type Vtable = IWSDServiceProxy_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4c7fb9c_03ab_4175_9d67_094fafebf487);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDServiceProxyVtbl {
-    pub base: IWSDMetadataExchangeVtbl,
+pub struct IWSDServiceProxy_Vtbl {
+    pub base: IWSDMetadataExchange_Vtbl,
     pub BeginGetMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub EndGetMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, ppmetadata: *mut *mut WSD_METADATA_SECTION_LIST) -> ::windows::core::HRESULT,
@@ -2034,13 +2034,13 @@ impl ::core::fmt::Debug for IWSDServiceProxyEventing {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDServiceProxyEventing {
-    type Vtable = IWSDServiceProxyEventingVtbl;
+    type Vtable = IWSDServiceProxyEventing_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9279d6d_1012_4a94_b8cc_fd35d2202bfe);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDServiceProxyEventingVtbl {
-    pub base: IWSDServiceProxyVtbl,
+pub struct IWSDServiceProxyEventing_Vtbl {
+    pub base: IWSDServiceProxy_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SubscribeToMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, punknown: *mut ::core::ffi::c_void, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2156,12 +2156,12 @@ impl ::core::fmt::Debug for IWSDSignatureProperty {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDSignatureProperty {
-    type Vtable = IWSDSignaturePropertyVtbl;
+    type Vtable = IWSDSignatureProperty_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03ce20aa_71c4_45e2_b32e_3766c61c790f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDSignaturePropertyVtbl {
+pub struct IWSDSignatureProperty_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsMessageSigned: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsigned: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -2273,13 +2273,13 @@ impl ::core::fmt::Debug for IWSDTransportAddress {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDTransportAddress {
-    type Vtable = IWSDTransportAddressVtbl;
+    type Vtable = IWSDTransportAddress_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70d23498_4ee6_4340_a3df_d845d2235467);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDTransportAddressVtbl {
-    pub base: IWSDAddressVtbl,
+pub struct IWSDTransportAddress_Vtbl {
+    pub base: IWSDAddress_Vtbl,
     pub GetPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwport: *mut u16) -> ::windows::core::HRESULT,
     pub SetPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wport: u16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -2460,13 +2460,13 @@ impl ::core::fmt::Debug for IWSDUdpAddress {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDUdpAddress {
-    type Vtable = IWSDUdpAddressVtbl;
+    type Vtable = IWSDUdpAddress_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74d6124a_a441_4f78_a1eb_97a8d1996893);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDUdpAddressVtbl {
-    pub base: IWSDTransportAddressVtbl,
+pub struct IWSDUdpAddress_Vtbl {
+    pub base: IWSDTransportAddress_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub SetSockaddr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psockaddr: *const super::super::Networking::WinSock::SOCKADDR_STORAGE) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock")))]
@@ -2581,13 +2581,13 @@ impl ::core::fmt::Debug for IWSDUdpMessageParameters {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDUdpMessageParameters {
-    type Vtable = IWSDUdpMessageParametersVtbl;
+    type Vtable = IWSDUdpMessageParameters_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9934149f_8f0c_447b_aa0b_73124b0ca7f0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDUdpMessageParametersVtbl {
-    pub base: IWSDMessageParametersVtbl,
+pub struct IWSDUdpMessageParameters_Vtbl {
+    pub base: IWSDMessageParameters_Vtbl,
     pub SetRetransmitParams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparams: *const WSDUdpRetransmitParams) -> ::windows::core::HRESULT,
     pub GetRetransmitParams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparams: *mut WSDUdpRetransmitParams) -> ::windows::core::HRESULT,
 }
@@ -2655,12 +2655,12 @@ impl ::core::fmt::Debug for IWSDXMLContext {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDXMLContext {
-    type Vtable = IWSDXMLContextVtbl;
+    type Vtable = IWSDXMLContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75d8f3ee_3e5a_43b4_a15a_bcf6887460c0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDXMLContextVtbl {
+pub struct IWSDXMLContext_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszuri: super::super::Foundation::PWSTR, pszsuggestedprefix: super::super::Foundation::PWSTR, ppnamespace: *mut *mut WSDXML_NAMESPACE) -> ::windows::core::HRESULT,
@@ -2783,12 +2783,12 @@ impl ::core::fmt::Debug for IWSDiscoveredService {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDiscoveredService {
-    type Vtable = IWSDiscoveredServiceVtbl;
+    type Vtable = IWSDiscoveredService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bad8a3b_b374_4420_9632_aac945b374aa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDiscoveredServiceVtbl {
+pub struct IWSDiscoveredService_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetEndpointReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppendpointreference: *mut *mut WSD_ENDPOINT_REFERENCE) -> ::windows::core::HRESULT,
@@ -2900,12 +2900,12 @@ impl ::core::fmt::Debug for IWSDiscoveryProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDiscoveryProvider {
-    type Vtable = IWSDiscoveryProviderVtbl;
+    type Vtable = IWSDiscoveryProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ffc8e55_f0eb_480f_88b7_b435dd281d45);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDiscoveryProviderVtbl {
+pub struct IWSDiscoveryProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetAddressFamily: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaddressfamily: u32) -> ::windows::core::HRESULT,
     pub Attach: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2984,12 +2984,12 @@ impl ::core::fmt::Debug for IWSDiscoveryProviderNotify {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDiscoveryProviderNotify {
-    type Vtable = IWSDiscoveryProviderNotifyVtbl;
+    type Vtable = IWSDiscoveryProviderNotify_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73ee3ced_b6e6_4329_a546_3e8ad46563d2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDiscoveryProviderNotifyVtbl {
+pub struct IWSDiscoveryProviderNotify_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pservice: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pservice: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3156,12 +3156,12 @@ impl ::core::fmt::Debug for IWSDiscoveryPublisher {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDiscoveryPublisher {
-    type Vtable = IWSDiscoveryPublisherVtbl;
+    type Vtable = IWSDiscoveryPublisher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae01e1a8_3ff9_4148_8116_057cc616fe13);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDiscoveryPublisherVtbl {
+pub struct IWSDiscoveryPublisher_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetAddressFamily: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaddressfamily: u32) -> ::windows::core::HRESULT,
     pub RegisterNotificationSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3250,12 +3250,12 @@ impl ::core::fmt::Debug for IWSDiscoveryPublisherNotify {
     }
 }
 unsafe impl ::windows::core::Interface for IWSDiscoveryPublisherNotify {
-    type Vtable = IWSDiscoveryPublisherNotifyVtbl;
+    type Vtable = IWSDiscoveryPublisherNotify_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe67651b0_337a_4b3c_9758_733388568251);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSDiscoveryPublisherNotifyVtbl {
+pub struct IWSDiscoveryPublisherNotify_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ProbeHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psoap: *const WSD_SOAP_MESSAGE, pmessageparameters: ::windows::core::RawPtr) -> ::windows::core::HRESULT,

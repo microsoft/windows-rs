@@ -156,7 +156,7 @@ unsafe impl ::windows::core::RuntimeType for FileOpenPickerUI {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.FileOpenPickerUI;{dda45a10-f9d4-40c4-8af5-c5b6b5a61d1d})");
 }
 unsafe impl ::windows::core::Interface for FileOpenPickerUI {
-    type Vtable = IFileOpenPickerUIVtbl;
+    type Vtable = IFileOpenPickerUI_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdda45a10_f9d4_40c4_8af5_c5b6b5a61d1d);
 }
 impl ::windows::core::RuntimeName for FileOpenPickerUI {
@@ -244,7 +244,7 @@ unsafe impl ::windows::core::RuntimeType for FileRemovedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for FileRemovedEventArgs {
-    type Vtable = IFileRemovedEventArgsVtbl;
+    type Vtable = IFileRemovedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13043da7_7fca_4c2b_9eca_6890f9f00185);
 }
 #[cfg(feature = "deprecated")]
@@ -400,7 +400,7 @@ unsafe impl ::windows::core::RuntimeType for FileSavePickerUI {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.FileSavePickerUI;{9656c1e7-3e56-43cc-8a39-33c73d9d542b})");
 }
 unsafe impl ::windows::core::Interface for FileSavePickerUI {
-    type Vtable = IFileSavePickerUIVtbl;
+    type Vtable = IFileSavePickerUI_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9656c1e7_3e56_43cc_8a39_33c73d9d542b);
 }
 impl ::windows::core::RuntimeName for FileSavePickerUI {
@@ -483,12 +483,12 @@ impl ::windows::core::DefaultType for FileSelectionMode {
 #[repr(transparent)]
 pub struct IFileOpenPickerUI(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFileOpenPickerUI {
-    type Vtable = IFileOpenPickerUIVtbl;
+    type Vtable = IFileOpenPickerUI_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdda45a10_f9d4_40c4_8af5_c5b6b5a61d1d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileOpenPickerUIVtbl {
+pub struct IFileOpenPickerUI_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AddFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, file: ::windows::core::RawPtr, result__: *mut AddFileResult) -> ::windows::core::HRESULT,
     pub RemoveFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -525,13 +525,13 @@ pub struct IFileOpenPickerUIVtbl {
 pub struct IFileRemovedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IFileRemovedEventArgs {
-    type Vtable = IFileRemovedEventArgsVtbl;
+    type Vtable = IFileRemovedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13043da7_7fca_4c2b_9eca_6890f9f00185);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileRemovedEventArgsVtbl {
+pub struct IFileRemovedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -542,12 +542,12 @@ pub struct IFileRemovedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IFileSavePickerUI(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFileSavePickerUI {
-    type Vtable = IFileSavePickerUIVtbl;
+    type Vtable = IFileSavePickerUI_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9656c1e7_3e56_43cc_8a39_33c73d9d542b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileSavePickerUIVtbl {
+pub struct IFileSavePickerUI_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -579,12 +579,12 @@ pub struct IFileSavePickerUIVtbl {
 #[repr(transparent)]
 pub struct IPickerClosingDeferral(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPickerClosingDeferral {
-    type Vtable = IPickerClosingDeferralVtbl;
+    type Vtable = IPickerClosingDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7af7f71e_1a67_4a31_ae80_e907708a619b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPickerClosingDeferralVtbl {
+pub struct IPickerClosingDeferral_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -592,12 +592,12 @@ pub struct IPickerClosingDeferralVtbl {
 #[repr(transparent)]
 pub struct IPickerClosingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPickerClosingEventArgs {
-    type Vtable = IPickerClosingEventArgsVtbl;
+    type Vtable = IPickerClosingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e59f224_b332_4f12_8b9f_a8c2f06b32cd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPickerClosingEventArgsVtbl {
+pub struct IPickerClosingEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ClosingOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -606,12 +606,12 @@ pub struct IPickerClosingEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPickerClosingOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPickerClosingOperation {
-    type Vtable = IPickerClosingOperationVtbl;
+    type Vtable = IPickerClosingOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ce9fb84_beee_4e39_a773_fc5f0eae328d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPickerClosingOperationVtbl {
+pub struct IPickerClosingOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -623,12 +623,12 @@ pub struct IPickerClosingOperationVtbl {
 #[repr(transparent)]
 pub struct ITargetFileRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetFileRequest {
-    type Vtable = ITargetFileRequestVtbl;
+    type Vtable = ITargetFileRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42bd3355_7f88_478b_8e81_690b20340678);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITargetFileRequestVtbl {
+pub struct ITargetFileRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetTargetFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -638,12 +638,12 @@ pub struct ITargetFileRequestVtbl {
 #[repr(transparent)]
 pub struct ITargetFileRequestDeferral(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetFileRequestDeferral {
-    type Vtable = ITargetFileRequestDeferralVtbl;
+    type Vtable = ITargetFileRequestDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4aee9d91_bf15_4da9_95f6_f6b7d558225b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITargetFileRequestDeferralVtbl {
+pub struct ITargetFileRequestDeferral_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -651,12 +651,12 @@ pub struct ITargetFileRequestDeferralVtbl {
 #[repr(transparent)]
 pub struct ITargetFileRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetFileRequestedEventArgs {
-    type Vtable = ITargetFileRequestedEventArgsVtbl;
+    type Vtable = ITargetFileRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb163dbc1_1b51_4c89_a591_0fd40b3c57c9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITargetFileRequestedEventArgsVtbl {
+pub struct ITargetFileRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -690,7 +690,7 @@ unsafe impl ::windows::core::RuntimeType for PickerClosingDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.PickerClosingDeferral;{7af7f71e-1a67-4a31-ae80-e907708a619b})");
 }
 unsafe impl ::windows::core::Interface for PickerClosingDeferral {
-    type Vtable = IPickerClosingDeferralVtbl;
+    type Vtable = IPickerClosingDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7af7f71e_1a67_4a31_ae80_e907708a619b);
 }
 impl ::windows::core::RuntimeName for PickerClosingDeferral {
@@ -777,7 +777,7 @@ unsafe impl ::windows::core::RuntimeType for PickerClosingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.PickerClosingEventArgs;{7e59f224-b332-4f12-8b9f-a8c2f06b32cd})");
 }
 unsafe impl ::windows::core::Interface for PickerClosingEventArgs {
-    type Vtable = IPickerClosingEventArgsVtbl;
+    type Vtable = IPickerClosingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e59f224_b332_4f12_8b9f_a8c2f06b32cd);
 }
 impl ::windows::core::RuntimeName for PickerClosingEventArgs {
@@ -865,7 +865,7 @@ unsafe impl ::windows::core::RuntimeType for PickerClosingOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.PickerClosingOperation;{4ce9fb84-beee-4e39-a773-fc5f0eae328d})");
 }
 unsafe impl ::windows::core::Interface for PickerClosingOperation {
-    type Vtable = IPickerClosingOperationVtbl;
+    type Vtable = IPickerClosingOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ce9fb84_beee_4e39_a773_fc5f0eae328d);
 }
 impl ::windows::core::RuntimeName for PickerClosingOperation {
@@ -991,7 +991,7 @@ unsafe impl ::windows::core::RuntimeType for TargetFileRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.TargetFileRequest;{42bd3355-7f88-478b-8e81-690b20340678})");
 }
 unsafe impl ::windows::core::Interface for TargetFileRequest {
-    type Vtable = ITargetFileRequestVtbl;
+    type Vtable = ITargetFileRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42bd3355_7f88_478b_8e81_690b20340678);
 }
 impl ::windows::core::RuntimeName for TargetFileRequest {
@@ -1067,7 +1067,7 @@ unsafe impl ::windows::core::RuntimeType for TargetFileRequestDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.TargetFileRequestDeferral;{4aee9d91-bf15-4da9-95f6-f6b7d558225b})");
 }
 unsafe impl ::windows::core::Interface for TargetFileRequestDeferral {
-    type Vtable = ITargetFileRequestDeferralVtbl;
+    type Vtable = ITargetFileRequestDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4aee9d91_bf15_4da9_95f6_f6b7d558225b);
 }
 impl ::windows::core::RuntimeName for TargetFileRequestDeferral {
@@ -1146,7 +1146,7 @@ unsafe impl ::windows::core::RuntimeType for TargetFileRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.TargetFileRequestedEventArgs;{b163dbc1-1b51-4c89-a591-0fd40b3c57c9})");
 }
 unsafe impl ::windows::core::Interface for TargetFileRequestedEventArgs {
-    type Vtable = ITargetFileRequestedEventArgsVtbl;
+    type Vtable = ITargetFileRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb163dbc1_1b51_4c89_a591_0fd40b3c57c9);
 }
 impl ::windows::core::RuntimeName for TargetFileRequestedEventArgs {

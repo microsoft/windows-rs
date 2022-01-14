@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IDualSimTileImpl: Sized {
+pub trait IDualSimTile_Impl: Sized {
     fn SetDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IsPinnedToStart(&mut self) -> ::windows::core::Result<bool>;
@@ -12,13 +12,13 @@ impl ::windows::core::RuntimeName for IDualSimTile {
     const NAME: &'static str = "Windows.Phone.StartScreen.IDualSimTile";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IDualSimTileVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDualSimTileImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDualSimTileVtbl {
-        unsafe extern "system" fn SetDisplayName<Impl: IDualSimTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDualSimTile_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDualSimTile_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDualSimTile_Vtbl {
+        unsafe extern "system" fn SetDisplayName<Impl: IDualSimTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DisplayName<Impl: IDualSimTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayName<Impl: IDualSimTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -29,7 +29,7 @@ impl IDualSimTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsPinnedToStart<Impl: IDualSimTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPinnedToStart<Impl: IDualSimTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPinnedToStart() {
                 ::core::result::Result::Ok(ok__) => {
@@ -40,7 +40,7 @@ impl IDualSimTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateAsync<Impl: IDualSimTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateAsync<Impl: IDualSimTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -51,7 +51,7 @@ impl IDualSimTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpdateAsync<Impl: IDualSimTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateAsync<Impl: IDualSimTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -62,7 +62,7 @@ impl IDualSimTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteAsync<Impl: IDualSimTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteAsync<Impl: IDualSimTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeleteAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -88,7 +88,7 @@ impl IDualSimTileVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Notifications", feature = "implement_exclusive"))]
-pub trait IDualSimTileStaticsImpl: Sized {
+pub trait IDualSimTileStatics_Impl: Sized {
     fn GetTileForSim2(&mut self) -> ::windows::core::Result<DualSimTile>;
     fn UpdateDisplayNameForSim1Async(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn CreateTileUpdaterForSim1(&mut self) -> ::windows::core::Result<super::super::UI::Notifications::TileUpdater>;
@@ -103,9 +103,9 @@ impl ::windows::core::RuntimeName for IDualSimTileStatics {
     const NAME: &'static str = "Windows.Phone.StartScreen.IDualSimTileStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Notifications", feature = "implement_exclusive"))]
-impl IDualSimTileStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDualSimTileStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDualSimTileStaticsVtbl {
-        unsafe extern "system" fn GetTileForSim2<Impl: IDualSimTileStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDualSimTileStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDualSimTileStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDualSimTileStatics_Vtbl {
+        unsafe extern "system" fn GetTileForSim2<Impl: IDualSimTileStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTileForSim2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -116,7 +116,7 @@ impl IDualSimTileStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpdateDisplayNameForSim1Async<Impl: IDualSimTileStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateDisplayNameForSim1Async<Impl: IDualSimTileStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateDisplayNameForSim1Async(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -127,7 +127,7 @@ impl IDualSimTileStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTileUpdaterForSim1<Impl: IDualSimTileStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTileUpdaterForSim1<Impl: IDualSimTileStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateTileUpdaterForSim1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -138,7 +138,7 @@ impl IDualSimTileStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTileUpdaterForSim2<Impl: IDualSimTileStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTileUpdaterForSim2<Impl: IDualSimTileStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateTileUpdaterForSim2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -149,7 +149,7 @@ impl IDualSimTileStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateBadgeUpdaterForSim1<Impl: IDualSimTileStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateBadgeUpdaterForSim1<Impl: IDualSimTileStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateBadgeUpdaterForSim1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -160,7 +160,7 @@ impl IDualSimTileStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateBadgeUpdaterForSim2<Impl: IDualSimTileStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateBadgeUpdaterForSim2<Impl: IDualSimTileStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateBadgeUpdaterForSim2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -171,7 +171,7 @@ impl IDualSimTileStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateToastNotifierForSim1<Impl: IDualSimTileStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateToastNotifierForSim1<Impl: IDualSimTileStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateToastNotifierForSim1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -182,7 +182,7 @@ impl IDualSimTileStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateToastNotifierForSim2<Impl: IDualSimTileStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateToastNotifierForSim2<Impl: IDualSimTileStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateToastNotifierForSim2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -210,7 +210,7 @@ impl IDualSimTileStaticsVtbl {
     }
 }
 #[cfg(feature = "UI_Notifications")]
-pub trait IToastNotificationManagerStatics3Impl: Sized {
+pub trait IToastNotificationManagerStatics3_Impl: Sized {
     fn CreateToastNotifierForSecondaryTile(&mut self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier>;
 }
 #[cfg(feature = "UI_Notifications")]
@@ -218,9 +218,9 @@ impl ::windows::core::RuntimeName for IToastNotificationManagerStatics3 {
     const NAME: &'static str = "Windows.Phone.StartScreen.IToastNotificationManagerStatics3";
 }
 #[cfg(feature = "UI_Notifications")]
-impl IToastNotificationManagerStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationManagerStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotificationManagerStatics3Vtbl {
-        unsafe extern "system" fn CreateToastNotifierForSecondaryTile<Impl: IToastNotificationManagerStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IToastNotificationManagerStatics3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToastNotificationManagerStatics3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToastNotificationManagerStatics3_Vtbl {
+        unsafe extern "system" fn CreateToastNotifierForSecondaryTile<Impl: IToastNotificationManagerStatics3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateToastNotifierForSecondaryTile(&*(&tileid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

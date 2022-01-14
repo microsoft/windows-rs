@@ -73,7 +73,7 @@ unsafe impl ::windows::core::RuntimeType for AggregateContactManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.AggregateContactManager;{0379d5dd-db5a-4fd3-b54e-4df17917a212})");
 }
 unsafe impl ::windows::core::Interface for AggregateContactManager {
-    type Vtable = IAggregateContactManagerVtbl;
+    type Vtable = IAggregateContactManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0379d5dd_db5a_4fd3_b54e_4df17917a212);
 }
 impl ::windows::core::RuntimeName for AggregateContactManager {
@@ -582,7 +582,7 @@ unsafe impl ::windows::core::RuntimeType for Contact {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.Contact;{ec0072f3-2118-4049-9ebc-17f0ab692b64})");
 }
 unsafe impl ::windows::core::Interface for Contact {
-    type Vtable = IContactVtbl;
+    type Vtable = IContact_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec0072f3_2118_4049_9ebc_17f0ab692b64);
 }
 impl ::windows::core::RuntimeName for Contact {
@@ -753,7 +753,7 @@ unsafe impl ::windows::core::RuntimeType for ContactAddress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactAddress;{9739d39a-42ce-4872-8d70-3063aa584b70})");
 }
 unsafe impl ::windows::core::Interface for ContactAddress {
-    type Vtable = IContactAddressVtbl;
+    type Vtable = IContactAddress_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9739d39a_42ce_4872_8d70_3063aa584b70);
 }
 impl ::windows::core::RuntimeName for ContactAddress {
@@ -952,7 +952,7 @@ unsafe impl ::windows::core::RuntimeType for ContactAnnotation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactAnnotation;{821fc2ef-7d41-44a2-84c3-60a281dd7b86})");
 }
 unsafe impl ::windows::core::Interface for ContactAnnotation {
-    type Vtable = IContactAnnotationVtbl;
+    type Vtable = IContactAnnotation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x821fc2ef_7d41_44a2_84c3_60a281dd7b86);
 }
 impl ::windows::core::RuntimeName for ContactAnnotation {
@@ -1103,7 +1103,7 @@ unsafe impl ::windows::core::RuntimeType for ContactAnnotationList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactAnnotationList;{92a486aa-5c88-45b9-aad0-461888e68d8a})");
 }
 unsafe impl ::windows::core::Interface for ContactAnnotationList {
-    type Vtable = IContactAnnotationListVtbl;
+    type Vtable = IContactAnnotationList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92a486aa_5c88_45b9_aad0_461888e68d8a);
 }
 impl ::windows::core::RuntimeName for ContactAnnotationList {
@@ -1323,7 +1323,7 @@ unsafe impl ::windows::core::RuntimeType for ContactAnnotationStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactAnnotationStore;{23acf4aa-7a77-457d-8203-987f4b31af09})");
 }
 unsafe impl ::windows::core::Interface for ContactAnnotationStore {
-    type Vtable = IContactAnnotationStoreVtbl;
+    type Vtable = IContactAnnotationStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23acf4aa_7a77_457d_8203_987f4b31af09);
 }
 impl ::windows::core::RuntimeName for ContactAnnotationStore {
@@ -1446,7 +1446,7 @@ unsafe impl ::windows::core::RuntimeType for ContactBatch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactBatch;{35d1972d-bfce-46bb-93f8-a5b06ec5e201})");
 }
 unsafe impl ::windows::core::Interface for ContactBatch {
-    type Vtable = IContactBatchVtbl;
+    type Vtable = IContactBatch_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35d1972d_bfce_46bb_93f8_a5b06ec5e201);
 }
 impl ::windows::core::RuntimeName for ContactBatch {
@@ -1564,7 +1564,7 @@ unsafe impl ::windows::core::RuntimeType for ContactCardDelayedDataLoader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactCardDelayedDataLoader;{b60af902-1546-434d-869c-6e3520760ef3})");
 }
 unsafe impl ::windows::core::Interface for ContactCardDelayedDataLoader {
-    type Vtable = IContactCardDelayedDataLoaderVtbl;
+    type Vtable = IContactCardDelayedDataLoader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb60af902_1546_434d_869c_6e3520760ef3);
 }
 impl ::windows::core::RuntimeName for ContactCardDelayedDataLoader {
@@ -1739,7 +1739,7 @@ unsafe impl ::windows::core::RuntimeType for ContactCardOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactCardOptions;{8c0a4f7e-6ab6-4f3f-be72-817236eeea5b})");
 }
 unsafe impl ::windows::core::Interface for ContactCardOptions {
-    type Vtable = IContactCardOptionsVtbl;
+    type Vtable = IContactCardOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c0a4f7e_6ab6_4f3f_be72_817236eeea5b);
 }
 impl ::windows::core::RuntimeName for ContactCardOptions {
@@ -1865,7 +1865,7 @@ unsafe impl ::windows::core::RuntimeType for ContactChange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChange;{951d4b10-6a59-4720-a4e1-363d98c135d5})");
 }
 unsafe impl ::windows::core::Interface for ContactChange {
-    type Vtable = IContactChangeVtbl;
+    type Vtable = IContactChange_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x951d4b10_6a59_4720_a4e1_363d98c135d5);
 }
 impl ::windows::core::RuntimeName for ContactChange {
@@ -1957,7 +1957,7 @@ unsafe impl ::windows::core::RuntimeType for ContactChangeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChangeReader;{217319fa-2d0c-42e0-a9da-3ecd56a78a47})");
 }
 unsafe impl ::windows::core::Interface for ContactChangeReader {
-    type Vtable = IContactChangeReaderVtbl;
+    type Vtable = IContactChangeReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x217319fa_2d0c_42e0_a9da_3ecd56a78a47);
 }
 impl ::windows::core::RuntimeName for ContactChangeReader {
@@ -2056,7 +2056,7 @@ unsafe impl ::windows::core::RuntimeType for ContactChangeTracker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChangeTracker;{6e992952-309b-404d-9712-b37bd30278aa})");
 }
 unsafe impl ::windows::core::Interface for ContactChangeTracker {
-    type Vtable = IContactChangeTrackerVtbl;
+    type Vtable = IContactChangeTracker_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e992952_309b_404d_9712_b37bd30278aa);
 }
 impl ::windows::core::RuntimeName for ContactChangeTracker {
@@ -2169,7 +2169,7 @@ unsafe impl ::windows::core::RuntimeType for ContactChangedDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChangedDeferral;{c5143ae8-1b03-46f8-b694-a523e83cfcb6})");
 }
 unsafe impl ::windows::core::Interface for ContactChangedDeferral {
-    type Vtable = IContactChangedDeferralVtbl;
+    type Vtable = IContactChangedDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5143ae8_1b03_46f8_b694_a523e83cfcb6);
 }
 impl ::windows::core::RuntimeName for ContactChangedDeferral {
@@ -2250,7 +2250,7 @@ unsafe impl ::windows::core::RuntimeType for ContactChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChangedEventArgs;{525e7fd1-73f3-4b7d-a918-580be4366121})");
 }
 unsafe impl ::windows::core::Interface for ContactChangedEventArgs {
-    type Vtable = IContactChangedEventArgsVtbl;
+    type Vtable = IContactChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x525e7fd1_73f3_4b7d_a918_580be4366121);
 }
 impl ::windows::core::RuntimeName for ContactChangedEventArgs {
@@ -2356,7 +2356,7 @@ unsafe impl ::windows::core::RuntimeType for ContactConnectedServiceAccount {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactConnectedServiceAccount;{f6f83553-aa27-4731-8e4a-3dec5ce9eec9})");
 }
 unsafe impl ::windows::core::Interface for ContactConnectedServiceAccount {
-    type Vtable = IContactConnectedServiceAccountVtbl;
+    type Vtable = IContactConnectedServiceAccount_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6f83553_aa27_4731_8e4a_3dec5ce9eec9);
 }
 impl ::windows::core::RuntimeName for ContactConnectedServiceAccount {
@@ -2507,7 +2507,7 @@ unsafe impl ::windows::core::RuntimeType for ContactDate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactDate;{fe98ae66-b205-4934-9174-0ff2b0565707})");
 }
 unsafe impl ::windows::core::Interface for ContactDate {
-    type Vtable = IContactDateVtbl;
+    type Vtable = IContactDate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe98ae66_b205_4934_9174_0ff2b0565707);
 }
 impl ::windows::core::RuntimeName for ContactDate {
@@ -2660,7 +2660,7 @@ unsafe impl ::windows::core::RuntimeType for ContactEmail {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactEmail;{90a219a9-e3d3-4d63-993b-05b9a5393abf})");
 }
 unsafe impl ::windows::core::Interface for ContactEmail {
-    type Vtable = IContactEmailVtbl;
+    type Vtable = IContactEmail_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90a219a9_e3d3_4d63_993b_05b9a5393abf);
 }
 impl ::windows::core::RuntimeName for ContactEmail {
@@ -2825,7 +2825,7 @@ unsafe impl ::windows::core::RuntimeType for ContactField {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactField;{b176486a-d293-492c-a058-db575b3e3c0f})");
 }
 unsafe impl ::windows::core::Interface for ContactField {
-    type Vtable = IContactFieldVtbl;
+    type Vtable = IContactField_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb176486a_d293_492c_a058_db575b3e3c0f);
 }
 impl ::windows::core::RuntimeName for ContactField {
@@ -3036,7 +3036,7 @@ unsafe impl ::windows::core::RuntimeType for ContactFieldFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactFieldFactory;{85e2913f-0e4a-4a3e-8994-406ae7ed646e})");
 }
 unsafe impl ::windows::core::Interface for ContactFieldFactory {
-    type Vtable = IContactFieldFactoryVtbl;
+    type Vtable = IContactFieldFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85e2913f_0e4a_4a3e_8994_406ae7ed646e);
 }
 impl ::windows::core::RuntimeName for ContactFieldFactory {
@@ -3217,7 +3217,7 @@ unsafe impl ::windows::core::RuntimeType for ContactGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactGroup;{59bdeb01-9e9a-475d-bfe5-a37b806d852c})");
 }
 unsafe impl ::windows::core::Interface for ContactGroup {
-    type Vtable = IContactGroupVtbl;
+    type Vtable = IContactGroup_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59bdeb01_9e9a_475d_bfe5_a37b806d852c);
 }
 impl ::windows::core::RuntimeName for ContactGroup {
@@ -3361,7 +3361,7 @@ unsafe impl ::windows::core::RuntimeType for ContactInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactInformation;{275eb6d4-6a2e-4278-a914-e460d5f088f6})");
 }
 unsafe impl ::windows::core::Interface for ContactInformation {
-    type Vtable = IContactInformationVtbl;
+    type Vtable = IContactInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x275eb6d4_6a2e_4278_a914_e460d5f088f6);
 }
 impl ::windows::core::RuntimeName for ContactInformation {
@@ -3524,7 +3524,7 @@ unsafe impl ::windows::core::RuntimeType for ContactInstantMessageField {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactInstantMessageField;{cce33b37-0d85-41fa-b43d-da599c3eb009})");
 }
 unsafe impl ::windows::core::Interface for ContactInstantMessageField {
-    type Vtable = IContactInstantMessageFieldVtbl;
+    type Vtable = IContactInstantMessageField_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcce33b37_0d85_41fa_b43d_da599c3eb009);
 }
 impl ::windows::core::RuntimeName for ContactInstantMessageField {
@@ -3730,7 +3730,7 @@ unsafe impl ::windows::core::RuntimeType for ContactJobInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactJobInfo;{6d117b4c-ce50-4b43-9e69-b18258ea5315})");
 }
 unsafe impl ::windows::core::Interface for ContactJobInfo {
-    type Vtable = IContactJobInfoVtbl;
+    type Vtable = IContactJobInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d117b4c_ce50_4b43_9e69_b18258ea5315);
 }
 impl ::windows::core::RuntimeName for ContactJobInfo {
@@ -4082,7 +4082,7 @@ unsafe impl ::windows::core::RuntimeType for ContactList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactList;{16ddec75-392c-4845-9dfb-51a3e7ef3e42})");
 }
 unsafe impl ::windows::core::Interface for ContactList {
-    type Vtable = IContactListVtbl;
+    type Vtable = IContactList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16ddec75_392c_4845_9dfb_51a3e7ef3e42);
 }
 impl ::windows::core::RuntimeName for ContactList {
@@ -4173,7 +4173,7 @@ unsafe impl ::windows::core::RuntimeType for ContactListLimitedWriteOperations {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactListLimitedWriteOperations;{e19813da-4a0b-44b8-9a1f-a0f3d218175f})");
 }
 unsafe impl ::windows::core::Interface for ContactListLimitedWriteOperations {
-    type Vtable = IContactListLimitedWriteOperationsVtbl;
+    type Vtable = IContactListLimitedWriteOperations_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe19813da_4a0b_44b8_9a1f_a0f3d218175f);
 }
 impl ::windows::core::RuntimeName for ContactListLimitedWriteOperations {
@@ -4733,7 +4733,7 @@ unsafe impl ::windows::core::RuntimeType for ContactListSyncConstraints {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactListSyncConstraints;{b2b0bf01-3062-4e2e-969d-018d1987f314})");
 }
 unsafe impl ::windows::core::Interface for ContactListSyncConstraints {
-    type Vtable = IContactListSyncConstraintsVtbl;
+    type Vtable = IContactListSyncConstraints_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2b0bf01_3062_4e2e_969d_018d1987f314);
 }
 impl ::windows::core::RuntimeName for ContactListSyncConstraints {
@@ -4873,7 +4873,7 @@ unsafe impl ::windows::core::RuntimeType for ContactListSyncManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactListSyncManager;{146e83be-7925-4acc-9de5-21ddd06f8674})");
 }
 unsafe impl ::windows::core::Interface for ContactListSyncManager {
-    type Vtable = IContactListSyncManagerVtbl;
+    type Vtable = IContactListSyncManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x146e83be_7925_4acc_9de5_21ddd06f8674);
 }
 impl ::windows::core::RuntimeName for ContactListSyncManager {
@@ -5090,7 +5090,7 @@ unsafe impl ::windows::core::RuntimeType for ContactLocationField {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactLocationField;{9ec00f82-ab6e-4b36-89e3-b23bc0a1dacc})");
 }
 unsafe impl ::windows::core::Interface for ContactLocationField {
-    type Vtable = IContactLocationFieldVtbl;
+    type Vtable = IContactLocationField_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ec00f82_ab6e_4b36_89e3_b23bc0a1dacc);
 }
 impl ::windows::core::RuntimeName for ContactLocationField {
@@ -5448,7 +5448,7 @@ unsafe impl ::windows::core::RuntimeType for ContactManagerForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactManagerForUser;{b74bba57-1076-4bef-aef3-54686d18387d})");
 }
 unsafe impl ::windows::core::Interface for ContactManagerForUser {
-    type Vtable = IContactManagerForUserVtbl;
+    type Vtable = IContactManagerForUser_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb74bba57_1076_4bef_aef3_54686d18387d);
 }
 impl ::windows::core::RuntimeName for ContactManagerForUser {
@@ -5546,7 +5546,7 @@ unsafe impl ::windows::core::RuntimeType for ContactMatchReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactMatchReason;{bc922504-e7d8-413e-95f4-b75c54c74077})");
 }
 unsafe impl ::windows::core::Interface for ContactMatchReason {
-    type Vtable = IContactMatchReasonVtbl;
+    type Vtable = IContactMatchReason_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc922504_e7d8_413e_95f4_b75c54c74077);
 }
 impl ::windows::core::RuntimeName for ContactMatchReason {
@@ -5739,7 +5739,7 @@ unsafe impl ::windows::core::RuntimeType for ContactPanel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPanel;{41bf1265-d2ee-4b97-a80a-7d8d64cca6f5})");
 }
 unsafe impl ::windows::core::Interface for ContactPanel {
-    type Vtable = IContactPanelVtbl;
+    type Vtable = IContactPanel_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41bf1265_d2ee_4b97_a80a_7d8d64cca6f5);
 }
 impl ::windows::core::RuntimeName for ContactPanel {
@@ -5821,7 +5821,7 @@ unsafe impl ::windows::core::RuntimeType for ContactPanelClosingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPanelClosingEventArgs;{222174d3-cf4b-46d7-b739-6edc16110bfb})");
 }
 unsafe impl ::windows::core::Interface for ContactPanelClosingEventArgs {
-    type Vtable = IContactPanelClosingEventArgsVtbl;
+    type Vtable = IContactPanelClosingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x222174d3_cf4b_46d7_b739_6edc16110bfb);
 }
 impl ::windows::core::RuntimeName for ContactPanelClosingEventArgs {
@@ -5907,7 +5907,7 @@ unsafe impl ::windows::core::RuntimeType for ContactPanelLaunchFullAppRequestedE
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPanelLaunchFullAppRequestedEventArgs;{88d61c0e-23b4-4be8-8afc-072c25a4190d})");
 }
 unsafe impl ::windows::core::Interface for ContactPanelLaunchFullAppRequestedEventArgs {
-    type Vtable = IContactPanelLaunchFullAppRequestedEventArgsVtbl;
+    type Vtable = IContactPanelLaunchFullAppRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d61c0e_23b4_4be8_8afc_072c25a4190d);
 }
 impl ::windows::core::RuntimeName for ContactPanelLaunchFullAppRequestedEventArgs {
@@ -6026,7 +6026,7 @@ unsafe impl ::windows::core::RuntimeType for ContactPhone {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPhone;{467dab65-2712-4f52-b783-9ea8111c63cd})");
 }
 unsafe impl ::windows::core::Interface for ContactPhone {
-    type Vtable = IContactPhoneVtbl;
+    type Vtable = IContactPhone_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x467dab65_2712_4f52_b783_9ea8111c63cd);
 }
 impl ::windows::core::RuntimeName for ContactPhone {
@@ -6257,7 +6257,7 @@ unsafe impl ::windows::core::RuntimeType for ContactPicker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPicker;{0e09fd91-42f8-4055-90a0-896f96738936})");
 }
 unsafe impl ::windows::core::Interface for ContactPicker {
-    type Vtable = IContactPickerVtbl;
+    type Vtable = IContactPicker_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e09fd91_42f8_4055_90a0_896f96738936);
 }
 impl ::windows::core::RuntimeName for ContactPicker {
@@ -6482,7 +6482,7 @@ unsafe impl ::windows::core::RuntimeType for ContactQueryOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactQueryOptions;{4408cc9e-7d7c-42f0-8ac7-f50733ecdbc1})");
 }
 unsafe impl ::windows::core::Interface for ContactQueryOptions {
-    type Vtable = IContactQueryOptionsVtbl;
+    type Vtable = IContactQueryOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4408cc9e_7d7c_42f0_8ac7_f50733ecdbc1);
 }
 impl ::windows::core::RuntimeName for ContactQueryOptions {
@@ -6691,7 +6691,7 @@ unsafe impl ::windows::core::RuntimeType for ContactQueryTextSearch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactQueryTextSearch;{f7e3f9cb-a957-439b-a0b7-1c02a1963ff0})");
 }
 unsafe impl ::windows::core::Interface for ContactQueryTextSearch {
-    type Vtable = IContactQueryTextSearchVtbl;
+    type Vtable = IContactQueryTextSearch_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7e3f9cb_a957_439b_a0b7_1c02a1963ff0);
 }
 impl ::windows::core::RuntimeName for ContactQueryTextSearch {
@@ -6782,7 +6782,7 @@ unsafe impl ::windows::core::RuntimeType for ContactReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactReader;{d397e42e-1488-42f2-bf64-253f4884bfed})");
 }
 unsafe impl ::windows::core::Interface for ContactReader {
-    type Vtable = IContactReaderVtbl;
+    type Vtable = IContactReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd397e42e_1488_42f2_bf64_253f4884bfed);
 }
 impl ::windows::core::RuntimeName for ContactReader {
@@ -6971,7 +6971,7 @@ unsafe impl ::windows::core::RuntimeType for ContactSignificantOther {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactSignificantOther;{8873b5ab-c5fb-46d8-93fe-da3ff1934054})");
 }
 unsafe impl ::windows::core::Interface for ContactSignificantOther {
-    type Vtable = IContactSignificantOtherVtbl;
+    type Vtable = IContactSignificantOther_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8873b5ab_c5fb_46d8_93fe_da3ff1934054);
 }
 impl ::windows::core::RuntimeName for ContactSignificantOther {
@@ -7171,7 +7171,7 @@ unsafe impl ::windows::core::RuntimeType for ContactStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactStore;{2c220b10-3a6c-4293-b9bc-fe987f6e0d52})");
 }
 unsafe impl ::windows::core::Interface for ContactStore {
-    type Vtable = IContactStoreVtbl;
+    type Vtable = IContactStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c220b10_3a6c_4293_b9bc_fe987f6e0d52);
 }
 impl ::windows::core::RuntimeName for ContactStore {
@@ -7277,7 +7277,7 @@ unsafe impl ::windows::core::RuntimeType for ContactStoreNotificationTriggerDeta
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactStoreNotificationTriggerDetails;{abb298d6-878a-4f8b-a9ce-46bb7d1c84ce})");
 }
 unsafe impl ::windows::core::Interface for ContactStoreNotificationTriggerDetails {
-    type Vtable = IContactStoreNotificationTriggerDetailsVtbl;
+    type Vtable = IContactStoreNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabb298d6_878a_4f8b_a9ce_46bb7d1c84ce);
 }
 impl ::windows::core::RuntimeName for ContactStoreNotificationTriggerDetails {
@@ -7398,7 +7398,7 @@ unsafe impl ::windows::core::RuntimeType for ContactWebsite {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactWebsite;{9f130176-dc1b-4055-ad66-652f39d990e8})");
 }
 unsafe impl ::windows::core::Interface for ContactWebsite {
-    type Vtable = IContactWebsiteVtbl;
+    type Vtable = IContactWebsite_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f130176_dc1b_4055_ad66_652f39d990e8);
 }
 impl ::windows::core::RuntimeName for ContactWebsite {
@@ -7493,7 +7493,7 @@ unsafe impl ::windows::core::RuntimeType for FullContactCardOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.FullContactCardOptions;{8744436c-5cf9-4683-bdca-a1fdebf8dbce})");
 }
 unsafe impl ::windows::core::Interface for FullContactCardOptions {
-    type Vtable = IFullContactCardOptionsVtbl;
+    type Vtable = IFullContactCardOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8744436c_5cf9_4683_bdca_a1fdebf8dbce);
 }
 impl ::windows::core::RuntimeName for FullContactCardOptions {
@@ -7545,12 +7545,12 @@ unsafe impl ::core::marker::Sync for FullContactCardOptions {}
 #[repr(transparent)]
 pub struct IAggregateContactManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAggregateContactManager {
-    type Vtable = IAggregateContactManagerVtbl;
+    type Vtable = IAggregateContactManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0379d5dd_db5a_4fd3_b54e_4df17917a212);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAggregateContactManagerVtbl {
+pub struct IAggregateContactManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub FindRawContactsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contact: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7573,12 +7573,12 @@ pub struct IAggregateContactManagerVtbl {
 #[repr(transparent)]
 pub struct IAggregateContactManager2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAggregateContactManager2 {
-    type Vtable = IAggregateContactManager2Vtbl;
+    type Vtable = IAggregateContactManager2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e8cc2d8_a9cd_4430_9c4b_01348db2ca50);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAggregateContactManager2Vtbl {
+pub struct IAggregateContactManager2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SetRemoteIdentificationInformationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contactlistid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, remotesourceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, accountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7589,12 +7589,12 @@ pub struct IAggregateContactManager2Vtbl {
 #[repr(transparent)]
 pub struct IContact(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContact {
-    type Vtable = IContactVtbl;
+    type Vtable = IContact_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec0072f3_2118_4049_9ebc_17f0ab692b64);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactVtbl {
+pub struct IContact_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -7615,12 +7615,12 @@ pub struct IContactVtbl {
 #[repr(transparent)]
 pub struct IContact2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContact2 {
-    type Vtable = IContact2Vtbl;
+    type Vtable = IContact2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf312f365_bb77_4c94_802d_8328cee40c08);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContact2Vtbl {
+pub struct IContact2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -7671,12 +7671,12 @@ pub struct IContact2Vtbl {
 #[repr(transparent)]
 pub struct IContact3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContact3 {
-    type Vtable = IContact3Vtbl;
+    type Vtable = IContact3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48201e67_e08e_42a4_b561_41d08ca9575d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContact3Vtbl {
+pub struct IContact3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ContactListId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -7724,12 +7724,12 @@ pub struct IContact3Vtbl {
 #[repr(transparent)]
 pub struct IContactAddress(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactAddress {
-    type Vtable = IContactAddressVtbl;
+    type Vtable = IContactAddress_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9739d39a_42ce_4872_8d70_3063aa584b70);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactAddressVtbl {
+pub struct IContactAddress_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub StreetAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetStreetAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -7750,12 +7750,12 @@ pub struct IContactAddressVtbl {
 #[repr(transparent)]
 pub struct IContactAnnotation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactAnnotation {
-    type Vtable = IContactAnnotationVtbl;
+    type Vtable = IContactAnnotation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x821fc2ef_7d41_44a2_84c3_60a281dd7b86);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactAnnotationVtbl {
+pub struct IContactAnnotation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub AnnotationListId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -7775,12 +7775,12 @@ pub struct IContactAnnotationVtbl {
 #[repr(transparent)]
 pub struct IContactAnnotation2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactAnnotation2 {
-    type Vtable = IContactAnnotation2Vtbl;
+    type Vtable = IContactAnnotation2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb691ecf3_4ab7_4a1f_9941_0c9cf3171b75);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactAnnotation2Vtbl {
+pub struct IContactAnnotation2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ContactListId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetContactListId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -7789,12 +7789,12 @@ pub struct IContactAnnotation2Vtbl {
 #[repr(transparent)]
 pub struct IContactAnnotationList(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactAnnotationList {
-    type Vtable = IContactAnnotationListVtbl;
+    type Vtable = IContactAnnotationList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92a486aa_5c88_45b9_aad0_461888e68d8a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactAnnotationListVtbl {
+pub struct IContactAnnotationList_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ProviderPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -7828,12 +7828,12 @@ pub struct IContactAnnotationListVtbl {
 #[repr(transparent)]
 pub struct IContactAnnotationStore(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactAnnotationStore {
-    type Vtable = IContactAnnotationStoreVtbl;
+    type Vtable = IContactAnnotationStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23acf4aa_7a77_457d_8203_987f4b31af09);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactAnnotationStoreVtbl {
+pub struct IContactAnnotationStore_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub FindContactIdsByEmailAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, emailaddress: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7872,12 +7872,12 @@ pub struct IContactAnnotationStoreVtbl {
 #[repr(transparent)]
 pub struct IContactAnnotationStore2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactAnnotationStore2 {
-    type Vtable = IContactAnnotationStore2Vtbl;
+    type Vtable = IContactAnnotationStore2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ede23fd_61e7_4967_8ec5_bdf280a24063);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactAnnotationStore2Vtbl {
+pub struct IContactAnnotationStore2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub FindAnnotationsForContactListAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contactlistid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7888,12 +7888,12 @@ pub struct IContactAnnotationStore2Vtbl {
 #[repr(transparent)]
 pub struct IContactBatch(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactBatch {
-    type Vtable = IContactBatchVtbl;
+    type Vtable = IContactBatch_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35d1972d_bfce_46bb_93f8_a5b06ec5e201);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactBatchVtbl {
+pub struct IContactBatch_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Contacts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7905,12 +7905,12 @@ pub struct IContactBatchVtbl {
 #[repr(transparent)]
 pub struct IContactCardDelayedDataLoader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactCardDelayedDataLoader {
-    type Vtable = IContactCardDelayedDataLoaderVtbl;
+    type Vtable = IContactCardDelayedDataLoader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb60af902_1546_434d_869c_6e3520760ef3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactCardDelayedDataLoaderVtbl {
+pub struct IContactCardDelayedDataLoader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contact: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7918,12 +7918,12 @@ pub struct IContactCardDelayedDataLoaderVtbl {
 #[repr(transparent)]
 pub struct IContactCardOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactCardOptions {
-    type Vtable = IContactCardOptionsVtbl;
+    type Vtable = IContactCardOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c0a4f7e_6ab6_4f3f_be72_817236eeea5b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactCardOptionsVtbl {
+pub struct IContactCardOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub HeaderKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ContactCardHeaderKind) -> ::windows::core::HRESULT,
     pub SetHeaderKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ContactCardHeaderKind) -> ::windows::core::HRESULT,
@@ -7934,12 +7934,12 @@ pub struct IContactCardOptionsVtbl {
 #[repr(transparent)]
 pub struct IContactCardOptions2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactCardOptions2 {
-    type Vtable = IContactCardOptions2Vtbl;
+    type Vtable = IContactCardOptions2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f271ba0_d74b_4cc6_9f53_1b0eb5d1273c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactCardOptions2Vtbl {
+pub struct IContactCardOptions2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub ServerSearchContactListIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7950,12 +7950,12 @@ pub struct IContactCardOptions2Vtbl {
 #[repr(transparent)]
 pub struct IContactChange(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactChange {
-    type Vtable = IContactChangeVtbl;
+    type Vtable = IContactChange_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x951d4b10_6a59_4720_a4e1_363d98c135d5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactChangeVtbl {
+pub struct IContactChange_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ChangeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ContactChangeType) -> ::windows::core::HRESULT,
     pub Contact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7964,12 +7964,12 @@ pub struct IContactChangeVtbl {
 #[repr(transparent)]
 pub struct IContactChangeReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactChangeReader {
-    type Vtable = IContactChangeReaderVtbl;
+    type Vtable = IContactChangeReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x217319fa_2d0c_42e0_a9da_3ecd56a78a47);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactChangeReaderVtbl {
+pub struct IContactChangeReader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AcceptChanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AcceptChangesThrough: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lastchangetoaccept: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7982,12 +7982,12 @@ pub struct IContactChangeReaderVtbl {
 #[repr(transparent)]
 pub struct IContactChangeTracker(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactChangeTracker {
-    type Vtable = IContactChangeTrackerVtbl;
+    type Vtable = IContactChangeTracker_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e992952_309b_404d_9712_b37bd30278aa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactChangeTrackerVtbl {
+pub struct IContactChangeTracker_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Enable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetChangeReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7997,12 +7997,12 @@ pub struct IContactChangeTrackerVtbl {
 #[repr(transparent)]
 pub struct IContactChangeTracker2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactChangeTracker2 {
-    type Vtable = IContactChangeTracker2Vtbl;
+    type Vtable = IContactChangeTracker2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f8ad0fc_9321_4d18_9c09_d708c63fcd31);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactChangeTracker2Vtbl {
+pub struct IContactChangeTracker2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsTracking: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -8010,12 +8010,12 @@ pub struct IContactChangeTracker2Vtbl {
 #[repr(transparent)]
 pub struct IContactChangedDeferral(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactChangedDeferral {
-    type Vtable = IContactChangedDeferralVtbl;
+    type Vtable = IContactChangedDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5143ae8_1b03_46f8_b694_a523e83cfcb6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactChangedDeferralVtbl {
+pub struct IContactChangedDeferral_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -8023,12 +8023,12 @@ pub struct IContactChangedDeferralVtbl {
 #[repr(transparent)]
 pub struct IContactChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactChangedEventArgs {
-    type Vtable = IContactChangedEventArgsVtbl;
+    type Vtable = IContactChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x525e7fd1_73f3_4b7d_a918_580be4366121);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactChangedEventArgsVtbl {
+pub struct IContactChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8036,12 +8036,12 @@ pub struct IContactChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IContactConnectedServiceAccount(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactConnectedServiceAccount {
-    type Vtable = IContactConnectedServiceAccountVtbl;
+    type Vtable = IContactConnectedServiceAccount_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6f83553_aa27_4731_8e4a_3dec5ce9eec9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactConnectedServiceAccountVtbl {
+pub struct IContactConnectedServiceAccount_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8052,12 +8052,12 @@ pub struct IContactConnectedServiceAccountVtbl {
 #[repr(transparent)]
 pub struct IContactDate(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactDate {
-    type Vtable = IContactDateVtbl;
+    type Vtable = IContactDate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe98ae66_b205_4934_9174_0ff2b0565707);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactDateVtbl {
+pub struct IContactDate_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Day: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8092,12 +8092,12 @@ pub struct IContactDateVtbl {
 #[repr(transparent)]
 pub struct IContactEmail(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactEmail {
-    type Vtable = IContactEmailVtbl;
+    type Vtable = IContactEmail_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90a219a9_e3d3_4d63_993b_05b9a5393abf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactEmailVtbl {
+pub struct IContactEmail_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Address: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8203,12 +8203,12 @@ unsafe impl ::windows::core::RuntimeType for IContactField {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b176486a-d293-492c-a058-db575b3e3c0f}");
 }
 unsafe impl ::windows::core::Interface for IContactField {
-    type Vtable = IContactFieldVtbl;
+    type Vtable = IContactField_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb176486a_d293_492c_a058_db575b3e3c0f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactFieldVtbl {
+pub struct IContactField_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ContactFieldType) -> ::windows::core::HRESULT,
     pub Category: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ContactFieldCategory) -> ::windows::core::HRESULT,
@@ -8304,12 +8304,12 @@ unsafe impl ::windows::core::RuntimeType for IContactFieldFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{85e2913f-0e4a-4a3e-8994-406ae7ed646e}");
 }
 unsafe impl ::windows::core::Interface for IContactFieldFactory {
-    type Vtable = IContactFieldFactoryVtbl;
+    type Vtable = IContactFieldFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85e2913f_0e4a_4a3e_8994_406ae7ed646e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactFieldFactoryVtbl {
+pub struct IContactFieldFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateField_Default: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, r#type: ContactFieldType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateField_Category: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, r#type: ContactFieldType, category: ContactFieldCategory, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8319,24 +8319,24 @@ pub struct IContactFieldFactoryVtbl {
 #[repr(transparent)]
 pub struct IContactGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactGroup {
-    type Vtable = IContactGroupVtbl;
+    type Vtable = IContactGroup_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59bdeb01_9e9a_475d_bfe5_a37b806d852c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactGroupVtbl {
+pub struct IContactGroup_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IContactInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactInformation {
-    type Vtable = IContactInformationVtbl;
+    type Vtable = IContactInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x275eb6d4_6a2e_4278_a914_e460d5f088f6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactInformationVtbl {
+pub struct IContactInformation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -8372,12 +8372,12 @@ pub struct IContactInformationVtbl {
 #[repr(transparent)]
 pub struct IContactInstantMessageField(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactInstantMessageField {
-    type Vtable = IContactInstantMessageFieldVtbl;
+    type Vtable = IContactInstantMessageField_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcce33b37_0d85_41fa_b43d_da599c3eb009);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactInstantMessageFieldVtbl {
+pub struct IContactInstantMessageField_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub UserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Service: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8477,12 +8477,12 @@ unsafe impl ::windows::core::RuntimeType for IContactInstantMessageFieldFactory 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ba0b6794-91a3-4bb2-b1b9-69a5dff0ba09}");
 }
 unsafe impl ::windows::core::Interface for IContactInstantMessageFieldFactory {
-    type Vtable = IContactInstantMessageFieldFactoryVtbl;
+    type Vtable = IContactInstantMessageFieldFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba0b6794_91a3_4bb2_b1b9_69a5dff0ba09);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactInstantMessageFieldFactoryVtbl {
+pub struct IContactInstantMessageFieldFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstantMessage_Default: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, username: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateInstantMessage_Category: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, username: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, category: ContactFieldCategory, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8495,12 +8495,12 @@ pub struct IContactInstantMessageFieldFactoryVtbl {
 #[repr(transparent)]
 pub struct IContactJobInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactJobInfo {
-    type Vtable = IContactJobInfoVtbl;
+    type Vtable = IContactJobInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d117b4c_ce50_4b43_9e69_b18258ea5315);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactJobInfoVtbl {
+pub struct IContactJobInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CompanyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetCompanyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8523,12 +8523,12 @@ pub struct IContactJobInfoVtbl {
 #[repr(transparent)]
 pub struct IContactLaunchActionVerbsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactLaunchActionVerbsStatics {
-    type Vtable = IContactLaunchActionVerbsStaticsVtbl;
+    type Vtable = IContactLaunchActionVerbsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb1232d6_ee73_46e7_8761_11cd0157728f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactLaunchActionVerbsStaticsVtbl {
+pub struct IContactLaunchActionVerbsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Call: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8540,12 +8540,12 @@ pub struct IContactLaunchActionVerbsStaticsVtbl {
 #[repr(transparent)]
 pub struct IContactList(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactList {
-    type Vtable = IContactListVtbl;
+    type Vtable = IContactList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16ddec75_392c_4845_9dfb_51a3e7ef3e42);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactListVtbl {
+pub struct IContactList_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8604,12 +8604,12 @@ pub struct IContactListVtbl {
 #[repr(transparent)]
 pub struct IContactList2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactList2 {
-    type Vtable = IContactList2Vtbl;
+    type Vtable = IContactList2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb3943b4_4550_4dcb_9229_40ff91fb0203);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactList2Vtbl {
+pub struct IContactList2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RegisterSyncManagerAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8622,12 +8622,12 @@ pub struct IContactList2Vtbl {
 #[repr(transparent)]
 pub struct IContactList3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactList3 {
-    type Vtable = IContactList3Vtbl;
+    type Vtable = IContactList3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1578ee57_26fc_41e8_a850_5aa32514aca9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactList3Vtbl {
+pub struct IContactList3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LimitedWriteOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetChangeTracker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8636,12 +8636,12 @@ pub struct IContactList3Vtbl {
 #[repr(transparent)]
 pub struct IContactListLimitedWriteOperations(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactListLimitedWriteOperations {
-    type Vtable = IContactListLimitedWriteOperationsVtbl;
+    type Vtable = IContactListLimitedWriteOperations_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe19813da_4a0b_44b8_9a1f_a0f3d218175f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactListLimitedWriteOperationsVtbl {
+pub struct IContactListLimitedWriteOperations_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub TryCreateOrUpdateContactAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contact: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8656,12 +8656,12 @@ pub struct IContactListLimitedWriteOperationsVtbl {
 #[repr(transparent)]
 pub struct IContactListSyncConstraints(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactListSyncConstraints {
-    type Vtable = IContactListSyncConstraintsVtbl;
+    type Vtable = IContactListSyncConstraints_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2b0bf01_3062_4e2e_969d_018d1987f314);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactListSyncConstraintsVtbl {
+pub struct IContactListSyncConstraints_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CanSyncDescriptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetCanSyncDescriptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -8886,12 +8886,12 @@ pub struct IContactListSyncConstraintsVtbl {
 #[repr(transparent)]
 pub struct IContactListSyncManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactListSyncManager {
-    type Vtable = IContactListSyncManagerVtbl;
+    type Vtable = IContactListSyncManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x146e83be_7925_4acc_9de5_21ddd06f8674);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactListSyncManagerVtbl {
+pub struct IContactListSyncManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ContactListSyncStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -8919,12 +8919,12 @@ pub struct IContactListSyncManagerVtbl {
 #[repr(transparent)]
 pub struct IContactListSyncManager2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactListSyncManager2 {
-    type Vtable = IContactListSyncManager2Vtbl;
+    type Vtable = IContactListSyncManager2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9591247_bb55_4e23_8128_370134a85d0d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactListSyncManager2Vtbl {
+pub struct IContactListSyncManager2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ContactListSyncStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -8940,12 +8940,12 @@ pub struct IContactListSyncManager2Vtbl {
 #[repr(transparent)]
 pub struct IContactLocationField(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactLocationField {
-    type Vtable = IContactLocationFieldVtbl;
+    type Vtable = IContactLocationField_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ec00f82_ab6e_4b36_89e3_b23bc0a1dacc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactLocationFieldVtbl {
+pub struct IContactLocationField_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub UnstructuredAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Street: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -9043,12 +9043,12 @@ unsafe impl ::windows::core::RuntimeType for IContactLocationFieldFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f79932d7-2fdf-43fe-8f18-41897390bcfe}");
 }
 unsafe impl ::windows::core::Interface for IContactLocationFieldFactory {
-    type Vtable = IContactLocationFieldFactoryVtbl;
+    type Vtable = IContactLocationFieldFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf79932d7_2fdf_43fe_8f18_41897390bcfe);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactLocationFieldFactoryVtbl {
+pub struct IContactLocationFieldFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateLocation_Default: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unstructuredaddress: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateLocation_Category: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unstructuredaddress: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, category: ContactFieldCategory, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9058,12 +9058,12 @@ pub struct IContactLocationFieldFactoryVtbl {
 #[repr(transparent)]
 pub struct IContactManagerForUser(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactManagerForUser {
-    type Vtable = IContactManagerForUserVtbl;
+    type Vtable = IContactManagerForUser_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb74bba57_1076_4bef_aef3_54686d18387d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactManagerForUserVtbl {
+pub struct IContactManagerForUser_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub ConvertContactToVCardAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contact: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9098,12 +9098,12 @@ pub struct IContactManagerForUserVtbl {
 #[repr(transparent)]
 pub struct IContactManagerForUser2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactManagerForUser2 {
-    type Vtable = IContactManagerForUser2Vtbl;
+    type Vtable = IContactManagerForUser2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d469c2e_3b75_4a73_bb30_736645472256);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactManagerForUser2Vtbl {
+pub struct IContactManagerForUser2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ShowFullContactCard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contact: ::windows::core::RawPtr, fullcontactcardoptions: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -9111,12 +9111,12 @@ pub struct IContactManagerForUser2Vtbl {
 #[repr(transparent)]
 pub struct IContactManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactManagerStatics {
-    type Vtable = IContactManagerStaticsVtbl;
+    type Vtable = IContactManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81f21ac0_f661_4708_ba4f_d386bd0d622e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactManagerStaticsVtbl {
+pub struct IContactManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ShowContactCard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contact: ::windows::core::RawPtr, selection: super::super::Foundation::Rect) -> ::windows::core::HRESULT,
@@ -9135,12 +9135,12 @@ pub struct IContactManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IContactManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactManagerStatics2 {
-    type Vtable = IContactManagerStatics2Vtbl;
+    type Vtable = IContactManagerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa178e620_47d8_48cc_963c_9592b6e510c6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactManagerStatics2Vtbl {
+pub struct IContactManagerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestStoreAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9151,12 +9151,12 @@ pub struct IContactManagerStatics2Vtbl {
 #[repr(transparent)]
 pub struct IContactManagerStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactManagerStatics3 {
-    type Vtable = IContactManagerStatics3Vtbl;
+    type Vtable = IContactManagerStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4cc3d42_7586_492a_930b_7bc138fc2139);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactManagerStatics3Vtbl {
+pub struct IContactManagerStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub ConvertContactToVCardAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contact: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9198,12 +9198,12 @@ pub struct IContactManagerStatics3Vtbl {
 #[repr(transparent)]
 pub struct IContactManagerStatics4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactManagerStatics4 {
-    type Vtable = IContactManagerStatics4Vtbl;
+    type Vtable = IContactManagerStatics4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24982272_347b_46dc_8d95_51bd41e15aaf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactManagerStatics4Vtbl {
+pub struct IContactManagerStatics4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9214,12 +9214,12 @@ pub struct IContactManagerStatics4Vtbl {
 #[repr(transparent)]
 pub struct IContactManagerStatics5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactManagerStatics5 {
-    type Vtable = IContactManagerStatics5Vtbl;
+    type Vtable = IContactManagerStatics5_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7591a87_acb7_4fad_90f2_a8ab64cdbba4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactManagerStatics5Vtbl {
+pub struct IContactManagerStatics5_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub IsShowFullContactCardSupportedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9232,12 +9232,12 @@ pub struct IContactManagerStatics5Vtbl {
 #[repr(transparent)]
 pub struct IContactMatchReason(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactMatchReason {
-    type Vtable = IContactMatchReasonVtbl;
+    type Vtable = IContactMatchReason_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc922504_e7d8_413e_95f4_b75c54c74077);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactMatchReasonVtbl {
+pub struct IContactMatchReason_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Field: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ContactMatchReasonKind) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Data_Text", feature = "Foundation_Collections"))]
@@ -9250,12 +9250,12 @@ pub struct IContactMatchReasonVtbl {
 #[repr(transparent)]
 pub struct IContactName(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactName {
-    type Vtable = IContactNameVtbl;
+    type Vtable = IContactName_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf404e97b_9034_453c_8ebf_140a38c86f1d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactNameVtbl {
+pub struct IContactName_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FirstName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetFirstName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -9278,12 +9278,12 @@ pub struct IContactNameVtbl {
 #[repr(transparent)]
 pub struct IContactPanel(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactPanel {
-    type Vtable = IContactPanelVtbl;
+    type Vtable = IContactPanel_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41bf1265_d2ee_4b97_a80a_7d8d64cca6f5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactPanelVtbl {
+pub struct IContactPanel_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ClosePanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "UI"))]
@@ -9315,12 +9315,12 @@ pub struct IContactPanelVtbl {
 #[repr(transparent)]
 pub struct IContactPanelClosingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactPanelClosingEventArgs {
-    type Vtable = IContactPanelClosingEventArgsVtbl;
+    type Vtable = IContactPanelClosingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x222174d3_cf4b_46d7_b739_6edc16110bfb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactPanelClosingEventArgsVtbl {
+pub struct IContactPanelClosingEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9331,12 +9331,12 @@ pub struct IContactPanelClosingEventArgsVtbl {
 #[repr(transparent)]
 pub struct IContactPanelLaunchFullAppRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactPanelLaunchFullAppRequestedEventArgs {
-    type Vtable = IContactPanelLaunchFullAppRequestedEventArgsVtbl;
+    type Vtable = IContactPanelLaunchFullAppRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d61c0e_23b4_4be8_8afc_072c25a4190d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactPanelLaunchFullAppRequestedEventArgsVtbl {
+pub struct IContactPanelLaunchFullAppRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -9345,12 +9345,12 @@ pub struct IContactPanelLaunchFullAppRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IContactPhone(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactPhone {
-    type Vtable = IContactPhoneVtbl;
+    type Vtable = IContactPhone_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x467dab65_2712_4f52_b783_9ea8111c63cd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactPhoneVtbl {
+pub struct IContactPhone_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Number: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -9363,12 +9363,12 @@ pub struct IContactPhoneVtbl {
 #[repr(transparent)]
 pub struct IContactPicker(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactPicker {
-    type Vtable = IContactPickerVtbl;
+    type Vtable = IContactPicker_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e09fd91_42f8_4055_90a0_896f96738936);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactPickerVtbl {
+pub struct IContactPicker_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CommitButtonText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetCommitButtonText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -9391,12 +9391,12 @@ pub struct IContactPickerVtbl {
 #[repr(transparent)]
 pub struct IContactPicker2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactPicker2 {
-    type Vtable = IContactPicker2Vtbl;
+    type Vtable = IContactPicker2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb35011cf_5cef_4d24_aa0c_340c5208725d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactPicker2Vtbl {
+pub struct IContactPicker2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub DesiredFieldsWithContactFieldType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9415,12 +9415,12 @@ pub struct IContactPicker2Vtbl {
 #[repr(transparent)]
 pub struct IContactPicker3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactPicker3 {
-    type Vtable = IContactPicker3Vtbl;
+    type Vtable = IContactPicker3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e723315_b243_4bed_8516_22b1a7ac0ace);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactPicker3Vtbl {
+pub struct IContactPicker3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9431,12 +9431,12 @@ pub struct IContactPicker3Vtbl {
 #[repr(transparent)]
 pub struct IContactPickerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactPickerStatics {
-    type Vtable = IContactPickerStaticsVtbl;
+    type Vtable = IContactPickerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7488c029_6a53_4258_a3e9_62dff6784b6c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactPickerStaticsVtbl {
+pub struct IContactPickerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub CreateForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9451,12 +9451,12 @@ pub struct IContactPickerStaticsVtbl {
 #[repr(transparent)]
 pub struct IContactQueryOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactQueryOptions {
-    type Vtable = IContactQueryOptionsVtbl;
+    type Vtable = IContactQueryOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4408cc9e_7d7c_42f0_8ac7_f50733ecdbc1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactQueryOptionsVtbl {
+pub struct IContactQueryOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TextSearch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -9478,12 +9478,12 @@ pub struct IContactQueryOptionsVtbl {
 #[repr(transparent)]
 pub struct IContactQueryOptionsFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactQueryOptionsFactory {
-    type Vtable = IContactQueryOptionsFactoryVtbl;
+    type Vtable = IContactQueryOptionsFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x543fba47_8ce7_46cb_9dac_9aa42a1bc8e2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactQueryOptionsFactoryVtbl {
+pub struct IContactQueryOptionsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateWithText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateWithTextAndFields: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ContactQuerySearchFields, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9492,12 +9492,12 @@ pub struct IContactQueryOptionsFactoryVtbl {
 #[repr(transparent)]
 pub struct IContactQueryTextSearch(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactQueryTextSearch {
-    type Vtable = IContactQueryTextSearchVtbl;
+    type Vtable = IContactQueryTextSearch_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7e3f9cb_a957_439b_a0b7_1c02a1963ff0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactQueryTextSearchVtbl {
+pub struct IContactQueryTextSearch_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Fields: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ContactQuerySearchFields) -> ::windows::core::HRESULT,
     pub SetFields: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ContactQuerySearchFields) -> ::windows::core::HRESULT,
@@ -9510,12 +9510,12 @@ pub struct IContactQueryTextSearchVtbl {
 #[repr(transparent)]
 pub struct IContactReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactReader {
-    type Vtable = IContactReaderVtbl;
+    type Vtable = IContactReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd397e42e_1488_42f2_bf64_253f4884bfed);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactReaderVtbl {
+pub struct IContactReader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ReadBatchAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9530,12 +9530,12 @@ pub struct IContactReaderVtbl {
 #[repr(transparent)]
 pub struct IContactSignificantOther(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactSignificantOther {
-    type Vtable = IContactSignificantOtherVtbl;
+    type Vtable = IContactSignificantOther_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8873b5ab_c5fb_46d8_93fe_da3ff1934054);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactSignificantOtherVtbl {
+pub struct IContactSignificantOther_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -9546,12 +9546,12 @@ pub struct IContactSignificantOtherVtbl {
 #[repr(transparent)]
 pub struct IContactSignificantOther2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactSignificantOther2 {
-    type Vtable = IContactSignificantOther2Vtbl;
+    type Vtable = IContactSignificantOther2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d7bd474_3f03_45f8_ba0f_c4ed37d64219);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactSignificantOther2Vtbl {
+pub struct IContactSignificantOther2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Relationship: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ContactRelationship) -> ::windows::core::HRESULT,
     pub SetRelationship: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ContactRelationship) -> ::windows::core::HRESULT,
@@ -9560,12 +9560,12 @@ pub struct IContactSignificantOther2Vtbl {
 #[repr(transparent)]
 pub struct IContactStore(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactStore {
-    type Vtable = IContactStoreVtbl;
+    type Vtable = IContactStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c220b10_3a6c_4293_b9bc_fe987f6e0d52);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactStoreVtbl {
+pub struct IContactStore_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub FindContactsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9584,12 +9584,12 @@ pub struct IContactStoreVtbl {
 #[repr(transparent)]
 pub struct IContactStore2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactStore2 {
-    type Vtable = IContactStore2Vtbl;
+    type Vtable = IContactStore2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18ce1c22_ebd5_4bfb_b690_5f4f27c4f0e8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactStore2Vtbl {
+pub struct IContactStore2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ChangeTracker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -9628,12 +9628,12 @@ pub struct IContactStore2Vtbl {
 #[repr(transparent)]
 pub struct IContactStore3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactStore3 {
-    type Vtable = IContactStore3Vtbl;
+    type Vtable = IContactStore3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb882c6c_004e_4050_87f0_840407ee6818);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactStore3Vtbl {
+pub struct IContactStore3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetChangeTracker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -9641,24 +9641,24 @@ pub struct IContactStore3Vtbl {
 #[repr(transparent)]
 pub struct IContactStoreNotificationTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactStoreNotificationTriggerDetails {
-    type Vtable = IContactStoreNotificationTriggerDetailsVtbl;
+    type Vtable = IContactStoreNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabb298d6_878a_4f8b_a9ce_46bb7d1c84ce);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactStoreNotificationTriggerDetailsVtbl {
+pub struct IContactStoreNotificationTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IContactWebsite(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactWebsite {
-    type Vtable = IContactWebsiteVtbl;
+    type Vtable = IContactWebsite_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f130176_dc1b_4055_ad66_652f39d990e8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactWebsiteVtbl {
+pub struct IContactWebsite_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Uri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9675,12 +9675,12 @@ pub struct IContactWebsiteVtbl {
 #[repr(transparent)]
 pub struct IContactWebsite2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactWebsite2 {
-    type Vtable = IContactWebsite2Vtbl;
+    type Vtable = IContactWebsite2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf87ee91e_5647_4068_bb5e_4b6f437ce308);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactWebsite2Vtbl {
+pub struct IContactWebsite2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RawValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetRawValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -9689,12 +9689,12 @@ pub struct IContactWebsite2Vtbl {
 #[repr(transparent)]
 pub struct IFullContactCardOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFullContactCardOptions {
-    type Vtable = IFullContactCardOptionsVtbl;
+    type Vtable = IFullContactCardOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8744436c_5cf9_4683_bdca_a1fdebf8dbce);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFullContactCardOptionsVtbl {
+pub struct IFullContactCardOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_ViewManagement")]
     pub DesiredRemainingView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::ViewManagement::ViewSizePreference) -> ::windows::core::HRESULT,
@@ -9711,13 +9711,13 @@ pub struct IFullContactCardOptionsVtbl {
 pub struct IKnownContactFieldStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IKnownContactFieldStatics {
-    type Vtable = IKnownContactFieldStaticsVtbl;
+    type Vtable = IKnownContactFieldStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e0e1b12_d627_4fca_bad4_1faf168c7d14);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKnownContactFieldStaticsVtbl {
+pub struct IKnownContactFieldStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Email: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -9748,12 +9748,12 @@ pub struct IKnownContactFieldStaticsVtbl {
 #[repr(transparent)]
 pub struct IPinnedContactIdsQueryResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPinnedContactIdsQueryResult {
-    type Vtable = IPinnedContactIdsQueryResultVtbl;
+    type Vtable = IPinnedContactIdsQueryResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d9b2552_1579_4ddc_871f_a30a3aea9ba1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPinnedContactIdsQueryResultVtbl {
+pub struct IPinnedContactIdsQueryResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub ContactIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9764,12 +9764,12 @@ pub struct IPinnedContactIdsQueryResultVtbl {
 #[repr(transparent)]
 pub struct IPinnedContactManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPinnedContactManager {
-    type Vtable = IPinnedContactManagerVtbl;
+    type Vtable = IPinnedContactManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcbc740c_e1d6_45c3_b8b6_a35604e167a0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPinnedContactManagerVtbl {
+pub struct IPinnedContactManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9799,12 +9799,12 @@ pub struct IPinnedContactManagerVtbl {
 #[repr(transparent)]
 pub struct IPinnedContactManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPinnedContactManagerStatics {
-    type Vtable = IPinnedContactManagerStaticsVtbl;
+    type Vtable = IPinnedContactManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf65ccc7e_fdf9_486a_ace9_bc311d0ae7f0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPinnedContactManagerStaticsVtbl {
+pub struct IPinnedContactManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "System")]
@@ -9911,7 +9911,7 @@ unsafe impl ::windows::core::RuntimeType for PinnedContactIdsQueryResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.PinnedContactIdsQueryResult;{7d9b2552-1579-4ddc-871f-a30a3aea9ba1})");
 }
 unsafe impl ::windows::core::Interface for PinnedContactIdsQueryResult {
-    type Vtable = IPinnedContactIdsQueryResultVtbl;
+    type Vtable = IPinnedContactIdsQueryResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d9b2552_1579_4ddc_871f_a30a3aea9ba1);
 }
 impl ::windows::core::RuntimeName for PinnedContactIdsQueryResult {
@@ -10077,7 +10077,7 @@ unsafe impl ::windows::core::RuntimeType for PinnedContactManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.PinnedContactManager;{fcbc740c-e1d6-45c3-b8b6-a35604e167a0})");
 }
 unsafe impl ::windows::core::Interface for PinnedContactManager {
-    type Vtable = IPinnedContactManagerVtbl;
+    type Vtable = IPinnedContactManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcbc740c_e1d6_45c3_b8b6_a35604e167a0);
 }
 impl ::windows::core::RuntimeName for PinnedContactManager {

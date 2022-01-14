@@ -78,12 +78,12 @@ impl ::core::fmt::Debug for IDirect3DDxgiInterfaceAccess {
     }
 }
 unsafe impl ::windows::core::Interface for IDirect3DDxgiInterfaceAccess {
-    type Vtable = IDirect3DDxgiInterfaceAccessVtbl;
+    type Vtable = IDirect3DDxgiInterfaceAccess_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9b3d012_3df2_4ee3_b8d1_8695f457d3c1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirect3DDxgiInterfaceAccessVtbl {
+pub struct IDirect3DDxgiInterfaceAccess_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }

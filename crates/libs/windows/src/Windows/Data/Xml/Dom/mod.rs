@@ -276,7 +276,7 @@ unsafe impl ::windows::core::RuntimeType for DtdEntity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.DtdEntity;{6a0b5ffc-63b4-480f-9e6a-8a92816aade4})");
 }
 unsafe impl ::windows::core::Interface for DtdEntity {
-    type Vtable = IDtdEntityVtbl;
+    type Vtable = IDtdEntity_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a0b5ffc_63b4_480f_9e6a_8a92816aade4);
 }
 impl ::windows::core::RuntimeName for DtdEntity {
@@ -659,7 +659,7 @@ unsafe impl ::windows::core::RuntimeType for DtdNotation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.DtdNotation;{8cb4e04d-6d46-4edb-ab73-df83c51ad397})");
 }
 unsafe impl ::windows::core::Interface for DtdNotation {
-    type Vtable = IDtdNotationVtbl;
+    type Vtable = IDtdNotation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cb4e04d_6d46_4edb_ab73_df83c51ad397);
 }
 impl ::windows::core::RuntimeName for DtdNotation {
@@ -777,12 +777,12 @@ unsafe impl ::core::marker::Sync for DtdNotation {}
 #[repr(transparent)]
 pub struct IDtdEntity(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDtdEntity {
-    type Vtable = IDtdEntityVtbl;
+    type Vtable = IDtdEntity_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a0b5ffc_63b4_480f_9e6a_8a92816aade4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDtdEntityVtbl {
+pub struct IDtdEntity_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PublicId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SystemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -792,12 +792,12 @@ pub struct IDtdEntityVtbl {
 #[repr(transparent)]
 pub struct IDtdNotation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDtdNotation {
-    type Vtable = IDtdNotationVtbl;
+    type Vtable = IDtdNotation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cb4e04d_6d46_4edb_ab73_df83c51ad397);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDtdNotationVtbl {
+pub struct IDtdNotation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PublicId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SystemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -806,12 +806,12 @@ pub struct IDtdNotationVtbl {
 #[repr(transparent)]
 pub struct IXmlAttribute(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlAttribute {
-    type Vtable = IXmlAttributeVtbl;
+    type Vtable = IXmlAttribute_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac144aa4_b4f1_4db6_b206_8a22c308db0a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlAttributeVtbl {
+pub struct IXmlAttribute_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Specified: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -822,12 +822,12 @@ pub struct IXmlAttributeVtbl {
 #[repr(transparent)]
 pub struct IXmlCDataSection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlCDataSection {
-    type Vtable = IXmlCDataSectionVtbl;
+    type Vtable = IXmlCDataSection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d04b46f_c8bd_45b4_8899_0400d7c2c60f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlCDataSectionVtbl {
+pub struct IXmlCDataSection_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc = "*Required features: 'Data_Xml_Dom'*"]
@@ -1238,12 +1238,12 @@ unsafe impl ::windows::core::RuntimeType for IXmlCharacterData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{132e42ab-4e36-4df6-b1c8-0ce62fd88b26}");
 }
 unsafe impl ::windows::core::Interface for IXmlCharacterData {
-    type Vtable = IXmlCharacterDataVtbl;
+    type Vtable = IXmlCharacterData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x132e42ab_4e36_4df6_b1c8_0ce62fd88b26);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlCharacterDataVtbl {
+pub struct IXmlCharacterData_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1258,24 +1258,24 @@ pub struct IXmlCharacterDataVtbl {
 #[repr(transparent)]
 pub struct IXmlComment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlComment {
-    type Vtable = IXmlCommentVtbl;
+    type Vtable = IXmlComment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbca474d5_b61f_4611_9cac_2e92e3476d47);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlCommentVtbl {
+pub struct IXmlComment_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IXmlDocument(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlDocument {
-    type Vtable = IXmlDocumentVtbl;
+    type Vtable = IXmlDocument_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7f3a506_1e87_42d6_bcfb_b8c809fa5494);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlDocumentVtbl {
+pub struct IXmlDocument_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Doctype: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Implementation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1299,24 +1299,24 @@ pub struct IXmlDocumentVtbl {
 #[repr(transparent)]
 pub struct IXmlDocumentFragment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlDocumentFragment {
-    type Vtable = IXmlDocumentFragmentVtbl;
+    type Vtable = IXmlDocumentFragment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2ea6a96_0c21_44a5_8bc9_9e4a262708ec);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlDocumentFragmentVtbl {
+pub struct IXmlDocumentFragment_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IXmlDocumentIO(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlDocumentIO {
-    type Vtable = IXmlDocumentIOVtbl;
+    type Vtable = IXmlDocumentIO_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cd0e74e_ee65_4489_9ebf_ca43e87ba637);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlDocumentIOVtbl {
+pub struct IXmlDocumentIO_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LoadXml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xml: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub LoadXmlWithSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xml: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, loadsettings: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1329,12 +1329,12 @@ pub struct IXmlDocumentIOVtbl {
 #[repr(transparent)]
 pub struct IXmlDocumentIO2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlDocumentIO2 {
-    type Vtable = IXmlDocumentIO2Vtbl;
+    type Vtable = IXmlDocumentIO2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d034661_7bd8_4ad5_9ebf_81e6347263b1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlDocumentIO2Vtbl {
+pub struct IXmlDocumentIO2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub LoadXmlFromBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1349,12 +1349,12 @@ pub struct IXmlDocumentIO2Vtbl {
 #[repr(transparent)]
 pub struct IXmlDocumentStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlDocumentStatics {
-    type Vtable = IXmlDocumentStaticsVtbl;
+    type Vtable = IXmlDocumentStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5543d254_d757_4b79_9539_232b18f50bf1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlDocumentStaticsVtbl {
+pub struct IXmlDocumentStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub LoadFromUriAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1377,12 +1377,12 @@ pub struct IXmlDocumentStaticsVtbl {
 #[repr(transparent)]
 pub struct IXmlDocumentType(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlDocumentType {
-    type Vtable = IXmlDocumentTypeVtbl;
+    type Vtable = IXmlDocumentType_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7342425_9781_4964_8e94_9b1c6dfc9bc7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlDocumentTypeVtbl {
+pub struct IXmlDocumentType_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Entities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1392,12 +1392,12 @@ pub struct IXmlDocumentTypeVtbl {
 #[repr(transparent)]
 pub struct IXmlDomImplementation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlDomImplementation {
-    type Vtable = IXmlDomImplementationVtbl;
+    type Vtable = IXmlDomImplementation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6de58132_f11d_4fbb_8cc6_583cba93112f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlDomImplementationVtbl {
+pub struct IXmlDomImplementation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub HasFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feature: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, version: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -1405,12 +1405,12 @@ pub struct IXmlDomImplementationVtbl {
 #[repr(transparent)]
 pub struct IXmlElement(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlElement {
-    type Vtable = IXmlElementVtbl;
+    type Vtable = IXmlElement_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dfb8a1f_6b10_4ef8_9f83_efcce8faec37);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlElementVtbl {
+pub struct IXmlElement_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TagName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub GetAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1430,24 +1430,24 @@ pub struct IXmlElementVtbl {
 #[repr(transparent)]
 pub struct IXmlEntityReference(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlEntityReference {
-    type Vtable = IXmlEntityReferenceVtbl;
+    type Vtable = IXmlEntityReference_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e2f47bc_c3d0_4ccf_bb86_0ab8c36a61cf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlEntityReferenceVtbl {
+pub struct IXmlEntityReference_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IXmlLoadSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlLoadSettings {
-    type Vtable = IXmlLoadSettingsVtbl;
+    type Vtable = IXmlLoadSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58aa07a8_fed6_46f7_b4c5_fb1ba72108d6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlLoadSettingsVtbl {
+pub struct IXmlLoadSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MaxElementDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub SetMaxElementDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
@@ -1464,12 +1464,12 @@ pub struct IXmlLoadSettingsVtbl {
 #[repr(transparent)]
 pub struct IXmlNamedNodeMap(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlNamedNodeMap {
-    type Vtable = IXmlNamedNodeMapVtbl;
+    type Vtable = IXmlNamedNodeMap_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3a69eb0_aab0_4b82_a6fa_b1453f7c021b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlNamedNodeMapVtbl {
+pub struct IXmlNamedNodeMap_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1817,12 +1817,12 @@ unsafe impl ::windows::core::RuntimeType for IXmlNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1c741d59-2122-47d5-a856-83f3d4214875}");
 }
 unsafe impl ::windows::core::Interface for IXmlNode {
-    type Vtable = IXmlNodeVtbl;
+    type Vtable = IXmlNode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c741d59_2122_47d5_a856_83f3d4214875);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlNodeVtbl {
+pub struct IXmlNode_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub NodeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetNodeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1852,12 +1852,12 @@ pub struct IXmlNodeVtbl {
 #[repr(transparent)]
 pub struct IXmlNodeList(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlNodeList {
-    type Vtable = IXmlNodeListVtbl;
+    type Vtable = IXmlNodeList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c60ad77_83a4_4ec1_9c54_7ba429e13da6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlNodeListVtbl {
+pub struct IXmlNodeList_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1959,12 +1959,12 @@ unsafe impl ::windows::core::RuntimeType for IXmlNodeSelector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{63dbba8b-d0db-4fe1-b745-f9433afdc25b}");
 }
 unsafe impl ::windows::core::Interface for IXmlNodeSelector {
-    type Vtable = IXmlNodeSelectorVtbl;
+    type Vtable = IXmlNodeSelector_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63dbba8b_d0db_4fe1_b745_f9433afdc25b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlNodeSelectorVtbl {
+pub struct IXmlNodeSelector_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SelectSingleNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SelectNodes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2057,12 +2057,12 @@ unsafe impl ::windows::core::RuntimeType for IXmlNodeSerializer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5cc5b382-e6dd-4991-abef-06d8d2e7bd0c}");
 }
 unsafe impl ::windows::core::Interface for IXmlNodeSerializer {
-    type Vtable = IXmlNodeSerializerVtbl;
+    type Vtable = IXmlNodeSerializer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cc5b382_e6dd_4991_abef_06d8d2e7bd0c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlNodeSerializerVtbl {
+pub struct IXmlNodeSerializer_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetXml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub InnerText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2072,12 +2072,12 @@ pub struct IXmlNodeSerializerVtbl {
 #[repr(transparent)]
 pub struct IXmlProcessingInstruction(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXmlProcessingInstruction {
-    type Vtable = IXmlProcessingInstructionVtbl;
+    type Vtable = IXmlProcessingInstruction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2707fd1e_1e92_4ece_b6f4_26f069078ddc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlProcessingInstructionVtbl {
+pub struct IXmlProcessingInstruction_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Target: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2521,12 +2521,12 @@ unsafe impl ::windows::core::RuntimeType for IXmlText {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f931a4cb-308d-4760-a1d5-43b67450ac7e}");
 }
 unsafe impl ::windows::core::Interface for IXmlText {
-    type Vtable = IXmlTextVtbl;
+    type Vtable = IXmlText_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf931a4cb_308d_4760_a1d5_43b67450ac7e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlTextVtbl {
+pub struct IXmlText_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SplitText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2856,7 +2856,7 @@ unsafe impl ::windows::core::RuntimeType for XmlAttribute {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlAttribute;{ac144aa4-b4f1-4db6-b206-8a22c308db0a})");
 }
 unsafe impl ::windows::core::Interface for XmlAttribute {
-    type Vtable = IXmlAttributeVtbl;
+    type Vtable = IXmlAttribute_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac144aa4_b4f1_4db6_b206_8a22c308db0a);
 }
 impl ::windows::core::RuntimeName for XmlAttribute {
@@ -3280,7 +3280,7 @@ unsafe impl ::windows::core::RuntimeType for XmlCDataSection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlCDataSection;{4d04b46f-c8bd-45b4-8899-0400d7c2c60f})");
 }
 unsafe impl ::windows::core::Interface for XmlCDataSection {
-    type Vtable = IXmlCDataSectionVtbl;
+    type Vtable = IXmlCDataSection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d04b46f_c8bd_45b4_8899_0400d7c2c60f);
 }
 impl ::windows::core::RuntimeName for XmlCDataSection {
@@ -3740,7 +3740,7 @@ unsafe impl ::windows::core::RuntimeType for XmlComment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlComment;{bca474d5-b61f-4611-9cac-2e92e3476d47})");
 }
 unsafe impl ::windows::core::Interface for XmlComment {
-    type Vtable = IXmlCommentVtbl;
+    type Vtable = IXmlComment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbca474d5_b61f_4611_9cac_2e92e3476d47);
 }
 impl ::windows::core::RuntimeName for XmlComment {
@@ -4340,7 +4340,7 @@ unsafe impl ::windows::core::RuntimeType for XmlDocument {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDocument;{f7f3a506-1e87-42d6-bcfb-b8c809fa5494})");
 }
 unsafe impl ::windows::core::Interface for XmlDocument {
-    type Vtable = IXmlDocumentVtbl;
+    type Vtable = IXmlDocument_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7f3a506_1e87_42d6_bcfb_b8c809fa5494);
 }
 impl ::windows::core::RuntimeName for XmlDocument {
@@ -4707,7 +4707,7 @@ unsafe impl ::windows::core::RuntimeType for XmlDocumentFragment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDocumentFragment;{e2ea6a96-0c21-44a5-8bc9-9e4a262708ec})");
 }
 unsafe impl ::windows::core::Interface for XmlDocumentFragment {
-    type Vtable = IXmlDocumentFragmentVtbl;
+    type Vtable = IXmlDocumentFragment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2ea6a96_0c21_44a5_8bc9_9e4a262708ec);
 }
 impl ::windows::core::RuntimeName for XmlDocumentFragment {
@@ -5098,7 +5098,7 @@ unsafe impl ::windows::core::RuntimeType for XmlDocumentType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDocumentType;{f7342425-9781-4964-8e94-9b1c6dfc9bc7})");
 }
 unsafe impl ::windows::core::Interface for XmlDocumentType {
-    type Vtable = IXmlDocumentTypeVtbl;
+    type Vtable = IXmlDocumentType_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7342425_9781_4964_8e94_9b1c6dfc9bc7);
 }
 impl ::windows::core::RuntimeName for XmlDocumentType {
@@ -5245,7 +5245,7 @@ unsafe impl ::windows::core::RuntimeType for XmlDomImplementation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDomImplementation;{6de58132-f11d-4fbb-8cc6-583cba93112f})");
 }
 unsafe impl ::windows::core::Interface for XmlDomImplementation {
-    type Vtable = IXmlDomImplementationVtbl;
+    type Vtable = IXmlDomImplementation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6de58132_f11d_4fbb_8cc6_583cba93112f);
 }
 impl ::windows::core::RuntimeName for XmlDomImplementation {
@@ -5638,7 +5638,7 @@ unsafe impl ::windows::core::RuntimeType for XmlElement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlElement;{2dfb8a1f-6b10-4ef8-9f83-efcce8faec37})");
 }
 unsafe impl ::windows::core::Interface for XmlElement {
-    type Vtable = IXmlElementVtbl;
+    type Vtable = IXmlElement_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dfb8a1f_6b10_4ef8_9f83_efcce8faec37);
 }
 impl ::windows::core::RuntimeName for XmlElement {
@@ -6005,7 +6005,7 @@ unsafe impl ::windows::core::RuntimeType for XmlEntityReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlEntityReference;{2e2f47bc-c3d0-4ccf-bb86-0ab8c36a61cf})");
 }
 unsafe impl ::windows::core::Interface for XmlEntityReference {
-    type Vtable = IXmlEntityReferenceVtbl;
+    type Vtable = IXmlEntityReference_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e2f47bc_c3d0_4ccf_bb86_0ab8c36a61cf);
 }
 impl ::windows::core::RuntimeName for XmlEntityReference {
@@ -6216,7 +6216,7 @@ unsafe impl ::windows::core::RuntimeType for XmlLoadSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlLoadSettings;{58aa07a8-fed6-46f7-b4c5-fb1ba72108d6})");
 }
 unsafe impl ::windows::core::Interface for XmlLoadSettings {
-    type Vtable = IXmlLoadSettingsVtbl;
+    type Vtable = IXmlLoadSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58aa07a8_fed6_46f7_b4c5_fb1ba72108d6);
 }
 impl ::windows::core::RuntimeName for XmlLoadSettings {
@@ -6398,7 +6398,7 @@ unsafe impl ::windows::core::RuntimeType for XmlNamedNodeMap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlNamedNodeMap;{b3a69eb0-aab0-4b82-a6fa-b1453f7c021b})");
 }
 unsafe impl ::windows::core::Interface for XmlNamedNodeMap {
-    type Vtable = IXmlNamedNodeMapVtbl;
+    type Vtable = IXmlNamedNodeMap_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3a69eb0_aab0_4b82_a6fa_b1453f7c021b);
 }
 impl ::windows::core::RuntimeName for XmlNamedNodeMap {
@@ -6600,7 +6600,7 @@ unsafe impl ::windows::core::RuntimeType for XmlNodeList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlNodeList;{8c60ad77-83a4-4ec1-9c54-7ba429e13da6})");
 }
 unsafe impl ::windows::core::Interface for XmlNodeList {
-    type Vtable = IXmlNodeListVtbl;
+    type Vtable = IXmlNodeList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c60ad77_83a4_4ec1_9c54_7ba429e13da6);
 }
 impl ::windows::core::RuntimeName for XmlNodeList {
@@ -6990,7 +6990,7 @@ unsafe impl ::windows::core::RuntimeType for XmlProcessingInstruction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlProcessingInstruction;{2707fd1e-1e92-4ece-b6f4-26f069078ddc})");
 }
 unsafe impl ::windows::core::Interface for XmlProcessingInstruction {
-    type Vtable = IXmlProcessingInstructionVtbl;
+    type Vtable = IXmlProcessingInstruction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2707fd1e_1e92_4ece_b6f4_26f069078ddc);
 }
 impl ::windows::core::RuntimeName for XmlProcessingInstruction {
@@ -7414,7 +7414,7 @@ unsafe impl ::windows::core::RuntimeType for XmlText {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlText;{f931a4cb-308d-4760-a1d5-43b67450ac7e})");
 }
 unsafe impl ::windows::core::Interface for XmlText {
-    type Vtable = IXmlTextVtbl;
+    type Vtable = IXmlText_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf931a4cb_308d_4760_a1d5_43b67450ac7e);
 }
 impl ::windows::core::RuntimeName for XmlText {

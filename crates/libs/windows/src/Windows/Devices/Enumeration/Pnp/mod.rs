@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IPnpObject(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPnpObject {
-    type Vtable = IPnpObjectVtbl;
+    type Vtable = IPnpObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95c66258_733b_4a8f_93a3_db078ac870c1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPnpObjectVtbl {
+pub struct IPnpObject_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PnpObjectType) -> ::windows::core::HRESULT,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -22,12 +22,12 @@ pub struct IPnpObjectVtbl {
 #[repr(transparent)]
 pub struct IPnpObjectStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPnpObjectStatics {
-    type Vtable = IPnpObjectStaticsVtbl;
+    type Vtable = IPnpObjectStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3c32a3d_d168_4660_bbf3_a733b14b6e01);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPnpObjectStaticsVtbl {
+pub struct IPnpObjectStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub CreateFromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: PnpObjectType, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, requestedproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -54,12 +54,12 @@ pub struct IPnpObjectStaticsVtbl {
 #[repr(transparent)]
 pub struct IPnpObjectUpdate(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPnpObjectUpdate {
-    type Vtable = IPnpObjectUpdateVtbl;
+    type Vtable = IPnpObjectUpdate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f59e812_001e_4844_bcc6_432886856a17);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPnpObjectUpdateVtbl {
+pub struct IPnpObjectUpdate_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PnpObjectType) -> ::windows::core::HRESULT,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -72,12 +72,12 @@ pub struct IPnpObjectUpdateVtbl {
 #[repr(transparent)]
 pub struct IPnpObjectWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPnpObjectWatcher {
-    type Vtable = IPnpObjectWatcherVtbl;
+    type Vtable = IPnpObjectWatcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83c95ca8_4772_4a7a_aca8_e48c42a89c44);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPnpObjectWatcherVtbl {
+pub struct IPnpObjectWatcher_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Added: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -223,7 +223,7 @@ unsafe impl ::windows::core::RuntimeType for PnpObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.Pnp.PnpObject;{95c66258-733b-4a8f-93a3-db078ac870c1})");
 }
 unsafe impl ::windows::core::Interface for PnpObject {
-    type Vtable = IPnpObjectVtbl;
+    type Vtable = IPnpObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95c66258_733b_4a8f_93a3_db078ac870c1);
 }
 impl ::windows::core::RuntimeName for PnpObject {
@@ -349,7 +349,7 @@ unsafe impl ::windows::core::RuntimeType for PnpObjectCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for PnpObjectCollection {
-    type Vtable = super::super::super::Foundation::Collections::IVectorViewVtbl<PnpObject>;
+    type Vtable = super::super::super::Foundation::Collections::IVectorView_Vtbl<PnpObject>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -566,7 +566,7 @@ unsafe impl ::windows::core::RuntimeType for PnpObjectUpdate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.Pnp.PnpObjectUpdate;{6f59e812-001e-4844-bcc6-432886856a17})");
 }
 unsafe impl ::windows::core::Interface for PnpObjectUpdate {
-    type Vtable = IPnpObjectUpdateVtbl;
+    type Vtable = IPnpObjectUpdate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f59e812_001e_4844_bcc6_432886856a17);
 }
 impl ::windows::core::RuntimeName for PnpObjectUpdate {
@@ -732,7 +732,7 @@ unsafe impl ::windows::core::RuntimeType for PnpObjectWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.Pnp.PnpObjectWatcher;{83c95ca8-4772-4a7a-aca8-e48c42a89c44})");
 }
 unsafe impl ::windows::core::Interface for PnpObjectWatcher {
-    type Vtable = IPnpObjectWatcherVtbl;
+    type Vtable = IPnpObjectWatcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83c95ca8_4772_4a7a_aca8_e48c42a89c44);
 }
 impl ::windows::core::RuntimeName for PnpObjectWatcher {

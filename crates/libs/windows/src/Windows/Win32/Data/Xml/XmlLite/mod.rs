@@ -253,12 +253,12 @@ impl ::core::fmt::Debug for IXmlReader {
     }
 }
 unsafe impl ::windows::core::Interface for IXmlReader {
-    type Vtable = IXmlReaderVtbl;
+    type Vtable = IXmlReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7279fc81_709d_4095_b63d_69fe4b0d9030);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlReaderVtbl {
+pub struct IXmlReader_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinput: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nproperty: u32, ppvalue: *mut isize) -> ::windows::core::HRESULT,
@@ -365,12 +365,12 @@ impl ::core::fmt::Debug for IXmlResolver {
     }
 }
 unsafe impl ::windows::core::Interface for IXmlResolver {
-    type Vtable = IXmlResolverVtbl;
+    type Vtable = IXmlResolver_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7279fc82_709d_4095_b63d_69fe4b0d9030);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlResolverVtbl {
+pub struct IXmlResolver_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ResolveUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszbaseuri: super::super::super::Foundation::PWSTR, pwszpublicidentifier: super::super::super::Foundation::PWSTR, pwszsystemidentifier: super::super::super::Foundation::PWSTR, ppresolvedinput: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -555,12 +555,12 @@ impl ::core::fmt::Debug for IXmlWriter {
     }
 }
 unsafe impl ::windows::core::Interface for IXmlWriter {
-    type Vtable = IXmlWriterVtbl;
+    type Vtable = IXmlWriter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7279fc88_709d_4095_b63d_69fe4b0d9030);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlWriterVtbl {
+pub struct IXmlWriter_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poutput: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nproperty: u32, ppvalue: *mut isize) -> ::windows::core::HRESULT,
@@ -824,12 +824,12 @@ impl ::core::fmt::Debug for IXmlWriterLite {
     }
 }
 unsafe impl ::windows::core::Interface for IXmlWriterLite {
-    type Vtable = IXmlWriterLiteVtbl;
+    type Vtable = IXmlWriterLite_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x862494c6_1310_4aad_b3cd_2dbeebf670d3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXmlWriterLiteVtbl {
+pub struct IXmlWriterLite_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poutput: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nproperty: u32, ppvalue: *mut isize) -> ::windows::core::HRESULT,

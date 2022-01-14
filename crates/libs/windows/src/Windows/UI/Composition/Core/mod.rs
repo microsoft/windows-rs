@@ -74,7 +74,7 @@ unsafe impl ::windows::core::RuntimeType for CompositorController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Core.CompositorController;{2d75f35a-70a7-4395-ba2d-cef0b18399f9})");
 }
 unsafe impl ::windows::core::Interface for CompositorController {
-    type Vtable = ICompositorControllerVtbl;
+    type Vtable = ICompositorController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d75f35a_70a7_4395_ba2d_cef0b18399f9);
 }
 impl ::windows::core::RuntimeName for CompositorController {
@@ -152,12 +152,12 @@ unsafe impl ::core::marker::Sync for CompositorController {}
 #[repr(transparent)]
 pub struct ICompositorController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompositorController {
-    type Vtable = ICompositorControllerVtbl;
+    type Vtable = ICompositorController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d75f35a_70a7_4395_ba2d_cef0b18399f9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICompositorControllerVtbl {
+pub struct ICompositorController_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Compositor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

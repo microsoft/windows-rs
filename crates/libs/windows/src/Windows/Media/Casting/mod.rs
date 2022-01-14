@@ -107,7 +107,7 @@ unsafe impl ::windows::core::RuntimeType for CastingConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingConnection;{cd951653-c2f1-4498-8b78-5fb4cd3640dd})");
 }
 unsafe impl ::windows::core::Interface for CastingConnection {
-    type Vtable = ICastingConnectionVtbl;
+    type Vtable = ICastingConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd951653_c2f1_4498_8b78_5fb4cd3640dd);
 }
 impl ::windows::core::RuntimeName for CastingConnection {
@@ -222,7 +222,7 @@ unsafe impl ::windows::core::RuntimeType for CastingConnectionErrorOccurredEvent
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingConnectionErrorOccurredEventArgs;{a7fb3c69-8719-4f00-81fb-961863c79a32})");
 }
 unsafe impl ::windows::core::Interface for CastingConnectionErrorOccurredEventArgs {
-    type Vtable = ICastingConnectionErrorOccurredEventArgsVtbl;
+    type Vtable = ICastingConnectionErrorOccurredEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7fb3c69_8719_4f00_81fb_961863c79a32);
 }
 impl ::windows::core::RuntimeName for CastingConnectionErrorOccurredEventArgs {
@@ -447,7 +447,7 @@ unsafe impl ::windows::core::RuntimeType for CastingDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDevice;{de721c83-4a43-4ad1-a6d2-2492a796c3f2})");
 }
 unsafe impl ::windows::core::Interface for CastingDevice {
-    type Vtable = ICastingDeviceVtbl;
+    type Vtable = ICastingDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde721c83_4a43_4ad1_a6d2_2492a796c3f2);
 }
 impl ::windows::core::RuntimeName for CastingDevice {
@@ -591,7 +591,7 @@ unsafe impl ::windows::core::RuntimeType for CastingDevicePicker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDevicePicker;{dcd39924-0591-49be-aacb-4b82ee756a95})");
 }
 unsafe impl ::windows::core::Interface for CastingDevicePicker {
-    type Vtable = ICastingDevicePickerVtbl;
+    type Vtable = ICastingDevicePicker_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcd39924_0591_49be_aacb_4b82ee756a95);
 }
 impl ::windows::core::RuntimeName for CastingDevicePicker {
@@ -712,7 +712,7 @@ unsafe impl ::windows::core::RuntimeType for CastingDevicePickerFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDevicePickerFilter;{be8c619c-b563-4354-ae33-9fdaad8c6291})");
 }
 unsafe impl ::windows::core::Interface for CastingDevicePickerFilter {
-    type Vtable = ICastingDevicePickerFilterVtbl;
+    type Vtable = ICastingDevicePickerFilter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe8c619c_b563_4354_ae33_9fdaad8c6291);
 }
 impl ::windows::core::RuntimeName for CastingDevicePickerFilter {
@@ -793,7 +793,7 @@ unsafe impl ::windows::core::RuntimeType for CastingDeviceSelectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDeviceSelectedEventArgs;{dc439e86-dd57-4d0d-9400-af45e4fb3663})");
 }
 unsafe impl ::windows::core::Interface for CastingDeviceSelectedEventArgs {
-    type Vtable = ICastingDeviceSelectedEventArgsVtbl;
+    type Vtable = ICastingDeviceSelectedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc439e86_dd57_4d0d_9400_af45e4fb3663);
 }
 impl ::windows::core::RuntimeName for CastingDeviceSelectedEventArgs {
@@ -944,7 +944,7 @@ unsafe impl ::windows::core::RuntimeType for CastingSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingSource;{f429ea72-3467-47e6-a027-522923e9d727})");
 }
 unsafe impl ::windows::core::Interface for CastingSource {
-    type Vtable = ICastingSourceVtbl;
+    type Vtable = ICastingSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf429ea72_3467_47e6_a027_522923e9d727);
 }
 impl ::windows::core::RuntimeName for CastingSource {
@@ -996,12 +996,12 @@ unsafe impl ::core::marker::Sync for CastingSource {}
 #[repr(transparent)]
 pub struct ICastingConnection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICastingConnection {
-    type Vtable = ICastingConnectionVtbl;
+    type Vtable = ICastingConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd951653_c2f1_4498_8b78_5fb4cd3640dd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICastingConnectionVtbl {
+pub struct ICastingConnection_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CastingConnectionState) -> ::windows::core::HRESULT,
     pub Device: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1036,12 +1036,12 @@ pub struct ICastingConnectionVtbl {
 #[repr(transparent)]
 pub struct ICastingConnectionErrorOccurredEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICastingConnectionErrorOccurredEventArgs {
-    type Vtable = ICastingConnectionErrorOccurredEventArgsVtbl;
+    type Vtable = ICastingConnectionErrorOccurredEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7fb3c69_8719_4f00_81fb_961863c79a32);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICastingConnectionErrorOccurredEventArgsVtbl {
+pub struct ICastingConnectionErrorOccurredEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ErrorStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CastingConnectionErrorStatus) -> ::windows::core::HRESULT,
     pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1050,12 +1050,12 @@ pub struct ICastingConnectionErrorOccurredEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICastingDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICastingDevice {
-    type Vtable = ICastingDeviceVtbl;
+    type Vtable = ICastingDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde721c83_4a43_4ad1_a6d2_2492a796c3f2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICastingDeviceVtbl {
+pub struct ICastingDevice_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1073,12 +1073,12 @@ pub struct ICastingDeviceVtbl {
 #[repr(transparent)]
 pub struct ICastingDevicePicker(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICastingDevicePicker {
-    type Vtable = ICastingDevicePickerVtbl;
+    type Vtable = ICastingDevicePicker_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcd39924_0591_49be_aacb_4b82ee756a95);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICastingDevicePickerVtbl {
+pub struct ICastingDevicePicker_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Filter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Enumeration")]
@@ -1115,12 +1115,12 @@ pub struct ICastingDevicePickerVtbl {
 #[repr(transparent)]
 pub struct ICastingDevicePickerFilter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICastingDevicePickerFilter {
-    type Vtable = ICastingDevicePickerFilterVtbl;
+    type Vtable = ICastingDevicePickerFilter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe8c619c_b563_4354_ae33_9fdaad8c6291);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICastingDevicePickerFilterVtbl {
+pub struct ICastingDevicePickerFilter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SupportsAudio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetSupportsAudio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -1137,12 +1137,12 @@ pub struct ICastingDevicePickerFilterVtbl {
 #[repr(transparent)]
 pub struct ICastingDeviceSelectedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICastingDeviceSelectedEventArgs {
-    type Vtable = ICastingDeviceSelectedEventArgsVtbl;
+    type Vtable = ICastingDeviceSelectedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc439e86_dd57_4d0d_9400_af45e4fb3663);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICastingDeviceSelectedEventArgsVtbl {
+pub struct ICastingDeviceSelectedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SelectedCastingDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1150,12 +1150,12 @@ pub struct ICastingDeviceSelectedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICastingDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICastingDeviceStatics {
-    type Vtable = ICastingDeviceStaticsVtbl;
+    type Vtable = ICastingDeviceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7d958d7_4d13_4237_a365_4c4f6a4cfd2f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICastingDeviceStaticsVtbl {
+pub struct ICastingDeviceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: CastingPlaybackTypes, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1175,12 +1175,12 @@ pub struct ICastingDeviceStaticsVtbl {
 #[repr(transparent)]
 pub struct ICastingSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICastingSource {
-    type Vtable = ICastingSourceVtbl;
+    type Vtable = ICastingSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf429ea72_3467_47e6_a027_522923e9d727);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICastingSourceVtbl {
+pub struct ICastingSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub PreferredSourceUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

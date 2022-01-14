@@ -1079,12 +1079,12 @@ impl ::core::fmt::Debug for ID2D1SimplifiedGeometrySink {
     }
 }
 unsafe impl ::windows::core::Interface for ID2D1SimplifiedGeometrySink {
-    type Vtable = ID2D1SimplifiedGeometrySinkVtbl;
+    type Vtable = ID2D1SimplifiedGeometrySink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd9069e_12e2_11dc_9fed_001143a055f9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID2D1SimplifiedGeometrySinkVtbl {
+pub struct ID2D1SimplifiedGeometrySink_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetFillMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fillmode: D2D1_FILL_MODE),
     pub SetSegmentFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vertexflags: D2D1_PATH_SEGMENT),

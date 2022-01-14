@@ -3826,12 +3826,12 @@ impl ::core::fmt::Debug for ITraceEvent {
     }
 }
 unsafe impl ::windows::core::Interface for ITraceEvent {
-    type Vtable = ITraceEventVtbl;
+    type Vtable = ITraceEvent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cc97f40_9028_4ff3_9b62_7d1f79ca7bcb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITraceEventVtbl {
+pub struct ITraceEvent_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetUserContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usercontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3900,12 +3900,12 @@ impl ::core::fmt::Debug for ITraceEventCallback {
     }
 }
 unsafe impl ::windows::core::Interface for ITraceEventCallback {
-    type Vtable = ITraceEventCallbackVtbl;
+    type Vtable = ITraceEventCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ed25501_593f_43e9_8f38_3ab46f5a4a52);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITraceEventCallbackVtbl {
+pub struct ITraceEventCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnBeginProcessTrace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, headerevent: ::windows::core::RawPtr, relogger: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OnFinalizeProcessTrace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relogger: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3996,12 +3996,12 @@ impl ::core::fmt::Debug for ITraceRelogger {
     }
 }
 unsafe impl ::windows::core::Interface for ITraceRelogger {
-    type Vtable = ITraceReloggerVtbl;
+    type Vtable = ITraceRelogger_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf754ad43_3bcc_4286_8009_9c5da214e84e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITraceReloggerVtbl {
+pub struct ITraceRelogger_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddLogfileTraceStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logfilename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, usercontext: *const ::core::ffi::c_void, tracehandle: *mut u64) -> ::windows::core::HRESULT,

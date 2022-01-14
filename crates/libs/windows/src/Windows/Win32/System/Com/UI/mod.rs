@@ -46,12 +46,12 @@ impl ::core::fmt::Debug for IDummyHICONIncluder {
     }
 }
 unsafe impl ::windows::core::Interface for IDummyHICONIncluder {
-    type Vtable = IDummyHICONIncluderVtbl;
+    type Vtable = IDummyHICONIncluder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x947990de_cc28_11d2_a0f7_00805f858fb1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDummyHICONIncluderVtbl {
+pub struct IDummyHICONIncluder_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
     pub Dummy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, h1: super::super::super::UI::WindowsAndMessaging::HICON, h2: super::super::super::Graphics::Gdi::HDC) -> ::windows::core::HRESULT,
@@ -110,12 +110,12 @@ impl ::core::fmt::Debug for IThumbnailExtractor {
     }
 }
 unsafe impl ::windows::core::Interface for IThumbnailExtractor {
-    type Vtable = IThumbnailExtractorVtbl;
+    type Vtable = IThumbnailExtractor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x969dc708_5c76_11d1_8d86_0000f804b057);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IThumbnailExtractorVtbl {
+pub struct IThumbnailExtractor_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub ExtractThumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstg: ::windows::core::RawPtr, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::HRESULT,

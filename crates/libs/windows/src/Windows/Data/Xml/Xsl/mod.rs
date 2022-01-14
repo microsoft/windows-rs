@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IXsltProcessor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXsltProcessor {
-    type Vtable = IXsltProcessorVtbl;
+    type Vtable = IXsltProcessor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b64703f_550c_48c6_a90f_93a5b964518f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXsltProcessorVtbl {
+pub struct IXsltProcessor_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Data_Xml_Dom")]
     pub TransformToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputnode: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -19,12 +19,12 @@ pub struct IXsltProcessorVtbl {
 #[repr(transparent)]
 pub struct IXsltProcessor2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXsltProcessor2 {
-    type Vtable = IXsltProcessor2Vtbl;
+    type Vtable = IXsltProcessor2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8da45c56_97a5_44cb_a8be_27d86280c70a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXsltProcessor2Vtbl {
+pub struct IXsltProcessor2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Data_Xml_Dom")]
     pub TransformToDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputnode: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -35,12 +35,12 @@ pub struct IXsltProcessor2Vtbl {
 #[repr(transparent)]
 pub struct IXsltProcessorFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXsltProcessorFactory {
-    type Vtable = IXsltProcessorFactoryVtbl;
+    type Vtable = IXsltProcessorFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x274146c0_9a51_4663_bf30_0ef742146f20);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXsltProcessorFactoryVtbl {
+pub struct IXsltProcessorFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Data_Xml_Dom")]
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, document: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -103,7 +103,7 @@ unsafe impl ::windows::core::RuntimeType for XsltProcessor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Xsl.XsltProcessor;{7b64703f-550c-48c6-a90f-93a5b964518f})");
 }
 unsafe impl ::windows::core::Interface for XsltProcessor {
-    type Vtable = IXsltProcessorVtbl;
+    type Vtable = IXsltProcessor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b64703f_550c_48c6_a90f_93a5b964518f);
 }
 impl ::windows::core::RuntimeName for XsltProcessor {

@@ -9,12 +9,12 @@ pub mod Spatial;
 #[repr(transparent)]
 pub struct IPerceptionTimestamp(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionTimestamp {
-    type Vtable = IPerceptionTimestampVtbl;
+    type Vtable = IPerceptionTimestamp_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87c24804_a22e_4adb_ba26_d78ef639bcf4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionTimestampVtbl {
+pub struct IPerceptionTimestamp_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub TargetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -29,12 +29,12 @@ pub struct IPerceptionTimestampVtbl {
 #[repr(transparent)]
 pub struct IPerceptionTimestamp2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionTimestamp2 {
-    type Vtable = IPerceptionTimestamp2Vtbl;
+    type Vtable = IPerceptionTimestamp2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe354b7ed_2bd1_41b7_9ed0_74a15c354537);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionTimestamp2Vtbl {
+pub struct IPerceptionTimestamp2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SystemRelativeTargetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -45,12 +45,12 @@ pub struct IPerceptionTimestamp2Vtbl {
 #[repr(transparent)]
 pub struct IPerceptionTimestampHelperStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionTimestampHelperStatics {
-    type Vtable = IPerceptionTimestampHelperStaticsVtbl;
+    type Vtable = IPerceptionTimestampHelperStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47a611d4_a9df_4edc_855d_f4d339d967ac);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionTimestampHelperStaticsVtbl {
+pub struct IPerceptionTimestampHelperStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FromHistoricalTargetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targettime: super::Foundation::DateTime, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -61,12 +61,12 @@ pub struct IPerceptionTimestampHelperStaticsVtbl {
 #[repr(transparent)]
 pub struct IPerceptionTimestampHelperStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPerceptionTimestampHelperStatics2 {
-    type Vtable = IPerceptionTimestampHelperStatics2Vtbl;
+    type Vtable = IPerceptionTimestampHelperStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73d1a7fe_3fb9_4571_87d4_3c920a5e86eb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionTimestampHelperStatics2Vtbl {
+pub struct IPerceptionTimestampHelperStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FromSystemRelativeTargetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targettime: super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -125,7 +125,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionTimestamp {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.PerceptionTimestamp;{87c24804-a22e-4adb-ba26-d78ef639bcf4})");
 }
 unsafe impl ::windows::core::Interface for PerceptionTimestamp {
-    type Vtable = IPerceptionTimestampVtbl;
+    type Vtable = IPerceptionTimestamp_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87c24804_a22e_4adb_ba26_d78ef639bcf4);
 }
 impl ::windows::core::RuntimeName for PerceptionTimestamp {

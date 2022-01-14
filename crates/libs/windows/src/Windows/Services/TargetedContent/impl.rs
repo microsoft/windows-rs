@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ITargetedContentActionImpl: Sized {
+pub trait ITargetedContentAction_Impl: Sized {
     fn InvokeAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -7,9 +7,9 @@ impl ::windows::core::RuntimeName for ITargetedContentAction {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentAction";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ITargetedContentActionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentActionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentActionVtbl {
-        unsafe extern "system" fn InvokeAsync<Impl: ITargetedContentActionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITargetedContentAction_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentAction_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentAction_Vtbl {
+        unsafe extern "system" fn InvokeAsync<Impl: ITargetedContentAction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InvokeAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -27,7 +27,7 @@ impl ITargetedContentActionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ITargetedContentAvailabilityChangedEventArgsImpl: Sized {
+pub trait ITargetedContentAvailabilityChangedEventArgs_Impl: Sized {
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -35,9 +35,9 @@ impl ::windows::core::RuntimeName for ITargetedContentAvailabilityChangedEventAr
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentAvailabilityChangedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ITargetedContentAvailabilityChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentAvailabilityChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentAvailabilityChangedEventArgsVtbl {
-        unsafe extern "system" fn GetDeferral<Impl: ITargetedContentAvailabilityChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITargetedContentAvailabilityChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentAvailabilityChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentAvailabilityChangedEventArgs_Vtbl {
+        unsafe extern "system" fn GetDeferral<Impl: ITargetedContentAvailabilityChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -58,7 +58,7 @@ impl ITargetedContentAvailabilityChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ITargetedContentChangedEventArgsImpl: Sized {
+pub trait ITargetedContentChangedEventArgs_Impl: Sized {
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
     fn HasPreviousContentExpired(&mut self) -> ::windows::core::Result<bool>;
 }
@@ -67,9 +67,9 @@ impl ::windows::core::RuntimeName for ITargetedContentChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentChangedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ITargetedContentChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentChangedEventArgsVtbl {
-        unsafe extern "system" fn GetDeferral<Impl: ITargetedContentChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITargetedContentChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentChangedEventArgs_Vtbl {
+        unsafe extern "system" fn GetDeferral<Impl: ITargetedContentChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -80,7 +80,7 @@ impl ITargetedContentChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasPreviousContentExpired<Impl: ITargetedContentChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasPreviousContentExpired<Impl: ITargetedContentChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasPreviousContentExpired() {
                 ::core::result::Result::Ok(ok__) => {
@@ -102,7 +102,7 @@ impl ITargetedContentChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ITargetedContentCollectionImpl: Sized {
+pub trait ITargetedContentCollection_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ReportInteraction(&mut self, interaction: TargetedContentInteraction) -> ::windows::core::Result<()>;
     fn ReportCustomInteraction(&mut self, custominteractionname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -116,9 +116,9 @@ impl ::windows::core::RuntimeName for ITargetedContentCollection {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentCollection";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ITargetedContentCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentCollectionVtbl {
-        unsafe extern "system" fn Id<Impl: ITargetedContentCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ITargetedContentCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentCollection_Vtbl {
+        unsafe extern "system" fn Id<Impl: ITargetedContentCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -129,15 +129,15 @@ impl ITargetedContentCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportInteraction<Impl: ITargetedContentCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interaction: TargetedContentInteraction) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportInteraction<Impl: ITargetedContentCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interaction: TargetedContentInteraction) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportInteraction(interaction).into()
         }
-        unsafe extern "system" fn ReportCustomInteraction<Impl: ITargetedContentCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, custominteractionname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCustomInteraction<Impl: ITargetedContentCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, custominteractionname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCustomInteraction(&*(&custominteractionname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Path<Impl: ITargetedContentCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Path<Impl: ITargetedContentCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Path() {
                 ::core::result::Result::Ok(ok__) => {
@@ -148,7 +148,7 @@ impl ITargetedContentCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Properties<Impl: ITargetedContentCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Properties<Impl: ITargetedContentCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -159,7 +159,7 @@ impl ITargetedContentCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Collections<Impl: ITargetedContentCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Collections<Impl: ITargetedContentCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Collections() {
                 ::core::result::Result::Ok(ok__) => {
@@ -170,7 +170,7 @@ impl ITargetedContentCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Items<Impl: ITargetedContentCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Items<Impl: ITargetedContentCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Items() {
                 ::core::result::Result::Ok(ok__) => {
@@ -197,7 +197,7 @@ impl ITargetedContentCollectionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ITargetedContentContainerImpl: Sized {
+pub trait ITargetedContentContainer_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn Availability(&mut self) -> ::windows::core::Result<TargetedContentAvailability>;
@@ -209,9 +209,9 @@ impl ::windows::core::RuntimeName for ITargetedContentContainer {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentContainer";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ITargetedContentContainerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentContainerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentContainerVtbl {
-        unsafe extern "system" fn Id<Impl: ITargetedContentContainerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ITargetedContentContainer_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentContainer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentContainer_Vtbl {
+        unsafe extern "system" fn Id<Impl: ITargetedContentContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -222,7 +222,7 @@ impl ITargetedContentContainerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Timestamp<Impl: ITargetedContentContainerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Timestamp<Impl: ITargetedContentContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -233,7 +233,7 @@ impl ITargetedContentContainerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Availability<Impl: ITargetedContentContainerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TargetedContentAvailability) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Availability<Impl: ITargetedContentContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TargetedContentAvailability) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Availability() {
                 ::core::result::Result::Ok(ok__) => {
@@ -244,7 +244,7 @@ impl ITargetedContentContainerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Content<Impl: ITargetedContentContainerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Content<Impl: ITargetedContentContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Content() {
                 ::core::result::Result::Ok(ok__) => {
@@ -255,7 +255,7 @@ impl ITargetedContentContainerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectSingleObject<Impl: ITargetedContentContainerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectSingleObject<Impl: ITargetedContentContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectSingleObject(&*(&path as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -280,7 +280,7 @@ impl ITargetedContentContainerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ITargetedContentContainerStaticsImpl: Sized {
+pub trait ITargetedContentContainerStatics_Impl: Sized {
     fn GetAsync(&mut self, contentid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -288,9 +288,9 @@ impl ::windows::core::RuntimeName for ITargetedContentContainerStatics {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentContainerStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ITargetedContentContainerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentContainerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentContainerStaticsVtbl {
-        unsafe extern "system" fn GetAsync<Impl: ITargetedContentContainerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITargetedContentContainerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentContainerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentContainerStatics_Vtbl {
+        unsafe extern "system" fn GetAsync<Impl: ITargetedContentContainerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAsync(&*(&contentid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -311,7 +311,7 @@ impl ITargetedContentContainerStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ITargetedContentImageImpl: Sized + IRandomAccessStreamReferenceImpl {
+pub trait ITargetedContentImage_Impl: Sized + super::super::Storage::Streams::IRandomAccessStreamReference_Impl {
     fn Height(&mut self) -> ::windows::core::Result<u32>;
     fn Width(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -320,9 +320,9 @@ impl ::windows::core::RuntimeName for ITargetedContentImage {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentImage";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ITargetedContentImageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentImageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentImageVtbl {
-        unsafe extern "system" fn Height<Impl: ITargetedContentImageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl ITargetedContentImage_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentImage_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentImage_Vtbl {
+        unsafe extern "system" fn Height<Impl: ITargetedContentImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Height() {
                 ::core::result::Result::Ok(ok__) => {
@@ -333,7 +333,7 @@ impl ITargetedContentImageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Width<Impl: ITargetedContentImageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Width<Impl: ITargetedContentImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Width() {
                 ::core::result::Result::Ok(ok__) => {
@@ -355,7 +355,7 @@ impl ITargetedContentImageVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ITargetedContentItemImpl: Sized {
+pub trait ITargetedContentItem_Impl: Sized {
     fn Path(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ReportInteraction(&mut self, interaction: TargetedContentInteraction) -> ::windows::core::Result<()>;
     fn ReportCustomInteraction(&mut self, custominteractionname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -368,9 +368,9 @@ impl ::windows::core::RuntimeName for ITargetedContentItem {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentItem";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ITargetedContentItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentItemVtbl {
-        unsafe extern "system" fn Path<Impl: ITargetedContentItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ITargetedContentItem_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentItem_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentItem_Vtbl {
+        unsafe extern "system" fn Path<Impl: ITargetedContentItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Path() {
                 ::core::result::Result::Ok(ok__) => {
@@ -381,15 +381,15 @@ impl ITargetedContentItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportInteraction<Impl: ITargetedContentItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interaction: TargetedContentInteraction) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportInteraction<Impl: ITargetedContentItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interaction: TargetedContentInteraction) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportInteraction(interaction).into()
         }
-        unsafe extern "system" fn ReportCustomInteraction<Impl: ITargetedContentItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, custominteractionname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCustomInteraction<Impl: ITargetedContentItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, custominteractionname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCustomInteraction(&*(&custominteractionname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn State<Impl: ITargetedContentItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn State<Impl: ITargetedContentItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -400,7 +400,7 @@ impl ITargetedContentItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Properties<Impl: ITargetedContentItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Properties<Impl: ITargetedContentItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -411,7 +411,7 @@ impl ITargetedContentItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Collections<Impl: ITargetedContentItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Collections<Impl: ITargetedContentItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Collections() {
                 ::core::result::Result::Ok(ok__) => {
@@ -437,7 +437,7 @@ impl ITargetedContentItemVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ITargetedContentItemStateImpl: Sized {
+pub trait ITargetedContentItemState_Impl: Sized {
     fn ShouldDisplay(&mut self) -> ::windows::core::Result<bool>;
     fn AppInstallationState(&mut self) -> ::windows::core::Result<TargetedContentAppInstallationState>;
 }
@@ -446,9 +446,9 @@ impl ::windows::core::RuntimeName for ITargetedContentItemState {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentItemState";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ITargetedContentItemStateVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentItemStateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentItemStateVtbl {
-        unsafe extern "system" fn ShouldDisplay<Impl: ITargetedContentItemStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ITargetedContentItemState_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentItemState_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentItemState_Vtbl {
+        unsafe extern "system" fn ShouldDisplay<Impl: ITargetedContentItemState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShouldDisplay() {
                 ::core::result::Result::Ok(ok__) => {
@@ -459,7 +459,7 @@ impl ITargetedContentItemStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppInstallationState<Impl: ITargetedContentItemStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TargetedContentAppInstallationState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppInstallationState<Impl: ITargetedContentItemState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TargetedContentAppInstallationState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppInstallationState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -481,7 +481,7 @@ impl ITargetedContentItemStateVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ITargetedContentObjectImpl: Sized {
+pub trait ITargetedContentObject_Impl: Sized {
     fn ObjectKind(&mut self) -> ::windows::core::Result<TargetedContentObjectKind>;
     fn Collection(&mut self) -> ::windows::core::Result<TargetedContentCollection>;
     fn Item(&mut self) -> ::windows::core::Result<TargetedContentItem>;
@@ -492,9 +492,9 @@ impl ::windows::core::RuntimeName for ITargetedContentObject {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentObject";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ITargetedContentObjectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentObjectVtbl {
-        unsafe extern "system" fn ObjectKind<Impl: ITargetedContentObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TargetedContentObjectKind) -> ::windows::core::HRESULT {
+impl ITargetedContentObject_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentObject_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentObject_Vtbl {
+        unsafe extern "system" fn ObjectKind<Impl: ITargetedContentObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TargetedContentObjectKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ObjectKind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -505,7 +505,7 @@ impl ITargetedContentObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Collection<Impl: ITargetedContentObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Collection<Impl: ITargetedContentObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Collection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -516,7 +516,7 @@ impl ITargetedContentObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Impl: ITargetedContentObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Item<Impl: ITargetedContentObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Item() {
                 ::core::result::Result::Ok(ok__) => {
@@ -527,7 +527,7 @@ impl ITargetedContentObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Impl: ITargetedContentObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: ITargetedContentObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -551,7 +551,7 @@ impl ITargetedContentObjectVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ITargetedContentStateChangedEventArgsImpl: Sized {
+pub trait ITargetedContentStateChangedEventArgs_Impl: Sized {
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -559,9 +559,9 @@ impl ::windows::core::RuntimeName for ITargetedContentStateChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentStateChangedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ITargetedContentStateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentStateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentStateChangedEventArgsVtbl {
-        unsafe extern "system" fn GetDeferral<Impl: ITargetedContentStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITargetedContentStateChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentStateChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentStateChangedEventArgs_Vtbl {
+        unsafe extern "system" fn GetDeferral<Impl: ITargetedContentStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -582,7 +582,7 @@ impl ITargetedContentStateChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ITargetedContentSubscriptionImpl: Sized {
+pub trait ITargetedContentSubscription_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetContentContainerAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>;
     fn ContentChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -597,9 +597,9 @@ impl ::windows::core::RuntimeName for ITargetedContentSubscription {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentSubscription";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ITargetedContentSubscriptionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentSubscriptionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentSubscriptionVtbl {
-        unsafe extern "system" fn Id<Impl: ITargetedContentSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ITargetedContentSubscription_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentSubscription_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentSubscription_Vtbl {
+        unsafe extern "system" fn Id<Impl: ITargetedContentSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -610,7 +610,7 @@ impl ITargetedContentSubscriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetContentContainerAsync<Impl: ITargetedContentSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetContentContainerAsync<Impl: ITargetedContentSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetContentContainerAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -621,7 +621,7 @@ impl ITargetedContentSubscriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentChanged<Impl: ITargetedContentSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentChanged<Impl: ITargetedContentSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -632,11 +632,11 @@ impl ITargetedContentSubscriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveContentChanged<Impl: ITargetedContentSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveContentChanged<Impl: ITargetedContentSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveContentChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AvailabilityChanged<Impl: ITargetedContentSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AvailabilityChanged<Impl: ITargetedContentSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AvailabilityChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentAvailabilityChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentAvailabilityChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -647,11 +647,11 @@ impl ITargetedContentSubscriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAvailabilityChanged<Impl: ITargetedContentSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAvailabilityChanged<Impl: ITargetedContentSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAvailabilityChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StateChanged<Impl: ITargetedContentSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StateChanged<Impl: ITargetedContentSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StateChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentStateChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentStateChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -662,7 +662,7 @@ impl ITargetedContentSubscriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStateChanged<Impl: ITargetedContentSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStateChanged<Impl: ITargetedContentSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStateChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -683,7 +683,7 @@ impl ITargetedContentSubscriptionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ITargetedContentSubscriptionOptionsImpl: Sized {
+pub trait ITargetedContentSubscriptionOptions_Impl: Sized {
     fn SubscriptionId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn AllowPartialContentAvailability(&mut self) -> ::windows::core::Result<bool>;
     fn SetAllowPartialContentAvailability(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -696,9 +696,9 @@ impl ::windows::core::RuntimeName for ITargetedContentSubscriptionOptions {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentSubscriptionOptions";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ITargetedContentSubscriptionOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentSubscriptionOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentSubscriptionOptionsVtbl {
-        unsafe extern "system" fn SubscriptionId<Impl: ITargetedContentSubscriptionOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ITargetedContentSubscriptionOptions_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentSubscriptionOptions_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentSubscriptionOptions_Vtbl {
+        unsafe extern "system" fn SubscriptionId<Impl: ITargetedContentSubscriptionOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SubscriptionId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -709,7 +709,7 @@ impl ITargetedContentSubscriptionOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AllowPartialContentAvailability<Impl: ITargetedContentSubscriptionOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllowPartialContentAvailability<Impl: ITargetedContentSubscriptionOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowPartialContentAvailability() {
                 ::core::result::Result::Ok(ok__) => {
@@ -720,11 +720,11 @@ impl ITargetedContentSubscriptionOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAllowPartialContentAvailability<Impl: ITargetedContentSubscriptionOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAllowPartialContentAvailability<Impl: ITargetedContentSubscriptionOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowPartialContentAvailability(value).into()
         }
-        unsafe extern "system" fn CloudQueryParameters<Impl: ITargetedContentSubscriptionOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CloudQueryParameters<Impl: ITargetedContentSubscriptionOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CloudQueryParameters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -735,7 +735,7 @@ impl ITargetedContentSubscriptionOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocalFilters<Impl: ITargetedContentSubscriptionOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LocalFilters<Impl: ITargetedContentSubscriptionOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalFilters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -746,7 +746,7 @@ impl ITargetedContentSubscriptionOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Update<Impl: ITargetedContentSubscriptionOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Update<Impl: ITargetedContentSubscriptionOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Update().into()
         }
@@ -765,7 +765,7 @@ impl ITargetedContentSubscriptionOptionsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ITargetedContentSubscriptionStaticsImpl: Sized {
+pub trait ITargetedContentSubscriptionStatics_Impl: Sized {
     fn GetAsync(&mut self, subscriptionid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentSubscription>>;
     fn GetOptions(&mut self, subscriptionid: &::windows::core::HSTRING) -> ::windows::core::Result<TargetedContentSubscriptionOptions>;
 }
@@ -774,9 +774,9 @@ impl ::windows::core::RuntimeName for ITargetedContentSubscriptionStatics {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentSubscriptionStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ITargetedContentSubscriptionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentSubscriptionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentSubscriptionStaticsVtbl {
-        unsafe extern "system" fn GetAsync<Impl: ITargetedContentSubscriptionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subscriptionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITargetedContentSubscriptionStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentSubscriptionStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentSubscriptionStatics_Vtbl {
+        unsafe extern "system" fn GetAsync<Impl: ITargetedContentSubscriptionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subscriptionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAsync(&*(&subscriptionid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -787,7 +787,7 @@ impl ITargetedContentSubscriptionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetOptions<Impl: ITargetedContentSubscriptionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subscriptionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOptions<Impl: ITargetedContentSubscriptionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subscriptionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetOptions(&*(&subscriptionid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -809,7 +809,7 @@ impl ITargetedContentSubscriptionStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ITargetedContentValueImpl: Sized {
+pub trait ITargetedContentValue_Impl: Sized {
     fn ValueKind(&mut self) -> ::windows::core::Result<TargetedContentValueKind>;
     fn Path(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn String(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -832,9 +832,9 @@ impl ::windows::core::RuntimeName for ITargetedContentValue {
     const NAME: &'static str = "Windows.Services.TargetedContent.ITargetedContentValue";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ITargetedContentValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentValueVtbl {
-        unsafe extern "system" fn ValueKind<Impl: ITargetedContentValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TargetedContentValueKind) -> ::windows::core::HRESULT {
+impl ITargetedContentValue_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetedContentValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetedContentValue_Vtbl {
+        unsafe extern "system" fn ValueKind<Impl: ITargetedContentValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TargetedContentValueKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ValueKind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -845,7 +845,7 @@ impl ITargetedContentValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Path<Impl: ITargetedContentValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Path<Impl: ITargetedContentValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Path() {
                 ::core::result::Result::Ok(ok__) => {
@@ -856,7 +856,7 @@ impl ITargetedContentValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn String<Impl: ITargetedContentValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn String<Impl: ITargetedContentValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).String() {
                 ::core::result::Result::Ok(ok__) => {
@@ -867,7 +867,7 @@ impl ITargetedContentValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Uri<Impl: ITargetedContentValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Uri<Impl: ITargetedContentValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -878,7 +878,7 @@ impl ITargetedContentValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Number<Impl: ITargetedContentValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Number<Impl: ITargetedContentValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Number() {
                 ::core::result::Result::Ok(ok__) => {
@@ -889,7 +889,7 @@ impl ITargetedContentValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Boolean<Impl: ITargetedContentValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Boolean<Impl: ITargetedContentValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Boolean() {
                 ::core::result::Result::Ok(ok__) => {
@@ -900,7 +900,7 @@ impl ITargetedContentValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn File<Impl: ITargetedContentValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn File<Impl: ITargetedContentValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).File() {
                 ::core::result::Result::Ok(ok__) => {
@@ -911,7 +911,7 @@ impl ITargetedContentValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImageFile<Impl: ITargetedContentValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImageFile<Impl: ITargetedContentValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImageFile() {
                 ::core::result::Result::Ok(ok__) => {
@@ -922,7 +922,7 @@ impl ITargetedContentValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Action<Impl: ITargetedContentValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Action<Impl: ITargetedContentValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Action() {
                 ::core::result::Result::Ok(ok__) => {
@@ -933,7 +933,7 @@ impl ITargetedContentValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Strings<Impl: ITargetedContentValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Strings<Impl: ITargetedContentValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Strings() {
                 ::core::result::Result::Ok(ok__) => {
@@ -944,7 +944,7 @@ impl ITargetedContentValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Uris<Impl: ITargetedContentValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Uris<Impl: ITargetedContentValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uris() {
                 ::core::result::Result::Ok(ok__) => {
@@ -955,7 +955,7 @@ impl ITargetedContentValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Numbers<Impl: ITargetedContentValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Numbers<Impl: ITargetedContentValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Numbers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -966,7 +966,7 @@ impl ITargetedContentValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Booleans<Impl: ITargetedContentValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Booleans<Impl: ITargetedContentValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Booleans() {
                 ::core::result::Result::Ok(ok__) => {
@@ -977,7 +977,7 @@ impl ITargetedContentValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Files<Impl: ITargetedContentValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Files<Impl: ITargetedContentValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Files() {
                 ::core::result::Result::Ok(ok__) => {
@@ -988,7 +988,7 @@ impl ITargetedContentValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImageFiles<Impl: ITargetedContentValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImageFiles<Impl: ITargetedContentValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImageFiles() {
                 ::core::result::Result::Ok(ok__) => {
@@ -999,7 +999,7 @@ impl ITargetedContentValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Actions<Impl: ITargetedContentValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Actions<Impl: ITargetedContentValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Actions() {
                 ::core::result::Result::Ok(ok__) => {

@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMidiChannelPressureMessageImpl: Sized + IMidiMessageImpl {
+pub trait IMidiChannelPressureMessage_Impl: Sized + IMidiMessage_Impl {
     fn Channel(&mut self) -> ::windows::core::Result<u8>;
     fn Pressure(&mut self) -> ::windows::core::Result<u8>;
 }
@@ -8,9 +8,9 @@ impl ::windows::core::RuntimeName for IMidiChannelPressureMessage {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiChannelPressureMessage";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMidiChannelPressureMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiChannelPressureMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiChannelPressureMessageVtbl {
-        unsafe extern "system" fn Channel<Impl: IMidiChannelPressureMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+impl IMidiChannelPressureMessage_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiChannelPressureMessage_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiChannelPressureMessage_Vtbl {
+        unsafe extern "system" fn Channel<Impl: IMidiChannelPressureMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Channel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -21,7 +21,7 @@ impl IMidiChannelPressureMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Pressure<Impl: IMidiChannelPressureMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pressure<Impl: IMidiChannelPressureMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pressure() {
                 ::core::result::Result::Ok(ok__) => {
@@ -43,7 +43,7 @@ impl IMidiChannelPressureMessageVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMidiChannelPressureMessageFactoryImpl: Sized {
+pub trait IMidiChannelPressureMessageFactory_Impl: Sized {
     fn CreateMidiChannelPressureMessage(&mut self, channel: u8, pressure: u8) -> ::windows::core::Result<MidiChannelPressureMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -51,9 +51,9 @@ impl ::windows::core::RuntimeName for IMidiChannelPressureMessageFactory {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiChannelPressureMessageFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMidiChannelPressureMessageFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiChannelPressureMessageFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiChannelPressureMessageFactoryVtbl {
-        unsafe extern "system" fn CreateMidiChannelPressureMessage<Impl: IMidiChannelPressureMessageFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: u8, pressure: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMidiChannelPressureMessageFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiChannelPressureMessageFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiChannelPressureMessageFactory_Vtbl {
+        unsafe extern "system" fn CreateMidiChannelPressureMessage<Impl: IMidiChannelPressureMessageFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: u8, pressure: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMidiChannelPressureMessage(channel, pressure) {
                 ::core::result::Result::Ok(ok__) => {
@@ -74,7 +74,7 @@ impl IMidiChannelPressureMessageFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMidiControlChangeMessageImpl: Sized + IMidiMessageImpl {
+pub trait IMidiControlChangeMessage_Impl: Sized + IMidiMessage_Impl {
     fn Channel(&mut self) -> ::windows::core::Result<u8>;
     fn Controller(&mut self) -> ::windows::core::Result<u8>;
     fn ControlValue(&mut self) -> ::windows::core::Result<u8>;
@@ -84,9 +84,9 @@ impl ::windows::core::RuntimeName for IMidiControlChangeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiControlChangeMessage";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMidiControlChangeMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiControlChangeMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiControlChangeMessageVtbl {
-        unsafe extern "system" fn Channel<Impl: IMidiControlChangeMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+impl IMidiControlChangeMessage_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiControlChangeMessage_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiControlChangeMessage_Vtbl {
+        unsafe extern "system" fn Channel<Impl: IMidiControlChangeMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Channel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -97,7 +97,7 @@ impl IMidiControlChangeMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Controller<Impl: IMidiControlChangeMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Controller<Impl: IMidiControlChangeMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Controller() {
                 ::core::result::Result::Ok(ok__) => {
@@ -108,7 +108,7 @@ impl IMidiControlChangeMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ControlValue<Impl: IMidiControlChangeMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ControlValue<Impl: IMidiControlChangeMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ControlValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -131,7 +131,7 @@ impl IMidiControlChangeMessageVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMidiControlChangeMessageFactoryImpl: Sized {
+pub trait IMidiControlChangeMessageFactory_Impl: Sized {
     fn CreateMidiControlChangeMessage(&mut self, channel: u8, controller: u8, controlvalue: u8) -> ::windows::core::Result<MidiControlChangeMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -139,9 +139,9 @@ impl ::windows::core::RuntimeName for IMidiControlChangeMessageFactory {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiControlChangeMessageFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMidiControlChangeMessageFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiControlChangeMessageFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiControlChangeMessageFactoryVtbl {
-        unsafe extern "system" fn CreateMidiControlChangeMessage<Impl: IMidiControlChangeMessageFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: u8, controller: u8, controlvalue: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMidiControlChangeMessageFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiControlChangeMessageFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiControlChangeMessageFactory_Vtbl {
+        unsafe extern "system" fn CreateMidiControlChangeMessage<Impl: IMidiControlChangeMessageFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: u8, controller: u8, controlvalue: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMidiControlChangeMessage(channel, controller, controlvalue) {
                 ::core::result::Result::Ok(ok__) => {
@@ -162,7 +162,7 @@ impl IMidiControlChangeMessageFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMidiInPortImpl: Sized + IClosableImpl {
+pub trait IMidiInPort_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn MessageReceived(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MidiInPort, MidiMessageReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveMessageReceived(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -172,9 +172,9 @@ impl ::windows::core::RuntimeName for IMidiInPort {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiInPort";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMidiInPortVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiInPortImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiInPortVtbl {
-        unsafe extern "system" fn MessageReceived<Impl: IMidiInPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IMidiInPort_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiInPort_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiInPort_Vtbl {
+        unsafe extern "system" fn MessageReceived<Impl: IMidiInPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageReceived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MidiInPort, MidiMessageReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MidiInPort, MidiMessageReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -185,11 +185,11 @@ impl IMidiInPortVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMessageReceived<Impl: IMidiInPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMessageReceived<Impl: IMidiInPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMessageReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DeviceId<Impl: IMidiInPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceId<Impl: IMidiInPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -212,7 +212,7 @@ impl IMidiInPortVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMidiInPortStaticsImpl: Sized {
+pub trait IMidiInPortStatics_Impl: Sized {
     fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MidiInPort>>;
     fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -221,9 +221,9 @@ impl ::windows::core::RuntimeName for IMidiInPortStatics {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiInPortStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMidiInPortStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiInPortStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiInPortStaticsVtbl {
-        unsafe extern "system" fn FromIdAsync<Impl: IMidiInPortStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMidiInPortStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiInPortStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiInPortStatics_Vtbl {
+        unsafe extern "system" fn FromIdAsync<Impl: IMidiInPortStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -234,7 +234,7 @@ impl IMidiInPortStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelector<Impl: IMidiInPortStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelector<Impl: IMidiInPortStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
                 ::core::result::Result::Ok(ok__) => {
@@ -256,7 +256,7 @@ impl IMidiInPortStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-pub trait IMidiMessageImpl: Sized {
+pub trait IMidiMessage_Impl: Sized {
     fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn RawData(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn Type(&mut self) -> ::windows::core::Result<MidiMessageType>;
@@ -266,9 +266,9 @@ impl ::windows::core::RuntimeName for IMidiMessage {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiMessage";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-impl IMidiMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiMessageVtbl {
-        unsafe extern "system" fn Timestamp<Impl: IMidiMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+impl IMidiMessage_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiMessage_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiMessage_Vtbl {
+        unsafe extern "system" fn Timestamp<Impl: IMidiMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -279,7 +279,7 @@ impl IMidiMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RawData<Impl: IMidiMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RawData<Impl: IMidiMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RawData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -290,7 +290,7 @@ impl IMidiMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Type<Impl: IMidiMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MidiMessageType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Type<Impl: IMidiMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MidiMessageType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
                 ::core::result::Result::Ok(ok__) => {
@@ -313,7 +313,7 @@ impl IMidiMessageVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMidiMessageReceivedEventArgsImpl: Sized {
+pub trait IMidiMessageReceivedEventArgs_Impl: Sized {
     fn Message(&mut self) -> ::windows::core::Result<IMidiMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -321,9 +321,9 @@ impl ::windows::core::RuntimeName for IMidiMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiMessageReceivedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMidiMessageReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiMessageReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiMessageReceivedEventArgsVtbl {
-        unsafe extern "system" fn Message<Impl: IMidiMessageReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMidiMessageReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiMessageReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiMessageReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn Message<Impl: IMidiMessageReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Message() {
                 ::core::result::Result::Ok(ok__) => {
@@ -341,7 +341,7 @@ impl IMidiMessageReceivedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMidiNoteOffMessageImpl: Sized + IMidiMessageImpl {
+pub trait IMidiNoteOffMessage_Impl: Sized + IMidiMessage_Impl {
     fn Channel(&mut self) -> ::windows::core::Result<u8>;
     fn Note(&mut self) -> ::windows::core::Result<u8>;
     fn Velocity(&mut self) -> ::windows::core::Result<u8>;
@@ -351,9 +351,9 @@ impl ::windows::core::RuntimeName for IMidiNoteOffMessage {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiNoteOffMessage";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMidiNoteOffMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiNoteOffMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiNoteOffMessageVtbl {
-        unsafe extern "system" fn Channel<Impl: IMidiNoteOffMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+impl IMidiNoteOffMessage_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiNoteOffMessage_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiNoteOffMessage_Vtbl {
+        unsafe extern "system" fn Channel<Impl: IMidiNoteOffMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Channel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -364,7 +364,7 @@ impl IMidiNoteOffMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Note<Impl: IMidiNoteOffMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Note<Impl: IMidiNoteOffMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Note() {
                 ::core::result::Result::Ok(ok__) => {
@@ -375,7 +375,7 @@ impl IMidiNoteOffMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Velocity<Impl: IMidiNoteOffMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Velocity<Impl: IMidiNoteOffMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Velocity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -398,7 +398,7 @@ impl IMidiNoteOffMessageVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMidiNoteOffMessageFactoryImpl: Sized {
+pub trait IMidiNoteOffMessageFactory_Impl: Sized {
     fn CreateMidiNoteOffMessage(&mut self, channel: u8, note: u8, velocity: u8) -> ::windows::core::Result<MidiNoteOffMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -406,9 +406,9 @@ impl ::windows::core::RuntimeName for IMidiNoteOffMessageFactory {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiNoteOffMessageFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMidiNoteOffMessageFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiNoteOffMessageFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiNoteOffMessageFactoryVtbl {
-        unsafe extern "system" fn CreateMidiNoteOffMessage<Impl: IMidiNoteOffMessageFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: u8, note: u8, velocity: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMidiNoteOffMessageFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiNoteOffMessageFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiNoteOffMessageFactory_Vtbl {
+        unsafe extern "system" fn CreateMidiNoteOffMessage<Impl: IMidiNoteOffMessageFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: u8, note: u8, velocity: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMidiNoteOffMessage(channel, note, velocity) {
                 ::core::result::Result::Ok(ok__) => {
@@ -429,7 +429,7 @@ impl IMidiNoteOffMessageFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMidiNoteOnMessageImpl: Sized + IMidiMessageImpl {
+pub trait IMidiNoteOnMessage_Impl: Sized + IMidiMessage_Impl {
     fn Channel(&mut self) -> ::windows::core::Result<u8>;
     fn Note(&mut self) -> ::windows::core::Result<u8>;
     fn Velocity(&mut self) -> ::windows::core::Result<u8>;
@@ -439,9 +439,9 @@ impl ::windows::core::RuntimeName for IMidiNoteOnMessage {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiNoteOnMessage";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMidiNoteOnMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiNoteOnMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiNoteOnMessageVtbl {
-        unsafe extern "system" fn Channel<Impl: IMidiNoteOnMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+impl IMidiNoteOnMessage_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiNoteOnMessage_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiNoteOnMessage_Vtbl {
+        unsafe extern "system" fn Channel<Impl: IMidiNoteOnMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Channel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -452,7 +452,7 @@ impl IMidiNoteOnMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Note<Impl: IMidiNoteOnMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Note<Impl: IMidiNoteOnMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Note() {
                 ::core::result::Result::Ok(ok__) => {
@@ -463,7 +463,7 @@ impl IMidiNoteOnMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Velocity<Impl: IMidiNoteOnMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Velocity<Impl: IMidiNoteOnMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Velocity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -486,7 +486,7 @@ impl IMidiNoteOnMessageVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMidiNoteOnMessageFactoryImpl: Sized {
+pub trait IMidiNoteOnMessageFactory_Impl: Sized {
     fn CreateMidiNoteOnMessage(&mut self, channel: u8, note: u8, velocity: u8) -> ::windows::core::Result<MidiNoteOnMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -494,9 +494,9 @@ impl ::windows::core::RuntimeName for IMidiNoteOnMessageFactory {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiNoteOnMessageFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMidiNoteOnMessageFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiNoteOnMessageFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiNoteOnMessageFactoryVtbl {
-        unsafe extern "system" fn CreateMidiNoteOnMessage<Impl: IMidiNoteOnMessageFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: u8, note: u8, velocity: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMidiNoteOnMessageFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiNoteOnMessageFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiNoteOnMessageFactory_Vtbl {
+        unsafe extern "system" fn CreateMidiNoteOnMessage<Impl: IMidiNoteOnMessageFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: u8, note: u8, velocity: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMidiNoteOnMessage(channel, note, velocity) {
                 ::core::result::Result::Ok(ok__) => {
@@ -517,7 +517,7 @@ impl IMidiNoteOnMessageFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-pub trait IMidiOutPortImpl: Sized + IClosableImpl {
+pub trait IMidiOutPort_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn SendMessage(&mut self, midimessage: &::core::option::Option<IMidiMessage>) -> ::windows::core::Result<()>;
     fn SendBuffer(&mut self, mididata: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -527,17 +527,17 @@ impl ::windows::core::RuntimeName for IMidiOutPort {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiOutPort";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-impl IMidiOutPortVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiOutPortImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiOutPortVtbl {
-        unsafe extern "system" fn SendMessage<Impl: IMidiOutPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, midimessage: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMidiOutPort_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiOutPort_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiOutPort_Vtbl {
+        unsafe extern "system" fn SendMessage<Impl: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, midimessage: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SendMessage(&*(&midimessage as *const <IMidiMessage as ::windows::core::Abi>::Abi as *const <IMidiMessage as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SendBuffer<Impl: IMidiOutPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mididata: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendBuffer<Impl: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mididata: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SendBuffer(&*(&mididata as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DeviceId<Impl: IMidiOutPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceId<Impl: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -560,7 +560,7 @@ impl IMidiOutPortVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMidiOutPortStaticsImpl: Sized {
+pub trait IMidiOutPortStatics_Impl: Sized {
     fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IMidiOutPort>>;
     fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -569,9 +569,9 @@ impl ::windows::core::RuntimeName for IMidiOutPortStatics {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiOutPortStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMidiOutPortStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiOutPortStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiOutPortStaticsVtbl {
-        unsafe extern "system" fn FromIdAsync<Impl: IMidiOutPortStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMidiOutPortStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiOutPortStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiOutPortStatics_Vtbl {
+        unsafe extern "system" fn FromIdAsync<Impl: IMidiOutPortStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -582,7 +582,7 @@ impl IMidiOutPortStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelector<Impl: IMidiOutPortStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelector<Impl: IMidiOutPortStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
                 ::core::result::Result::Ok(ok__) => {
@@ -604,7 +604,7 @@ impl IMidiOutPortStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMidiPitchBendChangeMessageImpl: Sized + IMidiMessageImpl {
+pub trait IMidiPitchBendChangeMessage_Impl: Sized + IMidiMessage_Impl {
     fn Channel(&mut self) -> ::windows::core::Result<u8>;
     fn Bend(&mut self) -> ::windows::core::Result<u16>;
 }
@@ -613,9 +613,9 @@ impl ::windows::core::RuntimeName for IMidiPitchBendChangeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiPitchBendChangeMessage";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMidiPitchBendChangeMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiPitchBendChangeMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiPitchBendChangeMessageVtbl {
-        unsafe extern "system" fn Channel<Impl: IMidiPitchBendChangeMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+impl IMidiPitchBendChangeMessage_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiPitchBendChangeMessage_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiPitchBendChangeMessage_Vtbl {
+        unsafe extern "system" fn Channel<Impl: IMidiPitchBendChangeMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Channel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -626,7 +626,7 @@ impl IMidiPitchBendChangeMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Bend<Impl: IMidiPitchBendChangeMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Bend<Impl: IMidiPitchBendChangeMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bend() {
                 ::core::result::Result::Ok(ok__) => {
@@ -648,7 +648,7 @@ impl IMidiPitchBendChangeMessageVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMidiPitchBendChangeMessageFactoryImpl: Sized {
+pub trait IMidiPitchBendChangeMessageFactory_Impl: Sized {
     fn CreateMidiPitchBendChangeMessage(&mut self, channel: u8, bend: u16) -> ::windows::core::Result<MidiPitchBendChangeMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -656,9 +656,9 @@ impl ::windows::core::RuntimeName for IMidiPitchBendChangeMessageFactory {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiPitchBendChangeMessageFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMidiPitchBendChangeMessageFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiPitchBendChangeMessageFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiPitchBendChangeMessageFactoryVtbl {
-        unsafe extern "system" fn CreateMidiPitchBendChangeMessage<Impl: IMidiPitchBendChangeMessageFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: u8, bend: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMidiPitchBendChangeMessageFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiPitchBendChangeMessageFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiPitchBendChangeMessageFactory_Vtbl {
+        unsafe extern "system" fn CreateMidiPitchBendChangeMessage<Impl: IMidiPitchBendChangeMessageFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: u8, bend: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMidiPitchBendChangeMessage(channel, bend) {
                 ::core::result::Result::Ok(ok__) => {
@@ -679,7 +679,7 @@ impl IMidiPitchBendChangeMessageFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMidiPolyphonicKeyPressureMessageImpl: Sized + IMidiMessageImpl {
+pub trait IMidiPolyphonicKeyPressureMessage_Impl: Sized + IMidiMessage_Impl {
     fn Channel(&mut self) -> ::windows::core::Result<u8>;
     fn Note(&mut self) -> ::windows::core::Result<u8>;
     fn Pressure(&mut self) -> ::windows::core::Result<u8>;
@@ -689,9 +689,9 @@ impl ::windows::core::RuntimeName for IMidiPolyphonicKeyPressureMessage {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiPolyphonicKeyPressureMessage";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMidiPolyphonicKeyPressureMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiPolyphonicKeyPressureMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiPolyphonicKeyPressureMessageVtbl {
-        unsafe extern "system" fn Channel<Impl: IMidiPolyphonicKeyPressureMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+impl IMidiPolyphonicKeyPressureMessage_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiPolyphonicKeyPressureMessage_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiPolyphonicKeyPressureMessage_Vtbl {
+        unsafe extern "system" fn Channel<Impl: IMidiPolyphonicKeyPressureMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Channel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -702,7 +702,7 @@ impl IMidiPolyphonicKeyPressureMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Note<Impl: IMidiPolyphonicKeyPressureMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Note<Impl: IMidiPolyphonicKeyPressureMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Note() {
                 ::core::result::Result::Ok(ok__) => {
@@ -713,7 +713,7 @@ impl IMidiPolyphonicKeyPressureMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Pressure<Impl: IMidiPolyphonicKeyPressureMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pressure<Impl: IMidiPolyphonicKeyPressureMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pressure() {
                 ::core::result::Result::Ok(ok__) => {
@@ -736,7 +736,7 @@ impl IMidiPolyphonicKeyPressureMessageVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMidiPolyphonicKeyPressureMessageFactoryImpl: Sized {
+pub trait IMidiPolyphonicKeyPressureMessageFactory_Impl: Sized {
     fn CreateMidiPolyphonicKeyPressureMessage(&mut self, channel: u8, note: u8, pressure: u8) -> ::windows::core::Result<MidiPolyphonicKeyPressureMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -744,9 +744,9 @@ impl ::windows::core::RuntimeName for IMidiPolyphonicKeyPressureMessageFactory {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiPolyphonicKeyPressureMessageFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMidiPolyphonicKeyPressureMessageFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiPolyphonicKeyPressureMessageFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiPolyphonicKeyPressureMessageFactoryVtbl {
-        unsafe extern "system" fn CreateMidiPolyphonicKeyPressureMessage<Impl: IMidiPolyphonicKeyPressureMessageFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: u8, note: u8, pressure: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMidiPolyphonicKeyPressureMessageFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiPolyphonicKeyPressureMessageFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiPolyphonicKeyPressureMessageFactory_Vtbl {
+        unsafe extern "system" fn CreateMidiPolyphonicKeyPressureMessage<Impl: IMidiPolyphonicKeyPressureMessageFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: u8, note: u8, pressure: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMidiPolyphonicKeyPressureMessage(channel, note, pressure) {
                 ::core::result::Result::Ok(ok__) => {
@@ -767,7 +767,7 @@ impl IMidiPolyphonicKeyPressureMessageFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMidiProgramChangeMessageImpl: Sized + IMidiMessageImpl {
+pub trait IMidiProgramChangeMessage_Impl: Sized + IMidiMessage_Impl {
     fn Channel(&mut self) -> ::windows::core::Result<u8>;
     fn Program(&mut self) -> ::windows::core::Result<u8>;
 }
@@ -776,9 +776,9 @@ impl ::windows::core::RuntimeName for IMidiProgramChangeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiProgramChangeMessage";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMidiProgramChangeMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiProgramChangeMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiProgramChangeMessageVtbl {
-        unsafe extern "system" fn Channel<Impl: IMidiProgramChangeMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+impl IMidiProgramChangeMessage_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiProgramChangeMessage_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiProgramChangeMessage_Vtbl {
+        unsafe extern "system" fn Channel<Impl: IMidiProgramChangeMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Channel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -789,7 +789,7 @@ impl IMidiProgramChangeMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Program<Impl: IMidiProgramChangeMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Program<Impl: IMidiProgramChangeMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Program() {
                 ::core::result::Result::Ok(ok__) => {
@@ -811,7 +811,7 @@ impl IMidiProgramChangeMessageVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMidiProgramChangeMessageFactoryImpl: Sized {
+pub trait IMidiProgramChangeMessageFactory_Impl: Sized {
     fn CreateMidiProgramChangeMessage(&mut self, channel: u8, program: u8) -> ::windows::core::Result<MidiProgramChangeMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -819,9 +819,9 @@ impl ::windows::core::RuntimeName for IMidiProgramChangeMessageFactory {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiProgramChangeMessageFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMidiProgramChangeMessageFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiProgramChangeMessageFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiProgramChangeMessageFactoryVtbl {
-        unsafe extern "system" fn CreateMidiProgramChangeMessage<Impl: IMidiProgramChangeMessageFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: u8, program: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMidiProgramChangeMessageFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiProgramChangeMessageFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiProgramChangeMessageFactory_Vtbl {
+        unsafe extern "system" fn CreateMidiProgramChangeMessage<Impl: IMidiProgramChangeMessageFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: u8, program: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMidiProgramChangeMessage(channel, program) {
                 ::core::result::Result::Ok(ok__) => {
@@ -842,7 +842,7 @@ impl IMidiProgramChangeMessageFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMidiSongPositionPointerMessageImpl: Sized + IMidiMessageImpl {
+pub trait IMidiSongPositionPointerMessage_Impl: Sized + IMidiMessage_Impl {
     fn Beats(&mut self) -> ::windows::core::Result<u16>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -850,9 +850,9 @@ impl ::windows::core::RuntimeName for IMidiSongPositionPointerMessage {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiSongPositionPointerMessage";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMidiSongPositionPointerMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiSongPositionPointerMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiSongPositionPointerMessageVtbl {
-        unsafe extern "system" fn Beats<Impl: IMidiSongPositionPointerMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+impl IMidiSongPositionPointerMessage_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiSongPositionPointerMessage_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiSongPositionPointerMessage_Vtbl {
+        unsafe extern "system" fn Beats<Impl: IMidiSongPositionPointerMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Beats() {
                 ::core::result::Result::Ok(ok__) => {
@@ -870,7 +870,7 @@ impl IMidiSongPositionPointerMessageVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMidiSongPositionPointerMessageFactoryImpl: Sized {
+pub trait IMidiSongPositionPointerMessageFactory_Impl: Sized {
     fn CreateMidiSongPositionPointerMessage(&mut self, beats: u16) -> ::windows::core::Result<MidiSongPositionPointerMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -878,9 +878,9 @@ impl ::windows::core::RuntimeName for IMidiSongPositionPointerMessageFactory {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiSongPositionPointerMessageFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMidiSongPositionPointerMessageFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiSongPositionPointerMessageFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiSongPositionPointerMessageFactoryVtbl {
-        unsafe extern "system" fn CreateMidiSongPositionPointerMessage<Impl: IMidiSongPositionPointerMessageFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, beats: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMidiSongPositionPointerMessageFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiSongPositionPointerMessageFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiSongPositionPointerMessageFactory_Vtbl {
+        unsafe extern "system" fn CreateMidiSongPositionPointerMessage<Impl: IMidiSongPositionPointerMessageFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, beats: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMidiSongPositionPointerMessage(beats) {
                 ::core::result::Result::Ok(ok__) => {
@@ -901,7 +901,7 @@ impl IMidiSongPositionPointerMessageFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMidiSongSelectMessageImpl: Sized + IMidiMessageImpl {
+pub trait IMidiSongSelectMessage_Impl: Sized + IMidiMessage_Impl {
     fn Song(&mut self) -> ::windows::core::Result<u8>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -909,9 +909,9 @@ impl ::windows::core::RuntimeName for IMidiSongSelectMessage {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiSongSelectMessage";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMidiSongSelectMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiSongSelectMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiSongSelectMessageVtbl {
-        unsafe extern "system" fn Song<Impl: IMidiSongSelectMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+impl IMidiSongSelectMessage_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiSongSelectMessage_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiSongSelectMessage_Vtbl {
+        unsafe extern "system" fn Song<Impl: IMidiSongSelectMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Song() {
                 ::core::result::Result::Ok(ok__) => {
@@ -929,7 +929,7 @@ impl IMidiSongSelectMessageVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMidiSongSelectMessageFactoryImpl: Sized {
+pub trait IMidiSongSelectMessageFactory_Impl: Sized {
     fn CreateMidiSongSelectMessage(&mut self, song: u8) -> ::windows::core::Result<MidiSongSelectMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -937,9 +937,9 @@ impl ::windows::core::RuntimeName for IMidiSongSelectMessageFactory {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiSongSelectMessageFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMidiSongSelectMessageFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiSongSelectMessageFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiSongSelectMessageFactoryVtbl {
-        unsafe extern "system" fn CreateMidiSongSelectMessage<Impl: IMidiSongSelectMessageFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, song: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMidiSongSelectMessageFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiSongSelectMessageFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiSongSelectMessageFactory_Vtbl {
+        unsafe extern "system" fn CreateMidiSongSelectMessage<Impl: IMidiSongSelectMessageFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, song: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMidiSongSelectMessage(song) {
                 ::core::result::Result::Ok(ok__) => {
@@ -960,7 +960,7 @@ impl IMidiSongSelectMessageFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMidiSynthesizerImpl: Sized + IClosableImpl + IMidiOutPortImpl {
+pub trait IMidiSynthesizer_Impl: Sized + super::super::Foundation::IClosable_Impl + IMidiOutPort_Impl {
     fn AudioDevice(&mut self) -> ::windows::core::Result<super::Enumeration::DeviceInformation>;
     fn Volume(&mut self) -> ::windows::core::Result<f64>;
     fn SetVolume(&mut self, value: f64) -> ::windows::core::Result<()>;
@@ -970,9 +970,9 @@ impl ::windows::core::RuntimeName for IMidiSynthesizer {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiSynthesizer";
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMidiSynthesizerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiSynthesizerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiSynthesizerVtbl {
-        unsafe extern "system" fn AudioDevice<Impl: IMidiSynthesizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMidiSynthesizer_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiSynthesizer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiSynthesizer_Vtbl {
+        unsafe extern "system" fn AudioDevice<Impl: IMidiSynthesizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioDevice() {
                 ::core::result::Result::Ok(ok__) => {
@@ -983,7 +983,7 @@ impl IMidiSynthesizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Volume<Impl: IMidiSynthesizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Volume<Impl: IMidiSynthesizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Volume() {
                 ::core::result::Result::Ok(ok__) => {
@@ -994,7 +994,7 @@ impl IMidiSynthesizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVolume<Impl: IMidiSynthesizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVolume<Impl: IMidiSynthesizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVolume(value).into()
         }
@@ -1010,7 +1010,7 @@ impl IMidiSynthesizerVtbl {
     }
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMidiSynthesizerStaticsImpl: Sized {
+pub trait IMidiSynthesizerStatics_Impl: Sized {
     fn CreateAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MidiSynthesizer>>;
     fn CreateFromAudioDeviceAsync(&mut self, audiodevice: &::core::option::Option<super::Enumeration::DeviceInformation>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MidiSynthesizer>>;
     fn IsSynthesizer(&mut self, mididevice: &::core::option::Option<super::Enumeration::DeviceInformation>) -> ::windows::core::Result<bool>;
@@ -1020,9 +1020,9 @@ impl ::windows::core::RuntimeName for IMidiSynthesizerStatics {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiSynthesizerStatics";
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
-impl IMidiSynthesizerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiSynthesizerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiSynthesizerStaticsVtbl {
-        unsafe extern "system" fn CreateAsync<Impl: IMidiSynthesizerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMidiSynthesizerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiSynthesizerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiSynthesizerStatics_Vtbl {
+        unsafe extern "system" fn CreateAsync<Impl: IMidiSynthesizerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1033,7 +1033,7 @@ impl IMidiSynthesizerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromAudioDeviceAsync<Impl: IMidiSynthesizerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audiodevice: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromAudioDeviceAsync<Impl: IMidiSynthesizerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audiodevice: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromAudioDeviceAsync(&*(&audiodevice as *const <super::Enumeration::DeviceInformation as ::windows::core::Abi>::Abi as *const <super::Enumeration::DeviceInformation as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1044,7 +1044,7 @@ impl IMidiSynthesizerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSynthesizer<Impl: IMidiSynthesizerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mididevice: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSynthesizer<Impl: IMidiSynthesizerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mididevice: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSynthesizer(&*(&mididevice as *const <super::Enumeration::DeviceInformation as ::windows::core::Abi>::Abi as *const <super::Enumeration::DeviceInformation as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1067,7 +1067,7 @@ impl IMidiSynthesizerStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMidiSystemExclusiveMessageFactoryImpl: Sized {
+pub trait IMidiSystemExclusiveMessageFactory_Impl: Sized {
     fn CreateMidiSystemExclusiveMessage(&mut self, rawdata: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<MidiSystemExclusiveMessage>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -1075,9 +1075,9 @@ impl ::windows::core::RuntimeName for IMidiSystemExclusiveMessageFactory {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiSystemExclusiveMessageFactory";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMidiSystemExclusiveMessageFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiSystemExclusiveMessageFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiSystemExclusiveMessageFactoryVtbl {
-        unsafe extern "system" fn CreateMidiSystemExclusiveMessage<Impl: IMidiSystemExclusiveMessageFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rawdata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMidiSystemExclusiveMessageFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiSystemExclusiveMessageFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiSystemExclusiveMessageFactory_Vtbl {
+        unsafe extern "system" fn CreateMidiSystemExclusiveMessage<Impl: IMidiSystemExclusiveMessageFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rawdata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMidiSystemExclusiveMessage(&*(&rawdata as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1098,7 +1098,7 @@ impl IMidiSystemExclusiveMessageFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMidiTimeCodeMessageImpl: Sized + IMidiMessageImpl {
+pub trait IMidiTimeCodeMessage_Impl: Sized + IMidiMessage_Impl {
     fn FrameType(&mut self) -> ::windows::core::Result<u8>;
     fn Values(&mut self) -> ::windows::core::Result<u8>;
 }
@@ -1107,9 +1107,9 @@ impl ::windows::core::RuntimeName for IMidiTimeCodeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiTimeCodeMessage";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMidiTimeCodeMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiTimeCodeMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiTimeCodeMessageVtbl {
-        unsafe extern "system" fn FrameType<Impl: IMidiTimeCodeMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+impl IMidiTimeCodeMessage_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiTimeCodeMessage_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiTimeCodeMessage_Vtbl {
+        unsafe extern "system" fn FrameType<Impl: IMidiTimeCodeMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1120,7 +1120,7 @@ impl IMidiTimeCodeMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Values<Impl: IMidiTimeCodeMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Values<Impl: IMidiTimeCodeMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Values() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1142,7 +1142,7 @@ impl IMidiTimeCodeMessageVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMidiTimeCodeMessageFactoryImpl: Sized {
+pub trait IMidiTimeCodeMessageFactory_Impl: Sized {
     fn CreateMidiTimeCodeMessage(&mut self, frametype: u8, values: u8) -> ::windows::core::Result<MidiTimeCodeMessage>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1150,9 +1150,9 @@ impl ::windows::core::RuntimeName for IMidiTimeCodeMessageFactory {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiTimeCodeMessageFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMidiTimeCodeMessageFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiTimeCodeMessageFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiTimeCodeMessageFactoryVtbl {
-        unsafe extern "system" fn CreateMidiTimeCodeMessage<Impl: IMidiTimeCodeMessageFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frametype: u8, values: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMidiTimeCodeMessageFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMidiTimeCodeMessageFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMidiTimeCodeMessageFactory_Vtbl {
+        unsafe extern "system" fn CreateMidiTimeCodeMessage<Impl: IMidiTimeCodeMessageFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frametype: u8, values: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMidiTimeCodeMessage(frametype, values) {
                 ::core::result::Result::Ok(ok__) => {

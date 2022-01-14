@@ -64,7 +64,7 @@ unsafe impl ::windows::core::RuntimeType for ChatCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatCapabilities;{3aff77bc-39c9-4dd1-ad2d-3964dd9d403f})");
 }
 unsafe impl ::windows::core::Interface for ChatCapabilities {
-    type Vtable = IChatCapabilitiesVtbl;
+    type Vtable = IChatCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3aff77bc_39c9_4dd1_ad2d_3964dd9d403f);
 }
 impl ::windows::core::RuntimeName for ChatCapabilities {
@@ -343,7 +343,7 @@ unsafe impl ::windows::core::RuntimeType for ChatConversation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatConversation;{a58c080d-1a6f-46dc-8f3d-f5028660b6ee})");
 }
 unsafe impl ::windows::core::Interface for ChatConversation {
-    type Vtable = IChatConversationVtbl;
+    type Vtable = IChatConversation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa58c080d_1a6f_46dc_8f3d_f5028660b6ee);
 }
 impl ::windows::core::RuntimeName for ChatConversation {
@@ -456,7 +456,7 @@ unsafe impl ::windows::core::RuntimeType for ChatConversationReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatConversationReader;{055136d2-de32-4a47-a93a-b3dc0833852b})");
 }
 unsafe impl ::windows::core::Interface for ChatConversationReader {
-    type Vtable = IChatConversationReaderVtbl;
+    type Vtable = IChatConversationReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x055136d2_de32_4a47_a93a_b3dc0833852b);
 }
 impl ::windows::core::RuntimeName for ChatConversationReader {
@@ -597,7 +597,7 @@ unsafe impl ::windows::core::RuntimeType for ChatConversationThreadingInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatConversationThreadingInfo;{331c21dc-7a07-4422-a32c-24be7c6dab24})");
 }
 unsafe impl ::windows::core::Interface for ChatConversationThreadingInfo {
-    type Vtable = IChatConversationThreadingInfoVtbl;
+    type Vtable = IChatConversationThreadingInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x331c21dc_7a07_4422_a32c_24be7c6dab24);
 }
 impl ::windows::core::RuntimeName for ChatConversationThreadingInfo {
@@ -1085,7 +1085,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessage;{4b39052a-1142-5089-76da-f2db3d17cd05})");
 }
 unsafe impl ::windows::core::Interface for ChatMessage {
-    type Vtable = IChatMessageVtbl;
+    type Vtable = IChatMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b39052a_1142_5089_76da_f2db3d17cd05);
 }
 impl ::windows::core::RuntimeName for ChatMessage {
@@ -1288,7 +1288,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageAttachment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageAttachment;{c7c4fd74-bf63-58eb-508c-8b863ff16b67})");
 }
 unsafe impl ::windows::core::Interface for ChatMessageAttachment {
-    type Vtable = IChatMessageAttachmentVtbl;
+    type Vtable = IChatMessageAttachment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7c4fd74_bf63_58eb_508c_8b863ff16b67);
 }
 impl ::windows::core::RuntimeName for ChatMessageAttachment {
@@ -1397,7 +1397,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageChange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChange;{1c18c355-421e-54b8-6d38-6b3a6c82fccc})");
 }
 unsafe impl ::windows::core::Interface for ChatMessageChange {
-    type Vtable = IChatMessageChangeVtbl;
+    type Vtable = IChatMessageChange_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c18c355_421e_54b8_6d38_6b3a6c82fccc);
 }
 impl ::windows::core::RuntimeName for ChatMessageChange {
@@ -1489,7 +1489,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageChangeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangeReader;{14267020-28ce-5f26-7b05-9a5c7cce87ca})");
 }
 unsafe impl ::windows::core::Interface for ChatMessageChangeReader {
-    type Vtable = IChatMessageChangeReaderVtbl;
+    type Vtable = IChatMessageChangeReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14267020_28ce_5f26_7b05_9a5c7cce87ca);
 }
 impl ::windows::core::RuntimeName for ChatMessageChangeReader {
@@ -1580,7 +1580,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageChangeTracker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangeTracker;{60b7f066-70a0-5224-508c-242ef7c1d06f})");
 }
 unsafe impl ::windows::core::Interface for ChatMessageChangeTracker {
-    type Vtable = IChatMessageChangeTrackerVtbl;
+    type Vtable = IChatMessageChangeTracker_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60b7f066_70a0_5224_508c_242ef7c1d06f);
 }
 impl ::windows::core::RuntimeName for ChatMessageChangeTracker {
@@ -1693,7 +1693,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageChangedDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangedDeferral;{fbc6b30c-788c-4dcc-ace7-6282382968cf})");
 }
 unsafe impl ::windows::core::Interface for ChatMessageChangedDeferral {
-    type Vtable = IChatMessageChangedDeferralVtbl;
+    type Vtable = IChatMessageChangedDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc6b30c_788c_4dcc_ace7_6282382968cf);
 }
 impl ::windows::core::RuntimeName for ChatMessageChangedDeferral {
@@ -1774,7 +1774,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangedEventArgs;{b6b73e2d-691c-4edf-8660-6eb9896892e3})");
 }
 unsafe impl ::windows::core::Interface for ChatMessageChangedEventArgs {
-    type Vtable = IChatMessageChangedEventArgsVtbl;
+    type Vtable = IChatMessageChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6b73e2d_691c_4edf_8660_6eb9896892e3);
 }
 impl ::windows::core::RuntimeName for ChatMessageChangedEventArgs {
@@ -1999,7 +1999,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageNotificationTriggerDetai
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageNotificationTriggerDetails;{fd344dfb-3063-4e17-8586-c6c08262e6c0})");
 }
 unsafe impl ::windows::core::Interface for ChatMessageNotificationTriggerDetails {
-    type Vtable = IChatMessageNotificationTriggerDetailsVtbl;
+    type Vtable = IChatMessageNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd344dfb_3063_4e17_8586_c6c08262e6c0);
 }
 impl ::windows::core::RuntimeName for ChatMessageNotificationTriggerDetails {
@@ -2125,7 +2125,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageReader;{b6ea78ce-4489-56f9-76aa-e204682514cf})");
 }
 unsafe impl ::windows::core::Interface for ChatMessageReader {
-    type Vtable = IChatMessageReaderVtbl;
+    type Vtable = IChatMessageReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6ea78ce_4489_56f9_76aa_e204682514cf);
 }
 impl ::windows::core::RuntimeName for ChatMessageReader {
@@ -2502,7 +2502,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageStore;{31f2fd01-ccf6-580b-4976-0a07dd5d3b47})");
 }
 unsafe impl ::windows::core::Interface for ChatMessageStore {
-    type Vtable = IChatMessageStoreVtbl;
+    type Vtable = IChatMessageStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31f2fd01_ccf6_580b_4976_0a07dd5d3b47);
 }
 impl ::windows::core::RuntimeName for ChatMessageStore {
@@ -2591,7 +2591,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageStoreChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageStoreChangedEventArgs;{65c66fac-fe8c-46d4-9119-57b8410311d5})");
 }
 unsafe impl ::windows::core::Interface for ChatMessageStoreChangedEventArgs {
-    type Vtable = IChatMessageStoreChangedEventArgsVtbl;
+    type Vtable = IChatMessageStoreChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65c66fac_fe8c_46d4_9119_57b8410311d5);
 }
 impl ::windows::core::RuntimeName for ChatMessageStoreChangedEventArgs {
@@ -2721,7 +2721,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageTransport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageTransport;{63a9dbf8-e6b3-5c9a-5f85-d47925b9bd18})");
 }
 unsafe impl ::windows::core::Interface for ChatMessageTransport {
-    type Vtable = IChatMessageTransportVtbl;
+    type Vtable = IChatMessageTransport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63a9dbf8_e6b3_5c9a_5f85_d47925b9bd18);
 }
 impl ::windows::core::RuntimeName for ChatMessageTransport {
@@ -2836,7 +2836,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageTransportConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageTransportConfiguration;{879ff725-1a08-4aca-a075-3355126312e6})");
 }
 unsafe impl ::windows::core::Interface for ChatMessageTransportConfiguration {
-    type Vtable = IChatMessageTransportConfigurationVtbl;
+    type Vtable = IChatMessageTransportConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x879ff725_1a08_4aca_a075_3355126312e6);
 }
 impl ::windows::core::RuntimeName for ChatMessageTransportConfiguration {
@@ -2979,7 +2979,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageValidationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageValidationResult;{25e93a03-28ec-5889-569b-7e486b126f18})");
 }
 unsafe impl ::windows::core::Interface for ChatMessageValidationResult {
-    type Vtable = IChatMessageValidationResultVtbl;
+    type Vtable = IChatMessageValidationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25e93a03_28ec_5889_569b_7e486b126f18);
 }
 impl ::windows::core::RuntimeName for ChatMessageValidationResult {
@@ -3117,7 +3117,7 @@ unsafe impl ::windows::core::RuntimeType for ChatQueryOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatQueryOptions;{2fd364a6-bf36-42f7-b7e7-923c0aabfe16})");
 }
 unsafe impl ::windows::core::Interface for ChatQueryOptions {
-    type Vtable = IChatQueryOptionsVtbl;
+    type Vtable = IChatQueryOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fd364a6_bf36_42f7_b7e7_923c0aabfe16);
 }
 impl ::windows::core::RuntimeName for ChatQueryOptions {
@@ -3280,7 +3280,7 @@ unsafe impl ::windows::core::RuntimeType for ChatRecipientDeliveryInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo;{ffc7b2a2-283c-4c0a-8a0e-8c33bdbf0545})");
 }
 unsafe impl ::windows::core::Interface for ChatRecipientDeliveryInfo {
-    type Vtable = IChatRecipientDeliveryInfoVtbl;
+    type Vtable = IChatRecipientDeliveryInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffc7b2a2_283c_4c0a_8a0e_8c33bdbf0545);
 }
 impl ::windows::core::RuntimeName for ChatRecipientDeliveryInfo {
@@ -3405,7 +3405,7 @@ unsafe impl ::windows::core::RuntimeType for ChatSearchReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatSearchReader;{4665fe49-9020-4752-980d-39612325f589})");
 }
 unsafe impl ::windows::core::Interface for ChatSearchReader {
-    type Vtable = IChatSearchReaderVtbl;
+    type Vtable = IChatSearchReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4665fe49_9020_4752_980d_39612325f589);
 }
 impl ::windows::core::RuntimeName for ChatSearchReader {
@@ -3543,7 +3543,7 @@ unsafe impl ::windows::core::RuntimeType for ChatSyncConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatSyncConfiguration;{09f869b2-69f4-4aff-82b6-06992ff402d2})");
 }
 unsafe impl ::windows::core::Interface for ChatSyncConfiguration {
-    type Vtable = IChatSyncConfigurationVtbl;
+    type Vtable = IChatSyncConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09f869b2_69f4_4aff_82b6_06992ff402d2);
 }
 impl ::windows::core::RuntimeName for ChatSyncConfiguration {
@@ -3665,7 +3665,7 @@ unsafe impl ::windows::core::RuntimeType for ChatSyncManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatSyncManager;{7ba52c63-2650-486f-b4b4-6bd9d3d63c84})");
 }
 unsafe impl ::windows::core::Interface for ChatSyncManager {
-    type Vtable = IChatSyncManagerVtbl;
+    type Vtable = IChatSyncManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ba52c63_2650_486f_b4b4_6bd9d3d63c84);
 }
 impl ::windows::core::RuntimeName for ChatSyncManager {
@@ -3789,12 +3789,12 @@ impl ::windows::core::DefaultType for ChatTransportInterpretedErrorCode {
 #[repr(transparent)]
 pub struct IChatCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatCapabilities {
-    type Vtable = IChatCapabilitiesVtbl;
+    type Vtable = IChatCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3aff77bc_39c9_4dd1_ad2d_3964dd9d403f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatCapabilitiesVtbl {
+pub struct IChatCapabilities_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsOnline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsChatCapable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -3806,12 +3806,12 @@ pub struct IChatCapabilitiesVtbl {
 #[repr(transparent)]
 pub struct IChatCapabilitiesManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatCapabilitiesManagerStatics {
-    type Vtable = IChatCapabilitiesManagerStaticsVtbl;
+    type Vtable = IChatCapabilitiesManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb57a2f30_7041_458e_b0cf_7c0d9fea333a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatCapabilitiesManagerStaticsVtbl {
+pub struct IChatCapabilitiesManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetCachedCapabilitiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, address: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3826,12 +3826,12 @@ pub struct IChatCapabilitiesManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IChatCapabilitiesManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatCapabilitiesManagerStatics2 {
-    type Vtable = IChatCapabilitiesManagerStatics2Vtbl;
+    type Vtable = IChatCapabilitiesManagerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe30d4274_d5c1_4ac9_9ffc_40e69184fec8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatCapabilitiesManagerStatics2Vtbl {
+pub struct IChatCapabilitiesManagerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetCachedCapabilitiesForTransportAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, address: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, transportid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3846,12 +3846,12 @@ pub struct IChatCapabilitiesManagerStatics2Vtbl {
 #[repr(transparent)]
 pub struct IChatConversation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatConversation {
-    type Vtable = IChatConversationVtbl;
+    type Vtable = IChatConversation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa58c080d_1a6f_46dc_8f3d_f5028660b6ee);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatConversationVtbl {
+pub struct IChatConversation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub HasUnreadMessages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3897,12 +3897,12 @@ pub struct IChatConversationVtbl {
 #[repr(transparent)]
 pub struct IChatConversation2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatConversation2 {
-    type Vtable = IChatConversation2Vtbl;
+    type Vtable = IChatConversation2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a030cd1_983a_47aa_9a90_ee48ee997b59);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatConversation2Vtbl {
+pub struct IChatConversation2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CanModifyParticipants: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetCanModifyParticipants: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -3911,12 +3911,12 @@ pub struct IChatConversation2Vtbl {
 #[repr(transparent)]
 pub struct IChatConversationReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatConversationReader {
-    type Vtable = IChatConversationReaderVtbl;
+    type Vtable = IChatConversationReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x055136d2_de32_4a47_a93a_b3dc0833852b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatConversationReaderVtbl {
+pub struct IChatConversationReader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub ReadBatchAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3931,12 +3931,12 @@ pub struct IChatConversationReaderVtbl {
 #[repr(transparent)]
 pub struct IChatConversationThreadingInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatConversationThreadingInfo {
-    type Vtable = IChatConversationThreadingInfoVtbl;
+    type Vtable = IChatConversationThreadingInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x331c21dc_7a07_4422_a32c_24be7c6dab24);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatConversationThreadingInfoVtbl {
+pub struct IChatConversationThreadingInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ContactId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetContactId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4024,12 +4024,12 @@ unsafe impl ::windows::core::RuntimeType for IChatItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8751d000-ceb1-4243-b803-15d45a1dd428}");
 }
 unsafe impl ::windows::core::Interface for IChatItem {
-    type Vtable = IChatItemVtbl;
+    type Vtable = IChatItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8751d000_ceb1_4243_b803_15d45a1dd428);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatItemVtbl {
+pub struct IChatItem_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ItemKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ChatItemKind) -> ::windows::core::HRESULT,
 }
@@ -4037,12 +4037,12 @@ pub struct IChatItemVtbl {
 #[repr(transparent)]
 pub struct IChatMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessage {
-    type Vtable = IChatMessageVtbl;
+    type Vtable = IChatMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b39052a_1142_5089_76da_f2db3d17cd05);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageVtbl {
+pub struct IChatMessage_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Attachments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4081,12 +4081,12 @@ pub struct IChatMessageVtbl {
 #[repr(transparent)]
 pub struct IChatMessage2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessage2 {
-    type Vtable = IChatMessage2Vtbl;
+    type Vtable = IChatMessage2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86668332_543f_49f5_ac71_6c2afc6565fd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessage2Vtbl {
+pub struct IChatMessage2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EstimatedDownloadSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
     pub SetEstimatedDownloadSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u64) -> ::windows::core::HRESULT,
@@ -4130,12 +4130,12 @@ pub struct IChatMessage2Vtbl {
 #[repr(transparent)]
 pub struct IChatMessage3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessage3 {
-    type Vtable = IChatMessage3Vtbl;
+    type Vtable = IChatMessage3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74eb2fb0_3ba7_459f_8e0b_e8af0febd9ad);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessage3Vtbl {
+pub struct IChatMessage3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RemoteId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -4143,12 +4143,12 @@ pub struct IChatMessage3Vtbl {
 #[repr(transparent)]
 pub struct IChatMessage4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessage4 {
-    type Vtable = IChatMessage4Vtbl;
+    type Vtable = IChatMessage4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d144b0f_d2bf_460c_aa68_6d3f8483c9bf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessage4Vtbl {
+pub struct IChatMessage4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SyncId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetSyncId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4157,12 +4157,12 @@ pub struct IChatMessage4Vtbl {
 #[repr(transparent)]
 pub struct IChatMessageAttachment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageAttachment {
-    type Vtable = IChatMessageAttachmentVtbl;
+    type Vtable = IChatMessageAttachment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7c4fd74_bf63_58eb_508c_8b863ff16b67);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageAttachmentVtbl {
+pub struct IChatMessageAttachment_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub DataStreamReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4183,12 +4183,12 @@ pub struct IChatMessageAttachmentVtbl {
 #[repr(transparent)]
 pub struct IChatMessageAttachment2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageAttachment2 {
-    type Vtable = IChatMessageAttachment2Vtbl;
+    type Vtable = IChatMessageAttachment2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ed99270_7dd1_4a87_a8ce_acdd87d80dc8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageAttachment2Vtbl {
+pub struct IChatMessageAttachment2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub Thumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4207,12 +4207,12 @@ pub struct IChatMessageAttachment2Vtbl {
 #[repr(transparent)]
 pub struct IChatMessageAttachmentFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageAttachmentFactory {
-    type Vtable = IChatMessageAttachmentFactoryVtbl;
+    type Vtable = IChatMessageAttachmentFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x205852a2_a356_5b71_6ca9_66c985b7d0d5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageAttachmentFactoryVtbl {
+pub struct IChatMessageAttachmentFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub CreateChatMessageAttachment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mimetype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, datastreamreference: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4223,12 +4223,12 @@ pub struct IChatMessageAttachmentFactoryVtbl {
 #[repr(transparent)]
 pub struct IChatMessageBlockingStatic(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageBlockingStatic {
-    type Vtable = IChatMessageBlockingStaticVtbl;
+    type Vtable = IChatMessageBlockingStatic_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6b9a380_cdea_11e4_8830_0800200c9a66);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageBlockingStaticVtbl {
+pub struct IChatMessageBlockingStatic_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub MarkMessageAsBlockedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localchatmessageid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, blocked: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4239,12 +4239,12 @@ pub struct IChatMessageBlockingStaticVtbl {
 #[repr(transparent)]
 pub struct IChatMessageChange(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageChange {
-    type Vtable = IChatMessageChangeVtbl;
+    type Vtable = IChatMessageChange_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c18c355_421e_54b8_6d38_6b3a6c82fccc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageChangeVtbl {
+pub struct IChatMessageChange_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ChangeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ChatMessageChangeType) -> ::windows::core::HRESULT,
     pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4253,12 +4253,12 @@ pub struct IChatMessageChangeVtbl {
 #[repr(transparent)]
 pub struct IChatMessageChangeReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageChangeReader {
-    type Vtable = IChatMessageChangeReaderVtbl;
+    type Vtable = IChatMessageChangeReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14267020_28ce_5f26_7b05_9a5c7cce87ca);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageChangeReaderVtbl {
+pub struct IChatMessageChangeReader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AcceptChanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AcceptChangesThrough: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lastchangetoacknowledge: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4271,12 +4271,12 @@ pub struct IChatMessageChangeReaderVtbl {
 #[repr(transparent)]
 pub struct IChatMessageChangeTracker(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageChangeTracker {
-    type Vtable = IChatMessageChangeTrackerVtbl;
+    type Vtable = IChatMessageChangeTracker_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60b7f066_70a0_5224_508c_242ef7c1d06f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageChangeTrackerVtbl {
+pub struct IChatMessageChangeTracker_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Enable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetChangeReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4286,12 +4286,12 @@ pub struct IChatMessageChangeTrackerVtbl {
 #[repr(transparent)]
 pub struct IChatMessageChangedDeferral(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageChangedDeferral {
-    type Vtable = IChatMessageChangedDeferralVtbl;
+    type Vtable = IChatMessageChangedDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc6b30c_788c_4dcc_ace7_6282382968cf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageChangedDeferralVtbl {
+pub struct IChatMessageChangedDeferral_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -4299,12 +4299,12 @@ pub struct IChatMessageChangedDeferralVtbl {
 #[repr(transparent)]
 pub struct IChatMessageChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageChangedEventArgs {
-    type Vtable = IChatMessageChangedEventArgsVtbl;
+    type Vtable = IChatMessageChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6b73e2d_691c_4edf_8660_6eb9896892e3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageChangedEventArgsVtbl {
+pub struct IChatMessageChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -4312,12 +4312,12 @@ pub struct IChatMessageChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IChatMessageManager2Statics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageManager2Statics {
-    type Vtable = IChatMessageManager2StaticsVtbl;
+    type Vtable = IChatMessageManager2Statics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d45390f_9f4f_4e35_964e_1b9ca61ac044);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageManager2StaticsVtbl {
+pub struct IChatMessageManager2Statics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RegisterTransportAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4332,12 +4332,12 @@ pub struct IChatMessageManager2StaticsVtbl {
 #[repr(transparent)]
 pub struct IChatMessageManagerStatic(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageManagerStatic {
-    type Vtable = IChatMessageManagerStaticVtbl;
+    type Vtable = IChatMessageManagerStatic_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf15c60f7_d5e8_5e92_556d_e03b60253104);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageManagerStaticVtbl {
+pub struct IChatMessageManagerStatic_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetTransportsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4357,12 +4357,12 @@ pub struct IChatMessageManagerStaticVtbl {
 #[repr(transparent)]
 pub struct IChatMessageManagerStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageManagerStatics3 {
-    type Vtable = IChatMessageManagerStatics3Vtbl;
+    type Vtable = IChatMessageManagerStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x208b830d_6755_48cc_9ab3_fd03c463fc92);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageManagerStatics3Vtbl {
+pub struct IChatMessageManagerStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestSyncManagerAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4373,12 +4373,12 @@ pub struct IChatMessageManagerStatics3Vtbl {
 #[repr(transparent)]
 pub struct IChatMessageNotificationTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageNotificationTriggerDetails {
-    type Vtable = IChatMessageNotificationTriggerDetailsVtbl;
+    type Vtable = IChatMessageNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd344dfb_3063_4e17_8586_c6c08262e6c0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageNotificationTriggerDetailsVtbl {
+pub struct IChatMessageNotificationTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ChatMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -4386,12 +4386,12 @@ pub struct IChatMessageNotificationTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IChatMessageNotificationTriggerDetails2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageNotificationTriggerDetails2 {
-    type Vtable = IChatMessageNotificationTriggerDetails2Vtbl;
+    type Vtable = IChatMessageNotificationTriggerDetails2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bb522e0_aa07_4fd1_9471_77934fb75ee6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageNotificationTriggerDetails2Vtbl {
+pub struct IChatMessageNotificationTriggerDetails2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ShouldDisplayToast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub ShouldUpdateDetailText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -4402,12 +4402,12 @@ pub struct IChatMessageNotificationTriggerDetails2Vtbl {
 #[repr(transparent)]
 pub struct IChatMessageReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageReader {
-    type Vtable = IChatMessageReaderVtbl;
+    type Vtable = IChatMessageReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6ea78ce_4489_56f9_76aa_e204682514cf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageReaderVtbl {
+pub struct IChatMessageReader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub ReadBatchAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4418,12 +4418,12 @@ pub struct IChatMessageReaderVtbl {
 #[repr(transparent)]
 pub struct IChatMessageReader2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageReader2 {
-    type Vtable = IChatMessageReader2Vtbl;
+    type Vtable = IChatMessageReader2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89643683_64bb_470d_9df4_0de8be1a05bf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageReader2Vtbl {
+pub struct IChatMessageReader2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub ReadBatchWithCountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4434,12 +4434,12 @@ pub struct IChatMessageReader2Vtbl {
 #[repr(transparent)]
 pub struct IChatMessageStore(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageStore {
-    type Vtable = IChatMessageStoreVtbl;
+    type Vtable = IChatMessageStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31f2fd01_ccf6_580b_4976_0a07dd5d3b47);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageStoreVtbl {
+pub struct IChatMessageStore_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ChangeTracker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -4485,12 +4485,12 @@ pub struct IChatMessageStoreVtbl {
 #[repr(transparent)]
 pub struct IChatMessageStore2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageStore2 {
-    type Vtable = IChatMessageStore2Vtbl;
+    type Vtable = IChatMessageStore2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad4dc4ee_3ad4_491b_b311_abdf9bb22768);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageStore2Vtbl {
+pub struct IChatMessageStore2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub ForwardMessageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localchatmessageid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, addresses: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4559,12 +4559,12 @@ pub struct IChatMessageStore2Vtbl {
 #[repr(transparent)]
 pub struct IChatMessageStore3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageStore3 {
-    type Vtable = IChatMessageStore3Vtbl;
+    type Vtable = IChatMessageStore3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9adbbb09_4345_4ec1_8b74_b7338243719c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageStore3Vtbl {
+pub struct IChatMessageStore3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetMessageBySyncIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syncid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4575,12 +4575,12 @@ pub struct IChatMessageStore3Vtbl {
 #[repr(transparent)]
 pub struct IChatMessageStoreChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageStoreChangedEventArgs {
-    type Vtable = IChatMessageStoreChangedEventArgsVtbl;
+    type Vtable = IChatMessageStoreChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65c66fac_fe8c_46d4_9119_57b8410311d5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageStoreChangedEventArgsVtbl {
+pub struct IChatMessageStoreChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ChatStoreChangedEventKind) -> ::windows::core::HRESULT,
@@ -4589,12 +4589,12 @@ pub struct IChatMessageStoreChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IChatMessageTransport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageTransport {
-    type Vtable = IChatMessageTransportVtbl;
+    type Vtable = IChatMessageTransport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63a9dbf8_e6b3_5c9a_5f85_d47925b9bd18);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageTransportVtbl {
+pub struct IChatMessageTransport_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsAppSetAsNotificationProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -4609,12 +4609,12 @@ pub struct IChatMessageTransportVtbl {
 #[repr(transparent)]
 pub struct IChatMessageTransport2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageTransport2 {
-    type Vtable = IChatMessageTransport2Vtbl;
+    type Vtable = IChatMessageTransport2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90a75622_d84a_4c22_a94d_544444edc8a1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageTransport2Vtbl {
+pub struct IChatMessageTransport2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Configuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub TransportKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ChatMessageTransportKind) -> ::windows::core::HRESULT,
@@ -4623,12 +4623,12 @@ pub struct IChatMessageTransport2Vtbl {
 #[repr(transparent)]
 pub struct IChatMessageTransportConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageTransportConfiguration {
-    type Vtable = IChatMessageTransportConfigurationVtbl;
+    type Vtable = IChatMessageTransportConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x879ff725_1a08_4aca_a075_3355126312e6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageTransportConfigurationVtbl {
+pub struct IChatMessageTransportConfiguration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MaxAttachmentCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub MaxMessageSizeInKilobytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -4646,12 +4646,12 @@ pub struct IChatMessageTransportConfigurationVtbl {
 #[repr(transparent)]
 pub struct IChatMessageValidationResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatMessageValidationResult {
-    type Vtable = IChatMessageValidationResultVtbl;
+    type Vtable = IChatMessageValidationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25e93a03_28ec_5889_569b_7e486b126f18);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatMessageValidationResultVtbl {
+pub struct IChatMessageValidationResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub MaxPartCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4671,12 +4671,12 @@ pub struct IChatMessageValidationResultVtbl {
 #[repr(transparent)]
 pub struct IChatQueryOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatQueryOptions {
-    type Vtable = IChatQueryOptionsVtbl;
+    type Vtable = IChatQueryOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fd364a6_bf36_42f7_b7e7_923c0aabfe16);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatQueryOptionsVtbl {
+pub struct IChatQueryOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SearchString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetSearchString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4685,12 +4685,12 @@ pub struct IChatQueryOptionsVtbl {
 #[repr(transparent)]
 pub struct IChatRecipientDeliveryInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatRecipientDeliveryInfo {
-    type Vtable = IChatRecipientDeliveryInfoVtbl;
+    type Vtable = IChatRecipientDeliveryInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffc7b2a2_283c_4c0a_8a0e_8c33bdbf0545);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatRecipientDeliveryInfoVtbl {
+pub struct IChatRecipientDeliveryInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TransportAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTransportAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4720,12 +4720,12 @@ pub struct IChatRecipientDeliveryInfoVtbl {
 #[repr(transparent)]
 pub struct IChatSearchReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatSearchReader {
-    type Vtable = IChatSearchReaderVtbl;
+    type Vtable = IChatSearchReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4665fe49_9020_4752_980d_39612325f589);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatSearchReaderVtbl {
+pub struct IChatSearchReader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub ReadBatchAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4740,12 +4740,12 @@ pub struct IChatSearchReaderVtbl {
 #[repr(transparent)]
 pub struct IChatSyncConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatSyncConfiguration {
-    type Vtable = IChatSyncConfigurationVtbl;
+    type Vtable = IChatSyncConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09f869b2_69f4_4aff_82b6_06992ff402d2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatSyncConfigurationVtbl {
+pub struct IChatSyncConfiguration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsSyncEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsSyncEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -4756,12 +4756,12 @@ pub struct IChatSyncConfigurationVtbl {
 #[repr(transparent)]
 pub struct IChatSyncManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IChatSyncManager {
-    type Vtable = IChatSyncManagerVtbl;
+    type Vtable = IChatSyncManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ba52c63_2650_486f_b4b4_6bd9d3d63c84);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IChatSyncManagerVtbl {
+pub struct IChatSyncManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Configuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
@@ -4786,12 +4786,12 @@ pub struct IChatSyncManagerVtbl {
 #[repr(transparent)]
 pub struct IRcsEndUserMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRcsEndUserMessage {
-    type Vtable = IRcsEndUserMessageVtbl;
+    type Vtable = IRcsEndUserMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7cda5eb_cbd7_4f3b_8526_b506dec35c53);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRcsEndUserMessageVtbl {
+pub struct IRcsEndUserMessage_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TransportId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4814,12 +4814,12 @@ pub struct IRcsEndUserMessageVtbl {
 #[repr(transparent)]
 pub struct IRcsEndUserMessageAction(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRcsEndUserMessageAction {
-    type Vtable = IRcsEndUserMessageActionVtbl;
+    type Vtable = IRcsEndUserMessageAction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92378737_9b42_46d3_9d5e_3c1b2dae7cb8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRcsEndUserMessageActionVtbl {
+pub struct IRcsEndUserMessageAction_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -4827,12 +4827,12 @@ pub struct IRcsEndUserMessageActionVtbl {
 #[repr(transparent)]
 pub struct IRcsEndUserMessageAvailableEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRcsEndUserMessageAvailableEventArgs {
-    type Vtable = IRcsEndUserMessageAvailableEventArgsVtbl;
+    type Vtable = IRcsEndUserMessageAvailableEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d45ae01_3f89_41ea_9702_9e9ed411aa98);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRcsEndUserMessageAvailableEventArgsVtbl {
+pub struct IRcsEndUserMessageAvailableEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsMessageAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4841,12 +4841,12 @@ pub struct IRcsEndUserMessageAvailableEventArgsVtbl {
 #[repr(transparent)]
 pub struct IRcsEndUserMessageAvailableTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRcsEndUserMessageAvailableTriggerDetails {
-    type Vtable = IRcsEndUserMessageAvailableTriggerDetailsVtbl;
+    type Vtable = IRcsEndUserMessageAvailableTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b97742d_351f_4692_b41e_1b035dc18986);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRcsEndUserMessageAvailableTriggerDetailsVtbl {
+pub struct IRcsEndUserMessageAvailableTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4855,12 +4855,12 @@ pub struct IRcsEndUserMessageAvailableTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IRcsEndUserMessageManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRcsEndUserMessageManager {
-    type Vtable = IRcsEndUserMessageManagerVtbl;
+    type Vtable = IRcsEndUserMessageManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3054ae5a_4d1f_4b59_9433_126c734e86a6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRcsEndUserMessageManagerVtbl {
+pub struct IRcsEndUserMessageManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub MessageAvailableChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -4875,12 +4875,12 @@ pub struct IRcsEndUserMessageManagerVtbl {
 #[repr(transparent)]
 pub struct IRcsManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRcsManagerStatics {
-    type Vtable = IRcsManagerStaticsVtbl;
+    type Vtable = IRcsManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d270ac5_0abd_4f31_9b99_a59e71a7b731);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRcsManagerStaticsVtbl {
+pub struct IRcsManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetEndUserMessageManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -4900,12 +4900,12 @@ pub struct IRcsManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IRcsManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRcsManagerStatics2 {
-    type Vtable = IRcsManagerStatics2Vtbl;
+    type Vtable = IRcsManagerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd49ad18_ad8a_42aa_8eeb_a798a8808959);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRcsManagerStatics2Vtbl {
+pub struct IRcsManagerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub TransportListChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -4920,12 +4920,12 @@ pub struct IRcsManagerStatics2Vtbl {
 #[repr(transparent)]
 pub struct IRcsServiceKindSupportedChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRcsServiceKindSupportedChangedEventArgs {
-    type Vtable = IRcsServiceKindSupportedChangedEventArgsVtbl;
+    type Vtable = IRcsServiceKindSupportedChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf47ea244_e783_4866_b3a7_4e5ccf023070);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRcsServiceKindSupportedChangedEventArgsVtbl {
+pub struct IRcsServiceKindSupportedChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ServiceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut RcsServiceKind) -> ::windows::core::HRESULT,
 }
@@ -4933,12 +4933,12 @@ pub struct IRcsServiceKindSupportedChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IRcsTransport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRcsTransport {
-    type Vtable = IRcsTransportVtbl;
+    type Vtable = IRcsTransport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfea34759_f37c_4319_8546_ec84d21d30ff);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRcsTransportVtbl {
+pub struct IRcsTransport_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub ExtendedProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4963,12 +4963,12 @@ pub struct IRcsTransportVtbl {
 #[repr(transparent)]
 pub struct IRcsTransportConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRcsTransportConfiguration {
-    type Vtable = IRcsTransportConfigurationVtbl;
+    type Vtable = IRcsTransportConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fccb102_2472_4bb9_9988_c1211c83e8a9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRcsTransportConfigurationVtbl {
+pub struct IRcsTransportConfiguration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MaxAttachmentCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub MaxMessageSizeInKilobytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -4981,12 +4981,12 @@ pub struct IRcsTransportConfigurationVtbl {
 #[repr(transparent)]
 pub struct IRemoteParticipantComposingChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteParticipantComposingChangedEventArgs {
-    type Vtable = IRemoteParticipantComposingChangedEventArgsVtbl;
+    type Vtable = IRemoteParticipantComposingChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ec045a7_cfc9_45c9_9876_449f2bc180f5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRemoteParticipantComposingChangedEventArgsVtbl {
+pub struct IRemoteParticipantComposingChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TransportId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ParticipantAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -5076,7 +5076,7 @@ unsafe impl ::windows::core::RuntimeType for RcsEndUserMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessage;{d7cda5eb-cbd7-4f3b-8526-b506dec35c53})");
 }
 unsafe impl ::windows::core::Interface for RcsEndUserMessage {
-    type Vtable = IRcsEndUserMessageVtbl;
+    type Vtable = IRcsEndUserMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7cda5eb_cbd7_4f3b_8526_b506dec35c53);
 }
 impl ::windows::core::RuntimeName for RcsEndUserMessage {
@@ -5157,7 +5157,7 @@ unsafe impl ::windows::core::RuntimeType for RcsEndUserMessageAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageAction;{92378737-9b42-46d3-9d5e-3c1b2dae7cb8})");
 }
 unsafe impl ::windows::core::Interface for RcsEndUserMessageAction {
-    type Vtable = IRcsEndUserMessageActionVtbl;
+    type Vtable = IRcsEndUserMessageAction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92378737_9b42_46d3_9d5e_3c1b2dae7cb8);
 }
 impl ::windows::core::RuntimeName for RcsEndUserMessageAction {
@@ -5246,7 +5246,7 @@ unsafe impl ::windows::core::RuntimeType for RcsEndUserMessageAvailableEventArgs
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableEventArgs;{2d45ae01-3f89-41ea-9702-9e9ed411aa98})");
 }
 unsafe impl ::windows::core::Interface for RcsEndUserMessageAvailableEventArgs {
-    type Vtable = IRcsEndUserMessageAvailableEventArgsVtbl;
+    type Vtable = IRcsEndUserMessageAvailableEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d45ae01_3f89_41ea_9702_9e9ed411aa98);
 }
 impl ::windows::core::RuntimeName for RcsEndUserMessageAvailableEventArgs {
@@ -5335,7 +5335,7 @@ unsafe impl ::windows::core::RuntimeType for RcsEndUserMessageAvailableTriggerDe
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableTriggerDetails;{5b97742d-351f-4692-b41e-1b035dc18986})");
 }
 unsafe impl ::windows::core::Interface for RcsEndUserMessageAvailableTriggerDetails {
-    type Vtable = IRcsEndUserMessageAvailableTriggerDetailsVtbl;
+    type Vtable = IRcsEndUserMessageAvailableTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b97742d_351f_4692_b41e_1b035dc18986);
 }
 impl ::windows::core::RuntimeName for RcsEndUserMessageAvailableTriggerDetails {
@@ -5423,7 +5423,7 @@ unsafe impl ::windows::core::RuntimeType for RcsEndUserMessageManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageManager;{3054ae5a-4d1f-4b59-9433-126c734e86a6})");
 }
 unsafe impl ::windows::core::Interface for RcsEndUserMessageManager {
-    type Vtable = IRcsEndUserMessageManagerVtbl;
+    type Vtable = IRcsEndUserMessageManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3054ae5a_4d1f_4b59_9433_126c734e86a6);
 }
 impl ::windows::core::RuntimeName for RcsEndUserMessageManager {
@@ -5600,7 +5600,7 @@ unsafe impl ::windows::core::RuntimeType for RcsServiceKindSupportedChangedEvent
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsServiceKindSupportedChangedEventArgs;{f47ea244-e783-4866-b3a7-4e5ccf023070})");
 }
 unsafe impl ::windows::core::Interface for RcsServiceKindSupportedChangedEventArgs {
-    type Vtable = IRcsServiceKindSupportedChangedEventArgsVtbl;
+    type Vtable = IRcsServiceKindSupportedChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf47ea244_e783_4866_b3a7_4e5ccf023070);
 }
 impl ::windows::core::RuntimeName for RcsServiceKindSupportedChangedEventArgs {
@@ -5745,7 +5745,7 @@ unsafe impl ::windows::core::RuntimeType for RcsTransport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsTransport;{fea34759-f37c-4319-8546-ec84d21d30ff})");
 }
 unsafe impl ::windows::core::Interface for RcsTransport {
-    type Vtable = IRcsTransportVtbl;
+    type Vtable = IRcsTransport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfea34759_f37c_4319_8546_ec84d21d30ff);
 }
 impl ::windows::core::RuntimeName for RcsTransport {
@@ -5866,7 +5866,7 @@ unsafe impl ::windows::core::RuntimeType for RcsTransportConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsTransportConfiguration;{1fccb102-2472-4bb9-9988-c1211c83e8a9})");
 }
 unsafe impl ::windows::core::Interface for RcsTransportConfiguration {
-    type Vtable = IRcsTransportConfigurationVtbl;
+    type Vtable = IRcsTransportConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fccb102_2472_4bb9_9988_c1211c83e8a9);
 }
 impl ::windows::core::RuntimeName for RcsTransportConfiguration {
@@ -5963,7 +5963,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteParticipantComposingChangedEv
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RemoteParticipantComposingChangedEventArgs;{1ec045a7-cfc9-45c9-9876-449f2bc180f5})");
 }
 unsafe impl ::windows::core::Interface for RemoteParticipantComposingChangedEventArgs {
-    type Vtable = IRemoteParticipantComposingChangedEventArgsVtbl;
+    type Vtable = IRemoteParticipantComposingChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ec045a7_cfc9_45c9_9876_449f2bc180f5);
 }
 impl ::windows::core::RuntimeName for RemoteParticipantComposingChangedEventArgs {

@@ -5,12 +5,12 @@ pub mod Provider;
 #[repr(transparent)]
 pub struct IPwmController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPwmController {
-    type Vtable = IPwmControllerVtbl;
+    type Vtable = IPwmController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc45f5c85_d2e8_42cf_9bd6_cf5ed029e6a7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPwmControllerVtbl {
+pub struct IPwmController_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PinCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub ActualFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -23,12 +23,12 @@ pub struct IPwmControllerVtbl {
 #[repr(transparent)]
 pub struct IPwmControllerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPwmControllerStatics {
-    type Vtable = IPwmControllerStaticsVtbl;
+    type Vtable = IPwmControllerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4263bda1_8946_4404_bd48_81dd124af4d9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPwmControllerStaticsVtbl {
+pub struct IPwmControllerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Devices_Pwm_Provider", feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetControllersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -39,12 +39,12 @@ pub struct IPwmControllerStaticsVtbl {
 #[repr(transparent)]
 pub struct IPwmControllerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPwmControllerStatics2 {
-    type Vtable = IPwmControllerStatics2Vtbl;
+    type Vtable = IPwmControllerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44fc5b1f_f119_4bdd_97ad_f76ef986736d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPwmControllerStatics2Vtbl {
+pub struct IPwmControllerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetDefaultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -55,12 +55,12 @@ pub struct IPwmControllerStatics2Vtbl {
 #[repr(transparent)]
 pub struct IPwmControllerStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPwmControllerStatics3 {
-    type Vtable = IPwmControllerStatics3Vtbl;
+    type Vtable = IPwmControllerStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2581871_0229_4344_ae3f_9b7cd0e66b94);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPwmControllerStatics3Vtbl {
+pub struct IPwmControllerStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub GetDeviceSelectorFromFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, friendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -73,12 +73,12 @@ pub struct IPwmControllerStatics3Vtbl {
 #[repr(transparent)]
 pub struct IPwmPin(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPwmPin {
-    type Vtable = IPwmPinVtbl;
+    type Vtable = IPwmPin_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22972dc8_c6cf_4821_b7f9_c6454fb6af79);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPwmPinVtbl {
+pub struct IPwmPin_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Controller: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetActiveDutyCyclePercentage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -215,7 +215,7 @@ unsafe impl ::windows::core::RuntimeType for PwmController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Pwm.PwmController;{c45f5c85-d2e8-42cf-9bd6-cf5ed029e6a7})");
 }
 unsafe impl ::windows::core::Interface for PwmController {
-    type Vtable = IPwmControllerVtbl;
+    type Vtable = IPwmController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc45f5c85_d2e8_42cf_9bd6_cf5ed029e6a7);
 }
 impl ::windows::core::RuntimeName for PwmController {
@@ -346,7 +346,7 @@ unsafe impl ::windows::core::RuntimeType for PwmPin {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Pwm.PwmPin;{22972dc8-c6cf-4821-b7f9-c6454fb6af79})");
 }
 unsafe impl ::windows::core::Interface for PwmPin {
-    type Vtable = IPwmPinVtbl;
+    type Vtable = IPwmPin_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22972dc8_c6cf_4821_b7f9_c6454fb6af79);
 }
 impl ::windows::core::RuntimeName for PwmPin {

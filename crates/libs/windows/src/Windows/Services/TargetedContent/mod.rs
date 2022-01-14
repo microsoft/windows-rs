@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct ITargetedContentAction(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetedContentAction {
-    type Vtable = ITargetedContentActionVtbl;
+    type Vtable = ITargetedContentAction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd75b691e_6cd6_4ca0_9d8f_4728b0b7e6b6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITargetedContentActionVtbl {
+pub struct ITargetedContentAction_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub InvokeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -19,12 +19,12 @@ pub struct ITargetedContentActionVtbl {
 #[repr(transparent)]
 pub struct ITargetedContentAvailabilityChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetedContentAvailabilityChangedEventArgs {
-    type Vtable = ITargetedContentAvailabilityChangedEventArgsVtbl;
+    type Vtable = ITargetedContentAvailabilityChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0f59d26_5927_4450_965c_1ceb7becde65);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITargetedContentAvailabilityChangedEventArgsVtbl {
+pub struct ITargetedContentAvailabilityChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -35,12 +35,12 @@ pub struct ITargetedContentAvailabilityChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ITargetedContentChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetedContentChangedEventArgs {
-    type Vtable = ITargetedContentChangedEventArgsVtbl;
+    type Vtable = ITargetedContentChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99d488c9_587e_4586_8ef7_b54ca9453a16);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITargetedContentChangedEventArgsVtbl {
+pub struct ITargetedContentChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -52,12 +52,12 @@ pub struct ITargetedContentChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ITargetedContentCollection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetedContentCollection {
-    type Vtable = ITargetedContentCollectionVtbl;
+    type Vtable = ITargetedContentCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d4b66c5_f163_44ba_9f6e_e1a4c2bb559d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITargetedContentCollectionVtbl {
+pub struct ITargetedContentCollection_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ReportInteraction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interaction: TargetedContentInteraction) -> ::windows::core::HRESULT,
@@ -80,12 +80,12 @@ pub struct ITargetedContentCollectionVtbl {
 #[repr(transparent)]
 pub struct ITargetedContentContainer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetedContentContainer {
-    type Vtable = ITargetedContentContainerVtbl;
+    type Vtable = ITargetedContentContainer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc2494c9_8837_47c2_850f_d79d64595926);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITargetedContentContainerVtbl {
+pub struct ITargetedContentContainer_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -100,12 +100,12 @@ pub struct ITargetedContentContainerVtbl {
 #[repr(transparent)]
 pub struct ITargetedContentContainerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetedContentContainerStatics {
-    type Vtable = ITargetedContentContainerStaticsVtbl;
+    type Vtable = ITargetedContentContainerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b47e7fb_2140_4c1f_a736_c59583f227d8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITargetedContentContainerStaticsVtbl {
+pub struct ITargetedContentContainerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -116,12 +116,12 @@ pub struct ITargetedContentContainerStaticsVtbl {
 #[repr(transparent)]
 pub struct ITargetedContentImage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetedContentImage {
-    type Vtable = ITargetedContentImageVtbl;
+    type Vtable = ITargetedContentImage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7a585d9_779f_4b1e_bbb1_8eaf53fbeab2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITargetedContentImageVtbl {
+pub struct ITargetedContentImage_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Height: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub Width: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -130,12 +130,12 @@ pub struct ITargetedContentImageVtbl {
 #[repr(transparent)]
 pub struct ITargetedContentItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetedContentItem {
-    type Vtable = ITargetedContentItemVtbl;
+    type Vtable = ITargetedContentItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38168dc4_276c_4c32_96ba_565c6e406e74);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITargetedContentItemVtbl {
+pub struct ITargetedContentItem_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ReportInteraction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interaction: TargetedContentInteraction) -> ::windows::core::HRESULT,
@@ -154,12 +154,12 @@ pub struct ITargetedContentItemVtbl {
 #[repr(transparent)]
 pub struct ITargetedContentItemState(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetedContentItemState {
-    type Vtable = ITargetedContentItemStateVtbl;
+    type Vtable = ITargetedContentItemState_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73935454_4c65_4b47_a441_472de53c79b6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITargetedContentItemStateVtbl {
+pub struct ITargetedContentItemState_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ShouldDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub AppInstallationState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TargetedContentAppInstallationState) -> ::windows::core::HRESULT,
@@ -168,12 +168,12 @@ pub struct ITargetedContentItemStateVtbl {
 #[repr(transparent)]
 pub struct ITargetedContentObject(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetedContentObject {
-    type Vtable = ITargetedContentObjectVtbl;
+    type Vtable = ITargetedContentObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x041d7969_2212_42d1_9dfa_88a8e3033aa3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITargetedContentObjectVtbl {
+pub struct ITargetedContentObject_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ObjectKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TargetedContentObjectKind) -> ::windows::core::HRESULT,
     pub Collection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -184,12 +184,12 @@ pub struct ITargetedContentObjectVtbl {
 #[repr(transparent)]
 pub struct ITargetedContentStateChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetedContentStateChangedEventArgs {
-    type Vtable = ITargetedContentStateChangedEventArgsVtbl;
+    type Vtable = ITargetedContentStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a1cef3d_8073_4416_8df2_546835a6414f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITargetedContentStateChangedEventArgsVtbl {
+pub struct ITargetedContentStateChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -200,12 +200,12 @@ pub struct ITargetedContentStateChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ITargetedContentSubscription(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetedContentSubscription {
-    type Vtable = ITargetedContentSubscriptionVtbl;
+    type Vtable = ITargetedContentSubscription_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x882c2c49_c652_4c7a_acad_1f7fa2986c73);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITargetedContentSubscriptionVtbl {
+pub struct ITargetedContentSubscription_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -241,12 +241,12 @@ pub struct ITargetedContentSubscriptionVtbl {
 #[repr(transparent)]
 pub struct ITargetedContentSubscriptionOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetedContentSubscriptionOptions {
-    type Vtable = ITargetedContentSubscriptionOptionsVtbl;
+    type Vtable = ITargetedContentSubscriptionOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61ee6ad0_2c83_421b_8467_413eaf1aeb97);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITargetedContentSubscriptionOptionsVtbl {
+pub struct ITargetedContentSubscriptionOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SubscriptionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub AllowPartialContentAvailability: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -265,12 +265,12 @@ pub struct ITargetedContentSubscriptionOptionsVtbl {
 #[repr(transparent)]
 pub struct ITargetedContentSubscriptionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetedContentSubscriptionStatics {
-    type Vtable = ITargetedContentSubscriptionStaticsVtbl;
+    type Vtable = ITargetedContentSubscriptionStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaddfe80_360d_4916_b53c_7ea27090d02a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITargetedContentSubscriptionStaticsVtbl {
+pub struct ITargetedContentSubscriptionStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subscriptionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -282,12 +282,12 @@ pub struct ITargetedContentSubscriptionStaticsVtbl {
 #[repr(transparent)]
 pub struct ITargetedContentValue(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITargetedContentValue {
-    type Vtable = ITargetedContentValueVtbl;
+    type Vtable = ITargetedContentValue_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaafde4b3_4215_4bf8_867f_43f04865f9bf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITargetedContentValueVtbl {
+pub struct ITargetedContentValue_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ValueKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TargetedContentValueKind) -> ::windows::core::HRESULT,
     pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -367,7 +367,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentAction;{d75b691e-6cd6-4ca0-9d8f-4728b0b7e6b6})");
 }
 unsafe impl ::windows::core::Interface for TargetedContentAction {
-    type Vtable = ITargetedContentActionVtbl;
+    type Vtable = ITargetedContentAction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd75b691e_6cd6_4ca0_9d8f_4728b0b7e6b6);
 }
 impl ::windows::core::RuntimeName for TargetedContentAction {
@@ -517,7 +517,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentAvailabilityChangedE
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentAvailabilityChangedEventArgs;{e0f59d26-5927-4450-965c-1ceb7becde65})");
 }
 unsafe impl ::windows::core::Interface for TargetedContentAvailabilityChangedEventArgs {
-    type Vtable = ITargetedContentAvailabilityChangedEventArgsVtbl;
+    type Vtable = ITargetedContentAvailabilityChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0f59d26_5927_4450_965c_1ceb7becde65);
 }
 impl ::windows::core::RuntimeName for TargetedContentAvailabilityChangedEventArgs {
@@ -607,7 +607,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentChangedEventArgs;{99d488c9-587e-4586-8ef7-b54ca9453a16})");
 }
 unsafe impl ::windows::core::Interface for TargetedContentChangedEventArgs {
-    type Vtable = ITargetedContentChangedEventArgsVtbl;
+    type Vtable = ITargetedContentChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99d488c9_587e_4586_8ef7_b54ca9453a16);
 }
 impl ::windows::core::RuntimeName for TargetedContentChangedEventArgs {
@@ -733,7 +733,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentCollection;{2d4b66c5-f163-44ba-9f6e-e1a4c2bb559d})");
 }
 unsafe impl ::windows::core::Interface for TargetedContentCollection {
-    type Vtable = ITargetedContentCollectionVtbl;
+    type Vtable = ITargetedContentCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d4b66c5_f163_44ba_9f6e_e1a4c2bb559d);
 }
 impl ::windows::core::RuntimeName for TargetedContentCollection {
@@ -860,7 +860,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentContainer;{bc2494c9-8837-47c2-850f-d79d64595926})");
 }
 unsafe impl ::windows::core::Interface for TargetedContentContainer {
-    type Vtable = ITargetedContentContainerVtbl;
+    type Vtable = ITargetedContentContainer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc2494c9_8837_47c2_850f_d79d64595926);
 }
 impl ::windows::core::RuntimeName for TargetedContentContainer {
@@ -950,7 +950,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentFile {
 }
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::core::Interface for TargetedContentFile {
-    type Vtable = super::super::Storage::Streams::IRandomAccessStreamReferenceVtbl;
+    type Vtable = super::super::Storage::Streams::IRandomAccessStreamReference_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33ee3134_1dd6_4e3a_8067_d1c162e8642b);
 }
 #[cfg(feature = "Storage_Streams")]
@@ -1085,7 +1085,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentImage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentImage;{a7a585d9-779f-4b1e-bbb1-8eaf53fbeab2})");
 }
 unsafe impl ::windows::core::Interface for TargetedContentImage {
-    type Vtable = ITargetedContentImageVtbl;
+    type Vtable = ITargetedContentImage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7a585d9_779f_4b1e_bbb1_8eaf53fbeab2);
 }
 impl ::windows::core::RuntimeName for TargetedContentImage {
@@ -1272,7 +1272,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentItem;{38168dc4-276c-4c32-96ba-565c6e406e74})");
 }
 unsafe impl ::windows::core::Interface for TargetedContentItem {
-    type Vtable = ITargetedContentItemVtbl;
+    type Vtable = ITargetedContentItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38168dc4_276c_4c32_96ba_565c6e406e74);
 }
 impl ::windows::core::RuntimeName for TargetedContentItem {
@@ -1361,7 +1361,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentItemState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentItemState;{73935454-4c65-4b47-a441-472de53c79b6})");
 }
 unsafe impl ::windows::core::Interface for TargetedContentItemState {
-    type Vtable = ITargetedContentItemStateVtbl;
+    type Vtable = ITargetedContentItemState_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73935454_4c65_4b47_a441_472de53c79b6);
 }
 impl ::windows::core::RuntimeName for TargetedContentItemState {
@@ -1466,7 +1466,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentObject;{041d7969-2212-42d1-9dfa-88a8e3033aa3})");
 }
 unsafe impl ::windows::core::Interface for TargetedContentObject {
-    type Vtable = ITargetedContentObjectVtbl;
+    type Vtable = ITargetedContentObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x041d7969_2212_42d1_9dfa_88a8e3033aa3);
 }
 impl ::windows::core::RuntimeName for TargetedContentObject {
@@ -1582,7 +1582,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentStateChangedEventArg
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentStateChangedEventArgs;{9a1cef3d-8073-4416-8df2-546835a6414f})");
 }
 unsafe impl ::windows::core::Interface for TargetedContentStateChangedEventArgs {
-    type Vtable = ITargetedContentStateChangedEventArgsVtbl;
+    type Vtable = ITargetedContentStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a1cef3d_8073_4416_8df2_546835a6414f);
 }
 impl ::windows::core::RuntimeName for TargetedContentStateChangedEventArgs {
@@ -1737,7 +1737,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentSubscription {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentSubscription;{882c2c49-c652-4c7a-acad-1f7fa2986c73})");
 }
 unsafe impl ::windows::core::Interface for TargetedContentSubscription {
-    type Vtable = ITargetedContentSubscriptionVtbl;
+    type Vtable = ITargetedContentSubscription_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x882c2c49_c652_4c7a_acad_1f7fa2986c73);
 }
 impl ::windows::core::RuntimeName for TargetedContentSubscription {
@@ -1854,7 +1854,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentSubscriptionOptions 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentSubscriptionOptions;{61ee6ad0-2c83-421b-8467-413eaf1aeb97})");
 }
 unsafe impl ::windows::core::Interface for TargetedContentSubscriptionOptions {
-    type Vtable = ITargetedContentSubscriptionOptionsVtbl;
+    type Vtable = ITargetedContentSubscriptionOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61ee6ad0_2c83_421b_8467_413eaf1aeb97);
 }
 impl ::windows::core::RuntimeName for TargetedContentSubscriptionOptions {
@@ -2064,7 +2064,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.TargetedContent.TargetedContentValue;{aafde4b3-4215-4bf8-867f-43f04865f9bf})");
 }
 unsafe impl ::windows::core::Interface for TargetedContentValue {
-    type Vtable = ITargetedContentValueVtbl;
+    type Vtable = ITargetedContentValue_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaafde4b3_4215_4bf8_867f_43f04865f9bf);
 }
 impl ::windows::core::RuntimeName for TargetedContentValue {

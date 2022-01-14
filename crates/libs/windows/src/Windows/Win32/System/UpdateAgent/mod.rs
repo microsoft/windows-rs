@@ -234,14 +234,14 @@ impl ::core::fmt::Debug for IAutomaticUpdates {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IAutomaticUpdates {
-    type Vtable = IAutomaticUpdatesVtbl;
+    type Vtable = IAutomaticUpdates_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x673425bf_c082_4c7c_bdfd_569464b8e0ce);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomaticUpdatesVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IAutomaticUpdates_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub DetectNow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -413,14 +413,14 @@ impl ::core::fmt::Debug for IAutomaticUpdates2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IAutomaticUpdates2 {
-    type Vtable = IAutomaticUpdates2Vtbl;
+    type Vtable = IAutomaticUpdates2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a2f5c31_cfd9_410e_b7fb_29a653973a0f);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomaticUpdates2Vtbl {
-    pub base: IAutomaticUpdatesVtbl,
+pub struct IAutomaticUpdates2_Vtbl {
+    pub base: IAutomaticUpdates_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Results: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -537,14 +537,14 @@ impl ::core::fmt::Debug for IAutomaticUpdatesResults {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IAutomaticUpdatesResults {
-    type Vtable = IAutomaticUpdatesResultsVtbl;
+    type Vtable = IAutomaticUpdatesResults_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7a4d634_7942_4dd9_a111_82228ba33901);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomaticUpdatesResultsVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IAutomaticUpdatesResults_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub LastSearchSuccessDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -698,14 +698,14 @@ impl ::core::fmt::Debug for IAutomaticUpdatesSettings {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IAutomaticUpdatesSettings {
-    type Vtable = IAutomaticUpdatesSettingsVtbl;
+    type Vtable = IAutomaticUpdatesSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ee48f22_af3c_405f_8970_f71be12ee9a2);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomaticUpdatesSettingsVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IAutomaticUpdatesSettings_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub NotificationLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut AutomaticUpdatesNotificationLevel) -> ::windows::core::HRESULT,
     pub SetNotificationLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: AutomaticUpdatesNotificationLevel) -> ::windows::core::HRESULT,
     pub ReadOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT,
@@ -899,14 +899,14 @@ impl ::core::fmt::Debug for IAutomaticUpdatesSettings2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IAutomaticUpdatesSettings2 {
-    type Vtable = IAutomaticUpdatesSettings2Vtbl;
+    type Vtable = IAutomaticUpdatesSettings2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6abc136a_c3ca_4384_8171_cb2b1e59b8dc);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomaticUpdatesSettings2Vtbl {
-    pub base: IAutomaticUpdatesSettingsVtbl,
+pub struct IAutomaticUpdatesSettings2_Vtbl {
+    pub base: IAutomaticUpdatesSettings_Vtbl,
     pub IncludeRecommendedUpdates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT,
     pub SetIncludeRecommendedUpdates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT,
     pub CheckPermission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usertype: AutomaticUpdatesUserType, permissiontype: AutomaticUpdatesPermissionType, userhaspermission: *mut i16) -> ::windows::core::HRESULT,
@@ -1135,14 +1135,14 @@ impl ::core::fmt::Debug for IAutomaticUpdatesSettings3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IAutomaticUpdatesSettings3 {
-    type Vtable = IAutomaticUpdatesSettings3Vtbl;
+    type Vtable = IAutomaticUpdatesSettings3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb587f5c3_f57e_485f_bbf5_0d181c5cd0dc);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomaticUpdatesSettings3Vtbl {
-    pub base: IAutomaticUpdatesSettings2Vtbl,
+pub struct IAutomaticUpdatesSettings3_Vtbl {
+    pub base: IAutomaticUpdatesSettings2_Vtbl,
     pub NonAdministratorsElevated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT,
     pub SetNonAdministratorsElevated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT,
     pub FeaturedUpdatesEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT,
@@ -1300,14 +1300,14 @@ impl ::core::fmt::Debug for ICategory {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ICategory {
-    type Vtable = ICategoryVtbl;
+    type Vtable = ICategory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81ddc1b8_9d35_47a6_b471_5b80f519223b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICategoryVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct ICategory_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1457,14 +1457,14 @@ impl ::core::fmt::Debug for ICategoryCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ICategoryCollection {
-    type Vtable = ICategoryCollectionVtbl;
+    type Vtable = ICategoryCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a56bfb8_576c_43f7_9335_fe4838fd7e37);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICategoryCollectionVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct ICategoryCollection_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1519,12 +1519,12 @@ impl ::core::fmt::Debug for IDownloadCompletedCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IDownloadCompletedCallback {
-    type Vtable = IDownloadCompletedCallbackVtbl;
+    type Vtable = IDownloadCompletedCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77254866_9f5b_4c8e_b9e2_c77a8530d64b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDownloadCompletedCallbackVtbl {
+pub struct IDownloadCompletedCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, downloadjob: ::windows::core::RawPtr, callbackargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1630,14 +1630,14 @@ impl ::core::fmt::Debug for IDownloadCompletedCallbackArgs {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IDownloadCompletedCallbackArgs {
-    type Vtable = IDownloadCompletedCallbackArgsVtbl;
+    type Vtable = IDownloadCompletedCallbackArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa565b23_498c_47a0_979d_e7d5b1813360);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDownloadCompletedCallbackArgsVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IDownloadCompletedCallbackArgs_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_System_UpdateAgent', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1769,14 +1769,14 @@ impl ::core::fmt::Debug for IDownloadJob {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IDownloadJob {
-    type Vtable = IDownloadJobVtbl;
+    type Vtable = IDownloadJob_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc574de85_7358_43f6_aae8_8697e62d8ba7);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDownloadJobVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IDownloadJob_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub AsyncState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -1942,14 +1942,14 @@ impl ::core::fmt::Debug for IDownloadProgress {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IDownloadProgress {
-    type Vtable = IDownloadProgressVtbl;
+    type Vtable = IDownloadProgress_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd31a5bac_f719_4178_9dbb_5e2cb47fd18a);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDownloadProgressVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IDownloadProgress_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CurrentUpdateBytesDownloaded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2022,12 +2022,12 @@ impl ::core::fmt::Debug for IDownloadProgressChangedCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IDownloadProgressChangedCallback {
-    type Vtable = IDownloadProgressChangedCallbackVtbl;
+    type Vtable = IDownloadProgressChangedCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c3f1cdd_6173_4591_aebd_a56a53ca77c1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDownloadProgressChangedCallbackVtbl {
+pub struct IDownloadProgressChangedCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, downloadjob: ::windows::core::RawPtr, callbackargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2139,14 +2139,14 @@ impl ::core::fmt::Debug for IDownloadProgressChangedCallbackArgs {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IDownloadProgressChangedCallbackArgs {
-    type Vtable = IDownloadProgressChangedCallbackArgsVtbl;
+    type Vtable = IDownloadProgressChangedCallbackArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x324ff2c6_4981_4b04_9412_57481745ab24);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDownloadProgressChangedCallbackArgsVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IDownloadProgressChangedCallbackArgs_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Progress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2267,14 +2267,14 @@ impl ::core::fmt::Debug for IDownloadResult {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IDownloadResult {
-    type Vtable = IDownloadResultVtbl;
+    type Vtable = IDownloadResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaa4fdd0_4727_4dbe_a1e7_745dca317144);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDownloadResultVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IDownloadResult_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub HResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub ResultCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut OperationResultCode) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -2403,14 +2403,14 @@ impl ::core::fmt::Debug for IImageInformation {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IImageInformation {
-    type Vtable = IImageInformationVtbl;
+    type Vtable = IImageInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c907864_346c_4aeb_8f3f_57da289f969f);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IImageInformationVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IImageInformation_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AltText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2526,14 +2526,14 @@ impl ::core::fmt::Debug for IInstallationAgent {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInstallationAgent {
-    type Vtable = IInstallationAgentVtbl;
+    type Vtable = IInstallationAgent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x925cbc18_a2ea_4648_bf1c_ec8badcfe20a);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInstallationAgentVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IInstallationAgent_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub RecordInstallationResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, installationresultcookie: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, hresult: i32, extendedreportingdata: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -2658,14 +2658,14 @@ impl ::core::fmt::Debug for IInstallationBehavior {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInstallationBehavior {
-    type Vtable = IInstallationBehaviorVtbl;
+    type Vtable = IInstallationBehavior_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9a59339_e245_4dbd_9686_4d5763e39624);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInstallationBehaviorVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IInstallationBehavior_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub CanRequestUserInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT,
     pub Impact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut InstallationImpact) -> ::windows::core::HRESULT,
     pub RebootBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut InstallationRebootBehavior) -> ::windows::core::HRESULT,
@@ -2718,12 +2718,12 @@ impl ::core::fmt::Debug for IInstallationCompletedCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IInstallationCompletedCallback {
-    type Vtable = IInstallationCompletedCallbackVtbl;
+    type Vtable = IInstallationCompletedCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45f4f6f3_d602_4f98_9a8a_3efa152ad2d3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInstallationCompletedCallbackVtbl {
+pub struct IInstallationCompletedCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, installationjob: ::windows::core::RawPtr, callbackargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2829,14 +2829,14 @@ impl ::core::fmt::Debug for IInstallationCompletedCallbackArgs {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInstallationCompletedCallbackArgs {
-    type Vtable = IInstallationCompletedCallbackArgsVtbl;
+    type Vtable = IInstallationCompletedCallbackArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x250e2106_8efb_4705_9653_ef13c581b6a1);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInstallationCompletedCallbackArgsVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IInstallationCompletedCallbackArgs_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_System_UpdateAgent', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -2968,14 +2968,14 @@ impl ::core::fmt::Debug for IInstallationJob {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInstallationJob {
-    type Vtable = IInstallationJobVtbl;
+    type Vtable = IInstallationJob_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c209f0b_bad5_432a_9556_4699bed2638a);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInstallationJobVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IInstallationJob_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub AsyncState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -3112,14 +3112,14 @@ impl ::core::fmt::Debug for IInstallationProgress {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInstallationProgress {
-    type Vtable = IInstallationProgressVtbl;
+    type Vtable = IInstallationProgress_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x345c8244_43a3_4e32_a368_65f073b76f36);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInstallationProgressVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IInstallationProgress_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub CurrentUpdateIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub CurrentUpdatePercentComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub PercentComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
@@ -3175,12 +3175,12 @@ impl ::core::fmt::Debug for IInstallationProgressChangedCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IInstallationProgressChangedCallback {
-    type Vtable = IInstallationProgressChangedCallbackVtbl;
+    type Vtable = IInstallationProgressChangedCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe01402d5_f8da_43ba_a012_38894bd048f1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInstallationProgressChangedCallbackVtbl {
+pub struct IInstallationProgressChangedCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, installationjob: ::windows::core::RawPtr, callbackargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3292,14 +3292,14 @@ impl ::core::fmt::Debug for IInstallationProgressChangedCallbackArgs {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInstallationProgressChangedCallbackArgs {
-    type Vtable = IInstallationProgressChangedCallbackArgsVtbl;
+    type Vtable = IInstallationProgressChangedCallbackArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4f14e1e_689d_4218_a0b9_bc189c484a01);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInstallationProgressChangedCallbackArgsVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IInstallationProgressChangedCallbackArgs_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Progress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3425,14 +3425,14 @@ impl ::core::fmt::Debug for IInstallationResult {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInstallationResult {
-    type Vtable = IInstallationResultVtbl;
+    type Vtable = IInstallationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa43c56d6_7451_48d4_af96_b6cd2d0d9b7a);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInstallationResultVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IInstallationResult_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub HResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub RebootRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT,
     pub ResultCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut OperationResultCode) -> ::windows::core::HRESULT,
@@ -3586,14 +3586,14 @@ impl ::core::fmt::Debug for IInvalidProductLicenseException {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInvalidProductLicenseException {
-    type Vtable = IInvalidProductLicenseExceptionVtbl;
+    type Vtable = IInvalidProductLicenseException_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa37d00f5_7bb0_4953_b414_f9e98326f2e8);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInvalidProductLicenseExceptionVtbl {
-    pub base: IUpdateExceptionVtbl,
+pub struct IInvalidProductLicenseException_Vtbl {
+    pub base: IUpdateException_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Product: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3646,12 +3646,12 @@ impl ::core::fmt::Debug for ISearchCompletedCallback {
     }
 }
 unsafe impl ::windows::core::Interface for ISearchCompletedCallback {
-    type Vtable = ISearchCompletedCallbackVtbl;
+    type Vtable = ISearchCompletedCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88aee058_d4b0_4725_a2f1_814a67ae964c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchCompletedCallbackVtbl {
+pub struct ISearchCompletedCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, searchjob: ::windows::core::RawPtr, callbackargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3757,14 +3757,14 @@ impl ::core::fmt::Debug for ISearchCompletedCallbackArgs {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISearchCompletedCallbackArgs {
-    type Vtable = ISearchCompletedCallbackArgsVtbl;
+    type Vtable = ISearchCompletedCallbackArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa700a634_2850_4c47_938a_9e4b6e5af9a6);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchCompletedCallbackArgsVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct ISearchCompletedCallbackArgs_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_System_UpdateAgent', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3884,14 +3884,14 @@ impl ::core::fmt::Debug for ISearchJob {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISearchJob {
-    type Vtable = ISearchJobVtbl;
+    type Vtable = ISearchJob_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7366ea16_7a1a_4ea2_b042_973d3e9cd99b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchJobVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct ISearchJob_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub AsyncState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -4022,14 +4022,14 @@ impl ::core::fmt::Debug for ISearchResult {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISearchResult {
-    type Vtable = ISearchResultVtbl;
+    type Vtable = ISearchResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd40cff62_e08c_4498_941a_01e25f0fd33c);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchResultVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct ISearchResult_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub ResultCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut OperationResultCode) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub RootCategories: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4194,14 +4194,14 @@ impl ::core::fmt::Debug for IStringCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IStringCollection {
-    type Vtable = IStringCollectionVtbl;
+    type Vtable = IStringCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeff90582_2ddc_480f_a06d_60f3fbc362c3);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStringCollectionVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IStringCollection_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4338,14 +4338,14 @@ impl ::core::fmt::Debug for ISystemInformation {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISystemInformation {
-    type Vtable = ISystemInformationVtbl;
+    type Vtable = ISystemInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xade87bf7_7b56_4275_8fab_b9b0e591844b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISystemInformationVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct ISystemInformation_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub OemHardwareSupportLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4698,14 +4698,14 @@ impl ::core::fmt::Debug for IUpdate {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdate {
-    type Vtable = IUpdateVtbl;
+    type Vtable = IUpdate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a92b07a_d821_4682_b423_5c805022cc4d);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IUpdate_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5218,14 +5218,14 @@ impl ::core::fmt::Debug for IUpdate2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdate2 {
-    type Vtable = IUpdate2Vtbl;
+    type Vtable = IUpdate2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x144fe9b0_d23d_4a8b_8634_fb4457533b7a);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdate2Vtbl {
-    pub base: IUpdateVtbl,
+pub struct IUpdate2_Vtbl {
+    pub base: IUpdate_Vtbl,
     pub RebootRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT,
     pub IsPresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -5657,14 +5657,14 @@ impl ::core::fmt::Debug for IUpdate3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdate3 {
-    type Vtable = IUpdate3Vtbl;
+    type Vtable = IUpdate3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x112eda6b_95b3_476f_9d90_aee82c6b8181);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdate3Vtbl {
-    pub base: IUpdate2Vtbl,
+pub struct IUpdate3_Vtbl {
+    pub base: IUpdate2_Vtbl,
     pub BrowseOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_UpdateAgent', 'Win32_System_Com'*"]
@@ -6116,14 +6116,14 @@ impl ::core::fmt::Debug for IUpdate4 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdate4 {
-    type Vtable = IUpdate4Vtbl;
+    type Vtable = IUpdate4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27e94b0d_5139_49a2_9a61_93522dc54652);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdate4Vtbl {
-    pub base: IUpdate3Vtbl,
+pub struct IUpdate4_Vtbl {
+    pub base: IUpdate3_Vtbl,
     pub PerUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_UpdateAgent', 'Win32_System_Com'*"]
@@ -6609,14 +6609,14 @@ impl ::core::fmt::Debug for IUpdate5 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdate5 {
-    type Vtable = IUpdate5Vtbl;
+    type Vtable = IUpdate5_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1c2f21a_d2f4_4902_b5c6_8a081c19a890);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdate5Vtbl {
-    pub base: IUpdate4Vtbl,
+pub struct IUpdate5_Vtbl {
+    pub base: IUpdate4_Vtbl,
     pub AutoSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut AutoSelectionMode) -> ::windows::core::HRESULT,
     pub AutoDownload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut AutoDownloadMode) -> ::windows::core::HRESULT,
 }
@@ -6770,14 +6770,14 @@ impl ::core::fmt::Debug for IUpdateCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateCollection {
-    type Vtable = IUpdateCollectionVtbl;
+    type Vtable = IUpdateCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07f7438c_7709_4ca5_b518_91279288134e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateCollectionVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IUpdateCollection_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -6909,14 +6909,14 @@ impl ::core::fmt::Debug for IUpdateDownloadContent {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateDownloadContent {
-    type Vtable = IUpdateDownloadContentVtbl;
+    type Vtable = IUpdateDownloadContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54a2cb2d_9a0c_48b6_8a50_9abb69ee2d02);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateDownloadContentVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IUpdateDownloadContent_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub DownloadUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7056,14 +7056,14 @@ impl ::core::fmt::Debug for IUpdateDownloadContent2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateDownloadContent2 {
-    type Vtable = IUpdateDownloadContent2Vtbl;
+    type Vtable = IUpdateDownloadContent2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc97ad11b_f257_420b_9d9f_377f733f6f68);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateDownloadContent2Vtbl {
-    pub base: IUpdateDownloadContentVtbl,
+pub struct IUpdateDownloadContent2_Vtbl {
+    pub base: IUpdateDownloadContent_Vtbl,
     pub IsDeltaCompressedContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_UpdateAgent', 'Win32_System_Com'*"]
@@ -7181,14 +7181,14 @@ impl ::core::fmt::Debug for IUpdateDownloadContentCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateDownloadContentCollection {
-    type Vtable = IUpdateDownloadContentCollectionVtbl;
+    type Vtable = IUpdateDownloadContentCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc5513c8_b3b8_4bf7_a4d4_361c0d8c88ba);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateDownloadContentCollectionVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IUpdateDownloadContentCollection_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7305,14 +7305,14 @@ impl ::core::fmt::Debug for IUpdateDownloadResult {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateDownloadResult {
-    type Vtable = IUpdateDownloadResultVtbl;
+    type Vtable = IUpdateDownloadResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf99af76_b575_42ad_8aa4_33cbb5477af1);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateDownloadResultVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IUpdateDownloadResult_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub HResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub ResultCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut OperationResultCode) -> ::windows::core::HRESULT,
 }
@@ -7473,14 +7473,14 @@ impl ::core::fmt::Debug for IUpdateDownloader {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateDownloader {
-    type Vtable = IUpdateDownloaderVtbl;
+    type Vtable = IUpdateDownloader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68f1c6f9_7ecc_4666_a464_247fe12496c3);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateDownloaderVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IUpdateDownloader_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ClientApplicationID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7629,14 +7629,14 @@ impl ::core::fmt::Debug for IUpdateException {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateException {
-    type Vtable = IUpdateExceptionVtbl;
+    type Vtable = IUpdateException_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa376dd5e_09d4_427f_af7c_fed5b6e1c1d6);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateExceptionVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IUpdateException_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7759,14 +7759,14 @@ impl ::core::fmt::Debug for IUpdateExceptionCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateExceptionCollection {
-    type Vtable = IUpdateExceptionCollectionVtbl;
+    type Vtable = IUpdateExceptionCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x503626a3_8e14_4729_9355_0fe664bd2321);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateExceptionCollectionVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IUpdateExceptionCollection_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7951,14 +7951,14 @@ impl ::core::fmt::Debug for IUpdateHistoryEntry {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateHistoryEntry {
-    type Vtable = IUpdateHistoryEntryVtbl;
+    type Vtable = IUpdateHistoryEntry_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe56a644_af0e_4e0e_a311_c1d8e695cbff);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateHistoryEntryVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IUpdateHistoryEntry_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Operation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut UpdateOperation) -> ::windows::core::HRESULT,
     pub ResultCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut OperationResultCode) -> ::windows::core::HRESULT,
     pub HResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
@@ -8205,14 +8205,14 @@ impl ::core::fmt::Debug for IUpdateHistoryEntry2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateHistoryEntry2 {
-    type Vtable = IUpdateHistoryEntry2Vtbl;
+    type Vtable = IUpdateHistoryEntry2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2bfb780_4539_4132_ab8c_0a8772013ab6);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateHistoryEntry2Vtbl {
-    pub base: IUpdateHistoryEntryVtbl,
+pub struct IUpdateHistoryEntry2_Vtbl {
+    pub base: IUpdateHistoryEntry_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Categories: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -8333,14 +8333,14 @@ impl ::core::fmt::Debug for IUpdateHistoryEntryCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateHistoryEntryCollection {
-    type Vtable = IUpdateHistoryEntryCollectionVtbl;
+    type Vtable = IUpdateHistoryEntryCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7f04f3c_a290_435b_aadf_a116c3357a5c);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateHistoryEntryCollectionVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IUpdateHistoryEntryCollection_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -8458,14 +8458,14 @@ impl ::core::fmt::Debug for IUpdateIdentity {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateIdentity {
-    type Vtable = IUpdateIdentityVtbl;
+    type Vtable = IUpdateIdentity_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46297823_9940_4c09_aed9_cd3ea6d05968);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateIdentityVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IUpdateIdentity_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub RevisionNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub UpdateID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -8586,14 +8586,14 @@ impl ::core::fmt::Debug for IUpdateInstallationResult {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateInstallationResult {
-    type Vtable = IUpdateInstallationResultVtbl;
+    type Vtable = IUpdateInstallationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd940f0f8_3cbb_4fd0_993f_471e7f2328ad);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateInstallationResultVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IUpdateInstallationResult_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub HResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub RebootRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT,
     pub ResultCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut OperationResultCode) -> ::windows::core::HRESULT,
@@ -8809,14 +8809,14 @@ impl ::core::fmt::Debug for IUpdateInstaller {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateInstaller {
-    type Vtable = IUpdateInstallerVtbl;
+    type Vtable = IUpdateInstaller_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b929c68_ccdc_4226_96b1_8724600b54c2);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateInstallerVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IUpdateInstaller_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ClientApplicationID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9122,14 +9122,14 @@ impl ::core::fmt::Debug for IUpdateInstaller2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateInstaller2 {
-    type Vtable = IUpdateInstaller2Vtbl;
+    type Vtable = IUpdateInstaller2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3442d4fe_224d_4cee_98cf_30e0c4d229e6);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateInstaller2Vtbl {
-    pub base: IUpdateInstallerVtbl,
+pub struct IUpdateInstaller2_Vtbl {
+    pub base: IUpdateInstaller_Vtbl,
     pub ForceQuiet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT,
     pub SetForceQuiet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT,
 }
@@ -9410,14 +9410,14 @@ impl ::core::fmt::Debug for IUpdateInstaller3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateInstaller3 {
-    type Vtable = IUpdateInstaller3Vtbl;
+    type Vtable = IUpdateInstaller3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16d11c35_099a_48d0_8338_5fae64047f8e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateInstaller3Vtbl {
-    pub base: IUpdateInstaller2Vtbl,
+pub struct IUpdateInstaller3_Vtbl {
+    pub base: IUpdateInstaller2_Vtbl,
     pub AttemptCloseAppsIfNecessary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT,
     pub SetAttemptCloseAppsIfNecessary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT,
 }
@@ -9726,14 +9726,14 @@ impl ::core::fmt::Debug for IUpdateInstaller4 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateInstaller4 {
-    type Vtable = IUpdateInstaller4Vtbl;
+    type Vtable = IUpdateInstaller4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef8208ea_2304_492d_9109_23813b0958e1);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateInstaller4Vtbl {
-    pub base: IUpdateInstaller3Vtbl,
+pub struct IUpdateInstaller4_Vtbl {
+    pub base: IUpdateInstaller3_Vtbl,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
@@ -9782,12 +9782,12 @@ impl ::core::fmt::Debug for IUpdateLockdown {
     }
 }
 unsafe impl ::windows::core::Interface for IUpdateLockdown {
-    type Vtable = IUpdateLockdownVtbl;
+    type Vtable = IUpdateLockdown_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa976c28d_75a1_42aa_94ae_8af8b872089a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateLockdownVtbl {
+pub struct IUpdateLockdown_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub LockDown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32) -> ::windows::core::HRESULT,
 }
@@ -9983,14 +9983,14 @@ impl ::core::fmt::Debug for IUpdateSearcher {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateSearcher {
-    type Vtable = IUpdateSearcherVtbl;
+    type Vtable = IUpdateSearcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f45abf1_f9ae_4b95_a933_f0f66e5056ea);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateSearcherVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IUpdateSearcher_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub CanAutomaticallyUpgradeService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT,
     pub SetCanAutomaticallyUpgradeService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -10262,14 +10262,14 @@ impl ::core::fmt::Debug for IUpdateSearcher2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateSearcher2 {
-    type Vtable = IUpdateSearcher2Vtbl;
+    type Vtable = IUpdateSearcher2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cbdcb2d_1589_4beb_bd1c_3e582ff0add0);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateSearcher2Vtbl {
-    pub base: IUpdateSearcherVtbl,
+pub struct IUpdateSearcher2_Vtbl {
+    pub base: IUpdateSearcher_Vtbl,
     pub IgnoreDownloadPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT,
     pub SetIgnoreDownloadPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT,
 }
@@ -10531,14 +10531,14 @@ impl ::core::fmt::Debug for IUpdateSearcher3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateSearcher3 {
-    type Vtable = IUpdateSearcher3Vtbl;
+    type Vtable = IUpdateSearcher3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04c6895d_eaf2_4034_97f3_311de9be413a);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateSearcher3Vtbl {
-    pub base: IUpdateSearcher2Vtbl,
+pub struct IUpdateSearcher3_Vtbl {
+    pub base: IUpdateSearcher2_Vtbl,
     pub SearchScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut SearchScope) -> ::windows::core::HRESULT,
     pub SetSearchScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: SearchScope) -> ::windows::core::HRESULT,
 }
@@ -10712,14 +10712,14 @@ impl ::core::fmt::Debug for IUpdateService {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateService {
-    type Vtable = IUpdateServiceVtbl;
+    type Vtable = IUpdateService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76b3b17e_aed6_4da5_85f0_83587f81abe3);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateServiceVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IUpdateService_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -10951,14 +10951,14 @@ impl ::core::fmt::Debug for IUpdateService2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateService2 {
-    type Vtable = IUpdateService2Vtbl;
+    type Vtable = IUpdateService2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1518b460_6518_4172_940f_c75883b24ceb);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateService2Vtbl {
-    pub base: IUpdateServiceVtbl,
+pub struct IUpdateService2_Vtbl {
+    pub base: IUpdateService_Vtbl,
     pub IsDefaultAUService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_UpdateAgent', 'Win32_System_Com'*"]
@@ -11076,14 +11076,14 @@ impl ::core::fmt::Debug for IUpdateServiceCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateServiceCollection {
-    type Vtable = IUpdateServiceCollectionVtbl;
+    type Vtable = IUpdateServiceCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b0353aa_0e52_44ff_b8b0_1f7fa0437f88);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateServiceCollectionVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IUpdateServiceCollection_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -11228,14 +11228,14 @@ impl ::core::fmt::Debug for IUpdateServiceManager {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateServiceManager {
-    type Vtable = IUpdateServiceManagerVtbl;
+    type Vtable = IUpdateServiceManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23857e3c_02ba_44a3_9423_b1c900805f37);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateServiceManagerVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IUpdateServiceManager_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Services: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -11449,14 +11449,14 @@ impl ::core::fmt::Debug for IUpdateServiceManager2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateServiceManager2 {
-    type Vtable = IUpdateServiceManager2Vtbl;
+    type Vtable = IUpdateServiceManager2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bb8531d_7e8d_424f_986c_a0b8f60a3e7b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateServiceManager2Vtbl {
-    pub base: IUpdateServiceManagerVtbl,
+pub struct IUpdateServiceManager2_Vtbl {
+    pub base: IUpdateServiceManager_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ClientApplicationID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -11595,14 +11595,14 @@ impl ::core::fmt::Debug for IUpdateServiceRegistration {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateServiceRegistration {
-    type Vtable = IUpdateServiceRegistrationVtbl;
+    type Vtable = IUpdateServiceRegistration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdde02280_12b3_4e0b_937b_6747f6acb286);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateServiceRegistrationVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IUpdateServiceRegistration_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub RegistrationState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut UpdateServiceRegistrationState) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub ServiceID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -11758,14 +11758,14 @@ impl ::core::fmt::Debug for IUpdateSession {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateSession {
-    type Vtable = IUpdateSessionVtbl;
+    type Vtable = IUpdateSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x816858a4_260d_4260_933a_2585f1abc76b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateSessionVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IUpdateSession_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ClientApplicationID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -11973,14 +11973,14 @@ impl ::core::fmt::Debug for IUpdateSession2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateSession2 {
-    type Vtable = IUpdateSession2Vtbl;
+    type Vtable = IUpdateSession2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91caf7b0_eb23_49ed_9937_c52d817f46f7);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateSession2Vtbl {
-    pub base: IUpdateSessionVtbl,
+pub struct IUpdateSession2_Vtbl {
+    pub base: IUpdateSession_Vtbl,
     pub UserLocale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut u32) -> ::windows::core::HRESULT,
     pub SetUserLocale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcid: u32) -> ::windows::core::HRESULT,
 }
@@ -12197,14 +12197,14 @@ impl ::core::fmt::Debug for IUpdateSession3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IUpdateSession3 {
-    type Vtable = IUpdateSession3Vtbl;
+    type Vtable = IUpdateSession3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x918efd1e_b5d8_4c90_8540_aeb9bdc56f9d);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUpdateSession3Vtbl {
-    pub base: IUpdateSession2Vtbl,
+pub struct IUpdateSession3_Vtbl {
+    pub base: IUpdateSession2_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateUpdateServiceManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -12384,14 +12384,14 @@ impl ::core::fmt::Debug for IWebProxy {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWebProxy {
-    type Vtable = IWebProxyVtbl;
+    type Vtable = IWebProxy_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x174c81fe_aecd_4dae_b8a0_2c6318dd86a8);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebProxyVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IWebProxy_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Address: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -12849,14 +12849,14 @@ impl ::core::fmt::Debug for IWindowsDriverUpdate {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWindowsDriverUpdate {
-    type Vtable = IWindowsDriverUpdateVtbl;
+    type Vtable = IWindowsDriverUpdate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb383cd1a_5ce9_4504_9f63_764b1236f191);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowsDriverUpdateVtbl {
-    pub base: IUpdateVtbl,
+pub struct IWindowsDriverUpdate_Vtbl {
+    pub base: IUpdate_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub DriverClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -13341,14 +13341,14 @@ impl ::core::fmt::Debug for IWindowsDriverUpdate2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWindowsDriverUpdate2 {
-    type Vtable = IWindowsDriverUpdate2Vtbl;
+    type Vtable = IWindowsDriverUpdate2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x615c4269_7a48_43bd_96b7_bf6ca27d6c3e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowsDriverUpdate2Vtbl {
-    pub base: IWindowsDriverUpdateVtbl,
+pub struct IWindowsDriverUpdate2_Vtbl {
+    pub base: IWindowsDriverUpdate_Vtbl,
     pub RebootRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT,
     pub IsPresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -13849,14 +13849,14 @@ impl ::core::fmt::Debug for IWindowsDriverUpdate3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWindowsDriverUpdate3 {
-    type Vtable = IWindowsDriverUpdate3Vtbl;
+    type Vtable = IWindowsDriverUpdate3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49ebd502_4a96_41bd_9e3e_4c5057f4250c);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowsDriverUpdate3Vtbl {
-    pub base: IWindowsDriverUpdate2Vtbl,
+pub struct IWindowsDriverUpdate3_Vtbl {
+    pub base: IWindowsDriverUpdate2_Vtbl,
     pub BrowseOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_UpdateAgent', 'Win32_System_Com'*"]
@@ -14383,14 +14383,14 @@ impl ::core::fmt::Debug for IWindowsDriverUpdate4 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWindowsDriverUpdate4 {
-    type Vtable = IWindowsDriverUpdate4Vtbl;
+    type Vtable = IWindowsDriverUpdate4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x004c6a2b_0c19_4c69_9f5c_a269b2560db9);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowsDriverUpdate4Vtbl {
-    pub base: IWindowsDriverUpdate3Vtbl,
+pub struct IWindowsDriverUpdate4_Vtbl {
+    pub base: IWindowsDriverUpdate3_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub WindowsDriverUpdateEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -14955,14 +14955,14 @@ impl ::core::fmt::Debug for IWindowsDriverUpdate5 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWindowsDriverUpdate5 {
-    type Vtable = IWindowsDriverUpdate5Vtbl;
+    type Vtable = IWindowsDriverUpdate5_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70cf5c82_8642_42bb_9dbc_0cfd263c6c4f);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowsDriverUpdate5Vtbl {
-    pub base: IWindowsDriverUpdate4Vtbl,
+pub struct IWindowsDriverUpdate5_Vtbl {
+    pub base: IWindowsDriverUpdate4_Vtbl,
     pub AutoSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut AutoSelectionMode) -> ::windows::core::HRESULT,
     pub AutoDownload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut AutoDownloadMode) -> ::windows::core::HRESULT,
 }
@@ -15110,14 +15110,14 @@ impl ::core::fmt::Debug for IWindowsDriverUpdateEntry {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWindowsDriverUpdateEntry {
-    type Vtable = IWindowsDriverUpdateEntryVtbl;
+    type Vtable = IWindowsDriverUpdateEntry_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed8bfe40_a60b_42ea_9652_817dfcfa23ec);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowsDriverUpdateEntryVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IWindowsDriverUpdateEntry_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub DriverClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -15257,14 +15257,14 @@ impl ::core::fmt::Debug for IWindowsDriverUpdateEntryCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWindowsDriverUpdateEntryCollection {
-    type Vtable = IWindowsDriverUpdateEntryCollectionVtbl;
+    type Vtable = IWindowsDriverUpdateEntryCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d521700_a372_4bef_828b_3d00c10adebd);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowsDriverUpdateEntryCollectionVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IWindowsDriverUpdateEntryCollection_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -15377,14 +15377,14 @@ impl ::core::fmt::Debug for IWindowsUpdateAgentInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWindowsUpdateAgentInfo {
-    type Vtable = IWindowsUpdateAgentInfoVtbl;
+    type Vtable = IWindowsUpdateAgentInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85713fa1_7796_4fa2_be3b_e2d6124dd373);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowsUpdateAgentInfoVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IWindowsUpdateAgentInfo_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varinfoidentifier: ::core::mem::ManuallyDrop<super::Com::VARIANT>, retval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]

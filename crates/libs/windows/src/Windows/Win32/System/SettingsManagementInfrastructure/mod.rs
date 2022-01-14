@@ -57,12 +57,12 @@ impl ::core::fmt::Debug for IItemEnumerator {
     }
 }
 unsafe impl ::windows::core::Interface for IItemEnumerator {
-    type Vtable = IItemEnumeratorVtbl;
+    type Vtable = IItemEnumerator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bb7_20b3_11da_81a5_0030f1642e3c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IItemEnumeratorVtbl {
+pub struct IItemEnumerator_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -148,12 +148,12 @@ impl ::core::fmt::Debug for ISettingsContext {
     }
 }
 unsafe impl ::windows::core::Interface for ISettingsContext {
-    type Vtable = ISettingsContextVtbl;
+    type Vtable = ISettingsContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bbd_20b3_11da_81a5_0030f1642e3c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISettingsContextVtbl {
+pub struct ISettingsContext_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Serialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstream: ::windows::core::RawPtr, ptarget: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -292,12 +292,12 @@ impl ::core::fmt::Debug for ISettingsEngine {
     }
 }
 unsafe impl ::windows::core::Interface for ISettingsEngine {
-    type Vtable = ISettingsEngineVtbl;
+    type Vtable = ISettingsEngine_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bb9_20b3_11da_81a5_0030f1642e3c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISettingsEngineVtbl {
+pub struct ISettingsEngine_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetNamespaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: WcmNamespaceEnumerationFlags, reserved: *const ::core::ffi::c_void, namespaces: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settingsid: ::windows::core::RawPtr, access: WcmNamespaceAccess, reserved: *const ::core::ffi::c_void, namespaceitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -390,12 +390,12 @@ impl ::core::fmt::Debug for ISettingsIdentity {
     }
 }
 unsafe impl ::windows::core::Interface for ISettingsIdentity {
-    type Vtable = ISettingsIdentityVtbl;
+    type Vtable = ISettingsIdentity_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bb6_20b3_11da_81a5_0030f1642e3c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISettingsIdentityVtbl {
+pub struct ISettingsIdentity_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reserved: *const ::core::ffi::c_void, name: super::super::Foundation::PWSTR, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -569,12 +569,12 @@ impl ::core::fmt::Debug for ISettingsItem {
     }
 }
 unsafe impl ::windows::core::Interface for ISettingsItem {
-    type Vtable = ISettingsItemVtbl;
+    type Vtable = ISettingsItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bbb_20b3_11da_81a5_0030f1642e3c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISettingsItemVtbl {
+pub struct ISettingsItem_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -725,12 +725,12 @@ impl ::core::fmt::Debug for ISettingsNamespace {
     }
 }
 unsafe impl ::windows::core::Interface for ISettingsNamespace {
-    type Vtable = ISettingsNamespaceVtbl;
+    type Vtable = ISettingsNamespace_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bba_20b3_11da_81a5_0030f1642e3c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISettingsNamespaceVtbl {
+pub struct ISettingsNamespace_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settingsid: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Settings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settings: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -830,12 +830,12 @@ impl ::core::fmt::Debug for ISettingsResult {
     }
 }
 unsafe impl ::windows::core::Interface for ISettingsResult {
-    type Vtable = ISettingsResultVtbl;
+    type Vtable = ISettingsResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bbc_20b3_11da_81a5_0030f1642e3c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISettingsResultVtbl {
+pub struct ISettingsResult_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -1008,12 +1008,12 @@ impl ::core::fmt::Debug for ITargetInfo {
     }
 }
 unsafe impl ::windows::core::Interface for ITargetInfo {
-    type Vtable = ITargetInfoVtbl;
+    type Vtable = ITargetInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bb8_20b3_11da_81a5_0030f1642e3c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITargetInfoVtbl {
+pub struct ITargetInfo_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetTargetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetmode: *mut WcmTargetMode) -> ::windows::core::HRESULT,
     pub SetTargetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetmode: WcmTargetMode) -> ::windows::core::HRESULT,

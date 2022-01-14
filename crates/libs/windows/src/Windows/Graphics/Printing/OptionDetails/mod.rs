@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IPrintBindingOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintBindingOptionDetails {
-    type Vtable = IPrintBindingOptionDetailsVtbl;
+    type Vtable = IPrintBindingOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3f4cc98_9564_4f16_a055_a98b9a49e9d3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintBindingOptionDetailsVtbl {
+pub struct IPrintBindingOptionDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetWarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub WarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -19,12 +19,12 @@ pub struct IPrintBindingOptionDetailsVtbl {
 #[repr(transparent)]
 pub struct IPrintBorderingOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintBorderingOptionDetails {
-    type Vtable = IPrintBorderingOptionDetailsVtbl;
+    type Vtable = IPrintBorderingOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d73bc8f_fb53_4eb2_985f_1d91de0b7639);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintBorderingOptionDetailsVtbl {
+pub struct IPrintBorderingOptionDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetWarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub WarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -35,12 +35,12 @@ pub struct IPrintBorderingOptionDetailsVtbl {
 #[repr(transparent)]
 pub struct IPrintCollationOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintCollationOptionDetails {
-    type Vtable = IPrintCollationOptionDetailsVtbl;
+    type Vtable = IPrintCollationOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6abb166_a5a6_40dc_acc3_739f28f1e5d3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintCollationOptionDetailsVtbl {
+pub struct IPrintCollationOptionDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetWarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub WarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -51,12 +51,12 @@ pub struct IPrintCollationOptionDetailsVtbl {
 #[repr(transparent)]
 pub struct IPrintColorModeOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintColorModeOptionDetails {
-    type Vtable = IPrintColorModeOptionDetailsVtbl;
+    type Vtable = IPrintColorModeOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdba97704_f1d6_4843_a484_9b447cdcf3b6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintColorModeOptionDetailsVtbl {
+pub struct IPrintColorModeOptionDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetWarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub WarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -67,12 +67,12 @@ pub struct IPrintColorModeOptionDetailsVtbl {
 #[repr(transparent)]
 pub struct IPrintCopiesOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintCopiesOptionDetails {
-    type Vtable = IPrintCopiesOptionDetailsVtbl;
+    type Vtable = IPrintCopiesOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42053099_4339_4343_898d_2c47b5e0c341);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintCopiesOptionDetailsVtbl {
+pub struct IPrintCopiesOptionDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetWarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub WarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -83,12 +83,12 @@ pub struct IPrintCopiesOptionDetailsVtbl {
 #[repr(transparent)]
 pub struct IPrintCustomItemDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintCustomItemDetails {
-    type Vtable = IPrintCustomItemDetailsVtbl;
+    type Vtable = IPrintCustomItemDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5704b637_5c3a_449a_aa36_b3291b1192fd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintCustomItemDetailsVtbl {
+pub struct IPrintCustomItemDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ItemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetItemDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -98,12 +98,12 @@ pub struct IPrintCustomItemDetailsVtbl {
 #[repr(transparent)]
 pub struct IPrintCustomItemListOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintCustomItemListOptionDetails {
-    type Vtable = IPrintCustomItemListOptionDetailsVtbl;
+    type Vtable = IPrintCustomItemListOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5fafd88_58f2_4ebd_b90f_51e4f2944c5d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintCustomItemListOptionDetailsVtbl {
+pub struct IPrintCustomItemListOptionDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AddItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itemid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -111,12 +111,12 @@ pub struct IPrintCustomItemListOptionDetailsVtbl {
 #[repr(transparent)]
 pub struct IPrintCustomItemListOptionDetails2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintCustomItemListOptionDetails2 {
-    type Vtable = IPrintCustomItemListOptionDetails2Vtbl;
+    type Vtable = IPrintCustomItemListOptionDetails2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9d6353d_651c_4a39_906e_1091a1801bf1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintCustomItemListOptionDetails2Vtbl {
+pub struct IPrintCustomItemListOptionDetails2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub AddItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itemid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, description: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, icon: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -127,12 +127,12 @@ pub struct IPrintCustomItemListOptionDetails2Vtbl {
 #[repr(transparent)]
 pub struct IPrintCustomItemListOptionDetails3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintCustomItemListOptionDetails3 {
-    type Vtable = IPrintCustomItemListOptionDetails3Vtbl;
+    type Vtable = IPrintCustomItemListOptionDetails3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fa1b53f_3c34_4868_a407_fc5eab259b21);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintCustomItemListOptionDetails3Vtbl {
+pub struct IPrintCustomItemListOptionDetails3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetWarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub WarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -297,12 +297,12 @@ unsafe impl ::windows::core::RuntimeType for IPrintCustomOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e32bde1c-28af-4b90-95da-a3acf320b929}");
 }
 unsafe impl ::windows::core::Interface for IPrintCustomOptionDetails {
-    type Vtable = IPrintCustomOptionDetailsVtbl;
+    type Vtable = IPrintCustomOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe32bde1c_28af_4b90_95da_a3acf320b929);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintCustomOptionDetailsVtbl {
+pub struct IPrintCustomOptionDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -311,12 +311,12 @@ pub struct IPrintCustomOptionDetailsVtbl {
 #[repr(transparent)]
 pub struct IPrintCustomTextOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintCustomTextOptionDetails {
-    type Vtable = IPrintCustomTextOptionDetailsVtbl;
+    type Vtable = IPrintCustomTextOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ad171f8_c8bd_4905_9192_0d75136e8b31);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintCustomTextOptionDetailsVtbl {
+pub struct IPrintCustomTextOptionDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetMaxCharacters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
     pub MaxCharacters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -325,12 +325,12 @@ pub struct IPrintCustomTextOptionDetailsVtbl {
 #[repr(transparent)]
 pub struct IPrintCustomTextOptionDetails2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintCustomTextOptionDetails2 {
-    type Vtable = IPrintCustomTextOptionDetails2Vtbl;
+    type Vtable = IPrintCustomTextOptionDetails2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcea70b54_b977_4718_8338_7ed2b0d86fe3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintCustomTextOptionDetails2Vtbl {
+pub struct IPrintCustomTextOptionDetails2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetWarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub WarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -341,12 +341,12 @@ pub struct IPrintCustomTextOptionDetails2Vtbl {
 #[repr(transparent)]
 pub struct IPrintCustomToggleOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintCustomToggleOptionDetails {
-    type Vtable = IPrintCustomToggleOptionDetailsVtbl;
+    type Vtable = IPrintCustomToggleOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9db4d514_e461_4608_8ee9_db6f5ed073c6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintCustomToggleOptionDetailsVtbl {
+pub struct IPrintCustomToggleOptionDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetWarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub WarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -357,12 +357,12 @@ pub struct IPrintCustomToggleOptionDetailsVtbl {
 #[repr(transparent)]
 pub struct IPrintDuplexOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintDuplexOptionDetails {
-    type Vtable = IPrintDuplexOptionDetailsVtbl;
+    type Vtable = IPrintDuplexOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcd94591_d4a4_44fa_b3fe_42e0ba28d5ad);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintDuplexOptionDetailsVtbl {
+pub struct IPrintDuplexOptionDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetWarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub WarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -373,12 +373,12 @@ pub struct IPrintDuplexOptionDetailsVtbl {
 #[repr(transparent)]
 pub struct IPrintHolePunchOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintHolePunchOptionDetails {
-    type Vtable = IPrintHolePunchOptionDetailsVtbl;
+    type Vtable = IPrintHolePunchOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6de1f18_482c_4657_9d71_8ddddbea1e1e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintHolePunchOptionDetailsVtbl {
+pub struct IPrintHolePunchOptionDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetWarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub WarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -539,12 +539,12 @@ unsafe impl ::windows::core::RuntimeType for IPrintItemListOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9a2257bf-fe61-43d8-a24f-a3f6ab7320e7}");
 }
 unsafe impl ::windows::core::Interface for IPrintItemListOptionDetails {
-    type Vtable = IPrintItemListOptionDetailsVtbl;
+    type Vtable = IPrintItemListOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a2257bf_fe61_43d8_a24f_a3f6ab7320e7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintItemListOptionDetailsVtbl {
+pub struct IPrintItemListOptionDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Items: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -555,12 +555,12 @@ pub struct IPrintItemListOptionDetailsVtbl {
 #[repr(transparent)]
 pub struct IPrintMediaSizeOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintMediaSizeOptionDetails {
-    type Vtable = IPrintMediaSizeOptionDetailsVtbl;
+    type Vtable = IPrintMediaSizeOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c8d5bcf_c0bf_47c8_b84a_628e7d0d1a1d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintMediaSizeOptionDetailsVtbl {
+pub struct IPrintMediaSizeOptionDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetWarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub WarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -571,12 +571,12 @@ pub struct IPrintMediaSizeOptionDetailsVtbl {
 #[repr(transparent)]
 pub struct IPrintMediaTypeOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintMediaTypeOptionDetails {
-    type Vtable = IPrintMediaTypeOptionDetailsVtbl;
+    type Vtable = IPrintMediaTypeOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8c7000b_abf3_4abc_8e86_22abc5744a43);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintMediaTypeOptionDetailsVtbl {
+pub struct IPrintMediaTypeOptionDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetWarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub WarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -744,12 +744,12 @@ unsafe impl ::windows::core::RuntimeType for IPrintNumberOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4d01bbaf-645c-4de9-965f-6fc6bbc47cab}");
 }
 unsafe impl ::windows::core::Interface for IPrintNumberOptionDetails {
-    type Vtable = IPrintNumberOptionDetailsVtbl;
+    type Vtable = IPrintNumberOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d01bbaf_645c_4de9_965f_6fc6bbc47cab);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintNumberOptionDetailsVtbl {
+pub struct IPrintNumberOptionDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MinValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub MaxValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -877,12 +877,12 @@ unsafe impl ::windows::core::RuntimeType for IPrintOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{390686cf-d682-495f-adfe-d7333f5c1808}");
 }
 unsafe impl ::windows::core::Interface for IPrintOptionDetails {
-    type Vtable = IPrintOptionDetailsVtbl;
+    type Vtable = IPrintOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintOptionDetailsVtbl {
+pub struct IPrintOptionDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OptionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub OptionType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PrintOptionType) -> ::windows::core::HRESULT,
@@ -897,12 +897,12 @@ pub struct IPrintOptionDetailsVtbl {
 #[repr(transparent)]
 pub struct IPrintOrientationOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintOrientationOptionDetails {
-    type Vtable = IPrintOrientationOptionDetailsVtbl;
+    type Vtable = IPrintOrientationOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46c38879_66e0_4da0_87b4_d25457824eb7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintOrientationOptionDetailsVtbl {
+pub struct IPrintOrientationOptionDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetWarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub WarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -913,12 +913,12 @@ pub struct IPrintOrientationOptionDetailsVtbl {
 #[repr(transparent)]
 pub struct IPrintPageRangeOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintPageRangeOptionDetails {
-    type Vtable = IPrintPageRangeOptionDetailsVtbl;
+    type Vtable = IPrintPageRangeOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a19e4b7_2be8_4aa7_9ea5_defbe8713b4e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintPageRangeOptionDetailsVtbl {
+pub struct IPrintPageRangeOptionDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetWarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub WarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -929,12 +929,12 @@ pub struct IPrintPageRangeOptionDetailsVtbl {
 #[repr(transparent)]
 pub struct IPrintQualityOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintQualityOptionDetails {
-    type Vtable = IPrintQualityOptionDetailsVtbl;
+    type Vtable = IPrintQualityOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dd06ba1_ce1a_44e6_84f9_3a92ea1e3044);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintQualityOptionDetailsVtbl {
+pub struct IPrintQualityOptionDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetWarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub WarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -945,12 +945,12 @@ pub struct IPrintQualityOptionDetailsVtbl {
 #[repr(transparent)]
 pub struct IPrintStapleOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintStapleOptionDetails {
-    type Vtable = IPrintStapleOptionDetailsVtbl;
+    type Vtable = IPrintStapleOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd43175bd_9c0b_44e0_84f6_ceebce653800);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintStapleOptionDetailsVtbl {
+pub struct IPrintStapleOptionDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetWarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub WarningText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -961,12 +961,12 @@ pub struct IPrintStapleOptionDetailsVtbl {
 #[repr(transparent)]
 pub struct IPrintTaskOptionChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTaskOptionChangedEventArgs {
-    type Vtable = IPrintTaskOptionChangedEventArgsVtbl;
+    type Vtable = IPrintTaskOptionChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65197d05_a5ee_4307_9407_9acad147679c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintTaskOptionChangedEventArgsVtbl {
+pub struct IPrintTaskOptionChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OptionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -974,12 +974,12 @@ pub struct IPrintTaskOptionChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPrintTaskOptionDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTaskOptionDetails {
-    type Vtable = IPrintTaskOptionDetailsVtbl;
+    type Vtable = IPrintTaskOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5720af1_a89e_42a6_81af_f8e010b38a68);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintTaskOptionDetailsVtbl {
+pub struct IPrintTaskOptionDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Options: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1008,12 +1008,12 @@ pub struct IPrintTaskOptionDetailsVtbl {
 #[repr(transparent)]
 pub struct IPrintTaskOptionDetails2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTaskOptionDetails2 {
-    type Vtable = IPrintTaskOptionDetails2Vtbl;
+    type Vtable = IPrintTaskOptionDetails2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53730a09_f968_4692_a177_c074597186db);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintTaskOptionDetails2Vtbl {
+pub struct IPrintTaskOptionDetails2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateToggleOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, optionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1021,12 +1021,12 @@ pub struct IPrintTaskOptionDetails2Vtbl {
 #[repr(transparent)]
 pub struct IPrintTaskOptionDetailsStatic(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTaskOptionDetailsStatic {
-    type Vtable = IPrintTaskOptionDetailsStaticVtbl;
+    type Vtable = IPrintTaskOptionDetailsStatic_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x135da193_0961_4b6e_8766_f13b7fbccd58);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintTaskOptionDetailsStaticVtbl {
+pub struct IPrintTaskOptionDetailsStatic_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetFromPrintTaskOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printtaskoptions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1183,12 +1183,12 @@ unsafe impl ::windows::core::RuntimeType for IPrintTextOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ad75e563-5ce4-46bc-9918-ab9fad144c5b}");
 }
 unsafe impl ::windows::core::Interface for IPrintTextOptionDetails {
-    type Vtable = IPrintTextOptionDetailsVtbl;
+    type Vtable = IPrintTextOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad75e563_5ce4_46bc_9918_ab9fad144c5b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintTextOptionDetailsVtbl {
+pub struct IPrintTextOptionDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MaxCharacters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -1310,7 +1310,7 @@ unsafe impl ::windows::core::RuntimeType for PrintBindingOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintBindingOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 unsafe impl ::windows::core::Interface for PrintBindingOptionDetails {
-    type Vtable = IPrintOptionDetailsVtbl;
+    type Vtable = IPrintOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
 }
 impl ::windows::core::RuntimeName for PrintBindingOptionDetails {
@@ -1520,7 +1520,7 @@ unsafe impl ::windows::core::RuntimeType for PrintBorderingOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintBorderingOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 unsafe impl ::windows::core::Interface for PrintBorderingOptionDetails {
-    type Vtable = IPrintOptionDetailsVtbl;
+    type Vtable = IPrintOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
 }
 impl ::windows::core::RuntimeName for PrintBorderingOptionDetails {
@@ -1730,7 +1730,7 @@ unsafe impl ::windows::core::RuntimeType for PrintCollationOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCollationOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 unsafe impl ::windows::core::Interface for PrintCollationOptionDetails {
-    type Vtable = IPrintOptionDetailsVtbl;
+    type Vtable = IPrintOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
 }
 impl ::windows::core::RuntimeName for PrintCollationOptionDetails {
@@ -1940,7 +1940,7 @@ unsafe impl ::windows::core::RuntimeType for PrintColorModeOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintColorModeOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 unsafe impl ::windows::core::Interface for PrintColorModeOptionDetails {
-    type Vtable = IPrintOptionDetailsVtbl;
+    type Vtable = IPrintOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
 }
 impl ::windows::core::RuntimeName for PrintColorModeOptionDetails {
@@ -2157,7 +2157,7 @@ unsafe impl ::windows::core::RuntimeType for PrintCopiesOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCopiesOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 unsafe impl ::windows::core::Interface for PrintCopiesOptionDetails {
-    type Vtable = IPrintOptionDetailsVtbl;
+    type Vtable = IPrintOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
 }
 impl ::windows::core::RuntimeName for PrintCopiesOptionDetails {
@@ -2295,7 +2295,7 @@ unsafe impl ::windows::core::RuntimeType for PrintCustomItemDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCustomItemDetails;{5704b637-5c3a-449a-aa36-b3291b1192fd})");
 }
 unsafe impl ::windows::core::Interface for PrintCustomItemDetails {
-    type Vtable = IPrintCustomItemDetailsVtbl;
+    type Vtable = IPrintCustomItemDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5704b637_5c3a_449a_aa36_b3291b1192fd);
 }
 impl ::windows::core::RuntimeName for PrintCustomItemDetails {
@@ -2485,7 +2485,7 @@ unsafe impl ::windows::core::RuntimeType for PrintCustomItemListOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCustomItemListOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 unsafe impl ::windows::core::Interface for PrintCustomItemListOptionDetails {
-    type Vtable = IPrintOptionDetailsVtbl;
+    type Vtable = IPrintOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
 }
 impl ::windows::core::RuntimeName for PrintCustomItemListOptionDetails {
@@ -2734,7 +2734,7 @@ unsafe impl ::windows::core::RuntimeType for PrintCustomTextOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCustomTextOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 unsafe impl ::windows::core::Interface for PrintCustomTextOptionDetails {
-    type Vtable = IPrintOptionDetailsVtbl;
+    type Vtable = IPrintOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
 }
 impl ::windows::core::RuntimeName for PrintCustomTextOptionDetails {
@@ -2948,7 +2948,7 @@ unsafe impl ::windows::core::RuntimeType for PrintCustomToggleOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintCustomToggleOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 unsafe impl ::windows::core::Interface for PrintCustomToggleOptionDetails {
-    type Vtable = IPrintOptionDetailsVtbl;
+    type Vtable = IPrintOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
 }
 impl ::windows::core::RuntimeName for PrintCustomToggleOptionDetails {
@@ -3158,7 +3158,7 @@ unsafe impl ::windows::core::RuntimeType for PrintDuplexOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintDuplexOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 unsafe impl ::windows::core::Interface for PrintDuplexOptionDetails {
-    type Vtable = IPrintOptionDetailsVtbl;
+    type Vtable = IPrintOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
 }
 impl ::windows::core::RuntimeName for PrintDuplexOptionDetails {
@@ -3368,7 +3368,7 @@ unsafe impl ::windows::core::RuntimeType for PrintHolePunchOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintHolePunchOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 unsafe impl ::windows::core::Interface for PrintHolePunchOptionDetails {
-    type Vtable = IPrintOptionDetailsVtbl;
+    type Vtable = IPrintOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
 }
 impl ::windows::core::RuntimeName for PrintHolePunchOptionDetails {
@@ -3578,7 +3578,7 @@ unsafe impl ::windows::core::RuntimeType for PrintMediaSizeOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintMediaSizeOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 unsafe impl ::windows::core::Interface for PrintMediaSizeOptionDetails {
-    type Vtable = IPrintOptionDetailsVtbl;
+    type Vtable = IPrintOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
 }
 impl ::windows::core::RuntimeName for PrintMediaSizeOptionDetails {
@@ -3788,7 +3788,7 @@ unsafe impl ::windows::core::RuntimeType for PrintMediaTypeOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintMediaTypeOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 unsafe impl ::windows::core::Interface for PrintMediaTypeOptionDetails {
-    type Vtable = IPrintOptionDetailsVtbl;
+    type Vtable = IPrintOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
 }
 impl ::windows::core::RuntimeName for PrintMediaTypeOptionDetails {
@@ -4096,7 +4096,7 @@ unsafe impl ::windows::core::RuntimeType for PrintOrientationOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintOrientationOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 unsafe impl ::windows::core::Interface for PrintOrientationOptionDetails {
-    type Vtable = IPrintOptionDetailsVtbl;
+    type Vtable = IPrintOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
 }
 impl ::windows::core::RuntimeName for PrintOrientationOptionDetails {
@@ -4297,7 +4297,7 @@ unsafe impl ::windows::core::RuntimeType for PrintPageRangeOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintPageRangeOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 unsafe impl ::windows::core::Interface for PrintPageRangeOptionDetails {
-    type Vtable = IPrintOptionDetailsVtbl;
+    type Vtable = IPrintOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
 }
 impl ::windows::core::RuntimeName for PrintPageRangeOptionDetails {
@@ -4485,7 +4485,7 @@ unsafe impl ::windows::core::RuntimeType for PrintQualityOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintQualityOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 unsafe impl ::windows::core::Interface for PrintQualityOptionDetails {
-    type Vtable = IPrintOptionDetailsVtbl;
+    type Vtable = IPrintOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
 }
 impl ::windows::core::RuntimeName for PrintQualityOptionDetails {
@@ -4695,7 +4695,7 @@ unsafe impl ::windows::core::RuntimeType for PrintStapleOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintStapleOptionDetails;{390686cf-d682-495f-adfe-d7333f5c1808})");
 }
 unsafe impl ::windows::core::Interface for PrintStapleOptionDetails {
-    type Vtable = IPrintOptionDetailsVtbl;
+    type Vtable = IPrintOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
 }
 impl ::windows::core::RuntimeName for PrintStapleOptionDetails {
@@ -4820,7 +4820,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskOptionChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintTaskOptionChangedEventArgs;{65197d05-a5ee-4307-9407-9acad147679c})");
 }
 unsafe impl ::windows::core::Interface for PrintTaskOptionChangedEventArgs {
-    type Vtable = IPrintTaskOptionChangedEventArgsVtbl;
+    type Vtable = IPrintTaskOptionChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65197d05_a5ee_4307_9407_9acad147679c);
 }
 impl ::windows::core::RuntimeName for PrintTaskOptionChangedEventArgs {
@@ -4986,7 +4986,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskOptionDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.OptionDetails.PrintTaskOptionDetails;{f5720af1-a89e-42a6-81af-f8e010b38a68})");
 }
 unsafe impl ::windows::core::Interface for PrintTaskOptionDetails {
-    type Vtable = IPrintTaskOptionDetailsVtbl;
+    type Vtable = IPrintTaskOptionDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5720af1_a89e_42a6_81af_f8e010b38a68);
 }
 impl ::windows::core::RuntimeName for PrintTaskOptionDetails {

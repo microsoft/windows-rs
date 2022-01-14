@@ -80,7 +80,7 @@ unsafe impl ::windows::core::RuntimeType for CoreIncrementalInkStroke {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Core.CoreIncrementalInkStroke;{fda015d3-9d66-4f7d-a57f-cc70b9cfaa76})");
 }
 unsafe impl ::windows::core::Interface for CoreIncrementalInkStroke {
-    type Vtable = ICoreIncrementalInkStrokeVtbl;
+    type Vtable = ICoreIncrementalInkStroke_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfda015d3_9d66_4f7d_a57f_cc70b9cfaa76);
 }
 impl ::windows::core::RuntimeName for CoreIncrementalInkStroke {
@@ -293,7 +293,7 @@ unsafe impl ::windows::core::RuntimeType for CoreInkIndependentInputSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Core.CoreInkIndependentInputSource;{39b38da9-7639-4499-a5b5-191d00e35b16})");
 }
 unsafe impl ::windows::core::Interface for CoreInkIndependentInputSource {
-    type Vtable = ICoreInkIndependentInputSourceVtbl;
+    type Vtable = ICoreInkIndependentInputSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39b38da9_7639_4499_a5b5_191d00e35b16);
 }
 impl ::windows::core::RuntimeName for CoreInkIndependentInputSource {
@@ -396,7 +396,7 @@ unsafe impl ::windows::core::RuntimeType for CoreInkPresenterHost {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Core.CoreInkPresenterHost;{396e89e6-7d55-4617-9e58-68c70c9169b9})");
 }
 unsafe impl ::windows::core::Interface for CoreInkPresenterHost {
-    type Vtable = ICoreInkPresenterHostVtbl;
+    type Vtable = ICoreInkPresenterHost_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x396e89e6_7d55_4617_9e58_68c70c9169b9);
 }
 impl ::windows::core::RuntimeName for CoreInkPresenterHost {
@@ -533,7 +533,7 @@ unsafe impl ::windows::core::RuntimeType for CoreWetStrokeUpdateEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Core.CoreWetStrokeUpdateEventArgs;{fb07d14c-3380-457a-a987-991357896c1b})");
 }
 unsafe impl ::windows::core::Interface for CoreWetStrokeUpdateEventArgs {
-    type Vtable = ICoreWetStrokeUpdateEventArgsVtbl;
+    type Vtable = ICoreWetStrokeUpdateEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb07d14c_3380_457a_a987_991357896c1b);
 }
 impl ::windows::core::RuntimeName for CoreWetStrokeUpdateEventArgs {
@@ -701,7 +701,7 @@ unsafe impl ::windows::core::RuntimeType for CoreWetStrokeUpdateSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Core.CoreWetStrokeUpdateSource;{1f718e22-ee52-4e00-8209-4c3e5b21a3cc})");
 }
 unsafe impl ::windows::core::Interface for CoreWetStrokeUpdateSource {
-    type Vtable = ICoreWetStrokeUpdateSourceVtbl;
+    type Vtable = ICoreWetStrokeUpdateSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f718e22_ee52_4e00_8209_4c3e5b21a3cc);
 }
 impl ::windows::core::RuntimeName for CoreWetStrokeUpdateSource {
@@ -753,12 +753,12 @@ unsafe impl ::core::marker::Sync for CoreWetStrokeUpdateSource {}
 #[repr(transparent)]
 pub struct ICoreIncrementalInkStroke(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreIncrementalInkStroke {
-    type Vtable = ICoreIncrementalInkStrokeVtbl;
+    type Vtable = ICoreIncrementalInkStroke_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfda015d3_9d66_4f7d_a57f_cc70b9cfaa76);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreIncrementalInkStrokeVtbl {
+pub struct ICoreIncrementalInkStroke_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub AppendInkPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpoints: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
@@ -779,12 +779,12 @@ pub struct ICoreIncrementalInkStrokeVtbl {
 #[repr(transparent)]
 pub struct ICoreIncrementalInkStrokeFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreIncrementalInkStrokeFactory {
-    type Vtable = ICoreIncrementalInkStrokeFactoryVtbl;
+    type Vtable = ICoreIncrementalInkStrokeFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7c59f46_8da8_4f70_9751_e53bb6df4596);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreIncrementalInkStrokeFactoryVtbl {
+pub struct ICoreIncrementalInkStrokeFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, drawingattributes: ::windows::core::RawPtr, pointtransform: super::super::super::super::Foundation::Numerics::Matrix3x2, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -795,12 +795,12 @@ pub struct ICoreIncrementalInkStrokeFactoryVtbl {
 #[repr(transparent)]
 pub struct ICoreInkIndependentInputSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInkIndependentInputSource {
-    type Vtable = ICoreInkIndependentInputSourceVtbl;
+    type Vtable = ICoreInkIndependentInputSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39b38da9_7639_4499_a5b5_191d00e35b16);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreInkIndependentInputSourceVtbl {
+pub struct ICoreInkIndependentInputSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
     pub PointerEntering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -864,12 +864,12 @@ pub struct ICoreInkIndependentInputSourceVtbl {
 #[repr(transparent)]
 pub struct ICoreInkIndependentInputSource2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInkIndependentInputSource2 {
-    type Vtable = ICoreInkIndependentInputSource2Vtbl;
+    type Vtable = ICoreInkIndependentInputSource2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2846b012_0b59_5bb9_a3c5_becb7cf03a33);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreInkIndependentInputSource2Vtbl {
+pub struct ICoreInkIndependentInputSource2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Core")]
     pub PointerCursor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -884,12 +884,12 @@ pub struct ICoreInkIndependentInputSource2Vtbl {
 #[repr(transparent)]
 pub struct ICoreInkIndependentInputSourceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInkIndependentInputSourceStatics {
-    type Vtable = ICoreInkIndependentInputSourceStaticsVtbl;
+    type Vtable = ICoreInkIndependentInputSourceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73e6011b_80c0_4dfb_9b66_10ba7f3f9c84);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreInkIndependentInputSourceStaticsVtbl {
+pub struct ICoreInkIndependentInputSourceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpresenter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -897,12 +897,12 @@ pub struct ICoreInkIndependentInputSourceStaticsVtbl {
 #[repr(transparent)]
 pub struct ICoreInkPresenterHost(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInkPresenterHost {
-    type Vtable = ICoreInkPresenterHostVtbl;
+    type Vtable = ICoreInkPresenterHost_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x396e89e6_7d55_4617_9e58_68c70c9169b9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreInkPresenterHostVtbl {
+pub struct ICoreInkPresenterHost_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InkPresenter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Composition")]
@@ -918,12 +918,12 @@ pub struct ICoreInkPresenterHostVtbl {
 #[repr(transparent)]
 pub struct ICoreWetStrokeUpdateEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWetStrokeUpdateEventArgs {
-    type Vtable = ICoreWetStrokeUpdateEventArgsVtbl;
+    type Vtable = ICoreWetStrokeUpdateEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb07d14c_3380_457a_a987_991357896c1b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreWetStrokeUpdateEventArgsVtbl {
+pub struct ICoreWetStrokeUpdateEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub NewInkPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -937,12 +937,12 @@ pub struct ICoreWetStrokeUpdateEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICoreWetStrokeUpdateSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWetStrokeUpdateSource {
-    type Vtable = ICoreWetStrokeUpdateSourceVtbl;
+    type Vtable = ICoreWetStrokeUpdateSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f718e22_ee52_4e00_8209_4c3e5b21a3cc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreWetStrokeUpdateSourceVtbl {
+pub struct ICoreWetStrokeUpdateSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub WetStrokeStarting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -990,12 +990,12 @@ pub struct ICoreWetStrokeUpdateSourceVtbl {
 #[repr(transparent)]
 pub struct ICoreWetStrokeUpdateSourceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWetStrokeUpdateSourceStatics {
-    type Vtable = ICoreWetStrokeUpdateSourceStaticsVtbl;
+    type Vtable = ICoreWetStrokeUpdateSourceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3dad9cba_1d3d_46ae_ab9d_8647486c6f90);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreWetStrokeUpdateSourceStaticsVtbl {
+pub struct ICoreWetStrokeUpdateSourceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpresenter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }

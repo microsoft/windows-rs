@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IDeviceServicingDetailsImpl: Sized {
+pub trait IDeviceServicingDetails_Impl: Sized {
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Arguments(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ExpectedDuration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for IDeviceServicingDetails {
     const NAME: &'static str = "Windows.Devices.Background.IDeviceServicingDetails";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IDeviceServicingDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceServicingDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceServicingDetailsVtbl {
-        unsafe extern "system" fn DeviceId<Impl: IDeviceServicingDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDeviceServicingDetails_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceServicingDetails_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceServicingDetails_Vtbl {
+        unsafe extern "system" fn DeviceId<Impl: IDeviceServicingDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -22,7 +22,7 @@ impl IDeviceServicingDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Arguments<Impl: IDeviceServicingDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Arguments<Impl: IDeviceServicingDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Arguments() {
                 ::core::result::Result::Ok(ok__) => {
@@ -33,7 +33,7 @@ impl IDeviceServicingDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExpectedDuration<Impl: IDeviceServicingDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExpectedDuration<Impl: IDeviceServicingDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExpectedDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -56,7 +56,7 @@ impl IDeviceServicingDetailsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDeviceUseDetailsImpl: Sized {
+pub trait IDeviceUseDetails_Impl: Sized {
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Arguments(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -65,9 +65,9 @@ impl ::windows::core::RuntimeName for IDeviceUseDetails {
     const NAME: &'static str = "Windows.Devices.Background.IDeviceUseDetails";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDeviceUseDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceUseDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceUseDetailsVtbl {
-        unsafe extern "system" fn DeviceId<Impl: IDeviceUseDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDeviceUseDetails_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceUseDetails_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceUseDetails_Vtbl {
+        unsafe extern "system" fn DeviceId<Impl: IDeviceUseDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -78,7 +78,7 @@ impl IDeviceUseDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Arguments<Impl: IDeviceUseDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Arguments<Impl: IDeviceUseDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Arguments() {
                 ::core::result::Result::Ok(ok__) => {

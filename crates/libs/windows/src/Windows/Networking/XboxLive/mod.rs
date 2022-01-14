@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IXboxLiveDeviceAddress(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXboxLiveDeviceAddress {
-    type Vtable = IXboxLiveDeviceAddressVtbl;
+    type Vtable = IXboxLiveDeviceAddress_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5bbd279_3c86_4b57_a31a_b9462408fd01);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXboxLiveDeviceAddressVtbl {
+pub struct IXboxLiveDeviceAddress_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SnapshotChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -33,12 +33,12 @@ pub struct IXboxLiveDeviceAddressVtbl {
 #[repr(transparent)]
 pub struct IXboxLiveDeviceAddressStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXboxLiveDeviceAddressStatics {
-    type Vtable = IXboxLiveDeviceAddressStaticsVtbl;
+    type Vtable = IXboxLiveDeviceAddressStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5954a819_4a79_4931_827c_7f503e963263);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXboxLiveDeviceAddressStaticsVtbl {
+pub struct IXboxLiveDeviceAddressStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateFromSnapshotBase64: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, base64: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -53,12 +53,12 @@ pub struct IXboxLiveDeviceAddressStaticsVtbl {
 #[repr(transparent)]
 pub struct IXboxLiveEndpointPair(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXboxLiveEndpointPair {
-    type Vtable = IXboxLiveEndpointPairVtbl;
+    type Vtable = IXboxLiveEndpointPair_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e9a839b_813e_44e0_b87f_c87a093475e4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXboxLiveEndpointPairVtbl {
+pub struct IXboxLiveEndpointPair_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub StateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -86,12 +86,12 @@ pub struct IXboxLiveEndpointPairVtbl {
 #[repr(transparent)]
 pub struct IXboxLiveEndpointPairCreationResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXboxLiveEndpointPairCreationResult {
-    type Vtable = IXboxLiveEndpointPairCreationResultVtbl;
+    type Vtable = IXboxLiveEndpointPairCreationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9a8bb95_2aab_4d1e_9794_33ecc0dcf0fe);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXboxLiveEndpointPairCreationResultVtbl {
+pub struct IXboxLiveEndpointPairCreationResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveEndpointPairCreationStatus) -> ::windows::core::HRESULT,
@@ -102,12 +102,12 @@ pub struct IXboxLiveEndpointPairCreationResultVtbl {
 #[repr(transparent)]
 pub struct IXboxLiveEndpointPairStateChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXboxLiveEndpointPairStateChangedEventArgs {
-    type Vtable = IXboxLiveEndpointPairStateChangedEventArgsVtbl;
+    type Vtable = IXboxLiveEndpointPairStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x592e3b55_de08_44e7_ac3b_b9b9a169583a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXboxLiveEndpointPairStateChangedEventArgsVtbl {
+pub struct IXboxLiveEndpointPairStateChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OldState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveEndpointPairState) -> ::windows::core::HRESULT,
     pub NewState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveEndpointPairState) -> ::windows::core::HRESULT,
@@ -116,12 +116,12 @@ pub struct IXboxLiveEndpointPairStateChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IXboxLiveEndpointPairStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXboxLiveEndpointPairStatics {
-    type Vtable = IXboxLiveEndpointPairStaticsVtbl;
+    type Vtable = IXboxLiveEndpointPairStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64316b30_217a_4243_8ee1_6729281d27db);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXboxLiveEndpointPairStaticsVtbl {
+pub struct IXboxLiveEndpointPairStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FindEndpointPairBySocketAddressBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localSocketAddress_array_size: u32, localsocketaddress: *const u8, remoteSocketAddress_array_size: u32, remotesocketaddress: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FindEndpointPairByHostNamesAndPorts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localhostname: ::windows::core::RawPtr, localport: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, remotehostname: ::windows::core::RawPtr, remoteport: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -130,12 +130,12 @@ pub struct IXboxLiveEndpointPairStaticsVtbl {
 #[repr(transparent)]
 pub struct IXboxLiveEndpointPairTemplate(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXboxLiveEndpointPairTemplate {
-    type Vtable = IXboxLiveEndpointPairTemplateVtbl;
+    type Vtable = IXboxLiveEndpointPairTemplate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b286ecf_3457_40ce_b9a1_c0cfe0213ea7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXboxLiveEndpointPairTemplateVtbl {
+pub struct IXboxLiveEndpointPairTemplate_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub InboundEndpointPairCreated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -176,12 +176,12 @@ pub struct IXboxLiveEndpointPairTemplateVtbl {
 #[repr(transparent)]
 pub struct IXboxLiveEndpointPairTemplateStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXboxLiveEndpointPairTemplateStatics {
-    type Vtable = IXboxLiveEndpointPairTemplateStaticsVtbl;
+    type Vtable = IXboxLiveEndpointPairTemplateStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e13137b_737b_4a23_bc64_0870f75655ba);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXboxLiveEndpointPairTemplateStaticsVtbl {
+pub struct IXboxLiveEndpointPairTemplateStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetTemplateByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -193,12 +193,12 @@ pub struct IXboxLiveEndpointPairTemplateStaticsVtbl {
 #[repr(transparent)]
 pub struct IXboxLiveInboundEndpointPairCreatedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXboxLiveInboundEndpointPairCreatedEventArgs {
-    type Vtable = IXboxLiveInboundEndpointPairCreatedEventArgsVtbl;
+    type Vtable = IXboxLiveInboundEndpointPairCreatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc183b62_22ba_48d2_80de_c23968bd198b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXboxLiveInboundEndpointPairCreatedEventArgsVtbl {
+pub struct IXboxLiveInboundEndpointPairCreatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EndpointPair: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -206,12 +206,12 @@ pub struct IXboxLiveInboundEndpointPairCreatedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IXboxLiveQualityOfServiceMeasurement(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXboxLiveQualityOfServiceMeasurement {
-    type Vtable = IXboxLiveQualityOfServiceMeasurementVtbl;
+    type Vtable = IXboxLiveQualityOfServiceMeasurement_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d682bce_a5d6_47e6_a236_cfde5fbdf2ed);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXboxLiveQualityOfServiceMeasurementVtbl {
+pub struct IXboxLiveQualityOfServiceMeasurement_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub MeasureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -255,12 +255,12 @@ pub struct IXboxLiveQualityOfServiceMeasurementVtbl {
 #[repr(transparent)]
 pub struct IXboxLiveQualityOfServiceMeasurementStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXboxLiveQualityOfServiceMeasurementStatics {
-    type Vtable = IXboxLiveQualityOfServiceMeasurementStaticsVtbl;
+    type Vtable = IXboxLiveQualityOfServiceMeasurementStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e352dca_23cf_440a_b077_5e30857a8234);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXboxLiveQualityOfServiceMeasurementStaticsVtbl {
+pub struct IXboxLiveQualityOfServiceMeasurementStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PublishPrivatePayloadBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, payload_array_size: u32, payload: *const u8) -> ::windows::core::HRESULT,
     pub ClearPrivatePayload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -284,12 +284,12 @@ pub struct IXboxLiveQualityOfServiceMeasurementStaticsVtbl {
 #[repr(transparent)]
 pub struct IXboxLiveQualityOfServiceMetricResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXboxLiveQualityOfServiceMetricResult {
-    type Vtable = IXboxLiveQualityOfServiceMetricResultVtbl;
+    type Vtable = IXboxLiveQualityOfServiceMetricResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaeec53d1_3561_4782_b0cf_d3ae29d9fa87);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXboxLiveQualityOfServiceMetricResultVtbl {
+pub struct IXboxLiveQualityOfServiceMetricResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveQualityOfServiceMeasurementStatus) -> ::windows::core::HRESULT,
     pub DeviceAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -300,12 +300,12 @@ pub struct IXboxLiveQualityOfServiceMetricResultVtbl {
 #[repr(transparent)]
 pub struct IXboxLiveQualityOfServicePrivatePayloadResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXboxLiveQualityOfServicePrivatePayloadResult {
-    type Vtable = IXboxLiveQualityOfServicePrivatePayloadResultVtbl;
+    type Vtable = IXboxLiveQualityOfServicePrivatePayloadResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a6302ae_6f38_41c0_9fcc_ea6cb978cafc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXboxLiveQualityOfServicePrivatePayloadResultVtbl {
+pub struct IXboxLiveQualityOfServicePrivatePayloadResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut XboxLiveQualityOfServiceMeasurementStatus) -> ::windows::core::HRESULT,
     pub DeviceAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -449,7 +449,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveDeviceAddress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveDeviceAddress;{f5bbd279-3c86-4b57-a31a-b9462408fd01})");
 }
 unsafe impl ::windows::core::Interface for XboxLiveDeviceAddress {
-    type Vtable = IXboxLiveDeviceAddressVtbl;
+    type Vtable = IXboxLiveDeviceAddress_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5bbd279_3c86_4b57_a31a_b9462408fd01);
 }
 impl ::windows::core::RuntimeName for XboxLiveDeviceAddress {
@@ -631,7 +631,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPair {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveEndpointPair;{1e9a839b-813e-44e0-b87f-c87a093475e4})");
 }
 unsafe impl ::windows::core::Interface for XboxLiveEndpointPair {
-    type Vtable = IXboxLiveEndpointPairVtbl;
+    type Vtable = IXboxLiveEndpointPair_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e9a839b_813e_44e0_b87f_c87a093475e4);
 }
 impl ::windows::core::RuntimeName for XboxLiveEndpointPair {
@@ -797,7 +797,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPairCreationResult 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveEndpointPairCreationResult;{d9a8bb95-2aab-4d1e-9794-33ecc0dcf0fe})");
 }
 unsafe impl ::windows::core::Interface for XboxLiveEndpointPairCreationResult {
-    type Vtable = IXboxLiveEndpointPairCreationResultVtbl;
+    type Vtable = IXboxLiveEndpointPairCreationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9a8bb95_2aab_4d1e_9794_33ecc0dcf0fe);
 }
 impl ::windows::core::RuntimeName for XboxLiveEndpointPairCreationResult {
@@ -964,7 +964,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPairStateChangedEve
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveEndpointPairStateChangedEventArgs;{592e3b55-de08-44e7-ac3b-b9b9a169583a})");
 }
 unsafe impl ::windows::core::Interface for XboxLiveEndpointPairStateChangedEventArgs {
-    type Vtable = IXboxLiveEndpointPairStateChangedEventArgsVtbl;
+    type Vtable = IXboxLiveEndpointPairStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x592e3b55_de08_44e7_ac3b_b9b9a169583a);
 }
 impl ::windows::core::RuntimeName for XboxLiveEndpointPairStateChangedEventArgs {
@@ -1165,7 +1165,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPairTemplate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveEndpointPairTemplate;{6b286ecf-3457-40ce-b9a1-c0cfe0213ea7})");
 }
 unsafe impl ::windows::core::Interface for XboxLiveEndpointPairTemplate {
-    type Vtable = IXboxLiveEndpointPairTemplateVtbl;
+    type Vtable = IXboxLiveEndpointPairTemplate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b286ecf_3457_40ce_b9a1_c0cfe0213ea7);
 }
 impl ::windows::core::RuntimeName for XboxLiveEndpointPairTemplate {
@@ -1246,7 +1246,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveInboundEndpointPairCreatedE
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveInboundEndpointPairCreatedEventArgs;{dc183b62-22ba-48d2-80de-c23968bd198b})");
 }
 unsafe impl ::windows::core::Interface for XboxLiveInboundEndpointPairCreatedEventArgs {
-    type Vtable = IXboxLiveInboundEndpointPairCreatedEventArgsVtbl;
+    type Vtable = IXboxLiveInboundEndpointPairCreatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc183b62_22ba_48d2_80de_c23968bd198b);
 }
 impl ::windows::core::RuntimeName for XboxLiveInboundEndpointPairCreatedEventArgs {
@@ -1552,7 +1552,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveQualityOfServiceMeasurement
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement;{4d682bce-a5d6-47e6-a236-cfde5fbdf2ed})");
 }
 unsafe impl ::windows::core::Interface for XboxLiveQualityOfServiceMeasurement {
-    type Vtable = IXboxLiveQualityOfServiceMeasurementVtbl;
+    type Vtable = IXboxLiveQualityOfServiceMeasurement_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d682bce_a5d6_47e6_a236_cfde5fbdf2ed);
 }
 impl ::windows::core::RuntimeName for XboxLiveQualityOfServiceMeasurement {
@@ -1740,7 +1740,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveQualityOfServiceMetricResul
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetricResult;{aeec53d1-3561-4782-b0cf-d3ae29d9fa87})");
 }
 unsafe impl ::windows::core::Interface for XboxLiveQualityOfServiceMetricResult {
-    type Vtable = IXboxLiveQualityOfServiceMetricResultVtbl;
+    type Vtable = IXboxLiveQualityOfServiceMetricResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaeec53d1_3561_4782_b0cf_d3ae29d9fa87);
 }
 impl ::windows::core::RuntimeName for XboxLiveQualityOfServiceMetricResult {
@@ -1838,7 +1838,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveQualityOfServicePrivatePayl
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveQualityOfServicePrivatePayloadResult;{5a6302ae-6f38-41c0-9fcc-ea6cb978cafc})");
 }
 unsafe impl ::windows::core::Interface for XboxLiveQualityOfServicePrivatePayloadResult {
-    type Vtable = IXboxLiveQualityOfServicePrivatePayloadResultVtbl;
+    type Vtable = IXboxLiveQualityOfServicePrivatePayloadResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a6302ae_6f38_41c0_9fcc_ea6cb978cafc);
 }
 impl ::windows::core::RuntimeName for XboxLiveQualityOfServicePrivatePayloadResult {

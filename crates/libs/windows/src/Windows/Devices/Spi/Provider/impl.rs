@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IProviderSpiConnectionSettingsImpl: Sized {
+pub trait IProviderSpiConnectionSettings_Impl: Sized {
     fn ChipSelectLine(&mut self) -> ::windows::core::Result<i32>;
     fn SetChipSelectLine(&mut self, value: i32) -> ::windows::core::Result<()>;
     fn Mode(&mut self) -> ::windows::core::Result<ProviderSpiMode>;
@@ -16,9 +16,9 @@ impl ::windows::core::RuntimeName for IProviderSpiConnectionSettings {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.IProviderSpiConnectionSettings";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IProviderSpiConnectionSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProviderSpiConnectionSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProviderSpiConnectionSettingsVtbl {
-        unsafe extern "system" fn ChipSelectLine<Impl: IProviderSpiConnectionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IProviderSpiConnectionSettings_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProviderSpiConnectionSettings_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProviderSpiConnectionSettings_Vtbl {
+        unsafe extern "system" fn ChipSelectLine<Impl: IProviderSpiConnectionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChipSelectLine() {
                 ::core::result::Result::Ok(ok__) => {
@@ -29,11 +29,11 @@ impl IProviderSpiConnectionSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetChipSelectLine<Impl: IProviderSpiConnectionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetChipSelectLine<Impl: IProviderSpiConnectionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetChipSelectLine(value).into()
         }
-        unsafe extern "system" fn Mode<Impl: IProviderSpiConnectionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProviderSpiMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Mode<Impl: IProviderSpiConnectionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProviderSpiMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Mode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -44,11 +44,11 @@ impl IProviderSpiConnectionSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMode<Impl: IProviderSpiConnectionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ProviderSpiMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMode<Impl: IProviderSpiConnectionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ProviderSpiMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMode(value).into()
         }
-        unsafe extern "system" fn DataBitLength<Impl: IProviderSpiConnectionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DataBitLength<Impl: IProviderSpiConnectionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataBitLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -59,11 +59,11 @@ impl IProviderSpiConnectionSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDataBitLength<Impl: IProviderSpiConnectionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDataBitLength<Impl: IProviderSpiConnectionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDataBitLength(value).into()
         }
-        unsafe extern "system" fn ClockFrequency<Impl: IProviderSpiConnectionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClockFrequency<Impl: IProviderSpiConnectionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClockFrequency() {
                 ::core::result::Result::Ok(ok__) => {
@@ -74,11 +74,11 @@ impl IProviderSpiConnectionSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClockFrequency<Impl: IProviderSpiConnectionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClockFrequency<Impl: IProviderSpiConnectionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetClockFrequency(value).into()
         }
-        unsafe extern "system" fn SharingMode<Impl: IProviderSpiConnectionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProviderSpiSharingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SharingMode<Impl: IProviderSpiConnectionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProviderSpiSharingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SharingMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -89,7 +89,7 @@ impl IProviderSpiConnectionSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSharingMode<Impl: IProviderSpiConnectionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ProviderSpiSharingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSharingMode<Impl: IProviderSpiConnectionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ProviderSpiSharingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSharingMode(value).into()
         }
@@ -112,7 +112,7 @@ impl IProviderSpiConnectionSettingsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IProviderSpiConnectionSettingsFactoryImpl: Sized {
+pub trait IProviderSpiConnectionSettingsFactory_Impl: Sized {
     fn Create(&mut self, chipselectline: i32) -> ::windows::core::Result<ProviderSpiConnectionSettings>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -120,9 +120,9 @@ impl ::windows::core::RuntimeName for IProviderSpiConnectionSettingsFactory {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.IProviderSpiConnectionSettingsFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IProviderSpiConnectionSettingsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProviderSpiConnectionSettingsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProviderSpiConnectionSettingsFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IProviderSpiConnectionSettingsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, chipselectline: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IProviderSpiConnectionSettingsFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProviderSpiConnectionSettingsFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProviderSpiConnectionSettingsFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IProviderSpiConnectionSettingsFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, chipselectline: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(chipselectline) {
                 ::core::result::Result::Ok(ok__) => {
@@ -142,15 +142,15 @@ impl IProviderSpiConnectionSettingsFactoryVtbl {
         iid == &<IProviderSpiConnectionSettingsFactory as ::windows::core::Interface>::IID
     }
 }
-pub trait ISpiControllerProviderImpl: Sized {
+pub trait ISpiControllerProvider_Impl: Sized {
     fn GetDeviceProvider(&mut self, settings: &::core::option::Option<ProviderSpiConnectionSettings>) -> ::windows::core::Result<ISpiDeviceProvider>;
 }
 impl ::windows::core::RuntimeName for ISpiControllerProvider {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ISpiControllerProvider";
 }
-impl ISpiControllerProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpiControllerProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpiControllerProviderVtbl {
-        unsafe extern "system" fn GetDeviceProvider<Impl: ISpiControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISpiControllerProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpiControllerProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpiControllerProvider_Vtbl {
+        unsafe extern "system" fn GetDeviceProvider<Impl: ISpiControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceProvider(&*(&settings as *const <ProviderSpiConnectionSettings as ::windows::core::Abi>::Abi as *const <ProviderSpiConnectionSettings as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -171,7 +171,7 @@ impl ISpiControllerProviderVtbl {
     }
 }
 #[cfg(feature = "Foundation")]
-pub trait ISpiDeviceProviderImpl: Sized + IClosableImpl {
+pub trait ISpiDeviceProvider_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ConnectionSettings(&mut self) -> ::windows::core::Result<ProviderSpiConnectionSettings>;
     fn Write(&mut self, buffer: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
@@ -184,9 +184,9 @@ impl ::windows::core::RuntimeName for ISpiDeviceProvider {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ISpiDeviceProvider";
 }
 #[cfg(feature = "Foundation")]
-impl ISpiDeviceProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpiDeviceProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpiDeviceProviderVtbl {
-        unsafe extern "system" fn DeviceId<Impl: ISpiDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISpiDeviceProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpiDeviceProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpiDeviceProvider_Vtbl {
+        unsafe extern "system" fn DeviceId<Impl: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -197,7 +197,7 @@ impl ISpiDeviceProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectionSettings<Impl: ISpiDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectionSettings<Impl: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionSettings() {
                 ::core::result::Result::Ok(ok__) => {
@@ -208,19 +208,19 @@ impl ISpiDeviceProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Write<Impl: ISpiDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *const u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Write<Impl: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Write(::core::slice::from_raw_parts(::core::mem::transmute_copy(&buffer), buffer_array_size as _)).into()
         }
-        unsafe extern "system" fn Read<Impl: ISpiDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Read<Impl: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Read(::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&buffer), buffer_array_size as _)).into()
         }
-        unsafe extern "system" fn TransferSequential<Impl: ISpiDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransferSequential<Impl: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TransferSequential(::core::slice::from_raw_parts(::core::mem::transmute_copy(&writebuffer), writeBuffer_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&readbuffer), readBuffer_array_size as _)).into()
         }
-        unsafe extern "system" fn TransferFullDuplex<Impl: ISpiDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransferFullDuplex<Impl: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TransferFullDuplex(::core::slice::from_raw_parts(::core::mem::transmute_copy(&writebuffer), writeBuffer_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&readbuffer), readBuffer_array_size as _)).into()
         }
@@ -239,7 +239,7 @@ impl ISpiDeviceProviderVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-pub trait ISpiProviderImpl: Sized {
+pub trait ISpiProvider_Impl: Sized {
     fn GetControllersAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<ISpiControllerProvider>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -247,9 +247,9 @@ impl ::windows::core::RuntimeName for ISpiProvider {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ISpiProvider";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-impl ISpiProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpiProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpiProviderVtbl {
-        unsafe extern "system" fn GetControllersAsync<Impl: ISpiProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISpiProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpiProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpiProvider_Vtbl {
+        unsafe extern "system" fn GetControllersAsync<Impl: ISpiProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetControllersAsync() {
                 ::core::result::Result::Ok(ok__) => {

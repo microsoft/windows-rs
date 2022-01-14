@@ -41,7 +41,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Display.DisplayRequest;{e5732044-f49f-4b60-8dd4-5e7e3a632ac0})");
 }
 unsafe impl ::windows::core::Interface for DisplayRequest {
-    type Vtable = IDisplayRequestVtbl;
+    type Vtable = IDisplayRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5732044_f49f_4b60_8dd4_5e7e3a632ac0);
 }
 impl ::windows::core::RuntimeName for DisplayRequest {
@@ -91,12 +91,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 #[repr(transparent)]
 pub struct IDisplayRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayRequest {
-    type Vtable = IDisplayRequestVtbl;
+    type Vtable = IDisplayRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5732044_f49f_4b60_8dd4_5e7e3a632ac0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayRequestVtbl {
+pub struct IDisplayRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RequestActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RequestRelease: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

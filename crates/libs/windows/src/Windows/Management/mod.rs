@@ -13,12 +13,12 @@ pub mod Workplace;
 #[repr(transparent)]
 pub struct IMdmAlert(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMdmAlert {
-    type Vtable = IMdmAlertVtbl;
+    type Vtable = IMdmAlert_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0fbc327_28c1_4b52_a548_c5807caf70b6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMdmAlertVtbl {
+pub struct IMdmAlert_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -38,12 +38,12 @@ pub struct IMdmAlertVtbl {
 #[repr(transparent)]
 pub struct IMdmSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMdmSession {
-    type Vtable = IMdmSessionVtbl;
+    type Vtable = IMdmSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe89314c_8f64_4797_a9d7_9d88f86ae166);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMdmSessionVtbl {
+pub struct IMdmSession_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Alerts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -70,12 +70,12 @@ pub struct IMdmSessionVtbl {
 #[repr(transparent)]
 pub struct IMdmSessionManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMdmSessionManagerStatics {
-    type Vtable = IMdmSessionManagerStaticsVtbl;
+    type Vtable = IMdmSessionManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf4ad959_f745_4b79_9b5c_de0bf8efe44b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMdmSessionManagerStaticsVtbl {
+pub struct IMdmSessionManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub SessionIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -203,7 +203,7 @@ unsafe impl ::windows::core::RuntimeType for MdmAlert {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.MdmAlert;{b0fbc327-28c1-4b52-a548-c5807caf70b6})");
 }
 unsafe impl ::windows::core::Interface for MdmAlert {
-    type Vtable = IMdmAlertVtbl;
+    type Vtable = IMdmAlert_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0fbc327_28c1_4b52_a548_c5807caf70b6);
 }
 impl ::windows::core::RuntimeName for MdmAlert {
@@ -410,7 +410,7 @@ unsafe impl ::windows::core::RuntimeType for MdmSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.MdmSession;{fe89314c-8f64-4797-a9d7-9d88f86ae166})");
 }
 unsafe impl ::windows::core::Interface for MdmSession {
-    type Vtable = IMdmSessionVtbl;
+    type Vtable = IMdmSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe89314c_8f64_4797_a9d7_9d88f86ae166);
 }
 impl ::windows::core::RuntimeName for MdmSession {

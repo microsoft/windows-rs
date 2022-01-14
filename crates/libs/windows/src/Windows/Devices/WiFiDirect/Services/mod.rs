@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IWiFiDirectService(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiDirectService {
-    type Vtable = IWiFiDirectServiceVtbl;
+    type Vtable = IWiFiDirectService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50aabbb8_5f71_45ec_84f1_a1e4fc7879a3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWiFiDirectServiceVtbl {
+pub struct IWiFiDirectService_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub RemoteServiceInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -54,12 +54,12 @@ pub struct IWiFiDirectServiceVtbl {
 #[repr(transparent)]
 pub struct IWiFiDirectServiceAdvertiser(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiDirectServiceAdvertiser {
-    type Vtable = IWiFiDirectServiceAdvertiserVtbl;
+    type Vtable = IWiFiDirectServiceAdvertiser_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4aa1ee1_9d8f_4f4f_93ee_7ddea2e37f46);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWiFiDirectServiceAdvertiserVtbl {
+pub struct IWiFiDirectServiceAdvertiser_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ServiceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -135,12 +135,12 @@ pub struct IWiFiDirectServiceAdvertiserVtbl {
 #[repr(transparent)]
 pub struct IWiFiDirectServiceAdvertiserFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiDirectServiceAdvertiserFactory {
-    type Vtable = IWiFiDirectServiceAdvertiserFactoryVtbl;
+    type Vtable = IWiFiDirectServiceAdvertiserFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3106ac0d_b446_4f13_9f9a_8ae925feba2b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWiFiDirectServiceAdvertiserFactoryVtbl {
+pub struct IWiFiDirectServiceAdvertiserFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateWiFiDirectServiceAdvertiser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -148,12 +148,12 @@ pub struct IWiFiDirectServiceAdvertiserFactoryVtbl {
 #[repr(transparent)]
 pub struct IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
-    type Vtable = IWiFiDirectServiceAutoAcceptSessionConnectedEventArgsVtbl;
+    type Vtable = IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcd9e01e_83df_43e5_8f43_cbe8479e84eb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWiFiDirectServiceAutoAcceptSessionConnectedEventArgsVtbl {
+pub struct IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -165,12 +165,12 @@ pub struct IWiFiDirectServiceAutoAcceptSessionConnectedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IWiFiDirectServiceProvisioningInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiDirectServiceProvisioningInfo {
-    type Vtable = IWiFiDirectServiceProvisioningInfoVtbl;
+    type Vtable = IWiFiDirectServiceProvisioningInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bdb7cfe_97d9_45a2_8e99_db50910fb6a6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWiFiDirectServiceProvisioningInfoVtbl {
+pub struct IWiFiDirectServiceProvisioningInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SelectedConfigurationMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WiFiDirectServiceConfigurationMethod) -> ::windows::core::HRESULT,
     pub IsGroupFormationNeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -179,12 +179,12 @@ pub struct IWiFiDirectServiceProvisioningInfoVtbl {
 #[repr(transparent)]
 pub struct IWiFiDirectServiceRemotePortAddedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiDirectServiceRemotePortAddedEventArgs {
-    type Vtable = IWiFiDirectServiceRemotePortAddedEventArgsVtbl;
+    type Vtable = IWiFiDirectServiceRemotePortAddedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4cebac1_3fd3_4f0e_b7bd_782906f44411);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWiFiDirectServiceRemotePortAddedEventArgsVtbl {
+pub struct IWiFiDirectServiceRemotePortAddedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Networking"))]
     pub EndpointPairs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -196,12 +196,12 @@ pub struct IWiFiDirectServiceRemotePortAddedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IWiFiDirectServiceSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiDirectServiceSession {
-    type Vtable = IWiFiDirectServiceSessionVtbl;
+    type Vtable = IWiFiDirectServiceSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81142163_e426_47cb_8640_e1b3588bf26f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWiFiDirectServiceSessionVtbl {
+pub struct IWiFiDirectServiceSession_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ServiceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WiFiDirectServiceSessionStatus) -> ::windows::core::HRESULT,
@@ -243,12 +243,12 @@ pub struct IWiFiDirectServiceSessionVtbl {
 #[repr(transparent)]
 pub struct IWiFiDirectServiceSessionDeferredEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiDirectServiceSessionDeferredEventArgs {
-    type Vtable = IWiFiDirectServiceSessionDeferredEventArgsVtbl;
+    type Vtable = IWiFiDirectServiceSessionDeferredEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8dfc197f_1201_4f1f_b6f4_5df1b7b9fb2e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWiFiDirectServiceSessionDeferredEventArgsVtbl {
+pub struct IWiFiDirectServiceSessionDeferredEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub DeferredSessionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -259,12 +259,12 @@ pub struct IWiFiDirectServiceSessionDeferredEventArgsVtbl {
 #[repr(transparent)]
 pub struct IWiFiDirectServiceSessionRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiDirectServiceSessionRequest {
-    type Vtable = IWiFiDirectServiceSessionRequestVtbl;
+    type Vtable = IWiFiDirectServiceSessionRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0e27c8b_50cb_4a58_9bcf_e472b99fba04);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWiFiDirectServiceSessionRequestVtbl {
+pub struct IWiFiDirectServiceSessionRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Enumeration")]
     pub DeviceInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -280,12 +280,12 @@ pub struct IWiFiDirectServiceSessionRequestVtbl {
 #[repr(transparent)]
 pub struct IWiFiDirectServiceSessionRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiDirectServiceSessionRequestedEventArgs {
-    type Vtable = IWiFiDirectServiceSessionRequestedEventArgsVtbl;
+    type Vtable = IWiFiDirectServiceSessionRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74bdcc11_53d6_4999_b4f8_6c8ecc1771e7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWiFiDirectServiceSessionRequestedEventArgsVtbl {
+pub struct IWiFiDirectServiceSessionRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetSessionRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -293,12 +293,12 @@ pub struct IWiFiDirectServiceSessionRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IWiFiDirectServiceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiDirectServiceStatics {
-    type Vtable = IWiFiDirectServiceStaticsVtbl;
+    type Vtable = IWiFiDirectServiceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7db40045_fd74_4688_b725_5dce86acf233);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWiFiDirectServiceStaticsVtbl {
+pub struct IWiFiDirectServiceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -459,7 +459,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectService {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.Services.WiFiDirectService;{50aabbb8-5f71-45ec-84f1-a1e4fc7879a3})");
 }
 unsafe impl ::windows::core::Interface for WiFiDirectService {
-    type Vtable = IWiFiDirectServiceVtbl;
+    type Vtable = IWiFiDirectService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50aabbb8_5f71_45ec_84f1_a1e4fc7879a3);
 }
 impl ::windows::core::RuntimeName for WiFiDirectService {
@@ -776,7 +776,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectServiceAdvertiser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceAdvertiser;{a4aa1ee1-9d8f-4f4f-93ee-7ddea2e37f46})");
 }
 unsafe impl ::windows::core::Interface for WiFiDirectServiceAdvertiser {
-    type Vtable = IWiFiDirectServiceAdvertiserVtbl;
+    type Vtable = IWiFiDirectServiceAdvertiser_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4aa1ee1_9d8f_4f4f_93ee_7ddea2e37f46);
 }
 impl ::windows::core::RuntimeName for WiFiDirectServiceAdvertiser {
@@ -866,7 +866,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectServiceAutoAcceptSessionC
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceAutoAcceptSessionConnectedEventArgs;{dcd9e01e-83df-43e5-8f43-cbe8479e84eb})");
 }
 unsafe impl ::windows::core::Interface for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
-    type Vtable = IWiFiDirectServiceAutoAcceptSessionConnectedEventArgsVtbl;
+    type Vtable = IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcd9e01e_83df_43e5_8f43_cbe8479e84eb);
 }
 impl ::windows::core::RuntimeName for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
@@ -1058,7 +1058,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectServiceProvisioningInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceProvisioningInfo;{8bdb7cfe-97d9-45a2-8e99-db50910fb6a6})");
 }
 unsafe impl ::windows::core::Interface for WiFiDirectServiceProvisioningInfo {
-    type Vtable = IWiFiDirectServiceProvisioningInfoVtbl;
+    type Vtable = IWiFiDirectServiceProvisioningInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bdb7cfe_97d9_45a2_8e99_db50910fb6a6);
 }
 impl ::windows::core::RuntimeName for WiFiDirectServiceProvisioningInfo {
@@ -1148,7 +1148,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectServiceRemotePortAddedEve
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceRemotePortAddedEventArgs;{d4cebac1-3fd3-4f0e-b7bd-782906f44411})");
 }
 unsafe impl ::windows::core::Interface for WiFiDirectServiceRemotePortAddedEventArgs {
-    type Vtable = IWiFiDirectServiceRemotePortAddedEventArgsVtbl;
+    type Vtable = IWiFiDirectServiceRemotePortAddedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4cebac1_3fd3_4f0e_b7bd_782906f44411);
 }
 impl ::windows::core::RuntimeName for WiFiDirectServiceRemotePortAddedEventArgs {
@@ -1340,7 +1340,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectServiceSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSession;{81142163-e426-47cb-8640-e1b3588bf26f})");
 }
 unsafe impl ::windows::core::Interface for WiFiDirectServiceSession {
-    type Vtable = IWiFiDirectServiceSessionVtbl;
+    type Vtable = IWiFiDirectServiceSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81142163_e426_47cb_8640_e1b3588bf26f);
 }
 impl ::windows::core::RuntimeName for WiFiDirectServiceSession {
@@ -1448,7 +1448,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectServiceSessionDeferredEve
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionDeferredEventArgs;{8dfc197f-1201-4f1f-b6f4-5df1b7b9fb2e})");
 }
 unsafe impl ::windows::core::Interface for WiFiDirectServiceSessionDeferredEventArgs {
-    type Vtable = IWiFiDirectServiceSessionDeferredEventArgsVtbl;
+    type Vtable = IWiFiDirectServiceSessionDeferredEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8dfc197f_1201_4f1f_b6f4_5df1b7b9fb2e);
 }
 impl ::windows::core::RuntimeName for WiFiDirectServiceSessionDeferredEventArgs {
@@ -1590,7 +1590,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectServiceSessionRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionRequest;{a0e27c8b-50cb-4a58-9bcf-e472b99fba04})");
 }
 unsafe impl ::windows::core::Interface for WiFiDirectServiceSessionRequest {
-    type Vtable = IWiFiDirectServiceSessionRequestVtbl;
+    type Vtable = IWiFiDirectServiceSessionRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0e27c8b_50cb_4a58_9bcf_e472b99fba04);
 }
 impl ::windows::core::RuntimeName for WiFiDirectServiceSessionRequest {
@@ -1697,7 +1697,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectServiceSessionRequestedEv
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionRequestedEventArgs;{74bdcc11-53d6-4999-b4f8-6c8ecc1771e7})");
 }
 unsafe impl ::windows::core::Interface for WiFiDirectServiceSessionRequestedEventArgs {
-    type Vtable = IWiFiDirectServiceSessionRequestedEventArgsVtbl;
+    type Vtable = IWiFiDirectServiceSessionRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74bdcc11_53d6_4999_b4f8_6c8ecc1771e7);
 }
 impl ::windows::core::RuntimeName for WiFiDirectServiceSessionRequestedEventArgs {

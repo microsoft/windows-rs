@@ -1,5 +1,5 @@
 #[cfg(all(feature = "UI_Text", feature = "implement_exclusive"))]
-pub trait ILanguageFontImpl: Sized {
+pub trait ILanguageFont_Impl: Sized {
     fn FontFamily(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FontWeight(&mut self) -> ::windows::core::Result<super::super::UI::Text::FontWeight>;
     fn FontStretch(&mut self) -> ::windows::core::Result<super::super::UI::Text::FontStretch>;
@@ -11,9 +11,9 @@ impl ::windows::core::RuntimeName for ILanguageFont {
     const NAME: &'static str = "Windows.Globalization.Fonts.ILanguageFont";
 }
 #[cfg(all(feature = "UI_Text", feature = "implement_exclusive"))]
-impl ILanguageFontVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageFontImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILanguageFontVtbl {
-        unsafe extern "system" fn FontFamily<Impl: ILanguageFontImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ILanguageFont_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageFont_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILanguageFont_Vtbl {
+        unsafe extern "system" fn FontFamily<Impl: ILanguageFont_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FontFamily() {
                 ::core::result::Result::Ok(ok__) => {
@@ -24,7 +24,7 @@ impl ILanguageFontVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FontWeight<Impl: ILanguageFontImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Text::FontWeight) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FontWeight<Impl: ILanguageFont_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Text::FontWeight) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FontWeight() {
                 ::core::result::Result::Ok(ok__) => {
@@ -35,7 +35,7 @@ impl ILanguageFontVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FontStretch<Impl: ILanguageFontImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Text::FontStretch) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FontStretch<Impl: ILanguageFont_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Text::FontStretch) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FontStretch() {
                 ::core::result::Result::Ok(ok__) => {
@@ -46,7 +46,7 @@ impl ILanguageFontVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FontStyle<Impl: ILanguageFontImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Text::FontStyle) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FontStyle<Impl: ILanguageFont_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Text::FontStyle) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FontStyle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -57,7 +57,7 @@ impl ILanguageFontVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ScaleFactor<Impl: ILanguageFontImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScaleFactor<Impl: ILanguageFont_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScaleFactor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -82,7 +82,7 @@ impl ILanguageFontVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILanguageFontGroupImpl: Sized {
+pub trait ILanguageFontGroup_Impl: Sized {
     fn UITextFont(&mut self) -> ::windows::core::Result<LanguageFont>;
     fn UIHeadingFont(&mut self) -> ::windows::core::Result<LanguageFont>;
     fn UITitleFont(&mut self) -> ::windows::core::Result<LanguageFont>;
@@ -100,9 +100,9 @@ impl ::windows::core::RuntimeName for ILanguageFontGroup {
     const NAME: &'static str = "Windows.Globalization.Fonts.ILanguageFontGroup";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILanguageFontGroupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageFontGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILanguageFontGroupVtbl {
-        unsafe extern "system" fn UITextFont<Impl: ILanguageFontGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILanguageFontGroup_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageFontGroup_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILanguageFontGroup_Vtbl {
+        unsafe extern "system" fn UITextFont<Impl: ILanguageFontGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UITextFont() {
                 ::core::result::Result::Ok(ok__) => {
@@ -113,7 +113,7 @@ impl ILanguageFontGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UIHeadingFont<Impl: ILanguageFontGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UIHeadingFont<Impl: ILanguageFontGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UIHeadingFont() {
                 ::core::result::Result::Ok(ok__) => {
@@ -124,7 +124,7 @@ impl ILanguageFontGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UITitleFont<Impl: ILanguageFontGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UITitleFont<Impl: ILanguageFontGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UITitleFont() {
                 ::core::result::Result::Ok(ok__) => {
@@ -135,7 +135,7 @@ impl ILanguageFontGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UICaptionFont<Impl: ILanguageFontGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UICaptionFont<Impl: ILanguageFontGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UICaptionFont() {
                 ::core::result::Result::Ok(ok__) => {
@@ -146,7 +146,7 @@ impl ILanguageFontGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UINotificationHeadingFont<Impl: ILanguageFontGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UINotificationHeadingFont<Impl: ILanguageFontGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UINotificationHeadingFont() {
                 ::core::result::Result::Ok(ok__) => {
@@ -157,7 +157,7 @@ impl ILanguageFontGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TraditionalDocumentFont<Impl: ILanguageFontGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TraditionalDocumentFont<Impl: ILanguageFontGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TraditionalDocumentFont() {
                 ::core::result::Result::Ok(ok__) => {
@@ -168,7 +168,7 @@ impl ILanguageFontGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModernDocumentFont<Impl: ILanguageFontGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ModernDocumentFont<Impl: ILanguageFontGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ModernDocumentFont() {
                 ::core::result::Result::Ok(ok__) => {
@@ -179,7 +179,7 @@ impl ILanguageFontGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentHeadingFont<Impl: ILanguageFontGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentHeadingFont<Impl: ILanguageFontGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentHeadingFont() {
                 ::core::result::Result::Ok(ok__) => {
@@ -190,7 +190,7 @@ impl ILanguageFontGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FixedWidthTextFont<Impl: ILanguageFontGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FixedWidthTextFont<Impl: ILanguageFontGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FixedWidthTextFont() {
                 ::core::result::Result::Ok(ok__) => {
@@ -201,7 +201,7 @@ impl ILanguageFontGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentAlternate1Font<Impl: ILanguageFontGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentAlternate1Font<Impl: ILanguageFontGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentAlternate1Font() {
                 ::core::result::Result::Ok(ok__) => {
@@ -212,7 +212,7 @@ impl ILanguageFontGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentAlternate2Font<Impl: ILanguageFontGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentAlternate2Font<Impl: ILanguageFontGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentAlternate2Font() {
                 ::core::result::Result::Ok(ok__) => {
@@ -243,7 +243,7 @@ impl ILanguageFontGroupVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILanguageFontGroupFactoryImpl: Sized {
+pub trait ILanguageFontGroupFactory_Impl: Sized {
     fn CreateLanguageFontGroup(&mut self, languagetag: &::windows::core::HSTRING) -> ::windows::core::Result<LanguageFontGroup>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -251,9 +251,9 @@ impl ::windows::core::RuntimeName for ILanguageFontGroupFactory {
     const NAME: &'static str = "Windows.Globalization.Fonts.ILanguageFontGroupFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILanguageFontGroupFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageFontGroupFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILanguageFontGroupFactoryVtbl {
-        unsafe extern "system" fn CreateLanguageFontGroup<Impl: ILanguageFontGroupFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILanguageFontGroupFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageFontGroupFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILanguageFontGroupFactory_Vtbl {
+        unsafe extern "system" fn CreateLanguageFontGroup<Impl: ILanguageFontGroupFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateLanguageFontGroup(&*(&languagetag as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

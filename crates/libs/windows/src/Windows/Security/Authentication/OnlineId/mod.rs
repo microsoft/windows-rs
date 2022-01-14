@@ -37,12 +37,12 @@ impl ::windows::core::DefaultType for CredentialPromptType {
 #[repr(transparent)]
 pub struct IOnlineIdAuthenticator(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOnlineIdAuthenticator {
-    type Vtable = IOnlineIdAuthenticatorVtbl;
+    type Vtable = IOnlineIdAuthenticator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa003f58a_29ab_4817_b884_d7516dad18b9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOnlineIdAuthenticatorVtbl {
+pub struct IOnlineIdAuthenticator_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub AuthenticateUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -65,12 +65,12 @@ pub struct IOnlineIdAuthenticatorVtbl {
 #[repr(transparent)]
 pub struct IOnlineIdServiceTicket(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOnlineIdServiceTicket {
-    type Vtable = IOnlineIdServiceTicketVtbl;
+    type Vtable = IOnlineIdServiceTicket_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc95c547f_d781_4a94_acb8_c59874238c26);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOnlineIdServiceTicketVtbl {
+pub struct IOnlineIdServiceTicket_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -80,12 +80,12 @@ pub struct IOnlineIdServiceTicketVtbl {
 #[repr(transparent)]
 pub struct IOnlineIdServiceTicketRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOnlineIdServiceTicketRequest {
-    type Vtable = IOnlineIdServiceTicketRequestVtbl;
+    type Vtable = IOnlineIdServiceTicketRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x297445d3_fb63_4135_8909_4e354c061466);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOnlineIdServiceTicketRequestVtbl {
+pub struct IOnlineIdServiceTicketRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Service: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Policy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -94,12 +94,12 @@ pub struct IOnlineIdServiceTicketRequestVtbl {
 #[repr(transparent)]
 pub struct IOnlineIdServiceTicketRequestFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOnlineIdServiceTicketRequestFactory {
-    type Vtable = IOnlineIdServiceTicketRequestFactoryVtbl;
+    type Vtable = IOnlineIdServiceTicketRequestFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbebb0a08_9e73_4077_9614_08614c0bc245);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOnlineIdServiceTicketRequestFactoryVtbl {
+pub struct IOnlineIdServiceTicketRequestFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateOnlineIdServiceTicketRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, service: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, policy: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateOnlineIdServiceTicketRequestAdvanced: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, service: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -108,12 +108,12 @@ pub struct IOnlineIdServiceTicketRequestFactoryVtbl {
 #[repr(transparent)]
 pub struct IOnlineIdSystemAuthenticatorForUser(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOnlineIdSystemAuthenticatorForUser {
-    type Vtable = IOnlineIdSystemAuthenticatorForUserVtbl;
+    type Vtable = IOnlineIdSystemAuthenticatorForUser_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5798befb_1de4_4186_a2e6_b563f86aaf44);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOnlineIdSystemAuthenticatorForUserVtbl {
+pub struct IOnlineIdSystemAuthenticatorForUser_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetTicketAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -130,12 +130,12 @@ pub struct IOnlineIdSystemAuthenticatorForUserVtbl {
 #[repr(transparent)]
 pub struct IOnlineIdSystemAuthenticatorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOnlineIdSystemAuthenticatorStatics {
-    type Vtable = IOnlineIdSystemAuthenticatorStaticsVtbl;
+    type Vtable = IOnlineIdSystemAuthenticatorStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85047792_f634_41e3_96a4_5164e902c740);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOnlineIdSystemAuthenticatorStaticsVtbl {
+pub struct IOnlineIdSystemAuthenticatorStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Default: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "System")]
@@ -147,12 +147,12 @@ pub struct IOnlineIdSystemAuthenticatorStaticsVtbl {
 #[repr(transparent)]
 pub struct IOnlineIdSystemIdentity(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOnlineIdSystemIdentity {
-    type Vtable = IOnlineIdSystemIdentityVtbl;
+    type Vtable = IOnlineIdSystemIdentity_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x743cd20d_b6ca_434d_8124_53ea12685307);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOnlineIdSystemIdentityVtbl {
+pub struct IOnlineIdSystemIdentity_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Ticket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -161,12 +161,12 @@ pub struct IOnlineIdSystemIdentityVtbl {
 #[repr(transparent)]
 pub struct IOnlineIdSystemTicketResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOnlineIdSystemTicketResult {
-    type Vtable = IOnlineIdSystemTicketResultVtbl;
+    type Vtable = IOnlineIdSystemTicketResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb0a5ff8_b098_4acd_9d13_9e640652b5b6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOnlineIdSystemTicketResultVtbl {
+pub struct IOnlineIdSystemTicketResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Identity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut OnlineIdSystemTicketStatus) -> ::windows::core::HRESULT,
@@ -176,12 +176,12 @@ pub struct IOnlineIdSystemTicketResultVtbl {
 #[repr(transparent)]
 pub struct IUserIdentity(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserIdentity {
-    type Vtable = IUserIdentityVtbl;
+    type Vtable = IUserIdentity_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2146d9cd_0742_4be3_8a1c_7c7ae679aa88);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserIdentityVtbl {
+pub struct IUserIdentity_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Tickets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -283,7 +283,7 @@ unsafe impl ::windows::core::RuntimeType for OnlineIdAuthenticator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdAuthenticator;{a003f58a-29ab-4817-b884-d7516dad18b9})");
 }
 unsafe impl ::windows::core::Interface for OnlineIdAuthenticator {
-    type Vtable = IOnlineIdAuthenticatorVtbl;
+    type Vtable = IOnlineIdAuthenticator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa003f58a_29ab_4817_b884_d7516dad18b9);
 }
 impl ::windows::core::RuntimeName for OnlineIdAuthenticator {
@@ -380,7 +380,7 @@ unsafe impl ::windows::core::RuntimeType for OnlineIdServiceTicket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdServiceTicket;{c95c547f-d781-4a94-acb8-c59874238c26})");
 }
 unsafe impl ::windows::core::Interface for OnlineIdServiceTicket {
-    type Vtable = IOnlineIdServiceTicketVtbl;
+    type Vtable = IOnlineIdServiceTicket_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc95c547f_d781_4a94_acb8_c59874238c26);
 }
 impl ::windows::core::RuntimeName for OnlineIdServiceTicket {
@@ -488,7 +488,7 @@ unsafe impl ::windows::core::RuntimeType for OnlineIdServiceTicketRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdServiceTicketRequest;{297445d3-fb63-4135-8909-4e354c061466})");
 }
 unsafe impl ::windows::core::Interface for OnlineIdServiceTicketRequest {
-    type Vtable = IOnlineIdServiceTicketRequestVtbl;
+    type Vtable = IOnlineIdServiceTicketRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x297445d3_fb63_4135_8909_4e354c061466);
 }
 impl ::windows::core::RuntimeName for OnlineIdServiceTicketRequest {
@@ -619,7 +619,7 @@ unsafe impl ::windows::core::RuntimeType for OnlineIdSystemAuthenticatorForUser 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdSystemAuthenticatorForUser;{5798befb-1de4-4186-a2e6-b563f86aaf44})");
 }
 unsafe impl ::windows::core::Interface for OnlineIdSystemAuthenticatorForUser {
-    type Vtable = IOnlineIdSystemAuthenticatorForUserVtbl;
+    type Vtable = IOnlineIdSystemAuthenticatorForUser_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5798befb_1de4_4186_a2e6_b563f86aaf44);
 }
 impl ::windows::core::RuntimeName for OnlineIdSystemAuthenticatorForUser {
@@ -708,7 +708,7 @@ unsafe impl ::windows::core::RuntimeType for OnlineIdSystemIdentity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdSystemIdentity;{743cd20d-b6ca-434d-8124-53ea12685307})");
 }
 unsafe impl ::windows::core::Interface for OnlineIdSystemIdentity {
-    type Vtable = IOnlineIdSystemIdentityVtbl;
+    type Vtable = IOnlineIdSystemIdentity_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x743cd20d_b6ca_434d_8124_53ea12685307);
 }
 impl ::windows::core::RuntimeName for OnlineIdSystemIdentity {
@@ -805,7 +805,7 @@ unsafe impl ::windows::core::RuntimeType for OnlineIdSystemTicketResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketResult;{db0a5ff8-b098-4acd-9d13-9e640652b5b6})");
 }
 unsafe impl ::windows::core::Interface for OnlineIdSystemTicketResult {
-    type Vtable = IOnlineIdSystemTicketResultVtbl;
+    type Vtable = IOnlineIdSystemTicketResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb0a5ff8_b098_4acd_9d13_9e640652b5b6);
 }
 impl ::windows::core::RuntimeName for OnlineIdSystemTicketResult {
@@ -980,7 +980,7 @@ unsafe impl ::windows::core::RuntimeType for SignOutUserOperation {
 }
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Interface for SignOutUserOperation {
-    type Vtable = super::super::super::Foundation::IAsyncActionVtbl;
+    type Vtable = super::super::super::Foundation::IAsyncAction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a648006_843a_4da9_865b_9d26e5dfad7b);
 }
 #[cfg(feature = "Foundation")]
@@ -1218,7 +1218,7 @@ unsafe impl ::windows::core::RuntimeType for UserAuthenticationOperation {
 }
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Interface for UserAuthenticationOperation {
-    type Vtable = super::super::super::Foundation::IAsyncOperationVtbl<UserIdentity>;
+    type Vtable = super::super::super::Foundation::IAsyncOperation_Vtbl<UserIdentity>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(feature = "Foundation")]
@@ -1450,7 +1450,7 @@ unsafe impl ::windows::core::RuntimeType for UserIdentity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.UserIdentity;{2146d9cd-0742-4be3-8a1c-7c7ae679aa88})");
 }
 unsafe impl ::windows::core::Interface for UserIdentity {
-    type Vtable = IUserIdentityVtbl;
+    type Vtable = IUserIdentity_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2146d9cd_0742_4be3_8a1c_7c7ae679aa88);
 }
 impl ::windows::core::RuntimeName for UserIdentity {

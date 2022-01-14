@@ -648,7 +648,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceAccountConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountConfiguration;{ad0123a3-fbdc-4d1b-be43-5a27ea4a1b63})");
 }
 unsafe impl ::windows::core::Interface for DeviceAccountConfiguration {
-    type Vtable = IDeviceAccountConfigurationVtbl;
+    type Vtable = IDeviceAccountConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad0123a3_fbdc_4d1b_be43_5a27ea4a1b63);
 }
 impl ::windows::core::RuntimeName for DeviceAccountConfiguration {
@@ -845,12 +845,12 @@ impl ::windows::core::DefaultType for DeviceAccountSyncScheduleKind {
 #[repr(transparent)]
 pub struct IDeviceAccountConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceAccountConfiguration {
-    type Vtable = IDeviceAccountConfigurationVtbl;
+    type Vtable = IDeviceAccountConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad0123a3_fbdc_4d1b_be43_5a27ea4a1b63);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceAccountConfigurationVtbl {
+pub struct IDeviceAccountConfiguration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AccountName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetAccountName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -889,12 +889,12 @@ pub struct IDeviceAccountConfigurationVtbl {
 #[repr(transparent)]
 pub struct IDeviceAccountConfiguration2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceAccountConfiguration2 {
-    type Vtable = IDeviceAccountConfiguration2Vtbl;
+    type Vtable = IDeviceAccountConfiguration2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2b2e5a6_728d_4a4a_8945_2bf8580136de);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceAccountConfiguration2Vtbl {
+pub struct IDeviceAccountConfiguration2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Security_Credentials")]
     pub IncomingServerCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -981,12 +981,12 @@ pub struct IDeviceAccountConfiguration2Vtbl {
 #[repr(transparent)]
 pub struct IUserDataAccountSystemAccessManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataAccountSystemAccessManagerStatics {
-    type Vtable = IUserDataAccountSystemAccessManagerStaticsVtbl;
+    type Vtable = IUserDataAccountSystemAccessManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d6b11b9_cbe5_45f5_822b_c267b81dbdb6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataAccountSystemAccessManagerStaticsVtbl {
+pub struct IUserDataAccountSystemAccessManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub AddAndShowDeviceAccountsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, accounts: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -997,12 +997,12 @@ pub struct IUserDataAccountSystemAccessManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IUserDataAccountSystemAccessManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataAccountSystemAccessManagerStatics2 {
-    type Vtable = IUserDataAccountSystemAccessManagerStatics2Vtbl;
+    type Vtable = IUserDataAccountSystemAccessManagerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x943f854d_4b4e_439f_83d3_979b27c05ac7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataAccountSystemAccessManagerStatics2Vtbl {
+pub struct IUserDataAccountSystemAccessManagerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SuppressLocalAccountWithAccountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userdataaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

@@ -13,7 +13,7 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
 
     let original_type2 = original_type.clone();
     let original_ident = TokenStream(syn::parse_macro_input!(original_type2 as syn::ItemStruct).ident.to_string());
-    let impl_ident = original_ident.join("Impl");
+    let impl_ident = original_ident.join("_Impl");
 
     let vtbl_idents = attributes.implement.iter().map(|implement| {
         implement.to_vtbl_ident()
@@ -143,7 +143,7 @@ impl ImplementType {
         self.type_name.clone().into()
     }
     fn to_vtbl_ident(&self) -> TokenStream {
-        self.to_ident().join("Vtbl")
+        self.to_ident().join("_Vtbl")
     }
 }
 

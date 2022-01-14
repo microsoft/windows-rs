@@ -147,7 +147,7 @@ unsafe impl ::windows::core::RuntimeType for DualSimTile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.StartScreen.DualSimTile;{143ab213-d05f-4041-a18c-3e3fcb75b41e})");
 }
 unsafe impl ::windows::core::Interface for DualSimTile {
-    type Vtable = IDualSimTileVtbl;
+    type Vtable = IDualSimTile_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x143ab213_d05f_4041_a18c_3e3fcb75b41e);
 }
 impl ::windows::core::RuntimeName for DualSimTile {
@@ -197,12 +197,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dual
 #[repr(transparent)]
 pub struct IDualSimTile(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDualSimTile {
-    type Vtable = IDualSimTileVtbl;
+    type Vtable = IDualSimTile_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x143ab213_d05f_4041_a18c_3e3fcb75b41e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDualSimTileVtbl {
+pub struct IDualSimTile_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -224,12 +224,12 @@ pub struct IDualSimTileVtbl {
 #[repr(transparent)]
 pub struct IDualSimTileStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDualSimTileStatics {
-    type Vtable = IDualSimTileStaticsVtbl;
+    type Vtable = IDualSimTileStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50567c9e_c58f_4dc9_b6e8_fa6777eeeb37);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDualSimTileStaticsVtbl {
+pub struct IDualSimTileStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetTileForSim2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -335,12 +335,12 @@ unsafe impl ::windows::core::RuntimeType for IToastNotificationManagerStatics3 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2717f54b-50df-4455-8e6e-41e0fc8e13ce}");
 }
 unsafe impl ::windows::core::Interface for IToastNotificationManagerStatics3 {
-    type Vtable = IToastNotificationManagerStatics3Vtbl;
+    type Vtable = IToastNotificationManagerStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2717f54b_50df_4455_8e6e_41e0fc8e13ce);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IToastNotificationManagerStatics3Vtbl {
+pub struct IToastNotificationManagerStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Notifications")]
     pub CreateToastNotifierForSecondaryTile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

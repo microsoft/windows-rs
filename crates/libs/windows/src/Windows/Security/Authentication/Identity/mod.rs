@@ -68,7 +68,7 @@ unsafe impl ::windows::core::RuntimeType for EnterpriseKeyCredentialRegistration
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationInfo;{38321acc-672b-4823-b603-6b3c753daf97})");
 }
 unsafe impl ::windows::core::Interface for EnterpriseKeyCredentialRegistrationInfo {
-    type Vtable = IEnterpriseKeyCredentialRegistrationInfoVtbl;
+    type Vtable = IEnterpriseKeyCredentialRegistrationInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38321acc_672b_4823_b603_6b3c753daf97);
 }
 impl ::windows::core::RuntimeName for EnterpriseKeyCredentialRegistrationInfo {
@@ -162,7 +162,7 @@ unsafe impl ::windows::core::RuntimeType for EnterpriseKeyCredentialRegistration
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationManager;{83f3be3f-a25f-4cba-bb8e-bdc32d03c297})");
 }
 unsafe impl ::windows::core::Interface for EnterpriseKeyCredentialRegistrationManager {
-    type Vtable = IEnterpriseKeyCredentialRegistrationManagerVtbl;
+    type Vtable = IEnterpriseKeyCredentialRegistrationManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83f3be3f_a25f_4cba_bb8e_bdc32d03c297);
 }
 impl ::windows::core::RuntimeName for EnterpriseKeyCredentialRegistrationManager {
@@ -214,12 +214,12 @@ unsafe impl ::core::marker::Sync for EnterpriseKeyCredentialRegistrationManager 
 #[repr(transparent)]
 pub struct IEnterpriseKeyCredentialRegistrationInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEnterpriseKeyCredentialRegistrationInfo {
-    type Vtable = IEnterpriseKeyCredentialRegistrationInfoVtbl;
+    type Vtable = IEnterpriseKeyCredentialRegistrationInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38321acc_672b_4823_b603_6b3c753daf97);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnterpriseKeyCredentialRegistrationInfoVtbl {
+pub struct IEnterpriseKeyCredentialRegistrationInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TenantId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub TenantName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -231,12 +231,12 @@ pub struct IEnterpriseKeyCredentialRegistrationInfoVtbl {
 #[repr(transparent)]
 pub struct IEnterpriseKeyCredentialRegistrationManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEnterpriseKeyCredentialRegistrationManager {
-    type Vtable = IEnterpriseKeyCredentialRegistrationManagerVtbl;
+    type Vtable = IEnterpriseKeyCredentialRegistrationManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83f3be3f_a25f_4cba_bb8e_bdc32d03c297);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnterpriseKeyCredentialRegistrationManagerVtbl {
+pub struct IEnterpriseKeyCredentialRegistrationManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetRegistrationsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -247,12 +247,12 @@ pub struct IEnterpriseKeyCredentialRegistrationManagerVtbl {
 #[repr(transparent)]
 pub struct IEnterpriseKeyCredentialRegistrationManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEnterpriseKeyCredentialRegistrationManagerStatics {
-    type Vtable = IEnterpriseKeyCredentialRegistrationManagerStaticsVtbl;
+    type Vtable = IEnterpriseKeyCredentialRegistrationManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77b85e9e_acf4_4bc0_bac2_40bb46efbb3f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnterpriseKeyCredentialRegistrationManagerStaticsVtbl {
+pub struct IEnterpriseKeyCredentialRegistrationManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }

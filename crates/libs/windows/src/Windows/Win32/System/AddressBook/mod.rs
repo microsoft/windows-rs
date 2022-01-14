@@ -1622,13 +1622,13 @@ impl ::core::fmt::Debug for IABContainer {
     }
 }
 unsafe impl ::windows::core::Interface for IABContainer {
-    type Vtable = IABContainerVtbl;
+    type Vtable = IABContainer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IABContainerVtbl {
-    pub base: IMAPIContainerVtbl,
+pub struct IABContainer_Vtbl {
+    pub base: IMAPIContainer_Vtbl,
     pub CreateEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32, lppmapipropentry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CopyEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: ::windows::core::RawPtr, ulflags: u32) -> ::windows::core::HRESULT,
     pub DeleteEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpentries: *const SBinaryArray, ulflags: u32) -> ::windows::core::HRESULT,
@@ -1826,13 +1826,13 @@ impl ::core::fmt::Debug for IAddrBook {
     }
 }
 unsafe impl ::windows::core::Interface for IAddrBook {
-    type Vtable = IAddrBookVtbl;
+    type Vtable = IAddrBook_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAddrBookVtbl {
-    pub base: IMAPIPropVtbl,
+pub struct IAddrBook_Vtbl {
+    pub base: IMAPIProp_Vtbl,
     pub OpenEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *mut ENTRYID, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CompareEntryIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid1: u32, lpentryid1: *mut ENTRYID, cbentryid2: u32, lpentryid2: *mut ENTRYID, ulflags: u32, lpulresult: *mut u32) -> ::windows::core::HRESULT,
     pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *mut ENTRYID, uleventmask: u32, lpadvisesink: ::windows::core::RawPtr, lpulconnection: *mut u32) -> ::windows::core::HRESULT,
@@ -1983,13 +1983,13 @@ impl ::core::fmt::Debug for IAttach {
     }
 }
 unsafe impl ::windows::core::Interface for IAttach {
-    type Vtable = IAttachVtbl;
+    type Vtable = IAttach_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAttachVtbl {
-    pub base: IMAPIPropVtbl,
+pub struct IAttach_Vtbl {
+    pub base: IMAPIProp_Vtbl,
 }
 #[doc = "*Required features: 'Win32_System_AddressBook'*"]
 #[repr(transparent)]
@@ -2164,13 +2164,13 @@ impl ::core::fmt::Debug for IDistList {
     }
 }
 unsafe impl ::windows::core::Interface for IDistList {
-    type Vtable = IDistListVtbl;
+    type Vtable = IDistList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDistListVtbl {
-    pub base: IMAPIContainerVtbl,
+pub struct IDistList_Vtbl {
+    pub base: IMAPIContainer_Vtbl,
     pub CreateEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32, lppmapipropentry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CopyEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: ::windows::core::RawPtr, ulflags: u32) -> ::windows::core::HRESULT,
     pub DeleteEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpentries: *const SBinaryArray, ulflags: u32) -> ::windows::core::HRESULT,
@@ -2226,12 +2226,12 @@ impl ::core::fmt::Debug for IMAPIAdviseSink {
     }
 }
 unsafe impl ::windows::core::Interface for IMAPIAdviseSink {
-    type Vtable = IMAPIAdviseSinkVtbl;
+    type Vtable = IMAPIAdviseSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMAPIAdviseSinkVtbl {
+pub struct IMAPIAdviseSink_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub OnNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnotif: u32, lpnotifications: *mut NOTIFICATION) -> u32,
@@ -2372,13 +2372,13 @@ impl ::core::fmt::Debug for IMAPIContainer {
     }
 }
 unsafe impl ::windows::core::Interface for IMAPIContainer {
-    type Vtable = IMAPIContainerVtbl;
+    type Vtable = IMAPIContainer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMAPIContainerVtbl {
-    pub base: IMAPIPropVtbl,
+pub struct IMAPIContainer_Vtbl {
+    pub base: IMAPIProp_Vtbl,
     pub GetContentsTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lpptable: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetHierarchyTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lpptable: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OpenEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2446,12 +2446,12 @@ impl ::core::fmt::Debug for IMAPIControl {
     }
 }
 unsafe impl ::windows::core::Interface for IMAPIControl {
-    type Vtable = IMAPIControlVtbl;
+    type Vtable = IMAPIControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMAPIControlVtbl {
+pub struct IMAPIControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetLastError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::HRESULT,
     pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, uluiparam: usize) -> ::windows::core::HRESULT,
@@ -2658,13 +2658,13 @@ impl ::core::fmt::Debug for IMAPIFolder {
     }
 }
 unsafe impl ::windows::core::Interface for IMAPIFolder {
-    type Vtable = IMAPIFolderVtbl;
+    type Vtable = IMAPIFolder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMAPIFolderVtbl {
-    pub base: IMAPIContainerVtbl,
+pub struct IMAPIFolder_Vtbl {
+    pub base: IMAPIContainer_Vtbl,
     pub CreateMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lppmessage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CopyMessages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpmsglist: *const SBinaryArray, lpinterface: *const ::windows::core::GUID, lpdestfolder: *const ::core::ffi::c_void, uluiparam: usize, lpprogress: ::windows::core::RawPtr, ulflags: u32) -> ::windows::core::HRESULT,
     pub DeleteMessages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpmsglist: *const SBinaryArray, uluiparam: usize, lpprogress: ::windows::core::RawPtr, ulflags: u32) -> ::windows::core::HRESULT,
@@ -2739,12 +2739,12 @@ impl ::core::fmt::Debug for IMAPIProgress {
     }
 }
 unsafe impl ::windows::core::Interface for IMAPIProgress {
-    type Vtable = IMAPIProgressVtbl;
+    type Vtable = IMAPIProgress_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMAPIProgressVtbl {
+pub struct IMAPIProgress_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Progress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulvalue: u32, ulcount: u32, ultotal: u32) -> ::windows::core::HRESULT,
     pub GetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpulflags: *mut u32) -> ::windows::core::HRESULT,
@@ -2842,12 +2842,12 @@ impl ::core::fmt::Debug for IMAPIProp {
     }
 }
 unsafe impl ::windows::core::Interface for IMAPIProp {
-    type Vtable = IMAPIPropVtbl;
+    type Vtable = IMAPIProp_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMAPIPropVtbl {
+pub struct IMAPIProp_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetLastError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::HRESULT,
     pub SaveChanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32) -> ::windows::core::HRESULT,
@@ -2999,13 +2999,13 @@ impl ::core::fmt::Debug for IMAPIStatus {
     }
 }
 unsafe impl ::windows::core::Interface for IMAPIStatus {
-    type Vtable = IMAPIStatusVtbl;
+    type Vtable = IMAPIStatus_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMAPIStatusVtbl {
-    pub base: IMAPIPropVtbl,
+pub struct IMAPIStatus_Vtbl {
+    pub base: IMAPIProp_Vtbl,
     pub ValidateState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uluiparam: usize, ulflags: u32) -> ::windows::core::HRESULT,
     pub SettingsDialog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uluiparam: usize, ulflags: u32) -> ::windows::core::HRESULT,
     pub ChangePassword: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpoldpass: *const i8, lpnewpass: *const i8, ulflags: u32) -> ::windows::core::HRESULT,
@@ -3149,12 +3149,12 @@ impl ::core::fmt::Debug for IMAPITable {
     }
 }
 unsafe impl ::windows::core::Interface for IMAPITable {
-    type Vtable = IMAPITableVtbl;
+    type Vtable = IMAPITable_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMAPITableVtbl {
+pub struct IMAPITable_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetLastError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::HRESULT,
     pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uleventmask: u32, lpadvisesink: ::windows::core::RawPtr, lpulconnection: *mut u32) -> ::windows::core::HRESULT,
@@ -3426,13 +3426,13 @@ impl ::core::fmt::Debug for IMailUser {
     }
 }
 unsafe impl ::windows::core::Interface for IMailUser {
-    type Vtable = IMailUserVtbl;
+    type Vtable = IMailUser_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMailUserVtbl {
-    pub base: IMAPIPropVtbl,
+pub struct IMailUser_Vtbl {
+    pub base: IMAPIProp_Vtbl,
 }
 #[doc = "*Required features: 'Win32_System_AddressBook'*"]
 #[repr(transparent)]
@@ -3580,13 +3580,13 @@ impl ::core::fmt::Debug for IMessage {
     }
 }
 unsafe impl ::windows::core::Interface for IMessage {
-    type Vtable = IMessageVtbl;
+    type Vtable = IMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMessageVtbl {
-    pub base: IMAPIPropVtbl,
+pub struct IMessage_Vtbl {
+    pub base: IMAPIProp_Vtbl,
     pub GetAttachmentTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lpptable: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OpenAttach: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulattachmentnum: u32, lpinterface: *const ::windows::core::GUID, ulflags: u32, lppattach: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateAttach: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpinterface: *const ::windows::core::GUID, ulflags: u32, lpulattachmentnum: *mut u32, lppattach: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3766,13 +3766,13 @@ impl ::core::fmt::Debug for IMsgStore {
     }
 }
 unsafe impl ::windows::core::Interface for IMsgStore {
-    type Vtable = IMsgStoreVtbl;
+    type Vtable = IMsgStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMsgStoreVtbl {
-    pub base: IMAPIPropVtbl,
+pub struct IMsgStore_Vtbl {
+    pub base: IMAPIProp_Vtbl,
     pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *const ENTRYID, uleventmask: u32, lpadvisesink: ::windows::core::RawPtr, lpulconnection: *mut u32) -> ::windows::core::HRESULT,
     pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulconnection: u32) -> ::windows::core::HRESULT,
     pub CompareEntryIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid1: u32, lpentryid1: *const ENTRYID, cbentryid2: u32, lpentryid2: *const ENTRYID, ulflags: u32, lpulresult: *mut u32) -> ::windows::core::HRESULT,
@@ -3900,13 +3900,13 @@ impl ::core::fmt::Debug for IProfSect {
     }
 }
 unsafe impl ::windows::core::Interface for IProfSect {
-    type Vtable = IProfSectVtbl;
+    type Vtable = IProfSect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProfSectVtbl {
-    pub base: IMAPIPropVtbl,
+pub struct IProfSect_Vtbl {
+    pub base: IMAPIProp_Vtbl,
 }
 #[doc = "*Required features: 'Win32_System_AddressBook'*"]
 #[repr(transparent)]
@@ -4034,13 +4034,13 @@ impl ::core::fmt::Debug for IPropData {
     }
 }
 unsafe impl ::windows::core::Interface for IPropData {
-    type Vtable = IPropDataVtbl;
+    type Vtable = IPropData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropDataVtbl {
-    pub base: IMAPIPropVtbl,
+pub struct IPropData_Vtbl {
+    pub base: IMAPIProp_Vtbl,
     pub HrSetObjAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulaccess: u32) -> ::windows::core::HRESULT,
     pub HrSetPropAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpproptagarray: *mut SPropTagArray, rgulaccess: *mut u32) -> ::windows::core::HRESULT,
     pub HrGetPropAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lppproptagarray: *mut *mut SPropTagArray, lprgulaccess: *mut *mut u32) -> ::windows::core::HRESULT,
@@ -4113,12 +4113,12 @@ impl ::core::fmt::Debug for IProviderAdmin {
     }
 }
 unsafe impl ::windows::core::Interface for IProviderAdmin {
-    type Vtable = IProviderAdminVtbl;
+    type Vtable = IProviderAdmin_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProviderAdminVtbl {
+pub struct IProviderAdmin_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetLastError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::HRESULT,
     pub GetProviderTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lpptable: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4215,12 +4215,12 @@ impl ::core::fmt::Debug for ITableData {
     }
 }
 unsafe impl ::windows::core::Interface for ITableData {
-    type Vtable = ITableDataVtbl;
+    type Vtable = ITableData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITableDataVtbl {
+pub struct ITableData_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub HrGetView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpssortorderset: *mut SSortOrderSet, lpfcallerrelease: *mut ::windows::core::RawPtr, ulcallerdata: u32, lppmapitable: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -4303,12 +4303,12 @@ impl ::core::fmt::Debug for IWABExtInit {
     }
 }
 unsafe impl ::windows::core::Interface for IWABExtInit {
-    type Vtable = IWABExtInitVtbl;
+    type Vtable = IWABExtInit_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea22ebf0_87a4_11d1_9acf_00a0c91f9c8b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWABExtInitVtbl {
+pub struct IWABExtInit_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpwabextdisplay: *mut WABEXTDISPLAY) -> ::windows::core::HRESULT,
@@ -4412,12 +4412,12 @@ impl ::core::fmt::Debug for IWABOBJECT_ {
     }
 }
 unsafe impl ::windows::core::Interface for IWABOBJECT_ {
-    type Vtable = IWABOBJECT_Vtbl;
+    type Vtable = IWABOBJECT__Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWABOBJECT_Vtbl {
+pub struct IWABOBJECT__Vtbl {
     pub QueryInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AddRef: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
@@ -4608,12 +4608,12 @@ impl ::core::fmt::Debug for IWABObject {
     }
 }
 unsafe impl ::windows::core::Interface for IWABObject {
-    type Vtable = IWABObjectVtbl;
+    type Vtable = IWABObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWABObjectVtbl {
+pub struct IWABObject_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetLastError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::HRESULT,
     pub AllocateBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

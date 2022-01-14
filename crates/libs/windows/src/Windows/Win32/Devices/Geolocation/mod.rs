@@ -2611,13 +2611,13 @@ impl ::core::fmt::Debug for ICivicAddressReport {
     }
 }
 unsafe impl ::windows::core::Interface for ICivicAddressReport {
-    type Vtable = ICivicAddressReportVtbl;
+    type Vtable = ICivicAddressReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0b19f70_4adf_445d_87f2_cad8fd711792);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICivicAddressReportVtbl {
-    pub base: ILocationReportVtbl,
+pub struct ICivicAddressReport_Vtbl {
+    pub base: ILocationReport_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetAddressLine1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstraddress1: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2808,14 +2808,14 @@ impl ::core::fmt::Debug for ICivicAddressReportFactory {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ICivicAddressReportFactory {
-    type Vtable = ICivicAddressReportFactoryVtbl;
+    type Vtable = ICivicAddressReportFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf773b93_c64f_4bee_beb2_67c0b8df66e0);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICivicAddressReportFactoryVtbl {
-    pub base: ILocationReportFactoryVtbl,
+pub struct ICivicAddressReportFactory_Vtbl {
+    pub base: ILocationReportFactory_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub CivicAddressReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2872,12 +2872,12 @@ impl ::core::fmt::Debug for IDefaultLocation {
     }
 }
 unsafe impl ::windows::core::Interface for IDefaultLocation {
-    type Vtable = IDefaultLocationVtbl;
+    type Vtable = IDefaultLocation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa65af77e_969a_4a2e_8aca_33bb7cbb1235);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDefaultLocationVtbl {
+pub struct IDefaultLocation_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, plocationreport: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, pplocationreport: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3027,14 +3027,14 @@ impl ::core::fmt::Debug for IDispCivicAddressReport {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IDispCivicAddressReport {
-    type Vtable = IDispCivicAddressReportVtbl;
+    type Vtable = IDispCivicAddressReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16ff1a34_9e30_42c3_b44d_e22513b5767a);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDispCivicAddressReportVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IDispCivicAddressReport_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddressLine1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddress1: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3191,14 +3191,14 @@ impl ::core::fmt::Debug for IDispLatLongReport {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IDispLatLongReport {
-    type Vtable = IDispLatLongReportVtbl;
+    type Vtable = IDispLatLongReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ae32723_389b_4a11_9957_5bdd48fc9617);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDispLatLongReportVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IDispLatLongReport_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Latitude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT,
     pub Longitude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT,
     pub ErrorRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT,
@@ -3310,13 +3310,13 @@ impl ::core::fmt::Debug for ILatLongReport {
     }
 }
 unsafe impl ::windows::core::Interface for ILatLongReport {
-    type Vtable = ILatLongReportVtbl;
+    type Vtable = ILatLongReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fed806d_0ef8_4f07_80ac_36a0beae3134);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILatLongReportVtbl {
-    pub base: ILocationReportVtbl,
+pub struct ILatLongReport_Vtbl {
+    pub base: ILocationReport_Vtbl,
     pub GetLatitude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, platitude: *mut f64) -> ::windows::core::HRESULT,
     pub GetLongitude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plongitude: *mut f64) -> ::windows::core::HRESULT,
     pub GetErrorRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorradius: *mut f64) -> ::windows::core::HRESULT,
@@ -3487,14 +3487,14 @@ impl ::core::fmt::Debug for ILatLongReportFactory {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ILatLongReportFactory {
-    type Vtable = ILatLongReportFactoryVtbl;
+    type Vtable = ILatLongReportFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f0804cb_b114_447d_83dd_390174ebb082);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILatLongReportFactoryVtbl {
-    pub base: ILocationReportFactoryVtbl,
+pub struct ILatLongReportFactory_Vtbl {
+    pub base: ILocationReportFactory_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub LatLongReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3585,12 +3585,12 @@ impl ::core::fmt::Debug for ILocation {
     }
 }
 unsafe impl ::windows::core::Interface for ILocation {
-    type Vtable = ILocationVtbl;
+    type Vtable = ILocation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab2ece69_56d9_4f28_b525_de1b0ee44237);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILocationVtbl {
+pub struct ILocation_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub RegisterForReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevents: ::windows::core::RawPtr, reporttype: *const ::windows::core::GUID, dwrequestedreportinterval: u32) -> ::windows::core::HRESULT,
     pub UnregisterForReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -3661,12 +3661,12 @@ impl ::core::fmt::Debug for ILocationEvents {
     }
 }
 unsafe impl ::windows::core::Interface for ILocationEvents {
-    type Vtable = ILocationEventsVtbl;
+    type Vtable = ILocationEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcae02bbf_798b_4508_a207_35a7906dc73d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILocationEventsVtbl {
+pub struct ILocationEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnLocationChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, plocationreport: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OnStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, newstatus: LOCATION_REPORT_STATUS) -> ::windows::core::HRESULT,
@@ -3721,12 +3721,12 @@ impl ::core::fmt::Debug for ILocationPower {
     }
 }
 unsafe impl ::windows::core::Interface for ILocationPower {
-    type Vtable = ILocationPowerVtbl;
+    type Vtable = ILocationPower_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x193e7729_ab6b_4b12_8617_7596e1bb191c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILocationPowerVtbl {
+pub struct ILocationPower_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3790,12 +3790,12 @@ impl ::core::fmt::Debug for ILocationReport {
     }
 }
 unsafe impl ::windows::core::Interface for ILocationReport {
-    type Vtable = ILocationReportVtbl;
+    type Vtable = ILocationReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8b7f7ee_75d0_4db9_b62d_7a0f369ca456);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILocationReportVtbl {
+pub struct ILocationReport_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetSensorID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psensorid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -3941,14 +3941,14 @@ impl ::core::fmt::Debug for ILocationReportFactory {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ILocationReportFactory {
-    type Vtable = ILocationReportFactoryVtbl;
+    type Vtable = ILocationReportFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2daec322_90b2_47e4_bb08_0da841935a6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILocationReportFactoryVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct ILocationReportFactory_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub ListenForReports: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestedreportinterval: u32) -> ::windows::core::HRESULT,
     pub StopListeningForReports: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut u32) -> ::windows::core::HRESULT,
@@ -4136,14 +4136,14 @@ impl ::core::fmt::Debug for _ICivicAddressReportFactoryEvents {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for _ICivicAddressReportFactoryEvents {
-    type Vtable = _ICivicAddressReportFactoryEventsVtbl;
+    type Vtable = _ICivicAddressReportFactoryEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc96039ff_72ec_4617_89bd_84d88bedc722);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct _ICivicAddressReportFactoryEventsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct _ICivicAddressReportFactoryEvents_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4244,14 +4244,14 @@ impl ::core::fmt::Debug for _ILatLongReportFactoryEvents {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for _ILatLongReportFactoryEvents {
-    type Vtable = _ILatLongReportFactoryEventsVtbl;
+    type Vtable = _ILatLongReportFactoryEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16ee6cb7_ab3c_424b_849f_269be551fcbc);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct _ILatLongReportFactoryEventsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct _ILatLongReportFactoryEvents_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -144,7 +144,7 @@ unsafe impl ::windows::core::RuntimeType for DesktopWindowTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Desktop.DesktopWindowTarget;{6329d6ca-3366-490e-9db3-25312929ac51})");
 }
 unsafe impl ::windows::core::Interface for DesktopWindowTarget {
-    type Vtable = IDesktopWindowTargetVtbl;
+    type Vtable = IDesktopWindowTarget_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6329d6ca_3366_490e_9db3_25312929ac51);
 }
 impl ::windows::core::RuntimeName for DesktopWindowTarget {
@@ -284,12 +284,12 @@ unsafe impl ::core::marker::Sync for DesktopWindowTarget {}
 #[repr(transparent)]
 pub struct IDesktopWindowTarget(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDesktopWindowTarget {
-    type Vtable = IDesktopWindowTargetVtbl;
+    type Vtable = IDesktopWindowTarget_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6329d6ca_3366_490e_9db3_25312929ac51);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDesktopWindowTargetVtbl {
+pub struct IDesktopWindowTarget_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsTopmost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }

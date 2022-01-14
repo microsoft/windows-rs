@@ -91,7 +91,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicKeyboardPlacementOverrid
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for HolographicKeyboardPlacementOverridePreview {
-    type Vtable = IHolographicKeyboardPlacementOverridePreviewVtbl;
+    type Vtable = IHolographicKeyboardPlacementOverridePreview_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8a8ce3a_dfde_5a14_8d5f_182c526dd9c4);
 }
 #[cfg(feature = "deprecated")]
@@ -154,12 +154,12 @@ unsafe impl ::core::marker::Sync for HolographicKeyboardPlacementOverridePreview
 #[repr(transparent)]
 pub struct IHolographicApplicationPreviewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHolographicApplicationPreviewStatics {
-    type Vtable = IHolographicApplicationPreviewStaticsVtbl;
+    type Vtable = IHolographicApplicationPreviewStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe038691_2a3a_45a9_a208_7bed691919f3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHolographicApplicationPreviewStaticsVtbl {
+pub struct IHolographicApplicationPreviewStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsCurrentViewPresentedOnHolographicDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -173,13 +173,13 @@ pub struct IHolographicApplicationPreviewStaticsVtbl {
 pub struct IHolographicKeyboardPlacementOverridePreview(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IHolographicKeyboardPlacementOverridePreview {
-    type Vtable = IHolographicKeyboardPlacementOverridePreviewVtbl;
+    type Vtable = IHolographicKeyboardPlacementOverridePreview_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8a8ce3a_dfde_5a14_8d5f_182c526dd9c4);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHolographicKeyboardPlacementOverridePreviewVtbl {
+pub struct IHolographicKeyboardPlacementOverridePreview_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "deprecated"))]
     pub SetPlacementOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, topcenterposition: super::super::super::Foundation::Numerics::Vector3, normal: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
@@ -200,13 +200,13 @@ pub struct IHolographicKeyboardPlacementOverridePreviewVtbl {
 pub struct IHolographicKeyboardPlacementOverridePreviewStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IHolographicKeyboardPlacementOverridePreviewStatics {
-    type Vtable = IHolographicKeyboardPlacementOverridePreviewStaticsVtbl;
+    type Vtable = IHolographicKeyboardPlacementOverridePreviewStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x202e6039_1ff6_5a06_aac4_a5e24fa3ec4b);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHolographicKeyboardPlacementOverridePreviewStaticsVtbl {
+pub struct IHolographicKeyboardPlacementOverridePreviewStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

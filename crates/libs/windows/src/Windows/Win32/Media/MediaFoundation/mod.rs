@@ -11350,12 +11350,12 @@ impl ::core::fmt::Debug for IAdvancedMediaCapture {
     }
 }
 unsafe impl ::windows::core::Interface for IAdvancedMediaCapture {
-    type Vtable = IAdvancedMediaCaptureVtbl;
+    type Vtable = IAdvancedMediaCapture_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0751585_d216_4344_b5bf_463b68f977bb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAdvancedMediaCaptureVtbl {
+pub struct IAdvancedMediaCapture_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetAdvancedMediaCaptureSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -11405,12 +11405,12 @@ impl ::core::fmt::Debug for IAdvancedMediaCaptureInitializationSettings {
     }
 }
 unsafe impl ::windows::core::Interface for IAdvancedMediaCaptureInitializationSettings {
-    type Vtable = IAdvancedMediaCaptureInitializationSettingsVtbl;
+    type Vtable = IAdvancedMediaCaptureInitializationSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3de21209_8ba6_4f2a_a577_2819b56ff14d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAdvancedMediaCaptureInitializationSettingsVtbl {
+pub struct IAdvancedMediaCaptureInitializationSettings_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetDirectxDeviceManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -11461,12 +11461,12 @@ impl ::core::fmt::Debug for IAdvancedMediaCaptureSettings {
     }
 }
 unsafe impl ::windows::core::Interface for IAdvancedMediaCaptureSettings {
-    type Vtable = IAdvancedMediaCaptureSettingsVtbl;
+    type Vtable = IAdvancedMediaCaptureSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24e0485f_a33e_4aa1_b564_6019b1d14f65);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAdvancedMediaCaptureSettingsVtbl {
+pub struct IAdvancedMediaCaptureSettings_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetDirectxDeviceManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -11516,12 +11516,12 @@ impl ::core::fmt::Debug for IAudioSourceProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IAudioSourceProvider {
-    type Vtable = IAudioSourceProviderVtbl;
+    type Vtable = IAudioSourceProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebbaf249_afc2_4582_91c6_b60df2e84954);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioSourceProviderVtbl {
+pub struct IAudioSourceProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub ProvideInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsamplecount: u32, pdwchannelcount: *mut u32, pinterleavedaudiodata: *mut f32) -> ::windows::core::HRESULT,
 }
@@ -11576,12 +11576,12 @@ impl ::core::fmt::Debug for IClusterDetector {
     }
 }
 unsafe impl ::windows::core::Interface for IClusterDetector {
-    type Vtable = IClusterDetectorVtbl;
+    type Vtable = IClusterDetector_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f07f7b7_c680_41d9_9423_915107ec9ff9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClusterDetectorVtbl {
+pub struct IClusterDetector_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wbaseentrylevel: u16, wclusterentrylevel: u16) -> ::windows::core::HRESULT,
     pub Detect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmaxnumclusters: u32, fminclusterduration: f32, fmaxclusterduration: f32, psrctoc: ::windows::core::RawPtr, ppdsttoc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -11699,12 +11699,12 @@ impl ::core::fmt::Debug for ICodecAPI {
     }
 }
 unsafe impl ::windows::core::Interface for ICodecAPI {
-    type Vtable = ICodecAPIVtbl;
+    type Vtable = ICodecAPI_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x901db4c7_31ce_41a2_85dc_8fa0bf41b8da);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICodecAPIVtbl {
+pub struct ICodecAPI_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub IsModifiable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -11969,14 +11969,14 @@ impl ::core::fmt::Debug for ID3D12VideoDecodeCommandList {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoDecodeCommandList {
-    type Vtable = ID3D12VideoDecodeCommandListVtbl;
+    type Vtable = ID3D12VideoDecodeCommandList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b60536e_ad29_4e64_a269_f853837e5e53);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoDecodeCommandListVtbl {
-    pub base: super::super::Graphics::Direct3D12::ID3D12CommandListVtbl,
+pub struct ID3D12VideoDecodeCommandList_Vtbl {
+    pub base: super::super::Graphics::Direct3D12::ID3D12CommandList_Vtbl,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pallocator: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -12268,14 +12268,14 @@ impl ::core::fmt::Debug for ID3D12VideoDecodeCommandList1 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoDecodeCommandList1 {
-    type Vtable = ID3D12VideoDecodeCommandList1Vtbl;
+    type Vtable = ID3D12VideoDecodeCommandList1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd52f011b_b56e_453c_a05a_a7f311c8f472);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoDecodeCommandList1Vtbl {
-    pub base: ID3D12VideoDecodeCommandListVtbl,
+pub struct ID3D12VideoDecodeCommandList1_Vtbl {
+    pub base: ID3D12VideoDecodeCommandList_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub DecodeFrame1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecoder: ::windows::core::RawPtr, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))]
@@ -12569,14 +12569,14 @@ impl ::core::fmt::Debug for ID3D12VideoDecodeCommandList2 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoDecodeCommandList2 {
-    type Vtable = ID3D12VideoDecodeCommandList2Vtbl;
+    type Vtable = ID3D12VideoDecodeCommandList2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e120880_c114_4153_8036_d247051e1729);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoDecodeCommandList2Vtbl {
-    pub base: ID3D12VideoDecodeCommandList1Vtbl,
+pub struct ID3D12VideoDecodeCommandList2_Vtbl {
+    pub base: ID3D12VideoDecodeCommandList1_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub SetProtectedResourceSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprotectedresourcesession: ::windows::core::RawPtr),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
@@ -12746,14 +12746,14 @@ impl ::core::fmt::Debug for ID3D12VideoDecoder {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoDecoder {
-    type Vtable = ID3D12VideoDecoderVtbl;
+    type Vtable = ID3D12VideoDecoder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc59b6bdc_7720_4074_a136_17a156037470);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoDecoderVtbl {
-    pub base: super::super::Graphics::Direct3D12::ID3D12PageableVtbl,
+pub struct ID3D12VideoDecoder_Vtbl {
+    pub base: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_DESC),
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
@@ -12940,14 +12940,14 @@ impl ::core::fmt::Debug for ID3D12VideoDecoder1 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoDecoder1 {
-    type Vtable = ID3D12VideoDecoder1Vtbl;
+    type Vtable = ID3D12VideoDecoder1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79a2e5fb_ccd2_469a_9fde_195d10951f7e);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoDecoder1Vtbl {
-    pub base: ID3D12VideoDecoderVtbl,
+pub struct ID3D12VideoDecoder1_Vtbl {
+    pub base: ID3D12VideoDecoder_Vtbl,
     pub GetProtectedResourceSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
@@ -13107,14 +13107,14 @@ impl ::core::fmt::Debug for ID3D12VideoDecoderHeap {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoDecoderHeap {
-    type Vtable = ID3D12VideoDecoderHeapVtbl;
+    type Vtable = ID3D12VideoDecoderHeap_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0946b7c9_ebf6_4047_bb73_8683e27dbb1f);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoDecoderHeapVtbl {
-    pub base: super::super::Graphics::Direct3D12::ID3D12PageableVtbl,
+pub struct ID3D12VideoDecoderHeap_Vtbl {
+    pub base: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_HEAP_DESC),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
@@ -13305,14 +13305,14 @@ impl ::core::fmt::Debug for ID3D12VideoDecoderHeap1 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoDecoderHeap1 {
-    type Vtable = ID3D12VideoDecoderHeap1Vtbl;
+    type Vtable = ID3D12VideoDecoderHeap1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda1d98c5_539f_41b2_bf6b_1198a03b6d26);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoDecoderHeap1Vtbl {
-    pub base: ID3D12VideoDecoderHeapVtbl,
+pub struct ID3D12VideoDecoderHeap1_Vtbl {
+    pub base: ID3D12VideoDecoderHeap_Vtbl,
     pub GetProtectedResourceSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -13378,12 +13378,12 @@ impl ::core::fmt::Debug for ID3D12VideoDevice {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12VideoDevice {
-    type Vtable = ID3D12VideoDeviceVtbl;
+    type Vtable = ID3D12VideoDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f052807_0b46_4acc_8a89_364f793718a4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoDeviceVtbl {
+pub struct ID3D12VideoDevice_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CheckFeatureSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, featurevideo: D3D12_FEATURE_VIDEO, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::HRESULT,
     pub CreateVideoDecoder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_DECODER_DESC, riid: *const ::windows::core::GUID, ppvideodecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -13491,13 +13491,13 @@ impl ::core::fmt::Debug for ID3D12VideoDevice1 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12VideoDevice1 {
-    type Vtable = ID3D12VideoDevice1Vtbl;
+    type Vtable = ID3D12VideoDevice1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x981611ad_a144_4c83_9890_f30e26d658ab);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoDevice1Vtbl {
-    pub base: ID3D12VideoDeviceVtbl,
+pub struct ID3D12VideoDevice1_Vtbl {
+    pub base: ID3D12VideoDevice_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub CreateVideoMotionEstimator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideomotionestimator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))]
@@ -13651,13 +13651,13 @@ impl ::core::fmt::Debug for ID3D12VideoDevice2 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12VideoDevice2 {
-    type Vtable = ID3D12VideoDevice2Vtbl;
+    type Vtable = ID3D12VideoDevice2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf019ac49_f838_4a95_9b17_579437c8f513);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoDevice2Vtbl {
-    pub base: ID3D12VideoDevice1Vtbl,
+pub struct ID3D12VideoDevice2_Vtbl {
+    pub base: ID3D12VideoDevice1_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub CreateVideoDecoder1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_DECODER_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideodecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
@@ -13854,13 +13854,13 @@ impl ::core::fmt::Debug for ID3D12VideoDevice3 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12VideoDevice3 {
-    type Vtable = ID3D12VideoDevice3Vtbl;
+    type Vtable = ID3D12VideoDevice3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4243adb4_3a32_4666_973c_0ccc5625dc44);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoDevice3Vtbl {
-    pub base: ID3D12VideoDevice2Vtbl,
+pub struct ID3D12VideoDevice3_Vtbl {
+    pub base: ID3D12VideoDevice2_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub CreateVideoEncoder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_ENCODER_DESC, riid: *const ::windows::core::GUID, ppvideoencoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
@@ -14097,14 +14097,14 @@ impl ::core::fmt::Debug for ID3D12VideoEncodeCommandList {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoEncodeCommandList {
-    type Vtable = ID3D12VideoEncodeCommandListVtbl;
+    type Vtable = ID3D12VideoEncodeCommandList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8455293a_0cbd_4831_9b39_fbdbab724723);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoEncodeCommandListVtbl {
-    pub base: super::super::Graphics::Direct3D12::ID3D12CommandListVtbl,
+pub struct ID3D12VideoEncodeCommandList_Vtbl {
+    pub base: super::super::Graphics::Direct3D12::ID3D12CommandList_Vtbl,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pallocator: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -14419,14 +14419,14 @@ impl ::core::fmt::Debug for ID3D12VideoEncodeCommandList1 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoEncodeCommandList1 {
-    type Vtable = ID3D12VideoEncodeCommandList1Vtbl;
+    type Vtable = ID3D12VideoEncodeCommandList1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94971eca_2bdb_4769_88cf_3675ea757ebc);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoEncodeCommandList1Vtbl {
-    pub base: ID3D12VideoEncodeCommandListVtbl,
+pub struct ID3D12VideoEncodeCommandList1_Vtbl {
+    pub base: ID3D12VideoEncodeCommandList_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub InitializeExtensionCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
@@ -14734,14 +14734,14 @@ impl ::core::fmt::Debug for ID3D12VideoEncodeCommandList2 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoEncodeCommandList2 {
-    type Vtable = ID3D12VideoEncodeCommandList2Vtbl;
+    type Vtable = ID3D12VideoEncodeCommandList2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x895491e2_e701_46a9_9a1f_8d3480ed867a);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoEncodeCommandList2Vtbl {
-    pub base: ID3D12VideoEncodeCommandList1Vtbl,
+pub struct ID3D12VideoEncodeCommandList2_Vtbl {
+    pub base: ID3D12VideoEncodeCommandList1_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub EncodeFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pencoder: ::windows::core::RawPtr, pheap: ::windows::core::RawPtr, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))]
@@ -14930,14 +14930,14 @@ impl ::core::fmt::Debug for ID3D12VideoEncoder {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoEncoder {
-    type Vtable = ID3D12VideoEncoderVtbl;
+    type Vtable = ID3D12VideoEncoder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e0d212d_8df9_44a6_a770_bb289b182737);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoEncoderVtbl {
-    pub base: super::super::Graphics::Direct3D12::ID3D12PageableVtbl,
+pub struct ID3D12VideoEncoder_Vtbl {
+    pub base: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     pub GetNodeMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetEncoderFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D3D12_VIDEO_ENCODER_FLAGS,
     pub GetCodec: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D3D12_VIDEO_ENCODER_CODEC,
@@ -15127,14 +15127,14 @@ impl ::core::fmt::Debug for ID3D12VideoEncoderHeap {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoEncoderHeap {
-    type Vtable = ID3D12VideoEncoderHeapVtbl;
+    type Vtable = ID3D12VideoEncoderHeap_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22b35d96_876a_44c0_b25e_fb8c9c7f1c4a);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoEncoderHeapVtbl {
-    pub base: super::super::Graphics::Direct3D12::ID3D12PageableVtbl,
+pub struct ID3D12VideoEncoderHeap_Vtbl {
+    pub base: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     pub GetNodeMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetEncoderHeapFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D3D12_VIDEO_ENCODER_HEAP_FLAGS,
     pub GetCodec: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D3D12_VIDEO_ENCODER_CODEC,
@@ -15303,14 +15303,14 @@ impl ::core::fmt::Debug for ID3D12VideoExtensionCommand {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoExtensionCommand {
-    type Vtable = ID3D12VideoExtensionCommandVtbl;
+    type Vtable = ID3D12VideoExtensionCommand_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x554e41e8_ae8e_4a8c_b7d2_5b4f274a30e4);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoExtensionCommandVtbl {
-    pub base: super::super::Graphics::Direct3D12::ID3D12PageableVtbl,
+pub struct ID3D12VideoExtensionCommand_Vtbl {
+    pub base: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_EXTENSION_COMMAND_DESC),
     pub GetProtectedResourceSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -15475,14 +15475,14 @@ impl ::core::fmt::Debug for ID3D12VideoMotionEstimator {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoMotionEstimator {
-    type Vtable = ID3D12VideoMotionEstimatorVtbl;
+    type Vtable = ID3D12VideoMotionEstimator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33fdae0e_098b_428f_87bb_34b695de08f8);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoMotionEstimatorVtbl {
-    pub base: super::super::Graphics::Direct3D12::ID3D12PageableVtbl,
+pub struct ID3D12VideoMotionEstimator_Vtbl {
+    pub base: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_MOTION_ESTIMATOR_DESC),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
@@ -15650,14 +15650,14 @@ impl ::core::fmt::Debug for ID3D12VideoMotionVectorHeap {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoMotionVectorHeap {
-    type Vtable = ID3D12VideoMotionVectorHeapVtbl;
+    type Vtable = ID3D12VideoMotionVectorHeap_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5be17987_743a_4061_834b_23d22daea505);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoMotionVectorHeapVtbl {
-    pub base: super::super::Graphics::Direct3D12::ID3D12PageableVtbl,
+pub struct ID3D12VideoMotionVectorHeap_Vtbl {
+    pub base: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
@@ -15884,14 +15884,14 @@ impl ::core::fmt::Debug for ID3D12VideoProcessCommandList {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoProcessCommandList {
-    type Vtable = ID3D12VideoProcessCommandListVtbl;
+    type Vtable = ID3D12VideoProcessCommandList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaeb2543a_167f_4682_acc8_d159ed4a6209);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoProcessCommandListVtbl {
-    pub base: super::super::Graphics::Direct3D12::ID3D12CommandListVtbl,
+pub struct ID3D12VideoProcessCommandList_Vtbl {
+    pub base: super::super::Graphics::Direct3D12::ID3D12CommandList_Vtbl,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pallocator: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -16183,14 +16183,14 @@ impl ::core::fmt::Debug for ID3D12VideoProcessCommandList1 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoProcessCommandList1 {
-    type Vtable = ID3D12VideoProcessCommandList1Vtbl;
+    type Vtable = ID3D12VideoProcessCommandList1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x542c5c4d_7596_434f_8c93_4efa6766f267);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoProcessCommandList1Vtbl {
-    pub base: ID3D12VideoProcessCommandListVtbl,
+pub struct ID3D12VideoProcessCommandList1_Vtbl {
+    pub base: ID3D12VideoProcessCommandList_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub ProcessFrames1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: ::windows::core::RawPtr, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))]
@@ -16484,14 +16484,14 @@ impl ::core::fmt::Debug for ID3D12VideoProcessCommandList2 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoProcessCommandList2 {
-    type Vtable = ID3D12VideoProcessCommandList2Vtbl;
+    type Vtable = ID3D12VideoProcessCommandList2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb525ae4_6ad6_473c_baa7_59b2e37082e4);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoProcessCommandList2Vtbl {
-    pub base: ID3D12VideoProcessCommandList1Vtbl,
+pub struct ID3D12VideoProcessCommandList2_Vtbl {
+    pub base: ID3D12VideoProcessCommandList1_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub SetProtectedResourceSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprotectedresourcesession: ::windows::core::RawPtr),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
@@ -16675,14 +16675,14 @@ impl ::core::fmt::Debug for ID3D12VideoProcessor {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoProcessor {
-    type Vtable = ID3D12VideoProcessorVtbl;
+    type Vtable = ID3D12VideoProcessor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x304fdb32_bede_410a_8545_943ac6a46138);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoProcessorVtbl {
-    pub base: super::super::Graphics::Direct3D12::ID3D12PageableVtbl,
+pub struct ID3D12VideoProcessor_Vtbl {
+    pub base: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     pub GetNodeMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetNumInputStreamDescs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -16892,14 +16892,14 @@ impl ::core::fmt::Debug for ID3D12VideoProcessor1 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoProcessor1 {
-    type Vtable = ID3D12VideoProcessor1Vtbl;
+    type Vtable = ID3D12VideoProcessor1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3cfe615_553f_425c_86d8_ee8c1b1fb01c);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VideoProcessor1Vtbl {
-    pub base: ID3D12VideoProcessorVtbl,
+pub struct ID3D12VideoProcessor1_Vtbl {
+    pub base: ID3D12VideoProcessor_Vtbl,
     pub GetProtectedResourceSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -16984,12 +16984,12 @@ impl ::core::fmt::Debug for IDXVAHD_Device {
     }
 }
 unsafe impl ::windows::core::Interface for IDXVAHD_Device {
-    type Vtable = IDXVAHD_DeviceVtbl;
+    type Vtable = IDXVAHD_Device_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95f12dfd_d77e_49be_815f_57d579634d6d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDXVAHD_DeviceVtbl {
+pub struct IDXVAHD_Device_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
     pub CreateVideoSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: u32, height: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, r#type: DXVAHD_SURFACE_TYPE, numsurfaces: u32, ppsurfaces: *mut ::windows::core::RawPtr, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
@@ -17078,12 +17078,12 @@ impl ::core::fmt::Debug for IDXVAHD_VideoProcessor {
     }
 }
 unsafe impl ::windows::core::Interface for IDXVAHD_VideoProcessor {
-    type Vtable = IDXVAHD_VideoProcessorVtbl;
+    type Vtable = IDXVAHD_VideoProcessor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95f4edf4_6e03_4cd7_be1b_3075d665aa52);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDXVAHD_VideoProcessorVtbl {
+pub struct IDXVAHD_VideoProcessor_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetVideoProcessBltState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: DXVAHD_BLT_STATE, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetVideoProcessBltState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: DXVAHD_BLT_STATE, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -17141,12 +17141,12 @@ impl ::core::fmt::Debug for IDirect3D9ExOverlayExtension {
     }
 }
 unsafe impl ::windows::core::Interface for IDirect3D9ExOverlayExtension {
-    type Vtable = IDirect3D9ExOverlayExtensionVtbl;
+    type Vtable = IDirect3D9ExOverlayExtension_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x187aeb13_aaf5_4c59_876d_e059088c0df8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirect3D9ExOverlayExtensionVtbl {
+pub struct IDirect3D9ExOverlayExtension_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub CheckDeviceOverlayType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adapter: u32, devtype: super::super::Graphics::Direct3D9::D3DDEVTYPE, overlaywidth: u32, overlayheight: u32, overlayformat: super::super::Graphics::Direct3D9::D3DFORMAT, pdisplaymode: *mut super::super::Graphics::Direct3D9::D3DDISPLAYMODEEX, displayrotation: super::super::Graphics::Direct3D9::D3DDISPLAYROTATION, poverlaycaps: *mut D3DOVERLAYCAPS) -> ::windows::core::HRESULT,
@@ -17216,12 +17216,12 @@ impl ::core::fmt::Debug for IDirect3DAuthenticatedChannel9 {
     }
 }
 unsafe impl ::windows::core::Interface for IDirect3DAuthenticatedChannel9 {
-    type Vtable = IDirect3DAuthenticatedChannel9Vtbl;
+    type Vtable = IDirect3DAuthenticatedChannel9_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff24beee_da21_4beb_98b5_d2f899f98af9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirect3DAuthenticatedChannel9Vtbl {
+pub struct IDirect3DAuthenticatedChannel9_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCertificateSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcertificatesize: *mut u32) -> ::windows::core::HRESULT,
     pub GetCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certifactesize: u32, ppcertificate: *mut u8) -> ::windows::core::HRESULT,
@@ -17313,12 +17313,12 @@ impl ::core::fmt::Debug for IDirect3DCryptoSession9 {
     }
 }
 unsafe impl ::windows::core::Interface for IDirect3DCryptoSession9 {
-    type Vtable = IDirect3DCryptoSession9Vtbl;
+    type Vtable = IDirect3DCryptoSession9_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa0ab799_7a9c_48ca_8c5b_237e71a54434);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirect3DCryptoSession9Vtbl {
+pub struct IDirect3DCryptoSession9_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCertificateSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcertificatesize: *mut u32) -> ::windows::core::HRESULT,
     pub GetCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certifactesize: u32, ppcertificate: *mut u8) -> ::windows::core::HRESULT,
@@ -17395,12 +17395,12 @@ impl ::core::fmt::Debug for IDirect3DDevice9Video {
     }
 }
 unsafe impl ::windows::core::Interface for IDirect3DDevice9Video {
-    type Vtable = IDirect3DDevice9VideoVtbl;
+    type Vtable = IDirect3DDevice9Video_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26dc4561_a1ee_4ae7_96da_118a36c0ec95);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirect3DDevice9VideoVtbl {
+pub struct IDirect3DDevice9Video_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetContentProtectionCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptotype: *const ::windows::core::GUID, pdecodeprofile: *const ::windows::core::GUID, pcaps: *mut D3DCONTENTPROTECTIONCAPS) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
@@ -17490,12 +17490,12 @@ impl ::core::fmt::Debug for IDirect3DDeviceManager9 {
     }
 }
 unsafe impl ::windows::core::Interface for IDirect3DDeviceManager9 {
-    type Vtable = IDirect3DDeviceManager9Vtbl;
+    type Vtable = IDirect3DDeviceManager9_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0cade0f_06d5_4cf4_a1c7_f3cdd725aa75);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirect3DDeviceManager9Vtbl {
+pub struct IDirect3DDeviceManager9_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub ResetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, resettoken: u32) -> ::windows::core::HRESULT,
@@ -17573,12 +17573,12 @@ impl ::core::fmt::Debug for IDirectXVideoAccelerationService {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectXVideoAccelerationService {
-    type Vtable = IDirectXVideoAccelerationServiceVtbl;
+    type Vtable = IDirectXVideoAccelerationService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc51a550_d5e7_11d9_af55_00054e43ff02);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectXVideoAccelerationServiceVtbl {
+pub struct IDirectXVideoAccelerationService_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
     pub CreateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: u32, height: u32, backbuffers: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, dxvatype: DXVA2_VideoRenderTargetType, ppsurface: *mut ::windows::core::RawPtr, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
@@ -17659,12 +17659,12 @@ impl ::core::fmt::Debug for IDirectXVideoDecoder {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectXVideoDecoder {
-    type Vtable = IDirectXVideoDecoderVtbl;
+    type Vtable = IDirectXVideoDecoder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2b0810a_fd00_43c9_918c_df94e2d8ef7d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectXVideoDecoderVtbl {
+pub struct IDirectXVideoDecoder_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetVideoDecoderService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppservice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -17770,13 +17770,13 @@ impl ::core::fmt::Debug for IDirectXVideoDecoderService {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectXVideoDecoderService {
-    type Vtable = IDirectXVideoDecoderServiceVtbl;
+    type Vtable = IDirectXVideoDecoderService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc51a551_d5e7_11d9_af55_00054e43ff02);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectXVideoDecoderServiceVtbl {
-    pub base: IDirectXVideoAccelerationServiceVtbl,
+pub struct IDirectXVideoDecoderService_Vtbl {
+    pub base: IDirectXVideoAccelerationService_Vtbl,
     pub GetDecoderDeviceGuids: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32, pguids: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub GetDecoderRenderTargets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pcount: *mut u32, pformats: *mut *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::HRESULT,
@@ -17842,12 +17842,12 @@ impl ::core::fmt::Debug for IDirectXVideoMemoryConfiguration {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectXVideoMemoryConfiguration {
-    type Vtable = IDirectXVideoMemoryConfigurationVtbl;
+    type Vtable = IDirectXVideoMemoryConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7f916dd_db3b_49c1_84d7_e45ef99ec726);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectXVideoMemoryConfigurationVtbl {
+pub struct IDirectXVideoMemoryConfiguration_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetAvailableSurfaceTypeByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtypeindex: u32, pdwtype: *mut DXVA2_SurfaceType) -> ::windows::core::HRESULT,
     pub SetSurfaceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtype: DXVA2_SurfaceType) -> ::windows::core::HRESULT,
@@ -17925,12 +17925,12 @@ impl ::core::fmt::Debug for IDirectXVideoProcessor {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectXVideoProcessor {
-    type Vtable = IDirectXVideoProcessorVtbl;
+    type Vtable = IDirectXVideoProcessor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c3a39f0_916e_4690_804f_4c8001355d25);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectXVideoProcessorVtbl {
+pub struct IDirectXVideoProcessor_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetVideoProcessorService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppservice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -18058,13 +18058,13 @@ impl ::core::fmt::Debug for IDirectXVideoProcessorService {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectXVideoProcessorService {
-    type Vtable = IDirectXVideoProcessorServiceVtbl;
+    type Vtable = IDirectXVideoProcessorService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc51a552_d5e7_11d9_af55_00054e43ff02);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectXVideoProcessorServiceVtbl {
-    pub base: IDirectXVideoAccelerationServiceVtbl,
+pub struct IDirectXVideoProcessorService_Vtbl {
+    pub base: IDirectXVideoAccelerationService_Vtbl,
     pub RegisterVideoProcessorSoftwareDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallbacks: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub GetVideoProcessorDeviceGuids: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodesc: *const DXVA2_VideoDesc, pcount: *mut u32, pguids: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -18146,12 +18146,12 @@ impl ::core::fmt::Debug for IEVRFilterConfig {
     }
 }
 unsafe impl ::windows::core::Interface for IEVRFilterConfig {
-    type Vtable = IEVRFilterConfigVtbl;
+    type Vtable = IEVRFilterConfig_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83e91e85_82c1_4ea7_801d_85dc50b75086);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEVRFilterConfigVtbl {
+pub struct IEVRFilterConfig_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetNumberOfStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmaxstreams: u32) -> ::windows::core::HRESULT,
     pub GetNumberOfStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmaxstreams: *mut u32) -> ::windows::core::HRESULT,
@@ -18236,13 +18236,13 @@ impl ::core::fmt::Debug for IEVRFilterConfigEx {
     }
 }
 unsafe impl ::windows::core::Interface for IEVRFilterConfigEx {
-    type Vtable = IEVRFilterConfigExVtbl;
+    type Vtable = IEVRFilterConfigEx_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaea36028_796d_454f_beee_b48071e24304);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEVRFilterConfigExVtbl {
-    pub base: IEVRFilterConfigVtbl,
+pub struct IEVRFilterConfigEx_Vtbl {
+    pub base: IEVRFilterConfig_Vtbl,
     pub SetConfigPrefs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwconfigflags: u32) -> ::windows::core::HRESULT,
     pub GetConfigPrefs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwconfigflags: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -18309,12 +18309,12 @@ impl ::core::fmt::Debug for IEVRTrustedVideoPlugin {
     }
 }
 unsafe impl ::windows::core::Interface for IEVRTrustedVideoPlugin {
-    type Vtable = IEVRTrustedVideoPluginVtbl;
+    type Vtable = IEVRTrustedVideoPlugin_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83a4ce40_7710_494b_a893_a472049af630);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEVRTrustedVideoPluginVtbl {
+pub struct IEVRTrustedVideoPlugin_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsInTrustedVideoMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pyes: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -18383,12 +18383,12 @@ impl ::core::fmt::Debug for IEVRVideoStreamControl {
     }
 }
 unsafe impl ::windows::core::Interface for IEVRVideoStreamControl {
-    type Vtable = IEVRVideoStreamControlVtbl;
+    type Vtable = IEVRVideoStreamControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0cfe38b_93e7_4772_8957_0400c49a4485);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEVRVideoStreamControlVtbl {
+pub struct IEVRVideoStreamControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetStreamActiveState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factive: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -18453,12 +18453,12 @@ impl ::core::fmt::Debug for IFileClient {
     }
 }
 unsafe impl ::windows::core::Interface for IFileClient {
-    type Vtable = IFileClientVtbl;
+    type Vtable = IFileClient_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfccd196_1244_4840_ab44_480975c4ffe4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileClientVtbl {
+pub struct IFileClient_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetObjectDiskSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqwsize: *mut u64) -> ::windows::core::HRESULT,
     pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfio: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -18548,12 +18548,12 @@ impl ::core::fmt::Debug for IFileIo {
     }
 }
 unsafe impl ::windows::core::Interface for IFileIo {
-    type Vtable = IFileIoVtbl;
+    type Vtable = IFileIo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11993196_1244_4840_ab44_480975c4ffe4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileIoVtbl {
+pub struct IFileIo_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eaccessmode: FILE_ACCESSMODE, eopenmode: FILE_OPENMODE, pwszfilename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -18645,12 +18645,12 @@ impl ::core::fmt::Debug for IMF2DBuffer {
     }
 }
 unsafe impl ::windows::core::Interface for IMF2DBuffer {
-    type Vtable = IMF2DBufferVtbl;
+    type Vtable = IMF2DBuffer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7dc9d5f9_9ed9_44ec_9bbf_0600bb589fbb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMF2DBufferVtbl {
+pub struct IMF2DBuffer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Lock2D: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbscanline0: *mut *mut u8, plpitch: *mut i32) -> ::windows::core::HRESULT,
     pub Unlock2D: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -18764,13 +18764,13 @@ impl ::core::fmt::Debug for IMF2DBuffer2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMF2DBuffer2 {
-    type Vtable = IMF2DBuffer2Vtbl;
+    type Vtable = IMF2DBuffer2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33ae5ea6_4316_436f_8ddd_d73d22f829ec);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMF2DBuffer2Vtbl {
-    pub base: IMF2DBufferVtbl,
+pub struct IMF2DBuffer2_Vtbl {
+    pub base: IMF2DBuffer_Vtbl,
     pub Lock2DSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lockflags: MF2DBuffer_LockFlags, ppbscanline0: *mut *mut u8, plpitch: *mut i32, ppbbufferstart: *mut *mut u8, pcbbufferlength: *mut u32) -> ::windows::core::HRESULT,
     pub Copy2DTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdestbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -18849,12 +18849,12 @@ impl ::core::fmt::Debug for IMFASFContentInfo {
     }
 }
 unsafe impl ::windows::core::Interface for IMFASFContentInfo {
-    type Vtable = IMFASFContentInfoVtbl;
+    type Vtable = IMFASFContentInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1dca5cd_d5da_4451_8e9e_db5c59914ead);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFASFContentInfoVtbl {
+pub struct IMFASFContentInfo_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetHeaderSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistartofcontent: ::windows::core::RawPtr, cbheadersize: *mut u64) -> ::windows::core::HRESULT,
     pub ParseHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piheaderbuffer: ::windows::core::RawPtr, cboffsetwithinheader: u64) -> ::windows::core::HRESULT,
@@ -18968,12 +18968,12 @@ impl ::core::fmt::Debug for IMFASFIndexer {
     }
 }
 unsafe impl ::windows::core::Interface for IMFASFIndexer {
-    type Vtable = IMFASFIndexerVtbl;
+    type Vtable = IMFASFIndexer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53590f48_dc3b_4297_813f_787761ad7b3e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFASFIndexerVtbl {
+pub struct IMFASFIndexer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
     pub GetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT,
@@ -19078,12 +19078,12 @@ impl ::core::fmt::Debug for IMFASFMultiplexer {
     }
 }
 unsafe impl ::windows::core::Interface for IMFASFMultiplexer {
-    type Vtable = IMFASFMultiplexerVtbl;
+    type Vtable = IMFASFMultiplexer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57bdd80a_9b38_4838_b737_c58f670d7d4f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFASFMultiplexerVtbl {
+pub struct IMFASFMultiplexer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, picontentinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
@@ -19177,12 +19177,12 @@ impl ::core::fmt::Debug for IMFASFMutualExclusion {
     }
 }
 unsafe impl ::windows::core::Interface for IMFASFMutualExclusion {
-    type Vtable = IMFASFMutualExclusionVtbl;
+    type Vtable = IMFASFMutualExclusion_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12558291_e399_11d5_bc2a_00b0d0f3f4ab);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFASFMutualExclusionVtbl {
+pub struct IMFASFMutualExclusion_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidtype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub SetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -19468,13 +19468,13 @@ impl ::core::fmt::Debug for IMFASFProfile {
     }
 }
 unsafe impl ::windows::core::Interface for IMFASFProfile {
-    type Vtable = IMFASFProfileVtbl;
+    type Vtable = IMFASFProfile_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd267bf6a_028b_4e0d_903d_43f0ef82d0d4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFASFProfileVtbl {
-    pub base: IMFAttributesVtbl,
+pub struct IMFASFProfile_Vtbl {
+    pub base: IMFAttributes_Vtbl,
     pub GetStreamCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcstreams: *mut u32) -> ::windows::core::HRESULT,
     pub GetStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pwstreamnumber: *mut u16, ppistream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetStreamByNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnumber: u16, ppistream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -19572,12 +19572,12 @@ impl ::core::fmt::Debug for IMFASFSplitter {
     }
 }
 unsafe impl ::windows::core::Interface for IMFASFSplitter {
-    type Vtable = IMFASFSplitterVtbl;
+    type Vtable = IMFASFSplitter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12558295_e399_11d5_bc2a_00b0d0f3f4ab);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFASFSplitterVtbl {
+pub struct IMFASFSplitter_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, picontentinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
@@ -19834,13 +19834,13 @@ impl ::core::fmt::Debug for IMFASFStreamConfig {
     }
 }
 unsafe impl ::windows::core::Interface for IMFASFStreamConfig {
-    type Vtable = IMFASFStreamConfigVtbl;
+    type Vtable = IMFASFStreamConfig_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e8ae8d2_dbbd_4200_9aca_06e6df484913);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFASFStreamConfigVtbl {
-    pub base: IMFAttributesVtbl,
+pub struct IMFASFStreamConfig_Vtbl {
+    pub base: IMFAttributes_Vtbl,
     pub GetStreamType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidstreamtype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetStreamNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u16,
     pub SetStreamNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16) -> ::windows::core::HRESULT,
@@ -19916,12 +19916,12 @@ impl ::core::fmt::Debug for IMFASFStreamPrioritization {
     }
 }
 unsafe impl ::windows::core::Interface for IMFASFStreamPrioritization {
-    type Vtable = IMFASFStreamPrioritizationVtbl;
+    type Vtable = IMFASFStreamPrioritization_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x699bdc27_bbaf_49ff_8e38_9c39c9b5e088);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFASFStreamPrioritizationVtbl {
+pub struct IMFASFStreamPrioritization_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetStreamCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstreamcount: *mut u32) -> ::windows::core::HRESULT,
     pub GetStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pwstreamnumber: *mut u16, pwstreamflags: *mut u16) -> ::windows::core::HRESULT,
@@ -20037,12 +20037,12 @@ impl ::core::fmt::Debug for IMFASFStreamSelector {
     }
 }
 unsafe impl ::windows::core::Interface for IMFASFStreamSelector {
-    type Vtable = IMFASFStreamSelectorVtbl;
+    type Vtable = IMFASFStreamSelector_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd01bad4a_4fa0_4a60_9349_c27e62da9d41);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFASFStreamSelectorVtbl {
+pub struct IMFASFStreamSelector_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetStreamCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcstreams: *mut u32) -> ::windows::core::HRESULT,
     pub GetOutputCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcoutputs: *mut u32) -> ::windows::core::HRESULT,
@@ -20273,13 +20273,13 @@ impl ::core::fmt::Debug for IMFActivate {
     }
 }
 unsafe impl ::windows::core::Interface for IMFActivate {
-    type Vtable = IMFActivateVtbl;
+    type Vtable = IMFActivate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fee9e9a_4a89_47a6_899c_b6a53a70fb67);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFActivateVtbl {
-    pub base: IMFAttributesVtbl,
+pub struct IMFActivate_Vtbl {
+    pub base: IMFAttributes_Vtbl,
     pub ActivateObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ShutdownObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DetachObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -20334,12 +20334,12 @@ impl ::core::fmt::Debug for IMFAsyncCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IMFAsyncCallback {
-    type Vtable = IMFAsyncCallbackVtbl;
+    type Vtable = IMFAsyncCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa27003cf_2354_4f2a_8d6a_ab7cff15437e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFAsyncCallbackVtbl {
+pub struct IMFAsyncCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32, pdwqueue: *mut u32) -> ::windows::core::HRESULT,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pasyncresult: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -20422,13 +20422,13 @@ impl ::core::fmt::Debug for IMFAsyncCallbackLogging {
     }
 }
 unsafe impl ::windows::core::Interface for IMFAsyncCallbackLogging {
-    type Vtable = IMFAsyncCallbackLoggingVtbl;
+    type Vtable = IMFAsyncCallbackLogging_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7a4dca1_f5f0_47b6_b92b_bf0106d25791);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFAsyncCallbackLoggingVtbl {
-    pub base: IMFAsyncCallbackVtbl,
+pub struct IMFAsyncCallbackLogging_Vtbl {
+    pub base: IMFAsyncCallback_Vtbl,
     pub GetObjectPointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void,
     pub GetObjectTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
 }
@@ -20496,12 +20496,12 @@ impl ::core::fmt::Debug for IMFAsyncResult {
     }
 }
 unsafe impl ::windows::core::Interface for IMFAsyncResult {
-    type Vtable = IMFAsyncResultVtbl;
+    type Vtable = IMFAsyncResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac6b7889_0740_4d51_8619_905994a55cc6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFAsyncResultVtbl {
+pub struct IMFAsyncResult_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkstate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -20690,12 +20690,12 @@ impl ::core::fmt::Debug for IMFAttributes {
     }
 }
 unsafe impl ::windows::core::Interface for IMFAttributes {
-    type Vtable = IMFAttributesVtbl;
+    type Vtable = IMFAttributes_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd2d921_c447_44a7_a13c_4adabfc247e3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFAttributesVtbl {
+pub struct IMFAttributes_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub GetItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
@@ -21002,13 +21002,13 @@ impl ::core::fmt::Debug for IMFAudioMediaType {
     }
 }
 unsafe impl ::windows::core::Interface for IMFAudioMediaType {
-    type Vtable = IMFAudioMediaTypeVtbl;
+    type Vtable = IMFAudioMediaType_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26a0adc3_ce26_4672_9304_69552edd3faf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFAudioMediaTypeVtbl {
-    pub base: IMFMediaTypeVtbl,
+pub struct IMFAudioMediaType_Vtbl {
+    pub base: IMFMediaType_Vtbl,
     #[cfg(feature = "Win32_Media_Audio")]
     pub GetAudioFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut super::Audio::WAVEFORMATEX,
     #[cfg(not(feature = "Win32_Media_Audio"))]
@@ -21087,12 +21087,12 @@ impl ::core::fmt::Debug for IMFAudioPolicy {
     }
 }
 unsafe impl ::windows::core::Interface for IMFAudioPolicy {
-    type Vtable = IMFAudioPolicyVtbl;
+    type Vtable = IMFAudioPolicy_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0638c2b_6465_4395_9ae7_a321a9fd2856);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFAudioPolicyVtbl {
+pub struct IMFAudioPolicy_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetGroupingParam: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguidclass: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetGroupingParam: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidclass: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -21177,12 +21177,12 @@ impl ::core::fmt::Debug for IMFAudioStreamVolume {
     }
 }
 unsafe impl ::windows::core::Interface for IMFAudioStreamVolume {
-    type Vtable = IMFAudioStreamVolumeVtbl;
+    type Vtable = IMFAudioStreamVolume_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76b1bbdb_4ec8_4f36_b106_70a9316df593);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFAudioStreamVolumeVtbl {
+pub struct IMFAudioStreamVolume_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetChannelCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
     pub SetChannelVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, flevel: f32) -> ::windows::core::HRESULT,
@@ -21240,12 +21240,12 @@ impl ::core::fmt::Debug for IMFBufferListNotify {
     }
 }
 unsafe impl ::windows::core::Interface for IMFBufferListNotify {
-    type Vtable = IMFBufferListNotifyVtbl;
+    type Vtable = IMFBufferListNotify_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24cd47f7_81d8_4785_adb2_af697a963cd2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFBufferListNotifyVtbl {
+pub struct IMFBufferListNotify_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnAddSourceBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub OnRemoveSourceBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
@@ -21361,12 +21361,12 @@ impl ::core::fmt::Debug for IMFByteStream {
     }
 }
 unsafe impl ::windows::core::Interface for IMFByteStream {
-    type Vtable = IMFByteStreamVtbl;
+    type Vtable = IMFByteStream_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad4c1b00_4bf7_422f_9175_756693d9130d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFByteStreamVtbl {
+pub struct IMFByteStream_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcapabilities: *mut u32) -> ::windows::core::HRESULT,
     pub GetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqwlength: *mut u64) -> ::windows::core::HRESULT,
@@ -21442,12 +21442,12 @@ impl ::core::fmt::Debug for IMFByteStreamBuffering {
     }
 }
 unsafe impl ::windows::core::Interface for IMFByteStreamBuffering {
-    type Vtable = IMFByteStreamBufferingVtbl;
+    type Vtable = IMFByteStreamBuffering_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d66d782_1d4f_4db7_8c63_cb8c77f1ef5e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFByteStreamBufferingVtbl {
+pub struct IMFByteStreamBuffering_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetBufferingParams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparams: *const MFBYTESTREAM_BUFFERING_PARAMS) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -21502,12 +21502,12 @@ impl ::core::fmt::Debug for IMFByteStreamCacheControl {
     }
 }
 unsafe impl ::windows::core::Interface for IMFByteStreamCacheControl {
-    type Vtable = IMFByteStreamCacheControlVtbl;
+    type Vtable = IMFByteStreamCacheControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5042ea4_7a96_4a75_aa7b_2be1ef7f88d5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFByteStreamCacheControlVtbl {
+pub struct IMFByteStreamCacheControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub StopBackgroundTransfer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -21591,13 +21591,13 @@ impl ::core::fmt::Debug for IMFByteStreamCacheControl2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMFByteStreamCacheControl2 {
-    type Vtable = IMFByteStreamCacheControl2Vtbl;
+    type Vtable = IMFByteStreamCacheControl2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71ce469c_f34b_49ea_a56b_2d2a10e51149);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFByteStreamCacheControl2Vtbl {
-    pub base: IMFByteStreamCacheControlVtbl,
+pub struct IMFByteStreamCacheControl2_Vtbl {
+    pub base: IMFByteStreamCacheControl_Vtbl,
     pub GetByteRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcranges: *mut u32, ppranges: *mut *mut MF_BYTE_STREAM_CACHE_RANGE) -> ::windows::core::HRESULT,
     pub SetCacheLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, qwbytes: u64) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -21665,12 +21665,12 @@ impl ::core::fmt::Debug for IMFByteStreamHandler {
     }
 }
 unsafe impl ::windows::core::Interface for IMFByteStreamHandler {
-    type Vtable = IMFByteStreamHandlerVtbl;
+    type Vtable = IMFByteStreamHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb420aa4_765b_4a1f_91fe_d6a8a143924c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFByteStreamHandlerVtbl {
+pub struct IMFByteStreamHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub BeginCreateObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbytestream: ::windows::core::RawPtr, pwszurl: super::super::Foundation::PWSTR, dwflags: u32, pprops: ::windows::core::RawPtr, ppiunknowncancelcookie: *mut *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -21727,12 +21727,12 @@ impl ::core::fmt::Debug for IMFByteStreamProxyClassFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IMFByteStreamProxyClassFactory {
-    type Vtable = IMFByteStreamProxyClassFactoryVtbl;
+    type Vtable = IMFByteStreamProxyClassFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6b43f84_5c0a_42e8_a44d_b1857a76992f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFByteStreamProxyClassFactoryVtbl {
+pub struct IMFByteStreamProxyClassFactory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateByteStreamProxy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbytestream: ::windows::core::RawPtr, pattributes: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -21792,12 +21792,12 @@ impl ::core::fmt::Debug for IMFByteStreamTimeSeek {
     }
 }
 unsafe impl ::windows::core::Interface for IMFByteStreamTimeSeek {
-    type Vtable = IMFByteStreamTimeSeekVtbl;
+    type Vtable = IMFByteStreamTimeSeek_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64976bfa_fb61_4041_9069_8c9a5f659beb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFByteStreamTimeSeekVtbl {
+pub struct IMFByteStreamTimeSeek_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsTimeSeekSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pftimeseekissupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -21860,12 +21860,12 @@ impl ::core::fmt::Debug for IMFCameraOcclusionStateMonitor {
     }
 }
 unsafe impl ::windows::core::Interface for IMFCameraOcclusionStateMonitor {
-    type Vtable = IMFCameraOcclusionStateMonitorVtbl;
+    type Vtable = IMFCameraOcclusionStateMonitor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc692f46_c697_47e2_a72d_7b064617749b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCameraOcclusionStateMonitorVtbl {
+pub struct IMFCameraOcclusionStateMonitor_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -21918,12 +21918,12 @@ impl ::core::fmt::Debug for IMFCameraOcclusionStateReport {
     }
 }
 unsafe impl ::windows::core::Interface for IMFCameraOcclusionStateReport {
-    type Vtable = IMFCameraOcclusionStateReportVtbl;
+    type Vtable = IMFCameraOcclusionStateReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1640b2cf_74da_4462_a43b_b76d3bdc1434);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCameraOcclusionStateReportVtbl {
+pub struct IMFCameraOcclusionStateReport_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetOcclusionState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, occlusionstate: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -21973,12 +21973,12 @@ impl ::core::fmt::Debug for IMFCameraOcclusionStateReportCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IMFCameraOcclusionStateReportCallback {
-    type Vtable = IMFCameraOcclusionStateReportCallbackVtbl;
+    type Vtable = IMFCameraOcclusionStateReportCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e5841c7_3889_4019_9035_783fb19b5948);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCameraOcclusionStateReportCallbackVtbl {
+pub struct IMFCameraOcclusionStateReportCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnOcclusionStateReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, occlusionstatereport: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -22032,12 +22032,12 @@ impl ::core::fmt::Debug for IMFCameraSyncObject {
     }
 }
 unsafe impl ::windows::core::Interface for IMFCameraSyncObject {
-    type Vtable = IMFCameraSyncObjectVtbl;
+    type Vtable = IMFCameraSyncObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6338b23a_3042_49d2_a3ea_ec0fed815407);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCameraSyncObjectVtbl {
+pub struct IMFCameraSyncObject_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub WaitOnSignal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timeoutinms: u32) -> ::windows::core::HRESULT,
     pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
@@ -22119,12 +22119,12 @@ impl ::core::fmt::Debug for IMFCaptureEngine {
     }
 }
 unsafe impl ::windows::core::Interface for IMFCaptureEngine {
-    type Vtable = IMFCaptureEngineVtbl;
+    type Vtable = IMFCaptureEngine_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6bba433_176b_48b2_b375_53aa03473207);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCaptureEngineVtbl {
+pub struct IMFCaptureEngine_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventcallback: ::windows::core::RawPtr, pattributes: ::windows::core::RawPtr, paudiosource: *mut ::core::ffi::c_void, pvideosource: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub StartPreview: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -22184,12 +22184,12 @@ impl ::core::fmt::Debug for IMFCaptureEngineClassFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IMFCaptureEngineClassFactory {
-    type Vtable = IMFCaptureEngineClassFactoryVtbl;
+    type Vtable = IMFCaptureEngineClassFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f02d140_56fc_4302_a705_3a97c78be779);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCaptureEngineClassFactoryVtbl {
+pub struct IMFCaptureEngineClassFactory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -22239,12 +22239,12 @@ impl ::core::fmt::Debug for IMFCaptureEngineOnEventCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IMFCaptureEngineOnEventCallback {
-    type Vtable = IMFCaptureEngineOnEventCallbackVtbl;
+    type Vtable = IMFCaptureEngineOnEventCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaeda51c0_9025_4983_9012_de597b88b089);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCaptureEngineOnEventCallbackVtbl {
+pub struct IMFCaptureEngineOnEventCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -22294,12 +22294,12 @@ impl ::core::fmt::Debug for IMFCaptureEngineOnSampleCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IMFCaptureEngineOnSampleCallback {
-    type Vtable = IMFCaptureEngineOnSampleCallbackVtbl;
+    type Vtable = IMFCaptureEngineOnSampleCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52150b82_ab39_4467_980f_e48bf0822ecd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCaptureEngineOnSampleCallbackVtbl {
+pub struct IMFCaptureEngineOnSampleCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psample: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -22373,13 +22373,13 @@ impl ::core::fmt::Debug for IMFCaptureEngineOnSampleCallback2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMFCaptureEngineOnSampleCallback2 {
-    type Vtable = IMFCaptureEngineOnSampleCallback2Vtbl;
+    type Vtable = IMFCaptureEngineOnSampleCallback2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe37ceed7_340f_4514_9f4d_9c2ae026100b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCaptureEngineOnSampleCallback2Vtbl {
-    pub base: IMFCaptureEngineOnSampleCallbackVtbl,
+pub struct IMFCaptureEngineOnSampleCallback2_Vtbl {
+    pub base: IMFCaptureEngineOnSampleCallback_Vtbl,
     pub OnSynchronizedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -22437,12 +22437,12 @@ impl ::core::fmt::Debug for IMFCapturePhotoConfirmation {
     }
 }
 unsafe impl ::windows::core::Interface for IMFCapturePhotoConfirmation {
-    type Vtable = IMFCapturePhotoConfirmationVtbl;
+    type Vtable = IMFCapturePhotoConfirmation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19f68549_ca8a_4706_a4ef_481dbc95e12c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCapturePhotoConfirmationVtbl {
+pub struct IMFCapturePhotoConfirmation_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetPhotoConfirmationCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnotificationcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetPixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtype: ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -22546,13 +22546,13 @@ impl ::core::fmt::Debug for IMFCapturePhotoSink {
     }
 }
 unsafe impl ::windows::core::Interface for IMFCapturePhotoSink {
-    type Vtable = IMFCapturePhotoSinkVtbl;
+    type Vtable = IMFCapturePhotoSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2d43cc8_48bb_4aa7_95db_10c06977e777);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCapturePhotoSinkVtbl {
-    pub base: IMFCaptureSinkVtbl,
+pub struct IMFCapturePhotoSink_Vtbl {
+    pub base: IMFCaptureSink_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetOutputFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -22687,13 +22687,13 @@ impl ::core::fmt::Debug for IMFCapturePreviewSink {
     }
 }
 unsafe impl ::windows::core::Interface for IMFCapturePreviewSink {
-    type Vtable = IMFCapturePreviewSinkVtbl;
+    type Vtable = IMFCapturePreviewSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77346cfd_5b49_4d73_ace0_5b52a859f2e0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCapturePreviewSinkVtbl {
-    pub base: IMFCaptureSinkVtbl,
+pub struct IMFCapturePreviewSink_Vtbl {
+    pub base: IMFCaptureSink_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetRenderHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -22827,13 +22827,13 @@ impl ::core::fmt::Debug for IMFCaptureRecordSink {
     }
 }
 unsafe impl ::windows::core::Interface for IMFCaptureRecordSink {
-    type Vtable = IMFCaptureRecordSinkVtbl;
+    type Vtable = IMFCaptureRecordSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3323b55a_f92a_4fe2_8edc_e9bfc0634d77);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCaptureRecordSinkVtbl {
-    pub base: IMFCaptureSinkVtbl,
+pub struct IMFCaptureRecordSink_Vtbl {
+    pub base: IMFCaptureSink_Vtbl,
     pub SetOutputByteStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbytestream: ::windows::core::RawPtr, guidcontainertype: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetOutputFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -22909,12 +22909,12 @@ impl ::core::fmt::Debug for IMFCaptureSink {
     }
 }
 unsafe impl ::windows::core::Interface for IMFCaptureSink {
-    type Vtable = IMFCaptureSinkVtbl;
+    type Vtable = IMFCaptureSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72d6135b_35e9_412c_b926_fd5265f2a885);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCaptureSinkVtbl {
+pub struct IMFCaptureSink_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetOutputMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsinkstreamindex: u32, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsinkstreamindex: u32, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -23011,13 +23011,13 @@ impl ::core::fmt::Debug for IMFCaptureSink2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMFCaptureSink2 {
-    type Vtable = IMFCaptureSink2Vtbl;
+    type Vtable = IMFCaptureSink2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9e4219e_6197_4b5e_b888_bee310ab2c59);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCaptureSink2Vtbl {
-    pub base: IMFCaptureSinkVtbl,
+pub struct IMFCaptureSink2_Vtbl {
+    pub base: IMFCaptureSink_Vtbl,
     pub SetOutputMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pmediatype: ::windows::core::RawPtr, pencodingattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -23129,12 +23129,12 @@ impl ::core::fmt::Debug for IMFCaptureSource {
     }
 }
 unsafe impl ::windows::core::Interface for IMFCaptureSource {
-    type Vtable = IMFCaptureSourceVtbl;
+    type Vtable = IMFCaptureSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x439a42a8_0d2c_4505_be83_f79b2a05d5c4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCaptureSourceVtbl {
+pub struct IMFCaptureSource_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCaptureDeviceSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mfcaptureenginedevicetype: MF_CAPTURE_ENGINE_DEVICE_TYPE, ppmediasource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetCaptureDeviceActivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mfcaptureenginedevicetype: MF_CAPTURE_ENGINE_DEVICE_TYPE, ppactivate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -23207,12 +23207,12 @@ impl ::core::fmt::Debug for IMFCdmSuspendNotify {
     }
 }
 unsafe impl ::windows::core::Interface for IMFCdmSuspendNotify {
-    type Vtable = IMFCdmSuspendNotifyVtbl;
+    type Vtable = IMFCdmSuspendNotify_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a5645d2_43bd_47fd_87b7_dcd24cc7d692);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCdmSuspendNotifyVtbl {
+pub struct IMFCdmSuspendNotify_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Begin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub End: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -23283,12 +23283,12 @@ impl ::core::fmt::Debug for IMFClock {
     }
 }
 unsafe impl ::windows::core::Interface for IMFClock {
-    type Vtable = IMFClockVtbl;
+    type Vtable = IMFClock_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2eb1e945_18b8_4139_9b1a_d5d584818530);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFClockVtbl {
+pub struct IMFClock_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetClockCharacteristics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcharacteristics: *mut u32) -> ::windows::core::HRESULT,
     pub GetCorrelatedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwreserved: u32, pllclocktime: *mut i64, phnssystemtime: *mut i64) -> ::windows::core::HRESULT,
@@ -23347,12 +23347,12 @@ impl ::core::fmt::Debug for IMFClockConsumer {
     }
 }
 unsafe impl ::windows::core::Interface for IMFClockConsumer {
-    type Vtable = IMFClockConsumerVtbl;
+    type Vtable = IMFClockConsumer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ef2a662_47c0_4666_b13d_cbb717f2fa2c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFClockConsumerVtbl {
+pub struct IMFClockConsumer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetPresentationClock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationclock: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetPresentationClock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppresentationclock: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -23419,12 +23419,12 @@ impl ::core::fmt::Debug for IMFClockStateSink {
     }
 }
 unsafe impl ::windows::core::Interface for IMFClockStateSink {
-    type Vtable = IMFClockStateSinkVtbl;
+    type Vtable = IMFClockStateSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6696e82_74f7_4f3d_a178_8a5e09c3659f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFClockStateSinkVtbl {
+pub struct IMFClockStateSink_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnClockStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hnssystemtime: i64, llclockstartoffset: i64) -> ::windows::core::HRESULT,
     pub OnClockStop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hnssystemtime: i64) -> ::windows::core::HRESULT,
@@ -23501,12 +23501,12 @@ impl ::core::fmt::Debug for IMFCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IMFCollection {
-    type Vtable = IMFCollectionVtbl;
+    type Vtable = IMFCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bc8a76b_869a_46a3_9b03_fa218a66aebe);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCollectionVtbl {
+pub struct IMFCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetElementCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelements: *mut u32) -> ::windows::core::HRESULT,
     pub GetElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwelementindex: u32, ppunkelement: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -23588,12 +23588,12 @@ impl ::core::fmt::Debug for IMFContentDecryptionModule {
     }
 }
 unsafe impl ::windows::core::Interface for IMFContentDecryptionModule {
-    type Vtable = IMFContentDecryptionModuleVtbl;
+    type Vtable = IMFContentDecryptionModule_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87be986c_10be_4943_bf48_4b54ce1983a2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFContentDecryptionModuleVtbl {
+pub struct IMFContentDecryptionModule_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetContentEnabler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentenabler: ::windows::core::RawPtr, result: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetSuspendNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, notify: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -23663,12 +23663,12 @@ impl ::core::fmt::Debug for IMFContentDecryptionModuleAccess {
     }
 }
 unsafe impl ::windows::core::Interface for IMFContentDecryptionModuleAccess {
-    type Vtable = IMFContentDecryptionModuleAccessVtbl;
+    type Vtable = IMFContentDecryptionModuleAccess_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa853d1f4_e2a0_4303_9edc_f1a68ee43136);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFContentDecryptionModuleAccessVtbl {
+pub struct IMFContentDecryptionModuleAccess_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub CreateContentDecryptionModule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentdecryptionmoduleproperties: ::windows::core::RawPtr, contentdecryptionmodule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -23736,12 +23736,12 @@ impl ::core::fmt::Debug for IMFContentDecryptionModuleFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IMFContentDecryptionModuleFactory {
-    type Vtable = IMFContentDecryptionModuleFactoryVtbl;
+    type Vtable = IMFContentDecryptionModuleFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d5abf16_4cbb_4e08_b977_9ba59049943e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFContentDecryptionModuleFactoryVtbl {
+pub struct IMFContentDecryptionModuleFactory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsTypeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: super::super::Foundation::PWSTR, contenttype: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL,
@@ -23832,12 +23832,12 @@ impl ::core::fmt::Debug for IMFContentDecryptionModuleSession {
     }
 }
 unsafe impl ::windows::core::Interface for IMFContentDecryptionModuleSession {
-    type Vtable = IMFContentDecryptionModuleSessionVtbl;
+    type Vtable = IMFContentDecryptionModuleSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e233efd_1dd2_49e8_b577_d63eee4c0d33);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFContentDecryptionModuleSessionVtbl {
+pub struct IMFContentDecryptionModuleSession_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetSessionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessionid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -23908,12 +23908,12 @@ impl ::core::fmt::Debug for IMFContentDecryptionModuleSessionCallbacks {
     }
 }
 unsafe impl ::windows::core::Interface for IMFContentDecryptionModuleSessionCallbacks {
-    type Vtable = IMFContentDecryptionModuleSessionCallbacksVtbl;
+    type Vtable = IMFContentDecryptionModuleSessionCallbacks_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f96ee40_ad81_4096_8470_59a4b770f89a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFContentDecryptionModuleSessionCallbacksVtbl {
+pub struct IMFContentDecryptionModuleSessionCallbacks_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub KeyMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, messagetype: MF_MEDIAKEYSESSION_MESSAGETYPE, message: *const u8, messagesize: u32, destinationurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -23968,12 +23968,12 @@ impl ::core::fmt::Debug for IMFContentDecryptorContext {
     }
 }
 unsafe impl ::windows::core::Interface for IMFContentDecryptorContext {
-    type Vtable = IMFContentDecryptorContextVtbl;
+    type Vtable = IMFContentDecryptorContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ec4b1bd_43fb_4763_85d2_64fcb5c5f4cb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFContentDecryptorContextVtbl {
+pub struct IMFContentDecryptorContext_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub InitializeHardwareKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputprivatedatabytecount: u32, inputprivatedata: *const ::core::ffi::c_void, outputprivatedata: *mut u64) -> ::windows::core::HRESULT,
 }
@@ -24051,12 +24051,12 @@ impl ::core::fmt::Debug for IMFContentEnabler {
     }
 }
 unsafe impl ::windows::core::Interface for IMFContentEnabler {
-    type Vtable = IMFContentEnablerVtbl;
+    type Vtable = IMFContentEnabler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3c4ef59_49ce_4381_9071_d5bcd044c770);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFContentEnablerVtbl {
+pub struct IMFContentEnabler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetEnableType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -24122,12 +24122,12 @@ impl ::core::fmt::Debug for IMFContentProtectionDevice {
     }
 }
 unsafe impl ::windows::core::Interface for IMFContentProtectionDevice {
-    type Vtable = IMFContentProtectionDeviceVtbl;
+    type Vtable = IMFContentProtectionDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6257174_a060_4c9a_a088_3b1b471cad28);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFContentProtectionDeviceVtbl {
+pub struct IMFContentProtectionDevice_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub InvokeFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: u32, inputbufferbytecount: u32, inputbuffer: *const u8, outputbufferbytecount: *mut u32, outputbuffer: *mut u8) -> ::windows::core::HRESULT,
     pub GetPrivateDataByteCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, privateinputbytecount: *mut u32, privateoutputbytecount: *mut u32) -> ::windows::core::HRESULT,
@@ -24182,12 +24182,12 @@ impl ::core::fmt::Debug for IMFContentProtectionManager {
     }
 }
 unsafe impl ::windows::core::Interface for IMFContentProtectionManager {
-    type Vtable = IMFContentProtectionManagerVtbl;
+    type Vtable = IMFContentProtectionManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacf92459_6a61_42bd_b57c_b43e51203cb0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFContentProtectionManagerVtbl {
+pub struct IMFContentProtectionManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub BeginEnableContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penableractivate: ::windows::core::RawPtr, ptopo: ::windows::core::RawPtr, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EndEnableContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -24243,12 +24243,12 @@ impl ::core::fmt::Debug for IMFD3D12SynchronizationObject {
     }
 }
 unsafe impl ::windows::core::Interface for IMFD3D12SynchronizationObject {
-    type Vtable = IMFD3D12SynchronizationObjectVtbl;
+    type Vtable = IMFD3D12SynchronizationObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x802302b0_82de_45e1_b421_f19ee5bdaf23);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFD3D12SynchronizationObjectVtbl {
+pub struct IMFD3D12SynchronizationObject_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SignalEventOnFinalResourceRelease: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hevent: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
@@ -24318,12 +24318,12 @@ impl ::core::fmt::Debug for IMFD3D12SynchronizationObjectCommands {
     }
 }
 unsafe impl ::windows::core::Interface for IMFD3D12SynchronizationObjectCommands {
-    type Vtable = IMFD3D12SynchronizationObjectCommandsVtbl;
+    type Vtable = IMFD3D12SynchronizationObjectCommands_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09d0f835_92ff_4e53_8efa_40faa551f233);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFD3D12SynchronizationObjectCommandsVtbl {
+pub struct IMFD3D12SynchronizationObjectCommands_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub EnqueueResourceReady: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pproducercommandqueue: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -24389,12 +24389,12 @@ impl ::core::fmt::Debug for IMFDLNASinkInit {
     }
 }
 unsafe impl ::windows::core::Interface for IMFDLNASinkInit {
-    type Vtable = IMFDLNASinkInitVtbl;
+    type Vtable = IMFDLNASinkInit_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c012799_1b61_4c10_bda9_04445be5f561);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFDLNASinkInitVtbl {
+pub struct IMFDLNASinkInit_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbytestream: ::windows::core::RawPtr, fpal: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -24452,12 +24452,12 @@ impl ::core::fmt::Debug for IMFDRMNetHelper {
     }
 }
 unsafe impl ::windows::core::Interface for IMFDRMNetHelper {
-    type Vtable = IMFDRMNetHelperVtbl;
+    type Vtable = IMFDRMNetHelper_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d1ff0ea_679a_4190_8d46_7fa69e8c7e15);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFDRMNetHelperVtbl {
+pub struct IMFDRMNetHelper_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ProcessLicenseRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plicenserequest: *const u8, cblicenserequest: u32, pplicenseresponse: *mut *mut u8, pcblicenseresponse: *mut u32, pbstrkid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -24524,12 +24524,12 @@ impl ::core::fmt::Debug for IMFDXGIBuffer {
     }
 }
 unsafe impl ::windows::core::Interface for IMFDXGIBuffer {
-    type Vtable = IMFDXGIBufferVtbl;
+    type Vtable = IMFDXGIBuffer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7174cfa_1c9e_48b1_8866_626226bfc258);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFDXGIBufferVtbl {
+pub struct IMFDXGIBuffer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSubresourceIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pusubresource: *mut u32) -> ::windows::core::HRESULT,
@@ -24613,12 +24613,12 @@ impl ::core::fmt::Debug for IMFDXGIDeviceManager {
     }
 }
 unsafe impl ::windows::core::Interface for IMFDXGIDeviceManager {
-    type Vtable = IMFDXGIDeviceManagerVtbl;
+    type Vtable = IMFDXGIDeviceManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb533d5d_2db6_40f8_97a9_494692014f07);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFDXGIDeviceManagerVtbl {
+pub struct IMFDXGIDeviceManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CloseDeviceHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdevice: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
@@ -24693,12 +24693,12 @@ impl ::core::fmt::Debug for IMFDXGIDeviceManagerSource {
     }
 }
 unsafe impl ::windows::core::Interface for IMFDXGIDeviceManagerSource {
-    type Vtable = IMFDXGIDeviceManagerSourceVtbl;
+    type Vtable = IMFDXGIDeviceManagerSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20bc074b_7a8d_4609_8c3b_64a0a3b5d7ce);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFDXGIDeviceManagerSourceVtbl {
+pub struct IMFDXGIDeviceManagerSource_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -24756,12 +24756,12 @@ impl ::core::fmt::Debug for IMFDesiredSample {
     }
 }
 unsafe impl ::windows::core::Interface for IMFDesiredSample {
-    type Vtable = IMFDesiredSampleVtbl;
+    type Vtable = IMFDesiredSample_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56c294d0_753e_4260_8d61_a3d8820b1d54);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFDesiredSampleVtbl {
+pub struct IMFDesiredSample_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetDesiredSampleTimeAndDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phnssampletime: *mut i64, phnssampleduration: *mut i64) -> ::windows::core::HRESULT,
     pub SetDesiredSampleTimeAndDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hnssampletime: i64, hnssampleduration: i64),
@@ -24833,12 +24833,12 @@ impl ::core::fmt::Debug for IMFExtendedCameraControl {
     }
 }
 unsafe impl ::windows::core::Interface for IMFExtendedCameraControl {
-    type Vtable = IMFExtendedCameraControlVtbl;
+    type Vtable = IMFExtendedCameraControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38e33520_fca1_4845_a27a_68b7c6ab3789);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFExtendedCameraControlVtbl {
+pub struct IMFExtendedCameraControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
     pub SetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u64) -> ::windows::core::HRESULT,
@@ -24894,12 +24894,12 @@ impl ::core::fmt::Debug for IMFExtendedCameraController {
     }
 }
 unsafe impl ::windows::core::Interface for IMFExtendedCameraController {
-    type Vtable = IMFExtendedCameraControllerVtbl;
+    type Vtable = IMFExtendedCameraController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb91ebfee_ca03_4af4_8a82_a31752f4a0fc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFExtendedCameraControllerVtbl {
+pub struct IMFExtendedCameraController_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetExtendedCameraControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, ulpropertyid: u32, ppcontrol: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -24959,12 +24959,12 @@ impl ::core::fmt::Debug for IMFExtendedCameraIntrinsicModel {
     }
 }
 unsafe impl ::windows::core::Interface for IMFExtendedCameraIntrinsicModel {
-    type Vtable = IMFExtendedCameraIntrinsicModelVtbl;
+    type Vtable = IMFExtendedCameraIntrinsicModel_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c595e64_4630_4231_855a_12842f733245);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFExtendedCameraIntrinsicModelVtbl {
+pub struct IMFExtendedCameraIntrinsicModel_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pintrinsicmodel: *mut MFExtendedCameraIntrinsic_IntrinsicModel) -> ::windows::core::HRESULT,
     pub SetModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pintrinsicmodel: *const MFExtendedCameraIntrinsic_IntrinsicModel) -> ::windows::core::HRESULT,
@@ -25039,12 +25039,12 @@ impl ::core::fmt::Debug for IMFExtendedCameraIntrinsics {
     }
 }
 unsafe impl ::windows::core::Interface for IMFExtendedCameraIntrinsics {
-    type Vtable = IMFExtendedCameraIntrinsicsVtbl;
+    type Vtable = IMFExtendedCameraIntrinsics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x687f6dac_6987_4750_a16a_734d1e7a10fe);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFExtendedCameraIntrinsicsVtbl {
+pub struct IMFExtendedCameraIntrinsics_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub InitializeFromBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbbuffer: *const u8, dwbuffersize: u32) -> ::windows::core::HRESULT,
     pub GetBufferSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwbuffersize: *mut u32) -> ::windows::core::HRESULT,
@@ -25104,12 +25104,12 @@ impl ::core::fmt::Debug for IMFExtendedCameraIntrinsicsDistortionModel6KT {
     }
 }
 unsafe impl ::windows::core::Interface for IMFExtendedCameraIntrinsicsDistortionModel6KT {
-    type Vtable = IMFExtendedCameraIntrinsicsDistortionModel6KTVtbl;
+    type Vtable = IMFExtendedCameraIntrinsicsDistortionModel6KT_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74c2653b_5f55_4eb1_9f0f_18b8f68b7d3d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFExtendedCameraIntrinsicsDistortionModel6KTVtbl {
+pub struct IMFExtendedCameraIntrinsicsDistortionModel6KT_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetDistortionModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdistortionmodel: *mut MFCameraIntrinsic_DistortionModel6KT) -> ::windows::core::HRESULT,
     pub SetDistortionModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdistortionmodel: *const MFCameraIntrinsic_DistortionModel6KT) -> ::windows::core::HRESULT,
@@ -25165,12 +25165,12 @@ impl ::core::fmt::Debug for IMFExtendedCameraIntrinsicsDistortionModelArcTan {
     }
 }
 unsafe impl ::windows::core::Interface for IMFExtendedCameraIntrinsicsDistortionModelArcTan {
-    type Vtable = IMFExtendedCameraIntrinsicsDistortionModelArcTanVtbl;
+    type Vtable = IMFExtendedCameraIntrinsicsDistortionModelArcTan_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x812d5f95_b572_45dc_bafc_ae24199ddda8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFExtendedCameraIntrinsicsDistortionModelArcTanVtbl {
+pub struct IMFExtendedCameraIntrinsicsDistortionModelArcTan_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetDistortionModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdistortionmodel: *mut MFCameraIntrinsic_DistortionModelArcTan) -> ::windows::core::HRESULT,
     pub SetDistortionModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdistortionmodel: *const MFCameraIntrinsic_DistortionModelArcTan) -> ::windows::core::HRESULT,
@@ -25223,12 +25223,12 @@ impl ::core::fmt::Debug for IMFExtendedDRMTypeSupport {
     }
 }
 unsafe impl ::windows::core::Interface for IMFExtendedDRMTypeSupport {
-    type Vtable = IMFExtendedDRMTypeSupportVtbl;
+    type Vtable = IMFExtendedDRMTypeSupport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x332ec562_3758_468d_a784_e38f23552128);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFExtendedDRMTypeSupportVtbl {
+pub struct IMFExtendedDRMTypeSupport_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsTypeSupportedEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, keysystem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, panswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> ::windows::core::HRESULT,
@@ -25281,12 +25281,12 @@ impl ::core::fmt::Debug for IMFFieldOfUseMFTUnlock {
     }
 }
 unsafe impl ::windows::core::Interface for IMFFieldOfUseMFTUnlock {
-    type Vtable = IMFFieldOfUseMFTUnlockVtbl;
+    type Vtable = IMFFieldOfUseMFTUnlock_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x508e71d3_ec66_4fc3_8775_b4b9ed6ba847);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFFieldOfUseMFTUnlockVtbl {
+pub struct IMFFieldOfUseMFTUnlock_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkmft: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -25402,13 +25402,13 @@ impl ::core::fmt::Debug for IMFFinalizableMediaSink {
     }
 }
 unsafe impl ::windows::core::Interface for IMFFinalizableMediaSink {
-    type Vtable = IMFFinalizableMediaSinkVtbl;
+    type Vtable = IMFFinalizableMediaSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeaecb74a_9a50_42ce_9541_6a7f57aa4ad7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFFinalizableMediaSinkVtbl {
-    pub base: IMFMediaSinkVtbl,
+pub struct IMFFinalizableMediaSink_Vtbl {
+    pub base: IMFMediaSink_Vtbl,
     pub BeginFinalize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EndFinalize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -25459,12 +25459,12 @@ impl ::core::fmt::Debug for IMFGetService {
     }
 }
 unsafe impl ::windows::core::Interface for IMFGetService {
-    type Vtable = IMFGetServiceVtbl;
+    type Vtable = IMFGetService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa993888_4383_415a_a930_dd472a8cf6f7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFGetServiceVtbl {
+pub struct IMFGetService_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -25519,12 +25519,12 @@ impl ::core::fmt::Debug for IMFHDCPStatus {
     }
 }
 unsafe impl ::windows::core::Interface for IMFHDCPStatus {
-    type Vtable = IMFHDCPStatusVtbl;
+    type Vtable = IMFHDCPStatus_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde400f54_5bf1_40cf_8964_0bea136b1e3d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFHDCPStatusVtbl {
+pub struct IMFHDCPStatus_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Query: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatus: *mut MF_HDCP_STATUS, pfstatus: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -25650,12 +25650,12 @@ impl ::core::fmt::Debug for IMFHttpDownloadRequest {
     }
 }
 unsafe impl ::windows::core::Interface for IMFHttpDownloadRequest {
-    type Vtable = IMFHttpDownloadRequestVtbl;
+    type Vtable = IMFHttpDownloadRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf779fddf_26e7_4270_8a8b_b983d1859de0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFHttpDownloadRequestVtbl {
+pub struct IMFHttpDownloadRequest_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szheader: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -25746,12 +25746,12 @@ impl ::core::fmt::Debug for IMFHttpDownloadSession {
     }
 }
 unsafe impl ::windows::core::Interface for IMFHttpDownloadSession {
-    type Vtable = IMFHttpDownloadSessionVtbl;
+    type Vtable = IMFHttpDownloadSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71fa9a2c_53ce_4662_a132_1a7e8cbf62db);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFHttpDownloadSessionVtbl {
+pub struct IMFHttpDownloadSession_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetServer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szservername: super::super::Foundation::PWSTR, nport: u32) -> ::windows::core::HRESULT,
@@ -25811,12 +25811,12 @@ impl ::core::fmt::Debug for IMFHttpDownloadSessionProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IMFHttpDownloadSessionProvider {
-    type Vtable = IMFHttpDownloadSessionProviderVtbl;
+    type Vtable = IMFHttpDownloadSessionProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b4cf4b9_3a16_4115_839d_03cc5c99df01);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFHttpDownloadSessionProviderVtbl {
+pub struct IMFHttpDownloadSessionProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateHttpDownloadSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszscheme: super::super::Foundation::PWSTR, ppdownloadsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -25879,12 +25879,12 @@ impl ::core::fmt::Debug for IMFImageSharingEngine {
     }
 }
 unsafe impl ::windows::core::Interface for IMFImageSharingEngine {
-    type Vtable = IMFImageSharingEngineVtbl;
+    type Vtable = IMFImageSharingEngine_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfa0ae8e_7e1c_44d2_ae68_fc4c148a6354);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFImageSharingEngineVtbl {
+pub struct IMFImageSharingEngine_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstream: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -25941,12 +25941,12 @@ impl ::core::fmt::Debug for IMFImageSharingEngineClassFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IMFImageSharingEngineClassFactory {
-    type Vtable = IMFImageSharingEngineClassFactoryVtbl;
+    type Vtable = IMFImageSharingEngineClassFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fc55727_a7fb_4fc8_83ae_8af024990af1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFImageSharingEngineClassFactoryVtbl {
+pub struct IMFImageSharingEngineClassFactory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateInstanceFromUDN: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puniquedevicename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppengine: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -26021,12 +26021,12 @@ impl ::core::fmt::Debug for IMFInputTrustAuthority {
     }
 }
 unsafe impl ::windows::core::Interface for IMFInputTrustAuthority {
-    type Vtable = IMFInputTrustAuthorityVtbl;
+    type Vtable = IMFInputTrustAuthority_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd19f8e98_b126_4446_890c_5dcb7ad71453);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFInputTrustAuthorityVtbl {
+pub struct IMFInputTrustAuthority_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetDecrypter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RequestAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, action: MFPOLICYMANAGER_ACTION, ppcontentenableractivate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -26082,12 +26082,12 @@ impl ::core::fmt::Debug for IMFLocalMFTRegistration {
     }
 }
 unsafe impl ::windows::core::Interface for IMFLocalMFTRegistration {
-    type Vtable = IMFLocalMFTRegistrationVtbl;
+    type Vtable = IMFLocalMFTRegistration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x149c4d73_b4be_4f8d_8b87_079e926b6add);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFLocalMFTRegistrationVtbl {
+pub struct IMFLocalMFTRegistration_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RegisterMFTs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmfts: *const MFT_REGISTRATION_INFO, cmfts: u32) -> ::windows::core::HRESULT,
@@ -26158,12 +26158,12 @@ impl ::core::fmt::Debug for IMFMediaBuffer {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaBuffer {
-    type Vtable = IMFMediaBufferVtbl;
+    type Vtable = IMFMediaBuffer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x045fa593_8799_42b8_bc8d_8968c6453507);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaBufferVtbl {
+pub struct IMFMediaBuffer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Lock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbbuffer: *mut *mut u8, pcbmaxlength: *mut u32, pcbcurrentlength: *mut u32) -> ::windows::core::HRESULT,
     pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -26403,12 +26403,12 @@ impl ::core::fmt::Debug for IMFMediaEngine {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEngine {
-    type Vtable = IMFMediaEngineVtbl;
+    type Vtable = IMFMediaEngine_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98a1b0bb_03eb_4935_ae7c_93c1fa0e1c93);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineVtbl {
+pub struct IMFMediaEngine_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pperror: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, error: MF_MEDIA_ENGINE_ERR) -> ::windows::core::HRESULT,
@@ -26551,12 +26551,12 @@ impl ::core::fmt::Debug for IMFMediaEngineAudioEndpointId {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEngineAudioEndpointId {
-    type Vtable = IMFMediaEngineAudioEndpointIdVtbl;
+    type Vtable = IMFMediaEngineAudioEndpointId_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a3bac98_0e76_49fb_8c20_8a86fd98eaf2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineAudioEndpointIdVtbl {
+pub struct IMFMediaEngineAudioEndpointId_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetAudioEndpointId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszendpointid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -26624,12 +26624,12 @@ impl ::core::fmt::Debug for IMFMediaEngineClassFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEngineClassFactory {
-    type Vtable = IMFMediaEngineClassFactoryVtbl;
+    type Vtable = IMFMediaEngineClassFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d645ace_26aa_4688_9be1_df3516990b93);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineClassFactoryVtbl {
+pub struct IMFMediaEngineClassFactory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pattr: ::windows::core::RawPtr, ppplayer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateTimeRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptimerange: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -26683,12 +26683,12 @@ impl ::core::fmt::Debug for IMFMediaEngineClassFactory2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEngineClassFactory2 {
-    type Vtable = IMFMediaEngineClassFactory2Vtbl;
+    type Vtable = IMFMediaEngineClassFactory2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09083cef_867f_4bf6_8776_dee3a7b42fca);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineClassFactory2Vtbl {
+pub struct IMFMediaEngineClassFactory2_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateMediaKeys2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, defaultcdmstorepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, inprivatecdmstorepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppkeys: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -26743,12 +26743,12 @@ impl ::core::fmt::Debug for IMFMediaEngineClassFactory3 {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEngineClassFactory3 {
-    type Vtable = IMFMediaEngineClassFactory3Vtbl;
+    type Vtable = IMFMediaEngineClassFactory3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3787614f_65f7_4003_b673_ead8293a0e60);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineClassFactory3Vtbl {
+pub struct IMFMediaEngineClassFactory3_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub CreateMediaKeySystemAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppsupportedconfigurationsarray: *const ::windows::core::RawPtr, usize: u32, ppkeyaccess: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -26802,12 +26802,12 @@ impl ::core::fmt::Debug for IMFMediaEngineClassFactory4 {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEngineClassFactory4 {
-    type Vtable = IMFMediaEngineClassFactory4Vtbl;
+    type Vtable = IMFMediaEngineClassFactory4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbe256c1_43cf_4a9b_8cb8_ce8632a34186);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineClassFactory4Vtbl {
+pub struct IMFMediaEngineClassFactory4_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateContentDecryptionModuleFactory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -26908,13 +26908,13 @@ impl ::core::fmt::Debug for IMFMediaEngineClassFactoryEx {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEngineClassFactoryEx {
-    type Vtable = IMFMediaEngineClassFactoryExVtbl;
+    type Vtable = IMFMediaEngineClassFactoryEx_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc56156c6_ea5b_48a5_9df8_fbe035d0929e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineClassFactoryExVtbl {
-    pub base: IMFMediaEngineClassFactoryVtbl,
+pub struct IMFMediaEngineClassFactoryEx_Vtbl {
+    pub base: IMFMediaEngineClassFactory_Vtbl,
     pub CreateMediaSourceExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pattr: ::windows::core::RawPtr, ppmse: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateMediaKeys: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, cdmstorepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppkeys: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -26976,12 +26976,12 @@ impl ::core::fmt::Debug for IMFMediaEngineEME {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEngineEME {
-    type Vtable = IMFMediaEngineEMEVtbl;
+    type Vtable = IMFMediaEngineEME_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50dc93e4_ba4f_4275_ae66_83e836e57469);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineEMEVtbl {
+pub struct IMFMediaEngineEME_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Keys: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keys: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetMediaKeys: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keys: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -27037,12 +27037,12 @@ impl ::core::fmt::Debug for IMFMediaEngineEMENotify {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEngineEMENotify {
-    type Vtable = IMFMediaEngineEMENotifyVtbl;
+    type Vtable = IMFMediaEngineEMENotify_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e184d15_cdb7_4f86_b49e_566689f4a601);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineEMENotifyVtbl {
+pub struct IMFMediaEngineEMENotify_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Encrypted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbinitdata: *const u8, cb: u32, bstrinitdatatype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>),
@@ -27483,13 +27483,13 @@ impl ::core::fmt::Debug for IMFMediaEngineEx {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEngineEx {
-    type Vtable = IMFMediaEngineExVtbl;
+    type Vtable = IMFMediaEngineEx_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83015ead_b1e6_40d0_a98a_37145ffe1ad1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineExVtbl {
-    pub base: IMFMediaEngineVtbl,
+pub struct IMFMediaEngineEx_Vtbl {
+    pub base: IMFMediaEngine_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetSourceFromByteStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbytestream: ::windows::core::RawPtr, purl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -27647,12 +27647,12 @@ impl ::core::fmt::Debug for IMFMediaEngineExtension {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEngineExtension {
-    type Vtable = IMFMediaEngineExtensionVtbl;
+    type Vtable = IMFMediaEngineExtension_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f69d622_20b5_41e9_afdf_89ced1dda04e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineExtensionVtbl {
+pub struct IMFMediaEngineExtension_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CanPlayType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, audioonly: super::super::Foundation::BOOL, mimetype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, panswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> ::windows::core::HRESULT,
@@ -27711,12 +27711,12 @@ impl ::core::fmt::Debug for IMFMediaEngineNeedKeyNotify {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEngineNeedKeyNotify {
-    type Vtable = IMFMediaEngineNeedKeyNotifyVtbl;
+    type Vtable = IMFMediaEngineNeedKeyNotify_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46a30204_a696_4b18_8804_246b8f031bb1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineNeedKeyNotifyVtbl {
+pub struct IMFMediaEngineNeedKeyNotify_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub NeedKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, initdata: *const u8, cb: u32),
 }
@@ -27766,12 +27766,12 @@ impl ::core::fmt::Debug for IMFMediaEngineNotify {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEngineNotify {
-    type Vtable = IMFMediaEngineNotifyVtbl;
+    type Vtable = IMFMediaEngineNotify_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfee7c112_e776_42b5_9bbf_0048524e2bd5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineNotifyVtbl {
+pub struct IMFMediaEngineNotify_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub EventNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: u32, param1: usize, param2: u32) -> ::windows::core::HRESULT,
 }
@@ -27822,12 +27822,12 @@ impl ::core::fmt::Debug for IMFMediaEngineOPMInfo {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEngineOPMInfo {
-    type Vtable = IMFMediaEngineOPMInfoVtbl;
+    type Vtable = IMFMediaEngineOPMInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x765763e6_6c01_4b01_bb0f_b829f60ed28c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineOPMInfoVtbl {
+pub struct IMFMediaEngineOPMInfo_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetOPMInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatus: *mut MF_MEDIA_ENGINE_OPM_STATUS, pconstricted: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -27904,12 +27904,12 @@ impl ::core::fmt::Debug for IMFMediaEngineProtectedContent {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEngineProtectedContent {
-    type Vtable = IMFMediaEngineProtectedContentVtbl;
+    type Vtable = IMFMediaEngineProtectedContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f8021e8_9c8c_487e_bb5c_79aa4779938c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineProtectedContentVtbl {
+pub struct IMFMediaEngineProtectedContent_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub ShareResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkdevicecontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetRequiredProtections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pframeprotectionflags: *mut u32) -> ::windows::core::HRESULT,
@@ -27997,12 +27997,12 @@ impl ::core::fmt::Debug for IMFMediaEngineSrcElements {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEngineSrcElements {
-    type Vtable = IMFMediaEngineSrcElementsVtbl;
+    type Vtable = IMFMediaEngineSrcElements_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a5e5354_b114_4c72_b991_3131d75032ea);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineSrcElementsVtbl {
+pub struct IMFMediaEngineSrcElements_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(feature = "Win32_Foundation")]
@@ -28127,13 +28127,13 @@ impl ::core::fmt::Debug for IMFMediaEngineSrcElementsEx {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEngineSrcElementsEx {
-    type Vtable = IMFMediaEngineSrcElementsExVtbl;
+    type Vtable = IMFMediaEngineSrcElementsEx_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x654a6bb3_e1a3_424a_9908_53a43a0dfda0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineSrcElementsExVtbl {
-    pub base: IMFMediaEngineSrcElementsVtbl,
+pub struct IMFMediaEngineSrcElementsEx_Vtbl {
+    pub base: IMFMediaEngineSrcElements_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddElementEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, purl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ptype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pmedia: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, keysystem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -28199,12 +28199,12 @@ impl ::core::fmt::Debug for IMFMediaEngineSupportsSourceTransfer {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEngineSupportsSourceTransfer {
-    type Vtable = IMFMediaEngineSupportsSourceTransferVtbl;
+    type Vtable = IMFMediaEngineSupportsSourceTransfer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa724b056_1b2e_4642_a6f3_db9420c52908);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineSupportsSourceTransferVtbl {
+pub struct IMFMediaEngineSupportsSourceTransfer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ShouldTransferSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfshouldtransfer: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -28259,12 +28259,12 @@ impl ::core::fmt::Debug for IMFMediaEngineTransferSource {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEngineTransferSource {
-    type Vtable = IMFMediaEngineTransferSourceVtbl;
+    type Vtable = IMFMediaEngineTransferSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24230452_fe54_40cc_94f3_fcc394c340d6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineTransferSourceVtbl {
+pub struct IMFMediaEngineTransferSource_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub TransferSourceToMediaEngine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -28324,12 +28324,12 @@ impl ::core::fmt::Debug for IMFMediaEngineWebSupport {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEngineWebSupport {
-    type Vtable = IMFMediaEngineWebSupportVtbl;
+    type Vtable = IMFMediaEngineWebSupport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba2743a1_07e0_48ef_84b6_9a2ed023ca6c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineWebSupportVtbl {
+pub struct IMFMediaEngineWebSupport_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ShouldDelayTheLoadEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
@@ -28396,12 +28396,12 @@ impl ::core::fmt::Debug for IMFMediaError {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaError {
-    type Vtable = IMFMediaErrorVtbl;
+    type Vtable = IMFMediaError_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc0e10d2_ab2a_4501_a951_06bb1075184c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaErrorVtbl {
+pub struct IMFMediaError_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u16,
     pub GetExtendedErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -28630,13 +28630,13 @@ impl ::core::fmt::Debug for IMFMediaEvent {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEvent {
-    type Vtable = IMFMediaEventVtbl;
+    type Vtable = IMFMediaEvent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf598932_f10c_4e39_bba2_c308f101daa3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEventVtbl {
-    pub base: IMFAttributesVtbl,
+pub struct IMFMediaEvent_Vtbl {
+    pub base: IMFAttributes_Vtbl,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmet: *mut u32) -> ::windows::core::HRESULT,
     pub GetExtendedType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidextendedtype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrstatus: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -28706,12 +28706,12 @@ impl ::core::fmt::Debug for IMFMediaEventGenerator {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEventGenerator {
-    type Vtable = IMFMediaEventGeneratorVtbl;
+    type Vtable = IMFMediaEventGenerator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd0bd52_bcd5_4b89_b62c_eadc0c031e7d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEventGeneratorVtbl {
+pub struct IMFMediaEventGenerator_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub BeginGetEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -28794,12 +28794,12 @@ impl ::core::fmt::Debug for IMFMediaEventQueue {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaEventQueue {
-    type Vtable = IMFMediaEventQueueVtbl;
+    type Vtable = IMFMediaEventQueue_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36f846fc_2256_48b6_b58e_e2b638316581);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEventQueueVtbl {
+pub struct IMFMediaEventQueue_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub BeginGetEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -28878,12 +28878,12 @@ impl ::core::fmt::Debug for IMFMediaKeySession {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaKeySession {
-    type Vtable = IMFMediaKeySessionVtbl;
+    type Vtable = IMFMediaKeySession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24fa67d5_d1d0_4dc5_995c_c0efdc191fb5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaKeySessionVtbl {
+pub struct IMFMediaKeySession_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, code: *mut u16, systemcode: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -29011,13 +29011,13 @@ impl ::core::fmt::Debug for IMFMediaKeySession2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaKeySession2 {
-    type Vtable = IMFMediaKeySession2Vtbl;
+    type Vtable = IMFMediaKeySession2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9707e05_6d55_4636_b185_3de21210bd75);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaKeySession2Vtbl {
-    pub base: IMFMediaKeySessionVtbl,
+pub struct IMFMediaKeySession2_Vtbl {
+    pub base: IMFMediaKeySession_Vtbl,
     pub KeyStatuses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkeystatusesarray: *mut *mut MFMediaKeyStatus, pusize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsessionid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfloaded: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -29086,12 +29086,12 @@ impl ::core::fmt::Debug for IMFMediaKeySessionNotify {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaKeySessionNotify {
-    type Vtable = IMFMediaKeySessionNotifyVtbl;
+    type Vtable = IMFMediaKeySessionNotify_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a0083f9_8947_4c1d_9ce0_cdee22b23135);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaKeySessionNotifyVtbl {
+pub struct IMFMediaKeySessionNotify_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub KeyMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destinationurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, message: *const u8, cb: u32),
@@ -29184,13 +29184,13 @@ impl ::core::fmt::Debug for IMFMediaKeySessionNotify2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaKeySessionNotify2 {
-    type Vtable = IMFMediaKeySessionNotify2Vtbl;
+    type Vtable = IMFMediaKeySessionNotify2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3a9e92a_da88_46b0_a110_6cf953026cb9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaKeySessionNotify2Vtbl {
-    pub base: IMFMediaKeySessionNotifyVtbl,
+pub struct IMFMediaKeySessionNotify2_Vtbl {
+    pub base: IMFMediaKeySessionNotify_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub KeyMessage2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, emessagetype: MF_MEDIAKEYSESSION_MESSAGETYPE, destinationurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbmessage: *const u8, cbmessage: u32),
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -29257,12 +29257,12 @@ impl ::core::fmt::Debug for IMFMediaKeySystemAccess {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaKeySystemAccess {
-    type Vtable = IMFMediaKeySystemAccessVtbl;
+    type Vtable = IMFMediaKeySystemAccess_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaec63fda_7a97_4944_b35c_6c6df8085cc3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaKeySystemAccessVtbl {
+pub struct IMFMediaKeySystemAccess_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub CreateMediaKeys: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdmcustomconfig: ::windows::core::RawPtr, ppkeys: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -29340,12 +29340,12 @@ impl ::core::fmt::Debug for IMFMediaKeys {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaKeys {
-    type Vtable = IMFMediaKeysVtbl;
+    type Vtable = IMFMediaKeys_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cb31c05_61ff_418f_afda_caaf41421a38);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaKeysVtbl {
+pub struct IMFMediaKeys_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mimetype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, initdata: *const u8, cb: u32, customdata: *const u8, cbcustomdata: u32, notify: ::windows::core::RawPtr, ppsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -29455,13 +29455,13 @@ impl ::core::fmt::Debug for IMFMediaKeys2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaKeys2 {
-    type Vtable = IMFMediaKeys2Vtbl;
+    type Vtable = IMFMediaKeys2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45892507_ad66_4de2_83a2_acbb13cd8d43);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaKeys2Vtbl {
-    pub base: IMFMediaKeysVtbl,
+pub struct IMFMediaKeys2_Vtbl {
+    pub base: IMFMediaKeys_Vtbl,
     pub CreateSession2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, esessiontype: MF_MEDIAKEYSESSION_TYPE, pmfmediakeysessionnotify2: ::windows::core::RawPtr, ppsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetServerCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbservercertificate: *const u8, cb: u32) -> ::windows::core::HRESULT,
     pub GetDOMException: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, systemcode: ::windows::core::HRESULT, code: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -29591,13 +29591,13 @@ impl ::core::fmt::Debug for IMFMediaSession {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaSession {
-    type Vtable = IMFMediaSessionVtbl;
+    type Vtable = IMFMediaSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90377834_21d0_4dee_8214_ba2e3e6c1127);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaSessionVtbl {
-    pub base: IMFMediaEventGeneratorVtbl,
+pub struct IMFMediaSession_Vtbl {
+    pub base: IMFMediaEventGenerator_Vtbl,
     pub SetTopology: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsettopologyflags: u32, ptopology: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ClearTopologies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -29870,13 +29870,13 @@ impl ::core::fmt::Debug for IMFMediaSharingEngine {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaSharingEngine {
-    type Vtable = IMFMediaSharingEngineVtbl;
+    type Vtable = IMFMediaSharingEngine_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d3ce1bf_2367_40e0_9eee_40d377cc1b46);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaSharingEngineVtbl {
-    pub base: IMFMediaEngineVtbl,
+pub struct IMFMediaSharingEngine_Vtbl {
+    pub base: IMFMediaEngine_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: *mut DEVICE_INFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -29929,12 +29929,12 @@ impl ::core::fmt::Debug for IMFMediaSharingEngineClassFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaSharingEngineClassFactory {
-    type Vtable = IMFMediaSharingEngineClassFactoryVtbl;
+    type Vtable = IMFMediaSharingEngineClassFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x524d2bc4_b2b1_4fe5_8fac_fa4e4512b4e0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaSharingEngineClassFactoryVtbl {
+pub struct IMFMediaSharingEngineClassFactory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pattr: ::windows::core::RawPtr, ppengine: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -30022,12 +30022,12 @@ impl ::core::fmt::Debug for IMFMediaSink {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaSink {
-    type Vtable = IMFMediaSinkVtbl;
+    type Vtable = IMFMediaSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ef2a660_47c0_4666_b13d_cbb717f2fa2c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaSinkVtbl {
+pub struct IMFMediaSink_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCharacteristics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcharacteristics: *mut u32) -> ::windows::core::HRESULT,
     pub AddStreamSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamsinkidentifier: u32, pmediatype: ::windows::core::RawPtr, ppstreamsink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -30085,12 +30085,12 @@ impl ::core::fmt::Debug for IMFMediaSinkPreroll {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaSinkPreroll {
-    type Vtable = IMFMediaSinkPrerollVtbl;
+    type Vtable = IMFMediaSinkPreroll_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5dfd4b2a_7674_4110_a4e6_8a68fd5f3688);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaSinkPrerollVtbl {
+pub struct IMFMediaSinkPreroll_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub NotifyPreroll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hnsupcomingstarttime: i64) -> ::windows::core::HRESULT,
 }
@@ -30202,13 +30202,13 @@ impl ::core::fmt::Debug for IMFMediaSource {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaSource {
-    type Vtable = IMFMediaSourceVtbl;
+    type Vtable = IMFMediaSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x279a808d_aec7_40c8_9c6b_a6b492c78a66);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaSourceVtbl {
-    pub base: IMFMediaEventGeneratorVtbl,
+pub struct IMFMediaSource_Vtbl {
+    pub base: IMFMediaEventGenerator_Vtbl,
     pub GetCharacteristics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcharacteristics: *mut u32) -> ::windows::core::HRESULT,
     pub CreatePresentationDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppresentationdescriptor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -30385,13 +30385,13 @@ impl ::core::fmt::Debug for IMFMediaSource2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaSource2 {
-    type Vtable = IMFMediaSource2Vtbl;
+    type Vtable = IMFMediaSource2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbb03414_d13b_4786_8319_5ac51fc0a136);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaSource2Vtbl {
-    pub base: IMFMediaSourceExVtbl,
+pub struct IMFMediaSource2_Vtbl {
+    pub base: IMFMediaSourceEx_Vtbl,
     pub SetMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamid: u32, pmediatype: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -30536,13 +30536,13 @@ impl ::core::fmt::Debug for IMFMediaSourceEx {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaSourceEx {
-    type Vtable = IMFMediaSourceExVtbl;
+    type Vtable = IMFMediaSourceEx_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c9b2eb9_86d5_4514_a394_f56664f9f0d8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaSourceExVtbl {
-    pub base: IMFMediaSourceVtbl,
+pub struct IMFMediaSourceEx_Vtbl {
+    pub base: IMFMediaSource_Vtbl,
     pub GetSourceAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppattributes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetStreamAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamidentifier: u32, ppattributes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetD3DManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmanager: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -30632,12 +30632,12 @@ impl ::core::fmt::Debug for IMFMediaSourceExtension {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaSourceExtension {
-    type Vtable = IMFMediaSourceExtensionVtbl;
+    type Vtable = IMFMediaSourceExtension_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe467b94e_a713_4562_a802_816a42e9008a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaSourceExtensionVtbl {
+pub struct IMFMediaSourceExtension_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetSourceBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::core::option::Option<IMFSourceBufferList>,
     pub GetActiveSourceBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::core::option::Option<IMFSourceBufferList>,
@@ -30706,12 +30706,12 @@ impl ::core::fmt::Debug for IMFMediaSourceExtensionLiveSeekableRange {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaSourceExtensionLiveSeekableRange {
-    type Vtable = IMFMediaSourceExtensionLiveSeekableRangeVtbl;
+    type Vtable = IMFMediaSourceExtensionLiveSeekableRange_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d1abfd6_450a_4d92_9efc_d6b6cbc1f4da);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaSourceExtensionLiveSeekableRangeVtbl {
+pub struct IMFMediaSourceExtensionLiveSeekableRange_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetLiveSeekableRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, start: f64, end: f64) -> ::windows::core::HRESULT,
     pub ClearLiveSeekableRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -30770,12 +30770,12 @@ impl ::core::fmt::Debug for IMFMediaSourceExtensionNotify {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaSourceExtensionNotify {
-    type Vtable = IMFMediaSourceExtensionNotifyVtbl;
+    type Vtable = IMFMediaSourceExtensionNotify_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7901327_05dd_4469_a7b7_0e01979e361d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaSourceExtensionNotifyVtbl {
+pub struct IMFMediaSourceExtensionNotify_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnSourceOpen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub OnSourceEnded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
@@ -30827,12 +30827,12 @@ impl ::core::fmt::Debug for IMFMediaSourcePresentationProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaSourcePresentationProvider {
-    type Vtable = IMFMediaSourcePresentationProviderVtbl;
+    type Vtable = IMFMediaSourcePresentationProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e1d600a_c9f3_442d_8c51_a42d2d49452f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaSourcePresentationProviderVtbl {
+pub struct IMFMediaSourcePresentationProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub ForceEndOfPresentation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationdescriptor: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -30883,12 +30883,12 @@ impl ::core::fmt::Debug for IMFMediaSourceTopologyProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaSourceTopologyProvider {
-    type Vtable = IMFMediaSourceTopologyProviderVtbl;
+    type Vtable = IMFMediaSourceTopologyProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e1d6009_c9f3_442d_8c51_a42d2d49452f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaSourceTopologyProviderVtbl {
+pub struct IMFMediaSourceTopologyProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetMediaSourceTopology: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationdescriptor: ::windows::core::RawPtr, pptopology: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -30987,13 +30987,13 @@ impl ::core::fmt::Debug for IMFMediaStream {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaStream {
-    type Vtable = IMFMediaStreamVtbl;
+    type Vtable = IMFMediaStream_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd182108f_4ec6_443f_aa42_a71106ec825f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaStreamVtbl {
-    pub base: IMFMediaEventGeneratorVtbl,
+pub struct IMFMediaStream_Vtbl {
+    pub base: IMFMediaEventGenerator_Vtbl,
     pub GetMediaSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmediasource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetStreamDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstreamdescriptor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RequestSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptoken: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -31122,13 +31122,13 @@ impl ::core::fmt::Debug for IMFMediaStream2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaStream2 {
-    type Vtable = IMFMediaStream2Vtbl;
+    type Vtable = IMFMediaStream2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5bc37d6_75c7_46a1_a132_81b5f723c20f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaStream2Vtbl {
-    pub base: IMFMediaStreamVtbl,
+pub struct IMFMediaStream2_Vtbl {
+    pub base: IMFMediaStream_Vtbl,
     pub SetStreamState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: MF_STREAM_STATE) -> ::windows::core::HRESULT,
     pub GetStreamState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut MF_STREAM_STATE) -> ::windows::core::HRESULT,
 }
@@ -31178,12 +31178,12 @@ impl ::core::fmt::Debug for IMFMediaStreamSourceSampleRequest {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaStreamSourceSampleRequest {
-    type Vtable = IMFMediaStreamSourceSampleRequestVtbl;
+    type Vtable = IMFMediaStreamSourceSampleRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x380b9af9_a85b_4e78_a2af_ea5ce645c6b4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaStreamSourceSampleRequestVtbl {
+pub struct IMFMediaStreamSourceSampleRequest_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -31256,12 +31256,12 @@ impl ::core::fmt::Debug for IMFMediaTimeRange {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaTimeRange {
-    type Vtable = IMFMediaTimeRangeVtbl;
+    type Vtable = IMFMediaTimeRange_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb71a2fc_078a_414e_9df9_8c2531b0aa6c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaTimeRangeVtbl {
+pub struct IMFMediaTimeRange_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pstart: *mut f64) -> ::windows::core::HRESULT,
@@ -31498,13 +31498,13 @@ impl ::core::fmt::Debug for IMFMediaType {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaType {
-    type Vtable = IMFMediaTypeVtbl;
+    type Vtable = IMFMediaType_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44ae0fa8_ea31_4109_8d2e_4cae4997c555);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaTypeVtbl {
-    pub base: IMFAttributesVtbl,
+pub struct IMFMediaType_Vtbl {
+    pub base: IMFAttributes_Vtbl,
     pub GetMajorType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidmajortype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsCompressedFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfcompressed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -31585,12 +31585,12 @@ impl ::core::fmt::Debug for IMFMediaTypeHandler {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMediaTypeHandler {
-    type Vtable = IMFMediaTypeHandlerVtbl;
+    type Vtable = IMFMediaTypeHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe93dcf6c_4b07_4e1e_8123_aa16ed6eadf5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaTypeHandlerVtbl {
+pub struct IMFMediaTypeHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub IsMediaTypeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmediatype: ::windows::core::RawPtr, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetMediaTypeCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwtypecount: *mut u32) -> ::windows::core::HRESULT,
@@ -31680,12 +31680,12 @@ impl ::core::fmt::Debug for IMFMetadata {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMetadata {
-    type Vtable = IMFMetadataVtbl;
+    type Vtable = IMFMetadata_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf88cfb8c_ef16_4991_b450_cb8c69e51704);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMetadataVtbl {
+pub struct IMFMetadata_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszrfc1766: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -31763,12 +31763,12 @@ impl ::core::fmt::Debug for IMFMetadataProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMetadataProvider {
-    type Vtable = IMFMetadataProviderVtbl;
+    type Vtable = IMFMetadataProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56181d2d_e221_4adb_b1c8_3cee6a53f76f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMetadataProviderVtbl {
+pub struct IMFMetadataProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetMFMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationdescriptor: ::windows::core::RawPtr, dwstreamidentifier: u32, dwflags: u32, ppmfmetadata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -31824,12 +31824,12 @@ impl ::core::fmt::Debug for IMFMuxStreamAttributesManager {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMuxStreamAttributesManager {
-    type Vtable = IMFMuxStreamAttributesManagerVtbl;
+    type Vtable = IMFMuxStreamAttributesManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce8bd576_e440_43b3_be34_1e53f565f7e8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMuxStreamAttributesManagerVtbl {
+pub struct IMFMuxStreamAttributesManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetStreamCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmuxstreamcount: *mut u32) -> ::windows::core::HRESULT,
     pub GetAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmuxstreamindex: u32, ppstreamattributes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -31904,12 +31904,12 @@ impl ::core::fmt::Debug for IMFMuxStreamMediaTypeManager {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMuxStreamMediaTypeManager {
-    type Vtable = IMFMuxStreamMediaTypeManagerVtbl;
+    type Vtable = IMFMuxStreamMediaTypeManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x505a2c72_42f7_4690_aeab_8f513d0ffdb8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMuxStreamMediaTypeManagerVtbl {
+pub struct IMFMuxStreamMediaTypeManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetStreamCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmuxstreamcount: *mut u32) -> ::windows::core::HRESULT,
     pub GetMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmuxstreamindex: u32, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -31974,12 +31974,12 @@ impl ::core::fmt::Debug for IMFMuxStreamSampleManager {
     }
 }
 unsafe impl ::windows::core::Interface for IMFMuxStreamSampleManager {
-    type Vtable = IMFMuxStreamSampleManagerVtbl;
+    type Vtable = IMFMuxStreamSampleManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74abbc19_b1cc_4e41_bb8b_9d9b86a8f6ca);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMuxStreamSampleManagerVtbl {
+pub struct IMFMuxStreamSampleManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetStreamCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmuxstreamcount: *mut u32) -> ::windows::core::HRESULT,
     pub GetSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmuxstreamindex: u32, ppsample: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -32053,12 +32053,12 @@ impl ::core::fmt::Debug for IMFNetCredential {
     }
 }
 unsafe impl ::windows::core::Interface for IMFNetCredential {
-    type Vtable = IMFNetCredentialVtbl;
+    type Vtable = IMFNetCredential_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b87ef6a_7ed8_434f_ba0e_184fac1628d1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFNetCredentialVtbl {
+pub struct IMFNetCredential_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbdata: *const u8, cbdata: u32, fdataisencrypted: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -32137,12 +32137,12 @@ impl ::core::fmt::Debug for IMFNetCredentialCache {
     }
 }
 unsafe impl ::windows::core::Interface for IMFNetCredentialCache {
-    type Vtable = IMFNetCredentialCacheVtbl;
+    type Vtable = IMFNetCredentialCache_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b87ef6c_7ed8_434f_ba0e_184fac1628d1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFNetCredentialCacheVtbl {
+pub struct IMFNetCredentialCache_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, pszrealm: super::super::Foundation::PWSTR, dwauthenticationflags: u32, ppcred: *mut ::windows::core::RawPtr, pdwrequirementsflags: *mut u32) -> ::windows::core::HRESULT,
@@ -32211,12 +32211,12 @@ impl ::core::fmt::Debug for IMFNetCredentialManager {
     }
 }
 unsafe impl ::windows::core::Interface for IMFNetCredentialManager {
-    type Vtable = IMFNetCredentialManagerVtbl;
+    type Vtable = IMFNetCredentialManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b87ef6b_7ed8_434f_ba0e_184fac1628d1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFNetCredentialManagerVtbl {
+pub struct IMFNetCredentialManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub BeginGetCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparam: *const MFNetCredentialManagerGetParam, pcallback: ::windows::core::RawPtr, pstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -32287,12 +32287,12 @@ impl ::core::fmt::Debug for IMFNetCrossOriginSupport {
     }
 }
 unsafe impl ::windows::core::Interface for IMFNetCrossOriginSupport {
-    type Vtable = IMFNetCrossOriginSupportVtbl;
+    type Vtable = IMFNetCrossOriginSupport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc2b7d44_a72d_49d5_8376_1480dee58b22);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFNetCrossOriginSupportVtbl {
+pub struct IMFNetCrossOriginSupport_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCrossOriginPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppolicy: *mut MF_CROSS_ORIGIN_POLICY) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -32369,12 +32369,12 @@ impl ::core::fmt::Debug for IMFNetProxyLocator {
     }
 }
 unsafe impl ::windows::core::Interface for IMFNetProxyLocator {
-    type Vtable = IMFNetProxyLocatorVtbl;
+    type Vtable = IMFNetProxyLocator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9cd0383_a268_4bb4_82de_658d53574d41);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFNetProxyLocatorVtbl {
+pub struct IMFNetProxyLocator_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub FindFirstProxy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszhost: super::super::Foundation::PWSTR, pszurl: super::super::Foundation::PWSTR, freserved: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -32436,12 +32436,12 @@ impl ::core::fmt::Debug for IMFNetProxyLocatorFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IMFNetProxyLocatorFactory {
-    type Vtable = IMFNetProxyLocatorFactoryVtbl;
+    type Vtable = IMFNetProxyLocatorFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9cd0384_a268_4bb4_82de_658d53574d41);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFNetProxyLocatorFactoryVtbl {
+pub struct IMFNetProxyLocatorFactory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateProxyLocator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszprotocol: super::super::Foundation::PWSTR, ppproxylocator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -32501,12 +32501,12 @@ impl ::core::fmt::Debug for IMFNetResourceFilter {
     }
 }
 unsafe impl ::windows::core::Interface for IMFNetResourceFilter {
-    type Vtable = IMFNetResourceFilterVtbl;
+    type Vtable = IMFNetResourceFilter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x091878a3_bf11_4a5c_bc9f_33995b06ef2d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFNetResourceFilterVtbl {
+pub struct IMFNetResourceFilter_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub OnRedirect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, pvbcancel: *mut i16) -> ::windows::core::HRESULT,
@@ -32573,12 +32573,12 @@ impl ::core::fmt::Debug for IMFNetSchemeHandlerConfig {
     }
 }
 unsafe impl ::windows::core::Interface for IMFNetSchemeHandlerConfig {
-    type Vtable = IMFNetSchemeHandlerConfigVtbl;
+    type Vtable = IMFNetSchemeHandlerConfig_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7be19e73_c9bf_468a_ac5a_a5e8653bec87);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFNetSchemeHandlerConfigVtbl {
+pub struct IMFNetSchemeHandlerConfig_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetNumberOfSupportedProtocols: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcprotocols: *mut u32) -> ::windows::core::HRESULT,
     pub GetSupportedProtocolType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nprotocolindex: u32, pnprotocoltype: *mut MFNETSOURCE_PROTOCOL_TYPE) -> ::windows::core::HRESULT,
@@ -32634,12 +32634,12 @@ impl ::core::fmt::Debug for IMFObjectReferenceStream {
     }
 }
 unsafe impl ::windows::core::Interface for IMFObjectReferenceStream {
-    type Vtable = IMFObjectReferenceStreamVtbl;
+    type Vtable = IMFObjectReferenceStream_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09ef5be3_c8a7_469e_8b70_73bf25bb193f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFObjectReferenceStreamVtbl {
+pub struct IMFObjectReferenceStream_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SaveReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub LoadReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -32860,13 +32860,13 @@ impl ::core::fmt::Debug for IMFOutputPolicy {
     }
 }
 unsafe impl ::windows::core::Interface for IMFOutputPolicy {
-    type Vtable = IMFOutputPolicyVtbl;
+    type Vtable = IMFOutputPolicy_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f00f10a_daed_41af_ab26_5fdfa4dfba3c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFOutputPolicyVtbl {
-    pub base: IMFAttributesVtbl,
+pub struct IMFOutputPolicy_Vtbl {
+    pub base: IMFAttributes_Vtbl,
     pub GenerateRequiredSchemas: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, guidoutputsubtype: ::windows::core::GUID, rgguidprotectionschemassupported: *const ::windows::core::GUID, cprotectionschemassupported: u32, pprequiredprotectionschemas: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetOriginatorID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidoriginatorid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetMinimumGRLVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwminimumgrlversion: *mut u32) -> ::windows::core::HRESULT,
@@ -33087,13 +33087,13 @@ impl ::core::fmt::Debug for IMFOutputSchema {
     }
 }
 unsafe impl ::windows::core::Interface for IMFOutputSchema {
-    type Vtable = IMFOutputSchemaVtbl;
+    type Vtable = IMFOutputSchema_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7be0fc5b_abd9_44fb_a5c8_f50136e71599);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFOutputSchemaVtbl {
-    pub base: IMFAttributesVtbl,
+pub struct IMFOutputSchema_Vtbl {
+    pub base: IMFAttributes_Vtbl,
     pub GetSchemaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidschematype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetConfigurationData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwval: *mut u32) -> ::windows::core::HRESULT,
     pub GetOriginatorID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidoriginatorid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -33149,12 +33149,12 @@ impl ::core::fmt::Debug for IMFOutputTrustAuthority {
     }
 }
 unsafe impl ::windows::core::Interface for IMFOutputTrustAuthority {
-    type Vtable = IMFOutputTrustAuthorityVtbl;
+    type Vtable = IMFOutputTrustAuthority_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd19f8e94_b126_4446_890c_5dcb7ad71453);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFOutputTrustAuthorityVtbl {
+pub struct IMFOutputTrustAuthority_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paction: *mut MFPOLICYMANAGER_ACTION) -> ::windows::core::HRESULT,
     pub SetPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppolicy: *const ::windows::core::RawPtr, npolicy: u32, ppbticket: *mut *mut u8, pcbticket: *mut u32) -> ::windows::core::HRESULT,
@@ -33205,12 +33205,12 @@ impl ::core::fmt::Debug for IMFPMPClient {
     }
 }
 unsafe impl ::windows::core::Interface for IMFPMPClient {
-    type Vtable = IMFPMPClientVtbl;
+    type Vtable = IMFPMPClient_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c4e655d_ead8_4421_b6b9_54dcdbbdf820);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFPMPClientVtbl {
+pub struct IMFPMPClient_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetPMPHost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmphost: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -33260,12 +33260,12 @@ impl ::core::fmt::Debug for IMFPMPClientApp {
     }
 }
 unsafe impl ::windows::core::Interface for IMFPMPClientApp {
-    type Vtable = IMFPMPClientAppVtbl;
+    type Vtable = IMFPMPClientApp_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc004f646_be2c_48f3_93a2_a0983eba1108);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFPMPClientAppVtbl {
+pub struct IMFPMPClientApp_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetPMPHost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmphost: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -33325,12 +33325,12 @@ impl ::core::fmt::Debug for IMFPMPHost {
     }
 }
 unsafe impl ::windows::core::Interface for IMFPMPHost {
-    type Vtable = IMFPMPHostVtbl;
+    type Vtable = IMFPMPHost_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf70ca1a9_fdc7_4782_b994_adffb1c98606);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFPMPHostVtbl {
+pub struct IMFPMPHost_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub LockProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub UnlockProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -33395,12 +33395,12 @@ impl ::core::fmt::Debug for IMFPMPHostApp {
     }
 }
 unsafe impl ::windows::core::Interface for IMFPMPHostApp {
-    type Vtable = IMFPMPHostAppVtbl;
+    type Vtable = IMFPMPHostApp_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84d2054a_3aa1_4728_a3b0_440a418cf49c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFPMPHostAppVtbl {
+pub struct IMFPMPHostApp_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub LockProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub UnlockProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -33464,12 +33464,12 @@ impl ::core::fmt::Debug for IMFPMPServer {
     }
 }
 unsafe impl ::windows::core::Interface for IMFPMPServer {
-    type Vtable = IMFPMPServerVtbl;
+    type Vtable = IMFPMPServer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x994e23af_1cc2_493c_b9fa_46f1cb040fa4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFPMPServerVtbl {
+pub struct IMFPMPServer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub LockProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub UnlockProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -33617,12 +33617,12 @@ impl ::core::fmt::Debug for IMFPMediaItem {
     }
 }
 unsafe impl ::windows::core::Interface for IMFPMediaItem {
-    type Vtable = IMFPMediaItemVtbl;
+    type Vtable = IMFPMediaItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90eb3e6b_ecbf_45cc_b1da_c6fe3ea70d57);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFPMediaItemVtbl {
+pub struct IMFPMediaItem_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetMediaPlayer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmediaplayer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -33892,12 +33892,12 @@ impl ::core::fmt::Debug for IMFPMediaPlayer {
     }
 }
 unsafe impl ::windows::core::Interface for IMFPMediaPlayer {
-    type Vtable = IMFPMediaPlayerVtbl;
+    type Vtable = IMFPMediaPlayer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa714590a_58af_430a_85bf_44f5ec838d85);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFPMediaPlayerVtbl {
+pub struct IMFPMediaPlayer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Play: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -34019,12 +34019,12 @@ impl ::core::fmt::Debug for IMFPMediaPlayerCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IMFPMediaPlayerCallback {
-    type Vtable = IMFPMediaPlayerCallbackVtbl;
+    type Vtable = IMFPMediaPlayerCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x766c8ffb_5fdb_4fea_a28d_b912996f51bd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFPMediaPlayerCallbackVtbl {
+pub struct IMFPMediaPlayerCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub OnMediaPlayerEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventheader: *const MFP_EVENT_HEADER),
@@ -34103,12 +34103,12 @@ impl ::core::fmt::Debug for IMFPluginControl {
     }
 }
 unsafe impl ::windows::core::Interface for IMFPluginControl {
-    type Vtable = IMFPluginControlVtbl;
+    type Vtable = IMFPluginControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c6c44bf_1db6_435b_9249_e8cd10fdec96);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFPluginControlVtbl {
+pub struct IMFPluginControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetPreferredClsid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugintype: u32, selector: super::super::Foundation::PWSTR, clsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -34225,13 +34225,13 @@ impl ::core::fmt::Debug for IMFPluginControl2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMFPluginControl2 {
-    type Vtable = IMFPluginControl2Vtbl;
+    type Vtable = IMFPluginControl2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6982083_3ddc_45cb_af5e_0f7a8ce4de77);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFPluginControl2Vtbl {
-    pub base: IMFPluginControlVtbl,
+pub struct IMFPluginControl2_Vtbl {
+    pub base: IMFPluginControl_Vtbl,
     pub SetPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, policy: MF_PLUGIN_CONTROL_POLICY) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -34354,13 +34354,13 @@ impl ::core::fmt::Debug for IMFPresentationClock {
     }
 }
 unsafe impl ::windows::core::Interface for IMFPresentationClock {
-    type Vtable = IMFPresentationClockVtbl;
+    type Vtable = IMFPresentationClock_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x868ce85c_8ea9_4f55_ab82_b009a910a805);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFPresentationClockVtbl {
-    pub base: IMFClockVtbl,
+pub struct IMFPresentationClock_Vtbl {
+    pub base: IMFClock_Vtbl,
     pub SetTimeSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptimesource: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetTimeSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptimesource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phnsclocktime: *mut i64) -> ::windows::core::HRESULT,
@@ -34594,13 +34594,13 @@ impl ::core::fmt::Debug for IMFPresentationDescriptor {
     }
 }
 unsafe impl ::windows::core::Interface for IMFPresentationDescriptor {
-    type Vtable = IMFPresentationDescriptorVtbl;
+    type Vtable = IMFPresentationDescriptor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03cb2711_24d7_4db6_a17f_f3a7a479a536);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFPresentationDescriptorVtbl {
-    pub base: IMFAttributesVtbl,
+pub struct IMFPresentationDescriptor_Vtbl {
+    pub base: IMFAttributes_Vtbl,
     pub GetStreamDescriptorCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwdescriptorcount: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetStreamDescriptorByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pfselected: *mut super::super::Foundation::BOOL, ppdescriptor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -34701,13 +34701,13 @@ impl ::core::fmt::Debug for IMFPresentationTimeSource {
     }
 }
 unsafe impl ::windows::core::Interface for IMFPresentationTimeSource {
-    type Vtable = IMFPresentationTimeSourceVtbl;
+    type Vtable = IMFPresentationTimeSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ff12cce_f76f_41c2_863b_1666c8e5e139);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFPresentationTimeSourceVtbl {
-    pub base: IMFClockVtbl,
+pub struct IMFPresentationTimeSource_Vtbl {
+    pub base: IMFClock_Vtbl,
     pub GetUnderlyingClock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppclock: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -34761,12 +34761,12 @@ impl ::core::fmt::Debug for IMFProtectedEnvironmentAccess {
     }
 }
 unsafe impl ::windows::core::Interface for IMFProtectedEnvironmentAccess {
-    type Vtable = IMFProtectedEnvironmentAccessVtbl;
+    type Vtable = IMFProtectedEnvironmentAccess_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef5dc845_f0d9_4ec9_b00c_cb5183d38434);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFProtectedEnvironmentAccessVtbl {
+pub struct IMFProtectedEnvironmentAccess_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Call: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputlength: u32, input: *const u8, outputlength: u32, output: *mut u8) -> ::windows::core::HRESULT,
     pub ReadGRL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputlength: *mut u32, output: *mut *mut u8) -> ::windows::core::HRESULT,
@@ -34835,12 +34835,12 @@ impl ::core::fmt::Debug for IMFQualityAdvise {
     }
 }
 unsafe impl ::windows::core::Interface for IMFQualityAdvise {
-    type Vtable = IMFQualityAdviseVtbl;
+    type Vtable = IMFQualityAdvise_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec15e2e9_e36b_4f7c_8758_77d452ef4ce7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFQualityAdviseVtbl {
+pub struct IMFQualityAdvise_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetDropMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, edropmode: MF_QUALITY_DROP_MODE) -> ::windows::core::HRESULT,
     pub SetQualityLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, equalitylevel: MF_QUALITY_LEVEL) -> ::windows::core::HRESULT,
@@ -34937,13 +34937,13 @@ impl ::core::fmt::Debug for IMFQualityAdvise2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMFQualityAdvise2 {
-    type Vtable = IMFQualityAdvise2Vtbl;
+    type Vtable = IMFQualityAdvise2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3706f0d_8ea2_4886_8000_7155e9ec2eae);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFQualityAdvise2Vtbl {
-    pub base: IMFQualityAdviseVtbl,
+pub struct IMFQualityAdvise2_Vtbl {
+    pub base: IMFQualityAdvise_Vtbl,
     pub NotifyQualityEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevent: ::windows::core::RawPtr, pdwflags: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -34998,12 +34998,12 @@ impl ::core::fmt::Debug for IMFQualityAdviseLimits {
     }
 }
 unsafe impl ::windows::core::Interface for IMFQualityAdviseLimits {
-    type Vtable = IMFQualityAdviseLimitsVtbl;
+    type Vtable = IMFQualityAdviseLimits_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfcd8e4d_30b5_4567_acaa_8eb5b7853dc9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFQualityAdviseLimitsVtbl {
+pub struct IMFQualityAdviseLimits_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetMaximumDropMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pedropmode: *mut MF_QUALITY_DROP_MODE) -> ::windows::core::HRESULT,
     pub GetMinimumQualityLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pequalitylevel: *mut MF_QUALITY_LEVEL) -> ::windows::core::HRESULT,
@@ -35074,12 +35074,12 @@ impl ::core::fmt::Debug for IMFQualityManager {
     }
 }
 unsafe impl ::windows::core::Interface for IMFQualityManager {
-    type Vtable = IMFQualityManagerVtbl;
+    type Vtable = IMFQualityManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d009d86_5b9f_4115_b1fc_9f80d52ab8ab);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFQualityManagerVtbl {
+pub struct IMFQualityManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub NotifyTopology: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptopology: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub NotifyPresentationClock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclock: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -35140,12 +35140,12 @@ impl ::core::fmt::Debug for IMFRateControl {
     }
 }
 unsafe impl ::windows::core::Interface for IMFRateControl {
-    type Vtable = IMFRateControlVtbl;
+    type Vtable = IMFRateControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88ddcd21_03c3_4275_91ed_55ee3929328f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFRateControlVtbl {
+pub struct IMFRateControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fthin: super::super::Foundation::BOOL, flrate: f32) -> ::windows::core::HRESULT,
@@ -35215,12 +35215,12 @@ impl ::core::fmt::Debug for IMFRateSupport {
     }
 }
 unsafe impl ::windows::core::Interface for IMFRateSupport {
-    type Vtable = IMFRateSupportVtbl;
+    type Vtable = IMFRateSupport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a9ccdbc_d797_4563_9667_94ec5d79292d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFRateSupportVtbl {
+pub struct IMFRateSupport_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetSlowestRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, edirection: MFRATE_DIRECTION, fthin: super::super::Foundation::BOOL, pflrate: *mut f32) -> ::windows::core::HRESULT,
@@ -35286,12 +35286,12 @@ impl ::core::fmt::Debug for IMFReadWriteClassFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IMFReadWriteClassFactory {
-    type Vtable = IMFReadWriteClassFactoryVtbl;
+    type Vtable = IMFReadWriteClassFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7fe2e12_661c_40da_92f9_4f002ab67627);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFReadWriteClassFactoryVtbl {
+pub struct IMFReadWriteClassFactory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateInstanceFromURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, pwszurl: super::super::Foundation::PWSTR, pattributes: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -35354,12 +35354,12 @@ impl ::core::fmt::Debug for IMFRealTimeClient {
     }
 }
 unsafe impl ::windows::core::Interface for IMFRealTimeClient {
-    type Vtable = IMFRealTimeClientVtbl;
+    type Vtable = IMFRealTimeClient_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2347d60b_3fb5_480c_8803_8df3adcd3ef0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFRealTimeClientVtbl {
+pub struct IMFRealTimeClient_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RegisterThreads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtaskindex: u32, wszclass: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -35423,12 +35423,12 @@ impl ::core::fmt::Debug for IMFRealTimeClientEx {
     }
 }
 unsafe impl ::windows::core::Interface for IMFRealTimeClientEx {
-    type Vtable = IMFRealTimeClientExVtbl;
+    type Vtable = IMFRealTimeClientEx_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03910848_ab16_4611_b100_17b88ae2f248);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFRealTimeClientExVtbl {
+pub struct IMFRealTimeClientEx_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RegisterThreadsEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwtaskindex: *mut u32, wszclassname: super::super::Foundation::PWSTR, lbasepriority: i32) -> ::windows::core::HRESULT,
@@ -35484,12 +35484,12 @@ impl ::core::fmt::Debug for IMFRelativePanelReport {
     }
 }
 unsafe impl ::windows::core::Interface for IMFRelativePanelReport {
-    type Vtable = IMFRelativePanelReportVtbl;
+    type Vtable = IMFRelativePanelReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf25362ea_2c0e_447f_81e2_755914cdc0c3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFRelativePanelReportVtbl {
+pub struct IMFRelativePanelReport_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetRelativePanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, panel: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -35578,13 +35578,13 @@ impl ::core::fmt::Debug for IMFRelativePanelWatcher {
     }
 }
 unsafe impl ::windows::core::Interface for IMFRelativePanelWatcher {
-    type Vtable = IMFRelativePanelWatcherVtbl;
+    type Vtable = IMFRelativePanelWatcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x421af7f6_573e_4ad0_8fda_2e57cedb18c6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFRelativePanelWatcherVtbl {
-    pub base: IMFShutdownVtbl,
+pub struct IMFRelativePanelWatcher_Vtbl {
+    pub base: IMFShutdown_Vtbl,
     pub BeginGetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, pstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EndGetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, pprelativepanelreport: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprelativepanelreport: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -35635,12 +35635,12 @@ impl ::core::fmt::Debug for IMFRemoteAsyncCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IMFRemoteAsyncCallback {
-    type Vtable = IMFRemoteAsyncCallbackVtbl;
+    type Vtable = IMFRemoteAsyncCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa27003d0_2354_4f2a_8d6a_ab7cff15437e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFRemoteAsyncCallbackVtbl {
+pub struct IMFRemoteAsyncCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT, premoteresult: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -35690,12 +35690,12 @@ impl ::core::fmt::Debug for IMFRemoteDesktopPlugin {
     }
 }
 unsafe impl ::windows::core::Interface for IMFRemoteDesktopPlugin {
-    type Vtable = IMFRemoteDesktopPluginVtbl;
+    type Vtable = IMFRemoteDesktopPlugin_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cde6309_cae0_4940_907e_c1ec9c3d1d4a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFRemoteDesktopPluginVtbl {
+pub struct IMFRemoteDesktopPlugin_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub UpdateTopology: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptopology: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -35749,12 +35749,12 @@ impl ::core::fmt::Debug for IMFRemoteProxy {
     }
 }
 unsafe impl ::windows::core::Interface for IMFRemoteProxy {
-    type Vtable = IMFRemoteProxyVtbl;
+    type Vtable = IMFRemoteProxy_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x994e23ad_1cc2_493c_b9fa_46f1cb040fa4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFRemoteProxyVtbl {
+pub struct IMFRemoteProxy_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetRemoteObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetRemoteHost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -35823,12 +35823,12 @@ impl ::core::fmt::Debug for IMFSAMIStyle {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSAMIStyle {
-    type Vtable = IMFSAMIStyleVtbl;
+    type Vtable = IMFSAMIStyle_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7e025dd_5303_4a62_89d6_e747e1efac73);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSAMIStyleVtbl {
+pub struct IMFSAMIStyle_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetStyleCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -35911,12 +35911,12 @@ impl ::core::fmt::Debug for IMFSSLCertificateManager {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSSLCertificateManager {
-    type Vtable = IMFSSLCertificateManagerVtbl;
+    type Vtable = IMFSSLCertificateManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61f7d887_1230_4a8b_aeba_8ad434d1a64d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSSLCertificateManagerVtbl {
+pub struct IMFSSLCertificateManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetClientCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, ppbdata: *mut *mut u8, pcbdata: *mut u32) -> ::windows::core::HRESULT,
@@ -36200,13 +36200,13 @@ impl ::core::fmt::Debug for IMFSample {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSample {
-    type Vtable = IMFSampleVtbl;
+    type Vtable = IMFSample_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc40a00f2_b93a_4d80_ae8c_5a1c634f58e4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSampleVtbl {
-    pub base: IMFAttributesVtbl,
+pub struct IMFSample_Vtbl {
+    pub base: IMFAttributes_Vtbl,
     pub GetSampleFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsampleflags: *mut u32) -> ::windows::core::HRESULT,
     pub SetSampleFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsampleflags: u32) -> ::windows::core::HRESULT,
     pub GetSampleTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phnssampletime: *mut i64) -> ::windows::core::HRESULT,
@@ -36272,12 +36272,12 @@ impl ::core::fmt::Debug for IMFSampleAllocatorControl {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSampleAllocatorControl {
-    type Vtable = IMFSampleAllocatorControlVtbl;
+    type Vtable = IMFSampleAllocatorControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda62b958_3a38_4a97_bd27_149c640c0771);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSampleAllocatorControlVtbl {
+pub struct IMFSampleAllocatorControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetDefaultAllocator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputstreamid: u32, pallocator: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetAllocatorUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputstreamid: u32, pdwinputstreamid: *mut u32, peusage: *mut MFSampleAllocatorUsage) -> ::windows::core::HRESULT,
@@ -36376,13 +36376,13 @@ impl ::core::fmt::Debug for IMFSampleGrabberSinkCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSampleGrabberSinkCallback {
-    type Vtable = IMFSampleGrabberSinkCallbackVtbl;
+    type Vtable = IMFSampleGrabberSinkCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c7b80bf_ee42_4b59_b1df_55668e1bdca8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSampleGrabberSinkCallbackVtbl {
-    pub base: IMFClockStateSinkVtbl,
+pub struct IMFSampleGrabberSinkCallback_Vtbl {
+    pub base: IMFClockStateSink_Vtbl,
     pub OnSetPresentationClock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationclock: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OnProcessSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidmajormediatype: *const ::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32) -> ::windows::core::HRESULT,
     pub OnShutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -36505,13 +36505,13 @@ impl ::core::fmt::Debug for IMFSampleGrabberSinkCallback2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSampleGrabberSinkCallback2 {
-    type Vtable = IMFSampleGrabberSinkCallback2Vtbl;
+    type Vtable = IMFSampleGrabberSinkCallback2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca86aa50_c46e_429e_ab27_16d6ac6844cb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSampleGrabberSinkCallback2Vtbl {
-    pub base: IMFSampleGrabberSinkCallbackVtbl,
+pub struct IMFSampleGrabberSinkCallback2_Vtbl {
+    pub base: IMFSampleGrabberSinkCallback_Vtbl,
     pub OnProcessSampleEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidmajormediatype: *const ::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32, pattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -36568,12 +36568,12 @@ impl ::core::fmt::Debug for IMFSampleOutputStream {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSampleOutputStream {
-    type Vtable = IMFSampleOutputStreamVtbl;
+    type Vtable = IMFSampleOutputStream_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8feed468_6f7e_440d_869a_49bdd283ad0d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSampleOutputStreamVtbl {
+pub struct IMFSampleOutputStream_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub BeginWriteSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psample: ::windows::core::RawPtr, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EndWriteSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -36643,12 +36643,12 @@ impl ::core::fmt::Debug for IMFSampleProtection {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSampleProtection {
-    type Vtable = IMFSampleProtectionVtbl;
+    type Vtable = IMFSampleProtection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e36395f_c7b9_43c4_a54d_512b4af63c95);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSampleProtectionVtbl {
+pub struct IMFSampleProtection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetInputProtectionVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwversion: *mut u32) -> ::windows::core::HRESULT,
     pub GetOutputProtectionVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwversion: *mut u32) -> ::windows::core::HRESULT,
@@ -36715,12 +36715,12 @@ impl ::core::fmt::Debug for IMFSaveJob {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSaveJob {
-    type Vtable = IMFSaveJobVtbl;
+    type Vtable = IMFSaveJob_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9931663_80bf_4c6e_98af_5dcf58747d1f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSaveJobVtbl {
+pub struct IMFSaveJob_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub BeginSave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstream: ::windows::core::RawPtr, pcallback: ::windows::core::RawPtr, pstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EndSave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -36782,12 +36782,12 @@ impl ::core::fmt::Debug for IMFSchemeHandler {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSchemeHandler {
-    type Vtable = IMFSchemeHandlerVtbl;
+    type Vtable = IMFSchemeHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d4c7b74_52a0_4bb7_b0db_55f29f47a668);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSchemeHandlerVtbl {
+pub struct IMFSchemeHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub BeginCreateObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, dwflags: u32, pprops: ::windows::core::RawPtr, ppiunknowncancelcookie: *mut *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -36843,12 +36843,12 @@ impl ::core::fmt::Debug for IMFSecureBuffer {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSecureBuffer {
-    type Vtable = IMFSecureBufferVtbl;
+    type Vtable = IMFSecureBuffer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1209904_e584_4752_a2d6_7f21693f8b21);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSecureBufferVtbl {
+pub struct IMFSecureBuffer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguididentifier: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
@@ -36902,12 +36902,12 @@ impl ::core::fmt::Debug for IMFSecureChannel {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSecureChannel {
-    type Vtable = IMFSecureChannelVtbl;
+    type Vtable = IMFSecureChannel_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0ae555d_3b12_4d97_b060_0990bc5aeb67);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSecureChannelVtbl {
+pub struct IMFSecureChannel_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcert: *mut *mut u8, pcbcert: *mut u32) -> ::windows::core::HRESULT,
     pub SetupSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbencryptedsessionkey: *const u8, cbsessionkey: u32) -> ::windows::core::HRESULT,
@@ -36959,12 +36959,12 @@ impl ::core::fmt::Debug for IMFSeekInfo {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSeekInfo {
-    type Vtable = IMFSeekInfoVtbl;
+    type Vtable = IMFSeekInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26afea53_d9ed_42b5_ab80_e64f9ee34779);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSeekInfoVtbl {
+pub struct IMFSeekInfo_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub GetNearestKeyFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarpreviouskeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarnextkeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
@@ -37029,12 +37029,12 @@ impl ::core::fmt::Debug for IMFSensorActivitiesReport {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSensorActivitiesReport {
-    type Vtable = IMFSensorActivitiesReportVtbl;
+    type Vtable = IMFSensorActivitiesReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x683f7a5e_4a19_43cd_b1a9_dbf4ab3f7777);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSensorActivitiesReportVtbl {
+pub struct IMFSensorActivitiesReport_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pccount: *mut u32) -> ::windows::core::HRESULT,
     pub GetActivityReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, sensoractivityreport: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -37089,12 +37089,12 @@ impl ::core::fmt::Debug for IMFSensorActivitiesReportCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSensorActivitiesReportCallback {
-    type Vtable = IMFSensorActivitiesReportCallbackVtbl;
+    type Vtable = IMFSensorActivitiesReportCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde5072ee_dbe3_46dc_8a87_b6f631194751);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSensorActivitiesReportCallbackVtbl {
+pub struct IMFSensorActivitiesReportCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnActivitiesReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sensoractivitiesreport: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -37148,12 +37148,12 @@ impl ::core::fmt::Debug for IMFSensorActivityMonitor {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSensorActivityMonitor {
-    type Vtable = IMFSensorActivityMonitorVtbl;
+    type Vtable = IMFSensorActivityMonitor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0cef145_b3f4_4340_a2e5_7a5080ca05cb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSensorActivityMonitorVtbl {
+pub struct IMFSensorActivityMonitor_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -37220,12 +37220,12 @@ impl ::core::fmt::Debug for IMFSensorActivityReport {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSensorActivityReport {
-    type Vtable = IMFSensorActivityReportVtbl;
+    type Vtable = IMFSensorActivityReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e8c4be1_a8c2_4528_90de_2851bde5fead);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSensorActivityReportVtbl {
+pub struct IMFSensorActivityReport_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, friendlyname: super::super::Foundation::PWSTR, cchfriendlyname: u32, pcchwritten: *mut u32) -> ::windows::core::HRESULT,
@@ -37324,12 +37324,12 @@ impl ::core::fmt::Debug for IMFSensorDevice {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSensorDevice {
-    type Vtable = IMFSensorDeviceVtbl;
+    type Vtable = IMFSensorDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb9f48f2_2a18_4e28_9730_786f30f04dc4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSensorDeviceVtbl {
+pub struct IMFSensorDevice_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdeviceid: *mut u64) -> ::windows::core::HRESULT,
     pub GetDeviceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut MFSensorDeviceType) -> ::windows::core::HRESULT,
@@ -37425,12 +37425,12 @@ impl ::core::fmt::Debug for IMFSensorGroup {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSensorGroup {
-    type Vtable = IMFSensorGroupVtbl;
+    type Vtable = IMFSensorGroup_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4110243a_9757_461f_89f1_f22345bcab4e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSensorGroupVtbl {
+pub struct IMFSensorGroup_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetSymbolicLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, symboliclink: super::super::Foundation::PWSTR, cchsymboliclink: i32, pcchwritten: *mut i32) -> ::windows::core::HRESULT,
@@ -37508,12 +37508,12 @@ impl ::core::fmt::Debug for IMFSensorProcessActivity {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSensorProcessActivity {
-    type Vtable = IMFSensorProcessActivityVtbl;
+    type Vtable = IMFSensorProcessActivity_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39dc7f4a_b141_4719_813c_a7f46162a2b8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSensorProcessActivityVtbl {
+pub struct IMFSensorProcessActivity_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetProcessId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppid: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -37589,12 +37589,12 @@ impl ::core::fmt::Debug for IMFSensorProfile {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSensorProfile {
-    type Vtable = IMFSensorProfileVtbl;
+    type Vtable = IMFSensorProfile_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22f765d1_8dab_4107_846d_56baf72215e7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSensorProfileVtbl {
+pub struct IMFSensorProfile_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetProfileId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pid: *mut SENSORPROFILEID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -37678,12 +37678,12 @@ impl ::core::fmt::Debug for IMFSensorProfileCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSensorProfileCollection {
-    type Vtable = IMFSensorProfileCollectionVtbl;
+    type Vtable = IMFSensorProfileCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc95ea55b_0187_48be_9353_8d2507662351);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSensorProfileCollectionVtbl {
+pub struct IMFSensorProfileCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetProfileCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, ppprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -37908,13 +37908,13 @@ impl ::core::fmt::Debug for IMFSensorStream {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSensorStream {
-    type Vtable = IMFSensorStreamVtbl;
+    type Vtable = IMFSensorStream_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9a42171_c56e_498a_8b39_eda5a070b7fc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSensorStreamVtbl {
-    pub base: IMFAttributesVtbl,
+pub struct IMFSensorStream_Vtbl {
+    pub base: IMFAttributes_Vtbl,
     pub GetMediaTypeCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
     pub GetMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CloneSensorStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -37985,12 +37985,12 @@ impl ::core::fmt::Debug for IMFSensorTransformFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSensorTransformFactory {
-    type Vtable = IMFSensorTransformFactoryVtbl;
+    type Vtable = IMFSensorTransformFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeed9c2ee_66b4_4f18_a697_ac7d3960215c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSensorTransformFactoryVtbl {
+pub struct IMFSensorTransformFactory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetFactoryAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppattributes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub InitializeFactory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmaxtransformcount: u32, psensordevices: ::windows::core::RawPtr, pattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -38064,12 +38064,12 @@ impl ::core::fmt::Debug for IMFSequencerSource {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSequencerSource {
-    type Vtable = IMFSequencerSourceVtbl;
+    type Vtable = IMFSequencerSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x197cd219_19cb_4de1_a64c_acf2edcbe59e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSequencerSourceVtbl {
+pub struct IMFSequencerSource_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub AppendTopology: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptopology: ::windows::core::RawPtr, dwflags: u32, pdwid: *mut u32) -> ::windows::core::HRESULT,
     pub DeleteTopology: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwid: u32) -> ::windows::core::HRESULT,
@@ -38124,12 +38124,12 @@ impl ::core::fmt::Debug for IMFSharingEngineClassFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSharingEngineClassFactory {
-    type Vtable = IMFSharingEngineClassFactoryVtbl;
+    type Vtable = IMFSharingEngineClassFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ba61f92_8305_413b_9733_faf15f259384);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSharingEngineClassFactoryVtbl {
+pub struct IMFSharingEngineClassFactory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pattr: ::windows::core::RawPtr, ppengine: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -38184,12 +38184,12 @@ impl ::core::fmt::Debug for IMFShutdown {
     }
 }
 unsafe impl ::windows::core::Interface for IMFShutdown {
-    type Vtable = IMFShutdownVtbl;
+    type Vtable = IMFShutdown_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97ec2ea4_0e42_4937_97ac_9d6d328824e1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFShutdownVtbl {
+pub struct IMFShutdown_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetShutdownStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatus: *mut MFSHUTDOWN_STATUS) -> ::windows::core::HRESULT,
@@ -38241,12 +38241,12 @@ impl ::core::fmt::Debug for IMFSignedLibrary {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSignedLibrary {
-    type Vtable = IMFSignedLibraryVtbl;
+    type Vtable = IMFSignedLibrary_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a724bca_ff6a_4c07_8e0d_7a358421cf06);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSignedLibraryVtbl {
+pub struct IMFSignedLibrary_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetProcedureAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR, address: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -38315,12 +38315,12 @@ impl ::core::fmt::Debug for IMFSimpleAudioVolume {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSimpleAudioVolume {
-    type Vtable = IMFSimpleAudioVolumeVtbl;
+    type Vtable = IMFSimpleAudioVolume_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x089edf13_cf71_4338_8d13_9e569dbdc319);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSimpleAudioVolumeVtbl {
+pub struct IMFSimpleAudioVolume_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetMasterVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flevel: f32) -> ::windows::core::HRESULT,
     pub GetMasterVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflevel: *mut f32) -> ::windows::core::HRESULT,
@@ -38421,12 +38421,12 @@ impl ::core::fmt::Debug for IMFSinkWriter {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSinkWriter {
-    type Vtable = IMFSinkWriterVtbl;
+    type Vtable = IMFSinkWriter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3137f1cd_fe5e_4805_a5d8_fb477448cb3d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSinkWriterVtbl {
+pub struct IMFSinkWriter_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub AddStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptargetmediatype: ::windows::core::RawPtr, pdwstreamindex: *mut u32) -> ::windows::core::HRESULT,
     pub SetInputMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pinputmediatype: ::windows::core::RawPtr, pencodingparameters: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -38490,12 +38490,12 @@ impl ::core::fmt::Debug for IMFSinkWriterCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSinkWriterCallback {
-    type Vtable = IMFSinkWriterCallbackVtbl;
+    type Vtable = IMFSinkWriterCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x666f76de_33d2_41b9_a458_29ed0a972c58);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSinkWriterCallbackVtbl {
+pub struct IMFSinkWriterCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnFinalize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub OnMarker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -38578,13 +38578,13 @@ impl ::core::fmt::Debug for IMFSinkWriterCallback2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSinkWriterCallback2 {
-    type Vtable = IMFSinkWriterCallback2Vtbl;
+    type Vtable = IMFSinkWriterCallback2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2456bd58_c067_4513_84fe_8d0c88ffdc61);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSinkWriterCallback2Vtbl {
-    pub base: IMFSinkWriterCallbackVtbl,
+pub struct IMFSinkWriterCallback2_Vtbl {
+    pub base: IMFSinkWriterCallback_Vtbl,
     pub OnTransformChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnStreamError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
@@ -38638,12 +38638,12 @@ impl ::core::fmt::Debug for IMFSinkWriterEncoderConfig {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSinkWriterEncoderConfig {
-    type Vtable = IMFSinkWriterEncoderConfigVtbl;
+    type Vtable = IMFSinkWriterEncoderConfig_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17c3779e_3cde_4ede_8c60_3899f5f53ad6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSinkWriterEncoderConfigVtbl {
+pub struct IMFSinkWriterEncoderConfig_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetTargetMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, ptargetmediatype: ::windows::core::RawPtr, pencodingparameters: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub PlaceEncodingParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pencodingparameters: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -38760,13 +38760,13 @@ impl ::core::fmt::Debug for IMFSinkWriterEx {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSinkWriterEx {
-    type Vtable = IMFSinkWriterExVtbl;
+    type Vtable = IMFSinkWriterEx_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x588d72ab_5bc1_496a_8714_b70617141b25);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSinkWriterExVtbl {
-    pub base: IMFSinkWriterVtbl,
+pub struct IMFSinkWriterEx_Vtbl {
+    pub base: IMFSinkWriter_Vtbl,
     pub GetTransformForStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, dwtransformindex: u32, pguidcategory: *mut ::windows::core::GUID, pptransform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -38861,12 +38861,12 @@ impl ::core::fmt::Debug for IMFSourceBuffer {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSourceBuffer {
-    type Vtable = IMFSourceBufferVtbl;
+    type Vtable = IMFSourceBuffer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2cd3a4b_af25_4d3d_9110_da0e6f8ee877);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSourceBufferVtbl {
+pub struct IMFSourceBuffer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
@@ -38934,12 +38934,12 @@ impl ::core::fmt::Debug for IMFSourceBufferAppendMode {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSourceBufferAppendMode {
-    type Vtable = IMFSourceBufferAppendModeVtbl;
+    type Vtable = IMFSourceBufferAppendMode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19666fb4_babe_4c55_bc03_0a074da37e2a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSourceBufferAppendModeVtbl {
+pub struct IMFSourceBufferAppendMode_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetAppendMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> MF_MSE_APPEND_MODE,
     pub SetAppendMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: MF_MSE_APPEND_MODE) -> ::windows::core::HRESULT,
@@ -38994,12 +38994,12 @@ impl ::core::fmt::Debug for IMFSourceBufferList {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSourceBufferList {
-    type Vtable = IMFSourceBufferListVtbl;
+    type Vtable = IMFSourceBufferList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x249981f8_8325_41f3_b80c_3b9e3aad0cbe);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSourceBufferListVtbl {
+pub struct IMFSourceBufferList_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetSourceBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<IMFSourceBuffer>,
@@ -39066,12 +39066,12 @@ impl ::core::fmt::Debug for IMFSourceBufferNotify {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSourceBufferNotify {
-    type Vtable = IMFSourceBufferNotifyVtbl;
+    type Vtable = IMFSourceBufferNotify_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87e47623_2ceb_45d6_9b88_d8520c4dcbbc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSourceBufferNotifyVtbl {
+pub struct IMFSourceBufferNotify_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnUpdateStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub OnAbort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
@@ -39125,12 +39125,12 @@ impl ::core::fmt::Debug for IMFSourceOpenMonitor {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSourceOpenMonitor {
-    type Vtable = IMFSourceOpenMonitorVtbl;
+    type Vtable = IMFSourceOpenMonitor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x059054b3_027c_494c_a27d_9113291cf87f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSourceOpenMonitorVtbl {
+pub struct IMFSourceOpenMonitor_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnSourceEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -39224,12 +39224,12 @@ impl ::core::fmt::Debug for IMFSourceReader {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSourceReader {
-    type Vtable = IMFSourceReaderVtbl;
+    type Vtable = IMFSourceReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70ae66f2_c809_4e4f_8915_bdcb406b7993);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSourceReaderVtbl {
+pub struct IMFSourceReader_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetStreamSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pfselected: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -39308,12 +39308,12 @@ impl ::core::fmt::Debug for IMFSourceReaderCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSourceReaderCallback {
-    type Vtable = IMFSourceReaderCallbackVtbl;
+    type Vtable = IMFSourceReaderCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdeec8d99_fa1d_4d82_84c2_2c8969944867);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSourceReaderCallbackVtbl {
+pub struct IMFSourceReaderCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnReadSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT, dwstreamindex: u32, dwstreamflags: u32, lltimestamp: i64, psample: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OnFlush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32) -> ::windows::core::HRESULT,
@@ -39401,13 +39401,13 @@ impl ::core::fmt::Debug for IMFSourceReaderCallback2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSourceReaderCallback2 {
-    type Vtable = IMFSourceReaderCallback2Vtbl;
+    type Vtable = IMFSourceReaderCallback2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf839fe6_8c2a_4dd2_b6ea_c22d6961af05);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSourceReaderCallback2Vtbl {
-    pub base: IMFSourceReaderCallbackVtbl,
+pub struct IMFSourceReaderCallback2_Vtbl {
+    pub base: IMFSourceReaderCallback_Vtbl,
     pub OnTransformChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnStreamError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
@@ -39538,13 +39538,13 @@ impl ::core::fmt::Debug for IMFSourceReaderEx {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSourceReaderEx {
-    type Vtable = IMFSourceReaderExVtbl;
+    type Vtable = IMFSourceReaderEx_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b981cf0_560e_4116_9875_b099895f23d7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSourceReaderExVtbl {
-    pub base: IMFSourceReaderVtbl,
+pub struct IMFSourceReaderEx_Vtbl {
+    pub base: IMFSourceReader_Vtbl,
     pub SetNativeMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pmediatype: ::windows::core::RawPtr, pdwstreamflags: *mut u32) -> ::windows::core::HRESULT,
     pub AddTransformForStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, ptransformoractivate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoveAllTransformsForStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32) -> ::windows::core::HRESULT,
@@ -39624,12 +39624,12 @@ impl ::core::fmt::Debug for IMFSourceResolver {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSourceResolver {
-    type Vtable = IMFSourceResolverVtbl;
+    type Vtable = IMFSourceResolver_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbe5a32d_a497_4b61_bb85_97b1a848a6e3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSourceResolverVtbl {
+pub struct IMFSourceResolver_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub CreateObjectFromURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, dwflags: u32, pprops: ::windows::core::RawPtr, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -39761,13 +39761,13 @@ impl ::core::fmt::Debug for IMFSpatialAudioObjectBuffer {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSpatialAudioObjectBuffer {
-    type Vtable = IMFSpatialAudioObjectBufferVtbl;
+    type Vtable = IMFSpatialAudioObjectBuffer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd396ec8c_605e_4249_978d_72ad1c312872);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSpatialAudioObjectBufferVtbl {
-    pub base: IMFMediaBufferVtbl,
+pub struct IMFSpatialAudioObjectBuffer_Vtbl {
+    pub base: IMFMediaBuffer_Vtbl,
     pub SetID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, u32id: u32) -> ::windows::core::HRESULT,
     pub GetID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pu32id: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Media_Audio")]
@@ -40081,13 +40081,13 @@ impl ::core::fmt::Debug for IMFSpatialAudioSample {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSpatialAudioSample {
-    type Vtable = IMFSpatialAudioSampleVtbl;
+    type Vtable = IMFSpatialAudioSample_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabf28a9b_3393_4290_ba79_5ffc46d986b2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSpatialAudioSampleVtbl {
-    pub base: IMFSampleVtbl,
+pub struct IMFSpatialAudioSample_Vtbl {
+    pub base: IMFSample_Vtbl,
     pub GetObjectCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwobjectcount: *mut u32) -> ::windows::core::HRESULT,
     pub AddSpatialAudioObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paudioobjbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetSpatialAudioObjectByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, ppaudioobjbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -40303,13 +40303,13 @@ impl ::core::fmt::Debug for IMFStreamDescriptor {
     }
 }
 unsafe impl ::windows::core::Interface for IMFStreamDescriptor {
-    type Vtable = IMFStreamDescriptorVtbl;
+    type Vtable = IMFStreamDescriptor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56c03d9c_9dbb_45f5_ab4b_d80f47c05938);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFStreamDescriptorVtbl {
-    pub base: IMFAttributesVtbl,
+pub struct IMFStreamDescriptor_Vtbl {
+    pub base: IMFAttributes_Vtbl,
     pub GetStreamIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstreamidentifier: *mut u32) -> ::windows::core::HRESULT,
     pub GetMediaTypeHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmediatypehandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -40422,13 +40422,13 @@ impl ::core::fmt::Debug for IMFStreamSink {
     }
 }
 unsafe impl ::windows::core::Interface for IMFStreamSink {
-    type Vtable = IMFStreamSinkVtbl;
+    type Vtable = IMFStreamSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a97b3cf_8e7c_4a3d_8f8c_0c843dc247fb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFStreamSinkVtbl {
-    pub base: IMFMediaEventGeneratorVtbl,
+pub struct IMFStreamSink_Vtbl {
+    pub base: IMFMediaEventGenerator_Vtbl,
     pub GetMediaSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmediasink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwidentifier: *mut u32) -> ::windows::core::HRESULT,
     pub GetMediaTypeHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pphandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -40486,12 +40486,12 @@ impl ::core::fmt::Debug for IMFStreamingSinkConfig {
     }
 }
 unsafe impl ::windows::core::Interface for IMFStreamingSinkConfig {
-    type Vtable = IMFStreamingSinkConfigVtbl;
+    type Vtable = IMFStreamingSinkConfig_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9db7aa41_3cc5_40d4_8509_555804ad34cc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFStreamingSinkConfigVtbl {
+pub struct IMFStreamingSinkConfig_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub StartStreaming: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fseekoffsetisbyteoffset: super::super::Foundation::BOOL, qwseekoffset: u64) -> ::windows::core::HRESULT,
@@ -40548,12 +40548,12 @@ impl ::core::fmt::Debug for IMFSystemId {
     }
 }
 unsafe impl ::windows::core::Interface for IMFSystemId {
-    type Vtable = IMFSystemIdVtbl;
+    type Vtable = IMFSystemId_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfff4af3a_1fc1_4ef9_a29b_d26c49e2f31a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSystemIdVtbl {
+pub struct IMFSystemId_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: *mut u32, data: *mut *mut u8) -> ::windows::core::HRESULT,
     pub Setup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stage: u32, cbin: u32, pbin: *const u8, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::HRESULT,
@@ -40620,12 +40620,12 @@ impl ::core::fmt::Debug for IMFTimecodeTranslate {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTimecodeTranslate {
-    type Vtable = IMFTimecodeTranslateVtbl;
+    type Vtable = IMFTimecodeTranslate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab9d8661_f7e8_4ef4_9861_89f334f94e74);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTimecodeTranslateVtbl {
+pub struct IMFTimecodeTranslate_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub BeginConvertTimecodeToHNS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropvartimecode: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -40750,12 +40750,12 @@ impl ::core::fmt::Debug for IMFTimedText {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTimedText {
-    type Vtable = IMFTimedTextVtbl;
+    type Vtable = IMFTimedText_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f2a94c9_a3df_430d_9d0f_acd85ddc29af);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTimedTextVtbl {
+pub struct IMFTimedText_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub RegisterNotifications: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, notify: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -40836,12 +40836,12 @@ impl ::core::fmt::Debug for IMFTimedTextBinary {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTimedTextBinary {
-    type Vtable = IMFTimedTextBinaryVtbl;
+    type Vtable = IMFTimedTextBinary_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ae3a412_0545_43c4_bf6f_6b97a5c6c432);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTimedTextBinaryVtbl {
+pub struct IMFTimedTextBinary_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut *mut u8, length: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -40902,12 +40902,12 @@ impl ::core::fmt::Debug for IMFTimedTextBouten {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTimedTextBouten {
-    type Vtable = IMFTimedTextBoutenVtbl;
+    type Vtable = IMFTimedTextBouten_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c5f3e8a_90c0_464e_8136_898d2975f847);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTimedTextBoutenVtbl {
+pub struct IMFTimedTextBouten_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetBoutenType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut MF_TIMED_TEXT_BOUTEN_TYPE) -> ::windows::core::HRESULT,
     pub GetBoutenColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut MFARGB) -> ::windows::core::HRESULT,
@@ -41005,12 +41005,12 @@ impl ::core::fmt::Debug for IMFTimedTextCue {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTimedTextCue {
-    type Vtable = IMFTimedTextCueVtbl;
+    type Vtable = IMFTimedTextCue_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e560447_9a2b_43e1_a94c_b0aaabfbfbc9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTimedTextCueVtbl {
+pub struct IMFTimedTextCue_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(feature = "Win32_Foundation")]
@@ -41104,12 +41104,12 @@ impl ::core::fmt::Debug for IMFTimedTextCueList {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTimedTextCueList {
-    type Vtable = IMFTimedTextCueListVtbl;
+    type Vtable = IMFTimedTextCueList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad128745_211b_40a0_9981_fe65f166d0fd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTimedTextCueListVtbl {
+pub struct IMFTimedTextCueList_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetCueByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, cue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -41181,12 +41181,12 @@ impl ::core::fmt::Debug for IMFTimedTextFormattedText {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTimedTextFormattedText {
-    type Vtable = IMFTimedTextFormattedTextVtbl;
+    type Vtable = IMFTimedTextFormattedText_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe13af3c1_4d47_4354_b1f5_e83ae0ecae60);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTimedTextFormattedTextVtbl {
+pub struct IMFTimedTextFormattedText_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -41266,12 +41266,12 @@ impl ::core::fmt::Debug for IMFTimedTextNotify {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTimedTextNotify {
-    type Vtable = IMFTimedTextNotifyVtbl;
+    type Vtable = IMFTimedTextNotify_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf6b87b6_ce12_45db_aba7_432fe054e57d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTimedTextNotifyVtbl {
+pub struct IMFTimedTextNotify_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub TrackAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, trackid: u32),
     pub TrackRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, trackid: u32),
@@ -41385,12 +41385,12 @@ impl ::core::fmt::Debug for IMFTimedTextRegion {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTimedTextRegion {
-    type Vtable = IMFTimedTextRegionVtbl;
+    type Vtable = IMFTimedTextRegion_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8d22afc_bc47_4bdf_9b04_787e49ce3f58);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTimedTextRegionVtbl {
+pub struct IMFTimedTextRegion_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -41477,12 +41477,12 @@ impl ::core::fmt::Debug for IMFTimedTextRuby {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTimedTextRuby {
-    type Vtable = IMFTimedTextRubyVtbl;
+    type Vtable = IMFTimedTextRuby_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76c6a6f5_4955_4de5_b27b_14b734cc14b4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTimedTextRubyVtbl {
+pub struct IMFTimedTextRuby_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetRubyText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rubytext: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -41602,12 +41602,12 @@ impl ::core::fmt::Debug for IMFTimedTextStyle {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTimedTextStyle {
-    type Vtable = IMFTimedTextStyleVtbl;
+    type Vtable = IMFTimedTextStyle_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09b2455d_b834_4f01_a347_9052e21c450e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTimedTextStyleVtbl {
+pub struct IMFTimedTextStyle_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -41704,12 +41704,12 @@ impl ::core::fmt::Debug for IMFTimedTextStyle2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTimedTextStyle2 {
-    type Vtable = IMFTimedTextStyle2Vtbl;
+    type Vtable = IMFTimedTextStyle2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb639199_c809_4c89_bfca_d0bbb9729d6e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTimedTextStyle2Vtbl {
+pub struct IMFTimedTextStyle2_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetRuby: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ruby: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetBouten: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bouten: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -41824,12 +41824,12 @@ impl ::core::fmt::Debug for IMFTimedTextTrack {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTimedTextTrack {
-    type Vtable = IMFTimedTextTrackVtbl;
+    type Vtable = IMFTimedTextTrack_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8822c32d_654e_4233_bf21_d7f2e67d30d4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTimedTextTrackVtbl {
+pub struct IMFTimedTextTrack_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(feature = "Win32_Foundation")]
@@ -41919,12 +41919,12 @@ impl ::core::fmt::Debug for IMFTimedTextTrackList {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTimedTextTrackList {
-    type Vtable = IMFTimedTextTrackListVtbl;
+    type Vtable = IMFTimedTextTrackList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23ff334c_442c_445f_bccc_edc438aa11e2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTimedTextTrackListVtbl {
+pub struct IMFTimedTextTrackList_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetTrack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, track: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -41981,12 +41981,12 @@ impl ::core::fmt::Debug for IMFTimer {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTimer {
-    type Vtable = IMFTimerVtbl;
+    type Vtable = IMFTimer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe56e4cbd_8f70_49d8_a0f8_edb3d6ab9bf2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTimerVtbl {
+pub struct IMFTimer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetTimer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, llclocktime: i64, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void, ppunkkey: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CancelTimer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkkey: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -42037,12 +42037,12 @@ impl ::core::fmt::Debug for IMFTopoLoader {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTopoLoader {
-    type Vtable = IMFTopoLoaderVtbl;
+    type Vtable = IMFTopoLoader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde9a6157_f660_4643_b56a_df9f7998c7cd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTopoLoaderVtbl {
+pub struct IMFTopoLoader_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinputtopo: ::windows::core::RawPtr, ppoutputtopo: *mut ::windows::core::RawPtr, pcurrenttopo: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -42293,13 +42293,13 @@ impl ::core::fmt::Debug for IMFTopology {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTopology {
-    type Vtable = IMFTopologyVtbl;
+    type Vtable = IMFTopology_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83cf873a_f6da_4bc8_823f_bacfd55dc433);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTopologyVtbl {
-    pub base: IMFAttributesVtbl,
+pub struct IMFTopology_Vtbl {
+    pub base: IMFAttributes_Vtbl,
     pub GetTopologyID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pid: *mut u64) -> ::windows::core::HRESULT,
     pub AddNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnode: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RemoveNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnode: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -42583,13 +42583,13 @@ impl ::core::fmt::Debug for IMFTopologyNode {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTopologyNode {
-    type Vtable = IMFTopologyNodeVtbl;
+    type Vtable = IMFTopologyNode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83cf873a_f6da_4bc8_823f_bacfd55dc430);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTopologyNodeVtbl {
-    pub base: IMFAttributesVtbl,
+pub struct IMFTopologyNode_Vtbl {
+    pub base: IMFAttributes_Vtbl,
     pub SetObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetNodeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut MF_TOPOLOGY_TYPE) -> ::windows::core::HRESULT,
@@ -42653,12 +42653,12 @@ impl ::core::fmt::Debug for IMFTopologyNodeAttributeEditor {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTopologyNodeAttributeEditor {
-    type Vtable = IMFTopologyNodeAttributeEditorVtbl;
+    type Vtable = IMFTopologyNodeAttributeEditor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x676aa6dd_238a_410d_bb99_65668d01605a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTopologyNodeAttributeEditorVtbl {
+pub struct IMFTopologyNodeAttributeEditor_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub UpdateNodeAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, topoid: u64, cupdates: u32, pupdates: *const MFTOPONODE_ATTRIBUTE_UPDATE) -> ::windows::core::HRESULT,
 }
@@ -42708,12 +42708,12 @@ impl ::core::fmt::Debug for IMFTopologyServiceLookup {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTopologyServiceLookup {
-    type Vtable = IMFTopologyServiceLookupVtbl;
+    type Vtable = IMFTopologyServiceLookup_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa993889_4383_415a_a930_dd472a8cf6f7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTopologyServiceLookupVtbl {
+pub struct IMFTopologyServiceLookup_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub LookupService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: MF_SERVICE_LOOKUP_TYPE, dwindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobjects: *mut *mut ::core::ffi::c_void, pnobjects: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -42767,12 +42767,12 @@ impl ::core::fmt::Debug for IMFTopologyServiceLookupClient {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTopologyServiceLookupClient {
-    type Vtable = IMFTopologyServiceLookupClientVtbl;
+    type Vtable = IMFTopologyServiceLookupClient_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa99388a_4383_415a_a930_dd472a8cf6f7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTopologyServiceLookupClientVtbl {
+pub struct IMFTopologyServiceLookupClient_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub InitServicePointers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plookup: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ReleaseServicePointers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -42823,12 +42823,12 @@ impl ::core::fmt::Debug for IMFTrackedSample {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTrackedSample {
-    type Vtable = IMFTrackedSampleVtbl;
+    type Vtable = IMFTrackedSample_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x245bf8e9_0755_40f7_88a5_ae0f18d55e17);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTrackedSampleVtbl {
+pub struct IMFTrackedSample_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetAllocator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psampleallocator: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -42901,12 +42901,12 @@ impl ::core::fmt::Debug for IMFTranscodeProfile {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTranscodeProfile {
-    type Vtable = IMFTranscodeProfileVtbl;
+    type Vtable = IMFTranscodeProfile_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4adfdba3_7ab0_4953_a62b_461e7ff3da1e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTranscodeProfileVtbl {
+pub struct IMFTranscodeProfile_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetAudioAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pattrs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetAudioAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppattrs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -42975,12 +42975,12 @@ impl ::core::fmt::Debug for IMFTranscodeSinkInfoProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTranscodeSinkInfoProvider {
-    type Vtable = IMFTranscodeSinkInfoProviderVtbl;
+    type Vtable = IMFTranscodeSinkInfoProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cffcd2e_5a03_4a3a_aff7_edcd107c620e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTranscodeSinkInfoProviderVtbl {
+pub struct IMFTranscodeSinkInfoProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetOutputFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszfilename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -43135,12 +43135,12 @@ impl ::core::fmt::Debug for IMFTransform {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTransform {
-    type Vtable = IMFTransformVtbl;
+    type Vtable = IMFTransform_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf94c121_5b05_4e6f_8000_ba598961414d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTransformVtbl {
+pub struct IMFTransform_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetStreamLimits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwinputminimum: *mut u32, pdwinputmaximum: *mut u32, pdwoutputminimum: *mut u32, pdwoutputmaximum: *mut u32) -> ::windows::core::HRESULT,
     pub GetStreamCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcinputstreams: *mut u32, pcoutputstreams: *mut u32) -> ::windows::core::HRESULT,
@@ -43213,12 +43213,12 @@ impl ::core::fmt::Debug for IMFTrustedInput {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTrustedInput {
-    type Vtable = IMFTrustedInputVtbl;
+    type Vtable = IMFTrustedInput_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x542612c4_a1b8_4632_b521_de11ea64a0b0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTrustedInputVtbl {
+pub struct IMFTrustedInput_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetInputTrustAuthority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamid: u32, riid: *const ::windows::core::GUID, ppunkobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -43280,12 +43280,12 @@ impl ::core::fmt::Debug for IMFTrustedOutput {
     }
 }
 unsafe impl ::windows::core::Interface for IMFTrustedOutput {
-    type Vtable = IMFTrustedOutputVtbl;
+    type Vtable = IMFTrustedOutput_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd19f8e95_b126_4446_890c_5dcb7ad71453);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTrustedOutputVtbl {
+pub struct IMFTrustedOutput_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetOutputTrustAuthorityCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcoutputtrustauthorities: *mut u32) -> ::windows::core::HRESULT,
     pub GetOutputTrustAuthorityByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, ppauthority: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -43377,13 +43377,13 @@ impl ::core::fmt::Debug for IMFVideoCaptureSampleAllocator {
     }
 }
 unsafe impl ::windows::core::Interface for IMFVideoCaptureSampleAllocator {
-    type Vtable = IMFVideoCaptureSampleAllocatorVtbl;
+    type Vtable = IMFVideoCaptureSampleAllocator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x725b77c7_ca9f_4fe5_9d72_9946bf9b3c70);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoCaptureSampleAllocatorVtbl {
-    pub base: IMFVideoSampleAllocatorVtbl,
+pub struct IMFVideoCaptureSampleAllocator_Vtbl {
+    pub base: IMFVideoSampleAllocator_Vtbl,
     pub InitializeCaptureSampleAllocator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbsamplesize: u32, cbcapturemetadatasize: u32, cbalignment: u32, cminimumsamples: u32, pattributes: ::windows::core::RawPtr, pmediatype: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -43433,12 +43433,12 @@ impl ::core::fmt::Debug for IMFVideoDeviceID {
     }
 }
 unsafe impl ::windows::core::Interface for IMFVideoDeviceID {
-    type Vtable = IMFVideoDeviceIDVtbl;
+    type Vtable = IMFVideoDeviceID_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa38d9567_5a9c_4f3c_b293_8eb415b279ba);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoDeviceIDVtbl {
+pub struct IMFVideoDeviceID_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetDeviceID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdeviceid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
@@ -43562,12 +43562,12 @@ impl ::core::fmt::Debug for IMFVideoDisplayControl {
     }
 }
 unsafe impl ::windows::core::Interface for IMFVideoDisplayControl {
-    type Vtable = IMFVideoDisplayControlVtbl;
+    type Vtable = IMFVideoDisplayControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa490b1e4_ab84_4d31_a1b2_181e03b1077a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoDisplayControlVtbl {
+pub struct IMFVideoDisplayControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetNativeVideoSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszvideo: *mut super::super::Foundation::SIZE, pszarvideo: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
@@ -43867,13 +43867,13 @@ impl ::core::fmt::Debug for IMFVideoMediaType {
     }
 }
 unsafe impl ::windows::core::Interface for IMFVideoMediaType {
-    type Vtable = IMFVideoMediaTypeVtbl;
+    type Vtable = IMFVideoMediaType_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb99f381f_a8f9_47a2_a5af_ca3a225a3890);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoMediaTypeVtbl {
-    pub base: IMFMediaTypeVtbl,
+pub struct IMFVideoMediaType_Vtbl {
+    pub base: IMFMediaType_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetVideoFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut MFVIDEOFORMAT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -43942,12 +43942,12 @@ impl ::core::fmt::Debug for IMFVideoMixerBitmap {
     }
 }
 unsafe impl ::windows::core::Interface for IMFVideoMixerBitmap {
-    type Vtable = IMFVideoMixerBitmapVtbl;
+    type Vtable = IMFVideoMixerBitmap_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x814c7b20_0fdb_4eec_af8f_f957c8f69edc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoMixerBitmapVtbl {
+pub struct IMFVideoMixerBitmap_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
     pub SetAlphaBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbmpparms: *const MFVideoAlphaBitmap) -> ::windows::core::HRESULT,
@@ -44023,12 +44023,12 @@ impl ::core::fmt::Debug for IMFVideoMixerControl {
     }
 }
 unsafe impl ::windows::core::Interface for IMFVideoMixerControl {
-    type Vtable = IMFVideoMixerControlVtbl;
+    type Vtable = IMFVideoMixerControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5c6c53f_c202_4aa5_9695_175ba8c508a5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoMixerControlVtbl {
+pub struct IMFVideoMixerControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetStreamZOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamid: u32, dwz: u32) -> ::windows::core::HRESULT,
     pub GetStreamZOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamid: u32, pdwz: *mut u32) -> ::windows::core::HRESULT,
@@ -44124,13 +44124,13 @@ impl ::core::fmt::Debug for IMFVideoMixerControl2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMFVideoMixerControl2 {
-    type Vtable = IMFVideoMixerControl2Vtbl;
+    type Vtable = IMFVideoMixerControl2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8459616d_966e_4930_b658_54fa7e5a16d3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoMixerControl2Vtbl {
-    pub base: IMFVideoMixerControlVtbl,
+pub struct IMFVideoMixerControl2_Vtbl {
+    pub base: IMFVideoMixerControl_Vtbl,
     pub SetMixingPrefs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmixflags: u32) -> ::windows::core::HRESULT,
     pub GetMixingPrefs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmixflags: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -44180,12 +44180,12 @@ impl ::core::fmt::Debug for IMFVideoPositionMapper {
     }
 }
 unsafe impl ::windows::core::Interface for IMFVideoPositionMapper {
-    type Vtable = IMFVideoPositionMapperVtbl;
+    type Vtable = IMFVideoPositionMapper_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f6a9f17_e70b_4e24_8ae4_0b2c3ba7a4ae);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoPositionMapperVtbl {
+pub struct IMFVideoPositionMapper_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub MapOutputCoordinateToInputStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xout: f32, yout: f32, dwoutputstreamindex: u32, dwinputstreamindex: u32, pxin: *mut f32, pyin: *mut f32) -> ::windows::core::HRESULT,
 }
@@ -44280,13 +44280,13 @@ impl ::core::fmt::Debug for IMFVideoPresenter {
     }
 }
 unsafe impl ::windows::core::Interface for IMFVideoPresenter {
-    type Vtable = IMFVideoPresenterVtbl;
+    type Vtable = IMFVideoPresenter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29aff080_182a_4a5d_af3b_448f3a6346cb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoPresenterVtbl {
-    pub base: IMFClockStateSinkVtbl,
+pub struct IMFVideoPresenter_Vtbl {
+    pub base: IMFClockStateSink_Vtbl,
     pub ProcessMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, emessage: MFVP_MESSAGE_TYPE, ulparam: usize) -> ::windows::core::HRESULT,
     pub GetCurrentMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -44388,12 +44388,12 @@ impl ::core::fmt::Debug for IMFVideoProcessor {
     }
 }
 unsafe impl ::windows::core::Interface for IMFVideoProcessor {
-    type Vtable = IMFVideoProcessorVtbl;
+    type Vtable = IMFVideoProcessor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ab0000c_fece_4d1f_a2ac_a9573530656e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoProcessorVtbl {
+pub struct IMFVideoProcessor_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetAvailableVideoProcessorModes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpdwnumprocessingmodes: *mut u32, ppvideoprocessingmodes: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -44480,12 +44480,12 @@ impl ::core::fmt::Debug for IMFVideoProcessorControl {
     }
 }
 unsafe impl ::windows::core::Interface for IMFVideoProcessorControl {
-    type Vtable = IMFVideoProcessorControlVtbl;
+    type Vtable = IMFVideoProcessorControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3f675d5_6119_4f7f_a100_1d8b280f0efb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoProcessorControlVtbl {
+pub struct IMFVideoProcessorControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetBorderColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbordercolor: *const MFARGB) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -44606,13 +44606,13 @@ impl ::core::fmt::Debug for IMFVideoProcessorControl2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMFVideoProcessorControl2 {
-    type Vtable = IMFVideoProcessorControl2Vtbl;
+    type Vtable = IMFVideoProcessorControl2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbde633d3_e1dc_4a7f_a693_bbae399c4a20);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoProcessorControl2Vtbl {
-    pub base: IMFVideoProcessorControlVtbl,
+pub struct IMFVideoProcessorControl2_Vtbl {
+    pub base: IMFVideoProcessorControl_Vtbl,
     pub SetRotationOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uirotation: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub EnableHardwareEffects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenabled: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -44761,13 +44761,13 @@ impl ::core::fmt::Debug for IMFVideoProcessorControl3 {
     }
 }
 unsafe impl ::windows::core::Interface for IMFVideoProcessorControl3 {
-    type Vtable = IMFVideoProcessorControl3Vtbl;
+    type Vtable = IMFVideoProcessorControl3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2424b3f2_eb23_40f1_91aa_74bddeea0883);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoProcessorControl3Vtbl {
-    pub base: IMFVideoProcessorControl2Vtbl,
+pub struct IMFVideoProcessorControl3_Vtbl {
+    pub base: IMFVideoProcessorControl2_Vtbl,
     pub GetNaturalOutputType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub EnableSphericalVideoProcessing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenable: super::super::Foundation::BOOL, eformat: MFVideoSphericalFormat, eprojectionmode: MFVideoSphericalProjectionMode) -> ::windows::core::HRESULT,
@@ -44822,12 +44822,12 @@ impl ::core::fmt::Debug for IMFVideoRenderer {
     }
 }
 unsafe impl ::windows::core::Interface for IMFVideoRenderer {
-    type Vtable = IMFVideoRendererVtbl;
+    type Vtable = IMFVideoRenderer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfdfd197_a9ca_43d8_b341_6af3503792cd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoRendererVtbl {
+pub struct IMFVideoRenderer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub InitializeRenderer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideomixer: ::windows::core::RawPtr, pvideopresenter: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -44877,12 +44877,12 @@ impl ::core::fmt::Debug for IMFVideoRendererEffectControl {
     }
 }
 unsafe impl ::windows::core::Interface for IMFVideoRendererEffectControl {
-    type Vtable = IMFVideoRendererEffectControlVtbl;
+    type Vtable = IMFVideoRendererEffectControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x604d33d7_cf23_41d5_8224_5bbbb1a87475);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoRendererEffectControlVtbl {
+pub struct IMFVideoRendererEffectControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnAppServiceConnectionEstablished: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pappserviceconnection: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -44945,12 +44945,12 @@ impl ::core::fmt::Debug for IMFVideoSampleAllocator {
     }
 }
 unsafe impl ::windows::core::Interface for IMFVideoSampleAllocator {
-    type Vtable = IMFVideoSampleAllocatorVtbl;
+    type Vtable = IMFVideoSampleAllocator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86cbc910_e533_4751_8e3b_f19b5b806a03);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoSampleAllocatorVtbl {
+pub struct IMFVideoSampleAllocator_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetDirectXManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmanager: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub UninitializeSampleAllocator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -45008,12 +45008,12 @@ impl ::core::fmt::Debug for IMFVideoSampleAllocatorCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IMFVideoSampleAllocatorCallback {
-    type Vtable = IMFVideoSampleAllocatorCallbackVtbl;
+    type Vtable = IMFVideoSampleAllocatorCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x992388b4_3372_4f67_8b6f_c84c071f4751);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoSampleAllocatorCallbackVtbl {
+pub struct IMFVideoSampleAllocatorCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnotify: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetFreeSampleCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsamples: *mut i32) -> ::windows::core::HRESULT,
@@ -45101,13 +45101,13 @@ impl ::core::fmt::Debug for IMFVideoSampleAllocatorEx {
     }
 }
 unsafe impl ::windows::core::Interface for IMFVideoSampleAllocatorEx {
-    type Vtable = IMFVideoSampleAllocatorExVtbl;
+    type Vtable = IMFVideoSampleAllocatorEx_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x545b3a48_3283_4f62_866f_a62d8f598f9f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoSampleAllocatorExVtbl {
-    pub base: IMFVideoSampleAllocatorVtbl,
+pub struct IMFVideoSampleAllocatorEx_Vtbl {
+    pub base: IMFVideoSampleAllocator_Vtbl,
     pub InitializeSampleAllocatorEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cinitialsamples: u32, cmaximumsamples: u32, pattributes: ::windows::core::RawPtr, pmediatype: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -45156,12 +45156,12 @@ impl ::core::fmt::Debug for IMFVideoSampleAllocatorNotify {
     }
 }
 unsafe impl ::windows::core::Interface for IMFVideoSampleAllocatorNotify {
-    type Vtable = IMFVideoSampleAllocatorNotifyVtbl;
+    type Vtable = IMFVideoSampleAllocatorNotify_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa792cdbe_c374_4e89_8335_278e7b9956a4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoSampleAllocatorNotifyVtbl {
+pub struct IMFVideoSampleAllocatorNotify_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub NotifyRelease: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -45235,13 +45235,13 @@ impl ::core::fmt::Debug for IMFVideoSampleAllocatorNotifyEx {
     }
 }
 unsafe impl ::windows::core::Interface for IMFVideoSampleAllocatorNotifyEx {
-    type Vtable = IMFVideoSampleAllocatorNotifyExVtbl;
+    type Vtable = IMFVideoSampleAllocatorNotifyEx_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3978aa1a_6d5b_4b7f_a340_90899189ae34);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoSampleAllocatorNotifyExVtbl {
-    pub base: IMFVideoSampleAllocatorNotifyVtbl,
+pub struct IMFVideoSampleAllocatorNotifyEx_Vtbl {
+    pub base: IMFVideoSampleAllocatorNotify_Vtbl,
     pub NotifyPrune: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__imfvideosampleallocatornotifyex0000: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -45497,13 +45497,13 @@ impl ::core::fmt::Debug for IMFVirtualCamera {
     }
 }
 unsafe impl ::windows::core::Interface for IMFVirtualCamera {
-    type Vtable = IMFVirtualCameraVtbl;
+    type Vtable = IMFVirtualCamera_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c08a864_ef6c_4c75_af59_5f2d68da9563);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVirtualCameraVtbl {
-    pub base: IMFAttributesVtbl,
+pub struct IMFVirtualCamera_Vtbl {
+    pub base: IMFAttributes_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddDeviceSourceInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, devicesourceinfo: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -45627,12 +45627,12 @@ impl ::core::fmt::Debug for IMFWorkQueueServices {
     }
 }
 unsafe impl ::windows::core::Interface for IMFWorkQueueServices {
-    type Vtable = IMFWorkQueueServicesVtbl;
+    type Vtable = IMFWorkQueueServices_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35fe1bb8_a3a9_40fe_bbec_eb569c9ccca3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFWorkQueueServicesVtbl {
+pub struct IMFWorkQueueServices_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub BeginRegisterTopologyWorkQueuesWithMMCSS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, pstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EndRegisterTopologyWorkQueuesWithMMCSS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -45787,13 +45787,13 @@ impl ::core::fmt::Debug for IMFWorkQueueServicesEx {
     }
 }
 unsafe impl ::windows::core::Interface for IMFWorkQueueServicesEx {
-    type Vtable = IMFWorkQueueServicesExVtbl;
+    type Vtable = IMFWorkQueueServicesEx_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96bf961b_40fe_42f1_ba9d_320238b49700);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFWorkQueueServicesExVtbl {
-    pub base: IMFWorkQueueServicesVtbl,
+pub struct IMFWorkQueueServicesEx_Vtbl {
+    pub base: IMFWorkQueueServices_Vtbl,
     pub GetTopologyWorkQueueMMCSSPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtopologyworkqueueid: u32, plpriority: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub BeginRegisterPlatformWorkQueueWithMMCSSEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwplatformworkqueue: u32, wszclass: super::super::Foundation::PWSTR, dwtaskid: u32, lpriority: i32, pcallback: ::windows::core::RawPtr, pstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -45865,12 +45865,12 @@ impl ::core::fmt::Debug for IOPMVideoOutput {
     }
 }
 unsafe impl ::windows::core::Interface for IOPMVideoOutput {
-    type Vtable = IOPMVideoOutputVtbl;
+    type Vtable = IOPMVideoOutput_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a15159d_41c7_4456_93e1_284cd61d4e8d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOPMVideoOutputVtbl {
+pub struct IOPMVideoOutput_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub StartInitialization: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prnrandomnumber: *mut OPM_RANDOM_NUMBER, ppbcertificate: *mut *mut u8, pulcertificatelength: *mut u32) -> ::windows::core::HRESULT,
     pub FinishInitialization: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparameters: *const OPM_ENCRYPTED_INITIALIZATION_PARAMETERS) -> ::windows::core::HRESULT,
@@ -45928,12 +45928,12 @@ impl ::core::fmt::Debug for IPlayToControl {
     }
 }
 unsafe impl ::windows::core::Interface for IPlayToControl {
-    type Vtable = IPlayToControlVtbl;
+    type Vtable = IPlayToControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x607574eb_f4b6_45c1_b08c_cb715122901d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlayToControlVtbl {
+pub struct IPlayToControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfactory: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -46013,13 +46013,13 @@ impl ::core::fmt::Debug for IPlayToControlWithCapabilities {
     }
 }
 unsafe impl ::windows::core::Interface for IPlayToControlWithCapabilities {
-    type Vtable = IPlayToControlWithCapabilitiesVtbl;
+    type Vtable = IPlayToControlWithCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa9dd80f_c50a_4220_91c1_332287f82a34);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlayToControlWithCapabilitiesVtbl {
-    pub base: IPlayToControlVtbl,
+pub struct IPlayToControlWithCapabilities_Vtbl {
+    pub base: IPlayToControl_Vtbl,
     pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcapabilities: *mut PLAYTO_SOURCE_CREATEFLAGS) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -46069,12 +46069,12 @@ impl ::core::fmt::Debug for IPlayToSourceClassFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IPlayToSourceClassFactory {
-    type Vtable = IPlayToSourceClassFactoryVtbl;
+    type Vtable = IPlayToSourceClassFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x842b32a3_9b9b_4d1c_b3f3_49193248a554);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlayToSourceClassFactoryVtbl {
+pub struct IPlayToSourceClassFactory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pcontrol: ::windows::core::RawPtr, ppsource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -46167,12 +46167,12 @@ impl ::core::fmt::Debug for IToc {
     }
 }
 unsafe impl ::windows::core::Interface for IToc {
-    type Vtable = ITocVtbl;
+    type Vtable = IToc_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6f05441_a919_423b_91a0_89d5b4a8ab77);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITocVtbl {
+pub struct IToc_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdescriptor: *mut TOC_DESCRIPTOR) -> ::windows::core::HRESULT,
     pub GetDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdescriptor: *mut TOC_DESCRIPTOR) -> ::windows::core::HRESULT,
@@ -46255,12 +46255,12 @@ impl ::core::fmt::Debug for ITocCollection {
     }
 }
 unsafe impl ::windows::core::Interface for ITocCollection {
-    type Vtable = ITocCollectionVtbl;
+    type Vtable = ITocCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23fee831_ae96_42df_b170_25a04847a3ca);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITocCollectionVtbl {
+pub struct ITocCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetEntryCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwentrycount: *mut u32) -> ::windows::core::HRESULT,
     pub GetEntryByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwentryindex: u32, pptoc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -46344,12 +46344,12 @@ impl ::core::fmt::Debug for ITocEntry {
     }
 }
 unsafe impl ::windows::core::Interface for ITocEntry {
-    type Vtable = ITocEntryVtbl;
+    type Vtable = ITocEntry_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf22f5e06_585c_4def_8523_6555cfbc0cb3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITocEntryVtbl {
+pub struct ITocEntry_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwsztitle: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -46429,12 +46429,12 @@ impl ::core::fmt::Debug for ITocEntryList {
     }
 }
 unsafe impl ::windows::core::Interface for ITocEntryList {
-    type Vtable = ITocEntryListVtbl;
+    type Vtable = ITocEntryList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a8cccbd_0efd_43a3_b838_f38a552ba237);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITocEntryListVtbl {
+pub struct ITocEntryList_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetEntryCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwentrycount: *mut u32) -> ::windows::core::HRESULT,
     pub GetEntryByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwentryindex: u32, ppentry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -46519,12 +46519,12 @@ impl ::core::fmt::Debug for ITocParser {
     }
 }
 unsafe impl ::windows::core::Interface for ITocParser {
-    type Vtable = ITocParserVtbl;
+    type Vtable = ITocParser_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecfb9a55_9298_4f49_887f_0b36206599d2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITocParserVtbl {
+pub struct ITocParser_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszfilename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -46584,12 +46584,12 @@ impl ::core::fmt::Debug for IValidateBinding {
     }
 }
 unsafe impl ::windows::core::Interface for IValidateBinding {
-    type Vtable = IValidateBindingVtbl;
+    type Vtable = IValidateBinding_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04a578b2_e778_422a_a805_b3ee54d90bd9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IValidateBindingVtbl {
+pub struct IValidateBinding_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidlicensorid: ::windows::core::GUID, pbephemeron: *const u8, cbephemeron: u32, ppbblobvalidationid: *mut *mut u8, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -46651,12 +46651,12 @@ impl ::core::fmt::Debug for IWMCodecLeakyBucket {
     }
 }
 unsafe impl ::windows::core::Interface for IWMCodecLeakyBucket {
-    type Vtable = IWMCodecLeakyBucketVtbl;
+    type Vtable = IWMCodecLeakyBucket_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa81ba647_6227_43b7_b231_c7b15135dd7d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMCodecLeakyBucketVtbl {
+pub struct IWMCodecLeakyBucket_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetBufferSizeBits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulbuffersize: u32) -> ::windows::core::HRESULT,
     pub GetBufferSizeBits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulbuffersize: *mut u32) -> ::windows::core::HRESULT,
@@ -46709,12 +46709,12 @@ impl ::core::fmt::Debug for IWMCodecOutputTimestamp {
     }
 }
 unsafe impl ::windows::core::Interface for IWMCodecOutputTimestamp {
-    type Vtable = IWMCodecOutputTimestampVtbl;
+    type Vtable = IWMCodecOutputTimestamp_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb72adf95_7adc_4a72_bc05_577d8ea6bf68);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMCodecOutputTimestampVtbl {
+pub struct IWMCodecOutputTimestamp_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetNextOutputTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prttime: *mut i64) -> ::windows::core::HRESULT,
 }
@@ -46769,12 +46769,12 @@ impl ::core::fmt::Debug for IWMCodecPrivateData {
     }
 }
 unsafe impl ::windows::core::Interface for IWMCodecPrivateData {
-    type Vtable = IWMCodecPrivateDataVtbl;
+    type Vtable = IWMCodecPrivateData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73f0be8e_57f7_4f01_aa66_9f57340cfe0e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMCodecPrivateDataVtbl {
+pub struct IWMCodecPrivateData_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))]
     pub SetPartialOutputType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE) -> ::windows::core::HRESULT,
@@ -46834,12 +46834,12 @@ impl ::core::fmt::Debug for IWMCodecProps {
     }
 }
 unsafe impl ::windows::core::Interface for IWMCodecProps {
-    type Vtable = IWMCodecPropsVtbl;
+    type Vtable = IWMCodecProps_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2573e11a_f01a_4fdd_a98d_63b8e0ba9589);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMCodecPropsVtbl {
+pub struct IWMCodecProps_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))]
     pub GetFormatProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT,
@@ -46902,12 +46902,12 @@ impl ::core::fmt::Debug for IWMCodecStrings {
     }
 }
 unsafe impl ::windows::core::Interface for IWMCodecStrings {
-    type Vtable = IWMCodecStringsVtbl;
+    type Vtable = IWMCodecStrings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7b2504b_e58a_47fb_958b_cac7165a057d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMCodecStringsVtbl {
+pub struct IWMCodecStrings_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))]
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE, cchlength: u32, szname: super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
@@ -46968,12 +46968,12 @@ impl ::core::fmt::Debug for IWMColorConvProps {
     }
 }
 unsafe impl ::windows::core::Interface for IWMColorConvProps {
-    type Vtable = IWMColorConvPropsVtbl;
+    type Vtable = IWMColorConvProps_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6a49e22_c099_421d_aad3_c061fb4ae85b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMColorConvPropsVtbl {
+pub struct IWMColorConvProps_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmode: i32) -> ::windows::core::HRESULT,
     pub SetFullCroppingParam: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsrccropleft: i32, lsrccroptop: i32, ldstcropleft: i32, ldstcroptop: i32, lcropwidth: i32, lcropheight: i32) -> ::windows::core::HRESULT,
@@ -47024,12 +47024,12 @@ impl ::core::fmt::Debug for IWMColorLegalizerProps {
     }
 }
 unsafe impl ::windows::core::Interface for IWMColorLegalizerProps {
-    type Vtable = IWMColorLegalizerPropsVtbl;
+    type Vtable = IWMColorLegalizerProps_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x776c93b3_b72d_4508_b6d0_208785f553e7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMColorLegalizerPropsVtbl {
+pub struct IWMColorLegalizerProps_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetColorLegalizerQuality: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lquality: i32) -> ::windows::core::HRESULT,
 }
@@ -47092,12 +47092,12 @@ impl ::core::fmt::Debug for IWMFrameInterpProps {
     }
 }
 unsafe impl ::windows::core::Interface for IWMFrameInterpProps {
-    type Vtable = IWMFrameInterpPropsVtbl;
+    type Vtable = IWMFrameInterpProps_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c06bb9b_626c_4614_8329_cc6a21b93fa0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMFrameInterpPropsVtbl {
+pub struct IWMFrameInterpProps_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetFrameRateIn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lframerate: i32, lscale: i32) -> ::windows::core::HRESULT,
     pub SetFrameRateOut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lframerate: i32, lscale: i32) -> ::windows::core::HRESULT,
@@ -47161,12 +47161,12 @@ impl ::core::fmt::Debug for IWMInterlaceProps {
     }
 }
 unsafe impl ::windows::core::Interface for IWMInterlaceProps {
-    type Vtable = IWMInterlacePropsVtbl;
+    type Vtable = IWMInterlaceProps_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b12e5d1_bd22_48ea_bc06_98e893221c89);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMInterlacePropsVtbl {
+pub struct IWMInterlaceProps_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetProcessType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iprocesstype: i32) -> ::windows::core::HRESULT,
     pub SetInitInverseTeleCinePattern: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iinitpattern: i32) -> ::windows::core::HRESULT,
@@ -47222,12 +47222,12 @@ impl ::core::fmt::Debug for IWMResamplerProps {
     }
 }
 unsafe impl ::windows::core::Interface for IWMResamplerProps {
-    type Vtable = IWMResamplerPropsVtbl;
+    type Vtable = IWMResamplerProps_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7e9984f_f09f_4da4_903f_6e2e0efe56b5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMResamplerPropsVtbl {
+pub struct IWMResamplerProps_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetHalfFilterLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lhalffilterlen: i32) -> ::windows::core::HRESULT,
     pub SetUserChannelMtx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userchannelmtx: *mut f32) -> ::windows::core::HRESULT,
@@ -47294,12 +47294,12 @@ impl ::core::fmt::Debug for IWMResizerProps {
     }
 }
 unsafe impl ::windows::core::Interface for IWMResizerProps {
-    type Vtable = IWMResizerPropsVtbl;
+    type Vtable = IWMResizerProps_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57665d4c_0414_4faa_905b_10e546f81c33);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMResizerPropsVtbl {
+pub struct IWMResizerProps_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetResizerQuality: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lquality: i32) -> ::windows::core::HRESULT,
     pub SetInterlaceMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmode: i32) -> ::windows::core::HRESULT,
@@ -47354,12 +47354,12 @@ impl ::core::fmt::Debug for IWMSampleExtensionSupport {
     }
 }
 unsafe impl ::windows::core::Interface for IWMSampleExtensionSupport {
-    type Vtable = IWMSampleExtensionSupportVtbl;
+    type Vtable = IWMSampleExtensionSupport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bca9884_0604_4c2a_87da_793ff4d586c3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMSampleExtensionSupportVtbl {
+pub struct IWMSampleExtensionSupport_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetUseSampleExtensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fuseextensions: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -47412,12 +47412,12 @@ impl ::core::fmt::Debug for IWMValidate {
     }
 }
 unsafe impl ::windows::core::Interface for IWMValidate {
-    type Vtable = IWMValidateVtbl;
+    type Vtable = IWMValidate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcee3def2_3808_414d_be66_fafd472210bc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMValidateVtbl {
+pub struct IWMValidate_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidvalidationid: ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
@@ -47471,12 +47471,12 @@ impl ::core::fmt::Debug for IWMVideoDecoderHurryup {
     }
 }
 unsafe impl ::windows::core::Interface for IWMVideoDecoderHurryup {
-    type Vtable = IWMVideoDecoderHurryupVtbl;
+    type Vtable = IWMVideoDecoderHurryup_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x352bb3bd_2d4d_4323_9e71_dcdcfbd53ca6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMVideoDecoderHurryupVtbl {
+pub struct IWMVideoDecoderHurryup_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetHurryup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lhurryup: i32) -> ::windows::core::HRESULT,
     pub GetHurryup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plhurryup: *mut i32) -> ::windows::core::HRESULT,
@@ -47537,12 +47537,12 @@ impl ::core::fmt::Debug for IWMVideoDecoderReconBuffer {
     }
 }
 unsafe impl ::windows::core::Interface for IWMVideoDecoderReconBuffer {
-    type Vtable = IWMVideoDecoderReconBufferVtbl;
+    type Vtable = IWMVideoDecoderReconBuffer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45bda2ac_88e2_4923_98ba_3949080711a3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMVideoDecoderReconBufferVtbl {
+pub struct IWMVideoDecoderReconBuffer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetReconstructedVideoFrameSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Media_DxMediaObjects")]
@@ -47600,12 +47600,12 @@ impl ::core::fmt::Debug for IWMVideoForceKeyFrame {
     }
 }
 unsafe impl ::windows::core::Interface for IWMVideoForceKeyFrame {
-    type Vtable = IWMVideoForceKeyFrameVtbl;
+    type Vtable = IWMVideoForceKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f8496be_5b9a_41b9_a9e8_f21cd80596c2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMVideoForceKeyFrameVtbl {
+pub struct IWMVideoForceKeyFrame_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetKeyFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -47942,13 +47942,13 @@ impl ::core::fmt::Debug for MFASYNCRESULT {
     }
 }
 unsafe impl ::windows::core::Interface for MFASYNCRESULT {
-    type Vtable = MFASYNCRESULTVtbl;
+    type Vtable = MFASYNCRESULT_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct MFASYNCRESULTVtbl {
-    pub base: IMFAsyncResultVtbl,
+pub struct MFASYNCRESULT_Vtbl {
+    pub base: IMFAsyncResult_Vtbl,
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFASYNC_BLOCKING_CALLBACK: u32 = 4u32;

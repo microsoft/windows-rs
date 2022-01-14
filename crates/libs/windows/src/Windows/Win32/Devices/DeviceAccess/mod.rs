@@ -163,12 +163,12 @@ impl ::core::fmt::Debug for ICreateDeviceAccessAsync {
     }
 }
 unsafe impl ::windows::core::Interface for ICreateDeviceAccessAsync {
-    type Vtable = ICreateDeviceAccessAsyncVtbl;
+    type Vtable = ICreateDeviceAccessAsync_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3474628f_683d_42d2_abcb_db018c6503bc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICreateDeviceAccessAsyncVtbl {
+pub struct ICreateDeviceAccessAsync_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Wait: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timeout: u32) -> ::windows::core::HRESULT,
@@ -229,12 +229,12 @@ impl ::core::fmt::Debug for IDeviceIoControl {
     }
 }
 unsafe impl ::windows::core::Interface for IDeviceIoControl {
-    type Vtable = IDeviceIoControlVtbl;
+    type Vtable = IDeviceIoControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9eefe161_23ab_4f18_9b49_991b586ae970);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceIoControlVtbl {
+pub struct IDeviceIoControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub DeviceIoControlSync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, bytesreturned: *mut u32) -> ::windows::core::HRESULT,
     pub DeviceIoControlAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, requestcompletioncallback: ::windows::core::RawPtr, cancelcontext: *mut usize) -> ::windows::core::HRESULT,
@@ -286,12 +286,12 @@ impl ::core::fmt::Debug for IDeviceRequestCompletionCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IDeviceRequestCompletionCallback {
-    type Vtable = IDeviceRequestCompletionCallbackVtbl;
+    type Vtable = IDeviceRequestCompletionCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x999bad24_9acd_45bb_8669_2a2fc0288b04);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceRequestCompletionCallbackVtbl {
+pub struct IDeviceRequestCompletionCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestresult: ::windows::core::HRESULT, bytesreturned: u32) -> ::windows::core::HRESULT,
 }

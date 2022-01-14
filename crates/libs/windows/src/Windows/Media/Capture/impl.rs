@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Media_Devices", feature = "implement_exclusive"))]
-pub trait IAdvancedCapturedPhotoImpl: Sized {
+pub trait IAdvancedCapturedPhoto_Impl: Sized {
     fn Frame(&mut self) -> ::windows::core::Result<CapturedFrame>;
     fn Mode(&mut self) -> ::windows::core::Result<super::Devices::AdvancedPhotoMode>;
     fn Context(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for IAdvancedCapturedPhoto {
     const NAME: &'static str = "Windows.Media.Capture.IAdvancedCapturedPhoto";
 }
 #[cfg(all(feature = "Media_Devices", feature = "implement_exclusive"))]
-impl IAdvancedCapturedPhotoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdvancedCapturedPhotoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdvancedCapturedPhotoVtbl {
-        unsafe extern "system" fn Frame<Impl: IAdvancedCapturedPhotoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAdvancedCapturedPhoto_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdvancedCapturedPhoto_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdvancedCapturedPhoto_Vtbl {
+        unsafe extern "system" fn Frame<Impl: IAdvancedCapturedPhoto_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Frame() {
                 ::core::result::Result::Ok(ok__) => {
@@ -22,7 +22,7 @@ impl IAdvancedCapturedPhotoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Mode<Impl: IAdvancedCapturedPhotoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Devices::AdvancedPhotoMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Mode<Impl: IAdvancedCapturedPhoto_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Devices::AdvancedPhotoMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Mode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -33,7 +33,7 @@ impl IAdvancedCapturedPhotoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Context<Impl: IAdvancedCapturedPhotoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Context<Impl: IAdvancedCapturedPhoto_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Context() {
                 ::core::result::Result::Ok(ok__) => {
@@ -56,7 +56,7 @@ impl IAdvancedCapturedPhotoVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAdvancedCapturedPhoto2Impl: Sized {
+pub trait IAdvancedCapturedPhoto2_Impl: Sized {
     fn FrameBoundsRelativeToReferencePhoto(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Rect>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -64,9 +64,9 @@ impl ::windows::core::RuntimeName for IAdvancedCapturedPhoto2 {
     const NAME: &'static str = "Windows.Media.Capture.IAdvancedCapturedPhoto2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAdvancedCapturedPhoto2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdvancedCapturedPhoto2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdvancedCapturedPhoto2Vtbl {
-        unsafe extern "system" fn FrameBoundsRelativeToReferencePhoto<Impl: IAdvancedCapturedPhoto2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAdvancedCapturedPhoto2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdvancedCapturedPhoto2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdvancedCapturedPhoto2_Vtbl {
+        unsafe extern "system" fn FrameBoundsRelativeToReferencePhoto<Impl: IAdvancedCapturedPhoto2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameBoundsRelativeToReferencePhoto() {
                 ::core::result::Result::Ok(ok__) => {
@@ -87,7 +87,7 @@ impl IAdvancedCapturedPhoto2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAdvancedPhotoCaptureImpl: Sized {
+pub trait IAdvancedPhotoCapture_Impl: Sized {
     fn CaptureAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AdvancedCapturedPhoto>>;
     fn CaptureWithContextAsync(&mut self, context: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AdvancedCapturedPhoto>>;
     fn OptionalReferencePhotoCaptured(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AdvancedPhotoCapture, OptionalReferencePhotoCapturedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -101,9 +101,9 @@ impl ::windows::core::RuntimeName for IAdvancedPhotoCapture {
     const NAME: &'static str = "Windows.Media.Capture.IAdvancedPhotoCapture";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAdvancedPhotoCaptureVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdvancedPhotoCaptureImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdvancedPhotoCaptureVtbl {
-        unsafe extern "system" fn CaptureAsync<Impl: IAdvancedPhotoCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAdvancedPhotoCapture_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdvancedPhotoCapture_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdvancedPhotoCapture_Vtbl {
+        unsafe extern "system" fn CaptureAsync<Impl: IAdvancedPhotoCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CaptureAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -114,7 +114,7 @@ impl IAdvancedPhotoCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CaptureWithContextAsync<Impl: IAdvancedPhotoCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CaptureWithContextAsync<Impl: IAdvancedPhotoCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CaptureWithContextAsync(&*(&context as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -125,7 +125,7 @@ impl IAdvancedPhotoCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OptionalReferencePhotoCaptured<Impl: IAdvancedPhotoCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OptionalReferencePhotoCaptured<Impl: IAdvancedPhotoCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OptionalReferencePhotoCaptured(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AdvancedPhotoCapture, OptionalReferencePhotoCapturedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AdvancedPhotoCapture, OptionalReferencePhotoCapturedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -136,11 +136,11 @@ impl IAdvancedPhotoCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveOptionalReferencePhotoCaptured<Impl: IAdvancedPhotoCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveOptionalReferencePhotoCaptured<Impl: IAdvancedPhotoCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveOptionalReferencePhotoCaptured(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AllPhotosCaptured<Impl: IAdvancedPhotoCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllPhotosCaptured<Impl: IAdvancedPhotoCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllPhotosCaptured(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AdvancedPhotoCapture, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AdvancedPhotoCapture, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -151,11 +151,11 @@ impl IAdvancedPhotoCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAllPhotosCaptured<Impl: IAdvancedPhotoCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAllPhotosCaptured<Impl: IAdvancedPhotoCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAllPhotosCaptured(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FinishAsync<Impl: IAdvancedPhotoCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FinishAsync<Impl: IAdvancedPhotoCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FinishAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -182,7 +182,7 @@ impl IAdvancedPhotoCaptureVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAppBroadcastBackgroundServiceImpl: Sized {
+pub trait IAppBroadcastBackgroundService_Impl: Sized {
     fn SetPlugInState(&mut self, value: AppBroadcastPlugInState) -> ::windows::core::Result<()>;
     fn PlugInState(&mut self) -> ::windows::core::Result<AppBroadcastPlugInState>;
     fn SetSignInInfo(&mut self, value: &::core::option::Option<AppBroadcastBackgroundServiceSignInInfo>) -> ::windows::core::Result<()>;
@@ -203,13 +203,13 @@ impl ::windows::core::RuntimeName for IAppBroadcastBackgroundService {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastBackgroundService";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAppBroadcastBackgroundServiceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastBackgroundServiceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastBackgroundServiceVtbl {
-        unsafe extern "system" fn SetPlugInState<Impl: IAppBroadcastBackgroundServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AppBroadcastPlugInState) -> ::windows::core::HRESULT {
+impl IAppBroadcastBackgroundService_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastBackgroundService_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastBackgroundService_Vtbl {
+        unsafe extern "system" fn SetPlugInState<Impl: IAppBroadcastBackgroundService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AppBroadcastPlugInState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlugInState(value).into()
         }
-        unsafe extern "system" fn PlugInState<Impl: IAppBroadcastBackgroundServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastPlugInState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlugInState<Impl: IAppBroadcastBackgroundService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastPlugInState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlugInState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -220,11 +220,11 @@ impl IAppBroadcastBackgroundServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignInInfo<Impl: IAppBroadcastBackgroundServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSignInInfo<Impl: IAppBroadcastBackgroundService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSignInInfo(&*(&value as *const <AppBroadcastBackgroundServiceSignInInfo as ::windows::core::Abi>::Abi as *const <AppBroadcastBackgroundServiceSignInInfo as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SignInInfo<Impl: IAppBroadcastBackgroundServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignInInfo<Impl: IAppBroadcastBackgroundService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignInInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -235,11 +235,11 @@ impl IAppBroadcastBackgroundServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStreamInfo<Impl: IAppBroadcastBackgroundServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStreamInfo<Impl: IAppBroadcastBackgroundService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStreamInfo(&*(&value as *const <AppBroadcastBackgroundServiceStreamInfo as ::windows::core::Abi>::Abi as *const <AppBroadcastBackgroundServiceStreamInfo as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StreamInfo<Impl: IAppBroadcastBackgroundServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StreamInfo<Impl: IAppBroadcastBackgroundService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StreamInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -250,7 +250,7 @@ impl IAppBroadcastBackgroundServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppId<Impl: IAppBroadcastBackgroundServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppId<Impl: IAppBroadcastBackgroundService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -261,7 +261,7 @@ impl IAppBroadcastBackgroundServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BroadcastTitle<Impl: IAppBroadcastBackgroundServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BroadcastTitle<Impl: IAppBroadcastBackgroundService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BroadcastTitle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -272,11 +272,11 @@ impl IAppBroadcastBackgroundServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetViewerCount<Impl: IAppBroadcastBackgroundServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetViewerCount<Impl: IAppBroadcastBackgroundService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetViewerCount(value).into()
         }
-        unsafe extern "system" fn ViewerCount<Impl: IAppBroadcastBackgroundServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ViewerCount<Impl: IAppBroadcastBackgroundService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ViewerCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -287,11 +287,11 @@ impl IAppBroadcastBackgroundServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TerminateBroadcast<Impl: IAppBroadcastBackgroundServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: AppBroadcastTerminationReason, providerspecificreason: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TerminateBroadcast<Impl: IAppBroadcastBackgroundService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: AppBroadcastTerminationReason, providerspecificreason: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TerminateBroadcast(reason, providerspecificreason).into()
         }
-        unsafe extern "system" fn HeartbeatRequested<Impl: IAppBroadcastBackgroundServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HeartbeatRequested<Impl: IAppBroadcastBackgroundService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HeartbeatRequested(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, AppBroadcastHeartbeatRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, AppBroadcastHeartbeatRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -302,11 +302,11 @@ impl IAppBroadcastBackgroundServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveHeartbeatRequested<Impl: IAppBroadcastBackgroundServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveHeartbeatRequested<Impl: IAppBroadcastBackgroundService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveHeartbeatRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TitleId<Impl: IAppBroadcastBackgroundServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TitleId<Impl: IAppBroadcastBackgroundService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TitleId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -340,7 +340,7 @@ impl IAppBroadcastBackgroundServiceVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAppBroadcastBackgroundService2Impl: Sized {
+pub trait IAppBroadcastBackgroundService2_Impl: Sized {
     fn SetBroadcastTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn BroadcastLanguage(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetBroadcastLanguage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -358,13 +358,13 @@ impl ::windows::core::RuntimeName for IAppBroadcastBackgroundService2 {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastBackgroundService2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAppBroadcastBackgroundService2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastBackgroundService2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastBackgroundService2Vtbl {
-        unsafe extern "system" fn SetBroadcastTitle<Impl: IAppBroadcastBackgroundService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAppBroadcastBackgroundService2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastBackgroundService2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastBackgroundService2_Vtbl {
+        unsafe extern "system" fn SetBroadcastTitle<Impl: IAppBroadcastBackgroundService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBroadcastTitle(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BroadcastLanguage<Impl: IAppBroadcastBackgroundService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BroadcastLanguage<Impl: IAppBroadcastBackgroundService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BroadcastLanguage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -375,11 +375,11 @@ impl IAppBroadcastBackgroundService2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBroadcastLanguage<Impl: IAppBroadcastBackgroundService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBroadcastLanguage<Impl: IAppBroadcastBackgroundService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBroadcastLanguage(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BroadcastChannel<Impl: IAppBroadcastBackgroundService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BroadcastChannel<Impl: IAppBroadcastBackgroundService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BroadcastChannel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -390,11 +390,11 @@ impl IAppBroadcastBackgroundService2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBroadcastChannel<Impl: IAppBroadcastBackgroundService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBroadcastChannel<Impl: IAppBroadcastBackgroundService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBroadcastChannel(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BroadcastTitleChanged<Impl: IAppBroadcastBackgroundService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BroadcastTitleChanged<Impl: IAppBroadcastBackgroundService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BroadcastTitleChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -405,11 +405,11 @@ impl IAppBroadcastBackgroundService2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveBroadcastTitleChanged<Impl: IAppBroadcastBackgroundService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveBroadcastTitleChanged<Impl: IAppBroadcastBackgroundService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveBroadcastTitleChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BroadcastLanguageChanged<Impl: IAppBroadcastBackgroundService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BroadcastLanguageChanged<Impl: IAppBroadcastBackgroundService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BroadcastLanguageChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -420,11 +420,11 @@ impl IAppBroadcastBackgroundService2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveBroadcastLanguageChanged<Impl: IAppBroadcastBackgroundService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveBroadcastLanguageChanged<Impl: IAppBroadcastBackgroundService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveBroadcastLanguageChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BroadcastChannelChanged<Impl: IAppBroadcastBackgroundService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BroadcastChannelChanged<Impl: IAppBroadcastBackgroundService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BroadcastChannelChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundService, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -435,7 +435,7 @@ impl IAppBroadcastBackgroundService2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveBroadcastChannelChanged<Impl: IAppBroadcastBackgroundService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveBroadcastChannelChanged<Impl: IAppBroadcastBackgroundService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveBroadcastChannelChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -459,7 +459,7 @@ impl IAppBroadcastBackgroundService2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web", feature = "implement_exclusive"))]
-pub trait IAppBroadcastBackgroundServiceSignInInfoImpl: Sized {
+pub trait IAppBroadcastBackgroundServiceSignInInfo_Impl: Sized {
     fn SignInState(&mut self) -> ::windows::core::Result<AppBroadcastSignInState>;
     fn SetOAuthRequestUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn OAuthRequestUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
@@ -476,9 +476,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastBackgroundServiceSignInInfo {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastBackgroundServiceSignInInfo";
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web", feature = "implement_exclusive"))]
-impl IAppBroadcastBackgroundServiceSignInInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastBackgroundServiceSignInInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastBackgroundServiceSignInInfoVtbl {
-        unsafe extern "system" fn SignInState<Impl: IAppBroadcastBackgroundServiceSignInInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastSignInState) -> ::windows::core::HRESULT {
+impl IAppBroadcastBackgroundServiceSignInInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastBackgroundServiceSignInInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastBackgroundServiceSignInInfo_Vtbl {
+        unsafe extern "system" fn SignInState<Impl: IAppBroadcastBackgroundServiceSignInInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastSignInState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignInState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -489,11 +489,11 @@ impl IAppBroadcastBackgroundServiceSignInInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOAuthRequestUri<Impl: IAppBroadcastBackgroundServiceSignInInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOAuthRequestUri<Impl: IAppBroadcastBackgroundServiceSignInInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOAuthRequestUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn OAuthRequestUri<Impl: IAppBroadcastBackgroundServiceSignInInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OAuthRequestUri<Impl: IAppBroadcastBackgroundServiceSignInInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OAuthRequestUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -504,11 +504,11 @@ impl IAppBroadcastBackgroundServiceSignInInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOAuthCallbackUri<Impl: IAppBroadcastBackgroundServiceSignInInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOAuthCallbackUri<Impl: IAppBroadcastBackgroundServiceSignInInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOAuthCallbackUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn OAuthCallbackUri<Impl: IAppBroadcastBackgroundServiceSignInInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OAuthCallbackUri<Impl: IAppBroadcastBackgroundServiceSignInInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OAuthCallbackUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -519,7 +519,7 @@ impl IAppBroadcastBackgroundServiceSignInInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AuthenticationResult<Impl: IAppBroadcastBackgroundServiceSignInInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AuthenticationResult<Impl: IAppBroadcastBackgroundServiceSignInInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticationResult() {
                 ::core::result::Result::Ok(ok__) => {
@@ -530,11 +530,11 @@ impl IAppBroadcastBackgroundServiceSignInInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetUserName<Impl: IAppBroadcastBackgroundServiceSignInInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUserName<Impl: IAppBroadcastBackgroundServiceSignInInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUserName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn UserName<Impl: IAppBroadcastBackgroundServiceSignInInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UserName<Impl: IAppBroadcastBackgroundServiceSignInInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -545,7 +545,7 @@ impl IAppBroadcastBackgroundServiceSignInInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SignInStateChanged<Impl: IAppBroadcastBackgroundServiceSignInInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignInStateChanged<Impl: IAppBroadcastBackgroundServiceSignInInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignInStateChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceSignInInfo, AppBroadcastSignInStateChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceSignInInfo, AppBroadcastSignInStateChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -556,7 +556,7 @@ impl IAppBroadcastBackgroundServiceSignInInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSignInStateChanged<Impl: IAppBroadcastBackgroundServiceSignInInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSignInStateChanged<Impl: IAppBroadcastBackgroundServiceSignInInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSignInStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -579,7 +579,7 @@ impl IAppBroadcastBackgroundServiceSignInInfoVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAppBroadcastBackgroundServiceSignInInfo2Impl: Sized {
+pub trait IAppBroadcastBackgroundServiceSignInInfo2_Impl: Sized {
     fn UserNameChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceSignInInfo, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveUserNameChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
@@ -588,9 +588,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastBackgroundServiceSignInInfo2 
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastBackgroundServiceSignInInfo2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAppBroadcastBackgroundServiceSignInInfo2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastBackgroundServiceSignInInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastBackgroundServiceSignInInfo2Vtbl {
-        unsafe extern "system" fn UserNameChanged<Impl: IAppBroadcastBackgroundServiceSignInInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IAppBroadcastBackgroundServiceSignInInfo2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastBackgroundServiceSignInInfo2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastBackgroundServiceSignInInfo2_Vtbl {
+        unsafe extern "system" fn UserNameChanged<Impl: IAppBroadcastBackgroundServiceSignInInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserNameChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceSignInInfo, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceSignInInfo, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -601,7 +601,7 @@ impl IAppBroadcastBackgroundServiceSignInInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveUserNameChanged<Impl: IAppBroadcastBackgroundServiceSignInInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveUserNameChanged<Impl: IAppBroadcastBackgroundServiceSignInInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveUserNameChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -616,7 +616,7 @@ impl IAppBroadcastBackgroundServiceSignInInfo2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAppBroadcastBackgroundServiceStreamInfoImpl: Sized {
+pub trait IAppBroadcastBackgroundServiceStreamInfo_Impl: Sized {
     fn StreamState(&mut self) -> ::windows::core::Result<AppBroadcastStreamState>;
     fn SetDesiredVideoEncodingBitrate(&mut self, value: u64) -> ::windows::core::Result<()>;
     fn DesiredVideoEncodingBitrate(&mut self) -> ::windows::core::Result<u64>;
@@ -637,9 +637,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastBackgroundServiceStreamInfo {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastBackgroundServiceStreamInfo";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAppBroadcastBackgroundServiceStreamInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastBackgroundServiceStreamInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastBackgroundServiceStreamInfoVtbl {
-        unsafe extern "system" fn StreamState<Impl: IAppBroadcastBackgroundServiceStreamInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastStreamState) -> ::windows::core::HRESULT {
+impl IAppBroadcastBackgroundServiceStreamInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastBackgroundServiceStreamInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastBackgroundServiceStreamInfo_Vtbl {
+        unsafe extern "system" fn StreamState<Impl: IAppBroadcastBackgroundServiceStreamInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastStreamState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StreamState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -650,11 +650,11 @@ impl IAppBroadcastBackgroundServiceStreamInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDesiredVideoEncodingBitrate<Impl: IAppBroadcastBackgroundServiceStreamInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDesiredVideoEncodingBitrate<Impl: IAppBroadcastBackgroundServiceStreamInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDesiredVideoEncodingBitrate(value).into()
         }
-        unsafe extern "system" fn DesiredVideoEncodingBitrate<Impl: IAppBroadcastBackgroundServiceStreamInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DesiredVideoEncodingBitrate<Impl: IAppBroadcastBackgroundServiceStreamInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesiredVideoEncodingBitrate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -665,11 +665,11 @@ impl IAppBroadcastBackgroundServiceStreamInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBandwidthTestBitrate<Impl: IAppBroadcastBackgroundServiceStreamInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBandwidthTestBitrate<Impl: IAppBroadcastBackgroundServiceStreamInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBandwidthTestBitrate(value).into()
         }
-        unsafe extern "system" fn BandwidthTestBitrate<Impl: IAppBroadcastBackgroundServiceStreamInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BandwidthTestBitrate<Impl: IAppBroadcastBackgroundServiceStreamInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BandwidthTestBitrate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -680,11 +680,11 @@ impl IAppBroadcastBackgroundServiceStreamInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAudioCodec<Impl: IAppBroadcastBackgroundServiceStreamInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAudioCodec<Impl: IAppBroadcastBackgroundServiceStreamInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAudioCodec(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AudioCodec<Impl: IAppBroadcastBackgroundServiceStreamInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioCodec<Impl: IAppBroadcastBackgroundServiceStreamInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioCodec() {
                 ::core::result::Result::Ok(ok__) => {
@@ -695,7 +695,7 @@ impl IAppBroadcastBackgroundServiceStreamInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BroadcastStreamReader<Impl: IAppBroadcastBackgroundServiceStreamInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BroadcastStreamReader<Impl: IAppBroadcastBackgroundServiceStreamInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BroadcastStreamReader() {
                 ::core::result::Result::Ok(ok__) => {
@@ -706,7 +706,7 @@ impl IAppBroadcastBackgroundServiceStreamInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StreamStateChanged<Impl: IAppBroadcastBackgroundServiceStreamInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StreamStateChanged<Impl: IAppBroadcastBackgroundServiceStreamInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StreamStateChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, AppBroadcastStreamStateChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, AppBroadcastStreamStateChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -717,11 +717,11 @@ impl IAppBroadcastBackgroundServiceStreamInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStreamStateChanged<Impl: IAppBroadcastBackgroundServiceStreamInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStreamStateChanged<Impl: IAppBroadcastBackgroundServiceStreamInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStreamStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn VideoEncodingResolutionChanged<Impl: IAppBroadcastBackgroundServiceStreamInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoEncodingResolutionChanged<Impl: IAppBroadcastBackgroundServiceStreamInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoEncodingResolutionChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -732,11 +732,11 @@ impl IAppBroadcastBackgroundServiceStreamInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveVideoEncodingResolutionChanged<Impl: IAppBroadcastBackgroundServiceStreamInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveVideoEncodingResolutionChanged<Impl: IAppBroadcastBackgroundServiceStreamInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveVideoEncodingResolutionChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn VideoEncodingBitrateChanged<Impl: IAppBroadcastBackgroundServiceStreamInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoEncodingBitrateChanged<Impl: IAppBroadcastBackgroundServiceStreamInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoEncodingBitrateChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppBroadcastBackgroundServiceStreamInfo, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -747,7 +747,7 @@ impl IAppBroadcastBackgroundServiceStreamInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveVideoEncodingBitrateChanged<Impl: IAppBroadcastBackgroundServiceStreamInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveVideoEncodingBitrateChanged<Impl: IAppBroadcastBackgroundServiceStreamInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveVideoEncodingBitrateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -774,7 +774,7 @@ impl IAppBroadcastBackgroundServiceStreamInfoVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastBackgroundServiceStreamInfo2Impl: Sized {
+pub trait IAppBroadcastBackgroundServiceStreamInfo2_Impl: Sized {
     fn ReportProblemWithStream(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -782,9 +782,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastBackgroundServiceStreamInfo2 
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastBackgroundServiceStreamInfo2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppBroadcastBackgroundServiceStreamInfo2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastBackgroundServiceStreamInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastBackgroundServiceStreamInfo2Vtbl {
-        unsafe extern "system" fn ReportProblemWithStream<Impl: IAppBroadcastBackgroundServiceStreamInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IAppBroadcastBackgroundServiceStreamInfo2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastBackgroundServiceStreamInfo2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastBackgroundServiceStreamInfo2_Vtbl {
+        unsafe extern "system" fn ReportProblemWithStream<Impl: IAppBroadcastBackgroundServiceStreamInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportProblemWithStream().into()
         }
@@ -798,7 +798,7 @@ impl IAppBroadcastBackgroundServiceStreamInfo2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastCameraCaptureStateChangedEventArgsImpl: Sized {
+pub trait IAppBroadcastCameraCaptureStateChangedEventArgs_Impl: Sized {
     fn State(&mut self) -> ::windows::core::Result<AppBroadcastCameraCaptureState>;
     fn ErrorCode(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -807,9 +807,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastCameraCaptureStateChangedEven
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastCameraCaptureStateChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppBroadcastCameraCaptureStateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastCameraCaptureStateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastCameraCaptureStateChangedEventArgsVtbl {
-        unsafe extern "system" fn State<Impl: IAppBroadcastCameraCaptureStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastCameraCaptureState) -> ::windows::core::HRESULT {
+impl IAppBroadcastCameraCaptureStateChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastCameraCaptureStateChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastCameraCaptureStateChangedEventArgs_Vtbl {
+        unsafe extern "system" fn State<Impl: IAppBroadcastCameraCaptureStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastCameraCaptureState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -820,7 +820,7 @@ impl IAppBroadcastCameraCaptureStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ErrorCode<Impl: IAppBroadcastCameraCaptureStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ErrorCode<Impl: IAppBroadcastCameraCaptureStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ErrorCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -842,7 +842,7 @@ impl IAppBroadcastCameraCaptureStateChangedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastGlobalSettingsImpl: Sized {
+pub trait IAppBroadcastGlobalSettings_Impl: Sized {
     fn IsBroadcastEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn IsDisabledByPolicy(&mut self) -> ::windows::core::Result<bool>;
     fn IsGpuConstrained(&mut self) -> ::windows::core::Result<bool>;
@@ -873,9 +873,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastGlobalSettings {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastGlobalSettings";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppBroadcastGlobalSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastGlobalSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastGlobalSettingsVtbl {
-        unsafe extern "system" fn IsBroadcastEnabled<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IAppBroadcastGlobalSettings_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastGlobalSettings_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastGlobalSettings_Vtbl {
+        unsafe extern "system" fn IsBroadcastEnabled<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBroadcastEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -886,7 +886,7 @@ impl IAppBroadcastGlobalSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDisabledByPolicy<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDisabledByPolicy<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDisabledByPolicy() {
                 ::core::result::Result::Ok(ok__) => {
@@ -897,7 +897,7 @@ impl IAppBroadcastGlobalSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsGpuConstrained<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsGpuConstrained<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsGpuConstrained() {
                 ::core::result::Result::Ok(ok__) => {
@@ -908,7 +908,7 @@ impl IAppBroadcastGlobalSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasHardwareEncoder<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasHardwareEncoder<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasHardwareEncoder() {
                 ::core::result::Result::Ok(ok__) => {
@@ -919,11 +919,11 @@ impl IAppBroadcastGlobalSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsAudioCaptureEnabled<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsAudioCaptureEnabled<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsAudioCaptureEnabled(value).into()
         }
-        unsafe extern "system" fn IsAudioCaptureEnabled<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsAudioCaptureEnabled<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAudioCaptureEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -934,11 +934,11 @@ impl IAppBroadcastGlobalSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsMicrophoneCaptureEnabledByDefault<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsMicrophoneCaptureEnabledByDefault<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsMicrophoneCaptureEnabledByDefault(value).into()
         }
-        unsafe extern "system" fn IsMicrophoneCaptureEnabledByDefault<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsMicrophoneCaptureEnabledByDefault<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsMicrophoneCaptureEnabledByDefault() {
                 ::core::result::Result::Ok(ok__) => {
@@ -949,11 +949,11 @@ impl IAppBroadcastGlobalSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsEchoCancellationEnabled<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsEchoCancellationEnabled<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsEchoCancellationEnabled(value).into()
         }
-        unsafe extern "system" fn IsEchoCancellationEnabled<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEchoCancellationEnabled<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEchoCancellationEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -964,11 +964,11 @@ impl IAppBroadcastGlobalSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSystemAudioGain<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSystemAudioGain<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSystemAudioGain(value).into()
         }
-        unsafe extern "system" fn SystemAudioGain<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SystemAudioGain<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemAudioGain() {
                 ::core::result::Result::Ok(ok__) => {
@@ -979,11 +979,11 @@ impl IAppBroadcastGlobalSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMicrophoneGain<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMicrophoneGain<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMicrophoneGain(value).into()
         }
-        unsafe extern "system" fn MicrophoneGain<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MicrophoneGain<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MicrophoneGain() {
                 ::core::result::Result::Ok(ok__) => {
@@ -994,11 +994,11 @@ impl IAppBroadcastGlobalSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsCameraCaptureEnabledByDefault<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsCameraCaptureEnabledByDefault<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsCameraCaptureEnabledByDefault(value).into()
         }
-        unsafe extern "system" fn IsCameraCaptureEnabledByDefault<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCameraCaptureEnabledByDefault<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCameraCaptureEnabledByDefault() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1009,11 +1009,11 @@ impl IAppBroadcastGlobalSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSelectedCameraId<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSelectedCameraId<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSelectedCameraId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SelectedCameraId<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectedCameraId<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedCameraId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1024,11 +1024,11 @@ impl IAppBroadcastGlobalSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCameraOverlayLocation<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AppBroadcastCameraOverlayLocation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCameraOverlayLocation<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AppBroadcastCameraOverlayLocation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCameraOverlayLocation(value).into()
         }
-        unsafe extern "system" fn CameraOverlayLocation<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastCameraOverlayLocation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CameraOverlayLocation<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastCameraOverlayLocation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CameraOverlayLocation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1039,11 +1039,11 @@ impl IAppBroadcastGlobalSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCameraOverlaySize<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AppBroadcastCameraOverlaySize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCameraOverlaySize<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AppBroadcastCameraOverlaySize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCameraOverlaySize(value).into()
         }
-        unsafe extern "system" fn CameraOverlaySize<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastCameraOverlaySize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CameraOverlaySize<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastCameraOverlaySize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CameraOverlaySize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1054,11 +1054,11 @@ impl IAppBroadcastGlobalSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsCursorImageCaptureEnabled<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsCursorImageCaptureEnabled<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsCursorImageCaptureEnabled(value).into()
         }
-        unsafe extern "system" fn IsCursorImageCaptureEnabled<Impl: IAppBroadcastGlobalSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCursorImageCaptureEnabled<Impl: IAppBroadcastGlobalSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCursorImageCaptureEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1102,7 +1102,7 @@ impl IAppBroadcastGlobalSettingsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastHeartbeatRequestedEventArgsImpl: Sized {
+pub trait IAppBroadcastHeartbeatRequestedEventArgs_Impl: Sized {
     fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn Handled(&mut self) -> ::windows::core::Result<bool>;
 }
@@ -1111,13 +1111,13 @@ impl ::windows::core::RuntimeName for IAppBroadcastHeartbeatRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastHeartbeatRequestedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppBroadcastHeartbeatRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastHeartbeatRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastHeartbeatRequestedEventArgsVtbl {
-        unsafe extern "system" fn SetHandled<Impl: IAppBroadcastHeartbeatRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+impl IAppBroadcastHeartbeatRequestedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastHeartbeatRequestedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastHeartbeatRequestedEventArgs_Vtbl {
+        unsafe extern "system" fn SetHandled<Impl: IAppBroadcastHeartbeatRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        unsafe extern "system" fn Handled<Impl: IAppBroadcastHeartbeatRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Handled<Impl: IAppBroadcastHeartbeatRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1139,7 +1139,7 @@ impl IAppBroadcastHeartbeatRequestedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastManagerStaticsImpl: Sized {
+pub trait IAppBroadcastManagerStatics_Impl: Sized {
     fn GetGlobalSettings(&mut self) -> ::windows::core::Result<AppBroadcastGlobalSettings>;
     fn ApplyGlobalSettings(&mut self, value: &::core::option::Option<AppBroadcastGlobalSettings>) -> ::windows::core::Result<()>;
     fn GetProviderSettings(&mut self) -> ::windows::core::Result<AppBroadcastProviderSettings>;
@@ -1150,9 +1150,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastManagerStatics {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastManagerStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppBroadcastManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastManagerStaticsVtbl {
-        unsafe extern "system" fn GetGlobalSettings<Impl: IAppBroadcastManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAppBroadcastManagerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastManagerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastManagerStatics_Vtbl {
+        unsafe extern "system" fn GetGlobalSettings<Impl: IAppBroadcastManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetGlobalSettings() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1163,11 +1163,11 @@ impl IAppBroadcastManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ApplyGlobalSettings<Impl: IAppBroadcastManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ApplyGlobalSettings<Impl: IAppBroadcastManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ApplyGlobalSettings(&*(&value as *const <AppBroadcastGlobalSettings as ::windows::core::Abi>::Abi as *const <AppBroadcastGlobalSettings as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetProviderSettings<Impl: IAppBroadcastManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProviderSettings<Impl: IAppBroadcastManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetProviderSettings() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1178,7 +1178,7 @@ impl IAppBroadcastManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ApplyProviderSettings<Impl: IAppBroadcastManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ApplyProviderSettings<Impl: IAppBroadcastManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ApplyProviderSettings(&*(&value as *const <AppBroadcastProviderSettings as ::windows::core::Abi>::Abi as *const <AppBroadcastProviderSettings as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1195,7 +1195,7 @@ impl IAppBroadcastManagerStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastMicrophoneCaptureStateChangedEventArgsImpl: Sized {
+pub trait IAppBroadcastMicrophoneCaptureStateChangedEventArgs_Impl: Sized {
     fn State(&mut self) -> ::windows::core::Result<AppBroadcastMicrophoneCaptureState>;
     fn ErrorCode(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -1204,9 +1204,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastMicrophoneCaptureStateChanged
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastMicrophoneCaptureStateChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppBroadcastMicrophoneCaptureStateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastMicrophoneCaptureStateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastMicrophoneCaptureStateChangedEventArgsVtbl {
-        unsafe extern "system" fn State<Impl: IAppBroadcastMicrophoneCaptureStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastMicrophoneCaptureState) -> ::windows::core::HRESULT {
+impl IAppBroadcastMicrophoneCaptureStateChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastMicrophoneCaptureStateChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastMicrophoneCaptureStateChangedEventArgs_Vtbl {
+        unsafe extern "system" fn State<Impl: IAppBroadcastMicrophoneCaptureStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastMicrophoneCaptureState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1217,7 +1217,7 @@ impl IAppBroadcastMicrophoneCaptureStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ErrorCode<Impl: IAppBroadcastMicrophoneCaptureStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ErrorCode<Impl: IAppBroadcastMicrophoneCaptureStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ErrorCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1239,7 +1239,7 @@ impl IAppBroadcastMicrophoneCaptureStateChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IAppBroadcastPlugInImpl: Sized {
+pub trait IAppBroadcastPlugIn_Impl: Sized {
     fn AppId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ProviderSettings(&mut self) -> ::windows::core::Result<AppBroadcastProviderSettings>;
     fn Logo(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
@@ -1250,9 +1250,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastPlugIn {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastPlugIn";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IAppBroadcastPlugInVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastPlugInImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastPlugInVtbl {
-        unsafe extern "system" fn AppId<Impl: IAppBroadcastPlugInImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAppBroadcastPlugIn_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastPlugIn_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastPlugIn_Vtbl {
+        unsafe extern "system" fn AppId<Impl: IAppBroadcastPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1263,7 +1263,7 @@ impl IAppBroadcastPlugInVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProviderSettings<Impl: IAppBroadcastPlugInImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProviderSettings<Impl: IAppBroadcastPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProviderSettings() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1274,7 +1274,7 @@ impl IAppBroadcastPlugInVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Logo<Impl: IAppBroadcastPlugInImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Logo<Impl: IAppBroadcastPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Logo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1285,7 +1285,7 @@ impl IAppBroadcastPlugInVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayName<Impl: IAppBroadcastPlugInImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayName<Impl: IAppBroadcastPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1309,7 +1309,7 @@ impl IAppBroadcastPlugInVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IAppBroadcastPlugInManagerImpl: Sized {
+pub trait IAppBroadcastPlugInManager_Impl: Sized {
     fn IsBroadcastProviderAvailable(&mut self) -> ::windows::core::Result<bool>;
     fn PlugInList(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AppBroadcastPlugIn>>;
     fn DefaultPlugIn(&mut self) -> ::windows::core::Result<AppBroadcastPlugIn>;
@@ -1320,9 +1320,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastPlugInManager {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastPlugInManager";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IAppBroadcastPlugInManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastPlugInManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastPlugInManagerVtbl {
-        unsafe extern "system" fn IsBroadcastProviderAvailable<Impl: IAppBroadcastPlugInManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IAppBroadcastPlugInManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastPlugInManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastPlugInManager_Vtbl {
+        unsafe extern "system" fn IsBroadcastProviderAvailable<Impl: IAppBroadcastPlugInManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBroadcastProviderAvailable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1333,7 +1333,7 @@ impl IAppBroadcastPlugInManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PlugInList<Impl: IAppBroadcastPlugInManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlugInList<Impl: IAppBroadcastPlugInManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlugInList() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1344,7 +1344,7 @@ impl IAppBroadcastPlugInManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DefaultPlugIn<Impl: IAppBroadcastPlugInManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultPlugIn<Impl: IAppBroadcastPlugInManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultPlugIn() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1355,7 +1355,7 @@ impl IAppBroadcastPlugInManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDefaultPlugIn<Impl: IAppBroadcastPlugInManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDefaultPlugIn<Impl: IAppBroadcastPlugInManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDefaultPlugIn(&*(&value as *const <AppBroadcastPlugIn as ::windows::core::Abi>::Abi as *const <AppBroadcastPlugIn as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1372,7 +1372,7 @@ impl IAppBroadcastPlugInManagerVtbl {
     }
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-pub trait IAppBroadcastPlugInManagerStaticsImpl: Sized {
+pub trait IAppBroadcastPlugInManagerStatics_Impl: Sized {
     fn GetDefault(&mut self) -> ::windows::core::Result<AppBroadcastPlugInManager>;
     fn GetForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<AppBroadcastPlugInManager>;
 }
@@ -1381,9 +1381,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastPlugInManagerStatics {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastPlugInManagerStatics";
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-impl IAppBroadcastPlugInManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastPlugInManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastPlugInManagerStaticsVtbl {
-        unsafe extern "system" fn GetDefault<Impl: IAppBroadcastPlugInManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAppBroadcastPlugInManagerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastPlugInManagerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastPlugInManagerStatics_Vtbl {
+        unsafe extern "system" fn GetDefault<Impl: IAppBroadcastPlugInManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1394,7 +1394,7 @@ impl IAppBroadcastPlugInManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetForUser<Impl: IAppBroadcastPlugInManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetForUser<Impl: IAppBroadcastPlugInManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForUser(&*(&user as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1416,7 +1416,7 @@ impl IAppBroadcastPlugInManagerStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastPlugInStateChangedEventArgsImpl: Sized {
+pub trait IAppBroadcastPlugInStateChangedEventArgs_Impl: Sized {
     fn PlugInState(&mut self) -> ::windows::core::Result<AppBroadcastPlugInState>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1424,9 +1424,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastPlugInStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastPlugInStateChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppBroadcastPlugInStateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastPlugInStateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastPlugInStateChangedEventArgsVtbl {
-        unsafe extern "system" fn PlugInState<Impl: IAppBroadcastPlugInStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastPlugInState) -> ::windows::core::HRESULT {
+impl IAppBroadcastPlugInStateChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastPlugInStateChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastPlugInStateChangedEventArgs_Vtbl {
+        unsafe extern "system" fn PlugInState<Impl: IAppBroadcastPlugInStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastPlugInState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlugInState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1447,7 +1447,7 @@ impl IAppBroadcastPlugInStateChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAppBroadcastPreviewImpl: Sized {
+pub trait IAppBroadcastPreview_Impl: Sized {
     fn StopPreview(&mut self) -> ::windows::core::Result<()>;
     fn PreviewState(&mut self) -> ::windows::core::Result<AppBroadcastPreviewState>;
     fn ErrorCode(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
@@ -1460,13 +1460,13 @@ impl ::windows::core::RuntimeName for IAppBroadcastPreview {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastPreview";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAppBroadcastPreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastPreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastPreviewVtbl {
-        unsafe extern "system" fn StopPreview<Impl: IAppBroadcastPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IAppBroadcastPreview_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastPreview_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastPreview_Vtbl {
+        unsafe extern "system" fn StopPreview<Impl: IAppBroadcastPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StopPreview().into()
         }
-        unsafe extern "system" fn PreviewState<Impl: IAppBroadcastPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastPreviewState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PreviewState<Impl: IAppBroadcastPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastPreviewState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PreviewState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1477,7 +1477,7 @@ impl IAppBroadcastPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ErrorCode<Impl: IAppBroadcastPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ErrorCode<Impl: IAppBroadcastPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ErrorCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1488,7 +1488,7 @@ impl IAppBroadcastPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PreviewStateChanged<Impl: IAppBroadcastPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PreviewStateChanged<Impl: IAppBroadcastPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PreviewStateChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<AppBroadcastPreview, AppBroadcastPreviewStateChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppBroadcastPreview, AppBroadcastPreviewStateChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1499,11 +1499,11 @@ impl IAppBroadcastPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePreviewStateChanged<Impl: IAppBroadcastPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePreviewStateChanged<Impl: IAppBroadcastPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePreviewStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PreviewStreamReader<Impl: IAppBroadcastPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PreviewStreamReader<Impl: IAppBroadcastPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PreviewStreamReader() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1529,7 +1529,7 @@ impl IAppBroadcastPreviewVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastPreviewStateChangedEventArgsImpl: Sized {
+pub trait IAppBroadcastPreviewStateChangedEventArgs_Impl: Sized {
     fn PreviewState(&mut self) -> ::windows::core::Result<AppBroadcastPreviewState>;
     fn ErrorCode(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -1538,9 +1538,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastPreviewStateChangedEventArgs 
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastPreviewStateChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppBroadcastPreviewStateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastPreviewStateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastPreviewStateChangedEventArgsVtbl {
-        unsafe extern "system" fn PreviewState<Impl: IAppBroadcastPreviewStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastPreviewState) -> ::windows::core::HRESULT {
+impl IAppBroadcastPreviewStateChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastPreviewStateChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastPreviewStateChangedEventArgs_Vtbl {
+        unsafe extern "system" fn PreviewState<Impl: IAppBroadcastPreviewStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastPreviewState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PreviewState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1551,7 +1551,7 @@ impl IAppBroadcastPreviewStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ErrorCode<Impl: IAppBroadcastPreviewStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ErrorCode<Impl: IAppBroadcastPreviewStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ErrorCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1573,7 +1573,7 @@ impl IAppBroadcastPreviewStateChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-pub trait IAppBroadcastPreviewStreamReaderImpl: Sized {
+pub trait IAppBroadcastPreviewStreamReader_Impl: Sized {
     fn VideoWidth(&mut self) -> ::windows::core::Result<u32>;
     fn VideoHeight(&mut self) -> ::windows::core::Result<u32>;
     fn VideoStride(&mut self) -> ::windows::core::Result<u32>;
@@ -1588,9 +1588,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastPreviewStreamReader {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastPreviewStreamReader";
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-impl IAppBroadcastPreviewStreamReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastPreviewStreamReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastPreviewStreamReaderVtbl {
-        unsafe extern "system" fn VideoWidth<Impl: IAppBroadcastPreviewStreamReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IAppBroadcastPreviewStreamReader_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastPreviewStreamReader_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastPreviewStreamReader_Vtbl {
+        unsafe extern "system" fn VideoWidth<Impl: IAppBroadcastPreviewStreamReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoWidth() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1601,7 +1601,7 @@ impl IAppBroadcastPreviewStreamReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideoHeight<Impl: IAppBroadcastPreviewStreamReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoHeight<Impl: IAppBroadcastPreviewStreamReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoHeight() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1612,7 +1612,7 @@ impl IAppBroadcastPreviewStreamReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideoStride<Impl: IAppBroadcastPreviewStreamReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoStride<Impl: IAppBroadcastPreviewStreamReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoStride() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1623,7 +1623,7 @@ impl IAppBroadcastPreviewStreamReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideoBitmapPixelFormat<Impl: IAppBroadcastPreviewStreamReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoBitmapPixelFormat<Impl: IAppBroadcastPreviewStreamReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoBitmapPixelFormat() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1634,7 +1634,7 @@ impl IAppBroadcastPreviewStreamReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideoBitmapAlphaMode<Impl: IAppBroadcastPreviewStreamReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapAlphaMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoBitmapAlphaMode<Impl: IAppBroadcastPreviewStreamReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapAlphaMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoBitmapAlphaMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1645,7 +1645,7 @@ impl IAppBroadcastPreviewStreamReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryGetNextVideoFrame<Impl: IAppBroadcastPreviewStreamReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryGetNextVideoFrame<Impl: IAppBroadcastPreviewStreamReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetNextVideoFrame() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1656,7 +1656,7 @@ impl IAppBroadcastPreviewStreamReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideoFrameArrived<Impl: IAppBroadcastPreviewStreamReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoFrameArrived<Impl: IAppBroadcastPreviewStreamReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoFrameArrived(&*(&value as *const <super::super::Foundation::TypedEventHandler<AppBroadcastPreviewStreamReader, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppBroadcastPreviewStreamReader, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1667,7 +1667,7 @@ impl IAppBroadcastPreviewStreamReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveVideoFrameArrived<Impl: IAppBroadcastPreviewStreamReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveVideoFrameArrived<Impl: IAppBroadcastPreviewStreamReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveVideoFrameArrived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1688,7 +1688,7 @@ impl IAppBroadcastPreviewStreamReaderVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IAppBroadcastPreviewStreamVideoFrameImpl: Sized {
+pub trait IAppBroadcastPreviewStreamVideoFrame_Impl: Sized {
     fn VideoHeader(&mut self) -> ::windows::core::Result<AppBroadcastPreviewStreamVideoHeader>;
     fn VideoBuffer(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
@@ -1697,9 +1697,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastPreviewStreamVideoFrame {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastPreviewStreamVideoFrame";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IAppBroadcastPreviewStreamVideoFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastPreviewStreamVideoFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastPreviewStreamVideoFrameVtbl {
-        unsafe extern "system" fn VideoHeader<Impl: IAppBroadcastPreviewStreamVideoFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAppBroadcastPreviewStreamVideoFrame_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastPreviewStreamVideoFrame_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastPreviewStreamVideoFrame_Vtbl {
+        unsafe extern "system" fn VideoHeader<Impl: IAppBroadcastPreviewStreamVideoFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoHeader() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1710,7 +1710,7 @@ impl IAppBroadcastPreviewStreamVideoFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideoBuffer<Impl: IAppBroadcastPreviewStreamVideoFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoBuffer<Impl: IAppBroadcastPreviewStreamVideoFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoBuffer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1732,7 +1732,7 @@ impl IAppBroadcastPreviewStreamVideoFrameVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAppBroadcastPreviewStreamVideoHeaderImpl: Sized {
+pub trait IAppBroadcastPreviewStreamVideoHeader_Impl: Sized {
     fn AbsoluteTimestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn RelativeTimestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -1743,9 +1743,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastPreviewStreamVideoHeader {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastPreviewStreamVideoHeader";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAppBroadcastPreviewStreamVideoHeaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastPreviewStreamVideoHeaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastPreviewStreamVideoHeaderVtbl {
-        unsafe extern "system" fn AbsoluteTimestamp<Impl: IAppBroadcastPreviewStreamVideoHeaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+impl IAppBroadcastPreviewStreamVideoHeader_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastPreviewStreamVideoHeader_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastPreviewStreamVideoHeader_Vtbl {
+        unsafe extern "system" fn AbsoluteTimestamp<Impl: IAppBroadcastPreviewStreamVideoHeader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AbsoluteTimestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1756,7 +1756,7 @@ impl IAppBroadcastPreviewStreamVideoHeaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RelativeTimestamp<Impl: IAppBroadcastPreviewStreamVideoHeaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RelativeTimestamp<Impl: IAppBroadcastPreviewStreamVideoHeader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RelativeTimestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1767,7 +1767,7 @@ impl IAppBroadcastPreviewStreamVideoHeaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Duration<Impl: IAppBroadcastPreviewStreamVideoHeaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Duration<Impl: IAppBroadcastPreviewStreamVideoHeader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Duration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1778,7 +1778,7 @@ impl IAppBroadcastPreviewStreamVideoHeaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FrameId<Impl: IAppBroadcastPreviewStreamVideoHeaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FrameId<Impl: IAppBroadcastPreviewStreamVideoHeader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1802,7 +1802,7 @@ impl IAppBroadcastPreviewStreamVideoHeaderVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastProviderSettingsImpl: Sized {
+pub trait IAppBroadcastProviderSettings_Impl: Sized {
     fn SetDefaultBroadcastTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn DefaultBroadcastTitle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetAudioEncodingBitrate(&mut self, value: u32) -> ::windows::core::Result<()>;
@@ -1823,13 +1823,13 @@ impl ::windows::core::RuntimeName for IAppBroadcastProviderSettings {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastProviderSettings";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppBroadcastProviderSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastProviderSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastProviderSettingsVtbl {
-        unsafe extern "system" fn SetDefaultBroadcastTitle<Impl: IAppBroadcastProviderSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAppBroadcastProviderSettings_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastProviderSettings_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastProviderSettings_Vtbl {
+        unsafe extern "system" fn SetDefaultBroadcastTitle<Impl: IAppBroadcastProviderSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDefaultBroadcastTitle(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DefaultBroadcastTitle<Impl: IAppBroadcastProviderSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultBroadcastTitle<Impl: IAppBroadcastProviderSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultBroadcastTitle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1840,11 +1840,11 @@ impl IAppBroadcastProviderSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAudioEncodingBitrate<Impl: IAppBroadcastProviderSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAudioEncodingBitrate<Impl: IAppBroadcastProviderSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAudioEncodingBitrate(value).into()
         }
-        unsafe extern "system" fn AudioEncodingBitrate<Impl: IAppBroadcastProviderSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioEncodingBitrate<Impl: IAppBroadcastProviderSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioEncodingBitrate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1855,11 +1855,11 @@ impl IAppBroadcastProviderSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCustomVideoEncodingBitrate<Impl: IAppBroadcastProviderSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCustomVideoEncodingBitrate<Impl: IAppBroadcastProviderSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCustomVideoEncodingBitrate(value).into()
         }
-        unsafe extern "system" fn CustomVideoEncodingBitrate<Impl: IAppBroadcastProviderSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CustomVideoEncodingBitrate<Impl: IAppBroadcastProviderSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CustomVideoEncodingBitrate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1870,11 +1870,11 @@ impl IAppBroadcastProviderSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCustomVideoEncodingHeight<Impl: IAppBroadcastProviderSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCustomVideoEncodingHeight<Impl: IAppBroadcastProviderSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCustomVideoEncodingHeight(value).into()
         }
-        unsafe extern "system" fn CustomVideoEncodingHeight<Impl: IAppBroadcastProviderSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CustomVideoEncodingHeight<Impl: IAppBroadcastProviderSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CustomVideoEncodingHeight() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1885,11 +1885,11 @@ impl IAppBroadcastProviderSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCustomVideoEncodingWidth<Impl: IAppBroadcastProviderSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCustomVideoEncodingWidth<Impl: IAppBroadcastProviderSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCustomVideoEncodingWidth(value).into()
         }
-        unsafe extern "system" fn CustomVideoEncodingWidth<Impl: IAppBroadcastProviderSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CustomVideoEncodingWidth<Impl: IAppBroadcastProviderSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CustomVideoEncodingWidth() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1900,11 +1900,11 @@ impl IAppBroadcastProviderSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVideoEncodingBitrateMode<Impl: IAppBroadcastProviderSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AppBroadcastVideoEncodingBitrateMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVideoEncodingBitrateMode<Impl: IAppBroadcastProviderSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AppBroadcastVideoEncodingBitrateMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVideoEncodingBitrateMode(value).into()
         }
-        unsafe extern "system" fn VideoEncodingBitrateMode<Impl: IAppBroadcastProviderSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastVideoEncodingBitrateMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoEncodingBitrateMode<Impl: IAppBroadcastProviderSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastVideoEncodingBitrateMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoEncodingBitrateMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1915,11 +1915,11 @@ impl IAppBroadcastProviderSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVideoEncodingResolutionMode<Impl: IAppBroadcastProviderSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AppBroadcastVideoEncodingResolutionMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVideoEncodingResolutionMode<Impl: IAppBroadcastProviderSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AppBroadcastVideoEncodingResolutionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVideoEncodingResolutionMode(value).into()
         }
-        unsafe extern "system" fn VideoEncodingResolutionMode<Impl: IAppBroadcastProviderSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastVideoEncodingResolutionMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoEncodingResolutionMode<Impl: IAppBroadcastProviderSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastVideoEncodingResolutionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoEncodingResolutionMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1953,7 +1953,7 @@ impl IAppBroadcastProviderSettingsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAppBroadcastServicesImpl: Sized {
+pub trait IAppBroadcastServices_Impl: Sized {
     fn CaptureTargetType(&mut self) -> ::windows::core::Result<AppBroadcastCaptureTargetType>;
     fn SetCaptureTargetType(&mut self, value: AppBroadcastCaptureTargetType) -> ::windows::core::Result<()>;
     fn BroadcastTitle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1975,9 +1975,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastServices {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastServices";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAppBroadcastServicesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastServicesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastServicesVtbl {
-        unsafe extern "system" fn CaptureTargetType<Impl: IAppBroadcastServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastCaptureTargetType) -> ::windows::core::HRESULT {
+impl IAppBroadcastServices_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastServices_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastServices_Vtbl {
+        unsafe extern "system" fn CaptureTargetType<Impl: IAppBroadcastServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastCaptureTargetType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CaptureTargetType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1988,11 +1988,11 @@ impl IAppBroadcastServicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCaptureTargetType<Impl: IAppBroadcastServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AppBroadcastCaptureTargetType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCaptureTargetType<Impl: IAppBroadcastServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AppBroadcastCaptureTargetType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCaptureTargetType(value).into()
         }
-        unsafe extern "system" fn BroadcastTitle<Impl: IAppBroadcastServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BroadcastTitle<Impl: IAppBroadcastServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BroadcastTitle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2003,11 +2003,11 @@ impl IAppBroadcastServicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBroadcastTitle<Impl: IAppBroadcastServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBroadcastTitle<Impl: IAppBroadcastServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBroadcastTitle(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BroadcastLanguage<Impl: IAppBroadcastServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BroadcastLanguage<Impl: IAppBroadcastServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BroadcastLanguage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2018,11 +2018,11 @@ impl IAppBroadcastServicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBroadcastLanguage<Impl: IAppBroadcastServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBroadcastLanguage<Impl: IAppBroadcastServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBroadcastLanguage(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn UserName<Impl: IAppBroadcastServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UserName<Impl: IAppBroadcastServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2033,7 +2033,7 @@ impl IAppBroadcastServicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanCapture<Impl: IAppBroadcastServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanCapture<Impl: IAppBroadcastServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanCapture() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2044,7 +2044,7 @@ impl IAppBroadcastServicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnterBroadcastModeAsync<Impl: IAppBroadcastServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plugin: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnterBroadcastModeAsync<Impl: IAppBroadcastServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plugin: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnterBroadcastModeAsync(&*(&plugin as *const <AppBroadcastPlugIn as ::windows::core::Abi>::Abi as *const <AppBroadcastPlugIn as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2055,23 +2055,23 @@ impl IAppBroadcastServicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExitBroadcastMode<Impl: IAppBroadcastServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: AppBroadcastExitBroadcastModeReason) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExitBroadcastMode<Impl: IAppBroadcastServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: AppBroadcastExitBroadcastModeReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ExitBroadcastMode(reason).into()
         }
-        unsafe extern "system" fn StartBroadcast<Impl: IAppBroadcastServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartBroadcast<Impl: IAppBroadcastServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartBroadcast().into()
         }
-        unsafe extern "system" fn PauseBroadcast<Impl: IAppBroadcastServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PauseBroadcast<Impl: IAppBroadcastServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PauseBroadcast().into()
         }
-        unsafe extern "system" fn ResumeBroadcast<Impl: IAppBroadcastServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResumeBroadcast<Impl: IAppBroadcastServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ResumeBroadcast().into()
         }
-        unsafe extern "system" fn StartPreview<Impl: IAppBroadcastServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desiredsize: super::super::Foundation::Size, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartPreview<Impl: IAppBroadcastServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desiredsize: super::super::Foundation::Size, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartPreview(&*(&desiredsize as *const <super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2082,7 +2082,7 @@ impl IAppBroadcastServicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn State<Impl: IAppBroadcastServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn State<Impl: IAppBroadcastServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2117,7 +2117,7 @@ impl IAppBroadcastServicesVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastSignInStateChangedEventArgsImpl: Sized {
+pub trait IAppBroadcastSignInStateChangedEventArgs_Impl: Sized {
     fn SignInState(&mut self) -> ::windows::core::Result<AppBroadcastSignInState>;
     fn Result(&mut self) -> ::windows::core::Result<AppBroadcastSignInResult>;
 }
@@ -2126,9 +2126,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastSignInStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastSignInStateChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppBroadcastSignInStateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastSignInStateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastSignInStateChangedEventArgsVtbl {
-        unsafe extern "system" fn SignInState<Impl: IAppBroadcastSignInStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastSignInState) -> ::windows::core::HRESULT {
+impl IAppBroadcastSignInStateChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastSignInStateChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastSignInStateChangedEventArgs_Vtbl {
+        unsafe extern "system" fn SignInState<Impl: IAppBroadcastSignInStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastSignInState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignInState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2139,7 +2139,7 @@ impl IAppBroadcastSignInStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Result<Impl: IAppBroadcastSignInStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastSignInResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Result<Impl: IAppBroadcastSignInStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastSignInResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Result() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2161,7 +2161,7 @@ impl IAppBroadcastSignInStateChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web", feature = "implement_exclusive"))]
-pub trait IAppBroadcastStateImpl: Sized {
+pub trait IAppBroadcastState_Impl: Sized {
     fn IsCaptureTargetRunning(&mut self) -> ::windows::core::Result<bool>;
     fn ViewerCount(&mut self) -> ::windows::core::Result<u32>;
     fn ShouldCaptureMicrophone(&mut self) -> ::windows::core::Result<bool>;
@@ -2203,9 +2203,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastState {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastState";
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web", feature = "implement_exclusive"))]
-impl IAppBroadcastStateVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastStateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastStateVtbl {
-        unsafe extern "system" fn IsCaptureTargetRunning<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IAppBroadcastState_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastState_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastState_Vtbl {
+        unsafe extern "system" fn IsCaptureTargetRunning<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCaptureTargetRunning() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2216,7 +2216,7 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ViewerCount<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ViewerCount<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ViewerCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2227,7 +2227,7 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShouldCaptureMicrophone<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShouldCaptureMicrophone<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShouldCaptureMicrophone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2238,15 +2238,15 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetShouldCaptureMicrophone<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetShouldCaptureMicrophone<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetShouldCaptureMicrophone(value).into()
         }
-        unsafe extern "system" fn RestartMicrophoneCapture<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RestartMicrophoneCapture<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RestartMicrophoneCapture().into()
         }
-        unsafe extern "system" fn ShouldCaptureCamera<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShouldCaptureCamera<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShouldCaptureCamera() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2257,15 +2257,15 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetShouldCaptureCamera<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetShouldCaptureCamera<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetShouldCaptureCamera(value).into()
         }
-        unsafe extern "system" fn RestartCameraCapture<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RestartCameraCapture<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RestartCameraCapture().into()
         }
-        unsafe extern "system" fn EncodedVideoSize<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EncodedVideoSize<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EncodedVideoSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2276,7 +2276,7 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MicrophoneCaptureState<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastMicrophoneCaptureState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MicrophoneCaptureState<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastMicrophoneCaptureState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MicrophoneCaptureState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2287,7 +2287,7 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MicrophoneCaptureError<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MicrophoneCaptureError<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MicrophoneCaptureError() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2298,7 +2298,7 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CameraCaptureState<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastCameraCaptureState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CameraCaptureState<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastCameraCaptureState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CameraCaptureState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2309,7 +2309,7 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CameraCaptureError<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CameraCaptureError<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CameraCaptureError() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2320,7 +2320,7 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StreamState<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastStreamState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StreamState<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastStreamState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StreamState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2331,7 +2331,7 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PlugInState<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastPlugInState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlugInState<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastPlugInState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlugInState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2342,7 +2342,7 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OAuthRequestUri<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OAuthRequestUri<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OAuthRequestUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2353,7 +2353,7 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OAuthCallbackUri<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OAuthCallbackUri<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OAuthCallbackUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2364,7 +2364,7 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AuthenticationResult<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AuthenticationResult<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticationResult() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2375,15 +2375,15 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAuthenticationResult<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAuthenticationResult<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAuthenticationResult(&*(&value as *const <super::super::Security::Authentication::Web::WebAuthenticationResult as ::windows::core::Abi>::Abi as *const <super::super::Security::Authentication::Web::WebAuthenticationResult as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetSignInState<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AppBroadcastSignInState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSignInState<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AppBroadcastSignInState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSignInState(value).into()
         }
-        unsafe extern "system" fn SignInState<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastSignInState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignInState<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastSignInState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignInState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2394,7 +2394,7 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TerminationReason<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastTerminationReason) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TerminationReason<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastTerminationReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TerminationReason() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2405,7 +2405,7 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TerminationReasonPlugInSpecific<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TerminationReasonPlugInSpecific<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TerminationReasonPlugInSpecific() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2416,7 +2416,7 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ViewerCountChanged<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ViewerCountChanged<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ViewerCountChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastViewerCountChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastViewerCountChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2427,11 +2427,11 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveViewerCountChanged<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveViewerCountChanged<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveViewerCountChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MicrophoneCaptureStateChanged<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MicrophoneCaptureStateChanged<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MicrophoneCaptureStateChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastMicrophoneCaptureStateChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastMicrophoneCaptureStateChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2442,11 +2442,11 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMicrophoneCaptureStateChanged<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMicrophoneCaptureStateChanged<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMicrophoneCaptureStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CameraCaptureStateChanged<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CameraCaptureStateChanged<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CameraCaptureStateChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastCameraCaptureStateChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastCameraCaptureStateChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2457,11 +2457,11 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCameraCaptureStateChanged<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCameraCaptureStateChanged<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCameraCaptureStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PlugInStateChanged<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlugInStateChanged<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlugInStateChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastPlugInStateChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastPlugInStateChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2472,11 +2472,11 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePlugInStateChanged<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePlugInStateChanged<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePlugInStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StreamStateChanged<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StreamStateChanged<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StreamStateChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastStreamStateChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppBroadcastState, AppBroadcastStreamStateChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2487,11 +2487,11 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStreamStateChanged<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStreamStateChanged<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStreamStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CaptureTargetClosed<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CaptureTargetClosed<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CaptureTargetClosed(&*(&value as *const <super::super::Foundation::TypedEventHandler<AppBroadcastState, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppBroadcastState, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2502,7 +2502,7 @@ impl IAppBroadcastStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCaptureTargetClosed<Impl: IAppBroadcastStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCaptureTargetClosed<Impl: IAppBroadcastState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCaptureTargetClosed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2550,7 +2550,7 @@ impl IAppBroadcastStateVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IAppBroadcastStreamAudioFrameImpl: Sized {
+pub trait IAppBroadcastStreamAudioFrame_Impl: Sized {
     fn AudioHeader(&mut self) -> ::windows::core::Result<AppBroadcastStreamAudioHeader>;
     fn AudioBuffer(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
@@ -2559,9 +2559,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastStreamAudioFrame {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastStreamAudioFrame";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IAppBroadcastStreamAudioFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastStreamAudioFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastStreamAudioFrameVtbl {
-        unsafe extern "system" fn AudioHeader<Impl: IAppBroadcastStreamAudioFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAppBroadcastStreamAudioFrame_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastStreamAudioFrame_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastStreamAudioFrame_Vtbl {
+        unsafe extern "system" fn AudioHeader<Impl: IAppBroadcastStreamAudioFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioHeader() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2572,7 +2572,7 @@ impl IAppBroadcastStreamAudioFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AudioBuffer<Impl: IAppBroadcastStreamAudioFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioBuffer<Impl: IAppBroadcastStreamAudioFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioBuffer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2594,7 +2594,7 @@ impl IAppBroadcastStreamAudioFrameVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAppBroadcastStreamAudioHeaderImpl: Sized {
+pub trait IAppBroadcastStreamAudioHeader_Impl: Sized {
     fn AbsoluteTimestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn RelativeTimestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -2606,9 +2606,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastStreamAudioHeader {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastStreamAudioHeader";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAppBroadcastStreamAudioHeaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastStreamAudioHeaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastStreamAudioHeaderVtbl {
-        unsafe extern "system" fn AbsoluteTimestamp<Impl: IAppBroadcastStreamAudioHeaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+impl IAppBroadcastStreamAudioHeader_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastStreamAudioHeader_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastStreamAudioHeader_Vtbl {
+        unsafe extern "system" fn AbsoluteTimestamp<Impl: IAppBroadcastStreamAudioHeader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AbsoluteTimestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2619,7 +2619,7 @@ impl IAppBroadcastStreamAudioHeaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RelativeTimestamp<Impl: IAppBroadcastStreamAudioHeaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RelativeTimestamp<Impl: IAppBroadcastStreamAudioHeader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RelativeTimestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2630,7 +2630,7 @@ impl IAppBroadcastStreamAudioHeaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Duration<Impl: IAppBroadcastStreamAudioHeaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Duration<Impl: IAppBroadcastStreamAudioHeader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Duration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2641,7 +2641,7 @@ impl IAppBroadcastStreamAudioHeaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasDiscontinuity<Impl: IAppBroadcastStreamAudioHeaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasDiscontinuity<Impl: IAppBroadcastStreamAudioHeader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasDiscontinuity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2652,7 +2652,7 @@ impl IAppBroadcastStreamAudioHeaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FrameId<Impl: IAppBroadcastStreamAudioHeaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FrameId<Impl: IAppBroadcastStreamAudioHeader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2677,7 +2677,7 @@ impl IAppBroadcastStreamAudioHeaderVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IAppBroadcastStreamReaderImpl: Sized {
+pub trait IAppBroadcastStreamReader_Impl: Sized {
     fn AudioChannels(&mut self) -> ::windows::core::Result<u32>;
     fn AudioSampleRate(&mut self) -> ::windows::core::Result<u32>;
     fn AudioAacSequence(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
@@ -2697,9 +2697,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastStreamReader {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastStreamReader";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IAppBroadcastStreamReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastStreamReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastStreamReaderVtbl {
-        unsafe extern "system" fn AudioChannels<Impl: IAppBroadcastStreamReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IAppBroadcastStreamReader_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastStreamReader_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastStreamReader_Vtbl {
+        unsafe extern "system" fn AudioChannels<Impl: IAppBroadcastStreamReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioChannels() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2710,7 +2710,7 @@ impl IAppBroadcastStreamReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AudioSampleRate<Impl: IAppBroadcastStreamReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioSampleRate<Impl: IAppBroadcastStreamReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioSampleRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2721,7 +2721,7 @@ impl IAppBroadcastStreamReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AudioAacSequence<Impl: IAppBroadcastStreamReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioAacSequence<Impl: IAppBroadcastStreamReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioAacSequence() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2732,7 +2732,7 @@ impl IAppBroadcastStreamReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AudioBitrate<Impl: IAppBroadcastStreamReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioBitrate<Impl: IAppBroadcastStreamReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioBitrate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2743,7 +2743,7 @@ impl IAppBroadcastStreamReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryGetNextAudioFrame<Impl: IAppBroadcastStreamReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryGetNextAudioFrame<Impl: IAppBroadcastStreamReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetNextAudioFrame() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2754,7 +2754,7 @@ impl IAppBroadcastStreamReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideoWidth<Impl: IAppBroadcastStreamReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoWidth<Impl: IAppBroadcastStreamReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoWidth() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2765,7 +2765,7 @@ impl IAppBroadcastStreamReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideoHeight<Impl: IAppBroadcastStreamReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoHeight<Impl: IAppBroadcastStreamReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoHeight() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2776,7 +2776,7 @@ impl IAppBroadcastStreamReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideoBitrate<Impl: IAppBroadcastStreamReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoBitrate<Impl: IAppBroadcastStreamReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoBitrate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2787,7 +2787,7 @@ impl IAppBroadcastStreamReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryGetNextVideoFrame<Impl: IAppBroadcastStreamReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryGetNextVideoFrame<Impl: IAppBroadcastStreamReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetNextVideoFrame() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2798,7 +2798,7 @@ impl IAppBroadcastStreamReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AudioFrameArrived<Impl: IAppBroadcastStreamReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioFrameArrived<Impl: IAppBroadcastStreamReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioFrameArrived(&*(&value as *const <super::super::Foundation::TypedEventHandler<AppBroadcastStreamReader, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppBroadcastStreamReader, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2809,11 +2809,11 @@ impl IAppBroadcastStreamReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAudioFrameArrived<Impl: IAppBroadcastStreamReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAudioFrameArrived<Impl: IAppBroadcastStreamReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAudioFrameArrived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn VideoFrameArrived<Impl: IAppBroadcastStreamReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoFrameArrived<Impl: IAppBroadcastStreamReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoFrameArrived(&*(&value as *const <super::super::Foundation::TypedEventHandler<AppBroadcastStreamReader, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppBroadcastStreamReader, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2824,7 +2824,7 @@ impl IAppBroadcastStreamReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveVideoFrameArrived<Impl: IAppBroadcastStreamReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveVideoFrameArrived<Impl: IAppBroadcastStreamReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveVideoFrameArrived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2850,7 +2850,7 @@ impl IAppBroadcastStreamReaderVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastStreamStateChangedEventArgsImpl: Sized {
+pub trait IAppBroadcastStreamStateChangedEventArgs_Impl: Sized {
     fn StreamState(&mut self) -> ::windows::core::Result<AppBroadcastStreamState>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2858,9 +2858,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastStreamStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastStreamStateChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppBroadcastStreamStateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastStreamStateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastStreamStateChangedEventArgsVtbl {
-        unsafe extern "system" fn StreamState<Impl: IAppBroadcastStreamStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastStreamState) -> ::windows::core::HRESULT {
+impl IAppBroadcastStreamStateChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastStreamStateChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastStreamStateChangedEventArgs_Vtbl {
+        unsafe extern "system" fn StreamState<Impl: IAppBroadcastStreamStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppBroadcastStreamState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StreamState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2881,7 +2881,7 @@ impl IAppBroadcastStreamStateChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IAppBroadcastStreamVideoFrameImpl: Sized {
+pub trait IAppBroadcastStreamVideoFrame_Impl: Sized {
     fn VideoHeader(&mut self) -> ::windows::core::Result<AppBroadcastStreamVideoHeader>;
     fn VideoBuffer(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
@@ -2890,9 +2890,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastStreamVideoFrame {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastStreamVideoFrame";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IAppBroadcastStreamVideoFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastStreamVideoFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastStreamVideoFrameVtbl {
-        unsafe extern "system" fn VideoHeader<Impl: IAppBroadcastStreamVideoFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAppBroadcastStreamVideoFrame_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastStreamVideoFrame_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastStreamVideoFrame_Vtbl {
+        unsafe extern "system" fn VideoHeader<Impl: IAppBroadcastStreamVideoFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoHeader() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2903,7 +2903,7 @@ impl IAppBroadcastStreamVideoFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideoBuffer<Impl: IAppBroadcastStreamVideoFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoBuffer<Impl: IAppBroadcastStreamVideoFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoBuffer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2925,7 +2925,7 @@ impl IAppBroadcastStreamVideoFrameVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAppBroadcastStreamVideoHeaderImpl: Sized {
+pub trait IAppBroadcastStreamVideoHeader_Impl: Sized {
     fn AbsoluteTimestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn RelativeTimestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -2938,9 +2938,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastStreamVideoHeader {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastStreamVideoHeader";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAppBroadcastStreamVideoHeaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastStreamVideoHeaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastStreamVideoHeaderVtbl {
-        unsafe extern "system" fn AbsoluteTimestamp<Impl: IAppBroadcastStreamVideoHeaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+impl IAppBroadcastStreamVideoHeader_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastStreamVideoHeader_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastStreamVideoHeader_Vtbl {
+        unsafe extern "system" fn AbsoluteTimestamp<Impl: IAppBroadcastStreamVideoHeader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AbsoluteTimestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2951,7 +2951,7 @@ impl IAppBroadcastStreamVideoHeaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RelativeTimestamp<Impl: IAppBroadcastStreamVideoHeaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RelativeTimestamp<Impl: IAppBroadcastStreamVideoHeader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RelativeTimestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2962,7 +2962,7 @@ impl IAppBroadcastStreamVideoHeaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Duration<Impl: IAppBroadcastStreamVideoHeaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Duration<Impl: IAppBroadcastStreamVideoHeader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Duration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2973,7 +2973,7 @@ impl IAppBroadcastStreamVideoHeaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsKeyFrame<Impl: IAppBroadcastStreamVideoHeaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsKeyFrame<Impl: IAppBroadcastStreamVideoHeader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsKeyFrame() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2984,7 +2984,7 @@ impl IAppBroadcastStreamVideoHeaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasDiscontinuity<Impl: IAppBroadcastStreamVideoHeaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasDiscontinuity<Impl: IAppBroadcastStreamVideoHeader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasDiscontinuity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2995,7 +2995,7 @@ impl IAppBroadcastStreamVideoHeaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FrameId<Impl: IAppBroadcastStreamVideoHeaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FrameId<Impl: IAppBroadcastStreamVideoHeader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3021,7 +3021,7 @@ impl IAppBroadcastStreamVideoHeaderVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastTriggerDetailsImpl: Sized {
+pub trait IAppBroadcastTriggerDetails_Impl: Sized {
     fn BackgroundService(&mut self) -> ::windows::core::Result<AppBroadcastBackgroundService>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3029,9 +3029,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastTriggerDetails {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastTriggerDetails";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppBroadcastTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastTriggerDetailsVtbl {
-        unsafe extern "system" fn BackgroundService<Impl: IAppBroadcastTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAppBroadcastTriggerDetails_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastTriggerDetails_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastTriggerDetails_Vtbl {
+        unsafe extern "system" fn BackgroundService<Impl: IAppBroadcastTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackgroundService() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3052,7 +3052,7 @@ impl IAppBroadcastTriggerDetailsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastViewerCountChangedEventArgsImpl: Sized {
+pub trait IAppBroadcastViewerCountChangedEventArgs_Impl: Sized {
     fn ViewerCount(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3060,9 +3060,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastViewerCountChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.IAppBroadcastViewerCountChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppBroadcastViewerCountChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastViewerCountChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastViewerCountChangedEventArgsVtbl {
-        unsafe extern "system" fn ViewerCount<Impl: IAppBroadcastViewerCountChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IAppBroadcastViewerCountChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastViewerCountChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastViewerCountChangedEventArgs_Vtbl {
+        unsafe extern "system" fn ViewerCount<Impl: IAppBroadcastViewerCountChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ViewerCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3083,7 +3083,7 @@ impl IAppBroadcastViewerCountChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAppCaptureImpl: Sized {
+pub trait IAppCapture_Impl: Sized {
     fn IsCapturingAudio(&mut self) -> ::windows::core::Result<bool>;
     fn IsCapturingVideo(&mut self) -> ::windows::core::Result<bool>;
     fn CapturingChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppCapture, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -3094,9 +3094,9 @@ impl ::windows::core::RuntimeName for IAppCapture {
     const NAME: &'static str = "Windows.Media.Capture.IAppCapture";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAppCaptureVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureVtbl {
-        unsafe extern "system" fn IsCapturingAudio<Impl: IAppCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IAppCapture_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCapture_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCapture_Vtbl {
+        unsafe extern "system" fn IsCapturingAudio<Impl: IAppCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCapturingAudio() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3107,7 +3107,7 @@ impl IAppCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsCapturingVideo<Impl: IAppCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCapturingVideo<Impl: IAppCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCapturingVideo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3118,7 +3118,7 @@ impl IAppCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CapturingChanged<Impl: IAppCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CapturingChanged<Impl: IAppCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CapturingChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AppCapture, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppCapture, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3129,7 +3129,7 @@ impl IAppCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCapturingChanged<Impl: IAppCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCapturingChanged<Impl: IAppCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCapturingChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3146,7 +3146,7 @@ impl IAppCaptureVtbl {
     }
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-pub trait IAppCaptureAlternateShortcutKeysImpl: Sized {
+pub trait IAppCaptureAlternateShortcutKeys_Impl: Sized {
     fn SetToggleGameBarKey(&mut self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()>;
     fn ToggleGameBarKey(&mut self) -> ::windows::core::Result<super::super::System::VirtualKey>;
     fn SetToggleGameBarKeyModifiers(&mut self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()>;
@@ -3173,13 +3173,13 @@ impl ::windows::core::RuntimeName for IAppCaptureAlternateShortcutKeys {
     const NAME: &'static str = "Windows.Media.Capture.IAppCaptureAlternateShortcutKeys";
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-impl IAppCaptureAlternateShortcutKeysVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureAlternateShortcutKeysImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureAlternateShortcutKeysVtbl {
-        unsafe extern "system" fn SetToggleGameBarKey<Impl: IAppCaptureAlternateShortcutKeysImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKey) -> ::windows::core::HRESULT {
+impl IAppCaptureAlternateShortcutKeys_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureAlternateShortcutKeys_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureAlternateShortcutKeys_Vtbl {
+        unsafe extern "system" fn SetToggleGameBarKey<Impl: IAppCaptureAlternateShortcutKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKey) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetToggleGameBarKey(value).into()
         }
-        unsafe extern "system" fn ToggleGameBarKey<Impl: IAppCaptureAlternateShortcutKeysImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKey) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToggleGameBarKey<Impl: IAppCaptureAlternateShortcutKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKey) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToggleGameBarKey() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3190,11 +3190,11 @@ impl IAppCaptureAlternateShortcutKeysVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetToggleGameBarKeyModifiers<Impl: IAppCaptureAlternateShortcutKeysImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetToggleGameBarKeyModifiers<Impl: IAppCaptureAlternateShortcutKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetToggleGameBarKeyModifiers(value).into()
         }
-        unsafe extern "system" fn ToggleGameBarKeyModifiers<Impl: IAppCaptureAlternateShortcutKeysImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToggleGameBarKeyModifiers<Impl: IAppCaptureAlternateShortcutKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToggleGameBarKeyModifiers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3205,11 +3205,11 @@ impl IAppCaptureAlternateShortcutKeysVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSaveHistoricalVideoKey<Impl: IAppCaptureAlternateShortcutKeysImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKey) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSaveHistoricalVideoKey<Impl: IAppCaptureAlternateShortcutKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKey) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSaveHistoricalVideoKey(value).into()
         }
-        unsafe extern "system" fn SaveHistoricalVideoKey<Impl: IAppCaptureAlternateShortcutKeysImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKey) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaveHistoricalVideoKey<Impl: IAppCaptureAlternateShortcutKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKey) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SaveHistoricalVideoKey() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3220,11 +3220,11 @@ impl IAppCaptureAlternateShortcutKeysVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSaveHistoricalVideoKeyModifiers<Impl: IAppCaptureAlternateShortcutKeysImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSaveHistoricalVideoKeyModifiers<Impl: IAppCaptureAlternateShortcutKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSaveHistoricalVideoKeyModifiers(value).into()
         }
-        unsafe extern "system" fn SaveHistoricalVideoKeyModifiers<Impl: IAppCaptureAlternateShortcutKeysImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaveHistoricalVideoKeyModifiers<Impl: IAppCaptureAlternateShortcutKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SaveHistoricalVideoKeyModifiers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3235,11 +3235,11 @@ impl IAppCaptureAlternateShortcutKeysVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetToggleRecordingKey<Impl: IAppCaptureAlternateShortcutKeysImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKey) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetToggleRecordingKey<Impl: IAppCaptureAlternateShortcutKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKey) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetToggleRecordingKey(value).into()
         }
-        unsafe extern "system" fn ToggleRecordingKey<Impl: IAppCaptureAlternateShortcutKeysImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKey) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToggleRecordingKey<Impl: IAppCaptureAlternateShortcutKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKey) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToggleRecordingKey() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3250,11 +3250,11 @@ impl IAppCaptureAlternateShortcutKeysVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetToggleRecordingKeyModifiers<Impl: IAppCaptureAlternateShortcutKeysImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetToggleRecordingKeyModifiers<Impl: IAppCaptureAlternateShortcutKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetToggleRecordingKeyModifiers(value).into()
         }
-        unsafe extern "system" fn ToggleRecordingKeyModifiers<Impl: IAppCaptureAlternateShortcutKeysImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToggleRecordingKeyModifiers<Impl: IAppCaptureAlternateShortcutKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToggleRecordingKeyModifiers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3265,11 +3265,11 @@ impl IAppCaptureAlternateShortcutKeysVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTakeScreenshotKey<Impl: IAppCaptureAlternateShortcutKeysImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKey) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTakeScreenshotKey<Impl: IAppCaptureAlternateShortcutKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKey) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTakeScreenshotKey(value).into()
         }
-        unsafe extern "system" fn TakeScreenshotKey<Impl: IAppCaptureAlternateShortcutKeysImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKey) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TakeScreenshotKey<Impl: IAppCaptureAlternateShortcutKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKey) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TakeScreenshotKey() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3280,11 +3280,11 @@ impl IAppCaptureAlternateShortcutKeysVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTakeScreenshotKeyModifiers<Impl: IAppCaptureAlternateShortcutKeysImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTakeScreenshotKeyModifiers<Impl: IAppCaptureAlternateShortcutKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTakeScreenshotKeyModifiers(value).into()
         }
-        unsafe extern "system" fn TakeScreenshotKeyModifiers<Impl: IAppCaptureAlternateShortcutKeysImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TakeScreenshotKeyModifiers<Impl: IAppCaptureAlternateShortcutKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TakeScreenshotKeyModifiers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3295,11 +3295,11 @@ impl IAppCaptureAlternateShortcutKeysVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetToggleRecordingIndicatorKey<Impl: IAppCaptureAlternateShortcutKeysImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKey) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetToggleRecordingIndicatorKey<Impl: IAppCaptureAlternateShortcutKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKey) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetToggleRecordingIndicatorKey(value).into()
         }
-        unsafe extern "system" fn ToggleRecordingIndicatorKey<Impl: IAppCaptureAlternateShortcutKeysImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKey) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToggleRecordingIndicatorKey<Impl: IAppCaptureAlternateShortcutKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKey) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToggleRecordingIndicatorKey() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3310,11 +3310,11 @@ impl IAppCaptureAlternateShortcutKeysVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetToggleRecordingIndicatorKeyModifiers<Impl: IAppCaptureAlternateShortcutKeysImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetToggleRecordingIndicatorKeyModifiers<Impl: IAppCaptureAlternateShortcutKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetToggleRecordingIndicatorKeyModifiers(value).into()
         }
-        unsafe extern "system" fn ToggleRecordingIndicatorKeyModifiers<Impl: IAppCaptureAlternateShortcutKeysImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToggleRecordingIndicatorKeyModifiers<Impl: IAppCaptureAlternateShortcutKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToggleRecordingIndicatorKeyModifiers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3354,7 +3354,7 @@ impl IAppCaptureAlternateShortcutKeysVtbl {
     }
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-pub trait IAppCaptureAlternateShortcutKeys2Impl: Sized {
+pub trait IAppCaptureAlternateShortcutKeys2_Impl: Sized {
     fn SetToggleMicrophoneCaptureKey(&mut self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()>;
     fn ToggleMicrophoneCaptureKey(&mut self) -> ::windows::core::Result<super::super::System::VirtualKey>;
     fn SetToggleMicrophoneCaptureKeyModifiers(&mut self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()>;
@@ -3365,13 +3365,13 @@ impl ::windows::core::RuntimeName for IAppCaptureAlternateShortcutKeys2 {
     const NAME: &'static str = "Windows.Media.Capture.IAppCaptureAlternateShortcutKeys2";
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-impl IAppCaptureAlternateShortcutKeys2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureAlternateShortcutKeys2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureAlternateShortcutKeys2Vtbl {
-        unsafe extern "system" fn SetToggleMicrophoneCaptureKey<Impl: IAppCaptureAlternateShortcutKeys2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKey) -> ::windows::core::HRESULT {
+impl IAppCaptureAlternateShortcutKeys2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureAlternateShortcutKeys2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureAlternateShortcutKeys2_Vtbl {
+        unsafe extern "system" fn SetToggleMicrophoneCaptureKey<Impl: IAppCaptureAlternateShortcutKeys2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKey) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetToggleMicrophoneCaptureKey(value).into()
         }
-        unsafe extern "system" fn ToggleMicrophoneCaptureKey<Impl: IAppCaptureAlternateShortcutKeys2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKey) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToggleMicrophoneCaptureKey<Impl: IAppCaptureAlternateShortcutKeys2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKey) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToggleMicrophoneCaptureKey() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3382,11 +3382,11 @@ impl IAppCaptureAlternateShortcutKeys2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetToggleMicrophoneCaptureKeyModifiers<Impl: IAppCaptureAlternateShortcutKeys2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetToggleMicrophoneCaptureKeyModifiers<Impl: IAppCaptureAlternateShortcutKeys2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetToggleMicrophoneCaptureKeyModifiers(value).into()
         }
-        unsafe extern "system" fn ToggleMicrophoneCaptureKeyModifiers<Impl: IAppCaptureAlternateShortcutKeys2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToggleMicrophoneCaptureKeyModifiers<Impl: IAppCaptureAlternateShortcutKeys2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToggleMicrophoneCaptureKeyModifiers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3410,7 +3410,7 @@ impl IAppCaptureAlternateShortcutKeys2Vtbl {
     }
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-pub trait IAppCaptureAlternateShortcutKeys3Impl: Sized {
+pub trait IAppCaptureAlternateShortcutKeys3_Impl: Sized {
     fn SetToggleCameraCaptureKey(&mut self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()>;
     fn ToggleCameraCaptureKey(&mut self) -> ::windows::core::Result<super::super::System::VirtualKey>;
     fn SetToggleCameraCaptureKeyModifiers(&mut self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()>;
@@ -3425,13 +3425,13 @@ impl ::windows::core::RuntimeName for IAppCaptureAlternateShortcutKeys3 {
     const NAME: &'static str = "Windows.Media.Capture.IAppCaptureAlternateShortcutKeys3";
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-impl IAppCaptureAlternateShortcutKeys3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureAlternateShortcutKeys3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureAlternateShortcutKeys3Vtbl {
-        unsafe extern "system" fn SetToggleCameraCaptureKey<Impl: IAppCaptureAlternateShortcutKeys3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKey) -> ::windows::core::HRESULT {
+impl IAppCaptureAlternateShortcutKeys3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureAlternateShortcutKeys3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureAlternateShortcutKeys3_Vtbl {
+        unsafe extern "system" fn SetToggleCameraCaptureKey<Impl: IAppCaptureAlternateShortcutKeys3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKey) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetToggleCameraCaptureKey(value).into()
         }
-        unsafe extern "system" fn ToggleCameraCaptureKey<Impl: IAppCaptureAlternateShortcutKeys3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKey) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToggleCameraCaptureKey<Impl: IAppCaptureAlternateShortcutKeys3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKey) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToggleCameraCaptureKey() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3442,11 +3442,11 @@ impl IAppCaptureAlternateShortcutKeys3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetToggleCameraCaptureKeyModifiers<Impl: IAppCaptureAlternateShortcutKeys3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetToggleCameraCaptureKeyModifiers<Impl: IAppCaptureAlternateShortcutKeys3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetToggleCameraCaptureKeyModifiers(value).into()
         }
-        unsafe extern "system" fn ToggleCameraCaptureKeyModifiers<Impl: IAppCaptureAlternateShortcutKeys3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToggleCameraCaptureKeyModifiers<Impl: IAppCaptureAlternateShortcutKeys3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToggleCameraCaptureKeyModifiers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3457,11 +3457,11 @@ impl IAppCaptureAlternateShortcutKeys3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetToggleBroadcastKey<Impl: IAppCaptureAlternateShortcutKeys3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKey) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetToggleBroadcastKey<Impl: IAppCaptureAlternateShortcutKeys3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKey) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetToggleBroadcastKey(value).into()
         }
-        unsafe extern "system" fn ToggleBroadcastKey<Impl: IAppCaptureAlternateShortcutKeys3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKey) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToggleBroadcastKey<Impl: IAppCaptureAlternateShortcutKeys3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKey) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToggleBroadcastKey() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3472,11 +3472,11 @@ impl IAppCaptureAlternateShortcutKeys3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetToggleBroadcastKeyModifiers<Impl: IAppCaptureAlternateShortcutKeys3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetToggleBroadcastKeyModifiers<Impl: IAppCaptureAlternateShortcutKeys3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetToggleBroadcastKeyModifiers(value).into()
         }
-        unsafe extern "system" fn ToggleBroadcastKeyModifiers<Impl: IAppCaptureAlternateShortcutKeys3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToggleBroadcastKeyModifiers<Impl: IAppCaptureAlternateShortcutKeys3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKeyModifiers) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToggleBroadcastKeyModifiers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3504,7 +3504,7 @@ impl IAppCaptureAlternateShortcutKeys3Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAppCaptureDurationGeneratedEventArgsImpl: Sized {
+pub trait IAppCaptureDurationGeneratedEventArgs_Impl: Sized {
     fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -3512,9 +3512,9 @@ impl ::windows::core::RuntimeName for IAppCaptureDurationGeneratedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.IAppCaptureDurationGeneratedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAppCaptureDurationGeneratedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureDurationGeneratedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureDurationGeneratedEventArgsVtbl {
-        unsafe extern "system" fn Duration<Impl: IAppCaptureDurationGeneratedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+impl IAppCaptureDurationGeneratedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureDurationGeneratedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureDurationGeneratedEventArgs_Vtbl {
+        unsafe extern "system" fn Duration<Impl: IAppCaptureDurationGeneratedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Duration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3535,7 +3535,7 @@ impl IAppCaptureDurationGeneratedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
-pub trait IAppCaptureFileGeneratedEventArgsImpl: Sized {
+pub trait IAppCaptureFileGeneratedEventArgs_Impl: Sized {
     fn File(&mut self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
@@ -3543,9 +3543,9 @@ impl ::windows::core::RuntimeName for IAppCaptureFileGeneratedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.IAppCaptureFileGeneratedEventArgs";
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
-impl IAppCaptureFileGeneratedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureFileGeneratedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureFileGeneratedEventArgsVtbl {
-        unsafe extern "system" fn File<Impl: IAppCaptureFileGeneratedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAppCaptureFileGeneratedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureFileGeneratedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureFileGeneratedEventArgs_Vtbl {
+        unsafe extern "system" fn File<Impl: IAppCaptureFileGeneratedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).File() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3563,7 +3563,7 @@ impl IAppCaptureFileGeneratedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureManagerStaticsImpl: Sized {
+pub trait IAppCaptureManagerStatics_Impl: Sized {
     fn GetCurrentSettings(&mut self) -> ::windows::core::Result<AppCaptureSettings>;
     fn ApplySettings(&mut self, appcapturesettings: &::core::option::Option<AppCaptureSettings>) -> ::windows::core::Result<()>;
 }
@@ -3572,9 +3572,9 @@ impl ::windows::core::RuntimeName for IAppCaptureManagerStatics {
     const NAME: &'static str = "Windows.Media.Capture.IAppCaptureManagerStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppCaptureManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureManagerStaticsVtbl {
-        unsafe extern "system" fn GetCurrentSettings<Impl: IAppCaptureManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAppCaptureManagerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureManagerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureManagerStatics_Vtbl {
+        unsafe extern "system" fn GetCurrentSettings<Impl: IAppCaptureManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentSettings() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3585,7 +3585,7 @@ impl IAppCaptureManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ApplySettings<Impl: IAppCaptureManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appcapturesettings: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ApplySettings<Impl: IAppCaptureManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appcapturesettings: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ApplySettings(&*(&appcapturesettings as *const <AppCaptureSettings as ::windows::core::Abi>::Abi as *const <AppCaptureSettings as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3600,7 +3600,7 @@ impl IAppCaptureManagerStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAppCaptureMetadataWriterImpl: Sized {
+pub trait IAppCaptureMetadataWriter_Impl: Sized {
     fn AddStringEvent(&mut self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()>;
     fn AddInt32Event(&mut self, name: &::windows::core::HSTRING, value: i32, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()>;
     fn AddDoubleEvent(&mut self, name: &::windows::core::HSTRING, value: f64, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()>;
@@ -3618,41 +3618,41 @@ impl ::windows::core::RuntimeName for IAppCaptureMetadataWriter {
     const NAME: &'static str = "Windows.Media.Capture.IAppCaptureMetadataWriter";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAppCaptureMetadataWriterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureMetadataWriterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureMetadataWriterVtbl {
-        unsafe extern "system" fn AddStringEvent<Impl: IAppCaptureMetadataWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, priority: AppCaptureMetadataPriority) -> ::windows::core::HRESULT {
+impl IAppCaptureMetadataWriter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureMetadataWriter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureMetadataWriter_Vtbl {
+        unsafe extern "system" fn AddStringEvent<Impl: IAppCaptureMetadataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, priority: AppCaptureMetadataPriority) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddStringEvent(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), priority).into()
         }
-        unsafe extern "system" fn AddInt32Event<Impl: IAppCaptureMetadataWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i32, priority: AppCaptureMetadataPriority) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddInt32Event<Impl: IAppCaptureMetadataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i32, priority: AppCaptureMetadataPriority) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddInt32Event(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, priority).into()
         }
-        unsafe extern "system" fn AddDoubleEvent<Impl: IAppCaptureMetadataWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f64, priority: AppCaptureMetadataPriority) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDoubleEvent<Impl: IAppCaptureMetadataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f64, priority: AppCaptureMetadataPriority) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddDoubleEvent(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, priority).into()
         }
-        unsafe extern "system" fn StartStringState<Impl: IAppCaptureMetadataWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, priority: AppCaptureMetadataPriority) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartStringState<Impl: IAppCaptureMetadataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, priority: AppCaptureMetadataPriority) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartStringState(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), priority).into()
         }
-        unsafe extern "system" fn StartInt32State<Impl: IAppCaptureMetadataWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i32, priority: AppCaptureMetadataPriority) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartInt32State<Impl: IAppCaptureMetadataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i32, priority: AppCaptureMetadataPriority) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartInt32State(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, priority).into()
         }
-        unsafe extern "system" fn StartDoubleState<Impl: IAppCaptureMetadataWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f64, priority: AppCaptureMetadataPriority) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartDoubleState<Impl: IAppCaptureMetadataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f64, priority: AppCaptureMetadataPriority) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartDoubleState(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, priority).into()
         }
-        unsafe extern "system" fn StopState<Impl: IAppCaptureMetadataWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopState<Impl: IAppCaptureMetadataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StopState(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StopAllStates<Impl: IAppCaptureMetadataWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopAllStates<Impl: IAppCaptureMetadataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StopAllStates().into()
         }
-        unsafe extern "system" fn RemainingStorageBytesAvailable<Impl: IAppCaptureMetadataWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemainingStorageBytesAvailable<Impl: IAppCaptureMetadataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemainingStorageBytesAvailable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3663,7 +3663,7 @@ impl IAppCaptureMetadataWriterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MetadataPurged<Impl: IAppCaptureMetadataWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MetadataPurged<Impl: IAppCaptureMetadataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MetadataPurged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AppCaptureMetadataWriter, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppCaptureMetadataWriter, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3674,7 +3674,7 @@ impl IAppCaptureMetadataWriterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMetadataPurged<Impl: IAppCaptureMetadataWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMetadataPurged<Impl: IAppCaptureMetadataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMetadataPurged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3698,7 +3698,7 @@ impl IAppCaptureMetadataWriterVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureMicrophoneCaptureStateChangedEventArgsImpl: Sized {
+pub trait IAppCaptureMicrophoneCaptureStateChangedEventArgs_Impl: Sized {
     fn State(&mut self) -> ::windows::core::Result<AppCaptureMicrophoneCaptureState>;
     fn ErrorCode(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -3707,9 +3707,9 @@ impl ::windows::core::RuntimeName for IAppCaptureMicrophoneCaptureStateChangedEv
     const NAME: &'static str = "Windows.Media.Capture.IAppCaptureMicrophoneCaptureStateChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppCaptureMicrophoneCaptureStateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureMicrophoneCaptureStateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureMicrophoneCaptureStateChangedEventArgsVtbl {
-        unsafe extern "system" fn State<Impl: IAppCaptureMicrophoneCaptureStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppCaptureMicrophoneCaptureState) -> ::windows::core::HRESULT {
+impl IAppCaptureMicrophoneCaptureStateChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureMicrophoneCaptureStateChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureMicrophoneCaptureStateChangedEventArgs_Vtbl {
+        unsafe extern "system" fn State<Impl: IAppCaptureMicrophoneCaptureStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppCaptureMicrophoneCaptureState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3720,7 +3720,7 @@ impl IAppCaptureMicrophoneCaptureStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ErrorCode<Impl: IAppCaptureMicrophoneCaptureStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ErrorCode<Impl: IAppCaptureMicrophoneCaptureStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ErrorCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3742,7 +3742,7 @@ impl IAppCaptureMicrophoneCaptureStateChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
-pub trait IAppCaptureRecordOperationImpl: Sized {
+pub trait IAppCaptureRecordOperation_Impl: Sized {
     fn StopRecording(&mut self) -> ::windows::core::Result<()>;
     fn State(&mut self) -> ::windows::core::Result<AppCaptureRecordingState>;
     fn ErrorCode(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
@@ -3761,13 +3761,13 @@ impl ::windows::core::RuntimeName for IAppCaptureRecordOperation {
     const NAME: &'static str = "Windows.Media.Capture.IAppCaptureRecordOperation";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
-impl IAppCaptureRecordOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureRecordOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureRecordOperationVtbl {
-        unsafe extern "system" fn StopRecording<Impl: IAppCaptureRecordOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IAppCaptureRecordOperation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureRecordOperation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureRecordOperation_Vtbl {
+        unsafe extern "system" fn StopRecording<Impl: IAppCaptureRecordOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StopRecording().into()
         }
-        unsafe extern "system" fn State<Impl: IAppCaptureRecordOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppCaptureRecordingState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn State<Impl: IAppCaptureRecordOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppCaptureRecordingState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3778,7 +3778,7 @@ impl IAppCaptureRecordOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ErrorCode<Impl: IAppCaptureRecordOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ErrorCode<Impl: IAppCaptureRecordOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ErrorCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3789,7 +3789,7 @@ impl IAppCaptureRecordOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Duration<Impl: IAppCaptureRecordOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Duration<Impl: IAppCaptureRecordOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Duration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3800,7 +3800,7 @@ impl IAppCaptureRecordOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn File<Impl: IAppCaptureRecordOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn File<Impl: IAppCaptureRecordOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).File() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3811,7 +3811,7 @@ impl IAppCaptureRecordOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsFileTruncated<Impl: IAppCaptureRecordOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsFileTruncated<Impl: IAppCaptureRecordOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsFileTruncated() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3822,7 +3822,7 @@ impl IAppCaptureRecordOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StateChanged<Impl: IAppCaptureRecordOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StateChanged<Impl: IAppCaptureRecordOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StateChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureRecordingStateChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureRecordingStateChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3833,11 +3833,11 @@ impl IAppCaptureRecordOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStateChanged<Impl: IAppCaptureRecordOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStateChanged<Impl: IAppCaptureRecordOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DurationGenerated<Impl: IAppCaptureRecordOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DurationGenerated<Impl: IAppCaptureRecordOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DurationGenerated(&*(&value as *const <super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureDurationGeneratedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureDurationGeneratedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3848,11 +3848,11 @@ impl IAppCaptureRecordOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDurationGenerated<Impl: IAppCaptureRecordOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDurationGenerated<Impl: IAppCaptureRecordOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDurationGenerated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FileGenerated<Impl: IAppCaptureRecordOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FileGenerated<Impl: IAppCaptureRecordOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FileGenerated(&*(&value as *const <super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureFileGeneratedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppCaptureRecordOperation, AppCaptureFileGeneratedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3863,7 +3863,7 @@ impl IAppCaptureRecordOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveFileGenerated<Impl: IAppCaptureRecordOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveFileGenerated<Impl: IAppCaptureRecordOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFileGenerated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3888,7 +3888,7 @@ impl IAppCaptureRecordOperationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureRecordingStateChangedEventArgsImpl: Sized {
+pub trait IAppCaptureRecordingStateChangedEventArgs_Impl: Sized {
     fn State(&mut self) -> ::windows::core::Result<AppCaptureRecordingState>;
     fn ErrorCode(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -3897,9 +3897,9 @@ impl ::windows::core::RuntimeName for IAppCaptureRecordingStateChangedEventArgs 
     const NAME: &'static str = "Windows.Media.Capture.IAppCaptureRecordingStateChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppCaptureRecordingStateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureRecordingStateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureRecordingStateChangedEventArgsVtbl {
-        unsafe extern "system" fn State<Impl: IAppCaptureRecordingStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppCaptureRecordingState) -> ::windows::core::HRESULT {
+impl IAppCaptureRecordingStateChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureRecordingStateChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureRecordingStateChangedEventArgs_Vtbl {
+        unsafe extern "system" fn State<Impl: IAppCaptureRecordingStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppCaptureRecordingState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3910,7 +3910,7 @@ impl IAppCaptureRecordingStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ErrorCode<Impl: IAppCaptureRecordingStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ErrorCode<Impl: IAppCaptureRecordingStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ErrorCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3932,7 +3932,7 @@ impl IAppCaptureRecordingStateChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAppCaptureServicesImpl: Sized {
+pub trait IAppCaptureServices_Impl: Sized {
     fn Record(&mut self) -> ::windows::core::Result<AppCaptureRecordOperation>;
     fn RecordTimeSpan(&mut self, starttime: &super::super::Foundation::DateTime, duration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<AppCaptureRecordOperation>;
     fn CanCapture(&mut self) -> ::windows::core::Result<bool>;
@@ -3943,9 +3943,9 @@ impl ::windows::core::RuntimeName for IAppCaptureServices {
     const NAME: &'static str = "Windows.Media.Capture.IAppCaptureServices";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAppCaptureServicesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureServicesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureServicesVtbl {
-        unsafe extern "system" fn Record<Impl: IAppCaptureServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAppCaptureServices_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureServices_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureServices_Vtbl {
+        unsafe extern "system" fn Record<Impl: IAppCaptureServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Record() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3956,7 +3956,7 @@ impl IAppCaptureServicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RecordTimeSpan<Impl: IAppCaptureServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RecordTimeSpan<Impl: IAppCaptureServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RecordTimeSpan(&*(&starttime as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType), &*(&duration as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3967,7 +3967,7 @@ impl IAppCaptureServicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanCapture<Impl: IAppCaptureServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanCapture<Impl: IAppCaptureServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanCapture() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3978,7 +3978,7 @@ impl IAppCaptureServicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn State<Impl: IAppCaptureServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn State<Impl: IAppCaptureServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4002,7 +4002,7 @@ impl IAppCaptureServicesVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
-pub trait IAppCaptureSettingsImpl: Sized {
+pub trait IAppCaptureSettings_Impl: Sized {
     fn SetAppCaptureDestinationFolder(&mut self, value: &::core::option::Option<super::super::Storage::StorageFolder>) -> ::windows::core::Result<()>;
     fn AppCaptureDestinationFolder(&mut self) -> ::windows::core::Result<super::super::Storage::StorageFolder>;
     fn SetAudioEncodingBitrate(&mut self, value: u32) -> ::windows::core::Result<()>;
@@ -4045,13 +4045,13 @@ impl ::windows::core::RuntimeName for IAppCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.IAppCaptureSettings";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
-impl IAppCaptureSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureSettingsVtbl {
-        unsafe extern "system" fn SetAppCaptureDestinationFolder<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAppCaptureSettings_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureSettings_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureSettings_Vtbl {
+        unsafe extern "system" fn SetAppCaptureDestinationFolder<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAppCaptureDestinationFolder(&*(&value as *const <super::super::Storage::StorageFolder as ::windows::core::Abi>::Abi as *const <super::super::Storage::StorageFolder as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AppCaptureDestinationFolder<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppCaptureDestinationFolder<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppCaptureDestinationFolder() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4062,11 +4062,11 @@ impl IAppCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAudioEncodingBitrate<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAudioEncodingBitrate<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAudioEncodingBitrate(value).into()
         }
-        unsafe extern "system" fn AudioEncodingBitrate<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioEncodingBitrate<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioEncodingBitrate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4077,11 +4077,11 @@ impl IAppCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsAudioCaptureEnabled<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsAudioCaptureEnabled<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsAudioCaptureEnabled(value).into()
         }
-        unsafe extern "system" fn IsAudioCaptureEnabled<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsAudioCaptureEnabled<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAudioCaptureEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4092,11 +4092,11 @@ impl IAppCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCustomVideoEncodingBitrate<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCustomVideoEncodingBitrate<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCustomVideoEncodingBitrate(value).into()
         }
-        unsafe extern "system" fn CustomVideoEncodingBitrate<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CustomVideoEncodingBitrate<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CustomVideoEncodingBitrate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4107,11 +4107,11 @@ impl IAppCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCustomVideoEncodingHeight<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCustomVideoEncodingHeight<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCustomVideoEncodingHeight(value).into()
         }
-        unsafe extern "system" fn CustomVideoEncodingHeight<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CustomVideoEncodingHeight<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CustomVideoEncodingHeight() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4122,11 +4122,11 @@ impl IAppCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCustomVideoEncodingWidth<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCustomVideoEncodingWidth<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCustomVideoEncodingWidth(value).into()
         }
-        unsafe extern "system" fn CustomVideoEncodingWidth<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CustomVideoEncodingWidth<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CustomVideoEncodingWidth() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4137,11 +4137,11 @@ impl IAppCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHistoricalBufferLength<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHistoricalBufferLength<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHistoricalBufferLength(value).into()
         }
-        unsafe extern "system" fn HistoricalBufferLength<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HistoricalBufferLength<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HistoricalBufferLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4152,11 +4152,11 @@ impl IAppCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHistoricalBufferLengthUnit<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AppCaptureHistoricalBufferLengthUnit) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHistoricalBufferLengthUnit<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AppCaptureHistoricalBufferLengthUnit) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHistoricalBufferLengthUnit(value).into()
         }
-        unsafe extern "system" fn HistoricalBufferLengthUnit<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppCaptureHistoricalBufferLengthUnit) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HistoricalBufferLengthUnit<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppCaptureHistoricalBufferLengthUnit) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HistoricalBufferLengthUnit() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4167,11 +4167,11 @@ impl IAppCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsHistoricalCaptureEnabled<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsHistoricalCaptureEnabled<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsHistoricalCaptureEnabled(value).into()
         }
-        unsafe extern "system" fn IsHistoricalCaptureEnabled<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsHistoricalCaptureEnabled<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsHistoricalCaptureEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4182,11 +4182,11 @@ impl IAppCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsHistoricalCaptureOnBatteryAllowed<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsHistoricalCaptureOnBatteryAllowed<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsHistoricalCaptureOnBatteryAllowed(value).into()
         }
-        unsafe extern "system" fn IsHistoricalCaptureOnBatteryAllowed<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsHistoricalCaptureOnBatteryAllowed<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsHistoricalCaptureOnBatteryAllowed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4197,11 +4197,11 @@ impl IAppCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsHistoricalCaptureOnWirelessDisplayAllowed<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsHistoricalCaptureOnWirelessDisplayAllowed<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsHistoricalCaptureOnWirelessDisplayAllowed(value).into()
         }
-        unsafe extern "system" fn IsHistoricalCaptureOnWirelessDisplayAllowed<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsHistoricalCaptureOnWirelessDisplayAllowed<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsHistoricalCaptureOnWirelessDisplayAllowed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4212,11 +4212,11 @@ impl IAppCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaximumRecordLength<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaximumRecordLength<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaximumRecordLength(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MaximumRecordLength<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaximumRecordLength<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaximumRecordLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4227,11 +4227,11 @@ impl IAppCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetScreenshotDestinationFolder<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScreenshotDestinationFolder<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScreenshotDestinationFolder(&*(&value as *const <super::super::Storage::StorageFolder as ::windows::core::Abi>::Abi as *const <super::super::Storage::StorageFolder as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ScreenshotDestinationFolder<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScreenshotDestinationFolder<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScreenshotDestinationFolder() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4242,11 +4242,11 @@ impl IAppCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVideoEncodingBitrateMode<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AppCaptureVideoEncodingBitrateMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVideoEncodingBitrateMode<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AppCaptureVideoEncodingBitrateMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVideoEncodingBitrateMode(value).into()
         }
-        unsafe extern "system" fn VideoEncodingBitrateMode<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppCaptureVideoEncodingBitrateMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoEncodingBitrateMode<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppCaptureVideoEncodingBitrateMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoEncodingBitrateMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4257,11 +4257,11 @@ impl IAppCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVideoEncodingResolutionMode<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AppCaptureVideoEncodingResolutionMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVideoEncodingResolutionMode<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AppCaptureVideoEncodingResolutionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVideoEncodingResolutionMode(value).into()
         }
-        unsafe extern "system" fn VideoEncodingResolutionMode<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppCaptureVideoEncodingResolutionMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoEncodingResolutionMode<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppCaptureVideoEncodingResolutionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoEncodingResolutionMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4272,11 +4272,11 @@ impl IAppCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsAppCaptureEnabled<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsAppCaptureEnabled<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsAppCaptureEnabled(value).into()
         }
-        unsafe extern "system" fn IsAppCaptureEnabled<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsAppCaptureEnabled<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAppCaptureEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4287,7 +4287,7 @@ impl IAppCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsCpuConstrained<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCpuConstrained<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCpuConstrained() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4298,7 +4298,7 @@ impl IAppCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDisabledByPolicy<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDisabledByPolicy<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDisabledByPolicy() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4309,7 +4309,7 @@ impl IAppCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsMemoryConstrained<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsMemoryConstrained<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsMemoryConstrained() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4320,7 +4320,7 @@ impl IAppCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasHardwareEncoder<Impl: IAppCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasHardwareEncoder<Impl: IAppCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasHardwareEncoder() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4376,7 +4376,7 @@ impl IAppCaptureSettingsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureSettings2Impl: Sized {
+pub trait IAppCaptureSettings2_Impl: Sized {
     fn IsGpuConstrained(&mut self) -> ::windows::core::Result<bool>;
     fn AlternateShortcutKeys(&mut self) -> ::windows::core::Result<AppCaptureAlternateShortcutKeys>;
 }
@@ -4385,9 +4385,9 @@ impl ::windows::core::RuntimeName for IAppCaptureSettings2 {
     const NAME: &'static str = "Windows.Media.Capture.IAppCaptureSettings2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppCaptureSettings2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureSettings2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureSettings2Vtbl {
-        unsafe extern "system" fn IsGpuConstrained<Impl: IAppCaptureSettings2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IAppCaptureSettings2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureSettings2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureSettings2_Vtbl {
+        unsafe extern "system" fn IsGpuConstrained<Impl: IAppCaptureSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsGpuConstrained() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4398,7 +4398,7 @@ impl IAppCaptureSettings2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AlternateShortcutKeys<Impl: IAppCaptureSettings2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AlternateShortcutKeys<Impl: IAppCaptureSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlternateShortcutKeys() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4420,7 +4420,7 @@ impl IAppCaptureSettings2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureSettings3Impl: Sized {
+pub trait IAppCaptureSettings3_Impl: Sized {
     fn SetIsMicrophoneCaptureEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn IsMicrophoneCaptureEnabled(&mut self) -> ::windows::core::Result<bool>;
 }
@@ -4429,13 +4429,13 @@ impl ::windows::core::RuntimeName for IAppCaptureSettings3 {
     const NAME: &'static str = "Windows.Media.Capture.IAppCaptureSettings3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppCaptureSettings3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureSettings3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureSettings3Vtbl {
-        unsafe extern "system" fn SetIsMicrophoneCaptureEnabled<Impl: IAppCaptureSettings3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+impl IAppCaptureSettings3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureSettings3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureSettings3_Vtbl {
+        unsafe extern "system" fn SetIsMicrophoneCaptureEnabled<Impl: IAppCaptureSettings3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsMicrophoneCaptureEnabled(value).into()
         }
-        unsafe extern "system" fn IsMicrophoneCaptureEnabled<Impl: IAppCaptureSettings3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsMicrophoneCaptureEnabled<Impl: IAppCaptureSettings3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsMicrophoneCaptureEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4457,7 +4457,7 @@ impl IAppCaptureSettings3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureSettings4Impl: Sized {
+pub trait IAppCaptureSettings4_Impl: Sized {
     fn SetIsMicrophoneCaptureEnabledByDefault(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn IsMicrophoneCaptureEnabledByDefault(&mut self) -> ::windows::core::Result<bool>;
     fn SetSystemAudioGain(&mut self, value: f64) -> ::windows::core::Result<()>;
@@ -4472,13 +4472,13 @@ impl ::windows::core::RuntimeName for IAppCaptureSettings4 {
     const NAME: &'static str = "Windows.Media.Capture.IAppCaptureSettings4";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppCaptureSettings4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureSettings4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureSettings4Vtbl {
-        unsafe extern "system" fn SetIsMicrophoneCaptureEnabledByDefault<Impl: IAppCaptureSettings4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+impl IAppCaptureSettings4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureSettings4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureSettings4_Vtbl {
+        unsafe extern "system" fn SetIsMicrophoneCaptureEnabledByDefault<Impl: IAppCaptureSettings4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsMicrophoneCaptureEnabledByDefault(value).into()
         }
-        unsafe extern "system" fn IsMicrophoneCaptureEnabledByDefault<Impl: IAppCaptureSettings4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsMicrophoneCaptureEnabledByDefault<Impl: IAppCaptureSettings4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsMicrophoneCaptureEnabledByDefault() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4489,11 +4489,11 @@ impl IAppCaptureSettings4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSystemAudioGain<Impl: IAppCaptureSettings4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSystemAudioGain<Impl: IAppCaptureSettings4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSystemAudioGain(value).into()
         }
-        unsafe extern "system" fn SystemAudioGain<Impl: IAppCaptureSettings4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SystemAudioGain<Impl: IAppCaptureSettings4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemAudioGain() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4504,11 +4504,11 @@ impl IAppCaptureSettings4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMicrophoneGain<Impl: IAppCaptureSettings4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMicrophoneGain<Impl: IAppCaptureSettings4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMicrophoneGain(value).into()
         }
-        unsafe extern "system" fn MicrophoneGain<Impl: IAppCaptureSettings4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MicrophoneGain<Impl: IAppCaptureSettings4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MicrophoneGain() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4519,11 +4519,11 @@ impl IAppCaptureSettings4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVideoEncodingFrameRateMode<Impl: IAppCaptureSettings4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AppCaptureVideoEncodingFrameRateMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVideoEncodingFrameRateMode<Impl: IAppCaptureSettings4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: AppCaptureVideoEncodingFrameRateMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVideoEncodingFrameRateMode(value).into()
         }
-        unsafe extern "system" fn VideoEncodingFrameRateMode<Impl: IAppCaptureSettings4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppCaptureVideoEncodingFrameRateMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoEncodingFrameRateMode<Impl: IAppCaptureSettings4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppCaptureVideoEncodingFrameRateMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoEncodingFrameRateMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4551,7 +4551,7 @@ impl IAppCaptureSettings4Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureSettings5Impl: Sized {
+pub trait IAppCaptureSettings5_Impl: Sized {
     fn SetIsEchoCancellationEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn IsEchoCancellationEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsCursorImageCaptureEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -4562,13 +4562,13 @@ impl ::windows::core::RuntimeName for IAppCaptureSettings5 {
     const NAME: &'static str = "Windows.Media.Capture.IAppCaptureSettings5";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppCaptureSettings5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureSettings5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureSettings5Vtbl {
-        unsafe extern "system" fn SetIsEchoCancellationEnabled<Impl: IAppCaptureSettings5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+impl IAppCaptureSettings5_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureSettings5_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureSettings5_Vtbl {
+        unsafe extern "system" fn SetIsEchoCancellationEnabled<Impl: IAppCaptureSettings5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsEchoCancellationEnabled(value).into()
         }
-        unsafe extern "system" fn IsEchoCancellationEnabled<Impl: IAppCaptureSettings5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEchoCancellationEnabled<Impl: IAppCaptureSettings5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEchoCancellationEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4579,11 +4579,11 @@ impl IAppCaptureSettings5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsCursorImageCaptureEnabled<Impl: IAppCaptureSettings5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsCursorImageCaptureEnabled<Impl: IAppCaptureSettings5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsCursorImageCaptureEnabled(value).into()
         }
-        unsafe extern "system" fn IsCursorImageCaptureEnabled<Impl: IAppCaptureSettings5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCursorImageCaptureEnabled<Impl: IAppCaptureSettings5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCursorImageCaptureEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4607,7 +4607,7 @@ impl IAppCaptureSettings5Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAppCaptureStateImpl: Sized {
+pub trait IAppCaptureState_Impl: Sized {
     fn IsTargetRunning(&mut self) -> ::windows::core::Result<bool>;
     fn IsHistoricalCaptureEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn ShouldCaptureMicrophone(&mut self) -> ::windows::core::Result<bool>;
@@ -4625,9 +4625,9 @@ impl ::windows::core::RuntimeName for IAppCaptureState {
     const NAME: &'static str = "Windows.Media.Capture.IAppCaptureState";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAppCaptureStateVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureStateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureStateVtbl {
-        unsafe extern "system" fn IsTargetRunning<Impl: IAppCaptureStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IAppCaptureState_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureState_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureState_Vtbl {
+        unsafe extern "system" fn IsTargetRunning<Impl: IAppCaptureState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTargetRunning() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4638,7 +4638,7 @@ impl IAppCaptureStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsHistoricalCaptureEnabled<Impl: IAppCaptureStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsHistoricalCaptureEnabled<Impl: IAppCaptureState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsHistoricalCaptureEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4649,7 +4649,7 @@ impl IAppCaptureStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShouldCaptureMicrophone<Impl: IAppCaptureStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShouldCaptureMicrophone<Impl: IAppCaptureState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShouldCaptureMicrophone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4660,15 +4660,15 @@ impl IAppCaptureStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetShouldCaptureMicrophone<Impl: IAppCaptureStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetShouldCaptureMicrophone<Impl: IAppCaptureState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetShouldCaptureMicrophone(value).into()
         }
-        unsafe extern "system" fn RestartMicrophoneCapture<Impl: IAppCaptureStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RestartMicrophoneCapture<Impl: IAppCaptureState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RestartMicrophoneCapture().into()
         }
-        unsafe extern "system" fn MicrophoneCaptureState<Impl: IAppCaptureStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppCaptureMicrophoneCaptureState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MicrophoneCaptureState<Impl: IAppCaptureState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AppCaptureMicrophoneCaptureState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MicrophoneCaptureState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4679,7 +4679,7 @@ impl IAppCaptureStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MicrophoneCaptureError<Impl: IAppCaptureStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MicrophoneCaptureError<Impl: IAppCaptureState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MicrophoneCaptureError() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4690,7 +4690,7 @@ impl IAppCaptureStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MicrophoneCaptureStateChanged<Impl: IAppCaptureStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MicrophoneCaptureStateChanged<Impl: IAppCaptureState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MicrophoneCaptureStateChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<AppCaptureState, AppCaptureMicrophoneCaptureStateChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppCaptureState, AppCaptureMicrophoneCaptureStateChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4701,11 +4701,11 @@ impl IAppCaptureStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMicrophoneCaptureStateChanged<Impl: IAppCaptureStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMicrophoneCaptureStateChanged<Impl: IAppCaptureState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMicrophoneCaptureStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CaptureTargetClosed<Impl: IAppCaptureStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CaptureTargetClosed<Impl: IAppCaptureState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CaptureTargetClosed(&*(&value as *const <super::super::Foundation::TypedEventHandler<AppCaptureState, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppCaptureState, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4716,7 +4716,7 @@ impl IAppCaptureStateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCaptureTargetClosed<Impl: IAppCaptureStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCaptureTargetClosed<Impl: IAppCaptureState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCaptureTargetClosed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -4740,7 +4740,7 @@ impl IAppCaptureStateVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppCaptureStaticsImpl: Sized {
+pub trait IAppCaptureStatics_Impl: Sized {
     fn GetForCurrentView(&mut self) -> ::windows::core::Result<AppCapture>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4748,9 +4748,9 @@ impl ::windows::core::RuntimeName for IAppCaptureStatics {
     const NAME: &'static str = "Windows.Media.Capture.IAppCaptureStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppCaptureStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureStaticsVtbl {
-        unsafe extern "system" fn GetForCurrentView<Impl: IAppCaptureStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAppCaptureStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureStatics_Vtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: IAppCaptureStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4771,7 +4771,7 @@ impl IAppCaptureStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAppCaptureStatics2Impl: Sized {
+pub trait IAppCaptureStatics2_Impl: Sized {
     fn SetAllowedAsync(&mut self, allowed: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -4779,9 +4779,9 @@ impl ::windows::core::RuntimeName for IAppCaptureStatics2 {
     const NAME: &'static str = "Windows.Media.Capture.IAppCaptureStatics2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAppCaptureStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureStatics2Vtbl {
-        unsafe extern "system" fn SetAllowedAsync<Impl: IAppCaptureStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allowed: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAppCaptureStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppCaptureStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppCaptureStatics2_Vtbl {
+        unsafe extern "system" fn SetAllowedAsync<Impl: IAppCaptureStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allowed: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetAllowedAsync(allowed) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4802,7 +4802,7 @@ impl IAppCaptureStatics2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
-pub trait ICameraCaptureUIImpl: Sized {
+pub trait ICameraCaptureUI_Impl: Sized {
     fn PhotoSettings(&mut self) -> ::windows::core::Result<CameraCaptureUIPhotoCaptureSettings>;
     fn VideoSettings(&mut self) -> ::windows::core::Result<CameraCaptureUIVideoCaptureSettings>;
     fn CaptureFileAsync(&mut self, mode: CameraCaptureUIMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>;
@@ -4812,9 +4812,9 @@ impl ::windows::core::RuntimeName for ICameraCaptureUI {
     const NAME: &'static str = "Windows.Media.Capture.ICameraCaptureUI";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
-impl ICameraCaptureUIVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICameraCaptureUIImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICameraCaptureUIVtbl {
-        unsafe extern "system" fn PhotoSettings<Impl: ICameraCaptureUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICameraCaptureUI_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICameraCaptureUI_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICameraCaptureUI_Vtbl {
+        unsafe extern "system" fn PhotoSettings<Impl: ICameraCaptureUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhotoSettings() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4825,7 +4825,7 @@ impl ICameraCaptureUIVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideoSettings<Impl: ICameraCaptureUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoSettings<Impl: ICameraCaptureUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoSettings() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4836,7 +4836,7 @@ impl ICameraCaptureUIVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CaptureFileAsync<Impl: ICameraCaptureUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: CameraCaptureUIMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CaptureFileAsync<Impl: ICameraCaptureUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: CameraCaptureUIMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CaptureFileAsync(mode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4859,7 +4859,7 @@ impl ICameraCaptureUIVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICameraCaptureUIPhotoCaptureSettingsImpl: Sized {
+pub trait ICameraCaptureUIPhotoCaptureSettings_Impl: Sized {
     fn Format(&mut self) -> ::windows::core::Result<CameraCaptureUIPhotoFormat>;
     fn SetFormat(&mut self, value: CameraCaptureUIPhotoFormat) -> ::windows::core::Result<()>;
     fn MaxResolution(&mut self) -> ::windows::core::Result<CameraCaptureUIMaxPhotoResolution>;
@@ -4876,9 +4876,9 @@ impl ::windows::core::RuntimeName for ICameraCaptureUIPhotoCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.ICameraCaptureUIPhotoCaptureSettings";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICameraCaptureUIPhotoCaptureSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICameraCaptureUIPhotoCaptureSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICameraCaptureUIPhotoCaptureSettingsVtbl {
-        unsafe extern "system" fn Format<Impl: ICameraCaptureUIPhotoCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CameraCaptureUIPhotoFormat) -> ::windows::core::HRESULT {
+impl ICameraCaptureUIPhotoCaptureSettings_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICameraCaptureUIPhotoCaptureSettings_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICameraCaptureUIPhotoCaptureSettings_Vtbl {
+        unsafe extern "system" fn Format<Impl: ICameraCaptureUIPhotoCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CameraCaptureUIPhotoFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Format() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4889,11 +4889,11 @@ impl ICameraCaptureUIPhotoCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFormat<Impl: ICameraCaptureUIPhotoCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CameraCaptureUIPhotoFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFormat<Impl: ICameraCaptureUIPhotoCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CameraCaptureUIPhotoFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFormat(value).into()
         }
-        unsafe extern "system" fn MaxResolution<Impl: ICameraCaptureUIPhotoCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CameraCaptureUIMaxPhotoResolution) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxResolution<Impl: ICameraCaptureUIPhotoCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CameraCaptureUIMaxPhotoResolution) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxResolution() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4904,11 +4904,11 @@ impl ICameraCaptureUIPhotoCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxResolution<Impl: ICameraCaptureUIPhotoCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CameraCaptureUIMaxPhotoResolution) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxResolution<Impl: ICameraCaptureUIPhotoCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CameraCaptureUIMaxPhotoResolution) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxResolution(value).into()
         }
-        unsafe extern "system" fn CroppedSizeInPixels<Impl: ICameraCaptureUIPhotoCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CroppedSizeInPixels<Impl: ICameraCaptureUIPhotoCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CroppedSizeInPixels() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4919,11 +4919,11 @@ impl ICameraCaptureUIPhotoCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCroppedSizeInPixels<Impl: ICameraCaptureUIPhotoCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCroppedSizeInPixels<Impl: ICameraCaptureUIPhotoCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCroppedSizeInPixels(&*(&value as *const <super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CroppedAspectRatio<Impl: ICameraCaptureUIPhotoCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CroppedAspectRatio<Impl: ICameraCaptureUIPhotoCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CroppedAspectRatio() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4934,11 +4934,11 @@ impl ICameraCaptureUIPhotoCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCroppedAspectRatio<Impl: ICameraCaptureUIPhotoCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCroppedAspectRatio<Impl: ICameraCaptureUIPhotoCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCroppedAspectRatio(&*(&value as *const <super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AllowCropping<Impl: ICameraCaptureUIPhotoCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllowCropping<Impl: ICameraCaptureUIPhotoCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowCropping() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4949,7 +4949,7 @@ impl ICameraCaptureUIPhotoCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAllowCropping<Impl: ICameraCaptureUIPhotoCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAllowCropping<Impl: ICameraCaptureUIPhotoCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowCropping(value).into()
         }
@@ -4972,7 +4972,7 @@ impl ICameraCaptureUIPhotoCaptureSettingsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICameraCaptureUIVideoCaptureSettingsImpl: Sized {
+pub trait ICameraCaptureUIVideoCaptureSettings_Impl: Sized {
     fn Format(&mut self) -> ::windows::core::Result<CameraCaptureUIVideoFormat>;
     fn SetFormat(&mut self, value: CameraCaptureUIVideoFormat) -> ::windows::core::Result<()>;
     fn MaxResolution(&mut self) -> ::windows::core::Result<CameraCaptureUIMaxVideoResolution>;
@@ -4987,9 +4987,9 @@ impl ::windows::core::RuntimeName for ICameraCaptureUIVideoCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.ICameraCaptureUIVideoCaptureSettings";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICameraCaptureUIVideoCaptureSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICameraCaptureUIVideoCaptureSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICameraCaptureUIVideoCaptureSettingsVtbl {
-        unsafe extern "system" fn Format<Impl: ICameraCaptureUIVideoCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CameraCaptureUIVideoFormat) -> ::windows::core::HRESULT {
+impl ICameraCaptureUIVideoCaptureSettings_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICameraCaptureUIVideoCaptureSettings_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICameraCaptureUIVideoCaptureSettings_Vtbl {
+        unsafe extern "system" fn Format<Impl: ICameraCaptureUIVideoCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CameraCaptureUIVideoFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Format() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5000,11 +5000,11 @@ impl ICameraCaptureUIVideoCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFormat<Impl: ICameraCaptureUIVideoCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CameraCaptureUIVideoFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFormat<Impl: ICameraCaptureUIVideoCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CameraCaptureUIVideoFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFormat(value).into()
         }
-        unsafe extern "system" fn MaxResolution<Impl: ICameraCaptureUIVideoCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CameraCaptureUIMaxVideoResolution) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxResolution<Impl: ICameraCaptureUIVideoCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CameraCaptureUIMaxVideoResolution) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxResolution() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5015,11 +5015,11 @@ impl ICameraCaptureUIVideoCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxResolution<Impl: ICameraCaptureUIVideoCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CameraCaptureUIMaxVideoResolution) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxResolution<Impl: ICameraCaptureUIVideoCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CameraCaptureUIMaxVideoResolution) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxResolution(value).into()
         }
-        unsafe extern "system" fn MaxDurationInSeconds<Impl: ICameraCaptureUIVideoCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxDurationInSeconds<Impl: ICameraCaptureUIVideoCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxDurationInSeconds() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5030,11 +5030,11 @@ impl ICameraCaptureUIVideoCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxDurationInSeconds<Impl: ICameraCaptureUIVideoCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxDurationInSeconds<Impl: ICameraCaptureUIVideoCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxDurationInSeconds(value).into()
         }
-        unsafe extern "system" fn AllowTrimming<Impl: ICameraCaptureUIVideoCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllowTrimming<Impl: ICameraCaptureUIVideoCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowTrimming() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5045,7 +5045,7 @@ impl ICameraCaptureUIVideoCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAllowTrimming<Impl: ICameraCaptureUIVideoCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAllowTrimming<Impl: ICameraCaptureUIVideoCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowTrimming(value).into()
         }
@@ -5066,7 +5066,7 @@ impl ICameraCaptureUIVideoCaptureSettingsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICameraOptionsUIStaticsImpl: Sized {
+pub trait ICameraOptionsUIStatics_Impl: Sized {
     fn Show(&mut self, mediacapture: &::core::option::Option<MediaCapture>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5074,9 +5074,9 @@ impl ::windows::core::RuntimeName for ICameraOptionsUIStatics {
     const NAME: &'static str = "Windows.Media.Capture.ICameraOptionsUIStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICameraOptionsUIStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICameraOptionsUIStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICameraOptionsUIStaticsVtbl {
-        unsafe extern "system" fn Show<Impl: ICameraOptionsUIStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediacapture: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICameraOptionsUIStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICameraOptionsUIStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICameraOptionsUIStatics_Vtbl {
+        unsafe extern "system" fn Show<Impl: ICameraOptionsUIStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediacapture: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Show(&*(&mediacapture as *const <MediaCapture as ::windows::core::Abi>::Abi as *const <MediaCapture as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -5087,7 +5087,7 @@ impl ICameraOptionsUIStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ICapturedFrameImpl: Sized + IClosableImpl + IContentTypeProviderImpl + IInputStreamImpl + IOutputStreamImpl + IRandomAccessStreamImpl + IRandomAccessStreamWithContentTypeImpl {
+pub trait ICapturedFrame_Impl: Sized + super::super::Foundation::IClosable_Impl + super::super::Storage::Streams::IContentTypeProvider_Impl + super::super::Storage::Streams::IInputStream_Impl + super::super::Storage::Streams::IOutputStream_Impl + super::super::Storage::Streams::IRandomAccessStream_Impl + super::super::Storage::Streams::IRandomAccessStreamWithContentType_Impl {
     fn Width(&mut self) -> ::windows::core::Result<u32>;
     fn Height(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -5096,9 +5096,9 @@ impl ::windows::core::RuntimeName for ICapturedFrame {
     const NAME: &'static str = "Windows.Media.Capture.ICapturedFrame";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ICapturedFrameVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICapturedFrameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICapturedFrameVtbl {
-        unsafe extern "system" fn Width<Impl: ICapturedFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl ICapturedFrame_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICapturedFrame_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICapturedFrame_Vtbl {
+        unsafe extern "system" fn Width<Impl: ICapturedFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Width() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5109,7 +5109,7 @@ impl ICapturedFrameVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Height<Impl: ICapturedFrameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Height<Impl: ICapturedFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Height() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5131,7 +5131,7 @@ impl ICapturedFrameVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-pub trait ICapturedFrame2Impl: Sized {
+pub trait ICapturedFrame2_Impl: Sized {
     fn ControlValues(&mut self) -> ::windows::core::Result<CapturedFrameControlValues>;
     fn BitmapProperties(&mut self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapPropertySet>;
 }
@@ -5140,9 +5140,9 @@ impl ::windows::core::RuntimeName for ICapturedFrame2 {
     const NAME: &'static str = "Windows.Media.Capture.ICapturedFrame2";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-impl ICapturedFrame2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICapturedFrame2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICapturedFrame2Vtbl {
-        unsafe extern "system" fn ControlValues<Impl: ICapturedFrame2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICapturedFrame2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICapturedFrame2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICapturedFrame2_Vtbl {
+        unsafe extern "system" fn ControlValues<Impl: ICapturedFrame2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ControlValues() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5153,7 +5153,7 @@ impl ICapturedFrame2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BitmapProperties<Impl: ICapturedFrame2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BitmapProperties<Impl: ICapturedFrame2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BitmapProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5175,7 +5175,7 @@ impl ICapturedFrame2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICapturedFrameControlValuesImpl: Sized {
+pub trait ICapturedFrameControlValues_Impl: Sized {
     fn Exposure(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>;
     fn ExposureCompensation(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>>;
     fn IsoSpeed(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
@@ -5191,9 +5191,9 @@ impl ::windows::core::RuntimeName for ICapturedFrameControlValues {
     const NAME: &'static str = "Windows.Media.Capture.ICapturedFrameControlValues";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICapturedFrameControlValuesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICapturedFrameControlValuesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICapturedFrameControlValuesVtbl {
-        unsafe extern "system" fn Exposure<Impl: ICapturedFrameControlValuesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICapturedFrameControlValues_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICapturedFrameControlValues_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICapturedFrameControlValues_Vtbl {
+        unsafe extern "system" fn Exposure<Impl: ICapturedFrameControlValues_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Exposure() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5204,7 +5204,7 @@ impl ICapturedFrameControlValuesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExposureCompensation<Impl: ICapturedFrameControlValuesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExposureCompensation<Impl: ICapturedFrameControlValues_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExposureCompensation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5215,7 +5215,7 @@ impl ICapturedFrameControlValuesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsoSpeed<Impl: ICapturedFrameControlValuesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsoSpeed<Impl: ICapturedFrameControlValues_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsoSpeed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5226,7 +5226,7 @@ impl ICapturedFrameControlValuesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Focus<Impl: ICapturedFrameControlValuesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Focus<Impl: ICapturedFrameControlValues_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Focus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5237,7 +5237,7 @@ impl ICapturedFrameControlValuesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SceneMode<Impl: ICapturedFrameControlValuesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SceneMode<Impl: ICapturedFrameControlValues_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SceneMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5248,7 +5248,7 @@ impl ICapturedFrameControlValuesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Flashed<Impl: ICapturedFrameControlValuesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Flashed<Impl: ICapturedFrameControlValues_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Flashed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5259,7 +5259,7 @@ impl ICapturedFrameControlValuesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FlashPowerPercent<Impl: ICapturedFrameControlValuesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FlashPowerPercent<Impl: ICapturedFrameControlValues_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FlashPowerPercent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5270,7 +5270,7 @@ impl ICapturedFrameControlValuesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WhiteBalance<Impl: ICapturedFrameControlValuesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WhiteBalance<Impl: ICapturedFrameControlValues_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WhiteBalance() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5281,7 +5281,7 @@ impl ICapturedFrameControlValuesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ZoomFactor<Impl: ICapturedFrameControlValuesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ZoomFactor<Impl: ICapturedFrameControlValues_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ZoomFactor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5310,7 +5310,7 @@ impl ICapturedFrameControlValuesVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Devices", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
-pub trait ICapturedFrameControlValues2Impl: Sized {
+pub trait ICapturedFrameControlValues2_Impl: Sized {
     fn FocusState(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Devices::MediaCaptureFocusState>>;
     fn IsoDigitalGain(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
     fn IsoAnalogGain(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
@@ -5322,9 +5322,9 @@ impl ::windows::core::RuntimeName for ICapturedFrameControlValues2 {
     const NAME: &'static str = "Windows.Media.Capture.ICapturedFrameControlValues2";
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Devices", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
-impl ICapturedFrameControlValues2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICapturedFrameControlValues2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICapturedFrameControlValues2Vtbl {
-        unsafe extern "system" fn FocusState<Impl: ICapturedFrameControlValues2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICapturedFrameControlValues2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICapturedFrameControlValues2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICapturedFrameControlValues2_Vtbl {
+        unsafe extern "system" fn FocusState<Impl: ICapturedFrameControlValues2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FocusState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5335,7 +5335,7 @@ impl ICapturedFrameControlValues2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsoDigitalGain<Impl: ICapturedFrameControlValues2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsoDigitalGain<Impl: ICapturedFrameControlValues2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsoDigitalGain() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5346,7 +5346,7 @@ impl ICapturedFrameControlValues2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsoAnalogGain<Impl: ICapturedFrameControlValues2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsoAnalogGain<Impl: ICapturedFrameControlValues2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsoAnalogGain() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5357,7 +5357,7 @@ impl ICapturedFrameControlValues2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SensorFrameRate<Impl: ICapturedFrameControlValues2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SensorFrameRate<Impl: ICapturedFrameControlValues2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SensorFrameRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5368,7 +5368,7 @@ impl ICapturedFrameControlValues2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WhiteBalanceGain<Impl: ICapturedFrameControlValues2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WhiteBalanceGain<Impl: ICapturedFrameControlValues2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WhiteBalanceGain() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5393,7 +5393,7 @@ impl ICapturedFrameControlValues2Vtbl {
     }
 }
 #[cfg(all(feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-pub trait ICapturedFrameWithSoftwareBitmapImpl: Sized {
+pub trait ICapturedFrameWithSoftwareBitmap_Impl: Sized {
     fn SoftwareBitmap(&mut self) -> ::windows::core::Result<super::super::Graphics::Imaging::SoftwareBitmap>;
 }
 #[cfg(all(feature = "Graphics_Imaging", feature = "implement_exclusive"))]
@@ -5401,9 +5401,9 @@ impl ::windows::core::RuntimeName for ICapturedFrameWithSoftwareBitmap {
     const NAME: &'static str = "Windows.Media.Capture.ICapturedFrameWithSoftwareBitmap";
 }
 #[cfg(all(feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-impl ICapturedFrameWithSoftwareBitmapVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICapturedFrameWithSoftwareBitmapImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICapturedFrameWithSoftwareBitmapVtbl {
-        unsafe extern "system" fn SoftwareBitmap<Impl: ICapturedFrameWithSoftwareBitmapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICapturedFrameWithSoftwareBitmap_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICapturedFrameWithSoftwareBitmap_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICapturedFrameWithSoftwareBitmap_Vtbl {
+        unsafe extern "system" fn SoftwareBitmap<Impl: ICapturedFrameWithSoftwareBitmap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SoftwareBitmap() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5424,7 +5424,7 @@ impl ICapturedFrameWithSoftwareBitmapVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICapturedPhotoImpl: Sized {
+pub trait ICapturedPhoto_Impl: Sized {
     fn Frame(&mut self) -> ::windows::core::Result<CapturedFrame>;
     fn Thumbnail(&mut self) -> ::windows::core::Result<CapturedFrame>;
 }
@@ -5433,9 +5433,9 @@ impl ::windows::core::RuntimeName for ICapturedPhoto {
     const NAME: &'static str = "Windows.Media.Capture.ICapturedPhoto";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICapturedPhotoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICapturedPhotoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICapturedPhotoVtbl {
-        unsafe extern "system" fn Frame<Impl: ICapturedPhotoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICapturedPhoto_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICapturedPhoto_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICapturedPhoto_Vtbl {
+        unsafe extern "system" fn Frame<Impl: ICapturedPhoto_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Frame() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5446,7 +5446,7 @@ impl ICapturedPhotoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Thumbnail<Impl: ICapturedPhotoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Thumbnail<Impl: ICapturedPhoto_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Thumbnail() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5468,7 +5468,7 @@ impl ICapturedPhotoVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGameBarServicesImpl: Sized {
+pub trait IGameBarServices_Impl: Sized {
     fn TargetCapturePolicy(&mut self) -> ::windows::core::Result<GameBarTargetCapturePolicy>;
     fn EnableCapture(&mut self) -> ::windows::core::Result<()>;
     fn DisableCapture(&mut self) -> ::windows::core::Result<()>;
@@ -5484,9 +5484,9 @@ impl ::windows::core::RuntimeName for IGameBarServices {
     const NAME: &'static str = "Windows.Media.Capture.IGameBarServices";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGameBarServicesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameBarServicesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameBarServicesVtbl {
-        unsafe extern "system" fn TargetCapturePolicy<Impl: IGameBarServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameBarTargetCapturePolicy) -> ::windows::core::HRESULT {
+impl IGameBarServices_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameBarServices_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameBarServices_Vtbl {
+        unsafe extern "system" fn TargetCapturePolicy<Impl: IGameBarServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameBarTargetCapturePolicy) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetCapturePolicy() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5497,15 +5497,15 @@ impl IGameBarServicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableCapture<Impl: IGameBarServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableCapture<Impl: IGameBarServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EnableCapture().into()
         }
-        unsafe extern "system" fn DisableCapture<Impl: IGameBarServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisableCapture<Impl: IGameBarServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DisableCapture().into()
         }
-        unsafe extern "system" fn TargetInfo<Impl: IGameBarServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TargetInfo<Impl: IGameBarServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5516,7 +5516,7 @@ impl IGameBarServicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SessionId<Impl: IGameBarServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SessionId<Impl: IGameBarServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5527,7 +5527,7 @@ impl IGameBarServicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppBroadcastServices<Impl: IGameBarServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppBroadcastServices<Impl: IGameBarServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppBroadcastServices() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5538,7 +5538,7 @@ impl IGameBarServicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppCaptureServices<Impl: IGameBarServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppCaptureServices<Impl: IGameBarServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppCaptureServices() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5549,7 +5549,7 @@ impl IGameBarServicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CommandReceived<Impl: IGameBarServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CommandReceived<Impl: IGameBarServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CommandReceived(&*(&value as *const <super::super::Foundation::TypedEventHandler<GameBarServices, GameBarServicesCommandEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<GameBarServices, GameBarServicesCommandEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5560,7 +5560,7 @@ impl IGameBarServicesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCommandReceived<Impl: IGameBarServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCommandReceived<Impl: IGameBarServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCommandReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -5582,7 +5582,7 @@ impl IGameBarServicesVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGameBarServicesCommandEventArgsImpl: Sized {
+pub trait IGameBarServicesCommandEventArgs_Impl: Sized {
     fn Command(&mut self) -> ::windows::core::Result<GameBarCommand>;
     fn Origin(&mut self) -> ::windows::core::Result<GameBarCommandOrigin>;
 }
@@ -5591,9 +5591,9 @@ impl ::windows::core::RuntimeName for IGameBarServicesCommandEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.IGameBarServicesCommandEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGameBarServicesCommandEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameBarServicesCommandEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameBarServicesCommandEventArgsVtbl {
-        unsafe extern "system" fn Command<Impl: IGameBarServicesCommandEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameBarCommand) -> ::windows::core::HRESULT {
+impl IGameBarServicesCommandEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameBarServicesCommandEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameBarServicesCommandEventArgs_Vtbl {
+        unsafe extern "system" fn Command<Impl: IGameBarServicesCommandEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameBarCommand) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Command() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5604,7 +5604,7 @@ impl IGameBarServicesCommandEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Origin<Impl: IGameBarServicesCommandEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameBarCommandOrigin) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Origin<Impl: IGameBarServicesCommandEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameBarCommandOrigin) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Origin() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5626,7 +5626,7 @@ impl IGameBarServicesCommandEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGameBarServicesManagerImpl: Sized {
+pub trait IGameBarServicesManager_Impl: Sized {
     fn GameBarServicesCreated(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<GameBarServicesManager, GameBarServicesManagerGameBarServicesCreatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveGameBarServicesCreated(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
@@ -5635,9 +5635,9 @@ impl ::windows::core::RuntimeName for IGameBarServicesManager {
     const NAME: &'static str = "Windows.Media.Capture.IGameBarServicesManager";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGameBarServicesManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameBarServicesManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameBarServicesManagerVtbl {
-        unsafe extern "system" fn GameBarServicesCreated<Impl: IGameBarServicesManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IGameBarServicesManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameBarServicesManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameBarServicesManager_Vtbl {
+        unsafe extern "system" fn GameBarServicesCreated<Impl: IGameBarServicesManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GameBarServicesCreated(&*(&value as *const <super::super::Foundation::TypedEventHandler<GameBarServicesManager, GameBarServicesManagerGameBarServicesCreatedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<GameBarServicesManager, GameBarServicesManagerGameBarServicesCreatedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5648,7 +5648,7 @@ impl IGameBarServicesManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveGameBarServicesCreated<Impl: IGameBarServicesManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveGameBarServicesCreated<Impl: IGameBarServicesManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveGameBarServicesCreated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -5663,7 +5663,7 @@ impl IGameBarServicesManagerVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGameBarServicesManagerGameBarServicesCreatedEventArgsImpl: Sized {
+pub trait IGameBarServicesManagerGameBarServicesCreatedEventArgs_Impl: Sized {
     fn GameBarServices(&mut self) -> ::windows::core::Result<GameBarServices>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5671,9 +5671,9 @@ impl ::windows::core::RuntimeName for IGameBarServicesManagerGameBarServicesCrea
     const NAME: &'static str = "Windows.Media.Capture.IGameBarServicesManagerGameBarServicesCreatedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGameBarServicesManagerGameBarServicesCreatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameBarServicesManagerGameBarServicesCreatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameBarServicesManagerGameBarServicesCreatedEventArgsVtbl {
-        unsafe extern "system" fn GameBarServices<Impl: IGameBarServicesManagerGameBarServicesCreatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGameBarServicesManagerGameBarServicesCreatedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameBarServicesManagerGameBarServicesCreatedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameBarServicesManagerGameBarServicesCreatedEventArgs_Vtbl {
+        unsafe extern "system" fn GameBarServices<Impl: IGameBarServicesManagerGameBarServicesCreatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GameBarServices() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5694,7 +5694,7 @@ impl IGameBarServicesManagerGameBarServicesCreatedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGameBarServicesManagerStaticsImpl: Sized {
+pub trait IGameBarServicesManagerStatics_Impl: Sized {
     fn GetDefault(&mut self) -> ::windows::core::Result<GameBarServicesManager>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -5702,9 +5702,9 @@ impl ::windows::core::RuntimeName for IGameBarServicesManagerStatics {
     const NAME: &'static str = "Windows.Media.Capture.IGameBarServicesManagerStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGameBarServicesManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameBarServicesManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameBarServicesManagerStaticsVtbl {
-        unsafe extern "system" fn GetDefault<Impl: IGameBarServicesManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGameBarServicesManagerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameBarServicesManagerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameBarServicesManagerStatics_Vtbl {
+        unsafe extern "system" fn GetDefault<Impl: IGameBarServicesManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5725,7 +5725,7 @@ impl IGameBarServicesManagerStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGameBarServicesTargetInfoImpl: Sized {
+pub trait IGameBarServicesTargetInfo_Impl: Sized {
     fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn AppId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn TitleId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -5736,9 +5736,9 @@ impl ::windows::core::RuntimeName for IGameBarServicesTargetInfo {
     const NAME: &'static str = "Windows.Media.Capture.IGameBarServicesTargetInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGameBarServicesTargetInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameBarServicesTargetInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameBarServicesTargetInfoVtbl {
-        unsafe extern "system" fn DisplayName<Impl: IGameBarServicesTargetInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IGameBarServicesTargetInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameBarServicesTargetInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameBarServicesTargetInfo_Vtbl {
+        unsafe extern "system" fn DisplayName<Impl: IGameBarServicesTargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5749,7 +5749,7 @@ impl IGameBarServicesTargetInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppId<Impl: IGameBarServicesTargetInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppId<Impl: IGameBarServicesTargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5760,7 +5760,7 @@ impl IGameBarServicesTargetInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TitleId<Impl: IGameBarServicesTargetInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TitleId<Impl: IGameBarServicesTargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TitleId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5771,7 +5771,7 @@ impl IGameBarServicesTargetInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayMode<Impl: IGameBarServicesTargetInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameBarServicesDisplayMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayMode<Impl: IGameBarServicesTargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameBarServicesDisplayMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5795,7 +5795,7 @@ impl IGameBarServicesTargetInfoVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ILowLagMediaRecordingImpl: Sized {
+pub trait ILowLagMediaRecording_Impl: Sized {
     fn StartAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn StopAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn FinishAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -5805,9 +5805,9 @@ impl ::windows::core::RuntimeName for ILowLagMediaRecording {
     const NAME: &'static str = "Windows.Media.Capture.ILowLagMediaRecording";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ILowLagMediaRecordingVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILowLagMediaRecordingImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILowLagMediaRecordingVtbl {
-        unsafe extern "system" fn StartAsync<Impl: ILowLagMediaRecordingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILowLagMediaRecording_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILowLagMediaRecording_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILowLagMediaRecording_Vtbl {
+        unsafe extern "system" fn StartAsync<Impl: ILowLagMediaRecording_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5818,7 +5818,7 @@ impl ILowLagMediaRecordingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StopAsync<Impl: ILowLagMediaRecordingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopAsync<Impl: ILowLagMediaRecording_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StopAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5829,7 +5829,7 @@ impl ILowLagMediaRecordingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FinishAsync<Impl: ILowLagMediaRecordingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FinishAsync<Impl: ILowLagMediaRecording_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FinishAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5852,7 +5852,7 @@ impl ILowLagMediaRecordingVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Devices", feature = "implement_exclusive"))]
-pub trait ILowLagMediaRecording2Impl: Sized {
+pub trait ILowLagMediaRecording2_Impl: Sized {
     fn PauseAsync(&mut self, behavior: super::Devices::MediaCapturePauseBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn ResumeAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
@@ -5861,9 +5861,9 @@ impl ::windows::core::RuntimeName for ILowLagMediaRecording2 {
     const NAME: &'static str = "Windows.Media.Capture.ILowLagMediaRecording2";
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Devices", feature = "implement_exclusive"))]
-impl ILowLagMediaRecording2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILowLagMediaRecording2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILowLagMediaRecording2Vtbl {
-        unsafe extern "system" fn PauseAsync<Impl: ILowLagMediaRecording2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, behavior: super::Devices::MediaCapturePauseBehavior, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILowLagMediaRecording2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILowLagMediaRecording2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILowLagMediaRecording2_Vtbl {
+        unsafe extern "system" fn PauseAsync<Impl: ILowLagMediaRecording2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, behavior: super::Devices::MediaCapturePauseBehavior, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PauseAsync(behavior) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5874,7 +5874,7 @@ impl ILowLagMediaRecording2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResumeAsync<Impl: ILowLagMediaRecording2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResumeAsync<Impl: ILowLagMediaRecording2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResumeAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5896,7 +5896,7 @@ impl ILowLagMediaRecording2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Devices", feature = "implement_exclusive"))]
-pub trait ILowLagMediaRecording3Impl: Sized {
+pub trait ILowLagMediaRecording3_Impl: Sized {
     fn PauseWithResultAsync(&mut self, behavior: super::Devices::MediaCapturePauseBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaCapturePauseResult>>;
     fn StopWithResultAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaCaptureStopResult>>;
 }
@@ -5905,9 +5905,9 @@ impl ::windows::core::RuntimeName for ILowLagMediaRecording3 {
     const NAME: &'static str = "Windows.Media.Capture.ILowLagMediaRecording3";
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Devices", feature = "implement_exclusive"))]
-impl ILowLagMediaRecording3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILowLagMediaRecording3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILowLagMediaRecording3Vtbl {
-        unsafe extern "system" fn PauseWithResultAsync<Impl: ILowLagMediaRecording3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, behavior: super::Devices::MediaCapturePauseBehavior, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILowLagMediaRecording3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILowLagMediaRecording3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILowLagMediaRecording3_Vtbl {
+        unsafe extern "system" fn PauseWithResultAsync<Impl: ILowLagMediaRecording3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, behavior: super::Devices::MediaCapturePauseBehavior, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PauseWithResultAsync(behavior) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5918,7 +5918,7 @@ impl ILowLagMediaRecording3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StopWithResultAsync<Impl: ILowLagMediaRecording3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopWithResultAsync<Impl: ILowLagMediaRecording3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StopWithResultAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5940,7 +5940,7 @@ impl ILowLagMediaRecording3Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ILowLagPhotoCaptureImpl: Sized {
+pub trait ILowLagPhotoCapture_Impl: Sized {
     fn CaptureAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CapturedPhoto>>;
     fn FinishAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
@@ -5949,9 +5949,9 @@ impl ::windows::core::RuntimeName for ILowLagPhotoCapture {
     const NAME: &'static str = "Windows.Media.Capture.ILowLagPhotoCapture";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ILowLagPhotoCaptureVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILowLagPhotoCaptureImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILowLagPhotoCaptureVtbl {
-        unsafe extern "system" fn CaptureAsync<Impl: ILowLagPhotoCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILowLagPhotoCapture_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILowLagPhotoCapture_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILowLagPhotoCapture_Vtbl {
+        unsafe extern "system" fn CaptureAsync<Impl: ILowLagPhotoCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CaptureAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5962,7 +5962,7 @@ impl ILowLagPhotoCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FinishAsync<Impl: ILowLagPhotoCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FinishAsync<Impl: ILowLagPhotoCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FinishAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5984,7 +5984,7 @@ impl ILowLagPhotoCaptureVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ILowLagPhotoSequenceCaptureImpl: Sized {
+pub trait ILowLagPhotoSequenceCapture_Impl: Sized {
     fn StartAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn StopAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn FinishAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -5996,9 +5996,9 @@ impl ::windows::core::RuntimeName for ILowLagPhotoSequenceCapture {
     const NAME: &'static str = "Windows.Media.Capture.ILowLagPhotoSequenceCapture";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ILowLagPhotoSequenceCaptureVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILowLagPhotoSequenceCaptureImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILowLagPhotoSequenceCaptureVtbl {
-        unsafe extern "system" fn StartAsync<Impl: ILowLagPhotoSequenceCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILowLagPhotoSequenceCapture_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILowLagPhotoSequenceCapture_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILowLagPhotoSequenceCapture_Vtbl {
+        unsafe extern "system" fn StartAsync<Impl: ILowLagPhotoSequenceCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6009,7 +6009,7 @@ impl ILowLagPhotoSequenceCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StopAsync<Impl: ILowLagPhotoSequenceCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopAsync<Impl: ILowLagPhotoSequenceCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StopAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6020,7 +6020,7 @@ impl ILowLagPhotoSequenceCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FinishAsync<Impl: ILowLagPhotoSequenceCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FinishAsync<Impl: ILowLagPhotoSequenceCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FinishAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6031,7 +6031,7 @@ impl ILowLagPhotoSequenceCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhotoCaptured<Impl: ILowLagPhotoSequenceCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhotoCaptured<Impl: ILowLagPhotoSequenceCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhotoCaptured(&*(&handler as *const <super::super::Foundation::TypedEventHandler<LowLagPhotoSequenceCapture, PhotoCapturedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<LowLagPhotoSequenceCapture, PhotoCapturedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6042,7 +6042,7 @@ impl ILowLagPhotoSequenceCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePhotoCaptured<Impl: ILowLagPhotoSequenceCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePhotoCaptured<Impl: ILowLagPhotoSequenceCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePhotoCaptured(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -6060,7 +6060,7 @@ impl ILowLagPhotoSequenceCaptureVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Devices", feature = "Media_MediaProperties", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMediaCaptureImpl: Sized {
+pub trait IMediaCapture_Impl: Sized {
     fn InitializeAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn InitializeWithSettingsAsync(&mut self, mediacaptureinitializationsettings: &::core::option::Option<MediaCaptureInitializationSettings>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn StartRecordToStorageFileAsync(&mut self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -6093,9 +6093,9 @@ impl ::windows::core::RuntimeName for IMediaCapture {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCapture";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Devices", feature = "Media_MediaProperties", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMediaCaptureVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureVtbl {
-        unsafe extern "system" fn InitializeAsync<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaCapture_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCapture_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCapture_Vtbl {
+        unsafe extern "system" fn InitializeAsync<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InitializeAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6106,7 +6106,7 @@ impl IMediaCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InitializeWithSettingsAsync<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediacaptureinitializationsettings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeWithSettingsAsync<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediacaptureinitializationsettings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InitializeWithSettingsAsync(&*(&mediacaptureinitializationsettings as *const <MediaCaptureInitializationSettings as ::windows::core::Abi>::Abi as *const <MediaCaptureInitializationSettings as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6117,7 +6117,7 @@ impl IMediaCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartRecordToStorageFileAsync<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartRecordToStorageFileAsync<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartRecordToStorageFileAsync(&*(&encodingprofile as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::Abi>::Abi as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::DefaultType>::DefaultType), &*(&file as *const <super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6128,7 +6128,7 @@ impl IMediaCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartRecordToStreamAsync<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, stream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartRecordToStreamAsync<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, stream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartRecordToStreamAsync(&*(&encodingprofile as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::Abi>::Abi as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::DefaultType>::DefaultType), &*(&stream as *const <super::super::Storage::Streams::IRandomAccessStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStream as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6139,7 +6139,7 @@ impl IMediaCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartRecordToCustomSinkAsync<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, custommediasink: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartRecordToCustomSinkAsync<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, custommediasink: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartRecordToCustomSinkAsync(&*(&encodingprofile as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::Abi>::Abi as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::DefaultType>::DefaultType), &*(&custommediasink as *const <super::IMediaExtension as ::windows::core::Abi>::Abi as *const <super::IMediaExtension as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6150,7 +6150,7 @@ impl IMediaCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartRecordToCustomSinkIdAsync<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, customsinkactivationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, customsinksettings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartRecordToCustomSinkIdAsync<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, customsinkactivationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, customsinksettings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartRecordToCustomSinkIdAsync(
                 &*(&encodingprofile as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::Abi>::Abi as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::DefaultType>::DefaultType),
@@ -6165,7 +6165,7 @@ impl IMediaCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StopRecordAsync<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopRecordAsync<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StopRecordAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6176,7 +6176,7 @@ impl IMediaCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CapturePhotoToStorageFileAsync<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::windows::core::RawPtr, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CapturePhotoToStorageFileAsync<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::windows::core::RawPtr, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CapturePhotoToStorageFileAsync(&*(&r#type as *const <super::MediaProperties::ImageEncodingProperties as ::windows::core::Abi>::Abi as *const <super::MediaProperties::ImageEncodingProperties as ::windows::core::DefaultType>::DefaultType), &*(&file as *const <super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6187,7 +6187,7 @@ impl IMediaCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CapturePhotoToStreamAsync<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::windows::core::RawPtr, stream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CapturePhotoToStreamAsync<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::windows::core::RawPtr, stream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CapturePhotoToStreamAsync(&*(&r#type as *const <super::MediaProperties::ImageEncodingProperties as ::windows::core::Abi>::Abi as *const <super::MediaProperties::ImageEncodingProperties as ::windows::core::DefaultType>::DefaultType), &*(&stream as *const <super::super::Storage::Streams::IRandomAccessStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStream as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6198,7 +6198,7 @@ impl IMediaCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddEffectAsync<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediastreamtype: MediaStreamType, effectactivationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, effectsettings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddEffectAsync<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediastreamtype: MediaStreamType, effectactivationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, effectsettings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddEffectAsync(mediastreamtype, &*(&effectactivationid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&effectsettings as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6209,7 +6209,7 @@ impl IMediaCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClearEffectsAsync<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediastreamtype: MediaStreamType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearEffectsAsync<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediastreamtype: MediaStreamType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClearEffectsAsync(mediastreamtype) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6220,11 +6220,11 @@ impl IMediaCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEncoderProperty<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediastreamtype: MediaStreamType, propertyid: ::windows::core::GUID, propertyvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEncoderProperty<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediastreamtype: MediaStreamType, propertyid: ::windows::core::GUID, propertyvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEncoderProperty(mediastreamtype, &*(&propertyid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&propertyvalue as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetEncoderProperty<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediastreamtype: MediaStreamType, propertyid: ::windows::core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEncoderProperty<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediastreamtype: MediaStreamType, propertyid: ::windows::core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEncoderProperty(mediastreamtype, &*(&propertyid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6235,7 +6235,7 @@ impl IMediaCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Failed<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, erroreventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Failed<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, erroreventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Failed(&*(&erroreventhandler as *const <MediaCaptureFailedEventHandler as ::windows::core::Abi>::Abi as *const <MediaCaptureFailedEventHandler as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6246,11 +6246,11 @@ impl IMediaCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveFailed<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveFailed<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFailed(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RecordLimitationExceeded<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, recordlimitationexceededeventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RecordLimitationExceeded<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, recordlimitationexceededeventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RecordLimitationExceeded(&*(&recordlimitationexceededeventhandler as *const <RecordLimitationExceededEventHandler as ::windows::core::Abi>::Abi as *const <RecordLimitationExceededEventHandler as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6261,11 +6261,11 @@ impl IMediaCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRecordLimitationExceeded<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveRecordLimitationExceeded<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRecordLimitationExceeded(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MediaCaptureSettings<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaCaptureSettings<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaCaptureSettings() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6276,7 +6276,7 @@ impl IMediaCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AudioDeviceController<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioDeviceController<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioDeviceController() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6287,7 +6287,7 @@ impl IMediaCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideoDeviceController<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoDeviceController<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoDeviceController() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6298,11 +6298,11 @@ impl IMediaCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPreviewMirroring<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPreviewMirroring<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPreviewMirroring(value).into()
         }
-        unsafe extern "system" fn GetPreviewMirroring<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPreviewMirroring<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPreviewMirroring() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6313,11 +6313,11 @@ impl IMediaCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPreviewRotation<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VideoRotation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPreviewRotation<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VideoRotation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPreviewRotation(value).into()
         }
-        unsafe extern "system" fn GetPreviewRotation<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VideoRotation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPreviewRotation<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VideoRotation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPreviewRotation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6328,11 +6328,11 @@ impl IMediaCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRecordRotation<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VideoRotation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRecordRotation<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: VideoRotation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRecordRotation(value).into()
         }
-        unsafe extern "system" fn GetRecordRotation<Impl: IMediaCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VideoRotation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRecordRotation<Impl: IMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VideoRotation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRecordRotation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6378,7 +6378,7 @@ impl IMediaCaptureVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMediaCapture2Impl: Sized {
+pub trait IMediaCapture2_Impl: Sized {
     fn PrepareLowLagRecordToStorageFileAsync(&mut self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>;
     fn PrepareLowLagRecordToStreamAsync(&mut self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, stream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>;
     fn PrepareLowLagRecordToCustomSinkAsync(&mut self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, custommediasink: &::core::option::Option<super::IMediaExtension>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>;
@@ -6392,9 +6392,9 @@ impl ::windows::core::RuntimeName for IMediaCapture2 {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCapture2";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMediaCapture2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCapture2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCapture2Vtbl {
-        unsafe extern "system" fn PrepareLowLagRecordToStorageFileAsync<Impl: IMediaCapture2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaCapture2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCapture2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCapture2_Vtbl {
+        unsafe extern "system" fn PrepareLowLagRecordToStorageFileAsync<Impl: IMediaCapture2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrepareLowLagRecordToStorageFileAsync(&*(&encodingprofile as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::Abi>::Abi as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::DefaultType>::DefaultType), &*(&file as *const <super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6405,7 +6405,7 @@ impl IMediaCapture2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrepareLowLagRecordToStreamAsync<Impl: IMediaCapture2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, stream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrepareLowLagRecordToStreamAsync<Impl: IMediaCapture2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, stream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrepareLowLagRecordToStreamAsync(&*(&encodingprofile as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::Abi>::Abi as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::DefaultType>::DefaultType), &*(&stream as *const <super::super::Storage::Streams::IRandomAccessStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStream as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6416,7 +6416,7 @@ impl IMediaCapture2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrepareLowLagRecordToCustomSinkAsync<Impl: IMediaCapture2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, custommediasink: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrepareLowLagRecordToCustomSinkAsync<Impl: IMediaCapture2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, custommediasink: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrepareLowLagRecordToCustomSinkAsync(&*(&encodingprofile as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::Abi>::Abi as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::DefaultType>::DefaultType), &*(&custommediasink as *const <super::IMediaExtension as ::windows::core::Abi>::Abi as *const <super::IMediaExtension as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6427,7 +6427,7 @@ impl IMediaCapture2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrepareLowLagRecordToCustomSinkIdAsync<Impl: IMediaCapture2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, customsinkactivationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, customsinksettings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrepareLowLagRecordToCustomSinkIdAsync<Impl: IMediaCapture2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, customsinkactivationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, customsinksettings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrepareLowLagRecordToCustomSinkIdAsync(
                 &*(&encodingprofile as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::Abi>::Abi as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::DefaultType>::DefaultType),
@@ -6442,7 +6442,7 @@ impl IMediaCapture2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrepareLowLagPhotoCaptureAsync<Impl: IMediaCapture2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrepareLowLagPhotoCaptureAsync<Impl: IMediaCapture2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrepareLowLagPhotoCaptureAsync(&*(&r#type as *const <super::MediaProperties::ImageEncodingProperties as ::windows::core::Abi>::Abi as *const <super::MediaProperties::ImageEncodingProperties as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6453,7 +6453,7 @@ impl IMediaCapture2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrepareLowLagPhotoSequenceCaptureAsync<Impl: IMediaCapture2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrepareLowLagPhotoSequenceCaptureAsync<Impl: IMediaCapture2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrepareLowLagPhotoSequenceCaptureAsync(&*(&r#type as *const <super::MediaProperties::ImageEncodingProperties as ::windows::core::Abi>::Abi as *const <super::MediaProperties::ImageEncodingProperties as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6464,7 +6464,7 @@ impl IMediaCapture2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEncodingPropertiesAsync<Impl: IMediaCapture2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediastreamtype: MediaStreamType, mediaencodingproperties: ::windows::core::RawPtr, encoderproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEncodingPropertiesAsync<Impl: IMediaCapture2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediastreamtype: MediaStreamType, mediaencodingproperties: ::windows::core::RawPtr, encoderproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetEncodingPropertiesAsync(mediastreamtype, &*(&mediaencodingproperties as *const <super::MediaProperties::IMediaEncodingProperties as ::windows::core::Abi>::Abi as *const <super::MediaProperties::IMediaEncodingProperties as ::windows::core::DefaultType>::DefaultType), &*(&encoderproperties as *const <super::MediaProperties::MediaPropertySet as ::windows::core::Abi>::Abi as *const <super::MediaProperties::MediaPropertySet as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6491,7 +6491,7 @@ impl IMediaCapture2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Capture_Core", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
-pub trait IMediaCapture3Impl: Sized {
+pub trait IMediaCapture3_Impl: Sized {
     fn PrepareVariablePhotoSequenceCaptureAsync(&mut self, r#type: &::core::option::Option<super::MediaProperties::ImageEncodingProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Core::VariablePhotoSequenceCapture>>;
     fn FocusChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaCapture, MediaCaptureFocusChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveFocusChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -6503,9 +6503,9 @@ impl ::windows::core::RuntimeName for IMediaCapture3 {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCapture3";
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Capture_Core", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
-impl IMediaCapture3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCapture3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCapture3Vtbl {
-        unsafe extern "system" fn PrepareVariablePhotoSequenceCaptureAsync<Impl: IMediaCapture3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaCapture3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCapture3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCapture3_Vtbl {
+        unsafe extern "system" fn PrepareVariablePhotoSequenceCaptureAsync<Impl: IMediaCapture3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrepareVariablePhotoSequenceCaptureAsync(&*(&r#type as *const <super::MediaProperties::ImageEncodingProperties as ::windows::core::Abi>::Abi as *const <super::MediaProperties::ImageEncodingProperties as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6516,7 +6516,7 @@ impl IMediaCapture3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FocusChanged<Impl: IMediaCapture3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FocusChanged<Impl: IMediaCapture3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FocusChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaCapture, MediaCaptureFocusChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaCapture, MediaCaptureFocusChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6527,11 +6527,11 @@ impl IMediaCapture3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveFocusChanged<Impl: IMediaCapture3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveFocusChanged<Impl: IMediaCapture3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFocusChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PhotoConfirmationCaptured<Impl: IMediaCapture3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhotoConfirmationCaptured<Impl: IMediaCapture3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhotoConfirmationCaptured(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaCapture, PhotoConfirmationCapturedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaCapture, PhotoConfirmationCapturedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6542,7 +6542,7 @@ impl IMediaCapture3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePhotoConfirmationCaptured<Impl: IMediaCapture3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePhotoConfirmationCaptured<Impl: IMediaCapture3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePhotoConfirmationCaptured(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -6560,7 +6560,7 @@ impl IMediaCapture3Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Devices", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
-pub trait IMediaCapture4Impl: Sized {
+pub trait IMediaCapture4_Impl: Sized {
     fn AddAudioEffectAsync(&mut self, definition: &::core::option::Option<super::Effects::IAudioEffectDefinition>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IMediaExtension>>;
     fn AddVideoEffectAsync(&mut self, definition: &::core::option::Option<super::Effects::IVideoEffectDefinition>, mediastreamtype: MediaStreamType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IMediaExtension>>;
     fn PauseRecordAsync(&mut self, behavior: super::Devices::MediaCapturePauseBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -6580,9 +6580,9 @@ impl ::windows::core::RuntimeName for IMediaCapture4 {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCapture4";
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Devices", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
-impl IMediaCapture4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCapture4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCapture4Vtbl {
-        unsafe extern "system" fn AddAudioEffectAsync<Impl: IMediaCapture4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, definition: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaCapture4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCapture4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCapture4_Vtbl {
+        unsafe extern "system" fn AddAudioEffectAsync<Impl: IMediaCapture4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, definition: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddAudioEffectAsync(&*(&definition as *const <super::Effects::IAudioEffectDefinition as ::windows::core::Abi>::Abi as *const <super::Effects::IAudioEffectDefinition as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6593,7 +6593,7 @@ impl IMediaCapture4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddVideoEffectAsync<Impl: IMediaCapture4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, definition: ::windows::core::RawPtr, mediastreamtype: MediaStreamType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddVideoEffectAsync<Impl: IMediaCapture4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, definition: ::windows::core::RawPtr, mediastreamtype: MediaStreamType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddVideoEffectAsync(&*(&definition as *const <super::Effects::IVideoEffectDefinition as ::windows::core::Abi>::Abi as *const <super::Effects::IVideoEffectDefinition as ::windows::core::DefaultType>::DefaultType), mediastreamtype) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6604,7 +6604,7 @@ impl IMediaCapture4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PauseRecordAsync<Impl: IMediaCapture4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, behavior: super::Devices::MediaCapturePauseBehavior, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PauseRecordAsync<Impl: IMediaCapture4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, behavior: super::Devices::MediaCapturePauseBehavior, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PauseRecordAsync(behavior) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6615,7 +6615,7 @@ impl IMediaCapture4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResumeRecordAsync<Impl: IMediaCapture4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResumeRecordAsync<Impl: IMediaCapture4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResumeRecordAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6626,7 +6626,7 @@ impl IMediaCapture4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CameraStreamStateChanged<Impl: IMediaCapture4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CameraStreamStateChanged<Impl: IMediaCapture4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CameraStreamStateChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaCapture, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaCapture, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6637,11 +6637,11 @@ impl IMediaCapture4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCameraStreamStateChanged<Impl: IMediaCapture4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCameraStreamStateChanged<Impl: IMediaCapture4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCameraStreamStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CameraStreamState<Impl: IMediaCapture4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Devices::CameraStreamState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CameraStreamState<Impl: IMediaCapture4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Devices::CameraStreamState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CameraStreamState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6652,7 +6652,7 @@ impl IMediaCapture4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPreviewFrameAsync<Impl: IMediaCapture4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPreviewFrameAsync<Impl: IMediaCapture4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPreviewFrameAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6663,7 +6663,7 @@ impl IMediaCapture4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPreviewFrameCopyAsync<Impl: IMediaCapture4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPreviewFrameCopyAsync<Impl: IMediaCapture4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPreviewFrameCopyAsync(&*(&destination as *const <super::VideoFrame as ::windows::core::Abi>::Abi as *const <super::VideoFrame as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6674,7 +6674,7 @@ impl IMediaCapture4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ThermalStatusChanged<Impl: IMediaCapture4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ThermalStatusChanged<Impl: IMediaCapture4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ThermalStatusChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaCapture, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaCapture, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6685,11 +6685,11 @@ impl IMediaCapture4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveThermalStatusChanged<Impl: IMediaCapture4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveThermalStatusChanged<Impl: IMediaCapture4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveThermalStatusChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ThermalStatus<Impl: IMediaCapture4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaCaptureThermalStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ThermalStatus<Impl: IMediaCapture4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaCaptureThermalStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ThermalStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6700,7 +6700,7 @@ impl IMediaCapture4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrepareAdvancedPhotoCaptureAsync<Impl: IMediaCapture4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrepareAdvancedPhotoCaptureAsync<Impl: IMediaCapture4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrepareAdvancedPhotoCaptureAsync(&*(&encodingproperties as *const <super::MediaProperties::ImageEncodingProperties as ::windows::core::Abi>::Abi as *const <super::MediaProperties::ImageEncodingProperties as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6733,7 +6733,7 @@ impl IMediaCapture4Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "Media_Capture_Frames", feature = "Media_Devices", feature = "implement_exclusive"))]
-pub trait IMediaCapture5Impl: Sized {
+pub trait IMediaCapture5_Impl: Sized {
     fn RemoveEffectAsync(&mut self, effect: &::core::option::Option<super::IMediaExtension>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn PauseRecordWithResultAsync(&mut self, behavior: super::Devices::MediaCapturePauseBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaCapturePauseResult>>;
     fn StopRecordWithResultAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaCaptureStopResult>>;
@@ -6747,9 +6747,9 @@ impl ::windows::core::RuntimeName for IMediaCapture5 {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCapture5";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "Media_Capture_Frames", feature = "Media_Devices", feature = "implement_exclusive"))]
-impl IMediaCapture5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCapture5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCapture5Vtbl {
-        unsafe extern "system" fn RemoveEffectAsync<Impl: IMediaCapture5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effect: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaCapture5_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCapture5_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCapture5_Vtbl {
+        unsafe extern "system" fn RemoveEffectAsync<Impl: IMediaCapture5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effect: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoveEffectAsync(&*(&effect as *const <super::IMediaExtension as ::windows::core::Abi>::Abi as *const <super::IMediaExtension as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6760,7 +6760,7 @@ impl IMediaCapture5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PauseRecordWithResultAsync<Impl: IMediaCapture5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, behavior: super::Devices::MediaCapturePauseBehavior, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PauseRecordWithResultAsync<Impl: IMediaCapture5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, behavior: super::Devices::MediaCapturePauseBehavior, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PauseRecordWithResultAsync(behavior) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6771,7 +6771,7 @@ impl IMediaCapture5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StopRecordWithResultAsync<Impl: IMediaCapture5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopRecordWithResultAsync<Impl: IMediaCapture5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StopRecordWithResultAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6782,7 +6782,7 @@ impl IMediaCapture5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FrameSources<Impl: IMediaCapture5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FrameSources<Impl: IMediaCapture5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameSources() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6793,7 +6793,7 @@ impl IMediaCapture5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFrameReaderAsync<Impl: IMediaCapture5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputsource: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFrameReaderAsync<Impl: IMediaCapture5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputsource: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFrameReaderAsync(&*(&inputsource as *const <Frames::MediaFrameSource as ::windows::core::Abi>::Abi as *const <Frames::MediaFrameSource as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6804,7 +6804,7 @@ impl IMediaCapture5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFrameReaderWithSubtypeAsync<Impl: IMediaCapture5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputsource: ::windows::core::RawPtr, outputsubtype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFrameReaderWithSubtypeAsync<Impl: IMediaCapture5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputsource: ::windows::core::RawPtr, outputsubtype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFrameReaderWithSubtypeAsync(&*(&inputsource as *const <Frames::MediaFrameSource as ::windows::core::Abi>::Abi as *const <Frames::MediaFrameSource as ::windows::core::DefaultType>::DefaultType), &*(&outputsubtype as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6815,7 +6815,7 @@ impl IMediaCapture5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFrameReaderWithSubtypeAndSizeAsync<Impl: IMediaCapture5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputsource: ::windows::core::RawPtr, outputsubtype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, outputsize: super::super::Graphics::Imaging::BitmapSize, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFrameReaderWithSubtypeAndSizeAsync<Impl: IMediaCapture5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputsource: ::windows::core::RawPtr, outputsubtype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, outputsize: super::super::Graphics::Imaging::BitmapSize, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFrameReaderWithSubtypeAndSizeAsync(
                 &*(&inputsource as *const <Frames::MediaFrameSource as ::windows::core::Abi>::Abi as *const <Frames::MediaFrameSource as ::windows::core::DefaultType>::DefaultType),
@@ -6846,7 +6846,7 @@ impl IMediaCapture5Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Capture_Frames", feature = "implement_exclusive"))]
-pub trait IMediaCapture6Impl: Sized {
+pub trait IMediaCapture6_Impl: Sized {
     fn CaptureDeviceExclusiveControlStatusChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaCapture, MediaCaptureDeviceExclusiveControlStatusChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveCaptureDeviceExclusiveControlStatusChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn CreateMultiSourceFrameReaderAsync(&mut self, inputsources: &::core::option::Option<super::super::Foundation::Collections::IIterable<Frames::MediaFrameSource>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Frames::MultiSourceMediaFrameReader>>;
@@ -6856,9 +6856,9 @@ impl ::windows::core::RuntimeName for IMediaCapture6 {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCapture6";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Capture_Frames", feature = "implement_exclusive"))]
-impl IMediaCapture6Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCapture6Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCapture6Vtbl {
-        unsafe extern "system" fn CaptureDeviceExclusiveControlStatusChanged<Impl: IMediaCapture6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IMediaCapture6_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCapture6_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCapture6_Vtbl {
+        unsafe extern "system" fn CaptureDeviceExclusiveControlStatusChanged<Impl: IMediaCapture6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CaptureDeviceExclusiveControlStatusChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaCapture, MediaCaptureDeviceExclusiveControlStatusChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaCapture, MediaCaptureDeviceExclusiveControlStatusChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6869,11 +6869,11 @@ impl IMediaCapture6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCaptureDeviceExclusiveControlStatusChanged<Impl: IMediaCapture6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCaptureDeviceExclusiveControlStatusChanged<Impl: IMediaCapture6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCaptureDeviceExclusiveControlStatusChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CreateMultiSourceFrameReaderAsync<Impl: IMediaCapture6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputsources: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateMultiSourceFrameReaderAsync<Impl: IMediaCapture6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputsources: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMultiSourceFrameReaderAsync(&*(&inputsources as *const <super::super::Foundation::Collections::IIterable<Frames::MediaFrameSource> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<Frames::MediaFrameSource> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6896,7 +6896,7 @@ impl IMediaCapture6Vtbl {
     }
 }
 #[cfg(all(feature = "UI_WindowManagement", feature = "implement_exclusive"))]
-pub trait IMediaCapture7Impl: Sized {
+pub trait IMediaCapture7_Impl: Sized {
     fn CreateRelativePanelWatcher(&mut self, capturemode: StreamingCaptureMode, displayregion: &::core::option::Option<super::super::UI::WindowManagement::DisplayRegion>) -> ::windows::core::Result<MediaCaptureRelativePanelWatcher>;
 }
 #[cfg(all(feature = "UI_WindowManagement", feature = "implement_exclusive"))]
@@ -6904,9 +6904,9 @@ impl ::windows::core::RuntimeName for IMediaCapture7 {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCapture7";
 }
 #[cfg(all(feature = "UI_WindowManagement", feature = "implement_exclusive"))]
-impl IMediaCapture7Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCapture7Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCapture7Vtbl {
-        unsafe extern "system" fn CreateRelativePanelWatcher<Impl: IMediaCapture7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, capturemode: StreamingCaptureMode, displayregion: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaCapture7_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCapture7_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCapture7_Vtbl {
+        unsafe extern "system" fn CreateRelativePanelWatcher<Impl: IMediaCapture7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, capturemode: StreamingCaptureMode, displayregion: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateRelativePanelWatcher(capturemode, &*(&displayregion as *const <super::super::UI::WindowManagement::DisplayRegion as ::windows::core::Abi>::Abi as *const <super::super::UI::WindowManagement::DisplayRegion as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6927,7 +6927,7 @@ impl IMediaCapture7Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureDeviceExclusiveControlStatusChangedEventArgsImpl: Sized {
+pub trait IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_Impl: Sized {
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Status(&mut self) -> ::windows::core::Result<MediaCaptureDeviceExclusiveControlStatus>;
 }
@@ -6936,9 +6936,9 @@ impl ::windows::core::RuntimeName for IMediaCaptureDeviceExclusiveControlStatusC
     const NAME: &'static str = "Windows.Media.Capture.IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMediaCaptureDeviceExclusiveControlStatusChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureDeviceExclusiveControlStatusChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureDeviceExclusiveControlStatusChangedEventArgsVtbl {
-        unsafe extern "system" fn DeviceId<Impl: IMediaCaptureDeviceExclusiveControlStatusChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_Vtbl {
+        unsafe extern "system" fn DeviceId<Impl: IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6949,7 +6949,7 @@ impl IMediaCaptureDeviceExclusiveControlStatusChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Status<Impl: IMediaCaptureDeviceExclusiveControlStatusChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaCaptureDeviceExclusiveControlStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Status<Impl: IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaCaptureDeviceExclusiveControlStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6971,7 +6971,7 @@ impl IMediaCaptureDeviceExclusiveControlStatusChangedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureFailedEventArgsImpl: Sized {
+pub trait IMediaCaptureFailedEventArgs_Impl: Sized {
     fn Message(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Code(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -6980,9 +6980,9 @@ impl ::windows::core::RuntimeName for IMediaCaptureFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCaptureFailedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMediaCaptureFailedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureFailedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureFailedEventArgsVtbl {
-        unsafe extern "system" fn Message<Impl: IMediaCaptureFailedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IMediaCaptureFailedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureFailedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureFailedEventArgs_Vtbl {
+        unsafe extern "system" fn Message<Impl: IMediaCaptureFailedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Message() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6993,7 +6993,7 @@ impl IMediaCaptureFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Code<Impl: IMediaCaptureFailedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Code<Impl: IMediaCaptureFailedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Code() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7015,7 +7015,7 @@ impl IMediaCaptureFailedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Media_Devices", feature = "implement_exclusive"))]
-pub trait IMediaCaptureFocusChangedEventArgsImpl: Sized {
+pub trait IMediaCaptureFocusChangedEventArgs_Impl: Sized {
     fn FocusState(&mut self) -> ::windows::core::Result<super::Devices::MediaCaptureFocusState>;
 }
 #[cfg(all(feature = "Media_Devices", feature = "implement_exclusive"))]
@@ -7023,9 +7023,9 @@ impl ::windows::core::RuntimeName for IMediaCaptureFocusChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCaptureFocusChangedEventArgs";
 }
 #[cfg(all(feature = "Media_Devices", feature = "implement_exclusive"))]
-impl IMediaCaptureFocusChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureFocusChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureFocusChangedEventArgsVtbl {
-        unsafe extern "system" fn FocusState<Impl: IMediaCaptureFocusChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Devices::MediaCaptureFocusState) -> ::windows::core::HRESULT {
+impl IMediaCaptureFocusChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureFocusChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureFocusChangedEventArgs_Vtbl {
+        unsafe extern "system" fn FocusState<Impl: IMediaCaptureFocusChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Devices::MediaCaptureFocusState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FocusState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7046,7 +7046,7 @@ impl IMediaCaptureFocusChangedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureInitializationSettingsImpl: Sized {
+pub trait IMediaCaptureInitializationSettings_Impl: Sized {
     fn SetAudioDeviceId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn AudioDeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetVideoDeviceId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -7061,13 +7061,13 @@ impl ::windows::core::RuntimeName for IMediaCaptureInitializationSettings {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCaptureInitializationSettings";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMediaCaptureInitializationSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureInitializationSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureInitializationSettingsVtbl {
-        unsafe extern "system" fn SetAudioDeviceId<Impl: IMediaCaptureInitializationSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IMediaCaptureInitializationSettings_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureInitializationSettings_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureInitializationSettings_Vtbl {
+        unsafe extern "system" fn SetAudioDeviceId<Impl: IMediaCaptureInitializationSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAudioDeviceId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AudioDeviceId<Impl: IMediaCaptureInitializationSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioDeviceId<Impl: IMediaCaptureInitializationSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioDeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7078,11 +7078,11 @@ impl IMediaCaptureInitializationSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVideoDeviceId<Impl: IMediaCaptureInitializationSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVideoDeviceId<Impl: IMediaCaptureInitializationSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVideoDeviceId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn VideoDeviceId<Impl: IMediaCaptureInitializationSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoDeviceId<Impl: IMediaCaptureInitializationSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoDeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7093,11 +7093,11 @@ impl IMediaCaptureInitializationSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStreamingCaptureMode<Impl: IMediaCaptureInitializationSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: StreamingCaptureMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStreamingCaptureMode<Impl: IMediaCaptureInitializationSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: StreamingCaptureMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStreamingCaptureMode(value).into()
         }
-        unsafe extern "system" fn StreamingCaptureMode<Impl: IMediaCaptureInitializationSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut StreamingCaptureMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StreamingCaptureMode<Impl: IMediaCaptureInitializationSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut StreamingCaptureMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StreamingCaptureMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7108,11 +7108,11 @@ impl IMediaCaptureInitializationSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPhotoCaptureSource<Impl: IMediaCaptureInitializationSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PhotoCaptureSource) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPhotoCaptureSource<Impl: IMediaCaptureInitializationSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PhotoCaptureSource) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPhotoCaptureSource(value).into()
         }
-        unsafe extern "system" fn PhotoCaptureSource<Impl: IMediaCaptureInitializationSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoCaptureSource) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhotoCaptureSource<Impl: IMediaCaptureInitializationSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoCaptureSource) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhotoCaptureSource() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7140,7 +7140,7 @@ impl IMediaCaptureInitializationSettingsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureInitializationSettings2Impl: Sized {
+pub trait IMediaCaptureInitializationSettings2_Impl: Sized {
     fn SetMediaCategory(&mut self, value: MediaCategory) -> ::windows::core::Result<()>;
     fn MediaCategory(&mut self) -> ::windows::core::Result<MediaCategory>;
     fn SetAudioProcessing(&mut self, value: super::AudioProcessing) -> ::windows::core::Result<()>;
@@ -7151,13 +7151,13 @@ impl ::windows::core::RuntimeName for IMediaCaptureInitializationSettings2 {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCaptureInitializationSettings2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMediaCaptureInitializationSettings2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureInitializationSettings2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureInitializationSettings2Vtbl {
-        unsafe extern "system" fn SetMediaCategory<Impl: IMediaCaptureInitializationSettings2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MediaCategory) -> ::windows::core::HRESULT {
+impl IMediaCaptureInitializationSettings2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureInitializationSettings2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureInitializationSettings2_Vtbl {
+        unsafe extern "system" fn SetMediaCategory<Impl: IMediaCaptureInitializationSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MediaCategory) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMediaCategory(value).into()
         }
-        unsafe extern "system" fn MediaCategory<Impl: IMediaCaptureInitializationSettings2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaCategory) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaCategory<Impl: IMediaCaptureInitializationSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaCategory) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaCategory() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7168,11 +7168,11 @@ impl IMediaCaptureInitializationSettings2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAudioProcessing<Impl: IMediaCaptureInitializationSettings2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::AudioProcessing) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAudioProcessing<Impl: IMediaCaptureInitializationSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::AudioProcessing) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAudioProcessing(value).into()
         }
-        unsafe extern "system" fn AudioProcessing<Impl: IMediaCaptureInitializationSettings2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::AudioProcessing) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioProcessing<Impl: IMediaCaptureInitializationSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::AudioProcessing) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioProcessing() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7196,7 +7196,7 @@ impl IMediaCaptureInitializationSettings2Vtbl {
     }
 }
 #[cfg(all(feature = "Media_Core", feature = "implement_exclusive"))]
-pub trait IMediaCaptureInitializationSettings3Impl: Sized {
+pub trait IMediaCaptureInitializationSettings3_Impl: Sized {
     fn SetAudioSource(&mut self, value: &::core::option::Option<super::Core::IMediaSource>) -> ::windows::core::Result<()>;
     fn AudioSource(&mut self) -> ::windows::core::Result<super::Core::IMediaSource>;
     fn SetVideoSource(&mut self, value: &::core::option::Option<super::Core::IMediaSource>) -> ::windows::core::Result<()>;
@@ -7207,13 +7207,13 @@ impl ::windows::core::RuntimeName for IMediaCaptureInitializationSettings3 {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCaptureInitializationSettings3";
 }
 #[cfg(all(feature = "Media_Core", feature = "implement_exclusive"))]
-impl IMediaCaptureInitializationSettings3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureInitializationSettings3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureInitializationSettings3Vtbl {
-        unsafe extern "system" fn SetAudioSource<Impl: IMediaCaptureInitializationSettings3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaCaptureInitializationSettings3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureInitializationSettings3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureInitializationSettings3_Vtbl {
+        unsafe extern "system" fn SetAudioSource<Impl: IMediaCaptureInitializationSettings3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAudioSource(&*(&value as *const <super::Core::IMediaSource as ::windows::core::Abi>::Abi as *const <super::Core::IMediaSource as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AudioSource<Impl: IMediaCaptureInitializationSettings3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioSource<Impl: IMediaCaptureInitializationSettings3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioSource() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7224,11 +7224,11 @@ impl IMediaCaptureInitializationSettings3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVideoSource<Impl: IMediaCaptureInitializationSettings3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVideoSource<Impl: IMediaCaptureInitializationSettings3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVideoSource(&*(&value as *const <super::Core::IMediaSource as ::windows::core::Abi>::Abi as *const <super::Core::IMediaSource as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn VideoSource<Impl: IMediaCaptureInitializationSettings3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoSource<Impl: IMediaCaptureInitializationSettings3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoSource() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7252,7 +7252,7 @@ impl IMediaCaptureInitializationSettings3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureInitializationSettings4Impl: Sized {
+pub trait IMediaCaptureInitializationSettings4_Impl: Sized {
     fn VideoProfile(&mut self) -> ::windows::core::Result<MediaCaptureVideoProfile>;
     fn SetVideoProfile(&mut self, value: &::core::option::Option<MediaCaptureVideoProfile>) -> ::windows::core::Result<()>;
     fn PreviewMediaDescription(&mut self) -> ::windows::core::Result<MediaCaptureVideoProfileMediaDescription>;
@@ -7267,9 +7267,9 @@ impl ::windows::core::RuntimeName for IMediaCaptureInitializationSettings4 {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCaptureInitializationSettings4";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMediaCaptureInitializationSettings4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureInitializationSettings4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureInitializationSettings4Vtbl {
-        unsafe extern "system" fn VideoProfile<Impl: IMediaCaptureInitializationSettings4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaCaptureInitializationSettings4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureInitializationSettings4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureInitializationSettings4_Vtbl {
+        unsafe extern "system" fn VideoProfile<Impl: IMediaCaptureInitializationSettings4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoProfile() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7280,11 +7280,11 @@ impl IMediaCaptureInitializationSettings4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVideoProfile<Impl: IMediaCaptureInitializationSettings4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVideoProfile<Impl: IMediaCaptureInitializationSettings4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVideoProfile(&*(&value as *const <MediaCaptureVideoProfile as ::windows::core::Abi>::Abi as *const <MediaCaptureVideoProfile as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PreviewMediaDescription<Impl: IMediaCaptureInitializationSettings4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PreviewMediaDescription<Impl: IMediaCaptureInitializationSettings4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PreviewMediaDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7295,11 +7295,11 @@ impl IMediaCaptureInitializationSettings4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPreviewMediaDescription<Impl: IMediaCaptureInitializationSettings4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPreviewMediaDescription<Impl: IMediaCaptureInitializationSettings4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPreviewMediaDescription(&*(&value as *const <MediaCaptureVideoProfileMediaDescription as ::windows::core::Abi>::Abi as *const <MediaCaptureVideoProfileMediaDescription as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RecordMediaDescription<Impl: IMediaCaptureInitializationSettings4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RecordMediaDescription<Impl: IMediaCaptureInitializationSettings4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RecordMediaDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7310,11 +7310,11 @@ impl IMediaCaptureInitializationSettings4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRecordMediaDescription<Impl: IMediaCaptureInitializationSettings4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRecordMediaDescription<Impl: IMediaCaptureInitializationSettings4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRecordMediaDescription(&*(&value as *const <MediaCaptureVideoProfileMediaDescription as ::windows::core::Abi>::Abi as *const <MediaCaptureVideoProfileMediaDescription as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PhotoMediaDescription<Impl: IMediaCaptureInitializationSettings4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhotoMediaDescription<Impl: IMediaCaptureInitializationSettings4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhotoMediaDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7325,7 +7325,7 @@ impl IMediaCaptureInitializationSettings4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPhotoMediaDescription<Impl: IMediaCaptureInitializationSettings4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPhotoMediaDescription<Impl: IMediaCaptureInitializationSettings4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPhotoMediaDescription(&*(&value as *const <MediaCaptureVideoProfileMediaDescription as ::windows::core::Abi>::Abi as *const <MediaCaptureVideoProfileMediaDescription as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -7346,7 +7346,7 @@ impl IMediaCaptureInitializationSettings4Vtbl {
     }
 }
 #[cfg(all(feature = "Media_Capture_Frames", feature = "implement_exclusive"))]
-pub trait IMediaCaptureInitializationSettings5Impl: Sized {
+pub trait IMediaCaptureInitializationSettings5_Impl: Sized {
     fn SourceGroup(&mut self) -> ::windows::core::Result<Frames::MediaFrameSourceGroup>;
     fn SetSourceGroup(&mut self, value: &::core::option::Option<Frames::MediaFrameSourceGroup>) -> ::windows::core::Result<()>;
     fn SharingMode(&mut self) -> ::windows::core::Result<MediaCaptureSharingMode>;
@@ -7359,9 +7359,9 @@ impl ::windows::core::RuntimeName for IMediaCaptureInitializationSettings5 {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCaptureInitializationSettings5";
 }
 #[cfg(all(feature = "Media_Capture_Frames", feature = "implement_exclusive"))]
-impl IMediaCaptureInitializationSettings5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureInitializationSettings5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureInitializationSettings5Vtbl {
-        unsafe extern "system" fn SourceGroup<Impl: IMediaCaptureInitializationSettings5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaCaptureInitializationSettings5_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureInitializationSettings5_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureInitializationSettings5_Vtbl {
+        unsafe extern "system" fn SourceGroup<Impl: IMediaCaptureInitializationSettings5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceGroup() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7372,11 +7372,11 @@ impl IMediaCaptureInitializationSettings5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSourceGroup<Impl: IMediaCaptureInitializationSettings5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSourceGroup<Impl: IMediaCaptureInitializationSettings5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSourceGroup(&*(&value as *const <Frames::MediaFrameSourceGroup as ::windows::core::Abi>::Abi as *const <Frames::MediaFrameSourceGroup as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SharingMode<Impl: IMediaCaptureInitializationSettings5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaCaptureSharingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SharingMode<Impl: IMediaCaptureInitializationSettings5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaCaptureSharingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SharingMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7387,11 +7387,11 @@ impl IMediaCaptureInitializationSettings5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSharingMode<Impl: IMediaCaptureInitializationSettings5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MediaCaptureSharingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSharingMode<Impl: IMediaCaptureInitializationSettings5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MediaCaptureSharingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSharingMode(value).into()
         }
-        unsafe extern "system" fn MemoryPreference<Impl: IMediaCaptureInitializationSettings5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaCaptureMemoryPreference) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MemoryPreference<Impl: IMediaCaptureInitializationSettings5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaCaptureMemoryPreference) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MemoryPreference() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7402,7 +7402,7 @@ impl IMediaCaptureInitializationSettings5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMemoryPreference<Impl: IMediaCaptureInitializationSettings5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MediaCaptureMemoryPreference) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMemoryPreference<Impl: IMediaCaptureInitializationSettings5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MediaCaptureMemoryPreference) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMemoryPreference(value).into()
         }
@@ -7421,7 +7421,7 @@ impl IMediaCaptureInitializationSettings5Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureInitializationSettings6Impl: Sized {
+pub trait IMediaCaptureInitializationSettings6_Impl: Sized {
     fn AlwaysPlaySystemShutterSound(&mut self) -> ::windows::core::Result<bool>;
     fn SetAlwaysPlaySystemShutterSound(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
@@ -7430,9 +7430,9 @@ impl ::windows::core::RuntimeName for IMediaCaptureInitializationSettings6 {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCaptureInitializationSettings6";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMediaCaptureInitializationSettings6Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureInitializationSettings6Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureInitializationSettings6Vtbl {
-        unsafe extern "system" fn AlwaysPlaySystemShutterSound<Impl: IMediaCaptureInitializationSettings6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMediaCaptureInitializationSettings6_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureInitializationSettings6_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureInitializationSettings6_Vtbl {
+        unsafe extern "system" fn AlwaysPlaySystemShutterSound<Impl: IMediaCaptureInitializationSettings6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlwaysPlaySystemShutterSound() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7443,7 +7443,7 @@ impl IMediaCaptureInitializationSettings6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAlwaysPlaySystemShutterSound<Impl: IMediaCaptureInitializationSettings6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAlwaysPlaySystemShutterSound<Impl: IMediaCaptureInitializationSettings6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAlwaysPlaySystemShutterSound(value).into()
         }
@@ -7458,7 +7458,7 @@ impl IMediaCaptureInitializationSettings6Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
-pub trait IMediaCaptureInitializationSettings7Impl: Sized {
+pub trait IMediaCaptureInitializationSettings7_Impl: Sized {
     fn DeviceUriPasswordCredential(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
     fn SetDeviceUriPasswordCredential(&mut self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
     fn DeviceUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
@@ -7469,9 +7469,9 @@ impl ::windows::core::RuntimeName for IMediaCaptureInitializationSettings7 {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCaptureInitializationSettings7";
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
-impl IMediaCaptureInitializationSettings7Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureInitializationSettings7Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureInitializationSettings7Vtbl {
-        unsafe extern "system" fn DeviceUriPasswordCredential<Impl: IMediaCaptureInitializationSettings7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaCaptureInitializationSettings7_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureInitializationSettings7_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureInitializationSettings7_Vtbl {
+        unsafe extern "system" fn DeviceUriPasswordCredential<Impl: IMediaCaptureInitializationSettings7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceUriPasswordCredential() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7482,11 +7482,11 @@ impl IMediaCaptureInitializationSettings7Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDeviceUriPasswordCredential<Impl: IMediaCaptureInitializationSettings7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDeviceUriPasswordCredential<Impl: IMediaCaptureInitializationSettings7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDeviceUriPasswordCredential(&*(&value as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::Abi>::Abi as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DeviceUri<Impl: IMediaCaptureInitializationSettings7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceUri<Impl: IMediaCaptureInitializationSettings7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7497,7 +7497,7 @@ impl IMediaCaptureInitializationSettings7Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDeviceUri<Impl: IMediaCaptureInitializationSettings7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDeviceUri<Impl: IMediaCaptureInitializationSettings7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDeviceUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -7514,7 +7514,7 @@ impl IMediaCaptureInitializationSettings7Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMediaCapturePauseResultImpl: Sized {
+pub trait IMediaCapturePauseResult_Impl: Sized {
     fn LastFrame(&mut self) -> ::windows::core::Result<super::VideoFrame>;
     fn RecordDuration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
@@ -7523,9 +7523,9 @@ impl ::windows::core::RuntimeName for IMediaCapturePauseResult {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCapturePauseResult";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMediaCapturePauseResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCapturePauseResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCapturePauseResultVtbl {
-        unsafe extern "system" fn LastFrame<Impl: IMediaCapturePauseResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaCapturePauseResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCapturePauseResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCapturePauseResult_Vtbl {
+        unsafe extern "system" fn LastFrame<Impl: IMediaCapturePauseResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LastFrame() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7536,7 +7536,7 @@ impl IMediaCapturePauseResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RecordDuration<Impl: IMediaCapturePauseResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RecordDuration<Impl: IMediaCapturePauseResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RecordDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7558,7 +7558,7 @@ impl IMediaCapturePauseResultVtbl {
     }
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMediaCaptureRelativePanelWatcherImpl: Sized {
+pub trait IMediaCaptureRelativePanelWatcher_Impl: Sized {
     fn RelativePanel(&mut self) -> ::windows::core::Result<super::super::Devices::Enumeration::Panel>;
     fn Changed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MediaCaptureRelativePanelWatcher, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -7570,9 +7570,9 @@ impl ::windows::core::RuntimeName for IMediaCaptureRelativePanelWatcher {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCaptureRelativePanelWatcher";
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
-impl IMediaCaptureRelativePanelWatcherVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureRelativePanelWatcherImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureRelativePanelWatcherVtbl {
-        unsafe extern "system" fn RelativePanel<Impl: IMediaCaptureRelativePanelWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Enumeration::Panel) -> ::windows::core::HRESULT {
+impl IMediaCaptureRelativePanelWatcher_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureRelativePanelWatcher_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureRelativePanelWatcher_Vtbl {
+        unsafe extern "system" fn RelativePanel<Impl: IMediaCaptureRelativePanelWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Enumeration::Panel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RelativePanel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7583,7 +7583,7 @@ impl IMediaCaptureRelativePanelWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Changed<Impl: IMediaCaptureRelativePanelWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Changed<Impl: IMediaCaptureRelativePanelWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Changed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MediaCaptureRelativePanelWatcher, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MediaCaptureRelativePanelWatcher, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -7594,15 +7594,15 @@ impl IMediaCaptureRelativePanelWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveChanged<Impl: IMediaCaptureRelativePanelWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveChanged<Impl: IMediaCaptureRelativePanelWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Start<Impl: IMediaCaptureRelativePanelWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Start<Impl: IMediaCaptureRelativePanelWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        unsafe extern "system" fn Stop<Impl: IMediaCaptureRelativePanelWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stop<Impl: IMediaCaptureRelativePanelWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
@@ -7620,7 +7620,7 @@ impl IMediaCaptureRelativePanelWatcherVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureSettingsImpl: Sized {
+pub trait IMediaCaptureSettings_Impl: Sized {
     fn AudioDeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn VideoDeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn StreamingCaptureMode(&mut self) -> ::windows::core::Result<StreamingCaptureMode>;
@@ -7632,9 +7632,9 @@ impl ::windows::core::RuntimeName for IMediaCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCaptureSettings";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMediaCaptureSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureSettingsVtbl {
-        unsafe extern "system" fn AudioDeviceId<Impl: IMediaCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IMediaCaptureSettings_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureSettings_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureSettings_Vtbl {
+        unsafe extern "system" fn AudioDeviceId<Impl: IMediaCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioDeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7645,7 +7645,7 @@ impl IMediaCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideoDeviceId<Impl: IMediaCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoDeviceId<Impl: IMediaCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoDeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7656,7 +7656,7 @@ impl IMediaCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StreamingCaptureMode<Impl: IMediaCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut StreamingCaptureMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StreamingCaptureMode<Impl: IMediaCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut StreamingCaptureMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StreamingCaptureMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7667,7 +7667,7 @@ impl IMediaCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhotoCaptureSource<Impl: IMediaCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoCaptureSource) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhotoCaptureSource<Impl: IMediaCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoCaptureSource) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhotoCaptureSource() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7678,7 +7678,7 @@ impl IMediaCaptureSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideoDeviceCharacteristic<Impl: IMediaCaptureSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VideoDeviceCharacteristic) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoDeviceCharacteristic<Impl: IMediaCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut VideoDeviceCharacteristic) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoDeviceCharacteristic() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7703,7 +7703,7 @@ impl IMediaCaptureSettingsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMediaCaptureSettings2Impl: Sized {
+pub trait IMediaCaptureSettings2_Impl: Sized {
     fn ConcurrentRecordAndPhotoSupported(&mut self) -> ::windows::core::Result<bool>;
     fn ConcurrentRecordAndPhotoSequenceSupported(&mut self) -> ::windows::core::Result<bool>;
     fn CameraSoundRequiredForRegion(&mut self) -> ::windows::core::Result<bool>;
@@ -7718,9 +7718,9 @@ impl ::windows::core::RuntimeName for IMediaCaptureSettings2 {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCaptureSettings2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMediaCaptureSettings2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureSettings2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureSettings2Vtbl {
-        unsafe extern "system" fn ConcurrentRecordAndPhotoSupported<Impl: IMediaCaptureSettings2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMediaCaptureSettings2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureSettings2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureSettings2_Vtbl {
+        unsafe extern "system" fn ConcurrentRecordAndPhotoSupported<Impl: IMediaCaptureSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConcurrentRecordAndPhotoSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7731,7 +7731,7 @@ impl IMediaCaptureSettings2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConcurrentRecordAndPhotoSequenceSupported<Impl: IMediaCaptureSettings2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConcurrentRecordAndPhotoSequenceSupported<Impl: IMediaCaptureSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConcurrentRecordAndPhotoSequenceSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7742,7 +7742,7 @@ impl IMediaCaptureSettings2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CameraSoundRequiredForRegion<Impl: IMediaCaptureSettings2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CameraSoundRequiredForRegion<Impl: IMediaCaptureSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CameraSoundRequiredForRegion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7753,7 +7753,7 @@ impl IMediaCaptureSettings2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Horizontal35mmEquivalentFocalLength<Impl: IMediaCaptureSettings2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Horizontal35mmEquivalentFocalLength<Impl: IMediaCaptureSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Horizontal35mmEquivalentFocalLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7764,7 +7764,7 @@ impl IMediaCaptureSettings2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PitchOffsetDegrees<Impl: IMediaCaptureSettings2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PitchOffsetDegrees<Impl: IMediaCaptureSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PitchOffsetDegrees() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7775,7 +7775,7 @@ impl IMediaCaptureSettings2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Vertical35mmEquivalentFocalLength<Impl: IMediaCaptureSettings2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Vertical35mmEquivalentFocalLength<Impl: IMediaCaptureSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Vertical35mmEquivalentFocalLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7786,7 +7786,7 @@ impl IMediaCaptureSettings2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MediaCategory<Impl: IMediaCaptureSettings2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaCategory) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaCategory<Impl: IMediaCaptureSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaCategory) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaCategory() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7797,7 +7797,7 @@ impl IMediaCaptureSettings2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AudioProcessing<Impl: IMediaCaptureSettings2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::AudioProcessing) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioProcessing<Impl: IMediaCaptureSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::AudioProcessing) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioProcessing() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7825,7 +7825,7 @@ impl IMediaCaptureSettings2Vtbl {
     }
 }
 #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
-pub trait IMediaCaptureSettings3Impl: Sized {
+pub trait IMediaCaptureSettings3_Impl: Sized {
     fn Direct3D11Device(&mut self) -> ::windows::core::Result<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>;
 }
 #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
@@ -7833,9 +7833,9 @@ impl ::windows::core::RuntimeName for IMediaCaptureSettings3 {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCaptureSettings3";
 }
 #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
-impl IMediaCaptureSettings3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureSettings3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureSettings3Vtbl {
-        unsafe extern "system" fn Direct3D11Device<Impl: IMediaCaptureSettings3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaCaptureSettings3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureSettings3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureSettings3_Vtbl {
+        unsafe extern "system" fn Direct3D11Device<Impl: IMediaCaptureSettings3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Direct3D11Device() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7856,7 +7856,7 @@ impl IMediaCaptureSettings3Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IMediaCaptureStaticsImpl: Sized {
+pub trait IMediaCaptureStatics_Impl: Sized {
     fn IsVideoProfileSupported(&mut self, videodeviceid: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
     fn FindAllVideoProfiles(&mut self, videodeviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>;
     fn FindConcurrentProfiles(&mut self, videodeviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>;
@@ -7867,9 +7867,9 @@ impl ::windows::core::RuntimeName for IMediaCaptureStatics {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCaptureStatics";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IMediaCaptureStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureStaticsVtbl {
-        unsafe extern "system" fn IsVideoProfileSupported<Impl: IMediaCaptureStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, videodeviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMediaCaptureStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureStatics_Vtbl {
+        unsafe extern "system" fn IsVideoProfileSupported<Impl: IMediaCaptureStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, videodeviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsVideoProfileSupported(&*(&videodeviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -7880,7 +7880,7 @@ impl IMediaCaptureStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindAllVideoProfiles<Impl: IMediaCaptureStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, videodeviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindAllVideoProfiles<Impl: IMediaCaptureStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, videodeviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAllVideoProfiles(&*(&videodeviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -7891,7 +7891,7 @@ impl IMediaCaptureStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindConcurrentProfiles<Impl: IMediaCaptureStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, videodeviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindConcurrentProfiles<Impl: IMediaCaptureStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, videodeviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindConcurrentProfiles(&*(&videodeviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -7902,7 +7902,7 @@ impl IMediaCaptureStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindKnownVideoProfiles<Impl: IMediaCaptureStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, videodeviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, name: KnownVideoProfile, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindKnownVideoProfiles<Impl: IMediaCaptureStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, videodeviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, name: KnownVideoProfile, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindKnownVideoProfiles(&*(&videodeviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), name) {
                 ::core::result::Result::Ok(ok__) => {
@@ -7926,7 +7926,7 @@ impl IMediaCaptureStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMediaCaptureStopResultImpl: Sized {
+pub trait IMediaCaptureStopResult_Impl: Sized {
     fn LastFrame(&mut self) -> ::windows::core::Result<super::VideoFrame>;
     fn RecordDuration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
@@ -7935,9 +7935,9 @@ impl ::windows::core::RuntimeName for IMediaCaptureStopResult {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCaptureStopResult";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMediaCaptureStopResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureStopResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureStopResultVtbl {
-        unsafe extern "system" fn LastFrame<Impl: IMediaCaptureStopResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaCaptureStopResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureStopResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureStopResult_Vtbl {
+        unsafe extern "system" fn LastFrame<Impl: IMediaCaptureStopResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LastFrame() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7948,7 +7948,7 @@ impl IMediaCaptureStopResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RecordDuration<Impl: IMediaCaptureStopResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RecordDuration<Impl: IMediaCaptureStopResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RecordDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7970,7 +7970,7 @@ impl IMediaCaptureStopResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
-pub trait IMediaCaptureVideoPreviewImpl: Sized {
+pub trait IMediaCaptureVideoPreview_Impl: Sized {
     fn StartPreviewAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn StartPreviewToCustomSinkAsync(&mut self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, custommediasink: &::core::option::Option<super::IMediaExtension>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn StartPreviewToCustomSinkIdAsync(&mut self, encodingprofile: &::core::option::Option<super::MediaProperties::MediaEncodingProfile>, customsinkactivationid: &::windows::core::HSTRING, customsinksettings: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -7981,9 +7981,9 @@ impl ::windows::core::RuntimeName for IMediaCaptureVideoPreview {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCaptureVideoPreview";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
-impl IMediaCaptureVideoPreviewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureVideoPreviewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureVideoPreviewVtbl {
-        unsafe extern "system" fn StartPreviewAsync<Impl: IMediaCaptureVideoPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaCaptureVideoPreview_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureVideoPreview_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureVideoPreview_Vtbl {
+        unsafe extern "system" fn StartPreviewAsync<Impl: IMediaCaptureVideoPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartPreviewAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7994,7 +7994,7 @@ impl IMediaCaptureVideoPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartPreviewToCustomSinkAsync<Impl: IMediaCaptureVideoPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, custommediasink: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartPreviewToCustomSinkAsync<Impl: IMediaCaptureVideoPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, custommediasink: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartPreviewToCustomSinkAsync(&*(&encodingprofile as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::Abi>::Abi as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::DefaultType>::DefaultType), &*(&custommediasink as *const <super::IMediaExtension as ::windows::core::Abi>::Abi as *const <super::IMediaExtension as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8005,7 +8005,7 @@ impl IMediaCaptureVideoPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartPreviewToCustomSinkIdAsync<Impl: IMediaCaptureVideoPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, customsinkactivationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, customsinksettings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartPreviewToCustomSinkIdAsync<Impl: IMediaCaptureVideoPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, customsinkactivationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, customsinksettings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartPreviewToCustomSinkIdAsync(
                 &*(&encodingprofile as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::Abi>::Abi as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::DefaultType>::DefaultType),
@@ -8020,7 +8020,7 @@ impl IMediaCaptureVideoPreviewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StopPreviewAsync<Impl: IMediaCaptureVideoPreviewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopPreviewAsync<Impl: IMediaCaptureVideoPreview_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StopPreviewAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8044,7 +8044,7 @@ impl IMediaCaptureVideoPreviewVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IMediaCaptureVideoProfileImpl: Sized {
+pub trait IMediaCaptureVideoProfile_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn VideoDeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SupportedPreviewMediaDescription(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfileMediaDescription>>;
@@ -8057,9 +8057,9 @@ impl ::windows::core::RuntimeName for IMediaCaptureVideoProfile {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCaptureVideoProfile";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IMediaCaptureVideoProfileVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureVideoProfileImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureVideoProfileVtbl {
-        unsafe extern "system" fn Id<Impl: IMediaCaptureVideoProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IMediaCaptureVideoProfile_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureVideoProfile_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureVideoProfile_Vtbl {
+        unsafe extern "system" fn Id<Impl: IMediaCaptureVideoProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8070,7 +8070,7 @@ impl IMediaCaptureVideoProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideoDeviceId<Impl: IMediaCaptureVideoProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoDeviceId<Impl: IMediaCaptureVideoProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoDeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8081,7 +8081,7 @@ impl IMediaCaptureVideoProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedPreviewMediaDescription<Impl: IMediaCaptureVideoProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedPreviewMediaDescription<Impl: IMediaCaptureVideoProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedPreviewMediaDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8092,7 +8092,7 @@ impl IMediaCaptureVideoProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedRecordMediaDescription<Impl: IMediaCaptureVideoProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedRecordMediaDescription<Impl: IMediaCaptureVideoProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedRecordMediaDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8103,7 +8103,7 @@ impl IMediaCaptureVideoProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedPhotoMediaDescription<Impl: IMediaCaptureVideoProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedPhotoMediaDescription<Impl: IMediaCaptureVideoProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedPhotoMediaDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8114,7 +8114,7 @@ impl IMediaCaptureVideoProfileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetConcurrency<Impl: IMediaCaptureVideoProfileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetConcurrency<Impl: IMediaCaptureVideoProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetConcurrency() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8140,7 +8140,7 @@ impl IMediaCaptureVideoProfileVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture_Frames", feature = "implement_exclusive"))]
-pub trait IMediaCaptureVideoProfile2Impl: Sized {
+pub trait IMediaCaptureVideoProfile2_Impl: Sized {
     fn FrameSourceInfos(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<Frames::MediaFrameSourceInfo>>;
     fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>;
 }
@@ -8149,9 +8149,9 @@ impl ::windows::core::RuntimeName for IMediaCaptureVideoProfile2 {
     const NAME: &'static str = "Windows.Media.Capture.IMediaCaptureVideoProfile2";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture_Frames", feature = "implement_exclusive"))]
-impl IMediaCaptureVideoProfile2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureVideoProfile2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureVideoProfile2Vtbl {
-        unsafe extern "system" fn FrameSourceInfos<Impl: IMediaCaptureVideoProfile2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaCaptureVideoProfile2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureVideoProfile2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureVideoProfile2_Vtbl {
+        unsafe extern "system" fn FrameSourceInfos<Impl: IMediaCaptureVideoProfile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameSourceInfos() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8162,7 +8162,7 @@ impl IMediaCaptureVideoProfile2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Properties<Impl: IMediaCaptureVideoProfile2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Properties<Impl: IMediaCaptureVideoProfile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8184,7 +8184,7 @@ impl IMediaCaptureVideoProfile2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMediaCaptureVideoProfileMediaDescriptionImpl: Sized {
+pub trait IMediaCaptureVideoProfileMediaDescription_Impl: Sized {
     fn Width(&mut self) -> ::windows::core::Result<u32>;
     fn Height(&mut self) -> ::windows::core::Result<u32>;
     fn FrameRate(&mut self) -> ::windows::core::Result<f64>;
@@ -8196,9 +8196,9 @@ impl ::windows::core::RuntimeName for IMediaCaptureVideoProfileMediaDescription 
     const NAME: &'static str = "Windows.Media.Capture.IMediaCaptureVideoProfileMediaDescription";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMediaCaptureVideoProfileMediaDescriptionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureVideoProfileMediaDescriptionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureVideoProfileMediaDescriptionVtbl {
-        unsafe extern "system" fn Width<Impl: IMediaCaptureVideoProfileMediaDescriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IMediaCaptureVideoProfileMediaDescription_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureVideoProfileMediaDescription_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureVideoProfileMediaDescription_Vtbl {
+        unsafe extern "system" fn Width<Impl: IMediaCaptureVideoProfileMediaDescription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Width() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8209,7 +8209,7 @@ impl IMediaCaptureVideoProfileMediaDescriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Height<Impl: IMediaCaptureVideoProfileMediaDescriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Height<Impl: IMediaCaptureVideoProfileMediaDescription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Height() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8220,7 +8220,7 @@ impl IMediaCaptureVideoProfileMediaDescriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FrameRate<Impl: IMediaCaptureVideoProfileMediaDescriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FrameRate<Impl: IMediaCaptureVideoProfileMediaDescription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8231,7 +8231,7 @@ impl IMediaCaptureVideoProfileMediaDescriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsVariablePhotoSequenceSupported<Impl: IMediaCaptureVideoProfileMediaDescriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsVariablePhotoSequenceSupported<Impl: IMediaCaptureVideoProfileMediaDescription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsVariablePhotoSequenceSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8242,7 +8242,7 @@ impl IMediaCaptureVideoProfileMediaDescriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsHdrVideoSupported<Impl: IMediaCaptureVideoProfileMediaDescriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsHdrVideoSupported<Impl: IMediaCaptureVideoProfileMediaDescription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsHdrVideoSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8267,7 +8267,7 @@ impl IMediaCaptureVideoProfileMediaDescriptionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IMediaCaptureVideoProfileMediaDescription2Impl: Sized {
+pub trait IMediaCaptureVideoProfileMediaDescription2_Impl: Sized {
     fn Subtype(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>;
 }
@@ -8276,9 +8276,9 @@ impl ::windows::core::RuntimeName for IMediaCaptureVideoProfileMediaDescription2
     const NAME: &'static str = "Windows.Media.Capture.IMediaCaptureVideoProfileMediaDescription2";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IMediaCaptureVideoProfileMediaDescription2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureVideoProfileMediaDescription2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureVideoProfileMediaDescription2Vtbl {
-        unsafe extern "system" fn Subtype<Impl: IMediaCaptureVideoProfileMediaDescription2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IMediaCaptureVideoProfileMediaDescription2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCaptureVideoProfileMediaDescription2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCaptureVideoProfileMediaDescription2_Vtbl {
+        unsafe extern "system" fn Subtype<Impl: IMediaCaptureVideoProfileMediaDescription2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Subtype() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8289,7 +8289,7 @@ impl IMediaCaptureVideoProfileMediaDescription2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Properties<Impl: IMediaCaptureVideoProfileMediaDescription2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Properties<Impl: IMediaCaptureVideoProfileMediaDescription2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8311,7 +8311,7 @@ impl IMediaCaptureVideoProfileMediaDescription2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IOptionalReferencePhotoCapturedEventArgsImpl: Sized {
+pub trait IOptionalReferencePhotoCapturedEventArgs_Impl: Sized {
     fn Frame(&mut self) -> ::windows::core::Result<CapturedFrame>;
     fn Context(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
@@ -8320,9 +8320,9 @@ impl ::windows::core::RuntimeName for IOptionalReferencePhotoCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.IOptionalReferencePhotoCapturedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IOptionalReferencePhotoCapturedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOptionalReferencePhotoCapturedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOptionalReferencePhotoCapturedEventArgsVtbl {
-        unsafe extern "system" fn Frame<Impl: IOptionalReferencePhotoCapturedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IOptionalReferencePhotoCapturedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOptionalReferencePhotoCapturedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOptionalReferencePhotoCapturedEventArgs_Vtbl {
+        unsafe extern "system" fn Frame<Impl: IOptionalReferencePhotoCapturedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Frame() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8333,7 +8333,7 @@ impl IOptionalReferencePhotoCapturedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Context<Impl: IOptionalReferencePhotoCapturedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Context<Impl: IOptionalReferencePhotoCapturedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Context() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8355,7 +8355,7 @@ impl IOptionalReferencePhotoCapturedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPhotoCapturedEventArgsImpl: Sized {
+pub trait IPhotoCapturedEventArgs_Impl: Sized {
     fn Frame(&mut self) -> ::windows::core::Result<CapturedFrame>;
     fn Thumbnail(&mut self) -> ::windows::core::Result<CapturedFrame>;
     fn CaptureTimeOffset(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -8365,9 +8365,9 @@ impl ::windows::core::RuntimeName for IPhotoCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.IPhotoCapturedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPhotoCapturedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoCapturedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoCapturedEventArgsVtbl {
-        unsafe extern "system" fn Frame<Impl: IPhotoCapturedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPhotoCapturedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoCapturedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoCapturedEventArgs_Vtbl {
+        unsafe extern "system" fn Frame<Impl: IPhotoCapturedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Frame() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8378,7 +8378,7 @@ impl IPhotoCapturedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Thumbnail<Impl: IPhotoCapturedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Thumbnail<Impl: IPhotoCapturedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Thumbnail() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8389,7 +8389,7 @@ impl IPhotoCapturedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CaptureTimeOffset<Impl: IPhotoCapturedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CaptureTimeOffset<Impl: IPhotoCapturedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CaptureTimeOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8412,7 +8412,7 @@ impl IPhotoCapturedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPhotoConfirmationCapturedEventArgsImpl: Sized {
+pub trait IPhotoConfirmationCapturedEventArgs_Impl: Sized {
     fn Frame(&mut self) -> ::windows::core::Result<CapturedFrame>;
     fn CaptureTimeOffset(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
@@ -8421,9 +8421,9 @@ impl ::windows::core::RuntimeName for IPhotoConfirmationCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.IPhotoConfirmationCapturedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPhotoConfirmationCapturedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoConfirmationCapturedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoConfirmationCapturedEventArgsVtbl {
-        unsafe extern "system" fn Frame<Impl: IPhotoConfirmationCapturedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPhotoConfirmationCapturedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoConfirmationCapturedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoConfirmationCapturedEventArgs_Vtbl {
+        unsafe extern "system" fn Frame<Impl: IPhotoConfirmationCapturedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Frame() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8434,7 +8434,7 @@ impl IPhotoConfirmationCapturedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CaptureTimeOffset<Impl: IPhotoConfirmationCapturedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CaptureTimeOffset<Impl: IPhotoConfirmationCapturedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CaptureTimeOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8456,7 +8456,7 @@ impl IPhotoConfirmationCapturedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "implement_exclusive"))]
-pub trait IScreenCaptureImpl: Sized {
+pub trait IScreenCapture_Impl: Sized {
     fn AudioSource(&mut self) -> ::windows::core::Result<super::Core::IMediaSource>;
     fn VideoSource(&mut self) -> ::windows::core::Result<super::Core::IMediaSource>;
     fn IsAudioSuspended(&mut self) -> ::windows::core::Result<bool>;
@@ -8469,9 +8469,9 @@ impl ::windows::core::RuntimeName for IScreenCapture {
     const NAME: &'static str = "Windows.Media.Capture.IScreenCapture";
 }
 #[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "implement_exclusive"))]
-impl IScreenCaptureVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScreenCaptureImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScreenCaptureVtbl {
-        unsafe extern "system" fn AudioSource<Impl: IScreenCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IScreenCapture_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScreenCapture_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScreenCapture_Vtbl {
+        unsafe extern "system" fn AudioSource<Impl: IScreenCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioSource() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8482,7 +8482,7 @@ impl IScreenCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideoSource<Impl: IScreenCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoSource<Impl: IScreenCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoSource() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8493,7 +8493,7 @@ impl IScreenCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsAudioSuspended<Impl: IScreenCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsAudioSuspended<Impl: IScreenCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAudioSuspended() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8504,7 +8504,7 @@ impl IScreenCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsVideoSuspended<Impl: IScreenCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsVideoSuspended<Impl: IScreenCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsVideoSuspended() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8515,7 +8515,7 @@ impl IScreenCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SourceSuspensionChanged<Impl: IScreenCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SourceSuspensionChanged<Impl: IScreenCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceSuspensionChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ScreenCapture, SourceSuspensionChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ScreenCapture, SourceSuspensionChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8526,7 +8526,7 @@ impl IScreenCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSourceSuspensionChanged<Impl: IScreenCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSourceSuspensionChanged<Impl: IScreenCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSourceSuspensionChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -8545,7 +8545,7 @@ impl IScreenCaptureVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IScreenCaptureStaticsImpl: Sized {
+pub trait IScreenCaptureStatics_Impl: Sized {
     fn GetForCurrentView(&mut self) -> ::windows::core::Result<ScreenCapture>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -8553,9 +8553,9 @@ impl ::windows::core::RuntimeName for IScreenCaptureStatics {
     const NAME: &'static str = "Windows.Media.Capture.IScreenCaptureStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IScreenCaptureStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScreenCaptureStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScreenCaptureStaticsVtbl {
-        unsafe extern "system" fn GetForCurrentView<Impl: IScreenCaptureStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IScreenCaptureStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScreenCaptureStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScreenCaptureStatics_Vtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: IScreenCaptureStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8576,7 +8576,7 @@ impl IScreenCaptureStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISourceSuspensionChangedEventArgsImpl: Sized {
+pub trait ISourceSuspensionChangedEventArgs_Impl: Sized {
     fn IsAudioSuspended(&mut self) -> ::windows::core::Result<bool>;
     fn IsVideoSuspended(&mut self) -> ::windows::core::Result<bool>;
 }
@@ -8585,9 +8585,9 @@ impl ::windows::core::RuntimeName for ISourceSuspensionChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.ISourceSuspensionChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISourceSuspensionChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISourceSuspensionChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISourceSuspensionChangedEventArgsVtbl {
-        unsafe extern "system" fn IsAudioSuspended<Impl: ISourceSuspensionChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ISourceSuspensionChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISourceSuspensionChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISourceSuspensionChangedEventArgs_Vtbl {
+        unsafe extern "system" fn IsAudioSuspended<Impl: ISourceSuspensionChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAudioSuspended() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8598,7 +8598,7 @@ impl ISourceSuspensionChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsVideoSuspended<Impl: ISourceSuspensionChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsVideoSuspended<Impl: ISourceSuspensionChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsVideoSuspended() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8620,7 +8620,7 @@ impl ISourceSuspensionChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
-pub trait IVideoStreamConfigurationImpl: Sized {
+pub trait IVideoStreamConfiguration_Impl: Sized {
     fn InputProperties(&mut self) -> ::windows::core::Result<super::MediaProperties::VideoEncodingProperties>;
     fn OutputProperties(&mut self) -> ::windows::core::Result<super::MediaProperties::VideoEncodingProperties>;
 }
@@ -8629,9 +8629,9 @@ impl ::windows::core::RuntimeName for IVideoStreamConfiguration {
     const NAME: &'static str = "Windows.Media.Capture.IVideoStreamConfiguration";
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
-impl IVideoStreamConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoStreamConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoStreamConfigurationVtbl {
-        unsafe extern "system" fn InputProperties<Impl: IVideoStreamConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVideoStreamConfiguration_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoStreamConfiguration_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoStreamConfiguration_Vtbl {
+        unsafe extern "system" fn InputProperties<Impl: IVideoStreamConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InputProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8642,7 +8642,7 @@ impl IVideoStreamConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OutputProperties<Impl: IVideoStreamConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OutputProperties<Impl: IVideoStreamConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutputProperties() {
                 ::core::result::Result::Ok(ok__) => {

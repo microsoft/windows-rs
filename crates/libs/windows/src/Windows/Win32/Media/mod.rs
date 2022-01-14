@@ -122,12 +122,12 @@ impl ::core::fmt::Debug for IReferenceClock {
     }
 }
 unsafe impl ::windows::core::Interface for IReferenceClock {
-    type Vtable = IReferenceClockVtbl;
+    type Vtable = IReferenceClock_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56a86897_0ad4_11ce_b03a_0020af0ba770);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IReferenceClockVtbl {
+pub struct IReferenceClock_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptime: *mut i64) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -223,13 +223,13 @@ impl ::core::fmt::Debug for IReferenceClock2 {
     }
 }
 unsafe impl ::windows::core::Interface for IReferenceClock2 {
-    type Vtable = IReferenceClock2Vtbl;
+    type Vtable = IReferenceClock2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36b73885_c2c8_11cf_8b46_00805f6cef60);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IReferenceClock2Vtbl {
-    pub base: IReferenceClockVtbl,
+pub struct IReferenceClock2_Vtbl {
+    pub base: IReferenceClock_Vtbl,
 }
 #[doc = "*Required features: 'Win32_Media'*"]
 #[repr(transparent)]
@@ -282,12 +282,12 @@ impl ::core::fmt::Debug for IReferenceClockTimerControl {
     }
 }
 unsafe impl ::windows::core::Interface for IReferenceClockTimerControl {
-    type Vtable = IReferenceClockTimerControlVtbl;
+    type Vtable = IReferenceClockTimerControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebec459c_2eca_4d42_a8af_30df557614b8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IReferenceClockTimerControlVtbl {
+pub struct IReferenceClockTimerControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetDefaultTimerResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timerresolution: i64) -> ::windows::core::HRESULT,
     pub GetDefaultTimerResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptimerresolution: *mut i64) -> ::windows::core::HRESULT,

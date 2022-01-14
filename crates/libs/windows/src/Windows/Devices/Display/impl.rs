@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Graphics", feature = "implement_exclusive"))]
-pub trait IDisplayMonitorImpl: Sized {
+pub trait IDisplayMonitor_Impl: Sized {
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ConnectionKind(&mut self) -> ::windows::core::Result<DisplayMonitorConnectionKind>;
@@ -26,9 +26,9 @@ impl ::windows::core::RuntimeName for IDisplayMonitor {
     const NAME: &'static str = "Windows.Devices.Display.IDisplayMonitor";
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics", feature = "implement_exclusive"))]
-impl IDisplayMonitorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayMonitorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayMonitorVtbl {
-        unsafe extern "system" fn DeviceId<Impl: IDisplayMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDisplayMonitor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayMonitor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayMonitor_Vtbl {
+        unsafe extern "system" fn DeviceId<Impl: IDisplayMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -39,7 +39,7 @@ impl IDisplayMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayName<Impl: IDisplayMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayName<Impl: IDisplayMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -50,7 +50,7 @@ impl IDisplayMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectionKind<Impl: IDisplayMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DisplayMonitorConnectionKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectionKind<Impl: IDisplayMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DisplayMonitorConnectionKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionKind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -61,7 +61,7 @@ impl IDisplayMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhysicalConnector<Impl: IDisplayMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DisplayMonitorPhysicalConnectorKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhysicalConnector<Impl: IDisplayMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DisplayMonitorPhysicalConnectorKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhysicalConnector() {
                 ::core::result::Result::Ok(ok__) => {
@@ -72,7 +72,7 @@ impl IDisplayMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayAdapterDeviceId<Impl: IDisplayMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayAdapterDeviceId<Impl: IDisplayMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayAdapterDeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -83,7 +83,7 @@ impl IDisplayMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayAdapterId<Impl: IDisplayMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::DisplayAdapterId) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayAdapterId<Impl: IDisplayMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::DisplayAdapterId) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayAdapterId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -94,7 +94,7 @@ impl IDisplayMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayAdapterTargetId<Impl: IDisplayMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayAdapterTargetId<Impl: IDisplayMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayAdapterTargetId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -105,7 +105,7 @@ impl IDisplayMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UsageKind<Impl: IDisplayMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DisplayMonitorUsageKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UsageKind<Impl: IDisplayMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DisplayMonitorUsageKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UsageKind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -116,7 +116,7 @@ impl IDisplayMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NativeResolutionInRawPixels<Impl: IDisplayMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NativeResolutionInRawPixels<Impl: IDisplayMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NativeResolutionInRawPixels() {
                 ::core::result::Result::Ok(ok__) => {
@@ -127,7 +127,7 @@ impl IDisplayMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhysicalSizeInInches<Impl: IDisplayMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhysicalSizeInInches<Impl: IDisplayMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhysicalSizeInInches() {
                 ::core::result::Result::Ok(ok__) => {
@@ -138,7 +138,7 @@ impl IDisplayMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RawDpiX<Impl: IDisplayMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RawDpiX<Impl: IDisplayMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RawDpiX() {
                 ::core::result::Result::Ok(ok__) => {
@@ -149,7 +149,7 @@ impl IDisplayMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RawDpiY<Impl: IDisplayMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RawDpiY<Impl: IDisplayMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RawDpiY() {
                 ::core::result::Result::Ok(ok__) => {
@@ -160,7 +160,7 @@ impl IDisplayMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RedPrimary<Impl: IDisplayMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RedPrimary<Impl: IDisplayMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RedPrimary() {
                 ::core::result::Result::Ok(ok__) => {
@@ -171,7 +171,7 @@ impl IDisplayMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GreenPrimary<Impl: IDisplayMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GreenPrimary<Impl: IDisplayMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GreenPrimary() {
                 ::core::result::Result::Ok(ok__) => {
@@ -182,7 +182,7 @@ impl IDisplayMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BluePrimary<Impl: IDisplayMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BluePrimary<Impl: IDisplayMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BluePrimary() {
                 ::core::result::Result::Ok(ok__) => {
@@ -193,7 +193,7 @@ impl IDisplayMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WhitePoint<Impl: IDisplayMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WhitePoint<Impl: IDisplayMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WhitePoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -204,7 +204,7 @@ impl IDisplayMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxLuminanceInNits<Impl: IDisplayMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxLuminanceInNits<Impl: IDisplayMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxLuminanceInNits() {
                 ::core::result::Result::Ok(ok__) => {
@@ -215,7 +215,7 @@ impl IDisplayMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MinLuminanceInNits<Impl: IDisplayMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinLuminanceInNits<Impl: IDisplayMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinLuminanceInNits() {
                 ::core::result::Result::Ok(ok__) => {
@@ -226,7 +226,7 @@ impl IDisplayMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxAverageFullFrameLuminanceInNits<Impl: IDisplayMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxAverageFullFrameLuminanceInNits<Impl: IDisplayMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxAverageFullFrameLuminanceInNits() {
                 ::core::result::Result::Ok(ok__) => {
@@ -237,7 +237,7 @@ impl IDisplayMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDescriptor<Impl: IDisplayMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptorkind: DisplayMonitorDescriptorKind, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDescriptor<Impl: IDisplayMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptorkind: DisplayMonitorDescriptorKind, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDescriptor(descriptorkind) {
                 ::core::result::Result::Ok(ok__) => {
@@ -278,7 +278,7 @@ impl IDisplayMonitorVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDisplayMonitor2Impl: Sized {
+pub trait IDisplayMonitor2_Impl: Sized {
     fn IsDolbyVisionSupportedInHdrMode(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -286,9 +286,9 @@ impl ::windows::core::RuntimeName for IDisplayMonitor2 {
     const NAME: &'static str = "Windows.Devices.Display.IDisplayMonitor2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDisplayMonitor2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayMonitor2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayMonitor2Vtbl {
-        unsafe extern "system" fn IsDolbyVisionSupportedInHdrMode<Impl: IDisplayMonitor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IDisplayMonitor2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayMonitor2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayMonitor2_Vtbl {
+        unsafe extern "system" fn IsDolbyVisionSupportedInHdrMode<Impl: IDisplayMonitor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDolbyVisionSupportedInHdrMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -309,7 +309,7 @@ impl IDisplayMonitor2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IDisplayMonitorStaticsImpl: Sized {
+pub trait IDisplayMonitorStatics_Impl: Sized {
     fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DisplayMonitor>>;
     fn FromInterfaceIdAsync(&mut self, deviceinterfaceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DisplayMonitor>>;
@@ -319,9 +319,9 @@ impl ::windows::core::RuntimeName for IDisplayMonitorStatics {
     const NAME: &'static str = "Windows.Devices.Display.IDisplayMonitorStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IDisplayMonitorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayMonitorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayMonitorStaticsVtbl {
-        unsafe extern "system" fn GetDeviceSelector<Impl: IDisplayMonitorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDisplayMonitorStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayMonitorStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDisplayMonitorStatics_Vtbl {
+        unsafe extern "system" fn GetDeviceSelector<Impl: IDisplayMonitorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
                 ::core::result::Result::Ok(ok__) => {
@@ -332,7 +332,7 @@ impl IDisplayMonitorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromIdAsync<Impl: IDisplayMonitorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromIdAsync<Impl: IDisplayMonitorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -343,7 +343,7 @@ impl IDisplayMonitorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromInterfaceIdAsync<Impl: IDisplayMonitorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceinterfaceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromInterfaceIdAsync<Impl: IDisplayMonitorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceinterfaceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromInterfaceIdAsync(&*(&deviceinterfaceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

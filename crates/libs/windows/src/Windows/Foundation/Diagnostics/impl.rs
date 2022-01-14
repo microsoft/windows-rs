@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IAsyncCausalityTracerStaticsImpl: Sized {
+pub trait IAsyncCausalityTracerStatics_Impl: Sized {
     fn TraceOperationCreation(&mut self, tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: &::windows::core::GUID, operationid: u64, operationname: &::windows::core::HSTRING, relatedcontext: u64) -> ::windows::core::Result<()>;
     fn TraceOperationCompletion(&mut self, tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: &::windows::core::GUID, operationid: u64, status: super::AsyncStatus) -> ::windows::core::Result<()>;
     fn TraceOperationRelation(&mut self, tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: &::windows::core::GUID, operationid: u64, relation: CausalityRelation) -> ::windows::core::Result<()>;
@@ -13,29 +13,29 @@ impl ::windows::core::RuntimeName for IAsyncCausalityTracerStatics {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.IAsyncCausalityTracerStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAsyncCausalityTracerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsyncCausalityTracerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAsyncCausalityTracerStaticsVtbl {
-        unsafe extern "system" fn TraceOperationCreation<Impl: IAsyncCausalityTracerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: ::windows::core::GUID, operationid: u64, operationname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, relatedcontext: u64) -> ::windows::core::HRESULT {
+impl IAsyncCausalityTracerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsyncCausalityTracerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAsyncCausalityTracerStatics_Vtbl {
+        unsafe extern "system" fn TraceOperationCreation<Impl: IAsyncCausalityTracerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: ::windows::core::GUID, operationid: u64, operationname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, relatedcontext: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TraceOperationCreation(tracelevel, source, &*(&platformid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), operationid, &*(&operationname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), relatedcontext).into()
         }
-        unsafe extern "system" fn TraceOperationCompletion<Impl: IAsyncCausalityTracerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: ::windows::core::GUID, operationid: u64, status: super::AsyncStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TraceOperationCompletion<Impl: IAsyncCausalityTracerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: ::windows::core::GUID, operationid: u64, status: super::AsyncStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TraceOperationCompletion(tracelevel, source, &*(&platformid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), operationid, status).into()
         }
-        unsafe extern "system" fn TraceOperationRelation<Impl: IAsyncCausalityTracerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: ::windows::core::GUID, operationid: u64, relation: CausalityRelation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TraceOperationRelation<Impl: IAsyncCausalityTracerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: ::windows::core::GUID, operationid: u64, relation: CausalityRelation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TraceOperationRelation(tracelevel, source, &*(&platformid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), operationid, relation).into()
         }
-        unsafe extern "system" fn TraceSynchronousWorkStart<Impl: IAsyncCausalityTracerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: ::windows::core::GUID, operationid: u64, work: CausalitySynchronousWork) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TraceSynchronousWorkStart<Impl: IAsyncCausalityTracerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: ::windows::core::GUID, operationid: u64, work: CausalitySynchronousWork) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TraceSynchronousWorkStart(tracelevel, source, &*(&platformid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), operationid, work).into()
         }
-        unsafe extern "system" fn TraceSynchronousWorkCompletion<Impl: IAsyncCausalityTracerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tracelevel: CausalityTraceLevel, source: CausalitySource, work: CausalitySynchronousWork) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TraceSynchronousWorkCompletion<Impl: IAsyncCausalityTracerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tracelevel: CausalityTraceLevel, source: CausalitySource, work: CausalitySynchronousWork) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TraceSynchronousWorkCompletion(tracelevel, source, work).into()
         }
-        unsafe extern "system" fn TracingStatusChanged<Impl: IAsyncCausalityTracerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TracingStatusChanged<Impl: IAsyncCausalityTracerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TracingStatusChanged(&*(&handler as *const <super::EventHandler<TracingStatusChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::EventHandler<TracingStatusChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -46,7 +46,7 @@ impl IAsyncCausalityTracerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveTracingStatusChanged<Impl: IAsyncCausalityTracerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveTracingStatusChanged<Impl: IAsyncCausalityTracerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTracingStatusChanged(&*(&cookie as *const <super::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -66,7 +66,7 @@ impl IAsyncCausalityTracerStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IErrorDetailsImpl: Sized {
+pub trait IErrorDetails_Impl: Sized {
     fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn LongDescription(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn HelpUri(&mut self) -> ::windows::core::Result<super::Uri>;
@@ -76,9 +76,9 @@ impl ::windows::core::RuntimeName for IErrorDetails {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.IErrorDetails";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IErrorDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IErrorDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IErrorDetailsVtbl {
-        unsafe extern "system" fn Description<Impl: IErrorDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IErrorDetails_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IErrorDetails_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IErrorDetails_Vtbl {
+        unsafe extern "system" fn Description<Impl: IErrorDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -89,7 +89,7 @@ impl IErrorDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LongDescription<Impl: IErrorDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LongDescription<Impl: IErrorDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LongDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -100,7 +100,7 @@ impl IErrorDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HelpUri<Impl: IErrorDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HelpUri<Impl: IErrorDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HelpUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -123,7 +123,7 @@ impl IErrorDetailsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IErrorDetailsStaticsImpl: Sized {
+pub trait IErrorDetailsStatics_Impl: Sized {
     fn CreateFromHResultAsync(&mut self, errorcode: i32) -> ::windows::core::Result<super::IAsyncOperation<ErrorDetails>>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -131,9 +131,9 @@ impl ::windows::core::RuntimeName for IErrorDetailsStatics {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.IErrorDetailsStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IErrorDetailsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IErrorDetailsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IErrorDetailsStaticsVtbl {
-        unsafe extern "system" fn CreateFromHResultAsync<Impl: IErrorDetailsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errorcode: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IErrorDetailsStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IErrorDetailsStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IErrorDetailsStatics_Vtbl {
+        unsafe extern "system" fn CreateFromHResultAsync<Impl: IErrorDetailsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errorcode: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromHResultAsync(errorcode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -153,20 +153,20 @@ impl IErrorDetailsStaticsVtbl {
         iid == &<IErrorDetailsStatics as ::windows::core::Interface>::IID
     }
 }
-pub trait IErrorReportingSettingsImpl: Sized {
+pub trait IErrorReportingSettings_Impl: Sized {
     fn SetErrorOptions(&mut self, value: ErrorOptions) -> ::windows::core::Result<()>;
     fn GetErrorOptions(&mut self) -> ::windows::core::Result<ErrorOptions>;
 }
 impl ::windows::core::RuntimeName for IErrorReportingSettings {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.IErrorReportingSettings";
 }
-impl IErrorReportingSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IErrorReportingSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IErrorReportingSettingsVtbl {
-        unsafe extern "system" fn SetErrorOptions<Impl: IErrorReportingSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ErrorOptions) -> ::windows::core::HRESULT {
+impl IErrorReportingSettings_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IErrorReportingSettings_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IErrorReportingSettings_Vtbl {
+        unsafe extern "system" fn SetErrorOptions<Impl: IErrorReportingSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ErrorOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetErrorOptions(value).into()
         }
-        unsafe extern "system" fn GetErrorOptions<Impl: IErrorReportingSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ErrorOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetErrorOptions<Impl: IErrorReportingSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ErrorOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetErrorOptions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -188,7 +188,7 @@ impl IErrorReportingSettingsVtbl {
     }
 }
 #[cfg(feature = "Storage")]
-pub trait IFileLoggingSessionImpl: Sized + IClosableImpl {
+pub trait IFileLoggingSession_Impl: Sized + super::IClosable_Impl {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn AddLoggingChannel(&mut self, loggingchannel: &::core::option::Option<ILoggingChannel>) -> ::windows::core::Result<()>;
     fn AddLoggingChannelWithLevel(&mut self, loggingchannel: &::core::option::Option<ILoggingChannel>, maxlevel: LoggingLevel) -> ::windows::core::Result<()>;
@@ -202,9 +202,9 @@ impl ::windows::core::RuntimeName for IFileLoggingSession {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.IFileLoggingSession";
 }
 #[cfg(feature = "Storage")]
-impl IFileLoggingSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileLoggingSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileLoggingSessionVtbl {
-        unsafe extern "system" fn Name<Impl: IFileLoggingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IFileLoggingSession_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileLoggingSession_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileLoggingSession_Vtbl {
+        unsafe extern "system" fn Name<Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -215,19 +215,19 @@ impl IFileLoggingSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddLoggingChannel<Impl: IFileLoggingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddLoggingChannel<Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddLoggingChannel(&*(&loggingchannel as *const <ILoggingChannel as ::windows::core::Abi>::Abi as *const <ILoggingChannel as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AddLoggingChannelWithLevel<Impl: IFileLoggingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr, maxlevel: LoggingLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddLoggingChannelWithLevel<Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr, maxlevel: LoggingLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddLoggingChannelWithLevel(&*(&loggingchannel as *const <ILoggingChannel as ::windows::core::Abi>::Abi as *const <ILoggingChannel as ::windows::core::DefaultType>::DefaultType), maxlevel).into()
         }
-        unsafe extern "system" fn RemoveLoggingChannel<Impl: IFileLoggingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveLoggingChannel<Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveLoggingChannel(&*(&loggingchannel as *const <ILoggingChannel as ::windows::core::Abi>::Abi as *const <ILoggingChannel as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CloseAndSaveToFileAsync<Impl: IFileLoggingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CloseAndSaveToFileAsync<Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CloseAndSaveToFileAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -238,7 +238,7 @@ impl IFileLoggingSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LogFileGenerated<Impl: IFileLoggingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LogFileGenerated<Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LogFileGenerated(&*(&handler as *const <super::TypedEventHandler<IFileLoggingSession, LogFileGeneratedEventArgs> as ::windows::core::Abi>::Abi as *const <super::TypedEventHandler<IFileLoggingSession, LogFileGeneratedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -249,7 +249,7 @@ impl IFileLoggingSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveLogFileGenerated<Impl: IFileLoggingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveLogFileGenerated<Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveLogFileGenerated(&*(&token as *const <super::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -269,7 +269,7 @@ impl IFileLoggingSessionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IFileLoggingSessionFactoryImpl: Sized {
+pub trait IFileLoggingSessionFactory_Impl: Sized {
     fn Create(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<FileLoggingSession>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -277,9 +277,9 @@ impl ::windows::core::RuntimeName for IFileLoggingSessionFactory {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.IFileLoggingSessionFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IFileLoggingSessionFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileLoggingSessionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileLoggingSessionFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IFileLoggingSessionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IFileLoggingSessionFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileLoggingSessionFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileLoggingSessionFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IFileLoggingSessionFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -297,7 +297,7 @@ impl IFileLoggingSessionFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
-pub trait ILogFileGeneratedEventArgsImpl: Sized {
+pub trait ILogFileGeneratedEventArgs_Impl: Sized {
     fn File(&mut self) -> ::windows::core::Result<super::super::Storage::StorageFile>;
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
@@ -305,9 +305,9 @@ impl ::windows::core::RuntimeName for ILogFileGeneratedEventArgs {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILogFileGeneratedEventArgs";
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
-impl ILogFileGeneratedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILogFileGeneratedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILogFileGeneratedEventArgsVtbl {
-        unsafe extern "system" fn File<Impl: ILogFileGeneratedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILogFileGeneratedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILogFileGeneratedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILogFileGeneratedEventArgs_Vtbl {
+        unsafe extern "system" fn File<Impl: ILogFileGeneratedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).File() {
                 ::core::result::Result::Ok(ok__) => {
@@ -325,7 +325,7 @@ impl ILogFileGeneratedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILoggingActivityImpl: Sized + IClosableImpl {
+pub trait ILoggingActivity_Impl: Sized + super::IClosable_Impl {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
@@ -334,9 +334,9 @@ impl ::windows::core::RuntimeName for ILoggingActivity {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingActivity";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILoggingActivityVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingActivityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingActivityVtbl {
-        unsafe extern "system" fn Name<Impl: ILoggingActivityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ILoggingActivity_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingActivity_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingActivity_Vtbl {
+        unsafe extern "system" fn Name<Impl: ILoggingActivity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -347,7 +347,7 @@ impl ILoggingActivityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Id<Impl: ILoggingActivityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Id<Impl: ILoggingActivity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -369,7 +369,7 @@ impl ILoggingActivityVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILoggingActivity2Impl: Sized + IClosableImpl + ILoggingActivityImpl + ILoggingTargetImpl {
+pub trait ILoggingActivity2_Impl: Sized + super::IClosable_Impl + ILoggingActivity_Impl + ILoggingTarget_Impl {
     fn Channel(&mut self) -> ::windows::core::Result<LoggingChannel>;
     fn StopActivity(&mut self, stopeventname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn StopActivityWithFields(&mut self, stopeventname: &::windows::core::HSTRING, fields: &::core::option::Option<LoggingFields>) -> ::windows::core::Result<()>;
@@ -380,9 +380,9 @@ impl ::windows::core::RuntimeName for ILoggingActivity2 {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingActivity2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILoggingActivity2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingActivity2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingActivity2Vtbl {
-        unsafe extern "system" fn Channel<Impl: ILoggingActivity2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILoggingActivity2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingActivity2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingActivity2_Vtbl {
+        unsafe extern "system" fn Channel<Impl: ILoggingActivity2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Channel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -393,15 +393,15 @@ impl ILoggingActivity2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StopActivity<Impl: ILoggingActivity2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stopeventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopActivity<Impl: ILoggingActivity2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stopeventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StopActivity(&*(&stopeventname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StopActivityWithFields<Impl: ILoggingActivity2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stopeventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopActivityWithFields<Impl: ILoggingActivity2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stopeventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StopActivityWithFields(&*(&stopeventname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&fields as *const <LoggingFields as ::windows::core::Abi>::Abi as *const <LoggingFields as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StopActivityWithFieldsAndOptions<Impl: ILoggingActivity2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stopeventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr, options: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopActivityWithFieldsAndOptions<Impl: ILoggingActivity2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stopeventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr, options: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .StopActivityWithFieldsAndOptions(&*(&stopeventname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&fields as *const <LoggingFields as ::windows::core::Abi>::Abi as *const <LoggingFields as ::windows::core::DefaultType>::DefaultType), &*(&options as *const <LoggingOptions as ::windows::core::Abi>::Abi as *const <LoggingOptions as ::windows::core::DefaultType>::DefaultType))
@@ -420,7 +420,7 @@ impl ILoggingActivity2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILoggingActivityFactoryImpl: Sized {
+pub trait ILoggingActivityFactory_Impl: Sized {
     fn CreateLoggingActivity(&mut self, activityname: &::windows::core::HSTRING, loggingchannel: &::core::option::Option<ILoggingChannel>) -> ::windows::core::Result<LoggingActivity>;
     fn CreateLoggingActivityWithLevel(&mut self, activityname: &::windows::core::HSTRING, loggingchannel: &::core::option::Option<ILoggingChannel>, level: LoggingLevel) -> ::windows::core::Result<LoggingActivity>;
 }
@@ -429,9 +429,9 @@ impl ::windows::core::RuntimeName for ILoggingActivityFactory {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingActivityFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILoggingActivityFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingActivityFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingActivityFactoryVtbl {
-        unsafe extern "system" fn CreateLoggingActivity<Impl: ILoggingActivityFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activityname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, loggingchannel: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILoggingActivityFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingActivityFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingActivityFactory_Vtbl {
+        unsafe extern "system" fn CreateLoggingActivity<Impl: ILoggingActivityFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activityname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, loggingchannel: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateLoggingActivity(&*(&activityname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&loggingchannel as *const <ILoggingChannel as ::windows::core::Abi>::Abi as *const <ILoggingChannel as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -442,7 +442,7 @@ impl ILoggingActivityFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateLoggingActivityWithLevel<Impl: ILoggingActivityFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activityname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, loggingchannel: ::windows::core::RawPtr, level: LoggingLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateLoggingActivityWithLevel<Impl: ILoggingActivityFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activityname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, loggingchannel: ::windows::core::RawPtr, level: LoggingLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateLoggingActivityWithLevel(&*(&activityname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&loggingchannel as *const <ILoggingChannel as ::windows::core::Abi>::Abi as *const <ILoggingChannel as ::windows::core::DefaultType>::DefaultType), level) {
                 ::core::result::Result::Ok(ok__) => {
@@ -463,7 +463,7 @@ impl ILoggingActivityFactoryVtbl {
         iid == &<ILoggingActivityFactory as ::windows::core::Interface>::IID
     }
 }
-pub trait ILoggingChannelImpl: Sized + IClosableImpl {
+pub trait ILoggingChannel_Impl: Sized + super::IClosable_Impl {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Enabled(&mut self) -> ::windows::core::Result<bool>;
     fn Level(&mut self) -> ::windows::core::Result<LoggingLevel>;
@@ -477,9 +477,9 @@ pub trait ILoggingChannelImpl: Sized + IClosableImpl {
 impl ::windows::core::RuntimeName for ILoggingChannel {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingChannel";
 }
-impl ILoggingChannelVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingChannelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingChannelVtbl {
-        unsafe extern "system" fn Name<Impl: ILoggingChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ILoggingChannel_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingChannel_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingChannel_Vtbl {
+        unsafe extern "system" fn Name<Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -490,7 +490,7 @@ impl ILoggingChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Enabled<Impl: ILoggingChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Enabled<Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Enabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -501,7 +501,7 @@ impl ILoggingChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Level<Impl: ILoggingChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LoggingLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Level<Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LoggingLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Level() {
                 ::core::result::Result::Ok(ok__) => {
@@ -512,23 +512,23 @@ impl ILoggingChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LogMessage<Impl: ILoggingChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventstring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LogMessage<Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventstring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).LogMessage(&*(&eventstring as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn LogMessageWithLevel<Impl: ILoggingChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventstring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, level: LoggingLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LogMessageWithLevel<Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventstring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, level: LoggingLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).LogMessageWithLevel(&*(&eventstring as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), level).into()
         }
-        unsafe extern "system" fn LogValuePair<Impl: ILoggingChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value1: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value2: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LogValuePair<Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value1: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value2: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).LogValuePair(&*(&value1 as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value2).into()
         }
-        unsafe extern "system" fn LogValuePairWithLevel<Impl: ILoggingChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value1: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value2: i32, level: LoggingLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LogValuePairWithLevel<Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value1: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value2: i32, level: LoggingLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).LogValuePairWithLevel(&*(&value1 as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value2, level).into()
         }
-        unsafe extern "system" fn LoggingEnabled<Impl: ILoggingChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoggingEnabled<Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoggingEnabled(&*(&handler as *const <super::TypedEventHandler<ILoggingChannel, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::TypedEventHandler<ILoggingChannel, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -539,7 +539,7 @@ impl ILoggingChannelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveLoggingEnabled<Impl: ILoggingChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveLoggingEnabled<Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveLoggingEnabled(&*(&token as *const <super::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -561,7 +561,7 @@ impl ILoggingChannelVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILoggingChannel2Impl: Sized + IClosableImpl + ILoggingChannelImpl + ILoggingTargetImpl {
+pub trait ILoggingChannel2_Impl: Sized + super::IClosable_Impl + ILoggingChannel_Impl + ILoggingTarget_Impl {
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -569,9 +569,9 @@ impl ::windows::core::RuntimeName for ILoggingChannel2 {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingChannel2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILoggingChannel2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingChannel2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingChannel2Vtbl {
-        unsafe extern "system" fn Id<Impl: ILoggingChannel2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl ILoggingChannel2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingChannel2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingChannel2_Vtbl {
+        unsafe extern "system" fn Id<Impl: ILoggingChannel2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -589,7 +589,7 @@ impl ILoggingChannel2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILoggingChannelFactoryImpl: Sized {
+pub trait ILoggingChannelFactory_Impl: Sized {
     fn Create(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<LoggingChannel>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -597,9 +597,9 @@ impl ::windows::core::RuntimeName for ILoggingChannelFactory {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingChannelFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILoggingChannelFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingChannelFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingChannelFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: ILoggingChannelFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILoggingChannelFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingChannelFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingChannelFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: ILoggingChannelFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -617,7 +617,7 @@ impl ILoggingChannelFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILoggingChannelFactory2Impl: Sized {
+pub trait ILoggingChannelFactory2_Impl: Sized {
     fn CreateWithOptions(&mut self, name: &::windows::core::HSTRING, options: &::core::option::Option<LoggingChannelOptions>) -> ::windows::core::Result<LoggingChannel>;
     fn CreateWithOptionsAndId(&mut self, name: &::windows::core::HSTRING, options: &::core::option::Option<LoggingChannelOptions>, id: &::windows::core::GUID) -> ::windows::core::Result<LoggingChannel>;
 }
@@ -626,9 +626,9 @@ impl ::windows::core::RuntimeName for ILoggingChannelFactory2 {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingChannelFactory2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILoggingChannelFactory2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingChannelFactory2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingChannelFactory2Vtbl {
-        unsafe extern "system" fn CreateWithOptions<Impl: ILoggingChannelFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILoggingChannelFactory2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingChannelFactory2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingChannelFactory2_Vtbl {
+        unsafe extern "system" fn CreateWithOptions<Impl: ILoggingChannelFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithOptions(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&options as *const <LoggingChannelOptions as ::windows::core::Abi>::Abi as *const <LoggingChannelOptions as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -639,7 +639,7 @@ impl ILoggingChannelFactory2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithOptionsAndId<Impl: ILoggingChannelFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: ::windows::core::RawPtr, id: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithOptionsAndId<Impl: ILoggingChannelFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: ::windows::core::RawPtr, id: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithOptionsAndId(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&options as *const <LoggingChannelOptions as ::windows::core::Abi>::Abi as *const <LoggingChannelOptions as ::windows::core::DefaultType>::DefaultType), &*(&id as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -661,7 +661,7 @@ impl ILoggingChannelFactory2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILoggingChannelOptionsImpl: Sized {
+pub trait ILoggingChannelOptions_Impl: Sized {
     fn Group(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn SetGroup(&mut self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
@@ -670,9 +670,9 @@ impl ::windows::core::RuntimeName for ILoggingChannelOptions {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingChannelOptions";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILoggingChannelOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingChannelOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingChannelOptionsVtbl {
-        unsafe extern "system" fn Group<Impl: ILoggingChannelOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl ILoggingChannelOptions_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingChannelOptions_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingChannelOptions_Vtbl {
+        unsafe extern "system" fn Group<Impl: ILoggingChannelOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Group() {
                 ::core::result::Result::Ok(ok__) => {
@@ -683,7 +683,7 @@ impl ILoggingChannelOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGroup<Impl: ILoggingChannelOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGroup<Impl: ILoggingChannelOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetGroup(&*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -698,7 +698,7 @@ impl ILoggingChannelOptionsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILoggingChannelOptionsFactoryImpl: Sized {
+pub trait ILoggingChannelOptionsFactory_Impl: Sized {
     fn Create(&mut self, group: &::windows::core::GUID) -> ::windows::core::Result<LoggingChannelOptions>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -706,9 +706,9 @@ impl ::windows::core::RuntimeName for ILoggingChannelOptionsFactory {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingChannelOptionsFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILoggingChannelOptionsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingChannelOptionsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingChannelOptionsFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: ILoggingChannelOptionsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, group: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILoggingChannelOptionsFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingChannelOptionsFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingChannelOptionsFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: ILoggingChannelOptionsFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, group: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&group as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -726,7 +726,7 @@ impl ILoggingChannelOptionsFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILoggingFieldsImpl: Sized {
+pub trait ILoggingFields_Impl: Sized {
     fn Clear(&mut self) -> ::windows::core::Result<()>;
     fn BeginStruct(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn BeginStructWithTags(&mut self, name: &::windows::core::HSTRING, tags: i32) -> ::windows::core::Result<()>;
@@ -848,465 +848,465 @@ impl ::windows::core::RuntimeName for ILoggingFields {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingFields";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILoggingFieldsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingFieldsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingFieldsVtbl {
-        unsafe extern "system" fn Clear<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl ILoggingFields_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingFields_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingFields_Vtbl {
+        unsafe extern "system" fn Clear<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Clear().into()
         }
-        unsafe extern "system" fn BeginStruct<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeginStruct<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).BeginStruct(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BeginStructWithTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeginStructWithTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).BeginStructWithTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), tags).into()
         }
-        unsafe extern "system" fn EndStruct<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EndStruct<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EndStruct().into()
         }
-        unsafe extern "system" fn AddEmpty<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddEmpty<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddEmpty(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AddEmptyWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddEmptyWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddEmptyWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), format).into()
         }
-        unsafe extern "system" fn AddEmptyWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddEmptyWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddEmptyWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), format, tags).into()
         }
-        unsafe extern "system" fn AddUInt8<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt8<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt8(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn AddUInt8WithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u8, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt8WithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u8, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt8WithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, format).into()
         }
-        unsafe extern "system" fn AddUInt8WithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u8, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt8WithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u8, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt8WithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, format, tags).into()
         }
-        unsafe extern "system" fn AddUInt8Array<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt8Array<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt8Array(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        unsafe extern "system" fn AddUInt8ArrayWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u8, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt8ArrayWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u8, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt8ArrayWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format).into()
         }
-        unsafe extern "system" fn AddUInt8ArrayWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u8, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt8ArrayWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u8, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt8ArrayWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format, tags).into()
         }
-        unsafe extern "system" fn AddInt16<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddInt16<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddInt16(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn AddInt16WithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i16, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddInt16WithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i16, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddInt16WithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, format).into()
         }
-        unsafe extern "system" fn AddInt16WithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i16, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddInt16WithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i16, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddInt16WithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, format, tags).into()
         }
-        unsafe extern "system" fn AddInt16Array<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddInt16Array<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddInt16Array(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        unsafe extern "system" fn AddInt16ArrayWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const i16, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddInt16ArrayWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const i16, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddInt16ArrayWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format).into()
         }
-        unsafe extern "system" fn AddInt16ArrayWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const i16, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddInt16ArrayWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const i16, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddInt16ArrayWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format, tags).into()
         }
-        unsafe extern "system" fn AddUInt16<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt16<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt16(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn AddUInt16WithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u16, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt16WithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u16, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt16WithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, format).into()
         }
-        unsafe extern "system" fn AddUInt16WithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u16, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt16WithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u16, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt16WithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, format, tags).into()
         }
-        unsafe extern "system" fn AddUInt16Array<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt16Array<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt16Array(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        unsafe extern "system" fn AddUInt16ArrayWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u16, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt16ArrayWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u16, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt16ArrayWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format).into()
         }
-        unsafe extern "system" fn AddUInt16ArrayWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u16, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt16ArrayWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u16, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt16ArrayWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format, tags).into()
         }
-        unsafe extern "system" fn AddInt32<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddInt32<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddInt32(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn AddInt32WithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i32, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddInt32WithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i32, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddInt32WithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, format).into()
         }
-        unsafe extern "system" fn AddInt32WithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i32, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddInt32WithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i32, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddInt32WithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, format, tags).into()
         }
-        unsafe extern "system" fn AddInt32Array<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddInt32Array<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddInt32Array(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        unsafe extern "system" fn AddInt32ArrayWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const i32, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddInt32ArrayWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const i32, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddInt32ArrayWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format).into()
         }
-        unsafe extern "system" fn AddInt32ArrayWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const i32, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddInt32ArrayWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const i32, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddInt32ArrayWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format, tags).into()
         }
-        unsafe extern "system" fn AddUInt32<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt32<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt32(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn AddUInt32WithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u32, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt32WithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u32, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt32WithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, format).into()
         }
-        unsafe extern "system" fn AddUInt32WithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u32, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt32WithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u32, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt32WithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, format, tags).into()
         }
-        unsafe extern "system" fn AddUInt32Array<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt32Array<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt32Array(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        unsafe extern "system" fn AddUInt32ArrayWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u32, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt32ArrayWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u32, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt32ArrayWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format).into()
         }
-        unsafe extern "system" fn AddUInt32ArrayWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u32, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt32ArrayWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u32, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt32ArrayWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format, tags).into()
         }
-        unsafe extern "system" fn AddInt64<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddInt64<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddInt64(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn AddInt64WithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i64, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddInt64WithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i64, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddInt64WithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, format).into()
         }
-        unsafe extern "system" fn AddInt64WithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i64, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddInt64WithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: i64, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddInt64WithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, format, tags).into()
         }
-        unsafe extern "system" fn AddInt64Array<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const i64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddInt64Array<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const i64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddInt64Array(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        unsafe extern "system" fn AddInt64ArrayWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const i64, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddInt64ArrayWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const i64, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddInt64ArrayWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format).into()
         }
-        unsafe extern "system" fn AddInt64ArrayWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const i64, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddInt64ArrayWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const i64, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddInt64ArrayWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format, tags).into()
         }
-        unsafe extern "system" fn AddUInt64<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt64<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt64(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn AddUInt64WithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u64, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt64WithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u64, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt64WithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, format).into()
         }
-        unsafe extern "system" fn AddUInt64WithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u64, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt64WithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u64, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt64WithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, format, tags).into()
         }
-        unsafe extern "system" fn AddUInt64Array<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt64Array<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt64Array(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        unsafe extern "system" fn AddUInt64ArrayWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u64, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt64ArrayWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u64, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt64ArrayWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format).into()
         }
-        unsafe extern "system" fn AddUInt64ArrayWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u64, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUInt64ArrayWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u64, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddUInt64ArrayWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format, tags).into()
         }
-        unsafe extern "system" fn AddSingle<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddSingle<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddSingle(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn AddSingleWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f32, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddSingleWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f32, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddSingleWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, format).into()
         }
-        unsafe extern "system" fn AddSingleWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f32, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddSingleWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f32, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddSingleWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, format, tags).into()
         }
-        unsafe extern "system" fn AddSingleArray<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddSingleArray<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddSingleArray(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        unsafe extern "system" fn AddSingleArrayWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const f32, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddSingleArrayWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const f32, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddSingleArrayWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format).into()
         }
-        unsafe extern "system" fn AddSingleArrayWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const f32, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddSingleArrayWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const f32, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddSingleArrayWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format, tags).into()
         }
-        unsafe extern "system" fn AddDouble<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDouble<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddDouble(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn AddDoubleWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f64, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDoubleWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f64, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddDoubleWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, format).into()
         }
-        unsafe extern "system" fn AddDoubleWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f64, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDoubleWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f64, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddDoubleWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, format, tags).into()
         }
-        unsafe extern "system" fn AddDoubleArray<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDoubleArray<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddDoubleArray(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        unsafe extern "system" fn AddDoubleArrayWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const f64, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDoubleArrayWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const f64, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddDoubleArrayWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format).into()
         }
-        unsafe extern "system" fn AddDoubleArrayWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const f64, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDoubleArrayWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const f64, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddDoubleArrayWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format, tags).into()
         }
-        unsafe extern "system" fn AddChar16<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddChar16<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddChar16(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn AddChar16WithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u16, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddChar16WithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u16, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddChar16WithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, format).into()
         }
-        unsafe extern "system" fn AddChar16WithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u16, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddChar16WithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: u16, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddChar16WithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, format, tags).into()
         }
-        unsafe extern "system" fn AddChar16Array<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddChar16Array<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddChar16Array(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        unsafe extern "system" fn AddChar16ArrayWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u16, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddChar16ArrayWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u16, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddChar16ArrayWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format).into()
         }
-        unsafe extern "system" fn AddChar16ArrayWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u16, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddChar16ArrayWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const u16, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddChar16ArrayWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format, tags).into()
         }
-        unsafe extern "system" fn AddBoolean<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddBoolean<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddBoolean(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn AddBooleanWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: bool, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddBooleanWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: bool, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddBooleanWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, format).into()
         }
-        unsafe extern "system" fn AddBooleanWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: bool, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddBooleanWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: bool, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddBooleanWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value, format, tags).into()
         }
-        unsafe extern "system" fn AddBooleanArray<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddBooleanArray<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddBooleanArray(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        unsafe extern "system" fn AddBooleanArrayWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const bool, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddBooleanArrayWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const bool, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddBooleanArrayWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format).into()
         }
-        unsafe extern "system" fn AddBooleanArrayWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const bool, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddBooleanArrayWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const bool, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddBooleanArrayWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format, tags).into()
         }
-        unsafe extern "system" fn AddString<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddString<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddString(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AddStringWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddStringWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddStringWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), format).into()
         }
-        unsafe extern "system" fn AddStringWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddStringWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddStringWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), format, tags).into()
         }
-        unsafe extern "system" fn AddStringArray<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddStringArray<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddStringArray(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        unsafe extern "system" fn AddStringArrayWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddStringArrayWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddStringArrayWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format).into()
         }
-        unsafe extern "system" fn AddStringArrayWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddStringArrayWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddStringArrayWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format, tags).into()
         }
-        unsafe extern "system" fn AddGuid<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddGuid<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddGuid(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AddGuidWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::windows::core::GUID, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddGuidWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::windows::core::GUID, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddGuidWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), format).into()
         }
-        unsafe extern "system" fn AddGuidWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::windows::core::GUID, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddGuidWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::windows::core::GUID, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddGuidWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), format, tags).into()
         }
-        unsafe extern "system" fn AddGuidArray<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddGuidArray<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddGuidArray(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        unsafe extern "system" fn AddGuidArrayWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const ::windows::core::GUID, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddGuidArrayWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const ::windows::core::GUID, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddGuidArrayWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format).into()
         }
-        unsafe extern "system" fn AddGuidArrayWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const ::windows::core::GUID, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddGuidArrayWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const ::windows::core::GUID, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddGuidArrayWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format, tags).into()
         }
-        unsafe extern "system" fn AddDateTime<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDateTime<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddDateTime(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::DateTime as ::windows::core::Abi>::Abi as *const <super::DateTime as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AddDateTimeWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::DateTime, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDateTimeWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::DateTime, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddDateTimeWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::DateTime as ::windows::core::Abi>::Abi as *const <super::DateTime as ::windows::core::DefaultType>::DefaultType), format).into()
         }
-        unsafe extern "system" fn AddDateTimeWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::DateTime, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDateTimeWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::DateTime, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddDateTimeWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::DateTime as ::windows::core::Abi>::Abi as *const <super::DateTime as ::windows::core::DefaultType>::DefaultType), format, tags).into()
         }
-        unsafe extern "system" fn AddDateTimeArray<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDateTimeArray<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddDateTimeArray(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        unsafe extern "system" fn AddDateTimeArrayWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::DateTime, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDateTimeArrayWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::DateTime, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddDateTimeArrayWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format).into()
         }
-        unsafe extern "system" fn AddDateTimeArrayWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::DateTime, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDateTimeArrayWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::DateTime, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddDateTimeArrayWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format, tags).into()
         }
-        unsafe extern "system" fn AddTimeSpan<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddTimeSpan<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddTimeSpan(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::TimeSpan as ::windows::core::Abi>::Abi as *const <super::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AddTimeSpanWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::TimeSpan, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddTimeSpanWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::TimeSpan, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddTimeSpanWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::TimeSpan as ::windows::core::Abi>::Abi as *const <super::TimeSpan as ::windows::core::DefaultType>::DefaultType), format).into()
         }
-        unsafe extern "system" fn AddTimeSpanWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::TimeSpan, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddTimeSpanWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::TimeSpan, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddTimeSpanWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::TimeSpan as ::windows::core::Abi>::Abi as *const <super::TimeSpan as ::windows::core::DefaultType>::DefaultType), format, tags).into()
         }
-        unsafe extern "system" fn AddTimeSpanArray<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddTimeSpanArray<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddTimeSpanArray(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        unsafe extern "system" fn AddTimeSpanArrayWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::TimeSpan, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddTimeSpanArrayWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::TimeSpan, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddTimeSpanArrayWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format).into()
         }
-        unsafe extern "system" fn AddTimeSpanArrayWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::TimeSpan, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddTimeSpanArrayWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::TimeSpan, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddTimeSpanArrayWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format, tags).into()
         }
-        unsafe extern "system" fn AddPoint<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddPoint<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddPoint(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::Point as ::windows::core::Abi>::Abi as *const <super::Point as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AddPointWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Point, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddPointWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Point, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddPointWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::Point as ::windows::core::Abi>::Abi as *const <super::Point as ::windows::core::DefaultType>::DefaultType), format).into()
         }
-        unsafe extern "system" fn AddPointWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Point, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddPointWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Point, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddPointWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::Point as ::windows::core::Abi>::Abi as *const <super::Point as ::windows::core::DefaultType>::DefaultType), format, tags).into()
         }
-        unsafe extern "system" fn AddPointArray<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddPointArray<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddPointArray(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        unsafe extern "system" fn AddPointArrayWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::Point, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddPointArrayWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::Point, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddPointArrayWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format).into()
         }
-        unsafe extern "system" fn AddPointArrayWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::Point, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddPointArrayWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::Point, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddPointArrayWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format, tags).into()
         }
-        unsafe extern "system" fn AddSize<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddSize<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddSize(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::Size as ::windows::core::Abi>::Abi as *const <super::Size as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AddSizeWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Size, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddSizeWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Size, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddSizeWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::Size as ::windows::core::Abi>::Abi as *const <super::Size as ::windows::core::DefaultType>::DefaultType), format).into()
         }
-        unsafe extern "system" fn AddSizeWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Size, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddSizeWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Size, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddSizeWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::Size as ::windows::core::Abi>::Abi as *const <super::Size as ::windows::core::DefaultType>::DefaultType), format, tags).into()
         }
-        unsafe extern "system" fn AddSizeArray<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddSizeArray<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddSizeArray(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        unsafe extern "system" fn AddSizeArrayWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::Size, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddSizeArrayWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::Size, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddSizeArrayWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format).into()
         }
-        unsafe extern "system" fn AddSizeArrayWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::Size, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddSizeArrayWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::Size, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddSizeArrayWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format, tags).into()
         }
-        unsafe extern "system" fn AddRect<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddRect<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddRect(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::Rect as ::windows::core::Abi>::Abi as *const <super::Rect as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AddRectWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Rect, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddRectWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Rect, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddRectWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::Rect as ::windows::core::Abi>::Abi as *const <super::Rect as ::windows::core::DefaultType>::DefaultType), format).into()
         }
-        unsafe extern "system" fn AddRectWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Rect, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddRectWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Rect, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddRectWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::Rect as ::windows::core::Abi>::Abi as *const <super::Rect as ::windows::core::DefaultType>::DefaultType), format, tags).into()
         }
-        unsafe extern "system" fn AddRectArray<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddRectArray<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddRectArray(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
-        unsafe extern "system" fn AddRectArrayWithFormat<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::Rect, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddRectArrayWithFormat<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::Rect, format: LoggingFieldFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddRectArrayWithFormat(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format).into()
         }
-        unsafe extern "system" fn AddRectArrayWithFormatAndTags<Impl: ILoggingFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::Rect, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddRectArrayWithFormatAndTags<Impl: ILoggingFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value_array_size: u32, value: *const super::Rect, format: LoggingFieldFormat, tags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddRectArrayWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format, tags).into()
         }
@@ -1434,7 +1434,7 @@ impl ILoggingFieldsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILoggingOptionsImpl: Sized {
+pub trait ILoggingOptions_Impl: Sized {
     fn Keywords(&mut self) -> ::windows::core::Result<i64>;
     fn SetKeywords(&mut self, value: i64) -> ::windows::core::Result<()>;
     fn Tags(&mut self) -> ::windows::core::Result<i32>;
@@ -1453,9 +1453,9 @@ impl ::windows::core::RuntimeName for ILoggingOptions {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingOptions";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILoggingOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingOptionsVtbl {
-        unsafe extern "system" fn Keywords<Impl: ILoggingOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
+impl ILoggingOptions_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingOptions_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingOptions_Vtbl {
+        unsafe extern "system" fn Keywords<Impl: ILoggingOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Keywords() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1466,11 +1466,11 @@ impl ILoggingOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetKeywords<Impl: ILoggingOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetKeywords<Impl: ILoggingOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKeywords(value).into()
         }
-        unsafe extern "system" fn Tags<Impl: ILoggingOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Tags<Impl: ILoggingOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Tags() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1481,11 +1481,11 @@ impl ILoggingOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTags<Impl: ILoggingOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTags<Impl: ILoggingOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTags(value).into()
         }
-        unsafe extern "system" fn Task<Impl: ILoggingOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Task<Impl: ILoggingOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Task() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1496,11 +1496,11 @@ impl ILoggingOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTask<Impl: ILoggingOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTask<Impl: ILoggingOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTask(value).into()
         }
-        unsafe extern "system" fn Opcode<Impl: ILoggingOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LoggingOpcode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Opcode<Impl: ILoggingOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LoggingOpcode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Opcode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1511,11 +1511,11 @@ impl ILoggingOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOpcode<Impl: ILoggingOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: LoggingOpcode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOpcode<Impl: ILoggingOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: LoggingOpcode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOpcode(value).into()
         }
-        unsafe extern "system" fn ActivityId<Impl: ILoggingOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ActivityId<Impl: ILoggingOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivityId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1526,11 +1526,11 @@ impl ILoggingOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetActivityId<Impl: ILoggingOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetActivityId<Impl: ILoggingOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetActivityId(&*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RelatedActivityId<Impl: ILoggingOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RelatedActivityId<Impl: ILoggingOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RelatedActivityId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1541,7 +1541,7 @@ impl ILoggingOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRelatedActivityId<Impl: ILoggingOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRelatedActivityId<Impl: ILoggingOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRelatedActivityId(&*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1566,7 +1566,7 @@ impl ILoggingOptionsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILoggingOptionsFactoryImpl: Sized {
+pub trait ILoggingOptionsFactory_Impl: Sized {
     fn CreateWithKeywords(&mut self, keywords: i64) -> ::windows::core::Result<LoggingOptions>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1574,9 +1574,9 @@ impl ::windows::core::RuntimeName for ILoggingOptionsFactory {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingOptionsFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILoggingOptionsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingOptionsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingOptionsFactoryVtbl {
-        unsafe extern "system" fn CreateWithKeywords<Impl: ILoggingOptionsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keywords: i64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILoggingOptionsFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingOptionsFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingOptionsFactory_Vtbl {
+        unsafe extern "system" fn CreateWithKeywords<Impl: ILoggingOptionsFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keywords: i64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithKeywords(keywords) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1597,7 +1597,7 @@ impl ILoggingOptionsFactoryVtbl {
     }
 }
 #[cfg(feature = "Storage")]
-pub trait ILoggingSessionImpl: Sized + IClosableImpl {
+pub trait ILoggingSession_Impl: Sized + super::IClosable_Impl {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SaveToFileAsync(&mut self, folder: &::core::option::Option<super::super::Storage::IStorageFolder>, filename: &::windows::core::HSTRING) -> ::windows::core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>>;
     fn AddLoggingChannel(&mut self, loggingchannel: &::core::option::Option<ILoggingChannel>) -> ::windows::core::Result<()>;
@@ -1609,9 +1609,9 @@ impl ::windows::core::RuntimeName for ILoggingSession {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingSession";
 }
 #[cfg(feature = "Storage")]
-impl ILoggingSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingSessionVtbl {
-        unsafe extern "system" fn Name<Impl: ILoggingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ILoggingSession_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingSession_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingSession_Vtbl {
+        unsafe extern "system" fn Name<Impl: ILoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1622,7 +1622,7 @@ impl ILoggingSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SaveToFileAsync<Impl: ILoggingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, folder: ::windows::core::RawPtr, filename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaveToFileAsync<Impl: ILoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, folder: ::windows::core::RawPtr, filename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SaveToFileAsync(&*(&folder as *const <super::super::Storage::IStorageFolder as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFolder as ::windows::core::DefaultType>::DefaultType), &*(&filename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1633,15 +1633,15 @@ impl ILoggingSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddLoggingChannel<Impl: ILoggingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddLoggingChannel<Impl: ILoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddLoggingChannel(&*(&loggingchannel as *const <ILoggingChannel as ::windows::core::Abi>::Abi as *const <ILoggingChannel as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AddLoggingChannelWithLevel<Impl: ILoggingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr, maxlevel: LoggingLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddLoggingChannelWithLevel<Impl: ILoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr, maxlevel: LoggingLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddLoggingChannelWithLevel(&*(&loggingchannel as *const <ILoggingChannel as ::windows::core::Abi>::Abi as *const <ILoggingChannel as ::windows::core::DefaultType>::DefaultType), maxlevel).into()
         }
-        unsafe extern "system" fn RemoveLoggingChannel<Impl: ILoggingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveLoggingChannel<Impl: ILoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveLoggingChannel(&*(&loggingchannel as *const <ILoggingChannel as ::windows::core::Abi>::Abi as *const <ILoggingChannel as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1659,7 +1659,7 @@ impl ILoggingSessionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILoggingSessionFactoryImpl: Sized {
+pub trait ILoggingSessionFactory_Impl: Sized {
     fn Create(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<LoggingSession>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1667,9 +1667,9 @@ impl ::windows::core::RuntimeName for ILoggingSessionFactory {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingSessionFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILoggingSessionFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingSessionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingSessionFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: ILoggingSessionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILoggingSessionFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingSessionFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingSessionFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: ILoggingSessionFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1686,7 +1686,7 @@ impl ILoggingSessionFactoryVtbl {
         iid == &<ILoggingSessionFactory as ::windows::core::Interface>::IID
     }
 }
-pub trait ILoggingTargetImpl: Sized {
+pub trait ILoggingTarget_Impl: Sized {
     fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn IsEnabledWithLevel(&mut self, level: LoggingLevel) -> ::windows::core::Result<bool>;
     fn IsEnabledWithLevelAndKeywords(&mut self, level: LoggingLevel, keywords: i64) -> ::windows::core::Result<bool>;
@@ -1702,9 +1702,9 @@ pub trait ILoggingTargetImpl: Sized {
 impl ::windows::core::RuntimeName for ILoggingTarget {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingTarget";
 }
-impl ILoggingTargetVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingTargetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingTargetVtbl {
-        unsafe extern "system" fn IsEnabled<Impl: ILoggingTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ILoggingTarget_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingTarget_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoggingTarget_Vtbl {
+        unsafe extern "system" fn IsEnabled<Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1715,7 +1715,7 @@ impl ILoggingTargetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsEnabledWithLevel<Impl: ILoggingTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: LoggingLevel, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEnabledWithLevel<Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: LoggingLevel, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabledWithLevel(level) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1726,7 +1726,7 @@ impl ILoggingTargetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsEnabledWithLevelAndKeywords<Impl: ILoggingTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: LoggingLevel, keywords: i64, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEnabledWithLevelAndKeywords<Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: LoggingLevel, keywords: i64, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabledWithLevelAndKeywords(level, keywords) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1737,25 +1737,25 @@ impl ILoggingTargetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LogEvent<Impl: ILoggingTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LogEvent<Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).LogEvent(&*(&eventname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn LogEventWithFields<Impl: ILoggingTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LogEventWithFields<Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).LogEventWithFields(&*(&eventname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&fields as *const <LoggingFields as ::windows::core::Abi>::Abi as *const <LoggingFields as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn LogEventWithFieldsAndLevel<Impl: ILoggingTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr, level: LoggingLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LogEventWithFieldsAndLevel<Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr, level: LoggingLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).LogEventWithFieldsAndLevel(&*(&eventname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&fields as *const <LoggingFields as ::windows::core::Abi>::Abi as *const <LoggingFields as ::windows::core::DefaultType>::DefaultType), level).into()
         }
-        unsafe extern "system" fn LogEventWithFieldsAndOptions<Impl: ILoggingTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr, level: LoggingLevel, options: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LogEventWithFieldsAndOptions<Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr, level: LoggingLevel, options: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .LogEventWithFieldsAndOptions(&*(&eventname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&fields as *const <LoggingFields as ::windows::core::Abi>::Abi as *const <LoggingFields as ::windows::core::DefaultType>::DefaultType), level, &*(&options as *const <LoggingOptions as ::windows::core::Abi>::Abi as *const <LoggingOptions as ::windows::core::DefaultType>::DefaultType))
                 .into()
         }
-        unsafe extern "system" fn StartActivity<Impl: ILoggingTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starteventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartActivity<Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starteventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartActivity(&*(&starteventname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1766,7 +1766,7 @@ impl ILoggingTargetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartActivityWithFields<Impl: ILoggingTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starteventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartActivityWithFields<Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starteventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartActivityWithFields(&*(&starteventname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&fields as *const <LoggingFields as ::windows::core::Abi>::Abi as *const <LoggingFields as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1777,7 +1777,7 @@ impl ILoggingTargetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartActivityWithFieldsAndLevel<Impl: ILoggingTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starteventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr, level: LoggingLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartActivityWithFieldsAndLevel<Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starteventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr, level: LoggingLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartActivityWithFieldsAndLevel(&*(&starteventname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&fields as *const <LoggingFields as ::windows::core::Abi>::Abi as *const <LoggingFields as ::windows::core::DefaultType>::DefaultType), level) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1788,7 +1788,7 @@ impl ILoggingTargetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartActivityWithFieldsAndOptions<Impl: ILoggingTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starteventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr, level: LoggingLevel, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartActivityWithFieldsAndOptions<Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starteventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr, level: LoggingLevel, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartActivityWithFieldsAndOptions(&*(&starteventname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&fields as *const <LoggingFields as ::windows::core::Abi>::Abi as *const <LoggingFields as ::windows::core::DefaultType>::DefaultType), level, &*(&options as *const <LoggingOptions as ::windows::core::Abi>::Abi as *const <LoggingOptions as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1819,7 +1819,7 @@ impl ILoggingTargetVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ITracingStatusChangedEventArgsImpl: Sized {
+pub trait ITracingStatusChangedEventArgs_Impl: Sized {
     fn Enabled(&mut self) -> ::windows::core::Result<bool>;
     fn TraceLevel(&mut self) -> ::windows::core::Result<CausalityTraceLevel>;
 }
@@ -1828,9 +1828,9 @@ impl ::windows::core::RuntimeName for ITracingStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ITracingStatusChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ITracingStatusChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITracingStatusChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITracingStatusChangedEventArgsVtbl {
-        unsafe extern "system" fn Enabled<Impl: ITracingStatusChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ITracingStatusChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITracingStatusChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITracingStatusChangedEventArgs_Vtbl {
+        unsafe extern "system" fn Enabled<Impl: ITracingStatusChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Enabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1841,7 +1841,7 @@ impl ITracingStatusChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TraceLevel<Impl: ITracingStatusChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CausalityTraceLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TraceLevel<Impl: ITracingStatusChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CausalityTraceLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TraceLevel() {
                 ::core::result::Result::Ok(ok__) => {

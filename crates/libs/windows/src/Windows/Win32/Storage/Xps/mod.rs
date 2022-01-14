@@ -388,12 +388,12 @@ impl ::core::fmt::Debug for IXpsDocumentPackageTarget {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsDocumentPackageTarget {
-    type Vtable = IXpsDocumentPackageTargetVtbl;
+    type Vtable = IXpsDocumentPackageTarget_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b0b6d38_53ad_41da_b212_d37637a6714e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsDocumentPackageTargetVtbl {
+pub struct IXpsDocumentPackageTarget_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub GetXpsOMPackageWriter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentsequencepartname: ::windows::core::RawPtr, discardcontrolpartname: ::windows::core::RawPtr, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -455,12 +455,12 @@ impl ::core::fmt::Debug for IXpsDocumentPackageTarget3D {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsDocumentPackageTarget3D {
-    type Vtable = IXpsDocumentPackageTarget3DVtbl;
+    type Vtable = IXpsDocumentPackageTarget3D_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60ba71b8_3101_4984_9199_f4ea775ff01d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsDocumentPackageTarget3DVtbl {
+pub struct IXpsDocumentPackageTarget3D_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub GetXpsOMPackageWriter3D: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentsequencepartname: ::windows::core::RawPtr, discardcontrolpartname: ::windows::core::RawPtr, modelpartname: ::windows::core::RawPtr, modeldata: ::windows::core::RawPtr, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -549,13 +549,13 @@ impl ::core::fmt::Debug for IXpsOMBrush {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMBrush {
-    type Vtable = IXpsOMBrushVtbl;
+    type Vtable = IXpsOMBrush_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56a3f80c_ea4c_4187_a57b_a2a473b2b42b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMBrushVtbl {
-    pub base: IXpsOMShareableVtbl,
+pub struct IXpsOMBrush_Vtbl {
+    pub base: IXpsOMShareable_Vtbl,
     pub GetOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, opacity: *mut f32) -> ::windows::core::HRESULT,
     pub SetOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, opacity: f32) -> ::windows::core::HRESULT,
 }
@@ -845,13 +845,13 @@ impl ::core::fmt::Debug for IXpsOMCanvas {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMCanvas {
-    type Vtable = IXpsOMCanvasVtbl;
+    type Vtable = IXpsOMCanvas_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x221d1452_331e_47c6_87e9_6ccefb9b5ba3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMCanvasVtbl {
-    pub base: IXpsOMVisualVtbl,
+pub struct IXpsOMCanvas_Vtbl {
+    pub base: IXpsOMVisual_Vtbl,
     pub GetVisuals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visuals: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetUseAliasedEdgeMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usealiasededgemode: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -988,13 +988,13 @@ impl ::core::fmt::Debug for IXpsOMColorProfileResource {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMColorProfileResource {
-    type Vtable = IXpsOMColorProfileResourceVtbl;
+    type Vtable = IXpsOMColorProfileResource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67bd7d69_1eef_4bb1_b5e7_6f4f87be8abe);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMColorProfileResourceVtbl {
-    pub base: IXpsOMResourceVtbl,
+pub struct IXpsOMColorProfileResource_Vtbl {
+    pub base: IXpsOMResource_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1078,12 +1078,12 @@ impl ::core::fmt::Debug for IXpsOMColorProfileResourceCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMColorProfileResourceCollection {
-    type Vtable = IXpsOMColorProfileResourceCollectionVtbl;
+    type Vtable = IXpsOMColorProfileResourceCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12759630_5fba_4283_8f7d_cca849809edb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMColorProfileResourceCollectionVtbl {
+pub struct IXpsOMColorProfileResourceCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, object: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1355,13 +1355,13 @@ impl ::core::fmt::Debug for IXpsOMCoreProperties {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMCoreProperties {
-    type Vtable = IXpsOMCorePropertiesVtbl;
+    type Vtable = IXpsOMCoreProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3340fe8f_4027_4aa1_8f5f_d35ae45fe597);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMCorePropertiesVtbl {
-    pub base: IXpsOMPartVtbl,
+pub struct IXpsOMCoreProperties_Vtbl {
+    pub base: IXpsOMPart_Vtbl,
     pub GetOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, package: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, category: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -1561,12 +1561,12 @@ impl ::core::fmt::Debug for IXpsOMDashCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMDashCollection {
-    type Vtable = IXpsOMDashCollectionVtbl;
+    type Vtable = IXpsOMDashCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x081613f4_74eb_48f2_83b3_37a9ce2d7dc6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMDashCollectionVtbl {
+pub struct IXpsOMDashCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, dash: *mut XPS_DASH) -> ::windows::core::HRESULT,
@@ -1667,12 +1667,12 @@ impl ::core::fmt::Debug for IXpsOMDictionary {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMDictionary {
-    type Vtable = IXpsOMDictionaryVtbl;
+    type Vtable = IXpsOMDictionary_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x897c86b8_8eaf_4ae3_bdde_56419fcf4236);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMDictionaryVtbl {
+pub struct IXpsOMDictionary_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
@@ -1811,13 +1811,13 @@ impl ::core::fmt::Debug for IXpsOMDocument {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMDocument {
-    type Vtable = IXpsOMDocumentVtbl;
+    type Vtable = IXpsOMDocument_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c2c94cb_ac5f_4254_8ee9_23948309d9f0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMDocumentVtbl {
-    pub base: IXpsOMPartVtbl,
+pub struct IXpsOMDocument_Vtbl {
+    pub base: IXpsOMPart_Vtbl,
     pub GetOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentsequence: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetPageReferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pagereferences: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetPrintTicketResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printticketresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1895,12 +1895,12 @@ impl ::core::fmt::Debug for IXpsOMDocumentCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMDocumentCollection {
-    type Vtable = IXpsOMDocumentCollectionVtbl;
+    type Vtable = IXpsOMDocumentCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1c87f0d_e947_4754_8a25_971478f7e83e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMDocumentCollectionVtbl {
+pub struct IXpsOMDocumentCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, document: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2001,13 +2001,13 @@ impl ::core::fmt::Debug for IXpsOMDocumentSequence {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMDocumentSequence {
-    type Vtable = IXpsOMDocumentSequenceVtbl;
+    type Vtable = IXpsOMDocumentSequence_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56492eb4_d8d5_425e_8256_4c2b64ad0264);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMDocumentSequenceVtbl {
-    pub base: IXpsOMPartVtbl,
+pub struct IXpsOMDocumentSequence_Vtbl {
+    pub base: IXpsOMPart_Vtbl,
     pub GetOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, package: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetDocuments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documents: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetPrintTicketResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printticketresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2122,13 +2122,13 @@ impl ::core::fmt::Debug for IXpsOMDocumentStructureResource {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMDocumentStructureResource {
-    type Vtable = IXpsOMDocumentStructureResourceVtbl;
+    type Vtable = IXpsOMDocumentStructureResource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85febc8a_6b63_48a9_af07_7064e4ecff30);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMDocumentStructureResourceVtbl {
-    pub base: IXpsOMResourceVtbl,
+pub struct IXpsOMDocumentStructureResource_Vtbl {
+    pub base: IXpsOMResource_Vtbl,
     pub GetOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2248,13 +2248,13 @@ impl ::core::fmt::Debug for IXpsOMFontResource {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMFontResource {
-    type Vtable = IXpsOMFontResourceVtbl;
+    type Vtable = IXpsOMFontResource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8c45708_47d9_4af4_8d20_33b48c9b8485);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMFontResourceVtbl {
-    pub base: IXpsOMResourceVtbl,
+pub struct IXpsOMFontResource_Vtbl {
+    pub base: IXpsOMResource_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, readerstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2339,12 +2339,12 @@ impl ::core::fmt::Debug for IXpsOMFontResourceCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMFontResourceCollection {
-    type Vtable = IXpsOMFontResourceCollectionVtbl;
+    type Vtable = IXpsOMFontResourceCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70b4a6bb_88d4_4fa8_aaf9_6d9c596fdbad);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMFontResourceCollectionVtbl {
+pub struct IXpsOMFontResourceCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2473,13 +2473,13 @@ impl ::core::fmt::Debug for IXpsOMGeometry {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMGeometry {
-    type Vtable = IXpsOMGeometryVtbl;
+    type Vtable = IXpsOMGeometry_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64fcf3d7_4d58_44ba_ad73_a13af6492072);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMGeometryVtbl {
-    pub base: IXpsOMShareableVtbl,
+pub struct IXpsOMGeometry_Vtbl {
+    pub base: IXpsOMShareable_Vtbl,
     pub GetFigures: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, figures: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetFillRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fillrule: *mut XPS_FILL_RULE) -> ::windows::core::HRESULT,
     pub SetFillRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fillrule: XPS_FILL_RULE) -> ::windows::core::HRESULT,
@@ -2612,12 +2612,12 @@ impl ::core::fmt::Debug for IXpsOMGeometryFigure {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMGeometryFigure {
-    type Vtable = IXpsOMGeometryFigureVtbl;
+    type Vtable = IXpsOMGeometryFigure_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd410dc83_908c_443e_8947_b1795d3c165a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMGeometryFigureVtbl {
+pub struct IXpsOMGeometryFigure_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetSegmentData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datacount: *mut u32, segmentdata: *mut f32) -> ::windows::core::HRESULT,
@@ -2721,12 +2721,12 @@ impl ::core::fmt::Debug for IXpsOMGeometryFigureCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMGeometryFigureCollection {
-    type Vtable = IXpsOMGeometryFigureCollectionVtbl;
+    type Vtable = IXpsOMGeometryFigureCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd48c3f3_a58e_4b5a_8826_1de54abe72b2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMGeometryFigureCollectionVtbl {
+pub struct IXpsOMGeometryFigureCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, geometryfigure: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3085,13 +3085,13 @@ impl ::core::fmt::Debug for IXpsOMGlyphs {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMGlyphs {
-    type Vtable = IXpsOMGlyphsVtbl;
+    type Vtable = IXpsOMGlyphs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x819b3199_0a5a_4b64_bec7_a9e17e780de2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMGlyphsVtbl {
-    pub base: IXpsOMVisualVtbl,
+pub struct IXpsOMGlyphs_Vtbl {
+    pub base: IXpsOMVisual_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetUnicodeString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unicodestring: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3262,12 +3262,12 @@ impl ::core::fmt::Debug for IXpsOMGlyphsEditor {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMGlyphsEditor {
-    type Vtable = IXpsOMGlyphsEditorVtbl;
+    type Vtable = IXpsOMGlyphsEditor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5ab8616_5b16_4b9f_9629_89b323ed7909);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMGlyphsEditorVtbl {
+pub struct IXpsOMGlyphsEditor_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub ApplyEdits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -3455,13 +3455,13 @@ impl ::core::fmt::Debug for IXpsOMGradientBrush {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMGradientBrush {
-    type Vtable = IXpsOMGradientBrushVtbl;
+    type Vtable = IXpsOMGradientBrush_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedb59622_61a2_42c3_bace_acf2286c06bf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMGradientBrushVtbl {
-    pub base: IXpsOMBrushVtbl,
+pub struct IXpsOMGradientBrush_Vtbl {
+    pub base: IXpsOMBrush_Vtbl,
     pub GetGradientStops: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gradientstops: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetTransformLocal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3548,12 +3548,12 @@ impl ::core::fmt::Debug for IXpsOMGradientStop {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMGradientStop {
-    type Vtable = IXpsOMGradientStopVtbl;
+    type Vtable = IXpsOMGradientStop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cf4f5cc_3969_49b5_a70a_5550b618fe49);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMGradientStopVtbl {
+pub struct IXpsOMGradientStop_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: *mut f32) -> ::windows::core::HRESULT,
@@ -3630,12 +3630,12 @@ impl ::core::fmt::Debug for IXpsOMGradientStopCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMGradientStopCollection {
-    type Vtable = IXpsOMGradientStopCollectionVtbl;
+    type Vtable = IXpsOMGradientStopCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9174c3a_3cd3_4319_bda4_11a39392ceef);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMGradientStopCollectionVtbl {
+pub struct IXpsOMGradientStopCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, stop: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3840,13 +3840,13 @@ impl ::core::fmt::Debug for IXpsOMImageBrush {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMImageBrush {
-    type Vtable = IXpsOMImageBrushVtbl;
+    type Vtable = IXpsOMImageBrush_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3df0b466_d382_49ef_8550_dd94c80242e4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMImageBrushVtbl {
-    pub base: IXpsOMTileBrushVtbl,
+pub struct IXpsOMImageBrush_Vtbl {
+    pub base: IXpsOMTileBrush_Vtbl,
     pub GetImageResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imageresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetImageResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imageresource: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetColorProfileResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, colorprofileresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3962,13 +3962,13 @@ impl ::core::fmt::Debug for IXpsOMImageResource {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMImageResource {
-    type Vtable = IXpsOMImageResourceVtbl;
+    type Vtable = IXpsOMImageResource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3db8417d_ae50_485e_9a44_d7758f78a23f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMImageResourceVtbl {
-    pub base: IXpsOMResourceVtbl,
+pub struct IXpsOMImageResource_Vtbl {
+    pub base: IXpsOMResource_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, readerstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4053,12 +4053,12 @@ impl ::core::fmt::Debug for IXpsOMImageResourceCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMImageResourceCollection {
-    type Vtable = IXpsOMImageResourceCollectionVtbl;
+    type Vtable = IXpsOMImageResourceCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a4a1a71_9cde_4b71_b33f_62de843eabfe);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMImageResourceCollectionVtbl {
+pub struct IXpsOMImageResourceCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, object: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4263,13 +4263,13 @@ impl ::core::fmt::Debug for IXpsOMLinearGradientBrush {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMLinearGradientBrush {
-    type Vtable = IXpsOMLinearGradientBrushVtbl;
+    type Vtable = IXpsOMLinearGradientBrush_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x005e279f_c30d_40ff_93ec_1950d3c528db);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMLinearGradientBrushVtbl {
-    pub base: IXpsOMGradientBrushVtbl,
+pub struct IXpsOMLinearGradientBrush_Vtbl {
+    pub base: IXpsOMGradientBrush_Vtbl,
     pub GetStartPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startpoint: *mut XPS_POINT) -> ::windows::core::HRESULT,
     pub SetStartPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startpoint: *const XPS_POINT) -> ::windows::core::HRESULT,
     pub GetEndPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpoint: *mut XPS_POINT) -> ::windows::core::HRESULT,
@@ -4362,13 +4362,13 @@ impl ::core::fmt::Debug for IXpsOMMatrixTransform {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMMatrixTransform {
-    type Vtable = IXpsOMMatrixTransformVtbl;
+    type Vtable = IXpsOMMatrixTransform_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb77330ff_bb37_4501_a93e_f1b1e50bfc46);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMMatrixTransformVtbl {
-    pub base: IXpsOMShareableVtbl,
+pub struct IXpsOMMatrixTransform_Vtbl {
+    pub base: IXpsOMShareable_Vtbl,
     pub GetMatrix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *mut XPS_MATRIX) -> ::windows::core::HRESULT,
     pub SetMatrix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *const XPS_MATRIX) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrixtransform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4426,12 +4426,12 @@ impl ::core::fmt::Debug for IXpsOMNameCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMNameCollection {
-    type Vtable = IXpsOMNameCollectionVtbl;
+    type Vtable = IXpsOMNameCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bddf8ec_c915_421b_a166_d173d25653d2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMNameCollectionVtbl {
+pub struct IXpsOMNameCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -4708,12 +4708,12 @@ impl ::core::fmt::Debug for IXpsOMObjectFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMObjectFactory {
-    type Vtable = IXpsOMObjectFactoryVtbl;
+    type Vtable = IXpsOMObjectFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9b2a685_a50d_4fc2_b764_b56e093ea0ca);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMObjectFactoryVtbl {
+pub struct IXpsOMObjectFactory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreatePackage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, package: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -5208,13 +5208,13 @@ impl ::core::fmt::Debug for IXpsOMObjectFactory1 {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMObjectFactory1 {
-    type Vtable = IXpsOMObjectFactory1Vtbl;
+    type Vtable = IXpsOMObjectFactory1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a91b617_d612_4181_bf7c_be5824e9cc8f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMObjectFactory1Vtbl {
-    pub base: IXpsOMObjectFactoryVtbl,
+pub struct IXpsOMObjectFactory1_Vtbl {
+    pub base: IXpsOMObjectFactory_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetDocumentTypeFromFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::Foundation::PWSTR, documenttype: *mut XPS_DOCUMENT_TYPE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5345,12 +5345,12 @@ impl ::core::fmt::Debug for IXpsOMPackage {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMPackage {
-    type Vtable = IXpsOMPackageVtbl;
+    type Vtable = IXpsOMPackage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18c3df65_81e1_4674_91dc_fc452f5a416f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMPackageVtbl {
+pub struct IXpsOMPackage_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetDocumentSequence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentsequence: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetDocumentSequence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentsequence: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5500,13 +5500,13 @@ impl ::core::fmt::Debug for IXpsOMPackage1 {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMPackage1 {
-    type Vtable = IXpsOMPackage1Vtbl;
+    type Vtable = IXpsOMPackage1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95a9435e_12bb_461b_8e7f_c6adb04cd96a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMPackage1Vtbl {
-    pub base: IXpsOMPackageVtbl,
+pub struct IXpsOMPackage1_Vtbl {
+    pub base: IXpsOMPackage_Vtbl,
     pub GetDocumentType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documenttype: *mut XPS_DOCUMENT_TYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub WriteToFile1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::Foundation::PWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::HRESULT,
@@ -5565,12 +5565,12 @@ impl ::core::fmt::Debug for IXpsOMPackageTarget {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMPackageTarget {
-    type Vtable = IXpsOMPackageTargetVtbl;
+    type Vtable = IXpsOMPackageTarget_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x219a9db0_4959_47d0_8034_b1ce84f41a4d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMPackageTargetVtbl {
+pub struct IXpsOMPackageTarget_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub CreateXpsOMPackageWriter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentsequencepartname: ::windows::core::RawPtr, documentsequenceprintticket: ::windows::core::RawPtr, discardcontrolpartname: ::windows::core::RawPtr, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5642,12 +5642,12 @@ impl ::core::fmt::Debug for IXpsOMPackageWriter {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMPackageWriter {
-    type Vtable = IXpsOMPackageWriterVtbl;
+    type Vtable = IXpsOMPackageWriter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e2aa182_a443_42c6_b41b_4f8e9de73ff9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMPackageWriterVtbl {
+pub struct IXpsOMPackageWriter_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub StartNewDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentpartname: ::windows::core::RawPtr, documentprintticket: ::windows::core::RawPtr, documentstructure: ::windows::core::RawPtr, signatureblockresources: ::windows::core::RawPtr, restrictedfonts: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5756,13 +5756,13 @@ impl ::core::fmt::Debug for IXpsOMPackageWriter3D {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMPackageWriter3D {
-    type Vtable = IXpsOMPackageWriter3DVtbl;
+    type Vtable = IXpsOMPackageWriter3D_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8a45033_640e_43fa_9bdf_fddeaa31c6a0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMPackageWriter3DVtbl {
-    pub base: IXpsOMPackageWriterVtbl,
+pub struct IXpsOMPackageWriter3D_Vtbl {
+    pub base: IXpsOMPackageWriter_Vtbl,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub AddModelTexture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, texturepartname: ::windows::core::RawPtr, texturedata: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
@@ -5954,13 +5954,13 @@ impl ::core::fmt::Debug for IXpsOMPage {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMPage {
-    type Vtable = IXpsOMPageVtbl;
+    type Vtable = IXpsOMPage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3e18888_f120_4fee_8c68_35296eae91d4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMPageVtbl {
-    pub base: IXpsOMPartVtbl,
+pub struct IXpsOMPage_Vtbl {
+    pub base: IXpsOMPart_Vtbl,
     pub GetOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pagereference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetVisuals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visuals: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetPageDimensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pagedimensions: *mut XPS_SIZE) -> ::windows::core::HRESULT,
@@ -6220,13 +6220,13 @@ impl ::core::fmt::Debug for IXpsOMPage1 {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMPage1 {
-    type Vtable = IXpsOMPage1Vtbl;
+    type Vtable = IXpsOMPage1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x305b60ef_6892_4dda_9cbb_3aa65974508a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMPage1Vtbl {
-    pub base: IXpsOMPageVtbl,
+pub struct IXpsOMPage1_Vtbl {
+    pub base: IXpsOMPage_Vtbl,
     pub GetDocumentType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documenttype: *mut XPS_DOCUMENT_TYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub Write1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::HRESULT,
@@ -6356,12 +6356,12 @@ impl ::core::fmt::Debug for IXpsOMPageReference {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMPageReference {
-    type Vtable = IXpsOMPageReferenceVtbl;
+    type Vtable = IXpsOMPageReference_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed360180_6f92_4998_890d_2f208531a0a0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMPageReferenceVtbl {
+pub struct IXpsOMPageReference_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, document: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, page: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6455,12 +6455,12 @@ impl ::core::fmt::Debug for IXpsOMPageReferenceCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMPageReferenceCollection {
-    type Vtable = IXpsOMPageReferenceCollectionVtbl;
+    type Vtable = IXpsOMPageReferenceCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca16ba4d_e7b9_45c5_958b_f98022473745);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMPageReferenceCollectionVtbl {
+pub struct IXpsOMPageReferenceCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pagereference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6522,12 +6522,12 @@ impl ::core::fmt::Debug for IXpsOMPart {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMPart {
-    type Vtable = IXpsOMPartVtbl;
+    type Vtable = IXpsOMPart_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74eb2f0b_a91e_4486_afac_0fabeca3dfc6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMPartVtbl {
+pub struct IXpsOMPart_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub GetPartName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parturi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6600,12 +6600,12 @@ impl ::core::fmt::Debug for IXpsOMPartResources {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMPartResources {
-    type Vtable = IXpsOMPartResourcesVtbl;
+    type Vtable = IXpsOMPartResources_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4cf7729_4864_4275_99b3_a8717163ecaf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMPartResourcesVtbl {
+pub struct IXpsOMPartResources_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetFontResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontresources: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetImageResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imageresources: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6684,12 +6684,12 @@ impl ::core::fmt::Debug for IXpsOMPartUriCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMPartUriCollection {
-    type Vtable = IXpsOMPartUriCollectionVtbl;
+    type Vtable = IXpsOMPartUriCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57c650d4_067c_4893_8c33_f62a0633730f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMPartUriCollectionVtbl {
+pub struct IXpsOMPartUriCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -7111,13 +7111,13 @@ impl ::core::fmt::Debug for IXpsOMPath {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMPath {
-    type Vtable = IXpsOMPathVtbl;
+    type Vtable = IXpsOMPath_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37d38bb6_3ee9_4110_9312_14b194163337);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMPathVtbl {
-    pub base: IXpsOMVisualVtbl,
+pub struct IXpsOMPath_Vtbl {
+    pub base: IXpsOMVisual_Vtbl,
     pub GetGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, geometry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetGeometryLocal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, geometry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetGeometryLocal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, geometry: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7296,13 +7296,13 @@ impl ::core::fmt::Debug for IXpsOMPrintTicketResource {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMPrintTicketResource {
-    type Vtable = IXpsOMPrintTicketResourceVtbl;
+    type Vtable = IXpsOMPrintTicketResource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7ff32d2_34aa_499b_bbe9_9cd4ee6c59f7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMPrintTicketResourceVtbl {
-    pub base: IXpsOMResourceVtbl,
+pub struct IXpsOMPrintTicketResource_Vtbl {
+    pub base: IXpsOMResource_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7513,13 +7513,13 @@ impl ::core::fmt::Debug for IXpsOMRadialGradientBrush {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMRadialGradientBrush {
-    type Vtable = IXpsOMRadialGradientBrushVtbl;
+    type Vtable = IXpsOMRadialGradientBrush_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75f207e5_08bf_413c_96b1_b82b4064176b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMRadialGradientBrushVtbl {
-    pub base: IXpsOMGradientBrushVtbl,
+pub struct IXpsOMRadialGradientBrush_Vtbl {
+    pub base: IXpsOMGradientBrush_Vtbl,
     pub GetCenter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, center: *mut XPS_POINT) -> ::windows::core::HRESULT,
     pub SetCenter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, center: *const XPS_POINT) -> ::windows::core::HRESULT,
     pub GetRadiiSizes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radiisizes: *mut XPS_SIZE) -> ::windows::core::HRESULT,
@@ -7630,13 +7630,13 @@ impl ::core::fmt::Debug for IXpsOMRemoteDictionaryResource {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMRemoteDictionaryResource {
-    type Vtable = IXpsOMRemoteDictionaryResourceVtbl;
+    type Vtable = IXpsOMRemoteDictionaryResource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9bd7cd4_e16a_4bf8_8c84_c950af7a3061);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMRemoteDictionaryResourceVtbl {
-    pub base: IXpsOMResourceVtbl,
+pub struct IXpsOMRemoteDictionaryResource_Vtbl {
+    pub base: IXpsOMResource_Vtbl,
     pub GetDictionary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dictionary: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetDictionary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dictionary: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7772,13 +7772,13 @@ impl ::core::fmt::Debug for IXpsOMRemoteDictionaryResource1 {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMRemoteDictionaryResource1 {
-    type Vtable = IXpsOMRemoteDictionaryResource1Vtbl;
+    type Vtable = IXpsOMRemoteDictionaryResource1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf8fc1d4_9d46_4141_ba5f_94bb9250d041);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMRemoteDictionaryResource1Vtbl {
-    pub base: IXpsOMRemoteDictionaryResourceVtbl,
+pub struct IXpsOMRemoteDictionaryResource1_Vtbl {
+    pub base: IXpsOMRemoteDictionaryResource_Vtbl,
     pub GetDocumentType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documenttype: *mut XPS_DOCUMENT_TYPE) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Write1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::HRESULT,
@@ -7859,12 +7859,12 @@ impl ::core::fmt::Debug for IXpsOMRemoteDictionaryResourceCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMRemoteDictionaryResourceCollection {
-    type Vtable = IXpsOMRemoteDictionaryResourceCollectionVtbl;
+    type Vtable = IXpsOMRemoteDictionaryResourceCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c38db61_7fec_464a_87bd_41e3bef018be);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMRemoteDictionaryResourceCollectionVtbl {
+pub struct IXpsOMRemoteDictionaryResourceCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, object: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7950,13 +7950,13 @@ impl ::core::fmt::Debug for IXpsOMResource {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMResource {
-    type Vtable = IXpsOMResourceVtbl;
+    type Vtable = IXpsOMResource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda2ac0a2_73a2_4975_ad14_74097c3ff3a5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMResourceVtbl {
-    pub base: IXpsOMPartVtbl,
+pub struct IXpsOMResource_Vtbl {
+    pub base: IXpsOMPart_Vtbl,
 }
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
@@ -8010,12 +8010,12 @@ impl ::core::fmt::Debug for IXpsOMShareable {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMShareable {
-    type Vtable = IXpsOMShareableVtbl;
+    type Vtable = IXpsOMShareable_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7137398f_2fc1_454d_8c6a_2c3115a16ece);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMShareableVtbl {
+pub struct IXpsOMShareable_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut XPS_OBJECT_TYPE) -> ::windows::core::HRESULT,
@@ -8129,13 +8129,13 @@ impl ::core::fmt::Debug for IXpsOMSignatureBlockResource {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMSignatureBlockResource {
-    type Vtable = IXpsOMSignatureBlockResourceVtbl;
+    type Vtable = IXpsOMSignatureBlockResource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4776ad35_2e04_4357_8743_ebf6c171a905);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMSignatureBlockResourceVtbl {
-    pub base: IXpsOMResourceVtbl,
+pub struct IXpsOMSignatureBlockResource_Vtbl {
+    pub base: IXpsOMResource_Vtbl,
     pub GetOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8220,12 +8220,12 @@ impl ::core::fmt::Debug for IXpsOMSignatureBlockResourceCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMSignatureBlockResourceCollection {
-    type Vtable = IXpsOMSignatureBlockResourceCollectionVtbl;
+    type Vtable = IXpsOMSignatureBlockResourceCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab8f5d8e_351b_4d33_aaed_fa56f0022931);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMSignatureBlockResourceCollectionVtbl {
+pub struct IXpsOMSignatureBlockResourceCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, signatureblockresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8352,13 +8352,13 @@ impl ::core::fmt::Debug for IXpsOMSolidColorBrush {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMSolidColorBrush {
-    type Vtable = IXpsOMSolidColorBrushVtbl;
+    type Vtable = IXpsOMSolidColorBrush_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa06f9f05_3be9_4763_98a8_094fc672e488);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMSolidColorBrushVtbl {
-    pub base: IXpsOMBrushVtbl,
+pub struct IXpsOMSolidColorBrush_Vtbl {
+    pub base: IXpsOMBrush_Vtbl,
     pub GetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: *mut XPS_COLOR, colorprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: *const XPS_COLOR, colorprofile: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, solidcolorbrush: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8472,13 +8472,13 @@ impl ::core::fmt::Debug for IXpsOMStoryFragmentsResource {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMStoryFragmentsResource {
-    type Vtable = IXpsOMStoryFragmentsResourceVtbl;
+    type Vtable = IXpsOMStoryFragmentsResource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2b3ca09_0473_4282_87ae_1780863223f0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMStoryFragmentsResourceVtbl {
-    pub base: IXpsOMResourceVtbl,
+pub struct IXpsOMStoryFragmentsResource_Vtbl {
+    pub base: IXpsOMResource_Vtbl,
     pub GetOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8537,12 +8537,12 @@ impl ::core::fmt::Debug for IXpsOMThumbnailGenerator {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMThumbnailGenerator {
-    type Vtable = IXpsOMThumbnailGeneratorVtbl;
+    type Vtable = IXpsOMThumbnailGenerator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15b873d5_1971_41e8_83a3_6578403064c7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMThumbnailGeneratorVtbl {
+pub struct IXpsOMThumbnailGenerator_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub GenerateThumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, page: ::windows::core::RawPtr, thumbnailtype: XPS_IMAGE_TYPE, thumbnailsize: XPS_THUMBNAIL_SIZE, imageresourcepartname: ::windows::core::RawPtr, imageresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8702,13 +8702,13 @@ impl ::core::fmt::Debug for IXpsOMTileBrush {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMTileBrush {
-    type Vtable = IXpsOMTileBrushVtbl;
+    type Vtable = IXpsOMTileBrush_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fc2328d_d722_4a54_b2ec_be90218a789e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMTileBrushVtbl {
-    pub base: IXpsOMBrushVtbl,
+pub struct IXpsOMTileBrush_Vtbl {
+    pub base: IXpsOMBrush_Vtbl,
     pub GetTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetTransformLocal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetTransformLocal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transform: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8927,13 +8927,13 @@ impl ::core::fmt::Debug for IXpsOMVisual {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMVisual {
-    type Vtable = IXpsOMVisualVtbl;
+    type Vtable = IXpsOMVisual_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc3e7333_fb0b_4af3_a819_0b4eaad0d2fd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMVisualVtbl {
-    pub base: IXpsOMShareableVtbl,
+pub struct IXpsOMVisual_Vtbl {
+    pub base: IXpsOMShareable_Vtbl,
     pub GetTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrixtransform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetTransformLocal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrixtransform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetTransformLocal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrixtransform: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9205,13 +9205,13 @@ impl ::core::fmt::Debug for IXpsOMVisualBrush {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMVisualBrush {
-    type Vtable = IXpsOMVisualBrushVtbl;
+    type Vtable = IXpsOMVisualBrush_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97e294af_5b37_46b4_8057_874d2f64119b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMVisualBrushVtbl {
-    pub base: IXpsOMTileBrushVtbl,
+pub struct IXpsOMVisualBrush_Vtbl {
+    pub base: IXpsOMTileBrush_Vtbl,
     pub GetVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetVisualLocal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetVisualLocal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9293,12 +9293,12 @@ impl ::core::fmt::Debug for IXpsOMVisualCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsOMVisualCollection {
-    type Vtable = IXpsOMVisualCollectionVtbl;
+    type Vtable = IXpsOMVisualCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94d8abde_ab91_46a8_82b7_f5b05ef01a96);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsOMVisualCollectionVtbl {
+pub struct IXpsOMVisualCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, object: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9414,12 +9414,12 @@ impl ::core::fmt::Debug for IXpsSignature {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsSignature {
-    type Vtable = IXpsSignatureVtbl;
+    type Vtable = IXpsSignature_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ae4c93e_1ade_42fb_898b_3a5658284857);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsSignatureVtbl {
+pub struct IXpsSignature_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetSignatureId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sigid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -9528,12 +9528,12 @@ impl ::core::fmt::Debug for IXpsSignatureBlock {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsSignatureBlock {
-    type Vtable = IXpsSignatureBlockVtbl;
+    type Vtable = IXpsSignatureBlock_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x151fac09_0b97_4ac6_a323_5e4297d4322b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsSignatureBlockVtbl {
+pub struct IXpsSignatureBlock_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetRequests: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requests: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -9606,12 +9606,12 @@ impl ::core::fmt::Debug for IXpsSignatureBlockCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsSignatureBlockCollection {
-    type Vtable = IXpsSignatureBlockCollectionVtbl;
+    type Vtable = IXpsSignatureBlockCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23397050_fe99_467a_8dce_9237f074ffe4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsSignatureBlockCollectionVtbl {
+pub struct IXpsSignatureBlockCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, signatureblock: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9673,12 +9673,12 @@ impl ::core::fmt::Debug for IXpsSignatureCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsSignatureCollection {
-    type Vtable = IXpsSignatureCollectionVtbl;
+    type Vtable = IXpsSignatureCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2d1d95d_add2_4dff_ab27_6b9c645ff322);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsSignatureCollectionVtbl {
+pub struct IXpsSignatureCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, signature: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9784,12 +9784,12 @@ impl ::core::fmt::Debug for IXpsSignatureManager {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsSignatureManager {
-    type Vtable = IXpsSignatureManagerVtbl;
+    type Vtable = IXpsSignatureManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3e8d338_fdc4_4afc_80b5_d532a1782ee1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsSignatureManagerVtbl {
+pub struct IXpsSignatureManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub LoadPackageFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -9933,12 +9933,12 @@ impl ::core::fmt::Debug for IXpsSignatureRequest {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsSignatureRequest {
-    type Vtable = IXpsSignatureRequestVtbl;
+    type Vtable = IXpsSignatureRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac58950b_7208_4b2d_b2c4_951083d3b8eb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsSignatureRequestVtbl {
+pub struct IXpsSignatureRequest_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetIntent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, intent: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -10039,12 +10039,12 @@ impl ::core::fmt::Debug for IXpsSignatureRequestCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsSignatureRequestCollection {
-    type Vtable = IXpsSignatureRequestCollectionVtbl;
+    type Vtable = IXpsSignatureRequestCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0253e68_9f19_412e_9b4f_54d3b0ac6cd9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsSignatureRequestCollectionVtbl {
+pub struct IXpsSignatureRequestCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, signaturerequest: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10183,12 +10183,12 @@ impl ::core::fmt::Debug for IXpsSigningOptions {
     }
 }
 unsafe impl ::windows::core::Interface for IXpsSigningOptions {
-    type Vtable = IXpsSigningOptionsVtbl;
+    type Vtable = IXpsSigningOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7718eae4_3215_49be_af5b_594fef7fcfa6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsSigningOptionsVtbl {
+pub struct IXpsSigningOptions_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetSignatureId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signatureid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,

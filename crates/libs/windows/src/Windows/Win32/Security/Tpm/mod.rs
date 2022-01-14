@@ -69,12 +69,12 @@ impl ::core::fmt::Debug for ITpmVirtualSmartCardManager {
     }
 }
 unsafe impl ::windows::core::Interface for ITpmVirtualSmartCardManager {
-    type Vtable = ITpmVirtualSmartCardManagerVtbl;
+    type Vtable = ITpmVirtualSmartCardManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x112b1dff_d9dc_41f7_869f_d67fee7cb591);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITpmVirtualSmartCardManagerVtbl {
+pub struct ITpmVirtualSmartCardManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateVirtualSmartCard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfriendlyname: super::super::Foundation::PWSTR, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, fgenerate: super::super::Foundation::BOOL, pstatuscallback: ::windows::core::RawPtr, ppszinstanceid: *mut super::super::Foundation::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -199,13 +199,13 @@ impl ::core::fmt::Debug for ITpmVirtualSmartCardManager2 {
     }
 }
 unsafe impl ::windows::core::Interface for ITpmVirtualSmartCardManager2 {
-    type Vtable = ITpmVirtualSmartCardManager2Vtbl;
+    type Vtable = ITpmVirtualSmartCardManager2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdf8a2b9_02de_47f4_bc26_aa85ab5e5267);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITpmVirtualSmartCardManager2Vtbl {
-    pub base: ITpmVirtualSmartCardManagerVtbl,
+pub struct ITpmVirtualSmartCardManager2_Vtbl {
+    pub base: ITpmVirtualSmartCardManager_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateVirtualSmartCardWithPinPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfriendlyname: super::super::Foundation::PWSTR, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, pbpinpolicy: *const u8, cbpinpolicy: u32, fgenerate: super::super::Foundation::BOOL, pstatuscallback: ::windows::core::RawPtr, ppszinstanceid: *mut super::super::Foundation::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -370,13 +370,13 @@ impl ::core::fmt::Debug for ITpmVirtualSmartCardManager3 {
     }
 }
 unsafe impl ::windows::core::Interface for ITpmVirtualSmartCardManager3 {
-    type Vtable = ITpmVirtualSmartCardManager3Vtbl;
+    type Vtable = ITpmVirtualSmartCardManager3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c745a97_f375_4150_be17_5950f694c699);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITpmVirtualSmartCardManager3Vtbl {
-    pub base: ITpmVirtualSmartCardManager2Vtbl,
+pub struct ITpmVirtualSmartCardManager3_Vtbl {
+    pub base: ITpmVirtualSmartCardManager2_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateVirtualSmartCardWithAttestation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfriendlyname: super::super::Foundation::PWSTR, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, pbpinpolicy: *const u8, cbpinpolicy: u32, attestationtype: TPMVSC_ATTESTATION_TYPE, fgenerate: super::super::Foundation::BOOL, pstatuscallback: ::windows::core::RawPtr, ppszinstanceid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -432,12 +432,12 @@ impl ::core::fmt::Debug for ITpmVirtualSmartCardManagerStatusCallback {
     }
 }
 unsafe impl ::windows::core::Interface for ITpmVirtualSmartCardManagerStatusCallback {
-    type Vtable = ITpmVirtualSmartCardManagerStatusCallbackVtbl;
+    type Vtable = ITpmVirtualSmartCardManagerStatusCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a1bb35f_abb8_451c_a1ae_33d98f1bef4a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITpmVirtualSmartCardManagerStatusCallbackVtbl {
+pub struct ITpmVirtualSmartCardManagerStatusCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub ReportProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: TPMVSCMGR_STATUS) -> ::windows::core::HRESULT,
     pub ReportError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, error: TPMVSCMGR_ERROR) -> ::windows::core::HRESULT,

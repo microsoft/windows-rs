@@ -152,12 +152,12 @@ impl ::core::fmt::Debug for IProtectionPolicyManagerInterop {
     }
 }
 unsafe impl ::windows::core::Interface for IProtectionPolicyManagerInterop {
-    type Vtable = IProtectionPolicyManagerInteropVtbl;
+    type Vtable = IProtectionPolicyManagerInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4652651d_c1fe_4ba1_9f0a_c0f56596f721);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProtectionPolicyManagerInteropVtbl {
+pub struct IProtectionPolicyManagerInterop_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RequestAccessForWindowAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, sourceidentity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, targetidentity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -260,12 +260,12 @@ impl ::core::fmt::Debug for IProtectionPolicyManagerInterop2 {
     }
 }
 unsafe impl ::windows::core::Interface for IProtectionPolicyManagerInterop2 {
-    type Vtable = IProtectionPolicyManagerInterop2Vtbl;
+    type Vtable = IProtectionPolicyManagerInterop2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x157cfbe4_a78d_4156_b384_61fdac41e686);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProtectionPolicyManagerInterop2Vtbl {
+pub struct IProtectionPolicyManagerInterop2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RequestAccessForAppWithWindowAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, sourceidentity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, apppackagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -386,12 +386,12 @@ impl ::core::fmt::Debug for IProtectionPolicyManagerInterop3 {
     }
 }
 unsafe impl ::windows::core::Interface for IProtectionPolicyManagerInterop3 {
-    type Vtable = IProtectionPolicyManagerInterop3Vtbl;
+    type Vtable = IProtectionPolicyManagerInterop3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1c03933_b398_4d93_b0fd_2972adf802c2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProtectionPolicyManagerInterop3Vtbl {
+pub struct IProtectionPolicyManagerInterop3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RequestAccessWithBehaviorForWindowAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, sourceidentity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, targetidentity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, auditinfounk: *mut ::core::ffi::c_void, messagefromapp: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, behavior: u32, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

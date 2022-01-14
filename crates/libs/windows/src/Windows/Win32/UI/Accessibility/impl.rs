@@ -1,9 +1,9 @@
-pub trait IAccIdentityImpl: Sized {
+pub trait IAccIdentity_Impl: Sized {
     fn GetIdentityString(&mut self, dwidchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows::core::Result<()>;
 }
-impl IAccIdentityVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccIdentityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccIdentityVtbl {
-        unsafe extern "system" fn GetIdentityString<Impl: IAccIdentityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwidchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows::core::HRESULT {
+impl IAccIdentity_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccIdentity_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccIdentity_Vtbl {
+        unsafe extern "system" fn GetIdentityString<Impl: IAccIdentity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwidchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetIdentityString(::core::mem::transmute_copy(&dwidchild), ::core::mem::transmute_copy(&ppidstring), ::core::mem::transmute_copy(&pdwidstringlen)).into()
         }
@@ -14,13 +14,13 @@ impl IAccIdentityVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAccPropServerImpl: Sized {
+pub trait IAccPropServer_Impl: Sized {
     fn GetPropValue(&mut self, pidstring: *const u8, dwidstringlen: u32, idprop: ::windows::core::GUID, pvarvalue: *mut super::super::System::Com::VARIANT, pfhasprop: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IAccPropServerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccPropServerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccPropServerVtbl {
-        unsafe extern "system" fn GetPropValue<Impl: IAccPropServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: ::windows::core::GUID, pvarvalue: *mut super::super::System::Com::VARIANT, pfhasprop: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+impl IAccPropServer_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccPropServer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccPropServer_Vtbl {
+        unsafe extern "system" fn GetPropValue<Impl: IAccPropServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: ::windows::core::GUID, pvarvalue: *mut super::super::System::Com::VARIANT, pfhasprop: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetPropValue(::core::mem::transmute_copy(&pidstring), ::core::mem::transmute_copy(&dwidstringlen), ::core::mem::transmute_copy(&idprop), ::core::mem::transmute_copy(&pvarvalue), ::core::mem::transmute_copy(&pfhasprop)).into()
         }
@@ -31,7 +31,7 @@ impl IAccPropServerVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
-pub trait IAccPropServicesImpl: Sized {
+pub trait IAccPropServices_Impl: Sized {
     fn SetPropValue(&mut self, pidstring: *const u8, dwidstringlen: u32, idprop: ::windows::core::GUID, var: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn SetPropServer(&mut self, pidstring: *const u8, dwidstringlen: u32, paprops: *const ::windows::core::GUID, cprops: i32, pserver: ::core::option::Option<IAccPropServer>, annoscope: AnnoScope) -> ::windows::core::Result<()>;
     fn ClearProps(&mut self, pidstring: *const u8, dwidstringlen: u32, paprops: *const ::windows::core::GUID, cprops: i32) -> ::windows::core::Result<()>;
@@ -49,65 +49,65 @@ pub trait IAccPropServicesImpl: Sized {
     fn DecomposeHmenuIdentityString(&mut self, pidstring: *const u8, dwidstringlen: u32, phmenu: *mut super::WindowsAndMessaging::HMENU, pidchild: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
-impl IAccPropServicesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccPropServicesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccPropServicesVtbl {
-        unsafe extern "system" fn SetPropValue<Impl: IAccPropServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: ::windows::core::GUID, var: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+impl IAccPropServices_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccPropServices_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccPropServices_Vtbl {
+        unsafe extern "system" fn SetPropValue<Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: ::windows::core::GUID, var: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPropValue(::core::mem::transmute_copy(&pidstring), ::core::mem::transmute_copy(&dwidstringlen), ::core::mem::transmute_copy(&idprop), ::core::mem::transmute_copy(&var)).into()
         }
-        unsafe extern "system" fn SetPropServer<Impl: IAccPropServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, paprops: *const ::windows::core::GUID, cprops: i32, pserver: ::windows::core::RawPtr, annoscope: AnnoScope) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPropServer<Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, paprops: *const ::windows::core::GUID, cprops: i32, pserver: ::windows::core::RawPtr, annoscope: AnnoScope) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPropServer(::core::mem::transmute_copy(&pidstring), ::core::mem::transmute_copy(&dwidstringlen), ::core::mem::transmute_copy(&paprops), ::core::mem::transmute_copy(&cprops), ::core::mem::transmute(&pserver), ::core::mem::transmute_copy(&annoscope)).into()
         }
-        unsafe extern "system" fn ClearProps<Impl: IAccPropServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, paprops: *const ::windows::core::GUID, cprops: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearProps<Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, paprops: *const ::windows::core::GUID, cprops: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearProps(::core::mem::transmute_copy(&pidstring), ::core::mem::transmute_copy(&dwidstringlen), ::core::mem::transmute_copy(&paprops), ::core::mem::transmute_copy(&cprops)).into()
         }
-        unsafe extern "system" fn SetHwndProp<Impl: IAccPropServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: ::windows::core::GUID, var: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHwndProp<Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: ::windows::core::GUID, var: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHwndProp(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&idobject), ::core::mem::transmute_copy(&idchild), ::core::mem::transmute_copy(&idprop), ::core::mem::transmute_copy(&var)).into()
         }
-        unsafe extern "system" fn SetHwndPropStr<Impl: IAccPropServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: ::windows::core::GUID, str: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHwndPropStr<Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: ::windows::core::GUID, str: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHwndPropStr(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&idobject), ::core::mem::transmute_copy(&idchild), ::core::mem::transmute_copy(&idprop), ::core::mem::transmute_copy(&str)).into()
         }
-        unsafe extern "system" fn SetHwndPropServer<Impl: IAccPropServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const ::windows::core::GUID, cprops: i32, pserver: ::windows::core::RawPtr, annoscope: AnnoScope) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHwndPropServer<Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const ::windows::core::GUID, cprops: i32, pserver: ::windows::core::RawPtr, annoscope: AnnoScope) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHwndPropServer(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&idobject), ::core::mem::transmute_copy(&idchild), ::core::mem::transmute_copy(&paprops), ::core::mem::transmute_copy(&cprops), ::core::mem::transmute(&pserver), ::core::mem::transmute_copy(&annoscope)).into()
         }
-        unsafe extern "system" fn ClearHwndProps<Impl: IAccPropServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const ::windows::core::GUID, cprops: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearHwndProps<Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const ::windows::core::GUID, cprops: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearHwndProps(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&idobject), ::core::mem::transmute_copy(&idchild), ::core::mem::transmute_copy(&paprops), ::core::mem::transmute_copy(&cprops)).into()
         }
-        unsafe extern "system" fn ComposeHwndIdentityString<Impl: IAccPropServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ComposeHwndIdentityString<Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ComposeHwndIdentityString(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&idobject), ::core::mem::transmute_copy(&idchild), ::core::mem::transmute_copy(&ppidstring), ::core::mem::transmute_copy(&pdwidstringlen)).into()
         }
-        unsafe extern "system" fn DecomposeHwndIdentityString<Impl: IAccPropServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, phwnd: *mut super::super::Foundation::HWND, pidobject: *mut u32, pidchild: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DecomposeHwndIdentityString<Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, phwnd: *mut super::super::Foundation::HWND, pidobject: *mut u32, pidchild: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DecomposeHwndIdentityString(::core::mem::transmute_copy(&pidstring), ::core::mem::transmute_copy(&dwidstringlen), ::core::mem::transmute_copy(&phwnd), ::core::mem::transmute_copy(&pidobject), ::core::mem::transmute_copy(&pidchild)).into()
         }
-        unsafe extern "system" fn SetHmenuProp<Impl: IAccPropServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: ::windows::core::GUID, var: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHmenuProp<Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: ::windows::core::GUID, var: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHmenuProp(::core::mem::transmute_copy(&hmenu), ::core::mem::transmute_copy(&idchild), ::core::mem::transmute_copy(&idprop), ::core::mem::transmute_copy(&var)).into()
         }
-        unsafe extern "system" fn SetHmenuPropStr<Impl: IAccPropServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: ::windows::core::GUID, str: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHmenuPropStr<Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: ::windows::core::GUID, str: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHmenuPropStr(::core::mem::transmute_copy(&hmenu), ::core::mem::transmute_copy(&idchild), ::core::mem::transmute_copy(&idprop), ::core::mem::transmute_copy(&str)).into()
         }
-        unsafe extern "system" fn SetHmenuPropServer<Impl: IAccPropServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const ::windows::core::GUID, cprops: i32, pserver: ::windows::core::RawPtr, annoscope: AnnoScope) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHmenuPropServer<Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const ::windows::core::GUID, cprops: i32, pserver: ::windows::core::RawPtr, annoscope: AnnoScope) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHmenuPropServer(::core::mem::transmute_copy(&hmenu), ::core::mem::transmute_copy(&idchild), ::core::mem::transmute_copy(&paprops), ::core::mem::transmute_copy(&cprops), ::core::mem::transmute(&pserver), ::core::mem::transmute_copy(&annoscope)).into()
         }
-        unsafe extern "system" fn ClearHmenuProps<Impl: IAccPropServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const ::windows::core::GUID, cprops: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearHmenuProps<Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const ::windows::core::GUID, cprops: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearHmenuProps(::core::mem::transmute_copy(&hmenu), ::core::mem::transmute_copy(&idchild), ::core::mem::transmute_copy(&paprops), ::core::mem::transmute_copy(&cprops)).into()
         }
-        unsafe extern "system" fn ComposeHmenuIdentityString<Impl: IAccPropServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ComposeHmenuIdentityString<Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ComposeHmenuIdentityString(::core::mem::transmute_copy(&hmenu), ::core::mem::transmute_copy(&idchild), ::core::mem::transmute_copy(&ppidstring), ::core::mem::transmute_copy(&pdwidstringlen)).into()
         }
-        unsafe extern "system" fn DecomposeHmenuIdentityString<Impl: IAccPropServicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, phmenu: *mut super::WindowsAndMessaging::HMENU, pidchild: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DecomposeHmenuIdentityString<Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, phmenu: *mut super::WindowsAndMessaging::HMENU, pidchild: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DecomposeHmenuIdentityString(::core::mem::transmute_copy(&pidstring), ::core::mem::transmute_copy(&dwidstringlen), ::core::mem::transmute_copy(&phmenu), ::core::mem::transmute_copy(&pidchild)).into()
         }
@@ -135,7 +135,7 @@ impl IAccPropServicesVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAccessibleImpl: Sized + IDispatchImpl {
+pub trait IAccessible_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn accParent(&mut self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn accChildCount(&mut self) -> ::windows::core::Result<i32>;
     fn accChild(&mut self, varchild: super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
@@ -159,9 +159,9 @@ pub trait IAccessibleImpl: Sized + IDispatchImpl {
     fn SetaccValue(&mut self, varchild: super::super::System::Com::VARIANT, szvalue: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IAccessibleVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessibleImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccessibleVtbl {
-        unsafe extern "system" fn accParent<Impl: IAccessibleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdispparent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAccessible_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccessible_Vtbl {
+        unsafe extern "system" fn accParent<Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdispparent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).accParent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -171,7 +171,7 @@ impl IAccessibleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accChildCount<Impl: IAccessibleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcountchildren: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn accChildCount<Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcountchildren: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).accChildCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -181,7 +181,7 @@ impl IAccessibleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accChild<Impl: IAccessibleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppdispchild: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn accChild<Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppdispchild: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).accChild(::core::mem::transmute_copy(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -191,7 +191,7 @@ impl IAccessibleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accName<Impl: IAccessibleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn accName<Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).accName(::core::mem::transmute_copy(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -201,7 +201,7 @@ impl IAccessibleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accValue<Impl: IAccessibleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn accValue<Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).accValue(::core::mem::transmute_copy(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -211,7 +211,7 @@ impl IAccessibleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accDescription<Impl: IAccessibleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn accDescription<Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).accDescription(::core::mem::transmute_copy(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -221,7 +221,7 @@ impl IAccessibleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accRole<Impl: IAccessibleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarrole: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn accRole<Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarrole: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).accRole(::core::mem::transmute_copy(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -231,7 +231,7 @@ impl IAccessibleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accState<Impl: IAccessibleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarstate: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn accState<Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarstate: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).accState(::core::mem::transmute_copy(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -241,7 +241,7 @@ impl IAccessibleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accHelp<Impl: IAccessibleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszhelp: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn accHelp<Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszhelp: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).accHelp(::core::mem::transmute_copy(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -251,11 +251,11 @@ impl IAccessibleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accHelpTopic<Impl: IAccessibleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhelpfile: *mut super::super::Foundation::BSTR, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pidtopic: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn accHelpTopic<Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhelpfile: *mut super::super::Foundation::BSTR, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pidtopic: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).accHelpTopic(::core::mem::transmute_copy(&pszhelpfile), ::core::mem::transmute_copy(&varchild), ::core::mem::transmute_copy(&pidtopic)).into()
         }
-        unsafe extern "system" fn accKeyboardShortcut<Impl: IAccessibleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszkeyboardshortcut: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn accKeyboardShortcut<Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszkeyboardshortcut: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).accKeyboardShortcut(::core::mem::transmute_copy(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -265,7 +265,7 @@ impl IAccessibleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accFocus<Impl: IAccessibleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn accFocus<Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).accFocus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -275,7 +275,7 @@ impl IAccessibleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accSelection<Impl: IAccessibleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarchildren: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn accSelection<Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarchildren: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).accSelection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -285,7 +285,7 @@ impl IAccessibleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accDefaultAction<Impl: IAccessibleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszdefaultaction: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn accDefaultAction<Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszdefaultaction: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).accDefaultAction(::core::mem::transmute_copy(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -295,15 +295,15 @@ impl IAccessibleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accSelect<Impl: IAccessibleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flagsselect: i32, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn accSelect<Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flagsselect: i32, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).accSelect(::core::mem::transmute_copy(&flagsselect), ::core::mem::transmute_copy(&varchild)).into()
         }
-        unsafe extern "system" fn accLocation<Impl: IAccessibleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn accLocation<Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).accLocation(::core::mem::transmute_copy(&pxleft), ::core::mem::transmute_copy(&pytop), ::core::mem::transmute_copy(&pcxwidth), ::core::mem::transmute_copy(&pcyheight), ::core::mem::transmute_copy(&varchild)).into()
         }
-        unsafe extern "system" fn accNavigate<Impl: IAccessibleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, navdir: i32, varstart: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarendupat: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn accNavigate<Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, navdir: i32, varstart: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarendupat: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).accNavigate(::core::mem::transmute_copy(&navdir), ::core::mem::transmute_copy(&varstart)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -313,7 +313,7 @@ impl IAccessibleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accHitTest<Impl: IAccessibleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xleft: i32, ytop: i32, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn accHitTest<Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xleft: i32, ytop: i32, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).accHitTest(::core::mem::transmute_copy(&xleft), ::core::mem::transmute_copy(&ytop)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -323,20 +323,20 @@ impl IAccessibleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accDoDefaultAction<Impl: IAccessibleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn accDoDefaultAction<Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).accDoDefaultAction(::core::mem::transmute_copy(&varchild)).into()
         }
-        unsafe extern "system" fn SetaccName<Impl: IAccessibleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, szname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetaccName<Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, szname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetaccName(::core::mem::transmute_copy(&varchild), ::core::mem::transmute_copy(&szname)).into()
         }
-        unsafe extern "system" fn SetaccValue<Impl: IAccessibleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, szvalue: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetaccValue<Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, szvalue: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetaccValue(::core::mem::transmute_copy(&varchild), ::core::mem::transmute_copy(&szvalue)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             accParent: accParent::<Impl, IMPL_OFFSET>,
             accChildCount: accChildCount::<Impl, IMPL_OFFSET>,
             accChild: accChild::<Impl, IMPL_OFFSET>,
@@ -365,16 +365,16 @@ impl IAccessibleVtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAccessibleExImpl: Sized {
+pub trait IAccessibleEx_Impl: Sized {
     fn GetObjectForChild(&mut self, idchild: i32) -> ::windows::core::Result<IAccessibleEx>;
     fn GetIAccessiblePair(&mut self, ppacc: *mut ::core::option::Option<IAccessible>, pidchild: *mut i32) -> ::windows::core::Result<()>;
     fn GetRuntimeId(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn ConvertReturnedElement(&mut self, pin: ::core::option::Option<IRawElementProviderSimple>) -> ::windows::core::Result<IAccessibleEx>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl IAccessibleExVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessibleExImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccessibleExVtbl {
-        unsafe extern "system" fn GetObjectForChild<Impl: IAccessibleExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idchild: i32, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAccessibleEx_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessibleEx_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccessibleEx_Vtbl {
+        unsafe extern "system" fn GetObjectForChild<Impl: IAccessibleEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idchild: i32, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetObjectForChild(::core::mem::transmute_copy(&idchild)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -384,11 +384,11 @@ impl IAccessibleExVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIAccessiblePair<Impl: IAccessibleExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppacc: *mut ::windows::core::RawPtr, pidchild: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIAccessiblePair<Impl: IAccessibleEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppacc: *mut ::windows::core::RawPtr, pidchild: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetIAccessiblePair(::core::mem::transmute_copy(&ppacc), ::core::mem::transmute_copy(&pidchild)).into()
         }
-        unsafe extern "system" fn GetRuntimeId<Impl: IAccessibleExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRuntimeId<Impl: IAccessibleEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRuntimeId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -398,7 +398,7 @@ impl IAccessibleExVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConvertReturnedElement<Impl: IAccessibleExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pin: ::windows::core::RawPtr, ppretvalout: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConvertReturnedElement<Impl: IAccessibleEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pin: ::windows::core::RawPtr, ppretvalout: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConvertReturnedElement(::core::mem::transmute(&pin)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -421,13 +421,13 @@ impl IAccessibleExVtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAccessibleHandlerImpl: Sized {
+pub trait IAccessibleHandler_Impl: Sized {
     fn AccessibleObjectFromID(&mut self, hwnd: i32, lobjectid: i32) -> ::windows::core::Result<IAccessible>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl IAccessibleHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessibleHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccessibleHandlerVtbl {
-        unsafe extern "system" fn AccessibleObjectFromID<Impl: IAccessibleHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: i32, lobjectid: i32, piaccessible: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAccessibleHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessibleHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccessibleHandler_Vtbl {
+        unsafe extern "system" fn AccessibleObjectFromID<Impl: IAccessibleHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: i32, lobjectid: i32, piaccessible: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AccessibleObjectFromID(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&lobjectid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -444,14 +444,14 @@ impl IAccessibleHandlerVtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAccessibleHostingElementProvidersImpl: Sized {
+pub trait IAccessibleHostingElementProviders_Impl: Sized {
     fn GetEmbeddedFragmentRoots(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetObjectIdForProvider(&mut self, pprovider: ::core::option::Option<IRawElementProviderSimple>) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl IAccessibleHostingElementProvidersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessibleHostingElementProvidersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccessibleHostingElementProvidersVtbl {
-        unsafe extern "system" fn GetEmbeddedFragmentRoots<Impl: IAccessibleHostingElementProvidersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+impl IAccessibleHostingElementProviders_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessibleHostingElementProviders_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccessibleHostingElementProviders_Vtbl {
+        unsafe extern "system" fn GetEmbeddedFragmentRoots<Impl: IAccessibleHostingElementProviders_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEmbeddedFragmentRoots() {
                 ::core::result::Result::Ok(ok__) => {
@@ -461,7 +461,7 @@ impl IAccessibleHostingElementProvidersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetObjectIdForProvider<Impl: IAccessibleHostingElementProvidersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprovider: ::windows::core::RawPtr, pidobject: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetObjectIdForProvider<Impl: IAccessibleHostingElementProviders_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprovider: ::windows::core::RawPtr, pidobject: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetObjectIdForProvider(::core::mem::transmute(&pprovider)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -482,16 +482,16 @@ impl IAccessibleHostingElementProvidersVtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAccessibleWindowlessSiteImpl: Sized {
+pub trait IAccessibleWindowlessSite_Impl: Sized {
     fn AcquireObjectIdRange(&mut self, rangesize: i32, prangeowner: ::core::option::Option<IAccessibleHandler>) -> ::windows::core::Result<i32>;
     fn ReleaseObjectIdRange(&mut self, rangebase: i32, prangeowner: ::core::option::Option<IAccessibleHandler>) -> ::windows::core::Result<()>;
     fn QueryObjectIdRanges(&mut self, prangesowner: ::core::option::Option<IAccessibleHandler>) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetParentAccessible(&mut self) -> ::windows::core::Result<IAccessible>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl IAccessibleWindowlessSiteVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessibleWindowlessSiteImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccessibleWindowlessSiteVtbl {
-        unsafe extern "system" fn AcquireObjectIdRange<Impl: IAccessibleWindowlessSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rangesize: i32, prangeowner: ::windows::core::RawPtr, prangebase: *mut i32) -> ::windows::core::HRESULT {
+impl IAccessibleWindowlessSite_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessibleWindowlessSite_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccessibleWindowlessSite_Vtbl {
+        unsafe extern "system" fn AcquireObjectIdRange<Impl: IAccessibleWindowlessSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rangesize: i32, prangeowner: ::windows::core::RawPtr, prangebase: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AcquireObjectIdRange(::core::mem::transmute_copy(&rangesize), ::core::mem::transmute(&prangeowner)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -501,11 +501,11 @@ impl IAccessibleWindowlessSiteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReleaseObjectIdRange<Impl: IAccessibleWindowlessSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rangebase: i32, prangeowner: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReleaseObjectIdRange<Impl: IAccessibleWindowlessSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rangebase: i32, prangeowner: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReleaseObjectIdRange(::core::mem::transmute_copy(&rangebase), ::core::mem::transmute(&prangeowner)).into()
         }
-        unsafe extern "system" fn QueryObjectIdRanges<Impl: IAccessibleWindowlessSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prangesowner: ::windows::core::RawPtr, psaranges: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryObjectIdRanges<Impl: IAccessibleWindowlessSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prangesowner: ::windows::core::RawPtr, psaranges: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryObjectIdRanges(::core::mem::transmute(&prangesowner)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -515,7 +515,7 @@ impl IAccessibleWindowlessSiteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetParentAccessible<Impl: IAccessibleWindowlessSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppparent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetParentAccessible<Impl: IAccessibleWindowlessSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppparent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetParentAccessible() {
                 ::core::result::Result::Ok(ok__) => {
@@ -538,7 +538,7 @@ impl IAccessibleWindowlessSiteVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IAnnotationProviderImpl: Sized {
+pub trait IAnnotationProvider_Impl: Sized {
     fn AnnotationTypeId(&mut self) -> ::windows::core::Result<i32>;
     fn AnnotationTypeName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Author(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -546,9 +546,9 @@ pub trait IAnnotationProviderImpl: Sized {
     fn Target(&mut self) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IAnnotationProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnnotationProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnnotationProviderVtbl {
-        unsafe extern "system" fn AnnotationTypeId<Impl: IAnnotationProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+impl IAnnotationProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnnotationProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnnotationProvider_Vtbl {
+        unsafe extern "system" fn AnnotationTypeId<Impl: IAnnotationProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AnnotationTypeId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -558,7 +558,7 @@ impl IAnnotationProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AnnotationTypeName<Impl: IAnnotationProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AnnotationTypeName<Impl: IAnnotationProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AnnotationTypeName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -568,7 +568,7 @@ impl IAnnotationProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Author<Impl: IAnnotationProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Author<Impl: IAnnotationProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Author() {
                 ::core::result::Result::Ok(ok__) => {
@@ -578,7 +578,7 @@ impl IAnnotationProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DateTime<Impl: IAnnotationProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DateTime<Impl: IAnnotationProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DateTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -588,7 +588,7 @@ impl IAnnotationProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Target<Impl: IAnnotationProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Target<Impl: IAnnotationProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Target() {
                 ::core::result::Result::Ok(ok__) => {
@@ -611,12 +611,12 @@ impl IAnnotationProviderVtbl {
         iid == &<IAnnotationProvider as ::windows::core::Interface>::IID
     }
 }
-pub trait ICustomNavigationProviderImpl: Sized {
+pub trait ICustomNavigationProvider_Impl: Sized {
     fn Navigate(&mut self, direction: NavigateDirection) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
-impl ICustomNavigationProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomNavigationProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomNavigationProviderVtbl {
-        unsafe extern "system" fn Navigate<Impl: ICustomNavigationProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, direction: NavigateDirection, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICustomNavigationProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomNavigationProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomNavigationProvider_Vtbl {
+        unsafe extern "system" fn Navigate<Impl: ICustomNavigationProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, direction: NavigateDirection, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Navigate(::core::mem::transmute_copy(&direction)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -632,17 +632,17 @@ impl ICustomNavigationProviderVtbl {
         iid == &<ICustomNavigationProvider as ::windows::core::Interface>::IID
     }
 }
-pub trait IDockProviderImpl: Sized {
+pub trait IDockProvider_Impl: Sized {
     fn SetDockPosition(&mut self, dockposition: DockPosition) -> ::windows::core::Result<()>;
     fn DockPosition(&mut self) -> ::windows::core::Result<DockPosition>;
 }
-impl IDockProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDockProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDockProviderVtbl {
-        unsafe extern "system" fn SetDockPosition<Impl: IDockProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dockposition: DockPosition) -> ::windows::core::HRESULT {
+impl IDockProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDockProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDockProvider_Vtbl {
+        unsafe extern "system" fn SetDockPosition<Impl: IDockProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dockposition: DockPosition) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDockPosition(::core::mem::transmute_copy(&dockposition)).into()
         }
-        unsafe extern "system" fn DockPosition<Impl: IDockProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut DockPosition) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DockPosition<Impl: IDockProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut DockPosition) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DockPosition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -663,16 +663,16 @@ impl IDockProviderVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IDragProviderImpl: Sized {
+pub trait IDragProvider_Impl: Sized {
     fn IsGrabbed(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn DropEffect(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn DropEffects(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetGrabbedItems(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl IDragProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDragProviderVtbl {
-        unsafe extern "system" fn IsGrabbed<Impl: IDragProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+impl IDragProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDragProvider_Vtbl {
+        unsafe extern "system" fn IsGrabbed<Impl: IDragProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsGrabbed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -682,7 +682,7 @@ impl IDragProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DropEffect<Impl: IDragProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DropEffect<Impl: IDragProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DropEffect() {
                 ::core::result::Result::Ok(ok__) => {
@@ -692,7 +692,7 @@ impl IDragProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DropEffects<Impl: IDragProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DropEffects<Impl: IDragProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DropEffects() {
                 ::core::result::Result::Ok(ok__) => {
@@ -702,7 +702,7 @@ impl IDragProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetGrabbedItems<Impl: IDragProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGrabbedItems<Impl: IDragProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetGrabbedItems() {
                 ::core::result::Result::Ok(ok__) => {
@@ -725,14 +725,14 @@ impl IDragProviderVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IDropTargetProviderImpl: Sized {
+pub trait IDropTargetProvider_Impl: Sized {
     fn DropTargetEffect(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn DropTargetEffects(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl IDropTargetProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDropTargetProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDropTargetProviderVtbl {
-        unsafe extern "system" fn DropTargetEffect<Impl: IDropTargetProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IDropTargetProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDropTargetProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDropTargetProvider_Vtbl {
+        unsafe extern "system" fn DropTargetEffect<Impl: IDropTargetProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DropTargetEffect() {
                 ::core::result::Result::Ok(ok__) => {
@@ -742,7 +742,7 @@ impl IDropTargetProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DropTargetEffects<Impl: IDropTargetProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DropTargetEffects<Impl: IDropTargetProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DropTargetEffects() {
                 ::core::result::Result::Ok(ok__) => {
@@ -762,22 +762,22 @@ impl IDropTargetProviderVtbl {
         iid == &<IDropTargetProvider as ::windows::core::Interface>::IID
     }
 }
-pub trait IExpandCollapseProviderImpl: Sized {
+pub trait IExpandCollapseProvider_Impl: Sized {
     fn Expand(&mut self) -> ::windows::core::Result<()>;
     fn Collapse(&mut self) -> ::windows::core::Result<()>;
     fn ExpandCollapseState(&mut self) -> ::windows::core::Result<ExpandCollapseState>;
 }
-impl IExpandCollapseProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExpandCollapseProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IExpandCollapseProviderVtbl {
-        unsafe extern "system" fn Expand<Impl: IExpandCollapseProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IExpandCollapseProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExpandCollapseProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IExpandCollapseProvider_Vtbl {
+        unsafe extern "system" fn Expand<Impl: IExpandCollapseProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Expand().into()
         }
-        unsafe extern "system" fn Collapse<Impl: IExpandCollapseProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Collapse<Impl: IExpandCollapseProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Collapse().into()
         }
-        unsafe extern "system" fn ExpandCollapseState<Impl: IExpandCollapseProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ExpandCollapseState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExpandCollapseState<Impl: IExpandCollapseProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ExpandCollapseState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExpandCollapseState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -798,16 +798,16 @@ impl IExpandCollapseProviderVtbl {
         iid == &<IExpandCollapseProvider as ::windows::core::Interface>::IID
     }
 }
-pub trait IGridItemProviderImpl: Sized {
+pub trait IGridItemProvider_Impl: Sized {
     fn Row(&mut self) -> ::windows::core::Result<i32>;
     fn Column(&mut self) -> ::windows::core::Result<i32>;
     fn RowSpan(&mut self) -> ::windows::core::Result<i32>;
     fn ColumnSpan(&mut self) -> ::windows::core::Result<i32>;
     fn ContainingGrid(&mut self) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
-impl IGridItemProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridItemProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGridItemProviderVtbl {
-        unsafe extern "system" fn Row<Impl: IGridItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
+impl IGridItemProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridItemProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGridItemProvider_Vtbl {
+        unsafe extern "system" fn Row<Impl: IGridItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Row() {
                 ::core::result::Result::Ok(ok__) => {
@@ -817,7 +817,7 @@ impl IGridItemProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Column<Impl: IGridItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Column<Impl: IGridItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Column() {
                 ::core::result::Result::Ok(ok__) => {
@@ -827,7 +827,7 @@ impl IGridItemProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RowSpan<Impl: IGridItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RowSpan<Impl: IGridItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RowSpan() {
                 ::core::result::Result::Ok(ok__) => {
@@ -837,7 +837,7 @@ impl IGridItemProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ColumnSpan<Impl: IGridItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ColumnSpan<Impl: IGridItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ColumnSpan() {
                 ::core::result::Result::Ok(ok__) => {
@@ -847,7 +847,7 @@ impl IGridItemProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContainingGrid<Impl: IGridItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContainingGrid<Impl: IGridItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContainingGrid() {
                 ::core::result::Result::Ok(ok__) => {
@@ -870,14 +870,14 @@ impl IGridItemProviderVtbl {
         iid == &<IGridItemProvider as ::windows::core::Interface>::IID
     }
 }
-pub trait IGridProviderImpl: Sized {
+pub trait IGridProvider_Impl: Sized {
     fn GetItem(&mut self, row: i32, column: i32) -> ::windows::core::Result<IRawElementProviderSimple>;
     fn RowCount(&mut self) -> ::windows::core::Result<i32>;
     fn ColumnCount(&mut self) -> ::windows::core::Result<i32>;
 }
-impl IGridProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGridProviderVtbl {
-        unsafe extern "system" fn GetItem<Impl: IGridProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, row: i32, column: i32, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGridProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGridProvider_Vtbl {
+        unsafe extern "system" fn GetItem<Impl: IGridProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, row: i32, column: i32, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItem(::core::mem::transmute_copy(&row), ::core::mem::transmute_copy(&column)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -887,7 +887,7 @@ impl IGridProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RowCount<Impl: IGridProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RowCount<Impl: IGridProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RowCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -897,7 +897,7 @@ impl IGridProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ColumnCount<Impl: IGridProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ColumnCount<Impl: IGridProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ColumnCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -918,12 +918,12 @@ impl IGridProviderVtbl {
         iid == &<IGridProvider as ::windows::core::Interface>::IID
     }
 }
-pub trait IInvokeProviderImpl: Sized {
+pub trait IInvokeProvider_Impl: Sized {
     fn Invoke(&mut self) -> ::windows::core::Result<()>;
 }
-impl IInvokeProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInvokeProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInvokeProviderVtbl {
-        unsafe extern "system" fn Invoke<Impl: IInvokeProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IInvokeProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInvokeProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInvokeProvider_Vtbl {
+        unsafe extern "system" fn Invoke<Impl: IInvokeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Invoke().into()
         }
@@ -934,13 +934,13 @@ impl IInvokeProviderVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IItemContainerProviderImpl: Sized {
+pub trait IItemContainerProvider_Impl: Sized {
     fn FindItemByProperty(&mut self, pstartafter: ::core::option::Option<IRawElementProviderSimple>, propertyid: i32, value: super::super::System::Com::VARIANT) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IItemContainerProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IItemContainerProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IItemContainerProviderVtbl {
-        unsafe extern "system" fn FindItemByProperty<Impl: IItemContainerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstartafter: ::windows::core::RawPtr, propertyid: i32, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfound: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IItemContainerProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IItemContainerProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IItemContainerProvider_Vtbl {
+        unsafe extern "system" fn FindItemByProperty<Impl: IItemContainerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstartafter: ::windows::core::RawPtr, propertyid: i32, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfound: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindItemByProperty(::core::mem::transmute(&pstartafter), ::core::mem::transmute_copy(&propertyid), ::core::mem::transmute_copy(&value)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -957,7 +957,7 @@ impl IItemContainerProviderVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait ILegacyIAccessibleProviderImpl: Sized {
+pub trait ILegacyIAccessibleProvider_Impl: Sized {
     fn Select(&mut self, flagsselect: i32) -> ::windows::core::Result<()>;
     fn DoDefaultAction(&mut self) -> ::windows::core::Result<()>;
     fn SetValue(&mut self, szvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
@@ -974,21 +974,21 @@ pub trait ILegacyIAccessibleProviderImpl: Sized {
     fn DefaultAction(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ILegacyIAccessibleProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILegacyIAccessibleProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILegacyIAccessibleProviderVtbl {
-        unsafe extern "system" fn Select<Impl: ILegacyIAccessibleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flagsselect: i32) -> ::windows::core::HRESULT {
+impl ILegacyIAccessibleProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILegacyIAccessibleProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILegacyIAccessibleProvider_Vtbl {
+        unsafe extern "system" fn Select<Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flagsselect: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Select(::core::mem::transmute_copy(&flagsselect)).into()
         }
-        unsafe extern "system" fn DoDefaultAction<Impl: ILegacyIAccessibleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DoDefaultAction<Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DoDefaultAction().into()
         }
-        unsafe extern "system" fn SetValue<Impl: ILegacyIAccessibleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(::core::mem::transmute_copy(&szvalue)).into()
         }
-        unsafe extern "system" fn GetIAccessible<Impl: ILegacyIAccessibleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaccessible: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIAccessible<Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaccessible: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIAccessible() {
                 ::core::result::Result::Ok(ok__) => {
@@ -998,7 +998,7 @@ impl ILegacyIAccessibleProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ChildId<Impl: ILegacyIAccessibleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ChildId<Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChildId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1008,7 +1008,7 @@ impl ILegacyIAccessibleProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Impl: ILegacyIAccessibleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1018,7 +1018,7 @@ impl ILegacyIAccessibleProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Impl: ILegacyIAccessibleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1028,7 +1028,7 @@ impl ILegacyIAccessibleProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Impl: ILegacyIAccessibleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1038,7 +1038,7 @@ impl ILegacyIAccessibleProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Role<Impl: ILegacyIAccessibleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwrole: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Role<Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwrole: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Role() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1048,7 +1048,7 @@ impl ILegacyIAccessibleProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn State<Impl: ILegacyIAccessibleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn State<Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1058,7 +1058,7 @@ impl ILegacyIAccessibleProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Help<Impl: ILegacyIAccessibleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhelp: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Help<Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhelp: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Help() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1068,7 +1068,7 @@ impl ILegacyIAccessibleProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn KeyboardShortcut<Impl: ILegacyIAccessibleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszkeyboardshortcut: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KeyboardShortcut<Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszkeyboardshortcut: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyboardShortcut() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1078,7 +1078,7 @@ impl ILegacyIAccessibleProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSelection<Impl: ILegacyIAccessibleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselectedchildren: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSelection<Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselectedchildren: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSelection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1088,7 +1088,7 @@ impl ILegacyIAccessibleProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DefaultAction<Impl: ILegacyIAccessibleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdefaultaction: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultAction<Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdefaultaction: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultAction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1121,16 +1121,16 @@ impl ILegacyIAccessibleProviderVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IMultipleViewProviderImpl: Sized {
+pub trait IMultipleViewProvider_Impl: Sized {
     fn GetViewName(&mut self, viewid: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetCurrentView(&mut self, viewid: i32) -> ::windows::core::Result<()>;
     fn CurrentView(&mut self) -> ::windows::core::Result<i32>;
     fn GetSupportedViews(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl IMultipleViewProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMultipleViewProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMultipleViewProviderVtbl {
-        unsafe extern "system" fn GetViewName<Impl: IMultipleViewProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewid: i32, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IMultipleViewProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMultipleViewProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMultipleViewProvider_Vtbl {
+        unsafe extern "system" fn GetViewName<Impl: IMultipleViewProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewid: i32, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetViewName(::core::mem::transmute_copy(&viewid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1140,11 +1140,11 @@ impl IMultipleViewProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCurrentView<Impl: IMultipleViewProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewid: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCurrentView<Impl: IMultipleViewProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewid: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCurrentView(::core::mem::transmute_copy(&viewid)).into()
         }
-        unsafe extern "system" fn CurrentView<Impl: IMultipleViewProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentView<Impl: IMultipleViewProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1154,7 +1154,7 @@ impl IMultipleViewProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSupportedViews<Impl: IMultipleViewProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSupportedViews<Impl: IMultipleViewProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSupportedViews() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1176,12 +1176,12 @@ impl IMultipleViewProviderVtbl {
         iid == &<IMultipleViewProvider as ::windows::core::Interface>::IID
     }
 }
-pub trait IObjectModelProviderImpl: Sized {
+pub trait IObjectModelProvider_Impl: Sized {
     fn GetUnderlyingObjectModel(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
-impl IObjectModelProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectModelProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectModelProviderVtbl {
-        unsafe extern "system" fn GetUnderlyingObjectModel<Impl: IObjectModelProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IObjectModelProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectModelProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectModelProvider_Vtbl {
+        unsafe extern "system" fn GetUnderlyingObjectModel<Impl: IObjectModelProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetUnderlyingObjectModel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1198,13 +1198,13 @@ impl IObjectModelProviderVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IProxyProviderWinEventHandlerImpl: Sized {
+pub trait IProxyProviderWinEventHandler_Impl: Sized {
     fn RespondToWinEvent(&mut self, idwinevent: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, psink: ::core::option::Option<IProxyProviderWinEventSink>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IProxyProviderWinEventHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProxyProviderWinEventHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProxyProviderWinEventHandlerVtbl {
-        unsafe extern "system" fn RespondToWinEvent<Impl: IProxyProviderWinEventHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idwinevent: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, psink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IProxyProviderWinEventHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProxyProviderWinEventHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProxyProviderWinEventHandler_Vtbl {
+        unsafe extern "system" fn RespondToWinEvent<Impl: IProxyProviderWinEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idwinevent: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, psink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RespondToWinEvent(::core::mem::transmute_copy(&idwinevent), ::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&idobject), ::core::mem::transmute_copy(&idchild), ::core::mem::transmute(&psink)).into()
         }
@@ -1215,23 +1215,23 @@ impl IProxyProviderWinEventHandlerVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IProxyProviderWinEventSinkImpl: Sized {
+pub trait IProxyProviderWinEventSink_Impl: Sized {
     fn AddAutomationPropertyChangedEvent(&mut self, pprovider: ::core::option::Option<IRawElementProviderSimple>, id: i32, newvalue: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn AddAutomationEvent(&mut self, pprovider: ::core::option::Option<IRawElementProviderSimple>, id: i32) -> ::windows::core::Result<()>;
     fn AddStructureChangedEvent(&mut self, pprovider: ::core::option::Option<IRawElementProviderSimple>, structurechangetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IProxyProviderWinEventSinkVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProxyProviderWinEventSinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProxyProviderWinEventSinkVtbl {
-        unsafe extern "system" fn AddAutomationPropertyChangedEvent<Impl: IProxyProviderWinEventSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprovider: ::windows::core::RawPtr, id: i32, newvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+impl IProxyProviderWinEventSink_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProxyProviderWinEventSink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProxyProviderWinEventSink_Vtbl {
+        unsafe extern "system" fn AddAutomationPropertyChangedEvent<Impl: IProxyProviderWinEventSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprovider: ::windows::core::RawPtr, id: i32, newvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddAutomationPropertyChangedEvent(::core::mem::transmute(&pprovider), ::core::mem::transmute_copy(&id), ::core::mem::transmute_copy(&newvalue)).into()
         }
-        unsafe extern "system" fn AddAutomationEvent<Impl: IProxyProviderWinEventSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprovider: ::windows::core::RawPtr, id: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddAutomationEvent<Impl: IProxyProviderWinEventSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprovider: ::windows::core::RawPtr, id: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddAutomationEvent(::core::mem::transmute(&pprovider), ::core::mem::transmute_copy(&id)).into()
         }
-        unsafe extern "system" fn AddStructureChangedEvent<Impl: IProxyProviderWinEventSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprovider: ::windows::core::RawPtr, structurechangetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddStructureChangedEvent<Impl: IProxyProviderWinEventSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprovider: ::windows::core::RawPtr, structurechangetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddStructureChangedEvent(::core::mem::transmute(&pprovider), ::core::mem::transmute_copy(&structurechangetype), ::core::mem::transmute_copy(&runtimeid)).into()
         }
@@ -1247,7 +1247,7 @@ impl IProxyProviderWinEventSinkVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IRangeValueProviderImpl: Sized {
+pub trait IRangeValueProvider_Impl: Sized {
     fn SetValue(&mut self, val: f64) -> ::windows::core::Result<()>;
     fn Value(&mut self) -> ::windows::core::Result<f64>;
     fn IsReadOnly(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -1257,13 +1257,13 @@ pub trait IRangeValueProviderImpl: Sized {
     fn SmallChange(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IRangeValueProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRangeValueProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRangeValueProviderVtbl {
-        unsafe extern "system" fn SetValue<Impl: IRangeValueProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: f64) -> ::windows::core::HRESULT {
+impl IRangeValueProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRangeValueProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRangeValueProvider_Vtbl {
+        unsafe extern "system" fn SetValue<Impl: IRangeValueProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(::core::mem::transmute_copy(&val)).into()
         }
-        unsafe extern "system" fn Value<Impl: IRangeValueProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: IRangeValueProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1273,7 +1273,7 @@ impl IRangeValueProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsReadOnly<Impl: IRangeValueProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsReadOnly<Impl: IRangeValueProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReadOnly() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1283,7 +1283,7 @@ impl IRangeValueProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Maximum<Impl: IRangeValueProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Maximum<Impl: IRangeValueProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Maximum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1293,7 +1293,7 @@ impl IRangeValueProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Minimum<Impl: IRangeValueProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Minimum<Impl: IRangeValueProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Minimum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1303,7 +1303,7 @@ impl IRangeValueProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LargeChange<Impl: IRangeValueProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LargeChange<Impl: IRangeValueProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LargeChange() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1313,7 +1313,7 @@ impl IRangeValueProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SmallChange<Impl: IRangeValueProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SmallChange<Impl: IRangeValueProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SmallChange() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1339,18 +1339,18 @@ impl IRangeValueProviderVtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IRawElementProviderAdviseEventsImpl: Sized {
+pub trait IRawElementProviderAdviseEvents_Impl: Sized {
     fn AdviseEventAdded(&mut self, eventid: i32, propertyids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
     fn AdviseEventRemoved(&mut self, eventid: i32, propertyids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl IRawElementProviderAdviseEventsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderAdviseEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawElementProviderAdviseEventsVtbl {
-        unsafe extern "system" fn AdviseEventAdded<Impl: IRawElementProviderAdviseEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventid: i32, propertyids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+impl IRawElementProviderAdviseEvents_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderAdviseEvents_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawElementProviderAdviseEvents_Vtbl {
+        unsafe extern "system" fn AdviseEventAdded<Impl: IRawElementProviderAdviseEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventid: i32, propertyids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AdviseEventAdded(::core::mem::transmute_copy(&eventid), ::core::mem::transmute_copy(&propertyids)).into()
         }
-        unsafe extern "system" fn AdviseEventRemoved<Impl: IRawElementProviderAdviseEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventid: i32, propertyids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AdviseEventRemoved<Impl: IRawElementProviderAdviseEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventid: i32, propertyids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AdviseEventRemoved(::core::mem::transmute_copy(&eventid), ::core::mem::transmute_copy(&propertyids)).into()
         }
@@ -1365,7 +1365,7 @@ impl IRawElementProviderAdviseEventsVtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IRawElementProviderFragmentImpl: Sized {
+pub trait IRawElementProviderFragment_Impl: Sized {
     fn Navigate(&mut self, direction: NavigateDirection) -> ::windows::core::Result<IRawElementProviderFragment>;
     fn GetRuntimeId(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn BoundingRectangle(&mut self) -> ::windows::core::Result<UiaRect>;
@@ -1374,9 +1374,9 @@ pub trait IRawElementProviderFragmentImpl: Sized {
     fn FragmentRoot(&mut self) -> ::windows::core::Result<IRawElementProviderFragmentRoot>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl IRawElementProviderFragmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderFragmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawElementProviderFragmentVtbl {
-        unsafe extern "system" fn Navigate<Impl: IRawElementProviderFragmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, direction: NavigateDirection, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRawElementProviderFragment_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderFragment_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawElementProviderFragment_Vtbl {
+        unsafe extern "system" fn Navigate<Impl: IRawElementProviderFragment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, direction: NavigateDirection, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Navigate(::core::mem::transmute_copy(&direction)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1386,7 +1386,7 @@ impl IRawElementProviderFragmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRuntimeId<Impl: IRawElementProviderFragmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRuntimeId<Impl: IRawElementProviderFragment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRuntimeId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1396,7 +1396,7 @@ impl IRawElementProviderFragmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BoundingRectangle<Impl: IRawElementProviderFragmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut UiaRect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BoundingRectangle<Impl: IRawElementProviderFragment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut UiaRect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BoundingRectangle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1406,7 +1406,7 @@ impl IRawElementProviderFragmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEmbeddedFragmentRoots<Impl: IRawElementProviderFragmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEmbeddedFragmentRoots<Impl: IRawElementProviderFragment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEmbeddedFragmentRoots() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1416,11 +1416,11 @@ impl IRawElementProviderFragmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFocus<Impl: IRawElementProviderFragmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFocus<Impl: IRawElementProviderFragment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFocus().into()
         }
-        unsafe extern "system" fn FragmentRoot<Impl: IRawElementProviderFragmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FragmentRoot<Impl: IRawElementProviderFragment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FragmentRoot() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1444,13 +1444,13 @@ impl IRawElementProviderFragmentVtbl {
         iid == &<IRawElementProviderFragment as ::windows::core::Interface>::IID
     }
 }
-pub trait IRawElementProviderFragmentRootImpl: Sized {
+pub trait IRawElementProviderFragmentRoot_Impl: Sized {
     fn ElementProviderFromPoint(&mut self, x: f64, y: f64) -> ::windows::core::Result<IRawElementProviderFragment>;
     fn GetFocus(&mut self) -> ::windows::core::Result<IRawElementProviderFragment>;
 }
-impl IRawElementProviderFragmentRootVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderFragmentRootImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawElementProviderFragmentRootVtbl {
-        unsafe extern "system" fn ElementProviderFromPoint<Impl: IRawElementProviderFragmentRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: f64, y: f64, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRawElementProviderFragmentRoot_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderFragmentRoot_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawElementProviderFragmentRoot_Vtbl {
+        unsafe extern "system" fn ElementProviderFromPoint<Impl: IRawElementProviderFragmentRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: f64, y: f64, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ElementProviderFromPoint(::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1460,7 +1460,7 @@ impl IRawElementProviderFragmentRootVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFocus<Impl: IRawElementProviderFragmentRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFocus<Impl: IRawElementProviderFragmentRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFocus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1481,13 +1481,13 @@ impl IRawElementProviderFragmentRootVtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IRawElementProviderHostingAccessiblesImpl: Sized {
+pub trait IRawElementProviderHostingAccessibles_Impl: Sized {
     fn GetEmbeddedAccessibles(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl IRawElementProviderHostingAccessiblesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderHostingAccessiblesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawElementProviderHostingAccessiblesVtbl {
-        unsafe extern "system" fn GetEmbeddedAccessibles<Impl: IRawElementProviderHostingAccessiblesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+impl IRawElementProviderHostingAccessibles_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderHostingAccessibles_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawElementProviderHostingAccessibles_Vtbl {
+        unsafe extern "system" fn GetEmbeddedAccessibles<Impl: IRawElementProviderHostingAccessibles_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEmbeddedAccessibles() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1504,13 +1504,13 @@ impl IRawElementProviderHostingAccessiblesVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IRawElementProviderHwndOverrideImpl: Sized {
+pub trait IRawElementProviderHwndOverride_Impl: Sized {
     fn GetOverrideProviderForHwnd(&mut self, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IRawElementProviderHwndOverrideVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderHwndOverrideImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawElementProviderHwndOverrideVtbl {
-        unsafe extern "system" fn GetOverrideProviderForHwnd<Impl: IRawElementProviderHwndOverrideImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRawElementProviderHwndOverride_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderHwndOverride_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawElementProviderHwndOverride_Vtbl {
+        unsafe extern "system" fn GetOverrideProviderForHwnd<Impl: IRawElementProviderHwndOverride_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetOverrideProviderForHwnd(::core::mem::transmute_copy(&hwnd)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1527,16 +1527,16 @@ impl IRawElementProviderHwndOverrideVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IRawElementProviderSimpleImpl: Sized {
+pub trait IRawElementProviderSimple_Impl: Sized {
     fn ProviderOptions(&mut self) -> ::windows::core::Result<ProviderOptions>;
     fn GetPatternProvider(&mut self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn GetPropertyValue(&mut self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn HostRawElementProvider(&mut self) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IRawElementProviderSimpleVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderSimpleImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawElementProviderSimpleVtbl {
-        unsafe extern "system" fn ProviderOptions<Impl: IRawElementProviderSimpleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ProviderOptions) -> ::windows::core::HRESULT {
+impl IRawElementProviderSimple_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderSimple_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawElementProviderSimple_Vtbl {
+        unsafe extern "system" fn ProviderOptions<Impl: IRawElementProviderSimple_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ProviderOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProviderOptions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1546,7 +1546,7 @@ impl IRawElementProviderSimpleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPatternProvider<Impl: IRawElementProviderSimpleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, patternid: i32, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPatternProvider<Impl: IRawElementProviderSimple_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, patternid: i32, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPatternProvider(::core::mem::transmute_copy(&patternid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1556,7 +1556,7 @@ impl IRawElementProviderSimpleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPropertyValue<Impl: IRawElementProviderSimpleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: i32, pretval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyValue<Impl: IRawElementProviderSimple_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: i32, pretval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPropertyValue(::core::mem::transmute_copy(&propertyid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1566,7 +1566,7 @@ impl IRawElementProviderSimpleVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HostRawElementProvider<Impl: IRawElementProviderSimpleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HostRawElementProvider<Impl: IRawElementProviderSimple_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HostRawElementProvider() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1589,30 +1589,30 @@ impl IRawElementProviderSimpleVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IRawElementProviderSimple2Impl: Sized + IRawElementProviderSimpleImpl {
+pub trait IRawElementProviderSimple2_Impl: Sized + IRawElementProviderSimple_Impl {
     fn ShowContextMenu(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IRawElementProviderSimple2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderSimple2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawElementProviderSimple2Vtbl {
-        unsafe extern "system" fn ShowContextMenu<Impl: IRawElementProviderSimple2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IRawElementProviderSimple2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderSimple2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawElementProviderSimple2_Vtbl {
+        unsafe extern "system" fn ShowContextMenu<Impl: IRawElementProviderSimple2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowContextMenu().into()
         }
-        Self { base: IRawElementProviderSimpleVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), ShowContextMenu: ShowContextMenu::<Impl, IMPL_OFFSET> }
+        Self { base: IRawElementProviderSimple_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), ShowContextMenu: ShowContextMenu::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRawElementProviderSimple2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IRawElementProviderSimple3Impl: Sized + IRawElementProviderSimpleImpl + IRawElementProviderSimple2Impl {
+pub trait IRawElementProviderSimple3_Impl: Sized + IRawElementProviderSimple_Impl + IRawElementProviderSimple2_Impl {
     fn GetMetadataValue(&mut self, targetid: i32, metadataid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IRawElementProviderSimple3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderSimple3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawElementProviderSimple3Vtbl {
-        unsafe extern "system" fn GetMetadataValue<Impl: IRawElementProviderSimple3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetid: i32, metadataid: i32, returnval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+impl IRawElementProviderSimple3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderSimple3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawElementProviderSimple3_Vtbl {
+        unsafe extern "system" fn GetMetadataValue<Impl: IRawElementProviderSimple3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetid: i32, metadataid: i32, returnval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMetadataValue(::core::mem::transmute_copy(&targetid), ::core::mem::transmute_copy(&metadataid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1622,21 +1622,24 @@ impl IRawElementProviderSimple3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IRawElementProviderSimple2Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetMetadataValue: GetMetadataValue::<Impl, IMPL_OFFSET> }
+        Self {
+            base: IRawElementProviderSimple2_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetMetadataValue: GetMetadataValue::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRawElementProviderSimple3 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IRawElementProviderWindowlessSiteImpl: Sized {
+pub trait IRawElementProviderWindowlessSite_Impl: Sized {
     fn GetAdjacentFragment(&mut self, direction: NavigateDirection) -> ::windows::core::Result<IRawElementProviderFragment>;
     fn GetRuntimeIdPrefix(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl IRawElementProviderWindowlessSiteVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderWindowlessSiteImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawElementProviderWindowlessSiteVtbl {
-        unsafe extern "system" fn GetAdjacentFragment<Impl: IRawElementProviderWindowlessSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, direction: NavigateDirection, ppparent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRawElementProviderWindowlessSite_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderWindowlessSite_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRawElementProviderWindowlessSite_Vtbl {
+        unsafe extern "system" fn GetAdjacentFragment<Impl: IRawElementProviderWindowlessSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, direction: NavigateDirection, ppparent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAdjacentFragment(::core::mem::transmute_copy(&direction)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1646,7 +1649,7 @@ impl IRawElementProviderWindowlessSiteVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRuntimeIdPrefix<Impl: IRawElementProviderWindowlessSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRuntimeIdPrefix<Impl: IRawElementProviderWindowlessSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRuntimeIdPrefix() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1666,17 +1669,17 @@ impl IRawElementProviderWindowlessSiteVtbl {
         iid == &<IRawElementProviderWindowlessSite as ::windows::core::Interface>::IID
     }
 }
-pub trait IRichEditUiaInformationImpl: Sized {
+pub trait IRichEditUiaInformation_Impl: Sized {
     fn GetBoundaryRectangle(&mut self, puiarect: *mut UiaRect) -> ::windows::core::Result<()>;
     fn IsVisible(&mut self) -> ::windows::core::Result<()>;
 }
-impl IRichEditUiaInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRichEditUiaInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRichEditUiaInformationVtbl {
-        unsafe extern "system" fn GetBoundaryRectangle<Impl: IRichEditUiaInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puiarect: *mut UiaRect) -> ::windows::core::HRESULT {
+impl IRichEditUiaInformation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRichEditUiaInformation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRichEditUiaInformation_Vtbl {
+        unsafe extern "system" fn GetBoundaryRectangle<Impl: IRichEditUiaInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puiarect: *mut UiaRect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetBoundaryRectangle(::core::mem::transmute_copy(&puiarect)).into()
         }
-        unsafe extern "system" fn IsVisible<Impl: IRichEditUiaInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsVisible<Impl: IRichEditUiaInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).IsVisible().into()
         }
@@ -1690,12 +1693,12 @@ impl IRichEditUiaInformationVtbl {
         iid == &<IRichEditUiaInformation as ::windows::core::Interface>::IID
     }
 }
-pub trait IRicheditWindowlessAccessibilityImpl: Sized {
+pub trait IRicheditWindowlessAccessibility_Impl: Sized {
     fn CreateProvider(&mut self, psite: ::core::option::Option<IRawElementProviderWindowlessSite>) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
-impl IRicheditWindowlessAccessibilityVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRicheditWindowlessAccessibilityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRicheditWindowlessAccessibilityVtbl {
-        unsafe extern "system" fn CreateProvider<Impl: IRicheditWindowlessAccessibilityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psite: ::windows::core::RawPtr, ppprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRicheditWindowlessAccessibility_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRicheditWindowlessAccessibility_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRicheditWindowlessAccessibility_Vtbl {
+        unsafe extern "system" fn CreateProvider<Impl: IRicheditWindowlessAccessibility_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psite: ::windows::core::RawPtr, ppprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateProvider(::core::mem::transmute(&psite)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1711,12 +1714,12 @@ impl IRicheditWindowlessAccessibilityVtbl {
         iid == &<IRicheditWindowlessAccessibility as ::windows::core::Interface>::IID
     }
 }
-pub trait IScrollItemProviderImpl: Sized {
+pub trait IScrollItemProvider_Impl: Sized {
     fn ScrollIntoView(&mut self) -> ::windows::core::Result<()>;
 }
-impl IScrollItemProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScrollItemProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScrollItemProviderVtbl {
-        unsafe extern "system" fn ScrollIntoView<Impl: IScrollItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IScrollItemProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScrollItemProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScrollItemProvider_Vtbl {
+        unsafe extern "system" fn ScrollIntoView<Impl: IScrollItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ScrollIntoView().into()
         }
@@ -1727,7 +1730,7 @@ impl IScrollItemProviderVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IScrollProviderImpl: Sized {
+pub trait IScrollProvider_Impl: Sized {
     fn Scroll(&mut self, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows::core::Result<()>;
     fn SetScrollPercent(&mut self, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::Result<()>;
     fn HorizontalScrollPercent(&mut self) -> ::windows::core::Result<f64>;
@@ -1738,17 +1741,17 @@ pub trait IScrollProviderImpl: Sized {
     fn VerticallyScrollable(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IScrollProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScrollProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScrollProviderVtbl {
-        unsafe extern "system" fn Scroll<Impl: IScrollProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows::core::HRESULT {
+impl IScrollProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScrollProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScrollProvider_Vtbl {
+        unsafe extern "system" fn Scroll<Impl: IScrollProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Scroll(::core::mem::transmute_copy(&horizontalamount), ::core::mem::transmute_copy(&verticalamount)).into()
         }
-        unsafe extern "system" fn SetScrollPercent<Impl: IScrollProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScrollPercent<Impl: IScrollProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScrollPercent(::core::mem::transmute_copy(&horizontalpercent), ::core::mem::transmute_copy(&verticalpercent)).into()
         }
-        unsafe extern "system" fn HorizontalScrollPercent<Impl: IScrollProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HorizontalScrollPercent<Impl: IScrollProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HorizontalScrollPercent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1758,7 +1761,7 @@ impl IScrollProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VerticalScrollPercent<Impl: IScrollProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VerticalScrollPercent<Impl: IScrollProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VerticalScrollPercent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1768,7 +1771,7 @@ impl IScrollProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HorizontalViewSize<Impl: IScrollProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HorizontalViewSize<Impl: IScrollProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HorizontalViewSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1778,7 +1781,7 @@ impl IScrollProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VerticalViewSize<Impl: IScrollProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VerticalViewSize<Impl: IScrollProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VerticalViewSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1788,7 +1791,7 @@ impl IScrollProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HorizontallyScrollable<Impl: IScrollProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HorizontallyScrollable<Impl: IScrollProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HorizontallyScrollable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1798,7 +1801,7 @@ impl IScrollProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VerticallyScrollable<Impl: IScrollProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VerticallyScrollable<Impl: IScrollProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VerticallyScrollable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1825,7 +1828,7 @@ impl IScrollProviderVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ISelectionItemProviderImpl: Sized {
+pub trait ISelectionItemProvider_Impl: Sized {
     fn Select(&mut self) -> ::windows::core::Result<()>;
     fn AddToSelection(&mut self) -> ::windows::core::Result<()>;
     fn RemoveFromSelection(&mut self) -> ::windows::core::Result<()>;
@@ -1833,21 +1836,21 @@ pub trait ISelectionItemProviderImpl: Sized {
     fn SelectionContainer(&mut self) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ISelectionItemProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionItemProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISelectionItemProviderVtbl {
-        unsafe extern "system" fn Select<Impl: ISelectionItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl ISelectionItemProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionItemProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISelectionItemProvider_Vtbl {
+        unsafe extern "system" fn Select<Impl: ISelectionItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Select().into()
         }
-        unsafe extern "system" fn AddToSelection<Impl: ISelectionItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddToSelection<Impl: ISelectionItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddToSelection().into()
         }
-        unsafe extern "system" fn RemoveFromSelection<Impl: ISelectionItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveFromSelection<Impl: ISelectionItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFromSelection().into()
         }
-        unsafe extern "system" fn IsSelected<Impl: ISelectionItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSelected<Impl: ISelectionItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSelected() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1857,7 +1860,7 @@ impl ISelectionItemProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectionContainer<Impl: ISelectionItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectionContainer<Impl: ISelectionItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectionContainer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1881,15 +1884,15 @@ impl ISelectionItemProviderVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait ISelectionProviderImpl: Sized {
+pub trait ISelectionProvider_Impl: Sized {
     fn GetSelection(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn CanSelectMultiple(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn IsSelectionRequired(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ISelectionProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISelectionProviderVtbl {
-        unsafe extern "system" fn GetSelection<Impl: ISelectionProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+impl ISelectionProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISelectionProvider_Vtbl {
+        unsafe extern "system" fn GetSelection<Impl: ISelectionProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSelection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1899,7 +1902,7 @@ impl ISelectionProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanSelectMultiple<Impl: ISelectionProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanSelectMultiple<Impl: ISelectionProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanSelectMultiple() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1909,7 +1912,7 @@ impl ISelectionProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSelectionRequired<Impl: ISelectionProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSelectionRequired<Impl: ISelectionProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSelectionRequired() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1931,16 +1934,16 @@ impl ISelectionProviderVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait ISelectionProvider2Impl: Sized + ISelectionProviderImpl {
+pub trait ISelectionProvider2_Impl: Sized + ISelectionProvider_Impl {
     fn FirstSelectedItem(&mut self) -> ::windows::core::Result<IRawElementProviderSimple>;
     fn LastSelectedItem(&mut self) -> ::windows::core::Result<IRawElementProviderSimple>;
     fn CurrentSelectedItem(&mut self) -> ::windows::core::Result<IRawElementProviderSimple>;
     fn ItemCount(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ISelectionProvider2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionProvider2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISelectionProvider2Vtbl {
-        unsafe extern "system" fn FirstSelectedItem<Impl: ISelectionProvider2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISelectionProvider2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionProvider2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISelectionProvider2_Vtbl {
+        unsafe extern "system" fn FirstSelectedItem<Impl: ISelectionProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FirstSelectedItem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1950,7 +1953,7 @@ impl ISelectionProvider2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LastSelectedItem<Impl: ISelectionProvider2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LastSelectedItem<Impl: ISelectionProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LastSelectedItem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1960,7 +1963,7 @@ impl ISelectionProvider2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentSelectedItem<Impl: ISelectionProvider2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentSelectedItem<Impl: ISelectionProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentSelectedItem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1970,7 +1973,7 @@ impl ISelectionProvider2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ItemCount<Impl: ISelectionProvider2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ItemCount<Impl: ISelectionProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ItemCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1981,7 +1984,7 @@ impl ISelectionProvider2Vtbl {
             }
         }
         Self {
-            base: ISelectionProviderVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: ISelectionProvider_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             FirstSelectedItem: FirstSelectedItem::<Impl, IMPL_OFFSET>,
             LastSelectedItem: LastSelectedItem::<Impl, IMPL_OFFSET>,
             CurrentSelectedItem: CurrentSelectedItem::<Impl, IMPL_OFFSET>,
@@ -1993,15 +1996,15 @@ impl ISelectionProvider2Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait ISpreadsheetItemProviderImpl: Sized {
+pub trait ISpreadsheetItemProvider_Impl: Sized {
     fn Formula(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetAnnotationObjects(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetAnnotationTypes(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ISpreadsheetItemProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpreadsheetItemProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpreadsheetItemProviderVtbl {
-        unsafe extern "system" fn Formula<Impl: ISpreadsheetItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl ISpreadsheetItemProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpreadsheetItemProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpreadsheetItemProvider_Vtbl {
+        unsafe extern "system" fn Formula<Impl: ISpreadsheetItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Formula() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2011,7 +2014,7 @@ impl ISpreadsheetItemProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAnnotationObjects<Impl: ISpreadsheetItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAnnotationObjects<Impl: ISpreadsheetItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAnnotationObjects() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2021,7 +2024,7 @@ impl ISpreadsheetItemProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAnnotationTypes<Impl: ISpreadsheetItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAnnotationTypes<Impl: ISpreadsheetItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAnnotationTypes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2043,13 +2046,13 @@ impl ISpreadsheetItemProviderVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ISpreadsheetProviderImpl: Sized {
+pub trait ISpreadsheetProvider_Impl: Sized {
     fn GetItemByName(&mut self, name: super::super::Foundation::PWSTR) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ISpreadsheetProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpreadsheetProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpreadsheetProviderVtbl {
-        unsafe extern "system" fn GetItemByName<Impl: ISpreadsheetProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISpreadsheetProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpreadsheetProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpreadsheetProvider_Vtbl {
+        unsafe extern "system" fn GetItemByName<Impl: ISpreadsheetProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItemByName(::core::mem::transmute_copy(&name)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2066,7 +2069,7 @@ impl ISpreadsheetProviderVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IStylesProviderImpl: Sized {
+pub trait IStylesProvider_Impl: Sized {
     fn StyleId(&mut self) -> ::windows::core::Result<i32>;
     fn StyleName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn FillColor(&mut self) -> ::windows::core::Result<i32>;
@@ -2076,9 +2079,9 @@ pub trait IStylesProviderImpl: Sized {
     fn ExtendedProperties(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IStylesProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStylesProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStylesProviderVtbl {
-        unsafe extern "system" fn StyleId<Impl: IStylesProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+impl IStylesProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStylesProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStylesProvider_Vtbl {
+        unsafe extern "system" fn StyleId<Impl: IStylesProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StyleId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2088,7 +2091,7 @@ impl IStylesProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StyleName<Impl: IStylesProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StyleName<Impl: IStylesProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StyleName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2098,7 +2101,7 @@ impl IStylesProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FillColor<Impl: IStylesProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FillColor<Impl: IStylesProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FillColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2108,7 +2111,7 @@ impl IStylesProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FillPatternStyle<Impl: IStylesProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FillPatternStyle<Impl: IStylesProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FillPatternStyle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2118,7 +2121,7 @@ impl IStylesProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Shape<Impl: IStylesProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Shape<Impl: IStylesProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Shape() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2128,7 +2131,7 @@ impl IStylesProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FillPatternColor<Impl: IStylesProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FillPatternColor<Impl: IStylesProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FillPatternColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2138,7 +2141,7 @@ impl IStylesProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedProperties<Impl: IStylesProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedProperties<Impl: IStylesProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2163,17 +2166,17 @@ impl IStylesProviderVtbl {
         iid == &<IStylesProvider as ::windows::core::Interface>::IID
     }
 }
-pub trait ISynchronizedInputProviderImpl: Sized {
+pub trait ISynchronizedInputProvider_Impl: Sized {
     fn StartListening(&mut self, inputtype: SynchronizedInputType) -> ::windows::core::Result<()>;
     fn Cancel(&mut self) -> ::windows::core::Result<()>;
 }
-impl ISynchronizedInputProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISynchronizedInputProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISynchronizedInputProviderVtbl {
-        unsafe extern "system" fn StartListening<Impl: ISynchronizedInputProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputtype: SynchronizedInputType) -> ::windows::core::HRESULT {
+impl ISynchronizedInputProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISynchronizedInputProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISynchronizedInputProvider_Vtbl {
+        unsafe extern "system" fn StartListening<Impl: ISynchronizedInputProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputtype: SynchronizedInputType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartListening(::core::mem::transmute_copy(&inputtype)).into()
         }
-        unsafe extern "system" fn Cancel<Impl: ISynchronizedInputProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Cancel<Impl: ISynchronizedInputProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Cancel().into()
         }
@@ -2188,14 +2191,14 @@ impl ISynchronizedInputProviderVtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait ITableItemProviderImpl: Sized {
+pub trait ITableItemProvider_Impl: Sized {
     fn GetRowHeaderItems(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetColumnHeaderItems(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ITableItemProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITableItemProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITableItemProviderVtbl {
-        unsafe extern "system" fn GetRowHeaderItems<Impl: ITableItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+impl ITableItemProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITableItemProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITableItemProvider_Vtbl {
+        unsafe extern "system" fn GetRowHeaderItems<Impl: ITableItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRowHeaderItems() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2205,7 +2208,7 @@ impl ITableItemProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetColumnHeaderItems<Impl: ITableItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetColumnHeaderItems<Impl: ITableItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetColumnHeaderItems() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2226,15 +2229,15 @@ impl ITableItemProviderVtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait ITableProviderImpl: Sized {
+pub trait ITableProvider_Impl: Sized {
     fn GetRowHeaders(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetColumnHeaders(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn RowOrColumnMajor(&mut self) -> ::windows::core::Result<RowOrColumnMajor>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ITableProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITableProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITableProviderVtbl {
-        unsafe extern "system" fn GetRowHeaders<Impl: ITableProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+impl ITableProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITableProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITableProvider_Vtbl {
+        unsafe extern "system" fn GetRowHeaders<Impl: ITableProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRowHeaders() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2244,7 +2247,7 @@ impl ITableProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetColumnHeaders<Impl: ITableProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetColumnHeaders<Impl: ITableProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetColumnHeaders() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2254,7 +2257,7 @@ impl ITableProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RowOrColumnMajor<Impl: ITableProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut RowOrColumnMajor) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RowOrColumnMajor<Impl: ITableProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut RowOrColumnMajor) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RowOrColumnMajor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2275,13 +2278,13 @@ impl ITableProviderVtbl {
         iid == &<ITableProvider as ::windows::core::Interface>::IID
     }
 }
-pub trait ITextChildProviderImpl: Sized {
+pub trait ITextChildProvider_Impl: Sized {
     fn TextContainer(&mut self) -> ::windows::core::Result<IRawElementProviderSimple>;
     fn TextRange(&mut self) -> ::windows::core::Result<ITextRangeProvider>;
 }
-impl ITextChildProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextChildProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextChildProviderVtbl {
-        unsafe extern "system" fn TextContainer<Impl: ITextChildProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITextChildProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextChildProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextChildProvider_Vtbl {
+        unsafe extern "system" fn TextContainer<Impl: ITextChildProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TextContainer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2291,7 +2294,7 @@ impl ITextChildProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TextRange<Impl: ITextChildProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TextRange<Impl: ITextChildProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TextRange() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2312,14 +2315,14 @@ impl ITextChildProviderVtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait ITextEditProviderImpl: Sized + ITextProviderImpl {
+pub trait ITextEditProvider_Impl: Sized + ITextProvider_Impl {
     fn GetActiveComposition(&mut self) -> ::windows::core::Result<ITextRangeProvider>;
     fn GetConversionTarget(&mut self) -> ::windows::core::Result<ITextRangeProvider>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ITextEditProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextEditProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextEditProviderVtbl {
-        unsafe extern "system" fn GetActiveComposition<Impl: ITextEditProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITextEditProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextEditProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextEditProvider_Vtbl {
+        unsafe extern "system" fn GetActiveComposition<Impl: ITextEditProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetActiveComposition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2329,7 +2332,7 @@ impl ITextEditProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetConversionTarget<Impl: ITextEditProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetConversionTarget<Impl: ITextEditProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetConversionTarget() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2340,7 +2343,7 @@ impl ITextEditProviderVtbl {
             }
         }
         Self {
-            base: ITextProviderVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: ITextProvider_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             GetActiveComposition: GetActiveComposition::<Impl, IMPL_OFFSET>,
             GetConversionTarget: GetConversionTarget::<Impl, IMPL_OFFSET>,
         }
@@ -2350,7 +2353,7 @@ impl ITextEditProviderVtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait ITextProviderImpl: Sized {
+pub trait ITextProvider_Impl: Sized {
     fn GetSelection(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetVisibleRanges(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn RangeFromChild(&mut self, childelement: ::core::option::Option<IRawElementProviderSimple>) -> ::windows::core::Result<ITextRangeProvider>;
@@ -2359,9 +2362,9 @@ pub trait ITextProviderImpl: Sized {
     fn SupportedTextSelection(&mut self) -> ::windows::core::Result<SupportedTextSelection>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ITextProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextProviderVtbl {
-        unsafe extern "system" fn GetSelection<Impl: ITextProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+impl ITextProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextProvider_Vtbl {
+        unsafe extern "system" fn GetSelection<Impl: ITextProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSelection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2371,7 +2374,7 @@ impl ITextProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVisibleRanges<Impl: ITextProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetVisibleRanges<Impl: ITextProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetVisibleRanges() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2381,7 +2384,7 @@ impl ITextProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RangeFromChild<Impl: ITextProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childelement: ::windows::core::RawPtr, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RangeFromChild<Impl: ITextProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childelement: ::windows::core::RawPtr, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RangeFromChild(::core::mem::transmute(&childelement)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2391,7 +2394,7 @@ impl ITextProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RangeFromPoint<Impl: ITextProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, point: UiaPoint, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RangeFromPoint<Impl: ITextProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, point: UiaPoint, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RangeFromPoint(::core::mem::transmute_copy(&point)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2401,7 +2404,7 @@ impl ITextProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentRange<Impl: ITextProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentRange<Impl: ITextProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentRange() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2411,7 +2414,7 @@ impl ITextProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedTextSelection<Impl: ITextProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut SupportedTextSelection) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedTextSelection<Impl: ITextProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut SupportedTextSelection) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedTextSelection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2436,14 +2439,14 @@ impl ITextProviderVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait ITextProvider2Impl: Sized + ITextProviderImpl {
+pub trait ITextProvider2_Impl: Sized + ITextProvider_Impl {
     fn RangeFromAnnotation(&mut self, annotationelement: ::core::option::Option<IRawElementProviderSimple>) -> ::windows::core::Result<ITextRangeProvider>;
     fn GetCaretRange(&mut self, isactive: *mut super::super::Foundation::BOOL, pretval: *mut ::core::option::Option<ITextRangeProvider>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ITextProvider2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextProvider2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextProvider2Vtbl {
-        unsafe extern "system" fn RangeFromAnnotation<Impl: ITextProvider2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, annotationelement: ::windows::core::RawPtr, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITextProvider2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextProvider2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextProvider2_Vtbl {
+        unsafe extern "system" fn RangeFromAnnotation<Impl: ITextProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, annotationelement: ::windows::core::RawPtr, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RangeFromAnnotation(::core::mem::transmute(&annotationelement)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2453,12 +2456,12 @@ impl ITextProvider2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCaretRange<Impl: ITextProvider2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isactive: *mut super::super::Foundation::BOOL, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCaretRange<Impl: ITextProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isactive: *mut super::super::Foundation::BOOL, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetCaretRange(::core::mem::transmute_copy(&isactive), ::core::mem::transmute_copy(&pretval)).into()
         }
         Self {
-            base: ITextProviderVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: ITextProvider_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             RangeFromAnnotation: RangeFromAnnotation::<Impl, IMPL_OFFSET>,
             GetCaretRange: GetCaretRange::<Impl, IMPL_OFFSET>,
         }
@@ -2468,7 +2471,7 @@ impl ITextProvider2Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITextRangeProviderImpl: Sized {
+pub trait ITextRangeProvider_Impl: Sized {
     fn Clone(&mut self) -> ::windows::core::Result<ITextRangeProvider>;
     fn Compare(&mut self, range: ::core::option::Option<ITextRangeProvider>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn CompareEndpoints(&mut self, endpoint: TextPatternRangeEndpoint, targetrange: ::core::option::Option<ITextRangeProvider>, targetendpoint: TextPatternRangeEndpoint) -> ::windows::core::Result<i32>;
@@ -2489,9 +2492,9 @@ pub trait ITextRangeProviderImpl: Sized {
     fn GetChildren(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ITextRangeProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextRangeProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextRangeProviderVtbl {
-        unsafe extern "system" fn Clone<Impl: ITextRangeProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITextRangeProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextRangeProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextRangeProvider_Vtbl {
+        unsafe extern "system" fn Clone<Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2501,7 +2504,7 @@ impl ITextRangeProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Compare<Impl: ITextRangeProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, range: ::windows::core::RawPtr, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Compare<Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, range: ::windows::core::RawPtr, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Compare(::core::mem::transmute(&range)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2511,7 +2514,7 @@ impl ITextRangeProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CompareEndpoints<Impl: ITextRangeProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endpoint: TextPatternRangeEndpoint, targetrange: ::windows::core::RawPtr, targetendpoint: TextPatternRangeEndpoint, pretval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CompareEndpoints<Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endpoint: TextPatternRangeEndpoint, targetrange: ::windows::core::RawPtr, targetendpoint: TextPatternRangeEndpoint, pretval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CompareEndpoints(::core::mem::transmute_copy(&endpoint), ::core::mem::transmute(&targetrange), ::core::mem::transmute_copy(&targetendpoint)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2521,11 +2524,11 @@ impl ITextRangeProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExpandToEnclosingUnit<Impl: ITextRangeProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, unit: TextUnit) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExpandToEnclosingUnit<Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, unit: TextUnit) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ExpandToEnclosingUnit(::core::mem::transmute_copy(&unit)).into()
         }
-        unsafe extern "system" fn FindAttribute<Impl: ITextRangeProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributeid: i32, val: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, backward: super::super::Foundation::BOOL, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindAttribute<Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributeid: i32, val: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, backward: super::super::Foundation::BOOL, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAttribute(::core::mem::transmute_copy(&attributeid), ::core::mem::transmute_copy(&val), ::core::mem::transmute_copy(&backward)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2535,7 +2538,7 @@ impl ITextRangeProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindText<Impl: ITextRangeProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, backward: super::super::Foundation::BOOL, ignorecase: super::super::Foundation::BOOL, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindText<Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, backward: super::super::Foundation::BOOL, ignorecase: super::super::Foundation::BOOL, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindText(::core::mem::transmute_copy(&text), ::core::mem::transmute_copy(&backward), ::core::mem::transmute_copy(&ignorecase)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2545,7 +2548,7 @@ impl ITextRangeProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAttributeValue<Impl: ITextRangeProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributeid: i32, pretval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAttributeValue<Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributeid: i32, pretval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAttributeValue(::core::mem::transmute_copy(&attributeid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2555,7 +2558,7 @@ impl ITextRangeProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBoundingRectangles<Impl: ITextRangeProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBoundingRectangles<Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetBoundingRectangles() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2565,7 +2568,7 @@ impl ITextRangeProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEnclosingElement<Impl: ITextRangeProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEnclosingElement<Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEnclosingElement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2575,7 +2578,7 @@ impl ITextRangeProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetText<Impl: ITextRangeProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxlength: i32, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetText<Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxlength: i32, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetText(::core::mem::transmute_copy(&maxlength)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2585,7 +2588,7 @@ impl ITextRangeProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Move<Impl: ITextRangeProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Move<Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Move(::core::mem::transmute_copy(&unit), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2595,7 +2598,7 @@ impl ITextRangeProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveEndpointByUnit<Impl: ITextRangeProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MoveEndpointByUnit<Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MoveEndpointByUnit(::core::mem::transmute_copy(&endpoint), ::core::mem::transmute_copy(&unit), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2605,27 +2608,27 @@ impl ITextRangeProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveEndpointByRange<Impl: ITextRangeProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endpoint: TextPatternRangeEndpoint, targetrange: ::windows::core::RawPtr, targetendpoint: TextPatternRangeEndpoint) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MoveEndpointByRange<Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endpoint: TextPatternRangeEndpoint, targetrange: ::windows::core::RawPtr, targetendpoint: TextPatternRangeEndpoint) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).MoveEndpointByRange(::core::mem::transmute_copy(&endpoint), ::core::mem::transmute(&targetrange), ::core::mem::transmute_copy(&targetendpoint)).into()
         }
-        unsafe extern "system" fn Select<Impl: ITextRangeProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Select<Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Select().into()
         }
-        unsafe extern "system" fn AddToSelection<Impl: ITextRangeProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddToSelection<Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddToSelection().into()
         }
-        unsafe extern "system" fn RemoveFromSelection<Impl: ITextRangeProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveFromSelection<Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFromSelection().into()
         }
-        unsafe extern "system" fn ScrollIntoView<Impl: ITextRangeProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aligntotop: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScrollIntoView<Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aligntotop: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ScrollIntoView(::core::mem::transmute_copy(&aligntotop)).into()
         }
-        unsafe extern "system" fn GetChildren<Impl: ITextRangeProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetChildren<Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetChildren() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2662,33 +2665,33 @@ impl ITextRangeProviderVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITextRangeProvider2Impl: Sized + ITextRangeProviderImpl {
+pub trait ITextRangeProvider2_Impl: Sized + ITextRangeProvider_Impl {
     fn ShowContextMenu(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ITextRangeProvider2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextRangeProvider2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextRangeProvider2Vtbl {
-        unsafe extern "system" fn ShowContextMenu<Impl: ITextRangeProvider2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl ITextRangeProvider2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextRangeProvider2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITextRangeProvider2_Vtbl {
+        unsafe extern "system" fn ShowContextMenu<Impl: ITextRangeProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowContextMenu().into()
         }
-        Self { base: ITextRangeProviderVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), ShowContextMenu: ShowContextMenu::<Impl, IMPL_OFFSET> }
+        Self { base: ITextRangeProvider_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), ShowContextMenu: ShowContextMenu::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextRangeProvider2 as ::windows::core::Interface>::IID
     }
 }
-pub trait IToggleProviderImpl: Sized {
+pub trait IToggleProvider_Impl: Sized {
     fn Toggle(&mut self) -> ::windows::core::Result<()>;
     fn ToggleState(&mut self) -> ::windows::core::Result<ToggleState>;
 }
-impl IToggleProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToggleProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToggleProviderVtbl {
-        unsafe extern "system" fn Toggle<Impl: IToggleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IToggleProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToggleProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IToggleProvider_Vtbl {
+        unsafe extern "system" fn Toggle<Impl: IToggleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Toggle().into()
         }
-        unsafe extern "system" fn ToggleState<Impl: IToggleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ToggleState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToggleState<Impl: IToggleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ToggleState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ToggleState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2709,7 +2712,7 @@ impl IToggleProviderVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ITransformProviderImpl: Sized {
+pub trait ITransformProvider_Impl: Sized {
     fn Move(&mut self, x: f64, y: f64) -> ::windows::core::Result<()>;
     fn Resize(&mut self, width: f64, height: f64) -> ::windows::core::Result<()>;
     fn Rotate(&mut self, degrees: f64) -> ::windows::core::Result<()>;
@@ -2718,21 +2721,21 @@ pub trait ITransformProviderImpl: Sized {
     fn CanRotate(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ITransformProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransformProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransformProviderVtbl {
-        unsafe extern "system" fn Move<Impl: ITransformProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: f64, y: f64) -> ::windows::core::HRESULT {
+impl ITransformProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransformProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransformProvider_Vtbl {
+        unsafe extern "system" fn Move<Impl: ITransformProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: f64, y: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Move(::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y)).into()
         }
-        unsafe extern "system" fn Resize<Impl: ITransformProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, width: f64, height: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Resize<Impl: ITransformProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, width: f64, height: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Resize(::core::mem::transmute_copy(&width), ::core::mem::transmute_copy(&height)).into()
         }
-        unsafe extern "system" fn Rotate<Impl: ITransformProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, degrees: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Rotate<Impl: ITransformProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, degrees: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Rotate(::core::mem::transmute_copy(&degrees)).into()
         }
-        unsafe extern "system" fn CanMove<Impl: ITransformProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanMove<Impl: ITransformProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanMove() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2742,7 +2745,7 @@ impl ITransformProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanResize<Impl: ITransformProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanResize<Impl: ITransformProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanResize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2752,7 +2755,7 @@ impl ITransformProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanRotate<Impl: ITransformProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanRotate<Impl: ITransformProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanRotate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2777,7 +2780,7 @@ impl ITransformProviderVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ITransformProvider2Impl: Sized + ITransformProviderImpl {
+pub trait ITransformProvider2_Impl: Sized + ITransformProvider_Impl {
     fn Zoom(&mut self, zoom: f64) -> ::windows::core::Result<()>;
     fn CanZoom(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn ZoomLevel(&mut self) -> ::windows::core::Result<f64>;
@@ -2786,13 +2789,13 @@ pub trait ITransformProvider2Impl: Sized + ITransformProviderImpl {
     fn ZoomByUnit(&mut self, zoomunit: ZoomUnit) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ITransformProvider2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransformProvider2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransformProvider2Vtbl {
-        unsafe extern "system" fn Zoom<Impl: ITransformProvider2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, zoom: f64) -> ::windows::core::HRESULT {
+impl ITransformProvider2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransformProvider2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransformProvider2_Vtbl {
+        unsafe extern "system" fn Zoom<Impl: ITransformProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, zoom: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Zoom(::core::mem::transmute_copy(&zoom)).into()
         }
-        unsafe extern "system" fn CanZoom<Impl: ITransformProvider2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanZoom<Impl: ITransformProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanZoom() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2802,7 +2805,7 @@ impl ITransformProvider2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ZoomLevel<Impl: ITransformProvider2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ZoomLevel<Impl: ITransformProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ZoomLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2812,7 +2815,7 @@ impl ITransformProvider2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ZoomMinimum<Impl: ITransformProvider2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ZoomMinimum<Impl: ITransformProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ZoomMinimum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2822,7 +2825,7 @@ impl ITransformProvider2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ZoomMaximum<Impl: ITransformProvider2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ZoomMaximum<Impl: ITransformProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ZoomMaximum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2832,12 +2835,12 @@ impl ITransformProvider2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ZoomByUnit<Impl: ITransformProvider2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, zoomunit: ZoomUnit) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ZoomByUnit<Impl: ITransformProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, zoomunit: ZoomUnit) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ZoomByUnit(::core::mem::transmute_copy(&zoomunit)).into()
         }
         Self {
-            base: ITransformProviderVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: ITransformProvider_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Zoom: Zoom::<Impl, IMPL_OFFSET>,
             CanZoom: CanZoom::<Impl, IMPL_OFFSET>,
             ZoomLevel: ZoomLevel::<Impl, IMPL_OFFSET>,
@@ -2851,7 +2854,7 @@ impl ITransformProvider2Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUIAutomationImpl: Sized {
+pub trait IUIAutomation_Impl: Sized {
     fn CompareElements(&mut self, el1: ::core::option::Option<IUIAutomationElement>, el2: ::core::option::Option<IUIAutomationElement>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn CompareRuntimeIds(&mut self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn GetRootElement(&mut self) -> ::windows::core::Result<IUIAutomationElement>;
@@ -2909,9 +2912,9 @@ pub trait IUIAutomationImpl: Sized {
     fn ElementFromIAccessibleBuildCache(&mut self, accessible: ::core::option::Option<IAccessible>, childid: i32, cacherequest: ::core::option::Option<IUIAutomationCacheRequest>) -> ::windows::core::Result<IUIAutomationElement>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUIAutomationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationVtbl {
-        unsafe extern "system" fn CompareElements<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, el1: ::windows::core::RawPtr, el2: ::windows::core::RawPtr, aresame: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+impl IUIAutomation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomation_Vtbl {
+        unsafe extern "system" fn CompareElements<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, el1: ::windows::core::RawPtr, el2: ::windows::core::RawPtr, aresame: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CompareElements(::core::mem::transmute(&el1), ::core::mem::transmute(&el2)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2921,7 +2924,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CompareRuntimeIds<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY, aresame: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CompareRuntimeIds<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY, aresame: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CompareRuntimeIds(::core::mem::transmute_copy(&runtimeid1), ::core::mem::transmute_copy(&runtimeid2)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2931,7 +2934,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRootElement<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, root: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRootElement<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, root: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRootElement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2941,7 +2944,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ElementFromHandle<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ElementFromHandle<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ElementFromHandle(::core::mem::transmute_copy(&hwnd)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2951,7 +2954,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ElementFromPoint<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pt: super::super::Foundation::POINT, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ElementFromPoint<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pt: super::super::Foundation::POINT, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ElementFromPoint(::core::mem::transmute_copy(&pt)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2961,7 +2964,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFocusedElement<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFocusedElement<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFocusedElement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2971,7 +2974,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRootElementBuildCache<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cacherequest: ::windows::core::RawPtr, root: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRootElementBuildCache<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cacherequest: ::windows::core::RawPtr, root: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRootElementBuildCache(::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2981,7 +2984,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ElementFromHandleBuildCache<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, cacherequest: ::windows::core::RawPtr, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ElementFromHandleBuildCache<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, cacherequest: ::windows::core::RawPtr, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ElementFromHandleBuildCache(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2991,7 +2994,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ElementFromPointBuildCache<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pt: super::super::Foundation::POINT, cacherequest: ::windows::core::RawPtr, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ElementFromPointBuildCache<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pt: super::super::Foundation::POINT, cacherequest: ::windows::core::RawPtr, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ElementFromPointBuildCache(::core::mem::transmute_copy(&pt), ::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3001,7 +3004,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFocusedElementBuildCache<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cacherequest: ::windows::core::RawPtr, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFocusedElementBuildCache<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cacherequest: ::windows::core::RawPtr, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFocusedElementBuildCache(::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3011,7 +3014,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTreeWalker<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcondition: ::windows::core::RawPtr, walker: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTreeWalker<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcondition: ::windows::core::RawPtr, walker: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateTreeWalker(::core::mem::transmute(&pcondition)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3021,7 +3024,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ControlViewWalker<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, walker: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ControlViewWalker<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, walker: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ControlViewWalker() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3031,7 +3034,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentViewWalker<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, walker: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentViewWalker<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, walker: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentViewWalker() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3041,7 +3044,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RawViewWalker<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, walker: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RawViewWalker<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, walker: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RawViewWalker() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3051,7 +3054,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RawViewCondition<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, condition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RawViewCondition<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, condition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RawViewCondition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3061,7 +3064,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ControlViewCondition<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, condition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ControlViewCondition<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, condition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ControlViewCondition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3071,7 +3074,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentViewCondition<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, condition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentViewCondition<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, condition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentViewCondition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3081,7 +3084,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateCacheRequest<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cacherequest: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCacheRequest<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cacherequest: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCacheRequest() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3091,7 +3094,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTrueCondition<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newcondition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTrueCondition<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newcondition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateTrueCondition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3101,7 +3104,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFalseCondition<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newcondition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFalseCondition<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newcondition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFalseCondition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3111,7 +3114,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePropertyCondition<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: i32, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, newcondition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePropertyCondition<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: i32, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, newcondition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePropertyCondition(::core::mem::transmute_copy(&propertyid), ::core::mem::transmute_copy(&value)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3121,7 +3124,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePropertyConditionEx<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: i32, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, flags: PropertyConditionFlags, newcondition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePropertyConditionEx<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: i32, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, flags: PropertyConditionFlags, newcondition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePropertyConditionEx(::core::mem::transmute_copy(&propertyid), ::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3131,7 +3134,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateAndCondition<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, condition1: ::windows::core::RawPtr, condition2: ::windows::core::RawPtr, newcondition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateAndCondition<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, condition1: ::windows::core::RawPtr, condition2: ::windows::core::RawPtr, newcondition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAndCondition(::core::mem::transmute(&condition1), ::core::mem::transmute(&condition2)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3141,7 +3144,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateAndConditionFromArray<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditions: *const super::super::System::Com::SAFEARRAY, newcondition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateAndConditionFromArray<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditions: *const super::super::System::Com::SAFEARRAY, newcondition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAndConditionFromArray(::core::mem::transmute_copy(&conditions)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3151,7 +3154,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateAndConditionFromNativeArray<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditions: *const ::windows::core::RawPtr, conditioncount: i32, newcondition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateAndConditionFromNativeArray<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditions: *const ::windows::core::RawPtr, conditioncount: i32, newcondition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAndConditionFromNativeArray(::core::mem::transmute_copy(&conditions), ::core::mem::transmute_copy(&conditioncount)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3161,7 +3164,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateOrCondition<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, condition1: ::windows::core::RawPtr, condition2: ::windows::core::RawPtr, newcondition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateOrCondition<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, condition1: ::windows::core::RawPtr, condition2: ::windows::core::RawPtr, newcondition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateOrCondition(::core::mem::transmute(&condition1), ::core::mem::transmute(&condition2)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3171,7 +3174,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateOrConditionFromArray<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditions: *const super::super::System::Com::SAFEARRAY, newcondition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateOrConditionFromArray<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditions: *const super::super::System::Com::SAFEARRAY, newcondition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateOrConditionFromArray(::core::mem::transmute_copy(&conditions)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3181,7 +3184,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateOrConditionFromNativeArray<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditions: *const ::windows::core::RawPtr, conditioncount: i32, newcondition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateOrConditionFromNativeArray<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, conditions: *const ::windows::core::RawPtr, conditioncount: i32, newcondition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateOrConditionFromNativeArray(::core::mem::transmute_copy(&conditions), ::core::mem::transmute_copy(&conditioncount)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3191,7 +3194,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateNotCondition<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, condition: ::windows::core::RawPtr, newcondition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateNotCondition<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, condition: ::windows::core::RawPtr, newcondition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateNotCondition(::core::mem::transmute(&condition)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3201,47 +3204,47 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddAutomationEventHandler<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventid: i32, element: ::windows::core::RawPtr, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddAutomationEventHandler<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventid: i32, element: ::windows::core::RawPtr, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddAutomationEventHandler(::core::mem::transmute_copy(&eventid), ::core::mem::transmute(&element), ::core::mem::transmute_copy(&scope), ::core::mem::transmute(&cacherequest), ::core::mem::transmute(&handler)).into()
         }
-        unsafe extern "system" fn RemoveAutomationEventHandler<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventid: i32, element: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAutomationEventHandler<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventid: i32, element: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAutomationEventHandler(::core::mem::transmute_copy(&eventid), ::core::mem::transmute(&element), ::core::mem::transmute(&handler)).into()
         }
-        unsafe extern "system" fn AddPropertyChangedEventHandlerNativeArray<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, propertyarray: *const i32, propertycount: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddPropertyChangedEventHandlerNativeArray<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, propertyarray: *const i32, propertycount: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddPropertyChangedEventHandlerNativeArray(::core::mem::transmute(&element), ::core::mem::transmute_copy(&scope), ::core::mem::transmute(&cacherequest), ::core::mem::transmute(&handler), ::core::mem::transmute_copy(&propertyarray), ::core::mem::transmute_copy(&propertycount)).into()
         }
-        unsafe extern "system" fn AddPropertyChangedEventHandler<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, propertyarray: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddPropertyChangedEventHandler<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, propertyarray: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddPropertyChangedEventHandler(::core::mem::transmute(&element), ::core::mem::transmute_copy(&scope), ::core::mem::transmute(&cacherequest), ::core::mem::transmute(&handler), ::core::mem::transmute_copy(&propertyarray)).into()
         }
-        unsafe extern "system" fn RemovePropertyChangedEventHandler<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePropertyChangedEventHandler<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePropertyChangedEventHandler(::core::mem::transmute(&element), ::core::mem::transmute(&handler)).into()
         }
-        unsafe extern "system" fn AddStructureChangedEventHandler<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddStructureChangedEventHandler<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddStructureChangedEventHandler(::core::mem::transmute(&element), ::core::mem::transmute_copy(&scope), ::core::mem::transmute(&cacherequest), ::core::mem::transmute(&handler)).into()
         }
-        unsafe extern "system" fn RemoveStructureChangedEventHandler<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStructureChangedEventHandler<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStructureChangedEventHandler(::core::mem::transmute(&element), ::core::mem::transmute(&handler)).into()
         }
-        unsafe extern "system" fn AddFocusChangedEventHandler<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddFocusChangedEventHandler<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddFocusChangedEventHandler(::core::mem::transmute(&cacherequest), ::core::mem::transmute(&handler)).into()
         }
-        unsafe extern "system" fn RemoveFocusChangedEventHandler<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveFocusChangedEventHandler<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFocusChangedEventHandler(::core::mem::transmute(&handler)).into()
         }
-        unsafe extern "system" fn RemoveAllEventHandlers<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAllEventHandlers<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAllEventHandlers().into()
         }
-        unsafe extern "system" fn IntNativeArrayToSafeArray<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, array: *const i32, arraycount: i32, safearray: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IntNativeArrayToSafeArray<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, array: *const i32, arraycount: i32, safearray: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IntNativeArrayToSafeArray(::core::mem::transmute_copy(&array), ::core::mem::transmute_copy(&arraycount)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3251,11 +3254,11 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IntSafeArrayToNativeArray<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IntSafeArrayToNativeArray<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).IntSafeArrayToNativeArray(::core::mem::transmute_copy(&intarray), ::core::mem::transmute_copy(&array), ::core::mem::transmute_copy(&arraycount)).into()
         }
-        unsafe extern "system" fn RectToVariant<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rc: super::super::Foundation::RECT, var: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RectToVariant<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rc: super::super::Foundation::RECT, var: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RectToVariant(::core::mem::transmute_copy(&rc)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3265,7 +3268,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VariantToRect<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, var: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, rc: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VariantToRect<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, var: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, rc: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VariantToRect(::core::mem::transmute_copy(&var)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3275,11 +3278,11 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SafeArrayToRectNativeArray<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SafeArrayToRectNativeArray<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SafeArrayToRectNativeArray(::core::mem::transmute_copy(&rects), ::core::mem::transmute_copy(&rectarray), ::core::mem::transmute_copy(&rectarraycount)).into()
         }
-        unsafe extern "system" fn CreateProxyFactoryEntry<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factory: ::windows::core::RawPtr, factoryentry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateProxyFactoryEntry<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factory: ::windows::core::RawPtr, factoryentry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateProxyFactoryEntry(::core::mem::transmute(&factory)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3289,7 +3292,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProxyFactoryMapping<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factorymapping: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProxyFactoryMapping<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factorymapping: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProxyFactoryMapping() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3299,7 +3302,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPropertyProgrammaticName<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: i32, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyProgrammaticName<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: i32, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPropertyProgrammaticName(::core::mem::transmute_copy(&property)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3309,7 +3312,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPatternProgrammaticName<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pattern: i32, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPatternProgrammaticName<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pattern: i32, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPatternProgrammaticName(::core::mem::transmute_copy(&pattern)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3319,15 +3322,15 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PollForPotentialSupportedPatterns<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pelement: ::windows::core::RawPtr, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PollForPotentialSupportedPatterns<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pelement: ::windows::core::RawPtr, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PollForPotentialSupportedPatterns(::core::mem::transmute(&pelement), ::core::mem::transmute_copy(&patternids), ::core::mem::transmute_copy(&patternnames)).into()
         }
-        unsafe extern "system" fn PollForPotentialSupportedProperties<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pelement: ::windows::core::RawPtr, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PollForPotentialSupportedProperties<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pelement: ::windows::core::RawPtr, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PollForPotentialSupportedProperties(::core::mem::transmute(&pelement), ::core::mem::transmute_copy(&propertyids), ::core::mem::transmute_copy(&propertynames)).into()
         }
-        unsafe extern "system" fn CheckNotSupported<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, isnotsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CheckNotSupported<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, isnotsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CheckNotSupported(::core::mem::transmute_copy(&value)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3337,7 +3340,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReservedNotSupportedValue<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, notsupportedvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReservedNotSupportedValue<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, notsupportedvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReservedNotSupportedValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3347,7 +3350,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReservedMixedAttributeValue<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mixedattributevalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReservedMixedAttributeValue<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mixedattributevalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReservedMixedAttributeValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3357,7 +3360,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ElementFromIAccessible<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, accessible: ::windows::core::RawPtr, childid: i32, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ElementFromIAccessible<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, accessible: ::windows::core::RawPtr, childid: i32, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ElementFromIAccessible(::core::mem::transmute(&accessible), ::core::mem::transmute_copy(&childid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3367,7 +3370,7 @@ impl IUIAutomationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ElementFromIAccessibleBuildCache<Impl: IUIAutomationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, accessible: ::windows::core::RawPtr, childid: i32, cacherequest: ::windows::core::RawPtr, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ElementFromIAccessibleBuildCache<Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, accessible: ::windows::core::RawPtr, childid: i32, cacherequest: ::windows::core::RawPtr, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ElementFromIAccessibleBuildCache(::core::mem::transmute(&accessible), ::core::mem::transmute_copy(&childid), ::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3441,7 +3444,7 @@ impl IUIAutomationVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUIAutomation2Impl: Sized + IUIAutomationImpl {
+pub trait IUIAutomation2_Impl: Sized + IUIAutomation_Impl {
     fn AutoSetFocus(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetAutoSetFocus(&mut self, autosetfocus: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn ConnectionTimeout(&mut self) -> ::windows::core::Result<u32>;
@@ -3450,9 +3453,9 @@ pub trait IUIAutomation2Impl: Sized + IUIAutomationImpl {
     fn SetTransactionTimeout(&mut self, timeout: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUIAutomation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomation2Vtbl {
-        unsafe extern "system" fn AutoSetFocus<Impl: IUIAutomation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, autosetfocus: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+impl IUIAutomation2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomation2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomation2_Vtbl {
+        unsafe extern "system" fn AutoSetFocus<Impl: IUIAutomation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, autosetfocus: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutoSetFocus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3462,11 +3465,11 @@ impl IUIAutomation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAutoSetFocus<Impl: IUIAutomation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, autosetfocus: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAutoSetFocus<Impl: IUIAutomation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, autosetfocus: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAutoSetFocus(::core::mem::transmute_copy(&autosetfocus)).into()
         }
-        unsafe extern "system" fn ConnectionTimeout<Impl: IUIAutomation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeout: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectionTimeout<Impl: IUIAutomation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeout: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionTimeout() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3476,11 +3479,11 @@ impl IUIAutomation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetConnectionTimeout<Impl: IUIAutomation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeout: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetConnectionTimeout<Impl: IUIAutomation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeout: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetConnectionTimeout(::core::mem::transmute_copy(&timeout)).into()
         }
-        unsafe extern "system" fn TransactionTimeout<Impl: IUIAutomation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeout: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransactionTimeout<Impl: IUIAutomation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeout: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransactionTimeout() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3490,12 +3493,12 @@ impl IUIAutomation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTransactionTimeout<Impl: IUIAutomation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeout: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTransactionTimeout<Impl: IUIAutomation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeout: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTransactionTimeout(::core::mem::transmute_copy(&timeout)).into()
         }
         Self {
-            base: IUIAutomationVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IUIAutomation_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             AutoSetFocus: AutoSetFocus::<Impl, IMPL_OFFSET>,
             SetAutoSetFocus: SetAutoSetFocus::<Impl, IMPL_OFFSET>,
             ConnectionTimeout: ConnectionTimeout::<Impl, IMPL_OFFSET>,
@@ -3509,23 +3512,23 @@ impl IUIAutomation2Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUIAutomation3Impl: Sized + IUIAutomationImpl + IUIAutomation2Impl {
+pub trait IUIAutomation3_Impl: Sized + IUIAutomation_Impl + IUIAutomation2_Impl {
     fn AddTextEditTextChangedEventHandler(&mut self, element: ::core::option::Option<IUIAutomationElement>, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: ::core::option::Option<IUIAutomationCacheRequest>, handler: ::core::option::Option<IUIAutomationTextEditTextChangedEventHandler>) -> ::windows::core::Result<()>;
     fn RemoveTextEditTextChangedEventHandler(&mut self, element: ::core::option::Option<IUIAutomationElement>, handler: ::core::option::Option<IUIAutomationTextEditTextChangedEventHandler>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUIAutomation3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomation3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomation3Vtbl {
-        unsafe extern "system" fn AddTextEditTextChangedEventHandler<Impl: IUIAutomation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomation3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomation3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomation3_Vtbl {
+        unsafe extern "system" fn AddTextEditTextChangedEventHandler<Impl: IUIAutomation3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddTextEditTextChangedEventHandler(::core::mem::transmute(&element), ::core::mem::transmute_copy(&scope), ::core::mem::transmute_copy(&texteditchangetype), ::core::mem::transmute(&cacherequest), ::core::mem::transmute(&handler)).into()
         }
-        unsafe extern "system" fn RemoveTextEditTextChangedEventHandler<Impl: IUIAutomation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveTextEditTextChangedEventHandler<Impl: IUIAutomation3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTextEditTextChangedEventHandler(::core::mem::transmute(&element), ::core::mem::transmute(&handler)).into()
         }
         Self {
-            base: IUIAutomation2Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IUIAutomation2_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             AddTextEditTextChangedEventHandler: AddTextEditTextChangedEventHandler::<Impl, IMPL_OFFSET>,
             RemoveTextEditTextChangedEventHandler: RemoveTextEditTextChangedEventHandler::<Impl, IMPL_OFFSET>,
         }
@@ -3535,23 +3538,23 @@ impl IUIAutomation3Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUIAutomation4Impl: Sized + IUIAutomationImpl + IUIAutomation2Impl + IUIAutomation3Impl {
+pub trait IUIAutomation4_Impl: Sized + IUIAutomation_Impl + IUIAutomation2_Impl + IUIAutomation3_Impl {
     fn AddChangesEventHandler(&mut self, element: ::core::option::Option<IUIAutomationElement>, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: ::core::option::Option<IUIAutomationCacheRequest>, handler: ::core::option::Option<IUIAutomationChangesEventHandler>) -> ::windows::core::Result<()>;
     fn RemoveChangesEventHandler(&mut self, element: ::core::option::Option<IUIAutomationElement>, handler: ::core::option::Option<IUIAutomationChangesEventHandler>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUIAutomation4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomation4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomation4Vtbl {
-        unsafe extern "system" fn AddChangesEventHandler<Impl: IUIAutomation4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomation4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomation4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomation4_Vtbl {
+        unsafe extern "system" fn AddChangesEventHandler<Impl: IUIAutomation4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddChangesEventHandler(::core::mem::transmute(&element), ::core::mem::transmute_copy(&scope), ::core::mem::transmute_copy(&changetypes), ::core::mem::transmute_copy(&changescount), ::core::mem::transmute(&pcacherequest), ::core::mem::transmute(&handler)).into()
         }
-        unsafe extern "system" fn RemoveChangesEventHandler<Impl: IUIAutomation4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveChangesEventHandler<Impl: IUIAutomation4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveChangesEventHandler(::core::mem::transmute(&element), ::core::mem::transmute(&handler)).into()
         }
         Self {
-            base: IUIAutomation3Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IUIAutomation3_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             AddChangesEventHandler: AddChangesEventHandler::<Impl, IMPL_OFFSET>,
             RemoveChangesEventHandler: RemoveChangesEventHandler::<Impl, IMPL_OFFSET>,
         }
@@ -3561,23 +3564,23 @@ impl IUIAutomation4Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUIAutomation5Impl: Sized + IUIAutomationImpl + IUIAutomation2Impl + IUIAutomation3Impl + IUIAutomation4Impl {
+pub trait IUIAutomation5_Impl: Sized + IUIAutomation_Impl + IUIAutomation2_Impl + IUIAutomation3_Impl + IUIAutomation4_Impl {
     fn AddNotificationEventHandler(&mut self, element: ::core::option::Option<IUIAutomationElement>, scope: TreeScope, cacherequest: ::core::option::Option<IUIAutomationCacheRequest>, handler: ::core::option::Option<IUIAutomationNotificationEventHandler>) -> ::windows::core::Result<()>;
     fn RemoveNotificationEventHandler(&mut self, element: ::core::option::Option<IUIAutomationElement>, handler: ::core::option::Option<IUIAutomationNotificationEventHandler>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUIAutomation5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomation5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomation5Vtbl {
-        unsafe extern "system" fn AddNotificationEventHandler<Impl: IUIAutomation5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomation5_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomation5_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomation5_Vtbl {
+        unsafe extern "system" fn AddNotificationEventHandler<Impl: IUIAutomation5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddNotificationEventHandler(::core::mem::transmute(&element), ::core::mem::transmute_copy(&scope), ::core::mem::transmute(&cacherequest), ::core::mem::transmute(&handler)).into()
         }
-        unsafe extern "system" fn RemoveNotificationEventHandler<Impl: IUIAutomation5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveNotificationEventHandler<Impl: IUIAutomation5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveNotificationEventHandler(::core::mem::transmute(&element), ::core::mem::transmute(&handler)).into()
         }
         Self {
-            base: IUIAutomation4Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IUIAutomation4_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             AddNotificationEventHandler: AddNotificationEventHandler::<Impl, IMPL_OFFSET>,
             RemoveNotificationEventHandler: RemoveNotificationEventHandler::<Impl, IMPL_OFFSET>,
         }
@@ -3587,7 +3590,7 @@ impl IUIAutomation5Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUIAutomation6Impl: Sized + IUIAutomationImpl + IUIAutomation2Impl + IUIAutomation3Impl + IUIAutomation4Impl + IUIAutomation5Impl {
+pub trait IUIAutomation6_Impl: Sized + IUIAutomation_Impl + IUIAutomation2_Impl + IUIAutomation3_Impl + IUIAutomation4_Impl + IUIAutomation5_Impl {
     fn CreateEventHandlerGroup(&mut self) -> ::windows::core::Result<IUIAutomationEventHandlerGroup>;
     fn AddEventHandlerGroup(&mut self, element: ::core::option::Option<IUIAutomationElement>, handlergroup: ::core::option::Option<IUIAutomationEventHandlerGroup>) -> ::windows::core::Result<()>;
     fn RemoveEventHandlerGroup(&mut self, element: ::core::option::Option<IUIAutomationElement>, handlergroup: ::core::option::Option<IUIAutomationEventHandlerGroup>) -> ::windows::core::Result<()>;
@@ -3599,9 +3602,9 @@ pub trait IUIAutomation6Impl: Sized + IUIAutomationImpl + IUIAutomation2Impl + I
     fn RemoveActiveTextPositionChangedEventHandler(&mut self, element: ::core::option::Option<IUIAutomationElement>, handler: ::core::option::Option<IUIAutomationActiveTextPositionChangedEventHandler>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUIAutomation6Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomation6Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomation6Vtbl {
-        unsafe extern "system" fn CreateEventHandlerGroup<Impl: IUIAutomation6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handlergroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomation6_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomation6_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomation6_Vtbl {
+        unsafe extern "system" fn CreateEventHandlerGroup<Impl: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handlergroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateEventHandlerGroup() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3611,15 +3614,15 @@ impl IUIAutomation6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddEventHandlerGroup<Impl: IUIAutomation6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, handlergroup: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddEventHandlerGroup<Impl: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, handlergroup: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddEventHandlerGroup(::core::mem::transmute(&element), ::core::mem::transmute(&handlergroup)).into()
         }
-        unsafe extern "system" fn RemoveEventHandlerGroup<Impl: IUIAutomation6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, handlergroup: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveEventHandlerGroup<Impl: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, handlergroup: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveEventHandlerGroup(::core::mem::transmute(&element), ::core::mem::transmute(&handlergroup)).into()
         }
-        unsafe extern "system" fn ConnectionRecoveryBehavior<Impl: IUIAutomation6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionrecoverybehavioroptions: *mut ConnectionRecoveryBehaviorOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectionRecoveryBehavior<Impl: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionrecoverybehavioroptions: *mut ConnectionRecoveryBehaviorOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionRecoveryBehavior() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3629,11 +3632,11 @@ impl IUIAutomation6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetConnectionRecoveryBehavior<Impl: IUIAutomation6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionrecoverybehavioroptions: ConnectionRecoveryBehaviorOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetConnectionRecoveryBehavior<Impl: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionrecoverybehavioroptions: ConnectionRecoveryBehaviorOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetConnectionRecoveryBehavior(::core::mem::transmute_copy(&connectionrecoverybehavioroptions)).into()
         }
-        unsafe extern "system" fn CoalesceEvents<Impl: IUIAutomation6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coalesceeventsoptions: *mut CoalesceEventsOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CoalesceEvents<Impl: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coalesceeventsoptions: *mut CoalesceEventsOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CoalesceEvents() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3643,20 +3646,20 @@ impl IUIAutomation6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCoalesceEvents<Impl: IUIAutomation6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coalesceeventsoptions: CoalesceEventsOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCoalesceEvents<Impl: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coalesceeventsoptions: CoalesceEventsOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCoalesceEvents(::core::mem::transmute_copy(&coalesceeventsoptions)).into()
         }
-        unsafe extern "system" fn AddActiveTextPositionChangedEventHandler<Impl: IUIAutomation6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddActiveTextPositionChangedEventHandler<Impl: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddActiveTextPositionChangedEventHandler(::core::mem::transmute(&element), ::core::mem::transmute_copy(&scope), ::core::mem::transmute(&cacherequest), ::core::mem::transmute(&handler)).into()
         }
-        unsafe extern "system" fn RemoveActiveTextPositionChangedEventHandler<Impl: IUIAutomation6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveActiveTextPositionChangedEventHandler<Impl: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveActiveTextPositionChangedEventHandler(::core::mem::transmute(&element), ::core::mem::transmute(&handler)).into()
         }
         Self {
-            base: IUIAutomation5Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IUIAutomation5_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             CreateEventHandlerGroup: CreateEventHandlerGroup::<Impl, IMPL_OFFSET>,
             AddEventHandlerGroup: AddEventHandlerGroup::<Impl, IMPL_OFFSET>,
             RemoveEventHandlerGroup: RemoveEventHandlerGroup::<Impl, IMPL_OFFSET>,
@@ -3672,12 +3675,12 @@ impl IUIAutomation6Vtbl {
         iid == &<IUIAutomation6 as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationActiveTextPositionChangedEventHandlerImpl: Sized {
+pub trait IUIAutomationActiveTextPositionChangedEventHandler_Impl: Sized {
     fn HandleActiveTextPositionChangedEvent(&mut self, sender: ::core::option::Option<IUIAutomationElement>, range: ::core::option::Option<IUIAutomationTextRange>) -> ::windows::core::Result<()>;
 }
-impl IUIAutomationActiveTextPositionChangedEventHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationActiveTextPositionChangedEventHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationActiveTextPositionChangedEventHandlerVtbl {
-        unsafe extern "system" fn HandleActiveTextPositionChangedEvent<Impl: IUIAutomationActiveTextPositionChangedEventHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, range: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationActiveTextPositionChangedEventHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationActiveTextPositionChangedEventHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationActiveTextPositionChangedEventHandler_Vtbl {
+        unsafe extern "system" fn HandleActiveTextPositionChangedEvent<Impl: IUIAutomationActiveTextPositionChangedEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, range: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HandleActiveTextPositionChangedEvent(::core::mem::transmute(&sender), ::core::mem::transmute(&range)).into()
         }
@@ -3691,15 +3694,15 @@ impl IUIAutomationActiveTextPositionChangedEventHandlerVtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IUIAutomationAndConditionImpl: Sized + IUIAutomationConditionImpl {
+pub trait IUIAutomationAndCondition_Impl: Sized + IUIAutomationCondition_Impl {
     fn ChildCount(&mut self) -> ::windows::core::Result<i32>;
     fn GetChildrenAsNativeArray(&mut self, childarray: *mut *mut ::core::option::Option<IUIAutomationCondition>, childarraycount: *mut i32) -> ::windows::core::Result<()>;
     fn GetChildren(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl IUIAutomationAndConditionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationAndConditionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationAndConditionVtbl {
-        unsafe extern "system" fn ChildCount<Impl: IUIAutomationAndConditionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childcount: *mut i32) -> ::windows::core::HRESULT {
+impl IUIAutomationAndCondition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationAndCondition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationAndCondition_Vtbl {
+        unsafe extern "system" fn ChildCount<Impl: IUIAutomationAndCondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childcount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChildCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3709,11 +3712,11 @@ impl IUIAutomationAndConditionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetChildrenAsNativeArray<Impl: IUIAutomationAndConditionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childarray: *mut *mut ::windows::core::RawPtr, childarraycount: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetChildrenAsNativeArray<Impl: IUIAutomationAndCondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childarray: *mut *mut ::windows::core::RawPtr, childarraycount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetChildrenAsNativeArray(::core::mem::transmute_copy(&childarray), ::core::mem::transmute_copy(&childarraycount)).into()
         }
-        unsafe extern "system" fn GetChildren<Impl: IUIAutomationAndConditionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childarray: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetChildren<Impl: IUIAutomationAndCondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childarray: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetChildren() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3724,7 +3727,7 @@ impl IUIAutomationAndConditionVtbl {
             }
         }
         Self {
-            base: IUIAutomationConditionVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IUIAutomationCondition_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             ChildCount: ChildCount::<Impl, IMPL_OFFSET>,
             GetChildrenAsNativeArray: GetChildrenAsNativeArray::<Impl, IMPL_OFFSET>,
             GetChildren: GetChildren::<Impl, IMPL_OFFSET>,
@@ -3735,7 +3738,7 @@ impl IUIAutomationAndConditionVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUIAutomationAnnotationPatternImpl: Sized {
+pub trait IUIAutomationAnnotationPattern_Impl: Sized {
     fn CurrentAnnotationTypeId(&mut self) -> ::windows::core::Result<i32>;
     fn CurrentAnnotationTypeName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn CurrentAuthor(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -3748,9 +3751,9 @@ pub trait IUIAutomationAnnotationPatternImpl: Sized {
     fn CachedTarget(&mut self) -> ::windows::core::Result<IUIAutomationElement>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUIAutomationAnnotationPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationAnnotationPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationAnnotationPatternVtbl {
-        unsafe extern "system" fn CurrentAnnotationTypeId<Impl: IUIAutomationAnnotationPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+impl IUIAutomationAnnotationPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationAnnotationPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationAnnotationPattern_Vtbl {
+        unsafe extern "system" fn CurrentAnnotationTypeId<Impl: IUIAutomationAnnotationPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentAnnotationTypeId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3760,7 +3763,7 @@ impl IUIAutomationAnnotationPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentAnnotationTypeName<Impl: IUIAutomationAnnotationPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentAnnotationTypeName<Impl: IUIAutomationAnnotationPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentAnnotationTypeName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3770,7 +3773,7 @@ impl IUIAutomationAnnotationPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentAuthor<Impl: IUIAutomationAnnotationPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentAuthor<Impl: IUIAutomationAnnotationPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentAuthor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3780,7 +3783,7 @@ impl IUIAutomationAnnotationPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentDateTime<Impl: IUIAutomationAnnotationPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentDateTime<Impl: IUIAutomationAnnotationPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentDateTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3790,7 +3793,7 @@ impl IUIAutomationAnnotationPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentTarget<Impl: IUIAutomationAnnotationPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentTarget<Impl: IUIAutomationAnnotationPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentTarget() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3800,7 +3803,7 @@ impl IUIAutomationAnnotationPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedAnnotationTypeId<Impl: IUIAutomationAnnotationPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedAnnotationTypeId<Impl: IUIAutomationAnnotationPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedAnnotationTypeId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3810,7 +3813,7 @@ impl IUIAutomationAnnotationPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedAnnotationTypeName<Impl: IUIAutomationAnnotationPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedAnnotationTypeName<Impl: IUIAutomationAnnotationPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedAnnotationTypeName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3820,7 +3823,7 @@ impl IUIAutomationAnnotationPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedAuthor<Impl: IUIAutomationAnnotationPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedAuthor<Impl: IUIAutomationAnnotationPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedAuthor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3830,7 +3833,7 @@ impl IUIAutomationAnnotationPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedDateTime<Impl: IUIAutomationAnnotationPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedDateTime<Impl: IUIAutomationAnnotationPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedDateTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3840,7 +3843,7 @@ impl IUIAutomationAnnotationPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedTarget<Impl: IUIAutomationAnnotationPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedTarget<Impl: IUIAutomationAnnotationPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedTarget() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3869,13 +3872,13 @@ impl IUIAutomationAnnotationPatternVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUIAutomationBoolConditionImpl: Sized + IUIAutomationConditionImpl {
+pub trait IUIAutomationBoolCondition_Impl: Sized + IUIAutomationCondition_Impl {
     fn BooleanValue(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUIAutomationBoolConditionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationBoolConditionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationBoolConditionVtbl {
-        unsafe extern "system" fn BooleanValue<Impl: IUIAutomationBoolConditionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, boolval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+impl IUIAutomationBoolCondition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationBoolCondition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationBoolCondition_Vtbl {
+        unsafe extern "system" fn BooleanValue<Impl: IUIAutomationBoolCondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, boolval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BooleanValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3885,13 +3888,13 @@ impl IUIAutomationBoolConditionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IUIAutomationConditionVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), BooleanValue: BooleanValue::<Impl, IMPL_OFFSET> }
+        Self { base: IUIAutomationCondition_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), BooleanValue: BooleanValue::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAutomationBoolCondition as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationCacheRequestImpl: Sized {
+pub trait IUIAutomationCacheRequest_Impl: Sized {
     fn AddProperty(&mut self, propertyid: i32) -> ::windows::core::Result<()>;
     fn AddPattern(&mut self, patternid: i32) -> ::windows::core::Result<()>;
     fn Clone(&mut self) -> ::windows::core::Result<IUIAutomationCacheRequest>;
@@ -3902,17 +3905,17 @@ pub trait IUIAutomationCacheRequestImpl: Sized {
     fn AutomationElementMode(&mut self) -> ::windows::core::Result<AutomationElementMode>;
     fn SetAutomationElementMode(&mut self, mode: AutomationElementMode) -> ::windows::core::Result<()>;
 }
-impl IUIAutomationCacheRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationCacheRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationCacheRequestVtbl {
-        unsafe extern "system" fn AddProperty<Impl: IUIAutomationCacheRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: i32) -> ::windows::core::HRESULT {
+impl IUIAutomationCacheRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationCacheRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationCacheRequest_Vtbl {
+        unsafe extern "system" fn AddProperty<Impl: IUIAutomationCacheRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddProperty(::core::mem::transmute_copy(&propertyid)).into()
         }
-        unsafe extern "system" fn AddPattern<Impl: IUIAutomationCacheRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, patternid: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddPattern<Impl: IUIAutomationCacheRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, patternid: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddPattern(::core::mem::transmute_copy(&patternid)).into()
         }
-        unsafe extern "system" fn Clone<Impl: IUIAutomationCacheRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clonedrequest: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clone<Impl: IUIAutomationCacheRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clonedrequest: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3922,7 +3925,7 @@ impl IUIAutomationCacheRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TreeScope<Impl: IUIAutomationCacheRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: *mut TreeScope) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TreeScope<Impl: IUIAutomationCacheRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: *mut TreeScope) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TreeScope() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3932,11 +3935,11 @@ impl IUIAutomationCacheRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTreeScope<Impl: IUIAutomationCacheRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTreeScope<Impl: IUIAutomationCacheRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTreeScope(::core::mem::transmute_copy(&scope)).into()
         }
-        unsafe extern "system" fn TreeFilter<Impl: IUIAutomationCacheRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TreeFilter<Impl: IUIAutomationCacheRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TreeFilter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3946,11 +3949,11 @@ impl IUIAutomationCacheRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTreeFilter<Impl: IUIAutomationCacheRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filter: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTreeFilter<Impl: IUIAutomationCacheRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filter: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTreeFilter(::core::mem::transmute(&filter)).into()
         }
-        unsafe extern "system" fn AutomationElementMode<Impl: IUIAutomationCacheRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: *mut AutomationElementMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AutomationElementMode<Impl: IUIAutomationCacheRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: *mut AutomationElementMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutomationElementMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3960,7 +3963,7 @@ impl IUIAutomationCacheRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAutomationElementMode<Impl: IUIAutomationCacheRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: AutomationElementMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAutomationElementMode<Impl: IUIAutomationCacheRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: AutomationElementMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAutomationElementMode(::core::mem::transmute_copy(&mode)).into()
         }
@@ -3982,13 +3985,13 @@ impl IUIAutomationCacheRequestVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUIAutomationChangesEventHandlerImpl: Sized {
+pub trait IUIAutomationChangesEventHandler_Impl: Sized {
     fn HandleChangesEvent(&mut self, sender: ::core::option::Option<IUIAutomationElement>, uiachanges: *const UiaChangeInfo, changescount: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUIAutomationChangesEventHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationChangesEventHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationChangesEventHandlerVtbl {
-        unsafe extern "system" fn HandleChangesEvent<Impl: IUIAutomationChangesEventHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, uiachanges: *const UiaChangeInfo, changescount: i32) -> ::windows::core::HRESULT {
+impl IUIAutomationChangesEventHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationChangesEventHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationChangesEventHandler_Vtbl {
+        unsafe extern "system" fn HandleChangesEvent<Impl: IUIAutomationChangesEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, uiachanges: *const UiaChangeInfo, changescount: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HandleChangesEvent(::core::mem::transmute(&sender), ::core::mem::transmute_copy(&uiachanges), ::core::mem::transmute_copy(&changescount)).into()
         }
@@ -3998,21 +4001,21 @@ impl IUIAutomationChangesEventHandlerVtbl {
         iid == &<IUIAutomationChangesEventHandler as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationConditionImpl: Sized {}
-impl IUIAutomationConditionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationConditionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationConditionVtbl {
+pub trait IUIAutomationCondition_Impl: Sized {}
+impl IUIAutomationCondition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationCondition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationCondition_Vtbl {
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAutomationCondition as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationCustomNavigationPatternImpl: Sized {
+pub trait IUIAutomationCustomNavigationPattern_Impl: Sized {
     fn Navigate(&mut self, direction: NavigateDirection) -> ::windows::core::Result<IUIAutomationElement>;
 }
-impl IUIAutomationCustomNavigationPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationCustomNavigationPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationCustomNavigationPatternVtbl {
-        unsafe extern "system" fn Navigate<Impl: IUIAutomationCustomNavigationPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, direction: NavigateDirection, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationCustomNavigationPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationCustomNavigationPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationCustomNavigationPattern_Vtbl {
+        unsafe extern "system" fn Navigate<Impl: IUIAutomationCustomNavigationPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, direction: NavigateDirection, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Navigate(::core::mem::transmute_copy(&direction)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4028,18 +4031,18 @@ impl IUIAutomationCustomNavigationPatternVtbl {
         iid == &<IUIAutomationCustomNavigationPattern as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationDockPatternImpl: Sized {
+pub trait IUIAutomationDockPattern_Impl: Sized {
     fn SetDockPosition(&mut self, dockpos: DockPosition) -> ::windows::core::Result<()>;
     fn CurrentDockPosition(&mut self) -> ::windows::core::Result<DockPosition>;
     fn CachedDockPosition(&mut self) -> ::windows::core::Result<DockPosition>;
 }
-impl IUIAutomationDockPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationDockPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationDockPatternVtbl {
-        unsafe extern "system" fn SetDockPosition<Impl: IUIAutomationDockPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dockpos: DockPosition) -> ::windows::core::HRESULT {
+impl IUIAutomationDockPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationDockPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationDockPattern_Vtbl {
+        unsafe extern "system" fn SetDockPosition<Impl: IUIAutomationDockPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dockpos: DockPosition) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDockPosition(::core::mem::transmute_copy(&dockpos)).into()
         }
-        unsafe extern "system" fn CurrentDockPosition<Impl: IUIAutomationDockPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut DockPosition) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentDockPosition<Impl: IUIAutomationDockPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut DockPosition) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentDockPosition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4049,7 +4052,7 @@ impl IUIAutomationDockPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedDockPosition<Impl: IUIAutomationDockPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut DockPosition) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedDockPosition<Impl: IUIAutomationDockPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut DockPosition) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedDockPosition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4071,7 +4074,7 @@ impl IUIAutomationDockPatternVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IUIAutomationDragPatternImpl: Sized {
+pub trait IUIAutomationDragPattern_Impl: Sized {
     fn CurrentIsGrabbed(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn CachedIsGrabbed(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn CurrentDropEffect(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -4082,9 +4085,9 @@ pub trait IUIAutomationDragPatternImpl: Sized {
     fn GetCachedGrabbedItems(&mut self) -> ::windows::core::Result<IUIAutomationElementArray>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl IUIAutomationDragPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationDragPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationDragPatternVtbl {
-        unsafe extern "system" fn CurrentIsGrabbed<Impl: IUIAutomationDragPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+impl IUIAutomationDragPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationDragPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationDragPattern_Vtbl {
+        unsafe extern "system" fn CurrentIsGrabbed<Impl: IUIAutomationDragPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentIsGrabbed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4094,7 +4097,7 @@ impl IUIAutomationDragPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedIsGrabbed<Impl: IUIAutomationDragPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedIsGrabbed<Impl: IUIAutomationDragPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedIsGrabbed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4104,7 +4107,7 @@ impl IUIAutomationDragPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentDropEffect<Impl: IUIAutomationDragPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentDropEffect<Impl: IUIAutomationDragPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentDropEffect() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4114,7 +4117,7 @@ impl IUIAutomationDragPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedDropEffect<Impl: IUIAutomationDragPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedDropEffect<Impl: IUIAutomationDragPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedDropEffect() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4124,7 +4127,7 @@ impl IUIAutomationDragPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentDropEffects<Impl: IUIAutomationDragPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentDropEffects<Impl: IUIAutomationDragPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentDropEffects() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4134,7 +4137,7 @@ impl IUIAutomationDragPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedDropEffects<Impl: IUIAutomationDragPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedDropEffects<Impl: IUIAutomationDragPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedDropEffects() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4144,7 +4147,7 @@ impl IUIAutomationDragPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentGrabbedItems<Impl: IUIAutomationDragPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentGrabbedItems<Impl: IUIAutomationDragPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentGrabbedItems() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4154,7 +4157,7 @@ impl IUIAutomationDragPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCachedGrabbedItems<Impl: IUIAutomationDragPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCachedGrabbedItems<Impl: IUIAutomationDragPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCachedGrabbedItems() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4181,16 +4184,16 @@ impl IUIAutomationDragPatternVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IUIAutomationDropTargetPatternImpl: Sized {
+pub trait IUIAutomationDropTargetPattern_Impl: Sized {
     fn CurrentDropTargetEffect(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn CachedDropTargetEffect(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn CurrentDropTargetEffects(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn CachedDropTargetEffects(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl IUIAutomationDropTargetPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationDropTargetPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationDropTargetPatternVtbl {
-        unsafe extern "system" fn CurrentDropTargetEffect<Impl: IUIAutomationDropTargetPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IUIAutomationDropTargetPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationDropTargetPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationDropTargetPattern_Vtbl {
+        unsafe extern "system" fn CurrentDropTargetEffect<Impl: IUIAutomationDropTargetPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentDropTargetEffect() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4200,7 +4203,7 @@ impl IUIAutomationDropTargetPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedDropTargetEffect<Impl: IUIAutomationDropTargetPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedDropTargetEffect<Impl: IUIAutomationDropTargetPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedDropTargetEffect() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4210,7 +4213,7 @@ impl IUIAutomationDropTargetPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentDropTargetEffects<Impl: IUIAutomationDropTargetPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentDropTargetEffects<Impl: IUIAutomationDropTargetPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentDropTargetEffects() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4220,7 +4223,7 @@ impl IUIAutomationDropTargetPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedDropTargetEffects<Impl: IUIAutomationDropTargetPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedDropTargetEffects<Impl: IUIAutomationDropTargetPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedDropTargetEffects() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4243,7 +4246,7 @@ impl IUIAutomationDropTargetPatternVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUIAutomationElementImpl: Sized {
+pub trait IUIAutomationElement_Impl: Sized {
     fn SetFocus(&mut self) -> ::windows::core::Result<()>;
     fn GetRuntimeId(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn FindFirst(&mut self, scope: TreeScope, condition: ::core::option::Option<IUIAutomationCondition>) -> ::windows::core::Result<IUIAutomationElement>;
@@ -4328,13 +4331,13 @@ pub trait IUIAutomationElementImpl: Sized {
     fn GetClickablePoint(&mut self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUIAutomationElementVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElementImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationElementVtbl {
-        unsafe extern "system" fn SetFocus<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IUIAutomationElement_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationElement_Vtbl {
+        unsafe extern "system" fn SetFocus<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFocus().into()
         }
-        unsafe extern "system" fn GetRuntimeId<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, runtimeid: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRuntimeId<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, runtimeid: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRuntimeId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4344,7 +4347,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindFirst<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: ::windows::core::RawPtr, found: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindFirst<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: ::windows::core::RawPtr, found: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindFirst(::core::mem::transmute_copy(&scope), ::core::mem::transmute(&condition)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4354,7 +4357,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindAll<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: ::windows::core::RawPtr, found: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindAll<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: ::windows::core::RawPtr, found: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAll(::core::mem::transmute_copy(&scope), ::core::mem::transmute(&condition)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4364,7 +4367,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindFirstBuildCache<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: ::windows::core::RawPtr, cacherequest: ::windows::core::RawPtr, found: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindFirstBuildCache<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: ::windows::core::RawPtr, cacherequest: ::windows::core::RawPtr, found: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindFirstBuildCache(::core::mem::transmute_copy(&scope), ::core::mem::transmute(&condition), ::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4374,7 +4377,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindAllBuildCache<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: ::windows::core::RawPtr, cacherequest: ::windows::core::RawPtr, found: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindAllBuildCache<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: ::windows::core::RawPtr, cacherequest: ::windows::core::RawPtr, found: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAllBuildCache(::core::mem::transmute_copy(&scope), ::core::mem::transmute(&condition), ::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4384,7 +4387,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BuildUpdatedCache<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cacherequest: ::windows::core::RawPtr, updatedelement: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BuildUpdatedCache<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cacherequest: ::windows::core::RawPtr, updatedelement: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BuildUpdatedCache(::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4394,7 +4397,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentPropertyValue<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: i32, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentPropertyValue<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: i32, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentPropertyValue(::core::mem::transmute_copy(&propertyid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4404,7 +4407,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentPropertyValueEx<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: i32, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentPropertyValueEx<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: i32, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentPropertyValueEx(::core::mem::transmute_copy(&propertyid), ::core::mem::transmute_copy(&ignoredefaultvalue)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4414,7 +4417,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCachedPropertyValue<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: i32, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCachedPropertyValue<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: i32, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCachedPropertyValue(::core::mem::transmute_copy(&propertyid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4424,7 +4427,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCachedPropertyValueEx<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: i32, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCachedPropertyValueEx<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: i32, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCachedPropertyValueEx(::core::mem::transmute_copy(&propertyid), ::core::mem::transmute_copy(&ignoredefaultvalue)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4434,15 +4437,15 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentPatternAs<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, patternid: i32, riid: *const ::windows::core::GUID, patternobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentPatternAs<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, patternid: i32, riid: *const ::windows::core::GUID, patternobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetCurrentPatternAs(::core::mem::transmute_copy(&patternid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&patternobject)).into()
         }
-        unsafe extern "system" fn GetCachedPatternAs<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, patternid: i32, riid: *const ::windows::core::GUID, patternobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCachedPatternAs<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, patternid: i32, riid: *const ::windows::core::GUID, patternobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetCachedPatternAs(::core::mem::transmute_copy(&patternid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&patternobject)).into()
         }
-        unsafe extern "system" fn GetCurrentPattern<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, patternid: i32, patternobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentPattern<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, patternid: i32, patternobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentPattern(::core::mem::transmute_copy(&patternid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4452,7 +4455,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCachedPattern<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, patternid: i32, patternobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCachedPattern<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, patternid: i32, patternobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCachedPattern(::core::mem::transmute_copy(&patternid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4462,7 +4465,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCachedParent<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCachedParent<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCachedParent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4472,7 +4475,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCachedChildren<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, children: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCachedChildren<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, children: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCachedChildren() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4482,7 +4485,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentProcessId<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentProcessId<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentProcessId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4492,7 +4495,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentControlType<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentControlType<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentControlType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4502,7 +4505,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentLocalizedControlType<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentLocalizedControlType<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentLocalizedControlType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4512,7 +4515,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentName<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentName<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4522,7 +4525,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentAcceleratorKey<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentAcceleratorKey<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentAcceleratorKey() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4532,7 +4535,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentAccessKey<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentAccessKey<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentAccessKey() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4542,7 +4545,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentHasKeyboardFocus<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentHasKeyboardFocus<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentHasKeyboardFocus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4552,7 +4555,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentIsKeyboardFocusable<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentIsKeyboardFocusable<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentIsKeyboardFocusable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4562,7 +4565,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentIsEnabled<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentIsEnabled<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentIsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4572,7 +4575,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentAutomationId<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentAutomationId<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentAutomationId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4582,7 +4585,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentClassName<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentClassName<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentClassName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4592,7 +4595,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentHelpText<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentHelpText<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentHelpText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4602,7 +4605,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentCulture<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentCulture<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentCulture() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4612,7 +4615,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentIsControlElement<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentIsControlElement<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentIsControlElement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4622,7 +4625,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentIsContentElement<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentIsContentElement<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentIsContentElement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4632,7 +4635,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentIsPassword<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentIsPassword<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentIsPassword() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4642,7 +4645,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentNativeWindowHandle<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentNativeWindowHandle<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentNativeWindowHandle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4652,7 +4655,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentItemType<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentItemType<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentItemType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4662,7 +4665,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentIsOffscreen<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentIsOffscreen<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentIsOffscreen() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4672,7 +4675,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentOrientation<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut OrientationType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentOrientation<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut OrientationType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentOrientation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4682,7 +4685,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentFrameworkId<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentFrameworkId<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentFrameworkId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4692,7 +4695,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentIsRequiredForForm<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentIsRequiredForForm<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentIsRequiredForForm() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4702,7 +4705,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentItemStatus<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentItemStatus<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentItemStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4712,7 +4715,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentBoundingRectangle<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentBoundingRectangle<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentBoundingRectangle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4722,7 +4725,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentLabeledBy<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentLabeledBy<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentLabeledBy() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4732,7 +4735,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentAriaRole<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentAriaRole<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentAriaRole() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4742,7 +4745,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentAriaProperties<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentAriaProperties<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentAriaProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4752,7 +4755,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentIsDataValidForForm<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentIsDataValidForForm<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentIsDataValidForForm() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4762,7 +4765,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentControllerFor<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentControllerFor<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentControllerFor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4772,7 +4775,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentDescribedBy<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentDescribedBy<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentDescribedBy() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4782,7 +4785,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentFlowsTo<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentFlowsTo<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentFlowsTo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4792,7 +4795,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentProviderDescription<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentProviderDescription<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentProviderDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4802,7 +4805,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedProcessId<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedProcessId<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedProcessId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4812,7 +4815,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedControlType<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedControlType<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedControlType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4822,7 +4825,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedLocalizedControlType<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedLocalizedControlType<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedLocalizedControlType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4832,7 +4835,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedName<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedName<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4842,7 +4845,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedAcceleratorKey<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedAcceleratorKey<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedAcceleratorKey() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4852,7 +4855,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedAccessKey<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedAccessKey<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedAccessKey() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4862,7 +4865,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedHasKeyboardFocus<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedHasKeyboardFocus<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedHasKeyboardFocus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4872,7 +4875,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedIsKeyboardFocusable<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedIsKeyboardFocusable<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedIsKeyboardFocusable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4882,7 +4885,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedIsEnabled<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedIsEnabled<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedIsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4892,7 +4895,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedAutomationId<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedAutomationId<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedAutomationId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4902,7 +4905,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedClassName<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedClassName<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedClassName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4912,7 +4915,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedHelpText<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedHelpText<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedHelpText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4922,7 +4925,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedCulture<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedCulture<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedCulture() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4932,7 +4935,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedIsControlElement<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedIsControlElement<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedIsControlElement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4942,7 +4945,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedIsContentElement<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedIsContentElement<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedIsContentElement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4952,7 +4955,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedIsPassword<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedIsPassword<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedIsPassword() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4962,7 +4965,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedNativeWindowHandle<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedNativeWindowHandle<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedNativeWindowHandle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4972,7 +4975,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedItemType<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedItemType<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedItemType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4982,7 +4985,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedIsOffscreen<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedIsOffscreen<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedIsOffscreen() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4992,7 +4995,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedOrientation<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut OrientationType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedOrientation<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut OrientationType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedOrientation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5002,7 +5005,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedFrameworkId<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedFrameworkId<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedFrameworkId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5012,7 +5015,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedIsRequiredForForm<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedIsRequiredForForm<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedIsRequiredForForm() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5022,7 +5025,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedItemStatus<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedItemStatus<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedItemStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5032,7 +5035,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedBoundingRectangle<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedBoundingRectangle<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedBoundingRectangle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5042,7 +5045,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedLabeledBy<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedLabeledBy<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedLabeledBy() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5052,7 +5055,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedAriaRole<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedAriaRole<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedAriaRole() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5062,7 +5065,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedAriaProperties<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedAriaProperties<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedAriaProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5072,7 +5075,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedIsDataValidForForm<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedIsDataValidForForm<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedIsDataValidForForm() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5082,7 +5085,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedControllerFor<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedControllerFor<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedControllerFor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5092,7 +5095,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedDescribedBy<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedDescribedBy<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedDescribedBy() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5102,7 +5105,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedFlowsTo<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedFlowsTo<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedFlowsTo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5112,7 +5115,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedProviderDescription<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedProviderDescription<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedProviderDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5122,7 +5125,7 @@ impl IUIAutomationElementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetClickablePoint<Impl: IUIAutomationElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetClickablePoint<Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetClickablePoint(::core::mem::transmute_copy(&clickable), ::core::mem::transmute_copy(&gotclickable)).into()
         }
@@ -5217,7 +5220,7 @@ impl IUIAutomationElementVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUIAutomationElement2Impl: Sized + IUIAutomationElementImpl {
+pub trait IUIAutomationElement2_Impl: Sized + IUIAutomationElement_Impl {
     fn CurrentOptimizeForVisualContent(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn CachedOptimizeForVisualContent(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn CurrentLiveSetting(&mut self) -> ::windows::core::Result<LiveSetting>;
@@ -5226,9 +5229,9 @@ pub trait IUIAutomationElement2Impl: Sized + IUIAutomationElementImpl {
     fn CachedFlowsFrom(&mut self) -> ::windows::core::Result<IUIAutomationElementArray>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUIAutomationElement2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationElement2Vtbl {
-        unsafe extern "system" fn CurrentOptimizeForVisualContent<Impl: IUIAutomationElement2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+impl IUIAutomationElement2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationElement2_Vtbl {
+        unsafe extern "system" fn CurrentOptimizeForVisualContent<Impl: IUIAutomationElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentOptimizeForVisualContent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5238,7 +5241,7 @@ impl IUIAutomationElement2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedOptimizeForVisualContent<Impl: IUIAutomationElement2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedOptimizeForVisualContent<Impl: IUIAutomationElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedOptimizeForVisualContent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5248,7 +5251,7 @@ impl IUIAutomationElement2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentLiveSetting<Impl: IUIAutomationElement2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut LiveSetting) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentLiveSetting<Impl: IUIAutomationElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut LiveSetting) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentLiveSetting() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5258,7 +5261,7 @@ impl IUIAutomationElement2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedLiveSetting<Impl: IUIAutomationElement2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut LiveSetting) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedLiveSetting<Impl: IUIAutomationElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut LiveSetting) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedLiveSetting() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5268,7 +5271,7 @@ impl IUIAutomationElement2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentFlowsFrom<Impl: IUIAutomationElement2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentFlowsFrom<Impl: IUIAutomationElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentFlowsFrom() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5278,7 +5281,7 @@ impl IUIAutomationElement2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedFlowsFrom<Impl: IUIAutomationElement2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedFlowsFrom<Impl: IUIAutomationElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedFlowsFrom() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5289,7 +5292,7 @@ impl IUIAutomationElement2Vtbl {
             }
         }
         Self {
-            base: IUIAutomationElementVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IUIAutomationElement_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             CurrentOptimizeForVisualContent: CurrentOptimizeForVisualContent::<Impl, IMPL_OFFSET>,
             CachedOptimizeForVisualContent: CachedOptimizeForVisualContent::<Impl, IMPL_OFFSET>,
             CurrentLiveSetting: CurrentLiveSetting::<Impl, IMPL_OFFSET>,
@@ -5303,19 +5306,19 @@ impl IUIAutomationElement2Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUIAutomationElement3Impl: Sized + IUIAutomationElementImpl + IUIAutomationElement2Impl {
+pub trait IUIAutomationElement3_Impl: Sized + IUIAutomationElement_Impl + IUIAutomationElement2_Impl {
     fn ShowContextMenu(&mut self) -> ::windows::core::Result<()>;
     fn CurrentIsPeripheral(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn CachedIsPeripheral(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUIAutomationElement3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationElement3Vtbl {
-        unsafe extern "system" fn ShowContextMenu<Impl: IUIAutomationElement3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IUIAutomationElement3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationElement3_Vtbl {
+        unsafe extern "system" fn ShowContextMenu<Impl: IUIAutomationElement3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowContextMenu().into()
         }
-        unsafe extern "system" fn CurrentIsPeripheral<Impl: IUIAutomationElement3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentIsPeripheral<Impl: IUIAutomationElement3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentIsPeripheral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5325,7 +5328,7 @@ impl IUIAutomationElement3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedIsPeripheral<Impl: IUIAutomationElement3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedIsPeripheral<Impl: IUIAutomationElement3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedIsPeripheral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5336,7 +5339,7 @@ impl IUIAutomationElement3Vtbl {
             }
         }
         Self {
-            base: IUIAutomationElement2Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IUIAutomationElement2_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             ShowContextMenu: ShowContextMenu::<Impl, IMPL_OFFSET>,
             CurrentIsPeripheral: CurrentIsPeripheral::<Impl, IMPL_OFFSET>,
             CachedIsPeripheral: CachedIsPeripheral::<Impl, IMPL_OFFSET>,
@@ -5347,7 +5350,7 @@ impl IUIAutomationElement3Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUIAutomationElement4Impl: Sized + IUIAutomationElementImpl + IUIAutomationElement2Impl + IUIAutomationElement3Impl {
+pub trait IUIAutomationElement4_Impl: Sized + IUIAutomationElement_Impl + IUIAutomationElement2_Impl + IUIAutomationElement3_Impl {
     fn CurrentPositionInSet(&mut self) -> ::windows::core::Result<i32>;
     fn CurrentSizeOfSet(&mut self) -> ::windows::core::Result<i32>;
     fn CurrentLevel(&mut self) -> ::windows::core::Result<i32>;
@@ -5360,9 +5363,9 @@ pub trait IUIAutomationElement4Impl: Sized + IUIAutomationElementImpl + IUIAutom
     fn CachedAnnotationObjects(&mut self) -> ::windows::core::Result<IUIAutomationElementArray>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUIAutomationElement4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationElement4Vtbl {
-        unsafe extern "system" fn CurrentPositionInSet<Impl: IUIAutomationElement4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+impl IUIAutomationElement4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationElement4_Vtbl {
+        unsafe extern "system" fn CurrentPositionInSet<Impl: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentPositionInSet() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5372,7 +5375,7 @@ impl IUIAutomationElement4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentSizeOfSet<Impl: IUIAutomationElement4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentSizeOfSet<Impl: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentSizeOfSet() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5382,7 +5385,7 @@ impl IUIAutomationElement4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentLevel<Impl: IUIAutomationElement4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentLevel<Impl: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5392,7 +5395,7 @@ impl IUIAutomationElement4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentAnnotationTypes<Impl: IUIAutomationElement4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentAnnotationTypes<Impl: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentAnnotationTypes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5402,7 +5405,7 @@ impl IUIAutomationElement4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentAnnotationObjects<Impl: IUIAutomationElement4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentAnnotationObjects<Impl: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentAnnotationObjects() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5412,7 +5415,7 @@ impl IUIAutomationElement4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedPositionInSet<Impl: IUIAutomationElement4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedPositionInSet<Impl: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedPositionInSet() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5422,7 +5425,7 @@ impl IUIAutomationElement4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedSizeOfSet<Impl: IUIAutomationElement4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedSizeOfSet<Impl: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedSizeOfSet() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5432,7 +5435,7 @@ impl IUIAutomationElement4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedLevel<Impl: IUIAutomationElement4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedLevel<Impl: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5442,7 +5445,7 @@ impl IUIAutomationElement4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedAnnotationTypes<Impl: IUIAutomationElement4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedAnnotationTypes<Impl: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedAnnotationTypes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5452,7 +5455,7 @@ impl IUIAutomationElement4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedAnnotationObjects<Impl: IUIAutomationElement4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedAnnotationObjects<Impl: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedAnnotationObjects() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5463,7 +5466,7 @@ impl IUIAutomationElement4Vtbl {
             }
         }
         Self {
-            base: IUIAutomationElement3Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IUIAutomationElement3_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             CurrentPositionInSet: CurrentPositionInSet::<Impl, IMPL_OFFSET>,
             CurrentSizeOfSet: CurrentSizeOfSet::<Impl, IMPL_OFFSET>,
             CurrentLevel: CurrentLevel::<Impl, IMPL_OFFSET>,
@@ -5481,16 +5484,16 @@ impl IUIAutomationElement4Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUIAutomationElement5Impl: Sized + IUIAutomationElementImpl + IUIAutomationElement2Impl + IUIAutomationElement3Impl + IUIAutomationElement4Impl {
+pub trait IUIAutomationElement5_Impl: Sized + IUIAutomationElement_Impl + IUIAutomationElement2_Impl + IUIAutomationElement3_Impl + IUIAutomationElement4_Impl {
     fn CurrentLandmarkType(&mut self) -> ::windows::core::Result<i32>;
     fn CurrentLocalizedLandmarkType(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn CachedLandmarkType(&mut self) -> ::windows::core::Result<i32>;
     fn CachedLocalizedLandmarkType(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUIAutomationElement5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationElement5Vtbl {
-        unsafe extern "system" fn CurrentLandmarkType<Impl: IUIAutomationElement5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+impl IUIAutomationElement5_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement5_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationElement5_Vtbl {
+        unsafe extern "system" fn CurrentLandmarkType<Impl: IUIAutomationElement5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentLandmarkType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5500,7 +5503,7 @@ impl IUIAutomationElement5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentLocalizedLandmarkType<Impl: IUIAutomationElement5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentLocalizedLandmarkType<Impl: IUIAutomationElement5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentLocalizedLandmarkType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5510,7 +5513,7 @@ impl IUIAutomationElement5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedLandmarkType<Impl: IUIAutomationElement5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedLandmarkType<Impl: IUIAutomationElement5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedLandmarkType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5520,7 +5523,7 @@ impl IUIAutomationElement5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedLocalizedLandmarkType<Impl: IUIAutomationElement5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedLocalizedLandmarkType<Impl: IUIAutomationElement5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedLocalizedLandmarkType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5531,7 +5534,7 @@ impl IUIAutomationElement5Vtbl {
             }
         }
         Self {
-            base: IUIAutomationElement4Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IUIAutomationElement4_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             CurrentLandmarkType: CurrentLandmarkType::<Impl, IMPL_OFFSET>,
             CurrentLocalizedLandmarkType: CurrentLocalizedLandmarkType::<Impl, IMPL_OFFSET>,
             CachedLandmarkType: CachedLandmarkType::<Impl, IMPL_OFFSET>,
@@ -5543,14 +5546,14 @@ impl IUIAutomationElement5Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUIAutomationElement6Impl: Sized + IUIAutomationElementImpl + IUIAutomationElement2Impl + IUIAutomationElement3Impl + IUIAutomationElement4Impl + IUIAutomationElement5Impl {
+pub trait IUIAutomationElement6_Impl: Sized + IUIAutomationElement_Impl + IUIAutomationElement2_Impl + IUIAutomationElement3_Impl + IUIAutomationElement4_Impl + IUIAutomationElement5_Impl {
     fn CurrentFullDescription(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn CachedFullDescription(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUIAutomationElement6Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement6Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationElement6Vtbl {
-        unsafe extern "system" fn CurrentFullDescription<Impl: IUIAutomationElement6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IUIAutomationElement6_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement6_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationElement6_Vtbl {
+        unsafe extern "system" fn CurrentFullDescription<Impl: IUIAutomationElement6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentFullDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5560,7 +5563,7 @@ impl IUIAutomationElement6Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedFullDescription<Impl: IUIAutomationElement6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedFullDescription<Impl: IUIAutomationElement6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedFullDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5571,7 +5574,7 @@ impl IUIAutomationElement6Vtbl {
             }
         }
         Self {
-            base: IUIAutomationElement5Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IUIAutomationElement5_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             CurrentFullDescription: CurrentFullDescription::<Impl, IMPL_OFFSET>,
             CachedFullDescription: CachedFullDescription::<Impl, IMPL_OFFSET>,
         }
@@ -5581,7 +5584,7 @@ impl IUIAutomationElement6Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUIAutomationElement7Impl: Sized + IUIAutomationElementImpl + IUIAutomationElement2Impl + IUIAutomationElement3Impl + IUIAutomationElement4Impl + IUIAutomationElement5Impl + IUIAutomationElement6Impl {
+pub trait IUIAutomationElement7_Impl: Sized + IUIAutomationElement_Impl + IUIAutomationElement2_Impl + IUIAutomationElement3_Impl + IUIAutomationElement4_Impl + IUIAutomationElement5_Impl + IUIAutomationElement6_Impl {
     fn FindFirstWithOptions(&mut self, scope: TreeScope, condition: ::core::option::Option<IUIAutomationCondition>, traversaloptions: TreeTraversalOptions, root: ::core::option::Option<IUIAutomationElement>) -> ::windows::core::Result<IUIAutomationElement>;
     fn FindAllWithOptions(&mut self, scope: TreeScope, condition: ::core::option::Option<IUIAutomationCondition>, traversaloptions: TreeTraversalOptions, root: ::core::option::Option<IUIAutomationElement>) -> ::windows::core::Result<IUIAutomationElementArray>;
     fn FindFirstWithOptionsBuildCache(&mut self, scope: TreeScope, condition: ::core::option::Option<IUIAutomationCondition>, cacherequest: ::core::option::Option<IUIAutomationCacheRequest>, traversaloptions: TreeTraversalOptions, root: ::core::option::Option<IUIAutomationElement>) -> ::windows::core::Result<IUIAutomationElement>;
@@ -5589,9 +5592,9 @@ pub trait IUIAutomationElement7Impl: Sized + IUIAutomationElementImpl + IUIAutom
     fn GetCurrentMetadataValue(&mut self, targetid: i32, metadataid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUIAutomationElement7Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement7Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationElement7Vtbl {
-        unsafe extern "system" fn FindFirstWithOptions<Impl: IUIAutomationElement7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: ::windows::core::RawPtr, traversaloptions: TreeTraversalOptions, root: ::windows::core::RawPtr, found: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationElement7_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement7_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationElement7_Vtbl {
+        unsafe extern "system" fn FindFirstWithOptions<Impl: IUIAutomationElement7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: ::windows::core::RawPtr, traversaloptions: TreeTraversalOptions, root: ::windows::core::RawPtr, found: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindFirstWithOptions(::core::mem::transmute_copy(&scope), ::core::mem::transmute(&condition), ::core::mem::transmute_copy(&traversaloptions), ::core::mem::transmute(&root)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5601,7 +5604,7 @@ impl IUIAutomationElement7Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindAllWithOptions<Impl: IUIAutomationElement7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: ::windows::core::RawPtr, traversaloptions: TreeTraversalOptions, root: ::windows::core::RawPtr, found: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindAllWithOptions<Impl: IUIAutomationElement7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: ::windows::core::RawPtr, traversaloptions: TreeTraversalOptions, root: ::windows::core::RawPtr, found: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAllWithOptions(::core::mem::transmute_copy(&scope), ::core::mem::transmute(&condition), ::core::mem::transmute_copy(&traversaloptions), ::core::mem::transmute(&root)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5611,7 +5614,7 @@ impl IUIAutomationElement7Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindFirstWithOptionsBuildCache<Impl: IUIAutomationElement7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: ::windows::core::RawPtr, cacherequest: ::windows::core::RawPtr, traversaloptions: TreeTraversalOptions, root: ::windows::core::RawPtr, found: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindFirstWithOptionsBuildCache<Impl: IUIAutomationElement7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: ::windows::core::RawPtr, cacherequest: ::windows::core::RawPtr, traversaloptions: TreeTraversalOptions, root: ::windows::core::RawPtr, found: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindFirstWithOptionsBuildCache(::core::mem::transmute_copy(&scope), ::core::mem::transmute(&condition), ::core::mem::transmute(&cacherequest), ::core::mem::transmute_copy(&traversaloptions), ::core::mem::transmute(&root)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5621,7 +5624,7 @@ impl IUIAutomationElement7Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindAllWithOptionsBuildCache<Impl: IUIAutomationElement7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: ::windows::core::RawPtr, cacherequest: ::windows::core::RawPtr, traversaloptions: TreeTraversalOptions, root: ::windows::core::RawPtr, found: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindAllWithOptionsBuildCache<Impl: IUIAutomationElement7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: ::windows::core::RawPtr, cacherequest: ::windows::core::RawPtr, traversaloptions: TreeTraversalOptions, root: ::windows::core::RawPtr, found: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAllWithOptionsBuildCache(::core::mem::transmute_copy(&scope), ::core::mem::transmute(&condition), ::core::mem::transmute(&cacherequest), ::core::mem::transmute_copy(&traversaloptions), ::core::mem::transmute(&root)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5631,7 +5634,7 @@ impl IUIAutomationElement7Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentMetadataValue<Impl: IUIAutomationElement7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetid: i32, metadataid: i32, returnval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentMetadataValue<Impl: IUIAutomationElement7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetid: i32, metadataid: i32, returnval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentMetadataValue(::core::mem::transmute_copy(&targetid), ::core::mem::transmute_copy(&metadataid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5642,7 +5645,7 @@ impl IUIAutomationElement7Vtbl {
             }
         }
         Self {
-            base: IUIAutomationElement6Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IUIAutomationElement6_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             FindFirstWithOptions: FindFirstWithOptions::<Impl, IMPL_OFFSET>,
             FindAllWithOptions: FindAllWithOptions::<Impl, IMPL_OFFSET>,
             FindFirstWithOptionsBuildCache: FindFirstWithOptionsBuildCache::<Impl, IMPL_OFFSET>,
@@ -5655,14 +5658,14 @@ impl IUIAutomationElement7Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUIAutomationElement8Impl: Sized + IUIAutomationElementImpl + IUIAutomationElement2Impl + IUIAutomationElement3Impl + IUIAutomationElement4Impl + IUIAutomationElement5Impl + IUIAutomationElement6Impl + IUIAutomationElement7Impl {
+pub trait IUIAutomationElement8_Impl: Sized + IUIAutomationElement_Impl + IUIAutomationElement2_Impl + IUIAutomationElement3_Impl + IUIAutomationElement4_Impl + IUIAutomationElement5_Impl + IUIAutomationElement6_Impl + IUIAutomationElement7_Impl {
     fn CurrentHeadingLevel(&mut self) -> ::windows::core::Result<i32>;
     fn CachedHeadingLevel(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUIAutomationElement8Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement8Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationElement8Vtbl {
-        unsafe extern "system" fn CurrentHeadingLevel<Impl: IUIAutomationElement8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+impl IUIAutomationElement8_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement8_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationElement8_Vtbl {
+        unsafe extern "system" fn CurrentHeadingLevel<Impl: IUIAutomationElement8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentHeadingLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5672,7 +5675,7 @@ impl IUIAutomationElement8Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedHeadingLevel<Impl: IUIAutomationElement8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedHeadingLevel<Impl: IUIAutomationElement8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedHeadingLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5683,7 +5686,7 @@ impl IUIAutomationElement8Vtbl {
             }
         }
         Self {
-            base: IUIAutomationElement7Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IUIAutomationElement7_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             CurrentHeadingLevel: CurrentHeadingLevel::<Impl, IMPL_OFFSET>,
             CachedHeadingLevel: CachedHeadingLevel::<Impl, IMPL_OFFSET>,
         }
@@ -5693,14 +5696,14 @@ impl IUIAutomationElement8Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUIAutomationElement9Impl: Sized + IUIAutomationElementImpl + IUIAutomationElement2Impl + IUIAutomationElement3Impl + IUIAutomationElement4Impl + IUIAutomationElement5Impl + IUIAutomationElement6Impl + IUIAutomationElement7Impl + IUIAutomationElement8Impl {
+pub trait IUIAutomationElement9_Impl: Sized + IUIAutomationElement_Impl + IUIAutomationElement2_Impl + IUIAutomationElement3_Impl + IUIAutomationElement4_Impl + IUIAutomationElement5_Impl + IUIAutomationElement6_Impl + IUIAutomationElement7_Impl + IUIAutomationElement8_Impl {
     fn CurrentIsDialog(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn CachedIsDialog(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUIAutomationElement9Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement9Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationElement9Vtbl {
-        unsafe extern "system" fn CurrentIsDialog<Impl: IUIAutomationElement9Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+impl IUIAutomationElement9_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement9_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationElement9_Vtbl {
+        unsafe extern "system" fn CurrentIsDialog<Impl: IUIAutomationElement9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentIsDialog() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5710,7 +5713,7 @@ impl IUIAutomationElement9Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedIsDialog<Impl: IUIAutomationElement9Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedIsDialog<Impl: IUIAutomationElement9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedIsDialog() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5721,7 +5724,7 @@ impl IUIAutomationElement9Vtbl {
             }
         }
         Self {
-            base: IUIAutomationElement8Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IUIAutomationElement8_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             CurrentIsDialog: CurrentIsDialog::<Impl, IMPL_OFFSET>,
             CachedIsDialog: CachedIsDialog::<Impl, IMPL_OFFSET>,
         }
@@ -5730,13 +5733,13 @@ impl IUIAutomationElement9Vtbl {
         iid == &<IUIAutomationElement9 as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationElementArrayImpl: Sized {
+pub trait IUIAutomationElementArray_Impl: Sized {
     fn Length(&mut self) -> ::windows::core::Result<i32>;
     fn GetElement(&mut self, index: i32) -> ::windows::core::Result<IUIAutomationElement>;
 }
-impl IUIAutomationElementArrayVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElementArrayImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationElementArrayVtbl {
-        unsafe extern "system" fn Length<Impl: IUIAutomationElementArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT {
+impl IUIAutomationElementArray_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElementArray_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationElementArray_Vtbl {
+        unsafe extern "system" fn Length<Impl: IUIAutomationElementArray_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Length() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5746,7 +5749,7 @@ impl IUIAutomationElementArrayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetElement<Impl: IUIAutomationElementArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetElement<Impl: IUIAutomationElementArray_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetElement(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5766,12 +5769,12 @@ impl IUIAutomationElementArrayVtbl {
         iid == &<IUIAutomationElementArray as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationEventHandlerImpl: Sized {
+pub trait IUIAutomationEventHandler_Impl: Sized {
     fn HandleAutomationEvent(&mut self, sender: ::core::option::Option<IUIAutomationElement>, eventid: i32) -> ::windows::core::Result<()>;
 }
-impl IUIAutomationEventHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationEventHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationEventHandlerVtbl {
-        unsafe extern "system" fn HandleAutomationEvent<Impl: IUIAutomationEventHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, eventid: i32) -> ::windows::core::HRESULT {
+impl IUIAutomationEventHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationEventHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationEventHandler_Vtbl {
+        unsafe extern "system" fn HandleAutomationEvent<Impl: IUIAutomationEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, eventid: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HandleAutomationEvent(::core::mem::transmute(&sender), ::core::mem::transmute_copy(&eventid)).into()
         }
@@ -5781,7 +5784,7 @@ impl IUIAutomationEventHandlerVtbl {
         iid == &<IUIAutomationEventHandler as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationEventHandlerGroupImpl: Sized {
+pub trait IUIAutomationEventHandlerGroup_Impl: Sized {
     fn AddActiveTextPositionChangedEventHandler(&mut self, scope: TreeScope, cacherequest: ::core::option::Option<IUIAutomationCacheRequest>, handler: ::core::option::Option<IUIAutomationActiveTextPositionChangedEventHandler>) -> ::windows::core::Result<()>;
     fn AddAutomationEventHandler(&mut self, eventid: i32, scope: TreeScope, cacherequest: ::core::option::Option<IUIAutomationCacheRequest>, handler: ::core::option::Option<IUIAutomationEventHandler>) -> ::windows::core::Result<()>;
     fn AddChangesEventHandler(&mut self, scope: TreeScope, changetypes: *const i32, changescount: i32, cacherequest: ::core::option::Option<IUIAutomationCacheRequest>, handler: ::core::option::Option<IUIAutomationChangesEventHandler>) -> ::windows::core::Result<()>;
@@ -5790,33 +5793,33 @@ pub trait IUIAutomationEventHandlerGroupImpl: Sized {
     fn AddStructureChangedEventHandler(&mut self, scope: TreeScope, cacherequest: ::core::option::Option<IUIAutomationCacheRequest>, handler: ::core::option::Option<IUIAutomationStructureChangedEventHandler>) -> ::windows::core::Result<()>;
     fn AddTextEditTextChangedEventHandler(&mut self, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: ::core::option::Option<IUIAutomationCacheRequest>, handler: ::core::option::Option<IUIAutomationTextEditTextChangedEventHandler>) -> ::windows::core::Result<()>;
 }
-impl IUIAutomationEventHandlerGroupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationEventHandlerGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationEventHandlerGroupVtbl {
-        unsafe extern "system" fn AddActiveTextPositionChangedEventHandler<Impl: IUIAutomationEventHandlerGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationEventHandlerGroup_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationEventHandlerGroup_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationEventHandlerGroup_Vtbl {
+        unsafe extern "system" fn AddActiveTextPositionChangedEventHandler<Impl: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddActiveTextPositionChangedEventHandler(::core::mem::transmute_copy(&scope), ::core::mem::transmute(&cacherequest), ::core::mem::transmute(&handler)).into()
         }
-        unsafe extern "system" fn AddAutomationEventHandler<Impl: IUIAutomationEventHandlerGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventid: i32, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddAutomationEventHandler<Impl: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventid: i32, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddAutomationEventHandler(::core::mem::transmute_copy(&eventid), ::core::mem::transmute_copy(&scope), ::core::mem::transmute(&cacherequest), ::core::mem::transmute(&handler)).into()
         }
-        unsafe extern "system" fn AddChangesEventHandler<Impl: IUIAutomationEventHandlerGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, changetypes: *const i32, changescount: i32, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddChangesEventHandler<Impl: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, changetypes: *const i32, changescount: i32, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddChangesEventHandler(::core::mem::transmute_copy(&scope), ::core::mem::transmute_copy(&changetypes), ::core::mem::transmute_copy(&changescount), ::core::mem::transmute(&cacherequest), ::core::mem::transmute(&handler)).into()
         }
-        unsafe extern "system" fn AddNotificationEventHandler<Impl: IUIAutomationEventHandlerGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddNotificationEventHandler<Impl: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddNotificationEventHandler(::core::mem::transmute_copy(&scope), ::core::mem::transmute(&cacherequest), ::core::mem::transmute(&handler)).into()
         }
-        unsafe extern "system" fn AddPropertyChangedEventHandler<Impl: IUIAutomationEventHandlerGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, propertyarray: *const i32, propertycount: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddPropertyChangedEventHandler<Impl: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr, propertyarray: *const i32, propertycount: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddPropertyChangedEventHandler(::core::mem::transmute_copy(&scope), ::core::mem::transmute(&cacherequest), ::core::mem::transmute(&handler), ::core::mem::transmute_copy(&propertyarray), ::core::mem::transmute_copy(&propertycount)).into()
         }
-        unsafe extern "system" fn AddStructureChangedEventHandler<Impl: IUIAutomationEventHandlerGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddStructureChangedEventHandler<Impl: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddStructureChangedEventHandler(::core::mem::transmute_copy(&scope), ::core::mem::transmute(&cacherequest), ::core::mem::transmute(&handler)).into()
         }
-        unsafe extern "system" fn AddTextEditTextChangedEventHandler<Impl: IUIAutomationEventHandlerGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddTextEditTextChangedEventHandler<Impl: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddTextEditTextChangedEventHandler(::core::mem::transmute_copy(&scope), ::core::mem::transmute_copy(&texteditchangetype), ::core::mem::transmute(&cacherequest), ::core::mem::transmute(&handler)).into()
         }
@@ -5835,23 +5838,23 @@ impl IUIAutomationEventHandlerGroupVtbl {
         iid == &<IUIAutomationEventHandlerGroup as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationExpandCollapsePatternImpl: Sized {
+pub trait IUIAutomationExpandCollapsePattern_Impl: Sized {
     fn Expand(&mut self) -> ::windows::core::Result<()>;
     fn Collapse(&mut self) -> ::windows::core::Result<()>;
     fn CurrentExpandCollapseState(&mut self) -> ::windows::core::Result<ExpandCollapseState>;
     fn CachedExpandCollapseState(&mut self) -> ::windows::core::Result<ExpandCollapseState>;
 }
-impl IUIAutomationExpandCollapsePatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationExpandCollapsePatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationExpandCollapsePatternVtbl {
-        unsafe extern "system" fn Expand<Impl: IUIAutomationExpandCollapsePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IUIAutomationExpandCollapsePattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationExpandCollapsePattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationExpandCollapsePattern_Vtbl {
+        unsafe extern "system" fn Expand<Impl: IUIAutomationExpandCollapsePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Expand().into()
         }
-        unsafe extern "system" fn Collapse<Impl: IUIAutomationExpandCollapsePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Collapse<Impl: IUIAutomationExpandCollapsePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Collapse().into()
         }
-        unsafe extern "system" fn CurrentExpandCollapseState<Impl: IUIAutomationExpandCollapsePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ExpandCollapseState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentExpandCollapseState<Impl: IUIAutomationExpandCollapsePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ExpandCollapseState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentExpandCollapseState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5861,7 +5864,7 @@ impl IUIAutomationExpandCollapsePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedExpandCollapseState<Impl: IUIAutomationExpandCollapsePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ExpandCollapseState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedExpandCollapseState<Impl: IUIAutomationExpandCollapsePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ExpandCollapseState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedExpandCollapseState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5883,12 +5886,12 @@ impl IUIAutomationExpandCollapsePatternVtbl {
         iid == &<IUIAutomationExpandCollapsePattern as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationFocusChangedEventHandlerImpl: Sized {
+pub trait IUIAutomationFocusChangedEventHandler_Impl: Sized {
     fn HandleFocusChangedEvent(&mut self, sender: ::core::option::Option<IUIAutomationElement>) -> ::windows::core::Result<()>;
 }
-impl IUIAutomationFocusChangedEventHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationFocusChangedEventHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationFocusChangedEventHandlerVtbl {
-        unsafe extern "system" fn HandleFocusChangedEvent<Impl: IUIAutomationFocusChangedEventHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationFocusChangedEventHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationFocusChangedEventHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationFocusChangedEventHandler_Vtbl {
+        unsafe extern "system" fn HandleFocusChangedEvent<Impl: IUIAutomationFocusChangedEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HandleFocusChangedEvent(::core::mem::transmute(&sender)).into()
         }
@@ -5898,7 +5901,7 @@ impl IUIAutomationFocusChangedEventHandlerVtbl {
         iid == &<IUIAutomationFocusChangedEventHandler as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationGridItemPatternImpl: Sized {
+pub trait IUIAutomationGridItemPattern_Impl: Sized {
     fn CurrentContainingGrid(&mut self) -> ::windows::core::Result<IUIAutomationElement>;
     fn CurrentRow(&mut self) -> ::windows::core::Result<i32>;
     fn CurrentColumn(&mut self) -> ::windows::core::Result<i32>;
@@ -5910,9 +5913,9 @@ pub trait IUIAutomationGridItemPatternImpl: Sized {
     fn CachedRowSpan(&mut self) -> ::windows::core::Result<i32>;
     fn CachedColumnSpan(&mut self) -> ::windows::core::Result<i32>;
 }
-impl IUIAutomationGridItemPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationGridItemPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationGridItemPatternVtbl {
-        unsafe extern "system" fn CurrentContainingGrid<Impl: IUIAutomationGridItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationGridItemPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationGridItemPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationGridItemPattern_Vtbl {
+        unsafe extern "system" fn CurrentContainingGrid<Impl: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentContainingGrid() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5922,7 +5925,7 @@ impl IUIAutomationGridItemPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentRow<Impl: IUIAutomationGridItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentRow<Impl: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentRow() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5932,7 +5935,7 @@ impl IUIAutomationGridItemPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentColumn<Impl: IUIAutomationGridItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentColumn<Impl: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentColumn() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5942,7 +5945,7 @@ impl IUIAutomationGridItemPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentRowSpan<Impl: IUIAutomationGridItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentRowSpan<Impl: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentRowSpan() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5952,7 +5955,7 @@ impl IUIAutomationGridItemPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentColumnSpan<Impl: IUIAutomationGridItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentColumnSpan<Impl: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentColumnSpan() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5962,7 +5965,7 @@ impl IUIAutomationGridItemPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedContainingGrid<Impl: IUIAutomationGridItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedContainingGrid<Impl: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedContainingGrid() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5972,7 +5975,7 @@ impl IUIAutomationGridItemPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedRow<Impl: IUIAutomationGridItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedRow<Impl: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedRow() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5982,7 +5985,7 @@ impl IUIAutomationGridItemPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedColumn<Impl: IUIAutomationGridItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedColumn<Impl: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedColumn() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5992,7 +5995,7 @@ impl IUIAutomationGridItemPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedRowSpan<Impl: IUIAutomationGridItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedRowSpan<Impl: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedRowSpan() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6002,7 +6005,7 @@ impl IUIAutomationGridItemPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedColumnSpan<Impl: IUIAutomationGridItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedColumnSpan<Impl: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedColumnSpan() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6030,16 +6033,16 @@ impl IUIAutomationGridItemPatternVtbl {
         iid == &<IUIAutomationGridItemPattern as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationGridPatternImpl: Sized {
+pub trait IUIAutomationGridPattern_Impl: Sized {
     fn GetItem(&mut self, row: i32, column: i32) -> ::windows::core::Result<IUIAutomationElement>;
     fn CurrentRowCount(&mut self) -> ::windows::core::Result<i32>;
     fn CurrentColumnCount(&mut self) -> ::windows::core::Result<i32>;
     fn CachedRowCount(&mut self) -> ::windows::core::Result<i32>;
     fn CachedColumnCount(&mut self) -> ::windows::core::Result<i32>;
 }
-impl IUIAutomationGridPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationGridPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationGridPatternVtbl {
-        unsafe extern "system" fn GetItem<Impl: IUIAutomationGridPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, row: i32, column: i32, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationGridPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationGridPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationGridPattern_Vtbl {
+        unsafe extern "system" fn GetItem<Impl: IUIAutomationGridPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, row: i32, column: i32, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItem(::core::mem::transmute_copy(&row), ::core::mem::transmute_copy(&column)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6049,7 +6052,7 @@ impl IUIAutomationGridPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentRowCount<Impl: IUIAutomationGridPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentRowCount<Impl: IUIAutomationGridPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentRowCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6059,7 +6062,7 @@ impl IUIAutomationGridPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentColumnCount<Impl: IUIAutomationGridPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentColumnCount<Impl: IUIAutomationGridPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentColumnCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6069,7 +6072,7 @@ impl IUIAutomationGridPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedRowCount<Impl: IUIAutomationGridPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedRowCount<Impl: IUIAutomationGridPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedRowCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6079,7 +6082,7 @@ impl IUIAutomationGridPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedColumnCount<Impl: IUIAutomationGridPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedColumnCount<Impl: IUIAutomationGridPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedColumnCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6102,12 +6105,12 @@ impl IUIAutomationGridPatternVtbl {
         iid == &<IUIAutomationGridPattern as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationInvokePatternImpl: Sized {
+pub trait IUIAutomationInvokePattern_Impl: Sized {
     fn Invoke(&mut self) -> ::windows::core::Result<()>;
 }
-impl IUIAutomationInvokePatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationInvokePatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationInvokePatternVtbl {
-        unsafe extern "system" fn Invoke<Impl: IUIAutomationInvokePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IUIAutomationInvokePattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationInvokePattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationInvokePattern_Vtbl {
+        unsafe extern "system" fn Invoke<Impl: IUIAutomationInvokePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Invoke().into()
         }
@@ -6118,13 +6121,13 @@ impl IUIAutomationInvokePatternVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUIAutomationItemContainerPatternImpl: Sized {
+pub trait IUIAutomationItemContainerPattern_Impl: Sized {
     fn FindItemByProperty(&mut self, pstartafter: ::core::option::Option<IUIAutomationElement>, propertyid: i32, value: super::super::System::Com::VARIANT) -> ::windows::core::Result<IUIAutomationElement>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUIAutomationItemContainerPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationItemContainerPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationItemContainerPatternVtbl {
-        unsafe extern "system" fn FindItemByProperty<Impl: IUIAutomationItemContainerPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstartafter: ::windows::core::RawPtr, propertyid: i32, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfound: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationItemContainerPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationItemContainerPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationItemContainerPattern_Vtbl {
+        unsafe extern "system" fn FindItemByProperty<Impl: IUIAutomationItemContainerPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstartafter: ::windows::core::RawPtr, propertyid: i32, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfound: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindItemByProperty(::core::mem::transmute(&pstartafter), ::core::mem::transmute_copy(&propertyid), ::core::mem::transmute_copy(&value)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6141,7 +6144,7 @@ impl IUIAutomationItemContainerPatternVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IUIAutomationLegacyIAccessiblePatternImpl: Sized {
+pub trait IUIAutomationLegacyIAccessiblePattern_Impl: Sized {
     fn Select(&mut self, flagsselect: i32) -> ::windows::core::Result<()>;
     fn DoDefaultAction(&mut self) -> ::windows::core::Result<()>;
     fn SetValue(&mut self, szvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
@@ -6168,21 +6171,21 @@ pub trait IUIAutomationLegacyIAccessiblePatternImpl: Sized {
     fn GetIAccessible(&mut self) -> ::windows::core::Result<IAccessible>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl IUIAutomationLegacyIAccessiblePatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationLegacyIAccessiblePatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationLegacyIAccessiblePatternVtbl {
-        unsafe extern "system" fn Select<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flagsselect: i32) -> ::windows::core::HRESULT {
+impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationLegacyIAccessiblePattern_Vtbl {
+        unsafe extern "system" fn Select<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flagsselect: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Select(::core::mem::transmute_copy(&flagsselect)).into()
         }
-        unsafe extern "system" fn DoDefaultAction<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DoDefaultAction<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DoDefaultAction().into()
         }
-        unsafe extern "system" fn SetValue<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(::core::mem::transmute_copy(&szvalue)).into()
         }
-        unsafe extern "system" fn CurrentChildId<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentChildId<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentChildId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6192,7 +6195,7 @@ impl IUIAutomationLegacyIAccessiblePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentName<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentName<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6202,7 +6205,7 @@ impl IUIAutomationLegacyIAccessiblePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentValue<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentValue<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6212,7 +6215,7 @@ impl IUIAutomationLegacyIAccessiblePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentDescription<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentDescription<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6222,7 +6225,7 @@ impl IUIAutomationLegacyIAccessiblePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentRole<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwrole: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentRole<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwrole: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentRole() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6232,7 +6235,7 @@ impl IUIAutomationLegacyIAccessiblePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentState<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentState<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6242,7 +6245,7 @@ impl IUIAutomationLegacyIAccessiblePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentHelp<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhelp: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentHelp<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhelp: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentHelp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6252,7 +6255,7 @@ impl IUIAutomationLegacyIAccessiblePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentKeyboardShortcut<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszkeyboardshortcut: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentKeyboardShortcut<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszkeyboardshortcut: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentKeyboardShortcut() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6262,7 +6265,7 @@ impl IUIAutomationLegacyIAccessiblePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentSelection<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselectedchildren: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentSelection<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselectedchildren: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentSelection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6272,7 +6275,7 @@ impl IUIAutomationLegacyIAccessiblePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentDefaultAction<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdefaultaction: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentDefaultAction<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdefaultaction: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentDefaultAction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6282,7 +6285,7 @@ impl IUIAutomationLegacyIAccessiblePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedChildId<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedChildId<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedChildId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6292,7 +6295,7 @@ impl IUIAutomationLegacyIAccessiblePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedName<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedName<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6302,7 +6305,7 @@ impl IUIAutomationLegacyIAccessiblePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedValue<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedValue<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6312,7 +6315,7 @@ impl IUIAutomationLegacyIAccessiblePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedDescription<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedDescription<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6322,7 +6325,7 @@ impl IUIAutomationLegacyIAccessiblePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedRole<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwrole: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedRole<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwrole: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedRole() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6332,7 +6335,7 @@ impl IUIAutomationLegacyIAccessiblePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedState<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedState<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6342,7 +6345,7 @@ impl IUIAutomationLegacyIAccessiblePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedHelp<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhelp: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedHelp<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhelp: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedHelp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6352,7 +6355,7 @@ impl IUIAutomationLegacyIAccessiblePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedKeyboardShortcut<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszkeyboardshortcut: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedKeyboardShortcut<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszkeyboardshortcut: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedKeyboardShortcut() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6362,7 +6365,7 @@ impl IUIAutomationLegacyIAccessiblePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCachedSelection<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselectedchildren: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCachedSelection<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselectedchildren: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCachedSelection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6372,7 +6375,7 @@ impl IUIAutomationLegacyIAccessiblePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedDefaultAction<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdefaultaction: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedDefaultAction<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdefaultaction: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedDefaultAction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6382,7 +6385,7 @@ impl IUIAutomationLegacyIAccessiblePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIAccessible<Impl: IUIAutomationLegacyIAccessiblePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaccessible: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIAccessible<Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaccessible: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIAccessible() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6425,7 +6428,7 @@ impl IUIAutomationLegacyIAccessiblePatternVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IUIAutomationMultipleViewPatternImpl: Sized {
+pub trait IUIAutomationMultipleViewPattern_Impl: Sized {
     fn GetViewName(&mut self, view: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetCurrentView(&mut self, view: i32) -> ::windows::core::Result<()>;
     fn CurrentCurrentView(&mut self) -> ::windows::core::Result<i32>;
@@ -6434,9 +6437,9 @@ pub trait IUIAutomationMultipleViewPatternImpl: Sized {
     fn GetCachedSupportedViews(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl IUIAutomationMultipleViewPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationMultipleViewPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationMultipleViewPatternVtbl {
-        unsafe extern "system" fn GetViewName<Impl: IUIAutomationMultipleViewPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, view: i32, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IUIAutomationMultipleViewPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationMultipleViewPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationMultipleViewPattern_Vtbl {
+        unsafe extern "system" fn GetViewName<Impl: IUIAutomationMultipleViewPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, view: i32, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetViewName(::core::mem::transmute_copy(&view)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6446,11 +6449,11 @@ impl IUIAutomationMultipleViewPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCurrentView<Impl: IUIAutomationMultipleViewPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, view: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCurrentView<Impl: IUIAutomationMultipleViewPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, view: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCurrentView(::core::mem::transmute_copy(&view)).into()
         }
-        unsafe extern "system" fn CurrentCurrentView<Impl: IUIAutomationMultipleViewPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentCurrentView<Impl: IUIAutomationMultipleViewPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6460,7 +6463,7 @@ impl IUIAutomationMultipleViewPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentSupportedViews<Impl: IUIAutomationMultipleViewPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentSupportedViews<Impl: IUIAutomationMultipleViewPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentSupportedViews() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6470,7 +6473,7 @@ impl IUIAutomationMultipleViewPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedCurrentView<Impl: IUIAutomationMultipleViewPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedCurrentView<Impl: IUIAutomationMultipleViewPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6480,7 +6483,7 @@ impl IUIAutomationMultipleViewPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCachedSupportedViews<Impl: IUIAutomationMultipleViewPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCachedSupportedViews<Impl: IUIAutomationMultipleViewPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCachedSupportedViews() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6504,12 +6507,12 @@ impl IUIAutomationMultipleViewPatternVtbl {
         iid == &<IUIAutomationMultipleViewPattern as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationNotConditionImpl: Sized + IUIAutomationConditionImpl {
+pub trait IUIAutomationNotCondition_Impl: Sized + IUIAutomationCondition_Impl {
     fn GetChild(&mut self) -> ::windows::core::Result<IUIAutomationCondition>;
 }
-impl IUIAutomationNotConditionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationNotConditionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationNotConditionVtbl {
-        unsafe extern "system" fn GetChild<Impl: IUIAutomationNotConditionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, condition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationNotCondition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationNotCondition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationNotCondition_Vtbl {
+        unsafe extern "system" fn GetChild<Impl: IUIAutomationNotCondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, condition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetChild() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6519,20 +6522,20 @@ impl IUIAutomationNotConditionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base: IUIAutomationConditionVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetChild: GetChild::<Impl, IMPL_OFFSET> }
+        Self { base: IUIAutomationCondition_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetChild: GetChild::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAutomationNotCondition as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUIAutomationNotificationEventHandlerImpl: Sized {
+pub trait IUIAutomationNotificationEventHandler_Impl: Sized {
     fn HandleNotificationEvent(&mut self, sender: ::core::option::Option<IUIAutomationElement>, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: super::super::Foundation::BSTR, activityid: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUIAutomationNotificationEventHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationNotificationEventHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationNotificationEventHandlerVtbl {
-        unsafe extern "system" fn HandleNotificationEvent<Impl: IUIAutomationNotificationEventHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, activityid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+impl IUIAutomationNotificationEventHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationNotificationEventHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationNotificationEventHandler_Vtbl {
+        unsafe extern "system" fn HandleNotificationEvent<Impl: IUIAutomationNotificationEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, activityid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HandleNotificationEvent(::core::mem::transmute(&sender), ::core::mem::transmute_copy(&notificationkind), ::core::mem::transmute_copy(&notificationprocessing), ::core::mem::transmute_copy(&displaystring), ::core::mem::transmute_copy(&activityid)).into()
         }
@@ -6542,12 +6545,12 @@ impl IUIAutomationNotificationEventHandlerVtbl {
         iid == &<IUIAutomationNotificationEventHandler as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationObjectModelPatternImpl: Sized {
+pub trait IUIAutomationObjectModelPattern_Impl: Sized {
     fn GetUnderlyingObjectModel(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
-impl IUIAutomationObjectModelPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationObjectModelPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationObjectModelPatternVtbl {
-        unsafe extern "system" fn GetUnderlyingObjectModel<Impl: IUIAutomationObjectModelPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IUIAutomationObjectModelPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationObjectModelPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationObjectModelPattern_Vtbl {
+        unsafe extern "system" fn GetUnderlyingObjectModel<Impl: IUIAutomationObjectModelPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetUnderlyingObjectModel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6564,15 +6567,15 @@ impl IUIAutomationObjectModelPatternVtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IUIAutomationOrConditionImpl: Sized + IUIAutomationConditionImpl {
+pub trait IUIAutomationOrCondition_Impl: Sized + IUIAutomationCondition_Impl {
     fn ChildCount(&mut self) -> ::windows::core::Result<i32>;
     fn GetChildrenAsNativeArray(&mut self, childarray: *mut *mut ::core::option::Option<IUIAutomationCondition>, childarraycount: *mut i32) -> ::windows::core::Result<()>;
     fn GetChildren(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl IUIAutomationOrConditionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationOrConditionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationOrConditionVtbl {
-        unsafe extern "system" fn ChildCount<Impl: IUIAutomationOrConditionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childcount: *mut i32) -> ::windows::core::HRESULT {
+impl IUIAutomationOrCondition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationOrCondition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationOrCondition_Vtbl {
+        unsafe extern "system" fn ChildCount<Impl: IUIAutomationOrCondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childcount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChildCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6582,11 +6585,11 @@ impl IUIAutomationOrConditionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetChildrenAsNativeArray<Impl: IUIAutomationOrConditionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childarray: *mut *mut ::windows::core::RawPtr, childarraycount: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetChildrenAsNativeArray<Impl: IUIAutomationOrCondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childarray: *mut *mut ::windows::core::RawPtr, childarraycount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetChildrenAsNativeArray(::core::mem::transmute_copy(&childarray), ::core::mem::transmute_copy(&childarraycount)).into()
         }
-        unsafe extern "system" fn GetChildren<Impl: IUIAutomationOrConditionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childarray: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetChildren<Impl: IUIAutomationOrCondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childarray: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetChildren() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6597,7 +6600,7 @@ impl IUIAutomationOrConditionVtbl {
             }
         }
         Self {
-            base: IUIAutomationConditionVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IUIAutomationCondition_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             ChildCount: ChildCount::<Impl, IMPL_OFFSET>,
             GetChildrenAsNativeArray: GetChildrenAsNativeArray::<Impl, IMPL_OFFSET>,
             GetChildren: GetChildren::<Impl, IMPL_OFFSET>,
@@ -6607,13 +6610,13 @@ impl IUIAutomationOrConditionVtbl {
         iid == &<IUIAutomationOrCondition as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationPatternHandlerImpl: Sized {
+pub trait IUIAutomationPatternHandler_Impl: Sized {
     fn CreateClientWrapper(&mut self, ppatterninstance: ::core::option::Option<IUIAutomationPatternInstance>) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Dispatch(&mut self, ptarget: ::core::option::Option<::windows::core::IUnknown>, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> ::windows::core::Result<()>;
 }
-impl IUIAutomationPatternHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationPatternHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationPatternHandlerVtbl {
-        unsafe extern "system" fn CreateClientWrapper<Impl: IUIAutomationPatternHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppatterninstance: ::windows::core::RawPtr, pclientwrapper: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IUIAutomationPatternHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationPatternHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationPatternHandler_Vtbl {
+        unsafe extern "system" fn CreateClientWrapper<Impl: IUIAutomationPatternHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppatterninstance: ::windows::core::RawPtr, pclientwrapper: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateClientWrapper(::core::mem::transmute(&ppatterninstance)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6623,7 +6626,7 @@ impl IUIAutomationPatternHandlerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Dispatch<Impl: IUIAutomationPatternHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptarget: *mut ::core::ffi::c_void, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Dispatch<Impl: IUIAutomationPatternHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptarget: *mut ::core::ffi::c_void, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Dispatch(::core::mem::transmute(&ptarget), ::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&pparams), ::core::mem::transmute_copy(&cparams)).into()
         }
@@ -6638,18 +6641,18 @@ impl IUIAutomationPatternHandlerVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUIAutomationPatternInstanceImpl: Sized {
+pub trait IUIAutomationPatternInstance_Impl: Sized {
     fn GetProperty(&mut self, index: u32, cached: super::super::Foundation::BOOL, r#type: UIAutomationType, pptr: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CallMethod(&mut self, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUIAutomationPatternInstanceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationPatternInstanceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationPatternInstanceVtbl {
-        unsafe extern "system" fn GetProperty<Impl: IUIAutomationPatternInstanceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, cached: super::super::Foundation::BOOL, r#type: UIAutomationType, pptr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IUIAutomationPatternInstance_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationPatternInstance_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationPatternInstance_Vtbl {
+        unsafe extern "system" fn GetProperty<Impl: IUIAutomationPatternInstance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, cached: super::super::Foundation::BOOL, r#type: UIAutomationType, pptr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetProperty(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&cached), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&pptr)).into()
         }
-        unsafe extern "system" fn CallMethod<Impl: IUIAutomationPatternInstanceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CallMethod<Impl: IUIAutomationPatternInstance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CallMethod(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&pparams), ::core::mem::transmute_copy(&cparams)).into()
         }
@@ -6664,13 +6667,13 @@ impl IUIAutomationPatternInstanceVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUIAutomationPropertyChangedEventHandlerImpl: Sized {
+pub trait IUIAutomationPropertyChangedEventHandler_Impl: Sized {
     fn HandlePropertyChangedEvent(&mut self, sender: ::core::option::Option<IUIAutomationElement>, propertyid: i32, newvalue: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUIAutomationPropertyChangedEventHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationPropertyChangedEventHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationPropertyChangedEventHandlerVtbl {
-        unsafe extern "system" fn HandlePropertyChangedEvent<Impl: IUIAutomationPropertyChangedEventHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, propertyid: i32, newvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+impl IUIAutomationPropertyChangedEventHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationPropertyChangedEventHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationPropertyChangedEventHandler_Vtbl {
+        unsafe extern "system" fn HandlePropertyChangedEvent<Impl: IUIAutomationPropertyChangedEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, propertyid: i32, newvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HandlePropertyChangedEvent(::core::mem::transmute(&sender), ::core::mem::transmute_copy(&propertyid), ::core::mem::transmute_copy(&newvalue)).into()
         }
@@ -6681,15 +6684,15 @@ impl IUIAutomationPropertyChangedEventHandlerVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUIAutomationPropertyConditionImpl: Sized + IUIAutomationConditionImpl {
+pub trait IUIAutomationPropertyCondition_Impl: Sized + IUIAutomationCondition_Impl {
     fn PropertyId(&mut self) -> ::windows::core::Result<i32>;
     fn PropertyValue(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn PropertyConditionFlags(&mut self) -> ::windows::core::Result<PropertyConditionFlags>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUIAutomationPropertyConditionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationPropertyConditionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationPropertyConditionVtbl {
-        unsafe extern "system" fn PropertyId<Impl: IUIAutomationPropertyConditionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: *mut i32) -> ::windows::core::HRESULT {
+impl IUIAutomationPropertyCondition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationPropertyCondition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationPropertyCondition_Vtbl {
+        unsafe extern "system" fn PropertyId<Impl: IUIAutomationPropertyCondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PropertyId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6699,7 +6702,7 @@ impl IUIAutomationPropertyConditionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PropertyValue<Impl: IUIAutomationPropertyConditionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PropertyValue<Impl: IUIAutomationPropertyCondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PropertyValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6709,7 +6712,7 @@ impl IUIAutomationPropertyConditionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PropertyConditionFlags<Impl: IUIAutomationPropertyConditionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut PropertyConditionFlags) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PropertyConditionFlags<Impl: IUIAutomationPropertyCondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut PropertyConditionFlags) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PropertyConditionFlags() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6720,7 +6723,7 @@ impl IUIAutomationPropertyConditionVtbl {
             }
         }
         Self {
-            base: IUIAutomationConditionVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IUIAutomationCondition_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             PropertyId: PropertyId::<Impl, IMPL_OFFSET>,
             PropertyValue: PropertyValue::<Impl, IMPL_OFFSET>,
             PropertyConditionFlags: PropertyConditionFlags::<Impl, IMPL_OFFSET>,
@@ -6731,14 +6734,14 @@ impl IUIAutomationPropertyConditionVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUIAutomationProxyFactoryImpl: Sized {
+pub trait IUIAutomationProxyFactory_Impl: Sized {
     fn CreateProvider(&mut self, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32) -> ::windows::core::Result<IRawElementProviderSimple>;
     fn ProxyFactoryId(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUIAutomationProxyFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationProxyFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationProxyFactoryVtbl {
-        unsafe extern "system" fn CreateProvider<Impl: IUIAutomationProxyFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, provider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationProxyFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationProxyFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationProxyFactory_Vtbl {
+        unsafe extern "system" fn CreateProvider<Impl: IUIAutomationProxyFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, provider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateProvider(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&idobject), ::core::mem::transmute_copy(&idchild)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6748,7 +6751,7 @@ impl IUIAutomationProxyFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProxyFactoryId<Impl: IUIAutomationProxyFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factoryid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProxyFactoryId<Impl: IUIAutomationProxyFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factoryid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProxyFactoryId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6769,7 +6772,7 @@ impl IUIAutomationProxyFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IUIAutomationProxyFactoryEntryImpl: Sized {
+pub trait IUIAutomationProxyFactoryEntry_Impl: Sized {
     fn ProxyFactory(&mut self) -> ::windows::core::Result<IUIAutomationProxyFactory>;
     fn ClassName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn ImageName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -6785,9 +6788,9 @@ pub trait IUIAutomationProxyFactoryEntryImpl: Sized {
     fn GetWinEventsForAutomationEvent(&mut self, eventid: i32, propertyid: i32) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl IUIAutomationProxyFactoryEntryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationProxyFactoryEntryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationProxyFactoryEntryVtbl {
-        unsafe extern "system" fn ProxyFactory<Impl: IUIAutomationProxyFactoryEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factory: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationProxyFactoryEntry_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationProxyFactoryEntry_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationProxyFactoryEntry_Vtbl {
+        unsafe extern "system" fn ProxyFactory<Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factory: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProxyFactory() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6797,7 +6800,7 @@ impl IUIAutomationProxyFactoryEntryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClassName<Impl: IUIAutomationProxyFactoryEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClassName<Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClassName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6807,7 +6810,7 @@ impl IUIAutomationProxyFactoryEntryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImageName<Impl: IUIAutomationProxyFactoryEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imagename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImageName<Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imagename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImageName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6817,7 +6820,7 @@ impl IUIAutomationProxyFactoryEntryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AllowSubstringMatch<Impl: IUIAutomationProxyFactoryEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allowsubstringmatch: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllowSubstringMatch<Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allowsubstringmatch: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowSubstringMatch() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6827,7 +6830,7 @@ impl IUIAutomationProxyFactoryEntryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanCheckBaseClass<Impl: IUIAutomationProxyFactoryEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cancheckbaseclass: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanCheckBaseClass<Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cancheckbaseclass: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanCheckBaseClass() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6837,7 +6840,7 @@ impl IUIAutomationProxyFactoryEntryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NeedsAdviseEvents<Impl: IUIAutomationProxyFactoryEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, adviseevents: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NeedsAdviseEvents<Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, adviseevents: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NeedsAdviseEvents() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6847,31 +6850,31 @@ impl IUIAutomationProxyFactoryEntryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClassName<Impl: IUIAutomationProxyFactoryEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClassName<Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetClassName(::core::mem::transmute_copy(&classname)).into()
         }
-        unsafe extern "system" fn SetImageName<Impl: IUIAutomationProxyFactoryEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imagename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetImageName<Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imagename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetImageName(::core::mem::transmute_copy(&imagename)).into()
         }
-        unsafe extern "system" fn SetAllowSubstringMatch<Impl: IUIAutomationProxyFactoryEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allowsubstringmatch: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAllowSubstringMatch<Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allowsubstringmatch: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowSubstringMatch(::core::mem::transmute_copy(&allowsubstringmatch)).into()
         }
-        unsafe extern "system" fn SetCanCheckBaseClass<Impl: IUIAutomationProxyFactoryEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cancheckbaseclass: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCanCheckBaseClass<Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cancheckbaseclass: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCanCheckBaseClass(::core::mem::transmute_copy(&cancheckbaseclass)).into()
         }
-        unsafe extern "system" fn SetNeedsAdviseEvents<Impl: IUIAutomationProxyFactoryEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, adviseevents: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNeedsAdviseEvents<Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, adviseevents: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNeedsAdviseEvents(::core::mem::transmute_copy(&adviseevents)).into()
         }
-        unsafe extern "system" fn SetWinEventsForAutomationEvent<Impl: IUIAutomationProxyFactoryEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventid: i32, propertyid: i32, winevents: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetWinEventsForAutomationEvent<Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventid: i32, propertyid: i32, winevents: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWinEventsForAutomationEvent(::core::mem::transmute_copy(&eventid), ::core::mem::transmute_copy(&propertyid), ::core::mem::transmute_copy(&winevents)).into()
         }
-        unsafe extern "system" fn GetWinEventsForAutomationEvent<Impl: IUIAutomationProxyFactoryEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventid: i32, propertyid: i32, winevents: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetWinEventsForAutomationEvent<Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventid: i32, propertyid: i32, winevents: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetWinEventsForAutomationEvent(::core::mem::transmute_copy(&eventid), ::core::mem::transmute_copy(&propertyid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6903,7 +6906,7 @@ impl IUIAutomationProxyFactoryEntryVtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IUIAutomationProxyFactoryMappingImpl: Sized {
+pub trait IUIAutomationProxyFactoryMapping_Impl: Sized {
     fn Count(&mut self) -> ::windows::core::Result<u32>;
     fn GetTable(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetEntry(&mut self, index: u32) -> ::windows::core::Result<IUIAutomationProxyFactoryEntry>;
@@ -6915,9 +6918,9 @@ pub trait IUIAutomationProxyFactoryMappingImpl: Sized {
     fn RestoreDefaultTable(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl IUIAutomationProxyFactoryMappingVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationProxyFactoryMappingImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationProxyFactoryMappingVtbl {
-        unsafe extern "system" fn Count<Impl: IUIAutomationProxyFactoryMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT {
+impl IUIAutomationProxyFactoryMapping_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationProxyFactoryMapping_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationProxyFactoryMapping_Vtbl {
+        unsafe extern "system" fn Count<Impl: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6927,7 +6930,7 @@ impl IUIAutomationProxyFactoryMappingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTable<Impl: IUIAutomationProxyFactoryMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, table: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTable<Impl: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, table: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6937,7 +6940,7 @@ impl IUIAutomationProxyFactoryMappingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEntry<Impl: IUIAutomationProxyFactoryMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, entry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEntry<Impl: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, entry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEntry(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6947,27 +6950,27 @@ impl IUIAutomationProxyFactoryMappingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTable<Impl: IUIAutomationProxyFactoryMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factorylist: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTable<Impl: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factorylist: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTable(::core::mem::transmute_copy(&factorylist)).into()
         }
-        unsafe extern "system" fn InsertEntries<Impl: IUIAutomationProxyFactoryMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, before: u32, factorylist: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertEntries<Impl: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, before: u32, factorylist: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertEntries(::core::mem::transmute_copy(&before), ::core::mem::transmute_copy(&factorylist)).into()
         }
-        unsafe extern "system" fn InsertEntry<Impl: IUIAutomationProxyFactoryMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, before: u32, factory: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertEntry<Impl: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, before: u32, factory: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InsertEntry(::core::mem::transmute_copy(&before), ::core::mem::transmute(&factory)).into()
         }
-        unsafe extern "system" fn RemoveEntry<Impl: IUIAutomationProxyFactoryMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveEntry<Impl: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveEntry(::core::mem::transmute_copy(&index)).into()
         }
-        unsafe extern "system" fn ClearTable<Impl: IUIAutomationProxyFactoryMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearTable<Impl: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearTable().into()
         }
-        unsafe extern "system" fn RestoreDefaultTable<Impl: IUIAutomationProxyFactoryMappingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RestoreDefaultTable<Impl: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RestoreDefaultTable().into()
         }
@@ -6989,7 +6992,7 @@ impl IUIAutomationProxyFactoryMappingVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUIAutomationRangeValuePatternImpl: Sized {
+pub trait IUIAutomationRangeValuePattern_Impl: Sized {
     fn SetValue(&mut self, val: f64) -> ::windows::core::Result<()>;
     fn CurrentValue(&mut self) -> ::windows::core::Result<f64>;
     fn CurrentIsReadOnly(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -7005,13 +7008,13 @@ pub trait IUIAutomationRangeValuePatternImpl: Sized {
     fn CachedSmallChange(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUIAutomationRangeValuePatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationRangeValuePatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationRangeValuePatternVtbl {
-        unsafe extern "system" fn SetValue<Impl: IUIAutomationRangeValuePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: f64) -> ::windows::core::HRESULT {
+impl IUIAutomationRangeValuePattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationRangeValuePattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationRangeValuePattern_Vtbl {
+        unsafe extern "system" fn SetValue<Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(::core::mem::transmute_copy(&val)).into()
         }
-        unsafe extern "system" fn CurrentValue<Impl: IUIAutomationRangeValuePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentValue<Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7021,7 +7024,7 @@ impl IUIAutomationRangeValuePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentIsReadOnly<Impl: IUIAutomationRangeValuePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentIsReadOnly<Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentIsReadOnly() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7031,7 +7034,7 @@ impl IUIAutomationRangeValuePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentMaximum<Impl: IUIAutomationRangeValuePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentMaximum<Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentMaximum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7041,7 +7044,7 @@ impl IUIAutomationRangeValuePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentMinimum<Impl: IUIAutomationRangeValuePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentMinimum<Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentMinimum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7051,7 +7054,7 @@ impl IUIAutomationRangeValuePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentLargeChange<Impl: IUIAutomationRangeValuePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentLargeChange<Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentLargeChange() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7061,7 +7064,7 @@ impl IUIAutomationRangeValuePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentSmallChange<Impl: IUIAutomationRangeValuePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentSmallChange<Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentSmallChange() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7071,7 +7074,7 @@ impl IUIAutomationRangeValuePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedValue<Impl: IUIAutomationRangeValuePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedValue<Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7081,7 +7084,7 @@ impl IUIAutomationRangeValuePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedIsReadOnly<Impl: IUIAutomationRangeValuePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedIsReadOnly<Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedIsReadOnly() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7091,7 +7094,7 @@ impl IUIAutomationRangeValuePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedMaximum<Impl: IUIAutomationRangeValuePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedMaximum<Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedMaximum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7101,7 +7104,7 @@ impl IUIAutomationRangeValuePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedMinimum<Impl: IUIAutomationRangeValuePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedMinimum<Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedMinimum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7111,7 +7114,7 @@ impl IUIAutomationRangeValuePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedLargeChange<Impl: IUIAutomationRangeValuePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedLargeChange<Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedLargeChange() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7121,7 +7124,7 @@ impl IUIAutomationRangeValuePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedSmallChange<Impl: IUIAutomationRangeValuePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedSmallChange<Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedSmallChange() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7153,15 +7156,15 @@ impl IUIAutomationRangeValuePatternVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUIAutomationRegistrarImpl: Sized {
+pub trait IUIAutomationRegistrar_Impl: Sized {
     fn RegisterProperty(&mut self, property: *const UIAutomationPropertyInfo) -> ::windows::core::Result<i32>;
     fn RegisterEvent(&mut self, event: *const UIAutomationEventInfo) -> ::windows::core::Result<i32>;
     fn RegisterPattern(&mut self, pattern: *const UIAutomationPatternInfo, ppatternid: *mut i32, ppatternavailablepropertyid: *mut i32, propertyidcount: u32, ppropertyids: *mut i32, eventidcount: u32, peventids: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUIAutomationRegistrarVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationRegistrarImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationRegistrarVtbl {
-        unsafe extern "system" fn RegisterProperty<Impl: IUIAutomationRegistrarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: *const UIAutomationPropertyInfo, propertyid: *mut i32) -> ::windows::core::HRESULT {
+impl IUIAutomationRegistrar_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationRegistrar_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationRegistrar_Vtbl {
+        unsafe extern "system" fn RegisterProperty<Impl: IUIAutomationRegistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: *const UIAutomationPropertyInfo, propertyid: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterProperty(::core::mem::transmute_copy(&property)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -7171,7 +7174,7 @@ impl IUIAutomationRegistrarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisterEvent<Impl: IUIAutomationRegistrarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, event: *const UIAutomationEventInfo, eventid: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterEvent<Impl: IUIAutomationRegistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, event: *const UIAutomationEventInfo, eventid: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterEvent(::core::mem::transmute_copy(&event)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -7181,7 +7184,7 @@ impl IUIAutomationRegistrarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisterPattern<Impl: IUIAutomationRegistrarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pattern: *const UIAutomationPatternInfo, ppatternid: *mut i32, ppatternavailablepropertyid: *mut i32, propertyidcount: u32, ppropertyids: *mut i32, eventidcount: u32, peventids: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterPattern<Impl: IUIAutomationRegistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pattern: *const UIAutomationPatternInfo, ppatternid: *mut i32, ppatternavailablepropertyid: *mut i32, propertyidcount: u32, ppropertyids: *mut i32, eventidcount: u32, peventids: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RegisterPattern(::core::mem::transmute_copy(&pattern), ::core::mem::transmute_copy(&ppatternid), ::core::mem::transmute_copy(&ppatternavailablepropertyid), ::core::mem::transmute_copy(&propertyidcount), ::core::mem::transmute_copy(&ppropertyids), ::core::mem::transmute_copy(&eventidcount), ::core::mem::transmute_copy(&peventids)).into()
         }
@@ -7196,12 +7199,12 @@ impl IUIAutomationRegistrarVtbl {
         iid == &<IUIAutomationRegistrar as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationScrollItemPatternImpl: Sized {
+pub trait IUIAutomationScrollItemPattern_Impl: Sized {
     fn ScrollIntoView(&mut self) -> ::windows::core::Result<()>;
 }
-impl IUIAutomationScrollItemPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationScrollItemPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationScrollItemPatternVtbl {
-        unsafe extern "system" fn ScrollIntoView<Impl: IUIAutomationScrollItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IUIAutomationScrollItemPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationScrollItemPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationScrollItemPattern_Vtbl {
+        unsafe extern "system" fn ScrollIntoView<Impl: IUIAutomationScrollItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ScrollIntoView().into()
         }
@@ -7212,7 +7215,7 @@ impl IUIAutomationScrollItemPatternVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUIAutomationScrollPatternImpl: Sized {
+pub trait IUIAutomationScrollPattern_Impl: Sized {
     fn Scroll(&mut self, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows::core::Result<()>;
     fn SetScrollPercent(&mut self, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::Result<()>;
     fn CurrentHorizontalScrollPercent(&mut self) -> ::windows::core::Result<f64>;
@@ -7229,17 +7232,17 @@ pub trait IUIAutomationScrollPatternImpl: Sized {
     fn CachedVerticallyScrollable(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUIAutomationScrollPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationScrollPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationScrollPatternVtbl {
-        unsafe extern "system" fn Scroll<Impl: IUIAutomationScrollPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows::core::HRESULT {
+impl IUIAutomationScrollPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationScrollPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationScrollPattern_Vtbl {
+        unsafe extern "system" fn Scroll<Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Scroll(::core::mem::transmute_copy(&horizontalamount), ::core::mem::transmute_copy(&verticalamount)).into()
         }
-        unsafe extern "system" fn SetScrollPercent<Impl: IUIAutomationScrollPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScrollPercent<Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScrollPercent(::core::mem::transmute_copy(&horizontalpercent), ::core::mem::transmute_copy(&verticalpercent)).into()
         }
-        unsafe extern "system" fn CurrentHorizontalScrollPercent<Impl: IUIAutomationScrollPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentHorizontalScrollPercent<Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentHorizontalScrollPercent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7249,7 +7252,7 @@ impl IUIAutomationScrollPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentVerticalScrollPercent<Impl: IUIAutomationScrollPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentVerticalScrollPercent<Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentVerticalScrollPercent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7259,7 +7262,7 @@ impl IUIAutomationScrollPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentHorizontalViewSize<Impl: IUIAutomationScrollPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentHorizontalViewSize<Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentHorizontalViewSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7269,7 +7272,7 @@ impl IUIAutomationScrollPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentVerticalViewSize<Impl: IUIAutomationScrollPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentVerticalViewSize<Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentVerticalViewSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7279,7 +7282,7 @@ impl IUIAutomationScrollPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentHorizontallyScrollable<Impl: IUIAutomationScrollPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentHorizontallyScrollable<Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentHorizontallyScrollable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7289,7 +7292,7 @@ impl IUIAutomationScrollPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentVerticallyScrollable<Impl: IUIAutomationScrollPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentVerticallyScrollable<Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentVerticallyScrollable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7299,7 +7302,7 @@ impl IUIAutomationScrollPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedHorizontalScrollPercent<Impl: IUIAutomationScrollPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedHorizontalScrollPercent<Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedHorizontalScrollPercent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7309,7 +7312,7 @@ impl IUIAutomationScrollPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedVerticalScrollPercent<Impl: IUIAutomationScrollPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedVerticalScrollPercent<Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedVerticalScrollPercent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7319,7 +7322,7 @@ impl IUIAutomationScrollPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedHorizontalViewSize<Impl: IUIAutomationScrollPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedHorizontalViewSize<Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedHorizontalViewSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7329,7 +7332,7 @@ impl IUIAutomationScrollPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedVerticalViewSize<Impl: IUIAutomationScrollPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedVerticalViewSize<Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedVerticalViewSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7339,7 +7342,7 @@ impl IUIAutomationScrollPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedHorizontallyScrollable<Impl: IUIAutomationScrollPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedHorizontallyScrollable<Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedHorizontallyScrollable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7349,7 +7352,7 @@ impl IUIAutomationScrollPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedVerticallyScrollable<Impl: IUIAutomationScrollPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedVerticallyScrollable<Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedVerticallyScrollable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7382,7 +7385,7 @@ impl IUIAutomationScrollPatternVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUIAutomationSelectionItemPatternImpl: Sized {
+pub trait IUIAutomationSelectionItemPattern_Impl: Sized {
     fn Select(&mut self) -> ::windows::core::Result<()>;
     fn AddToSelection(&mut self) -> ::windows::core::Result<()>;
     fn RemoveFromSelection(&mut self) -> ::windows::core::Result<()>;
@@ -7392,21 +7395,21 @@ pub trait IUIAutomationSelectionItemPatternImpl: Sized {
     fn CachedSelectionContainer(&mut self) -> ::windows::core::Result<IUIAutomationElement>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUIAutomationSelectionItemPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationSelectionItemPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationSelectionItemPatternVtbl {
-        unsafe extern "system" fn Select<Impl: IUIAutomationSelectionItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IUIAutomationSelectionItemPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationSelectionItemPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationSelectionItemPattern_Vtbl {
+        unsafe extern "system" fn Select<Impl: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Select().into()
         }
-        unsafe extern "system" fn AddToSelection<Impl: IUIAutomationSelectionItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddToSelection<Impl: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddToSelection().into()
         }
-        unsafe extern "system" fn RemoveFromSelection<Impl: IUIAutomationSelectionItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveFromSelection<Impl: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFromSelection().into()
         }
-        unsafe extern "system" fn CurrentIsSelected<Impl: IUIAutomationSelectionItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentIsSelected<Impl: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentIsSelected() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7416,7 +7419,7 @@ impl IUIAutomationSelectionItemPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentSelectionContainer<Impl: IUIAutomationSelectionItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentSelectionContainer<Impl: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentSelectionContainer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7426,7 +7429,7 @@ impl IUIAutomationSelectionItemPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedIsSelected<Impl: IUIAutomationSelectionItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedIsSelected<Impl: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedIsSelected() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7436,7 +7439,7 @@ impl IUIAutomationSelectionItemPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedSelectionContainer<Impl: IUIAutomationSelectionItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedSelectionContainer<Impl: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedSelectionContainer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7462,7 +7465,7 @@ impl IUIAutomationSelectionItemPatternVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUIAutomationSelectionPatternImpl: Sized {
+pub trait IUIAutomationSelectionPattern_Impl: Sized {
     fn GetCurrentSelection(&mut self) -> ::windows::core::Result<IUIAutomationElementArray>;
     fn CurrentCanSelectMultiple(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn CurrentIsSelectionRequired(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -7471,9 +7474,9 @@ pub trait IUIAutomationSelectionPatternImpl: Sized {
     fn CachedIsSelectionRequired(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUIAutomationSelectionPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationSelectionPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationSelectionPatternVtbl {
-        unsafe extern "system" fn GetCurrentSelection<Impl: IUIAutomationSelectionPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationSelectionPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationSelectionPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationSelectionPattern_Vtbl {
+        unsafe extern "system" fn GetCurrentSelection<Impl: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentSelection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7483,7 +7486,7 @@ impl IUIAutomationSelectionPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentCanSelectMultiple<Impl: IUIAutomationSelectionPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentCanSelectMultiple<Impl: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentCanSelectMultiple() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7493,7 +7496,7 @@ impl IUIAutomationSelectionPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentIsSelectionRequired<Impl: IUIAutomationSelectionPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentIsSelectionRequired<Impl: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentIsSelectionRequired() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7503,7 +7506,7 @@ impl IUIAutomationSelectionPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCachedSelection<Impl: IUIAutomationSelectionPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCachedSelection<Impl: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCachedSelection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7513,7 +7516,7 @@ impl IUIAutomationSelectionPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedCanSelectMultiple<Impl: IUIAutomationSelectionPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedCanSelectMultiple<Impl: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedCanSelectMultiple() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7523,7 +7526,7 @@ impl IUIAutomationSelectionPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedIsSelectionRequired<Impl: IUIAutomationSelectionPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedIsSelectionRequired<Impl: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedIsSelectionRequired() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7548,7 +7551,7 @@ impl IUIAutomationSelectionPatternVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUIAutomationSelectionPattern2Impl: Sized + IUIAutomationSelectionPatternImpl {
+pub trait IUIAutomationSelectionPattern2_Impl: Sized + IUIAutomationSelectionPattern_Impl {
     fn CurrentFirstSelectedItem(&mut self) -> ::windows::core::Result<IUIAutomationElement>;
     fn CurrentLastSelectedItem(&mut self) -> ::windows::core::Result<IUIAutomationElement>;
     fn CurrentCurrentSelectedItem(&mut self) -> ::windows::core::Result<IUIAutomationElement>;
@@ -7559,9 +7562,9 @@ pub trait IUIAutomationSelectionPattern2Impl: Sized + IUIAutomationSelectionPatt
     fn CachedItemCount(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUIAutomationSelectionPattern2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationSelectionPattern2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationSelectionPattern2Vtbl {
-        unsafe extern "system" fn CurrentFirstSelectedItem<Impl: IUIAutomationSelectionPattern2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationSelectionPattern2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationSelectionPattern2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationSelectionPattern2_Vtbl {
+        unsafe extern "system" fn CurrentFirstSelectedItem<Impl: IUIAutomationSelectionPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentFirstSelectedItem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7571,7 +7574,7 @@ impl IUIAutomationSelectionPattern2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentLastSelectedItem<Impl: IUIAutomationSelectionPattern2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentLastSelectedItem<Impl: IUIAutomationSelectionPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentLastSelectedItem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7581,7 +7584,7 @@ impl IUIAutomationSelectionPattern2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentCurrentSelectedItem<Impl: IUIAutomationSelectionPattern2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentCurrentSelectedItem<Impl: IUIAutomationSelectionPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentCurrentSelectedItem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7591,7 +7594,7 @@ impl IUIAutomationSelectionPattern2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentItemCount<Impl: IUIAutomationSelectionPattern2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentItemCount<Impl: IUIAutomationSelectionPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentItemCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7601,7 +7604,7 @@ impl IUIAutomationSelectionPattern2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedFirstSelectedItem<Impl: IUIAutomationSelectionPattern2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedFirstSelectedItem<Impl: IUIAutomationSelectionPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedFirstSelectedItem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7611,7 +7614,7 @@ impl IUIAutomationSelectionPattern2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedLastSelectedItem<Impl: IUIAutomationSelectionPattern2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedLastSelectedItem<Impl: IUIAutomationSelectionPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedLastSelectedItem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7621,7 +7624,7 @@ impl IUIAutomationSelectionPattern2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedCurrentSelectedItem<Impl: IUIAutomationSelectionPattern2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedCurrentSelectedItem<Impl: IUIAutomationSelectionPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedCurrentSelectedItem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7631,7 +7634,7 @@ impl IUIAutomationSelectionPattern2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedItemCount<Impl: IUIAutomationSelectionPattern2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedItemCount<Impl: IUIAutomationSelectionPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedItemCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7642,7 +7645,7 @@ impl IUIAutomationSelectionPattern2Vtbl {
             }
         }
         Self {
-            base: IUIAutomationSelectionPatternVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IUIAutomationSelectionPattern_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             CurrentFirstSelectedItem: CurrentFirstSelectedItem::<Impl, IMPL_OFFSET>,
             CurrentLastSelectedItem: CurrentLastSelectedItem::<Impl, IMPL_OFFSET>,
             CurrentCurrentSelectedItem: CurrentCurrentSelectedItem::<Impl, IMPL_OFFSET>,
@@ -7658,7 +7661,7 @@ impl IUIAutomationSelectionPattern2Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IUIAutomationSpreadsheetItemPatternImpl: Sized {
+pub trait IUIAutomationSpreadsheetItemPattern_Impl: Sized {
     fn CurrentFormula(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetCurrentAnnotationObjects(&mut self) -> ::windows::core::Result<IUIAutomationElementArray>;
     fn GetCurrentAnnotationTypes(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -7667,9 +7670,9 @@ pub trait IUIAutomationSpreadsheetItemPatternImpl: Sized {
     fn GetCachedAnnotationTypes(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl IUIAutomationSpreadsheetItemPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationSpreadsheetItemPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationSpreadsheetItemPatternVtbl {
-        unsafe extern "system" fn CurrentFormula<Impl: IUIAutomationSpreadsheetItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IUIAutomationSpreadsheetItemPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationSpreadsheetItemPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationSpreadsheetItemPattern_Vtbl {
+        unsafe extern "system" fn CurrentFormula<Impl: IUIAutomationSpreadsheetItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentFormula() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7679,7 +7682,7 @@ impl IUIAutomationSpreadsheetItemPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentAnnotationObjects<Impl: IUIAutomationSpreadsheetItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentAnnotationObjects<Impl: IUIAutomationSpreadsheetItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentAnnotationObjects() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7689,7 +7692,7 @@ impl IUIAutomationSpreadsheetItemPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentAnnotationTypes<Impl: IUIAutomationSpreadsheetItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentAnnotationTypes<Impl: IUIAutomationSpreadsheetItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentAnnotationTypes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7699,7 +7702,7 @@ impl IUIAutomationSpreadsheetItemPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedFormula<Impl: IUIAutomationSpreadsheetItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedFormula<Impl: IUIAutomationSpreadsheetItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedFormula() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7709,7 +7712,7 @@ impl IUIAutomationSpreadsheetItemPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCachedAnnotationObjects<Impl: IUIAutomationSpreadsheetItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCachedAnnotationObjects<Impl: IUIAutomationSpreadsheetItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCachedAnnotationObjects() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7719,7 +7722,7 @@ impl IUIAutomationSpreadsheetItemPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCachedAnnotationTypes<Impl: IUIAutomationSpreadsheetItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCachedAnnotationTypes<Impl: IUIAutomationSpreadsheetItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCachedAnnotationTypes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7744,13 +7747,13 @@ impl IUIAutomationSpreadsheetItemPatternVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUIAutomationSpreadsheetPatternImpl: Sized {
+pub trait IUIAutomationSpreadsheetPattern_Impl: Sized {
     fn GetItemByName(&mut self, name: super::super::Foundation::BSTR) -> ::windows::core::Result<IUIAutomationElement>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUIAutomationSpreadsheetPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationSpreadsheetPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationSpreadsheetPatternVtbl {
-        unsafe extern "system" fn GetItemByName<Impl: IUIAutomationSpreadsheetPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationSpreadsheetPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationSpreadsheetPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationSpreadsheetPattern_Vtbl {
+        unsafe extern "system" fn GetItemByName<Impl: IUIAutomationSpreadsheetPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItemByName(::core::mem::transmute_copy(&name)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -7767,13 +7770,13 @@ impl IUIAutomationSpreadsheetPatternVtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IUIAutomationStructureChangedEventHandlerImpl: Sized {
+pub trait IUIAutomationStructureChangedEventHandler_Impl: Sized {
     fn HandleStructureChangedEvent(&mut self, sender: ::core::option::Option<IUIAutomationElement>, changetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl IUIAutomationStructureChangedEventHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationStructureChangedEventHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationStructureChangedEventHandlerVtbl {
-        unsafe extern "system" fn HandleStructureChangedEvent<Impl: IUIAutomationStructureChangedEventHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, changetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+impl IUIAutomationStructureChangedEventHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationStructureChangedEventHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationStructureChangedEventHandler_Vtbl {
+        unsafe extern "system" fn HandleStructureChangedEvent<Impl: IUIAutomationStructureChangedEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, changetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HandleStructureChangedEvent(::core::mem::transmute(&sender), ::core::mem::transmute_copy(&changetype), ::core::mem::transmute_copy(&runtimeid)).into()
         }
@@ -7787,7 +7790,7 @@ impl IUIAutomationStructureChangedEventHandlerVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUIAutomationStylesPatternImpl: Sized {
+pub trait IUIAutomationStylesPattern_Impl: Sized {
     fn CurrentStyleId(&mut self) -> ::windows::core::Result<i32>;
     fn CurrentStyleName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn CurrentFillColor(&mut self) -> ::windows::core::Result<i32>;
@@ -7806,9 +7809,9 @@ pub trait IUIAutomationStylesPatternImpl: Sized {
     fn GetCachedExtendedPropertiesAsArray(&mut self, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUIAutomationStylesPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationStylesPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationStylesPatternVtbl {
-        unsafe extern "system" fn CurrentStyleId<Impl: IUIAutomationStylesPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+impl IUIAutomationStylesPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationStylesPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationStylesPattern_Vtbl {
+        unsafe extern "system" fn CurrentStyleId<Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentStyleId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7818,7 +7821,7 @@ impl IUIAutomationStylesPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentStyleName<Impl: IUIAutomationStylesPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentStyleName<Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentStyleName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7828,7 +7831,7 @@ impl IUIAutomationStylesPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentFillColor<Impl: IUIAutomationStylesPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentFillColor<Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentFillColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7838,7 +7841,7 @@ impl IUIAutomationStylesPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentFillPatternStyle<Impl: IUIAutomationStylesPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentFillPatternStyle<Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentFillPatternStyle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7848,7 +7851,7 @@ impl IUIAutomationStylesPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentShape<Impl: IUIAutomationStylesPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentShape<Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentShape() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7858,7 +7861,7 @@ impl IUIAutomationStylesPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentFillPatternColor<Impl: IUIAutomationStylesPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentFillPatternColor<Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentFillPatternColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7868,7 +7871,7 @@ impl IUIAutomationStylesPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentExtendedProperties<Impl: IUIAutomationStylesPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentExtendedProperties<Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentExtendedProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7878,11 +7881,11 @@ impl IUIAutomationStylesPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentExtendedPropertiesAsArray<Impl: IUIAutomationStylesPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentExtendedPropertiesAsArray<Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetCurrentExtendedPropertiesAsArray(::core::mem::transmute_copy(&propertyarray), ::core::mem::transmute_copy(&propertycount)).into()
         }
-        unsafe extern "system" fn CachedStyleId<Impl: IUIAutomationStylesPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedStyleId<Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedStyleId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7892,7 +7895,7 @@ impl IUIAutomationStylesPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedStyleName<Impl: IUIAutomationStylesPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedStyleName<Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedStyleName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7902,7 +7905,7 @@ impl IUIAutomationStylesPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedFillColor<Impl: IUIAutomationStylesPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedFillColor<Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedFillColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7912,7 +7915,7 @@ impl IUIAutomationStylesPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedFillPatternStyle<Impl: IUIAutomationStylesPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedFillPatternStyle<Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedFillPatternStyle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7922,7 +7925,7 @@ impl IUIAutomationStylesPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedShape<Impl: IUIAutomationStylesPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedShape<Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedShape() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7932,7 +7935,7 @@ impl IUIAutomationStylesPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedFillPatternColor<Impl: IUIAutomationStylesPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedFillPatternColor<Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedFillPatternColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7942,7 +7945,7 @@ impl IUIAutomationStylesPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedExtendedProperties<Impl: IUIAutomationStylesPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedExtendedProperties<Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedExtendedProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7952,7 +7955,7 @@ impl IUIAutomationStylesPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCachedExtendedPropertiesAsArray<Impl: IUIAutomationStylesPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCachedExtendedPropertiesAsArray<Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetCachedExtendedPropertiesAsArray(::core::mem::transmute_copy(&propertyarray), ::core::mem::transmute_copy(&propertycount)).into()
         }
@@ -7980,17 +7983,17 @@ impl IUIAutomationStylesPatternVtbl {
         iid == &<IUIAutomationStylesPattern as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationSynchronizedInputPatternImpl: Sized {
+pub trait IUIAutomationSynchronizedInputPattern_Impl: Sized {
     fn StartListening(&mut self, inputtype: SynchronizedInputType) -> ::windows::core::Result<()>;
     fn Cancel(&mut self) -> ::windows::core::Result<()>;
 }
-impl IUIAutomationSynchronizedInputPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationSynchronizedInputPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationSynchronizedInputPatternVtbl {
-        unsafe extern "system" fn StartListening<Impl: IUIAutomationSynchronizedInputPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputtype: SynchronizedInputType) -> ::windows::core::HRESULT {
+impl IUIAutomationSynchronizedInputPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationSynchronizedInputPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationSynchronizedInputPattern_Vtbl {
+        unsafe extern "system" fn StartListening<Impl: IUIAutomationSynchronizedInputPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputtype: SynchronizedInputType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartListening(::core::mem::transmute_copy(&inputtype)).into()
         }
-        unsafe extern "system" fn Cancel<Impl: IUIAutomationSynchronizedInputPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Cancel<Impl: IUIAutomationSynchronizedInputPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Cancel().into()
         }
@@ -8004,15 +8007,15 @@ impl IUIAutomationSynchronizedInputPatternVtbl {
         iid == &<IUIAutomationSynchronizedInputPattern as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationTableItemPatternImpl: Sized {
+pub trait IUIAutomationTableItemPattern_Impl: Sized {
     fn GetCurrentRowHeaderItems(&mut self) -> ::windows::core::Result<IUIAutomationElementArray>;
     fn GetCurrentColumnHeaderItems(&mut self) -> ::windows::core::Result<IUIAutomationElementArray>;
     fn GetCachedRowHeaderItems(&mut self) -> ::windows::core::Result<IUIAutomationElementArray>;
     fn GetCachedColumnHeaderItems(&mut self) -> ::windows::core::Result<IUIAutomationElementArray>;
 }
-impl IUIAutomationTableItemPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTableItemPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTableItemPatternVtbl {
-        unsafe extern "system" fn GetCurrentRowHeaderItems<Impl: IUIAutomationTableItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationTableItemPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTableItemPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTableItemPattern_Vtbl {
+        unsafe extern "system" fn GetCurrentRowHeaderItems<Impl: IUIAutomationTableItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentRowHeaderItems() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8022,7 +8025,7 @@ impl IUIAutomationTableItemPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentColumnHeaderItems<Impl: IUIAutomationTableItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentColumnHeaderItems<Impl: IUIAutomationTableItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentColumnHeaderItems() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8032,7 +8035,7 @@ impl IUIAutomationTableItemPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCachedRowHeaderItems<Impl: IUIAutomationTableItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCachedRowHeaderItems<Impl: IUIAutomationTableItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCachedRowHeaderItems() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8042,7 +8045,7 @@ impl IUIAutomationTableItemPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCachedColumnHeaderItems<Impl: IUIAutomationTableItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCachedColumnHeaderItems<Impl: IUIAutomationTableItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCachedColumnHeaderItems() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8064,7 +8067,7 @@ impl IUIAutomationTableItemPatternVtbl {
         iid == &<IUIAutomationTableItemPattern as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationTablePatternImpl: Sized {
+pub trait IUIAutomationTablePattern_Impl: Sized {
     fn GetCurrentRowHeaders(&mut self) -> ::windows::core::Result<IUIAutomationElementArray>;
     fn GetCurrentColumnHeaders(&mut self) -> ::windows::core::Result<IUIAutomationElementArray>;
     fn CurrentRowOrColumnMajor(&mut self) -> ::windows::core::Result<RowOrColumnMajor>;
@@ -8072,9 +8075,9 @@ pub trait IUIAutomationTablePatternImpl: Sized {
     fn GetCachedColumnHeaders(&mut self) -> ::windows::core::Result<IUIAutomationElementArray>;
     fn CachedRowOrColumnMajor(&mut self) -> ::windows::core::Result<RowOrColumnMajor>;
 }
-impl IUIAutomationTablePatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTablePatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTablePatternVtbl {
-        unsafe extern "system" fn GetCurrentRowHeaders<Impl: IUIAutomationTablePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationTablePattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTablePattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTablePattern_Vtbl {
+        unsafe extern "system" fn GetCurrentRowHeaders<Impl: IUIAutomationTablePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentRowHeaders() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8084,7 +8087,7 @@ impl IUIAutomationTablePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentColumnHeaders<Impl: IUIAutomationTablePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentColumnHeaders<Impl: IUIAutomationTablePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentColumnHeaders() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8094,7 +8097,7 @@ impl IUIAutomationTablePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentRowOrColumnMajor<Impl: IUIAutomationTablePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut RowOrColumnMajor) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentRowOrColumnMajor<Impl: IUIAutomationTablePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut RowOrColumnMajor) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentRowOrColumnMajor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8104,7 +8107,7 @@ impl IUIAutomationTablePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCachedRowHeaders<Impl: IUIAutomationTablePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCachedRowHeaders<Impl: IUIAutomationTablePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCachedRowHeaders() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8114,7 +8117,7 @@ impl IUIAutomationTablePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCachedColumnHeaders<Impl: IUIAutomationTablePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCachedColumnHeaders<Impl: IUIAutomationTablePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCachedColumnHeaders() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8124,7 +8127,7 @@ impl IUIAutomationTablePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedRowOrColumnMajor<Impl: IUIAutomationTablePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut RowOrColumnMajor) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedRowOrColumnMajor<Impl: IUIAutomationTablePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut RowOrColumnMajor) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedRowOrColumnMajor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8148,13 +8151,13 @@ impl IUIAutomationTablePatternVtbl {
         iid == &<IUIAutomationTablePattern as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationTextChildPatternImpl: Sized {
+pub trait IUIAutomationTextChildPattern_Impl: Sized {
     fn TextContainer(&mut self) -> ::windows::core::Result<IUIAutomationElement>;
     fn TextRange(&mut self) -> ::windows::core::Result<IUIAutomationTextRange>;
 }
-impl IUIAutomationTextChildPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextChildPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTextChildPatternVtbl {
-        unsafe extern "system" fn TextContainer<Impl: IUIAutomationTextChildPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, container: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationTextChildPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextChildPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTextChildPattern_Vtbl {
+        unsafe extern "system" fn TextContainer<Impl: IUIAutomationTextChildPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, container: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TextContainer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8164,7 +8167,7 @@ impl IUIAutomationTextChildPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TextRange<Impl: IUIAutomationTextChildPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, range: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TextRange<Impl: IUIAutomationTextChildPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, range: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TextRange() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8185,14 +8188,14 @@ impl IUIAutomationTextChildPatternVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUIAutomationTextEditPatternImpl: Sized + IUIAutomationTextPatternImpl {
+pub trait IUIAutomationTextEditPattern_Impl: Sized + IUIAutomationTextPattern_Impl {
     fn GetActiveComposition(&mut self) -> ::windows::core::Result<IUIAutomationTextRange>;
     fn GetConversionTarget(&mut self) -> ::windows::core::Result<IUIAutomationTextRange>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUIAutomationTextEditPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextEditPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTextEditPatternVtbl {
-        unsafe extern "system" fn GetActiveComposition<Impl: IUIAutomationTextEditPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, range: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationTextEditPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextEditPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTextEditPattern_Vtbl {
+        unsafe extern "system" fn GetActiveComposition<Impl: IUIAutomationTextEditPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, range: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetActiveComposition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8202,7 +8205,7 @@ impl IUIAutomationTextEditPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetConversionTarget<Impl: IUIAutomationTextEditPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, range: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetConversionTarget<Impl: IUIAutomationTextEditPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, range: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetConversionTarget() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8213,7 +8216,7 @@ impl IUIAutomationTextEditPatternVtbl {
             }
         }
         Self {
-            base: IUIAutomationTextPatternVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IUIAutomationTextPattern_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             GetActiveComposition: GetActiveComposition::<Impl, IMPL_OFFSET>,
             GetConversionTarget: GetConversionTarget::<Impl, IMPL_OFFSET>,
         }
@@ -8223,13 +8226,13 @@ impl IUIAutomationTextEditPatternVtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IUIAutomationTextEditTextChangedEventHandlerImpl: Sized {
+pub trait IUIAutomationTextEditTextChangedEventHandler_Impl: Sized {
     fn HandleTextEditTextChangedEvent(&mut self, sender: ::core::option::Option<IUIAutomationElement>, texteditchangetype: TextEditChangeType, eventstrings: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl IUIAutomationTextEditTextChangedEventHandlerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextEditTextChangedEventHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTextEditTextChangedEventHandlerVtbl {
-        unsafe extern "system" fn HandleTextEditTextChangedEvent<Impl: IUIAutomationTextEditTextChangedEventHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, texteditchangetype: TextEditChangeType, eventstrings: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+impl IUIAutomationTextEditTextChangedEventHandler_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextEditTextChangedEventHandler_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTextEditTextChangedEventHandler_Vtbl {
+        unsafe extern "system" fn HandleTextEditTextChangedEvent<Impl: IUIAutomationTextEditTextChangedEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, texteditchangetype: TextEditChangeType, eventstrings: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HandleTextEditTextChangedEvent(::core::mem::transmute(&sender), ::core::mem::transmute_copy(&texteditchangetype), ::core::mem::transmute_copy(&eventstrings)).into()
         }
@@ -8243,7 +8246,7 @@ impl IUIAutomationTextEditTextChangedEventHandlerVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUIAutomationTextPatternImpl: Sized {
+pub trait IUIAutomationTextPattern_Impl: Sized {
     fn RangeFromPoint(&mut self, pt: super::super::Foundation::POINT) -> ::windows::core::Result<IUIAutomationTextRange>;
     fn RangeFromChild(&mut self, child: ::core::option::Option<IUIAutomationElement>) -> ::windows::core::Result<IUIAutomationTextRange>;
     fn GetSelection(&mut self) -> ::windows::core::Result<IUIAutomationTextRangeArray>;
@@ -8252,9 +8255,9 @@ pub trait IUIAutomationTextPatternImpl: Sized {
     fn SupportedTextSelection(&mut self) -> ::windows::core::Result<SupportedTextSelection>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUIAutomationTextPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTextPatternVtbl {
-        unsafe extern "system" fn RangeFromPoint<Impl: IUIAutomationTextPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pt: super::super::Foundation::POINT, range: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationTextPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTextPattern_Vtbl {
+        unsafe extern "system" fn RangeFromPoint<Impl: IUIAutomationTextPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pt: super::super::Foundation::POINT, range: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RangeFromPoint(::core::mem::transmute_copy(&pt)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8264,7 +8267,7 @@ impl IUIAutomationTextPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RangeFromChild<Impl: IUIAutomationTextPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, child: ::windows::core::RawPtr, range: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RangeFromChild<Impl: IUIAutomationTextPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, child: ::windows::core::RawPtr, range: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RangeFromChild(::core::mem::transmute(&child)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8274,7 +8277,7 @@ impl IUIAutomationTextPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSelection<Impl: IUIAutomationTextPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ranges: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSelection<Impl: IUIAutomationTextPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ranges: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSelection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8284,7 +8287,7 @@ impl IUIAutomationTextPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVisibleRanges<Impl: IUIAutomationTextPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ranges: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetVisibleRanges<Impl: IUIAutomationTextPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ranges: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetVisibleRanges() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8294,7 +8297,7 @@ impl IUIAutomationTextPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentRange<Impl: IUIAutomationTextPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, range: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentRange<Impl: IUIAutomationTextPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, range: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentRange() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8304,7 +8307,7 @@ impl IUIAutomationTextPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedTextSelection<Impl: IUIAutomationTextPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, supportedtextselection: *mut SupportedTextSelection) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedTextSelection<Impl: IUIAutomationTextPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, supportedtextselection: *mut SupportedTextSelection) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedTextSelection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8329,14 +8332,14 @@ impl IUIAutomationTextPatternVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUIAutomationTextPattern2Impl: Sized + IUIAutomationTextPatternImpl {
+pub trait IUIAutomationTextPattern2_Impl: Sized + IUIAutomationTextPattern_Impl {
     fn RangeFromAnnotation(&mut self, annotation: ::core::option::Option<IUIAutomationElement>) -> ::windows::core::Result<IUIAutomationTextRange>;
     fn GetCaretRange(&mut self, isactive: *mut super::super::Foundation::BOOL, range: *mut ::core::option::Option<IUIAutomationTextRange>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUIAutomationTextPattern2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextPattern2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTextPattern2Vtbl {
-        unsafe extern "system" fn RangeFromAnnotation<Impl: IUIAutomationTextPattern2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, annotation: ::windows::core::RawPtr, range: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationTextPattern2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextPattern2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTextPattern2_Vtbl {
+        unsafe extern "system" fn RangeFromAnnotation<Impl: IUIAutomationTextPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, annotation: ::windows::core::RawPtr, range: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RangeFromAnnotation(::core::mem::transmute(&annotation)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8346,12 +8349,12 @@ impl IUIAutomationTextPattern2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCaretRange<Impl: IUIAutomationTextPattern2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isactive: *mut super::super::Foundation::BOOL, range: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCaretRange<Impl: IUIAutomationTextPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isactive: *mut super::super::Foundation::BOOL, range: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetCaretRange(::core::mem::transmute_copy(&isactive), ::core::mem::transmute_copy(&range)).into()
         }
         Self {
-            base: IUIAutomationTextPatternVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IUIAutomationTextPattern_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             RangeFromAnnotation: RangeFromAnnotation::<Impl, IMPL_OFFSET>,
             GetCaretRange: GetCaretRange::<Impl, IMPL_OFFSET>,
         }
@@ -8361,7 +8364,7 @@ impl IUIAutomationTextPattern2Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUIAutomationTextRangeImpl: Sized {
+pub trait IUIAutomationTextRange_Impl: Sized {
     fn Clone(&mut self) -> ::windows::core::Result<IUIAutomationTextRange>;
     fn Compare(&mut self, range: ::core::option::Option<IUIAutomationTextRange>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn CompareEndpoints(&mut self, srcendpoint: TextPatternRangeEndpoint, range: ::core::option::Option<IUIAutomationTextRange>, targetendpoint: TextPatternRangeEndpoint) -> ::windows::core::Result<i32>;
@@ -8382,9 +8385,9 @@ pub trait IUIAutomationTextRangeImpl: Sized {
     fn GetChildren(&mut self) -> ::windows::core::Result<IUIAutomationElementArray>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUIAutomationTextRangeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextRangeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTextRangeVtbl {
-        unsafe extern "system" fn Clone<Impl: IUIAutomationTextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clonedrange: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationTextRange_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextRange_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTextRange_Vtbl {
+        unsafe extern "system" fn Clone<Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clonedrange: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8394,7 +8397,7 @@ impl IUIAutomationTextRangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Compare<Impl: IUIAutomationTextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, range: ::windows::core::RawPtr, aresame: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Compare<Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, range: ::windows::core::RawPtr, aresame: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Compare(::core::mem::transmute(&range)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8404,7 +8407,7 @@ impl IUIAutomationTextRangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CompareEndpoints<Impl: IUIAutomationTextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, srcendpoint: TextPatternRangeEndpoint, range: ::windows::core::RawPtr, targetendpoint: TextPatternRangeEndpoint, compvalue: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CompareEndpoints<Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, srcendpoint: TextPatternRangeEndpoint, range: ::windows::core::RawPtr, targetendpoint: TextPatternRangeEndpoint, compvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CompareEndpoints(::core::mem::transmute_copy(&srcendpoint), ::core::mem::transmute(&range), ::core::mem::transmute_copy(&targetendpoint)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8414,11 +8417,11 @@ impl IUIAutomationTextRangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExpandToEnclosingUnit<Impl: IUIAutomationTextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, textunit: TextUnit) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExpandToEnclosingUnit<Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, textunit: TextUnit) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ExpandToEnclosingUnit(::core::mem::transmute_copy(&textunit)).into()
         }
-        unsafe extern "system" fn FindAttribute<Impl: IUIAutomationTextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attr: i32, val: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, backward: super::super::Foundation::BOOL, found: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindAttribute<Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attr: i32, val: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, backward: super::super::Foundation::BOOL, found: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAttribute(::core::mem::transmute_copy(&attr), ::core::mem::transmute_copy(&val), ::core::mem::transmute_copy(&backward)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8428,7 +8431,7 @@ impl IUIAutomationTextRangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindText<Impl: IUIAutomationTextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, backward: super::super::Foundation::BOOL, ignorecase: super::super::Foundation::BOOL, found: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindText<Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, backward: super::super::Foundation::BOOL, ignorecase: super::super::Foundation::BOOL, found: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindText(::core::mem::transmute_copy(&text), ::core::mem::transmute_copy(&backward), ::core::mem::transmute_copy(&ignorecase)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8438,7 +8441,7 @@ impl IUIAutomationTextRangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAttributeValue<Impl: IUIAutomationTextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attr: i32, value: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAttributeValue<Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attr: i32, value: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAttributeValue(::core::mem::transmute_copy(&attr)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8448,7 +8451,7 @@ impl IUIAutomationTextRangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBoundingRectangles<Impl: IUIAutomationTextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, boundingrects: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBoundingRectangles<Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, boundingrects: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetBoundingRectangles() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8458,7 +8461,7 @@ impl IUIAutomationTextRangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEnclosingElement<Impl: IUIAutomationTextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enclosingelement: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEnclosingElement<Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enclosingelement: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEnclosingElement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8468,7 +8471,7 @@ impl IUIAutomationTextRangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetText<Impl: IUIAutomationTextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxlength: i32, text: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetText<Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxlength: i32, text: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetText(::core::mem::transmute_copy(&maxlength)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8478,7 +8481,7 @@ impl IUIAutomationTextRangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Move<Impl: IUIAutomationTextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, unit: TextUnit, count: i32, moved: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Move<Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, unit: TextUnit, count: i32, moved: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Move(::core::mem::transmute_copy(&unit), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8488,7 +8491,7 @@ impl IUIAutomationTextRangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveEndpointByUnit<Impl: IUIAutomationTextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, moved: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MoveEndpointByUnit<Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, moved: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MoveEndpointByUnit(::core::mem::transmute_copy(&endpoint), ::core::mem::transmute_copy(&unit), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8498,27 +8501,27 @@ impl IUIAutomationTextRangeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveEndpointByRange<Impl: IUIAutomationTextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, srcendpoint: TextPatternRangeEndpoint, range: ::windows::core::RawPtr, targetendpoint: TextPatternRangeEndpoint) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MoveEndpointByRange<Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, srcendpoint: TextPatternRangeEndpoint, range: ::windows::core::RawPtr, targetendpoint: TextPatternRangeEndpoint) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).MoveEndpointByRange(::core::mem::transmute_copy(&srcendpoint), ::core::mem::transmute(&range), ::core::mem::transmute_copy(&targetendpoint)).into()
         }
-        unsafe extern "system" fn Select<Impl: IUIAutomationTextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Select<Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Select().into()
         }
-        unsafe extern "system" fn AddToSelection<Impl: IUIAutomationTextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddToSelection<Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddToSelection().into()
         }
-        unsafe extern "system" fn RemoveFromSelection<Impl: IUIAutomationTextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveFromSelection<Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFromSelection().into()
         }
-        unsafe extern "system" fn ScrollIntoView<Impl: IUIAutomationTextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aligntotop: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScrollIntoView<Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aligntotop: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ScrollIntoView(::core::mem::transmute_copy(&aligntotop)).into()
         }
-        unsafe extern "system" fn GetChildren<Impl: IUIAutomationTextRangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, children: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetChildren<Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, children: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetChildren() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8555,32 +8558,32 @@ impl IUIAutomationTextRangeVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUIAutomationTextRange2Impl: Sized + IUIAutomationTextRangeImpl {
+pub trait IUIAutomationTextRange2_Impl: Sized + IUIAutomationTextRange_Impl {
     fn ShowContextMenu(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUIAutomationTextRange2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextRange2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTextRange2Vtbl {
-        unsafe extern "system" fn ShowContextMenu<Impl: IUIAutomationTextRange2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IUIAutomationTextRange2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextRange2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTextRange2_Vtbl {
+        unsafe extern "system" fn ShowContextMenu<Impl: IUIAutomationTextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowContextMenu().into()
         }
-        Self { base: IUIAutomationTextRangeVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), ShowContextMenu: ShowContextMenu::<Impl, IMPL_OFFSET> }
+        Self { base: IUIAutomationTextRange_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), ShowContextMenu: ShowContextMenu::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAutomationTextRange2 as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUIAutomationTextRange3Impl: Sized + IUIAutomationTextRangeImpl + IUIAutomationTextRange2Impl {
+pub trait IUIAutomationTextRange3_Impl: Sized + IUIAutomationTextRange_Impl + IUIAutomationTextRange2_Impl {
     fn GetEnclosingElementBuildCache(&mut self, cacherequest: ::core::option::Option<IUIAutomationCacheRequest>) -> ::windows::core::Result<IUIAutomationElement>;
     fn GetChildrenBuildCache(&mut self, cacherequest: ::core::option::Option<IUIAutomationCacheRequest>) -> ::windows::core::Result<IUIAutomationElementArray>;
     fn GetAttributeValues(&mut self, attributeids: *const i32, attributeidcount: i32) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IUIAutomationTextRange3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextRange3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTextRange3Vtbl {
-        unsafe extern "system" fn GetEnclosingElementBuildCache<Impl: IUIAutomationTextRange3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cacherequest: ::windows::core::RawPtr, enclosingelement: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationTextRange3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextRange3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTextRange3_Vtbl {
+        unsafe extern "system" fn GetEnclosingElementBuildCache<Impl: IUIAutomationTextRange3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cacherequest: ::windows::core::RawPtr, enclosingelement: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEnclosingElementBuildCache(::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8590,7 +8593,7 @@ impl IUIAutomationTextRange3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetChildrenBuildCache<Impl: IUIAutomationTextRange3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cacherequest: ::windows::core::RawPtr, children: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetChildrenBuildCache<Impl: IUIAutomationTextRange3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cacherequest: ::windows::core::RawPtr, children: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetChildrenBuildCache(::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8600,7 +8603,7 @@ impl IUIAutomationTextRange3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAttributeValues<Impl: IUIAutomationTextRange3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributeids: *const i32, attributeidcount: i32, attributevalues: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAttributeValues<Impl: IUIAutomationTextRange3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributeids: *const i32, attributeidcount: i32, attributevalues: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAttributeValues(::core::mem::transmute_copy(&attributeids), ::core::mem::transmute_copy(&attributeidcount)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8611,7 +8614,7 @@ impl IUIAutomationTextRange3Vtbl {
             }
         }
         Self {
-            base: IUIAutomationTextRange2Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IUIAutomationTextRange2_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             GetEnclosingElementBuildCache: GetEnclosingElementBuildCache::<Impl, IMPL_OFFSET>,
             GetChildrenBuildCache: GetChildrenBuildCache::<Impl, IMPL_OFFSET>,
             GetAttributeValues: GetAttributeValues::<Impl, IMPL_OFFSET>,
@@ -8621,13 +8624,13 @@ impl IUIAutomationTextRange3Vtbl {
         iid == &<IUIAutomationTextRange3 as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationTextRangeArrayImpl: Sized {
+pub trait IUIAutomationTextRangeArray_Impl: Sized {
     fn Length(&mut self) -> ::windows::core::Result<i32>;
     fn GetElement(&mut self, index: i32) -> ::windows::core::Result<IUIAutomationTextRange>;
 }
-impl IUIAutomationTextRangeArrayVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextRangeArrayImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTextRangeArrayVtbl {
-        unsafe extern "system" fn Length<Impl: IUIAutomationTextRangeArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT {
+impl IUIAutomationTextRangeArray_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextRangeArray_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTextRangeArray_Vtbl {
+        unsafe extern "system" fn Length<Impl: IUIAutomationTextRangeArray_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Length() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8637,7 +8640,7 @@ impl IUIAutomationTextRangeArrayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetElement<Impl: IUIAutomationTextRangeArrayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetElement<Impl: IUIAutomationTextRangeArray_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetElement(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8657,18 +8660,18 @@ impl IUIAutomationTextRangeArrayVtbl {
         iid == &<IUIAutomationTextRangeArray as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationTogglePatternImpl: Sized {
+pub trait IUIAutomationTogglePattern_Impl: Sized {
     fn Toggle(&mut self) -> ::windows::core::Result<()>;
     fn CurrentToggleState(&mut self) -> ::windows::core::Result<ToggleState>;
     fn CachedToggleState(&mut self) -> ::windows::core::Result<ToggleState>;
 }
-impl IUIAutomationTogglePatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTogglePatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTogglePatternVtbl {
-        unsafe extern "system" fn Toggle<Impl: IUIAutomationTogglePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IUIAutomationTogglePattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTogglePattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTogglePattern_Vtbl {
+        unsafe extern "system" fn Toggle<Impl: IUIAutomationTogglePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Toggle().into()
         }
-        unsafe extern "system" fn CurrentToggleState<Impl: IUIAutomationTogglePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ToggleState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentToggleState<Impl: IUIAutomationTogglePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ToggleState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentToggleState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8678,7 +8681,7 @@ impl IUIAutomationTogglePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedToggleState<Impl: IUIAutomationTogglePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ToggleState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedToggleState<Impl: IUIAutomationTogglePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ToggleState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedToggleState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8700,7 +8703,7 @@ impl IUIAutomationTogglePatternVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUIAutomationTransformPatternImpl: Sized {
+pub trait IUIAutomationTransformPattern_Impl: Sized {
     fn Move(&mut self, x: f64, y: f64) -> ::windows::core::Result<()>;
     fn Resize(&mut self, width: f64, height: f64) -> ::windows::core::Result<()>;
     fn Rotate(&mut self, degrees: f64) -> ::windows::core::Result<()>;
@@ -8712,21 +8715,21 @@ pub trait IUIAutomationTransformPatternImpl: Sized {
     fn CachedCanRotate(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUIAutomationTransformPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTransformPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTransformPatternVtbl {
-        unsafe extern "system" fn Move<Impl: IUIAutomationTransformPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: f64, y: f64) -> ::windows::core::HRESULT {
+impl IUIAutomationTransformPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTransformPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTransformPattern_Vtbl {
+        unsafe extern "system" fn Move<Impl: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: f64, y: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Move(::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y)).into()
         }
-        unsafe extern "system" fn Resize<Impl: IUIAutomationTransformPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, width: f64, height: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Resize<Impl: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, width: f64, height: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Resize(::core::mem::transmute_copy(&width), ::core::mem::transmute_copy(&height)).into()
         }
-        unsafe extern "system" fn Rotate<Impl: IUIAutomationTransformPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, degrees: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Rotate<Impl: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, degrees: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Rotate(::core::mem::transmute_copy(&degrees)).into()
         }
-        unsafe extern "system" fn CurrentCanMove<Impl: IUIAutomationTransformPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentCanMove<Impl: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentCanMove() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8736,7 +8739,7 @@ impl IUIAutomationTransformPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentCanResize<Impl: IUIAutomationTransformPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentCanResize<Impl: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentCanResize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8746,7 +8749,7 @@ impl IUIAutomationTransformPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentCanRotate<Impl: IUIAutomationTransformPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentCanRotate<Impl: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentCanRotate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8756,7 +8759,7 @@ impl IUIAutomationTransformPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedCanMove<Impl: IUIAutomationTransformPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedCanMove<Impl: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedCanMove() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8766,7 +8769,7 @@ impl IUIAutomationTransformPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedCanResize<Impl: IUIAutomationTransformPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedCanResize<Impl: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedCanResize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8776,7 +8779,7 @@ impl IUIAutomationTransformPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedCanRotate<Impl: IUIAutomationTransformPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedCanRotate<Impl: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedCanRotate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8804,7 +8807,7 @@ impl IUIAutomationTransformPatternVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUIAutomationTransformPattern2Impl: Sized + IUIAutomationTransformPatternImpl {
+pub trait IUIAutomationTransformPattern2_Impl: Sized + IUIAutomationTransformPattern_Impl {
     fn Zoom(&mut self, zoomvalue: f64) -> ::windows::core::Result<()>;
     fn ZoomByUnit(&mut self, zoomunit: ZoomUnit) -> ::windows::core::Result<()>;
     fn CurrentCanZoom(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -8817,17 +8820,17 @@ pub trait IUIAutomationTransformPattern2Impl: Sized + IUIAutomationTransformPatt
     fn CachedZoomMaximum(&mut self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUIAutomationTransformPattern2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTransformPattern2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTransformPattern2Vtbl {
-        unsafe extern "system" fn Zoom<Impl: IUIAutomationTransformPattern2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, zoomvalue: f64) -> ::windows::core::HRESULT {
+impl IUIAutomationTransformPattern2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTransformPattern2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTransformPattern2_Vtbl {
+        unsafe extern "system" fn Zoom<Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, zoomvalue: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Zoom(::core::mem::transmute_copy(&zoomvalue)).into()
         }
-        unsafe extern "system" fn ZoomByUnit<Impl: IUIAutomationTransformPattern2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, zoomunit: ZoomUnit) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ZoomByUnit<Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, zoomunit: ZoomUnit) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ZoomByUnit(::core::mem::transmute_copy(&zoomunit)).into()
         }
-        unsafe extern "system" fn CurrentCanZoom<Impl: IUIAutomationTransformPattern2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentCanZoom<Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentCanZoom() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8837,7 +8840,7 @@ impl IUIAutomationTransformPattern2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedCanZoom<Impl: IUIAutomationTransformPattern2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedCanZoom<Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedCanZoom() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8847,7 +8850,7 @@ impl IUIAutomationTransformPattern2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentZoomLevel<Impl: IUIAutomationTransformPattern2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentZoomLevel<Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentZoomLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8857,7 +8860,7 @@ impl IUIAutomationTransformPattern2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedZoomLevel<Impl: IUIAutomationTransformPattern2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedZoomLevel<Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedZoomLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8867,7 +8870,7 @@ impl IUIAutomationTransformPattern2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentZoomMinimum<Impl: IUIAutomationTransformPattern2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentZoomMinimum<Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentZoomMinimum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8877,7 +8880,7 @@ impl IUIAutomationTransformPattern2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedZoomMinimum<Impl: IUIAutomationTransformPattern2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedZoomMinimum<Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedZoomMinimum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8887,7 +8890,7 @@ impl IUIAutomationTransformPattern2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentZoomMaximum<Impl: IUIAutomationTransformPattern2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentZoomMaximum<Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentZoomMaximum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8897,7 +8900,7 @@ impl IUIAutomationTransformPattern2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedZoomMaximum<Impl: IUIAutomationTransformPattern2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedZoomMaximum<Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedZoomMaximum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8908,7 +8911,7 @@ impl IUIAutomationTransformPattern2Vtbl {
             }
         }
         Self {
-            base: IUIAutomationTransformPatternVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IUIAutomationTransformPattern_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Zoom: Zoom::<Impl, IMPL_OFFSET>,
             ZoomByUnit: ZoomByUnit::<Impl, IMPL_OFFSET>,
             CurrentCanZoom: CurrentCanZoom::<Impl, IMPL_OFFSET>,
@@ -8925,7 +8928,7 @@ impl IUIAutomationTransformPattern2Vtbl {
         iid == &<IUIAutomationTransformPattern2 as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationTreeWalkerImpl: Sized {
+pub trait IUIAutomationTreeWalker_Impl: Sized {
     fn GetParentElement(&mut self, element: ::core::option::Option<IUIAutomationElement>) -> ::windows::core::Result<IUIAutomationElement>;
     fn GetFirstChildElement(&mut self, element: ::core::option::Option<IUIAutomationElement>) -> ::windows::core::Result<IUIAutomationElement>;
     fn GetLastChildElement(&mut self, element: ::core::option::Option<IUIAutomationElement>) -> ::windows::core::Result<IUIAutomationElement>;
@@ -8940,9 +8943,9 @@ pub trait IUIAutomationTreeWalkerImpl: Sized {
     fn NormalizeElementBuildCache(&mut self, element: ::core::option::Option<IUIAutomationElement>, cacherequest: ::core::option::Option<IUIAutomationCacheRequest>) -> ::windows::core::Result<IUIAutomationElement>;
     fn Condition(&mut self) -> ::windows::core::Result<IUIAutomationCondition>;
 }
-impl IUIAutomationTreeWalkerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTreeWalkerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTreeWalkerVtbl {
-        unsafe extern "system" fn GetParentElement<Impl: IUIAutomationTreeWalkerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, parent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUIAutomationTreeWalker_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTreeWalker_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationTreeWalker_Vtbl {
+        unsafe extern "system" fn GetParentElement<Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, parent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetParentElement(::core::mem::transmute(&element)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8952,7 +8955,7 @@ impl IUIAutomationTreeWalkerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFirstChildElement<Impl: IUIAutomationTreeWalkerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, first: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFirstChildElement<Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, first: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFirstChildElement(::core::mem::transmute(&element)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8962,7 +8965,7 @@ impl IUIAutomationTreeWalkerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetLastChildElement<Impl: IUIAutomationTreeWalkerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, last: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLastChildElement<Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, last: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetLastChildElement(::core::mem::transmute(&element)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8972,7 +8975,7 @@ impl IUIAutomationTreeWalkerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNextSiblingElement<Impl: IUIAutomationTreeWalkerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, next: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNextSiblingElement<Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, next: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNextSiblingElement(::core::mem::transmute(&element)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8982,7 +8985,7 @@ impl IUIAutomationTreeWalkerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPreviousSiblingElement<Impl: IUIAutomationTreeWalkerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, previous: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPreviousSiblingElement<Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, previous: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPreviousSiblingElement(::core::mem::transmute(&element)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8992,7 +8995,7 @@ impl IUIAutomationTreeWalkerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NormalizeElement<Impl: IUIAutomationTreeWalkerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, normalized: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NormalizeElement<Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, normalized: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NormalizeElement(::core::mem::transmute(&element)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -9002,7 +9005,7 @@ impl IUIAutomationTreeWalkerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetParentElementBuildCache<Impl: IUIAutomationTreeWalkerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, cacherequest: ::windows::core::RawPtr, parent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetParentElementBuildCache<Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, cacherequest: ::windows::core::RawPtr, parent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetParentElementBuildCache(::core::mem::transmute(&element), ::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -9012,7 +9015,7 @@ impl IUIAutomationTreeWalkerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFirstChildElementBuildCache<Impl: IUIAutomationTreeWalkerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, cacherequest: ::windows::core::RawPtr, first: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFirstChildElementBuildCache<Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, cacherequest: ::windows::core::RawPtr, first: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFirstChildElementBuildCache(::core::mem::transmute(&element), ::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -9022,7 +9025,7 @@ impl IUIAutomationTreeWalkerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetLastChildElementBuildCache<Impl: IUIAutomationTreeWalkerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, cacherequest: ::windows::core::RawPtr, last: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLastChildElementBuildCache<Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, cacherequest: ::windows::core::RawPtr, last: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetLastChildElementBuildCache(::core::mem::transmute(&element), ::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -9032,7 +9035,7 @@ impl IUIAutomationTreeWalkerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNextSiblingElementBuildCache<Impl: IUIAutomationTreeWalkerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, cacherequest: ::windows::core::RawPtr, next: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNextSiblingElementBuildCache<Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, cacherequest: ::windows::core::RawPtr, next: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNextSiblingElementBuildCache(::core::mem::transmute(&element), ::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -9042,7 +9045,7 @@ impl IUIAutomationTreeWalkerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPreviousSiblingElementBuildCache<Impl: IUIAutomationTreeWalkerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, cacherequest: ::windows::core::RawPtr, previous: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPreviousSiblingElementBuildCache<Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, cacherequest: ::windows::core::RawPtr, previous: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPreviousSiblingElementBuildCache(::core::mem::transmute(&element), ::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -9052,7 +9055,7 @@ impl IUIAutomationTreeWalkerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NormalizeElementBuildCache<Impl: IUIAutomationTreeWalkerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, cacherequest: ::windows::core::RawPtr, normalized: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NormalizeElementBuildCache<Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, cacherequest: ::windows::core::RawPtr, normalized: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NormalizeElementBuildCache(::core::mem::transmute(&element), ::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -9062,7 +9065,7 @@ impl IUIAutomationTreeWalkerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Condition<Impl: IUIAutomationTreeWalkerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, condition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Condition<Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, condition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Condition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9094,7 +9097,7 @@ impl IUIAutomationTreeWalkerVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUIAutomationValuePatternImpl: Sized {
+pub trait IUIAutomationValuePattern_Impl: Sized {
     fn SetValue(&mut self, val: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn CurrentValue(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn CurrentIsReadOnly(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -9102,13 +9105,13 @@ pub trait IUIAutomationValuePatternImpl: Sized {
     fn CachedIsReadOnly(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUIAutomationValuePatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationValuePatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationValuePatternVtbl {
-        unsafe extern "system" fn SetValue<Impl: IUIAutomationValuePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+impl IUIAutomationValuePattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationValuePattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationValuePattern_Vtbl {
+        unsafe extern "system" fn SetValue<Impl: IUIAutomationValuePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(::core::mem::transmute_copy(&val)).into()
         }
-        unsafe extern "system" fn CurrentValue<Impl: IUIAutomationValuePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentValue<Impl: IUIAutomationValuePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9118,7 +9121,7 @@ impl IUIAutomationValuePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentIsReadOnly<Impl: IUIAutomationValuePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentIsReadOnly<Impl: IUIAutomationValuePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentIsReadOnly() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9128,7 +9131,7 @@ impl IUIAutomationValuePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedValue<Impl: IUIAutomationValuePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedValue<Impl: IUIAutomationValuePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9138,7 +9141,7 @@ impl IUIAutomationValuePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedIsReadOnly<Impl: IUIAutomationValuePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedIsReadOnly<Impl: IUIAutomationValuePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedIsReadOnly() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9161,12 +9164,12 @@ impl IUIAutomationValuePatternVtbl {
         iid == &<IUIAutomationValuePattern as ::windows::core::Interface>::IID
     }
 }
-pub trait IUIAutomationVirtualizedItemPatternImpl: Sized {
+pub trait IUIAutomationVirtualizedItemPattern_Impl: Sized {
     fn Realize(&mut self) -> ::windows::core::Result<()>;
 }
-impl IUIAutomationVirtualizedItemPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationVirtualizedItemPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationVirtualizedItemPatternVtbl {
-        unsafe extern "system" fn Realize<Impl: IUIAutomationVirtualizedItemPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IUIAutomationVirtualizedItemPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationVirtualizedItemPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationVirtualizedItemPattern_Vtbl {
+        unsafe extern "system" fn Realize<Impl: IUIAutomationVirtualizedItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Realize().into()
         }
@@ -9177,7 +9180,7 @@ impl IUIAutomationVirtualizedItemPatternVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IUIAutomationWindowPatternImpl: Sized {
+pub trait IUIAutomationWindowPattern_Impl: Sized {
     fn Close(&mut self) -> ::windows::core::Result<()>;
     fn WaitForInputIdle(&mut self, milliseconds: i32) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetWindowVisualState(&mut self, state: WindowVisualState) -> ::windows::core::Result<()>;
@@ -9195,13 +9198,13 @@ pub trait IUIAutomationWindowPatternImpl: Sized {
     fn CachedWindowInteractionState(&mut self) -> ::windows::core::Result<WindowInteractionState>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IUIAutomationWindowPatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationWindowPatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationWindowPatternVtbl {
-        unsafe extern "system" fn Close<Impl: IUIAutomationWindowPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IUIAutomationWindowPattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationWindowPattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUIAutomationWindowPattern_Vtbl {
+        unsafe extern "system" fn Close<Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Close().into()
         }
-        unsafe extern "system" fn WaitForInputIdle<Impl: IUIAutomationWindowPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, milliseconds: i32, success: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WaitForInputIdle<Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, milliseconds: i32, success: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WaitForInputIdle(::core::mem::transmute_copy(&milliseconds)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -9211,11 +9214,11 @@ impl IUIAutomationWindowPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetWindowVisualState<Impl: IUIAutomationWindowPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: WindowVisualState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetWindowVisualState<Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: WindowVisualState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWindowVisualState(::core::mem::transmute_copy(&state)).into()
         }
-        unsafe extern "system" fn CurrentCanMaximize<Impl: IUIAutomationWindowPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentCanMaximize<Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentCanMaximize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9225,7 +9228,7 @@ impl IUIAutomationWindowPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentCanMinimize<Impl: IUIAutomationWindowPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentCanMinimize<Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentCanMinimize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9235,7 +9238,7 @@ impl IUIAutomationWindowPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentIsModal<Impl: IUIAutomationWindowPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentIsModal<Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentIsModal() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9245,7 +9248,7 @@ impl IUIAutomationWindowPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentIsTopmost<Impl: IUIAutomationWindowPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentIsTopmost<Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentIsTopmost() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9255,7 +9258,7 @@ impl IUIAutomationWindowPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentWindowVisualState<Impl: IUIAutomationWindowPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut WindowVisualState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentWindowVisualState<Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut WindowVisualState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentWindowVisualState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9265,7 +9268,7 @@ impl IUIAutomationWindowPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentWindowInteractionState<Impl: IUIAutomationWindowPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut WindowInteractionState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentWindowInteractionState<Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut WindowInteractionState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentWindowInteractionState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9275,7 +9278,7 @@ impl IUIAutomationWindowPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedCanMaximize<Impl: IUIAutomationWindowPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedCanMaximize<Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedCanMaximize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9285,7 +9288,7 @@ impl IUIAutomationWindowPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedCanMinimize<Impl: IUIAutomationWindowPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedCanMinimize<Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedCanMinimize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9295,7 +9298,7 @@ impl IUIAutomationWindowPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedIsModal<Impl: IUIAutomationWindowPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedIsModal<Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedIsModal() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9305,7 +9308,7 @@ impl IUIAutomationWindowPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedIsTopmost<Impl: IUIAutomationWindowPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedIsTopmost<Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedIsTopmost() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9315,7 +9318,7 @@ impl IUIAutomationWindowPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedWindowVisualState<Impl: IUIAutomationWindowPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut WindowVisualState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedWindowVisualState<Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut WindowVisualState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedWindowVisualState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9325,7 +9328,7 @@ impl IUIAutomationWindowPatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CachedWindowInteractionState<Impl: IUIAutomationWindowPatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut WindowInteractionState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CachedWindowInteractionState<Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut WindowInteractionState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CachedWindowInteractionState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9359,19 +9362,19 @@ impl IUIAutomationWindowPatternVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IValueProviderImpl: Sized {
+pub trait IValueProvider_Impl: Sized {
     fn SetValue(&mut self, val: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn Value(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn IsReadOnly(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IValueProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IValueProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IValueProviderVtbl {
-        unsafe extern "system" fn SetValue<Impl: IValueProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+impl IValueProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IValueProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IValueProvider_Vtbl {
+        unsafe extern "system" fn SetValue<Impl: IValueProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(::core::mem::transmute_copy(&val)).into()
         }
-        unsafe extern "system" fn Value<Impl: IValueProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: IValueProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9381,7 +9384,7 @@ impl IValueProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsReadOnly<Impl: IValueProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsReadOnly<Impl: IValueProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReadOnly() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9402,12 +9405,12 @@ impl IValueProviderVtbl {
         iid == &<IValueProvider as ::windows::core::Interface>::IID
     }
 }
-pub trait IVirtualizedItemProviderImpl: Sized {
+pub trait IVirtualizedItemProvider_Impl: Sized {
     fn Realize(&mut self) -> ::windows::core::Result<()>;
 }
-impl IVirtualizedItemProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVirtualizedItemProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVirtualizedItemProviderVtbl {
-        unsafe extern "system" fn Realize<Impl: IVirtualizedItemProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IVirtualizedItemProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVirtualizedItemProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVirtualizedItemProvider_Vtbl {
+        unsafe extern "system" fn Realize<Impl: IVirtualizedItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Realize().into()
         }
@@ -9418,7 +9421,7 @@ impl IVirtualizedItemProviderVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IWindowProviderImpl: Sized {
+pub trait IWindowProvider_Impl: Sized {
     fn SetVisualState(&mut self, state: WindowVisualState) -> ::windows::core::Result<()>;
     fn Close(&mut self) -> ::windows::core::Result<()>;
     fn WaitForInputIdle(&mut self, milliseconds: i32) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -9430,17 +9433,17 @@ pub trait IWindowProviderImpl: Sized {
     fn IsTopmost(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IWindowProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWindowProviderVtbl {
-        unsafe extern "system" fn SetVisualState<Impl: IWindowProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: WindowVisualState) -> ::windows::core::HRESULT {
+impl IWindowProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWindowProvider_Vtbl {
+        unsafe extern "system" fn SetVisualState<Impl: IWindowProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: WindowVisualState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVisualState(::core::mem::transmute_copy(&state)).into()
         }
-        unsafe extern "system" fn Close<Impl: IWindowProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Close<Impl: IWindowProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Close().into()
         }
-        unsafe extern "system" fn WaitForInputIdle<Impl: IWindowProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, milliseconds: i32, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WaitForInputIdle<Impl: IWindowProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, milliseconds: i32, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WaitForInputIdle(::core::mem::transmute_copy(&milliseconds)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -9450,7 +9453,7 @@ impl IWindowProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanMaximize<Impl: IWindowProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanMaximize<Impl: IWindowProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanMaximize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9460,7 +9463,7 @@ impl IWindowProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanMinimize<Impl: IWindowProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanMinimize<Impl: IWindowProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanMinimize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9470,7 +9473,7 @@ impl IWindowProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsModal<Impl: IWindowProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsModal<Impl: IWindowProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsModal() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9480,7 +9483,7 @@ impl IWindowProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WindowVisualState<Impl: IWindowProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut WindowVisualState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WindowVisualState<Impl: IWindowProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut WindowVisualState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WindowVisualState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9490,7 +9493,7 @@ impl IWindowProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WindowInteractionState<Impl: IWindowProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut WindowInteractionState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WindowInteractionState<Impl: IWindowProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut WindowInteractionState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WindowInteractionState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9500,7 +9503,7 @@ impl IWindowProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsTopmost<Impl: IWindowProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsTopmost<Impl: IWindowProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTopmost() {
                 ::core::result::Result::Ok(ok__) => {

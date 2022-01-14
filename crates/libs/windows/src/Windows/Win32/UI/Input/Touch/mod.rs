@@ -559,12 +559,12 @@ impl ::core::fmt::Debug for IInertiaProcessor {
     }
 }
 unsafe impl ::windows::core::Interface for IInertiaProcessor {
-    type Vtable = IInertiaProcessorVtbl;
+    type Vtable = IInertiaProcessor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18b00c6d_c5ee_41b1_90a9_9d4a929095ad);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInertiaProcessorVtbl {
+pub struct IInertiaProcessor_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub InitialOriginX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: *mut f32) -> ::windows::core::HRESULT,
     pub SetInitialOriginX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32) -> ::windows::core::HRESULT,
@@ -757,12 +757,12 @@ impl ::core::fmt::Debug for IManipulationProcessor {
     }
 }
 unsafe impl ::windows::core::Interface for IManipulationProcessor {
-    type Vtable = IManipulationProcessorVtbl;
+    type Vtable = IManipulationProcessor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa22ac519_8300_48a0_bef4_f1be8737dba4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IManipulationProcessorVtbl {
+pub struct IManipulationProcessor_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SupportedManipulations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manipulations: *mut MANIPULATION_PROCESSOR_MANIPULATIONS) -> ::windows::core::HRESULT,
     pub SetSupportedManipulations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manipulations: MANIPULATION_PROCESSOR_MANIPULATIONS) -> ::windows::core::HRESULT,
@@ -1010,12 +1010,12 @@ impl ::core::fmt::Debug for _IManipulationEvents {
     }
 }
 unsafe impl ::windows::core::Interface for _IManipulationEvents {
-    type Vtable = _IManipulationEventsVtbl;
+    type Vtable = _IManipulationEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f62c8da_9c53_4b22_93df_927a862bbb03);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct _IManipulationEventsVtbl {
+pub struct _IManipulationEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub ManipulationStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32, y: f32) -> ::windows::core::HRESULT,
     pub ManipulationDelta: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32, y: f32, translationdeltax: f32, translationdeltay: f32, scaledelta: f32, expansiondelta: f32, rotationdelta: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::HRESULT,

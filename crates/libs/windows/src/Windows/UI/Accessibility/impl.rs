@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IScreenReaderPositionChangedEventArgsImpl: Sized {
+pub trait IScreenReaderPositionChangedEventArgs_Impl: Sized {
     fn ScreenPositionInRawPixels(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
     fn IsReadingText(&mut self) -> ::windows::core::Result<bool>;
 }
@@ -8,9 +8,9 @@ impl ::windows::core::RuntimeName for IScreenReaderPositionChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Accessibility.IScreenReaderPositionChangedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IScreenReaderPositionChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScreenReaderPositionChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScreenReaderPositionChangedEventArgsVtbl {
-        unsafe extern "system" fn ScreenPositionInRawPixels<Impl: IScreenReaderPositionChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+impl IScreenReaderPositionChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScreenReaderPositionChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScreenReaderPositionChangedEventArgs_Vtbl {
+        unsafe extern "system" fn ScreenPositionInRawPixels<Impl: IScreenReaderPositionChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScreenPositionInRawPixels() {
                 ::core::result::Result::Ok(ok__) => {
@@ -21,7 +21,7 @@ impl IScreenReaderPositionChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsReadingText<Impl: IScreenReaderPositionChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsReadingText<Impl: IScreenReaderPositionChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReadingText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -43,7 +43,7 @@ impl IScreenReaderPositionChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IScreenReaderServiceImpl: Sized {
+pub trait IScreenReaderService_Impl: Sized {
     fn CurrentScreenReaderPosition(&mut self) -> ::windows::core::Result<ScreenReaderPositionChangedEventArgs>;
     fn ScreenReaderPositionChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ScreenReaderService, ScreenReaderPositionChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveScreenReaderPositionChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -53,9 +53,9 @@ impl ::windows::core::RuntimeName for IScreenReaderService {
     const NAME: &'static str = "Windows.UI.Accessibility.IScreenReaderService";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IScreenReaderServiceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScreenReaderServiceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScreenReaderServiceVtbl {
-        unsafe extern "system" fn CurrentScreenReaderPosition<Impl: IScreenReaderServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IScreenReaderService_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScreenReaderService_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScreenReaderService_Vtbl {
+        unsafe extern "system" fn CurrentScreenReaderPosition<Impl: IScreenReaderService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentScreenReaderPosition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -66,7 +66,7 @@ impl IScreenReaderServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ScreenReaderPositionChanged<Impl: IScreenReaderServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScreenReaderPositionChanged<Impl: IScreenReaderService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScreenReaderPositionChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ScreenReaderService, ScreenReaderPositionChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ScreenReaderService, ScreenReaderPositionChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -77,7 +77,7 @@ impl IScreenReaderServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveScreenReaderPositionChanged<Impl: IScreenReaderServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveScreenReaderPositionChanged<Impl: IScreenReaderService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveScreenReaderPositionChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }

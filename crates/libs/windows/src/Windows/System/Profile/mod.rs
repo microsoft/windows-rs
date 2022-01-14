@@ -89,7 +89,7 @@ unsafe impl ::windows::core::RuntimeType for AnalyticsVersionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.AnalyticsVersionInfo;{926130b8-9955-4c74-bdc1-7cd0decf9b03})");
 }
 unsafe impl ::windows::core::Interface for AnalyticsVersionInfo {
-    type Vtable = IAnalyticsVersionInfoVtbl;
+    type Vtable = IAnalyticsVersionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x926130b8_9955_4c74_bdc1_7cd0decf9b03);
 }
 impl ::windows::core::RuntimeName for AnalyticsVersionInfo {
@@ -248,7 +248,7 @@ unsafe impl ::windows::core::RuntimeType for HardwareToken {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.HardwareToken;{28f6d4c0-fb12-40a4-8167-7f4e03d2724c})");
 }
 unsafe impl ::windows::core::Interface for HardwareToken {
-    type Vtable = IHardwareTokenVtbl;
+    type Vtable = IHardwareToken_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28f6d4c0_fb12_40a4_8167_7f4e03d2724c);
 }
 impl ::windows::core::RuntimeName for HardwareToken {
@@ -300,12 +300,12 @@ unsafe impl ::core::marker::Sync for HardwareToken {}
 #[repr(transparent)]
 pub struct IAnalyticsInfoStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAnalyticsInfoStatics {
-    type Vtable = IAnalyticsInfoStaticsVtbl;
+    type Vtable = IAnalyticsInfoStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d5ee066_188d_5ba9_4387_acaeb0e7e305);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAnalyticsInfoStaticsVtbl {
+pub struct IAnalyticsInfoStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub VersionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub DeviceForm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -314,12 +314,12 @@ pub struct IAnalyticsInfoStaticsVtbl {
 #[repr(transparent)]
 pub struct IAnalyticsInfoStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAnalyticsInfoStatics2 {
-    type Vtable = IAnalyticsInfoStatics2Vtbl;
+    type Vtable = IAnalyticsInfoStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x101704ea_a7f9_46d2_ab94_016865afdb25);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAnalyticsInfoStatics2Vtbl {
+pub struct IAnalyticsInfoStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetSystemPropertiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributenames: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -330,12 +330,12 @@ pub struct IAnalyticsInfoStatics2Vtbl {
 #[repr(transparent)]
 pub struct IAnalyticsVersionInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAnalyticsVersionInfo {
-    type Vtable = IAnalyticsVersionInfoVtbl;
+    type Vtable = IAnalyticsVersionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x926130b8_9955_4c74_bdc1_7cd0decf9b03);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAnalyticsVersionInfoVtbl {
+pub struct IAnalyticsVersionInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceFamily: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DeviceFamilyVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -344,12 +344,12 @@ pub struct IAnalyticsVersionInfoVtbl {
 #[repr(transparent)]
 pub struct IAnalyticsVersionInfo2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAnalyticsVersionInfo2 {
-    type Vtable = IAnalyticsVersionInfo2Vtbl;
+    type Vtable = IAnalyticsVersionInfo2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76e915b1_ff36_407c_9f57_160d3e540747);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAnalyticsVersionInfo2Vtbl {
+pub struct IAnalyticsVersionInfo2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ProductName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -357,12 +357,12 @@ pub struct IAnalyticsVersionInfo2Vtbl {
 #[repr(transparent)]
 pub struct IAppApplicabilityStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppApplicabilityStatics {
-    type Vtable = IAppApplicabilityStaticsVtbl;
+    type Vtable = IAppApplicabilityStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1664a082_0f38_5c99_83e4_48995970861c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppApplicabilityStaticsVtbl {
+pub struct IAppApplicabilityStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetUnsupportedAppRequirements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capabilities: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -373,12 +373,12 @@ pub struct IAppApplicabilityStaticsVtbl {
 #[repr(transparent)]
 pub struct IEducationSettingsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEducationSettingsStatics {
-    type Vtable = IEducationSettingsStaticsVtbl;
+    type Vtable = IEducationSettingsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc53f0ef_4d3e_4e13_9b23_505f4d091e92);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEducationSettingsStaticsVtbl {
+pub struct IEducationSettingsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsEducationEnvironment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -386,12 +386,12 @@ pub struct IEducationSettingsStaticsVtbl {
 #[repr(transparent)]
 pub struct IHardwareIdentificationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHardwareIdentificationStatics {
-    type Vtable = IHardwareIdentificationStaticsVtbl;
+    type Vtable = IHardwareIdentificationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x971260e0_f170_4a42_bd55_a900b212dae2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHardwareIdentificationStaticsVtbl {
+pub struct IHardwareIdentificationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub GetPackageSpecificToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nonce: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -402,12 +402,12 @@ pub struct IHardwareIdentificationStaticsVtbl {
 #[repr(transparent)]
 pub struct IHardwareToken(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHardwareToken {
-    type Vtable = IHardwareTokenVtbl;
+    type Vtable = IHardwareToken_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28f6d4c0_fb12_40a4_8167_7f4e03d2724c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHardwareTokenVtbl {
+pub struct IHardwareToken_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -426,12 +426,12 @@ pub struct IHardwareTokenVtbl {
 #[repr(transparent)]
 pub struct IKnownRetailInfoPropertiesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKnownRetailInfoPropertiesStatics {
-    type Vtable = IKnownRetailInfoPropertiesStaticsVtbl;
+    type Vtable = IKnownRetailInfoPropertiesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99571178_500f_487e_8e75_29e551728712);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKnownRetailInfoPropertiesStaticsVtbl {
+pub struct IKnownRetailInfoPropertiesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RetailAccessCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ManufacturerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -460,12 +460,12 @@ pub struct IKnownRetailInfoPropertiesStaticsVtbl {
 #[repr(transparent)]
 pub struct IPlatformDiagnosticsAndUsageDataSettingsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlatformDiagnosticsAndUsageDataSettingsStatics {
-    type Vtable = IPlatformDiagnosticsAndUsageDataSettingsStaticsVtbl;
+    type Vtable = IPlatformDiagnosticsAndUsageDataSettingsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6e24c1b_7b1c_4b32_8c62_a66597ce723a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlatformDiagnosticsAndUsageDataSettingsStaticsVtbl {
+pub struct IPlatformDiagnosticsAndUsageDataSettingsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CollectionLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PlatformDataCollectionLevel) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -482,12 +482,12 @@ pub struct IPlatformDiagnosticsAndUsageDataSettingsStaticsVtbl {
 #[repr(transparent)]
 pub struct IRetailInfoStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRetailInfoStatics {
-    type Vtable = IRetailInfoStaticsVtbl;
+    type Vtable = IRetailInfoStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0712c6b8_8b92_4f2a_8499_031f1798d6ef);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRetailInfoStaticsVtbl {
+pub struct IRetailInfoStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsDemoModeEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -499,12 +499,12 @@ pub struct IRetailInfoStaticsVtbl {
 #[repr(transparent)]
 pub struct ISharedModeSettingsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISharedModeSettingsStatics {
-    type Vtable = ISharedModeSettingsStaticsVtbl;
+    type Vtable = ISharedModeSettingsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x893df40e_cad6_4d50_8c49_6fcfc03edb29);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISharedModeSettingsStaticsVtbl {
+pub struct ISharedModeSettingsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -512,12 +512,12 @@ pub struct ISharedModeSettingsStaticsVtbl {
 #[repr(transparent)]
 pub struct ISharedModeSettingsStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISharedModeSettingsStatics2 {
-    type Vtable = ISharedModeSettingsStatics2Vtbl;
+    type Vtable = ISharedModeSettingsStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x608988a4_ccf1_4ee8_a5e2_fd6a1d0cfac8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISharedModeSettingsStatics2Vtbl {
+pub struct ISharedModeSettingsStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ShouldAvoidLocalStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -525,12 +525,12 @@ pub struct ISharedModeSettingsStatics2Vtbl {
 #[repr(transparent)]
 pub struct ISystemIdentificationInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemIdentificationInfo {
-    type Vtable = ISystemIdentificationInfoVtbl;
+    type Vtable = ISystemIdentificationInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c659e7d_c3c2_4d33_a2df_21bc41916eb3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISystemIdentificationInfoVtbl {
+pub struct ISystemIdentificationInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -542,12 +542,12 @@ pub struct ISystemIdentificationInfoVtbl {
 #[repr(transparent)]
 pub struct ISystemIdentificationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemIdentificationStatics {
-    type Vtable = ISystemIdentificationStaticsVtbl;
+    type Vtable = ISystemIdentificationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5581f42a_d3df_4d93_a37d_c41a616c6d01);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISystemIdentificationStaticsVtbl {
+pub struct ISystemIdentificationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetSystemIdForPublisher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetSystemIdForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -556,12 +556,12 @@ pub struct ISystemIdentificationStaticsVtbl {
 #[repr(transparent)]
 pub struct ISystemSetupInfoStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemSetupInfoStatics {
-    type Vtable = ISystemSetupInfoStaticsVtbl;
+    type Vtable = ISystemSetupInfoStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c9620a8_1d88_5e2d_a324_a543af4247ee);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISystemSetupInfoStaticsVtbl {
+pub struct ISystemSetupInfoStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OutOfBoxExperienceState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SystemOutOfBoxExperienceState) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -577,12 +577,12 @@ pub struct ISystemSetupInfoStaticsVtbl {
 #[repr(transparent)]
 pub struct IUnsupportedAppRequirement(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUnsupportedAppRequirement {
-    type Vtable = IUnsupportedAppRequirementVtbl;
+    type Vtable = IUnsupportedAppRequirement_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6182445c_894b_5cbc_8976_a98e0a9b998d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUnsupportedAppRequirementVtbl {
+pub struct IUnsupportedAppRequirement_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Requirement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Reasons: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UnsupportedAppRequirementReasons) -> ::windows::core::HRESULT,
@@ -591,12 +591,12 @@ pub struct IUnsupportedAppRequirementVtbl {
 #[repr(transparent)]
 pub struct IWindowsIntegrityPolicyStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWindowsIntegrityPolicyStatics {
-    type Vtable = IWindowsIntegrityPolicyStaticsVtbl;
+    type Vtable = IWindowsIntegrityPolicyStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d1d81db_8d63_4789_9ea5_ddcf65a94f3c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowsIntegrityPolicyStaticsVtbl {
+pub struct IWindowsIntegrityPolicyStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsEnabledForTrial: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -977,7 +977,7 @@ unsafe impl ::windows::core::RuntimeType for SystemIdentificationInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.SystemIdentificationInfo;{0c659e7d-c3c2-4d33-a2df-21bc41916eb3})");
 }
 unsafe impl ::windows::core::Interface for SystemIdentificationInfo {
-    type Vtable = ISystemIdentificationInfoVtbl;
+    type Vtable = ISystemIdentificationInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c659e7d_c3c2_4d33_a2df_21bc41916eb3);
 }
 impl ::windows::core::RuntimeName for SystemIdentificationInfo {
@@ -1167,7 +1167,7 @@ unsafe impl ::windows::core::RuntimeType for UnsupportedAppRequirement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.UnsupportedAppRequirement;{6182445c-894b-5cbc-8976-a98e0a9b998d})");
 }
 unsafe impl ::windows::core::Interface for UnsupportedAppRequirement {
-    type Vtable = IUnsupportedAppRequirementVtbl;
+    type Vtable = IUnsupportedAppRequirement_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6182445c_894b_5cbc_8976_a98e0a9b998d);
 }
 impl ::windows::core::RuntimeName for UnsupportedAppRequirement {

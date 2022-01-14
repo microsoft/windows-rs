@@ -158,7 +158,7 @@ unsafe impl ::windows::core::RuntimeType for CameraIntrinsics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.CameraIntrinsics;{0aa6ed32-6589-49da-afde-594270ca0aac})");
 }
 unsafe impl ::windows::core::Interface for CameraIntrinsics {
-    type Vtable = ICameraIntrinsicsVtbl;
+    type Vtable = ICameraIntrinsics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0aa6ed32_6589_49da_afde_594270ca0aac);
 }
 impl ::windows::core::RuntimeName for CameraIntrinsics {
@@ -267,7 +267,7 @@ unsafe impl ::windows::core::RuntimeType for DepthCorrelatedCoordinateMapper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper;{f95d89fb-8af0-4cb0-926d-696866e5046a})");
 }
 unsafe impl ::windows::core::Interface for DepthCorrelatedCoordinateMapper {
-    type Vtable = IDepthCorrelatedCoordinateMapperVtbl;
+    type Vtable = IDepthCorrelatedCoordinateMapper_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf95d89fb_8af0_4cb0_926d_696866e5046a);
 }
 impl ::windows::core::RuntimeName for DepthCorrelatedCoordinateMapper {
@@ -414,7 +414,7 @@ unsafe impl ::windows::core::RuntimeType for FrameControlCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameControlCapabilities;{a8ffae60-4e9e-4377-a789-e24c4ae7e544})");
 }
 unsafe impl ::windows::core::Interface for FrameControlCapabilities {
-    type Vtable = IFrameControlCapabilitiesVtbl;
+    type Vtable = IFrameControlCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8ffae60_4e9e_4377_a789_e24c4ae7e544);
 }
 impl ::windows::core::RuntimeName for FrameControlCapabilities {
@@ -547,7 +547,7 @@ unsafe impl ::windows::core::RuntimeType for FrameController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameController;{c16459d9-baef-4052-9177-48aff2af7522})");
 }
 unsafe impl ::windows::core::Interface for FrameController {
-    type Vtable = IFrameControllerVtbl;
+    type Vtable = IFrameController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc16459d9_baef_4052_9177_48aff2af7522);
 }
 impl ::windows::core::RuntimeName for FrameController {
@@ -655,7 +655,7 @@ unsafe impl ::windows::core::RuntimeType for FrameExposureCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureCapabilities;{bdbe9ce3-3985-4e72-97c2-0590d61307a1})");
 }
 unsafe impl ::windows::core::Interface for FrameExposureCapabilities {
-    type Vtable = IFrameExposureCapabilitiesVtbl;
+    type Vtable = IFrameExposureCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdbe9ce3_3985_4e72_97c2_0590d61307a1);
 }
 impl ::windows::core::RuntimeName for FrameExposureCapabilities {
@@ -758,7 +758,7 @@ unsafe impl ::windows::core::RuntimeType for FrameExposureCompensationCapabiliti
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureCompensationCapabilities;{b988a823-8065-41ee-b04f-722265954500})");
 }
 unsafe impl ::windows::core::Interface for FrameExposureCompensationCapabilities {
-    type Vtable = IFrameExposureCompensationCapabilitiesVtbl;
+    type Vtable = IFrameExposureCompensationCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb988a823_8065_41ee_b04f_722265954500);
 }
 impl ::windows::core::RuntimeName for FrameExposureCompensationCapabilities {
@@ -844,7 +844,7 @@ unsafe impl ::windows::core::RuntimeType for FrameExposureCompensationControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureCompensationControl;{e95896c9-f7f9-48ca-8591-a26531cb1578})");
 }
 unsafe impl ::windows::core::Interface for FrameExposureCompensationControl {
-    type Vtable = IFrameExposureCompensationControlVtbl;
+    type Vtable = IFrameExposureCompensationControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe95896c9_f7f9_48ca_8591_a26531cb1578);
 }
 impl ::windows::core::RuntimeName for FrameExposureCompensationControl {
@@ -943,7 +943,7 @@ unsafe impl ::windows::core::RuntimeType for FrameExposureControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureControl;{b1605a61-ffaf-4752-b621-f5b6f117f432})");
 }
 unsafe impl ::windows::core::Interface for FrameExposureControl {
-    type Vtable = IFrameExposureControlVtbl;
+    type Vtable = IFrameExposureControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1605a61_ffaf_4752_b621_f5b6f117f432);
 }
 impl ::windows::core::RuntimeName for FrameExposureControl {
@@ -1038,7 +1038,7 @@ unsafe impl ::windows::core::RuntimeType for FrameFlashCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameFlashCapabilities;{bb9341a2-5ebe-4f62-8223-0e2b05bfbbd0})");
 }
 unsafe impl ::windows::core::Interface for FrameFlashCapabilities {
-    type Vtable = IFrameFlashCapabilitiesVtbl;
+    type Vtable = IFrameFlashCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb9341a2_5ebe_4f62_8223_0e2b05bfbbd0);
 }
 impl ::windows::core::RuntimeName for FrameFlashCapabilities {
@@ -1161,7 +1161,7 @@ unsafe impl ::windows::core::RuntimeType for FrameFlashControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameFlashControl;{75d5f6c7-bd45-4fab-9375-45ac04b332c2})");
 }
 unsafe impl ::windows::core::Interface for FrameFlashControl {
-    type Vtable = IFrameFlashControlVtbl;
+    type Vtable = IFrameFlashControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75d5f6c7_bd45_4fab_9375_45ac04b332c2);
 }
 impl ::windows::core::RuntimeName for FrameFlashControl {
@@ -1298,7 +1298,7 @@ unsafe impl ::windows::core::RuntimeType for FrameFocusCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameFocusCapabilities;{7b25cd58-01c0-4065-9c40-c1a721425c1a})");
 }
 unsafe impl ::windows::core::Interface for FrameFocusCapabilities {
-    type Vtable = IFrameFocusCapabilitiesVtbl;
+    type Vtable = IFrameFocusCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b25cd58_01c0_4065_9c40_c1a721425c1a);
 }
 impl ::windows::core::RuntimeName for FrameFocusCapabilities {
@@ -1384,7 +1384,7 @@ unsafe impl ::windows::core::RuntimeType for FrameFocusControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameFocusControl;{272df1d0-d912-4214-a67b-e38a8d48d8c6})");
 }
 unsafe impl ::windows::core::Interface for FrameFocusControl {
-    type Vtable = IFrameFocusControlVtbl;
+    type Vtable = IFrameFocusControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x272df1d0_d912_4214_a67b_e38a8d48d8c6);
 }
 impl ::windows::core::RuntimeName for FrameFocusControl {
@@ -1487,7 +1487,7 @@ unsafe impl ::windows::core::RuntimeType for FrameIsoSpeedCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameIsoSpeedCapabilities;{16bdff61-6df6-4ac9-b92a-9f6ecd1ad2fa})");
 }
 unsafe impl ::windows::core::Interface for FrameIsoSpeedCapabilities {
-    type Vtable = IFrameIsoSpeedCapabilitiesVtbl;
+    type Vtable = IFrameIsoSpeedCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16bdff61_6df6_4ac9_b92a_9f6ecd1ad2fa);
 }
 impl ::windows::core::RuntimeName for FrameIsoSpeedCapabilities {
@@ -1586,7 +1586,7 @@ unsafe impl ::windows::core::RuntimeType for FrameIsoSpeedControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameIsoSpeedControl;{1a03efed-786a-4c75-a557-7ab9a85f588c})");
 }
 unsafe impl ::windows::core::Interface for FrameIsoSpeedControl {
-    type Vtable = IFrameIsoSpeedControlVtbl;
+    type Vtable = IFrameIsoSpeedControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a03efed_786a_4c75_a557_7ab9a85f588c);
 }
 impl ::windows::core::RuntimeName for FrameIsoSpeedControl {
@@ -1636,12 +1636,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Fram
 #[repr(transparent)]
 pub struct ICameraIntrinsics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICameraIntrinsics {
-    type Vtable = ICameraIntrinsicsVtbl;
+    type Vtable = ICameraIntrinsics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0aa6ed32_6589_49da_afde_594270ca0aac);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICameraIntrinsicsVtbl {
+pub struct ICameraIntrinsics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub FocalLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
@@ -1682,12 +1682,12 @@ pub struct ICameraIntrinsicsVtbl {
 #[repr(transparent)]
 pub struct ICameraIntrinsics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICameraIntrinsics2 {
-    type Vtable = ICameraIntrinsics2Vtbl;
+    type Vtable = ICameraIntrinsics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cdaa447_0798_4b4d_839f_c5ec414db27a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICameraIntrinsics2Vtbl {
+pub struct ICameraIntrinsics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub UndistortedProjectionTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::HRESULT,
@@ -1714,12 +1714,12 @@ pub struct ICameraIntrinsics2Vtbl {
 #[repr(transparent)]
 pub struct ICameraIntrinsicsFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICameraIntrinsicsFactory {
-    type Vtable = ICameraIntrinsicsFactoryVtbl;
+    type Vtable = ICameraIntrinsicsFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0ddc486_2132_4a34_a659_9bfe2a055712);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICameraIntrinsicsFactoryVtbl {
+pub struct ICameraIntrinsicsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, focallength: super::super::super::Foundation::Numerics::Vector2, principalpoint: super::super::super::Foundation::Numerics::Vector2, radialdistortion: super::super::super::Foundation::Numerics::Vector3, tangentialdistortion: super::super::super::Foundation::Numerics::Vector2, imagewidth: u32, imageheight: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1730,12 +1730,12 @@ pub struct ICameraIntrinsicsFactoryVtbl {
 #[repr(transparent)]
 pub struct IDepthCorrelatedCoordinateMapper(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDepthCorrelatedCoordinateMapper {
-    type Vtable = IDepthCorrelatedCoordinateMapperVtbl;
+    type Vtable = IDepthCorrelatedCoordinateMapper_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf95d89fb_8af0_4cb0_926d_696866e5046a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDepthCorrelatedCoordinateMapperVtbl {
+pub struct IDepthCorrelatedCoordinateMapper_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub UnprojectPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcepoint: super::super::super::Foundation::Point, targetcoordinatesystem: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
@@ -1758,12 +1758,12 @@ pub struct IDepthCorrelatedCoordinateMapperVtbl {
 #[repr(transparent)]
 pub struct IFrameControlCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameControlCapabilities {
-    type Vtable = IFrameControlCapabilitiesVtbl;
+    type Vtable = IFrameControlCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8ffae60_4e9e_4377_a789_e24c4ae7e544);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFrameControlCapabilitiesVtbl {
+pub struct IFrameControlCapabilities_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Exposure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ExposureCompensation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1775,12 +1775,12 @@ pub struct IFrameControlCapabilitiesVtbl {
 #[repr(transparent)]
 pub struct IFrameControlCapabilities2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameControlCapabilities2 {
-    type Vtable = IFrameControlCapabilities2Vtbl;
+    type Vtable = IFrameControlCapabilities2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce9b0464_4730_440f_bd3e_efe8a8f230a8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFrameControlCapabilities2Vtbl {
+pub struct IFrameControlCapabilities2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Flash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1788,12 +1788,12 @@ pub struct IFrameControlCapabilities2Vtbl {
 #[repr(transparent)]
 pub struct IFrameController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameController {
-    type Vtable = IFrameControllerVtbl;
+    type Vtable = IFrameController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc16459d9_baef_4052_9177_48aff2af7522);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFrameControllerVtbl {
+pub struct IFrameController_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ExposureControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ExposureCompensationControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1812,12 +1812,12 @@ pub struct IFrameControllerVtbl {
 #[repr(transparent)]
 pub struct IFrameController2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameController2 {
-    type Vtable = IFrameController2Vtbl;
+    type Vtable = IFrameController2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00d3bc75_d87c_485b_8a09_5c358568b427);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFrameController2Vtbl {
+pub struct IFrameController2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FlashControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1825,12 +1825,12 @@ pub struct IFrameController2Vtbl {
 #[repr(transparent)]
 pub struct IFrameExposureCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameExposureCapabilities {
-    type Vtable = IFrameExposureCapabilitiesVtbl;
+    type Vtable = IFrameExposureCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdbe9ce3_3985_4e72_97c2_0590d61307a1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFrameExposureCapabilitiesVtbl {
+pub struct IFrameExposureCapabilities_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Supported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1850,12 +1850,12 @@ pub struct IFrameExposureCapabilitiesVtbl {
 #[repr(transparent)]
 pub struct IFrameExposureCompensationCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameExposureCompensationCapabilities {
-    type Vtable = IFrameExposureCompensationCapabilitiesVtbl;
+    type Vtable = IFrameExposureCompensationCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb988a823_8065_41ee_b04f_722265954500);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFrameExposureCompensationCapabilitiesVtbl {
+pub struct IFrameExposureCompensationCapabilities_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Supported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub Min: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -1866,12 +1866,12 @@ pub struct IFrameExposureCompensationCapabilitiesVtbl {
 #[repr(transparent)]
 pub struct IFrameExposureCompensationControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameExposureCompensationControl {
-    type Vtable = IFrameExposureCompensationControlVtbl;
+    type Vtable = IFrameExposureCompensationControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe95896c9_f7f9_48ca_8591_a26531cb1578);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFrameExposureCompensationControlVtbl {
+pub struct IFrameExposureCompensationControl_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1886,12 +1886,12 @@ pub struct IFrameExposureCompensationControlVtbl {
 #[repr(transparent)]
 pub struct IFrameExposureControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameExposureControl {
-    type Vtable = IFrameExposureControlVtbl;
+    type Vtable = IFrameExposureControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1605a61_ffaf_4752_b621_f5b6f117f432);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFrameExposureControlVtbl {
+pub struct IFrameExposureControl_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Auto: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAuto: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -1908,12 +1908,12 @@ pub struct IFrameExposureControlVtbl {
 #[repr(transparent)]
 pub struct IFrameFlashCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameFlashCapabilities {
-    type Vtable = IFrameFlashCapabilitiesVtbl;
+    type Vtable = IFrameFlashCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb9341a2_5ebe_4f62_8223_0e2b05bfbbd0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFrameFlashCapabilitiesVtbl {
+pub struct IFrameFlashCapabilities_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Supported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub RedEyeReductionSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1923,12 +1923,12 @@ pub struct IFrameFlashCapabilitiesVtbl {
 #[repr(transparent)]
 pub struct IFrameFlashControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameFlashControl {
-    type Vtable = IFrameFlashControlVtbl;
+    type Vtable = IFrameFlashControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75d5f6c7_bd45_4fab_9375_45ac04b332c2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFrameFlashControlVtbl {
+pub struct IFrameFlashControl_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut FrameFlashMode) -> ::windows::core::HRESULT,
     pub SetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: FrameFlashMode) -> ::windows::core::HRESULT,
@@ -1943,12 +1943,12 @@ pub struct IFrameFlashControlVtbl {
 #[repr(transparent)]
 pub struct IFrameFocusCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameFocusCapabilities {
-    type Vtable = IFrameFocusCapabilitiesVtbl;
+    type Vtable = IFrameFocusCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b25cd58_01c0_4065_9c40_c1a721425c1a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFrameFocusCapabilitiesVtbl {
+pub struct IFrameFocusCapabilities_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Supported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub Min: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -1959,12 +1959,12 @@ pub struct IFrameFocusCapabilitiesVtbl {
 #[repr(transparent)]
 pub struct IFrameFocusControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameFocusControl {
-    type Vtable = IFrameFocusControlVtbl;
+    type Vtable = IFrameFocusControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x272df1d0_d912_4214_a67b_e38a8d48d8c6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFrameFocusControlVtbl {
+pub struct IFrameFocusControl_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1979,12 +1979,12 @@ pub struct IFrameFocusControlVtbl {
 #[repr(transparent)]
 pub struct IFrameIsoSpeedCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameIsoSpeedCapabilities {
-    type Vtable = IFrameIsoSpeedCapabilitiesVtbl;
+    type Vtable = IFrameIsoSpeedCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16bdff61_6df6_4ac9_b92a_9f6ecd1ad2fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFrameIsoSpeedCapabilitiesVtbl {
+pub struct IFrameIsoSpeedCapabilities_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Supported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub Min: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -1995,12 +1995,12 @@ pub struct IFrameIsoSpeedCapabilitiesVtbl {
 #[repr(transparent)]
 pub struct IFrameIsoSpeedControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameIsoSpeedControl {
-    type Vtable = IFrameIsoSpeedControlVtbl;
+    type Vtable = IFrameIsoSpeedControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a03efed_786a_4c75_a557_7ab9a85f588c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFrameIsoSpeedControlVtbl {
+pub struct IFrameIsoSpeedControl_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Auto: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAuto: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -2017,12 +2017,12 @@ pub struct IFrameIsoSpeedControlVtbl {
 #[repr(transparent)]
 pub struct IVariablePhotoSequenceController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVariablePhotoSequenceController {
-    type Vtable = IVariablePhotoSequenceControllerVtbl;
+    type Vtable = IVariablePhotoSequenceController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fbff880_ed8c_43fd_a7c3_b35809e4229a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVariablePhotoSequenceControllerVtbl {
+pub struct IVariablePhotoSequenceController_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Supported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub MaxPhotosPerSecond: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -2131,7 +2131,7 @@ unsafe impl ::windows::core::RuntimeType for VariablePhotoSequenceController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.VariablePhotoSequenceController;{7fbff880-ed8c-43fd-a7c3-b35809e4229a})");
 }
 unsafe impl ::windows::core::Interface for VariablePhotoSequenceController {
-    type Vtable = IVariablePhotoSequenceControllerVtbl;
+    type Vtable = IVariablePhotoSequenceController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fbff880_ed8c_43fd_a7c3_b35809e4229a);
 }
 impl ::windows::core::RuntimeName for VariablePhotoSequenceController {

@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IKnownSimpleHapticsControllerWaveformsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKnownSimpleHapticsControllerWaveformsStatics {
-    type Vtable = IKnownSimpleHapticsControllerWaveformsStaticsVtbl;
+    type Vtable = IKnownSimpleHapticsControllerWaveformsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef7_4cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKnownSimpleHapticsControllerWaveformsStaticsVtbl {
+pub struct IKnownSimpleHapticsControllerWaveformsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Click: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
     pub BuzzContinuous: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
@@ -20,12 +20,12 @@ pub struct IKnownSimpleHapticsControllerWaveformsStaticsVtbl {
 #[repr(transparent)]
 pub struct IKnownSimpleHapticsControllerWaveformsStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKnownSimpleHapticsControllerWaveformsStatics2 {
-    type Vtable = IKnownSimpleHapticsControllerWaveformsStatics2Vtbl;
+    type Vtable = IKnownSimpleHapticsControllerWaveformsStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7d24c27_b79d_510a_bf79_ff6d49173e1d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKnownSimpleHapticsControllerWaveformsStatics2Vtbl {
+pub struct IKnownSimpleHapticsControllerWaveformsStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub BrushContinuous: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
     pub ChiselMarkerContinuous: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
@@ -42,12 +42,12 @@ pub struct IKnownSimpleHapticsControllerWaveformsStatics2Vtbl {
 #[repr(transparent)]
 pub struct ISimpleHapticsController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISimpleHapticsController {
-    type Vtable = ISimpleHapticsControllerVtbl;
+    type Vtable = ISimpleHapticsController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef9_4cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISimpleHapticsControllerVtbl {
+pub struct ISimpleHapticsController_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -74,12 +74,12 @@ pub struct ISimpleHapticsControllerVtbl {
 #[repr(transparent)]
 pub struct ISimpleHapticsControllerFeedback(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISimpleHapticsControllerFeedback {
-    type Vtable = ISimpleHapticsControllerFeedbackVtbl;
+    type Vtable = ISimpleHapticsControllerFeedback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef8_4cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISimpleHapticsControllerFeedbackVtbl {
+pub struct ISimpleHapticsControllerFeedback_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Waveform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -91,12 +91,12 @@ pub struct ISimpleHapticsControllerFeedbackVtbl {
 #[repr(transparent)]
 pub struct IVibrationDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVibrationDevice {
-    type Vtable = IVibrationDeviceVtbl;
+    type Vtable = IVibrationDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40f21a3e_8844_47ff_b312_06185a3844da);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVibrationDeviceVtbl {
+pub struct IVibrationDevice_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SimpleHapticsController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -105,12 +105,12 @@ pub struct IVibrationDeviceVtbl {
 #[repr(transparent)]
 pub struct IVibrationDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVibrationDeviceStatics {
-    type Vtable = IVibrationDeviceStaticsVtbl;
+    type Vtable = IVibrationDeviceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53e2eded_2290_4ac9_8eb3_1a84122eb71c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVibrationDeviceStaticsVtbl {
+pub struct IVibrationDeviceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestAccessAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -353,7 +353,7 @@ unsafe impl ::windows::core::RuntimeType for SimpleHapticsController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Haptics.SimpleHapticsController;{3d577ef9-4cee-11e6-b535-001bdc06ab3b})");
 }
 unsafe impl ::windows::core::Interface for SimpleHapticsController {
-    type Vtable = ISimpleHapticsControllerVtbl;
+    type Vtable = ISimpleHapticsController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef9_4cee_11e6_b535_001bdc06ab3b);
 }
 impl ::windows::core::RuntimeName for SimpleHapticsController {
@@ -443,7 +443,7 @@ unsafe impl ::windows::core::RuntimeType for SimpleHapticsControllerFeedback {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Haptics.SimpleHapticsControllerFeedback;{3d577ef8-4cee-11e6-b535-001bdc06ab3b})");
 }
 unsafe impl ::windows::core::Interface for SimpleHapticsControllerFeedback {
-    type Vtable = ISimpleHapticsControllerFeedbackVtbl;
+    type Vtable = ISimpleHapticsControllerFeedback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef8_4cee_11e6_b535_001bdc06ab3b);
 }
 impl ::windows::core::RuntimeName for SimpleHapticsControllerFeedback {
@@ -611,7 +611,7 @@ unsafe impl ::windows::core::RuntimeType for VibrationDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Haptics.VibrationDevice;{40f21a3e-8844-47ff-b312-06185a3844da})");
 }
 unsafe impl ::windows::core::Interface for VibrationDevice {
-    type Vtable = IVibrationDeviceVtbl;
+    type Vtable = IVibrationDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40f21a3e_8844_47ff_b312_06185a3844da);
 }
 impl ::windows::core::RuntimeName for VibrationDevice {

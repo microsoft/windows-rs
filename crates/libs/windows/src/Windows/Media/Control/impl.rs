@@ -1,12 +1,12 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait ICurrentSessionChangedEventArgsImpl: Sized {}
+pub trait ICurrentSessionChangedEventArgs_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ICurrentSessionChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.ICurrentSessionChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICurrentSessionChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentSessionChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentSessionChangedEventArgsVtbl {
+impl ICurrentSessionChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentSessionChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentSessionChangedEventArgs_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ICurrentSessionChangedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -14,7 +14,7 @@ impl ICurrentSessionChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGlobalSystemMediaTransportControlsSessionImpl: Sized {
+pub trait IGlobalSystemMediaTransportControlsSession_Impl: Sized {
     fn SourceAppUserModelId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn TryGetMediaPropertiesAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GlobalSystemMediaTransportControlsSessionMediaProperties>>;
     fn GetTimelineProperties(&mut self) -> ::windows::core::Result<GlobalSystemMediaTransportControlsSessionTimelineProperties>;
@@ -46,9 +46,9 @@ impl ::windows::core::RuntimeName for IGlobalSystemMediaTransportControlsSession
     const NAME: &'static str = "Windows.Media.Control.IGlobalSystemMediaTransportControlsSession";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGlobalSystemMediaTransportControlsSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionVtbl {
-        unsafe extern "system" fn SourceAppUserModelId<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IGlobalSystemMediaTransportControlsSession_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSession_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSession_Vtbl {
+        unsafe extern "system" fn SourceAppUserModelId<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceAppUserModelId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -59,7 +59,7 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryGetMediaPropertiesAsync<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryGetMediaPropertiesAsync<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetMediaPropertiesAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -70,7 +70,7 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTimelineProperties<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTimelineProperties<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTimelineProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -81,7 +81,7 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPlaybackInfo<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPlaybackInfo<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPlaybackInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -92,7 +92,7 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryPlayAsync<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryPlayAsync<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryPlayAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -103,7 +103,7 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryPauseAsync<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryPauseAsync<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryPauseAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -114,7 +114,7 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryStopAsync<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryStopAsync<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryStopAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -125,7 +125,7 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryRecordAsync<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryRecordAsync<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryRecordAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -136,7 +136,7 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryFastForwardAsync<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryFastForwardAsync<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryFastForwardAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -147,7 +147,7 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryRewindAsync<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryRewindAsync<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryRewindAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -158,7 +158,7 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrySkipNextAsync<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrySkipNextAsync<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrySkipNextAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -169,7 +169,7 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrySkipPreviousAsync<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrySkipPreviousAsync<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrySkipPreviousAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -180,7 +180,7 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryChangeChannelUpAsync<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryChangeChannelUpAsync<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryChangeChannelUpAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -191,7 +191,7 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryChangeChannelDownAsync<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryChangeChannelDownAsync<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryChangeChannelDownAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -202,7 +202,7 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryTogglePlayPauseAsync<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryTogglePlayPauseAsync<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryTogglePlayPauseAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -213,7 +213,7 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryChangeAutoRepeatModeAsync<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestedautorepeatmode: super::MediaPlaybackAutoRepeatMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryChangeAutoRepeatModeAsync<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestedautorepeatmode: super::MediaPlaybackAutoRepeatMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryChangeAutoRepeatModeAsync(requestedautorepeatmode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -224,7 +224,7 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryChangePlaybackRateAsync<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestedplaybackrate: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryChangePlaybackRateAsync<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestedplaybackrate: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryChangePlaybackRateAsync(requestedplaybackrate) {
                 ::core::result::Result::Ok(ok__) => {
@@ -235,7 +235,7 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryChangeShuffleActiveAsync<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestedshufflestate: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryChangeShuffleActiveAsync<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestedshufflestate: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryChangeShuffleActiveAsync(requestedshufflestate) {
                 ::core::result::Result::Ok(ok__) => {
@@ -246,7 +246,7 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryChangePlaybackPositionAsync<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestedplaybackposition: i64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryChangePlaybackPositionAsync<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestedplaybackposition: i64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryChangePlaybackPositionAsync(requestedplaybackposition) {
                 ::core::result::Result::Ok(ok__) => {
@@ -257,7 +257,7 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TimelinePropertiesChanged<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TimelinePropertiesChanged<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimelinePropertiesChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, TimelinePropertiesChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, TimelinePropertiesChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -268,11 +268,11 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveTimelinePropertiesChanged<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveTimelinePropertiesChanged<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTimelinePropertiesChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PlaybackInfoChanged<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlaybackInfoChanged<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackInfoChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, PlaybackInfoChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, PlaybackInfoChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -283,11 +283,11 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePlaybackInfoChanged<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePlaybackInfoChanged<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePlaybackInfoChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MediaPropertiesChanged<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaPropertiesChanged<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaPropertiesChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, MediaPropertiesChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSession, MediaPropertiesChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -298,7 +298,7 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMediaPropertiesChanged<Impl: IGlobalSystemMediaTransportControlsSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMediaPropertiesChanged<Impl: IGlobalSystemMediaTransportControlsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMediaPropertiesChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -336,7 +336,7 @@ impl IGlobalSystemMediaTransportControlsSessionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IGlobalSystemMediaTransportControlsSessionManagerImpl: Sized {
+pub trait IGlobalSystemMediaTransportControlsSessionManager_Impl: Sized {
     fn GetCurrentSession(&mut self) -> ::windows::core::Result<GlobalSystemMediaTransportControlsSession>;
     fn GetSessions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<GlobalSystemMediaTransportControlsSession>>;
     fn CurrentSessionChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSessionManager, CurrentSessionChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -349,9 +349,9 @@ impl ::windows::core::RuntimeName for IGlobalSystemMediaTransportControlsSession
     const NAME: &'static str = "Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionManager";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IGlobalSystemMediaTransportControlsSessionManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionManagerVtbl {
-        unsafe extern "system" fn GetCurrentSession<Impl: IGlobalSystemMediaTransportControlsSessionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGlobalSystemMediaTransportControlsSessionManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionManager_Vtbl {
+        unsafe extern "system" fn GetCurrentSession<Impl: IGlobalSystemMediaTransportControlsSessionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentSession() {
                 ::core::result::Result::Ok(ok__) => {
@@ -362,7 +362,7 @@ impl IGlobalSystemMediaTransportControlsSessionManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSessions<Impl: IGlobalSystemMediaTransportControlsSessionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSessions<Impl: IGlobalSystemMediaTransportControlsSessionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSessions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -373,7 +373,7 @@ impl IGlobalSystemMediaTransportControlsSessionManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentSessionChanged<Impl: IGlobalSystemMediaTransportControlsSessionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentSessionChanged<Impl: IGlobalSystemMediaTransportControlsSessionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentSessionChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSessionManager, CurrentSessionChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSessionManager, CurrentSessionChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -384,11 +384,11 @@ impl IGlobalSystemMediaTransportControlsSessionManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCurrentSessionChanged<Impl: IGlobalSystemMediaTransportControlsSessionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCurrentSessionChanged<Impl: IGlobalSystemMediaTransportControlsSessionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCurrentSessionChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SessionsChanged<Impl: IGlobalSystemMediaTransportControlsSessionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SessionsChanged<Impl: IGlobalSystemMediaTransportControlsSessionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionsChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -399,7 +399,7 @@ impl IGlobalSystemMediaTransportControlsSessionManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSessionsChanged<Impl: IGlobalSystemMediaTransportControlsSessionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSessionsChanged<Impl: IGlobalSystemMediaTransportControlsSessionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSessionsChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -418,7 +418,7 @@ impl IGlobalSystemMediaTransportControlsSessionManagerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGlobalSystemMediaTransportControlsSessionManagerStaticsImpl: Sized {
+pub trait IGlobalSystemMediaTransportControlsSessionManagerStatics_Impl: Sized {
     fn RequestAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GlobalSystemMediaTransportControlsSessionManager>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -426,9 +426,9 @@ impl ::windows::core::RuntimeName for IGlobalSystemMediaTransportControlsSession
     const NAME: &'static str = "Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionManagerStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGlobalSystemMediaTransportControlsSessionManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionManagerStaticsVtbl {
-        unsafe extern "system" fn RequestAsync<Impl: IGlobalSystemMediaTransportControlsSessionManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGlobalSystemMediaTransportControlsSessionManagerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionManagerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionManagerStatics_Vtbl {
+        unsafe extern "system" fn RequestAsync<Impl: IGlobalSystemMediaTransportControlsSessionManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -449,7 +449,7 @@ impl IGlobalSystemMediaTransportControlsSessionManagerStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IGlobalSystemMediaTransportControlsSessionMediaPropertiesImpl: Sized {
+pub trait IGlobalSystemMediaTransportControlsSessionMediaProperties_Impl: Sized {
     fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Subtitle(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn AlbumArtist(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -466,9 +466,9 @@ impl ::windows::core::RuntimeName for IGlobalSystemMediaTransportControlsSession
     const NAME: &'static str = "Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionMediaProperties";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IGlobalSystemMediaTransportControlsSessionMediaPropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionMediaPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionMediaPropertiesVtbl {
-        unsafe extern "system" fn Title<Impl: IGlobalSystemMediaTransportControlsSessionMediaPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IGlobalSystemMediaTransportControlsSessionMediaProperties_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionMediaProperties_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionMediaProperties_Vtbl {
+        unsafe extern "system" fn Title<Impl: IGlobalSystemMediaTransportControlsSessionMediaProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
                 ::core::result::Result::Ok(ok__) => {
@@ -479,7 +479,7 @@ impl IGlobalSystemMediaTransportControlsSessionMediaPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Subtitle<Impl: IGlobalSystemMediaTransportControlsSessionMediaPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Subtitle<Impl: IGlobalSystemMediaTransportControlsSessionMediaProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Subtitle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -490,7 +490,7 @@ impl IGlobalSystemMediaTransportControlsSessionMediaPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AlbumArtist<Impl: IGlobalSystemMediaTransportControlsSessionMediaPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AlbumArtist<Impl: IGlobalSystemMediaTransportControlsSessionMediaProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlbumArtist() {
                 ::core::result::Result::Ok(ok__) => {
@@ -501,7 +501,7 @@ impl IGlobalSystemMediaTransportControlsSessionMediaPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Artist<Impl: IGlobalSystemMediaTransportControlsSessionMediaPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Artist<Impl: IGlobalSystemMediaTransportControlsSessionMediaProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Artist() {
                 ::core::result::Result::Ok(ok__) => {
@@ -512,7 +512,7 @@ impl IGlobalSystemMediaTransportControlsSessionMediaPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AlbumTitle<Impl: IGlobalSystemMediaTransportControlsSessionMediaPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AlbumTitle<Impl: IGlobalSystemMediaTransportControlsSessionMediaProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlbumTitle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -523,7 +523,7 @@ impl IGlobalSystemMediaTransportControlsSessionMediaPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrackNumber<Impl: IGlobalSystemMediaTransportControlsSessionMediaPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrackNumber<Impl: IGlobalSystemMediaTransportControlsSessionMediaProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrackNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -534,7 +534,7 @@ impl IGlobalSystemMediaTransportControlsSessionMediaPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Genres<Impl: IGlobalSystemMediaTransportControlsSessionMediaPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Genres<Impl: IGlobalSystemMediaTransportControlsSessionMediaProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Genres() {
                 ::core::result::Result::Ok(ok__) => {
@@ -545,7 +545,7 @@ impl IGlobalSystemMediaTransportControlsSessionMediaPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AlbumTrackCount<Impl: IGlobalSystemMediaTransportControlsSessionMediaPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AlbumTrackCount<Impl: IGlobalSystemMediaTransportControlsSessionMediaProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlbumTrackCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -556,7 +556,7 @@ impl IGlobalSystemMediaTransportControlsSessionMediaPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PlaybackType<Impl: IGlobalSystemMediaTransportControlsSessionMediaPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlaybackType<Impl: IGlobalSystemMediaTransportControlsSessionMediaProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -567,7 +567,7 @@ impl IGlobalSystemMediaTransportControlsSessionMediaPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Thumbnail<Impl: IGlobalSystemMediaTransportControlsSessionMediaPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Thumbnail<Impl: IGlobalSystemMediaTransportControlsSessionMediaProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Thumbnail() {
                 ::core::result::Result::Ok(ok__) => {
@@ -597,7 +597,7 @@ impl IGlobalSystemMediaTransportControlsSessionMediaPropertiesVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGlobalSystemMediaTransportControlsSessionPlaybackControlsImpl: Sized {
+pub trait IGlobalSystemMediaTransportControlsSessionPlaybackControls_Impl: Sized {
     fn IsPlayEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn IsPauseEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn IsStopEnabled(&mut self) -> ::windows::core::Result<bool>;
@@ -619,9 +619,9 @@ impl ::windows::core::RuntimeName for IGlobalSystemMediaTransportControlsSession
     const NAME: &'static str = "Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionPlaybackControls";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControlsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl {
-        unsafe extern "system" fn IsPlayEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControlsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IGlobalSystemMediaTransportControlsSessionPlaybackControls_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControls_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionPlaybackControls_Vtbl {
+        unsafe extern "system" fn IsPlayEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControls_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPlayEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -632,7 +632,7 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsPauseEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControlsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPauseEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControls_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPauseEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -643,7 +643,7 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsStopEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControlsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStopEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControls_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStopEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -654,7 +654,7 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsRecordEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControlsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsRecordEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControls_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsRecordEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -665,7 +665,7 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsFastForwardEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControlsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsFastForwardEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControls_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsFastForwardEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -676,7 +676,7 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsRewindEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControlsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsRewindEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControls_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsRewindEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -687,7 +687,7 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsNextEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControlsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsNextEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControls_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsNextEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -698,7 +698,7 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsPreviousEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControlsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPreviousEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControls_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPreviousEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -709,7 +709,7 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsChannelUpEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControlsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsChannelUpEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControls_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsChannelUpEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -720,7 +720,7 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsChannelDownEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControlsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsChannelDownEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControls_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsChannelDownEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -731,7 +731,7 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsPlayPauseToggleEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControlsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPlayPauseToggleEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControls_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPlayPauseToggleEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -742,7 +742,7 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsShuffleEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControlsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsShuffleEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControls_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsShuffleEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -753,7 +753,7 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsRepeatEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControlsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsRepeatEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControls_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsRepeatEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -764,7 +764,7 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsPlaybackRateEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControlsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPlaybackRateEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControls_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPlaybackRateEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -775,7 +775,7 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsPlaybackPositionEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControlsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPlaybackPositionEnabled<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackControls_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPlaybackPositionEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -810,7 +810,7 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackControlsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGlobalSystemMediaTransportControlsSessionPlaybackInfoImpl: Sized {
+pub trait IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Impl: Sized {
     fn Controls(&mut self) -> ::windows::core::Result<GlobalSystemMediaTransportControlsSessionPlaybackControls>;
     fn PlaybackStatus(&mut self) -> ::windows::core::Result<GlobalSystemMediaTransportControlsSessionPlaybackStatus>;
     fn PlaybackType(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::MediaPlaybackType>>;
@@ -823,9 +823,9 @@ impl ::windows::core::RuntimeName for IGlobalSystemMediaTransportControlsSession
     const NAME: &'static str = "Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionPlaybackInfo";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGlobalSystemMediaTransportControlsSessionPlaybackInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionPlaybackInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionPlaybackInfoVtbl {
-        unsafe extern "system" fn Controls<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Vtbl {
+        unsafe extern "system" fn Controls<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Controls() {
                 ::core::result::Result::Ok(ok__) => {
@@ -836,7 +836,7 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PlaybackStatus<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GlobalSystemMediaTransportControlsSessionPlaybackStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlaybackStatus<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GlobalSystemMediaTransportControlsSessionPlaybackStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -847,7 +847,7 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PlaybackType<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlaybackType<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -858,7 +858,7 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AutoRepeatMode<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AutoRepeatMode<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutoRepeatMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -869,7 +869,7 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PlaybackRate<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlaybackRate<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -880,7 +880,7 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsShuffleActive<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsShuffleActive<Impl: IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsShuffleActive() {
                 ::core::result::Result::Ok(ok__) => {
@@ -906,7 +906,7 @@ impl IGlobalSystemMediaTransportControlsSessionPlaybackInfoVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGlobalSystemMediaTransportControlsSessionTimelinePropertiesImpl: Sized {
+pub trait IGlobalSystemMediaTransportControlsSessionTimelineProperties_Impl: Sized {
     fn StartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn EndTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn MinSeekTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -919,9 +919,9 @@ impl ::windows::core::RuntimeName for IGlobalSystemMediaTransportControlsSession
     const NAME: &'static str = "Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionTimelineProperties";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGlobalSystemMediaTransportControlsSessionTimelinePropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionTimelinePropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionTimelinePropertiesVtbl {
-        unsafe extern "system" fn StartTime<Impl: IGlobalSystemMediaTransportControlsSessionTimelinePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+impl IGlobalSystemMediaTransportControlsSessionTimelineProperties_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalSystemMediaTransportControlsSessionTimelineProperties_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGlobalSystemMediaTransportControlsSessionTimelineProperties_Vtbl {
+        unsafe extern "system" fn StartTime<Impl: IGlobalSystemMediaTransportControlsSessionTimelineProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -932,7 +932,7 @@ impl IGlobalSystemMediaTransportControlsSessionTimelinePropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EndTime<Impl: IGlobalSystemMediaTransportControlsSessionTimelinePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EndTime<Impl: IGlobalSystemMediaTransportControlsSessionTimelineProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -943,7 +943,7 @@ impl IGlobalSystemMediaTransportControlsSessionTimelinePropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MinSeekTime<Impl: IGlobalSystemMediaTransportControlsSessionTimelinePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinSeekTime<Impl: IGlobalSystemMediaTransportControlsSessionTimelineProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinSeekTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -954,7 +954,7 @@ impl IGlobalSystemMediaTransportControlsSessionTimelinePropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxSeekTime<Impl: IGlobalSystemMediaTransportControlsSessionTimelinePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxSeekTime<Impl: IGlobalSystemMediaTransportControlsSessionTimelineProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxSeekTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -965,7 +965,7 @@ impl IGlobalSystemMediaTransportControlsSessionTimelinePropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: IGlobalSystemMediaTransportControlsSessionTimelinePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: IGlobalSystemMediaTransportControlsSessionTimelineProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -976,7 +976,7 @@ impl IGlobalSystemMediaTransportControlsSessionTimelinePropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LastUpdatedTime<Impl: IGlobalSystemMediaTransportControlsSessionTimelinePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LastUpdatedTime<Impl: IGlobalSystemMediaTransportControlsSessionTimelineProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LastUpdatedTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1002,14 +1002,14 @@ impl IGlobalSystemMediaTransportControlsSessionTimelinePropertiesVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMediaPropertiesChangedEventArgsImpl: Sized {}
+pub trait IMediaPropertiesChangedEventArgs_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMediaPropertiesChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.IMediaPropertiesChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMediaPropertiesChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPropertiesChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPropertiesChangedEventArgsVtbl {
+impl IMediaPropertiesChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaPropertiesChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaPropertiesChangedEventArgs_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMediaPropertiesChangedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1017,14 +1017,14 @@ impl IMediaPropertiesChangedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPlaybackInfoChangedEventArgsImpl: Sized {}
+pub trait IPlaybackInfoChangedEventArgs_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPlaybackInfoChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.IPlaybackInfoChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPlaybackInfoChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaybackInfoChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlaybackInfoChangedEventArgsVtbl {
+impl IPlaybackInfoChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlaybackInfoChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlaybackInfoChangedEventArgs_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPlaybackInfoChangedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1032,14 +1032,14 @@ impl IPlaybackInfoChangedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISessionsChangedEventArgsImpl: Sized {}
+pub trait ISessionsChangedEventArgs_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ISessionsChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.ISessionsChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISessionsChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISessionsChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISessionsChangedEventArgsVtbl {
+impl ISessionsChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISessionsChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISessionsChangedEventArgs_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ISessionsChangedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1047,14 +1047,14 @@ impl ISessionsChangedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ITimelinePropertiesChangedEventArgsImpl: Sized {}
+pub trait ITimelinePropertiesChangedEventArgs_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for ITimelinePropertiesChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.ITimelinePropertiesChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ITimelinePropertiesChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimelinePropertiesChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITimelinePropertiesChangedEventArgsVtbl {
+impl ITimelinePropertiesChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimelinePropertiesChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITimelinePropertiesChangedEventArgs_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ITimelinePropertiesChangedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

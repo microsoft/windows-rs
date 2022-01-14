@@ -2654,12 +2654,12 @@ impl ::core::fmt::Debug for IAccountingProviderConfig {
     }
 }
 unsafe impl ::windows::core::Interface for IAccountingProviderConfig {
-    type Vtable = IAccountingProviderConfigVtbl;
+    type Vtable = IAccountingProviderConfig_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66a2db18_d706_11d0_a37b_00c04fc9da04);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAccountingProviderConfigVtbl {
+pub struct IAccountingProviderConfig_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmachinename: super::super::Foundation::PWSTR, puconnectionparam: *mut usize) -> ::windows::core::HRESULT,
@@ -2738,12 +2738,12 @@ impl ::core::fmt::Debug for IAuthenticationProviderConfig {
     }
 }
 unsafe impl ::windows::core::Interface for IAuthenticationProviderConfig {
-    type Vtable = IAuthenticationProviderConfigVtbl;
+    type Vtable = IAuthenticationProviderConfig_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66a2db17_d706_11d0_a37b_00c04fc9da04);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAuthenticationProviderConfigVtbl {
+pub struct IAuthenticationProviderConfig_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmachinename: super::super::Foundation::PWSTR, puconnectionparam: *mut usize) -> ::windows::core::HRESULT,
@@ -2824,12 +2824,12 @@ impl ::core::fmt::Debug for IEAPProviderConfig {
     }
 }
 unsafe impl ::windows::core::Interface for IEAPProviderConfig {
-    type Vtable = IEAPProviderConfigVtbl;
+    type Vtable = IEAPProviderConfig_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66a2db19_d706_11d0_a37b_00c04fc9da04);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEAPProviderConfigVtbl {
+pub struct IEAPProviderConfig_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmachinename: super::super::Foundation::PWSTR, dweaptypeid: u32, puconnectionparam: *mut usize) -> ::windows::core::HRESULT,
@@ -2945,13 +2945,13 @@ impl ::core::fmt::Debug for IEAPProviderConfig2 {
     }
 }
 unsafe impl ::windows::core::Interface for IEAPProviderConfig2 {
-    type Vtable = IEAPProviderConfig2Vtbl;
+    type Vtable = IEAPProviderConfig2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd565917a_85c4_4466_856e_671c3742ea9a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEAPProviderConfig2Vtbl {
-    pub base: IEAPProviderConfigVtbl,
+pub struct IEAPProviderConfig2_Vtbl {
+    pub base: IEAPProviderConfig_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ServerInvokeConfigUI2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3079,13 +3079,13 @@ impl ::core::fmt::Debug for IEAPProviderConfig3 {
     }
 }
 unsafe impl ::windows::core::Interface for IEAPProviderConfig3 {
-    type Vtable = IEAPProviderConfig3Vtbl;
+    type Vtable = IEAPProviderConfig3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb78ecd12_68bb_4f86_9bf0_8438dd3be982);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEAPProviderConfig3Vtbl {
-    pub base: IEAPProviderConfig2Vtbl,
+pub struct IEAPProviderConfig3_Vtbl {
+    pub base: IEAPProviderConfig2_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ServerInvokeCertificateConfigUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32, ureserved: usize) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3143,12 +3143,12 @@ impl ::core::fmt::Debug for IRouterProtocolConfig {
     }
 }
 unsafe impl ::windows::core::Interface for IRouterProtocolConfig {
-    type Vtable = IRouterProtocolConfigVtbl;
+    type Vtable = IRouterProtocolConfig_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66a2db16_d706_11d0_a37b_00c04fc9da04);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRouterProtocolConfigVtbl {
+pub struct IRouterProtocolConfig_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddProtocol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmachinename: super::super::Foundation::PWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: *mut ::core::ffi::c_void, ureserved1: usize) -> ::windows::core::HRESULT,

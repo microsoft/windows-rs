@@ -254,7 +254,7 @@ unsafe impl ::windows::core::RuntimeType for EmailDataProviderConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailDataProviderConnection;{3b9c9dc7-37b2-4bf0-ae30-7b644a1c96e1})");
 }
 unsafe impl ::windows::core::Interface for EmailDataProviderConnection {
-    type Vtable = IEmailDataProviderConnectionVtbl;
+    type Vtable = IEmailDataProviderConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b9c9dc7_37b2_4bf0_ae30_7b644a1c96e1);
 }
 impl ::windows::core::RuntimeName for EmailDataProviderConnection {
@@ -335,7 +335,7 @@ unsafe impl ::windows::core::RuntimeType for EmailDataProviderTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailDataProviderTriggerDetails;{8f3e4e50-341e-45f3-bba0-84a005e1319a})");
 }
 unsafe impl ::windows::core::Interface for EmailDataProviderTriggerDetails {
-    type Vtable = IEmailDataProviderTriggerDetailsVtbl;
+    type Vtable = IEmailDataProviderTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f3e4e50_341e_45f3_bba0_84a005e1319a);
 }
 impl ::windows::core::RuntimeName for EmailDataProviderTriggerDetails {
@@ -450,7 +450,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxCreateFolderRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxCreateFolderRequest;{184d3775-c921-4c39-a309-e16c9f22b04b})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxCreateFolderRequest {
-    type Vtable = IEmailMailboxCreateFolderRequestVtbl;
+    type Vtable = IEmailMailboxCreateFolderRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x184d3775_c921_4c39_a309_e16c9f22b04b);
 }
 impl ::windows::core::RuntimeName for EmailMailboxCreateFolderRequest {
@@ -540,7 +540,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxCreateFolderRequestEven
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxCreateFolderRequestEventArgs;{03e4c02c-241c-4ea9-a68f-ff20bc5afc85})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxCreateFolderRequestEventArgs {
-    type Vtable = IEmailMailboxCreateFolderRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxCreateFolderRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03e4c02c_241c_4ea9_a68f_ff20bc5afc85);
 }
 impl ::windows::core::RuntimeName for EmailMailboxCreateFolderRequestEventArgs {
@@ -647,7 +647,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxDeleteFolderRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxDeleteFolderRequest;{9469e88a-a931-4779-923d-09a3ea292e29})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxDeleteFolderRequest {
-    type Vtable = IEmailMailboxDeleteFolderRequestVtbl;
+    type Vtable = IEmailMailboxDeleteFolderRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9469e88a_a931_4779_923d_09a3ea292e29);
 }
 impl ::windows::core::RuntimeName for EmailMailboxDeleteFolderRequest {
@@ -737,7 +737,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxDeleteFolderRequestEven
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxDeleteFolderRequestEventArgs;{b4d32d06-2332-4678-8378-28b579336846})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxDeleteFolderRequestEventArgs {
-    type Vtable = IEmailMailboxDeleteFolderRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxDeleteFolderRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4d32d06_2332_4678_8378_28b579336846);
 }
 impl ::windows::core::RuntimeName for EmailMailboxDeleteFolderRequestEventArgs {
@@ -852,7 +852,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxDownloadAttachmentReque
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadAttachmentRequest;{0b1dbbb4-750c-48e1-bce4-8d589684ffbc})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxDownloadAttachmentRequest {
-    type Vtable = IEmailMailboxDownloadAttachmentRequestVtbl;
+    type Vtable = IEmailMailboxDownloadAttachmentRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b1dbbb4_750c_48e1_bce4_8d589684ffbc);
 }
 impl ::windows::core::RuntimeName for EmailMailboxDownloadAttachmentRequest {
@@ -942,7 +942,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxDownloadAttachmentReque
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadAttachmentRequestEventArgs;{ccddc46d-ffa8-4877-9f9d-fed7bcaf4104})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxDownloadAttachmentRequestEventArgs {
-    type Vtable = IEmailMailboxDownloadAttachmentRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxDownloadAttachmentRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccddc46d_ffa8_4877_9f9d_fed7bcaf4104);
 }
 impl ::windows::core::RuntimeName for EmailMailboxDownloadAttachmentRequestEventArgs {
@@ -1049,7 +1049,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxDownloadMessageRequest 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadMessageRequest;{497b4187-5b4d-4b23-816c-f3842beb753e})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxDownloadMessageRequest {
-    type Vtable = IEmailMailboxDownloadMessageRequestVtbl;
+    type Vtable = IEmailMailboxDownloadMessageRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x497b4187_5b4d_4b23_816c_f3842beb753e);
 }
 impl ::windows::core::RuntimeName for EmailMailboxDownloadMessageRequest {
@@ -1139,7 +1139,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxDownloadMessageRequestE
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadMessageRequestEventArgs;{470409ad-d0a0-4a5b-bb2a-37621039c53e})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxDownloadMessageRequestEventArgs {
-    type Vtable = IEmailMailboxDownloadMessageRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxDownloadMessageRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x470409ad_d0a0_4a5b_bb2a_37621039c53e);
 }
 impl ::windows::core::RuntimeName for EmailMailboxDownloadMessageRequestEventArgs {
@@ -1246,7 +1246,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxEmptyFolderRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxEmptyFolderRequest;{fe4b03ab-f86d-46d9-b4ce-bc8a6d9e9268})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxEmptyFolderRequest {
-    type Vtable = IEmailMailboxEmptyFolderRequestVtbl;
+    type Vtable = IEmailMailboxEmptyFolderRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe4b03ab_f86d_46d9_b4ce_bc8a6d9e9268);
 }
 impl ::windows::core::RuntimeName for EmailMailboxEmptyFolderRequest {
@@ -1336,7 +1336,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxEmptyFolderRequestEvent
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxEmptyFolderRequestEventArgs;{7183f484-985a-4ac0-b33f-ee0e2627a3c0})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxEmptyFolderRequestEventArgs {
-    type Vtable = IEmailMailboxEmptyFolderRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxEmptyFolderRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7183f484_985a_4ac0_b33f_ee0e2627a3c0);
 }
 impl ::windows::core::RuntimeName for EmailMailboxEmptyFolderRequestEventArgs {
@@ -1484,7 +1484,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxForwardMeetingRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxForwardMeetingRequest;{616d6af1-70d4-4832-b869-b80542ae9be8})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxForwardMeetingRequest {
-    type Vtable = IEmailMailboxForwardMeetingRequestVtbl;
+    type Vtable = IEmailMailboxForwardMeetingRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x616d6af1_70d4_4832_b869_b80542ae9be8);
 }
 impl ::windows::core::RuntimeName for EmailMailboxForwardMeetingRequest {
@@ -1574,7 +1574,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxForwardMeetingRequestEv
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxForwardMeetingRequestEventArgs;{2bd8f33a-2974-4759-a5a5-58f44d3c0275})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxForwardMeetingRequestEventArgs {
-    type Vtable = IEmailMailboxForwardMeetingRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxForwardMeetingRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bd8f33a_2974_4759_a5a5_58f44d3c0275);
 }
 impl ::windows::core::RuntimeName for EmailMailboxForwardMeetingRequestEventArgs {
@@ -1681,7 +1681,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxGetAutoReplySettingsReq
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxGetAutoReplySettingsRequest;{9b380789-1e88-4e01-84cc-1386ad9a2c2f})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxGetAutoReplySettingsRequest {
-    type Vtable = IEmailMailboxGetAutoReplySettingsRequestVtbl;
+    type Vtable = IEmailMailboxGetAutoReplySettingsRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b380789_1e88_4e01_84cc_1386ad9a2c2f);
 }
 impl ::windows::core::RuntimeName for EmailMailboxGetAutoReplySettingsRequest {
@@ -1771,7 +1771,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxGetAutoReplySettingsReq
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxGetAutoReplySettingsRequestEventArgs;{d79f55c2-fd45-4004-8a91-9bacf38b7022})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxGetAutoReplySettingsRequestEventArgs {
-    type Vtable = IEmailMailboxGetAutoReplySettingsRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxGetAutoReplySettingsRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd79f55c2_fd45_4004_8a91_9bacf38b7022);
 }
 impl ::windows::core::RuntimeName for EmailMailboxGetAutoReplySettingsRequestEventArgs {
@@ -1894,7 +1894,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxMoveFolderRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxMoveFolderRequest;{10ba2856-4a95-4068-91cc-67cc7acf454f})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxMoveFolderRequest {
-    type Vtable = IEmailMailboxMoveFolderRequestVtbl;
+    type Vtable = IEmailMailboxMoveFolderRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10ba2856_4a95_4068_91cc_67cc7acf454f);
 }
 impl ::windows::core::RuntimeName for EmailMailboxMoveFolderRequest {
@@ -1984,7 +1984,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxMoveFolderRequestEventA
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxMoveFolderRequestEventArgs;{38623020-14ba-4c88-8698-7239e3c8aaa7})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxMoveFolderRequestEventArgs {
-    type Vtable = IEmailMailboxMoveFolderRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxMoveFolderRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38623020_14ba_4c88_8698_7239e3c8aaa7);
 }
 impl ::windows::core::RuntimeName for EmailMailboxMoveFolderRequestEventArgs {
@@ -2125,7 +2125,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxProposeNewTimeForMeetin
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxProposeNewTimeForMeetingRequest;{5aeff152-9799-4f9f-a399-ff07f3eef04e})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxProposeNewTimeForMeetingRequest {
-    type Vtable = IEmailMailboxProposeNewTimeForMeetingRequestVtbl;
+    type Vtable = IEmailMailboxProposeNewTimeForMeetingRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5aeff152_9799_4f9f_a399_ff07f3eef04e);
 }
 impl ::windows::core::RuntimeName for EmailMailboxProposeNewTimeForMeetingRequest {
@@ -2215,7 +2215,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxProposeNewTimeForMeetin
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxProposeNewTimeForMeetingRequestEventArgs;{fb480b98-33ad-4a67-8251-0f9c249b6a20})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
-    type Vtable = IEmailMailboxProposeNewTimeForMeetingRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxProposeNewTimeForMeetingRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb480b98_33ad_4a67_8251_0f9c249b6a20);
 }
 impl ::windows::core::RuntimeName for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
@@ -2323,7 +2323,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxResolveRecipientsReques
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxResolveRecipientsRequest;{efa4cf70-7b39-4c9b-811e-41eaf43a332d})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxResolveRecipientsRequest {
-    type Vtable = IEmailMailboxResolveRecipientsRequestVtbl;
+    type Vtable = IEmailMailboxResolveRecipientsRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa4cf70_7b39_4c9b_811e_41eaf43a332d);
 }
 impl ::windows::core::RuntimeName for EmailMailboxResolveRecipientsRequest {
@@ -2413,7 +2413,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxResolveRecipientsReques
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxResolveRecipientsRequestEventArgs;{260f9e02-b2cf-40f8-8c28-e3ed43b1e89a})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxResolveRecipientsRequestEventArgs {
-    type Vtable = IEmailMailboxResolveRecipientsRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxResolveRecipientsRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x260f9e02_b2cf_40f8_8c28_e3ed43b1e89a);
 }
 impl ::windows::core::RuntimeName for EmailMailboxResolveRecipientsRequestEventArgs {
@@ -2553,7 +2553,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxServerSearchReadBatchRe
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxServerSearchReadBatchRequest;{090eebdf-5a96-41d3-8ad8-34912f9aa60e})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxServerSearchReadBatchRequest {
-    type Vtable = IEmailMailboxServerSearchReadBatchRequestVtbl;
+    type Vtable = IEmailMailboxServerSearchReadBatchRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x090eebdf_5a96_41d3_8ad8_34912f9aa60e);
 }
 impl ::windows::core::RuntimeName for EmailMailboxServerSearchReadBatchRequest {
@@ -2643,7 +2643,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxServerSearchReadBatchRe
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxServerSearchReadBatchRequestEventArgs;{14101b4e-ed9e-45d1-ad7a-cc9b7f643ae2})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxServerSearchReadBatchRequestEventArgs {
-    type Vtable = IEmailMailboxServerSearchReadBatchRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxServerSearchReadBatchRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14101b4e_ed9e_45d1_ad7a_cc9b7f643ae2);
 }
 impl ::windows::core::RuntimeName for EmailMailboxServerSearchReadBatchRequestEventArgs {
@@ -2750,7 +2750,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxSetAutoReplySettingsReq
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxSetAutoReplySettingsRequest;{75a422d0-a88e-4e54-8dc7-c243186b774e})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxSetAutoReplySettingsRequest {
-    type Vtable = IEmailMailboxSetAutoReplySettingsRequestVtbl;
+    type Vtable = IEmailMailboxSetAutoReplySettingsRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75a422d0_a88e_4e54_8dc7_c243186b774e);
 }
 impl ::windows::core::RuntimeName for EmailMailboxSetAutoReplySettingsRequest {
@@ -2840,7 +2840,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxSetAutoReplySettingsReq
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxSetAutoReplySettingsRequestEventArgs;{09da11ad-d7ca-4087-ac86-53fa67f76246})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxSetAutoReplySettingsRequestEventArgs {
-    type Vtable = IEmailMailboxSetAutoReplySettingsRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxSetAutoReplySettingsRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09da11ad_d7ca_4087_ac86_53fa67f76246);
 }
 impl ::windows::core::RuntimeName for EmailMailboxSetAutoReplySettingsRequestEventArgs {
@@ -2939,7 +2939,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxSyncManagerSyncRequest 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxSyncManagerSyncRequest;{4e10e8e4-7e67-405a-b673-dc60c91090fc})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxSyncManagerSyncRequest {
-    type Vtable = IEmailMailboxSyncManagerSyncRequestVtbl;
+    type Vtable = IEmailMailboxSyncManagerSyncRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e10e8e4_7e67_405a_b673_dc60c91090fc);
 }
 impl ::windows::core::RuntimeName for EmailMailboxSyncManagerSyncRequest {
@@ -3029,7 +3029,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxSyncManagerSyncRequestE
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxSyncManagerSyncRequestEventArgs;{439a031a-8fcc-4ae5-b9b5-d434e0a65aa8})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxSyncManagerSyncRequestEventArgs {
-    type Vtable = IEmailMailboxSyncManagerSyncRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxSyncManagerSyncRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x439a031a_8fcc_4ae5_b9b5_d434e0a65aa8);
 }
 impl ::windows::core::RuntimeName for EmailMailboxSyncManagerSyncRequestEventArgs {
@@ -3168,7 +3168,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxUpdateMeetingResponseRe
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxUpdateMeetingResponseRequest;{5b99ac93-b2cf-4888-ba4f-306b6b66df30})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxUpdateMeetingResponseRequest {
-    type Vtable = IEmailMailboxUpdateMeetingResponseRequestVtbl;
+    type Vtable = IEmailMailboxUpdateMeetingResponseRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b99ac93_b2cf_4888_ba4f_306b6b66df30);
 }
 impl ::windows::core::RuntimeName for EmailMailboxUpdateMeetingResponseRequest {
@@ -3258,7 +3258,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxUpdateMeetingResponseRe
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxUpdateMeetingResponseRequestEventArgs;{6898d761-56c9-4f17-be31-66fda94ba159})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxUpdateMeetingResponseRequestEventArgs {
-    type Vtable = IEmailMailboxUpdateMeetingResponseRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxUpdateMeetingResponseRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6898d761_56c9_4f17_be31_66fda94ba159);
 }
 impl ::windows::core::RuntimeName for EmailMailboxUpdateMeetingResponseRequestEventArgs {
@@ -3366,7 +3366,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxValidateCertificatesReq
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxValidateCertificatesRequest;{a94d3931-e11a-4f97-b81a-187a70a8f41a})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxValidateCertificatesRequest {
-    type Vtable = IEmailMailboxValidateCertificatesRequestVtbl;
+    type Vtable = IEmailMailboxValidateCertificatesRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa94d3931_e11a_4f97_b81a_187a70a8f41a);
 }
 impl ::windows::core::RuntimeName for EmailMailboxValidateCertificatesRequest {
@@ -3456,7 +3456,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxValidateCertificatesReq
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxValidateCertificatesRequestEventArgs;{2583bf17-02ff-49fe-a73c-03f37566c691})");
 }
 unsafe impl ::windows::core::Interface for EmailMailboxValidateCertificatesRequestEventArgs {
-    type Vtable = IEmailMailboxValidateCertificatesRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxValidateCertificatesRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2583bf17_02ff_49fe_a73c_03f37566c691);
 }
 impl ::windows::core::RuntimeName for EmailMailboxValidateCertificatesRequestEventArgs {
@@ -3508,12 +3508,12 @@ unsafe impl ::core::marker::Sync for EmailMailboxValidateCertificatesRequestEven
 #[repr(transparent)]
 pub struct IEmailDataProviderConnection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailDataProviderConnection {
-    type Vtable = IEmailDataProviderConnectionVtbl;
+    type Vtable = IEmailDataProviderConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b9c9dc7_37b2_4bf0_ae30_7b644a1c96e1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailDataProviderConnectionVtbl {
+pub struct IEmailDataProviderConnection_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub MailboxSyncRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -3641,12 +3641,12 @@ pub struct IEmailDataProviderConnectionVtbl {
 #[repr(transparent)]
 pub struct IEmailDataProviderTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailDataProviderTriggerDetails {
-    type Vtable = IEmailDataProviderTriggerDetailsVtbl;
+    type Vtable = IEmailDataProviderTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f3e4e50_341e_45f3_bba0_84a005e1319a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailDataProviderTriggerDetailsVtbl {
+pub struct IEmailDataProviderTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Connection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -3654,12 +3654,12 @@ pub struct IEmailDataProviderTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxCreateFolderRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxCreateFolderRequest {
-    type Vtable = IEmailMailboxCreateFolderRequestVtbl;
+    type Vtable = IEmailMailboxCreateFolderRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x184d3775_c921_4c39_a309_e16c9f22b04b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxCreateFolderRequestVtbl {
+pub struct IEmailMailboxCreateFolderRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ParentFolderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3677,12 +3677,12 @@ pub struct IEmailMailboxCreateFolderRequestVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxCreateFolderRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxCreateFolderRequestEventArgs {
-    type Vtable = IEmailMailboxCreateFolderRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxCreateFolderRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03e4c02c_241c_4ea9_a68f_ff20bc5afc85);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxCreateFolderRequestEventArgsVtbl {
+pub struct IEmailMailboxCreateFolderRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -3694,12 +3694,12 @@ pub struct IEmailMailboxCreateFolderRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxDeleteFolderRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxDeleteFolderRequest {
-    type Vtable = IEmailMailboxDeleteFolderRequestVtbl;
+    type Vtable = IEmailMailboxDeleteFolderRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9469e88a_a931_4779_923d_09a3ea292e29);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxDeleteFolderRequestVtbl {
+pub struct IEmailMailboxDeleteFolderRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub EmailFolderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3716,12 +3716,12 @@ pub struct IEmailMailboxDeleteFolderRequestVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxDeleteFolderRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxDeleteFolderRequestEventArgs {
-    type Vtable = IEmailMailboxDeleteFolderRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxDeleteFolderRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4d32d06_2332_4678_8378_28b579336846);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxDeleteFolderRequestEventArgsVtbl {
+pub struct IEmailMailboxDeleteFolderRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -3733,12 +3733,12 @@ pub struct IEmailMailboxDeleteFolderRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxDownloadAttachmentRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxDownloadAttachmentRequest {
-    type Vtable = IEmailMailboxDownloadAttachmentRequestVtbl;
+    type Vtable = IEmailMailboxDownloadAttachmentRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b1dbbb4_750c_48e1_bce4_8d589684ffbc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxDownloadAttachmentRequestVtbl {
+pub struct IEmailMailboxDownloadAttachmentRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub EmailMessageId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3756,12 +3756,12 @@ pub struct IEmailMailboxDownloadAttachmentRequestVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxDownloadAttachmentRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxDownloadAttachmentRequestEventArgs {
-    type Vtable = IEmailMailboxDownloadAttachmentRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxDownloadAttachmentRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccddc46d_ffa8_4877_9f9d_fed7bcaf4104);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxDownloadAttachmentRequestEventArgsVtbl {
+pub struct IEmailMailboxDownloadAttachmentRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -3773,12 +3773,12 @@ pub struct IEmailMailboxDownloadAttachmentRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxDownloadMessageRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxDownloadMessageRequest {
-    type Vtable = IEmailMailboxDownloadMessageRequestVtbl;
+    type Vtable = IEmailMailboxDownloadMessageRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x497b4187_5b4d_4b23_816c_f3842beb753e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxDownloadMessageRequestVtbl {
+pub struct IEmailMailboxDownloadMessageRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub EmailMessageId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3795,12 +3795,12 @@ pub struct IEmailMailboxDownloadMessageRequestVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxDownloadMessageRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxDownloadMessageRequestEventArgs {
-    type Vtable = IEmailMailboxDownloadMessageRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxDownloadMessageRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x470409ad_d0a0_4a5b_bb2a_37621039c53e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxDownloadMessageRequestEventArgsVtbl {
+pub struct IEmailMailboxDownloadMessageRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -3812,12 +3812,12 @@ pub struct IEmailMailboxDownloadMessageRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxEmptyFolderRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxEmptyFolderRequest {
-    type Vtable = IEmailMailboxEmptyFolderRequestVtbl;
+    type Vtable = IEmailMailboxEmptyFolderRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe4b03ab_f86d_46d9_b4ce_bc8a6d9e9268);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxEmptyFolderRequestVtbl {
+pub struct IEmailMailboxEmptyFolderRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub EmailFolderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3834,12 +3834,12 @@ pub struct IEmailMailboxEmptyFolderRequestVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxEmptyFolderRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxEmptyFolderRequestEventArgs {
-    type Vtable = IEmailMailboxEmptyFolderRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxEmptyFolderRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7183f484_985a_4ac0_b33f_ee0e2627a3c0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxEmptyFolderRequestEventArgsVtbl {
+pub struct IEmailMailboxEmptyFolderRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -3851,12 +3851,12 @@ pub struct IEmailMailboxEmptyFolderRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxForwardMeetingRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxForwardMeetingRequest {
-    type Vtable = IEmailMailboxForwardMeetingRequestVtbl;
+    type Vtable = IEmailMailboxForwardMeetingRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x616d6af1_70d4_4832_b869_b80542ae9be8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxForwardMeetingRequestVtbl {
+pub struct IEmailMailboxForwardMeetingRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub EmailMessageId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3881,12 +3881,12 @@ pub struct IEmailMailboxForwardMeetingRequestVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxForwardMeetingRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxForwardMeetingRequestEventArgs {
-    type Vtable = IEmailMailboxForwardMeetingRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxForwardMeetingRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bd8f33a_2974_4759_a5a5_58f44d3c0275);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxForwardMeetingRequestEventArgsVtbl {
+pub struct IEmailMailboxForwardMeetingRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -3898,12 +3898,12 @@ pub struct IEmailMailboxForwardMeetingRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxGetAutoReplySettingsRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxGetAutoReplySettingsRequest {
-    type Vtable = IEmailMailboxGetAutoReplySettingsRequestVtbl;
+    type Vtable = IEmailMailboxGetAutoReplySettingsRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b380789_1e88_4e01_84cc_1386ad9a2c2f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxGetAutoReplySettingsRequestVtbl {
+pub struct IEmailMailboxGetAutoReplySettingsRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub RequestedFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::EmailMailboxAutoReplyMessageResponseKind) -> ::windows::core::HRESULT,
@@ -3920,12 +3920,12 @@ pub struct IEmailMailboxGetAutoReplySettingsRequestVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxGetAutoReplySettingsRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxGetAutoReplySettingsRequestEventArgs {
-    type Vtable = IEmailMailboxGetAutoReplySettingsRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxGetAutoReplySettingsRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd79f55c2_fd45_4004_8a91_9bacf38b7022);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxGetAutoReplySettingsRequestEventArgsVtbl {
+pub struct IEmailMailboxGetAutoReplySettingsRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -3937,12 +3937,12 @@ pub struct IEmailMailboxGetAutoReplySettingsRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxMoveFolderRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxMoveFolderRequest {
-    type Vtable = IEmailMailboxMoveFolderRequestVtbl;
+    type Vtable = IEmailMailboxMoveFolderRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10ba2856_4a95_4068_91cc_67cc7acf454f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxMoveFolderRequestVtbl {
+pub struct IEmailMailboxMoveFolderRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub EmailFolderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3961,12 +3961,12 @@ pub struct IEmailMailboxMoveFolderRequestVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxMoveFolderRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxMoveFolderRequestEventArgs {
-    type Vtable = IEmailMailboxMoveFolderRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxMoveFolderRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38623020_14ba_4c88_8698_7239e3c8aaa7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxMoveFolderRequestEventArgsVtbl {
+pub struct IEmailMailboxMoveFolderRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -3978,12 +3978,12 @@ pub struct IEmailMailboxMoveFolderRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxProposeNewTimeForMeetingRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxProposeNewTimeForMeetingRequest {
-    type Vtable = IEmailMailboxProposeNewTimeForMeetingRequestVtbl;
+    type Vtable = IEmailMailboxProposeNewTimeForMeetingRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5aeff152_9799_4f9f_a399_ff07f3eef04e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxProposeNewTimeForMeetingRequestVtbl {
+pub struct IEmailMailboxProposeNewTimeForMeetingRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub EmailMessageId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4010,12 +4010,12 @@ pub struct IEmailMailboxProposeNewTimeForMeetingRequestVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxProposeNewTimeForMeetingRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxProposeNewTimeForMeetingRequestEventArgs {
-    type Vtable = IEmailMailboxProposeNewTimeForMeetingRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxProposeNewTimeForMeetingRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb480b98_33ad_4a67_8251_0f9c249b6a20);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxProposeNewTimeForMeetingRequestEventArgsVtbl {
+pub struct IEmailMailboxProposeNewTimeForMeetingRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -4027,12 +4027,12 @@ pub struct IEmailMailboxProposeNewTimeForMeetingRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxResolveRecipientsRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxResolveRecipientsRequest {
-    type Vtable = IEmailMailboxResolveRecipientsRequestVtbl;
+    type Vtable = IEmailMailboxResolveRecipientsRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa4cf70_7b39_4c9b_811e_41eaf43a332d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxResolveRecipientsRequestVtbl {
+pub struct IEmailMailboxResolveRecipientsRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -4052,12 +4052,12 @@ pub struct IEmailMailboxResolveRecipientsRequestVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxResolveRecipientsRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxResolveRecipientsRequestEventArgs {
-    type Vtable = IEmailMailboxResolveRecipientsRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxResolveRecipientsRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x260f9e02_b2cf_40f8_8c28_e3ed43b1e89a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxResolveRecipientsRequestEventArgsVtbl {
+pub struct IEmailMailboxResolveRecipientsRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -4069,12 +4069,12 @@ pub struct IEmailMailboxResolveRecipientsRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxServerSearchReadBatchRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxServerSearchReadBatchRequest {
-    type Vtable = IEmailMailboxServerSearchReadBatchRequestVtbl;
+    type Vtable = IEmailMailboxServerSearchReadBatchRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x090eebdf_5a96_41d3_8ad8_34912f9aa60e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxServerSearchReadBatchRequestVtbl {
+pub struct IEmailMailboxServerSearchReadBatchRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SessionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4098,12 +4098,12 @@ pub struct IEmailMailboxServerSearchReadBatchRequestVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxServerSearchReadBatchRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxServerSearchReadBatchRequestEventArgs {
-    type Vtable = IEmailMailboxServerSearchReadBatchRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxServerSearchReadBatchRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14101b4e_ed9e_45d1_ad7a_cc9b7f643ae2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxServerSearchReadBatchRequestEventArgsVtbl {
+pub struct IEmailMailboxServerSearchReadBatchRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -4115,12 +4115,12 @@ pub struct IEmailMailboxServerSearchReadBatchRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxSetAutoReplySettingsRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxSetAutoReplySettingsRequest {
-    type Vtable = IEmailMailboxSetAutoReplySettingsRequestVtbl;
+    type Vtable = IEmailMailboxSetAutoReplySettingsRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75a422d0_a88e_4e54_8dc7_c243186b774e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxSetAutoReplySettingsRequestVtbl {
+pub struct IEmailMailboxSetAutoReplySettingsRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub AutoReplySettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4137,12 +4137,12 @@ pub struct IEmailMailboxSetAutoReplySettingsRequestVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxSetAutoReplySettingsRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxSetAutoReplySettingsRequestEventArgs {
-    type Vtable = IEmailMailboxSetAutoReplySettingsRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxSetAutoReplySettingsRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09da11ad_d7ca_4087_ac86_53fa67f76246);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxSetAutoReplySettingsRequestEventArgsVtbl {
+pub struct IEmailMailboxSetAutoReplySettingsRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -4154,12 +4154,12 @@ pub struct IEmailMailboxSetAutoReplySettingsRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxSyncManagerSyncRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxSyncManagerSyncRequest {
-    type Vtable = IEmailMailboxSyncManagerSyncRequestVtbl;
+    type Vtable = IEmailMailboxSyncManagerSyncRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e10e8e4_7e67_405a_b673_dc60c91090fc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxSyncManagerSyncRequestVtbl {
+pub struct IEmailMailboxSyncManagerSyncRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -4175,12 +4175,12 @@ pub struct IEmailMailboxSyncManagerSyncRequestVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxSyncManagerSyncRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxSyncManagerSyncRequestEventArgs {
-    type Vtable = IEmailMailboxSyncManagerSyncRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxSyncManagerSyncRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x439a031a_8fcc_4ae5_b9b5_d434e0a65aa8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxSyncManagerSyncRequestEventArgsVtbl {
+pub struct IEmailMailboxSyncManagerSyncRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -4192,12 +4192,12 @@ pub struct IEmailMailboxSyncManagerSyncRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxUpdateMeetingResponseRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxUpdateMeetingResponseRequest {
-    type Vtable = IEmailMailboxUpdateMeetingResponseRequestVtbl;
+    type Vtable = IEmailMailboxUpdateMeetingResponseRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b99ac93_b2cf_4888_ba4f_306b6b66df30);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxUpdateMeetingResponseRequestVtbl {
+pub struct IEmailMailboxUpdateMeetingResponseRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub EmailMessageId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4218,12 +4218,12 @@ pub struct IEmailMailboxUpdateMeetingResponseRequestVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxUpdateMeetingResponseRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxUpdateMeetingResponseRequestEventArgs {
-    type Vtable = IEmailMailboxUpdateMeetingResponseRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxUpdateMeetingResponseRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6898d761_56c9_4f17_be31_66fda94ba159);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxUpdateMeetingResponseRequestEventArgsVtbl {
+pub struct IEmailMailboxUpdateMeetingResponseRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -4235,12 +4235,12 @@ pub struct IEmailMailboxUpdateMeetingResponseRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxValidateCertificatesRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxValidateCertificatesRequest {
-    type Vtable = IEmailMailboxValidateCertificatesRequestVtbl;
+    type Vtable = IEmailMailboxValidateCertificatesRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa94d3931_e11a_4f97_b81a_187a70a8f41a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxValidateCertificatesRequestVtbl {
+pub struct IEmailMailboxValidateCertificatesRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EmailMailboxId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
@@ -4260,12 +4260,12 @@ pub struct IEmailMailboxValidateCertificatesRequestVtbl {
 #[repr(transparent)]
 pub struct IEmailMailboxValidateCertificatesRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailMailboxValidateCertificatesRequestEventArgs {
-    type Vtable = IEmailMailboxValidateCertificatesRequestEventArgsVtbl;
+    type Vtable = IEmailMailboxValidateCertificatesRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2583bf17_02ff_49fe_a73c_03f37566c691);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailMailboxValidateCertificatesRequestEventArgsVtbl {
+pub struct IEmailMailboxValidateCertificatesRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]

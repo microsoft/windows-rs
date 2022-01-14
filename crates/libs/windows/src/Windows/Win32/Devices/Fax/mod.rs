@@ -3285,14 +3285,14 @@ impl ::core::fmt::Debug for IFaxAccount {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxAccount {
-    type Vtable = IFaxAccountVtbl;
+    type Vtable = IFaxAccount_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68535b33_5dc4_4086_be26_b76f9b711006);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxAccountVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxAccount_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AccountName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstraccountname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3427,14 +3427,14 @@ impl ::core::fmt::Debug for IFaxAccountFolders {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxAccountFolders {
-    type Vtable = IFaxAccountFoldersVtbl;
+    type Vtable = IFaxAccountFolders_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6463f89d_23d8_46a9_8f86_c47b77ca7926);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxAccountFoldersVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxAccountFolders_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub OutgoingQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfaxoutgoingqueue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3577,14 +3577,14 @@ impl ::core::fmt::Debug for IFaxAccountIncomingArchive {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxAccountIncomingArchive {
-    type Vtable = IFaxAccountIncomingArchiveVtbl;
+    type Vtable = IFaxAccountIncomingArchive_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8a5b6ef_e0d6_4aee_955c_91625bec9db4);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxAccountIncomingArchiveVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxAccountIncomingArchive_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub SizeLow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsizelow: *mut i32) -> ::windows::core::HRESULT,
     pub SizeHigh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsizehigh: *mut i32) -> ::windows::core::HRESULT,
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3708,14 +3708,14 @@ impl ::core::fmt::Debug for IFaxAccountIncomingQueue {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxAccountIncomingQueue {
-    type Vtable = IFaxAccountIncomingQueueVtbl;
+    type Vtable = IFaxAccountIncomingQueue_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd142d92_0186_4a95_a090_cbc3eadba6b4);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxAccountIncomingQueueVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxAccountIncomingQueue_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetJobs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfaxincomingjobs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3824,14 +3824,14 @@ impl ::core::fmt::Debug for IFaxAccountNotify {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxAccountNotify {
-    type Vtable = IFaxAccountNotifyVtbl;
+    type Vtable = IFaxAccountNotify_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b5e5bd1_b8a9_47a0_a323_ef4a293ba06a);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxAccountNotifyVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxAccountNotify_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3958,14 +3958,14 @@ impl ::core::fmt::Debug for IFaxAccountOutgoingArchive {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxAccountOutgoingArchive {
-    type Vtable = IFaxAccountOutgoingArchiveVtbl;
+    type Vtable = IFaxAccountOutgoingArchive_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5463076d_ec14_491f_926e_b3ceda5e5662);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxAccountOutgoingArchiveVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxAccountOutgoingArchive_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub SizeLow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsizelow: *mut i32) -> ::windows::core::HRESULT,
     pub SizeHigh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsizehigh: *mut i32) -> ::windows::core::HRESULT,
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4089,14 +4089,14 @@ impl ::core::fmt::Debug for IFaxAccountOutgoingQueue {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxAccountOutgoingQueue {
-    type Vtable = IFaxAccountOutgoingQueueVtbl;
+    type Vtable = IFaxAccountOutgoingQueue_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f1424e9_f22d_4553_b7a5_0d24bd0d7e46);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxAccountOutgoingQueueVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxAccountOutgoingQueue_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetJobs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfaxoutgoingjobs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4228,14 +4228,14 @@ impl ::core::fmt::Debug for IFaxAccountSet {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxAccountSet {
-    type Vtable = IFaxAccountSetVtbl;
+    type Vtable = IFaxAccountSet_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7428fbae_841e_47b8_86f4_2288946dca1b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxAccountSetVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxAccountSet_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetAccounts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppfaxaccounts: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4368,14 +4368,14 @@ impl ::core::fmt::Debug for IFaxAccounts {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxAccounts {
-    type Vtable = IFaxAccountsVtbl;
+    type Vtable = IFaxAccounts_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93ea8162_8be7_42d1_ae7b_ec74e2d989da);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxAccountsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxAccounts_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxaccount: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4506,14 +4506,14 @@ impl ::core::fmt::Debug for IFaxActivity {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxActivity {
-    type Vtable = IFaxActivityVtbl;
+    type Vtable = IFaxActivity_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b106f97_3df5_40f2_bc3c_44cb8115ebdf);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxActivityVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxActivity_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub IncomingMessages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plincomingmessages: *mut i32) -> ::windows::core::HRESULT,
     pub RoutingMessages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plroutingmessages: *mut i32) -> ::windows::core::HRESULT,
     pub OutgoingMessages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ploutgoingmessages: *mut i32) -> ::windows::core::HRESULT,
@@ -4656,14 +4656,14 @@ impl ::core::fmt::Debug for IFaxActivityLogging {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxActivityLogging {
-    type Vtable = IFaxActivityLoggingVtbl;
+    type Vtable = IFaxActivityLogging_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e29078b_5a69_497b_9592_49b7e7faddb5);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxActivityLoggingVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxActivityLogging_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub LogIncoming: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblogincoming: *mut i16) -> ::windows::core::HRESULT,
     pub SetLogIncoming: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blogincoming: i16) -> ::windows::core::HRESULT,
     pub LogOutgoing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblogoutgoing: *mut i16) -> ::windows::core::HRESULT,
@@ -4969,14 +4969,14 @@ impl ::core::fmt::Debug for IFaxConfiguration {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxConfiguration {
-    type Vtable = IFaxConfigurationVtbl;
+    type Vtable = IFaxConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10f4d0f7_0994_4543_ab6e_506949128c40);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxConfigurationVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxConfiguration_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub UseArchive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbusearchive: *mut i16) -> ::windows::core::HRESULT,
     pub SetUseArchive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, busearchive: i16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -5256,14 +5256,14 @@ impl ::core::fmt::Debug for IFaxDevice {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxDevice {
-    type Vtable = IFaxDeviceVtbl;
+    type Vtable = IFaxDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49306c59_b52e_4867_9df4_ca5841c956d0);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxDeviceVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxDevice_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub DeviceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdevicename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -5453,14 +5453,14 @@ impl ::core::fmt::Debug for IFaxDeviceIds {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxDeviceIds {
-    type Vtable = IFaxDeviceIdsVtbl;
+    type Vtable = IFaxDeviceIds_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f0f813f_4ce9_443e_8ca1_738cfaeee149);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxDeviceIdsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxDeviceIds_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pldeviceid: *mut i32) -> ::windows::core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
@@ -5632,14 +5632,14 @@ impl ::core::fmt::Debug for IFaxDeviceProvider {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxDeviceProvider {
-    type Vtable = IFaxDeviceProviderVtbl;
+    type Vtable = IFaxDeviceProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x290eac63_83ec_449c_8417_f148df8c682a);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxDeviceProviderVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxDeviceProvider_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfriendlyname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5783,14 +5783,14 @@ impl ::core::fmt::Debug for IFaxDeviceProviders {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxDeviceProviders {
-    type Vtable = IFaxDeviceProvidersVtbl;
+    type Vtable = IFaxDeviceProviders_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fb76f62_4c7e_43a5_b6fd_502893f7e13e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxDeviceProvidersVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxDeviceProviders_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxdeviceprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5919,14 +5919,14 @@ impl ::core::fmt::Debug for IFaxDevices {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxDevices {
-    type Vtable = IFaxDevicesVtbl;
+    type Vtable = IFaxDevices_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e46783e_f34f_482e_a360_0416becbbd96);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxDevicesVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxDevices_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6210,14 +6210,14 @@ impl ::core::fmt::Debug for IFaxDocument {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxDocument {
-    type Vtable = IFaxDocumentVtbl;
+    type Vtable = IFaxDocument_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb207a246_09e3_4a4e_a7dc_fea31d29458f);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxDocumentVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxDocument_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Body: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbody: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6630,14 +6630,14 @@ impl ::core::fmt::Debug for IFaxDocument2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxDocument2 {
-    type Vtable = IFaxDocument2Vtbl;
+    type Vtable = IFaxDocument2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1347661_f9ef_4d6d_b4a5_c0a068b65cff);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxDocument2Vtbl {
-    pub base: IFaxDocumentVtbl,
+pub struct IFaxDocument2_Vtbl {
+    pub base: IFaxDocument_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SubmissionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsubmissionid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6802,14 +6802,14 @@ impl ::core::fmt::Debug for IFaxEventLogging {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxEventLogging {
-    type Vtable = IFaxEventLoggingVtbl;
+    type Vtable = IFaxEventLogging_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0880d965_20e8_42e4_8e17_944f192caad4);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxEventLoggingVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxEventLogging_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub InitEventsLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piniteventlevel: *mut FAX_LOG_LEVEL_ENUM) -> ::windows::core::HRESULT,
     pub SetInitEventsLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, initeventlevel: FAX_LOG_LEVEL_ENUM) -> ::windows::core::HRESULT,
     pub InboundEventsLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinboundeventlevel: *mut FAX_LOG_LEVEL_ENUM) -> ::windows::core::HRESULT,
@@ -6944,14 +6944,14 @@ impl ::core::fmt::Debug for IFaxFolders {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxFolders {
-    type Vtable = IFaxFoldersVtbl;
+    type Vtable = IFaxFolders_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdce3b2a8_a7ab_42bc_9d0a_3149457261a0);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxFoldersVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxFolders_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub OutgoingQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfaxoutgoingqueue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7080,14 +7080,14 @@ impl ::core::fmt::Debug for IFaxInboundRouting {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxInboundRouting {
-    type Vtable = IFaxInboundRoutingVtbl;
+    type Vtable = IFaxInboundRouting_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8148c20f_9d52_45b1_bf96_38fc12713527);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxInboundRoutingVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxInboundRouting_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetExtensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfaxinboundroutingextensions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7255,14 +7255,14 @@ impl ::core::fmt::Debug for IFaxInboundRoutingExtension {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxInboundRoutingExtension {
-    type Vtable = IFaxInboundRoutingExtensionVtbl;
+    type Vtable = IFaxInboundRoutingExtension_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x885b5e08_c26c_4ef9_af83_51580a750be1);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxInboundRoutingExtensionVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxInboundRoutingExtension_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfriendlyname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7402,14 +7402,14 @@ impl ::core::fmt::Debug for IFaxInboundRoutingExtensions {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxInboundRoutingExtensions {
-    type Vtable = IFaxInboundRoutingExtensionsVtbl;
+    type Vtable = IFaxInboundRoutingExtensions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f6c9673_7b26_42de_8eb0_915dcd2a4f4c);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxInboundRoutingExtensionsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxInboundRoutingExtensions_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxinboundroutingextension: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7563,14 +7563,14 @@ impl ::core::fmt::Debug for IFaxInboundRoutingMethod {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxInboundRoutingMethod {
-    type Vtable = IFaxInboundRoutingMethodVtbl;
+    type Vtable = IFaxInboundRoutingMethod_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45700061_ad9d_4776_a8c4_64065492cf4b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxInboundRoutingMethodVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxInboundRoutingMethod_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7711,14 +7711,14 @@ impl ::core::fmt::Debug for IFaxInboundRoutingMethods {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxInboundRoutingMethods {
-    type Vtable = IFaxInboundRoutingMethodsVtbl;
+    type Vtable = IFaxInboundRoutingMethods_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x783fca10_8908_4473_9d69_f67fbea0c6b9);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxInboundRoutingMethodsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxInboundRoutingMethods_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxinboundroutingmethod: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7911,14 +7911,14 @@ impl ::core::fmt::Debug for IFaxIncomingArchive {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxIncomingArchive {
-    type Vtable = IFaxIncomingArchiveVtbl;
+    type Vtable = IFaxIncomingArchive_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76062cc7_f714_4fbd_aa06_ed6e4a4b70f3);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxIncomingArchiveVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxIncomingArchive_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub UseArchive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbusearchive: *mut i16) -> ::windows::core::HRESULT,
     pub SetUseArchive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, busearchive: i16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -8148,14 +8148,14 @@ impl ::core::fmt::Debug for IFaxIncomingJob {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxIncomingJob {
-    type Vtable = IFaxIncomingJobVtbl;
+    type Vtable = IFaxIncomingJob_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x207529e6_654a_4916_9f88_4d232ee8a107);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxIncomingJobVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxIncomingJob_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsize: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -8312,14 +8312,14 @@ impl ::core::fmt::Debug for IFaxIncomingJobs {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxIncomingJobs {
-    type Vtable = IFaxIncomingJobsVtbl;
+    type Vtable = IFaxIncomingJobs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x011f04e9_4fd6_4c23_9513_b6b66bb26be9);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxIncomingJobsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxIncomingJobs_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxincomingjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8496,14 +8496,14 @@ impl ::core::fmt::Debug for IFaxIncomingMessage {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxIncomingMessage {
-    type Vtable = IFaxIncomingMessageVtbl;
+    type Vtable = IFaxIncomingMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cab88fa_2ef9_4851_b2f3_1d148fed8447);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxIncomingMessageVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxIncomingMessage_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8811,14 +8811,14 @@ impl ::core::fmt::Debug for IFaxIncomingMessage2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxIncomingMessage2 {
-    type Vtable = IFaxIncomingMessage2Vtbl;
+    type Vtable = IFaxIncomingMessage2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9208503_e2bc_48f3_9ec0_e6236f9b509a);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxIncomingMessage2Vtbl {
-    pub base: IFaxIncomingMessageVtbl,
+pub struct IFaxIncomingMessage2_Vtbl {
+    pub base: IFaxIncomingMessage_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Subject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsubject: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8987,14 +8987,14 @@ impl ::core::fmt::Debug for IFaxIncomingMessageIterator {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxIncomingMessageIterator {
-    type Vtable = IFaxIncomingMessageIteratorVtbl;
+    type Vtable = IFaxIncomingMessageIterator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd73ecc4_6f06_4f52_82a8_f7ba06ae3108);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxIncomingMessageIteratorVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxIncomingMessageIterator_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfaxincomingmessage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -9133,14 +9133,14 @@ impl ::core::fmt::Debug for IFaxIncomingQueue {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxIncomingQueue {
-    type Vtable = IFaxIncomingQueueVtbl;
+    type Vtable = IFaxIncomingQueue_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x902e64ef_8fd8_4b75_9725_6014df161545);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxIncomingQueueVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxIncomingQueue_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Blocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbblocked: *mut i16) -> ::windows::core::HRESULT,
     pub SetBlocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bblocked: i16) -> ::windows::core::HRESULT,
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -9343,14 +9343,14 @@ impl ::core::fmt::Debug for IFaxJobStatus {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxJobStatus {
-    type Vtable = IFaxJobStatusVtbl;
+    type Vtable = IFaxJobStatus_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b86f485_fd7f_4824_886b_40c5caa617cc);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxJobStatusVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxJobStatus_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatus: *mut FAX_JOB_STATUS_ENUM) -> ::windows::core::HRESULT,
     pub Pages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plpages: *mut i32) -> ::windows::core::HRESULT,
     pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsize: *mut i32) -> ::windows::core::HRESULT,
@@ -9495,14 +9495,14 @@ impl ::core::fmt::Debug for IFaxLoggingOptions {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxLoggingOptions {
-    type Vtable = IFaxLoggingOptionsVtbl;
+    type Vtable = IFaxLoggingOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34e64fb9_6b31_4d32_8b27_d286c0c33606);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxLoggingOptionsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxLoggingOptions_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub EventLogging: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfaxeventlogging: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -9623,14 +9623,14 @@ impl ::core::fmt::Debug for IFaxOutboundRouting {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxOutboundRouting {
-    type Vtable = IFaxOutboundRoutingVtbl;
+    type Vtable = IFaxOutboundRouting_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25dc05a4_9909_41bd_a95b_7e5d1dec1d43);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxOutboundRoutingVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxOutboundRouting_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfaxoutboundroutinggroups: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -9756,14 +9756,14 @@ impl ::core::fmt::Debug for IFaxOutboundRoutingGroup {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxOutboundRoutingGroup {
-    type Vtable = IFaxOutboundRoutingGroupVtbl;
+    type Vtable = IFaxOutboundRoutingGroup_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca6289a1_7e25_4f87_9a0b_93365734962c);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxOutboundRoutingGroupVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxOutboundRoutingGroup_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9900,14 +9900,14 @@ impl ::core::fmt::Debug for IFaxOutboundRoutingGroups {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxOutboundRoutingGroups {
-    type Vtable = IFaxOutboundRoutingGroupsVtbl;
+    type Vtable = IFaxOutboundRoutingGroups_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x235cbef7_c2de_4bfd_b8da_75097c82c87f);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxOutboundRoutingGroupsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxOutboundRoutingGroups_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxoutboundroutinggroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10074,14 +10074,14 @@ impl ::core::fmt::Debug for IFaxOutboundRoutingRule {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxOutboundRoutingRule {
-    type Vtable = IFaxOutboundRoutingRuleVtbl;
+    type Vtable = IFaxOutboundRoutingRule_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1f795d5_07c2_469f_b027_acacc23219da);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxOutboundRoutingRuleVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxOutboundRoutingRule_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub CountryCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcountrycode: *mut i32) -> ::windows::core::HRESULT,
     pub AreaCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plareacode: *mut i32) -> ::windows::core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatus: *mut FAX_RULE_STATUS_ENUM) -> ::windows::core::HRESULT,
@@ -10235,14 +10235,14 @@ impl ::core::fmt::Debug for IFaxOutboundRoutingRules {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxOutboundRoutingRules {
-    type Vtable = IFaxOutboundRoutingRulesVtbl;
+    type Vtable = IFaxOutboundRoutingRules_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcefa1e7_ae7d_4ed6_8521_369edcca5120);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxOutboundRoutingRulesVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxOutboundRoutingRules_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pfaxoutboundroutingrule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10445,14 +10445,14 @@ impl ::core::fmt::Debug for IFaxOutgoingArchive {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxOutgoingArchive {
-    type Vtable = IFaxOutgoingArchiveVtbl;
+    type Vtable = IFaxOutgoingArchive_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9c28f40_8d80_4e53_810f_9a79919b49fd);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxOutgoingArchiveVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxOutgoingArchive_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub UseArchive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbusearchive: *mut i16) -> ::windows::core::HRESULT,
     pub SetUseArchive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, busearchive: i16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -10742,14 +10742,14 @@ impl ::core::fmt::Debug for IFaxOutgoingJob {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxOutgoingJob {
-    type Vtable = IFaxOutgoingJobVtbl;
+    type Vtable = IFaxOutgoingJob_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6356daad_6614_4583_bf7a_3ad67bbfc71c);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxOutgoingJobVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxOutgoingJob_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Subject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsubject: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -11110,14 +11110,14 @@ impl ::core::fmt::Debug for IFaxOutgoingJob2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxOutgoingJob2 {
-    type Vtable = IFaxOutgoingJob2Vtbl;
+    type Vtable = IFaxOutgoingJob2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x418a8d96_59a0_4789_b176_edf3dc8fa8f7);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxOutgoingJob2Vtbl {
-    pub base: IFaxOutgoingJobVtbl,
+pub struct IFaxOutgoingJob2_Vtbl {
+    pub base: IFaxOutgoingJob_Vtbl,
     pub HasCoverPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbhascoverpage: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub ReceiptAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrreceiptaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -11240,14 +11240,14 @@ impl ::core::fmt::Debug for IFaxOutgoingJobs {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxOutgoingJobs {
-    type Vtable = IFaxOutgoingJobsVtbl;
+    type Vtable = IFaxOutgoingJobs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c56d8e6_8c2f_4573_944c_e505f8f5aeed);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxOutgoingJobsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxOutgoingJobs_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxoutgoingjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -11457,14 +11457,14 @@ impl ::core::fmt::Debug for IFaxOutgoingMessage {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxOutgoingMessage {
-    type Vtable = IFaxOutgoingMessageVtbl;
+    type Vtable = IFaxOutgoingMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0ea35de_caa5_4a7c_82c7_2b60ba5f2be2);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxOutgoingMessageVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxOutgoingMessage_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SubmissionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsubmissionid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -11774,14 +11774,14 @@ impl ::core::fmt::Debug for IFaxOutgoingMessage2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxOutgoingMessage2 {
-    type Vtable = IFaxOutgoingMessage2Vtbl;
+    type Vtable = IFaxOutgoingMessage2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb37df687_bc88_4b46_b3be_b458b3ea9e7f);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxOutgoingMessage2Vtbl {
-    pub base: IFaxOutgoingMessageVtbl,
+pub struct IFaxOutgoingMessage2_Vtbl {
+    pub base: IFaxOutgoingMessage_Vtbl,
     pub HasCoverPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbhascoverpage: *mut i16) -> ::windows::core::HRESULT,
     pub ReceiptType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preceipttype: *mut FAX_RECEIPT_TYPE_ENUM) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -11920,14 +11920,14 @@ impl ::core::fmt::Debug for IFaxOutgoingMessageIterator {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxOutgoingMessageIterator {
-    type Vtable = IFaxOutgoingMessageIteratorVtbl;
+    type Vtable = IFaxOutgoingMessageIterator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5ec5d4f_b840_432f_9980_112fe42a9b7a);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxOutgoingMessageIteratorVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxOutgoingMessageIterator_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfaxoutgoingmessage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -12147,14 +12147,14 @@ impl ::core::fmt::Debug for IFaxOutgoingQueue {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxOutgoingQueue {
-    type Vtable = IFaxOutgoingQueueVtbl;
+    type Vtable = IFaxOutgoingQueue_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80b1df24_d9ac_4333_b373_487cedc80ce5);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxOutgoingQueueVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxOutgoingQueue_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Blocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbblocked: *mut i16) -> ::windows::core::HRESULT,
     pub SetBlocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bblocked: i16) -> ::windows::core::HRESULT,
     pub Paused: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbpaused: *mut i16) -> ::windows::core::HRESULT,
@@ -12373,14 +12373,14 @@ impl ::core::fmt::Debug for IFaxReceiptOptions {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxReceiptOptions {
-    type Vtable = IFaxReceiptOptionsVtbl;
+    type Vtable = IFaxReceiptOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x378efaeb_5fcb_4afb_b2ee_e16e80614487);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxReceiptOptionsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxReceiptOptions_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub AuthenticationType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut FAX_SMTP_AUTHENTICATION_TYPE_ENUM) -> ::windows::core::HRESULT,
     pub SetAuthenticationType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: FAX_SMTP_AUTHENTICATION_TYPE_ENUM) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -12545,14 +12545,14 @@ impl ::core::fmt::Debug for IFaxRecipient {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxRecipient {
-    type Vtable = IFaxRecipientVtbl;
+    type Vtable = IFaxRecipient_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a3da3a0_538d_42b6_9444_aaa57d0ce2bc);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxRecipientVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxRecipient_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub FaxNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfaxnumber: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -12695,14 +12695,14 @@ impl ::core::fmt::Debug for IFaxRecipients {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxRecipients {
-    type Vtable = IFaxRecipientsVtbl;
+    type Vtable = IFaxRecipients_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9c9de5a_894e_4492_9fa3_08c627c11d5d);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxRecipientsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxRecipients_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, ppfaxrecipient: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -12847,14 +12847,14 @@ impl ::core::fmt::Debug for IFaxSecurity {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxSecurity {
-    type Vtable = IFaxSecurityVtbl;
+    type Vtable = IFaxSecurity_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77b508c1_09c0_47a2_91eb_fce7fdf2690e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxSecurityVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxSecurity_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Descriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdescriptor: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -13001,14 +13001,14 @@ impl ::core::fmt::Debug for IFaxSecurity2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxSecurity2 {
-    type Vtable = IFaxSecurity2Vtbl;
+    type Vtable = IFaxSecurity2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17d851f4_d09b_48fc_99c9_8f24c4db9ab1);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxSecurity2Vtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxSecurity2_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Descriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdescriptor: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -13306,14 +13306,14 @@ impl ::core::fmt::Debug for IFaxSender {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxSender {
-    type Vtable = IFaxSenderVtbl;
+    type Vtable = IFaxSender_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d879d7d_f57a_4cc6_a6f9_3ee5d527b46a);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxSenderVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxSender_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub BillingCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbillingcode: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -13683,14 +13683,14 @@ impl ::core::fmt::Debug for IFaxServer {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxServer {
-    type Vtable = IFaxServerVtbl;
+    type Vtable = IFaxServer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x475b6469_90a5_4878_a577_17a86e8e3462);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxServerVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxServer_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrservername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -14055,14 +14055,14 @@ impl ::core::fmt::Debug for IFaxServer2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxServer2 {
-    type Vtable = IFaxServer2Vtbl;
+    type Vtable = IFaxServer2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x571ced0f_5609_4f40_9176_547e3a72ca7c);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxServer2Vtbl {
-    pub base: IFaxServerVtbl,
+pub struct IFaxServer2_Vtbl {
+    pub base: IFaxServer_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Configuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppfaxconfiguration: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -14179,14 +14179,14 @@ impl ::core::fmt::Debug for IFaxServerNotify {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxServerNotify {
-    type Vtable = IFaxServerNotifyVtbl;
+    type Vtable = IFaxServerNotify_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e037b27_cf8a_4abd_b1e0_5704943bea6f);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxServerNotifyVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxServerNotify_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -14287,14 +14287,14 @@ impl ::core::fmt::Debug for IFaxServerNotify2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFaxServerNotify2 {
-    type Vtable = IFaxServerNotify2Vtbl;
+    type Vtable = IFaxServerNotify2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x616ca8d6_a77a_4062_abfd_0e471241c7aa);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFaxServerNotify2Vtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFaxServerNotify2_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const IS_DIGITAL_CAMERA_VAL: u32 = 1u32;
@@ -14417,12 +14417,12 @@ impl ::core::fmt::Debug for IStiDevice {
     }
 }
 unsafe impl ::windows::core::Interface for IStiDevice {
-    type Vtable = IStiDeviceVtbl;
+    type Vtable = IStiDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cfa5a80_2dc8_11d0_90ea_00aa0060f86c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStiDeviceVtbl {
+pub struct IStiDevice_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hinst: super::super::Foundation::HINSTANCE, pwszdevicename: super::super::Foundation::PWSTR, dwversion: u32, dwmode: u32) -> ::windows::core::HRESULT,
@@ -14554,12 +14554,12 @@ impl ::core::fmt::Debug for IStiDeviceControl {
     }
 }
 unsafe impl ::windows::core::Interface for IStiDeviceControl {
-    type Vtable = IStiDeviceControlVtbl;
+    type Vtable = IStiDeviceControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x128a9860_52dc_11d0_9edf_444553540000);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStiDeviceControlVtbl {
+pub struct IStiDeviceControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdevicetype: u32, dwmode: u32, pwszportname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT,
@@ -14715,12 +14715,12 @@ impl ::core::fmt::Debug for IStiUSD {
     }
 }
 unsafe impl ::windows::core::Interface for IStiUSD {
-    type Vtable = IStiUSDVtbl;
+    type Vtable = IStiUSD_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c9bb460_51ac_11d0_90ea_00aa0060f86c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStiUSDVtbl {
+pub struct IStiUSD_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Registry")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pheldcb: ::windows::core::RawPtr, dwstiversion: u32, hparameterskey: super::super::System::Registry::HKEY) -> ::windows::core::HRESULT,
@@ -14874,12 +14874,12 @@ impl ::core::fmt::Debug for IStillImageW {
     }
 }
 unsafe impl ::windows::core::Interface for IStillImageW {
-    type Vtable = IStillImageWVtbl;
+    type Vtable = IStillImageW_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x641bd880_2dc8_11d0_90ea_00aa0060f86c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStillImageWVtbl {
+pub struct IStillImageW_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hinst: super::super::Foundation::HINSTANCE, dwversion: u32) -> ::windows::core::HRESULT,
@@ -15953,14 +15953,14 @@ impl ::core::fmt::Debug for _IFaxAccountNotify {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for _IFaxAccountNotify {
-    type Vtable = _IFaxAccountNotifyVtbl;
+    type Vtable = _IFaxAccountNotify_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9b3bc81_ac1b_46f3_b39d_0adc30e1b788);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct _IFaxAccountNotifyVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct _IFaxAccountNotify_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub OnIncomingJobAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfaxaccount: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -16235,14 +16235,14 @@ impl ::core::fmt::Debug for _IFaxServerNotify2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for _IFaxServerNotify2 {
-    type Vtable = _IFaxServerNotify2Vtbl;
+    type Vtable = _IFaxServerNotify2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec9c69b9_5fe7_4805_9467_82fcd96af903);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct _IFaxServerNotify2Vtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct _IFaxServerNotify2_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub OnIncomingJobAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]

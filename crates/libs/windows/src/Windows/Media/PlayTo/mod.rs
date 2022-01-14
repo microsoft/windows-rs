@@ -33,7 +33,7 @@ unsafe impl ::windows::core::RuntimeType for CurrentTimeChangeRequestedEventArgs
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.CurrentTimeChangeRequestedEventArgs;{99711324-edc7-4bf5-91f6-3c8627db59e5})");
 }
 unsafe impl ::windows::core::Interface for CurrentTimeChangeRequestedEventArgs {
-    type Vtable = ICurrentTimeChangeRequestedEventArgsVtbl;
+    type Vtable = ICurrentTimeChangeRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99711324_edc7_4bf5_91f6_3c8627db59e5);
 }
 impl ::windows::core::RuntimeName for CurrentTimeChangeRequestedEventArgs {
@@ -83,12 +83,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Curr
 #[repr(transparent)]
 pub struct ICurrentTimeChangeRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICurrentTimeChangeRequestedEventArgs {
-    type Vtable = ICurrentTimeChangeRequestedEventArgsVtbl;
+    type Vtable = ICurrentTimeChangeRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99711324_edc7_4bf5_91f6_3c8627db59e5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICurrentTimeChangeRequestedEventArgsVtbl {
+pub struct ICurrentTimeChangeRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Time: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -99,12 +99,12 @@ pub struct ICurrentTimeChangeRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IMuteChangeRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMuteChangeRequestedEventArgs {
-    type Vtable = IMuteChangeRequestedEventArgsVtbl;
+    type Vtable = IMuteChangeRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4b4f5f6_af1f_4f1e_b437_7da32400e1d4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMuteChangeRequestedEventArgsVtbl {
+pub struct IMuteChangeRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Mute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -114,13 +114,13 @@ pub struct IMuteChangeRequestedEventArgsVtbl {
 pub struct IPlayToConnection(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPlayToConnection {
-    type Vtable = IPlayToConnectionVtbl;
+    type Vtable = IPlayToConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x112fbfc8_f235_4fde_8d41_9bf27c9e9a40);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlayToConnectionVtbl {
+pub struct IPlayToConnection_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PlayToConnectionState) -> ::windows::core::HRESULT,
@@ -157,13 +157,13 @@ pub struct IPlayToConnectionVtbl {
 pub struct IPlayToConnectionErrorEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPlayToConnectionErrorEventArgs {
-    type Vtable = IPlayToConnectionErrorEventArgsVtbl;
+    type Vtable = IPlayToConnectionErrorEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf5eada6_88e6_445f_9d40_d9b9f8939896);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlayToConnectionErrorEventArgsVtbl {
+pub struct IPlayToConnectionErrorEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Code: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PlayToConnectionError) -> ::windows::core::HRESULT,
@@ -180,13 +180,13 @@ pub struct IPlayToConnectionErrorEventArgsVtbl {
 pub struct IPlayToConnectionStateChangedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPlayToConnectionStateChangedEventArgs {
-    type Vtable = IPlayToConnectionStateChangedEventArgsVtbl;
+    type Vtable = IPlayToConnectionStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68c4b50f_0c20_4980_8602_58c62238d423);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlayToConnectionStateChangedEventArgsVtbl {
+pub struct IPlayToConnectionStateChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub PreviousState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PlayToConnectionState) -> ::windows::core::HRESULT,
@@ -203,13 +203,13 @@ pub struct IPlayToConnectionStateChangedEventArgsVtbl {
 pub struct IPlayToConnectionTransferredEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPlayToConnectionTransferredEventArgs {
-    type Vtable = IPlayToConnectionTransferredEventArgsVtbl;
+    type Vtable = IPlayToConnectionTransferredEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfae3193a_0683_47d9_8df0_18cbb48984d8);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlayToConnectionTransferredEventArgsVtbl {
+pub struct IPlayToConnectionTransferredEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub PreviousSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -226,13 +226,13 @@ pub struct IPlayToConnectionTransferredEventArgsVtbl {
 pub struct IPlayToManager(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPlayToManager {
-    type Vtable = IPlayToManagerVtbl;
+    type Vtable = IPlayToManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf56a206e_1b77_42ef_8f0d_b949f8d9b260);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlayToManagerVtbl {
+pub struct IPlayToManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub SourceRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -265,13 +265,13 @@ pub struct IPlayToManagerVtbl {
 pub struct IPlayToManagerStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPlayToManagerStatics {
-    type Vtable = IPlayToManagerStaticsVtbl;
+    type Vtable = IPlayToManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64e6a887_3982_4f3b_ba20_6155e435325b);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlayToManagerStaticsVtbl {
+pub struct IPlayToManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -286,12 +286,12 @@ pub struct IPlayToManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IPlayToReceiver(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlayToReceiver {
-    type Vtable = IPlayToReceiverVtbl;
+    type Vtable = IPlayToReceiver_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac15cf47_a162_4aa6_af1b_3aa35f3b9069);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlayToReceiverVtbl {
+pub struct IPlayToReceiver_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub PlayRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -410,13 +410,13 @@ pub struct IPlayToReceiverVtbl {
 pub struct IPlayToSource(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPlayToSource {
-    type Vtable = IPlayToSourceVtbl;
+    type Vtable = IPlayToSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f138a08_fbb7_4b09_8356_aa5f4e335c31);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlayToSourceVtbl {
+pub struct IPlayToSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Connection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -441,13 +441,13 @@ pub struct IPlayToSourceVtbl {
 pub struct IPlayToSourceDeferral(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPlayToSourceDeferral {
-    type Vtable = IPlayToSourceDeferralVtbl;
+    type Vtable = IPlayToSourceDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4100891d_278e_4f29_859b_a9e501053e7d);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlayToSourceDeferralVtbl {
+pub struct IPlayToSourceDeferral_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -460,13 +460,13 @@ pub struct IPlayToSourceDeferralVtbl {
 pub struct IPlayToSourceRequest(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPlayToSourceRequest {
-    type Vtable = IPlayToSourceRequestVtbl;
+    type Vtable = IPlayToSourceRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8584665_64f4_44a0_ac0d_468d2b8fda83);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlayToSourceRequestVtbl {
+pub struct IPlayToSourceRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub Deadline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -491,13 +491,13 @@ pub struct IPlayToSourceRequestVtbl {
 pub struct IPlayToSourceRequestedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPlayToSourceRequestedEventArgs {
-    type Vtable = IPlayToSourceRequestedEventArgsVtbl;
+    type Vtable = IPlayToSourceRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5cdc330_29df_4ec6_9da9_9fbdfcfc1b3e);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlayToSourceRequestedEventArgsVtbl {
+pub struct IPlayToSourceRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub SourceRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -510,13 +510,13 @@ pub struct IPlayToSourceRequestedEventArgsVtbl {
 pub struct IPlayToSourceSelectedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPlayToSourceSelectedEventArgs {
-    type Vtable = IPlayToSourceSelectedEventArgsVtbl;
+    type Vtable = IPlayToSourceSelectedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c9d8511_5202_4dcb_8c67_abda12bb3c12);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlayToSourceSelectedEventArgsVtbl {
+pub struct IPlayToSourceSelectedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -545,13 +545,13 @@ pub struct IPlayToSourceSelectedEventArgsVtbl {
 pub struct IPlayToSourceWithPreferredSourceUri(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPlayToSourceWithPreferredSourceUri {
-    type Vtable = IPlayToSourceWithPreferredSourceUriVtbl;
+    type Vtable = IPlayToSourceWithPreferredSourceUri_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaab253eb_3301_4dc4_afba_b2f2ed9635a0);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlayToSourceWithPreferredSourceUriVtbl {
+pub struct IPlayToSourceWithPreferredSourceUri_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub PreferredSourceUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -566,12 +566,12 @@ pub struct IPlayToSourceWithPreferredSourceUriVtbl {
 #[repr(transparent)]
 pub struct IPlaybackRateChangeRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlaybackRateChangeRequestedEventArgs {
-    type Vtable = IPlaybackRateChangeRequestedEventArgsVtbl;
+    type Vtable = IPlaybackRateChangeRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f5661ae_2c88_4cca_8540_d586095d13a5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlaybackRateChangeRequestedEventArgsVtbl {
+pub struct IPlaybackRateChangeRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Rate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 }
@@ -579,12 +579,12 @@ pub struct IPlaybackRateChangeRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISourceChangeRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISourceChangeRequestedEventArgs {
-    type Vtable = ISourceChangeRequestedEventArgsVtbl;
+    type Vtable = ISourceChangeRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb3f3a96_7aa6_4a8b_86e7_54f6c6d34f64);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISourceChangeRequestedEventArgsVtbl {
+pub struct ISourceChangeRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub Stream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -616,12 +616,12 @@ pub struct ISourceChangeRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IVolumeChangeRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVolumeChangeRequestedEventArgs {
-    type Vtable = IVolumeChangeRequestedEventArgsVtbl;
+    type Vtable = IVolumeChangeRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f026d5c_cf75_4c2b_913e_6d7c6c329179);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVolumeChangeRequestedEventArgsVtbl {
+pub struct IVolumeChangeRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Volume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 }
@@ -658,7 +658,7 @@ unsafe impl ::windows::core::RuntimeType for MuteChangeRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.MuteChangeRequestedEventArgs;{e4b4f5f6-af1f-4f1e-b437-7da32400e1d4})");
 }
 unsafe impl ::windows::core::Interface for MuteChangeRequestedEventArgs {
-    type Vtable = IMuteChangeRequestedEventArgsVtbl;
+    type Vtable = IMuteChangeRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4b4f5f6_af1f_4f1e_b437_7da32400e1d4);
 }
 impl ::windows::core::RuntimeName for MuteChangeRequestedEventArgs {
@@ -791,7 +791,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToConnection {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToConnection {
-    type Vtable = IPlayToConnectionVtbl;
+    type Vtable = IPlayToConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x112fbfc8_f235_4fde_8d41_9bf27c9e9a40);
 }
 #[cfg(feature = "deprecated")]
@@ -947,7 +947,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToConnectionErrorEventArgs {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToConnectionErrorEventArgs {
-    type Vtable = IPlayToConnectionErrorEventArgsVtbl;
+    type Vtable = IPlayToConnectionErrorEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf5eada6_88e6_445f_9d40_d9b9f8939896);
 }
 #[cfg(feature = "deprecated")]
@@ -1101,7 +1101,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToConnectionStateChangedEventAr
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToConnectionStateChangedEventArgs {
-    type Vtable = IPlayToConnectionStateChangedEventArgsVtbl;
+    type Vtable = IPlayToConnectionStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68c4b50f_0c20_4980_8602_58c62238d423);
 }
 #[cfg(feature = "deprecated")]
@@ -1211,7 +1211,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToConnectionTransferredEventArg
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToConnectionTransferredEventArgs {
-    type Vtable = IPlayToConnectionTransferredEventArgsVtbl;
+    type Vtable = IPlayToConnectionTransferredEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfae3193a_0683_47d9_8df0_18cbb48984d8);
 }
 #[cfg(feature = "deprecated")]
@@ -1367,7 +1367,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToManager {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToManager {
-    type Vtable = IPlayToManagerVtbl;
+    type Vtable = IPlayToManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf56a206e_1b77_42ef_8f0d_b949f8d9b260);
 }
 #[cfg(feature = "deprecated")]
@@ -1734,7 +1734,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToReceiver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToReceiver;{ac15cf47-a162-4aa6-af1b-3aa35f3b9069})");
 }
 unsafe impl ::windows::core::Interface for PlayToReceiver {
-    type Vtable = IPlayToReceiverVtbl;
+    type Vtable = IPlayToReceiver_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac15cf47_a162_4aa6_af1b_3aa35f3b9069);
 }
 impl ::windows::core::RuntimeName for PlayToReceiver {
@@ -1858,7 +1858,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToSource {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToSource {
-    type Vtable = IPlayToSourceVtbl;
+    type Vtable = IPlayToSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f138a08_fbb7_4b09_8356_aa5f4e335c31);
 }
 #[cfg(feature = "deprecated")]
@@ -1956,7 +1956,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToSourceDeferral {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToSourceDeferral {
-    type Vtable = IPlayToSourceDeferralVtbl;
+    type Vtable = IPlayToSourceDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4100891d_278e_4f29_859b_a9e501053e7d);
 }
 #[cfg(feature = "deprecated")]
@@ -2078,7 +2078,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToSourceRequest {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToSourceRequest {
-    type Vtable = IPlayToSourceRequestVtbl;
+    type Vtable = IPlayToSourceRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8584665_64f4_44a0_ac0d_468d2b8fda83);
 }
 #[cfg(feature = "deprecated")]
@@ -2179,7 +2179,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToSourceRequestedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToSourceRequestedEventArgs {
-    type Vtable = IPlayToSourceRequestedEventArgsVtbl;
+    type Vtable = IPlayToSourceRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5cdc330_29df_4ec6_9da9_9fbdfcfc1b3e);
 }
 #[cfg(feature = "deprecated")]
@@ -2316,7 +2316,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToSourceSelectedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToSourceSelectedEventArgs {
-    type Vtable = IPlayToSourceSelectedEventArgsVtbl;
+    type Vtable = IPlayToSourceSelectedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c9d8511_5202_4dcb_8c67_abda12bb3c12);
 }
 #[cfg(feature = "deprecated")]
@@ -2408,7 +2408,7 @@ unsafe impl ::windows::core::RuntimeType for PlaybackRateChangeRequestedEventArg
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlaybackRateChangeRequestedEventArgs;{0f5661ae-2c88-4cca-8540-d586095d13a5})");
 }
 unsafe impl ::windows::core::Interface for PlaybackRateChangeRequestedEventArgs {
-    type Vtable = IPlaybackRateChangeRequestedEventArgsVtbl;
+    type Vtable = IPlaybackRateChangeRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f5661ae_2c88_4cca_8540_d586095d13a5);
 }
 impl ::windows::core::RuntimeName for PlaybackRateChangeRequestedEventArgs {
@@ -2564,7 +2564,7 @@ unsafe impl ::windows::core::RuntimeType for SourceChangeRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.SourceChangeRequestedEventArgs;{fb3f3a96-7aa6-4a8b-86e7-54f6c6d34f64})");
 }
 unsafe impl ::windows::core::Interface for SourceChangeRequestedEventArgs {
-    type Vtable = ISourceChangeRequestedEventArgsVtbl;
+    type Vtable = ISourceChangeRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb3f3a96_7aa6_4a8b_86e7_54f6c6d34f64);
 }
 impl ::windows::core::RuntimeName for SourceChangeRequestedEventArgs {
@@ -2643,7 +2643,7 @@ unsafe impl ::windows::core::RuntimeType for VolumeChangeRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.VolumeChangeRequestedEventArgs;{6f026d5c-cf75-4c2b-913e-6d7c6c329179})");
 }
 unsafe impl ::windows::core::Interface for VolumeChangeRequestedEventArgs {
-    type Vtable = IVolumeChangeRequestedEventArgsVtbl;
+    type Vtable = IVolumeChangeRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f026d5c_cf75_4c2b_913e_6d7c6c329179);
 }
 impl ::windows::core::RuntimeName for VolumeChangeRequestedEventArgs {

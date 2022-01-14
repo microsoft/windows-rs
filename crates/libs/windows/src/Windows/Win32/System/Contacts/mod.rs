@@ -115,12 +115,12 @@ impl ::core::fmt::Debug for IContact {
     }
 }
 unsafe impl ::windows::core::Interface for IContact {
-    type Vtable = IContactVtbl;
+    type Vtable = IContact_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf941b671_bda7_4f77_884a_f46462f226a7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactVtbl {
+pub struct IContact_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetContactID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcontactid: super::super::Foundation::PWSTR, cchcontactid: u32, pdwcchcontactidrequired: *mut u32) -> ::windows::core::HRESULT,
@@ -219,12 +219,12 @@ impl ::core::fmt::Debug for IContactAggregationAggregate {
     }
 }
 unsafe impl ::windows::core::Interface for IContactAggregationAggregate {
-    type Vtable = IContactAggregationAggregateVtbl;
+    type Vtable = IContactAggregationAggregate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ed1c814_cd30_43c8_9b8d_2e489e53d54b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactAggregationAggregateVtbl {
+pub struct IContactAggregationAggregate_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetComponentItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcomponentitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -311,12 +311,12 @@ impl ::core::fmt::Debug for IContactAggregationAggregateCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IContactAggregationAggregateCollection {
-    type Vtable = IContactAggregationAggregateCollectionVtbl;
+    type Vtable = IContactAggregationAggregateCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2359f3a6_3a68_40af_98db_0f9eb143c3bb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactAggregationAggregateCollectionVtbl {
+pub struct IContactAggregationAggregateCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub FindFirst: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppaggregate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -458,12 +458,12 @@ impl ::core::fmt::Debug for IContactAggregationContact {
     }
 }
 unsafe impl ::windows::core::Interface for IContactAggregationContact {
-    type Vtable = IContactAggregationContactVtbl;
+    type Vtable = IContactAggregationContact_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1eb22e86_4c86_41f0_9f9f_c251e9fda6c3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactAggregationContactVtbl {
+pub struct IContactAggregationContact_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -580,12 +580,12 @@ impl ::core::fmt::Debug for IContactAggregationContactCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IContactAggregationContactCollection {
-    type Vtable = IContactAggregationContactCollectionVtbl;
+    type Vtable = IContactAggregationContactCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x826e66fa_81de_43ca_a6fb_8c785cd996c6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactAggregationContactCollectionVtbl {
+pub struct IContactAggregationContactCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub FindFirst: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FindNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -690,12 +690,12 @@ impl ::core::fmt::Debug for IContactAggregationGroup {
     }
 }
 unsafe impl ::windows::core::Interface for IContactAggregationGroup {
-    type Vtable = IContactAggregationGroupVtbl;
+    type Vtable = IContactAggregationGroup_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc93c545f_1284_499b_96af_07372af473e0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactAggregationGroupVtbl {
+pub struct IContactAggregationGroup_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -785,12 +785,12 @@ impl ::core::fmt::Debug for IContactAggregationGroupCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IContactAggregationGroupCollection {
-    type Vtable = IContactAggregationGroupCollectionVtbl;
+    type Vtable = IContactAggregationGroupCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20a19a9c_d2f3_4b83_9143_beffd2cc226d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactAggregationGroupCollectionVtbl {
+pub struct IContactAggregationGroupCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub FindFirst: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FindFirstByGlobalObjectId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pglobalobjectid: *const ::windows::core::GUID, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -926,12 +926,12 @@ impl ::core::fmt::Debug for IContactAggregationLink {
     }
 }
 unsafe impl ::windows::core::Interface for IContactAggregationLink {
-    type Vtable = IContactAggregationLinkVtbl;
+    type Vtable = IContactAggregationLink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6813323_a183_4654_8627_79b30de3a0ec);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactAggregationLinkVtbl {
+pub struct IContactAggregationLink_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1047,12 +1047,12 @@ impl ::core::fmt::Debug for IContactAggregationLinkCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IContactAggregationLinkCollection {
-    type Vtable = IContactAggregationLinkCollectionVtbl;
+    type Vtable = IContactAggregationLinkCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8bc0e93_fb55_4f28_b9fa_b1c274153292);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactAggregationLinkCollectionVtbl {
+pub struct IContactAggregationLinkCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub FindFirst: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppservercontactlink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -1182,12 +1182,12 @@ impl ::core::fmt::Debug for IContactAggregationManager {
     }
 }
 unsafe impl ::windows::core::Interface for IContactAggregationManager {
-    type Vtable = IContactAggregationManagerVtbl;
+    type Vtable = IContactAggregationManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d865989_4b1f_4b60_8f34_c2ad468b2b50);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactAggregationManagerVtbl {
+pub struct IContactAggregationManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetVersionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmajorversion: *mut i32, plminorversion: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -1381,12 +1381,12 @@ impl ::core::fmt::Debug for IContactAggregationServerPerson {
     }
 }
 unsafe impl ::windows::core::Interface for IContactAggregationServerPerson {
-    type Vtable = IContactAggregationServerPersonVtbl;
+    type Vtable = IContactAggregationServerPerson_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fdc3d4b_1b82_4334_85c5_25184ee5a5f2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactAggregationServerPersonVtbl {
+pub struct IContactAggregationServerPerson_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1526,12 +1526,12 @@ impl ::core::fmt::Debug for IContactAggregationServerPersonCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IContactAggregationServerPersonCollection {
-    type Vtable = IContactAggregationServerPersonCollectionVtbl;
+    type Vtable = IContactAggregationServerPersonCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f730a4a_6604_47b6_a987_669ecf1e5751);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactAggregationServerPersonCollectionVtbl {
+pub struct IContactAggregationServerPersonCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub FindFirst: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppserverperson: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -1604,12 +1604,12 @@ impl ::core::fmt::Debug for IContactCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IContactCollection {
-    type Vtable = IContactCollectionVtbl;
+    type Vtable = IContactCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6afa338_d779_11d9_8bde_f66bad1e3f3a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactCollectionVtbl {
+pub struct IContactCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1687,12 +1687,12 @@ impl ::core::fmt::Debug for IContactManager {
     }
 }
 unsafe impl ::windows::core::Interface for IContactManager {
-    type Vtable = IContactManagerVtbl;
+    type Vtable = IContactManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad553d98_deb1_474a_8e17_fc0c2075b738);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactManagerVtbl {
+pub struct IContactManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszappname: super::super::Foundation::PWSTR, pszappversion: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -1817,12 +1817,12 @@ impl ::core::fmt::Debug for IContactProperties {
     }
 }
 unsafe impl ::windows::core::Interface for IContactProperties {
-    type Vtable = IContactPropertiesVtbl;
+    type Vtable = IContactProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70dd27dd_5cbd_46e8_bef0_23b6b346288f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactPropertiesVtbl {
+pub struct IContactProperties_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszvalue: super::super::Foundation::PWSTR, cchvalue: u32, pdwcchpropertyvaluerequired: *mut u32) -> ::windows::core::HRESULT,
@@ -1950,12 +1950,12 @@ impl ::core::fmt::Debug for IContactPropertyCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IContactPropertyCollection {
-    type Vtable = IContactPropertyCollectionVtbl;
+    type Vtable = IContactPropertyCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffd3adf8_fa64_4328_b1b6_2e0db509cb3c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactPropertyCollectionVtbl {
+pub struct IContactPropertyCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

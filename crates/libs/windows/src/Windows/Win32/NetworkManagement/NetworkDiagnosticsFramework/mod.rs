@@ -364,12 +364,12 @@ impl ::core::fmt::Debug for INetDiagExtensibleHelper {
     }
 }
 unsafe impl ::windows::core::Interface for INetDiagExtensibleHelper {
-    type Vtable = INetDiagExtensibleHelperVtbl;
+    type Vtable = INetDiagExtensibleHelper_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0b35748_ebf5_11d8_bbe9_505054503030);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetDiagExtensibleHelperVtbl {
+pub struct INetDiagExtensibleHelper_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ResolveAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgkeyattributes: *const HELPER_ATTRIBUTE, pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::HRESULT,
@@ -507,12 +507,12 @@ impl ::core::fmt::Debug for INetDiagHelper {
     }
 }
 unsafe impl ::windows::core::Interface for INetDiagHelper {
-    type Vtable = INetDiagHelperVtbl;
+    type Vtable = INetDiagHelper_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0b35746_ebf5_11d8_bbe9_505054503030);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetDiagHelperVtbl {
+pub struct INetDiagHelper_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgattributes: *const HELPER_ATTRIBUTE) -> ::windows::core::HRESULT,
@@ -630,12 +630,12 @@ impl ::core::fmt::Debug for INetDiagHelperEx {
     }
 }
 unsafe impl ::windows::core::Interface for INetDiagHelperEx {
-    type Vtable = INetDiagHelperExVtbl;
+    type Vtable = INetDiagHelperEx_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x972dab4d_e4e3_4fc6_ae54_5f65ccde4a15);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetDiagHelperExVtbl {
+pub struct INetDiagHelperEx_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ReconfirmLowHealth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut super::super::Foundation::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::HRESULT,
@@ -691,12 +691,12 @@ impl ::core::fmt::Debug for INetDiagHelperInfo {
     }
 }
 unsafe impl ::windows::core::Interface for INetDiagHelperInfo {
-    type Vtable = INetDiagHelperInfoVtbl;
+    type Vtable = INetDiagHelperInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0b35747_ebf5_11d8_bbe9_505054503030);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetDiagHelperInfoVtbl {
+pub struct INetDiagHelperInfo_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetAttributeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> ::windows::core::HRESULT,
@@ -750,12 +750,12 @@ impl ::core::fmt::Debug for INetDiagHelperUtilFactory {
     }
 }
 unsafe impl ::windows::core::Interface for INetDiagHelperUtilFactory {
-    type Vtable = INetDiagHelperUtilFactoryVtbl;
+    type Vtable = INetDiagHelperUtilFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x104613fb_bc57_4178_95ba_88809698354a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetDiagHelperUtilFactoryVtbl {
+pub struct INetDiagHelperUtilFactory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateUtilityInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }

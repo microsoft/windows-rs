@@ -52,12 +52,12 @@ impl ::core::fmt::Debug for IDisplayDeviceInterop {
     }
 }
 unsafe impl ::windows::core::Interface for IDisplayDeviceInterop {
-    type Vtable = IDisplayDeviceInteropVtbl;
+    type Vtable = IDisplayDeviceInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64338358_366a_471b_bd56_dd8ef48e439b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayDeviceInteropVtbl {
+pub struct IDisplayDeviceInterop_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub CreateSharedHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, phandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
@@ -121,12 +121,12 @@ impl ::core::fmt::Debug for IDisplayPathInterop {
     }
 }
 unsafe impl ::windows::core::Interface for IDisplayPathInterop {
-    type Vtable = IDisplayPathInteropVtbl;
+    type Vtable = IDisplayPathInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6ba4205_e59e_4e71_b25b_4e436d21ee3d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayPathInteropVtbl {
+pub struct IDisplayPathInterop_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateSourcePresentationHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,

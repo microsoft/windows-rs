@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorAuthenticationImpl: Sized {
+pub trait ISecondaryAuthenticationFactorAuthentication_Impl: Sized {
     fn ServiceAuthenticationHmac(&mut self) -> ::windows::core::Result<super::super::super::super::Storage::Streams::IBuffer>;
     fn SessionNonce(&mut self) -> ::windows::core::Result<super::super::super::super::Storage::Streams::IBuffer>;
     fn DeviceNonce(&mut self) -> ::windows::core::Result<super::super::super::super::Storage::Streams::IBuffer>;
@@ -12,9 +12,9 @@ impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorAuthenticati
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthentication";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
-impl ISecondaryAuthenticationFactorAuthenticationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthenticationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthenticationVtbl {
-        unsafe extern "system" fn ServiceAuthenticationHmac<Impl: ISecondaryAuthenticationFactorAuthenticationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISecondaryAuthenticationFactorAuthentication_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthentication_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthentication_Vtbl {
+        unsafe extern "system" fn ServiceAuthenticationHmac<Impl: ISecondaryAuthenticationFactorAuthentication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceAuthenticationHmac() {
                 ::core::result::Result::Ok(ok__) => {
@@ -25,7 +25,7 @@ impl ISecondaryAuthenticationFactorAuthenticationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SessionNonce<Impl: ISecondaryAuthenticationFactorAuthenticationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SessionNonce<Impl: ISecondaryAuthenticationFactorAuthentication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionNonce() {
                 ::core::result::Result::Ok(ok__) => {
@@ -36,7 +36,7 @@ impl ISecondaryAuthenticationFactorAuthenticationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceNonce<Impl: ISecondaryAuthenticationFactorAuthenticationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceNonce<Impl: ISecondaryAuthenticationFactorAuthentication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceNonce() {
                 ::core::result::Result::Ok(ok__) => {
@@ -47,7 +47,7 @@ impl ISecondaryAuthenticationFactorAuthenticationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceConfigurationData<Impl: ISecondaryAuthenticationFactorAuthenticationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceConfigurationData<Impl: ISecondaryAuthenticationFactorAuthentication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceConfigurationData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -58,7 +58,7 @@ impl ISecondaryAuthenticationFactorAuthenticationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FinishAuthenticationAsync<Impl: ISecondaryAuthenticationFactorAuthenticationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, devicehmac: ::windows::core::RawPtr, sessionhmac: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FinishAuthenticationAsync<Impl: ISecondaryAuthenticationFactorAuthentication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, devicehmac: ::windows::core::RawPtr, sessionhmac: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FinishAuthenticationAsync(&*(&devicehmac as *const <super::super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType), &*(&sessionhmac as *const <super::super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -69,7 +69,7 @@ impl ISecondaryAuthenticationFactorAuthenticationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AbortAuthenticationAsync<Impl: ISecondaryAuthenticationFactorAuthenticationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errorlogmessage: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AbortAuthenticationAsync<Impl: ISecondaryAuthenticationFactorAuthentication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errorlogmessage: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AbortAuthenticationAsync(&*(&errorlogmessage as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -95,7 +95,7 @@ impl ISecondaryAuthenticationFactorAuthenticationVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorAuthenticationResultImpl: Sized {
+pub trait ISecondaryAuthenticationFactorAuthenticationResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<SecondaryAuthenticationFactorAuthenticationStatus>;
     fn Authentication(&mut self) -> ::windows::core::Result<SecondaryAuthenticationFactorAuthentication>;
 }
@@ -104,9 +104,9 @@ impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorAuthenticati
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationResult";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl ISecondaryAuthenticationFactorAuthenticationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthenticationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthenticationResultVtbl {
-        unsafe extern "system" fn Status<Impl: ISecondaryAuthenticationFactorAuthenticationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SecondaryAuthenticationFactorAuthenticationStatus) -> ::windows::core::HRESULT {
+impl ISecondaryAuthenticationFactorAuthenticationResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthenticationResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthenticationResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: ISecondaryAuthenticationFactorAuthenticationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SecondaryAuthenticationFactorAuthenticationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -117,7 +117,7 @@ impl ISecondaryAuthenticationFactorAuthenticationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Authentication<Impl: ISecondaryAuthenticationFactorAuthenticationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Authentication<Impl: ISecondaryAuthenticationFactorAuthenticationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Authentication() {
                 ::core::result::Result::Ok(ok__) => {
@@ -139,7 +139,7 @@ impl ISecondaryAuthenticationFactorAuthenticationResultVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgsImpl: Sized {
+pub trait ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Impl: Sized {
     fn StageInfo(&mut self) -> ::windows::core::Result<SecondaryAuthenticationFactorAuthenticationStageInfo>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -147,9 +147,9 @@ impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorAuthenticati
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgsVtbl {
-        unsafe extern "system" fn StageInfo<Impl: ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Vtbl {
+        unsafe extern "system" fn StageInfo<Impl: ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StageInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -170,7 +170,7 @@ impl ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorAuthenticationStageInfoImpl: Sized {
+pub trait ISecondaryAuthenticationFactorAuthenticationStageInfo_Impl: Sized {
     fn Stage(&mut self) -> ::windows::core::Result<SecondaryAuthenticationFactorAuthenticationStage>;
     fn Scenario(&mut self) -> ::windows::core::Result<SecondaryAuthenticationFactorAuthenticationScenario>;
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -180,9 +180,9 @@ impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorAuthenticati
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationStageInfo";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl ISecondaryAuthenticationFactorAuthenticationStageInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthenticationStageInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthenticationStageInfoVtbl {
-        unsafe extern "system" fn Stage<Impl: ISecondaryAuthenticationFactorAuthenticationStageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SecondaryAuthenticationFactorAuthenticationStage) -> ::windows::core::HRESULT {
+impl ISecondaryAuthenticationFactorAuthenticationStageInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthenticationStageInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthenticationStageInfo_Vtbl {
+        unsafe extern "system" fn Stage<Impl: ISecondaryAuthenticationFactorAuthenticationStageInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SecondaryAuthenticationFactorAuthenticationStage) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Stage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -193,7 +193,7 @@ impl ISecondaryAuthenticationFactorAuthenticationStageInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Scenario<Impl: ISecondaryAuthenticationFactorAuthenticationStageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SecondaryAuthenticationFactorAuthenticationScenario) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Scenario<Impl: ISecondaryAuthenticationFactorAuthenticationStageInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SecondaryAuthenticationFactorAuthenticationScenario) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Scenario() {
                 ::core::result::Result::Ok(ok__) => {
@@ -204,7 +204,7 @@ impl ISecondaryAuthenticationFactorAuthenticationStageInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceId<Impl: ISecondaryAuthenticationFactorAuthenticationStageInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceId<Impl: ISecondaryAuthenticationFactorAuthenticationStageInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -227,7 +227,7 @@ impl ISecondaryAuthenticationFactorAuthenticationStageInfoVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorAuthenticationStaticsImpl: Sized {
+pub trait ISecondaryAuthenticationFactorAuthenticationStatics_Impl: Sized {
     fn ShowNotificationMessageAsync(&mut self, devicename: &::windows::core::HSTRING, message: SecondaryAuthenticationFactorAuthenticationMessage) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
     fn StartAuthenticationAsync(&mut self, deviceid: &::windows::core::HSTRING, serviceauthenticationnonce: &::core::option::Option<super::super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorAuthenticationResult>>;
     fn AuthenticationStageChanged(&mut self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
@@ -239,9 +239,9 @@ impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorAuthenticati
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
-impl ISecondaryAuthenticationFactorAuthenticationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthenticationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthenticationStaticsVtbl {
-        unsafe extern "system" fn ShowNotificationMessageAsync<Impl: ISecondaryAuthenticationFactorAuthenticationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, devicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, message: SecondaryAuthenticationFactorAuthenticationMessage, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISecondaryAuthenticationFactorAuthenticationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorAuthenticationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorAuthenticationStatics_Vtbl {
+        unsafe extern "system" fn ShowNotificationMessageAsync<Impl: ISecondaryAuthenticationFactorAuthenticationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, devicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, message: SecondaryAuthenticationFactorAuthenticationMessage, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowNotificationMessageAsync(&*(&devicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), message) {
                 ::core::result::Result::Ok(ok__) => {
@@ -252,7 +252,7 @@ impl ISecondaryAuthenticationFactorAuthenticationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartAuthenticationAsync<Impl: ISecondaryAuthenticationFactorAuthenticationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, serviceauthenticationnonce: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartAuthenticationAsync<Impl: ISecondaryAuthenticationFactorAuthenticationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, serviceauthenticationnonce: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartAuthenticationAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&serviceauthenticationnonce as *const <super::super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -263,7 +263,7 @@ impl ISecondaryAuthenticationFactorAuthenticationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AuthenticationStageChanged<Impl: ISecondaryAuthenticationFactorAuthenticationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AuthenticationStageChanged<Impl: ISecondaryAuthenticationFactorAuthenticationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticationStageChanged(&*(&handler as *const <super::super::super::super::Foundation::EventHandler<SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventHandler<SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -274,11 +274,11 @@ impl ISecondaryAuthenticationFactorAuthenticationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAuthenticationStageChanged<Impl: ISecondaryAuthenticationFactorAuthenticationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAuthenticationStageChanged<Impl: ISecondaryAuthenticationFactorAuthenticationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAuthenticationStageChanged(&*(&token as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetAuthenticationStageInfoAsync<Impl: ISecondaryAuthenticationFactorAuthenticationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAuthenticationStageInfoAsync<Impl: ISecondaryAuthenticationFactorAuthenticationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAuthenticationStageInfoAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -303,7 +303,7 @@ impl ISecondaryAuthenticationFactorAuthenticationStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsImpl: Sized {
+pub trait ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Impl: Sized {
     fn RegisterDevicePresenceMonitoringAsync(&mut self, deviceid: &::windows::core::HSTRING, deviceinstancepath: &::windows::core::HSTRING, monitoringmode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>>;
     fn RegisterDevicePresenceMonitoringWithNewDeviceAsync(&mut self, deviceid: &::windows::core::HSTRING, deviceinstancepath: &::windows::core::HSTRING, monitoringmode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode, devicefriendlyname: &::windows::core::HSTRING, devicemodelnumber: &::windows::core::HSTRING, deviceconfigurationdata: &::core::option::Option<super::super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>>;
     fn UnregisterDevicePresenceMonitoringAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
@@ -314,9 +314,9 @@ impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorDevicePresen
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
-impl ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsVtbl {
-        unsafe extern "system" fn RegisterDevicePresenceMonitoringAsync<Impl: ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, deviceinstancepath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, monitoringmode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Vtbl {
+        unsafe extern "system" fn RegisterDevicePresenceMonitoringAsync<Impl: ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, deviceinstancepath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, monitoringmode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterDevicePresenceMonitoringAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&deviceinstancepath as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), monitoringmode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -327,7 +327,7 @@ impl ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsVt
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisterDevicePresenceMonitoringWithNewDeviceAsync<Impl: ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, deviceinstancepath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, monitoringmode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode, devicefriendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, devicemodelnumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, deviceconfigurationdata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterDevicePresenceMonitoringWithNewDeviceAsync<Impl: ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, deviceinstancepath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, monitoringmode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode, devicefriendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, devicemodelnumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, deviceconfigurationdata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterDevicePresenceMonitoringWithNewDeviceAsync(
                 &*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -345,7 +345,7 @@ impl ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsVt
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnregisterDevicePresenceMonitoringAsync<Impl: ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterDevicePresenceMonitoringAsync<Impl: ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnregisterDevicePresenceMonitoringAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -356,7 +356,7 @@ impl ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsVt
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDevicePresenceMonitoringSupported<Impl: ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDevicePresenceMonitoringSupported<Impl: ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDevicePresenceMonitoringSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -380,7 +380,7 @@ impl ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStaticsVt
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorInfoImpl: Sized {
+pub trait ISecondaryAuthenticationFactorInfo_Impl: Sized {
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DeviceFriendlyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DeviceModelNumber(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -391,9 +391,9 @@ impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorInfo";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
-impl ISecondaryAuthenticationFactorInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorInfoVtbl {
-        unsafe extern "system" fn DeviceId<Impl: ISecondaryAuthenticationFactorInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISecondaryAuthenticationFactorInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorInfo_Vtbl {
+        unsafe extern "system" fn DeviceId<Impl: ISecondaryAuthenticationFactorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -404,7 +404,7 @@ impl ISecondaryAuthenticationFactorInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceFriendlyName<Impl: ISecondaryAuthenticationFactorInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceFriendlyName<Impl: ISecondaryAuthenticationFactorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceFriendlyName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -415,7 +415,7 @@ impl ISecondaryAuthenticationFactorInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceModelNumber<Impl: ISecondaryAuthenticationFactorInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceModelNumber<Impl: ISecondaryAuthenticationFactorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceModelNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -426,7 +426,7 @@ impl ISecondaryAuthenticationFactorInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceConfigurationData<Impl: ISecondaryAuthenticationFactorInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceConfigurationData<Impl: ISecondaryAuthenticationFactorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceConfigurationData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -450,7 +450,7 @@ impl ISecondaryAuthenticationFactorInfoVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorInfo2Impl: Sized + ISecondaryAuthenticationFactorInfoImpl {
+pub trait ISecondaryAuthenticationFactorInfo2_Impl: Sized + ISecondaryAuthenticationFactorInfo_Impl {
     fn PresenceMonitoringMode(&mut self) -> ::windows::core::Result<SecondaryAuthenticationFactorDevicePresenceMonitoringMode>;
     fn UpdateDevicePresenceAsync(&mut self, presencestate: SecondaryAuthenticationFactorDevicePresence) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
     fn IsAuthenticationSupported(&mut self) -> ::windows::core::Result<bool>;
@@ -460,9 +460,9 @@ impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorInfo2 {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorInfo2";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
-impl ISecondaryAuthenticationFactorInfo2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorInfo2Vtbl {
-        unsafe extern "system" fn PresenceMonitoringMode<Impl: ISecondaryAuthenticationFactorInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SecondaryAuthenticationFactorDevicePresenceMonitoringMode) -> ::windows::core::HRESULT {
+impl ISecondaryAuthenticationFactorInfo2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorInfo2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorInfo2_Vtbl {
+        unsafe extern "system" fn PresenceMonitoringMode<Impl: ISecondaryAuthenticationFactorInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SecondaryAuthenticationFactorDevicePresenceMonitoringMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PresenceMonitoringMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -473,7 +473,7 @@ impl ISecondaryAuthenticationFactorInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpdateDevicePresenceAsync<Impl: ISecondaryAuthenticationFactorInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presencestate: SecondaryAuthenticationFactorDevicePresence, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateDevicePresenceAsync<Impl: ISecondaryAuthenticationFactorInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presencestate: SecondaryAuthenticationFactorDevicePresence, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateDevicePresenceAsync(presencestate) {
                 ::core::result::Result::Ok(ok__) => {
@@ -484,7 +484,7 @@ impl ISecondaryAuthenticationFactorInfo2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsAuthenticationSupported<Impl: ISecondaryAuthenticationFactorInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsAuthenticationSupported<Impl: ISecondaryAuthenticationFactorInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAuthenticationSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -507,7 +507,7 @@ impl ISecondaryAuthenticationFactorInfo2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorRegistrationImpl: Sized {
+pub trait ISecondaryAuthenticationFactorRegistration_Impl: Sized {
     fn FinishRegisteringDeviceAsync(&mut self, deviceconfigurationdata: &::core::option::Option<super::super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
     fn AbortRegisteringDeviceAsync(&mut self, errorlogmessage: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
 }
@@ -516,9 +516,9 @@ impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorRegistration
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorRegistration";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
-impl ISecondaryAuthenticationFactorRegistrationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorRegistrationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorRegistrationVtbl {
-        unsafe extern "system" fn FinishRegisteringDeviceAsync<Impl: ISecondaryAuthenticationFactorRegistrationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceconfigurationdata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISecondaryAuthenticationFactorRegistration_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorRegistration_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorRegistration_Vtbl {
+        unsafe extern "system" fn FinishRegisteringDeviceAsync<Impl: ISecondaryAuthenticationFactorRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceconfigurationdata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FinishRegisteringDeviceAsync(&*(&deviceconfigurationdata as *const <super::super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -529,7 +529,7 @@ impl ISecondaryAuthenticationFactorRegistrationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AbortRegisteringDeviceAsync<Impl: ISecondaryAuthenticationFactorRegistrationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errorlogmessage: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AbortRegisteringDeviceAsync<Impl: ISecondaryAuthenticationFactorRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errorlogmessage: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AbortRegisteringDeviceAsync(&*(&errorlogmessage as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -551,7 +551,7 @@ impl ISecondaryAuthenticationFactorRegistrationVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorRegistrationResultImpl: Sized {
+pub trait ISecondaryAuthenticationFactorRegistrationResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<SecondaryAuthenticationFactorRegistrationStatus>;
     fn Registration(&mut self) -> ::windows::core::Result<SecondaryAuthenticationFactorRegistration>;
 }
@@ -560,9 +560,9 @@ impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorRegistration
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorRegistrationResult";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl ISecondaryAuthenticationFactorRegistrationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorRegistrationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorRegistrationResultVtbl {
-        unsafe extern "system" fn Status<Impl: ISecondaryAuthenticationFactorRegistrationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SecondaryAuthenticationFactorRegistrationStatus) -> ::windows::core::HRESULT {
+impl ISecondaryAuthenticationFactorRegistrationResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorRegistrationResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorRegistrationResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: ISecondaryAuthenticationFactorRegistrationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SecondaryAuthenticationFactorRegistrationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -573,7 +573,7 @@ impl ISecondaryAuthenticationFactorRegistrationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Registration<Impl: ISecondaryAuthenticationFactorRegistrationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Registration<Impl: ISecondaryAuthenticationFactorRegistrationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Registration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -595,7 +595,7 @@ impl ISecondaryAuthenticationFactorRegistrationResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISecondaryAuthenticationFactorRegistrationStaticsImpl: Sized {
+pub trait ISecondaryAuthenticationFactorRegistrationStatics_Impl: Sized {
     fn RequestStartRegisteringDeviceAsync(&mut self, deviceid: &::windows::core::HSTRING, capabilities: SecondaryAuthenticationFactorDeviceCapabilities, devicefriendlyname: &::windows::core::HSTRING, devicemodelnumber: &::windows::core::HSTRING, devicekey: &::core::option::Option<super::super::super::super::Storage::Streams::IBuffer>, mutualauthenticationkey: &::core::option::Option<super::super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorRegistrationResult>>;
     fn FindAllRegisteredDeviceInfoAsync(&mut self, querytype: SecondaryAuthenticationFactorDeviceFindScope) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<SecondaryAuthenticationFactorInfo>>>;
     fn UnregisterDeviceAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
@@ -606,9 +606,9 @@ impl ::windows::core::RuntimeName for ISecondaryAuthenticationFactorRegistration
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorRegistrationStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
-impl ISecondaryAuthenticationFactorRegistrationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorRegistrationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorRegistrationStaticsVtbl {
-        unsafe extern "system" fn RequestStartRegisteringDeviceAsync<Impl: ISecondaryAuthenticationFactorRegistrationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, capabilities: SecondaryAuthenticationFactorDeviceCapabilities, devicefriendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, devicemodelnumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, devicekey: ::windows::core::RawPtr, mutualauthenticationkey: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISecondaryAuthenticationFactorRegistrationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryAuthenticationFactorRegistrationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryAuthenticationFactorRegistrationStatics_Vtbl {
+        unsafe extern "system" fn RequestStartRegisteringDeviceAsync<Impl: ISecondaryAuthenticationFactorRegistrationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, capabilities: SecondaryAuthenticationFactorDeviceCapabilities, devicefriendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, devicemodelnumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, devicekey: ::windows::core::RawPtr, mutualauthenticationkey: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestStartRegisteringDeviceAsync(
                 &*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -626,7 +626,7 @@ impl ISecondaryAuthenticationFactorRegistrationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindAllRegisteredDeviceInfoAsync<Impl: ISecondaryAuthenticationFactorRegistrationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, querytype: SecondaryAuthenticationFactorDeviceFindScope, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindAllRegisteredDeviceInfoAsync<Impl: ISecondaryAuthenticationFactorRegistrationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, querytype: SecondaryAuthenticationFactorDeviceFindScope, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAllRegisteredDeviceInfoAsync(querytype) {
                 ::core::result::Result::Ok(ok__) => {
@@ -637,7 +637,7 @@ impl ISecondaryAuthenticationFactorRegistrationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnregisterDeviceAsync<Impl: ISecondaryAuthenticationFactorRegistrationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterDeviceAsync<Impl: ISecondaryAuthenticationFactorRegistrationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnregisterDeviceAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -648,7 +648,7 @@ impl ISecondaryAuthenticationFactorRegistrationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpdateDeviceConfigurationDataAsync<Impl: ISecondaryAuthenticationFactorRegistrationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, deviceconfigurationdata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateDeviceConfigurationDataAsync<Impl: ISecondaryAuthenticationFactorRegistrationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, deviceconfigurationdata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateDeviceConfigurationDataAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&deviceconfigurationdata as *const <super::super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

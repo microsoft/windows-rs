@@ -10,23 +10,31 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
 
 fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     let type_ident = gen_ident(def.name());
-    let impl_ident = type_ident.join("Impl");
-    let vtbl_ident = type_ident.join("Vtbl");
+    let impl_ident = type_ident.join("_Impl");
+    let vtbl_ident = type_ident.join("_Vtbl");
     let constraints = gen_type_constraints(def, gen);
     let generics = gen_type_generics(def, gen);
     let phantoms = gen_named_phantoms(def, gen);
     let cfg = gen.type_impl_cfg(def);
-    let mut requires = vec![];
+    let mut requires = quote! {};
+
+    fn gen_required_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
+        let name = gen_impl_ident(&def, gen);
+        let namespace = gen.namespace(def.namespace());
+        quote! {
+            + #namespace #name
+        }
+    }
 
     for def in def.vtable_types() {
         if let ElementType::TypeDef(def) = def {
-            requires.push(gen_impl_ident(&def, gen));
+            requires.combine(&gen_required_trait(&def, gen));
         }
     }
 
     if def.is_winrt() {
         for def in def.required_interfaces() {
-            requires.push(gen_impl_ident(&def, gen));
+            requires.combine(&gen_required_trait(&def, gen));
         }
     }
 
@@ -68,19 +76,22 @@ fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
         Some(ElementType::IInspectable) => methods.combine(&quote! { base: ::windows::core::IInspectableVtbl::new::<Identity, #type_ident<#(#generics)*>, BASE_OFFSET>(), }),
         Some(ElementType::TypeDef(def)) => {
             let vtbl = gen_vtbl_ident(&def, gen);
-            methods.combine(&quote! { base: #vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), });
+            let namespace = gen.namespace(def.namespace());
+            methods.combine(&quote! { base: #namespace #vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), });
         }
         _ => {}
     }
 
+    let mut method_names = MethodNames::new();
+
     for method in def.methods() {
-        let name = gen_ident(&method.rust_name());
+        let name = method_names.add(&method);
         methods.combine(&quote! { #name: #name::<#(#generics)* Impl, IMPL_OFFSET>, });
     }
 
     quote!{
         #cfg
-        pub trait #impl_ident<#(#generics)*> : Sized #(+#requires)* where #(#constraints)* {
+        pub trait #impl_ident<#(#generics)*> : Sized #requires where #(#constraints)* {
             #(#method_traits)*
         }
         #runtime_name

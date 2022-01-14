@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
-pub trait IBackgroundAudioTrackImpl: Sized {
+pub trait IBackgroundAudioTrack_Impl: Sized {
     fn TrimTimeFromStart(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn SetTrimTimeFromStart(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
     fn TrimTimeFromEnd(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -20,9 +20,9 @@ impl ::windows::core::RuntimeName for IBackgroundAudioTrack {
     const NAME: &'static str = "Windows.Media.Editing.IBackgroundAudioTrack";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
-impl IBackgroundAudioTrackVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundAudioTrackImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundAudioTrackVtbl {
-        unsafe extern "system" fn TrimTimeFromStart<Impl: IBackgroundAudioTrackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+impl IBackgroundAudioTrack_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundAudioTrack_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundAudioTrack_Vtbl {
+        unsafe extern "system" fn TrimTimeFromStart<Impl: IBackgroundAudioTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrimTimeFromStart() {
                 ::core::result::Result::Ok(ok__) => {
@@ -33,11 +33,11 @@ impl IBackgroundAudioTrackVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTrimTimeFromStart<Impl: IBackgroundAudioTrackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTrimTimeFromStart<Impl: IBackgroundAudioTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTrimTimeFromStart(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TrimTimeFromEnd<Impl: IBackgroundAudioTrackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrimTimeFromEnd<Impl: IBackgroundAudioTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrimTimeFromEnd() {
                 ::core::result::Result::Ok(ok__) => {
@@ -48,11 +48,11 @@ impl IBackgroundAudioTrackVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTrimTimeFromEnd<Impl: IBackgroundAudioTrackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTrimTimeFromEnd<Impl: IBackgroundAudioTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTrimTimeFromEnd(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn OriginalDuration<Impl: IBackgroundAudioTrackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OriginalDuration<Impl: IBackgroundAudioTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OriginalDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -63,7 +63,7 @@ impl IBackgroundAudioTrackVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrimmedDuration<Impl: IBackgroundAudioTrackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrimmedDuration<Impl: IBackgroundAudioTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrimmedDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -74,7 +74,7 @@ impl IBackgroundAudioTrackVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UserData<Impl: IBackgroundAudioTrackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UserData<Impl: IBackgroundAudioTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -85,11 +85,11 @@ impl IBackgroundAudioTrackVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDelay<Impl: IBackgroundAudioTrackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDelay<Impl: IBackgroundAudioTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDelay(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Delay<Impl: IBackgroundAudioTrackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Delay<Impl: IBackgroundAudioTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Delay() {
                 ::core::result::Result::Ok(ok__) => {
@@ -100,11 +100,11 @@ impl IBackgroundAudioTrackVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVolume<Impl: IBackgroundAudioTrackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVolume<Impl: IBackgroundAudioTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVolume(value).into()
         }
-        unsafe extern "system" fn Volume<Impl: IBackgroundAudioTrackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Volume<Impl: IBackgroundAudioTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Volume() {
                 ::core::result::Result::Ok(ok__) => {
@@ -115,7 +115,7 @@ impl IBackgroundAudioTrackVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Clone<Impl: IBackgroundAudioTrackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clone<Impl: IBackgroundAudioTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -126,7 +126,7 @@ impl IBackgroundAudioTrackVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAudioEncodingProperties<Impl: IBackgroundAudioTrackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAudioEncodingProperties<Impl: IBackgroundAudioTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAudioEncodingProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -137,7 +137,7 @@ impl IBackgroundAudioTrackVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AudioEffectDefinitions<Impl: IBackgroundAudioTrackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioEffectDefinitions<Impl: IBackgroundAudioTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioEffectDefinitions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -171,7 +171,7 @@ impl IBackgroundAudioTrackVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
-pub trait IBackgroundAudioTrackStaticsImpl: Sized {
+pub trait IBackgroundAudioTrackStatics_Impl: Sized {
     fn CreateFromEmbeddedAudioTrack(&mut self, embeddedaudiotrack: &::core::option::Option<EmbeddedAudioTrack>) -> ::windows::core::Result<BackgroundAudioTrack>;
     fn CreateFromFileAsync(&mut self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BackgroundAudioTrack>>;
 }
@@ -180,9 +180,9 @@ impl ::windows::core::RuntimeName for IBackgroundAudioTrackStatics {
     const NAME: &'static str = "Windows.Media.Editing.IBackgroundAudioTrackStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
-impl IBackgroundAudioTrackStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundAudioTrackStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundAudioTrackStaticsVtbl {
-        unsafe extern "system" fn CreateFromEmbeddedAudioTrack<Impl: IBackgroundAudioTrackStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, embeddedaudiotrack: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBackgroundAudioTrackStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundAudioTrackStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundAudioTrackStatics_Vtbl {
+        unsafe extern "system" fn CreateFromEmbeddedAudioTrack<Impl: IBackgroundAudioTrackStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, embeddedaudiotrack: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromEmbeddedAudioTrack(&*(&embeddedaudiotrack as *const <EmbeddedAudioTrack as ::windows::core::Abi>::Abi as *const <EmbeddedAudioTrack as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -193,7 +193,7 @@ impl IBackgroundAudioTrackStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromFileAsync<Impl: IBackgroundAudioTrackStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromFileAsync<Impl: IBackgroundAudioTrackStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromFileAsync(&*(&file as *const <super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -215,7 +215,7 @@ impl IBackgroundAudioTrackStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
-pub trait IEmbeddedAudioTrackImpl: Sized {
+pub trait IEmbeddedAudioTrack_Impl: Sized {
     fn GetAudioEncodingProperties(&mut self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties>;
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
@@ -223,9 +223,9 @@ impl ::windows::core::RuntimeName for IEmbeddedAudioTrack {
     const NAME: &'static str = "Windows.Media.Editing.IEmbeddedAudioTrack";
 }
 #[cfg(all(feature = "Media_MediaProperties", feature = "implement_exclusive"))]
-impl IEmbeddedAudioTrackVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmbeddedAudioTrackImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmbeddedAudioTrackVtbl {
-        unsafe extern "system" fn GetAudioEncodingProperties<Impl: IEmbeddedAudioTrackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEmbeddedAudioTrack_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmbeddedAudioTrack_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEmbeddedAudioTrack_Vtbl {
+        unsafe extern "system" fn GetAudioEncodingProperties<Impl: IEmbeddedAudioTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAudioEncodingProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -246,7 +246,7 @@ impl IEmbeddedAudioTrackVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
-pub trait IMediaClipImpl: Sized {
+pub trait IMediaClip_Impl: Sized {
     fn TrimTimeFromStart(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn SetTrimTimeFromStart(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
     fn TrimTimeFromEnd(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -271,9 +271,9 @@ impl ::windows::core::RuntimeName for IMediaClip {
     const NAME: &'static str = "Windows.Media.Editing.IMediaClip";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties", feature = "implement_exclusive"))]
-impl IMediaClipVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaClipImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaClipVtbl {
-        unsafe extern "system" fn TrimTimeFromStart<Impl: IMediaClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+impl IMediaClip_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaClip_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaClip_Vtbl {
+        unsafe extern "system" fn TrimTimeFromStart<Impl: IMediaClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrimTimeFromStart() {
                 ::core::result::Result::Ok(ok__) => {
@@ -284,11 +284,11 @@ impl IMediaClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTrimTimeFromStart<Impl: IMediaClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTrimTimeFromStart<Impl: IMediaClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTrimTimeFromStart(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TrimTimeFromEnd<Impl: IMediaClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrimTimeFromEnd<Impl: IMediaClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrimTimeFromEnd() {
                 ::core::result::Result::Ok(ok__) => {
@@ -299,11 +299,11 @@ impl IMediaClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTrimTimeFromEnd<Impl: IMediaClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTrimTimeFromEnd<Impl: IMediaClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTrimTimeFromEnd(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn OriginalDuration<Impl: IMediaClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OriginalDuration<Impl: IMediaClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OriginalDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -314,7 +314,7 @@ impl IMediaClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrimmedDuration<Impl: IMediaClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrimmedDuration<Impl: IMediaClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrimmedDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -325,7 +325,7 @@ impl IMediaClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UserData<Impl: IMediaClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UserData<Impl: IMediaClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -336,7 +336,7 @@ impl IMediaClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Clone<Impl: IMediaClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clone<Impl: IMediaClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -347,7 +347,7 @@ impl IMediaClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartTimeInComposition<Impl: IMediaClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartTimeInComposition<Impl: IMediaClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartTimeInComposition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -358,7 +358,7 @@ impl IMediaClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EndTimeInComposition<Impl: IMediaClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EndTimeInComposition<Impl: IMediaClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndTimeInComposition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -369,7 +369,7 @@ impl IMediaClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EmbeddedAudioTracks<Impl: IMediaClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EmbeddedAudioTracks<Impl: IMediaClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EmbeddedAudioTracks() {
                 ::core::result::Result::Ok(ok__) => {
@@ -380,7 +380,7 @@ impl IMediaClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectedEmbeddedAudioTrackIndex<Impl: IMediaClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectedEmbeddedAudioTrackIndex<Impl: IMediaClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedEmbeddedAudioTrackIndex() {
                 ::core::result::Result::Ok(ok__) => {
@@ -391,15 +391,15 @@ impl IMediaClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSelectedEmbeddedAudioTrackIndex<Impl: IMediaClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSelectedEmbeddedAudioTrackIndex<Impl: IMediaClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSelectedEmbeddedAudioTrackIndex(value).into()
         }
-        unsafe extern "system" fn SetVolume<Impl: IMediaClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVolume<Impl: IMediaClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetVolume(value).into()
         }
-        unsafe extern "system" fn Volume<Impl: IMediaClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Volume<Impl: IMediaClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Volume() {
                 ::core::result::Result::Ok(ok__) => {
@@ -410,7 +410,7 @@ impl IMediaClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVideoEncodingProperties<Impl: IMediaClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetVideoEncodingProperties<Impl: IMediaClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetVideoEncodingProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -421,7 +421,7 @@ impl IMediaClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AudioEffectDefinitions<Impl: IMediaClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioEffectDefinitions<Impl: IMediaClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioEffectDefinitions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -432,7 +432,7 @@ impl IMediaClipVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideoEffectDefinitions<Impl: IMediaClipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoEffectDefinitions<Impl: IMediaClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoEffectDefinitions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -470,7 +470,7 @@ impl IMediaClipVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "UI", feature = "implement_exclusive"))]
-pub trait IMediaClipStaticsImpl: Sized {
+pub trait IMediaClipStatics_Impl: Sized {
     fn CreateFromColor(&mut self, color: &super::super::UI::Color, originalduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaClip>;
     fn CreateFromFileAsync(&mut self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaClip>>;
     fn CreateFromImageFileAsync(&mut self, file: &::core::option::Option<super::super::Storage::IStorageFile>, originalduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaClip>>;
@@ -480,9 +480,9 @@ impl ::windows::core::RuntimeName for IMediaClipStatics {
     const NAME: &'static str = "Windows.Media.Editing.IMediaClipStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "UI", feature = "implement_exclusive"))]
-impl IMediaClipStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaClipStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaClipStaticsVtbl {
-        unsafe extern "system" fn CreateFromColor<Impl: IMediaClipStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: super::super::UI::Color, originalduration: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaClipStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaClipStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaClipStatics_Vtbl {
+        unsafe extern "system" fn CreateFromColor<Impl: IMediaClipStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: super::super::UI::Color, originalduration: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromColor(&*(&color as *const <super::super::UI::Color as ::windows::core::Abi>::Abi as *const <super::super::UI::Color as ::windows::core::DefaultType>::DefaultType), &*(&originalduration as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -493,7 +493,7 @@ impl IMediaClipStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromFileAsync<Impl: IMediaClipStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromFileAsync<Impl: IMediaClipStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromFileAsync(&*(&file as *const <super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -504,7 +504,7 @@ impl IMediaClipStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromImageFileAsync<Impl: IMediaClipStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, originalduration: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromImageFileAsync<Impl: IMediaClipStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, originalduration: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromImageFileAsync(&*(&file as *const <super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType), &*(&originalduration as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -527,7 +527,7 @@ impl IMediaClipStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
-pub trait IMediaClipStatics2Impl: Sized {
+pub trait IMediaClipStatics2_Impl: Sized {
     fn CreateFromSurface(&mut self, surface: &::core::option::Option<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, originalduration: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaClip>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
@@ -535,9 +535,9 @@ impl ::windows::core::RuntimeName for IMediaClipStatics2 {
     const NAME: &'static str = "Windows.Media.Editing.IMediaClipStatics2";
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11", feature = "implement_exclusive"))]
-impl IMediaClipStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaClipStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaClipStatics2Vtbl {
-        unsafe extern "system" fn CreateFromSurface<Impl: IMediaClipStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, surface: ::windows::core::RawPtr, originalduration: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaClipStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaClipStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaClipStatics2_Vtbl {
+        unsafe extern "system" fn CreateFromSurface<Impl: IMediaClipStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, surface: ::windows::core::RawPtr, originalduration: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromSurface(&*(&surface as *const <super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface as ::windows::core::Abi>::Abi as *const <super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface as ::windows::core::DefaultType>::DefaultType), &*(&originalduration as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -558,7 +558,7 @@ impl IMediaClipStatics2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "Media_Core", feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMediaCompositionImpl: Sized {
+pub trait IMediaComposition_Impl: Sized {
     fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn Clips(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<MediaClip>>;
     fn BackgroundAudioTracks(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<BackgroundAudioTrack>>;
@@ -580,9 +580,9 @@ impl ::windows::core::RuntimeName for IMediaComposition {
     const NAME: &'static str = "Windows.Media.Editing.IMediaComposition";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "Media_Core", feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMediaCompositionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCompositionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCompositionVtbl {
-        unsafe extern "system" fn Duration<Impl: IMediaCompositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+impl IMediaComposition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaComposition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaComposition_Vtbl {
+        unsafe extern "system" fn Duration<Impl: IMediaComposition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Duration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -593,7 +593,7 @@ impl IMediaCompositionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Clips<Impl: IMediaCompositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clips<Impl: IMediaComposition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Clips() {
                 ::core::result::Result::Ok(ok__) => {
@@ -604,7 +604,7 @@ impl IMediaCompositionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BackgroundAudioTracks<Impl: IMediaCompositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackgroundAudioTracks<Impl: IMediaComposition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackgroundAudioTracks() {
                 ::core::result::Result::Ok(ok__) => {
@@ -615,7 +615,7 @@ impl IMediaCompositionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UserData<Impl: IMediaCompositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UserData<Impl: IMediaComposition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -626,7 +626,7 @@ impl IMediaCompositionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Clone<Impl: IMediaCompositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clone<Impl: IMediaComposition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -637,7 +637,7 @@ impl IMediaCompositionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SaveAsync<Impl: IMediaCompositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaveAsync<Impl: IMediaComposition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SaveAsync(&*(&file as *const <super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -648,7 +648,7 @@ impl IMediaCompositionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetThumbnailAsync<Impl: IMediaCompositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timefromstart: super::super::Foundation::TimeSpan, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetThumbnailAsync<Impl: IMediaComposition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timefromstart: super::super::Foundation::TimeSpan, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetThumbnailAsync(&*(&timefromstart as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType), scaledwidth, scaledheight, frameprecision) {
                 ::core::result::Result::Ok(ok__) => {
@@ -659,7 +659,7 @@ impl IMediaCompositionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetThumbnailsAsync<Impl: IMediaCompositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timesfromstart: ::windows::core::RawPtr, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetThumbnailsAsync<Impl: IMediaComposition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timesfromstart: ::windows::core::RawPtr, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetThumbnailsAsync(&*(&timesfromstart as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::TimeSpan> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::TimeSpan> as ::windows::core::DefaultType>::DefaultType), scaledwidth, scaledheight, frameprecision) {
                 ::core::result::Result::Ok(ok__) => {
@@ -670,7 +670,7 @@ impl IMediaCompositionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RenderToFileAsync<Impl: IMediaCompositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RenderToFileAsync<Impl: IMediaComposition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RenderToFileAsync(&*(&destination as *const <super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -681,7 +681,7 @@ impl IMediaCompositionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RenderToFileWithTrimmingPreferenceAsync<Impl: IMediaCompositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr, trimmingpreference: MediaTrimmingPreference, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RenderToFileWithTrimmingPreferenceAsync<Impl: IMediaComposition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr, trimmingpreference: MediaTrimmingPreference, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RenderToFileWithTrimmingPreferenceAsync(&*(&destination as *const <super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType), trimmingpreference) {
                 ::core::result::Result::Ok(ok__) => {
@@ -692,7 +692,7 @@ impl IMediaCompositionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RenderToFileWithProfileAsync<Impl: IMediaCompositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr, trimmingpreference: MediaTrimmingPreference, encodingprofile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RenderToFileWithProfileAsync<Impl: IMediaComposition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr, trimmingpreference: MediaTrimmingPreference, encodingprofile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RenderToFileWithProfileAsync(&*(&destination as *const <super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType), trimmingpreference, &*(&encodingprofile as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::Abi>::Abi as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -703,7 +703,7 @@ impl IMediaCompositionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateDefaultEncodingProfile<Impl: IMediaCompositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDefaultEncodingProfile<Impl: IMediaComposition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDefaultEncodingProfile() {
                 ::core::result::Result::Ok(ok__) => {
@@ -714,7 +714,7 @@ impl IMediaCompositionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GenerateMediaStreamSource<Impl: IMediaCompositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GenerateMediaStreamSource<Impl: IMediaComposition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GenerateMediaStreamSource() {
                 ::core::result::Result::Ok(ok__) => {
@@ -725,7 +725,7 @@ impl IMediaCompositionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GenerateMediaStreamSourceWithProfile<Impl: IMediaCompositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GenerateMediaStreamSourceWithProfile<Impl: IMediaComposition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingprofile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GenerateMediaStreamSourceWithProfile(&*(&encodingprofile as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::Abi>::Abi as *const <super::MediaProperties::MediaEncodingProfile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -736,7 +736,7 @@ impl IMediaCompositionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GeneratePreviewMediaStreamSource<Impl: IMediaCompositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scaledwidth: i32, scaledheight: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GeneratePreviewMediaStreamSource<Impl: IMediaComposition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scaledwidth: i32, scaledheight: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GeneratePreviewMediaStreamSource(scaledwidth, scaledheight) {
                 ::core::result::Result::Ok(ok__) => {
@@ -771,7 +771,7 @@ impl IMediaCompositionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IMediaComposition2Impl: Sized {
+pub trait IMediaComposition2_Impl: Sized {
     fn OverlayLayers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<MediaOverlayLayer>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -779,9 +779,9 @@ impl ::windows::core::RuntimeName for IMediaComposition2 {
     const NAME: &'static str = "Windows.Media.Editing.IMediaComposition2";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IMediaComposition2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaComposition2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaComposition2Vtbl {
-        unsafe extern "system" fn OverlayLayers<Impl: IMediaComposition2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaComposition2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaComposition2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaComposition2_Vtbl {
+        unsafe extern "system" fn OverlayLayers<Impl: IMediaComposition2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OverlayLayers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -799,7 +799,7 @@ impl IMediaComposition2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
-pub trait IMediaCompositionStaticsImpl: Sized {
+pub trait IMediaCompositionStatics_Impl: Sized {
     fn LoadAsync(&mut self, file: &::core::option::Option<super::super::Storage::StorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaComposition>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
@@ -807,9 +807,9 @@ impl ::windows::core::RuntimeName for IMediaCompositionStatics {
     const NAME: &'static str = "Windows.Media.Editing.IMediaCompositionStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
-impl IMediaCompositionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCompositionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCompositionStaticsVtbl {
-        unsafe extern "system" fn LoadAsync<Impl: IMediaCompositionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaCompositionStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaCompositionStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaCompositionStatics_Vtbl {
+        unsafe extern "system" fn LoadAsync<Impl: IMediaCompositionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadAsync(&*(&file as *const <super::super::Storage::StorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::StorageFile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -827,7 +827,7 @@ impl IMediaCompositionStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMediaOverlayImpl: Sized {
+pub trait IMediaOverlay_Impl: Sized {
     fn Position(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
     fn SetPosition(&mut self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
     fn SetDelay(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
@@ -844,9 +844,9 @@ impl ::windows::core::RuntimeName for IMediaOverlay {
     const NAME: &'static str = "Windows.Media.Editing.IMediaOverlay";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMediaOverlayVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaOverlayImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaOverlayVtbl {
-        unsafe extern "system" fn Position<Impl: IMediaOverlayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+impl IMediaOverlay_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaOverlay_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaOverlay_Vtbl {
+        unsafe extern "system" fn Position<Impl: IMediaOverlay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -857,15 +857,15 @@ impl IMediaOverlayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPosition<Impl: IMediaOverlayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPosition<Impl: IMediaOverlay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPosition(&*(&value as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetDelay<Impl: IMediaOverlayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDelay<Impl: IMediaOverlay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDelay(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Delay<Impl: IMediaOverlayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Delay<Impl: IMediaOverlay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Delay() {
                 ::core::result::Result::Ok(ok__) => {
@@ -876,7 +876,7 @@ impl IMediaOverlayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Opacity<Impl: IMediaOverlayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Opacity<Impl: IMediaOverlay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Opacity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -887,11 +887,11 @@ impl IMediaOverlayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOpacity<Impl: IMediaOverlayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOpacity<Impl: IMediaOverlay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOpacity(value).into()
         }
-        unsafe extern "system" fn Clone<Impl: IMediaOverlayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clone<Impl: IMediaOverlay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -902,7 +902,7 @@ impl IMediaOverlayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Clip<Impl: IMediaOverlayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clip<Impl: IMediaOverlay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Clip() {
                 ::core::result::Result::Ok(ok__) => {
@@ -913,7 +913,7 @@ impl IMediaOverlayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AudioEnabled<Impl: IMediaOverlayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioEnabled<Impl: IMediaOverlay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -924,7 +924,7 @@ impl IMediaOverlayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAudioEnabled<Impl: IMediaOverlayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAudioEnabled<Impl: IMediaOverlay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAudioEnabled(value).into()
         }
@@ -947,7 +947,7 @@ impl IMediaOverlayVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMediaOverlayFactoryImpl: Sized {
+pub trait IMediaOverlayFactory_Impl: Sized {
     fn Create(&mut self, clip: &::core::option::Option<MediaClip>) -> ::windows::core::Result<MediaOverlay>;
     fn CreateWithPositionAndOpacity(&mut self, clip: &::core::option::Option<MediaClip>, position: &super::super::Foundation::Rect, opacity: f64) -> ::windows::core::Result<MediaOverlay>;
 }
@@ -956,9 +956,9 @@ impl ::windows::core::RuntimeName for IMediaOverlayFactory {
     const NAME: &'static str = "Windows.Media.Editing.IMediaOverlayFactory";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMediaOverlayFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaOverlayFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaOverlayFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IMediaOverlayFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clip: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaOverlayFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaOverlayFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaOverlayFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IMediaOverlayFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clip: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&clip as *const <MediaClip as ::windows::core::Abi>::Abi as *const <MediaClip as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -969,7 +969,7 @@ impl IMediaOverlayFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithPositionAndOpacity<Impl: IMediaOverlayFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clip: ::windows::core::RawPtr, position: super::super::Foundation::Rect, opacity: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithPositionAndOpacity<Impl: IMediaOverlayFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clip: ::windows::core::RawPtr, position: super::super::Foundation::Rect, opacity: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithPositionAndOpacity(&*(&clip as *const <MediaClip as ::windows::core::Abi>::Abi as *const <MediaClip as ::windows::core::DefaultType>::DefaultType), &*(&position as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType), opacity) {
                 ::core::result::Result::Ok(ok__) => {
@@ -991,7 +991,7 @@ impl IMediaOverlayFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "implement_exclusive"))]
-pub trait IMediaOverlayLayerImpl: Sized {
+pub trait IMediaOverlayLayer_Impl: Sized {
     fn Clone(&mut self) -> ::windows::core::Result<MediaOverlayLayer>;
     fn Overlays(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<MediaOverlay>>;
     fn CustomCompositorDefinition(&mut self) -> ::windows::core::Result<super::Effects::IVideoCompositorDefinition>;
@@ -1001,9 +1001,9 @@ impl ::windows::core::RuntimeName for IMediaOverlayLayer {
     const NAME: &'static str = "Windows.Media.Editing.IMediaOverlayLayer";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "implement_exclusive"))]
-impl IMediaOverlayLayerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaOverlayLayerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaOverlayLayerVtbl {
-        unsafe extern "system" fn Clone<Impl: IMediaOverlayLayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaOverlayLayer_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaOverlayLayer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaOverlayLayer_Vtbl {
+        unsafe extern "system" fn Clone<Impl: IMediaOverlayLayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1014,7 +1014,7 @@ impl IMediaOverlayLayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Overlays<Impl: IMediaOverlayLayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Overlays<Impl: IMediaOverlayLayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Overlays() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1025,7 +1025,7 @@ impl IMediaOverlayLayerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CustomCompositorDefinition<Impl: IMediaOverlayLayerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CustomCompositorDefinition<Impl: IMediaOverlayLayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CustomCompositorDefinition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1048,7 +1048,7 @@ impl IMediaOverlayLayerVtbl {
     }
 }
 #[cfg(all(feature = "Media_Effects", feature = "implement_exclusive"))]
-pub trait IMediaOverlayLayerFactoryImpl: Sized {
+pub trait IMediaOverlayLayerFactory_Impl: Sized {
     fn CreateWithCompositorDefinition(&mut self, compositordefinition: &::core::option::Option<super::Effects::IVideoCompositorDefinition>) -> ::windows::core::Result<MediaOverlayLayer>;
 }
 #[cfg(all(feature = "Media_Effects", feature = "implement_exclusive"))]
@@ -1056,9 +1056,9 @@ impl ::windows::core::RuntimeName for IMediaOverlayLayerFactory {
     const NAME: &'static str = "Windows.Media.Editing.IMediaOverlayLayerFactory";
 }
 #[cfg(all(feature = "Media_Effects", feature = "implement_exclusive"))]
-impl IMediaOverlayLayerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaOverlayLayerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaOverlayLayerFactoryVtbl {
-        unsafe extern "system" fn CreateWithCompositorDefinition<Impl: IMediaOverlayLayerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositordefinition: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMediaOverlayLayerFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaOverlayLayerFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMediaOverlayLayerFactory_Vtbl {
+        unsafe extern "system" fn CreateWithCompositorDefinition<Impl: IMediaOverlayLayerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositordefinition: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithCompositorDefinition(&*(&compositordefinition as *const <super::Effects::IVideoCompositorDefinition as ::windows::core::Abi>::Abi as *const <super::Effects::IVideoCompositorDefinition as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

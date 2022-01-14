@@ -9994,12 +9994,12 @@ impl ::core::fmt::Debug for IDot11AdHocInterface {
     }
 }
 unsafe impl ::windows::core::Interface for IDot11AdHocInterface {
-    type Vtable = IDot11AdHocInterfaceVtbl;
+    type Vtable = IDot11AdHocInterface_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2b_cf0d_42a0_acbe_e2de7007384d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDot11AdHocInterfaceVtbl {
+pub struct IDot11AdHocInterface_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetDeviceSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psignature: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -10060,12 +10060,12 @@ impl ::core::fmt::Debug for IDot11AdHocInterfaceNotificationSink {
     }
 }
 unsafe impl ::windows::core::Interface for IDot11AdHocInterfaceNotificationSink {
-    type Vtable = IDot11AdHocInterfaceNotificationSinkVtbl;
+    type Vtable = IDot11AdHocInterfaceNotificationSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2f_cf0d_42a0_acbe_e2de7007384d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDot11AdHocInterfaceNotificationSinkVtbl {
+pub struct IDot11AdHocInterfaceNotificationSink_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnConnectionStatusChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::HRESULT,
 }
@@ -10137,12 +10137,12 @@ impl ::core::fmt::Debug for IDot11AdHocManager {
     }
 }
 unsafe impl ::windows::core::Interface for IDot11AdHocManager {
-    type Vtable = IDot11AdHocManagerVtbl;
+    type Vtable = IDot11AdHocManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc26_cf0d_42a0_acbe_e2de7007384d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDot11AdHocManagerVtbl {
+pub struct IDot11AdHocManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateNetwork: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, password: super::super::Foundation::PWSTR, geographicalid: i32, pinterface: ::windows::core::RawPtr, psecurity: ::windows::core::RawPtr, pcontextguid: *const ::windows::core::GUID, piadhoc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10214,12 +10214,12 @@ impl ::core::fmt::Debug for IDot11AdHocManagerNotificationSink {
     }
 }
 unsafe impl ::windows::core::Interface for IDot11AdHocManagerNotificationSink {
-    type Vtable = IDot11AdHocManagerNotificationSinkVtbl;
+    type Vtable = IDot11AdHocManagerNotificationSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc27_cf0d_42a0_acbe_e2de7007384d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDot11AdHocManagerNotificationSinkVtbl {
+pub struct IDot11AdHocManagerNotificationSink_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnNetworkAdd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piadhocnetwork: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OnNetworkRemove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signature: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -10323,12 +10323,12 @@ impl ::core::fmt::Debug for IDot11AdHocNetwork {
     }
 }
 unsafe impl ::windows::core::Interface for IDot11AdHocNetwork {
-    type Vtable = IDot11AdHocNetworkVtbl;
+    type Vtable = IDot11AdHocNetwork_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc29_cf0d_42a0_acbe_e2de7007384d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDot11AdHocNetworkVtbl {
+pub struct IDot11AdHocNetwork_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, estatus: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -10402,12 +10402,12 @@ impl ::core::fmt::Debug for IDot11AdHocNetworkNotificationSink {
     }
 }
 unsafe impl ::windows::core::Interface for IDot11AdHocNetworkNotificationSink {
-    type Vtable = IDot11AdHocNetworkNotificationSinkVtbl;
+    type Vtable = IDot11AdHocNetworkNotificationSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2a_cf0d_42a0_acbe_e2de7007384d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDot11AdHocNetworkNotificationSinkVtbl {
+pub struct IDot11AdHocNetworkNotificationSink_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnStatusChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::HRESULT,
     pub OnConnectFail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, efailreason: DOT11_ADHOC_CONNECT_FAIL_REASON) -> ::windows::core::HRESULT,
@@ -10462,12 +10462,12 @@ impl ::core::fmt::Debug for IDot11AdHocSecuritySettings {
     }
 }
 unsafe impl ::windows::core::Interface for IDot11AdHocSecuritySettings {
-    type Vtable = IDot11AdHocSecuritySettingsVtbl;
+    type Vtable = IDot11AdHocSecuritySettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2e_cf0d_42a0_acbe_e2de7007384d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDot11AdHocSecuritySettingsVtbl {
+pub struct IDot11AdHocSecuritySettings_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetDot11AuthAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pauth: *mut DOT11_ADHOC_AUTH_ALGORITHM) -> ::windows::core::HRESULT,
     pub GetDot11CipherAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcipher: *mut DOT11_ADHOC_CIPHER_ALGORITHM) -> ::windows::core::HRESULT,
@@ -10531,12 +10531,12 @@ impl ::core::fmt::Debug for IEnumDot11AdHocInterfaces {
     }
 }
 unsafe impl ::windows::core::Interface for IEnumDot11AdHocInterfaces {
-    type Vtable = IEnumDot11AdHocInterfacesVtbl;
+    type Vtable = IEnumDot11AdHocInterfaces_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2c_cf0d_42a0_acbe_e2de7007384d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumDot11AdHocInterfacesVtbl {
+pub struct IEnumDot11AdHocInterfaces_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
@@ -10602,12 +10602,12 @@ impl ::core::fmt::Debug for IEnumDot11AdHocNetworks {
     }
 }
 unsafe impl ::windows::core::Interface for IEnumDot11AdHocNetworks {
-    type Vtable = IEnumDot11AdHocNetworksVtbl;
+    type Vtable = IEnumDot11AdHocNetworks_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc28_cf0d_42a0_acbe_e2de7007384d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumDot11AdHocNetworksVtbl {
+pub struct IEnumDot11AdHocNetworks_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
@@ -10673,12 +10673,12 @@ impl ::core::fmt::Debug for IEnumDot11AdHocSecuritySettings {
     }
 }
 unsafe impl ::windows::core::Interface for IEnumDot11AdHocSecuritySettings {
-    type Vtable = IEnumDot11AdHocSecuritySettingsVtbl;
+    type Vtable = IEnumDot11AdHocSecuritySettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2d_cf0d_42a0_acbe_e2de7007384d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumDot11AdHocSecuritySettingsVtbl {
+pub struct IEnumDot11AdHocSecuritySettings_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,

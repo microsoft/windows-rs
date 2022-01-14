@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IRemoteTextConnectionImpl: Sized {
+pub trait IRemoteTextConnection_Impl: Sized {
     fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn RegisterThread(&mut self, threadid: u32) -> ::windows::core::Result<()>;
@@ -11,9 +11,9 @@ impl ::windows::core::RuntimeName for IRemoteTextConnection {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Input.IRemoteTextConnection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRemoteTextConnectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteTextConnectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteTextConnectionVtbl {
-        unsafe extern "system" fn IsEnabled<Impl: IRemoteTextConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IRemoteTextConnection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteTextConnection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteTextConnection_Vtbl {
+        unsafe extern "system" fn IsEnabled<Impl: IRemoteTextConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -24,19 +24,19 @@ impl IRemoteTextConnectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsEnabled<Impl: IRemoteTextConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsEnabled<Impl: IRemoteTextConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsEnabled(value).into()
         }
-        unsafe extern "system" fn RegisterThread<Impl: IRemoteTextConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, threadid: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterThread<Impl: IRemoteTextConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, threadid: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RegisterThread(threadid).into()
         }
-        unsafe extern "system" fn UnregisterThread<Impl: IRemoteTextConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, threadid: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterThread<Impl: IRemoteTextConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, threadid: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UnregisterThread(threadid).into()
         }
-        unsafe extern "system" fn ReportDataReceived<Impl: IRemoteTextConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pduData_array_size: u32, pdudata: *const u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportDataReceived<Impl: IRemoteTextConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pduData_array_size: u32, pdudata: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportDataReceived(::core::slice::from_raw_parts(::core::mem::transmute_copy(&pdudata), pduData_array_size as _)).into()
         }
@@ -54,7 +54,7 @@ impl IRemoteTextConnectionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRemoteTextConnectionFactoryImpl: Sized {
+pub trait IRemoteTextConnectionFactory_Impl: Sized {
     fn CreateInstance(&mut self, connectionid: &::windows::core::GUID, pduforwarder: &::core::option::Option<RemoteTextConnectionDataHandler>) -> ::windows::core::Result<RemoteTextConnection>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -62,9 +62,9 @@ impl ::windows::core::RuntimeName for IRemoteTextConnectionFactory {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Input.IRemoteTextConnectionFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRemoteTextConnectionFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteTextConnectionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteTextConnectionFactoryVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: IRemoteTextConnectionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionid: ::windows::core::GUID, pduforwarder: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRemoteTextConnectionFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteTextConnectionFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRemoteTextConnectionFactory_Vtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IRemoteTextConnectionFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionid: ::windows::core::GUID, pduforwarder: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&connectionid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&pduforwarder as *const <RemoteTextConnectionDataHandler as ::windows::core::Abi>::Abi as *const <RemoteTextConnectionDataHandler as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

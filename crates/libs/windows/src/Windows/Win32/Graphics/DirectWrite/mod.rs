@@ -2985,12 +2985,12 @@ impl ::core::fmt::Debug for IDWriteAsyncResult {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteAsyncResult {
-    type Vtable = IDWriteAsyncResultVtbl;
+    type Vtable = IDWriteAsyncResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce25f8fd_863b_4d13_9651_c1f88dc73fe2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteAsyncResultVtbl {
+pub struct IDWriteAsyncResult_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetWaitHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE,
@@ -3078,12 +3078,12 @@ impl ::core::fmt::Debug for IDWriteBitmapRenderTarget {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteBitmapRenderTarget {
-    type Vtable = IDWriteBitmapRenderTargetVtbl;
+    type Vtable = IDWriteBitmapRenderTarget_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e5a32a3_8dff_4773_9ff6_0696eab77267);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteBitmapRenderTargetVtbl {
+pub struct IDWriteBitmapRenderTarget_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub DrawGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: ::windows::core::RawPtr, textcolor: u32, blackboxrect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
@@ -3211,13 +3211,13 @@ impl ::core::fmt::Debug for IDWriteBitmapRenderTarget1 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteBitmapRenderTarget1 {
-    type Vtable = IDWriteBitmapRenderTarget1Vtbl;
+    type Vtable = IDWriteBitmapRenderTarget1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x791e8298_3ef3_4230_9880_c9bdecc42064);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteBitmapRenderTarget1Vtbl {
-    pub base: IDWriteBitmapRenderTargetVtbl,
+pub struct IDWriteBitmapRenderTarget1_Vtbl {
+    pub base: IDWriteBitmapRenderTarget_Vtbl,
     pub GetTextAntialiasMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> DWRITE_TEXT_ANTIALIAS_MODE,
     pub SetTextAntialiasMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE) -> ::windows::core::HRESULT,
 }
@@ -3275,12 +3275,12 @@ impl ::core::fmt::Debug for IDWriteColorGlyphRunEnumerator {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteColorGlyphRunEnumerator {
-    type Vtable = IDWriteColorGlyphRunEnumeratorVtbl;
+    type Vtable = IDWriteColorGlyphRunEnumerator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd31fbe17_f157_41a2_8d24_cb779e0560e8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteColorGlyphRunEnumeratorVtbl {
+pub struct IDWriteColorGlyphRunEnumerator_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub MoveNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hasrun: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -3371,13 +3371,13 @@ impl ::core::fmt::Debug for IDWriteColorGlyphRunEnumerator1 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteColorGlyphRunEnumerator1 {
-    type Vtable = IDWriteColorGlyphRunEnumerator1Vtbl;
+    type Vtable = IDWriteColorGlyphRunEnumerator1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c5f86da_c7a1_4f05_b8e1_55a179fe5a35);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteColorGlyphRunEnumerator1Vtbl {
-    pub base: IDWriteColorGlyphRunEnumeratorVtbl,
+pub struct IDWriteColorGlyphRunEnumerator1_Vtbl {
+    pub base: IDWriteColorGlyphRunEnumerator_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetCurrentRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, colorglyphrun: *mut *mut DWRITE_COLOR_GLYPH_RUN1) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3533,12 +3533,12 @@ impl ::core::fmt::Debug for IDWriteFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFactory {
-    type Vtable = IDWriteFactoryVtbl;
+    type Vtable = IDWriteFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb859ee5a_d838_4b5b_a2e8_1adc7d93db48);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFactoryVtbl {
+pub struct IDWriteFactory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetSystemFontCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontcollection: *mut ::windows::core::RawPtr, checkforupdates: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -3766,13 +3766,13 @@ impl ::core::fmt::Debug for IDWriteFactory1 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFactory1 {
-    type Vtable = IDWriteFactory1Vtbl;
+    type Vtable = IDWriteFactory1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30572f99_dac6_41db_a16e_0486307e606a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFactory1Vtbl {
-    pub base: IDWriteFactoryVtbl,
+pub struct IDWriteFactory1_Vtbl {
+    pub base: IDWriteFactory_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetEudcFontCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontcollection: *mut ::windows::core::RawPtr, checkforupdates: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4006,13 +4006,13 @@ impl ::core::fmt::Debug for IDWriteFactory2 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFactory2 {
-    type Vtable = IDWriteFactory2Vtbl;
+    type Vtable = IDWriteFactory2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0439fc60_ca44_4994_8dee_3a9af7b732ec);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFactory2Vtbl {
-    pub base: IDWriteFactory1Vtbl,
+pub struct IDWriteFactory2_Vtbl {
+    pub base: IDWriteFactory1_Vtbl,
     pub GetSystemFontFallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfallback: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateFontFallbackBuilder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfallbackbuilder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -4319,13 +4319,13 @@ impl ::core::fmt::Debug for IDWriteFactory3 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFactory3 {
-    type Vtable = IDWriteFactory3Vtbl;
+    type Vtable = IDWriteFactory3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a1b41c3_d3bb_466a_87fc_fe67556a3b65);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFactory3Vtbl {
-    pub base: IDWriteFactory2Vtbl,
+pub struct IDWriteFactory3_Vtbl {
+    pub base: IDWriteFactory2_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateGlyphRunAnalysis: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, glyphrun: *const DWRITE_GLYPH_RUN, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE1, measuringmode: DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32, glyphrunanalysis: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4677,13 +4677,13 @@ impl ::core::fmt::Debug for IDWriteFactory4 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFactory4 {
-    type Vtable = IDWriteFactory4Vtbl;
+    type Vtable = IDWriteFactory4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b0b5bd3_0797_4549_8ac5_fe915cc53856);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFactory4Vtbl {
-    pub base: IDWriteFactory3Vtbl,
+pub struct IDWriteFactory4_Vtbl {
+    pub base: IDWriteFactory3_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
     pub TranslateColorGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: DWRITE_GLYPH_IMAGE_FORMATS, measuringmode: DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32, colorlayers: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))]
@@ -5074,13 +5074,13 @@ impl ::core::fmt::Debug for IDWriteFactory5 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFactory5 {
-    type Vtable = IDWriteFactory5Vtbl;
+    type Vtable = IDWriteFactory5_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x958db99a_be2a_4f09_af7d_65189803d1d3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFactory5Vtbl {
-    pub base: IDWriteFactory4Vtbl,
+pub struct IDWriteFactory5_Vtbl {
+    pub base: IDWriteFactory4_Vtbl,
     pub CreateFontSetBuilder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontsetbuilder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateInMemoryFontFileLoader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newloader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -5525,13 +5525,13 @@ impl ::core::fmt::Debug for IDWriteFactory6 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFactory6 {
-    type Vtable = IDWriteFactory6Vtbl;
+    type Vtable = IDWriteFactory6_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3744d80_21f7_42eb_b35d_995bc72fc223);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFactory6Vtbl {
-    pub base: IDWriteFactory5Vtbl,
+pub struct IDWriteFactory6_Vtbl {
+    pub base: IDWriteFactory5_Vtbl,
     pub CreateFontFaceReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfile: ::windows::core::RawPtr, faceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, fontfacereference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateFontResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfile: ::windows::core::RawPtr, faceindex: u32, fontresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -6016,13 +6016,13 @@ impl ::core::fmt::Debug for IDWriteFactory7 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFactory7 {
-    type Vtable = IDWriteFactory7Vtbl;
+    type Vtable = IDWriteFactory7_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35d0e0b3_9076_4d2e_a016_a91b568a06b4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFactory7Vtbl {
-    pub base: IDWriteFactory6Vtbl,
+pub struct IDWriteFactory7_Vtbl {
+    pub base: IDWriteFactory6_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetSystemFontSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, includedownloadablefonts: super::super::Foundation::BOOL, fontset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6125,12 +6125,12 @@ impl ::core::fmt::Debug for IDWriteFont {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFont {
-    type Vtable = IDWriteFontVtbl;
+    type Vtable = IDWriteFont_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacd16696_8c14_4f5d_877e_fe3fc1d32737);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontVtbl {
+pub struct IDWriteFont_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetFontFamily: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfamily: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetWeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> DWRITE_FONT_WEIGHT,
@@ -6284,13 +6284,13 @@ impl ::core::fmt::Debug for IDWriteFont1 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFont1 {
-    type Vtable = IDWriteFont1Vtbl;
+    type Vtable = IDWriteFont1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacd16696_8c14_4f5d_877e_fe3fc1d32738);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFont1Vtbl {
-    pub base: IDWriteFontVtbl,
+pub struct IDWriteFont1_Vtbl {
+    pub base: IDWriteFont_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetMetrics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontmetrics: *mut DWRITE_FONT_METRICS1),
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6458,13 +6458,13 @@ impl ::core::fmt::Debug for IDWriteFont2 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFont2 {
-    type Vtable = IDWriteFont2Vtbl;
+    type Vtable = IDWriteFont2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29748ed6_8c9c_4a6a_be0b_d912e8538944);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFont2Vtbl {
-    pub base: IDWriteFont1Vtbl,
+pub struct IDWriteFont2_Vtbl {
+    pub base: IDWriteFont1_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsColorFont: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6670,13 +6670,13 @@ impl ::core::fmt::Debug for IDWriteFont3 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFont3 {
-    type Vtable = IDWriteFont3Vtbl;
+    type Vtable = IDWriteFont3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29748ed6_8c9c_4a6a_be0b_d912e8538944);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFont3Vtbl {
-    pub base: IDWriteFont2Vtbl,
+pub struct IDWriteFont3_Vtbl {
+    pub base: IDWriteFont2_Vtbl,
     pub CreateFontFace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Equals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, font: ::windows::core::RawPtr) -> super::super::Foundation::BOOL,
@@ -6750,12 +6750,12 @@ impl ::core::fmt::Debug for IDWriteFontCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontCollection {
-    type Vtable = IDWriteFontCollectionVtbl;
+    type Vtable = IDWriteFontCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa84cee02_3eea_4eee_a827_87c1a02a0fcc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontCollectionVtbl {
+pub struct IDWriteFontCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetFontFamilyCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetFontFamily: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, fontfamily: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6856,13 +6856,13 @@ impl ::core::fmt::Debug for IDWriteFontCollection1 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontCollection1 {
-    type Vtable = IDWriteFontCollection1Vtbl;
+    type Vtable = IDWriteFontCollection1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53585141_d9f8_4095_8321_d73cf6bd116c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontCollection1Vtbl {
-    pub base: IDWriteFontCollectionVtbl,
+pub struct IDWriteFontCollection1_Vtbl {
+    pub base: IDWriteFontCollection_Vtbl,
     pub GetFontSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetFontFamily: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, fontfamily: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -6997,13 +6997,13 @@ impl ::core::fmt::Debug for IDWriteFontCollection2 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontCollection2 {
-    type Vtable = IDWriteFontCollection2Vtbl;
+    type Vtable = IDWriteFontCollection2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x514039c6_4617_4064_bf8b_92ea83e506e0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontCollection2Vtbl {
-    pub base: IDWriteFontCollection1Vtbl,
+pub struct IDWriteFontCollection2_Vtbl {
+    pub base: IDWriteFontCollection1_Vtbl,
     pub GetFontFamily: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, fontfamily: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetMatchingFonts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, familyname: super::super::Foundation::PWSTR, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, fontlist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7168,13 +7168,13 @@ impl ::core::fmt::Debug for IDWriteFontCollection3 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontCollection3 {
-    type Vtable = IDWriteFontCollection3Vtbl;
+    type Vtable = IDWriteFontCollection3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4d055a6_f9e3_4e25_93b7_9e309f3af8e9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontCollection3Vtbl {
-    pub base: IDWriteFontCollection2Vtbl,
+pub struct IDWriteFontCollection3_Vtbl {
+    pub base: IDWriteFontCollection2_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetExpirationEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7227,12 +7227,12 @@ impl ::core::fmt::Debug for IDWriteFontCollectionLoader {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontCollectionLoader {
-    type Vtable = IDWriteFontCollectionLoaderVtbl;
+    type Vtable = IDWriteFontCollectionLoader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcca920e4_52f0_492b_bfa8_29c72ee0a468);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontCollectionLoaderVtbl {
+pub struct IDWriteFontCollectionLoader_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateEnumeratorFromKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factory: ::windows::core::RawPtr, collectionkey: *const ::core::ffi::c_void, collectionkeysize: u32, fontfileenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7282,12 +7282,12 @@ impl ::core::fmt::Debug for IDWriteFontDownloadListener {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontDownloadListener {
-    type Vtable = IDWriteFontDownloadListenerVtbl;
+    type Vtable = IDWriteFontDownloadListener_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb06fe5b9_43ec_4393_881b_dbe4dc72fda7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontDownloadListenerVtbl {
+pub struct IDWriteFontDownloadListener_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub DownloadCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, downloadqueue: ::windows::core::RawPtr, context: *mut ::core::ffi::c_void, downloadresult: ::windows::core::HRESULT),
 }
@@ -7359,12 +7359,12 @@ impl ::core::fmt::Debug for IDWriteFontDownloadQueue {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontDownloadQueue {
-    type Vtable = IDWriteFontDownloadQueueVtbl;
+    type Vtable = IDWriteFontDownloadQueue_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb71e6052_5aea_4fa3_832e_f60d431f7e91);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontDownloadQueueVtbl {
+pub struct IDWriteFontDownloadQueue_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub AddListener: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, listener: ::windows::core::RawPtr, token: *mut u32) -> ::windows::core::HRESULT,
     pub RemoveListener: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: u32) -> ::windows::core::HRESULT,
@@ -7485,12 +7485,12 @@ impl ::core::fmt::Debug for IDWriteFontFace {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFace {
-    type Vtable = IDWriteFontFaceVtbl;
+    type Vtable = IDWriteFontFace_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f49804d_7024_4d43_bfa9_d25984f53849);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontFaceVtbl {
+pub struct IDWriteFontFace_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> DWRITE_FONT_FACE_TYPE,
     pub GetFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numberoffiles: *mut u32, fontfiles: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7710,13 +7710,13 @@ impl ::core::fmt::Debug for IDWriteFontFace1 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFace1 {
-    type Vtable = IDWriteFontFace1Vtbl;
+    type Vtable = IDWriteFontFace1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa71efdb4_9fdb_4838_ad90_cfc3be8c3daf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontFace1Vtbl {
-    pub base: IDWriteFontFaceVtbl,
+pub struct IDWriteFontFace1_Vtbl {
+    pub base: IDWriteFontFace_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetMetrics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontmetrics: *mut DWRITE_FONT_METRICS1),
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7983,13 +7983,13 @@ impl ::core::fmt::Debug for IDWriteFontFace2 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFace2 {
-    type Vtable = IDWriteFontFace2Vtbl;
+    type Vtable = IDWriteFontFace2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8b768ff_64bc_4e66_982b_ec8e87f693f7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontFace2Vtbl {
-    pub base: IDWriteFontFace1Vtbl,
+pub struct IDWriteFontFace2_Vtbl {
+    pub base: IDWriteFontFace1_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsColorFont: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8319,13 +8319,13 @@ impl ::core::fmt::Debug for IDWriteFontFace3 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFace3 {
-    type Vtable = IDWriteFontFace3Vtbl;
+    type Vtable = IDWriteFontFace3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd37d7598_09be_4222_a236_2081341cc1f2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontFace3Vtbl {
-    pub base: IDWriteFontFace2Vtbl,
+pub struct IDWriteFontFace3_Vtbl {
+    pub base: IDWriteFontFace2_Vtbl,
     pub GetFontFaceReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfacereference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetPanose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, panose: *mut DWRITE_PANOSE),
     pub GetWeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> DWRITE_FONT_WEIGHT,
@@ -8717,13 +8717,13 @@ impl ::core::fmt::Debug for IDWriteFontFace4 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFace4 {
-    type Vtable = IDWriteFontFace4Vtbl;
+    type Vtable = IDWriteFontFace4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27f2a904_4eb8_441d_9678_0563f53e3e2f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontFace4Vtbl {
-    pub base: IDWriteFontFace3Vtbl,
+pub struct IDWriteFontFace4_Vtbl {
+    pub base: IDWriteFontFace3_Vtbl,
     pub GetGlyphImageFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, glyphid: u16, pixelsperemfirst: u32, pixelsperemlast: u32, glyphimageformats: *mut DWRITE_GLYPH_IMAGE_FORMATS) -> ::windows::core::HRESULT,
     pub GetGlyphImageFormats2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> DWRITE_GLYPH_IMAGE_FORMATS,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
@@ -9130,13 +9130,13 @@ impl ::core::fmt::Debug for IDWriteFontFace5 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFace5 {
-    type Vtable = IDWriteFontFace5Vtbl;
+    type Vtable = IDWriteFontFace5_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98eff3a5_b667_479a_b145_e2fa5b9fdc29);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontFace5Vtbl {
-    pub base: IDWriteFontFace4Vtbl,
+pub struct IDWriteFontFace5_Vtbl {
+    pub base: IDWriteFontFace4_Vtbl,
     pub GetFontAxisValueCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetFontAxisValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontaxisvalues: *mut DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -9577,13 +9577,13 @@ impl ::core::fmt::Debug for IDWriteFontFace6 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFace6 {
-    type Vtable = IDWriteFontFace6Vtbl;
+    type Vtable = IDWriteFontFace6_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4b1fe1b_6e84_47d5_b54c_a597981b06ad);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontFace6Vtbl {
-    pub base: IDWriteFontFace5Vtbl,
+pub struct IDWriteFontFace6_Vtbl {
+    pub base: IDWriteFontFace5_Vtbl,
     pub GetFamilyNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfamilymodel: DWRITE_FONT_FAMILY_MODEL, names: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetFaceNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfamilymodel: DWRITE_FONT_FAMILY_MODEL, names: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -9692,12 +9692,12 @@ impl ::core::fmt::Debug for IDWriteFontFaceReference {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFaceReference {
-    type Vtable = IDWriteFontFaceReferenceVtbl;
+    type Vtable = IDWriteFontFaceReference_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e7fa7ca_dde3_424c_89f0_9fcd6fed58cd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontFaceReferenceVtbl {
+pub struct IDWriteFontFaceReference_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateFontFace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateFontFaceWithSimulations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfacesimulationflags: DWRITE_FONT_SIMULATIONS, fontface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9861,13 +9861,13 @@ impl ::core::fmt::Debug for IDWriteFontFaceReference1 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFaceReference1 {
-    type Vtable = IDWriteFontFaceReference1Vtbl;
+    type Vtable = IDWriteFontFaceReference1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc081fe77_2fd1_41ac_a5a3_34983c4ba61a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontFaceReference1Vtbl {
-    pub base: IDWriteFontFaceReferenceVtbl,
+pub struct IDWriteFontFaceReference1_Vtbl {
+    pub base: IDWriteFontFaceReference_Vtbl,
     pub CreateFontFace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetFontAxisValueCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetFontAxisValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontaxisvalues: *mut DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32) -> ::windows::core::HRESULT,
@@ -9919,12 +9919,12 @@ impl ::core::fmt::Debug for IDWriteFontFallback {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFallback {
-    type Vtable = IDWriteFontFallbackVtbl;
+    type Vtable = IDWriteFontFallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa008f9_f7a1_48bf_b05c_f224713cc0ff);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontFallbackVtbl {
+pub struct IDWriteFontFallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub MapCharacters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, analysissource: ::windows::core::RawPtr, textposition: u32, textlength: u32, basefontcollection: ::windows::core::RawPtr, basefamilyname: super::super::Foundation::PWSTR, baseweight: DWRITE_FONT_WEIGHT, basestyle: DWRITE_FONT_STYLE, basestretch: DWRITE_FONT_STRETCH, mappedlength: *mut u32, mappedfont: *mut ::windows::core::RawPtr, scale: *mut f32) -> ::windows::core::HRESULT,
@@ -10003,13 +10003,13 @@ impl ::core::fmt::Debug for IDWriteFontFallback1 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFallback1 {
-    type Vtable = IDWriteFontFallback1Vtbl;
+    type Vtable = IDWriteFontFallback1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2397599d_dd0d_4681_bd6a_f4f31eaade77);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontFallback1Vtbl {
-    pub base: IDWriteFontFallbackVtbl,
+pub struct IDWriteFontFallback1_Vtbl {
+    pub base: IDWriteFontFallback_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub MapCharacters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, analysissource: ::windows::core::RawPtr, textposition: u32, textlength: u32, basefontcollection: ::windows::core::RawPtr, basefamilyname: super::super::Foundation::PWSTR, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, mappedlength: *mut u32, scale: *mut f32, mappedfontface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -10071,12 +10071,12 @@ impl ::core::fmt::Debug for IDWriteFontFallbackBuilder {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFallbackBuilder {
-    type Vtable = IDWriteFontFallbackBuilderVtbl;
+    type Vtable = IDWriteFontFallbackBuilder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd882d06_8aba_4fb8_b849_8be8b73e14de);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontFallbackBuilderVtbl {
+pub struct IDWriteFontFallbackBuilder_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ranges: *const DWRITE_UNICODE_RANGE, rangescount: u32, targetfamilynames: *const *const u16, targetfamilynamescount: u32, fontcollection: ::windows::core::RawPtr, localename: super::super::Foundation::PWSTR, basefamilyname: super::super::Foundation::PWSTR, scale: f32) -> ::windows::core::HRESULT,
@@ -10176,13 +10176,13 @@ impl ::core::fmt::Debug for IDWriteFontFamily {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFamily {
-    type Vtable = IDWriteFontFamilyVtbl;
+    type Vtable = IDWriteFontFamily_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda20d8ef_812a_4c43_9802_62ec4abd7add);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontFamilyVtbl {
-    pub base: IDWriteFontListVtbl,
+pub struct IDWriteFontFamily_Vtbl {
+    pub base: IDWriteFontList_Vtbl,
     pub GetFamilyNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, names: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetFirstMatchingFont: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, weight: DWRITE_FONT_WEIGHT, stretch: DWRITE_FONT_STRETCH, style: DWRITE_FONT_STYLE, matchingfont: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetMatchingFonts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, weight: DWRITE_FONT_WEIGHT, stretch: DWRITE_FONT_STRETCH, style: DWRITE_FONT_STYLE, matchingfonts: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10312,13 +10312,13 @@ impl ::core::fmt::Debug for IDWriteFontFamily1 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFamily1 {
-    type Vtable = IDWriteFontFamily1Vtbl;
+    type Vtable = IDWriteFontFamily1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda20d8ef_812a_4c43_9802_62ec4abd7adf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontFamily1Vtbl {
-    pub base: IDWriteFontFamilyVtbl,
+pub struct IDWriteFontFamily1_Vtbl {
+    pub base: IDWriteFontFamily_Vtbl,
     pub GetFontLocality: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, listindex: u32) -> DWRITE_LOCALITY,
     pub GetFont: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, listindex: u32, font: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetFontFaceReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, listindex: u32, fontfacereference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10478,13 +10478,13 @@ impl ::core::fmt::Debug for IDWriteFontFamily2 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFamily2 {
-    type Vtable = IDWriteFontFamily2Vtbl;
+    type Vtable = IDWriteFontFamily2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ed49e77_a398_4261_b9cf_c126c2131ef3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontFamily2Vtbl {
-    pub base: IDWriteFontFamily1Vtbl,
+pub struct IDWriteFontFamily2_Vtbl {
+    pub base: IDWriteFontFamily1_Vtbl,
     pub GetMatchingFonts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, matchingfonts: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetFontSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -10544,12 +10544,12 @@ impl ::core::fmt::Debug for IDWriteFontFile {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFile {
-    type Vtable = IDWriteFontFileVtbl;
+    type Vtable = IDWriteFontFile_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x739d886a_cef5_47dc_8769_1a8b41bebbb0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontFileVtbl {
+pub struct IDWriteFontFile_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetReferenceKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfilereferencekey: *mut *mut ::core::ffi::c_void, fontfilereferencekeysize: *mut u32) -> ::windows::core::HRESULT,
     pub GetLoader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfileloader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10611,12 +10611,12 @@ impl ::core::fmt::Debug for IDWriteFontFileEnumerator {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFileEnumerator {
-    type Vtable = IDWriteFontFileEnumeratorVtbl;
+    type Vtable = IDWriteFontFileEnumerator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72755049_5ff7_435d_8348_4be97cfa6c7c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontFileEnumeratorVtbl {
+pub struct IDWriteFontFileEnumerator_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub MoveNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hascurrentfile: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -10671,12 +10671,12 @@ impl ::core::fmt::Debug for IDWriteFontFileLoader {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFileLoader {
-    type Vtable = IDWriteFontFileLoaderVtbl;
+    type Vtable = IDWriteFontFileLoader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x727cad4e_d6af_4c9e_8a08_d695b11caa49);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontFileLoaderVtbl {
+pub struct IDWriteFontFileLoader_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateStreamFromKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32, fontfilestream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -10740,12 +10740,12 @@ impl ::core::fmt::Debug for IDWriteFontFileStream {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFileStream {
-    type Vtable = IDWriteFontFileStreamVtbl;
+    type Vtable = IDWriteFontFileStream_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d4865fe_0ab8_4d91_8f62_5dd6be34a3e0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontFileStreamVtbl {
+pub struct IDWriteFontFileStream_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub ReadFileFragment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fragmentstart: *mut *mut ::core::ffi::c_void, fileoffset: u64, fragmentsize: u64, fragmentcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ReleaseFileFragment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fragmentcontext: *mut ::core::ffi::c_void),
@@ -10808,12 +10808,12 @@ impl ::core::fmt::Debug for IDWriteFontList {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontList {
-    type Vtable = IDWriteFontListVtbl;
+    type Vtable = IDWriteFontList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a0d8438_1d97_4ec1_aef9_a2fb86ed6acb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontListVtbl {
+pub struct IDWriteFontList_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetFontCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetFontCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
@@ -10909,13 +10909,13 @@ impl ::core::fmt::Debug for IDWriteFontList1 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontList1 {
-    type Vtable = IDWriteFontList1Vtbl;
+    type Vtable = IDWriteFontList1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda20d8ef_812a_4c43_9802_62ec4abd7ade);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontList1Vtbl {
-    pub base: IDWriteFontListVtbl,
+pub struct IDWriteFontList1_Vtbl {
+    pub base: IDWriteFontList_Vtbl,
     pub GetFontLocality: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, listindex: u32) -> DWRITE_LOCALITY,
     pub GetFont: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, listindex: u32, font: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetFontFaceReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, listindex: u32, fontfacereference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -11035,13 +11035,13 @@ impl ::core::fmt::Debug for IDWriteFontList2 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontList2 {
-    type Vtable = IDWriteFontList2Vtbl;
+    type Vtable = IDWriteFontList2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0763a34_77af_445a_b735_08c37b0a5bf5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontList2Vtbl {
-    pub base: IDWriteFontList1Vtbl,
+pub struct IDWriteFontList2_Vtbl {
+    pub base: IDWriteFontList1_Vtbl,
     pub GetFontSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
@@ -11139,12 +11139,12 @@ impl ::core::fmt::Debug for IDWriteFontResource {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontResource {
-    type Vtable = IDWriteFontResourceVtbl;
+    type Vtable = IDWriteFontResource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f803a76_6871_48e8_987f_b975551c50f2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontResourceVtbl {
+pub struct IDWriteFontResource_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetFontFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetFontFaceIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
@@ -11257,12 +11257,12 @@ impl ::core::fmt::Debug for IDWriteFontSet {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontSet {
-    type Vtable = IDWriteFontSetVtbl;
+    type Vtable = IDWriteFontSet_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53585141_d9f8_4095_8321_d73cf6bd116b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontSetVtbl {
+pub struct IDWriteFontSet_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetFontCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetFontFaceReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, listindex: u32, fontfacereference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -11476,13 +11476,13 @@ impl ::core::fmt::Debug for IDWriteFontSet1 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontSet1 {
-    type Vtable = IDWriteFontSet1Vtbl;
+    type Vtable = IDWriteFontSet1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e9fda85_6c92_4053_bc47_7ae3530db4d3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontSet1Vtbl {
-    pub base: IDWriteFontSetVtbl,
+pub struct IDWriteFontSet1_Vtbl {
+    pub base: IDWriteFontSet_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetMatchingFonts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontproperty: *const DWRITE_FONT_PROPERTY, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, matchingfonts: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -11717,13 +11717,13 @@ impl ::core::fmt::Debug for IDWriteFontSet2 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontSet2 {
-    type Vtable = IDWriteFontSet2Vtbl;
+    type Vtable = IDWriteFontSet2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc7ead19_e54c_43af_b2da_4e2b79ba3f7f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontSet2Vtbl {
-    pub base: IDWriteFontSet1Vtbl,
+pub struct IDWriteFontSet2_Vtbl {
+    pub base: IDWriteFontSet1_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetExpirationEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -11967,13 +11967,13 @@ impl ::core::fmt::Debug for IDWriteFontSet3 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontSet3 {
-    type Vtable = IDWriteFontSet3Vtbl;
+    type Vtable = IDWriteFontSet3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c073ef2_a7f4_4045_8c32_8ab8ae640f90);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontSet3Vtbl {
-    pub base: IDWriteFontSet2Vtbl,
+pub struct IDWriteFontSet3_Vtbl {
+    pub base: IDWriteFontSet2_Vtbl,
     pub GetFontSourceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontindex: u32) -> DWRITE_FONT_SOURCE_TYPE,
     pub GetFontSourceNameLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, listindex: u32) -> u32,
     #[cfg(feature = "Win32_Foundation")]
@@ -12041,12 +12041,12 @@ impl ::core::fmt::Debug for IDWriteFontSetBuilder {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontSetBuilder {
-    type Vtable = IDWriteFontSetBuilderVtbl;
+    type Vtable = IDWriteFontSetBuilder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f642afe_9c68_4f40_b8be_457401afcb3d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontSetBuilderVtbl {
+pub struct IDWriteFontSetBuilder_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddFontFaceReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfacereference: ::windows::core::RawPtr, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32) -> ::windows::core::HRESULT,
@@ -12140,13 +12140,13 @@ impl ::core::fmt::Debug for IDWriteFontSetBuilder1 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontSetBuilder1 {
-    type Vtable = IDWriteFontSetBuilder1Vtbl;
+    type Vtable = IDWriteFontSetBuilder1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ff7715f_3cdc_4dc6_9b72_ec5621dccafd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontSetBuilder1Vtbl {
-    pub base: IDWriteFontSetBuilderVtbl,
+pub struct IDWriteFontSetBuilder1_Vtbl {
+    pub base: IDWriteFontSetBuilder_Vtbl,
     pub AddFontFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfile: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
@@ -12263,13 +12263,13 @@ impl ::core::fmt::Debug for IDWriteFontSetBuilder2 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontSetBuilder2 {
-    type Vtable = IDWriteFontSetBuilder2Vtbl;
+    type Vtable = IDWriteFontSetBuilder2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee5ba612_b131_463c_8f4f_3189b9401e45);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontSetBuilder2Vtbl {
-    pub base: IDWriteFontSetBuilder1Vtbl,
+pub struct IDWriteFontSetBuilder2_Vtbl {
+    pub base: IDWriteFontSetBuilder1_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddFont: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfile: ::windows::core::RawPtr, fontfaceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, fontaxisranges: *const DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: u32, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -12350,12 +12350,12 @@ impl ::core::fmt::Debug for IDWriteGdiInterop {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteGdiInterop {
-    type Vtable = IDWriteGdiInteropVtbl;
+    type Vtable = IDWriteGdiInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1edd9491_9853_4299_898f_6432983b6f3a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteGdiInteropVtbl {
+pub struct IDWriteGdiInterop_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub CreateFontFromLOGFONT: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logfont: *const super::Gdi::LOGFONTW, font: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -12493,13 +12493,13 @@ impl ::core::fmt::Debug for IDWriteGdiInterop1 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteGdiInterop1 {
-    type Vtable = IDWriteGdiInterop1Vtbl;
+    type Vtable = IDWriteGdiInterop1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4556be70_3abd_4f70_90be_421780a6f515);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteGdiInterop1Vtbl {
-    pub base: IDWriteGdiInteropVtbl,
+pub struct IDWriteGdiInterop1_Vtbl {
+    pub base: IDWriteGdiInterop_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub CreateFontFromLOGFONT: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logfont: *const super::Gdi::LOGFONTW, fontcollection: ::windows::core::RawPtr, font: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
@@ -12574,12 +12574,12 @@ impl ::core::fmt::Debug for IDWriteGlyphRunAnalysis {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteGlyphRunAnalysis {
-    type Vtable = IDWriteGlyphRunAnalysisVtbl;
+    type Vtable = IDWriteGlyphRunAnalysis_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d97dbf7_e085_42d4_81e3_6a883bded118);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteGlyphRunAnalysisVtbl {
+pub struct IDWriteGlyphRunAnalysis_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetAlphaTextureBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, texturetype: DWRITE_TEXTURE_TYPE, texturebounds: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
@@ -12667,13 +12667,13 @@ impl ::core::fmt::Debug for IDWriteInMemoryFontFileLoader {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteInMemoryFontFileLoader {
-    type Vtable = IDWriteInMemoryFontFileLoaderVtbl;
+    type Vtable = IDWriteInMemoryFontFileLoader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc102f47_a12d_4b1c_822d_9e117e33043f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteInMemoryFontFileLoaderVtbl {
-    pub base: IDWriteFontFileLoaderVtbl,
+pub struct IDWriteInMemoryFontFileLoader_Vtbl {
+    pub base: IDWriteFontFileLoader_Vtbl,
     pub CreateInMemoryFontFileReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factory: ::windows::core::RawPtr, fontdata: *const ::core::ffi::c_void, fontdatasize: u32, ownerobject: *mut ::core::ffi::c_void, fontfile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetFileCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
 }
@@ -12739,12 +12739,12 @@ impl ::core::fmt::Debug for IDWriteInlineObject {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteInlineObject {
-    type Vtable = IDWriteInlineObjectVtbl;
+    type Vtable = IDWriteInlineObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8339fde3_106f_47ab_8373_1c6295eb10b3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteInlineObjectVtbl {
+pub struct IDWriteInlineObject_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Draw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clientdrawingcontext: *const ::core::ffi::c_void, renderer: ::windows::core::RawPtr, originx: f32, originy: f32, issideways: super::super::Foundation::BOOL, isrighttoleft: super::super::Foundation::BOOL, clientdrawingeffect: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -12840,13 +12840,13 @@ impl ::core::fmt::Debug for IDWriteLocalFontFileLoader {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteLocalFontFileLoader {
-    type Vtable = IDWriteLocalFontFileLoaderVtbl;
+    type Vtable = IDWriteLocalFontFileLoader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2d9f3ec_c9fe_4a11_a2ec_d86208f7c0a2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteLocalFontFileLoaderVtbl {
-    pub base: IDWriteFontFileLoaderVtbl,
+pub struct IDWriteLocalFontFileLoader_Vtbl {
+    pub base: IDWriteFontFileLoader_Vtbl,
     pub GetFilePathLengthFromKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32, filepathlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetFilePathFromKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32, filepath: super::super::Foundation::PWSTR, filepathsize: u32) -> ::windows::core::HRESULT,
@@ -12928,12 +12928,12 @@ impl ::core::fmt::Debug for IDWriteLocalizedStrings {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteLocalizedStrings {
-    type Vtable = IDWriteLocalizedStringsVtbl;
+    type Vtable = IDWriteLocalizedStrings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08256209_099a_4b34_b86d_c22b110e7771);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteLocalizedStringsVtbl {
+pub struct IDWriteLocalizedStrings_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(feature = "Win32_Foundation")]
@@ -12992,12 +12992,12 @@ impl ::core::fmt::Debug for IDWriteNumberSubstitution {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteNumberSubstitution {
-    type Vtable = IDWriteNumberSubstitutionVtbl;
+    type Vtable = IDWriteNumberSubstitution_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14885cc9_bab0_4f90_b6ed_5c366a2cd03d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteNumberSubstitutionVtbl {
+pub struct IDWriteNumberSubstitution_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
@@ -13058,12 +13058,12 @@ impl ::core::fmt::Debug for IDWritePixelSnapping {
     }
 }
 unsafe impl ::windows::core::Interface for IDWritePixelSnapping {
-    type Vtable = IDWritePixelSnappingVtbl;
+    type Vtable = IDWritePixelSnapping_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeaf3a2da_ecf4_4d24_b644_b34f6842024b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWritePixelSnappingVtbl {
+pub struct IDWritePixelSnapping_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsPixelSnappingDisabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clientdrawingcontext: *const ::core::ffi::c_void, isdisabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -13155,13 +13155,13 @@ impl ::core::fmt::Debug for IDWriteRemoteFontFileLoader {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteRemoteFontFileLoader {
-    type Vtable = IDWriteRemoteFontFileLoaderVtbl;
+    type Vtable = IDWriteRemoteFontFileLoader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68648c83_6ede_46c0_ab46_20083a887fde);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteRemoteFontFileLoaderVtbl {
-    pub base: IDWriteFontFileLoaderVtbl,
+pub struct IDWriteRemoteFontFileLoader_Vtbl {
+    pub base: IDWriteFontFileLoader_Vtbl,
     pub CreateRemoteStreamFromKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32, fontfilestream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetLocalityFromKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32, locality: *mut DWRITE_LOCALITY) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -13268,13 +13268,13 @@ impl ::core::fmt::Debug for IDWriteRemoteFontFileStream {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteRemoteFontFileStream {
-    type Vtable = IDWriteRemoteFontFileStreamVtbl;
+    type Vtable = IDWriteRemoteFontFileStream_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4db3757a_2c72_4ed9_b2b6_1ababe1aff9c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteRemoteFontFileStreamVtbl {
-    pub base: IDWriteFontFileStreamVtbl,
+pub struct IDWriteRemoteFontFileStream_Vtbl {
+    pub base: IDWriteFontFileStream_Vtbl,
     pub GetLocalFileSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localfilesize: *mut u64) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetFileFragmentLocality: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fileoffset: u64, fragmentsize: u64, islocal: *mut super::super::Foundation::BOOL, partialsize: *mut u64) -> ::windows::core::HRESULT,
@@ -13345,12 +13345,12 @@ impl ::core::fmt::Debug for IDWriteRenderingParams {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteRenderingParams {
-    type Vtable = IDWriteRenderingParamsVtbl;
+    type Vtable = IDWriteRenderingParams_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f0da53a_2add_47cd_82ee_d9ec34688e75);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteRenderingParamsVtbl {
+pub struct IDWriteRenderingParams_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetGamma: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> f32,
     pub GetEnhancedContrast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> f32,
@@ -13444,13 +13444,13 @@ impl ::core::fmt::Debug for IDWriteRenderingParams1 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteRenderingParams1 {
-    type Vtable = IDWriteRenderingParams1Vtbl;
+    type Vtable = IDWriteRenderingParams1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94413cf4_a6fc_4248_8b50_6674348fcad3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteRenderingParams1Vtbl {
-    pub base: IDWriteRenderingParamsVtbl,
+pub struct IDWriteRenderingParams1_Vtbl {
+    pub base: IDWriteRenderingParams_Vtbl,
     pub GetGrayscaleEnhancedContrast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> f32,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
@@ -13563,13 +13563,13 @@ impl ::core::fmt::Debug for IDWriteRenderingParams2 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteRenderingParams2 {
-    type Vtable = IDWriteRenderingParams2Vtbl;
+    type Vtable = IDWriteRenderingParams2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9d711c3_9777_40ae_87e8_3e5af9bf0948);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteRenderingParams2Vtbl {
-    pub base: IDWriteRenderingParams1Vtbl,
+pub struct IDWriteRenderingParams2_Vtbl {
+    pub base: IDWriteRenderingParams1_Vtbl,
     pub GetGridFitMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> DWRITE_GRID_FIT_MODE,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
@@ -13706,13 +13706,13 @@ impl ::core::fmt::Debug for IDWriteRenderingParams3 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteRenderingParams3 {
-    type Vtable = IDWriteRenderingParams3Vtbl;
+    type Vtable = IDWriteRenderingParams3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7924baa_391b_412a_8c5c_e44cc2d867dc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteRenderingParams3Vtbl {
-    pub base: IDWriteRenderingParams2Vtbl,
+pub struct IDWriteRenderingParams3_Vtbl {
+    pub base: IDWriteRenderingParams2_Vtbl,
     pub GetRenderingMode1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> DWRITE_RENDERING_MODE1,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
@@ -13781,12 +13781,12 @@ impl ::core::fmt::Debug for IDWriteStringList {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteStringList {
-    type Vtable = IDWriteStringListVtbl;
+    type Vtable = IDWriteStringList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfee3140_1157_47ca_8b85_31bfcf3f2d0e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteStringListVtbl {
+pub struct IDWriteStringList_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetLocaleNameLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, listindex: u32, length: *mut u32) -> ::windows::core::HRESULT,
@@ -13858,12 +13858,12 @@ impl ::core::fmt::Debug for IDWriteTextAnalysisSink {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteTextAnalysisSink {
-    type Vtable = IDWriteTextAnalysisSinkVtbl;
+    type Vtable = IDWriteTextAnalysisSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5810cd44_0ca0_4701_b3fa_bec5182ae4f6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteTextAnalysisSinkVtbl {
+pub struct IDWriteTextAnalysisSink_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetScriptAnalysis: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textposition: u32, textlength: u32, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS) -> ::windows::core::HRESULT,
     pub SetLineBreakpoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textposition: u32, textlength: u32, linebreakpoints: *const DWRITE_LINE_BREAKPOINT) -> ::windows::core::HRESULT,
@@ -13953,13 +13953,13 @@ impl ::core::fmt::Debug for IDWriteTextAnalysisSink1 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteTextAnalysisSink1 {
-    type Vtable = IDWriteTextAnalysisSink1Vtbl;
+    type Vtable = IDWriteTextAnalysisSink1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0d941a0_85e7_4d8b_9fd3_5ced9934482a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteTextAnalysisSink1Vtbl {
-    pub base: IDWriteTextAnalysisSinkVtbl,
+pub struct IDWriteTextAnalysisSink1_Vtbl {
+    pub base: IDWriteTextAnalysisSink_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetGlyphOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textposition: u32, textlength: u32, glyphorientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, adjustedbidilevel: u8, issideways: super::super::Foundation::BOOL, isrighttoleft: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -14027,12 +14027,12 @@ impl ::core::fmt::Debug for IDWriteTextAnalysisSource {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteTextAnalysisSource {
-    type Vtable = IDWriteTextAnalysisSourceVtbl;
+    type Vtable = IDWriteTextAnalysisSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x688e1a58_5094_47c8_adc8_fbcea60ae92b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteTextAnalysisSourceVtbl {
+pub struct IDWriteTextAnalysisSource_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetTextAtPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textposition: u32, textstring: *mut *mut u16, textlength: *mut u32) -> ::windows::core::HRESULT,
     pub GetTextBeforePosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textposition: u32, textstring: *mut *mut u16, textlength: *mut u32) -> ::windows::core::HRESULT,
@@ -14126,13 +14126,13 @@ impl ::core::fmt::Debug for IDWriteTextAnalysisSource1 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteTextAnalysisSource1 {
-    type Vtable = IDWriteTextAnalysisSource1Vtbl;
+    type Vtable = IDWriteTextAnalysisSource1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x639cfad8_0fb4_4b21_a58a_067920120009);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteTextAnalysisSource1Vtbl {
-    pub base: IDWriteTextAnalysisSourceVtbl,
+pub struct IDWriteTextAnalysisSource1_Vtbl {
+    pub base: IDWriteTextAnalysisSource_Vtbl,
     pub GetVerticalGlyphOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textposition: u32, textlength: *mut u32, glyphorientation: *mut DWRITE_VERTICAL_GLYPH_ORIENTATION, bidilevel: *mut u8) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
@@ -14335,12 +14335,12 @@ impl ::core::fmt::Debug for IDWriteTextAnalyzer {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteTextAnalyzer {
-    type Vtable = IDWriteTextAnalyzerVtbl;
+    type Vtable = IDWriteTextAnalyzer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7e6163e_7f46_43b4_84b3_e4e6249c365d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteTextAnalyzerVtbl {
+pub struct IDWriteTextAnalyzer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub AnalyzeScript: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, analysissource: ::windows::core::RawPtr, textposition: u32, textlength: u32, analysissink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AnalyzeBidi: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, analysissource: ::windows::core::RawPtr, textposition: u32, textlength: u32, analysissink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -14664,13 +14664,13 @@ impl ::core::fmt::Debug for IDWriteTextAnalyzer1 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteTextAnalyzer1 {
-    type Vtable = IDWriteTextAnalyzer1Vtbl;
+    type Vtable = IDWriteTextAnalyzer1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80dad800_e21f_4e83_96ce_bfcce500db7c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteTextAnalyzer1Vtbl {
-    pub base: IDWriteTextAnalyzerVtbl,
+pub struct IDWriteTextAnalyzer1_Vtbl {
+    pub base: IDWriteTextAnalyzer_Vtbl,
     pub ApplyCharacterSpacing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, leadingspacing: f32, trailingspacing: f32, minimumadvancewidth: f32, textlength: u32, glyphcount: u32, clustermap: *const u16, glyphadvances: *const f32, glyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, modifiedglyphadvances: *mut f32, modifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetBaseline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontface: ::windows::core::RawPtr, baseline: DWRITE_BASELINE, isvertical: super::super::Foundation::BOOL, issimulationallowed: super::super::Foundation::BOOL, scriptanalysis: DWRITE_SCRIPT_ANALYSIS, localename: super::super::Foundation::PWSTR, baselinecoordinate: *mut i32, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -15011,13 +15011,13 @@ impl ::core::fmt::Debug for IDWriteTextAnalyzer2 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteTextAnalyzer2 {
-    type Vtable = IDWriteTextAnalyzer2Vtbl;
+    type Vtable = IDWriteTextAnalyzer2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x553a9ff3_5693_4df7_b52b_74806f7f2eb9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteTextAnalyzer2Vtbl {
-    pub base: IDWriteTextAnalyzer1Vtbl,
+pub struct IDWriteTextAnalyzer2_Vtbl {
+    pub base: IDWriteTextAnalyzer1_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetGlyphOrientationTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, glyphorientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, issideways: super::super::Foundation::BOOL, originx: f32, originy: f32, transform: *mut DWRITE_MATRIX) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -15176,12 +15176,12 @@ impl ::core::fmt::Debug for IDWriteTextFormat {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteTextFormat {
-    type Vtable = IDWriteTextFormatVtbl;
+    type Vtable = IDWriteTextFormat_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c906818_31d7_4fd3_a151_7c5e225db55a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteTextFormatVtbl {
+pub struct IDWriteTextFormat_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetTextAlignment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textalignment: DWRITE_TEXT_ALIGNMENT) -> ::windows::core::HRESULT,
     pub SetParagraphAlignment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paragraphalignment: DWRITE_PARAGRAPH_ALIGNMENT) -> ::windows::core::HRESULT,
@@ -15415,13 +15415,13 @@ impl ::core::fmt::Debug for IDWriteTextFormat1 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteTextFormat1 {
-    type Vtable = IDWriteTextFormat1Vtbl;
+    type Vtable = IDWriteTextFormat1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f174b49_0d8b_4cfb_8bca_f1cce9d06c67);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteTextFormat1Vtbl {
-    pub base: IDWriteTextFormatVtbl,
+pub struct IDWriteTextFormat1_Vtbl {
+    pub base: IDWriteTextFormat_Vtbl,
     pub SetVerticalGlyphOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, glyphorientation: DWRITE_VERTICAL_GLYPH_ORIENTATION) -> ::windows::core::HRESULT,
     pub GetVerticalGlyphOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> DWRITE_VERTICAL_GLYPH_ORIENTATION,
     #[cfg(feature = "Win32_Foundation")]
@@ -15666,13 +15666,13 @@ impl ::core::fmt::Debug for IDWriteTextFormat2 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteTextFormat2 {
-    type Vtable = IDWriteTextFormat2Vtbl;
+    type Vtable = IDWriteTextFormat2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf67e0edd_9e3d_4ecc_8c32_4183253dfe70);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteTextFormat2Vtbl {
-    pub base: IDWriteTextFormat1Vtbl,
+pub struct IDWriteTextFormat2_Vtbl {
+    pub base: IDWriteTextFormat1_Vtbl,
     pub SetLineSpacing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, linespacingoptions: *const DWRITE_LINE_SPACING) -> ::windows::core::HRESULT,
     pub GetLineSpacing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, linespacingoptions: *mut DWRITE_LINE_SPACING) -> ::windows::core::HRESULT,
 }
@@ -15945,13 +15945,13 @@ impl ::core::fmt::Debug for IDWriteTextFormat3 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteTextFormat3 {
-    type Vtable = IDWriteTextFormat3Vtbl;
+    type Vtable = IDWriteTextFormat3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d3b5641_e550_430d_a85b_b7bf48a93427);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteTextFormat3Vtbl {
-    pub base: IDWriteTextFormat2Vtbl,
+pub struct IDWriteTextFormat3_Vtbl {
+    pub base: IDWriteTextFormat2_Vtbl,
     pub SetFontAxisValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32) -> ::windows::core::HRESULT,
     pub GetFontAxisValueCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetFontAxisValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontaxisvalues: *mut DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32) -> ::windows::core::HRESULT,
@@ -16294,13 +16294,13 @@ impl ::core::fmt::Debug for IDWriteTextLayout {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteTextLayout {
-    type Vtable = IDWriteTextLayoutVtbl;
+    type Vtable = IDWriteTextLayout_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53737037_6d14_410b_9bfe_0b182bb70961);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteTextLayoutVtbl {
-    pub base: IDWriteTextFormatVtbl,
+pub struct IDWriteTextLayout_Vtbl {
+    pub base: IDWriteTextFormat_Vtbl,
     pub SetMaxWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxwidth: f32) -> ::windows::core::HRESULT,
     pub SetMaxHeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxheight: f32) -> ::windows::core::HRESULT,
     pub SetFontCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontcollection: ::windows::core::RawPtr, textrange: DWRITE_TEXT_RANGE) -> ::windows::core::HRESULT,
@@ -16751,13 +16751,13 @@ impl ::core::fmt::Debug for IDWriteTextLayout1 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteTextLayout1 {
-    type Vtable = IDWriteTextLayout1Vtbl;
+    type Vtable = IDWriteTextLayout1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9064d822_80a7_465c_a986_df65f78b8feb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteTextLayout1Vtbl {
-    pub base: IDWriteTextLayoutVtbl,
+pub struct IDWriteTextLayout1_Vtbl {
+    pub base: IDWriteTextLayout_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetPairKerning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ispairkerningenabled: super::super::Foundation::BOOL, textrange: DWRITE_TEXT_RANGE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -17203,13 +17203,13 @@ impl ::core::fmt::Debug for IDWriteTextLayout2 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteTextLayout2 {
-    type Vtable = IDWriteTextLayout2Vtbl;
+    type Vtable = IDWriteTextLayout2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1093c18f_8d5e_43f0_b064_0917311b525e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteTextLayout2Vtbl {
-    pub base: IDWriteTextLayout1Vtbl,
+pub struct IDWriteTextLayout2_Vtbl {
+    pub base: IDWriteTextLayout1_Vtbl,
     pub GetMetrics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textmetrics: *mut DWRITE_TEXT_METRICS1) -> ::windows::core::HRESULT,
     pub SetVerticalGlyphOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, glyphorientation: DWRITE_VERTICAL_GLYPH_ORIENTATION) -> ::windows::core::HRESULT,
     pub GetVerticalGlyphOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> DWRITE_VERTICAL_GLYPH_ORIENTATION,
@@ -17698,13 +17698,13 @@ impl ::core::fmt::Debug for IDWriteTextLayout3 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteTextLayout3 {
-    type Vtable = IDWriteTextLayout3Vtbl;
+    type Vtable = IDWriteTextLayout3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07ddcd52_020e_4de8_ac33_6c953d83f92d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteTextLayout3Vtbl {
-    pub base: IDWriteTextLayout2Vtbl,
+pub struct IDWriteTextLayout3_Vtbl {
+    pub base: IDWriteTextLayout2_Vtbl,
     pub InvalidateLayout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetLineSpacing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, linespacingoptions: *const DWRITE_LINE_SPACING) -> ::windows::core::HRESULT,
     pub GetLineSpacing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, linespacingoptions: *mut DWRITE_LINE_SPACING) -> ::windows::core::HRESULT,
@@ -18225,13 +18225,13 @@ impl ::core::fmt::Debug for IDWriteTextLayout4 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteTextLayout4 {
-    type Vtable = IDWriteTextLayout4Vtbl;
+    type Vtable = IDWriteTextLayout4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05a9bf42_223f_4441_b5fb_8263685f55e9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteTextLayout4Vtbl {
-    pub base: IDWriteTextLayout3Vtbl,
+pub struct IDWriteTextLayout4_Vtbl {
+    pub base: IDWriteTextLayout3_Vtbl,
     pub SetFontAxisValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, textrange: DWRITE_TEXT_RANGE) -> ::windows::core::HRESULT,
     pub GetFontAxisValueCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentposition: u32) -> u32,
     pub GetFontAxisValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentposition: u32, fontaxisvalues: *mut DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, textrange: *mut DWRITE_TEXT_RANGE) -> ::windows::core::HRESULT,
@@ -18336,13 +18336,13 @@ impl ::core::fmt::Debug for IDWriteTextRenderer {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteTextRenderer {
-    type Vtable = IDWriteTextRendererVtbl;
+    type Vtable = IDWriteTextRenderer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef8a8135_5cc6_45fe_8825_c5a0724eb819);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteTextRendererVtbl {
-    pub base: IDWritePixelSnappingVtbl,
+pub struct IDWriteTextRenderer_Vtbl {
+    pub base: IDWritePixelSnapping_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub DrawGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clientdrawingcontext: *const ::core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -18498,13 +18498,13 @@ impl ::core::fmt::Debug for IDWriteTextRenderer1 {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteTextRenderer1 {
-    type Vtable = IDWriteTextRenderer1Vtbl;
+    type Vtable = IDWriteTextRenderer1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3e0e934_22a0_427e_aae4_7d9574b59db1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteTextRenderer1Vtbl {
-    pub base: IDWriteTextRendererVtbl,
+pub struct IDWriteTextRenderer1_Vtbl {
+    pub base: IDWriteTextRenderer_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub DrawGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clientdrawingcontext: *const ::core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -18577,12 +18577,12 @@ impl ::core::fmt::Debug for IDWriteTypography {
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteTypography {
-    type Vtable = IDWriteTypographyVtbl;
+    type Vtable = IDWriteTypography_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55f1112b_1dc2_4b3c_9541_f46894ed85b6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteTypographyVtbl {
+pub struct IDWriteTypography_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub AddFontFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfeature: DWRITE_FONT_FEATURE) -> ::windows::core::HRESULT,
     pub GetFontFeatureCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,

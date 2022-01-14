@@ -142,12 +142,12 @@ impl ::core::fmt::Debug for IEffectivePermission {
     }
 }
 unsafe impl ::windows::core::Interface for IEffectivePermission {
-    type Vtable = IEffectivePermissionVtbl;
+    type Vtable = IEffectivePermission_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3853dc76_9f35_407c_88a1_d19344365fbc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEffectivePermissionVtbl {
+pub struct IEffectivePermission_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetEffectivePermission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidobjecttype: *const ::windows::core::GUID, pusersid: super::super::super::Foundation::PSID, pszservername: super::super::super::Foundation::PWSTR, psd: *mut super::super::SECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::core::HRESULT,
@@ -234,12 +234,12 @@ impl ::core::fmt::Debug for IEffectivePermission2 {
     }
 }
 unsafe impl ::windows::core::Interface for IEffectivePermission2 {
-    type Vtable = IEffectivePermission2Vtbl;
+    type Vtable = IEffectivePermission2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x941fabca_dd47_4fca_90bb_b0e10255f20d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEffectivePermission2Vtbl {
+pub struct IEffectivePermission2_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ComputeEffectivePermissionWithSecondarySecurity: unsafe extern "system" fn(
@@ -338,12 +338,12 @@ impl ::core::fmt::Debug for ISecurityInformation {
     }
 }
 unsafe impl ::windows::core::Interface for ISecurityInformation {
-    type Vtable = ISecurityInformationVtbl;
+    type Vtable = ISecurityInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x965fc360_16ff_11d0_91cb_00aa00bbb723);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISecurityInformationVtbl {
+pub struct ISecurityInformation_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetObjectInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobjectinfo: *mut SI_OBJECT_INFO) -> ::windows::core::HRESULT,
@@ -423,12 +423,12 @@ impl ::core::fmt::Debug for ISecurityInformation2 {
     }
 }
 unsafe impl ::windows::core::Interface for ISecurityInformation2 {
-    type Vtable = ISecurityInformation2Vtbl;
+    type Vtable = ISecurityInformation2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3ccfdb4_6f88_11d2_a3ce_00c04fb1782a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISecurityInformation2Vtbl {
+pub struct ISecurityInformation2_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsDaclCanonical: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdacl: *mut super::super::ACL) -> super::super::super::Foundation::BOOL,
@@ -492,12 +492,12 @@ impl ::core::fmt::Debug for ISecurityInformation3 {
     }
 }
 unsafe impl ::windows::core::Interface for ISecurityInformation3 {
-    type Vtable = ISecurityInformation3Vtbl;
+    type Vtable = ISecurityInformation3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2cdc9cc_31bd_4f8f_8c8b_b641af516a1a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISecurityInformation3Vtbl {
+pub struct ISecurityInformation3_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetFullResourceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszresourcename: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -555,12 +555,12 @@ impl ::core::fmt::Debug for ISecurityInformation4 {
     }
 }
 unsafe impl ::windows::core::Interface for ISecurityInformation4 {
-    type Vtable = ISecurityInformation4Vtbl;
+    type Vtable = ISecurityInformation4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea961070_cd14_4621_ace4_f63c03e583e4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISecurityInformation4Vtbl {
+pub struct ISecurityInformation4_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetSecondarySecurity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psecurityobjects: *mut *mut SECURITY_OBJECT, psecurityobjectcount: *mut u32) -> ::windows::core::HRESULT,
@@ -614,12 +614,12 @@ impl ::core::fmt::Debug for ISecurityObjectTypeInfo {
     }
 }
 unsafe impl ::windows::core::Interface for ISecurityObjectTypeInfo {
-    type Vtable = ISecurityObjectTypeInfoVtbl;
+    type Vtable = ISecurityObjectTypeInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc3066eb_79ef_444b_9111_d18a75ebf2fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISecurityObjectTypeInfoVtbl {
+pub struct ISecurityObjectTypeInfo_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetInheritSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> ::windows::core::HRESULT,

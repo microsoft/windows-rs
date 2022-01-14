@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IWebAccountClientView(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountClientView {
-    type Vtable = IWebAccountClientViewVtbl;
+    type Vtable = IWebAccountClientView_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7bd66ba_0bc7_4c66_bfd4_65d3082cbca8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAccountClientViewVtbl {
+pub struct IWebAccountClientView_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ApplicationCallbackUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -21,12 +21,12 @@ pub struct IWebAccountClientViewVtbl {
 #[repr(transparent)]
 pub struct IWebAccountClientViewFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountClientViewFactory {
-    type Vtable = IWebAccountClientViewFactoryVtbl;
+    type Vtable = IWebAccountClientViewFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x616d16a4_de22_4855_a326_06cebf2a3f23);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAccountClientViewFactoryVtbl {
+pub struct IWebAccountClientViewFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewtype: WebAccountClientViewType, applicationcallbackuri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -41,12 +41,12 @@ pub struct IWebAccountClientViewFactoryVtbl {
 #[repr(transparent)]
 pub struct IWebAccountManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountManagerStatics {
-    type Vtable = IWebAccountManagerStaticsVtbl;
+    type Vtable = IWebAccountManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2e8e1a6_d49a_4032_84bf_1a2847747bf1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAccountManagerStaticsVtbl {
+pub struct IWebAccountManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials"))]
     pub UpdateWebAccountPropertiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: ::windows::core::RawPtr, webaccountusername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, additionalproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -93,12 +93,12 @@ pub struct IWebAccountManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IWebAccountManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountManagerStatics2 {
-    type Vtable = IWebAccountManagerStatics2Vtbl;
+    type Vtable = IWebAccountManagerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68a7a829_2d5f_4653_8bb0_bd2fa6bd2d87);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAccountManagerStatics2Vtbl {
+pub struct IWebAccountManagerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub PullCookiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uristring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, callerpfn: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -109,12 +109,12 @@ pub struct IWebAccountManagerStatics2Vtbl {
 #[repr(transparent)]
 pub struct IWebAccountManagerStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountManagerStatics3 {
-    type Vtable = IWebAccountManagerStatics3Vtbl;
+    type Vtable = IWebAccountManagerStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd4523a6_8a4f_4aa2_b15e_03f550af1359);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAccountManagerStatics3Vtbl {
+pub struct IWebAccountManagerStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System"))]
     pub FindAllProviderWebAccountsForUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -137,12 +137,12 @@ pub struct IWebAccountManagerStatics3Vtbl {
 #[repr(transparent)]
 pub struct IWebAccountManagerStatics4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountManagerStatics4 {
-    type Vtable = IWebAccountManagerStatics4Vtbl;
+    type Vtable = IWebAccountManagerStatics4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59ebc2d2_f7db_412f_bc3f_f2fea04430b4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAccountManagerStatics4Vtbl {
+pub struct IWebAccountManagerStatics4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub InvalidateAppCacheForAllAccountsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -157,12 +157,12 @@ pub struct IWebAccountManagerStatics4Vtbl {
 #[repr(transparent)]
 pub struct IWebAccountMapManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountMapManagerStatics {
-    type Vtable = IWebAccountMapManagerStaticsVtbl;
+    type Vtable = IWebAccountMapManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8fa446f_3a1b_48a4_8e90_1e59ca6f54db);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAccountMapManagerStaticsVtbl {
+pub struct IWebAccountMapManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials"))]
     pub AddWebAccountWithScopeAndMapAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, webaccountusername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, props: ::windows::core::RawPtr, scope: WebAccountScope, peruserwebaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -185,12 +185,12 @@ pub struct IWebAccountMapManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IWebAccountProviderAddAccountOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountProviderAddAccountOperation {
-    type Vtable = IWebAccountProviderAddAccountOperationVtbl;
+    type Vtable = IWebAccountProviderAddAccountOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73ebdccf_4378_4c79_9335_a5d7ab81594e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAccountProviderAddAccountOperationVtbl {
+pub struct IWebAccountProviderAddAccountOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ReportCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -270,12 +270,12 @@ unsafe impl ::windows::core::RuntimeType for IWebAccountProviderBaseReportOperat
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{bba4acbb-993b-4d57-bbe4-1421e3668b4c}");
 }
 unsafe impl ::windows::core::Interface for IWebAccountProviderBaseReportOperation {
-    type Vtable = IWebAccountProviderBaseReportOperationVtbl;
+    type Vtable = IWebAccountProviderBaseReportOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbba4acbb_993b_4d57_bbe4_1421e3668b4c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAccountProviderBaseReportOperationVtbl {
+pub struct IWebAccountProviderBaseReportOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ReportCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Security_Authentication_Web_Core")]
@@ -287,12 +287,12 @@ pub struct IWebAccountProviderBaseReportOperationVtbl {
 #[repr(transparent)]
 pub struct IWebAccountProviderDeleteAccountOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountProviderDeleteAccountOperation {
-    type Vtable = IWebAccountProviderDeleteAccountOperationVtbl;
+    type Vtable = IWebAccountProviderDeleteAccountOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0abb48b8_9e01_49c9_a355_7d48caf7d6ca);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAccountProviderDeleteAccountOperationVtbl {
+pub struct IWebAccountProviderDeleteAccountOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Security_Credentials")]
     pub WebAccount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -303,12 +303,12 @@ pub struct IWebAccountProviderDeleteAccountOperationVtbl {
 #[repr(transparent)]
 pub struct IWebAccountProviderManageAccountOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountProviderManageAccountOperation {
-    type Vtable = IWebAccountProviderManageAccountOperationVtbl;
+    type Vtable = IWebAccountProviderManageAccountOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed20dc5c_d21b_463e_a9b7_c1fd0edae978);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAccountProviderManageAccountOperationVtbl {
+pub struct IWebAccountProviderManageAccountOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Security_Credentials")]
     pub WebAccount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -389,12 +389,12 @@ unsafe impl ::windows::core::RuntimeType for IWebAccountProviderOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6d5d2426-10b1-419a-a44e-f9c5161574e6}");
 }
 unsafe impl ::windows::core::Interface for IWebAccountProviderOperation {
-    type Vtable = IWebAccountProviderOperationVtbl;
+    type Vtable = IWebAccountProviderOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d5d2426_10b1_419a_a44e_f9c5161574e6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAccountProviderOperationVtbl {
+pub struct IWebAccountProviderOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WebAccountProviderOperationKind) -> ::windows::core::HRESULT,
 }
@@ -402,12 +402,12 @@ pub struct IWebAccountProviderOperationVtbl {
 #[repr(transparent)]
 pub struct IWebAccountProviderRetrieveCookiesOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountProviderRetrieveCookiesOperation {
-    type Vtable = IWebAccountProviderRetrieveCookiesOperationVtbl;
+    type Vtable = IWebAccountProviderRetrieveCookiesOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a040441_0fa3_4ab1_a01c_20b110358594);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAccountProviderRetrieveCookiesOperationVtbl {
+pub struct IWebAccountProviderRetrieveCookiesOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Context: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -434,12 +434,12 @@ pub struct IWebAccountProviderRetrieveCookiesOperationVtbl {
 #[repr(transparent)]
 pub struct IWebAccountProviderSignOutAccountOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountProviderSignOutAccountOperation {
-    type Vtable = IWebAccountProviderSignOutAccountOperationVtbl;
+    type Vtable = IWebAccountProviderSignOutAccountOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb890e21d_0c55_47bc_8c72_04a6fc7cac07);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAccountProviderSignOutAccountOperationVtbl {
+pub struct IWebAccountProviderSignOutAccountOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Security_Credentials")]
     pub WebAccount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -560,12 +560,12 @@ unsafe impl ::windows::core::RuntimeType for IWebAccountProviderSilentReportOper
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e0b545f8-3b0f-44da-924c-7b18baaa62a9}");
 }
 unsafe impl ::windows::core::Interface for IWebAccountProviderSilentReportOperation {
-    type Vtable = IWebAccountProviderSilentReportOperationVtbl;
+    type Vtable = IWebAccountProviderSilentReportOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0b545f8_3b0f_44da_924c_7b18baaa62a9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAccountProviderSilentReportOperationVtbl {
+pub struct IWebAccountProviderSilentReportOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ReportUserInteractionRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Security_Authentication_Web_Core")]
@@ -646,12 +646,12 @@ unsafe impl ::windows::core::RuntimeType for IWebAccountProviderTokenObjects {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{408f284b-1328-42db-89a4-0bce7a717d8e}");
 }
 unsafe impl ::windows::core::Interface for IWebAccountProviderTokenObjects {
-    type Vtable = IWebAccountProviderTokenObjectsVtbl;
+    type Vtable = IWebAccountProviderTokenObjects_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x408f284b_1328_42db_89a4_0bce7a717d8e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAccountProviderTokenObjectsVtbl {
+pub struct IWebAccountProviderTokenObjects_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Operation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -759,12 +759,12 @@ unsafe impl ::windows::core::RuntimeType for IWebAccountProviderTokenObjects2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1020b893-5ca5-4fff-95fb-b820273fc395}");
 }
 unsafe impl ::windows::core::Interface for IWebAccountProviderTokenObjects2 {
-    type Vtable = IWebAccountProviderTokenObjects2Vtbl;
+    type Vtable = IWebAccountProviderTokenObjects2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1020b893_5ca5_4fff_95fb_b820273fc395);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAccountProviderTokenObjects2Vtbl {
+pub struct IWebAccountProviderTokenObjects2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -898,12 +898,12 @@ unsafe impl ::windows::core::RuntimeType for IWebAccountProviderTokenOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{95c613be-2034-4c38-9434-d26c14b2b4b2}");
 }
 unsafe impl ::windows::core::Interface for IWebAccountProviderTokenOperation {
-    type Vtable = IWebAccountProviderTokenOperationVtbl;
+    type Vtable = IWebAccountProviderTokenOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95c613be_2034_4c38_9434_d26c14b2b4b2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAccountProviderTokenOperationVtbl {
+pub struct IWebAccountProviderTokenOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ProviderRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -1022,12 +1022,12 @@ unsafe impl ::windows::core::RuntimeType for IWebAccountProviderUIReportOperatio
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{28ff92d3-8f80-42fb-944f-b2107bbd42e6}");
 }
 unsafe impl ::windows::core::Interface for IWebAccountProviderUIReportOperation {
-    type Vtable = IWebAccountProviderUIReportOperationVtbl;
+    type Vtable = IWebAccountProviderUIReportOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28ff92d3_8f80_42fb_944f_b2107bbd42e6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAccountProviderUIReportOperationVtbl {
+pub struct IWebAccountProviderUIReportOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ReportUserCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -1035,12 +1035,12 @@ pub struct IWebAccountProviderUIReportOperationVtbl {
 #[repr(transparent)]
 pub struct IWebAccountScopeManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebAccountScopeManagerStatics {
-    type Vtable = IWebAccountScopeManagerStaticsVtbl;
+    type Vtable = IWebAccountScopeManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c6ce37c_12b2_423a_bf3d_85b8d7e53656);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAccountScopeManagerStaticsVtbl {
+pub struct IWebAccountScopeManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials"))]
     pub AddWebAccountWithScopeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, webaccountusername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, props: ::windows::core::RawPtr, scope: WebAccountScope, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1059,12 +1059,12 @@ pub struct IWebAccountScopeManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IWebProviderTokenRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebProviderTokenRequest {
-    type Vtable = IWebProviderTokenRequestVtbl;
+    type Vtable = IWebProviderTokenRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e18778b_8805_454b_9f11_468d2af1095a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebProviderTokenRequestVtbl {
+pub struct IWebProviderTokenRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Security_Authentication_Web_Core")]
     pub ClientRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1088,12 +1088,12 @@ pub struct IWebProviderTokenRequestVtbl {
 #[repr(transparent)]
 pub struct IWebProviderTokenRequest2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebProviderTokenRequest2 {
-    type Vtable = IWebProviderTokenRequest2Vtbl;
+    type Vtable = IWebProviderTokenRequest2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5d72e4c_10b1_4aa6_88b1_0b6c9e0c1e46);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebProviderTokenRequest2Vtbl {
+pub struct IWebProviderTokenRequest2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub GetApplicationTokenBindingKeyIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keytype: super::TokenBindingKeyType, target: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1104,12 +1104,12 @@ pub struct IWebProviderTokenRequest2Vtbl {
 #[repr(transparent)]
 pub struct IWebProviderTokenRequest3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebProviderTokenRequest3 {
-    type Vtable = IWebProviderTokenRequest3Vtbl;
+    type Vtable = IWebProviderTokenRequest3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b2716aa_4289_446e_9256_dafb6f66a51e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebProviderTokenRequest3Vtbl {
+pub struct IWebProviderTokenRequest3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ApplicationPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ApplicationProcessName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1122,12 +1122,12 @@ pub struct IWebProviderTokenRequest3Vtbl {
 #[repr(transparent)]
 pub struct IWebProviderTokenResponse(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebProviderTokenResponse {
-    type Vtable = IWebProviderTokenResponseVtbl;
+    type Vtable = IWebProviderTokenResponse_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef213793_ef55_4186_b7ce_8cb2e7f9849e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebProviderTokenResponseVtbl {
+pub struct IWebProviderTokenResponse_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Security_Authentication_Web_Core")]
     pub ClientResponse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1138,12 +1138,12 @@ pub struct IWebProviderTokenResponseVtbl {
 #[repr(transparent)]
 pub struct IWebProviderTokenResponseFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebProviderTokenResponseFactory {
-    type Vtable = IWebProviderTokenResponseFactoryVtbl;
+    type Vtable = IWebProviderTokenResponseFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa49d99a_25ba_4077_9cfa_9db4dea7b71a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebProviderTokenResponseFactoryVtbl {
+pub struct IWebProviderTokenResponseFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Security_Authentication_Web_Core")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webtokenresponse: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1221,7 +1221,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountClientView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountClientView;{e7bd66ba-0bc7-4c66-bfd4-65d3082cbca8})");
 }
 unsafe impl ::windows::core::Interface for WebAccountClientView {
-    type Vtable = IWebAccountClientViewVtbl;
+    type Vtable = IWebAccountClientView_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7bd66ba_0bc7_4c66_bfd4_65d3082cbca8);
 }
 impl ::windows::core::RuntimeName for WebAccountClientView {
@@ -1569,7 +1569,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountProviderAddAccountOperati
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderAddAccountOperation;{73ebdccf-4378-4c79-9335-a5d7ab81594e})");
 }
 unsafe impl ::windows::core::Interface for WebAccountProviderAddAccountOperation {
-    type Vtable = IWebAccountProviderAddAccountOperationVtbl;
+    type Vtable = IWebAccountProviderAddAccountOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73ebdccf_4378_4c79_9335_a5d7ab81594e);
 }
 impl ::windows::core::RuntimeName for WebAccountProviderAddAccountOperation {
@@ -1692,7 +1692,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountProviderDeleteAccountOper
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderDeleteAccountOperation;{0abb48b8-9e01-49c9-a355-7d48caf7d6ca})");
 }
 unsafe impl ::windows::core::Interface for WebAccountProviderDeleteAccountOperation {
-    type Vtable = IWebAccountProviderDeleteAccountOperationVtbl;
+    type Vtable = IWebAccountProviderDeleteAccountOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0abb48b8_9e01_49c9_a355_7d48caf7d6ca);
 }
 impl ::windows::core::RuntimeName for WebAccountProviderDeleteAccountOperation {
@@ -1871,7 +1871,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountProviderGetTokenSilentOpe
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderGetTokenSilentOperation;{95c613be-2034-4c38-9434-d26c14b2b4b2})");
 }
 unsafe impl ::windows::core::Interface for WebAccountProviderGetTokenSilentOperation {
-    type Vtable = IWebAccountProviderTokenOperationVtbl;
+    type Vtable = IWebAccountProviderTokenOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95c613be_2034_4c38_9434_d26c14b2b4b2);
 }
 impl ::windows::core::RuntimeName for WebAccountProviderGetTokenSilentOperation {
@@ -2054,7 +2054,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountProviderManageAccountOper
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderManageAccountOperation;{ed20dc5c-d21b-463e-a9b7-c1fd0edae978})");
 }
 unsafe impl ::windows::core::Interface for WebAccountProviderManageAccountOperation {
-    type Vtable = IWebAccountProviderManageAccountOperationVtbl;
+    type Vtable = IWebAccountProviderManageAccountOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed20dc5c_d21b_463e_a9b7_c1fd0edae978);
 }
 impl ::windows::core::RuntimeName for WebAccountProviderManageAccountOperation {
@@ -2243,7 +2243,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountProviderRequestTokenOpera
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderRequestTokenOperation;{95c613be-2034-4c38-9434-d26c14b2b4b2})");
 }
 unsafe impl ::windows::core::Interface for WebAccountProviderRequestTokenOperation {
-    type Vtable = IWebAccountProviderTokenOperationVtbl;
+    type Vtable = IWebAccountProviderTokenOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95c613be_2034_4c38_9434_d26c14b2b4b2);
 }
 impl ::windows::core::RuntimeName for WebAccountProviderRequestTokenOperation {
@@ -2465,7 +2465,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountProviderRetrieveCookiesOp
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderRetrieveCookiesOperation;{5a040441-0fa3-4ab1-a01c-20b110358594})");
 }
 unsafe impl ::windows::core::Interface for WebAccountProviderRetrieveCookiesOperation {
-    type Vtable = IWebAccountProviderRetrieveCookiesOperationVtbl;
+    type Vtable = IWebAccountProviderRetrieveCookiesOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a040441_0fa3_4ab1_a01c_20b110358594);
 }
 impl ::windows::core::RuntimeName for WebAccountProviderRetrieveCookiesOperation {
@@ -2627,7 +2627,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountProviderSignOutAccountOpe
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderSignOutAccountOperation;{b890e21d-0c55-47bc-8c72-04a6fc7cac07})");
 }
 unsafe impl ::windows::core::Interface for WebAccountProviderSignOutAccountOperation {
-    type Vtable = IWebAccountProviderSignOutAccountOperationVtbl;
+    type Vtable = IWebAccountProviderSignOutAccountOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb890e21d_0c55_47bc_8c72_04a6fc7cac07);
 }
 impl ::windows::core::RuntimeName for WebAccountProviderSignOutAccountOperation {
@@ -2761,7 +2761,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountProviderTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderTriggerDetails;{408f284b-1328-42db-89a4-0bce7a717d8e})");
 }
 unsafe impl ::windows::core::Interface for WebAccountProviderTriggerDetails {
-    type Vtable = IWebAccountProviderTokenObjectsVtbl;
+    type Vtable = IWebAccountProviderTokenObjects_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x408f284b_1328_42db_89a4_0bce7a717d8e);
 }
 impl ::windows::core::RuntimeName for WebAccountProviderTriggerDetails {
@@ -3050,7 +3050,7 @@ unsafe impl ::windows::core::RuntimeType for WebProviderTokenRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebProviderTokenRequest;{1e18778b-8805-454b-9f11-468d2af1095a})");
 }
 unsafe impl ::windows::core::Interface for WebProviderTokenRequest {
-    type Vtable = IWebProviderTokenRequestVtbl;
+    type Vtable = IWebProviderTokenRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e18778b_8805_454b_9f11_468d2af1095a);
 }
 impl ::windows::core::RuntimeName for WebProviderTokenRequest {
@@ -3145,7 +3145,7 @@ unsafe impl ::windows::core::RuntimeType for WebProviderTokenResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse;{ef213793-ef55-4186-b7ce-8cb2e7f9849e})");
 }
 unsafe impl ::windows::core::Interface for WebProviderTokenResponse {
-    type Vtable = IWebProviderTokenResponseVtbl;
+    type Vtable = IWebProviderTokenResponse_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef213793_ef55_4186_b7ce_8cb2e7f9849e);
 }
 impl ::windows::core::RuntimeName for WebProviderTokenResponse {

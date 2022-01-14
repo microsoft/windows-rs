@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IBarcodeScannerImpl: Sized {
+pub trait IBarcodeScanner_Impl: Sized {
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Capabilities(&mut self) -> ::windows::core::Result<BarcodeScannerCapabilities>;
     fn ClaimScannerAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClaimedBarcodeScanner>>;
@@ -17,9 +17,9 @@ impl ::windows::core::RuntimeName for IBarcodeScanner {
     const NAME: &'static str = "Windows.Devices.PointOfService.IBarcodeScanner";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IBarcodeScannerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerVtbl {
-        unsafe extern "system" fn DeviceId<Impl: IBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IBarcodeScanner_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScanner_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScanner_Vtbl {
+        unsafe extern "system" fn DeviceId<Impl: IBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -30,7 +30,7 @@ impl IBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Capabilities<Impl: IBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Capabilities<Impl: IBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Capabilities() {
                 ::core::result::Result::Ok(ok__) => {
@@ -41,7 +41,7 @@ impl IBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClaimScannerAsync<Impl: IBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClaimScannerAsync<Impl: IBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClaimScannerAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -52,7 +52,7 @@ impl IBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CheckHealthAsync<Impl: IBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: UnifiedPosHealthCheckLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CheckHealthAsync<Impl: IBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: UnifiedPosHealthCheckLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CheckHealthAsync(level) {
                 ::core::result::Result::Ok(ok__) => {
@@ -63,7 +63,7 @@ impl IBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSupportedSymbologiesAsync<Impl: IBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSupportedSymbologiesAsync<Impl: IBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSupportedSymbologiesAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -74,7 +74,7 @@ impl IBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSymbologySupportedAsync<Impl: IBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, barcodesymbology: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSymbologySupportedAsync<Impl: IBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, barcodesymbology: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSymbologySupportedAsync(barcodesymbology) {
                 ::core::result::Result::Ok(ok__) => {
@@ -85,7 +85,7 @@ impl IBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RetrieveStatisticsAsync<Impl: IBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statisticscategories: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RetrieveStatisticsAsync<Impl: IBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statisticscategories: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RetrieveStatisticsAsync(&*(&statisticscategories as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -96,7 +96,7 @@ impl IBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSupportedProfiles<Impl: IBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSupportedProfiles<Impl: IBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSupportedProfiles() {
                 ::core::result::Result::Ok(ok__) => {
@@ -107,7 +107,7 @@ impl IBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsProfileSupported<Impl: IBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profile: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsProfileSupported<Impl: IBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profile: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsProfileSupported(&*(&profile as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -118,7 +118,7 @@ impl IBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StatusUpdated<Impl: IBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StatusUpdated<Impl: IBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StatusUpdated(&*(&handler as *const <super::super::Foundation::TypedEventHandler<BarcodeScanner, BarcodeScannerStatusUpdatedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<BarcodeScanner, BarcodeScannerStatusUpdatedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -129,7 +129,7 @@ impl IBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStatusUpdated<Impl: IBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStatusUpdated<Impl: IBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStatusUpdated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -153,7 +153,7 @@ impl IBarcodeScannerVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeScanner2Impl: Sized {
+pub trait IBarcodeScanner2_Impl: Sized {
     fn VideoDeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -161,9 +161,9 @@ impl ::windows::core::RuntimeName for IBarcodeScanner2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IBarcodeScanner2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBarcodeScanner2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScanner2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScanner2Vtbl {
-        unsafe extern "system" fn VideoDeviceId<Impl: IBarcodeScanner2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IBarcodeScanner2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScanner2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScanner2_Vtbl {
+        unsafe extern "system" fn VideoDeviceId<Impl: IBarcodeScanner2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoDeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -181,7 +181,7 @@ impl IBarcodeScanner2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeScannerCapabilitiesImpl: Sized {
+pub trait IBarcodeScannerCapabilities_Impl: Sized {
     fn PowerReportingType(&mut self) -> ::windows::core::Result<UnifiedPosPowerReportingType>;
     fn IsStatisticsReportingSupported(&mut self) -> ::windows::core::Result<bool>;
     fn IsStatisticsUpdatingSupported(&mut self) -> ::windows::core::Result<bool>;
@@ -192,9 +192,9 @@ impl ::windows::core::RuntimeName for IBarcodeScannerCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.IBarcodeScannerCapabilities";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBarcodeScannerCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerCapabilitiesVtbl {
-        unsafe extern "system" fn PowerReportingType<Impl: IBarcodeScannerCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnifiedPosPowerReportingType) -> ::windows::core::HRESULT {
+impl IBarcodeScannerCapabilities_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerCapabilities_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerCapabilities_Vtbl {
+        unsafe extern "system" fn PowerReportingType<Impl: IBarcodeScannerCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnifiedPosPowerReportingType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PowerReportingType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -205,7 +205,7 @@ impl IBarcodeScannerCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsStatisticsReportingSupported<Impl: IBarcodeScannerCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStatisticsReportingSupported<Impl: IBarcodeScannerCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStatisticsReportingSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -216,7 +216,7 @@ impl IBarcodeScannerCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsStatisticsUpdatingSupported<Impl: IBarcodeScannerCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStatisticsUpdatingSupported<Impl: IBarcodeScannerCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStatisticsUpdatingSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -227,7 +227,7 @@ impl IBarcodeScannerCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsImagePreviewSupported<Impl: IBarcodeScannerCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsImagePreviewSupported<Impl: IBarcodeScannerCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsImagePreviewSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -251,7 +251,7 @@ impl IBarcodeScannerCapabilitiesVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeScannerCapabilities1Impl: Sized {
+pub trait IBarcodeScannerCapabilities1_Impl: Sized {
     fn IsSoftwareTriggerSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -259,9 +259,9 @@ impl ::windows::core::RuntimeName for IBarcodeScannerCapabilities1 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IBarcodeScannerCapabilities1";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBarcodeScannerCapabilities1Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerCapabilities1Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerCapabilities1Vtbl {
-        unsafe extern "system" fn IsSoftwareTriggerSupported<Impl: IBarcodeScannerCapabilities1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IBarcodeScannerCapabilities1_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerCapabilities1_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerCapabilities1_Vtbl {
+        unsafe extern "system" fn IsSoftwareTriggerSupported<Impl: IBarcodeScannerCapabilities1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSoftwareTriggerSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -282,7 +282,7 @@ impl IBarcodeScannerCapabilities1Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeScannerCapabilities2Impl: Sized {
+pub trait IBarcodeScannerCapabilities2_Impl: Sized {
     fn IsVideoPreviewSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -290,9 +290,9 @@ impl ::windows::core::RuntimeName for IBarcodeScannerCapabilities2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IBarcodeScannerCapabilities2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBarcodeScannerCapabilities2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerCapabilities2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerCapabilities2Vtbl {
-        unsafe extern "system" fn IsVideoPreviewSupported<Impl: IBarcodeScannerCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IBarcodeScannerCapabilities2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerCapabilities2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerCapabilities2_Vtbl {
+        unsafe extern "system" fn IsVideoPreviewSupported<Impl: IBarcodeScannerCapabilities2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsVideoPreviewSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -313,7 +313,7 @@ impl IBarcodeScannerCapabilities2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeScannerDataReceivedEventArgsImpl: Sized {
+pub trait IBarcodeScannerDataReceivedEventArgs_Impl: Sized {
     fn Report(&mut self) -> ::windows::core::Result<BarcodeScannerReport>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -321,9 +321,9 @@ impl ::windows::core::RuntimeName for IBarcodeScannerDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.IBarcodeScannerDataReceivedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBarcodeScannerDataReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerDataReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerDataReceivedEventArgsVtbl {
-        unsafe extern "system" fn Report<Impl: IBarcodeScannerDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBarcodeScannerDataReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerDataReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerDataReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn Report<Impl: IBarcodeScannerDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Report() {
                 ::core::result::Result::Ok(ok__) => {
@@ -344,7 +344,7 @@ impl IBarcodeScannerDataReceivedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeScannerErrorOccurredEventArgsImpl: Sized {
+pub trait IBarcodeScannerErrorOccurredEventArgs_Impl: Sized {
     fn PartialInputData(&mut self) -> ::windows::core::Result<BarcodeScannerReport>;
     fn IsRetriable(&mut self) -> ::windows::core::Result<bool>;
     fn ErrorData(&mut self) -> ::windows::core::Result<UnifiedPosErrorData>;
@@ -354,9 +354,9 @@ impl ::windows::core::RuntimeName for IBarcodeScannerErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.IBarcodeScannerErrorOccurredEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBarcodeScannerErrorOccurredEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerErrorOccurredEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerErrorOccurredEventArgsVtbl {
-        unsafe extern "system" fn PartialInputData<Impl: IBarcodeScannerErrorOccurredEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBarcodeScannerErrorOccurredEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerErrorOccurredEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerErrorOccurredEventArgs_Vtbl {
+        unsafe extern "system" fn PartialInputData<Impl: IBarcodeScannerErrorOccurredEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PartialInputData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -367,7 +367,7 @@ impl IBarcodeScannerErrorOccurredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsRetriable<Impl: IBarcodeScannerErrorOccurredEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsRetriable<Impl: IBarcodeScannerErrorOccurredEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsRetriable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -378,7 +378,7 @@ impl IBarcodeScannerErrorOccurredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ErrorData<Impl: IBarcodeScannerErrorOccurredEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ErrorData<Impl: IBarcodeScannerErrorOccurredEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ErrorData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -401,7 +401,7 @@ impl IBarcodeScannerErrorOccurredEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IBarcodeScannerImagePreviewReceivedEventArgsImpl: Sized {
+pub trait IBarcodeScannerImagePreviewReceivedEventArgs_Impl: Sized {
     fn Preview(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -409,9 +409,9 @@ impl ::windows::core::RuntimeName for IBarcodeScannerImagePreviewReceivedEventAr
     const NAME: &'static str = "Windows.Devices.PointOfService.IBarcodeScannerImagePreviewReceivedEventArgs";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IBarcodeScannerImagePreviewReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerImagePreviewReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerImagePreviewReceivedEventArgsVtbl {
-        unsafe extern "system" fn Preview<Impl: IBarcodeScannerImagePreviewReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBarcodeScannerImagePreviewReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerImagePreviewReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerImagePreviewReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn Preview<Impl: IBarcodeScannerImagePreviewReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Preview() {
                 ::core::result::Result::Ok(ok__) => {
@@ -432,7 +432,7 @@ impl IBarcodeScannerImagePreviewReceivedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IBarcodeScannerReportImpl: Sized {
+pub trait IBarcodeScannerReport_Impl: Sized {
     fn ScanDataType(&mut self) -> ::windows::core::Result<u32>;
     fn ScanData(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn ScanDataLabel(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
@@ -442,9 +442,9 @@ impl ::windows::core::RuntimeName for IBarcodeScannerReport {
     const NAME: &'static str = "Windows.Devices.PointOfService.IBarcodeScannerReport";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IBarcodeScannerReportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerReportVtbl {
-        unsafe extern "system" fn ScanDataType<Impl: IBarcodeScannerReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IBarcodeScannerReport_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerReport_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerReport_Vtbl {
+        unsafe extern "system" fn ScanDataType<Impl: IBarcodeScannerReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScanDataType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -455,7 +455,7 @@ impl IBarcodeScannerReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ScanData<Impl: IBarcodeScannerReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScanData<Impl: IBarcodeScannerReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScanData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -466,7 +466,7 @@ impl IBarcodeScannerReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ScanDataLabel<Impl: IBarcodeScannerReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScanDataLabel<Impl: IBarcodeScannerReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScanDataLabel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -489,7 +489,7 @@ impl IBarcodeScannerReportVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IBarcodeScannerReportFactoryImpl: Sized {
+pub trait IBarcodeScannerReportFactory_Impl: Sized {
     fn CreateInstance(&mut self, scandatatype: u32, scandata: &::core::option::Option<super::super::Storage::Streams::IBuffer>, scandatalabel: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<BarcodeScannerReport>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -497,9 +497,9 @@ impl ::windows::core::RuntimeName for IBarcodeScannerReportFactory {
     const NAME: &'static str = "Windows.Devices.PointOfService.IBarcodeScannerReportFactory";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IBarcodeScannerReportFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerReportFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerReportFactoryVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: IBarcodeScannerReportFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scandatatype: u32, scandata: ::windows::core::RawPtr, scandatalabel: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBarcodeScannerReportFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerReportFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerReportFactory_Vtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IBarcodeScannerReportFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scandatatype: u32, scandata: ::windows::core::RawPtr, scandatalabel: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(scandatatype, &*(&scandata as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType), &*(&scandatalabel as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -520,7 +520,7 @@ impl IBarcodeScannerReportFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IBarcodeScannerStaticsImpl: Sized {
+pub trait IBarcodeScannerStatics_Impl: Sized {
     fn GetDefaultAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BarcodeScanner>>;
     fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BarcodeScanner>>;
     fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -530,9 +530,9 @@ impl ::windows::core::RuntimeName for IBarcodeScannerStatics {
     const NAME: &'static str = "Windows.Devices.PointOfService.IBarcodeScannerStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IBarcodeScannerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerStaticsVtbl {
-        unsafe extern "system" fn GetDefaultAsync<Impl: IBarcodeScannerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBarcodeScannerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerStatics_Vtbl {
+        unsafe extern "system" fn GetDefaultAsync<Impl: IBarcodeScannerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -543,7 +543,7 @@ impl IBarcodeScannerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromIdAsync<Impl: IBarcodeScannerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromIdAsync<Impl: IBarcodeScannerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -554,7 +554,7 @@ impl IBarcodeScannerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelector<Impl: IBarcodeScannerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelector<Impl: IBarcodeScannerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
                 ::core::result::Result::Ok(ok__) => {
@@ -577,7 +577,7 @@ impl IBarcodeScannerStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeScannerStatics2Impl: Sized {
+pub trait IBarcodeScannerStatics2_Impl: Sized {
     fn GetDeviceSelectorWithConnectionTypes(&mut self, connectiontypes: PosConnectionTypes) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -585,9 +585,9 @@ impl ::windows::core::RuntimeName for IBarcodeScannerStatics2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IBarcodeScannerStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBarcodeScannerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerStatics2Vtbl {
-        unsafe extern "system" fn GetDeviceSelectorWithConnectionTypes<Impl: IBarcodeScannerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectiontypes: PosConnectionTypes, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IBarcodeScannerStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerStatics2_Vtbl {
+        unsafe extern "system" fn GetDeviceSelectorWithConnectionTypes<Impl: IBarcodeScannerStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectiontypes: PosConnectionTypes, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorWithConnectionTypes(connectiontypes) {
                 ::core::result::Result::Ok(ok__) => {
@@ -608,7 +608,7 @@ impl IBarcodeScannerStatics2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeScannerStatusUpdatedEventArgsImpl: Sized {
+pub trait IBarcodeScannerStatusUpdatedEventArgs_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<BarcodeScannerStatus>;
     fn ExtendedStatus(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -617,9 +617,9 @@ impl ::windows::core::RuntimeName for IBarcodeScannerStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.IBarcodeScannerStatusUpdatedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBarcodeScannerStatusUpdatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerStatusUpdatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerStatusUpdatedEventArgsVtbl {
-        unsafe extern "system" fn Status<Impl: IBarcodeScannerStatusUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BarcodeScannerStatus) -> ::windows::core::HRESULT {
+impl IBarcodeScannerStatusUpdatedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeScannerStatusUpdatedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeScannerStatusUpdatedEventArgs_Vtbl {
+        unsafe extern "system" fn Status<Impl: IBarcodeScannerStatusUpdatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BarcodeScannerStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -630,7 +630,7 @@ impl IBarcodeScannerStatusUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedStatus<Impl: IBarcodeScannerStatusUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedStatus<Impl: IBarcodeScannerStatusUpdatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -652,7 +652,7 @@ impl IBarcodeScannerStatusUpdatedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeSymbologiesStaticsImpl: Sized {
+pub trait IBarcodeSymbologiesStatics_Impl: Sized {
     fn Unknown(&mut self) -> ::windows::core::Result<u32>;
     fn Ean8(&mut self) -> ::windows::core::Result<u32>;
     fn Ean8Add2(&mut self) -> ::windows::core::Result<u32>;
@@ -753,9 +753,9 @@ impl ::windows::core::RuntimeName for IBarcodeSymbologiesStatics {
     const NAME: &'static str = "Windows.Devices.PointOfService.IBarcodeSymbologiesStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBarcodeSymbologiesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeSymbologiesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeSymbologiesStaticsVtbl {
-        unsafe extern "system" fn Unknown<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IBarcodeSymbologiesStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeSymbologiesStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeSymbologiesStatics_Vtbl {
+        unsafe extern "system" fn Unknown<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Unknown() {
                 ::core::result::Result::Ok(ok__) => {
@@ -766,7 +766,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Ean8<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ean8<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ean8() {
                 ::core::result::Result::Ok(ok__) => {
@@ -777,7 +777,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Ean8Add2<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ean8Add2<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ean8Add2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -788,7 +788,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Ean8Add5<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ean8Add5<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ean8Add5() {
                 ::core::result::Result::Ok(ok__) => {
@@ -799,7 +799,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Eanv<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Eanv<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Eanv() {
                 ::core::result::Result::Ok(ok__) => {
@@ -810,7 +810,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EanvAdd2<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EanvAdd2<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EanvAdd2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -821,7 +821,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EanvAdd5<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EanvAdd5<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EanvAdd5() {
                 ::core::result::Result::Ok(ok__) => {
@@ -832,7 +832,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Ean13<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ean13<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ean13() {
                 ::core::result::Result::Ok(ok__) => {
@@ -843,7 +843,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Ean13Add2<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ean13Add2<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ean13Add2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -854,7 +854,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Ean13Add5<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ean13Add5<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ean13Add5() {
                 ::core::result::Result::Ok(ok__) => {
@@ -865,7 +865,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Isbn<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Isbn<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Isbn() {
                 ::core::result::Result::Ok(ok__) => {
@@ -876,7 +876,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsbnAdd5<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsbnAdd5<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsbnAdd5() {
                 ::core::result::Result::Ok(ok__) => {
@@ -887,7 +887,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Ismn<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ismn<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ismn() {
                 ::core::result::Result::Ok(ok__) => {
@@ -898,7 +898,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsmnAdd2<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsmnAdd2<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsmnAdd2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -909,7 +909,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsmnAdd5<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsmnAdd5<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsmnAdd5() {
                 ::core::result::Result::Ok(ok__) => {
@@ -920,7 +920,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Issn<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Issn<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Issn() {
                 ::core::result::Result::Ok(ok__) => {
@@ -931,7 +931,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IssnAdd2<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IssnAdd2<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IssnAdd2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -942,7 +942,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IssnAdd5<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IssnAdd5<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IssnAdd5() {
                 ::core::result::Result::Ok(ok__) => {
@@ -953,7 +953,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Ean99<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ean99<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ean99() {
                 ::core::result::Result::Ok(ok__) => {
@@ -964,7 +964,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Ean99Add2<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ean99Add2<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ean99Add2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -975,7 +975,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Ean99Add5<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ean99Add5<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ean99Add5() {
                 ::core::result::Result::Ok(ok__) => {
@@ -986,7 +986,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Upca<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Upca<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Upca() {
                 ::core::result::Result::Ok(ok__) => {
@@ -997,7 +997,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpcaAdd2<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpcaAdd2<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpcaAdd2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1008,7 +1008,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpcaAdd5<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpcaAdd5<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpcaAdd5() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1019,7 +1019,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Upce<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Upce<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Upce() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1030,7 +1030,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpceAdd2<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpceAdd2<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpceAdd2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1041,7 +1041,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpceAdd5<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpceAdd5<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpceAdd5() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1052,7 +1052,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpcCoupon<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpcCoupon<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpcCoupon() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1063,7 +1063,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TfStd<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TfStd<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TfStd() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1074,7 +1074,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TfDis<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TfDis<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TfDis() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1085,7 +1085,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TfInt<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TfInt<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TfInt() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1096,7 +1096,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TfInd<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TfInd<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TfInd() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1107,7 +1107,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TfMat<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TfMat<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TfMat() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1118,7 +1118,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TfIata<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TfIata<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TfIata() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1129,7 +1129,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Gs1DatabarType1<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Gs1DatabarType1<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Gs1DatabarType1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1140,7 +1140,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Gs1DatabarType2<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Gs1DatabarType2<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Gs1DatabarType2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1151,7 +1151,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Gs1DatabarType3<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Gs1DatabarType3<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Gs1DatabarType3() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1162,7 +1162,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Code39<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Code39<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Code39() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1173,7 +1173,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Code39Ex<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Code39Ex<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Code39Ex() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1184,7 +1184,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Trioptic39<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Trioptic39<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Trioptic39() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1195,7 +1195,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Code32<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Code32<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Code32() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1206,7 +1206,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Pzn<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pzn<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pzn() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1217,7 +1217,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Code93<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Code93<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Code93() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1228,7 +1228,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Code93Ex<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Code93Ex<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Code93Ex() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1239,7 +1239,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Code128<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Code128<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Code128() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1250,7 +1250,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Gs1128<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Gs1128<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Gs1128() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1261,7 +1261,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Gs1128Coupon<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Gs1128Coupon<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Gs1128Coupon() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1272,7 +1272,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UccEan128<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UccEan128<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UccEan128() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1283,7 +1283,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Sisac<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Sisac<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sisac() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1294,7 +1294,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Isbt<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Isbt<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Isbt() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1305,7 +1305,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Codabar<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Codabar<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Codabar() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1316,7 +1316,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Code11<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Code11<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Code11() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1327,7 +1327,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Msi<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Msi<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Msi() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1338,7 +1338,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Plessey<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Plessey<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Plessey() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1349,7 +1349,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Telepen<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Telepen<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Telepen() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1360,7 +1360,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Code16k<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Code16k<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Code16k() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1371,7 +1371,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CodablockA<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CodablockA<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CodablockA() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1382,7 +1382,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CodablockF<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CodablockF<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CodablockF() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1393,7 +1393,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Codablock128<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Codablock128<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Codablock128() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1404,7 +1404,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Code49<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Code49<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Code49() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1415,7 +1415,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Aztec<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Aztec<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Aztec() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1426,7 +1426,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DataCode<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DataCode<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1437,7 +1437,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DataMatrix<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DataMatrix<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataMatrix() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1448,7 +1448,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HanXin<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HanXin<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HanXin() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1459,7 +1459,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Maxicode<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Maxicode<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Maxicode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1470,7 +1470,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MicroPdf417<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MicroPdf417<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MicroPdf417() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1481,7 +1481,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MicroQr<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MicroQr<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MicroQr() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1492,7 +1492,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Pdf417<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pdf417<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pdf417() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1503,7 +1503,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Qr<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Qr<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Qr() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1514,7 +1514,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MsTag<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MsTag<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MsTag() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1525,7 +1525,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Ccab<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ccab<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ccab() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1536,7 +1536,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Ccc<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ccc<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ccc() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1547,7 +1547,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Tlc39<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Tlc39<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Tlc39() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1558,7 +1558,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AusPost<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AusPost<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AusPost() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1569,7 +1569,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanPost<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanPost<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanPost() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1580,7 +1580,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ChinaPost<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ChinaPost<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChinaPost() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1591,7 +1591,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DutchKix<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DutchKix<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DutchKix() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1602,7 +1602,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InfoMail<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InfoMail<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InfoMail() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1613,7 +1613,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ItalianPost25<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ItalianPost25<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ItalianPost25() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1624,7 +1624,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ItalianPost39<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ItalianPost39<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ItalianPost39() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1635,7 +1635,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn JapanPost<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn JapanPost<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).JapanPost() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1646,7 +1646,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn KoreanPost<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KoreanPost<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KoreanPost() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1657,7 +1657,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SwedenPost<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SwedenPost<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SwedenPost() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1668,7 +1668,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UkPost<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UkPost<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UkPost() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1679,7 +1679,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UsIntelligent<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UsIntelligent<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UsIntelligent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1690,7 +1690,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UsIntelligentPkg<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UsIntelligentPkg<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UsIntelligentPkg() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1701,7 +1701,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UsPlanet<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UsPlanet<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UsPlanet() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1712,7 +1712,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UsPostNet<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UsPostNet<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UsPostNet() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1723,7 +1723,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Us4StateFics<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Us4StateFics<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Us4StateFics() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1734,7 +1734,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OcrA<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OcrA<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OcrA() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1745,7 +1745,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OcrB<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OcrB<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OcrB() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1756,7 +1756,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Micr<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Micr<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Micr() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1767,7 +1767,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedBase<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedBase<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedBase() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1778,7 +1778,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetName<Impl: IBarcodeSymbologiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scandatatype: u32, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetName<Impl: IBarcodeSymbologiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scandatatype: u32, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetName(scandatatype) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1892,7 +1892,7 @@ impl IBarcodeSymbologiesStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeSymbologiesStatics2Impl: Sized {
+pub trait IBarcodeSymbologiesStatics2_Impl: Sized {
     fn Gs1DWCode(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1900,9 +1900,9 @@ impl ::windows::core::RuntimeName for IBarcodeSymbologiesStatics2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IBarcodeSymbologiesStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBarcodeSymbologiesStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeSymbologiesStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeSymbologiesStatics2Vtbl {
-        unsafe extern "system" fn Gs1DWCode<Impl: IBarcodeSymbologiesStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IBarcodeSymbologiesStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeSymbologiesStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeSymbologiesStatics2_Vtbl {
+        unsafe extern "system" fn Gs1DWCode<Impl: IBarcodeSymbologiesStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Gs1DWCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1920,7 +1920,7 @@ impl IBarcodeSymbologiesStatics2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBarcodeSymbologyAttributesImpl: Sized {
+pub trait IBarcodeSymbologyAttributes_Impl: Sized {
     fn IsCheckDigitValidationEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsCheckDigitValidationEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn IsCheckDigitValidationSupported(&mut self) -> ::windows::core::Result<bool>;
@@ -1940,9 +1940,9 @@ impl ::windows::core::RuntimeName for IBarcodeSymbologyAttributes {
     const NAME: &'static str = "Windows.Devices.PointOfService.IBarcodeSymbologyAttributes";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBarcodeSymbologyAttributesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeSymbologyAttributesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeSymbologyAttributesVtbl {
-        unsafe extern "system" fn IsCheckDigitValidationEnabled<Impl: IBarcodeSymbologyAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IBarcodeSymbologyAttributes_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBarcodeSymbologyAttributes_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBarcodeSymbologyAttributes_Vtbl {
+        unsafe extern "system" fn IsCheckDigitValidationEnabled<Impl: IBarcodeSymbologyAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCheckDigitValidationEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1953,11 +1953,11 @@ impl IBarcodeSymbologyAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsCheckDigitValidationEnabled<Impl: IBarcodeSymbologyAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsCheckDigitValidationEnabled<Impl: IBarcodeSymbologyAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsCheckDigitValidationEnabled(value).into()
         }
-        unsafe extern "system" fn IsCheckDigitValidationSupported<Impl: IBarcodeSymbologyAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCheckDigitValidationSupported<Impl: IBarcodeSymbologyAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCheckDigitValidationSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1968,7 +1968,7 @@ impl IBarcodeSymbologyAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsCheckDigitTransmissionEnabled<Impl: IBarcodeSymbologyAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCheckDigitTransmissionEnabled<Impl: IBarcodeSymbologyAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCheckDigitTransmissionEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1979,11 +1979,11 @@ impl IBarcodeSymbologyAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsCheckDigitTransmissionEnabled<Impl: IBarcodeSymbologyAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsCheckDigitTransmissionEnabled<Impl: IBarcodeSymbologyAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsCheckDigitTransmissionEnabled(value).into()
         }
-        unsafe extern "system" fn IsCheckDigitTransmissionSupported<Impl: IBarcodeSymbologyAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCheckDigitTransmissionSupported<Impl: IBarcodeSymbologyAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCheckDigitTransmissionSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1994,7 +1994,7 @@ impl IBarcodeSymbologyAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DecodeLength1<Impl: IBarcodeSymbologyAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DecodeLength1<Impl: IBarcodeSymbologyAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DecodeLength1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2005,11 +2005,11 @@ impl IBarcodeSymbologyAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDecodeLength1<Impl: IBarcodeSymbologyAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDecodeLength1<Impl: IBarcodeSymbologyAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDecodeLength1(value).into()
         }
-        unsafe extern "system" fn DecodeLength2<Impl: IBarcodeSymbologyAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DecodeLength2<Impl: IBarcodeSymbologyAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DecodeLength2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2020,11 +2020,11 @@ impl IBarcodeSymbologyAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDecodeLength2<Impl: IBarcodeSymbologyAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDecodeLength2<Impl: IBarcodeSymbologyAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDecodeLength2(value).into()
         }
-        unsafe extern "system" fn DecodeLengthKind<Impl: IBarcodeSymbologyAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BarcodeSymbologyDecodeLengthKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DecodeLengthKind<Impl: IBarcodeSymbologyAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BarcodeSymbologyDecodeLengthKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DecodeLengthKind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2035,11 +2035,11 @@ impl IBarcodeSymbologyAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDecodeLengthKind<Impl: IBarcodeSymbologyAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: BarcodeSymbologyDecodeLengthKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDecodeLengthKind<Impl: IBarcodeSymbologyAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: BarcodeSymbologyDecodeLengthKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDecodeLengthKind(value).into()
         }
-        unsafe extern "system" fn IsDecodeLengthSupported<Impl: IBarcodeSymbologyAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDecodeLengthSupported<Impl: IBarcodeSymbologyAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDecodeLengthSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2072,7 +2072,7 @@ impl IBarcodeSymbologyAttributesVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ICashDrawerImpl: Sized {
+pub trait ICashDrawer_Impl: Sized {
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Capabilities(&mut self) -> ::windows::core::Result<CashDrawerCapabilities>;
     fn Status(&mut self) -> ::windows::core::Result<CashDrawerStatus>;
@@ -2089,9 +2089,9 @@ impl ::windows::core::RuntimeName for ICashDrawer {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICashDrawer";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ICashDrawerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerVtbl {
-        unsafe extern "system" fn DeviceId<Impl: ICashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ICashDrawer_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawer_Vtbl {
+        unsafe extern "system" fn DeviceId<Impl: ICashDrawer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2102,7 +2102,7 @@ impl ICashDrawerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Capabilities<Impl: ICashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Capabilities<Impl: ICashDrawer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Capabilities() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2113,7 +2113,7 @@ impl ICashDrawerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Status<Impl: ICashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Status<Impl: ICashDrawer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2124,7 +2124,7 @@ impl ICashDrawerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDrawerOpen<Impl: ICashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDrawerOpen<Impl: ICashDrawer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDrawerOpen() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2135,7 +2135,7 @@ impl ICashDrawerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DrawerEventSource<Impl: ICashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DrawerEventSource<Impl: ICashDrawer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DrawerEventSource() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2146,7 +2146,7 @@ impl ICashDrawerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClaimDrawerAsync<Impl: ICashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClaimDrawerAsync<Impl: ICashDrawer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClaimDrawerAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2157,7 +2157,7 @@ impl ICashDrawerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CheckHealthAsync<Impl: ICashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: UnifiedPosHealthCheckLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CheckHealthAsync<Impl: ICashDrawer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: UnifiedPosHealthCheckLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CheckHealthAsync(level) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2168,7 +2168,7 @@ impl ICashDrawerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStatisticsAsync<Impl: ICashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statisticscategories: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStatisticsAsync<Impl: ICashDrawer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statisticscategories: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStatisticsAsync(&*(&statisticscategories as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2179,7 +2179,7 @@ impl ICashDrawerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StatusUpdated<Impl: ICashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StatusUpdated<Impl: ICashDrawer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StatusUpdated(&*(&handler as *const <super::super::Foundation::TypedEventHandler<CashDrawer, CashDrawerStatusUpdatedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<CashDrawer, CashDrawerStatusUpdatedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2190,7 +2190,7 @@ impl ICashDrawerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStatusUpdated<Impl: ICashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStatusUpdated<Impl: ICashDrawer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStatusUpdated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2213,7 +2213,7 @@ impl ICashDrawerVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICashDrawerCapabilitiesImpl: Sized {
+pub trait ICashDrawerCapabilities_Impl: Sized {
     fn PowerReportingType(&mut self) -> ::windows::core::Result<UnifiedPosPowerReportingType>;
     fn IsStatisticsReportingSupported(&mut self) -> ::windows::core::Result<bool>;
     fn IsStatisticsUpdatingSupported(&mut self) -> ::windows::core::Result<bool>;
@@ -2226,9 +2226,9 @@ impl ::windows::core::RuntimeName for ICashDrawerCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICashDrawerCapabilities";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICashDrawerCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerCapabilitiesVtbl {
-        unsafe extern "system" fn PowerReportingType<Impl: ICashDrawerCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnifiedPosPowerReportingType) -> ::windows::core::HRESULT {
+impl ICashDrawerCapabilities_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerCapabilities_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerCapabilities_Vtbl {
+        unsafe extern "system" fn PowerReportingType<Impl: ICashDrawerCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnifiedPosPowerReportingType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PowerReportingType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2239,7 +2239,7 @@ impl ICashDrawerCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsStatisticsReportingSupported<Impl: ICashDrawerCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStatisticsReportingSupported<Impl: ICashDrawerCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStatisticsReportingSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2250,7 +2250,7 @@ impl ICashDrawerCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsStatisticsUpdatingSupported<Impl: ICashDrawerCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStatisticsUpdatingSupported<Impl: ICashDrawerCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStatisticsUpdatingSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2261,7 +2261,7 @@ impl ICashDrawerCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsStatusReportingSupported<Impl: ICashDrawerCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStatusReportingSupported<Impl: ICashDrawerCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStatusReportingSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2272,7 +2272,7 @@ impl ICashDrawerCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsStatusMultiDrawerDetectSupported<Impl: ICashDrawerCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStatusMultiDrawerDetectSupported<Impl: ICashDrawerCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStatusMultiDrawerDetectSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2283,7 +2283,7 @@ impl ICashDrawerCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDrawerOpenSensorAvailable<Impl: ICashDrawerCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDrawerOpenSensorAvailable<Impl: ICashDrawerCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDrawerOpenSensorAvailable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2309,7 +2309,7 @@ impl ICashDrawerCapabilitiesVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICashDrawerCloseAlarmImpl: Sized {
+pub trait ICashDrawerCloseAlarm_Impl: Sized {
     fn SetAlarmTimeout(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
     fn AlarmTimeout(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn SetBeepFrequency(&mut self, value: u32) -> ::windows::core::Result<()>;
@@ -2327,13 +2327,13 @@ impl ::windows::core::RuntimeName for ICashDrawerCloseAlarm {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICashDrawerCloseAlarm";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICashDrawerCloseAlarmVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerCloseAlarmImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerCloseAlarmVtbl {
-        unsafe extern "system" fn SetAlarmTimeout<Impl: ICashDrawerCloseAlarmImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+impl ICashDrawerCloseAlarm_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerCloseAlarm_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerCloseAlarm_Vtbl {
+        unsafe extern "system" fn SetAlarmTimeout<Impl: ICashDrawerCloseAlarm_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAlarmTimeout(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AlarmTimeout<Impl: ICashDrawerCloseAlarmImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AlarmTimeout<Impl: ICashDrawerCloseAlarm_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlarmTimeout() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2344,11 +2344,11 @@ impl ICashDrawerCloseAlarmVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBeepFrequency<Impl: ICashDrawerCloseAlarmImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBeepFrequency<Impl: ICashDrawerCloseAlarm_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBeepFrequency(value).into()
         }
-        unsafe extern "system" fn BeepFrequency<Impl: ICashDrawerCloseAlarmImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeepFrequency<Impl: ICashDrawerCloseAlarm_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BeepFrequency() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2359,11 +2359,11 @@ impl ICashDrawerCloseAlarmVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBeepDuration<Impl: ICashDrawerCloseAlarmImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBeepDuration<Impl: ICashDrawerCloseAlarm_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBeepDuration(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BeepDuration<Impl: ICashDrawerCloseAlarmImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeepDuration<Impl: ICashDrawerCloseAlarm_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BeepDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2374,11 +2374,11 @@ impl ICashDrawerCloseAlarmVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBeepDelay<Impl: ICashDrawerCloseAlarmImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBeepDelay<Impl: ICashDrawerCloseAlarm_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBeepDelay(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BeepDelay<Impl: ICashDrawerCloseAlarmImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeepDelay<Impl: ICashDrawerCloseAlarm_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BeepDelay() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2389,7 +2389,7 @@ impl ICashDrawerCloseAlarmVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AlarmTimeoutExpired<Impl: ICashDrawerCloseAlarmImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AlarmTimeoutExpired<Impl: ICashDrawerCloseAlarm_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlarmTimeoutExpired(&*(&handler as *const <super::super::Foundation::TypedEventHandler<CashDrawerCloseAlarm, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<CashDrawerCloseAlarm, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2400,11 +2400,11 @@ impl ICashDrawerCloseAlarmVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAlarmTimeoutExpired<Impl: ICashDrawerCloseAlarmImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAlarmTimeoutExpired<Impl: ICashDrawerCloseAlarm_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAlarmTimeoutExpired(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StartAsync<Impl: ICashDrawerCloseAlarmImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartAsync<Impl: ICashDrawerCloseAlarm_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2435,7 +2435,7 @@ impl ICashDrawerCloseAlarmVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICashDrawerEventSourceImpl: Sized {
+pub trait ICashDrawerEventSource_Impl: Sized {
     fn DrawerClosed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveDrawerClosed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn DrawerOpened(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerOpenedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -2446,9 +2446,9 @@ impl ::windows::core::RuntimeName for ICashDrawerEventSource {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICashDrawerEventSource";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICashDrawerEventSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerEventSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerEventSourceVtbl {
-        unsafe extern "system" fn DrawerClosed<Impl: ICashDrawerEventSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl ICashDrawerEventSource_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerEventSource_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerEventSource_Vtbl {
+        unsafe extern "system" fn DrawerClosed<Impl: ICashDrawerEventSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DrawerClosed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerClosedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerClosedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2459,11 +2459,11 @@ impl ICashDrawerEventSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDrawerClosed<Impl: ICashDrawerEventSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDrawerClosed<Impl: ICashDrawerEventSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDrawerClosed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DrawerOpened<Impl: ICashDrawerEventSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DrawerOpened<Impl: ICashDrawerEventSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DrawerOpened(&*(&handler as *const <super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerOpenedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerOpenedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2474,7 +2474,7 @@ impl ICashDrawerEventSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDrawerOpened<Impl: ICashDrawerEventSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDrawerOpened<Impl: ICashDrawerEventSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDrawerOpened(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2490,15 +2490,15 @@ impl ICashDrawerEventSourceVtbl {
         iid == &<ICashDrawerEventSource as ::windows::core::Interface>::IID
     }
 }
-pub trait ICashDrawerEventSourceEventArgsImpl: Sized {
+pub trait ICashDrawerEventSourceEventArgs_Impl: Sized {
     fn CashDrawer(&mut self) -> ::windows::core::Result<CashDrawer>;
 }
 impl ::windows::core::RuntimeName for ICashDrawerEventSourceEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICashDrawerEventSourceEventArgs";
 }
-impl ICashDrawerEventSourceEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerEventSourceEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerEventSourceEventArgsVtbl {
-        unsafe extern "system" fn CashDrawer<Impl: ICashDrawerEventSourceEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICashDrawerEventSourceEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerEventSourceEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerEventSourceEventArgs_Vtbl {
+        unsafe extern "system" fn CashDrawer<Impl: ICashDrawerEventSourceEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CashDrawer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2519,7 +2519,7 @@ impl ICashDrawerEventSourceEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICashDrawerStaticsImpl: Sized {
+pub trait ICashDrawerStatics_Impl: Sized {
     fn GetDefaultAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CashDrawer>>;
     fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CashDrawer>>;
     fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -2529,9 +2529,9 @@ impl ::windows::core::RuntimeName for ICashDrawerStatics {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICashDrawerStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICashDrawerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerStaticsVtbl {
-        unsafe extern "system" fn GetDefaultAsync<Impl: ICashDrawerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICashDrawerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerStatics_Vtbl {
+        unsafe extern "system" fn GetDefaultAsync<Impl: ICashDrawerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2542,7 +2542,7 @@ impl ICashDrawerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromIdAsync<Impl: ICashDrawerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromIdAsync<Impl: ICashDrawerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2553,7 +2553,7 @@ impl ICashDrawerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelector<Impl: ICashDrawerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelector<Impl: ICashDrawerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2576,7 +2576,7 @@ impl ICashDrawerStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICashDrawerStatics2Impl: Sized {
+pub trait ICashDrawerStatics2_Impl: Sized {
     fn GetDeviceSelectorWithConnectionTypes(&mut self, connectiontypes: PosConnectionTypes) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2584,9 +2584,9 @@ impl ::windows::core::RuntimeName for ICashDrawerStatics2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICashDrawerStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICashDrawerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerStatics2Vtbl {
-        unsafe extern "system" fn GetDeviceSelectorWithConnectionTypes<Impl: ICashDrawerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectiontypes: PosConnectionTypes, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ICashDrawerStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerStatics2_Vtbl {
+        unsafe extern "system" fn GetDeviceSelectorWithConnectionTypes<Impl: ICashDrawerStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectiontypes: PosConnectionTypes, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorWithConnectionTypes(connectiontypes) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2607,7 +2607,7 @@ impl ICashDrawerStatics2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICashDrawerStatusImpl: Sized {
+pub trait ICashDrawerStatus_Impl: Sized {
     fn StatusKind(&mut self) -> ::windows::core::Result<CashDrawerStatusKind>;
     fn ExtendedStatus(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -2616,9 +2616,9 @@ impl ::windows::core::RuntimeName for ICashDrawerStatus {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICashDrawerStatus";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICashDrawerStatusVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerStatusImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerStatusVtbl {
-        unsafe extern "system" fn StatusKind<Impl: ICashDrawerStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CashDrawerStatusKind) -> ::windows::core::HRESULT {
+impl ICashDrawerStatus_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerStatus_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerStatus_Vtbl {
+        unsafe extern "system" fn StatusKind<Impl: ICashDrawerStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CashDrawerStatusKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StatusKind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2629,7 +2629,7 @@ impl ICashDrawerStatusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedStatus<Impl: ICashDrawerStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedStatus<Impl: ICashDrawerStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2651,7 +2651,7 @@ impl ICashDrawerStatusVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICashDrawerStatusUpdatedEventArgsImpl: Sized {
+pub trait ICashDrawerStatusUpdatedEventArgs_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<CashDrawerStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2659,9 +2659,9 @@ impl ::windows::core::RuntimeName for ICashDrawerStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICashDrawerStatusUpdatedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICashDrawerStatusUpdatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerStatusUpdatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerStatusUpdatedEventArgsVtbl {
-        unsafe extern "system" fn Status<Impl: ICashDrawerStatusUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICashDrawerStatusUpdatedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICashDrawerStatusUpdatedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICashDrawerStatusUpdatedEventArgs_Vtbl {
+        unsafe extern "system" fn Status<Impl: ICashDrawerStatusUpdatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2679,7 +2679,7 @@ impl ICashDrawerStatusUpdatedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IClaimedBarcodeScannerImpl: Sized {
+pub trait IClaimedBarcodeScanner_Impl: Sized {
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsDisabledOnDataReceived(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -2711,9 +2711,9 @@ impl ::windows::core::RuntimeName for IClaimedBarcodeScanner {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedBarcodeScanner";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IClaimedBarcodeScannerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScannerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedBarcodeScannerVtbl {
-        unsafe extern "system" fn DeviceId<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IClaimedBarcodeScanner_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScanner_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedBarcodeScanner_Vtbl {
+        unsafe extern "system" fn DeviceId<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2724,7 +2724,7 @@ impl IClaimedBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsEnabled<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEnabled<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2735,11 +2735,11 @@ impl IClaimedBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsDisabledOnDataReceived<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsDisabledOnDataReceived<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsDisabledOnDataReceived(value).into()
         }
-        unsafe extern "system" fn IsDisabledOnDataReceived<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDisabledOnDataReceived<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDisabledOnDataReceived() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2750,11 +2750,11 @@ impl IClaimedBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsDecodeDataEnabled<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsDecodeDataEnabled<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsDecodeDataEnabled(value).into()
         }
-        unsafe extern "system" fn IsDecodeDataEnabled<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDecodeDataEnabled<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDecodeDataEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2765,7 +2765,7 @@ impl IClaimedBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableAsync<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableAsync<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2776,7 +2776,7 @@ impl IClaimedBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisableAsync<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisableAsync<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisableAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2787,11 +2787,11 @@ impl IClaimedBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RetainDevice<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RetainDevice<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RetainDevice().into()
         }
-        unsafe extern "system" fn SetActiveSymbologiesAsync<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, symbologies: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetActiveSymbologiesAsync<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, symbologies: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetActiveSymbologiesAsync(&*(&symbologies as *const <super::super::Foundation::Collections::IIterable<u32> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<u32> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2802,7 +2802,7 @@ impl IClaimedBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResetStatisticsAsync<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statisticscategories: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResetStatisticsAsync<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statisticscategories: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResetStatisticsAsync(&*(&statisticscategories as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2813,7 +2813,7 @@ impl IClaimedBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpdateStatisticsAsync<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statistics: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateStatisticsAsync<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statistics: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateStatisticsAsync(&*(&statistics as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2824,7 +2824,7 @@ impl IClaimedBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetActiveProfileAsync<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profile: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetActiveProfileAsync<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profile: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetActiveProfileAsync(&*(&profile as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2835,7 +2835,7 @@ impl IClaimedBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DataReceived<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DataReceived<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataReceived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerDataReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerDataReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2846,11 +2846,11 @@ impl IClaimedBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDataReceived<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDataReceived<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDataReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TriggerPressed<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TriggerPressed<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TriggerPressed(&*(&handler as *const <super::super::Foundation::EventHandler<ClaimedBarcodeScanner> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<ClaimedBarcodeScanner> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2861,11 +2861,11 @@ impl IClaimedBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveTriggerPressed<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveTriggerPressed<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTriggerPressed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TriggerReleased<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TriggerReleased<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TriggerReleased(&*(&handler as *const <super::super::Foundation::EventHandler<ClaimedBarcodeScanner> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<ClaimedBarcodeScanner> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2876,11 +2876,11 @@ impl IClaimedBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveTriggerReleased<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveTriggerReleased<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTriggerReleased(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ReleaseDeviceRequested<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReleaseDeviceRequested<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReleaseDeviceRequested(&*(&handler as *const <super::super::Foundation::EventHandler<ClaimedBarcodeScanner> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<ClaimedBarcodeScanner> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2891,11 +2891,11 @@ impl IClaimedBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveReleaseDeviceRequested<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveReleaseDeviceRequested<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveReleaseDeviceRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ImagePreviewReceived<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImagePreviewReceived<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImagePreviewReceived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerImagePreviewReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerImagePreviewReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2906,11 +2906,11 @@ impl IClaimedBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveImagePreviewReceived<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveImagePreviewReceived<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveImagePreviewReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ErrorOccurred<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ErrorOccurred<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ErrorOccurred(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerErrorOccurredEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerErrorOccurredEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2921,7 +2921,7 @@ impl IClaimedBarcodeScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveErrorOccurred<Impl: IClaimedBarcodeScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveErrorOccurred<Impl: IClaimedBarcodeScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveErrorOccurred(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2959,7 +2959,7 @@ impl IClaimedBarcodeScannerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IClaimedBarcodeScanner1Impl: Sized {
+pub trait IClaimedBarcodeScanner1_Impl: Sized {
     fn StartSoftwareTriggerAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn StopSoftwareTriggerAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
@@ -2968,9 +2968,9 @@ impl ::windows::core::RuntimeName for IClaimedBarcodeScanner1 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedBarcodeScanner1";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IClaimedBarcodeScanner1Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScanner1Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedBarcodeScanner1Vtbl {
-        unsafe extern "system" fn StartSoftwareTriggerAsync<Impl: IClaimedBarcodeScanner1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IClaimedBarcodeScanner1_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScanner1_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedBarcodeScanner1_Vtbl {
+        unsafe extern "system" fn StartSoftwareTriggerAsync<Impl: IClaimedBarcodeScanner1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartSoftwareTriggerAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2981,7 +2981,7 @@ impl IClaimedBarcodeScanner1Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StopSoftwareTriggerAsync<Impl: IClaimedBarcodeScanner1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopSoftwareTriggerAsync<Impl: IClaimedBarcodeScanner1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StopSoftwareTriggerAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3003,7 +3003,7 @@ impl IClaimedBarcodeScanner1Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IClaimedBarcodeScanner2Impl: Sized {
+pub trait IClaimedBarcodeScanner2_Impl: Sized {
     fn GetSymbologyAttributesAsync(&mut self, barcodesymbology: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BarcodeSymbologyAttributes>>;
     fn SetSymbologyAttributesAsync(&mut self, barcodesymbology: u32, attributes: &::core::option::Option<BarcodeSymbologyAttributes>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
@@ -3012,9 +3012,9 @@ impl ::windows::core::RuntimeName for IClaimedBarcodeScanner2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedBarcodeScanner2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IClaimedBarcodeScanner2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScanner2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedBarcodeScanner2Vtbl {
-        unsafe extern "system" fn GetSymbologyAttributesAsync<Impl: IClaimedBarcodeScanner2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, barcodesymbology: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IClaimedBarcodeScanner2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScanner2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedBarcodeScanner2_Vtbl {
+        unsafe extern "system" fn GetSymbologyAttributesAsync<Impl: IClaimedBarcodeScanner2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, barcodesymbology: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSymbologyAttributesAsync(barcodesymbology) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3025,7 +3025,7 @@ impl IClaimedBarcodeScanner2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSymbologyAttributesAsync<Impl: IClaimedBarcodeScanner2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, barcodesymbology: u32, attributes: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSymbologyAttributesAsync<Impl: IClaimedBarcodeScanner2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, barcodesymbology: u32, attributes: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetSymbologyAttributesAsync(barcodesymbology, &*(&attributes as *const <BarcodeSymbologyAttributes as ::windows::core::Abi>::Abi as *const <BarcodeSymbologyAttributes as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3047,7 +3047,7 @@ impl IClaimedBarcodeScanner2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IClaimedBarcodeScanner3Impl: Sized {
+pub trait IClaimedBarcodeScanner3_Impl: Sized {
     fn ShowVideoPreviewAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn HideVideoPreview(&mut self) -> ::windows::core::Result<()>;
     fn SetIsVideoPreviewShownOnEnable(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -3058,9 +3058,9 @@ impl ::windows::core::RuntimeName for IClaimedBarcodeScanner3 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedBarcodeScanner3";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IClaimedBarcodeScanner3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScanner3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedBarcodeScanner3Vtbl {
-        unsafe extern "system" fn ShowVideoPreviewAsync<Impl: IClaimedBarcodeScanner3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IClaimedBarcodeScanner3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScanner3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedBarcodeScanner3_Vtbl {
+        unsafe extern "system" fn ShowVideoPreviewAsync<Impl: IClaimedBarcodeScanner3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowVideoPreviewAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3071,15 +3071,15 @@ impl IClaimedBarcodeScanner3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HideVideoPreview<Impl: IClaimedBarcodeScanner3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HideVideoPreview<Impl: IClaimedBarcodeScanner3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HideVideoPreview().into()
         }
-        unsafe extern "system" fn SetIsVideoPreviewShownOnEnable<Impl: IClaimedBarcodeScanner3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsVideoPreviewShownOnEnable<Impl: IClaimedBarcodeScanner3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsVideoPreviewShownOnEnable(value).into()
         }
-        unsafe extern "system" fn IsVideoPreviewShownOnEnable<Impl: IClaimedBarcodeScanner3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsVideoPreviewShownOnEnable<Impl: IClaimedBarcodeScanner3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsVideoPreviewShownOnEnable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3103,7 +3103,7 @@ impl IClaimedBarcodeScanner3Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IClaimedBarcodeScanner4Impl: Sized {
+pub trait IClaimedBarcodeScanner4_Impl: Sized {
     fn Closed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, ClaimedBarcodeScannerClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveClosed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
@@ -3112,9 +3112,9 @@ impl ::windows::core::RuntimeName for IClaimedBarcodeScanner4 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedBarcodeScanner4";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IClaimedBarcodeScanner4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScanner4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedBarcodeScanner4Vtbl {
-        unsafe extern "system" fn Closed<Impl: IClaimedBarcodeScanner4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IClaimedBarcodeScanner4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScanner4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedBarcodeScanner4_Vtbl {
+        unsafe extern "system" fn Closed<Impl: IClaimedBarcodeScanner4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Closed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, ClaimedBarcodeScannerClosedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, ClaimedBarcodeScannerClosedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3125,7 +3125,7 @@ impl IClaimedBarcodeScanner4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveClosed<Impl: IClaimedBarcodeScanner4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveClosed<Impl: IClaimedBarcodeScanner4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveClosed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3140,14 +3140,14 @@ impl IClaimedBarcodeScanner4Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IClaimedBarcodeScannerClosedEventArgsImpl: Sized {}
+pub trait IClaimedBarcodeScannerClosedEventArgs_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IClaimedBarcodeScannerClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedBarcodeScannerClosedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IClaimedBarcodeScannerClosedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScannerClosedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedBarcodeScannerClosedEventArgsVtbl {
+impl IClaimedBarcodeScannerClosedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedBarcodeScannerClosedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedBarcodeScannerClosedEventArgs_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IClaimedBarcodeScannerClosedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -3155,7 +3155,7 @@ impl IClaimedBarcodeScannerClosedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IClaimedCashDrawerImpl: Sized {
+pub trait IClaimedCashDrawer_Impl: Sized {
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn IsDrawerOpen(&mut self) -> ::windows::core::Result<bool>;
@@ -3174,9 +3174,9 @@ impl ::windows::core::RuntimeName for IClaimedCashDrawer {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedCashDrawer";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IClaimedCashDrawerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedCashDrawerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedCashDrawerVtbl {
-        unsafe extern "system" fn DeviceId<Impl: IClaimedCashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IClaimedCashDrawer_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedCashDrawer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedCashDrawer_Vtbl {
+        unsafe extern "system" fn DeviceId<Impl: IClaimedCashDrawer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3187,7 +3187,7 @@ impl IClaimedCashDrawerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsEnabled<Impl: IClaimedCashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEnabled<Impl: IClaimedCashDrawer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3198,7 +3198,7 @@ impl IClaimedCashDrawerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDrawerOpen<Impl: IClaimedCashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDrawerOpen<Impl: IClaimedCashDrawer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDrawerOpen() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3209,7 +3209,7 @@ impl IClaimedCashDrawerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CloseAlarm<Impl: IClaimedCashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CloseAlarm<Impl: IClaimedCashDrawer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CloseAlarm() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3220,7 +3220,7 @@ impl IClaimedCashDrawerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OpenDrawerAsync<Impl: IClaimedCashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenDrawerAsync<Impl: IClaimedCashDrawer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenDrawerAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3231,7 +3231,7 @@ impl IClaimedCashDrawerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableAsync<Impl: IClaimedCashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableAsync<Impl: IClaimedCashDrawer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3242,7 +3242,7 @@ impl IClaimedCashDrawerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisableAsync<Impl: IClaimedCashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisableAsync<Impl: IClaimedCashDrawer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisableAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3253,7 +3253,7 @@ impl IClaimedCashDrawerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RetainDeviceAsync<Impl: IClaimedCashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RetainDeviceAsync<Impl: IClaimedCashDrawer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RetainDeviceAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3264,7 +3264,7 @@ impl IClaimedCashDrawerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResetStatisticsAsync<Impl: IClaimedCashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statisticscategories: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResetStatisticsAsync<Impl: IClaimedCashDrawer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statisticscategories: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResetStatisticsAsync(&*(&statisticscategories as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3275,7 +3275,7 @@ impl IClaimedCashDrawerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpdateStatisticsAsync<Impl: IClaimedCashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statistics: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateStatisticsAsync<Impl: IClaimedCashDrawer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statistics: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateStatisticsAsync(&*(&statistics as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3286,7 +3286,7 @@ impl IClaimedCashDrawerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReleaseDeviceRequested<Impl: IClaimedCashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReleaseDeviceRequested<Impl: IClaimedCashDrawer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReleaseDeviceRequested(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3297,7 +3297,7 @@ impl IClaimedCashDrawerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveReleaseDeviceRequested<Impl: IClaimedCashDrawerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveReleaseDeviceRequested<Impl: IClaimedCashDrawer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveReleaseDeviceRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3322,7 +3322,7 @@ impl IClaimedCashDrawerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IClaimedCashDrawer2Impl: Sized {
+pub trait IClaimedCashDrawer2_Impl: Sized {
     fn Closed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ClaimedCashDrawerClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveClosed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
@@ -3331,9 +3331,9 @@ impl ::windows::core::RuntimeName for IClaimedCashDrawer2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedCashDrawer2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IClaimedCashDrawer2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedCashDrawer2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedCashDrawer2Vtbl {
-        unsafe extern "system" fn Closed<Impl: IClaimedCashDrawer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IClaimedCashDrawer2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedCashDrawer2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedCashDrawer2_Vtbl {
+        unsafe extern "system" fn Closed<Impl: IClaimedCashDrawer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Closed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ClaimedCashDrawerClosedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ClaimedCashDrawerClosedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3344,7 +3344,7 @@ impl IClaimedCashDrawer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveClosed<Impl: IClaimedCashDrawer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveClosed<Impl: IClaimedCashDrawer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveClosed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3359,14 +3359,14 @@ impl IClaimedCashDrawer2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IClaimedCashDrawerClosedEventArgsImpl: Sized {}
+pub trait IClaimedCashDrawerClosedEventArgs_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IClaimedCashDrawerClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedCashDrawerClosedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IClaimedCashDrawerClosedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedCashDrawerClosedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedCashDrawerClosedEventArgsVtbl {
+impl IClaimedCashDrawerClosedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedCashDrawerClosedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedCashDrawerClosedEventArgs_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IClaimedCashDrawerClosedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -3374,7 +3374,7 @@ impl IClaimedCashDrawerClosedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IClaimedJournalPrinterImpl: Sized {
+pub trait IClaimedJournalPrinter_Impl: Sized {
     fn CreateJob(&mut self) -> ::windows::core::Result<JournalPrintJob>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3382,9 +3382,9 @@ impl ::windows::core::RuntimeName for IClaimedJournalPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedJournalPrinter";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IClaimedJournalPrinterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedJournalPrinterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedJournalPrinterVtbl {
-        unsafe extern "system" fn CreateJob<Impl: IClaimedJournalPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IClaimedJournalPrinter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedJournalPrinter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedJournalPrinter_Vtbl {
+        unsafe extern "system" fn CreateJob<Impl: IClaimedJournalPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateJob() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3402,7 +3402,7 @@ impl IClaimedJournalPrinterVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IClaimedLineDisplayImpl: Sized {
+pub trait IClaimedLineDisplay_Impl: Sized {
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Capabilities(&mut self) -> ::windows::core::Result<LineDisplayCapabilities>;
     fn PhysicalDeviceName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -3420,9 +3420,9 @@ impl ::windows::core::RuntimeName for IClaimedLineDisplay {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedLineDisplay";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IClaimedLineDisplayVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedLineDisplayImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedLineDisplayVtbl {
-        unsafe extern "system" fn DeviceId<Impl: IClaimedLineDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IClaimedLineDisplay_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedLineDisplay_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedLineDisplay_Vtbl {
+        unsafe extern "system" fn DeviceId<Impl: IClaimedLineDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3433,7 +3433,7 @@ impl IClaimedLineDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Capabilities<Impl: IClaimedLineDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Capabilities<Impl: IClaimedLineDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Capabilities() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3444,7 +3444,7 @@ impl IClaimedLineDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhysicalDeviceName<Impl: IClaimedLineDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhysicalDeviceName<Impl: IClaimedLineDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhysicalDeviceName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3455,7 +3455,7 @@ impl IClaimedLineDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhysicalDeviceDescription<Impl: IClaimedLineDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhysicalDeviceDescription<Impl: IClaimedLineDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhysicalDeviceDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3466,7 +3466,7 @@ impl IClaimedLineDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceControlDescription<Impl: IClaimedLineDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceControlDescription<Impl: IClaimedLineDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceControlDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3477,7 +3477,7 @@ impl IClaimedLineDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceControlVersion<Impl: IClaimedLineDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceControlVersion<Impl: IClaimedLineDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceControlVersion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3488,7 +3488,7 @@ impl IClaimedLineDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceServiceVersion<Impl: IClaimedLineDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceServiceVersion<Impl: IClaimedLineDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceServiceVersion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3499,7 +3499,7 @@ impl IClaimedLineDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DefaultWindow<Impl: IClaimedLineDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultWindow<Impl: IClaimedLineDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultWindow() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3510,11 +3510,11 @@ impl IClaimedLineDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RetainDevice<Impl: IClaimedLineDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RetainDevice<Impl: IClaimedLineDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RetainDevice().into()
         }
-        unsafe extern "system" fn ReleaseDeviceRequested<Impl: IClaimedLineDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReleaseDeviceRequested<Impl: IClaimedLineDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReleaseDeviceRequested(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3525,7 +3525,7 @@ impl IClaimedLineDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveReleaseDeviceRequested<Impl: IClaimedLineDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveReleaseDeviceRequested<Impl: IClaimedLineDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveReleaseDeviceRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3549,7 +3549,7 @@ impl IClaimedLineDisplayVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
-pub trait IClaimedLineDisplay2Impl: Sized {
+pub trait IClaimedLineDisplay2_Impl: Sized {
     fn GetStatisticsAsync(&mut self, statisticscategories: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
     fn CheckHealthAsync(&mut self, level: UnifiedPosHealthCheckLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
     fn CheckPowerStatusAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayPowerStatus>>;
@@ -3573,9 +3573,9 @@ impl ::windows::core::RuntimeName for IClaimedLineDisplay2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedLineDisplay2";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
-impl IClaimedLineDisplay2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedLineDisplay2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedLineDisplay2Vtbl {
-        unsafe extern "system" fn GetStatisticsAsync<Impl: IClaimedLineDisplay2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statisticscategories: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IClaimedLineDisplay2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedLineDisplay2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedLineDisplay2_Vtbl {
+        unsafe extern "system" fn GetStatisticsAsync<Impl: IClaimedLineDisplay2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statisticscategories: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStatisticsAsync(&*(&statisticscategories as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3586,7 +3586,7 @@ impl IClaimedLineDisplay2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CheckHealthAsync<Impl: IClaimedLineDisplay2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: UnifiedPosHealthCheckLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CheckHealthAsync<Impl: IClaimedLineDisplay2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: UnifiedPosHealthCheckLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CheckHealthAsync(level) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3597,7 +3597,7 @@ impl IClaimedLineDisplay2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CheckPowerStatusAsync<Impl: IClaimedLineDisplay2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CheckPowerStatusAsync<Impl: IClaimedLineDisplay2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CheckPowerStatusAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3608,7 +3608,7 @@ impl IClaimedLineDisplay2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StatusUpdated<Impl: IClaimedLineDisplay2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StatusUpdated<Impl: IClaimedLineDisplay2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StatusUpdated(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, LineDisplayStatusUpdatedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, LineDisplayStatusUpdatedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3619,11 +3619,11 @@ impl IClaimedLineDisplay2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStatusUpdated<Impl: IClaimedLineDisplay2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStatusUpdated<Impl: IClaimedLineDisplay2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStatusUpdated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SupportedScreenSizesInCharacters<Impl: IClaimedLineDisplay2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedScreenSizesInCharacters<Impl: IClaimedLineDisplay2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedScreenSizesInCharacters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3634,7 +3634,7 @@ impl IClaimedLineDisplay2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxBitmapSizeInPixels<Impl: IClaimedLineDisplay2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxBitmapSizeInPixels<Impl: IClaimedLineDisplay2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxBitmapSizeInPixels() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3645,7 +3645,7 @@ impl IClaimedLineDisplay2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedCharacterSets<Impl: IClaimedLineDisplay2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedCharacterSets<Impl: IClaimedLineDisplay2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedCharacterSets() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3656,7 +3656,7 @@ impl IClaimedLineDisplay2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CustomGlyphs<Impl: IClaimedLineDisplay2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CustomGlyphs<Impl: IClaimedLineDisplay2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CustomGlyphs() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3667,7 +3667,7 @@ impl IClaimedLineDisplay2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAttributes<Impl: IClaimedLineDisplay2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAttributes<Impl: IClaimedLineDisplay2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAttributes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3678,7 +3678,7 @@ impl IClaimedLineDisplay2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryUpdateAttributesAsync<Impl: IClaimedLineDisplay2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributes: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryUpdateAttributesAsync<Impl: IClaimedLineDisplay2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributes: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryUpdateAttributesAsync(&*(&attributes as *const <LineDisplayAttributes as ::windows::core::Abi>::Abi as *const <LineDisplayAttributes as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3689,7 +3689,7 @@ impl IClaimedLineDisplay2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrySetDescriptorAsync<Impl: IClaimedLineDisplay2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: u32, descriptorstate: LineDisplayDescriptorState, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrySetDescriptorAsync<Impl: IClaimedLineDisplay2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: u32, descriptorstate: LineDisplayDescriptorState, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrySetDescriptorAsync(descriptor, descriptorstate) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3700,7 +3700,7 @@ impl IClaimedLineDisplay2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryClearDescriptorsAsync<Impl: IClaimedLineDisplay2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryClearDescriptorsAsync<Impl: IClaimedLineDisplay2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryClearDescriptorsAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3711,7 +3711,7 @@ impl IClaimedLineDisplay2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryCreateWindowAsync<Impl: IClaimedLineDisplay2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewport: super::super::Foundation::Rect, windowsize: super::super::Foundation::Size, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryCreateWindowAsync<Impl: IClaimedLineDisplay2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewport: super::super::Foundation::Rect, windowsize: super::super::Foundation::Size, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreateWindowAsync(&*(&viewport as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType), &*(&windowsize as *const <super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3722,7 +3722,7 @@ impl IClaimedLineDisplay2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryStoreStorageFileBitmapAsync<Impl: IClaimedLineDisplay2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryStoreStorageFileBitmapAsync<Impl: IClaimedLineDisplay2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryStoreStorageFileBitmapAsync(&*(&bitmap as *const <super::super::Storage::StorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::StorageFile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3733,7 +3733,7 @@ impl IClaimedLineDisplay2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryStoreStorageFileBitmapWithAlignmentAsync<Impl: IClaimedLineDisplay2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryStoreStorageFileBitmapWithAlignmentAsync<Impl: IClaimedLineDisplay2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryStoreStorageFileBitmapWithAlignmentAsync(&*(&bitmap as *const <super::super::Storage::StorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::StorageFile as ::windows::core::DefaultType>::DefaultType), horizontalalignment, verticalalignment) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3744,7 +3744,7 @@ impl IClaimedLineDisplay2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryStoreStorageFileBitmapWithAlignmentAndWidthAsync<Impl: IClaimedLineDisplay2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, widthinpixels: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryStoreStorageFileBitmapWithAlignmentAndWidthAsync<Impl: IClaimedLineDisplay2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, widthinpixels: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryStoreStorageFileBitmapWithAlignmentAndWidthAsync(&*(&bitmap as *const <super::super::Storage::StorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::StorageFile as ::windows::core::DefaultType>::DefaultType), horizontalalignment, verticalalignment, widthinpixels) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3781,7 +3781,7 @@ impl IClaimedLineDisplay2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IClaimedLineDisplay3Impl: Sized {
+pub trait IClaimedLineDisplay3_Impl: Sized {
     fn Closed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ClaimedLineDisplayClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveClosed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
@@ -3790,9 +3790,9 @@ impl ::windows::core::RuntimeName for IClaimedLineDisplay3 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedLineDisplay3";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IClaimedLineDisplay3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedLineDisplay3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedLineDisplay3Vtbl {
-        unsafe extern "system" fn Closed<Impl: IClaimedLineDisplay3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IClaimedLineDisplay3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedLineDisplay3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedLineDisplay3_Vtbl {
+        unsafe extern "system" fn Closed<Impl: IClaimedLineDisplay3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Closed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ClaimedLineDisplayClosedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ClaimedLineDisplayClosedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3803,7 +3803,7 @@ impl IClaimedLineDisplay3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveClosed<Impl: IClaimedLineDisplay3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveClosed<Impl: IClaimedLineDisplay3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveClosed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3818,14 +3818,14 @@ impl IClaimedLineDisplay3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IClaimedLineDisplayClosedEventArgsImpl: Sized {}
+pub trait IClaimedLineDisplayClosedEventArgs_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IClaimedLineDisplayClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedLineDisplayClosedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IClaimedLineDisplayClosedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedLineDisplayClosedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedLineDisplayClosedEventArgsVtbl {
+impl IClaimedLineDisplayClosedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedLineDisplayClosedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedLineDisplayClosedEventArgs_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IClaimedLineDisplayClosedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -3833,7 +3833,7 @@ impl IClaimedLineDisplayClosedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IClaimedLineDisplayStaticsImpl: Sized {
+pub trait IClaimedLineDisplayStatics_Impl: Sized {
     fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>>;
     fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeviceSelectorWithConnectionTypes(&mut self, connectiontypes: PosConnectionTypes) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -3843,9 +3843,9 @@ impl ::windows::core::RuntimeName for IClaimedLineDisplayStatics {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedLineDisplayStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IClaimedLineDisplayStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedLineDisplayStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedLineDisplayStaticsVtbl {
-        unsafe extern "system" fn FromIdAsync<Impl: IClaimedLineDisplayStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IClaimedLineDisplayStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedLineDisplayStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedLineDisplayStatics_Vtbl {
+        unsafe extern "system" fn FromIdAsync<Impl: IClaimedLineDisplayStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3856,7 +3856,7 @@ impl IClaimedLineDisplayStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelector<Impl: IClaimedLineDisplayStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelector<Impl: IClaimedLineDisplayStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3867,7 +3867,7 @@ impl IClaimedLineDisplayStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelectorWithConnectionTypes<Impl: IClaimedLineDisplayStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectiontypes: PosConnectionTypes, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelectorWithConnectionTypes<Impl: IClaimedLineDisplayStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectiontypes: PosConnectionTypes, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorWithConnectionTypes(connectiontypes) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3890,7 +3890,7 @@ impl IClaimedLineDisplayStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IClaimedMagneticStripeReaderImpl: Sized {
+pub trait IClaimedMagneticStripeReader_Impl: Sized {
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsDisabledOnDataReceived(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -3930,9 +3930,9 @@ impl ::windows::core::RuntimeName for IClaimedMagneticStripeReader {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedMagneticStripeReader";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IClaimedMagneticStripeReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedMagneticStripeReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedMagneticStripeReaderVtbl {
-        unsafe extern "system" fn DeviceId<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IClaimedMagneticStripeReader_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedMagneticStripeReader_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedMagneticStripeReader_Vtbl {
+        unsafe extern "system" fn DeviceId<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3943,7 +3943,7 @@ impl IClaimedMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsEnabled<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEnabled<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3954,11 +3954,11 @@ impl IClaimedMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsDisabledOnDataReceived<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsDisabledOnDataReceived<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsDisabledOnDataReceived(value).into()
         }
-        unsafe extern "system" fn IsDisabledOnDataReceived<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDisabledOnDataReceived<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDisabledOnDataReceived() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3969,11 +3969,11 @@ impl IClaimedMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsDecodeDataEnabled<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsDecodeDataEnabled<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsDecodeDataEnabled(value).into()
         }
-        unsafe extern "system" fn IsDecodeDataEnabled<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDecodeDataEnabled<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDecodeDataEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3984,7 +3984,7 @@ impl IClaimedMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDeviceAuthenticated<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDeviceAuthenticated<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDeviceAuthenticated() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3995,11 +3995,11 @@ impl IClaimedMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDataEncryptionAlgorithm<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDataEncryptionAlgorithm<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDataEncryptionAlgorithm(value).into()
         }
-        unsafe extern "system" fn DataEncryptionAlgorithm<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DataEncryptionAlgorithm<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataEncryptionAlgorithm() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4010,11 +4010,11 @@ impl IClaimedMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTracksToRead<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MagneticStripeReaderTrackIds) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTracksToRead<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MagneticStripeReaderTrackIds) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTracksToRead(value).into()
         }
-        unsafe extern "system" fn TracksToRead<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderTrackIds) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TracksToRead<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderTrackIds) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TracksToRead() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4025,11 +4025,11 @@ impl IClaimedMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsTransmitSentinelsEnabled<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsTransmitSentinelsEnabled<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsTransmitSentinelsEnabled(value).into()
         }
-        unsafe extern "system" fn IsTransmitSentinelsEnabled<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsTransmitSentinelsEnabled<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTransmitSentinelsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4040,7 +4040,7 @@ impl IClaimedMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableAsync<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableAsync<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4051,7 +4051,7 @@ impl IClaimedMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisableAsync<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisableAsync<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisableAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4062,15 +4062,15 @@ impl IClaimedMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RetainDevice<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RetainDevice<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RetainDevice().into()
         }
-        unsafe extern "system" fn SetErrorReportingType<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MagneticStripeReaderErrorReportingType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetErrorReportingType<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MagneticStripeReaderErrorReportingType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetErrorReportingType(value).into()
         }
-        unsafe extern "system" fn RetrieveDeviceAuthenticationDataAsync<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RetrieveDeviceAuthenticationDataAsync<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RetrieveDeviceAuthenticationDataAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4081,7 +4081,7 @@ impl IClaimedMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AuthenticateDeviceAsync<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, responseToken_array_size: u32, responsetoken: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AuthenticateDeviceAsync<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, responseToken_array_size: u32, responsetoken: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticateDeviceAsync(::core::slice::from_raw_parts(::core::mem::transmute_copy(&responsetoken), responseToken_array_size as _)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4092,7 +4092,7 @@ impl IClaimedMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeAuthenticateDeviceAsync<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, responseToken_array_size: u32, responsetoken: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeAuthenticateDeviceAsync<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, responseToken_array_size: u32, responsetoken: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeAuthenticateDeviceAsync(::core::slice::from_raw_parts(::core::mem::transmute_copy(&responsetoken), responseToken_array_size as _)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4103,7 +4103,7 @@ impl IClaimedMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpdateKeyAsync<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, keyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateKeyAsync<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, keyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateKeyAsync(&*(&key as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&keyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4114,7 +4114,7 @@ impl IClaimedMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResetStatisticsAsync<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statisticscategories: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResetStatisticsAsync<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statisticscategories: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResetStatisticsAsync(&*(&statisticscategories as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4125,7 +4125,7 @@ impl IClaimedMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpdateStatisticsAsync<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statistics: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateStatisticsAsync<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statistics: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateStatisticsAsync(&*(&statistics as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4136,7 +4136,7 @@ impl IClaimedMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BankCardDataReceived<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BankCardDataReceived<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BankCardDataReceived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderBankCardDataReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderBankCardDataReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4147,11 +4147,11 @@ impl IClaimedMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveBankCardDataReceived<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveBankCardDataReceived<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveBankCardDataReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AamvaCardDataReceived<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AamvaCardDataReceived<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AamvaCardDataReceived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderAamvaCardDataReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderAamvaCardDataReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4162,11 +4162,11 @@ impl IClaimedMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAamvaCardDataReceived<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAamvaCardDataReceived<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAamvaCardDataReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn VendorSpecificDataReceived<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VendorSpecificDataReceived<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VendorSpecificDataReceived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4177,11 +4177,11 @@ impl IClaimedMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveVendorSpecificDataReceived<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveVendorSpecificDataReceived<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveVendorSpecificDataReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ReleaseDeviceRequested<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReleaseDeviceRequested<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReleaseDeviceRequested(&*(&handler as *const <super::super::Foundation::EventHandler<ClaimedMagneticStripeReader> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<ClaimedMagneticStripeReader> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4192,11 +4192,11 @@ impl IClaimedMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveReleaseDeviceRequested<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveReleaseDeviceRequested<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveReleaseDeviceRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ErrorOccurred<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ErrorOccurred<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ErrorOccurred(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderErrorOccurredEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderErrorOccurredEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4207,7 +4207,7 @@ impl IClaimedMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveErrorOccurred<Impl: IClaimedMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveErrorOccurred<Impl: IClaimedMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveErrorOccurred(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -4253,7 +4253,7 @@ impl IClaimedMagneticStripeReaderVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IClaimedMagneticStripeReader2Impl: Sized {
+pub trait IClaimedMagneticStripeReader2_Impl: Sized {
     fn Closed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, ClaimedMagneticStripeReaderClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveClosed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
@@ -4262,9 +4262,9 @@ impl ::windows::core::RuntimeName for IClaimedMagneticStripeReader2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedMagneticStripeReader2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IClaimedMagneticStripeReader2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedMagneticStripeReader2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedMagneticStripeReader2Vtbl {
-        unsafe extern "system" fn Closed<Impl: IClaimedMagneticStripeReader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IClaimedMagneticStripeReader2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedMagneticStripeReader2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedMagneticStripeReader2_Vtbl {
+        unsafe extern "system" fn Closed<Impl: IClaimedMagneticStripeReader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Closed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, ClaimedMagneticStripeReaderClosedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, ClaimedMagneticStripeReaderClosedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4275,7 +4275,7 @@ impl IClaimedMagneticStripeReader2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveClosed<Impl: IClaimedMagneticStripeReader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveClosed<Impl: IClaimedMagneticStripeReader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveClosed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -4290,14 +4290,14 @@ impl IClaimedMagneticStripeReader2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IClaimedMagneticStripeReaderClosedEventArgsImpl: Sized {}
+pub trait IClaimedMagneticStripeReaderClosedEventArgs_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IClaimedMagneticStripeReaderClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedMagneticStripeReaderClosedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IClaimedMagneticStripeReaderClosedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedMagneticStripeReaderClosedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedMagneticStripeReaderClosedEventArgsVtbl {
+impl IClaimedMagneticStripeReaderClosedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedMagneticStripeReaderClosedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedMagneticStripeReaderClosedEventArgs_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IClaimedMagneticStripeReaderClosedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -4305,7 +4305,7 @@ impl IClaimedMagneticStripeReaderClosedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IClaimedPosPrinterImpl: Sized {
+pub trait IClaimedPosPrinter_Impl: Sized {
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetCharacterSet(&mut self, value: u32) -> ::windows::core::Result<()>;
@@ -4331,9 +4331,9 @@ impl ::windows::core::RuntimeName for IClaimedPosPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedPosPrinter";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IClaimedPosPrinterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedPosPrinterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedPosPrinterVtbl {
-        unsafe extern "system" fn DeviceId<Impl: IClaimedPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IClaimedPosPrinter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedPosPrinter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedPosPrinter_Vtbl {
+        unsafe extern "system" fn DeviceId<Impl: IClaimedPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4344,7 +4344,7 @@ impl IClaimedPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsEnabled<Impl: IClaimedPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEnabled<Impl: IClaimedPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4355,11 +4355,11 @@ impl IClaimedPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCharacterSet<Impl: IClaimedPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCharacterSet<Impl: IClaimedPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCharacterSet(value).into()
         }
-        unsafe extern "system" fn CharacterSet<Impl: IClaimedPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CharacterSet<Impl: IClaimedPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CharacterSet() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4370,7 +4370,7 @@ impl IClaimedPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsCoverOpen<Impl: IClaimedPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCoverOpen<Impl: IClaimedPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCoverOpen() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4381,11 +4381,11 @@ impl IClaimedPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsCharacterSetMappingEnabled<Impl: IClaimedPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsCharacterSetMappingEnabled<Impl: IClaimedPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsCharacterSetMappingEnabled(value).into()
         }
-        unsafe extern "system" fn IsCharacterSetMappingEnabled<Impl: IClaimedPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCharacterSetMappingEnabled<Impl: IClaimedPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCharacterSetMappingEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4396,11 +4396,11 @@ impl IClaimedPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMapMode<Impl: IClaimedPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PosPrinterMapMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMapMode<Impl: IClaimedPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PosPrinterMapMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMapMode(value).into()
         }
-        unsafe extern "system" fn MapMode<Impl: IClaimedPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PosPrinterMapMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MapMode<Impl: IClaimedPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PosPrinterMapMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MapMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4411,7 +4411,7 @@ impl IClaimedPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Receipt<Impl: IClaimedPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Receipt<Impl: IClaimedPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Receipt() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4422,7 +4422,7 @@ impl IClaimedPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Slip<Impl: IClaimedPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Slip<Impl: IClaimedPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Slip() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4433,7 +4433,7 @@ impl IClaimedPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Journal<Impl: IClaimedPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Journal<Impl: IClaimedPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Journal() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4444,7 +4444,7 @@ impl IClaimedPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableAsync<Impl: IClaimedPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableAsync<Impl: IClaimedPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnableAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4455,7 +4455,7 @@ impl IClaimedPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisableAsync<Impl: IClaimedPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisableAsync<Impl: IClaimedPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisableAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4466,7 +4466,7 @@ impl IClaimedPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RetainDeviceAsync<Impl: IClaimedPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RetainDeviceAsync<Impl: IClaimedPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RetainDeviceAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4477,7 +4477,7 @@ impl IClaimedPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResetStatisticsAsync<Impl: IClaimedPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statisticscategories: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResetStatisticsAsync<Impl: IClaimedPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statisticscategories: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResetStatisticsAsync(&*(&statisticscategories as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4488,7 +4488,7 @@ impl IClaimedPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpdateStatisticsAsync<Impl: IClaimedPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statistics: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateStatisticsAsync<Impl: IClaimedPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statistics: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateStatisticsAsync(&*(&statistics as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4499,7 +4499,7 @@ impl IClaimedPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReleaseDeviceRequested<Impl: IClaimedPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReleaseDeviceRequested<Impl: IClaimedPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReleaseDeviceRequested(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, PosPrinterReleaseDeviceRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, PosPrinterReleaseDeviceRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4510,7 +4510,7 @@ impl IClaimedPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveReleaseDeviceRequested<Impl: IClaimedPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveReleaseDeviceRequested<Impl: IClaimedPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveReleaseDeviceRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -4542,7 +4542,7 @@ impl IClaimedPosPrinterVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IClaimedPosPrinter2Impl: Sized {
+pub trait IClaimedPosPrinter2_Impl: Sized {
     fn Closed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, ClaimedPosPrinterClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveClosed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
@@ -4551,9 +4551,9 @@ impl ::windows::core::RuntimeName for IClaimedPosPrinter2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedPosPrinter2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IClaimedPosPrinter2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedPosPrinter2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedPosPrinter2Vtbl {
-        unsafe extern "system" fn Closed<Impl: IClaimedPosPrinter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IClaimedPosPrinter2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedPosPrinter2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedPosPrinter2_Vtbl {
+        unsafe extern "system" fn Closed<Impl: IClaimedPosPrinter2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Closed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, ClaimedPosPrinterClosedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, ClaimedPosPrinterClosedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4564,7 +4564,7 @@ impl IClaimedPosPrinter2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveClosed<Impl: IClaimedPosPrinter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveClosed<Impl: IClaimedPosPrinter2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveClosed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -4579,14 +4579,14 @@ impl IClaimedPosPrinter2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IClaimedPosPrinterClosedEventArgsImpl: Sized {}
+pub trait IClaimedPosPrinterClosedEventArgs_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IClaimedPosPrinterClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedPosPrinterClosedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IClaimedPosPrinterClosedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedPosPrinterClosedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedPosPrinterClosedEventArgsVtbl {
+impl IClaimedPosPrinterClosedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedPosPrinterClosedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedPosPrinterClosedEventArgs_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IClaimedPosPrinterClosedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -4594,7 +4594,7 @@ impl IClaimedPosPrinterClosedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IClaimedReceiptPrinterImpl: Sized {
+pub trait IClaimedReceiptPrinter_Impl: Sized {
     fn SidewaysMaxLines(&mut self) -> ::windows::core::Result<u32>;
     fn SidewaysMaxChars(&mut self) -> ::windows::core::Result<u32>;
     fn LinesToPaperCut(&mut self) -> ::windows::core::Result<u32>;
@@ -4607,9 +4607,9 @@ impl ::windows::core::RuntimeName for IClaimedReceiptPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedReceiptPrinter";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IClaimedReceiptPrinterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedReceiptPrinterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedReceiptPrinterVtbl {
-        unsafe extern "system" fn SidewaysMaxLines<Impl: IClaimedReceiptPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IClaimedReceiptPrinter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedReceiptPrinter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedReceiptPrinter_Vtbl {
+        unsafe extern "system" fn SidewaysMaxLines<Impl: IClaimedReceiptPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SidewaysMaxLines() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4620,7 +4620,7 @@ impl IClaimedReceiptPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SidewaysMaxChars<Impl: IClaimedReceiptPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SidewaysMaxChars<Impl: IClaimedReceiptPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SidewaysMaxChars() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4631,7 +4631,7 @@ impl IClaimedReceiptPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LinesToPaperCut<Impl: IClaimedReceiptPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LinesToPaperCut<Impl: IClaimedReceiptPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LinesToPaperCut() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4642,7 +4642,7 @@ impl IClaimedReceiptPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PageSize<Impl: IClaimedReceiptPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PageSize<Impl: IClaimedReceiptPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4653,7 +4653,7 @@ impl IClaimedReceiptPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrintArea<Impl: IClaimedReceiptPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrintArea<Impl: IClaimedReceiptPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrintArea() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4664,7 +4664,7 @@ impl IClaimedReceiptPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateJob<Impl: IClaimedReceiptPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateJob<Impl: IClaimedReceiptPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateJob() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4690,7 +4690,7 @@ impl IClaimedReceiptPrinterVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IClaimedSlipPrinterImpl: Sized {
+pub trait IClaimedSlipPrinter_Impl: Sized {
     fn SidewaysMaxLines(&mut self) -> ::windows::core::Result<u32>;
     fn SidewaysMaxChars(&mut self) -> ::windows::core::Result<u32>;
     fn MaxLines(&mut self) -> ::windows::core::Result<u32>;
@@ -4710,9 +4710,9 @@ impl ::windows::core::RuntimeName for IClaimedSlipPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.IClaimedSlipPrinter";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IClaimedSlipPrinterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedSlipPrinterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedSlipPrinterVtbl {
-        unsafe extern "system" fn SidewaysMaxLines<Impl: IClaimedSlipPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IClaimedSlipPrinter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClaimedSlipPrinter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClaimedSlipPrinter_Vtbl {
+        unsafe extern "system" fn SidewaysMaxLines<Impl: IClaimedSlipPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SidewaysMaxLines() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4723,7 +4723,7 @@ impl IClaimedSlipPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SidewaysMaxChars<Impl: IClaimedSlipPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SidewaysMaxChars<Impl: IClaimedSlipPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SidewaysMaxChars() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4734,7 +4734,7 @@ impl IClaimedSlipPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxLines<Impl: IClaimedSlipPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxLines<Impl: IClaimedSlipPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxLines() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4745,7 +4745,7 @@ impl IClaimedSlipPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LinesNearEndToEnd<Impl: IClaimedSlipPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LinesNearEndToEnd<Impl: IClaimedSlipPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LinesNearEndToEnd() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4756,7 +4756,7 @@ impl IClaimedSlipPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrintSide<Impl: IClaimedSlipPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PosPrinterPrintSide) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrintSide<Impl: IClaimedSlipPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PosPrinterPrintSide) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrintSide() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4767,7 +4767,7 @@ impl IClaimedSlipPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PageSize<Impl: IClaimedSlipPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PageSize<Impl: IClaimedSlipPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4778,7 +4778,7 @@ impl IClaimedSlipPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrintArea<Impl: IClaimedSlipPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrintArea<Impl: IClaimedSlipPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrintArea() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4789,15 +4789,15 @@ impl IClaimedSlipPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OpenJaws<Impl: IClaimedSlipPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenJaws<Impl: IClaimedSlipPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OpenJaws().into()
         }
-        unsafe extern "system" fn CloseJaws<Impl: IClaimedSlipPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CloseJaws<Impl: IClaimedSlipPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CloseJaws().into()
         }
-        unsafe extern "system" fn InsertSlipAsync<Impl: IClaimedSlipPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeout: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertSlipAsync<Impl: IClaimedSlipPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeout: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InsertSlipAsync(&*(&timeout as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4808,7 +4808,7 @@ impl IClaimedSlipPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSlipAsync<Impl: IClaimedSlipPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeout: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSlipAsync<Impl: IClaimedSlipPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeout: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoveSlipAsync(&*(&timeout as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4819,11 +4819,11 @@ impl IClaimedSlipPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ChangePrintSide<Impl: IClaimedSlipPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, printside: PosPrinterPrintSide) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ChangePrintSide<Impl: IClaimedSlipPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, printside: PosPrinterPrintSide) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ChangePrintSide(printside).into()
         }
-        unsafe extern "system" fn CreateJob<Impl: IClaimedSlipPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateJob<Impl: IClaimedSlipPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateJob() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4855,7 +4855,7 @@ impl IClaimedSlipPrinterVtbl {
         iid == &<IClaimedSlipPrinter as ::windows::core::Interface>::IID
     }
 }
-pub trait ICommonClaimedPosPrinterStationImpl: Sized {
+pub trait ICommonClaimedPosPrinterStation_Impl: Sized {
     fn SetCharactersPerLine(&mut self, value: u32) -> ::windows::core::Result<()>;
     fn CharactersPerLine(&mut self) -> ::windows::core::Result<u32>;
     fn SetLineHeight(&mut self, value: u32) -> ::windows::core::Result<()>;
@@ -4879,13 +4879,13 @@ pub trait ICommonClaimedPosPrinterStationImpl: Sized {
 impl ::windows::core::RuntimeName for ICommonClaimedPosPrinterStation {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICommonClaimedPosPrinterStation";
 }
-impl ICommonClaimedPosPrinterStationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommonClaimedPosPrinterStationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommonClaimedPosPrinterStationVtbl {
-        unsafe extern "system" fn SetCharactersPerLine<Impl: ICommonClaimedPosPrinterStationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+impl ICommonClaimedPosPrinterStation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommonClaimedPosPrinterStation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommonClaimedPosPrinterStation_Vtbl {
+        unsafe extern "system" fn SetCharactersPerLine<Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCharactersPerLine(value).into()
         }
-        unsafe extern "system" fn CharactersPerLine<Impl: ICommonClaimedPosPrinterStationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CharactersPerLine<Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CharactersPerLine() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4896,11 +4896,11 @@ impl ICommonClaimedPosPrinterStationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLineHeight<Impl: ICommonClaimedPosPrinterStationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLineHeight<Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLineHeight(value).into()
         }
-        unsafe extern "system" fn LineHeight<Impl: ICommonClaimedPosPrinterStationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LineHeight<Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LineHeight() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4911,11 +4911,11 @@ impl ICommonClaimedPosPrinterStationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLineSpacing<Impl: ICommonClaimedPosPrinterStationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLineSpacing<Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLineSpacing(value).into()
         }
-        unsafe extern "system" fn LineSpacing<Impl: ICommonClaimedPosPrinterStationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LineSpacing<Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LineSpacing() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4926,7 +4926,7 @@ impl ICommonClaimedPosPrinterStationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LineWidth<Impl: ICommonClaimedPosPrinterStationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LineWidth<Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LineWidth() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4937,11 +4937,11 @@ impl ICommonClaimedPosPrinterStationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsLetterQuality<Impl: ICommonClaimedPosPrinterStationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsLetterQuality<Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsLetterQuality(value).into()
         }
-        unsafe extern "system" fn IsLetterQuality<Impl: ICommonClaimedPosPrinterStationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsLetterQuality<Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsLetterQuality() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4952,7 +4952,7 @@ impl ICommonClaimedPosPrinterStationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsPaperNearEnd<Impl: ICommonClaimedPosPrinterStationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPaperNearEnd<Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPaperNearEnd() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4963,11 +4963,11 @@ impl ICommonClaimedPosPrinterStationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetColorCartridge<Impl: ICommonClaimedPosPrinterStationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PosPrinterColorCartridge) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetColorCartridge<Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PosPrinterColorCartridge) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetColorCartridge(value).into()
         }
-        unsafe extern "system" fn ColorCartridge<Impl: ICommonClaimedPosPrinterStationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PosPrinterColorCartridge) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ColorCartridge<Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PosPrinterColorCartridge) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ColorCartridge() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4978,7 +4978,7 @@ impl ICommonClaimedPosPrinterStationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsCoverOpen<Impl: ICommonClaimedPosPrinterStationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCoverOpen<Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCoverOpen() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4989,7 +4989,7 @@ impl ICommonClaimedPosPrinterStationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsCartridgeRemoved<Impl: ICommonClaimedPosPrinterStationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCartridgeRemoved<Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCartridgeRemoved() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5000,7 +5000,7 @@ impl ICommonClaimedPosPrinterStationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsCartridgeEmpty<Impl: ICommonClaimedPosPrinterStationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCartridgeEmpty<Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCartridgeEmpty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5011,7 +5011,7 @@ impl ICommonClaimedPosPrinterStationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsHeadCleaning<Impl: ICommonClaimedPosPrinterStationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsHeadCleaning<Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsHeadCleaning() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5022,7 +5022,7 @@ impl ICommonClaimedPosPrinterStationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsPaperEmpty<Impl: ICommonClaimedPosPrinterStationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPaperEmpty<Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPaperEmpty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5033,7 +5033,7 @@ impl ICommonClaimedPosPrinterStationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsReadyToPrint<Impl: ICommonClaimedPosPrinterStationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsReadyToPrint<Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReadyToPrint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5044,7 +5044,7 @@ impl ICommonClaimedPosPrinterStationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ValidateData<Impl: ICommonClaimedPosPrinterStationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ValidateData<Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ValidateData(&*(&data as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5083,7 +5083,7 @@ impl ICommonClaimedPosPrinterStationVtbl {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait ICommonPosPrintStationCapabilitiesImpl: Sized {
+pub trait ICommonPosPrintStationCapabilities_Impl: Sized {
     fn IsPrinterPresent(&mut self) -> ::windows::core::Result<bool>;
     fn IsDualColorSupported(&mut self) -> ::windows::core::Result<bool>;
     fn ColorCartridgeCapabilities(&mut self) -> ::windows::core::Result<PosPrinterColorCapabilities>;
@@ -5103,9 +5103,9 @@ impl ::windows::core::RuntimeName for ICommonPosPrintStationCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICommonPosPrintStationCapabilities";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ICommonPosPrintStationCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommonPosPrintStationCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommonPosPrintStationCapabilitiesVtbl {
-        unsafe extern "system" fn IsPrinterPresent<Impl: ICommonPosPrintStationCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ICommonPosPrintStationCapabilities_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommonPosPrintStationCapabilities_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommonPosPrintStationCapabilities_Vtbl {
+        unsafe extern "system" fn IsPrinterPresent<Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPrinterPresent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5116,7 +5116,7 @@ impl ICommonPosPrintStationCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDualColorSupported<Impl: ICommonPosPrintStationCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDualColorSupported<Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDualColorSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5127,7 +5127,7 @@ impl ICommonPosPrintStationCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ColorCartridgeCapabilities<Impl: ICommonPosPrintStationCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PosPrinterColorCapabilities) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ColorCartridgeCapabilities<Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PosPrinterColorCapabilities) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ColorCartridgeCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5138,7 +5138,7 @@ impl ICommonPosPrintStationCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CartridgeSensors<Impl: ICommonPosPrintStationCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PosPrinterCartridgeSensors) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CartridgeSensors<Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PosPrinterCartridgeSensors) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CartridgeSensors() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5149,7 +5149,7 @@ impl ICommonPosPrintStationCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsBoldSupported<Impl: ICommonPosPrintStationCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsBoldSupported<Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBoldSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5160,7 +5160,7 @@ impl ICommonPosPrintStationCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsItalicSupported<Impl: ICommonPosPrintStationCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsItalicSupported<Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsItalicSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5171,7 +5171,7 @@ impl ICommonPosPrintStationCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsUnderlineSupported<Impl: ICommonPosPrintStationCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsUnderlineSupported<Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsUnderlineSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5182,7 +5182,7 @@ impl ICommonPosPrintStationCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDoubleHighPrintSupported<Impl: ICommonPosPrintStationCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDoubleHighPrintSupported<Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDoubleHighPrintSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5193,7 +5193,7 @@ impl ICommonPosPrintStationCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDoubleWidePrintSupported<Impl: ICommonPosPrintStationCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDoubleWidePrintSupported<Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDoubleWidePrintSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5204,7 +5204,7 @@ impl ICommonPosPrintStationCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDoubleHighDoubleWidePrintSupported<Impl: ICommonPosPrintStationCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDoubleHighDoubleWidePrintSupported<Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDoubleHighDoubleWidePrintSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5215,7 +5215,7 @@ impl ICommonPosPrintStationCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsPaperEmptySensorSupported<Impl: ICommonPosPrintStationCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPaperEmptySensorSupported<Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPaperEmptySensorSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5226,7 +5226,7 @@ impl ICommonPosPrintStationCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsPaperNearEndSensorSupported<Impl: ICommonPosPrintStationCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPaperNearEndSensorSupported<Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPaperNearEndSensorSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5237,7 +5237,7 @@ impl ICommonPosPrintStationCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedCharactersPerLine<Impl: ICommonPosPrintStationCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedCharactersPerLine<Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedCharactersPerLine() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5270,7 +5270,7 @@ impl ICommonPosPrintStationCapabilitiesVtbl {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait ICommonReceiptSlipCapabilitiesImpl: Sized + ICommonPosPrintStationCapabilitiesImpl {
+pub trait ICommonReceiptSlipCapabilities_Impl: Sized + ICommonPosPrintStationCapabilities_Impl {
     fn IsBarcodeSupported(&mut self) -> ::windows::core::Result<bool>;
     fn IsBitmapSupported(&mut self) -> ::windows::core::Result<bool>;
     fn IsLeft90RotationSupported(&mut self) -> ::windows::core::Result<bool>;
@@ -5286,9 +5286,9 @@ impl ::windows::core::RuntimeName for ICommonReceiptSlipCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICommonReceiptSlipCapabilities";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ICommonReceiptSlipCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommonReceiptSlipCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommonReceiptSlipCapabilitiesVtbl {
-        unsafe extern "system" fn IsBarcodeSupported<Impl: ICommonReceiptSlipCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ICommonReceiptSlipCapabilities_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommonReceiptSlipCapabilities_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommonReceiptSlipCapabilities_Vtbl {
+        unsafe extern "system" fn IsBarcodeSupported<Impl: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBarcodeSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5299,7 +5299,7 @@ impl ICommonReceiptSlipCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsBitmapSupported<Impl: ICommonReceiptSlipCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsBitmapSupported<Impl: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBitmapSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5310,7 +5310,7 @@ impl ICommonReceiptSlipCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsLeft90RotationSupported<Impl: ICommonReceiptSlipCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsLeft90RotationSupported<Impl: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsLeft90RotationSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5321,7 +5321,7 @@ impl ICommonReceiptSlipCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsRight90RotationSupported<Impl: ICommonReceiptSlipCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsRight90RotationSupported<Impl: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsRight90RotationSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5332,7 +5332,7 @@ impl ICommonReceiptSlipCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Is180RotationSupported<Impl: ICommonReceiptSlipCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Is180RotationSupported<Impl: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Is180RotationSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5343,7 +5343,7 @@ impl ICommonReceiptSlipCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsPrintAreaSupported<Impl: ICommonReceiptSlipCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPrintAreaSupported<Impl: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPrintAreaSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5354,7 +5354,7 @@ impl ICommonReceiptSlipCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RuledLineCapabilities<Impl: ICommonReceiptSlipCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PosPrinterRuledLineCapabilities) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RuledLineCapabilities<Impl: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PosPrinterRuledLineCapabilities) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RuledLineCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5365,7 +5365,7 @@ impl ICommonReceiptSlipCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedBarcodeRotations<Impl: ICommonReceiptSlipCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedBarcodeRotations<Impl: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedBarcodeRotations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5376,7 +5376,7 @@ impl ICommonReceiptSlipCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedBitmapRotations<Impl: ICommonReceiptSlipCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedBitmapRotations<Impl: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedBitmapRotations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5405,7 +5405,7 @@ impl ICommonReceiptSlipCapabilitiesVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IJournalPrintJobImpl: Sized {
+pub trait IJournalPrintJob_Impl: Sized {
     fn Print(&mut self, data: &::windows::core::HSTRING, printoptions: &::core::option::Option<PosPrinterPrintOptions>) -> ::windows::core::Result<()>;
     fn FeedPaperByLine(&mut self, linecount: i32) -> ::windows::core::Result<()>;
     fn FeedPaperByMapModeUnit(&mut self, distance: i32) -> ::windows::core::Result<()>;
@@ -5415,17 +5415,17 @@ impl ::windows::core::RuntimeName for IJournalPrintJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.IJournalPrintJob";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IJournalPrintJobVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJournalPrintJobImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJournalPrintJobVtbl {
-        unsafe extern "system" fn Print<Impl: IJournalPrintJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, printoptions: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IJournalPrintJob_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJournalPrintJob_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJournalPrintJob_Vtbl {
+        unsafe extern "system" fn Print<Impl: IJournalPrintJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, printoptions: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Print(&*(&data as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&printoptions as *const <PosPrinterPrintOptions as ::windows::core::Abi>::Abi as *const <PosPrinterPrintOptions as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FeedPaperByLine<Impl: IJournalPrintJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, linecount: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeedPaperByLine<Impl: IJournalPrintJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, linecount: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).FeedPaperByLine(linecount).into()
         }
-        unsafe extern "system" fn FeedPaperByMapModeUnit<Impl: IJournalPrintJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, distance: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeedPaperByMapModeUnit<Impl: IJournalPrintJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, distance: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).FeedPaperByMapModeUnit(distance).into()
         }
@@ -5441,14 +5441,14 @@ impl IJournalPrintJobVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IJournalPrinterCapabilitiesImpl: Sized {}
+pub trait IJournalPrinterCapabilities_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IJournalPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.IJournalPrinterCapabilities";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IJournalPrinterCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJournalPrinterCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJournalPrinterCapabilitiesVtbl {
+impl IJournalPrinterCapabilities_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJournalPrinterCapabilities_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJournalPrinterCapabilities_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IJournalPrinterCapabilities, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -5456,7 +5456,7 @@ impl IJournalPrinterCapabilitiesVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IJournalPrinterCapabilities2Impl: Sized {
+pub trait IJournalPrinterCapabilities2_Impl: Sized {
     fn IsReverseVideoSupported(&mut self) -> ::windows::core::Result<bool>;
     fn IsStrikethroughSupported(&mut self) -> ::windows::core::Result<bool>;
     fn IsSuperscriptSupported(&mut self) -> ::windows::core::Result<bool>;
@@ -5469,9 +5469,9 @@ impl ::windows::core::RuntimeName for IJournalPrinterCapabilities2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IJournalPrinterCapabilities2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IJournalPrinterCapabilities2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJournalPrinterCapabilities2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJournalPrinterCapabilities2Vtbl {
-        unsafe extern "system" fn IsReverseVideoSupported<Impl: IJournalPrinterCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IJournalPrinterCapabilities2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJournalPrinterCapabilities2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJournalPrinterCapabilities2_Vtbl {
+        unsafe extern "system" fn IsReverseVideoSupported<Impl: IJournalPrinterCapabilities2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReverseVideoSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5482,7 +5482,7 @@ impl IJournalPrinterCapabilities2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsStrikethroughSupported<Impl: IJournalPrinterCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStrikethroughSupported<Impl: IJournalPrinterCapabilities2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStrikethroughSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5493,7 +5493,7 @@ impl IJournalPrinterCapabilities2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSuperscriptSupported<Impl: IJournalPrinterCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSuperscriptSupported<Impl: IJournalPrinterCapabilities2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSuperscriptSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5504,7 +5504,7 @@ impl IJournalPrinterCapabilities2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSubscriptSupported<Impl: IJournalPrinterCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSubscriptSupported<Impl: IJournalPrinterCapabilities2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSubscriptSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5515,7 +5515,7 @@ impl IJournalPrinterCapabilities2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsReversePaperFeedByLineSupported<Impl: IJournalPrinterCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsReversePaperFeedByLineSupported<Impl: IJournalPrinterCapabilities2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReversePaperFeedByLineSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5526,7 +5526,7 @@ impl IJournalPrinterCapabilities2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsReversePaperFeedByMapModeUnitSupported<Impl: IJournalPrinterCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsReversePaperFeedByMapModeUnitSupported<Impl: IJournalPrinterCapabilities2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReversePaperFeedByMapModeUnitSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5552,7 +5552,7 @@ impl IJournalPrinterCapabilities2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ILineDisplayImpl: Sized {
+pub trait ILineDisplay_Impl: Sized {
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Capabilities(&mut self) -> ::windows::core::Result<LineDisplayCapabilities>;
     fn PhysicalDeviceName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -5567,9 +5567,9 @@ impl ::windows::core::RuntimeName for ILineDisplay {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplay";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ILineDisplayVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayVtbl {
-        unsafe extern "system" fn DeviceId<Impl: ILineDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ILineDisplay_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplay_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplay_Vtbl {
+        unsafe extern "system" fn DeviceId<Impl: ILineDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5580,7 +5580,7 @@ impl ILineDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Capabilities<Impl: ILineDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Capabilities<Impl: ILineDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Capabilities() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5591,7 +5591,7 @@ impl ILineDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhysicalDeviceName<Impl: ILineDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhysicalDeviceName<Impl: ILineDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhysicalDeviceName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5602,7 +5602,7 @@ impl ILineDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhysicalDeviceDescription<Impl: ILineDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhysicalDeviceDescription<Impl: ILineDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhysicalDeviceDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5613,7 +5613,7 @@ impl ILineDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceControlDescription<Impl: ILineDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceControlDescription<Impl: ILineDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceControlDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5624,7 +5624,7 @@ impl ILineDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceControlVersion<Impl: ILineDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceControlVersion<Impl: ILineDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceControlVersion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5635,7 +5635,7 @@ impl ILineDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceServiceVersion<Impl: ILineDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceServiceVersion<Impl: ILineDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceServiceVersion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5646,7 +5646,7 @@ impl ILineDisplayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClaimAsync<Impl: ILineDisplayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClaimAsync<Impl: ILineDisplay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClaimAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5674,7 +5674,7 @@ impl ILineDisplayVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ILineDisplay2Impl: Sized {
+pub trait ILineDisplay2_Impl: Sized {
     fn CheckPowerStatusAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayPowerStatus>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -5682,9 +5682,9 @@ impl ::windows::core::RuntimeName for ILineDisplay2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplay2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ILineDisplay2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplay2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplay2Vtbl {
-        unsafe extern "system" fn CheckPowerStatusAsync<Impl: ILineDisplay2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILineDisplay2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplay2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplay2_Vtbl {
+        unsafe extern "system" fn CheckPowerStatusAsync<Impl: ILineDisplay2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CheckPowerStatusAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5705,7 +5705,7 @@ impl ILineDisplay2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ILineDisplayAttributesImpl: Sized {
+pub trait ILineDisplayAttributes_Impl: Sized {
     fn IsPowerNotifyEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsPowerNotifyEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn Brightness(&mut self) -> ::windows::core::Result<i32>;
@@ -5726,9 +5726,9 @@ impl ::windows::core::RuntimeName for ILineDisplayAttributes {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplayAttributes";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ILineDisplayAttributesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayAttributesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayAttributesVtbl {
-        unsafe extern "system" fn IsPowerNotifyEnabled<Impl: ILineDisplayAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ILineDisplayAttributes_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayAttributes_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayAttributes_Vtbl {
+        unsafe extern "system" fn IsPowerNotifyEnabled<Impl: ILineDisplayAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPowerNotifyEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5739,11 +5739,11 @@ impl ILineDisplayAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsPowerNotifyEnabled<Impl: ILineDisplayAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsPowerNotifyEnabled<Impl: ILineDisplayAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsPowerNotifyEnabled(value).into()
         }
-        unsafe extern "system" fn Brightness<Impl: ILineDisplayAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Brightness<Impl: ILineDisplayAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Brightness() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5754,11 +5754,11 @@ impl ILineDisplayAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBrightness<Impl: ILineDisplayAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBrightness<Impl: ILineDisplayAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBrightness(value).into()
         }
-        unsafe extern "system" fn BlinkRate<Impl: ILineDisplayAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BlinkRate<Impl: ILineDisplayAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BlinkRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5769,11 +5769,11 @@ impl ILineDisplayAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBlinkRate<Impl: ILineDisplayAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBlinkRate<Impl: ILineDisplayAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBlinkRate(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ScreenSizeInCharacters<Impl: ILineDisplayAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScreenSizeInCharacters<Impl: ILineDisplayAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScreenSizeInCharacters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5784,11 +5784,11 @@ impl ILineDisplayAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetScreenSizeInCharacters<Impl: ILineDisplayAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScreenSizeInCharacters<Impl: ILineDisplayAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScreenSizeInCharacters(&*(&value as *const <super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CharacterSet<Impl: ILineDisplayAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CharacterSet<Impl: ILineDisplayAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CharacterSet() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5799,11 +5799,11 @@ impl ILineDisplayAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCharacterSet<Impl: ILineDisplayAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCharacterSet<Impl: ILineDisplayAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCharacterSet(value).into()
         }
-        unsafe extern "system" fn IsCharacterSetMappingEnabled<Impl: ILineDisplayAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCharacterSetMappingEnabled<Impl: ILineDisplayAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCharacterSetMappingEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5814,11 +5814,11 @@ impl ILineDisplayAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsCharacterSetMappingEnabled<Impl: ILineDisplayAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsCharacterSetMappingEnabled<Impl: ILineDisplayAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsCharacterSetMappingEnabled(value).into()
         }
-        unsafe extern "system" fn CurrentWindow<Impl: ILineDisplayAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentWindow<Impl: ILineDisplayAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentWindow() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5829,7 +5829,7 @@ impl ILineDisplayAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCurrentWindow<Impl: ILineDisplayAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCurrentWindow<Impl: ILineDisplayAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCurrentWindow(&*(&value as *const <LineDisplayWindow as ::windows::core::Abi>::Abi as *const <LineDisplayWindow as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -5856,7 +5856,7 @@ impl ILineDisplayAttributesVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILineDisplayCapabilitiesImpl: Sized {
+pub trait ILineDisplayCapabilities_Impl: Sized {
     fn IsStatisticsReportingSupported(&mut self) -> ::windows::core::Result<bool>;
     fn IsStatisticsUpdatingSupported(&mut self) -> ::windows::core::Result<bool>;
     fn PowerReportingType(&mut self) -> ::windows::core::Result<UnifiedPosPowerReportingType>;
@@ -5881,9 +5881,9 @@ impl ::windows::core::RuntimeName for ILineDisplayCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplayCapabilities";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILineDisplayCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayCapabilitiesVtbl {
-        unsafe extern "system" fn IsStatisticsReportingSupported<Impl: ILineDisplayCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ILineDisplayCapabilities_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayCapabilities_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayCapabilities_Vtbl {
+        unsafe extern "system" fn IsStatisticsReportingSupported<Impl: ILineDisplayCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStatisticsReportingSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5894,7 +5894,7 @@ impl ILineDisplayCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsStatisticsUpdatingSupported<Impl: ILineDisplayCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStatisticsUpdatingSupported<Impl: ILineDisplayCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStatisticsUpdatingSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5905,7 +5905,7 @@ impl ILineDisplayCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PowerReportingType<Impl: ILineDisplayCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnifiedPosPowerReportingType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PowerReportingType<Impl: ILineDisplayCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnifiedPosPowerReportingType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PowerReportingType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5916,7 +5916,7 @@ impl ILineDisplayCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanChangeScreenSize<Impl: ILineDisplayCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanChangeScreenSize<Impl: ILineDisplayCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanChangeScreenSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5927,7 +5927,7 @@ impl ILineDisplayCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanDisplayBitmaps<Impl: ILineDisplayCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanDisplayBitmaps<Impl: ILineDisplayCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanDisplayBitmaps() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5938,7 +5938,7 @@ impl ILineDisplayCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanReadCharacterAtCursor<Impl: ILineDisplayCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanReadCharacterAtCursor<Impl: ILineDisplayCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanReadCharacterAtCursor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5949,7 +5949,7 @@ impl ILineDisplayCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanMapCharacterSets<Impl: ILineDisplayCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanMapCharacterSets<Impl: ILineDisplayCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanMapCharacterSets() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5960,7 +5960,7 @@ impl ILineDisplayCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanDisplayCustomGlyphs<Impl: ILineDisplayCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanDisplayCustomGlyphs<Impl: ILineDisplayCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanDisplayCustomGlyphs() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5971,7 +5971,7 @@ impl ILineDisplayCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanReverse<Impl: ILineDisplayCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LineDisplayTextAttributeGranularity) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanReverse<Impl: ILineDisplayCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LineDisplayTextAttributeGranularity) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanReverse() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5982,7 +5982,7 @@ impl ILineDisplayCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanBlink<Impl: ILineDisplayCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LineDisplayTextAttributeGranularity) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanBlink<Impl: ILineDisplayCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LineDisplayTextAttributeGranularity) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanBlink() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5993,7 +5993,7 @@ impl ILineDisplayCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanChangeBlinkRate<Impl: ILineDisplayCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanChangeBlinkRate<Impl: ILineDisplayCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanChangeBlinkRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6004,7 +6004,7 @@ impl ILineDisplayCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsBrightnessSupported<Impl: ILineDisplayCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsBrightnessSupported<Impl: ILineDisplayCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBrightnessSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6015,7 +6015,7 @@ impl ILineDisplayCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsCursorSupported<Impl: ILineDisplayCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCursorSupported<Impl: ILineDisplayCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCursorSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6026,7 +6026,7 @@ impl ILineDisplayCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsHorizontalMarqueeSupported<Impl: ILineDisplayCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsHorizontalMarqueeSupported<Impl: ILineDisplayCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsHorizontalMarqueeSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6037,7 +6037,7 @@ impl ILineDisplayCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsVerticalMarqueeSupported<Impl: ILineDisplayCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsVerticalMarqueeSupported<Impl: ILineDisplayCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsVerticalMarqueeSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6048,7 +6048,7 @@ impl ILineDisplayCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsInterCharacterWaitSupported<Impl: ILineDisplayCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsInterCharacterWaitSupported<Impl: ILineDisplayCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsInterCharacterWaitSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6059,7 +6059,7 @@ impl ILineDisplayCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedDescriptors<Impl: ILineDisplayCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedDescriptors<Impl: ILineDisplayCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedDescriptors() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6070,7 +6070,7 @@ impl ILineDisplayCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedWindows<Impl: ILineDisplayCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedWindows<Impl: ILineDisplayCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedWindows() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6108,7 +6108,7 @@ impl ILineDisplayCapabilitiesVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ILineDisplayCursorImpl: Sized {
+pub trait ILineDisplayCursor_Impl: Sized {
     fn CanCustomize(&mut self) -> ::windows::core::Result<bool>;
     fn IsBlinkSupported(&mut self) -> ::windows::core::Result<bool>;
     fn IsBlockSupported(&mut self) -> ::windows::core::Result<bool>;
@@ -6124,9 +6124,9 @@ impl ::windows::core::RuntimeName for ILineDisplayCursor {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplayCursor";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ILineDisplayCursorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayCursorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayCursorVtbl {
-        unsafe extern "system" fn CanCustomize<Impl: ILineDisplayCursorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ILineDisplayCursor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayCursor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayCursor_Vtbl {
+        unsafe extern "system" fn CanCustomize<Impl: ILineDisplayCursor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanCustomize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6137,7 +6137,7 @@ impl ILineDisplayCursorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsBlinkSupported<Impl: ILineDisplayCursorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsBlinkSupported<Impl: ILineDisplayCursor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBlinkSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6148,7 +6148,7 @@ impl ILineDisplayCursorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsBlockSupported<Impl: ILineDisplayCursorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsBlockSupported<Impl: ILineDisplayCursor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBlockSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6159,7 +6159,7 @@ impl ILineDisplayCursorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsHalfBlockSupported<Impl: ILineDisplayCursorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsHalfBlockSupported<Impl: ILineDisplayCursor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsHalfBlockSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6170,7 +6170,7 @@ impl ILineDisplayCursorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsUnderlineSupported<Impl: ILineDisplayCursorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsUnderlineSupported<Impl: ILineDisplayCursor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsUnderlineSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6181,7 +6181,7 @@ impl ILineDisplayCursorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsReverseSupported<Impl: ILineDisplayCursorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsReverseSupported<Impl: ILineDisplayCursor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReverseSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6192,7 +6192,7 @@ impl ILineDisplayCursorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsOtherSupported<Impl: ILineDisplayCursorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsOtherSupported<Impl: ILineDisplayCursor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsOtherSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6203,7 +6203,7 @@ impl ILineDisplayCursorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAttributes<Impl: ILineDisplayCursorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAttributes<Impl: ILineDisplayCursor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAttributes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6214,7 +6214,7 @@ impl ILineDisplayCursorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryUpdateAttributesAsync<Impl: ILineDisplayCursorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributes: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryUpdateAttributesAsync<Impl: ILineDisplayCursor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributes: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryUpdateAttributesAsync(&*(&attributes as *const <LineDisplayCursorAttributes as ::windows::core::Abi>::Abi as *const <LineDisplayCursorAttributes as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6243,7 +6243,7 @@ impl ILineDisplayCursorVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ILineDisplayCursorAttributesImpl: Sized {
+pub trait ILineDisplayCursorAttributes_Impl: Sized {
     fn IsBlinkEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsBlinkEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn CursorType(&mut self) -> ::windows::core::Result<LineDisplayCursorType>;
@@ -6258,9 +6258,9 @@ impl ::windows::core::RuntimeName for ILineDisplayCursorAttributes {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplayCursorAttributes";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ILineDisplayCursorAttributesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayCursorAttributesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayCursorAttributesVtbl {
-        unsafe extern "system" fn IsBlinkEnabled<Impl: ILineDisplayCursorAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ILineDisplayCursorAttributes_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayCursorAttributes_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayCursorAttributes_Vtbl {
+        unsafe extern "system" fn IsBlinkEnabled<Impl: ILineDisplayCursorAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBlinkEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6271,11 +6271,11 @@ impl ILineDisplayCursorAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsBlinkEnabled<Impl: ILineDisplayCursorAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsBlinkEnabled<Impl: ILineDisplayCursorAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsBlinkEnabled(value).into()
         }
-        unsafe extern "system" fn CursorType<Impl: ILineDisplayCursorAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LineDisplayCursorType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CursorType<Impl: ILineDisplayCursorAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LineDisplayCursorType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CursorType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6286,11 +6286,11 @@ impl ILineDisplayCursorAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCursorType<Impl: ILineDisplayCursorAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: LineDisplayCursorType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCursorType<Impl: ILineDisplayCursorAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: LineDisplayCursorType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCursorType(value).into()
         }
-        unsafe extern "system" fn IsAutoAdvanceEnabled<Impl: ILineDisplayCursorAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsAutoAdvanceEnabled<Impl: ILineDisplayCursorAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAutoAdvanceEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6301,11 +6301,11 @@ impl ILineDisplayCursorAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsAutoAdvanceEnabled<Impl: ILineDisplayCursorAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsAutoAdvanceEnabled<Impl: ILineDisplayCursorAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsAutoAdvanceEnabled(value).into()
         }
-        unsafe extern "system" fn Position<Impl: ILineDisplayCursorAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: ILineDisplayCursorAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6316,7 +6316,7 @@ impl ILineDisplayCursorAttributesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPosition<Impl: ILineDisplayCursorAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPosition<Impl: ILineDisplayCursorAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPosition(&*(&value as *const <super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -6337,7 +6337,7 @@ impl ILineDisplayCursorAttributesVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ILineDisplayCustomGlyphsImpl: Sized {
+pub trait ILineDisplayCustomGlyphs_Impl: Sized {
     fn SizeInPixels(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
     fn SupportedGlyphCodes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
     fn TryRedefineAsync(&mut self, glyphcode: u32, glyphdata: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
@@ -6347,9 +6347,9 @@ impl ::windows::core::RuntimeName for ILineDisplayCustomGlyphs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplayCustomGlyphs";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ILineDisplayCustomGlyphsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayCustomGlyphsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayCustomGlyphsVtbl {
-        unsafe extern "system" fn SizeInPixels<Impl: ILineDisplayCustomGlyphsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+impl ILineDisplayCustomGlyphs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayCustomGlyphs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayCustomGlyphs_Vtbl {
+        unsafe extern "system" fn SizeInPixels<Impl: ILineDisplayCustomGlyphs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SizeInPixels() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6360,7 +6360,7 @@ impl ILineDisplayCustomGlyphsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedGlyphCodes<Impl: ILineDisplayCustomGlyphsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedGlyphCodes<Impl: ILineDisplayCustomGlyphs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedGlyphCodes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6371,7 +6371,7 @@ impl ILineDisplayCustomGlyphsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryRedefineAsync<Impl: ILineDisplayCustomGlyphsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, glyphcode: u32, glyphdata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryRedefineAsync<Impl: ILineDisplayCustomGlyphs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, glyphcode: u32, glyphdata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryRedefineAsync(glyphcode, &*(&glyphdata as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6394,7 +6394,7 @@ impl ILineDisplayCustomGlyphsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ILineDisplayMarqueeImpl: Sized {
+pub trait ILineDisplayMarquee_Impl: Sized {
     fn Format(&mut self) -> ::windows::core::Result<LineDisplayMarqueeFormat>;
     fn SetFormat(&mut self, value: LineDisplayMarqueeFormat) -> ::windows::core::Result<()>;
     fn RepeatWaitInterval(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -6409,9 +6409,9 @@ impl ::windows::core::RuntimeName for ILineDisplayMarquee {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplayMarquee";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ILineDisplayMarqueeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayMarqueeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayMarqueeVtbl {
-        unsafe extern "system" fn Format<Impl: ILineDisplayMarqueeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LineDisplayMarqueeFormat) -> ::windows::core::HRESULT {
+impl ILineDisplayMarquee_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayMarquee_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayMarquee_Vtbl {
+        unsafe extern "system" fn Format<Impl: ILineDisplayMarquee_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LineDisplayMarqueeFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Format() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6422,11 +6422,11 @@ impl ILineDisplayMarqueeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFormat<Impl: ILineDisplayMarqueeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: LineDisplayMarqueeFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFormat<Impl: ILineDisplayMarquee_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: LineDisplayMarqueeFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFormat(value).into()
         }
-        unsafe extern "system" fn RepeatWaitInterval<Impl: ILineDisplayMarqueeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RepeatWaitInterval<Impl: ILineDisplayMarquee_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RepeatWaitInterval() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6437,11 +6437,11 @@ impl ILineDisplayMarqueeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRepeatWaitInterval<Impl: ILineDisplayMarqueeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRepeatWaitInterval<Impl: ILineDisplayMarquee_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRepeatWaitInterval(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ScrollWaitInterval<Impl: ILineDisplayMarqueeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScrollWaitInterval<Impl: ILineDisplayMarquee_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScrollWaitInterval() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6452,11 +6452,11 @@ impl ILineDisplayMarqueeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetScrollWaitInterval<Impl: ILineDisplayMarqueeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScrollWaitInterval<Impl: ILineDisplayMarquee_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScrollWaitInterval(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryStartScrollingAsync<Impl: ILineDisplayMarqueeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, direction: LineDisplayScrollDirection, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryStartScrollingAsync<Impl: ILineDisplayMarquee_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, direction: LineDisplayScrollDirection, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryStartScrollingAsync(direction) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6467,7 +6467,7 @@ impl ILineDisplayMarqueeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryStopScrollingAsync<Impl: ILineDisplayMarqueeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryStopScrollingAsync<Impl: ILineDisplayMarquee_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryStopScrollingAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6495,7 +6495,7 @@ impl ILineDisplayMarqueeVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ILineDisplayStaticsImpl: Sized {
+pub trait ILineDisplayStatics_Impl: Sized {
     fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplay>>;
     fn GetDefaultAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplay>>;
     fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -6506,9 +6506,9 @@ impl ::windows::core::RuntimeName for ILineDisplayStatics {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplayStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ILineDisplayStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayStaticsVtbl {
-        unsafe extern "system" fn FromIdAsync<Impl: ILineDisplayStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILineDisplayStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayStatics_Vtbl {
+        unsafe extern "system" fn FromIdAsync<Impl: ILineDisplayStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6519,7 +6519,7 @@ impl ILineDisplayStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDefaultAsync<Impl: ILineDisplayStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDefaultAsync<Impl: ILineDisplayStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6530,7 +6530,7 @@ impl ILineDisplayStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelector<Impl: ILineDisplayStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelector<Impl: ILineDisplayStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6541,7 +6541,7 @@ impl ILineDisplayStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelectorWithConnectionTypes<Impl: ILineDisplayStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectiontypes: PosConnectionTypes, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelectorWithConnectionTypes<Impl: ILineDisplayStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectiontypes: PosConnectionTypes, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorWithConnectionTypes(connectiontypes) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6565,7 +6565,7 @@ impl ILineDisplayStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILineDisplayStatics2Impl: Sized {
+pub trait ILineDisplayStatics2_Impl: Sized {
     fn StatisticsCategorySelector(&mut self) -> ::windows::core::Result<LineDisplayStatisticsCategorySelector>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6573,9 +6573,9 @@ impl ::windows::core::RuntimeName for ILineDisplayStatics2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplayStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILineDisplayStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayStatics2Vtbl {
-        unsafe extern "system" fn StatisticsCategorySelector<Impl: ILineDisplayStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILineDisplayStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayStatics2_Vtbl {
+        unsafe extern "system" fn StatisticsCategorySelector<Impl: ILineDisplayStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StatisticsCategorySelector() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6596,7 +6596,7 @@ impl ILineDisplayStatics2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILineDisplayStatisticsCategorySelectorImpl: Sized {
+pub trait ILineDisplayStatisticsCategorySelector_Impl: Sized {
     fn AllStatistics(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn UnifiedPosStatistics(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ManufacturerStatistics(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -6606,9 +6606,9 @@ impl ::windows::core::RuntimeName for ILineDisplayStatisticsCategorySelector {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplayStatisticsCategorySelector";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILineDisplayStatisticsCategorySelectorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayStatisticsCategorySelectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayStatisticsCategorySelectorVtbl {
-        unsafe extern "system" fn AllStatistics<Impl: ILineDisplayStatisticsCategorySelectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ILineDisplayStatisticsCategorySelector_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayStatisticsCategorySelector_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayStatisticsCategorySelector_Vtbl {
+        unsafe extern "system" fn AllStatistics<Impl: ILineDisplayStatisticsCategorySelector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllStatistics() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6619,7 +6619,7 @@ impl ILineDisplayStatisticsCategorySelectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnifiedPosStatistics<Impl: ILineDisplayStatisticsCategorySelectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnifiedPosStatistics<Impl: ILineDisplayStatisticsCategorySelector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnifiedPosStatistics() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6630,7 +6630,7 @@ impl ILineDisplayStatisticsCategorySelectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ManufacturerStatistics<Impl: ILineDisplayStatisticsCategorySelectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ManufacturerStatistics<Impl: ILineDisplayStatisticsCategorySelector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ManufacturerStatistics() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6653,7 +6653,7 @@ impl ILineDisplayStatisticsCategorySelectorVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ILineDisplayStatusUpdatedEventArgsImpl: Sized {
+pub trait ILineDisplayStatusUpdatedEventArgs_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<LineDisplayPowerStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -6661,9 +6661,9 @@ impl ::windows::core::RuntimeName for ILineDisplayStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplayStatusUpdatedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ILineDisplayStatusUpdatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayStatusUpdatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayStatusUpdatedEventArgsVtbl {
-        unsafe extern "system" fn Status<Impl: ILineDisplayStatusUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LineDisplayPowerStatus) -> ::windows::core::HRESULT {
+impl ILineDisplayStatusUpdatedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayStatusUpdatedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayStatusUpdatedEventArgs_Vtbl {
+        unsafe extern "system" fn Status<Impl: ILineDisplayStatusUpdatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LineDisplayPowerStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6681,7 +6681,7 @@ impl ILineDisplayStatusUpdatedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ILineDisplayStoredBitmapImpl: Sized {
+pub trait ILineDisplayStoredBitmap_Impl: Sized {
     fn EscapeSequence(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn TryDeleteAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
@@ -6690,9 +6690,9 @@ impl ::windows::core::RuntimeName for ILineDisplayStoredBitmap {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplayStoredBitmap";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ILineDisplayStoredBitmapVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayStoredBitmapImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayStoredBitmapVtbl {
-        unsafe extern "system" fn EscapeSequence<Impl: ILineDisplayStoredBitmapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ILineDisplayStoredBitmap_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayStoredBitmap_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayStoredBitmap_Vtbl {
+        unsafe extern "system" fn EscapeSequence<Impl: ILineDisplayStoredBitmap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EscapeSequence() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6703,7 +6703,7 @@ impl ILineDisplayStoredBitmapVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryDeleteAsync<Impl: ILineDisplayStoredBitmapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryDeleteAsync<Impl: ILineDisplayStoredBitmap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryDeleteAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6725,7 +6725,7 @@ impl ILineDisplayStoredBitmapVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ILineDisplayWindowImpl: Sized {
+pub trait ILineDisplayWindow_Impl: Sized {
     fn SizeInCharacters(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
     fn InterCharacterWaitInterval(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn SetInterCharacterWaitInterval(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
@@ -6741,9 +6741,9 @@ impl ::windows::core::RuntimeName for ILineDisplayWindow {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplayWindow";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ILineDisplayWindowVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayWindowImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayWindowVtbl {
-        unsafe extern "system" fn SizeInCharacters<Impl: ILineDisplayWindowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+impl ILineDisplayWindow_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayWindow_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayWindow_Vtbl {
+        unsafe extern "system" fn SizeInCharacters<Impl: ILineDisplayWindow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SizeInCharacters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6754,7 +6754,7 @@ impl ILineDisplayWindowVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InterCharacterWaitInterval<Impl: ILineDisplayWindowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InterCharacterWaitInterval<Impl: ILineDisplayWindow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InterCharacterWaitInterval() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6765,11 +6765,11 @@ impl ILineDisplayWindowVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInterCharacterWaitInterval<Impl: ILineDisplayWindowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInterCharacterWaitInterval<Impl: ILineDisplayWindow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInterCharacterWaitInterval(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryRefreshAsync<Impl: ILineDisplayWindowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryRefreshAsync<Impl: ILineDisplayWindow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryRefreshAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6780,7 +6780,7 @@ impl ILineDisplayWindowVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryDisplayTextAsync<Impl: ILineDisplayWindowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayattribute: LineDisplayTextAttribute, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryDisplayTextAsync<Impl: ILineDisplayWindow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayattribute: LineDisplayTextAttribute, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryDisplayTextAsync(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), displayattribute) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6791,7 +6791,7 @@ impl ILineDisplayWindowVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryDisplayTextAtPositionAsync<Impl: ILineDisplayWindowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayattribute: LineDisplayTextAttribute, startposition: super::super::Foundation::Point, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryDisplayTextAtPositionAsync<Impl: ILineDisplayWindow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayattribute: LineDisplayTextAttribute, startposition: super::super::Foundation::Point, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryDisplayTextAtPositionAsync(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), displayattribute, &*(&startposition as *const <super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6802,7 +6802,7 @@ impl ILineDisplayWindowVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryDisplayTextNormalAsync<Impl: ILineDisplayWindowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryDisplayTextNormalAsync<Impl: ILineDisplayWindow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryDisplayTextNormalAsync(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6813,7 +6813,7 @@ impl ILineDisplayWindowVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryScrollTextAsync<Impl: ILineDisplayWindowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, direction: LineDisplayScrollDirection, numberofcolumnsorrows: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryScrollTextAsync<Impl: ILineDisplayWindow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, direction: LineDisplayScrollDirection, numberofcolumnsorrows: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryScrollTextAsync(direction, numberofcolumnsorrows) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6824,7 +6824,7 @@ impl ILineDisplayWindowVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryClearTextAsync<Impl: ILineDisplayWindowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryClearTextAsync<Impl: ILineDisplayWindow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryClearTextAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6853,7 +6853,7 @@ impl ILineDisplayWindowVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
-pub trait ILineDisplayWindow2Impl: Sized {
+pub trait ILineDisplayWindow2_Impl: Sized {
     fn Cursor(&mut self) -> ::windows::core::Result<LineDisplayCursor>;
     fn Marquee(&mut self) -> ::windows::core::Result<LineDisplayMarquee>;
     fn ReadCharacterAtCursorAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
@@ -6869,9 +6869,9 @@ impl ::windows::core::RuntimeName for ILineDisplayWindow2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.ILineDisplayWindow2";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
-impl ILineDisplayWindow2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayWindow2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayWindow2Vtbl {
-        unsafe extern "system" fn Cursor<Impl: ILineDisplayWindow2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILineDisplayWindow2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILineDisplayWindow2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILineDisplayWindow2_Vtbl {
+        unsafe extern "system" fn Cursor<Impl: ILineDisplayWindow2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Cursor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6882,7 +6882,7 @@ impl ILineDisplayWindow2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Marquee<Impl: ILineDisplayWindow2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Marquee<Impl: ILineDisplayWindow2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Marquee() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6893,7 +6893,7 @@ impl ILineDisplayWindow2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadCharacterAtCursorAsync<Impl: ILineDisplayWindow2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadCharacterAtCursorAsync<Impl: ILineDisplayWindow2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadCharacterAtCursorAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6904,7 +6904,7 @@ impl ILineDisplayWindow2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryDisplayStoredBitmapAtCursorAsync<Impl: ILineDisplayWindow2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryDisplayStoredBitmapAtCursorAsync<Impl: ILineDisplayWindow2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryDisplayStoredBitmapAtCursorAsync(&*(&bitmap as *const <LineDisplayStoredBitmap as ::windows::core::Abi>::Abi as *const <LineDisplayStoredBitmap as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6915,7 +6915,7 @@ impl ILineDisplayWindow2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryDisplayStorageFileBitmapAtCursorAsync<Impl: ILineDisplayWindow2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryDisplayStorageFileBitmapAtCursorAsync<Impl: ILineDisplayWindow2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryDisplayStorageFileBitmapAtCursorAsync(&*(&bitmap as *const <super::super::Storage::StorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::StorageFile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6926,7 +6926,7 @@ impl ILineDisplayWindow2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync<Impl: ILineDisplayWindow2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync<Impl: ILineDisplayWindow2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync(&*(&bitmap as *const <super::super::Storage::StorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::StorageFile as ::windows::core::DefaultType>::DefaultType), horizontalalignment, verticalalignment) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6937,7 +6937,7 @@ impl ILineDisplayWindow2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync<Impl: ILineDisplayWindow2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, widthinpixels: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync<Impl: ILineDisplayWindow2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, widthinpixels: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync(&*(&bitmap as *const <super::super::Storage::StorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::StorageFile as ::windows::core::DefaultType>::DefaultType), horizontalalignment, verticalalignment, widthinpixels) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6948,7 +6948,7 @@ impl ILineDisplayWindow2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryDisplayStorageFileBitmapAtPointAsync<Impl: ILineDisplayWindow2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, offsetinpixels: super::super::Foundation::Point, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryDisplayStorageFileBitmapAtPointAsync<Impl: ILineDisplayWindow2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, offsetinpixels: super::super::Foundation::Point, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryDisplayStorageFileBitmapAtPointAsync(&*(&bitmap as *const <super::super::Storage::StorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::StorageFile as ::windows::core::DefaultType>::DefaultType), &*(&offsetinpixels as *const <super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6959,7 +6959,7 @@ impl ILineDisplayWindow2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryDisplayStorageFileBitmapAtPointWithWidthAsync<Impl: ILineDisplayWindow2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, offsetinpixels: super::super::Foundation::Point, widthinpixels: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryDisplayStorageFileBitmapAtPointWithWidthAsync<Impl: ILineDisplayWindow2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, offsetinpixels: super::super::Foundation::Point, widthinpixels: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryDisplayStorageFileBitmapAtPointWithWidthAsync(&*(&bitmap as *const <super::super::Storage::StorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::StorageFile as ::windows::core::DefaultType>::DefaultType), &*(&offsetinpixels as *const <super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType), widthinpixels) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6988,7 +6988,7 @@ impl ILineDisplayWindow2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IMagneticStripeReaderImpl: Sized {
+pub trait IMagneticStripeReader_Impl: Sized {
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Capabilities(&mut self) -> ::windows::core::Result<MagneticStripeReaderCapabilities>;
     fn SupportedCardTypes(&mut self) -> ::windows::core::Result<::windows::core::Array<u32>>;
@@ -7005,9 +7005,9 @@ impl ::windows::core::RuntimeName for IMagneticStripeReader {
     const NAME: &'static str = "Windows.Devices.PointOfService.IMagneticStripeReader";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IMagneticStripeReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderVtbl {
-        unsafe extern "system" fn DeviceId<Impl: IMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IMagneticStripeReader_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReader_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReader_Vtbl {
+        unsafe extern "system" fn DeviceId<Impl: IMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7018,7 +7018,7 @@ impl IMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Capabilities<Impl: IMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Capabilities<Impl: IMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Capabilities() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7029,7 +7029,7 @@ impl IMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedCardTypes<Impl: IMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedCardTypes<Impl: IMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedCardTypes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7041,7 +7041,7 @@ impl IMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceAuthenticationProtocol<Impl: IMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderAuthenticationProtocol) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceAuthenticationProtocol<Impl: IMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderAuthenticationProtocol) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceAuthenticationProtocol() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7052,7 +7052,7 @@ impl IMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CheckHealthAsync<Impl: IMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: UnifiedPosHealthCheckLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CheckHealthAsync<Impl: IMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: UnifiedPosHealthCheckLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CheckHealthAsync(level) {
                 ::core::result::Result::Ok(ok__) => {
@@ -7063,7 +7063,7 @@ impl IMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClaimReaderAsync<Impl: IMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClaimReaderAsync<Impl: IMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClaimReaderAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7074,7 +7074,7 @@ impl IMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RetrieveStatisticsAsync<Impl: IMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statisticscategories: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RetrieveStatisticsAsync<Impl: IMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statisticscategories: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RetrieveStatisticsAsync(&*(&statisticscategories as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -7085,7 +7085,7 @@ impl IMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetErrorReportingType<Impl: IMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderErrorReportingType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetErrorReportingType<Impl: IMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderErrorReportingType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetErrorReportingType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7096,7 +7096,7 @@ impl IMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StatusUpdated<Impl: IMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StatusUpdated<Impl: IMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StatusUpdated(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MagneticStripeReader, MagneticStripeReaderStatusUpdatedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MagneticStripeReader, MagneticStripeReaderStatusUpdatedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -7107,7 +7107,7 @@ impl IMagneticStripeReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStatusUpdated<Impl: IMagneticStripeReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStatusUpdated<Impl: IMagneticStripeReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStatusUpdated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -7130,7 +7130,7 @@ impl IMagneticStripeReaderVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl: Sized {
+pub trait IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Impl: Sized {
     fn Report(&mut self) -> ::windows::core::Result<MagneticStripeReaderReport>;
     fn LicenseNumber(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ExpirationDate(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -7156,9 +7156,9 @@ impl ::windows::core::RuntimeName for IMagneticStripeReaderAamvaCardDataReceived
     const NAME: &'static str = "Windows.Devices.PointOfService.IMagneticStripeReaderAamvaCardDataReceivedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
-        unsafe extern "system" fn Report<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn Report<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Report() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7169,7 +7169,7 @@ impl IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LicenseNumber<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LicenseNumber<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LicenseNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7180,7 +7180,7 @@ impl IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExpirationDate<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExpirationDate<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExpirationDate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7191,7 +7191,7 @@ impl IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Restrictions<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Restrictions<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Restrictions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7202,7 +7202,7 @@ impl IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Class<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Class<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Class() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7213,7 +7213,7 @@ impl IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Endorsements<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Endorsements<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Endorsements() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7224,7 +7224,7 @@ impl IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BirthDate<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BirthDate<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BirthDate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7235,7 +7235,7 @@ impl IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FirstName<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FirstName<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FirstName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7246,7 +7246,7 @@ impl IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Surname<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Surname<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Surname() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7257,7 +7257,7 @@ impl IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Suffix<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Suffix<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Suffix() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7268,7 +7268,7 @@ impl IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Gender<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Gender<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Gender() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7279,7 +7279,7 @@ impl IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HairColor<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HairColor<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HairColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7290,7 +7290,7 @@ impl IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EyeColor<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EyeColor<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EyeColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7301,7 +7301,7 @@ impl IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Height<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Height<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Height() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7312,7 +7312,7 @@ impl IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Weight<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Weight<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Weight() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7323,7 +7323,7 @@ impl IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Address<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Address<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Address() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7334,7 +7334,7 @@ impl IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn City<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn City<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).City() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7345,7 +7345,7 @@ impl IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn State<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn State<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7356,7 +7356,7 @@ impl IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PostalCode<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PostalCode<Impl: IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PostalCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7395,7 +7395,7 @@ impl IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMagneticStripeReaderBankCardDataReceivedEventArgsImpl: Sized {
+pub trait IMagneticStripeReaderBankCardDataReceivedEventArgs_Impl: Sized {
     fn Report(&mut self) -> ::windows::core::Result<MagneticStripeReaderReport>;
     fn AccountNumber(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ExpirationDate(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -7411,9 +7411,9 @@ impl ::windows::core::RuntimeName for IMagneticStripeReaderBankCardDataReceivedE
     const NAME: &'static str = "Windows.Devices.PointOfService.IMagneticStripeReaderBankCardDataReceivedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMagneticStripeReaderBankCardDataReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderBankCardDataReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderBankCardDataReceivedEventArgsVtbl {
-        unsafe extern "system" fn Report<Impl: IMagneticStripeReaderBankCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMagneticStripeReaderBankCardDataReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderBankCardDataReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderBankCardDataReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn Report<Impl: IMagneticStripeReaderBankCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Report() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7424,7 +7424,7 @@ impl IMagneticStripeReaderBankCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AccountNumber<Impl: IMagneticStripeReaderBankCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AccountNumber<Impl: IMagneticStripeReaderBankCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AccountNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7435,7 +7435,7 @@ impl IMagneticStripeReaderBankCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExpirationDate<Impl: IMagneticStripeReaderBankCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExpirationDate<Impl: IMagneticStripeReaderBankCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExpirationDate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7446,7 +7446,7 @@ impl IMagneticStripeReaderBankCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceCode<Impl: IMagneticStripeReaderBankCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServiceCode<Impl: IMagneticStripeReaderBankCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7457,7 +7457,7 @@ impl IMagneticStripeReaderBankCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Title<Impl: IMagneticStripeReaderBankCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Title<Impl: IMagneticStripeReaderBankCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7468,7 +7468,7 @@ impl IMagneticStripeReaderBankCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FirstName<Impl: IMagneticStripeReaderBankCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FirstName<Impl: IMagneticStripeReaderBankCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FirstName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7479,7 +7479,7 @@ impl IMagneticStripeReaderBankCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MiddleInitial<Impl: IMagneticStripeReaderBankCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MiddleInitial<Impl: IMagneticStripeReaderBankCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MiddleInitial() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7490,7 +7490,7 @@ impl IMagneticStripeReaderBankCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Surname<Impl: IMagneticStripeReaderBankCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Surname<Impl: IMagneticStripeReaderBankCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Surname() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7501,7 +7501,7 @@ impl IMagneticStripeReaderBankCardDataReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Suffix<Impl: IMagneticStripeReaderBankCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Suffix<Impl: IMagneticStripeReaderBankCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Suffix() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7530,7 +7530,7 @@ impl IMagneticStripeReaderBankCardDataReceivedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMagneticStripeReaderCapabilitiesImpl: Sized {
+pub trait IMagneticStripeReaderCapabilities_Impl: Sized {
     fn CardAuthentication(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SupportedEncryptionAlgorithms(&mut self) -> ::windows::core::Result<u32>;
     fn AuthenticationLevel(&mut self) -> ::windows::core::Result<MagneticStripeReaderAuthenticationLevel>;
@@ -7548,9 +7548,9 @@ impl ::windows::core::RuntimeName for IMagneticStripeReaderCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.IMagneticStripeReaderCapabilities";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMagneticStripeReaderCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderCapabilitiesVtbl {
-        unsafe extern "system" fn CardAuthentication<Impl: IMagneticStripeReaderCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IMagneticStripeReaderCapabilities_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderCapabilities_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderCapabilities_Vtbl {
+        unsafe extern "system" fn CardAuthentication<Impl: IMagneticStripeReaderCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CardAuthentication() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7561,7 +7561,7 @@ impl IMagneticStripeReaderCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedEncryptionAlgorithms<Impl: IMagneticStripeReaderCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedEncryptionAlgorithms<Impl: IMagneticStripeReaderCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedEncryptionAlgorithms() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7572,7 +7572,7 @@ impl IMagneticStripeReaderCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AuthenticationLevel<Impl: IMagneticStripeReaderCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderAuthenticationLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AuthenticationLevel<Impl: IMagneticStripeReaderCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderAuthenticationLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AuthenticationLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7583,7 +7583,7 @@ impl IMagneticStripeReaderCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsIsoSupported<Impl: IMagneticStripeReaderCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsIsoSupported<Impl: IMagneticStripeReaderCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsIsoSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7594,7 +7594,7 @@ impl IMagneticStripeReaderCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsJisOneSupported<Impl: IMagneticStripeReaderCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsJisOneSupported<Impl: IMagneticStripeReaderCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsJisOneSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7605,7 +7605,7 @@ impl IMagneticStripeReaderCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsJisTwoSupported<Impl: IMagneticStripeReaderCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsJisTwoSupported<Impl: IMagneticStripeReaderCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsJisTwoSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7616,7 +7616,7 @@ impl IMagneticStripeReaderCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PowerReportingType<Impl: IMagneticStripeReaderCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnifiedPosPowerReportingType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PowerReportingType<Impl: IMagneticStripeReaderCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnifiedPosPowerReportingType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PowerReportingType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7627,7 +7627,7 @@ impl IMagneticStripeReaderCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsStatisticsReportingSupported<Impl: IMagneticStripeReaderCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStatisticsReportingSupported<Impl: IMagneticStripeReaderCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStatisticsReportingSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7638,7 +7638,7 @@ impl IMagneticStripeReaderCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsStatisticsUpdatingSupported<Impl: IMagneticStripeReaderCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStatisticsUpdatingSupported<Impl: IMagneticStripeReaderCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStatisticsUpdatingSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7649,7 +7649,7 @@ impl IMagneticStripeReaderCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsTrackDataMaskingSupported<Impl: IMagneticStripeReaderCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsTrackDataMaskingSupported<Impl: IMagneticStripeReaderCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTrackDataMaskingSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7660,7 +7660,7 @@ impl IMagneticStripeReaderCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsTransmitSentinelsSupported<Impl: IMagneticStripeReaderCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsTransmitSentinelsSupported<Impl: IMagneticStripeReaderCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTransmitSentinelsSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7691,7 +7691,7 @@ impl IMagneticStripeReaderCapabilitiesVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMagneticStripeReaderCardTypesStaticsImpl: Sized {
+pub trait IMagneticStripeReaderCardTypesStatics_Impl: Sized {
     fn Unknown(&mut self) -> ::windows::core::Result<u32>;
     fn Bank(&mut self) -> ::windows::core::Result<u32>;
     fn Aamva(&mut self) -> ::windows::core::Result<u32>;
@@ -7702,9 +7702,9 @@ impl ::windows::core::RuntimeName for IMagneticStripeReaderCardTypesStatics {
     const NAME: &'static str = "Windows.Devices.PointOfService.IMagneticStripeReaderCardTypesStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMagneticStripeReaderCardTypesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderCardTypesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderCardTypesStaticsVtbl {
-        unsafe extern "system" fn Unknown<Impl: IMagneticStripeReaderCardTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IMagneticStripeReaderCardTypesStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderCardTypesStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderCardTypesStatics_Vtbl {
+        unsafe extern "system" fn Unknown<Impl: IMagneticStripeReaderCardTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Unknown() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7715,7 +7715,7 @@ impl IMagneticStripeReaderCardTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Bank<Impl: IMagneticStripeReaderCardTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Bank<Impl: IMagneticStripeReaderCardTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bank() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7726,7 +7726,7 @@ impl IMagneticStripeReaderCardTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Aamva<Impl: IMagneticStripeReaderCardTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Aamva<Impl: IMagneticStripeReaderCardTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Aamva() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7737,7 +7737,7 @@ impl IMagneticStripeReaderCardTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedBase<Impl: IMagneticStripeReaderCardTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedBase<Impl: IMagneticStripeReaderCardTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedBase() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7761,7 +7761,7 @@ impl IMagneticStripeReaderCardTypesStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMagneticStripeReaderEncryptionAlgorithmsStaticsImpl: Sized {
+pub trait IMagneticStripeReaderEncryptionAlgorithmsStatics_Impl: Sized {
     fn None(&mut self) -> ::windows::core::Result<u32>;
     fn TripleDesDukpt(&mut self) -> ::windows::core::Result<u32>;
     fn ExtendedBase(&mut self) -> ::windows::core::Result<u32>;
@@ -7771,9 +7771,9 @@ impl ::windows::core::RuntimeName for IMagneticStripeReaderEncryptionAlgorithmsS
     const NAME: &'static str = "Windows.Devices.PointOfService.IMagneticStripeReaderEncryptionAlgorithmsStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMagneticStripeReaderEncryptionAlgorithmsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderEncryptionAlgorithmsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderEncryptionAlgorithmsStaticsVtbl {
-        unsafe extern "system" fn None<Impl: IMagneticStripeReaderEncryptionAlgorithmsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IMagneticStripeReaderEncryptionAlgorithmsStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderEncryptionAlgorithmsStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderEncryptionAlgorithmsStatics_Vtbl {
+        unsafe extern "system" fn None<Impl: IMagneticStripeReaderEncryptionAlgorithmsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).None() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7784,7 +7784,7 @@ impl IMagneticStripeReaderEncryptionAlgorithmsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TripleDesDukpt<Impl: IMagneticStripeReaderEncryptionAlgorithmsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TripleDesDukpt<Impl: IMagneticStripeReaderEncryptionAlgorithmsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TripleDesDukpt() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7795,7 +7795,7 @@ impl IMagneticStripeReaderEncryptionAlgorithmsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedBase<Impl: IMagneticStripeReaderEncryptionAlgorithmsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedBase<Impl: IMagneticStripeReaderEncryptionAlgorithmsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedBase() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7818,7 +7818,7 @@ impl IMagneticStripeReaderEncryptionAlgorithmsStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMagneticStripeReaderErrorOccurredEventArgsImpl: Sized {
+pub trait IMagneticStripeReaderErrorOccurredEventArgs_Impl: Sized {
     fn Track1Status(&mut self) -> ::windows::core::Result<MagneticStripeReaderTrackErrorType>;
     fn Track2Status(&mut self) -> ::windows::core::Result<MagneticStripeReaderTrackErrorType>;
     fn Track3Status(&mut self) -> ::windows::core::Result<MagneticStripeReaderTrackErrorType>;
@@ -7831,9 +7831,9 @@ impl ::windows::core::RuntimeName for IMagneticStripeReaderErrorOccurredEventArg
     const NAME: &'static str = "Windows.Devices.PointOfService.IMagneticStripeReaderErrorOccurredEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMagneticStripeReaderErrorOccurredEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderErrorOccurredEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderErrorOccurredEventArgsVtbl {
-        unsafe extern "system" fn Track1Status<Impl: IMagneticStripeReaderErrorOccurredEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderTrackErrorType) -> ::windows::core::HRESULT {
+impl IMagneticStripeReaderErrorOccurredEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderErrorOccurredEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderErrorOccurredEventArgs_Vtbl {
+        unsafe extern "system" fn Track1Status<Impl: IMagneticStripeReaderErrorOccurredEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderTrackErrorType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Track1Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7844,7 +7844,7 @@ impl IMagneticStripeReaderErrorOccurredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Track2Status<Impl: IMagneticStripeReaderErrorOccurredEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderTrackErrorType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Track2Status<Impl: IMagneticStripeReaderErrorOccurredEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderTrackErrorType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Track2Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7855,7 +7855,7 @@ impl IMagneticStripeReaderErrorOccurredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Track3Status<Impl: IMagneticStripeReaderErrorOccurredEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderTrackErrorType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Track3Status<Impl: IMagneticStripeReaderErrorOccurredEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderTrackErrorType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Track3Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7866,7 +7866,7 @@ impl IMagneticStripeReaderErrorOccurredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Track4Status<Impl: IMagneticStripeReaderErrorOccurredEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderTrackErrorType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Track4Status<Impl: IMagneticStripeReaderErrorOccurredEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderTrackErrorType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Track4Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7877,7 +7877,7 @@ impl IMagneticStripeReaderErrorOccurredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ErrorData<Impl: IMagneticStripeReaderErrorOccurredEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ErrorData<Impl: IMagneticStripeReaderErrorOccurredEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ErrorData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7888,7 +7888,7 @@ impl IMagneticStripeReaderErrorOccurredEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PartialInputData<Impl: IMagneticStripeReaderErrorOccurredEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PartialInputData<Impl: IMagneticStripeReaderErrorOccurredEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PartialInputData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7914,7 +7914,7 @@ impl IMagneticStripeReaderErrorOccurredEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMagneticStripeReaderReportImpl: Sized {
+pub trait IMagneticStripeReaderReport_Impl: Sized {
     fn CardType(&mut self) -> ::windows::core::Result<u32>;
     fn Track1(&mut self) -> ::windows::core::Result<MagneticStripeReaderTrackData>;
     fn Track2(&mut self) -> ::windows::core::Result<MagneticStripeReaderTrackData>;
@@ -7930,9 +7930,9 @@ impl ::windows::core::RuntimeName for IMagneticStripeReaderReport {
     const NAME: &'static str = "Windows.Devices.PointOfService.IMagneticStripeReaderReport";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMagneticStripeReaderReportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderReportVtbl {
-        unsafe extern "system" fn CardType<Impl: IMagneticStripeReaderReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IMagneticStripeReaderReport_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderReport_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderReport_Vtbl {
+        unsafe extern "system" fn CardType<Impl: IMagneticStripeReaderReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CardType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7943,7 +7943,7 @@ impl IMagneticStripeReaderReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Track1<Impl: IMagneticStripeReaderReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Track1<Impl: IMagneticStripeReaderReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Track1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7954,7 +7954,7 @@ impl IMagneticStripeReaderReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Track2<Impl: IMagneticStripeReaderReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Track2<Impl: IMagneticStripeReaderReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Track2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7965,7 +7965,7 @@ impl IMagneticStripeReaderReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Track3<Impl: IMagneticStripeReaderReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Track3<Impl: IMagneticStripeReaderReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Track3() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7976,7 +7976,7 @@ impl IMagneticStripeReaderReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Track4<Impl: IMagneticStripeReaderReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Track4<Impl: IMagneticStripeReaderReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Track4() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7987,7 +7987,7 @@ impl IMagneticStripeReaderReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Properties<Impl: IMagneticStripeReaderReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Properties<Impl: IMagneticStripeReaderReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7998,7 +7998,7 @@ impl IMagneticStripeReaderReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CardAuthenticationData<Impl: IMagneticStripeReaderReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CardAuthenticationData<Impl: IMagneticStripeReaderReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CardAuthenticationData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8009,7 +8009,7 @@ impl IMagneticStripeReaderReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CardAuthenticationDataLength<Impl: IMagneticStripeReaderReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CardAuthenticationDataLength<Impl: IMagneticStripeReaderReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CardAuthenticationDataLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8020,7 +8020,7 @@ impl IMagneticStripeReaderReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AdditionalSecurityInformation<Impl: IMagneticStripeReaderReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AdditionalSecurityInformation<Impl: IMagneticStripeReaderReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AdditionalSecurityInformation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8049,7 +8049,7 @@ impl IMagneticStripeReaderReportVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMagneticStripeReaderStaticsImpl: Sized {
+pub trait IMagneticStripeReaderStatics_Impl: Sized {
     fn GetDefaultAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MagneticStripeReader>>;
     fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MagneticStripeReader>>;
     fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -8059,9 +8059,9 @@ impl ::windows::core::RuntimeName for IMagneticStripeReaderStatics {
     const NAME: &'static str = "Windows.Devices.PointOfService.IMagneticStripeReaderStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMagneticStripeReaderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderStaticsVtbl {
-        unsafe extern "system" fn GetDefaultAsync<Impl: IMagneticStripeReaderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMagneticStripeReaderStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderStatics_Vtbl {
+        unsafe extern "system" fn GetDefaultAsync<Impl: IMagneticStripeReaderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8072,7 +8072,7 @@ impl IMagneticStripeReaderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromIdAsync<Impl: IMagneticStripeReaderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromIdAsync<Impl: IMagneticStripeReaderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8083,7 +8083,7 @@ impl IMagneticStripeReaderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelector<Impl: IMagneticStripeReaderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelector<Impl: IMagneticStripeReaderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8106,7 +8106,7 @@ impl IMagneticStripeReaderStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMagneticStripeReaderStatics2Impl: Sized {
+pub trait IMagneticStripeReaderStatics2_Impl: Sized {
     fn GetDeviceSelectorWithConnectionTypes(&mut self, connectiontypes: PosConnectionTypes) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -8114,9 +8114,9 @@ impl ::windows::core::RuntimeName for IMagneticStripeReaderStatics2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IMagneticStripeReaderStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMagneticStripeReaderStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderStatics2Vtbl {
-        unsafe extern "system" fn GetDeviceSelectorWithConnectionTypes<Impl: IMagneticStripeReaderStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectiontypes: PosConnectionTypes, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IMagneticStripeReaderStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderStatics2_Vtbl {
+        unsafe extern "system" fn GetDeviceSelectorWithConnectionTypes<Impl: IMagneticStripeReaderStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectiontypes: PosConnectionTypes, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorWithConnectionTypes(connectiontypes) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8137,7 +8137,7 @@ impl IMagneticStripeReaderStatics2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMagneticStripeReaderStatusUpdatedEventArgsImpl: Sized {
+pub trait IMagneticStripeReaderStatusUpdatedEventArgs_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<MagneticStripeReaderStatus>;
     fn ExtendedStatus(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -8146,9 +8146,9 @@ impl ::windows::core::RuntimeName for IMagneticStripeReaderStatusUpdatedEventArg
     const NAME: &'static str = "Windows.Devices.PointOfService.IMagneticStripeReaderStatusUpdatedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMagneticStripeReaderStatusUpdatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderStatusUpdatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderStatusUpdatedEventArgsVtbl {
-        unsafe extern "system" fn Status<Impl: IMagneticStripeReaderStatusUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderStatus) -> ::windows::core::HRESULT {
+impl IMagneticStripeReaderStatusUpdatedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderStatusUpdatedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderStatusUpdatedEventArgs_Vtbl {
+        unsafe extern "system" fn Status<Impl: IMagneticStripeReaderStatusUpdatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8159,7 +8159,7 @@ impl IMagneticStripeReaderStatusUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedStatus<Impl: IMagneticStripeReaderStatusUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedStatus<Impl: IMagneticStripeReaderStatusUpdatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8181,7 +8181,7 @@ impl IMagneticStripeReaderStatusUpdatedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMagneticStripeReaderTrackDataImpl: Sized {
+pub trait IMagneticStripeReaderTrackData_Impl: Sized {
     fn Data(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn DiscretionaryData(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn EncryptedData(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
@@ -8191,9 +8191,9 @@ impl ::windows::core::RuntimeName for IMagneticStripeReaderTrackData {
     const NAME: &'static str = "Windows.Devices.PointOfService.IMagneticStripeReaderTrackData";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMagneticStripeReaderTrackDataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderTrackDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderTrackDataVtbl {
-        unsafe extern "system" fn Data<Impl: IMagneticStripeReaderTrackDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMagneticStripeReaderTrackData_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderTrackData_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderTrackData_Vtbl {
+        unsafe extern "system" fn Data<Impl: IMagneticStripeReaderTrackData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8204,7 +8204,7 @@ impl IMagneticStripeReaderTrackDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DiscretionaryData<Impl: IMagneticStripeReaderTrackDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DiscretionaryData<Impl: IMagneticStripeReaderTrackData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DiscretionaryData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8215,7 +8215,7 @@ impl IMagneticStripeReaderTrackDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EncryptedData<Impl: IMagneticStripeReaderTrackDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EncryptedData<Impl: IMagneticStripeReaderTrackData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EncryptedData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8238,7 +8238,7 @@ impl IMagneticStripeReaderTrackDataVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgsImpl: Sized {
+pub trait IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_Impl: Sized {
     fn Report(&mut self) -> ::windows::core::Result<MagneticStripeReaderReport>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -8246,9 +8246,9 @@ impl ::windows::core::RuntimeName for IMagneticStripeReaderVendorSpecificCardDat
     const NAME: &'static str = "Windows.Devices.PointOfService.IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgsVtbl {
-        unsafe extern "system" fn Report<Impl: IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn Report<Impl: IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Report() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8269,7 +8269,7 @@ impl IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPosPrinterImpl: Sized {
+pub trait IPosPrinter_Impl: Sized {
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Capabilities(&mut self) -> ::windows::core::Result<PosPrinterCapabilities>;
     fn SupportedCharacterSets(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
@@ -8286,9 +8286,9 @@ impl ::windows::core::RuntimeName for IPosPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.IPosPrinter";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPosPrinterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterVtbl {
-        unsafe extern "system" fn DeviceId<Impl: IPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPosPrinter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinter_Vtbl {
+        unsafe extern "system" fn DeviceId<Impl: IPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8299,7 +8299,7 @@ impl IPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Capabilities<Impl: IPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Capabilities<Impl: IPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Capabilities() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8310,7 +8310,7 @@ impl IPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedCharacterSets<Impl: IPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedCharacterSets<Impl: IPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedCharacterSets() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8321,7 +8321,7 @@ impl IPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedTypeFaces<Impl: IPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedTypeFaces<Impl: IPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedTypeFaces() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8332,7 +8332,7 @@ impl IPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Status<Impl: IPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Status<Impl: IPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8343,7 +8343,7 @@ impl IPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClaimPrinterAsync<Impl: IPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClaimPrinterAsync<Impl: IPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClaimPrinterAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8354,7 +8354,7 @@ impl IPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CheckHealthAsync<Impl: IPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: UnifiedPosHealthCheckLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CheckHealthAsync<Impl: IPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: UnifiedPosHealthCheckLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CheckHealthAsync(level) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8365,7 +8365,7 @@ impl IPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStatisticsAsync<Impl: IPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statisticscategories: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStatisticsAsync<Impl: IPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statisticscategories: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStatisticsAsync(&*(&statisticscategories as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8376,7 +8376,7 @@ impl IPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StatusUpdated<Impl: IPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StatusUpdated<Impl: IPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StatusUpdated(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PosPrinter, PosPrinterStatusUpdatedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PosPrinter, PosPrinterStatusUpdatedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8387,7 +8387,7 @@ impl IPosPrinterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStatusUpdated<Impl: IPosPrinterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStatusUpdated<Impl: IPosPrinter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStatusUpdated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -8410,7 +8410,7 @@ impl IPosPrinterVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPosPrinter2Impl: Sized {
+pub trait IPosPrinter2_Impl: Sized {
     fn SupportedBarcodeSymbologies(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
     fn GetFontProperty(&mut self, typeface: &::windows::core::HSTRING) -> ::windows::core::Result<PosPrinterFontProperty>;
 }
@@ -8419,9 +8419,9 @@ impl ::windows::core::RuntimeName for IPosPrinter2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IPosPrinter2";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPosPrinter2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinter2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinter2Vtbl {
-        unsafe extern "system" fn SupportedBarcodeSymbologies<Impl: IPosPrinter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPosPrinter2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinter2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinter2_Vtbl {
+        unsafe extern "system" fn SupportedBarcodeSymbologies<Impl: IPosPrinter2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedBarcodeSymbologies() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8432,7 +8432,7 @@ impl IPosPrinter2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFontProperty<Impl: IPosPrinter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, typeface: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFontProperty<Impl: IPosPrinter2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, typeface: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFontProperty(&*(&typeface as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8454,7 +8454,7 @@ impl IPosPrinter2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPosPrinterCapabilitiesImpl: Sized {
+pub trait IPosPrinterCapabilities_Impl: Sized {
     fn PowerReportingType(&mut self) -> ::windows::core::Result<UnifiedPosPowerReportingType>;
     fn IsStatisticsReportingSupported(&mut self) -> ::windows::core::Result<bool>;
     fn IsStatisticsUpdatingSupported(&mut self) -> ::windows::core::Result<bool>;
@@ -8471,9 +8471,9 @@ impl ::windows::core::RuntimeName for IPosPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.IPosPrinterCapabilities";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPosPrinterCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterCapabilitiesVtbl {
-        unsafe extern "system" fn PowerReportingType<Impl: IPosPrinterCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnifiedPosPowerReportingType) -> ::windows::core::HRESULT {
+impl IPosPrinterCapabilities_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterCapabilities_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterCapabilities_Vtbl {
+        unsafe extern "system" fn PowerReportingType<Impl: IPosPrinterCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnifiedPosPowerReportingType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PowerReportingType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8484,7 +8484,7 @@ impl IPosPrinterCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsStatisticsReportingSupported<Impl: IPosPrinterCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStatisticsReportingSupported<Impl: IPosPrinterCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStatisticsReportingSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8495,7 +8495,7 @@ impl IPosPrinterCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsStatisticsUpdatingSupported<Impl: IPosPrinterCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStatisticsUpdatingSupported<Impl: IPosPrinterCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStatisticsUpdatingSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8506,7 +8506,7 @@ impl IPosPrinterCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DefaultCharacterSet<Impl: IPosPrinterCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultCharacterSet<Impl: IPosPrinterCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultCharacterSet() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8517,7 +8517,7 @@ impl IPosPrinterCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasCoverSensor<Impl: IPosPrinterCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasCoverSensor<Impl: IPosPrinterCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasCoverSensor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8528,7 +8528,7 @@ impl IPosPrinterCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanMapCharacterSet<Impl: IPosPrinterCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanMapCharacterSet<Impl: IPosPrinterCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanMapCharacterSet() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8539,7 +8539,7 @@ impl IPosPrinterCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsTransactionSupported<Impl: IPosPrinterCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsTransactionSupported<Impl: IPosPrinterCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTransactionSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8550,7 +8550,7 @@ impl IPosPrinterCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Receipt<Impl: IPosPrinterCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Receipt<Impl: IPosPrinterCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Receipt() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8561,7 +8561,7 @@ impl IPosPrinterCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Slip<Impl: IPosPrinterCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Slip<Impl: IPosPrinterCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Slip() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8572,7 +8572,7 @@ impl IPosPrinterCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Journal<Impl: IPosPrinterCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Journal<Impl: IPosPrinterCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Journal() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8602,7 +8602,7 @@ impl IPosPrinterCapabilitiesVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPosPrinterCharacterSetIdsStaticsImpl: Sized {
+pub trait IPosPrinterCharacterSetIdsStatics_Impl: Sized {
     fn Utf16LE(&mut self) -> ::windows::core::Result<u32>;
     fn Ascii(&mut self) -> ::windows::core::Result<u32>;
     fn Ansi(&mut self) -> ::windows::core::Result<u32>;
@@ -8612,9 +8612,9 @@ impl ::windows::core::RuntimeName for IPosPrinterCharacterSetIdsStatics {
     const NAME: &'static str = "Windows.Devices.PointOfService.IPosPrinterCharacterSetIdsStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPosPrinterCharacterSetIdsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterCharacterSetIdsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterCharacterSetIdsStaticsVtbl {
-        unsafe extern "system" fn Utf16LE<Impl: IPosPrinterCharacterSetIdsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IPosPrinterCharacterSetIdsStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterCharacterSetIdsStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterCharacterSetIdsStatics_Vtbl {
+        unsafe extern "system" fn Utf16LE<Impl: IPosPrinterCharacterSetIdsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Utf16LE() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8625,7 +8625,7 @@ impl IPosPrinterCharacterSetIdsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Ascii<Impl: IPosPrinterCharacterSetIdsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ascii<Impl: IPosPrinterCharacterSetIdsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ascii() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8636,7 +8636,7 @@ impl IPosPrinterCharacterSetIdsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Ansi<Impl: IPosPrinterCharacterSetIdsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ansi<Impl: IPosPrinterCharacterSetIdsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ansi() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8659,7 +8659,7 @@ impl IPosPrinterCharacterSetIdsStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPosPrinterFontPropertyImpl: Sized {
+pub trait IPosPrinterFontProperty_Impl: Sized {
     fn TypeFace(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IsScalableToAnySize(&mut self) -> ::windows::core::Result<bool>;
     fn CharacterSizes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SizeUInt32>>;
@@ -8669,9 +8669,9 @@ impl ::windows::core::RuntimeName for IPosPrinterFontProperty {
     const NAME: &'static str = "Windows.Devices.PointOfService.IPosPrinterFontProperty";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPosPrinterFontPropertyVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterFontPropertyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterFontPropertyVtbl {
-        unsafe extern "system" fn TypeFace<Impl: IPosPrinterFontPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPosPrinterFontProperty_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterFontProperty_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterFontProperty_Vtbl {
+        unsafe extern "system" fn TypeFace<Impl: IPosPrinterFontProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TypeFace() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8682,7 +8682,7 @@ impl IPosPrinterFontPropertyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsScalableToAnySize<Impl: IPosPrinterFontPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsScalableToAnySize<Impl: IPosPrinterFontProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsScalableToAnySize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8693,7 +8693,7 @@ impl IPosPrinterFontPropertyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CharacterSizes<Impl: IPosPrinterFontPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CharacterSizes<Impl: IPosPrinterFontProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CharacterSizes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8716,7 +8716,7 @@ impl IPosPrinterFontPropertyVtbl {
     }
 }
 #[cfg(feature = "Foundation")]
-pub trait IPosPrinterJobImpl: Sized {
+pub trait IPosPrinterJob_Impl: Sized {
     fn Print(&mut self, data: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn PrintLine(&mut self, data: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn PrintNewline(&mut self) -> ::windows::core::Result<()>;
@@ -8727,21 +8727,21 @@ impl ::windows::core::RuntimeName for IPosPrinterJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.IPosPrinterJob";
 }
 #[cfg(feature = "Foundation")]
-impl IPosPrinterJobVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterJobImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterJobVtbl {
-        unsafe extern "system" fn Print<Impl: IPosPrinterJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPosPrinterJob_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterJob_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterJob_Vtbl {
+        unsafe extern "system" fn Print<Impl: IPosPrinterJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Print(&*(&data as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PrintLine<Impl: IPosPrinterJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrintLine<Impl: IPosPrinterJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PrintLine(&*(&data as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PrintNewline<Impl: IPosPrinterJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrintNewline<Impl: IPosPrinterJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PrintNewline().into()
         }
-        unsafe extern "system" fn ExecuteAsync<Impl: IPosPrinterJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExecuteAsync<Impl: IPosPrinterJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExecuteAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8765,7 +8765,7 @@ impl IPosPrinterJobVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPosPrinterPrintOptionsImpl: Sized {
+pub trait IPosPrinterPrintOptions_Impl: Sized {
     fn TypeFace(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTypeFace(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn CharacterHeight(&mut self) -> ::windows::core::Result<u32>;
@@ -8798,9 +8798,9 @@ impl ::windows::core::RuntimeName for IPosPrinterPrintOptions {
     const NAME: &'static str = "Windows.Devices.PointOfService.IPosPrinterPrintOptions";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPosPrinterPrintOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterPrintOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterPrintOptionsVtbl {
-        unsafe extern "system" fn TypeFace<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPosPrinterPrintOptions_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterPrintOptions_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterPrintOptions_Vtbl {
+        unsafe extern "system" fn TypeFace<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TypeFace() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8811,11 +8811,11 @@ impl IPosPrinterPrintOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTypeFace<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTypeFace<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTypeFace(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CharacterHeight<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CharacterHeight<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CharacterHeight() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8826,11 +8826,11 @@ impl IPosPrinterPrintOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCharacterHeight<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCharacterHeight<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCharacterHeight(value).into()
         }
-        unsafe extern "system" fn Bold<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Bold<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bold() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8841,11 +8841,11 @@ impl IPosPrinterPrintOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBold<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBold<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBold(value).into()
         }
-        unsafe extern "system" fn Italic<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Italic<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Italic() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8856,11 +8856,11 @@ impl IPosPrinterPrintOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetItalic<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetItalic<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetItalic(value).into()
         }
-        unsafe extern "system" fn Underline<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Underline<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Underline() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8871,11 +8871,11 @@ impl IPosPrinterPrintOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetUnderline<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUnderline<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUnderline(value).into()
         }
-        unsafe extern "system" fn ReverseVideo<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReverseVideo<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReverseVideo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8886,11 +8886,11 @@ impl IPosPrinterPrintOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetReverseVideo<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetReverseVideo<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetReverseVideo(value).into()
         }
-        unsafe extern "system" fn Strikethrough<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Strikethrough<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Strikethrough() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8901,11 +8901,11 @@ impl IPosPrinterPrintOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStrikethrough<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStrikethrough<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStrikethrough(value).into()
         }
-        unsafe extern "system" fn Superscript<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Superscript<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Superscript() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8916,11 +8916,11 @@ impl IPosPrinterPrintOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSuperscript<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSuperscript<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSuperscript(value).into()
         }
-        unsafe extern "system" fn Subscript<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Subscript<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Subscript() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8931,11 +8931,11 @@ impl IPosPrinterPrintOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSubscript<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSubscript<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSubscript(value).into()
         }
-        unsafe extern "system" fn DoubleWide<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DoubleWide<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DoubleWide() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8946,11 +8946,11 @@ impl IPosPrinterPrintOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDoubleWide<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDoubleWide<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDoubleWide(value).into()
         }
-        unsafe extern "system" fn DoubleHigh<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DoubleHigh<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DoubleHigh() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8961,11 +8961,11 @@ impl IPosPrinterPrintOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDoubleHigh<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDoubleHigh<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDoubleHigh(value).into()
         }
-        unsafe extern "system" fn Alignment<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PosPrinterAlignment) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Alignment<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PosPrinterAlignment) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Alignment() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8976,11 +8976,11 @@ impl IPosPrinterPrintOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAlignment<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PosPrinterAlignment) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAlignment<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PosPrinterAlignment) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAlignment(value).into()
         }
-        unsafe extern "system" fn CharacterSet<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CharacterSet<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CharacterSet() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8991,7 +8991,7 @@ impl IPosPrinterPrintOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCharacterSet<Impl: IPosPrinterPrintOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCharacterSet<Impl: IPosPrinterPrintOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCharacterSet(value).into()
         }
@@ -9030,14 +9030,14 @@ impl IPosPrinterPrintOptionsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPosPrinterReleaseDeviceRequestedEventArgsImpl: Sized {}
+pub trait IPosPrinterReleaseDeviceRequestedEventArgs_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPosPrinterReleaseDeviceRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.IPosPrinterReleaseDeviceRequestedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPosPrinterReleaseDeviceRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterReleaseDeviceRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterReleaseDeviceRequestedEventArgsVtbl {
+impl IPosPrinterReleaseDeviceRequestedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterReleaseDeviceRequestedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterReleaseDeviceRequestedEventArgs_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPosPrinterReleaseDeviceRequestedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -9045,7 +9045,7 @@ impl IPosPrinterReleaseDeviceRequestedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPosPrinterStaticsImpl: Sized {
+pub trait IPosPrinterStatics_Impl: Sized {
     fn GetDefaultAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PosPrinter>>;
     fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PosPrinter>>;
     fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -9055,9 +9055,9 @@ impl ::windows::core::RuntimeName for IPosPrinterStatics {
     const NAME: &'static str = "Windows.Devices.PointOfService.IPosPrinterStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPosPrinterStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterStaticsVtbl {
-        unsafe extern "system" fn GetDefaultAsync<Impl: IPosPrinterStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPosPrinterStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterStatics_Vtbl {
+        unsafe extern "system" fn GetDefaultAsync<Impl: IPosPrinterStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9068,7 +9068,7 @@ impl IPosPrinterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromIdAsync<Impl: IPosPrinterStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromIdAsync<Impl: IPosPrinterStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -9079,7 +9079,7 @@ impl IPosPrinterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelector<Impl: IPosPrinterStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelector<Impl: IPosPrinterStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9102,7 +9102,7 @@ impl IPosPrinterStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPosPrinterStatics2Impl: Sized {
+pub trait IPosPrinterStatics2_Impl: Sized {
     fn GetDeviceSelectorWithConnectionTypes(&mut self, connectiontypes: PosConnectionTypes) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -9110,9 +9110,9 @@ impl ::windows::core::RuntimeName for IPosPrinterStatics2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IPosPrinterStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPosPrinterStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterStatics2Vtbl {
-        unsafe extern "system" fn GetDeviceSelectorWithConnectionTypes<Impl: IPosPrinterStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectiontypes: PosConnectionTypes, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPosPrinterStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterStatics2_Vtbl {
+        unsafe extern "system" fn GetDeviceSelectorWithConnectionTypes<Impl: IPosPrinterStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectiontypes: PosConnectionTypes, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorWithConnectionTypes(connectiontypes) {
                 ::core::result::Result::Ok(ok__) => {
@@ -9133,7 +9133,7 @@ impl IPosPrinterStatics2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPosPrinterStatusImpl: Sized {
+pub trait IPosPrinterStatus_Impl: Sized {
     fn StatusKind(&mut self) -> ::windows::core::Result<PosPrinterStatusKind>;
     fn ExtendedStatus(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -9142,9 +9142,9 @@ impl ::windows::core::RuntimeName for IPosPrinterStatus {
     const NAME: &'static str = "Windows.Devices.PointOfService.IPosPrinterStatus";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPosPrinterStatusVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterStatusImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterStatusVtbl {
-        unsafe extern "system" fn StatusKind<Impl: IPosPrinterStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PosPrinterStatusKind) -> ::windows::core::HRESULT {
+impl IPosPrinterStatus_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterStatus_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterStatus_Vtbl {
+        unsafe extern "system" fn StatusKind<Impl: IPosPrinterStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PosPrinterStatusKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StatusKind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9155,7 +9155,7 @@ impl IPosPrinterStatusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedStatus<Impl: IPosPrinterStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedStatus<Impl: IPosPrinterStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9177,7 +9177,7 @@ impl IPosPrinterStatusVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPosPrinterStatusUpdatedEventArgsImpl: Sized {
+pub trait IPosPrinterStatusUpdatedEventArgs_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<PosPrinterStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -9185,9 +9185,9 @@ impl ::windows::core::RuntimeName for IPosPrinterStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.IPosPrinterStatusUpdatedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPosPrinterStatusUpdatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterStatusUpdatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterStatusUpdatedEventArgsVtbl {
-        unsafe extern "system" fn Status<Impl: IPosPrinterStatusUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPosPrinterStatusUpdatedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPosPrinterStatusUpdatedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPosPrinterStatusUpdatedEventArgs_Vtbl {
+        unsafe extern "system" fn Status<Impl: IPosPrinterStatusUpdatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9205,7 +9205,7 @@ impl IPosPrinterStatusUpdatedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
-pub trait IReceiptOrSlipJobImpl: Sized + IPosPrinterJobImpl {
+pub trait IReceiptOrSlipJob_Impl: Sized + IPosPrinterJob_Impl {
     fn SetBarcodeRotation(&mut self, value: PosPrinterRotation) -> ::windows::core::Result<()>;
     fn SetPrintRotation(&mut self, value: PosPrinterRotation, includebitmaps: bool) -> ::windows::core::Result<()>;
     fn SetPrintArea(&mut self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
@@ -9227,65 +9227,65 @@ impl ::windows::core::RuntimeName for IReceiptOrSlipJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.IReceiptOrSlipJob";
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
-impl IReceiptOrSlipJobVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReceiptOrSlipJobImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReceiptOrSlipJobVtbl {
-        unsafe extern "system" fn SetBarcodeRotation<Impl: IReceiptOrSlipJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PosPrinterRotation) -> ::windows::core::HRESULT {
+impl IReceiptOrSlipJob_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReceiptOrSlipJob_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReceiptOrSlipJob_Vtbl {
+        unsafe extern "system" fn SetBarcodeRotation<Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PosPrinterRotation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBarcodeRotation(value).into()
         }
-        unsafe extern "system" fn SetPrintRotation<Impl: IReceiptOrSlipJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PosPrinterRotation, includebitmaps: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPrintRotation<Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PosPrinterRotation, includebitmaps: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPrintRotation(value, includebitmaps).into()
         }
-        unsafe extern "system" fn SetPrintArea<Impl: IReceiptOrSlipJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPrintArea<Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPrintArea(&*(&value as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetBitmap<Impl: IReceiptOrSlipJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32, bitmap: ::windows::core::RawPtr, alignment: PosPrinterAlignment) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBitmap<Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32, bitmap: ::windows::core::RawPtr, alignment: PosPrinterAlignment) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBitmap(bitmapnumber, &*(&bitmap as *const <super::super::Graphics::Imaging::BitmapFrame as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Imaging::BitmapFrame as ::windows::core::DefaultType>::DefaultType), alignment).into()
         }
-        unsafe extern "system" fn SetBitmapCustomWidthStandardAlign<Impl: IReceiptOrSlipJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32, bitmap: ::windows::core::RawPtr, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBitmapCustomWidthStandardAlign<Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32, bitmap: ::windows::core::RawPtr, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBitmapCustomWidthStandardAlign(bitmapnumber, &*(&bitmap as *const <super::super::Graphics::Imaging::BitmapFrame as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Imaging::BitmapFrame as ::windows::core::DefaultType>::DefaultType), alignment, width).into()
         }
-        unsafe extern "system" fn SetCustomAlignedBitmap<Impl: IReceiptOrSlipJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32, bitmap: ::windows::core::RawPtr, alignmentdistance: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCustomAlignedBitmap<Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32, bitmap: ::windows::core::RawPtr, alignmentdistance: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCustomAlignedBitmap(bitmapnumber, &*(&bitmap as *const <super::super::Graphics::Imaging::BitmapFrame as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Imaging::BitmapFrame as ::windows::core::DefaultType>::DefaultType), alignmentdistance).into()
         }
-        unsafe extern "system" fn SetBitmapCustomWidthCustomAlign<Impl: IReceiptOrSlipJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32, bitmap: ::windows::core::RawPtr, alignmentdistance: u32, width: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBitmapCustomWidthCustomAlign<Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32, bitmap: ::windows::core::RawPtr, alignmentdistance: u32, width: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBitmapCustomWidthCustomAlign(bitmapnumber, &*(&bitmap as *const <super::super::Graphics::Imaging::BitmapFrame as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Imaging::BitmapFrame as ::windows::core::DefaultType>::DefaultType), alignmentdistance, width).into()
         }
-        unsafe extern "system" fn PrintSavedBitmap<Impl: IReceiptOrSlipJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrintSavedBitmap<Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PrintSavedBitmap(bitmapnumber).into()
         }
-        unsafe extern "system" fn DrawRuledLine<Impl: IReceiptOrSlipJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, positionlist: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DrawRuledLine<Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, positionlist: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DrawRuledLine(&*(&positionlist as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), linedirection, linewidth, linestyle, linecolor).into()
         }
-        unsafe extern "system" fn PrintBarcode<Impl: IReceiptOrSlipJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrintBarcode<Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PrintBarcode(&*(&data as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), symbology, height, width, textposition, alignment).into()
         }
-        unsafe extern "system" fn PrintBarcodeCustomAlign<Impl: IReceiptOrSlipJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrintBarcodeCustomAlign<Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PrintBarcodeCustomAlign(&*(&data as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), symbology, height, width, textposition, alignmentdistance).into()
         }
-        unsafe extern "system" fn PrintBitmap<Impl: IReceiptOrSlipJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, alignment: PosPrinterAlignment) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrintBitmap<Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, alignment: PosPrinterAlignment) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PrintBitmap(&*(&bitmap as *const <super::super::Graphics::Imaging::BitmapFrame as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Imaging::BitmapFrame as ::windows::core::DefaultType>::DefaultType), alignment).into()
         }
-        unsafe extern "system" fn PrintBitmapCustomWidthStandardAlign<Impl: IReceiptOrSlipJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrintBitmapCustomWidthStandardAlign<Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PrintBitmapCustomWidthStandardAlign(&*(&bitmap as *const <super::super::Graphics::Imaging::BitmapFrame as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Imaging::BitmapFrame as ::windows::core::DefaultType>::DefaultType), alignment, width).into()
         }
-        unsafe extern "system" fn PrintCustomAlignedBitmap<Impl: IReceiptOrSlipJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, alignmentdistance: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrintCustomAlignedBitmap<Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, alignmentdistance: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PrintCustomAlignedBitmap(&*(&bitmap as *const <super::super::Graphics::Imaging::BitmapFrame as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Imaging::BitmapFrame as ::windows::core::DefaultType>::DefaultType), alignmentdistance).into()
         }
-        unsafe extern "system" fn PrintBitmapCustomWidthCustomAlign<Impl: IReceiptOrSlipJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, alignmentdistance: u32, width: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrintBitmapCustomWidthCustomAlign<Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, alignmentdistance: u32, width: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PrintBitmapCustomWidthCustomAlign(&*(&bitmap as *const <super::super::Graphics::Imaging::BitmapFrame as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Imaging::BitmapFrame as ::windows::core::DefaultType>::DefaultType), alignmentdistance, width).into()
         }
@@ -9313,7 +9313,7 @@ impl IReceiptOrSlipJobVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IReceiptPrintJobImpl: Sized {
+pub trait IReceiptPrintJob_Impl: Sized {
     fn MarkFeed(&mut self, kind: PosPrinterMarkFeedKind) -> ::windows::core::Result<()>;
     fn CutPaper(&mut self, percentage: f64) -> ::windows::core::Result<()>;
     fn CutPaperDefault(&mut self) -> ::windows::core::Result<()>;
@@ -9323,17 +9323,17 @@ impl ::windows::core::RuntimeName for IReceiptPrintJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.IReceiptPrintJob";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IReceiptPrintJobVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReceiptPrintJobImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReceiptPrintJobVtbl {
-        unsafe extern "system" fn MarkFeed<Impl: IReceiptPrintJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kind: PosPrinterMarkFeedKind) -> ::windows::core::HRESULT {
+impl IReceiptPrintJob_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReceiptPrintJob_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReceiptPrintJob_Vtbl {
+        unsafe extern "system" fn MarkFeed<Impl: IReceiptPrintJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kind: PosPrinterMarkFeedKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).MarkFeed(kind).into()
         }
-        unsafe extern "system" fn CutPaper<Impl: IReceiptPrintJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, percentage: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CutPaper<Impl: IReceiptPrintJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, percentage: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CutPaper(percentage).into()
         }
-        unsafe extern "system" fn CutPaperDefault<Impl: IReceiptPrintJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CutPaperDefault<Impl: IReceiptPrintJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CutPaperDefault().into()
         }
@@ -9349,7 +9349,7 @@ impl IReceiptPrintJobVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IReceiptPrintJob2Impl: Sized {
+pub trait IReceiptPrintJob2_Impl: Sized {
     fn StampPaper(&mut self) -> ::windows::core::Result<()>;
     fn Print(&mut self, data: &::windows::core::HSTRING, printoptions: &::core::option::Option<PosPrinterPrintOptions>) -> ::windows::core::Result<()>;
     fn FeedPaperByLine(&mut self, linecount: i32) -> ::windows::core::Result<()>;
@@ -9360,21 +9360,21 @@ impl ::windows::core::RuntimeName for IReceiptPrintJob2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IReceiptPrintJob2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IReceiptPrintJob2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReceiptPrintJob2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReceiptPrintJob2Vtbl {
-        unsafe extern "system" fn StampPaper<Impl: IReceiptPrintJob2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IReceiptPrintJob2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReceiptPrintJob2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReceiptPrintJob2_Vtbl {
+        unsafe extern "system" fn StampPaper<Impl: IReceiptPrintJob2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StampPaper().into()
         }
-        unsafe extern "system" fn Print<Impl: IReceiptPrintJob2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, printoptions: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Print<Impl: IReceiptPrintJob2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, printoptions: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Print(&*(&data as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&printoptions as *const <PosPrinterPrintOptions as ::windows::core::Abi>::Abi as *const <PosPrinterPrintOptions as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FeedPaperByLine<Impl: IReceiptPrintJob2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, linecount: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeedPaperByLine<Impl: IReceiptPrintJob2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, linecount: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).FeedPaperByLine(linecount).into()
         }
-        unsafe extern "system" fn FeedPaperByMapModeUnit<Impl: IReceiptPrintJob2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, distance: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeedPaperByMapModeUnit<Impl: IReceiptPrintJob2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, distance: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).FeedPaperByMapModeUnit(distance).into()
         }
@@ -9391,7 +9391,7 @@ impl IReceiptPrintJob2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IReceiptPrinterCapabilitiesImpl: Sized {
+pub trait IReceiptPrinterCapabilities_Impl: Sized {
     fn CanCutPaper(&mut self) -> ::windows::core::Result<bool>;
     fn IsStampSupported(&mut self) -> ::windows::core::Result<bool>;
     fn MarkFeedCapabilities(&mut self) -> ::windows::core::Result<PosPrinterMarkFeedCapabilities>;
@@ -9401,9 +9401,9 @@ impl ::windows::core::RuntimeName for IReceiptPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.IReceiptPrinterCapabilities";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IReceiptPrinterCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReceiptPrinterCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReceiptPrinterCapabilitiesVtbl {
-        unsafe extern "system" fn CanCutPaper<Impl: IReceiptPrinterCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IReceiptPrinterCapabilities_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReceiptPrinterCapabilities_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReceiptPrinterCapabilities_Vtbl {
+        unsafe extern "system" fn CanCutPaper<Impl: IReceiptPrinterCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanCutPaper() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9414,7 +9414,7 @@ impl IReceiptPrinterCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsStampSupported<Impl: IReceiptPrinterCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStampSupported<Impl: IReceiptPrinterCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStampSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9425,7 +9425,7 @@ impl IReceiptPrinterCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MarkFeedCapabilities<Impl: IReceiptPrinterCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PosPrinterMarkFeedCapabilities) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MarkFeedCapabilities<Impl: IReceiptPrinterCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PosPrinterMarkFeedCapabilities) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MarkFeedCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9448,7 +9448,7 @@ impl IReceiptPrinterCapabilitiesVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IReceiptPrinterCapabilities2Impl: Sized {
+pub trait IReceiptPrinterCapabilities2_Impl: Sized {
     fn IsReverseVideoSupported(&mut self) -> ::windows::core::Result<bool>;
     fn IsStrikethroughSupported(&mut self) -> ::windows::core::Result<bool>;
     fn IsSuperscriptSupported(&mut self) -> ::windows::core::Result<bool>;
@@ -9461,9 +9461,9 @@ impl ::windows::core::RuntimeName for IReceiptPrinterCapabilities2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.IReceiptPrinterCapabilities2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IReceiptPrinterCapabilities2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReceiptPrinterCapabilities2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReceiptPrinterCapabilities2Vtbl {
-        unsafe extern "system" fn IsReverseVideoSupported<Impl: IReceiptPrinterCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IReceiptPrinterCapabilities2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReceiptPrinterCapabilities2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReceiptPrinterCapabilities2_Vtbl {
+        unsafe extern "system" fn IsReverseVideoSupported<Impl: IReceiptPrinterCapabilities2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReverseVideoSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9474,7 +9474,7 @@ impl IReceiptPrinterCapabilities2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsStrikethroughSupported<Impl: IReceiptPrinterCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStrikethroughSupported<Impl: IReceiptPrinterCapabilities2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStrikethroughSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9485,7 +9485,7 @@ impl IReceiptPrinterCapabilities2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSuperscriptSupported<Impl: IReceiptPrinterCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSuperscriptSupported<Impl: IReceiptPrinterCapabilities2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSuperscriptSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9496,7 +9496,7 @@ impl IReceiptPrinterCapabilities2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSubscriptSupported<Impl: IReceiptPrinterCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSubscriptSupported<Impl: IReceiptPrinterCapabilities2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSubscriptSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9507,7 +9507,7 @@ impl IReceiptPrinterCapabilities2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsReversePaperFeedByLineSupported<Impl: IReceiptPrinterCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsReversePaperFeedByLineSupported<Impl: IReceiptPrinterCapabilities2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReversePaperFeedByLineSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9518,7 +9518,7 @@ impl IReceiptPrinterCapabilities2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsReversePaperFeedByMapModeUnitSupported<Impl: IReceiptPrinterCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsReversePaperFeedByMapModeUnitSupported<Impl: IReceiptPrinterCapabilities2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReversePaperFeedByMapModeUnitSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9544,7 +9544,7 @@ impl IReceiptPrinterCapabilities2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISlipPrintJobImpl: Sized {
+pub trait ISlipPrintJob_Impl: Sized {
     fn Print(&mut self, data: &::windows::core::HSTRING, printoptions: &::core::option::Option<PosPrinterPrintOptions>) -> ::windows::core::Result<()>;
     fn FeedPaperByLine(&mut self, linecount: i32) -> ::windows::core::Result<()>;
     fn FeedPaperByMapModeUnit(&mut self, distance: i32) -> ::windows::core::Result<()>;
@@ -9554,17 +9554,17 @@ impl ::windows::core::RuntimeName for ISlipPrintJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.ISlipPrintJob";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISlipPrintJobVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlipPrintJobImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISlipPrintJobVtbl {
-        unsafe extern "system" fn Print<Impl: ISlipPrintJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, printoptions: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISlipPrintJob_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlipPrintJob_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISlipPrintJob_Vtbl {
+        unsafe extern "system" fn Print<Impl: ISlipPrintJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, printoptions: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Print(&*(&data as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&printoptions as *const <PosPrinterPrintOptions as ::windows::core::Abi>::Abi as *const <PosPrinterPrintOptions as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FeedPaperByLine<Impl: ISlipPrintJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, linecount: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeedPaperByLine<Impl: ISlipPrintJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, linecount: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).FeedPaperByLine(linecount).into()
         }
-        unsafe extern "system" fn FeedPaperByMapModeUnit<Impl: ISlipPrintJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, distance: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeedPaperByMapModeUnit<Impl: ISlipPrintJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, distance: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).FeedPaperByMapModeUnit(distance).into()
         }
@@ -9580,7 +9580,7 @@ impl ISlipPrintJobVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISlipPrinterCapabilitiesImpl: Sized {
+pub trait ISlipPrinterCapabilities_Impl: Sized {
     fn IsFullLengthSupported(&mut self) -> ::windows::core::Result<bool>;
     fn IsBothSidesPrintingSupported(&mut self) -> ::windows::core::Result<bool>;
 }
@@ -9589,9 +9589,9 @@ impl ::windows::core::RuntimeName for ISlipPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.ISlipPrinterCapabilities";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISlipPrinterCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlipPrinterCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISlipPrinterCapabilitiesVtbl {
-        unsafe extern "system" fn IsFullLengthSupported<Impl: ISlipPrinterCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ISlipPrinterCapabilities_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlipPrinterCapabilities_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISlipPrinterCapabilities_Vtbl {
+        unsafe extern "system" fn IsFullLengthSupported<Impl: ISlipPrinterCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsFullLengthSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9602,7 +9602,7 @@ impl ISlipPrinterCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsBothSidesPrintingSupported<Impl: ISlipPrinterCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsBothSidesPrintingSupported<Impl: ISlipPrinterCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBothSidesPrintingSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9624,7 +9624,7 @@ impl ISlipPrinterCapabilitiesVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISlipPrinterCapabilities2Impl: Sized {
+pub trait ISlipPrinterCapabilities2_Impl: Sized {
     fn IsReverseVideoSupported(&mut self) -> ::windows::core::Result<bool>;
     fn IsStrikethroughSupported(&mut self) -> ::windows::core::Result<bool>;
     fn IsSuperscriptSupported(&mut self) -> ::windows::core::Result<bool>;
@@ -9637,9 +9637,9 @@ impl ::windows::core::RuntimeName for ISlipPrinterCapabilities2 {
     const NAME: &'static str = "Windows.Devices.PointOfService.ISlipPrinterCapabilities2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISlipPrinterCapabilities2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlipPrinterCapabilities2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISlipPrinterCapabilities2Vtbl {
-        unsafe extern "system" fn IsReverseVideoSupported<Impl: ISlipPrinterCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ISlipPrinterCapabilities2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlipPrinterCapabilities2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISlipPrinterCapabilities2_Vtbl {
+        unsafe extern "system" fn IsReverseVideoSupported<Impl: ISlipPrinterCapabilities2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReverseVideoSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9650,7 +9650,7 @@ impl ISlipPrinterCapabilities2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsStrikethroughSupported<Impl: ISlipPrinterCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsStrikethroughSupported<Impl: ISlipPrinterCapabilities2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsStrikethroughSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9661,7 +9661,7 @@ impl ISlipPrinterCapabilities2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSuperscriptSupported<Impl: ISlipPrinterCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSuperscriptSupported<Impl: ISlipPrinterCapabilities2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSuperscriptSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9672,7 +9672,7 @@ impl ISlipPrinterCapabilities2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSubscriptSupported<Impl: ISlipPrinterCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSubscriptSupported<Impl: ISlipPrinterCapabilities2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSubscriptSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9683,7 +9683,7 @@ impl ISlipPrinterCapabilities2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsReversePaperFeedByLineSupported<Impl: ISlipPrinterCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsReversePaperFeedByLineSupported<Impl: ISlipPrinterCapabilities2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReversePaperFeedByLineSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9694,7 +9694,7 @@ impl ISlipPrinterCapabilities2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsReversePaperFeedByMapModeUnitSupported<Impl: ISlipPrinterCapabilities2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsReversePaperFeedByMapModeUnitSupported<Impl: ISlipPrinterCapabilities2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReversePaperFeedByMapModeUnitSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9720,7 +9720,7 @@ impl ISlipPrinterCapabilities2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUnifiedPosErrorDataImpl: Sized {
+pub trait IUnifiedPosErrorData_Impl: Sized {
     fn Message(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Severity(&mut self) -> ::windows::core::Result<UnifiedPosErrorSeverity>;
     fn Reason(&mut self) -> ::windows::core::Result<UnifiedPosErrorReason>;
@@ -9731,9 +9731,9 @@ impl ::windows::core::RuntimeName for IUnifiedPosErrorData {
     const NAME: &'static str = "Windows.Devices.PointOfService.IUnifiedPosErrorData";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUnifiedPosErrorDataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnifiedPosErrorDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUnifiedPosErrorDataVtbl {
-        unsafe extern "system" fn Message<Impl: IUnifiedPosErrorDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IUnifiedPosErrorData_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnifiedPosErrorData_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUnifiedPosErrorData_Vtbl {
+        unsafe extern "system" fn Message<Impl: IUnifiedPosErrorData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Message() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9744,7 +9744,7 @@ impl IUnifiedPosErrorDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Severity<Impl: IUnifiedPosErrorDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnifiedPosErrorSeverity) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Severity<Impl: IUnifiedPosErrorData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnifiedPosErrorSeverity) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Severity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9755,7 +9755,7 @@ impl IUnifiedPosErrorDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Reason<Impl: IUnifiedPosErrorDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnifiedPosErrorReason) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Reason<Impl: IUnifiedPosErrorData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnifiedPosErrorReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reason() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9766,7 +9766,7 @@ impl IUnifiedPosErrorDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedReason<Impl: IUnifiedPosErrorDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedReason<Impl: IUnifiedPosErrorData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedReason() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9790,7 +9790,7 @@ impl IUnifiedPosErrorDataVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUnifiedPosErrorDataFactoryImpl: Sized {
+pub trait IUnifiedPosErrorDataFactory_Impl: Sized {
     fn CreateInstance(&mut self, message: &::windows::core::HSTRING, severity: UnifiedPosErrorSeverity, reason: UnifiedPosErrorReason, extendedreason: u32) -> ::windows::core::Result<UnifiedPosErrorData>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -9798,9 +9798,9 @@ impl ::windows::core::RuntimeName for IUnifiedPosErrorDataFactory {
     const NAME: &'static str = "Windows.Devices.PointOfService.IUnifiedPosErrorDataFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUnifiedPosErrorDataFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnifiedPosErrorDataFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUnifiedPosErrorDataFactoryVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: IUnifiedPosErrorDataFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, severity: UnifiedPosErrorSeverity, reason: UnifiedPosErrorReason, extendedreason: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUnifiedPosErrorDataFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnifiedPosErrorDataFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUnifiedPosErrorDataFactory_Vtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IUnifiedPosErrorDataFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, severity: UnifiedPosErrorSeverity, reason: UnifiedPosErrorReason, extendedreason: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&message as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), severity, reason, extendedreason) {
                 ::core::result::Result::Ok(ok__) => {

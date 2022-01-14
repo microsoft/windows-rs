@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IXamlDirect(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlDirect {
-    type Vtable = IXamlDirectVtbl;
+    type Vtable = IXamlDirect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ffa1295_add2_590f_a051_70989b866ade);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXamlDirectVtbl {
+pub struct IXamlDirect_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetXamlDirectObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -175,24 +175,24 @@ unsafe impl ::windows::core::RuntimeType for IXamlDirectObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{10614a82-cee4-4645-ba25-d071ce778355}");
 }
 unsafe impl ::windows::core::Interface for IXamlDirectObject {
-    type Vtable = IXamlDirectObjectVtbl;
+    type Vtable = IXamlDirectObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10614a82_cee4_4645_ba25_d071ce778355);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXamlDirectObjectVtbl {
+pub struct IXamlDirectObject_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IXamlDirectStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IXamlDirectStatics {
-    type Vtable = IXamlDirectStaticsVtbl;
+    type Vtable = IXamlDirectStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x321887cc_14e4_5c6f_878d_fbb604ad7d17);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXamlDirectStaticsVtbl {
+pub struct IXamlDirectStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -584,7 +584,7 @@ unsafe impl ::windows::core::RuntimeType for XamlDirect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Core.Direct.XamlDirect;{5ffa1295-add2-590f-a051-70989b866ade})");
 }
 unsafe impl ::windows::core::Interface for XamlDirect {
-    type Vtable = IXamlDirectVtbl;
+    type Vtable = IXamlDirect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ffa1295_add2_590f_a051_70989b866ade);
 }
 impl ::windows::core::RuntimeName for XamlDirect {

@@ -149,13 +149,13 @@ impl ::core::fmt::Debug for ICompositionFramePresentStatistics {
     }
 }
 unsafe impl ::windows::core::Interface for ICompositionFramePresentStatistics {
-    type Vtable = ICompositionFramePresentStatisticsVtbl;
+    type Vtable = ICompositionFramePresentStatistics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab41d127_c101_4c0a_911d_f9f2e9d08e64);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICompositionFramePresentStatisticsVtbl {
-    pub base: IPresentStatisticsVtbl,
+pub struct ICompositionFramePresentStatistics_Vtbl {
+    pub base: IPresentStatistics_Vtbl,
     pub GetContentTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> usize,
     pub GetCompositionFrameId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -260,13 +260,13 @@ impl ::core::fmt::Debug for IIndependentFlipFramePresentStatistics {
     }
 }
 unsafe impl ::windows::core::Interface for IIndependentFlipFramePresentStatistics {
-    type Vtable = IIndependentFlipFramePresentStatisticsVtbl;
+    type Vtable = IIndependentFlipFramePresentStatistics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c93be27_ad94_4da0_8fd4_2413132d124e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIndependentFlipFramePresentStatisticsVtbl {
-    pub base: IPresentStatisticsVtbl,
+pub struct IIndependentFlipFramePresentStatistics_Vtbl {
+    pub base: IPresentStatistics_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetOutputAdapterLUID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::LUID),
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -326,12 +326,12 @@ impl ::core::fmt::Debug for IPresentStatistics {
     }
 }
 unsafe impl ::windows::core::Interface for IPresentStatistics {
-    type Vtable = IPresentStatisticsVtbl;
+    type Vtable = IPresentStatistics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb44b8bda_7282_495d_9dd7_ceadd8b4bb86);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPresentStatisticsVtbl {
+pub struct IPresentStatistics_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetPresentId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
     pub GetKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> PresentStatisticsKind,
@@ -414,13 +414,13 @@ impl ::core::fmt::Debug for IPresentStatusPresentStatistics {
     }
 }
 unsafe impl ::windows::core::Interface for IPresentStatusPresentStatistics {
-    type Vtable = IPresentStatusPresentStatisticsVtbl;
+    type Vtable = IPresentStatusPresentStatistics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9ed2a41_79cb_435e_964e_c8553055420c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPresentStatusPresentStatisticsVtbl {
-    pub base: IPresentStatisticsVtbl,
+pub struct IPresentStatusPresentStatistics_Vtbl {
+    pub base: IPresentStatistics_Vtbl,
     pub GetCompositionFrameId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
     pub GetPresentStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> PresentStatus,
 }
@@ -477,12 +477,12 @@ impl ::core::fmt::Debug for IPresentationBuffer {
     }
 }
 unsafe impl ::windows::core::Interface for IPresentationBuffer {
-    type Vtable = IPresentationBufferVtbl;
+    type Vtable = IPresentationBuffer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e217d3a_5abb_4138_9a13_a775593c89ca);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPresentationBufferVtbl {
+pub struct IPresentationBuffer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetAvailableEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, availableeventhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
@@ -536,12 +536,12 @@ impl ::core::fmt::Debug for IPresentationContent {
     }
 }
 unsafe impl ::windows::core::Interface for IPresentationContent {
-    type Vtable = IPresentationContentVtbl;
+    type Vtable = IPresentationContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5668bb79_3d8e_415c_b215_f38020f2d252);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPresentationContentVtbl {
+pub struct IPresentationContent_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: usize),
 }
@@ -600,12 +600,12 @@ impl ::core::fmt::Debug for IPresentationFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IPresentationFactory {
-    type Vtable = IPresentationFactoryVtbl;
+    type Vtable = IPresentationFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fb37b58_1d74_4f64_a49c_1f97a80a2ec0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPresentationFactoryVtbl {
+pub struct IPresentationFactory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub IsPresentationSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u8,
     pub IsPresentationSupportedWithIndependentFlip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u8,
@@ -713,12 +713,12 @@ impl ::core::fmt::Debug for IPresentationManager {
     }
 }
 unsafe impl ::windows::core::Interface for IPresentationManager {
-    type Vtable = IPresentationManagerVtbl;
+    type Vtable = IPresentationManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb562f82_6292_470a_88b1_843661e7f20c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPresentationManagerVtbl {
+pub struct IPresentationManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub AddBufferFromResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resource: *mut ::core::ffi::c_void, presentationbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -844,13 +844,13 @@ impl ::core::fmt::Debug for IPresentationSurface {
     }
 }
 unsafe impl ::windows::core::Interface for IPresentationSurface {
-    type Vtable = IPresentationSurfaceVtbl;
+    type Vtable = IPresentationSurface_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x956710fb_ea40_4eba_a3eb_4375a0eb4edc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPresentationSurfaceVtbl {
-    pub base: IPresentationContentVtbl,
+pub struct IPresentationSurface_Vtbl {
+    pub base: IPresentationContent_Vtbl,
     pub SetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presentationbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub SetColorSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::HRESULT,

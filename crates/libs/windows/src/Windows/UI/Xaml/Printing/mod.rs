@@ -40,7 +40,7 @@ unsafe impl ::windows::core::RuntimeType for AddPagesEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Printing.AddPagesEventArgs;{e2e52be5-056c-4420-9795-cb3526ce0c20})");
 }
 unsafe impl ::windows::core::Interface for AddPagesEventArgs {
-    type Vtable = IAddPagesEventArgsVtbl;
+    type Vtable = IAddPagesEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2e52be5_056c_4420_9795_cb3526ce0c20);
 }
 impl ::windows::core::RuntimeName for AddPagesEventArgs {
@@ -104,12 +104,12 @@ impl AddPagesEventHandler {
 }
 #[repr(C)]
 struct AddPagesEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<AddPagesEventArgs>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const AddPagesEventHandlerVtbl,
+    vtable: *const AddPagesEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<AddPagesEventArgs>) -> ::windows::core::Result<()> + 'static> AddPagesEventHandlerBox<F> {
-    const VTABLE: AddPagesEventHandlerVtbl = AddPagesEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: AddPagesEventHandler_Vtbl = AddPagesEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<AddPagesEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -154,7 +154,7 @@ impl ::core::fmt::Debug for AddPagesEventHandler {
     }
 }
 unsafe impl ::windows::core::Interface for AddPagesEventHandler {
-    type Vtable = AddPagesEventHandlerVtbl;
+    type Vtable = AddPagesEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4b57970_57a0_4209_847c_c093b54bc729);
 }
 unsafe impl ::windows::core::RuntimeType for AddPagesEventHandler {
@@ -162,7 +162,7 @@ unsafe impl ::windows::core::RuntimeType for AddPagesEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AddPagesEventHandlerVtbl {
+pub struct AddPagesEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -206,7 +206,7 @@ unsafe impl ::windows::core::RuntimeType for GetPreviewPageEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Printing.GetPreviewPageEventArgs;{a43d703d-dea9-4df6-a7ed-35049cd485c7})");
 }
 unsafe impl ::windows::core::Interface for GetPreviewPageEventArgs {
-    type Vtable = IGetPreviewPageEventArgsVtbl;
+    type Vtable = IGetPreviewPageEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa43d703d_dea9_4df6_a7ed_35049cd485c7);
 }
 impl ::windows::core::RuntimeName for GetPreviewPageEventArgs {
@@ -270,12 +270,12 @@ impl GetPreviewPageEventHandler {
 }
 #[repr(C)]
 struct GetPreviewPageEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<GetPreviewPageEventArgs>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const GetPreviewPageEventHandlerVtbl,
+    vtable: *const GetPreviewPageEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<GetPreviewPageEventArgs>) -> ::windows::core::Result<()> + 'static> GetPreviewPageEventHandlerBox<F> {
-    const VTABLE: GetPreviewPageEventHandlerVtbl = GetPreviewPageEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: GetPreviewPageEventHandler_Vtbl = GetPreviewPageEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<GetPreviewPageEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -320,7 +320,7 @@ impl ::core::fmt::Debug for GetPreviewPageEventHandler {
     }
 }
 unsafe impl ::windows::core::Interface for GetPreviewPageEventHandler {
-    type Vtable = GetPreviewPageEventHandlerVtbl;
+    type Vtable = GetPreviewPageEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccb3e9ed_9c11_4e50_ab49_e98086bbfdef);
 }
 unsafe impl ::windows::core::RuntimeType for GetPreviewPageEventHandler {
@@ -328,7 +328,7 @@ unsafe impl ::windows::core::RuntimeType for GetPreviewPageEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct GetPreviewPageEventHandlerVtbl {
+pub struct GetPreviewPageEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -336,12 +336,12 @@ pub struct GetPreviewPageEventHandlerVtbl {
 #[repr(transparent)]
 pub struct IAddPagesEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAddPagesEventArgs {
-    type Vtable = IAddPagesEventArgsVtbl;
+    type Vtable = IAddPagesEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2e52be5_056c_4420_9795_cb3526ce0c20);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAddPagesEventArgsVtbl {
+pub struct IAddPagesEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_Printing")]
     pub PrintTaskOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -352,12 +352,12 @@ pub struct IAddPagesEventArgsVtbl {
 #[repr(transparent)]
 pub struct IGetPreviewPageEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGetPreviewPageEventArgs {
-    type Vtable = IGetPreviewPageEventArgsVtbl;
+    type Vtable = IGetPreviewPageEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa43d703d_dea9_4df6_a7ed_35049cd485c7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGetPreviewPageEventArgsVtbl {
+pub struct IGetPreviewPageEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PageNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
 }
@@ -365,12 +365,12 @@ pub struct IGetPreviewPageEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPaginateEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaginateEventArgs {
-    type Vtable = IPaginateEventArgsVtbl;
+    type Vtable = IPaginateEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed945fd6_79ab_42b7_930a_3d6e09011d21);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPaginateEventArgsVtbl {
+pub struct IPaginateEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_Printing")]
     pub PrintTaskOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -382,12 +382,12 @@ pub struct IPaginateEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPrintDocument(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintDocument {
-    type Vtable = IPrintDocumentVtbl;
+    type Vtable = IPrintDocument_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe44327c3_a999_485b_b1d8_72dc517821e6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintDocumentVtbl {
+pub struct IPrintDocument_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_Printing")]
     pub DocumentSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -427,12 +427,12 @@ pub struct IPrintDocumentVtbl {
 #[repr(transparent)]
 pub struct IPrintDocumentFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintDocumentFactory {
-    type Vtable = IPrintDocumentFactoryVtbl;
+    type Vtable = IPrintDocumentFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb87b18f_2606_4a2f_99d4_a7cdbc35d7c7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintDocumentFactoryVtbl {
+pub struct IPrintDocumentFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -440,12 +440,12 @@ pub struct IPrintDocumentFactoryVtbl {
 #[repr(transparent)]
 pub struct IPrintDocumentStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintDocumentStatics {
-    type Vtable = IPrintDocumentStaticsVtbl;
+    type Vtable = IPrintDocumentStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd970a3c_b152_49e0_a6bd_6aa6477e43c7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintDocumentStaticsVtbl {
+pub struct IPrintDocumentStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DocumentSourceProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -498,7 +498,7 @@ unsafe impl ::windows::core::RuntimeType for PaginateEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Printing.PaginateEventArgs;{ed945fd6-79ab-42b7-930a-3d6e09011d21})");
 }
 unsafe impl ::windows::core::Interface for PaginateEventArgs {
-    type Vtable = IPaginateEventArgsVtbl;
+    type Vtable = IPaginateEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed945fd6_79ab_42b7_930a_3d6e09011d21);
 }
 impl ::windows::core::RuntimeName for PaginateEventArgs {
@@ -562,12 +562,12 @@ impl PaginateEventHandler {
 }
 #[repr(C)]
 struct PaginateEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<PaginateEventArgs>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const PaginateEventHandlerVtbl,
+    vtable: *const PaginateEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<PaginateEventArgs>) -> ::windows::core::Result<()> + 'static> PaginateEventHandlerBox<F> {
-    const VTABLE: PaginateEventHandlerVtbl = PaginateEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: PaginateEventHandler_Vtbl = PaginateEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<PaginateEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -612,7 +612,7 @@ impl ::core::fmt::Debug for PaginateEventHandler {
     }
 }
 unsafe impl ::windows::core::Interface for PaginateEventHandler {
-    type Vtable = PaginateEventHandlerVtbl;
+    type Vtable = PaginateEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cc05b61_811b_4a32_9965_13eb78dbb01b);
 }
 unsafe impl ::windows::core::RuntimeType for PaginateEventHandler {
@@ -620,7 +620,7 @@ unsafe impl ::windows::core::RuntimeType for PaginateEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct PaginateEventHandlerVtbl {
+pub struct PaginateEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -785,7 +785,7 @@ unsafe impl ::windows::core::RuntimeType for PrintDocument {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Printing.PrintDocument;{e44327c3-a999-485b-b1d8-72dc517821e6})");
 }
 unsafe impl ::windows::core::Interface for PrintDocument {
-    type Vtable = IPrintDocumentVtbl;
+    type Vtable = IPrintDocument_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe44327c3_a999_485b_b1d8_72dc517821e6);
 }
 impl ::windows::core::RuntimeName for PrintDocument {

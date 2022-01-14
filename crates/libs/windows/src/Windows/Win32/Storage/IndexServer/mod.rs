@@ -682,12 +682,12 @@ impl ::core::fmt::Debug for IFilter {
     }
 }
 unsafe impl ::windows::core::Interface for IFilter {
-    type Vtable = IFilterVtbl;
+    type Vtable = IFilter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89bcb740_6119_101a_bcb7_00dd010655af);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFilterVtbl {
+pub struct IFilter_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfflags: u32, cattributes: u32, aattributes: *const FULLPROPSPEC, pflags: *mut u32) -> i32,
@@ -759,12 +759,12 @@ impl ::core::fmt::Debug for IPhraseSink {
     }
 }
 unsafe impl ::windows::core::Interface for IPhraseSink {
-    type Vtable = IPhraseSinkVtbl;
+    type Vtable = IPhraseSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc906ff0_c058_101a_b554_08002b33b0e6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhraseSinkVtbl {
+pub struct IPhraseSink_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub PutSmallPhrase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcnoun: super::super::Foundation::PWSTR, cwcnoun: u32, pwcmodifier: super::super::Foundation::PWSTR, cwcmodifier: u32, ulattachmenttype: u32) -> ::windows::core::HRESULT,

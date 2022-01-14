@@ -7,13 +7,13 @@ pub mod Provider;
 pub struct ISocialFeedChildItem(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISocialFeedChildItem {
-    type Vtable = ISocialFeedChildItemVtbl;
+    type Vtable = ISocialFeedChildItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b6a985a_d59d_40be_980c_488a2ab30a83);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISocialFeedChildItemVtbl {
+pub struct ISocialFeedChildItem_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Author: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -62,13 +62,13 @@ pub struct ISocialFeedChildItemVtbl {
 pub struct ISocialFeedContent(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISocialFeedContent {
-    type Vtable = ISocialFeedContentVtbl;
+    type Vtable = ISocialFeedContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa234e429_3e39_494d_a37c_f462a2494514);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISocialFeedContentVtbl {
+pub struct ISocialFeedContent_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -101,13 +101,13 @@ pub struct ISocialFeedContentVtbl {
 pub struct ISocialFeedItem(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISocialFeedItem {
-    type Vtable = ISocialFeedItemVtbl;
+    type Vtable = ISocialFeedItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f1392ab_1f72_4d33_b695_de3e1db60317);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISocialFeedItemVtbl {
+pub struct ISocialFeedItem_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Author: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -196,13 +196,13 @@ pub struct ISocialFeedItemVtbl {
 pub struct ISocialFeedSharedItem(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISocialFeedSharedItem {
-    type Vtable = ISocialFeedSharedItemVtbl;
+    type Vtable = ISocialFeedSharedItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bfb9e40_a6aa_45a7_9ff6_54c42105dd1f);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISocialFeedSharedItemVtbl {
+pub struct ISocialFeedSharedItem_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub OriginalSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -247,13 +247,13 @@ pub struct ISocialFeedSharedItemVtbl {
 pub struct ISocialItemThumbnail(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISocialItemThumbnail {
-    type Vtable = ISocialItemThumbnailVtbl;
+    type Vtable = ISocialItemThumbnail_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cbf831a_3f08_497f_917f_57e09d84b141);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISocialItemThumbnailVtbl {
+pub struct ISocialItemThumbnail_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub TargetUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -290,13 +290,13 @@ pub struct ISocialItemThumbnailVtbl {
 pub struct ISocialUserInfo(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISocialUserInfo {
-    type Vtable = ISocialUserInfoVtbl;
+    type Vtable = ISocialUserInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e5e1bd1_90d0_4e1d_9554_844d46607f61);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISocialUserInfoVtbl {
+pub struct ISocialUserInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -452,7 +452,7 @@ unsafe impl ::windows::core::RuntimeType for SocialFeedChildItem {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SocialFeedChildItem {
-    type Vtable = ISocialFeedChildItemVtbl;
+    type Vtable = ISocialFeedChildItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b6a985a_d59d_40be_980c_488a2ab30a83);
 }
 #[cfg(feature = "deprecated")]
@@ -589,7 +589,7 @@ unsafe impl ::windows::core::RuntimeType for SocialFeedContent {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SocialFeedContent {
-    type Vtable = ISocialFeedContentVtbl;
+    type Vtable = ISocialFeedContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa234e429_3e39_494d_a37c_f462a2494514);
 }
 #[cfg(feature = "deprecated")]
@@ -844,7 +844,7 @@ unsafe impl ::windows::core::RuntimeType for SocialFeedItem {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SocialFeedItem {
-    type Vtable = ISocialFeedItemVtbl;
+    type Vtable = ISocialFeedItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f1392ab_1f72_4d33_b695_de3e1db60317);
 }
 #[cfg(feature = "deprecated")]
@@ -1099,7 +1099,7 @@ unsafe impl ::windows::core::RuntimeType for SocialFeedSharedItem {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SocialFeedSharedItem {
-    type Vtable = ISocialFeedSharedItemVtbl;
+    type Vtable = ISocialFeedSharedItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bfb9e40_a6aa_45a7_9ff6_54c42105dd1f);
 }
 #[cfg(feature = "deprecated")]
@@ -1339,7 +1339,7 @@ unsafe impl ::windows::core::RuntimeType for SocialItemThumbnail {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SocialItemThumbnail {
-    type Vtable = ISocialItemThumbnailVtbl;
+    type Vtable = ISocialItemThumbnail_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cbf831a_3f08_497f_917f_57e09d84b141);
 }
 #[cfg(feature = "deprecated")]
@@ -1491,7 +1491,7 @@ unsafe impl ::windows::core::RuntimeType for SocialUserInfo {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SocialUserInfo {
-    type Vtable = ISocialUserInfoVtbl;
+    type Vtable = ISocialUserInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e5e1bd1_90d0_4e1d_9554_844d46607f61);
 }
 #[cfg(feature = "deprecated")]

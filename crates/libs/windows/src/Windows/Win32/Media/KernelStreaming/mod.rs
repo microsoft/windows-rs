@@ -632,12 +632,12 @@ impl ::core::fmt::Debug for IKsAggregateControl {
     }
 }
 unsafe impl ::windows::core::Interface for IKsAggregateControl {
-    type Vtable = IKsAggregateControlVtbl;
+    type Vtable = IKsAggregateControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f40eac0_3947_11d2_874e_00a0c9223196);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKsAggregateControlVtbl {
+pub struct IKsAggregateControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub KsAddAggregate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub KsRemoveAggregate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -700,12 +700,12 @@ impl ::core::fmt::Debug for IKsControl {
     }
 }
 unsafe impl ::windows::core::Interface for IKsControl {
-    type Vtable = IKsControlVtbl;
+    type Vtable = IKsControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28f54685_06fd_11d2_b27a_00a0c9223196);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKsControlVtbl {
+pub struct IKsControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub KsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: *const KSIDENTIFIER, propertylength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::HRESULT,
     pub KsMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: *const KSIDENTIFIER, methodlength: u32, methoddata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::HRESULT,
@@ -763,12 +763,12 @@ impl ::core::fmt::Debug for IKsFormatSupport {
     }
 }
 unsafe impl ::windows::core::Interface for IKsFormatSupport {
-    type Vtable = IKsFormatSupportVtbl;
+    type Vtable = IKsFormatSupport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb4a69d_bb6f_4d2b_95b7_452d2c155db5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKsFormatSupportVtbl {
+pub struct IKsFormatSupport_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsFormatSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -823,12 +823,12 @@ impl ::core::fmt::Debug for IKsJackContainerId {
     }
 }
 unsafe impl ::windows::core::Interface for IKsJackContainerId {
-    type Vtable = IKsJackContainerIdVtbl;
+    type Vtable = IKsJackContainerId_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc99af463_d629_4ec4_8c00_e54d68154248);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKsJackContainerIdVtbl {
+pub struct IKsJackContainerId_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetJackContainerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjackcontainerid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
@@ -885,12 +885,12 @@ impl ::core::fmt::Debug for IKsJackDescription {
     }
 }
 unsafe impl ::windows::core::Interface for IKsJackDescription {
-    type Vtable = IKsJackDescriptionVtbl;
+    type Vtable = IKsJackDescription_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4509f757_2d46_4637_8e62_ce7db944f57b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKsJackDescriptionVtbl {
+pub struct IKsJackDescription_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetJackCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcjacks: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -950,12 +950,12 @@ impl ::core::fmt::Debug for IKsJackDescription2 {
     }
 }
 unsafe impl ::windows::core::Interface for IKsJackDescription2 {
-    type Vtable = IKsJackDescription2Vtbl;
+    type Vtable = IKsJackDescription2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x478f3a9b_e0c9_4827_9228_6f5505ffe76a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKsJackDescription2Vtbl {
+pub struct IKsJackDescription2_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetJackCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcjacks: *mut u32) -> ::windows::core::HRESULT,
     pub GetJackDescription2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, njack: u32, pdescription2: *mut KSJACK_DESCRIPTION2) -> ::windows::core::HRESULT,
@@ -1008,12 +1008,12 @@ impl ::core::fmt::Debug for IKsJackSinkInformation {
     }
 }
 unsafe impl ::windows::core::Interface for IKsJackSinkInformation {
-    type Vtable = IKsJackSinkInformationVtbl;
+    type Vtable = IKsJackSinkInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9bd72ed_290f_4581_9ff3_61027a8fe532);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKsJackSinkInformationVtbl {
+pub struct IKsJackSinkInformation_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetJackSinkInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjacksinkinformation: *mut KSJACK_SINK_INFORMATION) -> ::windows::core::HRESULT,
@@ -1077,12 +1077,12 @@ impl ::core::fmt::Debug for IKsPropertySet {
     }
 }
 unsafe impl ::windows::core::Interface for IKsPropertySet {
-    type Vtable = IKsPropertySetVtbl;
+    type Vtable = IKsPropertySet_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31efac30_515c_11d0_a9aa_00aa0061be93);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKsPropertySetVtbl {
+pub struct IKsPropertySet_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Set: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *const ::core::ffi::c_void, datalength: u32) -> ::windows::core::HRESULT,
     pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::HRESULT,
@@ -1134,12 +1134,12 @@ impl ::core::fmt::Debug for IKsTopology {
     }
 }
 unsafe impl ::windows::core::Interface for IKsTopology {
-    type Vtable = IKsTopologyVtbl;
+    type Vtable = IKsTopology_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28f54683_06fd_11d2_b27a_00a0c9223196);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKsTopologyVtbl {
+pub struct IKsTopology_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateNodeInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: *mut ::core::ffi::c_void, interfaceid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }

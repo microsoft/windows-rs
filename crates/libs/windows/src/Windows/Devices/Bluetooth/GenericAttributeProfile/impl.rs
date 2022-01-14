@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IGattCharacteristicImpl: Sized {
+pub trait IGattCharacteristic_Impl: Sized {
     fn GetDescriptors(&mut self, descriptoruuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>>;
     fn CharacteristicProperties(&mut self) -> ::windows::core::Result<GattCharacteristicProperties>;
     fn ProtectionLevel(&mut self) -> ::windows::core::Result<GattProtectionLevel>;
@@ -22,9 +22,9 @@ impl ::windows::core::RuntimeName for IGattCharacteristic {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IGattCharacteristicVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristicImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattCharacteristicVtbl {
-        unsafe extern "system" fn GetDescriptors<Impl: IGattCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptoruuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattCharacteristic_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristic_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattCharacteristic_Vtbl {
+        unsafe extern "system" fn GetDescriptors<Impl: IGattCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptoruuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDescriptors(&*(&descriptoruuid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -35,7 +35,7 @@ impl IGattCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CharacteristicProperties<Impl: IGattCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattCharacteristicProperties) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CharacteristicProperties<Impl: IGattCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattCharacteristicProperties) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CharacteristicProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -46,7 +46,7 @@ impl IGattCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProtectionLevel<Impl: IGattCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattProtectionLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProtectionLevel<Impl: IGattCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattProtectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtectionLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -57,11 +57,11 @@ impl IGattCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProtectionLevel<Impl: IGattCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: GattProtectionLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProtectionLevel<Impl: IGattCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: GattProtectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProtectionLevel(value).into()
         }
-        unsafe extern "system" fn UserDescription<Impl: IGattCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UserDescription<Impl: IGattCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -72,7 +72,7 @@ impl IGattCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Uuid<Impl: IGattCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Uuid<Impl: IGattCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uuid() {
                 ::core::result::Result::Ok(ok__) => {
@@ -83,7 +83,7 @@ impl IGattCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AttributeHandle<Impl: IGattCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AttributeHandle<Impl: IGattCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AttributeHandle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -94,7 +94,7 @@ impl IGattCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PresentationFormats<Impl: IGattCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PresentationFormats<Impl: IGattCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PresentationFormats() {
                 ::core::result::Result::Ok(ok__) => {
@@ -105,7 +105,7 @@ impl IGattCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadValueAsync<Impl: IGattCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadValueAsync<Impl: IGattCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadValueAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -116,7 +116,7 @@ impl IGattCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadValueWithCacheModeAsync<Impl: IGattCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cachemode: super::BluetoothCacheMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadValueWithCacheModeAsync<Impl: IGattCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cachemode: super::BluetoothCacheMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadValueWithCacheModeAsync(cachemode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -127,7 +127,7 @@ impl IGattCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WriteValueAsync<Impl: IGattCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteValueAsync<Impl: IGattCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteValueAsync(&*(&value as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -138,7 +138,7 @@ impl IGattCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WriteValueWithOptionAsync<Impl: IGattCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, writeoption: GattWriteOption, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteValueWithOptionAsync<Impl: IGattCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, writeoption: GattWriteOption, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteValueWithOptionAsync(&*(&value as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType), writeoption) {
                 ::core::result::Result::Ok(ok__) => {
@@ -149,7 +149,7 @@ impl IGattCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadClientCharacteristicConfigurationDescriptorAsync<Impl: IGattCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadClientCharacteristicConfigurationDescriptorAsync<Impl: IGattCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadClientCharacteristicConfigurationDescriptorAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -160,7 +160,7 @@ impl IGattCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WriteClientCharacteristicConfigurationDescriptorAsync<Impl: IGattCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteClientCharacteristicConfigurationDescriptorAsync<Impl: IGattCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteClientCharacteristicConfigurationDescriptorAsync(clientcharacteristicconfigurationdescriptorvalue) {
                 ::core::result::Result::Ok(ok__) => {
@@ -171,7 +171,7 @@ impl IGattCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ValueChanged<Impl: IGattCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, valuechangedhandler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ValueChanged<Impl: IGattCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, valuechangedhandler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ValueChanged(&*(&valuechangedhandler as *const <super::super::super::Foundation::TypedEventHandler<GattCharacteristic, GattValueChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<GattCharacteristic, GattValueChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -182,7 +182,7 @@ impl IGattCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveValueChanged<Impl: IGattCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, valuechangedeventcookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveValueChanged<Impl: IGattCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, valuechangedeventcookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveValueChanged(&*(&valuechangedeventcookie as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -211,7 +211,7 @@ impl IGattCharacteristicVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IGattCharacteristic2Impl: Sized + IGattCharacteristicImpl {
+pub trait IGattCharacteristic2_Impl: Sized + IGattCharacteristic_Impl {
     fn Service(&mut self) -> ::windows::core::Result<GattDeviceService>;
     fn GetAllDescriptors(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>>;
 }
@@ -220,9 +220,9 @@ impl ::windows::core::RuntimeName for IGattCharacteristic2 {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic2";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IGattCharacteristic2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristic2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattCharacteristic2Vtbl {
-        unsafe extern "system" fn Service<Impl: IGattCharacteristic2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattCharacteristic2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristic2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattCharacteristic2_Vtbl {
+        unsafe extern "system" fn Service<Impl: IGattCharacteristic2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Service() {
                 ::core::result::Result::Ok(ok__) => {
@@ -233,7 +233,7 @@ impl IGattCharacteristic2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAllDescriptors<Impl: IGattCharacteristic2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAllDescriptors<Impl: IGattCharacteristic2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAllDescriptors() {
                 ::core::result::Result::Ok(ok__) => {
@@ -255,7 +255,7 @@ impl IGattCharacteristic2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IGattCharacteristic3Impl: Sized {
+pub trait IGattCharacteristic3_Impl: Sized {
     fn GetDescriptorsAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>;
     fn GetDescriptorsWithCacheModeAsync(&mut self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>;
     fn GetDescriptorsForUuidAsync(&mut self, descriptoruuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>;
@@ -269,9 +269,9 @@ impl ::windows::core::RuntimeName for IGattCharacteristic3 {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristic3";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IGattCharacteristic3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristic3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattCharacteristic3Vtbl {
-        unsafe extern "system" fn GetDescriptorsAsync<Impl: IGattCharacteristic3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattCharacteristic3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristic3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattCharacteristic3_Vtbl {
+        unsafe extern "system" fn GetDescriptorsAsync<Impl: IGattCharacteristic3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDescriptorsAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -282,7 +282,7 @@ impl IGattCharacteristic3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDescriptorsWithCacheModeAsync<Impl: IGattCharacteristic3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cachemode: super::BluetoothCacheMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDescriptorsWithCacheModeAsync<Impl: IGattCharacteristic3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cachemode: super::BluetoothCacheMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDescriptorsWithCacheModeAsync(cachemode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -293,7 +293,7 @@ impl IGattCharacteristic3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDescriptorsForUuidAsync<Impl: IGattCharacteristic3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptoruuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDescriptorsForUuidAsync<Impl: IGattCharacteristic3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptoruuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDescriptorsForUuidAsync(&*(&descriptoruuid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -304,7 +304,7 @@ impl IGattCharacteristic3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDescriptorsForUuidWithCacheModeAsync<Impl: IGattCharacteristic3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptoruuid: ::windows::core::GUID, cachemode: super::BluetoothCacheMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDescriptorsForUuidWithCacheModeAsync<Impl: IGattCharacteristic3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptoruuid: ::windows::core::GUID, cachemode: super::BluetoothCacheMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDescriptorsForUuidWithCacheModeAsync(&*(&descriptoruuid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), cachemode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -315,7 +315,7 @@ impl IGattCharacteristic3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WriteValueWithResultAsync<Impl: IGattCharacteristic3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteValueWithResultAsync<Impl: IGattCharacteristic3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteValueWithResultAsync(&*(&value as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -326,7 +326,7 @@ impl IGattCharacteristic3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WriteValueWithResultAndOptionAsync<Impl: IGattCharacteristic3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, writeoption: GattWriteOption, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteValueWithResultAndOptionAsync<Impl: IGattCharacteristic3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, writeoption: GattWriteOption, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteValueWithResultAndOptionAsync(&*(&value as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType), writeoption) {
                 ::core::result::Result::Ok(ok__) => {
@@ -337,7 +337,7 @@ impl IGattCharacteristic3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WriteClientCharacteristicConfigurationDescriptorWithResultAsync<Impl: IGattCharacteristic3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteClientCharacteristicConfigurationDescriptorWithResultAsync<Impl: IGattCharacteristic3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteClientCharacteristicConfigurationDescriptorWithResultAsync(clientcharacteristicconfigurationdescriptorvalue) {
                 ::core::result::Result::Ok(ok__) => {
@@ -364,7 +364,7 @@ impl IGattCharacteristic3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGattCharacteristicStaticsImpl: Sized {
+pub trait IGattCharacteristicStatics_Impl: Sized {
     fn ConvertShortIdToUuid(&mut self, shortid: u16) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -372,9 +372,9 @@ impl ::windows::core::RuntimeName for IGattCharacteristicStatics {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristicStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGattCharacteristicStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristicStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattCharacteristicStaticsVtbl {
-        unsafe extern "system" fn ConvertShortIdToUuid<Impl: IGattCharacteristicStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shortid: u16, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl IGattCharacteristicStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristicStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattCharacteristicStatics_Vtbl {
+        unsafe extern "system" fn ConvertShortIdToUuid<Impl: IGattCharacteristicStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shortid: u16, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConvertShortIdToUuid(shortid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -395,7 +395,7 @@ impl IGattCharacteristicStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGattCharacteristicUuidsStaticsImpl: Sized {
+pub trait IGattCharacteristicUuidsStatics_Impl: Sized {
     fn BatteryLevel(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn BloodPressureFeature(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn BloodPressureMeasurement(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -423,9 +423,9 @@ impl ::windows::core::RuntimeName for IGattCharacteristicUuidsStatics {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristicUuidsStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGattCharacteristicUuidsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristicUuidsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattCharacteristicUuidsStaticsVtbl {
-        unsafe extern "system" fn BatteryLevel<Impl: IGattCharacteristicUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl IGattCharacteristicUuidsStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristicUuidsStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattCharacteristicUuidsStatics_Vtbl {
+        unsafe extern "system" fn BatteryLevel<Impl: IGattCharacteristicUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BatteryLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -436,7 +436,7 @@ impl IGattCharacteristicUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BloodPressureFeature<Impl: IGattCharacteristicUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BloodPressureFeature<Impl: IGattCharacteristicUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BloodPressureFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -447,7 +447,7 @@ impl IGattCharacteristicUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BloodPressureMeasurement<Impl: IGattCharacteristicUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BloodPressureMeasurement<Impl: IGattCharacteristicUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BloodPressureMeasurement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -458,7 +458,7 @@ impl IGattCharacteristicUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BodySensorLocation<Impl: IGattCharacteristicUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BodySensorLocation<Impl: IGattCharacteristicUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BodySensorLocation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -469,7 +469,7 @@ impl IGattCharacteristicUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CscFeature<Impl: IGattCharacteristicUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CscFeature<Impl: IGattCharacteristicUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CscFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -480,7 +480,7 @@ impl IGattCharacteristicUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CscMeasurement<Impl: IGattCharacteristicUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CscMeasurement<Impl: IGattCharacteristicUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CscMeasurement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -491,7 +491,7 @@ impl IGattCharacteristicUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GlucoseFeature<Impl: IGattCharacteristicUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GlucoseFeature<Impl: IGattCharacteristicUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GlucoseFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -502,7 +502,7 @@ impl IGattCharacteristicUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GlucoseMeasurement<Impl: IGattCharacteristicUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GlucoseMeasurement<Impl: IGattCharacteristicUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GlucoseMeasurement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -513,7 +513,7 @@ impl IGattCharacteristicUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GlucoseMeasurementContext<Impl: IGattCharacteristicUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GlucoseMeasurementContext<Impl: IGattCharacteristicUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GlucoseMeasurementContext() {
                 ::core::result::Result::Ok(ok__) => {
@@ -524,7 +524,7 @@ impl IGattCharacteristicUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HeartRateControlPoint<Impl: IGattCharacteristicUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HeartRateControlPoint<Impl: IGattCharacteristicUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HeartRateControlPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -535,7 +535,7 @@ impl IGattCharacteristicUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HeartRateMeasurement<Impl: IGattCharacteristicUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HeartRateMeasurement<Impl: IGattCharacteristicUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HeartRateMeasurement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -546,7 +546,7 @@ impl IGattCharacteristicUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IntermediateCuffPressure<Impl: IGattCharacteristicUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IntermediateCuffPressure<Impl: IGattCharacteristicUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IntermediateCuffPressure() {
                 ::core::result::Result::Ok(ok__) => {
@@ -557,7 +557,7 @@ impl IGattCharacteristicUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IntermediateTemperature<Impl: IGattCharacteristicUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IntermediateTemperature<Impl: IGattCharacteristicUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IntermediateTemperature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -568,7 +568,7 @@ impl IGattCharacteristicUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MeasurementInterval<Impl: IGattCharacteristicUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MeasurementInterval<Impl: IGattCharacteristicUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MeasurementInterval() {
                 ::core::result::Result::Ok(ok__) => {
@@ -579,7 +579,7 @@ impl IGattCharacteristicUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RecordAccessControlPoint<Impl: IGattCharacteristicUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RecordAccessControlPoint<Impl: IGattCharacteristicUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RecordAccessControlPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -590,7 +590,7 @@ impl IGattCharacteristicUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RscFeature<Impl: IGattCharacteristicUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RscFeature<Impl: IGattCharacteristicUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RscFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -601,7 +601,7 @@ impl IGattCharacteristicUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RscMeasurement<Impl: IGattCharacteristicUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RscMeasurement<Impl: IGattCharacteristicUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RscMeasurement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -612,7 +612,7 @@ impl IGattCharacteristicUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SCControlPoint<Impl: IGattCharacteristicUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SCControlPoint<Impl: IGattCharacteristicUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SCControlPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -623,7 +623,7 @@ impl IGattCharacteristicUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SensorLocation<Impl: IGattCharacteristicUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SensorLocation<Impl: IGattCharacteristicUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SensorLocation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -634,7 +634,7 @@ impl IGattCharacteristicUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TemperatureMeasurement<Impl: IGattCharacteristicUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TemperatureMeasurement<Impl: IGattCharacteristicUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TemperatureMeasurement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -645,7 +645,7 @@ impl IGattCharacteristicUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TemperatureType<Impl: IGattCharacteristicUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TemperatureType<Impl: IGattCharacteristicUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TemperatureType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -686,7 +686,7 @@ impl IGattCharacteristicUuidsStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGattCharacteristicUuidsStatics2Impl: Sized {
+pub trait IGattCharacteristicUuidsStatics2_Impl: Sized {
     fn AlertCategoryId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn AlertCategoryIdBitMask(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn AlertLevel(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -753,9 +753,9 @@ impl ::windows::core::RuntimeName for IGattCharacteristicUuidsStatics2 {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristicUuidsStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGattCharacteristicUuidsStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristicUuidsStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattCharacteristicUuidsStatics2Vtbl {
-        unsafe extern "system" fn AlertCategoryId<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl IGattCharacteristicUuidsStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristicUuidsStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattCharacteristicUuidsStatics2_Vtbl {
+        unsafe extern "system" fn AlertCategoryId<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlertCategoryId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -766,7 +766,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AlertCategoryIdBitMask<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AlertCategoryIdBitMask<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlertCategoryIdBitMask() {
                 ::core::result::Result::Ok(ok__) => {
@@ -777,7 +777,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AlertLevel<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AlertLevel<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlertLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -788,7 +788,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AlertNotificationControlPoint<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AlertNotificationControlPoint<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlertNotificationControlPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -799,7 +799,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AlertStatus<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AlertStatus<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlertStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -810,7 +810,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GapAppearance<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GapAppearance<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GapAppearance() {
                 ::core::result::Result::Ok(ok__) => {
@@ -821,7 +821,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BootKeyboardInputReport<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BootKeyboardInputReport<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BootKeyboardInputReport() {
                 ::core::result::Result::Ok(ok__) => {
@@ -832,7 +832,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BootKeyboardOutputReport<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BootKeyboardOutputReport<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BootKeyboardOutputReport() {
                 ::core::result::Result::Ok(ok__) => {
@@ -843,7 +843,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BootMouseInputReport<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BootMouseInputReport<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BootMouseInputReport() {
                 ::core::result::Result::Ok(ok__) => {
@@ -854,7 +854,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentTime<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentTime<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -865,7 +865,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CyclingPowerControlPoint<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CyclingPowerControlPoint<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CyclingPowerControlPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -876,7 +876,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CyclingPowerFeature<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CyclingPowerFeature<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CyclingPowerFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -887,7 +887,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CyclingPowerMeasurement<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CyclingPowerMeasurement<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CyclingPowerMeasurement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -898,7 +898,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CyclingPowerVector<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CyclingPowerVector<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CyclingPowerVector() {
                 ::core::result::Result::Ok(ok__) => {
@@ -909,7 +909,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DateTime<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DateTime<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DateTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -920,7 +920,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DayDateTime<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DayDateTime<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DayDateTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -931,7 +931,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DayOfWeek<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DayOfWeek<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DayOfWeek() {
                 ::core::result::Result::Ok(ok__) => {
@@ -942,7 +942,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GapDeviceName<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GapDeviceName<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GapDeviceName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -953,7 +953,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DstOffset<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DstOffset<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DstOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -964,7 +964,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExactTime256<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExactTime256<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExactTime256() {
                 ::core::result::Result::Ok(ok__) => {
@@ -975,7 +975,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FirmwareRevisionString<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FirmwareRevisionString<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FirmwareRevisionString() {
                 ::core::result::Result::Ok(ok__) => {
@@ -986,7 +986,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HardwareRevisionString<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HardwareRevisionString<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HardwareRevisionString() {
                 ::core::result::Result::Ok(ok__) => {
@@ -997,7 +997,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HidControlPoint<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HidControlPoint<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HidControlPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1008,7 +1008,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HidInformation<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HidInformation<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HidInformation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1019,7 +1019,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Ieee1107320601RegulatoryCertificationDataList<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ieee1107320601RegulatoryCertificationDataList<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ieee1107320601RegulatoryCertificationDataList() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1030,7 +1030,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LnControlPoint<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LnControlPoint<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LnControlPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1041,7 +1041,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LnFeature<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LnFeature<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LnFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1052,7 +1052,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocalTimeInformation<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LocalTimeInformation<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalTimeInformation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1063,7 +1063,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocationAndSpeed<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LocationAndSpeed<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocationAndSpeed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1074,7 +1074,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ManufacturerNameString<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ManufacturerNameString<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ManufacturerNameString() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1085,7 +1085,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModelNumberString<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ModelNumberString<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ModelNumberString() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1096,7 +1096,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Navigation<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Navigation<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Navigation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1107,7 +1107,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NewAlert<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NewAlert<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NewAlert() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1118,7 +1118,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GapPeripheralPreferredConnectionParameters<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GapPeripheralPreferredConnectionParameters<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GapPeripheralPreferredConnectionParameters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1129,7 +1129,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GapPeripheralPrivacyFlag<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GapPeripheralPrivacyFlag<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GapPeripheralPrivacyFlag() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1140,7 +1140,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PnpId<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PnpId<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PnpId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1151,7 +1151,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PositionQuality<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PositionQuality<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PositionQuality() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1162,7 +1162,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProtocolMode<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProtocolMode<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtocolMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1173,7 +1173,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GapReconnectionAddress<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GapReconnectionAddress<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GapReconnectionAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1184,7 +1184,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReferenceTimeInformation<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReferenceTimeInformation<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReferenceTimeInformation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1195,7 +1195,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Report<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Report<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Report() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1206,7 +1206,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportMap<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportMap<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportMap() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1217,7 +1217,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RingerControlPoint<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RingerControlPoint<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RingerControlPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1228,7 +1228,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RingerSetting<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RingerSetting<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RingerSetting() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1239,7 +1239,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ScanIntervalWindow<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScanIntervalWindow<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScanIntervalWindow() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1250,7 +1250,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ScanRefresh<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScanRefresh<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScanRefresh() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1261,7 +1261,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SerialNumberString<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SerialNumberString<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SerialNumberString() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1272,7 +1272,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GattServiceChanged<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GattServiceChanged<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GattServiceChanged() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1283,7 +1283,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SoftwareRevisionString<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SoftwareRevisionString<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SoftwareRevisionString() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1294,7 +1294,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedNewAlertCategory<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedNewAlertCategory<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedNewAlertCategory() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1305,7 +1305,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportUnreadAlertCategory<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportUnreadAlertCategory<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportUnreadAlertCategory() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1316,7 +1316,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SystemId<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SystemId<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1327,7 +1327,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TimeAccuracy<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TimeAccuracy<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimeAccuracy() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1338,7 +1338,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TimeSource<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TimeSource<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimeSource() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1349,7 +1349,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TimeUpdateControlPoint<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TimeUpdateControlPoint<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimeUpdateControlPoint() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1360,7 +1360,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TimeUpdateState<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TimeUpdateState<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimeUpdateState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1371,7 +1371,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TimeWithDst<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TimeWithDst<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimeWithDst() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1382,7 +1382,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TimeZone<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TimeZone<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimeZone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1393,7 +1393,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TxPowerLevel<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TxPowerLevel<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TxPowerLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1404,7 +1404,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnreadAlertStatus<Impl: IGattCharacteristicUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnreadAlertStatus<Impl: IGattCharacteristicUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnreadAlertStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1484,7 +1484,7 @@ impl IGattCharacteristicUuidsStatics2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IGattCharacteristicsResultImpl: Sized {
+pub trait IGattCharacteristicsResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<GattCommunicationStatus>;
     fn ProtocolError(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>>;
     fn Characteristics(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>>;
@@ -1494,9 +1494,9 @@ impl ::windows::core::RuntimeName for IGattCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristicsResult";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IGattCharacteristicsResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristicsResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattCharacteristicsResultVtbl {
-        unsafe extern "system" fn Status<Impl: IGattCharacteristicsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows::core::HRESULT {
+impl IGattCharacteristicsResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattCharacteristicsResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattCharacteristicsResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IGattCharacteristicsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1507,7 +1507,7 @@ impl IGattCharacteristicsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProtocolError<Impl: IGattCharacteristicsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProtocolError<Impl: IGattCharacteristicsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtocolError() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1518,7 +1518,7 @@ impl IGattCharacteristicsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Characteristics<Impl: IGattCharacteristicsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Characteristics<Impl: IGattCharacteristicsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Characteristics() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1541,7 +1541,7 @@ impl IGattCharacteristicsResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGattClientNotificationResultImpl: Sized {
+pub trait IGattClientNotificationResult_Impl: Sized {
     fn SubscribedClient(&mut self) -> ::windows::core::Result<GattSubscribedClient>;
     fn Status(&mut self) -> ::windows::core::Result<GattCommunicationStatus>;
     fn ProtocolError(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>>;
@@ -1551,9 +1551,9 @@ impl ::windows::core::RuntimeName for IGattClientNotificationResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattClientNotificationResult";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGattClientNotificationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattClientNotificationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattClientNotificationResultVtbl {
-        unsafe extern "system" fn SubscribedClient<Impl: IGattClientNotificationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattClientNotificationResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattClientNotificationResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattClientNotificationResult_Vtbl {
+        unsafe extern "system" fn SubscribedClient<Impl: IGattClientNotificationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SubscribedClient() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1564,7 +1564,7 @@ impl IGattClientNotificationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Status<Impl: IGattClientNotificationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Status<Impl: IGattClientNotificationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1575,7 +1575,7 @@ impl IGattClientNotificationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProtocolError<Impl: IGattClientNotificationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProtocolError<Impl: IGattClientNotificationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtocolError() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1598,7 +1598,7 @@ impl IGattClientNotificationResultVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGattClientNotificationResult2Impl: Sized {
+pub trait IGattClientNotificationResult2_Impl: Sized {
     fn BytesSent(&mut self) -> ::windows::core::Result<u16>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1606,9 +1606,9 @@ impl ::windows::core::RuntimeName for IGattClientNotificationResult2 {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattClientNotificationResult2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGattClientNotificationResult2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattClientNotificationResult2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattClientNotificationResult2Vtbl {
-        unsafe extern "system" fn BytesSent<Impl: IGattClientNotificationResult2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+impl IGattClientNotificationResult2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattClientNotificationResult2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattClientNotificationResult2_Vtbl {
+        unsafe extern "system" fn BytesSent<Impl: IGattClientNotificationResult2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BytesSent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1629,7 +1629,7 @@ impl IGattClientNotificationResult2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IGattDescriptorImpl: Sized {
+pub trait IGattDescriptor_Impl: Sized {
     fn ProtectionLevel(&mut self) -> ::windows::core::Result<GattProtectionLevel>;
     fn SetProtectionLevel(&mut self, value: GattProtectionLevel) -> ::windows::core::Result<()>;
     fn Uuid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -1643,9 +1643,9 @@ impl ::windows::core::RuntimeName for IGattDescriptor {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDescriptor";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IGattDescriptorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattDescriptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattDescriptorVtbl {
-        unsafe extern "system" fn ProtectionLevel<Impl: IGattDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattProtectionLevel) -> ::windows::core::HRESULT {
+impl IGattDescriptor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattDescriptor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattDescriptor_Vtbl {
+        unsafe extern "system" fn ProtectionLevel<Impl: IGattDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattProtectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtectionLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1656,11 +1656,11 @@ impl IGattDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProtectionLevel<Impl: IGattDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: GattProtectionLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProtectionLevel<Impl: IGattDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: GattProtectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProtectionLevel(value).into()
         }
-        unsafe extern "system" fn Uuid<Impl: IGattDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Uuid<Impl: IGattDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uuid() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1671,7 +1671,7 @@ impl IGattDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AttributeHandle<Impl: IGattDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AttributeHandle<Impl: IGattDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AttributeHandle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1682,7 +1682,7 @@ impl IGattDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadValueAsync<Impl: IGattDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadValueAsync<Impl: IGattDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadValueAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1693,7 +1693,7 @@ impl IGattDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadValueWithCacheModeAsync<Impl: IGattDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cachemode: super::BluetoothCacheMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadValueWithCacheModeAsync<Impl: IGattDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cachemode: super::BluetoothCacheMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadValueWithCacheModeAsync(cachemode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1704,7 +1704,7 @@ impl IGattDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WriteValueAsync<Impl: IGattDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteValueAsync<Impl: IGattDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteValueAsync(&*(&value as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1731,7 +1731,7 @@ impl IGattDescriptorVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IGattDescriptor2Impl: Sized {
+pub trait IGattDescriptor2_Impl: Sized {
     fn WriteValueWithResultAsync(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -1739,9 +1739,9 @@ impl ::windows::core::RuntimeName for IGattDescriptor2 {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDescriptor2";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IGattDescriptor2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattDescriptor2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattDescriptor2Vtbl {
-        unsafe extern "system" fn WriteValueWithResultAsync<Impl: IGattDescriptor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattDescriptor2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattDescriptor2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattDescriptor2_Vtbl {
+        unsafe extern "system" fn WriteValueWithResultAsync<Impl: IGattDescriptor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteValueWithResultAsync(&*(&value as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1762,7 +1762,7 @@ impl IGattDescriptor2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGattDescriptorStaticsImpl: Sized {
+pub trait IGattDescriptorStatics_Impl: Sized {
     fn ConvertShortIdToUuid(&mut self, shortid: u16) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1770,9 +1770,9 @@ impl ::windows::core::RuntimeName for IGattDescriptorStatics {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDescriptorStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGattDescriptorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattDescriptorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattDescriptorStaticsVtbl {
-        unsafe extern "system" fn ConvertShortIdToUuid<Impl: IGattDescriptorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shortid: u16, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl IGattDescriptorStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattDescriptorStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattDescriptorStatics_Vtbl {
+        unsafe extern "system" fn ConvertShortIdToUuid<Impl: IGattDescriptorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shortid: u16, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConvertShortIdToUuid(shortid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1793,7 +1793,7 @@ impl IGattDescriptorStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGattDescriptorUuidsStaticsImpl: Sized {
+pub trait IGattDescriptorUuidsStatics_Impl: Sized {
     fn CharacteristicAggregateFormat(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn CharacteristicExtendedProperties(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn CharacteristicPresentationFormat(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -1806,9 +1806,9 @@ impl ::windows::core::RuntimeName for IGattDescriptorUuidsStatics {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDescriptorUuidsStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGattDescriptorUuidsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattDescriptorUuidsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattDescriptorUuidsStaticsVtbl {
-        unsafe extern "system" fn CharacteristicAggregateFormat<Impl: IGattDescriptorUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl IGattDescriptorUuidsStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattDescriptorUuidsStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattDescriptorUuidsStatics_Vtbl {
+        unsafe extern "system" fn CharacteristicAggregateFormat<Impl: IGattDescriptorUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CharacteristicAggregateFormat() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1819,7 +1819,7 @@ impl IGattDescriptorUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CharacteristicExtendedProperties<Impl: IGattDescriptorUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CharacteristicExtendedProperties<Impl: IGattDescriptorUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CharacteristicExtendedProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1830,7 +1830,7 @@ impl IGattDescriptorUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CharacteristicPresentationFormat<Impl: IGattDescriptorUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CharacteristicPresentationFormat<Impl: IGattDescriptorUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CharacteristicPresentationFormat() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1841,7 +1841,7 @@ impl IGattDescriptorUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CharacteristicUserDescription<Impl: IGattDescriptorUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CharacteristicUserDescription<Impl: IGattDescriptorUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CharacteristicUserDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1852,7 +1852,7 @@ impl IGattDescriptorUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClientCharacteristicConfiguration<Impl: IGattDescriptorUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClientCharacteristicConfiguration<Impl: IGattDescriptorUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClientCharacteristicConfiguration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1863,7 +1863,7 @@ impl IGattDescriptorUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServerCharacteristicConfiguration<Impl: IGattDescriptorUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServerCharacteristicConfiguration<Impl: IGattDescriptorUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCharacteristicConfiguration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1889,7 +1889,7 @@ impl IGattDescriptorUuidsStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IGattDescriptorsResultImpl: Sized {
+pub trait IGattDescriptorsResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<GattCommunicationStatus>;
     fn ProtocolError(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>>;
     fn Descriptors(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>>;
@@ -1899,9 +1899,9 @@ impl ::windows::core::RuntimeName for IGattDescriptorsResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDescriptorsResult";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IGattDescriptorsResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattDescriptorsResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattDescriptorsResultVtbl {
-        unsafe extern "system" fn Status<Impl: IGattDescriptorsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows::core::HRESULT {
+impl IGattDescriptorsResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattDescriptorsResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattDescriptorsResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IGattDescriptorsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1912,7 +1912,7 @@ impl IGattDescriptorsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProtocolError<Impl: IGattDescriptorsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProtocolError<Impl: IGattDescriptorsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtocolError() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1923,7 +1923,7 @@ impl IGattDescriptorsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Descriptors<Impl: IGattDescriptorsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Descriptors<Impl: IGattDescriptorsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Descriptors() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1946,7 +1946,7 @@ impl IGattDescriptorsResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IGattDeviceServiceImpl: Sized + IClosableImpl {
+pub trait IGattDeviceService_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
     fn GetCharacteristics(&mut self, characteristicuuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>>;
     fn GetIncludedServices(&mut self, serviceuuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>;
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1958,9 +1958,9 @@ impl ::windows::core::RuntimeName for IGattDeviceService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDeviceService";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IGattDeviceServiceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattDeviceServiceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattDeviceServiceVtbl {
-        unsafe extern "system" fn GetCharacteristics<Impl: IGattDeviceServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, characteristicuuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattDeviceService_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattDeviceService_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattDeviceService_Vtbl {
+        unsafe extern "system" fn GetCharacteristics<Impl: IGattDeviceService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, characteristicuuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCharacteristics(&*(&characteristicuuid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1971,7 +1971,7 @@ impl IGattDeviceServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIncludedServices<Impl: IGattDeviceServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceuuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIncludedServices<Impl: IGattDeviceService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceuuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIncludedServices(&*(&serviceuuid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1982,7 +1982,7 @@ impl IGattDeviceServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceId<Impl: IGattDeviceServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceId<Impl: IGattDeviceService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1993,7 +1993,7 @@ impl IGattDeviceServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Uuid<Impl: IGattDeviceServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Uuid<Impl: IGattDeviceService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uuid() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2004,7 +2004,7 @@ impl IGattDeviceServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AttributeHandle<Impl: IGattDeviceServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AttributeHandle<Impl: IGattDeviceService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AttributeHandle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2029,7 +2029,7 @@ impl IGattDeviceServiceVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IGattDeviceService2Impl: Sized + IClosableImpl + IGattDeviceServiceImpl {
+pub trait IGattDeviceService2_Impl: Sized + super::super::super::Foundation::IClosable_Impl + IGattDeviceService_Impl {
     fn Device(&mut self) -> ::windows::core::Result<super::BluetoothLEDevice>;
     fn ParentServices(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>;
     fn GetAllCharacteristics(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>>;
@@ -2040,9 +2040,9 @@ impl ::windows::core::RuntimeName for IGattDeviceService2 {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDeviceService2";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IGattDeviceService2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattDeviceService2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattDeviceService2Vtbl {
-        unsafe extern "system" fn Device<Impl: IGattDeviceService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattDeviceService2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattDeviceService2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattDeviceService2_Vtbl {
+        unsafe extern "system" fn Device<Impl: IGattDeviceService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Device() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2053,7 +2053,7 @@ impl IGattDeviceService2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ParentServices<Impl: IGattDeviceService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ParentServices<Impl: IGattDeviceService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ParentServices() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2064,7 +2064,7 @@ impl IGattDeviceService2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAllCharacteristics<Impl: IGattDeviceService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAllCharacteristics<Impl: IGattDeviceService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAllCharacteristics() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2075,7 +2075,7 @@ impl IGattDeviceService2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAllIncludedServices<Impl: IGattDeviceService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAllIncludedServices<Impl: IGattDeviceService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAllIncludedServices() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2099,7 +2099,7 @@ impl IGattDeviceService2Vtbl {
     }
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGattDeviceService3Impl: Sized {
+pub trait IGattDeviceService3_Impl: Sized {
     fn DeviceAccessInformation(&mut self) -> ::windows::core::Result<super::super::Enumeration::DeviceAccessInformation>;
     fn Session(&mut self) -> ::windows::core::Result<GattSession>;
     fn SharingMode(&mut self) -> ::windows::core::Result<GattSharingMode>;
@@ -2119,9 +2119,9 @@ impl ::windows::core::RuntimeName for IGattDeviceService3 {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDeviceService3";
 }
 #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "implement_exclusive"))]
-impl IGattDeviceService3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattDeviceService3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattDeviceService3Vtbl {
-        unsafe extern "system" fn DeviceAccessInformation<Impl: IGattDeviceService3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattDeviceService3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattDeviceService3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattDeviceService3_Vtbl {
+        unsafe extern "system" fn DeviceAccessInformation<Impl: IGattDeviceService3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceAccessInformation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2132,7 +2132,7 @@ impl IGattDeviceService3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Session<Impl: IGattDeviceService3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Session<Impl: IGattDeviceService3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Session() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2143,7 +2143,7 @@ impl IGattDeviceService3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SharingMode<Impl: IGattDeviceService3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattSharingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SharingMode<Impl: IGattDeviceService3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattSharingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SharingMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2154,7 +2154,7 @@ impl IGattDeviceService3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestAccessAsync<Impl: IGattDeviceService3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestAccessAsync<Impl: IGattDeviceService3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAccessAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2165,7 +2165,7 @@ impl IGattDeviceService3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OpenAsync<Impl: IGattDeviceService3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharingmode: GattSharingMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenAsync<Impl: IGattDeviceService3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharingmode: GattSharingMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenAsync(sharingmode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2176,7 +2176,7 @@ impl IGattDeviceService3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCharacteristicsAsync<Impl: IGattDeviceService3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCharacteristicsAsync<Impl: IGattDeviceService3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCharacteristicsAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2187,7 +2187,7 @@ impl IGattDeviceService3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCharacteristicsWithCacheModeAsync<Impl: IGattDeviceService3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cachemode: super::BluetoothCacheMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCharacteristicsWithCacheModeAsync<Impl: IGattDeviceService3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cachemode: super::BluetoothCacheMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCharacteristicsWithCacheModeAsync(cachemode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2198,7 +2198,7 @@ impl IGattDeviceService3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCharacteristicsForUuidAsync<Impl: IGattDeviceService3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, characteristicuuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCharacteristicsForUuidAsync<Impl: IGattDeviceService3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, characteristicuuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCharacteristicsForUuidAsync(&*(&characteristicuuid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2209,7 +2209,7 @@ impl IGattDeviceService3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCharacteristicsForUuidWithCacheModeAsync<Impl: IGattDeviceService3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, characteristicuuid: ::windows::core::GUID, cachemode: super::BluetoothCacheMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCharacteristicsForUuidWithCacheModeAsync<Impl: IGattDeviceService3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, characteristicuuid: ::windows::core::GUID, cachemode: super::BluetoothCacheMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCharacteristicsForUuidWithCacheModeAsync(&*(&characteristicuuid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), cachemode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2220,7 +2220,7 @@ impl IGattDeviceService3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIncludedServicesAsync<Impl: IGattDeviceService3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIncludedServicesAsync<Impl: IGattDeviceService3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIncludedServicesAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2231,7 +2231,7 @@ impl IGattDeviceService3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIncludedServicesWithCacheModeAsync<Impl: IGattDeviceService3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cachemode: super::BluetoothCacheMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIncludedServicesWithCacheModeAsync<Impl: IGattDeviceService3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cachemode: super::BluetoothCacheMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIncludedServicesWithCacheModeAsync(cachemode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2242,7 +2242,7 @@ impl IGattDeviceService3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIncludedServicesForUuidAsync<Impl: IGattDeviceService3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceuuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIncludedServicesForUuidAsync<Impl: IGattDeviceService3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceuuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIncludedServicesForUuidAsync(&*(&serviceuuid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2253,7 +2253,7 @@ impl IGattDeviceService3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIncludedServicesForUuidWithCacheModeAsync<Impl: IGattDeviceService3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceuuid: ::windows::core::GUID, cachemode: super::BluetoothCacheMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIncludedServicesForUuidWithCacheModeAsync<Impl: IGattDeviceService3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceuuid: ::windows::core::GUID, cachemode: super::BluetoothCacheMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIncludedServicesForUuidWithCacheModeAsync(&*(&serviceuuid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), cachemode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2286,7 +2286,7 @@ impl IGattDeviceService3Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGattDeviceServiceStaticsImpl: Sized {
+pub trait IGattDeviceServiceStatics_Impl: Sized {
     fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceService>>;
     fn GetDeviceSelectorFromUuid(&mut self, serviceuuid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeviceSelectorFromShortId(&mut self, serviceshortid: u16) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -2297,9 +2297,9 @@ impl ::windows::core::RuntimeName for IGattDeviceServiceStatics {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDeviceServiceStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGattDeviceServiceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattDeviceServiceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattDeviceServiceStaticsVtbl {
-        unsafe extern "system" fn FromIdAsync<Impl: IGattDeviceServiceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattDeviceServiceStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattDeviceServiceStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattDeviceServiceStatics_Vtbl {
+        unsafe extern "system" fn FromIdAsync<Impl: IGattDeviceServiceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2310,7 +2310,7 @@ impl IGattDeviceServiceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelectorFromUuid<Impl: IGattDeviceServiceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceuuid: ::windows::core::GUID, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelectorFromUuid<Impl: IGattDeviceServiceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceuuid: ::windows::core::GUID, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorFromUuid(&*(&serviceuuid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2321,7 +2321,7 @@ impl IGattDeviceServiceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelectorFromShortId<Impl: IGattDeviceServiceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceshortid: u16, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelectorFromShortId<Impl: IGattDeviceServiceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceshortid: u16, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorFromShortId(serviceshortid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2332,7 +2332,7 @@ impl IGattDeviceServiceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConvertShortIdToUuid<Impl: IGattDeviceServiceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shortid: u16, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConvertShortIdToUuid<Impl: IGattDeviceServiceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shortid: u16, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConvertShortIdToUuid(shortid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2356,7 +2356,7 @@ impl IGattDeviceServiceStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGattDeviceServiceStatics2Impl: Sized {
+pub trait IGattDeviceServiceStatics2_Impl: Sized {
     fn FromIdWithSharingModeAsync(&mut self, deviceid: &::windows::core::HSTRING, sharingmode: GattSharingMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceService>>;
     fn GetDeviceSelectorForBluetoothDeviceId(&mut self, bluetoothdeviceid: &::core::option::Option<super::BluetoothDeviceId>) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeviceSelectorForBluetoothDeviceIdWithCacheMode(&mut self, bluetoothdeviceid: &::core::option::Option<super::BluetoothDeviceId>, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -2368,9 +2368,9 @@ impl ::windows::core::RuntimeName for IGattDeviceServiceStatics2 {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDeviceServiceStatics2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGattDeviceServiceStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattDeviceServiceStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattDeviceServiceStatics2Vtbl {
-        unsafe extern "system" fn FromIdWithSharingModeAsync<Impl: IGattDeviceServiceStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sharingmode: GattSharingMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattDeviceServiceStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattDeviceServiceStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattDeviceServiceStatics2_Vtbl {
+        unsafe extern "system" fn FromIdWithSharingModeAsync<Impl: IGattDeviceServiceStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sharingmode: GattSharingMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdWithSharingModeAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), sharingmode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2381,7 +2381,7 @@ impl IGattDeviceServiceStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelectorForBluetoothDeviceId<Impl: IGattDeviceServiceStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bluetoothdeviceid: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelectorForBluetoothDeviceId<Impl: IGattDeviceServiceStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bluetoothdeviceid: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorForBluetoothDeviceId(&*(&bluetoothdeviceid as *const <super::BluetoothDeviceId as ::windows::core::Abi>::Abi as *const <super::BluetoothDeviceId as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2392,7 +2392,7 @@ impl IGattDeviceServiceStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelectorForBluetoothDeviceIdWithCacheMode<Impl: IGattDeviceServiceStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bluetoothdeviceid: ::windows::core::RawPtr, cachemode: super::BluetoothCacheMode, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelectorForBluetoothDeviceIdWithCacheMode<Impl: IGattDeviceServiceStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bluetoothdeviceid: ::windows::core::RawPtr, cachemode: super::BluetoothCacheMode, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorForBluetoothDeviceIdWithCacheMode(&*(&bluetoothdeviceid as *const <super::BluetoothDeviceId as ::windows::core::Abi>::Abi as *const <super::BluetoothDeviceId as ::windows::core::DefaultType>::DefaultType), cachemode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2403,7 +2403,7 @@ impl IGattDeviceServiceStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelectorForBluetoothDeviceIdAndUuid<Impl: IGattDeviceServiceStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bluetoothdeviceid: ::windows::core::RawPtr, serviceuuid: ::windows::core::GUID, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelectorForBluetoothDeviceIdAndUuid<Impl: IGattDeviceServiceStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bluetoothdeviceid: ::windows::core::RawPtr, serviceuuid: ::windows::core::GUID, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorForBluetoothDeviceIdAndUuid(&*(&bluetoothdeviceid as *const <super::BluetoothDeviceId as ::windows::core::Abi>::Abi as *const <super::BluetoothDeviceId as ::windows::core::DefaultType>::DefaultType), &*(&serviceuuid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2414,7 +2414,7 @@ impl IGattDeviceServiceStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode<Impl: IGattDeviceServiceStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bluetoothdeviceid: ::windows::core::RawPtr, serviceuuid: ::windows::core::GUID, cachemode: super::BluetoothCacheMode, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode<Impl: IGattDeviceServiceStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bluetoothdeviceid: ::windows::core::RawPtr, serviceuuid: ::windows::core::GUID, cachemode: super::BluetoothCacheMode, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode(&*(&bluetoothdeviceid as *const <super::BluetoothDeviceId as ::windows::core::Abi>::Abi as *const <super::BluetoothDeviceId as ::windows::core::DefaultType>::DefaultType), &*(&serviceuuid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), cachemode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2439,7 +2439,7 @@ impl IGattDeviceServiceStatics2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IGattDeviceServicesResultImpl: Sized {
+pub trait IGattDeviceServicesResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<GattCommunicationStatus>;
     fn ProtocolError(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>>;
     fn Services(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>;
@@ -2449,9 +2449,9 @@ impl ::windows::core::RuntimeName for IGattDeviceServicesResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattDeviceServicesResult";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IGattDeviceServicesResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattDeviceServicesResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattDeviceServicesResultVtbl {
-        unsafe extern "system" fn Status<Impl: IGattDeviceServicesResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows::core::HRESULT {
+impl IGattDeviceServicesResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattDeviceServicesResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattDeviceServicesResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IGattDeviceServicesResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2462,7 +2462,7 @@ impl IGattDeviceServicesResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProtocolError<Impl: IGattDeviceServicesResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProtocolError<Impl: IGattDeviceServicesResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtocolError() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2473,7 +2473,7 @@ impl IGattDeviceServicesResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Services<Impl: IGattDeviceServicesResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Services<Impl: IGattDeviceServicesResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Services() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2496,7 +2496,7 @@ impl IGattDeviceServicesResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IGattLocalCharacteristicImpl: Sized {
+pub trait IGattLocalCharacteristic_Impl: Sized {
     fn Uuid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn StaticValue(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
     fn CharacteristicProperties(&mut self) -> ::windows::core::Result<GattCharacteristicProperties>;
@@ -2521,9 +2521,9 @@ impl ::windows::core::RuntimeName for IGattLocalCharacteristic {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristic";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IGattLocalCharacteristicVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattLocalCharacteristicImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattLocalCharacteristicVtbl {
-        unsafe extern "system" fn Uuid<Impl: IGattLocalCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl IGattLocalCharacteristic_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattLocalCharacteristic_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattLocalCharacteristic_Vtbl {
+        unsafe extern "system" fn Uuid<Impl: IGattLocalCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uuid() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2534,7 +2534,7 @@ impl IGattLocalCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StaticValue<Impl: IGattLocalCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StaticValue<Impl: IGattLocalCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StaticValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2545,7 +2545,7 @@ impl IGattLocalCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CharacteristicProperties<Impl: IGattLocalCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattCharacteristicProperties) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CharacteristicProperties<Impl: IGattLocalCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattCharacteristicProperties) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CharacteristicProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2556,7 +2556,7 @@ impl IGattLocalCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadProtectionLevel<Impl: IGattLocalCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattProtectionLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadProtectionLevel<Impl: IGattLocalCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattProtectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadProtectionLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2567,7 +2567,7 @@ impl IGattLocalCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WriteProtectionLevel<Impl: IGattLocalCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattProtectionLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteProtectionLevel<Impl: IGattLocalCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattProtectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteProtectionLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2578,7 +2578,7 @@ impl IGattLocalCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateDescriptorAsync<Impl: IGattLocalCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptoruuid: ::windows::core::GUID, parameters: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDescriptorAsync<Impl: IGattLocalCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptoruuid: ::windows::core::GUID, parameters: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDescriptorAsync(&*(&descriptoruuid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&parameters as *const <GattLocalDescriptorParameters as ::windows::core::Abi>::Abi as *const <GattLocalDescriptorParameters as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2589,7 +2589,7 @@ impl IGattLocalCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Descriptors<Impl: IGattLocalCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Descriptors<Impl: IGattLocalCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Descriptors() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2600,7 +2600,7 @@ impl IGattLocalCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UserDescription<Impl: IGattLocalCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UserDescription<Impl: IGattLocalCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2611,7 +2611,7 @@ impl IGattLocalCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PresentationFormats<Impl: IGattLocalCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PresentationFormats<Impl: IGattLocalCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PresentationFormats() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2622,7 +2622,7 @@ impl IGattLocalCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SubscribedClients<Impl: IGattLocalCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SubscribedClients<Impl: IGattLocalCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SubscribedClients() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2633,7 +2633,7 @@ impl IGattLocalCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SubscribedClientsChanged<Impl: IGattLocalCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SubscribedClientsChanged<Impl: IGattLocalCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SubscribedClientsChanged(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2644,11 +2644,11 @@ impl IGattLocalCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSubscribedClientsChanged<Impl: IGattLocalCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSubscribedClientsChanged<Impl: IGattLocalCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSubscribedClientsChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ReadRequested<Impl: IGattLocalCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadRequested<Impl: IGattLocalCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, GattReadRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, GattReadRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2659,11 +2659,11 @@ impl IGattLocalCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveReadRequested<Impl: IGattLocalCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveReadRequested<Impl: IGattLocalCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveReadRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn WriteRequested<Impl: IGattLocalCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteRequested<Impl: IGattLocalCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, GattWriteRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, GattWriteRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2674,11 +2674,11 @@ impl IGattLocalCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveWriteRequested<Impl: IGattLocalCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveWriteRequested<Impl: IGattLocalCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveWriteRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn NotifyValueAsync<Impl: IGattLocalCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NotifyValueAsync<Impl: IGattLocalCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NotifyValueAsync(&*(&value as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2689,7 +2689,7 @@ impl IGattLocalCharacteristicVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NotifyValueForSubscribedClientAsync<Impl: IGattLocalCharacteristicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, subscribedclient: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NotifyValueForSubscribedClientAsync<Impl: IGattLocalCharacteristic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, subscribedclient: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NotifyValueForSubscribedClientAsync(&*(&value as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType), &*(&subscribedclient as *const <GattSubscribedClient as ::windows::core::Abi>::Abi as *const <GattSubscribedClient as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2727,7 +2727,7 @@ impl IGattLocalCharacteristicVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IGattLocalCharacteristicParametersImpl: Sized {
+pub trait IGattLocalCharacteristicParameters_Impl: Sized {
     fn SetStaticValue(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
     fn StaticValue(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
     fn SetCharacteristicProperties(&mut self, value: GattCharacteristicProperties) -> ::windows::core::Result<()>;
@@ -2745,13 +2745,13 @@ impl ::windows::core::RuntimeName for IGattLocalCharacteristicParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristicParameters";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IGattLocalCharacteristicParametersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattLocalCharacteristicParametersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattLocalCharacteristicParametersVtbl {
-        unsafe extern "system" fn SetStaticValue<Impl: IGattLocalCharacteristicParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattLocalCharacteristicParameters_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattLocalCharacteristicParameters_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattLocalCharacteristicParameters_Vtbl {
+        unsafe extern "system" fn SetStaticValue<Impl: IGattLocalCharacteristicParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStaticValue(&*(&value as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StaticValue<Impl: IGattLocalCharacteristicParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StaticValue<Impl: IGattLocalCharacteristicParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StaticValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2762,11 +2762,11 @@ impl IGattLocalCharacteristicParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCharacteristicProperties<Impl: IGattLocalCharacteristicParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: GattCharacteristicProperties) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCharacteristicProperties<Impl: IGattLocalCharacteristicParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: GattCharacteristicProperties) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCharacteristicProperties(value).into()
         }
-        unsafe extern "system" fn CharacteristicProperties<Impl: IGattLocalCharacteristicParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattCharacteristicProperties) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CharacteristicProperties<Impl: IGattLocalCharacteristicParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattCharacteristicProperties) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CharacteristicProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2777,11 +2777,11 @@ impl IGattLocalCharacteristicParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetReadProtectionLevel<Impl: IGattLocalCharacteristicParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: GattProtectionLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetReadProtectionLevel<Impl: IGattLocalCharacteristicParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: GattProtectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetReadProtectionLevel(value).into()
         }
-        unsafe extern "system" fn ReadProtectionLevel<Impl: IGattLocalCharacteristicParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattProtectionLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadProtectionLevel<Impl: IGattLocalCharacteristicParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattProtectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadProtectionLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2792,11 +2792,11 @@ impl IGattLocalCharacteristicParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetWriteProtectionLevel<Impl: IGattLocalCharacteristicParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: GattProtectionLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetWriteProtectionLevel<Impl: IGattLocalCharacteristicParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: GattProtectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWriteProtectionLevel(value).into()
         }
-        unsafe extern "system" fn WriteProtectionLevel<Impl: IGattLocalCharacteristicParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattProtectionLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteProtectionLevel<Impl: IGattLocalCharacteristicParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattProtectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteProtectionLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2807,11 +2807,11 @@ impl IGattLocalCharacteristicParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetUserDescription<Impl: IGattLocalCharacteristicParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUserDescription<Impl: IGattLocalCharacteristicParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUserDescription(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn UserDescription<Impl: IGattLocalCharacteristicParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UserDescription<Impl: IGattLocalCharacteristicParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2822,7 +2822,7 @@ impl IGattLocalCharacteristicParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PresentationFormats<Impl: IGattLocalCharacteristicParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PresentationFormats<Impl: IGattLocalCharacteristicParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PresentationFormats() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2853,7 +2853,7 @@ impl IGattLocalCharacteristicParametersVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGattLocalCharacteristicResultImpl: Sized {
+pub trait IGattLocalCharacteristicResult_Impl: Sized {
     fn Characteristic(&mut self) -> ::windows::core::Result<GattLocalCharacteristic>;
     fn Error(&mut self) -> ::windows::core::Result<super::BluetoothError>;
 }
@@ -2862,9 +2862,9 @@ impl ::windows::core::RuntimeName for IGattLocalCharacteristicResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalCharacteristicResult";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGattLocalCharacteristicResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattLocalCharacteristicResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattLocalCharacteristicResultVtbl {
-        unsafe extern "system" fn Characteristic<Impl: IGattLocalCharacteristicResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattLocalCharacteristicResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattLocalCharacteristicResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattLocalCharacteristicResult_Vtbl {
+        unsafe extern "system" fn Characteristic<Impl: IGattLocalCharacteristicResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Characteristic() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2875,7 +2875,7 @@ impl IGattLocalCharacteristicResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Error<Impl: IGattLocalCharacteristicResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Error<Impl: IGattLocalCharacteristicResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Error() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2897,7 +2897,7 @@ impl IGattLocalCharacteristicResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IGattLocalDescriptorImpl: Sized {
+pub trait IGattLocalDescriptor_Impl: Sized {
     fn Uuid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn StaticValue(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
     fn ReadProtectionLevel(&mut self) -> ::windows::core::Result<GattProtectionLevel>;
@@ -2912,9 +2912,9 @@ impl ::windows::core::RuntimeName for IGattLocalDescriptor {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalDescriptor";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IGattLocalDescriptorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattLocalDescriptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattLocalDescriptorVtbl {
-        unsafe extern "system" fn Uuid<Impl: IGattLocalDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl IGattLocalDescriptor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattLocalDescriptor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattLocalDescriptor_Vtbl {
+        unsafe extern "system" fn Uuid<Impl: IGattLocalDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uuid() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2925,7 +2925,7 @@ impl IGattLocalDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StaticValue<Impl: IGattLocalDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StaticValue<Impl: IGattLocalDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StaticValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2936,7 +2936,7 @@ impl IGattLocalDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadProtectionLevel<Impl: IGattLocalDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattProtectionLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadProtectionLevel<Impl: IGattLocalDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattProtectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadProtectionLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2947,7 +2947,7 @@ impl IGattLocalDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WriteProtectionLevel<Impl: IGattLocalDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattProtectionLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteProtectionLevel<Impl: IGattLocalDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattProtectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteProtectionLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2958,7 +2958,7 @@ impl IGattLocalDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadRequested<Impl: IGattLocalDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadRequested<Impl: IGattLocalDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<GattLocalDescriptor, GattReadRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<GattLocalDescriptor, GattReadRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2969,11 +2969,11 @@ impl IGattLocalDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveReadRequested<Impl: IGattLocalDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveReadRequested<Impl: IGattLocalDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveReadRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn WriteRequested<Impl: IGattLocalDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteRequested<Impl: IGattLocalDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<GattLocalDescriptor, GattWriteRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<GattLocalDescriptor, GattWriteRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2984,7 +2984,7 @@ impl IGattLocalDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveWriteRequested<Impl: IGattLocalDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveWriteRequested<Impl: IGattLocalDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveWriteRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3005,7 +3005,7 @@ impl IGattLocalDescriptorVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IGattLocalDescriptorParametersImpl: Sized {
+pub trait IGattLocalDescriptorParameters_Impl: Sized {
     fn SetStaticValue(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
     fn StaticValue(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
     fn SetReadProtectionLevel(&mut self, value: GattProtectionLevel) -> ::windows::core::Result<()>;
@@ -3018,13 +3018,13 @@ impl ::windows::core::RuntimeName for IGattLocalDescriptorParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalDescriptorParameters";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IGattLocalDescriptorParametersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattLocalDescriptorParametersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattLocalDescriptorParametersVtbl {
-        unsafe extern "system" fn SetStaticValue<Impl: IGattLocalDescriptorParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattLocalDescriptorParameters_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattLocalDescriptorParameters_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattLocalDescriptorParameters_Vtbl {
+        unsafe extern "system" fn SetStaticValue<Impl: IGattLocalDescriptorParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStaticValue(&*(&value as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StaticValue<Impl: IGattLocalDescriptorParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StaticValue<Impl: IGattLocalDescriptorParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StaticValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3035,11 +3035,11 @@ impl IGattLocalDescriptorParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetReadProtectionLevel<Impl: IGattLocalDescriptorParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: GattProtectionLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetReadProtectionLevel<Impl: IGattLocalDescriptorParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: GattProtectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetReadProtectionLevel(value).into()
         }
-        unsafe extern "system" fn ReadProtectionLevel<Impl: IGattLocalDescriptorParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattProtectionLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadProtectionLevel<Impl: IGattLocalDescriptorParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattProtectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadProtectionLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3050,11 +3050,11 @@ impl IGattLocalDescriptorParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetWriteProtectionLevel<Impl: IGattLocalDescriptorParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: GattProtectionLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetWriteProtectionLevel<Impl: IGattLocalDescriptorParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: GattProtectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWriteProtectionLevel(value).into()
         }
-        unsafe extern "system" fn WriteProtectionLevel<Impl: IGattLocalDescriptorParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattProtectionLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteProtectionLevel<Impl: IGattLocalDescriptorParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattProtectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteProtectionLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3080,7 +3080,7 @@ impl IGattLocalDescriptorParametersVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGattLocalDescriptorResultImpl: Sized {
+pub trait IGattLocalDescriptorResult_Impl: Sized {
     fn Descriptor(&mut self) -> ::windows::core::Result<GattLocalDescriptor>;
     fn Error(&mut self) -> ::windows::core::Result<super::BluetoothError>;
 }
@@ -3089,9 +3089,9 @@ impl ::windows::core::RuntimeName for IGattLocalDescriptorResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalDescriptorResult";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGattLocalDescriptorResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattLocalDescriptorResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattLocalDescriptorResultVtbl {
-        unsafe extern "system" fn Descriptor<Impl: IGattLocalDescriptorResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattLocalDescriptorResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattLocalDescriptorResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattLocalDescriptorResult_Vtbl {
+        unsafe extern "system" fn Descriptor<Impl: IGattLocalDescriptorResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Descriptor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3102,7 +3102,7 @@ impl IGattLocalDescriptorResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Error<Impl: IGattLocalDescriptorResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Error<Impl: IGattLocalDescriptorResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Error() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3124,7 +3124,7 @@ impl IGattLocalDescriptorResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IGattLocalServiceImpl: Sized {
+pub trait IGattLocalService_Impl: Sized {
     fn Uuid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn CreateCharacteristicAsync(&mut self, characteristicuuid: &::windows::core::GUID, parameters: &::core::option::Option<GattLocalCharacteristicParameters>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattLocalCharacteristicResult>>;
     fn Characteristics(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattLocalCharacteristic>>;
@@ -3134,9 +3134,9 @@ impl ::windows::core::RuntimeName for IGattLocalService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattLocalService";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IGattLocalServiceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattLocalServiceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattLocalServiceVtbl {
-        unsafe extern "system" fn Uuid<Impl: IGattLocalServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl IGattLocalService_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattLocalService_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattLocalService_Vtbl {
+        unsafe extern "system" fn Uuid<Impl: IGattLocalService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uuid() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3147,7 +3147,7 @@ impl IGattLocalServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateCharacteristicAsync<Impl: IGattLocalServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, characteristicuuid: ::windows::core::GUID, parameters: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCharacteristicAsync<Impl: IGattLocalService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, characteristicuuid: ::windows::core::GUID, parameters: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCharacteristicAsync(&*(&characteristicuuid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), &*(&parameters as *const <GattLocalCharacteristicParameters as ::windows::core::Abi>::Abi as *const <GattLocalCharacteristicParameters as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3158,7 +3158,7 @@ impl IGattLocalServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Characteristics<Impl: IGattLocalServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Characteristics<Impl: IGattLocalService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Characteristics() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3181,7 +3181,7 @@ impl IGattLocalServiceVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGattPresentationFormatImpl: Sized {
+pub trait IGattPresentationFormat_Impl: Sized {
     fn FormatType(&mut self) -> ::windows::core::Result<u8>;
     fn Exponent(&mut self) -> ::windows::core::Result<i32>;
     fn Unit(&mut self) -> ::windows::core::Result<u16>;
@@ -3193,9 +3193,9 @@ impl ::windows::core::RuntimeName for IGattPresentationFormat {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattPresentationFormat";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGattPresentationFormatVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattPresentationFormatImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattPresentationFormatVtbl {
-        unsafe extern "system" fn FormatType<Impl: IGattPresentationFormatImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+impl IGattPresentationFormat_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattPresentationFormat_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattPresentationFormat_Vtbl {
+        unsafe extern "system" fn FormatType<Impl: IGattPresentationFormat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FormatType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3206,7 +3206,7 @@ impl IGattPresentationFormatVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Exponent<Impl: IGattPresentationFormatImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Exponent<Impl: IGattPresentationFormat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Exponent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3217,7 +3217,7 @@ impl IGattPresentationFormatVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Unit<Impl: IGattPresentationFormatImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Unit<Impl: IGattPresentationFormat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Unit() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3228,7 +3228,7 @@ impl IGattPresentationFormatVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Namespace<Impl: IGattPresentationFormatImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Namespace<Impl: IGattPresentationFormat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Namespace() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3239,7 +3239,7 @@ impl IGattPresentationFormatVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Impl: IGattPresentationFormatImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Impl: IGattPresentationFormat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3264,7 +3264,7 @@ impl IGattPresentationFormatVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGattPresentationFormatStaticsImpl: Sized {
+pub trait IGattPresentationFormatStatics_Impl: Sized {
     fn BluetoothSigAssignedNumbers(&mut self) -> ::windows::core::Result<u8>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3272,9 +3272,9 @@ impl ::windows::core::RuntimeName for IGattPresentationFormatStatics {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattPresentationFormatStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGattPresentationFormatStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattPresentationFormatStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattPresentationFormatStaticsVtbl {
-        unsafe extern "system" fn BluetoothSigAssignedNumbers<Impl: IGattPresentationFormatStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+impl IGattPresentationFormatStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattPresentationFormatStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattPresentationFormatStatics_Vtbl {
+        unsafe extern "system" fn BluetoothSigAssignedNumbers<Impl: IGattPresentationFormatStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BluetoothSigAssignedNumbers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3295,7 +3295,7 @@ impl IGattPresentationFormatStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGattPresentationFormatStatics2Impl: Sized + IGattPresentationFormatStaticsImpl {
+pub trait IGattPresentationFormatStatics2_Impl: Sized + IGattPresentationFormatStatics_Impl {
     fn FromParts(&mut self, formattype: u8, exponent: i32, unit: u16, namespaceid: u8, description: u16) -> ::windows::core::Result<GattPresentationFormat>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3303,9 +3303,9 @@ impl ::windows::core::RuntimeName for IGattPresentationFormatStatics2 {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattPresentationFormatStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGattPresentationFormatStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattPresentationFormatStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattPresentationFormatStatics2Vtbl {
-        unsafe extern "system" fn FromParts<Impl: IGattPresentationFormatStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, formattype: u8, exponent: i32, unit: u16, namespaceid: u8, description: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattPresentationFormatStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattPresentationFormatStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattPresentationFormatStatics2_Vtbl {
+        unsafe extern "system" fn FromParts<Impl: IGattPresentationFormatStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, formattype: u8, exponent: i32, unit: u16, namespaceid: u8, description: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromParts(formattype, exponent, unit, namespaceid, description) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3326,7 +3326,7 @@ impl IGattPresentationFormatStatics2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGattPresentationFormatTypesStaticsImpl: Sized {
+pub trait IGattPresentationFormatTypesStatics_Impl: Sized {
     fn Boolean(&mut self) -> ::windows::core::Result<u8>;
     fn Bit2(&mut self) -> ::windows::core::Result<u8>;
     fn Nibble(&mut self) -> ::windows::core::Result<u8>;
@@ -3360,9 +3360,9 @@ impl ::windows::core::RuntimeName for IGattPresentationFormatTypesStatics {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattPresentationFormatTypesStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGattPresentationFormatTypesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattPresentationFormatTypesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattPresentationFormatTypesStaticsVtbl {
-        unsafe extern "system" fn Boolean<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+impl IGattPresentationFormatTypesStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattPresentationFormatTypesStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattPresentationFormatTypesStatics_Vtbl {
+        unsafe extern "system" fn Boolean<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Boolean() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3373,7 +3373,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Bit2<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Bit2<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bit2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3384,7 +3384,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Nibble<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Nibble<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Nibble() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3395,7 +3395,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UInt8<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UInt8<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UInt8() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3406,7 +3406,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UInt12<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UInt12<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UInt12() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3417,7 +3417,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UInt16<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UInt16<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UInt16() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3428,7 +3428,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UInt24<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UInt24<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UInt24() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3439,7 +3439,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UInt32<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UInt32<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UInt32() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3450,7 +3450,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UInt48<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UInt48<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UInt48() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3461,7 +3461,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UInt64<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UInt64<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UInt64() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3472,7 +3472,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UInt128<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UInt128<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UInt128() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3483,7 +3483,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SInt8<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SInt8<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SInt8() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3494,7 +3494,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SInt12<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SInt12<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SInt12() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3505,7 +3505,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SInt16<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SInt16<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SInt16() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3516,7 +3516,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SInt24<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SInt24<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SInt24() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3527,7 +3527,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SInt32<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SInt32<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SInt32() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3538,7 +3538,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SInt48<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SInt48<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SInt48() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3549,7 +3549,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SInt64<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SInt64<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SInt64() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3560,7 +3560,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SInt128<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SInt128<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SInt128() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3571,7 +3571,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Float32<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Float32<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Float32() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3582,7 +3582,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Float64<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Float64<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Float64() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3593,7 +3593,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SFloat<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SFloat<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SFloat() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3604,7 +3604,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Float<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Float<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Float() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3615,7 +3615,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DUInt16<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DUInt16<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DUInt16() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3626,7 +3626,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Utf8<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Utf8<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Utf8() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3637,7 +3637,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Utf16<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Utf16<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Utf16() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3648,7 +3648,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Struct<Impl: IGattPresentationFormatTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Struct<Impl: IGattPresentationFormatTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Struct() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3695,7 +3695,7 @@ impl IGattPresentationFormatTypesStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGattProtocolErrorStaticsImpl: Sized {
+pub trait IGattProtocolErrorStatics_Impl: Sized {
     fn InvalidHandle(&mut self) -> ::windows::core::Result<u8>;
     fn ReadNotPermitted(&mut self) -> ::windows::core::Result<u8>;
     fn WriteNotPermitted(&mut self) -> ::windows::core::Result<u8>;
@@ -3719,9 +3719,9 @@ impl ::windows::core::RuntimeName for IGattProtocolErrorStatics {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattProtocolErrorStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGattProtocolErrorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattProtocolErrorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattProtocolErrorStaticsVtbl {
-        unsafe extern "system" fn InvalidHandle<Impl: IGattProtocolErrorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+impl IGattProtocolErrorStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattProtocolErrorStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattProtocolErrorStatics_Vtbl {
+        unsafe extern "system" fn InvalidHandle<Impl: IGattProtocolErrorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InvalidHandle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3732,7 +3732,7 @@ impl IGattProtocolErrorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadNotPermitted<Impl: IGattProtocolErrorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadNotPermitted<Impl: IGattProtocolErrorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadNotPermitted() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3743,7 +3743,7 @@ impl IGattProtocolErrorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WriteNotPermitted<Impl: IGattProtocolErrorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteNotPermitted<Impl: IGattProtocolErrorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteNotPermitted() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3754,7 +3754,7 @@ impl IGattProtocolErrorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InvalidPdu<Impl: IGattProtocolErrorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InvalidPdu<Impl: IGattProtocolErrorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InvalidPdu() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3765,7 +3765,7 @@ impl IGattProtocolErrorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InsufficientAuthentication<Impl: IGattProtocolErrorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsufficientAuthentication<Impl: IGattProtocolErrorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InsufficientAuthentication() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3776,7 +3776,7 @@ impl IGattProtocolErrorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestNotSupported<Impl: IGattProtocolErrorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestNotSupported<Impl: IGattProtocolErrorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestNotSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3787,7 +3787,7 @@ impl IGattProtocolErrorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InvalidOffset<Impl: IGattProtocolErrorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InvalidOffset<Impl: IGattProtocolErrorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InvalidOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3798,7 +3798,7 @@ impl IGattProtocolErrorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InsufficientAuthorization<Impl: IGattProtocolErrorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsufficientAuthorization<Impl: IGattProtocolErrorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InsufficientAuthorization() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3809,7 +3809,7 @@ impl IGattProtocolErrorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrepareQueueFull<Impl: IGattProtocolErrorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrepareQueueFull<Impl: IGattProtocolErrorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrepareQueueFull() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3820,7 +3820,7 @@ impl IGattProtocolErrorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AttributeNotFound<Impl: IGattProtocolErrorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AttributeNotFound<Impl: IGattProtocolErrorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AttributeNotFound() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3831,7 +3831,7 @@ impl IGattProtocolErrorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AttributeNotLong<Impl: IGattProtocolErrorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AttributeNotLong<Impl: IGattProtocolErrorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AttributeNotLong() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3842,7 +3842,7 @@ impl IGattProtocolErrorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InsufficientEncryptionKeySize<Impl: IGattProtocolErrorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsufficientEncryptionKeySize<Impl: IGattProtocolErrorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InsufficientEncryptionKeySize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3853,7 +3853,7 @@ impl IGattProtocolErrorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InvalidAttributeValueLength<Impl: IGattProtocolErrorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InvalidAttributeValueLength<Impl: IGattProtocolErrorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InvalidAttributeValueLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3864,7 +3864,7 @@ impl IGattProtocolErrorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnlikelyError<Impl: IGattProtocolErrorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnlikelyError<Impl: IGattProtocolErrorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnlikelyError() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3875,7 +3875,7 @@ impl IGattProtocolErrorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InsufficientEncryption<Impl: IGattProtocolErrorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsufficientEncryption<Impl: IGattProtocolErrorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InsufficientEncryption() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3886,7 +3886,7 @@ impl IGattProtocolErrorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnsupportedGroupType<Impl: IGattProtocolErrorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnsupportedGroupType<Impl: IGattProtocolErrorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnsupportedGroupType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3897,7 +3897,7 @@ impl IGattProtocolErrorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InsufficientResources<Impl: IGattProtocolErrorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsufficientResources<Impl: IGattProtocolErrorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InsufficientResources() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3934,7 +3934,7 @@ impl IGattProtocolErrorStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGattReadClientCharacteristicConfigurationDescriptorResultImpl: Sized {
+pub trait IGattReadClientCharacteristicConfigurationDescriptorResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<GattCommunicationStatus>;
     fn ClientCharacteristicConfigurationDescriptor(&mut self) -> ::windows::core::Result<GattClientCharacteristicConfigurationDescriptorValue>;
 }
@@ -3943,9 +3943,9 @@ impl ::windows::core::RuntimeName for IGattReadClientCharacteristicConfiguration
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadClientCharacteristicConfigurationDescriptorResult";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGattReadClientCharacteristicConfigurationDescriptorResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattReadClientCharacteristicConfigurationDescriptorResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattReadClientCharacteristicConfigurationDescriptorResultVtbl {
-        unsafe extern "system" fn Status<Impl: IGattReadClientCharacteristicConfigurationDescriptorResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows::core::HRESULT {
+impl IGattReadClientCharacteristicConfigurationDescriptorResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattReadClientCharacteristicConfigurationDescriptorResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattReadClientCharacteristicConfigurationDescriptorResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IGattReadClientCharacteristicConfigurationDescriptorResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3956,7 +3956,7 @@ impl IGattReadClientCharacteristicConfigurationDescriptorResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClientCharacteristicConfigurationDescriptor<Impl: IGattReadClientCharacteristicConfigurationDescriptorResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattClientCharacteristicConfigurationDescriptorValue) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClientCharacteristicConfigurationDescriptor<Impl: IGattReadClientCharacteristicConfigurationDescriptorResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattClientCharacteristicConfigurationDescriptorValue) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClientCharacteristicConfigurationDescriptor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3978,7 +3978,7 @@ impl IGattReadClientCharacteristicConfigurationDescriptorResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGattReadClientCharacteristicConfigurationDescriptorResult2Impl: Sized {
+pub trait IGattReadClientCharacteristicConfigurationDescriptorResult2_Impl: Sized {
     fn ProtocolError(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -3986,9 +3986,9 @@ impl ::windows::core::RuntimeName for IGattReadClientCharacteristicConfiguration
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadClientCharacteristicConfigurationDescriptorResult2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGattReadClientCharacteristicConfigurationDescriptorResult2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattReadClientCharacteristicConfigurationDescriptorResult2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattReadClientCharacteristicConfigurationDescriptorResult2Vtbl {
-        unsafe extern "system" fn ProtocolError<Impl: IGattReadClientCharacteristicConfigurationDescriptorResult2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattReadClientCharacteristicConfigurationDescriptorResult2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattReadClientCharacteristicConfigurationDescriptorResult2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattReadClientCharacteristicConfigurationDescriptorResult2_Vtbl {
+        unsafe extern "system" fn ProtocolError<Impl: IGattReadClientCharacteristicConfigurationDescriptorResult2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtocolError() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4009,7 +4009,7 @@ impl IGattReadClientCharacteristicConfigurationDescriptorResult2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IGattReadRequestImpl: Sized {
+pub trait IGattReadRequest_Impl: Sized {
     fn Offset(&mut self) -> ::windows::core::Result<u32>;
     fn Length(&mut self) -> ::windows::core::Result<u32>;
     fn State(&mut self) -> ::windows::core::Result<GattRequestState>;
@@ -4023,9 +4023,9 @@ impl ::windows::core::RuntimeName for IGattReadRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IGattReadRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattReadRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattReadRequestVtbl {
-        unsafe extern "system" fn Offset<Impl: IGattReadRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IGattReadRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattReadRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattReadRequest_Vtbl {
+        unsafe extern "system" fn Offset<Impl: IGattReadRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Offset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4036,7 +4036,7 @@ impl IGattReadRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Length<Impl: IGattReadRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Length<Impl: IGattReadRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Length() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4047,7 +4047,7 @@ impl IGattReadRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn State<Impl: IGattReadRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattRequestState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn State<Impl: IGattReadRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattRequestState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4058,7 +4058,7 @@ impl IGattReadRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StateChanged<Impl: IGattReadRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StateChanged<Impl: IGattReadRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StateChanged(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<GattReadRequest, GattRequestStateChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<GattReadRequest, GattRequestStateChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4069,15 +4069,15 @@ impl IGattReadRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStateChanged<Impl: IGattReadRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStateChanged<Impl: IGattReadRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStateChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RespondWithValue<Impl: IGattReadRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RespondWithValue<Impl: IGattReadRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RespondWithValue(&*(&value as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RespondWithProtocolError<Impl: IGattReadRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, protocolerror: u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RespondWithProtocolError<Impl: IGattReadRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, protocolerror: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RespondWithProtocolError(protocolerror).into()
         }
@@ -4097,7 +4097,7 @@ impl IGattReadRequestVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGattReadRequestedEventArgsImpl: Sized {
+pub trait IGattReadRequestedEventArgs_Impl: Sized {
     fn Session(&mut self) -> ::windows::core::Result<GattSession>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
     fn GetRequestAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadRequest>>;
@@ -4107,9 +4107,9 @@ impl ::windows::core::RuntimeName for IGattReadRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadRequestedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGattReadRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattReadRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattReadRequestedEventArgsVtbl {
-        unsafe extern "system" fn Session<Impl: IGattReadRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattReadRequestedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattReadRequestedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattReadRequestedEventArgs_Vtbl {
+        unsafe extern "system" fn Session<Impl: IGattReadRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Session() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4120,7 +4120,7 @@ impl IGattReadRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IGattReadRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IGattReadRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4131,7 +4131,7 @@ impl IGattReadRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRequestAsync<Impl: IGattReadRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRequestAsync<Impl: IGattReadRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRequestAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4154,7 +4154,7 @@ impl IGattReadRequestedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IGattReadResultImpl: Sized {
+pub trait IGattReadResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<GattCommunicationStatus>;
     fn Value(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
 }
@@ -4163,9 +4163,9 @@ impl ::windows::core::RuntimeName for IGattReadResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadResult";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IGattReadResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattReadResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattReadResultVtbl {
-        unsafe extern "system" fn Status<Impl: IGattReadResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows::core::HRESULT {
+impl IGattReadResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattReadResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattReadResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IGattReadResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4176,7 +4176,7 @@ impl IGattReadResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Impl: IGattReadResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: IGattReadResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4198,7 +4198,7 @@ impl IGattReadResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGattReadResult2Impl: Sized {
+pub trait IGattReadResult2_Impl: Sized {
     fn ProtocolError(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -4206,9 +4206,9 @@ impl ::windows::core::RuntimeName for IGattReadResult2 {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReadResult2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGattReadResult2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattReadResult2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattReadResult2Vtbl {
-        unsafe extern "system" fn ProtocolError<Impl: IGattReadResult2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattReadResult2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattReadResult2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattReadResult2_Vtbl {
+        unsafe extern "system" fn ProtocolError<Impl: IGattReadResult2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtocolError() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4226,7 +4226,7 @@ impl IGattReadResult2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IGattReliableWriteTransactionImpl: Sized {
+pub trait IGattReliableWriteTransaction_Impl: Sized {
     fn WriteValue(&mut self, characteristic: &::core::option::Option<GattCharacteristic>, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
     fn CommitAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>;
 }
@@ -4235,13 +4235,13 @@ impl ::windows::core::RuntimeName for IGattReliableWriteTransaction {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReliableWriteTransaction";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IGattReliableWriteTransactionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattReliableWriteTransactionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattReliableWriteTransactionVtbl {
-        unsafe extern "system" fn WriteValue<Impl: IGattReliableWriteTransactionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, characteristic: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattReliableWriteTransaction_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattReliableWriteTransaction_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattReliableWriteTransaction_Vtbl {
+        unsafe extern "system" fn WriteValue<Impl: IGattReliableWriteTransaction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, characteristic: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).WriteValue(&*(&characteristic as *const <GattCharacteristic as ::windows::core::Abi>::Abi as *const <GattCharacteristic as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CommitAsync<Impl: IGattReliableWriteTransactionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CommitAsync<Impl: IGattReliableWriteTransaction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CommitAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4263,7 +4263,7 @@ impl IGattReliableWriteTransactionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGattReliableWriteTransaction2Impl: Sized {
+pub trait IGattReliableWriteTransaction2_Impl: Sized {
     fn CommitWithResultAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -4271,9 +4271,9 @@ impl ::windows::core::RuntimeName for IGattReliableWriteTransaction2 {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattReliableWriteTransaction2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGattReliableWriteTransaction2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattReliableWriteTransaction2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattReliableWriteTransaction2Vtbl {
-        unsafe extern "system" fn CommitWithResultAsync<Impl: IGattReliableWriteTransaction2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattReliableWriteTransaction2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattReliableWriteTransaction2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattReliableWriteTransaction2_Vtbl {
+        unsafe extern "system" fn CommitWithResultAsync<Impl: IGattReliableWriteTransaction2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CommitWithResultAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4294,7 +4294,7 @@ impl IGattReliableWriteTransaction2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGattRequestStateChangedEventArgsImpl: Sized {
+pub trait IGattRequestStateChangedEventArgs_Impl: Sized {
     fn State(&mut self) -> ::windows::core::Result<GattRequestState>;
     fn Error(&mut self) -> ::windows::core::Result<super::BluetoothError>;
 }
@@ -4303,9 +4303,9 @@ impl ::windows::core::RuntimeName for IGattRequestStateChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattRequestStateChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGattRequestStateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattRequestStateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattRequestStateChangedEventArgsVtbl {
-        unsafe extern "system" fn State<Impl: IGattRequestStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattRequestState) -> ::windows::core::HRESULT {
+impl IGattRequestStateChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattRequestStateChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattRequestStateChangedEventArgs_Vtbl {
+        unsafe extern "system" fn State<Impl: IGattRequestStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattRequestState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4316,7 +4316,7 @@ impl IGattRequestStateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Error<Impl: IGattRequestStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Error<Impl: IGattRequestStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Error() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4338,7 +4338,7 @@ impl IGattRequestStateChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGattServiceProviderImpl: Sized {
+pub trait IGattServiceProvider_Impl: Sized {
     fn Service(&mut self) -> ::windows::core::Result<GattLocalService>;
     fn AdvertisementStatus(&mut self) -> ::windows::core::Result<GattServiceProviderAdvertisementStatus>;
     fn AdvertisementStatusChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattServiceProvider, GattServiceProviderAdvertisementStatusChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
@@ -4352,9 +4352,9 @@ impl ::windows::core::RuntimeName for IGattServiceProvider {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProvider";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGattServiceProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattServiceProviderVtbl {
-        unsafe extern "system" fn Service<Impl: IGattServiceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattServiceProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattServiceProvider_Vtbl {
+        unsafe extern "system" fn Service<Impl: IGattServiceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Service() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4365,7 +4365,7 @@ impl IGattServiceProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AdvertisementStatus<Impl: IGattServiceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattServiceProviderAdvertisementStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AdvertisementStatus<Impl: IGattServiceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattServiceProviderAdvertisementStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AdvertisementStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4376,7 +4376,7 @@ impl IGattServiceProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AdvertisementStatusChanged<Impl: IGattServiceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AdvertisementStatusChanged<Impl: IGattServiceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AdvertisementStatusChanged(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<GattServiceProvider, GattServiceProviderAdvertisementStatusChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<GattServiceProvider, GattServiceProviderAdvertisementStatusChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4387,19 +4387,19 @@ impl IGattServiceProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAdvertisementStatusChanged<Impl: IGattServiceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAdvertisementStatusChanged<Impl: IGattServiceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAdvertisementStatusChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StartAdvertising<Impl: IGattServiceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartAdvertising<Impl: IGattServiceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartAdvertising().into()
         }
-        unsafe extern "system" fn StartAdvertisingWithParameters<Impl: IGattServiceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parameters: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartAdvertisingWithParameters<Impl: IGattServiceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parameters: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StartAdvertisingWithParameters(&*(&parameters as *const <GattServiceProviderAdvertisingParameters as ::windows::core::Abi>::Abi as *const <GattServiceProviderAdvertisingParameters as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StopAdvertising<Impl: IGattServiceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopAdvertising<Impl: IGattServiceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StopAdvertising().into()
         }
@@ -4419,7 +4419,7 @@ impl IGattServiceProviderVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGattServiceProviderAdvertisementStatusChangedEventArgsImpl: Sized {
+pub trait IGattServiceProviderAdvertisementStatusChangedEventArgs_Impl: Sized {
     fn Error(&mut self) -> ::windows::core::Result<super::BluetoothError>;
     fn Status(&mut self) -> ::windows::core::Result<GattServiceProviderAdvertisementStatus>;
 }
@@ -4428,9 +4428,9 @@ impl ::windows::core::RuntimeName for IGattServiceProviderAdvertisementStatusCha
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisementStatusChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGattServiceProviderAdvertisementStatusChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceProviderAdvertisementStatusChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattServiceProviderAdvertisementStatusChangedEventArgsVtbl {
-        unsafe extern "system" fn Error<Impl: IGattServiceProviderAdvertisementStatusChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT {
+impl IGattServiceProviderAdvertisementStatusChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceProviderAdvertisementStatusChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattServiceProviderAdvertisementStatusChangedEventArgs_Vtbl {
+        unsafe extern "system" fn Error<Impl: IGattServiceProviderAdvertisementStatusChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Error() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4441,7 +4441,7 @@ impl IGattServiceProviderAdvertisementStatusChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Status<Impl: IGattServiceProviderAdvertisementStatusChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattServiceProviderAdvertisementStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Status<Impl: IGattServiceProviderAdvertisementStatusChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattServiceProviderAdvertisementStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4463,7 +4463,7 @@ impl IGattServiceProviderAdvertisementStatusChangedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGattServiceProviderAdvertisingParametersImpl: Sized {
+pub trait IGattServiceProviderAdvertisingParameters_Impl: Sized {
     fn SetIsConnectable(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn IsConnectable(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsDiscoverable(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -4474,13 +4474,13 @@ impl ::windows::core::RuntimeName for IGattServiceProviderAdvertisingParameters 
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisingParameters";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGattServiceProviderAdvertisingParametersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceProviderAdvertisingParametersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattServiceProviderAdvertisingParametersVtbl {
-        unsafe extern "system" fn SetIsConnectable<Impl: IGattServiceProviderAdvertisingParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+impl IGattServiceProviderAdvertisingParameters_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceProviderAdvertisingParameters_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattServiceProviderAdvertisingParameters_Vtbl {
+        unsafe extern "system" fn SetIsConnectable<Impl: IGattServiceProviderAdvertisingParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsConnectable(value).into()
         }
-        unsafe extern "system" fn IsConnectable<Impl: IGattServiceProviderAdvertisingParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsConnectable<Impl: IGattServiceProviderAdvertisingParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsConnectable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4491,11 +4491,11 @@ impl IGattServiceProviderAdvertisingParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsDiscoverable<Impl: IGattServiceProviderAdvertisingParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsDiscoverable<Impl: IGattServiceProviderAdvertisingParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsDiscoverable(value).into()
         }
-        unsafe extern "system" fn IsDiscoverable<Impl: IGattServiceProviderAdvertisingParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDiscoverable<Impl: IGattServiceProviderAdvertisingParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDiscoverable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4519,7 +4519,7 @@ impl IGattServiceProviderAdvertisingParametersVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IGattServiceProviderAdvertisingParameters2Impl: Sized {
+pub trait IGattServiceProviderAdvertisingParameters2_Impl: Sized {
     fn SetServiceData(&mut self, value: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
     fn ServiceData(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
 }
@@ -4528,13 +4528,13 @@ impl ::windows::core::RuntimeName for IGattServiceProviderAdvertisingParameters2
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderAdvertisingParameters2";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IGattServiceProviderAdvertisingParameters2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceProviderAdvertisingParameters2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattServiceProviderAdvertisingParameters2Vtbl {
-        unsafe extern "system" fn SetServiceData<Impl: IGattServiceProviderAdvertisingParameters2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattServiceProviderAdvertisingParameters2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceProviderAdvertisingParameters2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattServiceProviderAdvertisingParameters2_Vtbl {
+        unsafe extern "system" fn SetServiceData<Impl: IGattServiceProviderAdvertisingParameters2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetServiceData(&*(&value as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ServiceData<Impl: IGattServiceProviderAdvertisingParameters2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServiceData<Impl: IGattServiceProviderAdvertisingParameters2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4556,7 +4556,7 @@ impl IGattServiceProviderAdvertisingParameters2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGattServiceProviderResultImpl: Sized {
+pub trait IGattServiceProviderResult_Impl: Sized {
     fn Error(&mut self) -> ::windows::core::Result<super::BluetoothError>;
     fn ServiceProvider(&mut self) -> ::windows::core::Result<GattServiceProvider>;
 }
@@ -4565,9 +4565,9 @@ impl ::windows::core::RuntimeName for IGattServiceProviderResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderResult";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGattServiceProviderResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceProviderResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattServiceProviderResultVtbl {
-        unsafe extern "system" fn Error<Impl: IGattServiceProviderResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT {
+impl IGattServiceProviderResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceProviderResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattServiceProviderResult_Vtbl {
+        unsafe extern "system" fn Error<Impl: IGattServiceProviderResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Error() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4578,7 +4578,7 @@ impl IGattServiceProviderResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceProvider<Impl: IGattServiceProviderResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServiceProvider<Impl: IGattServiceProviderResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceProvider() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4600,7 +4600,7 @@ impl IGattServiceProviderResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGattServiceProviderStaticsImpl: Sized {
+pub trait IGattServiceProviderStatics_Impl: Sized {
     fn CreateAsync(&mut self, serviceuuid: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattServiceProviderResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -4608,9 +4608,9 @@ impl ::windows::core::RuntimeName for IGattServiceProviderStatics {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceProviderStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGattServiceProviderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceProviderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattServiceProviderStaticsVtbl {
-        unsafe extern "system" fn CreateAsync<Impl: IGattServiceProviderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceuuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattServiceProviderStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceProviderStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattServiceProviderStatics_Vtbl {
+        unsafe extern "system" fn CreateAsync<Impl: IGattServiceProviderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceuuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAsync(&*(&serviceuuid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4631,7 +4631,7 @@ impl IGattServiceProviderStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGattServiceUuidsStaticsImpl: Sized {
+pub trait IGattServiceUuidsStatics_Impl: Sized {
     fn Battery(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn BloodPressure(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn CyclingSpeedAndCadence(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -4647,9 +4647,9 @@ impl ::windows::core::RuntimeName for IGattServiceUuidsStatics {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceUuidsStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGattServiceUuidsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceUuidsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattServiceUuidsStaticsVtbl {
-        unsafe extern "system" fn Battery<Impl: IGattServiceUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl IGattServiceUuidsStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceUuidsStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattServiceUuidsStatics_Vtbl {
+        unsafe extern "system" fn Battery<Impl: IGattServiceUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Battery() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4660,7 +4660,7 @@ impl IGattServiceUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BloodPressure<Impl: IGattServiceUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BloodPressure<Impl: IGattServiceUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BloodPressure() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4671,7 +4671,7 @@ impl IGattServiceUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CyclingSpeedAndCadence<Impl: IGattServiceUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CyclingSpeedAndCadence<Impl: IGattServiceUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CyclingSpeedAndCadence() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4682,7 +4682,7 @@ impl IGattServiceUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GenericAccess<Impl: IGattServiceUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GenericAccess<Impl: IGattServiceUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GenericAccess() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4693,7 +4693,7 @@ impl IGattServiceUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GenericAttribute<Impl: IGattServiceUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GenericAttribute<Impl: IGattServiceUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GenericAttribute() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4704,7 +4704,7 @@ impl IGattServiceUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Glucose<Impl: IGattServiceUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Glucose<Impl: IGattServiceUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Glucose() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4715,7 +4715,7 @@ impl IGattServiceUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HealthThermometer<Impl: IGattServiceUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HealthThermometer<Impl: IGattServiceUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HealthThermometer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4726,7 +4726,7 @@ impl IGattServiceUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HeartRate<Impl: IGattServiceUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HeartRate<Impl: IGattServiceUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HeartRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4737,7 +4737,7 @@ impl IGattServiceUuidsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RunningSpeedAndCadence<Impl: IGattServiceUuidsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RunningSpeedAndCadence<Impl: IGattServiceUuidsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RunningSpeedAndCadence() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4766,7 +4766,7 @@ impl IGattServiceUuidsStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGattServiceUuidsStatics2Impl: Sized {
+pub trait IGattServiceUuidsStatics2_Impl: Sized {
     fn AlertNotification(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn CurrentTime(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn CyclingPower(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -4786,9 +4786,9 @@ impl ::windows::core::RuntimeName for IGattServiceUuidsStatics2 {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattServiceUuidsStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGattServiceUuidsStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceUuidsStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattServiceUuidsStatics2Vtbl {
-        unsafe extern "system" fn AlertNotification<Impl: IGattServiceUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl IGattServiceUuidsStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattServiceUuidsStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattServiceUuidsStatics2_Vtbl {
+        unsafe extern "system" fn AlertNotification<Impl: IGattServiceUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlertNotification() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4799,7 +4799,7 @@ impl IGattServiceUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentTime<Impl: IGattServiceUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentTime<Impl: IGattServiceUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4810,7 +4810,7 @@ impl IGattServiceUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CyclingPower<Impl: IGattServiceUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CyclingPower<Impl: IGattServiceUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CyclingPower() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4821,7 +4821,7 @@ impl IGattServiceUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceInformation<Impl: IGattServiceUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceInformation<Impl: IGattServiceUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceInformation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4832,7 +4832,7 @@ impl IGattServiceUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HumanInterfaceDevice<Impl: IGattServiceUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HumanInterfaceDevice<Impl: IGattServiceUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HumanInterfaceDevice() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4843,7 +4843,7 @@ impl IGattServiceUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImmediateAlert<Impl: IGattServiceUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImmediateAlert<Impl: IGattServiceUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImmediateAlert() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4854,7 +4854,7 @@ impl IGattServiceUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LinkLoss<Impl: IGattServiceUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LinkLoss<Impl: IGattServiceUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LinkLoss() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4865,7 +4865,7 @@ impl IGattServiceUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocationAndNavigation<Impl: IGattServiceUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LocationAndNavigation<Impl: IGattServiceUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocationAndNavigation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4876,7 +4876,7 @@ impl IGattServiceUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NextDstChange<Impl: IGattServiceUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NextDstChange<Impl: IGattServiceUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NextDstChange() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4887,7 +4887,7 @@ impl IGattServiceUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhoneAlertStatus<Impl: IGattServiceUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhoneAlertStatus<Impl: IGattServiceUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhoneAlertStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4898,7 +4898,7 @@ impl IGattServiceUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReferenceTimeUpdate<Impl: IGattServiceUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReferenceTimeUpdate<Impl: IGattServiceUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReferenceTimeUpdate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4909,7 +4909,7 @@ impl IGattServiceUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ScanParameters<Impl: IGattServiceUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScanParameters<Impl: IGattServiceUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScanParameters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4920,7 +4920,7 @@ impl IGattServiceUuidsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TxPower<Impl: IGattServiceUuidsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TxPower<Impl: IGattServiceUuidsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TxPower() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4953,7 +4953,7 @@ impl IGattServiceUuidsStatics2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGattSessionImpl: Sized {
+pub trait IGattSession_Impl: Sized {
     fn DeviceId(&mut self) -> ::windows::core::Result<super::BluetoothDeviceId>;
     fn CanMaintainConnection(&mut self) -> ::windows::core::Result<bool>;
     fn SetMaintainConnection(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -4970,9 +4970,9 @@ impl ::windows::core::RuntimeName for IGattSession {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSession";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGattSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattSessionVtbl {
-        unsafe extern "system" fn DeviceId<Impl: IGattSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattSession_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattSession_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattSession_Vtbl {
+        unsafe extern "system" fn DeviceId<Impl: IGattSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4983,7 +4983,7 @@ impl IGattSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanMaintainConnection<Impl: IGattSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanMaintainConnection<Impl: IGattSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanMaintainConnection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4994,11 +4994,11 @@ impl IGattSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaintainConnection<Impl: IGattSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaintainConnection<Impl: IGattSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaintainConnection(value).into()
         }
-        unsafe extern "system" fn MaintainConnection<Impl: IGattSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaintainConnection<Impl: IGattSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaintainConnection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5009,7 +5009,7 @@ impl IGattSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxPduSize<Impl: IGattSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxPduSize<Impl: IGattSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxPduSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5020,7 +5020,7 @@ impl IGattSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SessionStatus<Impl: IGattSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattSessionStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SessionStatus<Impl: IGattSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattSessionStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5031,7 +5031,7 @@ impl IGattSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxPduSizeChanged<Impl: IGattSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxPduSizeChanged<Impl: IGattSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxPduSizeChanged(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<GattSession, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<GattSession, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5042,11 +5042,11 @@ impl IGattSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMaxPduSizeChanged<Impl: IGattSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMaxPduSizeChanged<Impl: IGattSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMaxPduSizeChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SessionStatusChanged<Impl: IGattSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SessionStatusChanged<Impl: IGattSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionStatusChanged(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<GattSession, GattSessionStatusChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<GattSession, GattSessionStatusChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5057,7 +5057,7 @@ impl IGattSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSessionStatusChanged<Impl: IGattSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSessionStatusChanged<Impl: IGattSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSessionStatusChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -5080,7 +5080,7 @@ impl IGattSessionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGattSessionStaticsImpl: Sized {
+pub trait IGattSessionStatics_Impl: Sized {
     fn FromDeviceIdAsync(&mut self, deviceid: &::core::option::Option<super::BluetoothDeviceId>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattSession>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -5088,9 +5088,9 @@ impl ::windows::core::RuntimeName for IGattSessionStatics {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSessionStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGattSessionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattSessionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattSessionStaticsVtbl {
-        unsafe extern "system" fn FromDeviceIdAsync<Impl: IGattSessionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattSessionStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattSessionStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattSessionStatics_Vtbl {
+        unsafe extern "system" fn FromDeviceIdAsync<Impl: IGattSessionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromDeviceIdAsync(&*(&deviceid as *const <super::BluetoothDeviceId as ::windows::core::Abi>::Abi as *const <super::BluetoothDeviceId as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5111,7 +5111,7 @@ impl IGattSessionStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGattSessionStatusChangedEventArgsImpl: Sized {
+pub trait IGattSessionStatusChangedEventArgs_Impl: Sized {
     fn Error(&mut self) -> ::windows::core::Result<super::BluetoothError>;
     fn Status(&mut self) -> ::windows::core::Result<GattSessionStatus>;
 }
@@ -5120,9 +5120,9 @@ impl ::windows::core::RuntimeName for IGattSessionStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSessionStatusChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGattSessionStatusChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattSessionStatusChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattSessionStatusChangedEventArgsVtbl {
-        unsafe extern "system" fn Error<Impl: IGattSessionStatusChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT {
+impl IGattSessionStatusChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattSessionStatusChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattSessionStatusChangedEventArgs_Vtbl {
+        unsafe extern "system" fn Error<Impl: IGattSessionStatusChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Error() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5133,7 +5133,7 @@ impl IGattSessionStatusChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Status<Impl: IGattSessionStatusChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattSessionStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Status<Impl: IGattSessionStatusChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattSessionStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5155,7 +5155,7 @@ impl IGattSessionStatusChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGattSubscribedClientImpl: Sized {
+pub trait IGattSubscribedClient_Impl: Sized {
     fn Session(&mut self) -> ::windows::core::Result<GattSession>;
     fn MaxNotificationSize(&mut self) -> ::windows::core::Result<u16>;
     fn MaxNotificationSizeChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<GattSubscribedClient, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
@@ -5166,9 +5166,9 @@ impl ::windows::core::RuntimeName for IGattSubscribedClient {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattSubscribedClient";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGattSubscribedClientVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattSubscribedClientImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattSubscribedClientVtbl {
-        unsafe extern "system" fn Session<Impl: IGattSubscribedClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattSubscribedClient_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattSubscribedClient_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattSubscribedClient_Vtbl {
+        unsafe extern "system" fn Session<Impl: IGattSubscribedClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Session() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5179,7 +5179,7 @@ impl IGattSubscribedClientVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxNotificationSize<Impl: IGattSubscribedClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxNotificationSize<Impl: IGattSubscribedClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxNotificationSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5190,7 +5190,7 @@ impl IGattSubscribedClientVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxNotificationSizeChanged<Impl: IGattSubscribedClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxNotificationSizeChanged<Impl: IGattSubscribedClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxNotificationSizeChanged(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<GattSubscribedClient, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<GattSubscribedClient, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5201,7 +5201,7 @@ impl IGattSubscribedClientVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMaxNotificationSizeChanged<Impl: IGattSubscribedClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMaxNotificationSizeChanged<Impl: IGattSubscribedClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMaxNotificationSizeChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -5218,7 +5218,7 @@ impl IGattSubscribedClientVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IGattValueChangedEventArgsImpl: Sized {
+pub trait IGattValueChangedEventArgs_Impl: Sized {
     fn CharacteristicValue(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
     fn Timestamp(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
 }
@@ -5227,9 +5227,9 @@ impl ::windows::core::RuntimeName for IGattValueChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattValueChangedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IGattValueChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattValueChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattValueChangedEventArgsVtbl {
-        unsafe extern "system" fn CharacteristicValue<Impl: IGattValueChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattValueChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattValueChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattValueChangedEventArgs_Vtbl {
+        unsafe extern "system" fn CharacteristicValue<Impl: IGattValueChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CharacteristicValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5240,7 +5240,7 @@ impl IGattValueChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Timestamp<Impl: IGattValueChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Timestamp<Impl: IGattValueChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5262,7 +5262,7 @@ impl IGattValueChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IGattWriteRequestImpl: Sized {
+pub trait IGattWriteRequest_Impl: Sized {
     fn Value(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
     fn Offset(&mut self) -> ::windows::core::Result<u32>;
     fn Option(&mut self) -> ::windows::core::Result<GattWriteOption>;
@@ -5277,9 +5277,9 @@ impl ::windows::core::RuntimeName for IGattWriteRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattWriteRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IGattWriteRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattWriteRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattWriteRequestVtbl {
-        unsafe extern "system" fn Value<Impl: IGattWriteRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattWriteRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattWriteRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattWriteRequest_Vtbl {
+        unsafe extern "system" fn Value<Impl: IGattWriteRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5290,7 +5290,7 @@ impl IGattWriteRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Offset<Impl: IGattWriteRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Offset<Impl: IGattWriteRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Offset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5301,7 +5301,7 @@ impl IGattWriteRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Option<Impl: IGattWriteRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattWriteOption) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Option<Impl: IGattWriteRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattWriteOption) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Option() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5312,7 +5312,7 @@ impl IGattWriteRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn State<Impl: IGattWriteRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattRequestState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn State<Impl: IGattWriteRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattRequestState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5323,7 +5323,7 @@ impl IGattWriteRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StateChanged<Impl: IGattWriteRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StateChanged<Impl: IGattWriteRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StateChanged(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<GattWriteRequest, GattRequestStateChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<GattWriteRequest, GattRequestStateChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5334,15 +5334,15 @@ impl IGattWriteRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStateChanged<Impl: IGattWriteRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStateChanged<Impl: IGattWriteRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStateChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Respond<Impl: IGattWriteRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Respond<Impl: IGattWriteRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Respond().into()
         }
-        unsafe extern "system" fn RespondWithProtocolError<Impl: IGattWriteRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, protocolerror: u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RespondWithProtocolError<Impl: IGattWriteRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, protocolerror: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RespondWithProtocolError(protocolerror).into()
         }
@@ -5363,7 +5363,7 @@ impl IGattWriteRequestVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGattWriteRequestedEventArgsImpl: Sized {
+pub trait IGattWriteRequestedEventArgs_Impl: Sized {
     fn Session(&mut self) -> ::windows::core::Result<GattSession>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Deferral>;
     fn GetRequestAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteRequest>>;
@@ -5373,9 +5373,9 @@ impl ::windows::core::RuntimeName for IGattWriteRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattWriteRequestedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGattWriteRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattWriteRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattWriteRequestedEventArgsVtbl {
-        unsafe extern "system" fn Session<Impl: IGattWriteRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGattWriteRequestedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattWriteRequestedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattWriteRequestedEventArgs_Vtbl {
+        unsafe extern "system" fn Session<Impl: IGattWriteRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Session() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5386,7 +5386,7 @@ impl IGattWriteRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IGattWriteRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IGattWriteRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5397,7 +5397,7 @@ impl IGattWriteRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRequestAsync<Impl: IGattWriteRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRequestAsync<Impl: IGattWriteRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRequestAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5420,7 +5420,7 @@ impl IGattWriteRequestedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGattWriteResultImpl: Sized {
+pub trait IGattWriteResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<GattCommunicationStatus>;
     fn ProtocolError(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>>;
 }
@@ -5429,9 +5429,9 @@ impl ::windows::core::RuntimeName for IGattWriteResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattWriteResult";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGattWriteResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattWriteResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattWriteResultVtbl {
-        unsafe extern "system" fn Status<Impl: IGattWriteResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows::core::HRESULT {
+impl IGattWriteResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGattWriteResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGattWriteResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IGattWriteResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5442,7 +5442,7 @@ impl IGattWriteResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProtocolError<Impl: IGattWriteResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProtocolError<Impl: IGattWriteResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtocolError() {
                 ::core::result::Result::Ok(ok__) => {

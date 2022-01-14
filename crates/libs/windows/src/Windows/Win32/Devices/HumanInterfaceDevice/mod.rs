@@ -8833,13 +8833,13 @@ impl ::core::fmt::Debug for IDirectInput2A {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectInput2A {
-    type Vtable = IDirectInput2AVtbl;
+    type Vtable = IDirectInput2A_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e662_aa8a_11cf_bfc7_444553540000);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInput2AVtbl {
-    pub base: IDirectInputAVtbl,
+pub struct IDirectInput2A_Vtbl {
+    pub base: IDirectInputA_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub FindDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8935,13 +8935,13 @@ impl ::core::fmt::Debug for IDirectInput2W {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectInput2W {
-    type Vtable = IDirectInput2WVtbl;
+    type Vtable = IDirectInput2W_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e663_aa8a_11cf_bfc7_444553540000);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInput2WVtbl {
-    pub base: IDirectInputWVtbl,
+pub struct IDirectInput2W_Vtbl {
+    pub base: IDirectInputW_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub FindDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PWSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9061,13 +9061,13 @@ impl ::core::fmt::Debug for IDirectInput7A {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectInput7A {
-    type Vtable = IDirectInput7AVtbl;
+    type Vtable = IDirectInput7A_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a4cb684_236d_11d3_8e9d_00c04f6844ae);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInput7AVtbl {
-    pub base: IDirectInput2AVtbl,
+pub struct IDirectInput7A_Vtbl {
+    pub base: IDirectInput2A_Vtbl,
     pub CreateDeviceEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
@@ -9184,13 +9184,13 @@ impl ::core::fmt::Debug for IDirectInput7W {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectInput7W {
-    type Vtable = IDirectInput7WVtbl;
+    type Vtable = IDirectInput7W_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a4cb685_236d_11d3_8e9d_00c04f6844ae);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInput7WVtbl {
-    pub base: IDirectInput2WVtbl,
+pub struct IDirectInput7W_Vtbl {
+    pub base: IDirectInput2W_Vtbl,
     pub CreateDeviceEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
@@ -9273,12 +9273,12 @@ impl ::core::fmt::Debug for IDirectInput8A {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectInput8A {
-    type Vtable = IDirectInput8AVtbl;
+    type Vtable = IDirectInput8A_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf798030_483a_4da2_aa99_5d64ed369700);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInput8AVtbl {
+pub struct IDirectInput8A_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -9387,12 +9387,12 @@ impl ::core::fmt::Debug for IDirectInput8W {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectInput8W {
-    type Vtable = IDirectInput8WVtbl;
+    type Vtable = IDirectInput8W_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf798031_483a_4da2_aa99_5d64ed369700);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInput8WVtbl {
+pub struct IDirectInput8W_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -9486,12 +9486,12 @@ impl ::core::fmt::Debug for IDirectInputA {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectInputA {
-    type Vtable = IDirectInputAVtbl;
+    type Vtable = IDirectInputA_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89521360_aa8a_11cf_bfc7_444553540000);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputAVtbl {
+pub struct IDirectInputA_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -9676,13 +9676,13 @@ impl ::core::fmt::Debug for IDirectInputDevice2A {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectInputDevice2A {
-    type Vtable = IDirectInputDevice2AVtbl;
+    type Vtable = IDirectInputDevice2A_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e682_c92e_11cf_bfc7_444553540000);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputDevice2AVtbl {
-    pub base: IDirectInputDeviceAVtbl,
+pub struct IDirectInputDevice2A_Vtbl {
+    pub base: IDirectInputDeviceA_Vtbl,
     pub CreateEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub EnumEffects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
@@ -9867,13 +9867,13 @@ impl ::core::fmt::Debug for IDirectInputDevice2W {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectInputDevice2W {
-    type Vtable = IDirectInputDevice2WVtbl;
+    type Vtable = IDirectInputDevice2W_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e683_c92e_11cf_bfc7_444553540000);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputDevice2WVtbl {
-    pub base: IDirectInputDeviceWVtbl,
+pub struct IDirectInputDevice2W_Vtbl {
+    pub base: IDirectInputDeviceW_Vtbl,
     pub CreateEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub EnumEffects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT,
@@ -10088,13 +10088,13 @@ impl ::core::fmt::Debug for IDirectInputDevice7A {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectInputDevice7A {
-    type Vtable = IDirectInputDevice7AVtbl;
+    type Vtable = IDirectInputDevice7A_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57d7c6bc_2356_11d3_8e9d_00c04f6844ae);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputDevice7AVtbl {
-    pub base: IDirectInputDevice2AVtbl,
+pub struct IDirectInputDevice7A_Vtbl {
+    pub base: IDirectInputDevice2A_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub EnumEffectsInFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::PSTR, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -10299,13 +10299,13 @@ impl ::core::fmt::Debug for IDirectInputDevice7W {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectInputDevice7W {
-    type Vtable = IDirectInputDevice7WVtbl;
+    type Vtable = IDirectInputDevice7W_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57d7c6bd_2356_11d3_8e9d_00c04f6844ae);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputDevice7WVtbl {
-    pub base: IDirectInputDevice2WVtbl,
+pub struct IDirectInputDevice7W_Vtbl {
+    pub base: IDirectInputDevice2W_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub EnumEffectsInFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::PWSTR, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -10488,12 +10488,12 @@ impl ::core::fmt::Debug for IDirectInputDevice8A {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectInputDevice8A {
-    type Vtable = IDirectInputDevice8AVtbl;
+    type Vtable = IDirectInputDevice8A_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54d41080_dc15_4833_a41b_748f73a38179);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputDevice8AVtbl {
+pub struct IDirectInputDevice8A_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -10740,12 +10740,12 @@ impl ::core::fmt::Debug for IDirectInputDevice8W {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectInputDevice8W {
-    type Vtable = IDirectInputDevice8WVtbl;
+    type Vtable = IDirectInputDevice8W_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54d41081_dc15_4833_a41b_748f73a38179);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputDevice8WVtbl {
+pub struct IDirectInputDevice8W_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -10922,12 +10922,12 @@ impl ::core::fmt::Debug for IDirectInputDeviceA {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectInputDeviceA {
-    type Vtable = IDirectInputDeviceAVtbl;
+    type Vtable = IDirectInputDeviceA_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e680_c92e_11cf_bfc7_444553540000);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputDeviceAVtbl {
+pub struct IDirectInputDeviceA_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -11073,12 +11073,12 @@ impl ::core::fmt::Debug for IDirectInputDeviceW {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectInputDeviceW {
-    type Vtable = IDirectInputDeviceWVtbl;
+    type Vtable = IDirectInputDeviceW_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e681_c92e_11cf_bfc7_444553540000);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputDeviceWVtbl {
+pub struct IDirectInputDeviceW_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -11194,12 +11194,12 @@ impl ::core::fmt::Debug for IDirectInputEffect {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectInputEffect {
-    type Vtable = IDirectInputEffectVtbl;
+    type Vtable = IDirectInputEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7e1f7c0_88d2_11d0_9ad0_00a0c9a06e35);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputEffectVtbl {
+pub struct IDirectInputEffect_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -11301,12 +11301,12 @@ impl ::core::fmt::Debug for IDirectInputEffectDriver {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectInputEffectDriver {
-    type Vtable = IDirectInputEffectDriverVtbl;
+    type Vtable = IDirectInputEffectDriver_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02538130_898f_11d0_9ad0_00a0c9a06e35);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputEffectDriverVtbl {
+pub struct IDirectInputEffectDriver_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub DeviceID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetVersions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDRIVERVERSIONS) -> ::windows::core::HRESULT,
@@ -11434,12 +11434,12 @@ impl ::core::fmt::Debug for IDirectInputJoyConfig {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectInputJoyConfig {
-    type Vtable = IDirectInputJoyConfigVtbl;
+    type Vtable = IDirectInputJoyConfig_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1de12ab1_c9f5_11cf_bfc7_444553540000);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputJoyConfigVtbl {
+pub struct IDirectInputJoyConfig_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Acquire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Unacquire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -11596,12 +11596,12 @@ impl ::core::fmt::Debug for IDirectInputJoyConfig8 {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectInputJoyConfig8 {
-    type Vtable = IDirectInputJoyConfig8Vtbl;
+    type Vtable = IDirectInputJoyConfig8_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb0d7dfa_1990_4f27_b4d6_edf2eec4a44c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputJoyConfig8Vtbl {
+pub struct IDirectInputJoyConfig8_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Acquire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Unacquire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -11709,12 +11709,12 @@ impl ::core::fmt::Debug for IDirectInputW {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectInputW {
-    type Vtable = IDirectInputWVtbl;
+    type Vtable = IDirectInputW_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89521361_aa8a_11cf_bfc7_444553540000);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectInputWVtbl {
+pub struct IDirectInputW_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]

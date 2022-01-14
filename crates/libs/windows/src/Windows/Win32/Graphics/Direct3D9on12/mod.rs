@@ -131,12 +131,12 @@ impl ::core::fmt::Debug for IDirect3DDevice9On12 {
     }
 }
 unsafe impl ::windows::core::Interface for IDirect3DDevice9On12 {
-    type Vtable = IDirect3DDevice9On12Vtbl;
+    type Vtable = IDirect3DDevice9On12_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7fda234_b589_4049_940d_8878977531c8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirect3DDevice9On12Vtbl {
+pub struct IDirect3DDevice9On12_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetD3D12Device: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]

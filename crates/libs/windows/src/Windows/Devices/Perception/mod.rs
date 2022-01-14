@@ -7,13 +7,13 @@ pub mod Provider;
 pub struct IKnownCameraIntrinsicsPropertiesStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IKnownCameraIntrinsicsPropertiesStatics {
-    type Vtable = IKnownCameraIntrinsicsPropertiesStaticsVtbl;
+    type Vtable = IKnownCameraIntrinsicsPropertiesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c03978_437a_4d97_a663_fd3195600249);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKnownCameraIntrinsicsPropertiesStaticsVtbl {
+pub struct IKnownCameraIntrinsicsPropertiesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub FocalLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -38,13 +38,13 @@ pub struct IKnownCameraIntrinsicsPropertiesStaticsVtbl {
 pub struct IKnownPerceptionColorFrameSourcePropertiesStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IKnownPerceptionColorFrameSourcePropertiesStatics {
-    type Vtable = IKnownPerceptionColorFrameSourcePropertiesStaticsVtbl;
+    type Vtable = IKnownPerceptionColorFrameSourcePropertiesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de4b);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKnownPerceptionColorFrameSourcePropertiesStaticsVtbl {
+pub struct IKnownPerceptionColorFrameSourcePropertiesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Exposure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -65,13 +65,13 @@ pub struct IKnownPerceptionColorFrameSourcePropertiesStaticsVtbl {
 pub struct IKnownPerceptionDepthFrameSourcePropertiesStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IKnownPerceptionDepthFrameSourcePropertiesStatics {
-    type Vtable = IKnownPerceptionDepthFrameSourcePropertiesStaticsVtbl;
+    type Vtable = IKnownPerceptionDepthFrameSourcePropertiesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de4a);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKnownPerceptionDepthFrameSourcePropertiesStaticsVtbl {
+pub struct IKnownPerceptionDepthFrameSourcePropertiesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub MinDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -88,13 +88,13 @@ pub struct IKnownPerceptionDepthFrameSourcePropertiesStaticsVtbl {
 pub struct IKnownPerceptionFrameSourcePropertiesStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IKnownPerceptionFrameSourcePropertiesStatics {
-    type Vtable = IKnownPerceptionFrameSourcePropertiesStaticsVtbl;
+    type Vtable = IKnownPerceptionFrameSourcePropertiesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de47);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKnownPerceptionFrameSourcePropertiesStaticsVtbl {
+pub struct IKnownPerceptionFrameSourcePropertiesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -123,13 +123,13 @@ pub struct IKnownPerceptionFrameSourcePropertiesStaticsVtbl {
 pub struct IKnownPerceptionFrameSourcePropertiesStatics2(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IKnownPerceptionFrameSourcePropertiesStatics2 {
-    type Vtable = IKnownPerceptionFrameSourcePropertiesStatics2Vtbl;
+    type Vtable = IKnownPerceptionFrameSourcePropertiesStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9c86871_05dc_4a4d_8a5c_a4ecf26bbc46);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKnownPerceptionFrameSourcePropertiesStatics2Vtbl {
+pub struct IKnownPerceptionFrameSourcePropertiesStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -142,13 +142,13 @@ pub struct IKnownPerceptionFrameSourcePropertiesStatics2Vtbl {
 pub struct IKnownPerceptionInfraredFrameSourcePropertiesStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IKnownPerceptionInfraredFrameSourcePropertiesStatics {
-    type Vtable = IKnownPerceptionInfraredFrameSourcePropertiesStaticsVtbl;
+    type Vtable = IKnownPerceptionInfraredFrameSourcePropertiesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de49);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKnownPerceptionInfraredFrameSourcePropertiesStaticsVtbl {
+pub struct IKnownPerceptionInfraredFrameSourcePropertiesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Exposure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -185,13 +185,13 @@ pub struct IKnownPerceptionInfraredFrameSourcePropertiesStaticsVtbl {
 pub struct IKnownPerceptionVideoFrameSourcePropertiesStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IKnownPerceptionVideoFrameSourcePropertiesStatics {
-    type Vtable = IKnownPerceptionVideoFrameSourcePropertiesStaticsVtbl;
+    type Vtable = IKnownPerceptionVideoFrameSourcePropertiesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5df1cca2_01f8_4a87_b859_d5e5b7e1de48);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKnownPerceptionVideoFrameSourcePropertiesStaticsVtbl {
+pub struct IKnownPerceptionVideoFrameSourcePropertiesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub VideoProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -220,13 +220,13 @@ pub struct IKnownPerceptionVideoFrameSourcePropertiesStaticsVtbl {
 pub struct IKnownPerceptionVideoProfilePropertiesStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IKnownPerceptionVideoProfilePropertiesStatics {
-    type Vtable = IKnownPerceptionVideoProfilePropertiesStaticsVtbl;
+    type Vtable = IKnownPerceptionVideoProfilePropertiesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f08e2e7_5a76_43e3_a13a_da3d91a9ef98);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKnownPerceptionVideoProfilePropertiesStaticsVtbl {
+pub struct IKnownPerceptionVideoProfilePropertiesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub BitmapPixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -255,13 +255,13 @@ pub struct IKnownPerceptionVideoProfilePropertiesStaticsVtbl {
 pub struct IPerceptionColorFrame(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionColorFrame {
-    type Vtable = IPerceptionColorFrameVtbl;
+    type Vtable = IPerceptionColorFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe621549_2cbf_4f94_9861_f817ea317747);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionColorFrameVtbl {
+pub struct IPerceptionColorFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Media", feature = "deprecated"))]
     pub VideoFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -274,13 +274,13 @@ pub struct IPerceptionColorFrameVtbl {
 pub struct IPerceptionColorFrameArrivedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionColorFrameArrivedEventArgs {
-    type Vtable = IPerceptionColorFrameArrivedEventArgsVtbl;
+    type Vtable = IPerceptionColorFrameArrivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fad02d5_86f7_4d8d_b966_5a3761ba9f59);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionColorFrameArrivedEventArgsVtbl {
+pub struct IPerceptionColorFrameArrivedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub RelativeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -297,13 +297,13 @@ pub struct IPerceptionColorFrameArrivedEventArgsVtbl {
 pub struct IPerceptionColorFrameReader(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionColorFrameReader {
-    type Vtable = IPerceptionColorFrameReaderVtbl;
+    type Vtable = IPerceptionColorFrameReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7650f56e_b9f5_461b_83ad_f222af2aaadc);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionColorFrameReaderVtbl {
+pub struct IPerceptionColorFrameReader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub FrameArrived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -336,13 +336,13 @@ pub struct IPerceptionColorFrameReaderVtbl {
 pub struct IPerceptionColorFrameSource(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionColorFrameSource {
-    type Vtable = IPerceptionColorFrameSourceVtbl;
+    type Vtable = IPerceptionColorFrameSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc6dba7c_0b58_468d_9ca1_6db04cc0477c);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionColorFrameSourceVtbl {
+pub struct IPerceptionColorFrameSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub AvailableChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -467,13 +467,13 @@ pub struct IPerceptionColorFrameSourceVtbl {
 pub struct IPerceptionColorFrameSource2(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionColorFrameSource2 {
-    type Vtable = IPerceptionColorFrameSource2Vtbl;
+    type Vtable = IPerceptionColorFrameSource2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf88008e5_5631_45ed_ad98_8c6aa04cfb91);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionColorFrameSource2Vtbl {
+pub struct IPerceptionColorFrameSource2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -486,13 +486,13 @@ pub struct IPerceptionColorFrameSource2Vtbl {
 pub struct IPerceptionColorFrameSourceAddedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionColorFrameSourceAddedEventArgs {
-    type Vtable = IPerceptionColorFrameSourceAddedEventArgsVtbl;
+    type Vtable = IPerceptionColorFrameSourceAddedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd16bf4e6_da24_442c_bbd5_55549b5b94f3);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionColorFrameSourceAddedEventArgsVtbl {
+pub struct IPerceptionColorFrameSourceAddedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub FrameSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -505,13 +505,13 @@ pub struct IPerceptionColorFrameSourceAddedEventArgsVtbl {
 pub struct IPerceptionColorFrameSourceRemovedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionColorFrameSourceRemovedEventArgs {
-    type Vtable = IPerceptionColorFrameSourceRemovedEventArgsVtbl;
+    type Vtable = IPerceptionColorFrameSourceRemovedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd277fa69_eb4c_42ef_ba4f_288f615c93c1);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionColorFrameSourceRemovedEventArgsVtbl {
+pub struct IPerceptionColorFrameSourceRemovedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub FrameSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -524,13 +524,13 @@ pub struct IPerceptionColorFrameSourceRemovedEventArgsVtbl {
 pub struct IPerceptionColorFrameSourceStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionColorFrameSourceStatics {
-    type Vtable = IPerceptionColorFrameSourceStaticsVtbl;
+    type Vtable = IPerceptionColorFrameSourceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5df3cca2_01f8_4a87_b859_d5e5b7e1de49);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionColorFrameSourceStaticsVtbl {
+pub struct IPerceptionColorFrameSourceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub CreateWatcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -555,13 +555,13 @@ pub struct IPerceptionColorFrameSourceStaticsVtbl {
 pub struct IPerceptionColorFrameSourceWatcher(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionColorFrameSourceWatcher {
-    type Vtable = IPerceptionColorFrameSourceWatcherVtbl;
+    type Vtable = IPerceptionColorFrameSourceWatcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96bd1392_e667_40c4_89f9_1462dea6a9cc);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionColorFrameSourceWatcherVtbl {
+pub struct IPerceptionColorFrameSourceWatcher_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub SourceAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -614,13 +614,13 @@ pub struct IPerceptionColorFrameSourceWatcherVtbl {
 pub struct IPerceptionControlSession(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionControlSession {
-    type Vtable = IPerceptionControlSessionVtbl;
+    type Vtable = IPerceptionControlSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99998653_5a3d_417f_9239_f1889e548b48);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionControlSessionVtbl {
+pub struct IPerceptionControlSession_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub ControlLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -641,13 +641,13 @@ pub struct IPerceptionControlSessionVtbl {
 pub struct IPerceptionDepthCorrelatedCameraIntrinsics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionDepthCorrelatedCameraIntrinsics {
-    type Vtable = IPerceptionDepthCorrelatedCameraIntrinsicsVtbl;
+    type Vtable = IPerceptionDepthCorrelatedCameraIntrinsics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6548ca01_86de_5be1_6582_807fcf4c95cf);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionDepthCorrelatedCameraIntrinsicsVtbl {
+pub struct IPerceptionDepthCorrelatedCameraIntrinsics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "deprecated"))]
     pub UnprojectPixelAtCorrelatedDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pixelcoordinate: super::super::Foundation::Point, depthframe: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
@@ -672,13 +672,13 @@ pub struct IPerceptionDepthCorrelatedCameraIntrinsicsVtbl {
 pub struct IPerceptionDepthCorrelatedCoordinateMapper(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionDepthCorrelatedCoordinateMapper {
-    type Vtable = IPerceptionDepthCorrelatedCoordinateMapperVtbl;
+    type Vtable = IPerceptionDepthCorrelatedCoordinateMapper_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b4d9d1d_b5f6_469c_b8c2_b97a45e6863b);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionDepthCorrelatedCoordinateMapperVtbl {
+pub struct IPerceptionDepthCorrelatedCoordinateMapper_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub MapPixelToTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcepixelcoordinate: super::super::Foundation::Point, depthframe: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
@@ -703,13 +703,13 @@ pub struct IPerceptionDepthCorrelatedCoordinateMapperVtbl {
 pub struct IPerceptionDepthFrame(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionDepthFrame {
-    type Vtable = IPerceptionDepthFrameVtbl;
+    type Vtable = IPerceptionDepthFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa37b81fc_9906_4ffd_9161_0024b360b657);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionDepthFrameVtbl {
+pub struct IPerceptionDepthFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Media", feature = "deprecated"))]
     pub VideoFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -722,13 +722,13 @@ pub struct IPerceptionDepthFrameVtbl {
 pub struct IPerceptionDepthFrameArrivedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionDepthFrameArrivedEventArgs {
-    type Vtable = IPerceptionDepthFrameArrivedEventArgsVtbl;
+    type Vtable = IPerceptionDepthFrameArrivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x443d25b2_b282_4637_9173_ac978435c985);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionDepthFrameArrivedEventArgsVtbl {
+pub struct IPerceptionDepthFrameArrivedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub RelativeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -745,13 +745,13 @@ pub struct IPerceptionDepthFrameArrivedEventArgsVtbl {
 pub struct IPerceptionDepthFrameReader(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionDepthFrameReader {
-    type Vtable = IPerceptionDepthFrameReaderVtbl;
+    type Vtable = IPerceptionDepthFrameReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1a3c09f_299b_4612_a4f7_270f25a096ec);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionDepthFrameReaderVtbl {
+pub struct IPerceptionDepthFrameReader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub FrameArrived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -784,13 +784,13 @@ pub struct IPerceptionDepthFrameReaderVtbl {
 pub struct IPerceptionDepthFrameSource(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionDepthFrameSource {
-    type Vtable = IPerceptionDepthFrameSourceVtbl;
+    type Vtable = IPerceptionDepthFrameSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79d433d6_47fb_4df1_bfc9_f01d40bd9942);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionDepthFrameSourceVtbl {
+pub struct IPerceptionDepthFrameSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub AvailableChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -915,13 +915,13 @@ pub struct IPerceptionDepthFrameSourceVtbl {
 pub struct IPerceptionDepthFrameSource2(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionDepthFrameSource2 {
-    type Vtable = IPerceptionDepthFrameSource2Vtbl;
+    type Vtable = IPerceptionDepthFrameSource2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3d23d2e_6e2c_4e6d_91d9_704cd8dff79d);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionDepthFrameSource2Vtbl {
+pub struct IPerceptionDepthFrameSource2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -934,13 +934,13 @@ pub struct IPerceptionDepthFrameSource2Vtbl {
 pub struct IPerceptionDepthFrameSourceAddedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionDepthFrameSourceAddedEventArgs {
-    type Vtable = IPerceptionDepthFrameSourceAddedEventArgsVtbl;
+    type Vtable = IPerceptionDepthFrameSourceAddedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93a48168_8bf8_45d2_a2f8_4ac0931cc7a6);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionDepthFrameSourceAddedEventArgsVtbl {
+pub struct IPerceptionDepthFrameSourceAddedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub FrameSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -953,13 +953,13 @@ pub struct IPerceptionDepthFrameSourceAddedEventArgsVtbl {
 pub struct IPerceptionDepthFrameSourceRemovedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionDepthFrameSourceRemovedEventArgs {
-    type Vtable = IPerceptionDepthFrameSourceRemovedEventArgsVtbl;
+    type Vtable = IPerceptionDepthFrameSourceRemovedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0c0cc4d_e96c_4d81_86dd_38b95e49c6df);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionDepthFrameSourceRemovedEventArgsVtbl {
+pub struct IPerceptionDepthFrameSourceRemovedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub FrameSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -972,13 +972,13 @@ pub struct IPerceptionDepthFrameSourceRemovedEventArgsVtbl {
 pub struct IPerceptionDepthFrameSourceStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionDepthFrameSourceStatics {
-    type Vtable = IPerceptionDepthFrameSourceStaticsVtbl;
+    type Vtable = IPerceptionDepthFrameSourceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5df3cca2_01f8_4a87_b859_d5e5b7e1de48);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionDepthFrameSourceStaticsVtbl {
+pub struct IPerceptionDepthFrameSourceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub CreateWatcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1003,13 +1003,13 @@ pub struct IPerceptionDepthFrameSourceStaticsVtbl {
 pub struct IPerceptionDepthFrameSourceWatcher(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionDepthFrameSourceWatcher {
-    type Vtable = IPerceptionDepthFrameSourceWatcherVtbl;
+    type Vtable = IPerceptionDepthFrameSourceWatcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x780e96d1_8d02_4d2b_ada4_5ba624a0eb10);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionDepthFrameSourceWatcherVtbl {
+pub struct IPerceptionDepthFrameSourceWatcher_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub SourceAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -1062,13 +1062,13 @@ pub struct IPerceptionDepthFrameSourceWatcherVtbl {
 pub struct IPerceptionFrameSourcePropertiesChangedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionFrameSourcePropertiesChangedEventArgs {
-    type Vtable = IPerceptionFrameSourcePropertiesChangedEventArgsVtbl;
+    type Vtable = IPerceptionFrameSourcePropertiesChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c68e068_bcf1_4ecc_b891_7625d1244b6b);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionFrameSourcePropertiesChangedEventArgsVtbl {
+pub struct IPerceptionFrameSourcePropertiesChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub CollectionChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Collections::CollectionChange) -> ::windows::core::HRESULT,
@@ -1085,13 +1085,13 @@ pub struct IPerceptionFrameSourcePropertiesChangedEventArgsVtbl {
 pub struct IPerceptionFrameSourcePropertyChangeResult(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionFrameSourcePropertyChangeResult {
-    type Vtable = IPerceptionFrameSourcePropertyChangeResultVtbl;
+    type Vtable = IPerceptionFrameSourcePropertyChangeResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e33390a_3c90_4d22_b898_f42bba6418ff);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionFrameSourcePropertyChangeResultVtbl {
+pub struct IPerceptionFrameSourcePropertyChangeResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PerceptionFrameSourcePropertyChangeStatus) -> ::windows::core::HRESULT,
@@ -1108,13 +1108,13 @@ pub struct IPerceptionFrameSourcePropertyChangeResultVtbl {
 pub struct IPerceptionInfraredFrame(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionInfraredFrame {
-    type Vtable = IPerceptionInfraredFrameVtbl;
+    type Vtable = IPerceptionInfraredFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0886276_849e_4c7a_8ae6_b56064532153);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionInfraredFrameVtbl {
+pub struct IPerceptionInfraredFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Media", feature = "deprecated"))]
     pub VideoFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1127,13 +1127,13 @@ pub struct IPerceptionInfraredFrameVtbl {
 pub struct IPerceptionInfraredFrameArrivedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameArrivedEventArgs {
-    type Vtable = IPerceptionInfraredFrameArrivedEventArgsVtbl;
+    type Vtable = IPerceptionInfraredFrameArrivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f77fac7_b4bd_4857_9d50_be8ef075daef);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionInfraredFrameArrivedEventArgsVtbl {
+pub struct IPerceptionInfraredFrameArrivedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub RelativeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -1150,13 +1150,13 @@ pub struct IPerceptionInfraredFrameArrivedEventArgsVtbl {
 pub struct IPerceptionInfraredFrameReader(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameReader {
-    type Vtable = IPerceptionInfraredFrameReaderVtbl;
+    type Vtable = IPerceptionInfraredFrameReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7960ce18_d39b_4fc8_a04a_929734c6756c);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionInfraredFrameReaderVtbl {
+pub struct IPerceptionInfraredFrameReader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub FrameArrived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -1189,13 +1189,13 @@ pub struct IPerceptionInfraredFrameReaderVtbl {
 pub struct IPerceptionInfraredFrameSource(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameSource {
-    type Vtable = IPerceptionInfraredFrameSourceVtbl;
+    type Vtable = IPerceptionInfraredFrameSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55b08742_1808_494e_9e30_9d2a7be8f700);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionInfraredFrameSourceVtbl {
+pub struct IPerceptionInfraredFrameSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub AvailableChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -1320,13 +1320,13 @@ pub struct IPerceptionInfraredFrameSourceVtbl {
 pub struct IPerceptionInfraredFrameSource2(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameSource2 {
-    type Vtable = IPerceptionInfraredFrameSource2Vtbl;
+    type Vtable = IPerceptionInfraredFrameSource2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcd4d798_4b0b_4300_8d85_410817faa032);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionInfraredFrameSource2Vtbl {
+pub struct IPerceptionInfraredFrameSource2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1339,13 +1339,13 @@ pub struct IPerceptionInfraredFrameSource2Vtbl {
 pub struct IPerceptionInfraredFrameSourceAddedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameSourceAddedEventArgs {
-    type Vtable = IPerceptionInfraredFrameSourceAddedEventArgsVtbl;
+    type Vtable = IPerceptionInfraredFrameSourceAddedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d334120_95ce_4660_907a_d98035aa2b7c);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionInfraredFrameSourceAddedEventArgsVtbl {
+pub struct IPerceptionInfraredFrameSourceAddedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub FrameSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1358,13 +1358,13 @@ pub struct IPerceptionInfraredFrameSourceAddedEventArgsVtbl {
 pub struct IPerceptionInfraredFrameSourceRemovedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameSourceRemovedEventArgs {
-    type Vtable = IPerceptionInfraredFrameSourceRemovedEventArgsVtbl;
+    type Vtable = IPerceptionInfraredFrameSourceRemovedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea1a8071_7a70_4a61_af94_07303853f695);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionInfraredFrameSourceRemovedEventArgsVtbl {
+pub struct IPerceptionInfraredFrameSourceRemovedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub FrameSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1377,13 +1377,13 @@ pub struct IPerceptionInfraredFrameSourceRemovedEventArgsVtbl {
 pub struct IPerceptionInfraredFrameSourceStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameSourceStatics {
-    type Vtable = IPerceptionInfraredFrameSourceStaticsVtbl;
+    type Vtable = IPerceptionInfraredFrameSourceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5df3cca2_01f8_4a87_b859_d5e5b7e1de47);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionInfraredFrameSourceStaticsVtbl {
+pub struct IPerceptionInfraredFrameSourceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub CreateWatcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1408,13 +1408,13 @@ pub struct IPerceptionInfraredFrameSourceStaticsVtbl {
 pub struct IPerceptionInfraredFrameSourceWatcher(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionInfraredFrameSourceWatcher {
-    type Vtable = IPerceptionInfraredFrameSourceWatcherVtbl;
+    type Vtable = IPerceptionInfraredFrameSourceWatcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x383cff99_d70c_444d_a8b0_720c2e66fe3b);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionInfraredFrameSourceWatcherVtbl {
+pub struct IPerceptionInfraredFrameSourceWatcher_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub SourceAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -1467,13 +1467,13 @@ pub struct IPerceptionInfraredFrameSourceWatcherVtbl {
 pub struct IPerceptionVideoProfile(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IPerceptionVideoProfile {
-    type Vtable = IPerceptionVideoProfileVtbl;
+    type Vtable = IPerceptionVideoProfile_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75763ea3_011a_470e_8225_6f05ade25648);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPerceptionVideoProfileVtbl {
+pub struct IPerceptionVideoProfile_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Graphics_Imaging", feature = "deprecated"))]
     pub BitmapPixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::HRESULT,
@@ -1922,7 +1922,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionColorFrame {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionColorFrame {
-    type Vtable = IPerceptionColorFrameVtbl;
+    type Vtable = IPerceptionColorFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe621549_2cbf_4f94_9861_f817ea317747);
 }
 #[cfg(feature = "deprecated")]
@@ -2058,7 +2058,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionColorFrameArrivedEventArg
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionColorFrameArrivedEventArgs {
-    type Vtable = IPerceptionColorFrameArrivedEventArgsVtbl;
+    type Vtable = IPerceptionColorFrameArrivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fad02d5_86f7_4d8d_b966_5a3761ba9f59);
 }
 #[cfg(feature = "deprecated")]
@@ -2204,7 +2204,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionColorFrameReader {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionColorFrameReader {
-    type Vtable = IPerceptionColorFrameReaderVtbl;
+    type Vtable = IPerceptionColorFrameReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7650f56e_b9f5_461b_83ad_f222af2aaadc);
 }
 #[cfg(feature = "deprecated")]
@@ -2615,7 +2615,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionColorFrameSource {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionColorFrameSource {
-    type Vtable = IPerceptionColorFrameSourceVtbl;
+    type Vtable = IPerceptionColorFrameSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc6dba7c_0b58_468d_9ca1_6db04cc0477c);
 }
 #[cfg(feature = "deprecated")]
@@ -2716,7 +2716,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionColorFrameSourceAddedEven
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionColorFrameSourceAddedEventArgs {
-    type Vtable = IPerceptionColorFrameSourceAddedEventArgsVtbl;
+    type Vtable = IPerceptionColorFrameSourceAddedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd16bf4e6_da24_442c_bbd5_55549b5b94f3);
 }
 #[cfg(feature = "deprecated")]
@@ -2817,7 +2817,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionColorFrameSourceRemovedEv
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionColorFrameSourceRemovedEventArgs {
-    type Vtable = IPerceptionColorFrameSourceRemovedEventArgsVtbl;
+    type Vtable = IPerceptionColorFrameSourceRemovedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd277fa69_eb4c_42ef_ba4f_288f615c93c1);
 }
 #[cfg(feature = "deprecated")]
@@ -2990,7 +2990,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionColorFrameSourceWatcher {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionColorFrameSourceWatcher {
-    type Vtable = IPerceptionColorFrameSourceWatcherVtbl;
+    type Vtable = IPerceptionColorFrameSourceWatcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96bd1392_e667_40c4_89f9_1462dea6a9cc);
 }
 #[cfg(feature = "deprecated")]
@@ -3112,7 +3112,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionControlSession {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionControlSession {
-    type Vtable = IPerceptionControlSessionVtbl;
+    type Vtable = IPerceptionControlSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99998653_5a3d_417f_9239_f1889e548b48);
 }
 #[cfg(feature = "deprecated")]
@@ -3263,7 +3263,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionDepthCorrelatedCameraIntr
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionDepthCorrelatedCameraIntrinsics {
-    type Vtable = IPerceptionDepthCorrelatedCameraIntrinsicsVtbl;
+    type Vtable = IPerceptionDepthCorrelatedCameraIntrinsics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6548ca01_86de_5be1_6582_807fcf4c95cf);
 }
 #[cfg(feature = "deprecated")]
@@ -3388,7 +3388,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionDepthCorrelatedCoordinate
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionDepthCorrelatedCoordinateMapper {
-    type Vtable = IPerceptionDepthCorrelatedCoordinateMapperVtbl;
+    type Vtable = IPerceptionDepthCorrelatedCoordinateMapper_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b4d9d1d_b5f6_469c_b8c2_b97a45e6863b);
 }
 #[cfg(feature = "deprecated")]
@@ -3495,7 +3495,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionDepthFrame {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionDepthFrame {
-    type Vtable = IPerceptionDepthFrameVtbl;
+    type Vtable = IPerceptionDepthFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa37b81fc_9906_4ffd_9161_0024b360b657);
 }
 #[cfg(feature = "deprecated")]
@@ -3631,7 +3631,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionDepthFrameArrivedEventArg
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionDepthFrameArrivedEventArgs {
-    type Vtable = IPerceptionDepthFrameArrivedEventArgsVtbl;
+    type Vtable = IPerceptionDepthFrameArrivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x443d25b2_b282_4637_9173_ac978435c985);
 }
 #[cfg(feature = "deprecated")]
@@ -3777,7 +3777,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionDepthFrameReader {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionDepthFrameReader {
-    type Vtable = IPerceptionDepthFrameReaderVtbl;
+    type Vtable = IPerceptionDepthFrameReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1a3c09f_299b_4612_a4f7_270f25a096ec);
 }
 #[cfg(feature = "deprecated")]
@@ -4188,7 +4188,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionDepthFrameSource {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionDepthFrameSource {
-    type Vtable = IPerceptionDepthFrameSourceVtbl;
+    type Vtable = IPerceptionDepthFrameSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79d433d6_47fb_4df1_bfc9_f01d40bd9942);
 }
 #[cfg(feature = "deprecated")]
@@ -4289,7 +4289,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionDepthFrameSourceAddedEven
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionDepthFrameSourceAddedEventArgs {
-    type Vtable = IPerceptionDepthFrameSourceAddedEventArgsVtbl;
+    type Vtable = IPerceptionDepthFrameSourceAddedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93a48168_8bf8_45d2_a2f8_4ac0931cc7a6);
 }
 #[cfg(feature = "deprecated")]
@@ -4390,7 +4390,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionDepthFrameSourceRemovedEv
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionDepthFrameSourceRemovedEventArgs {
-    type Vtable = IPerceptionDepthFrameSourceRemovedEventArgsVtbl;
+    type Vtable = IPerceptionDepthFrameSourceRemovedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0c0cc4d_e96c_4d81_86dd_38b95e49c6df);
 }
 #[cfg(feature = "deprecated")]
@@ -4563,7 +4563,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionDepthFrameSourceWatcher {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionDepthFrameSourceWatcher {
-    type Vtable = IPerceptionDepthFrameSourceWatcherVtbl;
+    type Vtable = IPerceptionDepthFrameSourceWatcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x780e96d1_8d02_4d2b_ada4_5ba624a0eb10);
 }
 #[cfg(feature = "deprecated")]
@@ -4718,7 +4718,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionFrameSourcePropertiesChan
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionFrameSourcePropertiesChangedEventArgs {
-    type Vtable = IPerceptionFrameSourcePropertiesChangedEventArgsVtbl;
+    type Vtable = IPerceptionFrameSourcePropertiesChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c68e068_bcf1_4ecc_b891_7625d1244b6b);
 }
 #[cfg(feature = "deprecated")]
@@ -4828,7 +4828,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionFrameSourcePropertyChange
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionFrameSourcePropertyChangeResult {
-    type Vtable = IPerceptionFrameSourcePropertyChangeResultVtbl;
+    type Vtable = IPerceptionFrameSourcePropertyChangeResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e33390a_3c90_4d22_b898_f42bba6418ff);
 }
 #[cfg(feature = "deprecated")]
@@ -4982,7 +4982,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionInfraredFrame {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionInfraredFrame {
-    type Vtable = IPerceptionInfraredFrameVtbl;
+    type Vtable = IPerceptionInfraredFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0886276_849e_4c7a_8ae6_b56064532153);
 }
 #[cfg(feature = "deprecated")]
@@ -5118,7 +5118,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionInfraredFrameArrivedEvent
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionInfraredFrameArrivedEventArgs {
-    type Vtable = IPerceptionInfraredFrameArrivedEventArgsVtbl;
+    type Vtable = IPerceptionInfraredFrameArrivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f77fac7_b4bd_4857_9d50_be8ef075daef);
 }
 #[cfg(feature = "deprecated")]
@@ -5264,7 +5264,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionInfraredFrameReader {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionInfraredFrameReader {
-    type Vtable = IPerceptionInfraredFrameReaderVtbl;
+    type Vtable = IPerceptionInfraredFrameReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7960ce18_d39b_4fc8_a04a_929734c6756c);
 }
 #[cfg(feature = "deprecated")]
@@ -5675,7 +5675,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionInfraredFrameSource {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionInfraredFrameSource {
-    type Vtable = IPerceptionInfraredFrameSourceVtbl;
+    type Vtable = IPerceptionInfraredFrameSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55b08742_1808_494e_9e30_9d2a7be8f700);
 }
 #[cfg(feature = "deprecated")]
@@ -5776,7 +5776,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionInfraredFrameSourceAddedE
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionInfraredFrameSourceAddedEventArgs {
-    type Vtable = IPerceptionInfraredFrameSourceAddedEventArgsVtbl;
+    type Vtable = IPerceptionInfraredFrameSourceAddedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d334120_95ce_4660_907a_d98035aa2b7c);
 }
 #[cfg(feature = "deprecated")]
@@ -5877,7 +5877,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionInfraredFrameSourceRemove
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionInfraredFrameSourceRemovedEventArgs {
-    type Vtable = IPerceptionInfraredFrameSourceRemovedEventArgsVtbl;
+    type Vtable = IPerceptionInfraredFrameSourceRemovedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea1a8071_7a70_4a61_af94_07303853f695);
 }
 #[cfg(feature = "deprecated")]
@@ -6050,7 +6050,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionInfraredFrameSourceWatche
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionInfraredFrameSourceWatcher {
-    type Vtable = IPerceptionInfraredFrameSourceWatcherVtbl;
+    type Vtable = IPerceptionInfraredFrameSourceWatcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x383cff99_d70c_444d_a8b0_720c2e66fe3b);
 }
 #[cfg(feature = "deprecated")]
@@ -6196,7 +6196,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionVideoProfile {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionVideoProfile {
-    type Vtable = IPerceptionVideoProfileVtbl;
+    type Vtable = IPerceptionVideoProfile_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75763ea3_011a_470e_8225_6f05ade25648);
 }
 #[cfg(feature = "deprecated")]

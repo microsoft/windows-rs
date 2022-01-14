@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct ILampArrayBitmapEffect(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArrayBitmapEffect {
-    type Vtable = ILampArrayBitmapEffectVtbl;
+    type Vtable = ILampArrayBitmapEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3238e065_d877_4627_89e5_2a88f7052fa6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILampArrayBitmapEffectVtbl {
+pub struct ILampArrayBitmapEffect_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -51,12 +51,12 @@ pub struct ILampArrayBitmapEffectVtbl {
 #[repr(transparent)]
 pub struct ILampArrayBitmapEffectFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArrayBitmapEffectFactory {
-    type Vtable = ILampArrayBitmapEffectFactoryVtbl;
+    type Vtable = ILampArrayBitmapEffectFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13608090_e336_4c8f_9053_a92407ca7b1d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILampArrayBitmapEffectFactoryVtbl {
+pub struct ILampArrayBitmapEffectFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lamparray: ::windows::core::RawPtr, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -64,12 +64,12 @@ pub struct ILampArrayBitmapEffectFactoryVtbl {
 #[repr(transparent)]
 pub struct ILampArrayBitmapRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArrayBitmapRequestedEventArgs {
-    type Vtable = ILampArrayBitmapRequestedEventArgsVtbl;
+    type Vtable = ILampArrayBitmapRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8b4af9e_fe63_4d51_babd_619defb454ba);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILampArrayBitmapRequestedEventArgsVtbl {
+pub struct ILampArrayBitmapRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SinceStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -84,12 +84,12 @@ pub struct ILampArrayBitmapRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ILampArrayBlinkEffect(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArrayBlinkEffect {
-    type Vtable = ILampArrayBlinkEffectVtbl;
+    type Vtable = ILampArrayBlinkEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebbf35f6_2fc5_4bb3_b3c3_6221a7680d13);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILampArrayBlinkEffectVtbl {
+pub struct ILampArrayBlinkEffect_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI")]
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::UI::Color) -> ::windows::core::HRESULT,
@@ -148,12 +148,12 @@ pub struct ILampArrayBlinkEffectVtbl {
 #[repr(transparent)]
 pub struct ILampArrayBlinkEffectFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArrayBlinkEffectFactory {
-    type Vtable = ILampArrayBlinkEffectFactoryVtbl;
+    type Vtable = ILampArrayBlinkEffectFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x879f1d97_9f50_49b2_a56f_013aa08d55e0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILampArrayBlinkEffectFactoryVtbl {
+pub struct ILampArrayBlinkEffectFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lamparray: ::windows::core::RawPtr, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -161,12 +161,12 @@ pub struct ILampArrayBlinkEffectFactoryVtbl {
 #[repr(transparent)]
 pub struct ILampArrayColorRampEffect(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArrayColorRampEffect {
-    type Vtable = ILampArrayColorRampEffectVtbl;
+    type Vtable = ILampArrayColorRampEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b004437_40a7_432e_a0b9_0d570c2153ff);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILampArrayColorRampEffectVtbl {
+pub struct ILampArrayColorRampEffect_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI")]
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::UI::Color) -> ::windows::core::HRESULT,
@@ -199,12 +199,12 @@ pub struct ILampArrayColorRampEffectVtbl {
 #[repr(transparent)]
 pub struct ILampArrayColorRampEffectFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArrayColorRampEffectFactory {
-    type Vtable = ILampArrayColorRampEffectFactoryVtbl;
+    type Vtable = ILampArrayColorRampEffectFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x520bd133_0c74_4df5_bea7_4899e0266b0f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILampArrayColorRampEffectFactoryVtbl {
+pub struct ILampArrayColorRampEffectFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lamparray: ::windows::core::RawPtr, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -212,12 +212,12 @@ pub struct ILampArrayColorRampEffectFactoryVtbl {
 #[repr(transparent)]
 pub struct ILampArrayCustomEffect(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArrayCustomEffect {
-    type Vtable = ILampArrayCustomEffectVtbl;
+    type Vtable = ILampArrayCustomEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec579170_3c34_4876_818b_5765f78b0ee4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILampArrayCustomEffectVtbl {
+pub struct ILampArrayCustomEffect_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -248,12 +248,12 @@ pub struct ILampArrayCustomEffectVtbl {
 #[repr(transparent)]
 pub struct ILampArrayCustomEffectFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArrayCustomEffectFactory {
-    type Vtable = ILampArrayCustomEffectFactoryVtbl;
+    type Vtable = ILampArrayCustomEffectFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68b4774d_63e5_4af0_a58b_3e535b94e8c9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILampArrayCustomEffectFactoryVtbl {
+pub struct ILampArrayCustomEffectFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lamparray: ::windows::core::RawPtr, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -335,12 +335,12 @@ unsafe impl ::windows::core::RuntimeType for ILampArrayEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{11d45590-57fb-4546-b1ce-863107f740df}");
 }
 unsafe impl ::windows::core::Interface for ILampArrayEffect {
-    type Vtable = ILampArrayEffectVtbl;
+    type Vtable = ILampArrayEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11d45590_57fb_4546_b1ce_863107f740df);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILampArrayEffectVtbl {
+pub struct ILampArrayEffect_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ZIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetZIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
@@ -349,12 +349,12 @@ pub struct ILampArrayEffectVtbl {
 #[repr(transparent)]
 pub struct ILampArrayEffectPlaylist(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArrayEffectPlaylist {
-    type Vtable = ILampArrayEffectPlaylistVtbl;
+    type Vtable = ILampArrayEffectPlaylist_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7de58bfe_6f61_4103_98c7_d6632f7b9169);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILampArrayEffectPlaylistVtbl {
+pub struct ILampArrayEffectPlaylist_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Append: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effect: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OverrideZIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, zindex: i32) -> ::windows::core::HRESULT,
@@ -372,12 +372,12 @@ pub struct ILampArrayEffectPlaylistVtbl {
 #[repr(transparent)]
 pub struct ILampArrayEffectPlaylistStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArrayEffectPlaylistStatics {
-    type Vtable = ILampArrayEffectPlaylistStaticsVtbl;
+    type Vtable = ILampArrayEffectPlaylistStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb15235c_ea35_4c7f_a016_f3bfc6a6c47d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILampArrayEffectPlaylistStaticsVtbl {
+pub struct ILampArrayEffectPlaylistStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub StartAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -396,12 +396,12 @@ pub struct ILampArrayEffectPlaylistStaticsVtbl {
 #[repr(transparent)]
 pub struct ILampArraySolidEffect(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArraySolidEffect {
-    type Vtable = ILampArraySolidEffectVtbl;
+    type Vtable = ILampArraySolidEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x441f8213_43cc_4b33_80eb_c6ddde7dc8ed);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILampArraySolidEffectVtbl {
+pub struct ILampArraySolidEffect_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI")]
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::UI::Color) -> ::windows::core::HRESULT,
@@ -434,12 +434,12 @@ pub struct ILampArraySolidEffectVtbl {
 #[repr(transparent)]
 pub struct ILampArraySolidEffectFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArraySolidEffectFactory {
-    type Vtable = ILampArraySolidEffectFactoryVtbl;
+    type Vtable = ILampArraySolidEffectFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf862a32c_5576_4341_961b_aee1f13cf9dd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILampArraySolidEffectFactoryVtbl {
+pub struct ILampArraySolidEffectFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lamparray: ::windows::core::RawPtr, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -447,12 +447,12 @@ pub struct ILampArraySolidEffectFactoryVtbl {
 #[repr(transparent)]
 pub struct ILampArrayUpdateRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILampArrayUpdateRequestedEventArgs {
-    type Vtable = ILampArrayUpdateRequestedEventArgsVtbl;
+    type Vtable = ILampArrayUpdateRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73560d6a_576a_48af_8539_67ffa0ab3516);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILampArrayUpdateRequestedEventArgsVtbl {
+pub struct ILampArrayUpdateRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SinceStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -594,7 +594,7 @@ unsafe impl ::windows::core::RuntimeType for LampArrayBitmapEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayBitmapEffect;{3238e065-d877-4627-89e5-2a88f7052fa6})");
 }
 unsafe impl ::windows::core::Interface for LampArrayBitmapEffect {
-    type Vtable = ILampArrayBitmapEffectVtbl;
+    type Vtable = ILampArrayBitmapEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3238e065_d877_4627_89e5_2a88f7052fa6);
 }
 impl ::windows::core::RuntimeName for LampArrayBitmapEffect {
@@ -704,7 +704,7 @@ unsafe impl ::windows::core::RuntimeType for LampArrayBitmapRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayBitmapRequestedEventArgs;{c8b4af9e-fe63-4d51-babd-619defb454ba})");
 }
 unsafe impl ::windows::core::Interface for LampArrayBitmapRequestedEventArgs {
-    type Vtable = ILampArrayBitmapRequestedEventArgsVtbl;
+    type Vtable = ILampArrayBitmapRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8b4af9e_fe63_4d51_babd_619defb454ba);
 }
 impl ::windows::core::RuntimeName for LampArrayBitmapRequestedEventArgs {
@@ -918,7 +918,7 @@ unsafe impl ::windows::core::RuntimeType for LampArrayBlinkEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayBlinkEffect;{ebbf35f6-2fc5-4bb3-b3c3-6221a7680d13})");
 }
 unsafe impl ::windows::core::Interface for LampArrayBlinkEffect {
-    type Vtable = ILampArrayBlinkEffectVtbl;
+    type Vtable = ILampArrayBlinkEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebbf35f6_2fc5_4bb3_b3c3_6221a7680d13);
 }
 impl ::windows::core::RuntimeName for LampArrayBlinkEffect {
@@ -1096,7 +1096,7 @@ unsafe impl ::windows::core::RuntimeType for LampArrayColorRampEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayColorRampEffect;{2b004437-40a7-432e-a0b9-0d570c2153ff})");
 }
 unsafe impl ::windows::core::Interface for LampArrayColorRampEffect {
-    type Vtable = ILampArrayColorRampEffectVtbl;
+    type Vtable = ILampArrayColorRampEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b004437_40a7_432e_a0b9_0d570c2153ff);
 }
 impl ::windows::core::RuntimeName for LampArrayColorRampEffect {
@@ -1261,7 +1261,7 @@ unsafe impl ::windows::core::RuntimeType for LampArrayCustomEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayCustomEffect;{ec579170-3c34-4876-818b-5765f78b0ee4})");
 }
 unsafe impl ::windows::core::Interface for LampArrayCustomEffect {
-    type Vtable = ILampArrayCustomEffectVtbl;
+    type Vtable = ILampArrayCustomEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec579170_3c34_4876_818b_5765f78b0ee4);
 }
 impl ::windows::core::RuntimeName for LampArrayCustomEffect {
@@ -1525,7 +1525,7 @@ unsafe impl ::windows::core::RuntimeType for LampArrayEffectPlaylist {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayEffectPlaylist;{7de58bfe-6f61-4103-98c7-d6632f7b9169})");
 }
 unsafe impl ::windows::core::Interface for LampArrayEffectPlaylist {
-    type Vtable = ILampArrayEffectPlaylistVtbl;
+    type Vtable = ILampArrayEffectPlaylist_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7de58bfe_6f61_4103_98c7_d6632f7b9169);
 }
 impl ::windows::core::RuntimeName for LampArrayEffectPlaylist {
@@ -1815,7 +1815,7 @@ unsafe impl ::windows::core::RuntimeType for LampArraySolidEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArraySolidEffect;{441f8213-43cc-4b33-80eb-c6ddde7dc8ed})");
 }
 unsafe impl ::windows::core::Interface for LampArraySolidEffect {
-    type Vtable = ILampArraySolidEffectVtbl;
+    type Vtable = ILampArraySolidEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x441f8213_43cc_4b33_80eb_c6ddde7dc8ed);
 }
 impl ::windows::core::RuntimeName for LampArraySolidEffect {
@@ -1943,7 +1943,7 @@ unsafe impl ::windows::core::RuntimeType for LampArrayUpdateRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Effects.LampArrayUpdateRequestedEventArgs;{73560d6a-576a-48af-8539-67ffa0ab3516})");
 }
 unsafe impl ::windows::core::Interface for LampArrayUpdateRequestedEventArgs {
-    type Vtable = ILampArrayUpdateRequestedEventArgsVtbl;
+    type Vtable = ILampArrayUpdateRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73560d6a_576a_48af_8539_67ffa0ab3516);
 }
 impl ::windows::core::RuntimeName for LampArrayUpdateRequestedEventArgs {

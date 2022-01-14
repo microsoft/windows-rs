@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct ISysStorageProviderEventReceivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISysStorageProviderEventReceivedEventArgs {
-    type Vtable = ISysStorageProviderEventReceivedEventArgsVtbl;
+    type Vtable = ISysStorageProviderEventReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe132d1b9_7b9d_5820_9728_4262b5289142);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISysStorageProviderEventReceivedEventArgsVtbl {
+pub struct ISysStorageProviderEventReceivedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Json: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -16,12 +16,12 @@ pub struct ISysStorageProviderEventReceivedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISysStorageProviderEventReceivedEventArgsFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISysStorageProviderEventReceivedEventArgsFactory {
-    type Vtable = ISysStorageProviderEventReceivedEventArgsFactoryVtbl;
+    type Vtable = ISysStorageProviderEventReceivedEventArgsFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde1a780e_e975_5f68_bcc6_fb46281c6a61);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISysStorageProviderEventReceivedEventArgsFactoryVtbl {
+pub struct ISysStorageProviderEventReceivedEventArgsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, json: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -105,12 +105,12 @@ unsafe impl ::windows::core::RuntimeType for ISysStorageProviderEventSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1f36c476-9546-536a-8381-2f9a2c08cedd}");
 }
 unsafe impl ::windows::core::Interface for ISysStorageProviderEventSource {
-    type Vtable = ISysStorageProviderEventSourceVtbl;
+    type Vtable = ISysStorageProviderEventSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f36c476_9546_536a_8381_2f9a2c08cedd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISysStorageProviderEventSourceVtbl {
+pub struct ISysStorageProviderEventSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub EventReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -202,12 +202,12 @@ unsafe impl ::windows::core::RuntimeType for ISysStorageProviderHandlerFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ee798431-8213-5e89-a623-14d8c72b8a61}");
 }
 unsafe impl ::windows::core::Interface for ISysStorageProviderHandlerFactory {
-    type Vtable = ISysStorageProviderHandlerFactoryVtbl;
+    type Vtable = ISysStorageProviderHandlerFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee798431_8213_5e89_a623_14d8c72b8a61);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISysStorageProviderHandlerFactoryVtbl {
+pub struct ISysStorageProviderHandlerFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetHttpRequestProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syncrootid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetEventSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syncrootid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -286,12 +286,12 @@ unsafe impl ::windows::core::RuntimeType for ISysStorageProviderHttpRequestProvi
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cb6fefb6-e76a-5c25-a33e-3e78a6e0e0ce}");
 }
 unsafe impl ::windows::core::Interface for ISysStorageProviderHttpRequestProvider {
-    type Vtable = ISysStorageProviderHttpRequestProviderVtbl;
+    type Vtable = ISysStorageProviderHttpRequestProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb6fefb6_e76a_5c25_a33e_3e78a6e0e0ce);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISysStorageProviderHttpRequestProviderVtbl {
+pub struct ISysStorageProviderHttpRequestProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Web_Http"))]
     pub SendRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -343,7 +343,7 @@ unsafe impl ::windows::core::RuntimeType for SysStorageProviderEventReceivedEven
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Implementation.FileExplorer.SysStorageProviderEventReceivedEventArgs;{e132d1b9-7b9d-5820-9728-4262b5289142})");
 }
 unsafe impl ::windows::core::Interface for SysStorageProviderEventReceivedEventArgs {
-    type Vtable = ISysStorageProviderEventReceivedEventArgsVtbl;
+    type Vtable = ISysStorageProviderEventReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe132d1b9_7b9d_5820_9728_4262b5289142);
 }
 impl ::windows::core::RuntimeName for SysStorageProviderEventReceivedEventArgs {

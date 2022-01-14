@@ -1,5 +1,5 @@
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IRetailModeStaticsImpl: Sized {
+pub trait IRetailModeStatics_Impl: Sized {
     fn RetailModeEnabled(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -7,9 +7,9 @@ impl ::windows::core::RuntimeName for IRetailModeStatics {
     const NAME: &'static str = "Windows.Phone.System.Profile.IRetailModeStatics";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IRetailModeStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRetailModeStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRetailModeStaticsVtbl {
-        unsafe extern "system" fn RetailModeEnabled<Impl: IRetailModeStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IRetailModeStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRetailModeStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRetailModeStatics_Vtbl {
+        unsafe extern "system" fn RetailModeEnabled<Impl: IRetailModeStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RetailModeEnabled() {
                 ::core::result::Result::Ok(ok__) => {

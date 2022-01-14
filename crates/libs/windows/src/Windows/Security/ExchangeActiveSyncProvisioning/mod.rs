@@ -95,7 +95,7 @@ unsafe impl ::windows::core::RuntimeType for EasClientDeviceInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.ExchangeActiveSyncProvisioning.EasClientDeviceInformation;{54dfd981-1968-4ca3-b958-e595d16505eb})");
 }
 unsafe impl ::windows::core::Interface for EasClientDeviceInformation {
-    type Vtable = IEasClientDeviceInformationVtbl;
+    type Vtable = IEasClientDeviceInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54dfd981_1968_4ca3_b958_e595d16505eb);
 }
 impl ::windows::core::RuntimeName for EasClientDeviceInformation {
@@ -298,7 +298,7 @@ unsafe impl ::windows::core::RuntimeType for EasClientSecurityPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.ExchangeActiveSyncProvisioning.EasClientSecurityPolicy;{45b72362-dfba-4a9b-aced-6fe2adcb6420})");
 }
 unsafe impl ::windows::core::Interface for EasClientSecurityPolicy {
-    type Vtable = IEasClientSecurityPolicyVtbl;
+    type Vtable = IEasClientSecurityPolicy_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45b72362_dfba_4a9b_aced_6fe2adcb6420);
 }
 impl ::windows::core::RuntimeName for EasClientSecurityPolicy {
@@ -449,7 +449,7 @@ unsafe impl ::windows::core::RuntimeType for EasComplianceResults {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.ExchangeActiveSyncProvisioning.EasComplianceResults;{463c299c-7f19-4c66-b403-cb45dd57a2b3})");
 }
 unsafe impl ::windows::core::Interface for EasComplianceResults {
-    type Vtable = IEasComplianceResultsVtbl;
+    type Vtable = IEasComplianceResults_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x463c299c_7f19_4c66_b403_cb45dd57a2b3);
 }
 impl ::windows::core::RuntimeName for EasComplianceResults {
@@ -858,12 +858,12 @@ impl ::windows::core::DefaultType for EasRequireEncryptionResult {
 #[repr(transparent)]
 pub struct IEasClientDeviceInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEasClientDeviceInformation {
-    type Vtable = IEasClientDeviceInformationVtbl;
+    type Vtable = IEasClientDeviceInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54dfd981_1968_4ca3_b958_e595d16505eb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEasClientDeviceInformationVtbl {
+pub struct IEasClientDeviceInformation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub OperatingSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -876,12 +876,12 @@ pub struct IEasClientDeviceInformationVtbl {
 #[repr(transparent)]
 pub struct IEasClientDeviceInformation2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEasClientDeviceInformation2 {
-    type Vtable = IEasClientDeviceInformation2Vtbl;
+    type Vtable = IEasClientDeviceInformation2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffb35923_bb26_4d6a_81bc_165aee0ad754);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEasClientDeviceInformation2Vtbl {
+pub struct IEasClientDeviceInformation2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SystemHardwareVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SystemFirmwareVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -890,12 +890,12 @@ pub struct IEasClientDeviceInformation2Vtbl {
 #[repr(transparent)]
 pub struct IEasClientSecurityPolicy(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEasClientSecurityPolicy {
-    type Vtable = IEasClientSecurityPolicyVtbl;
+    type Vtable = IEasClientSecurityPolicy_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45b72362_dfba_4a9b_aced_6fe2adcb6420);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEasClientSecurityPolicyVtbl {
+pub struct IEasClientSecurityPolicy_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RequireEncryption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetRequireEncryption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -935,12 +935,12 @@ pub struct IEasClientSecurityPolicyVtbl {
 #[repr(transparent)]
 pub struct IEasComplianceResults(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEasComplianceResults {
-    type Vtable = IEasComplianceResultsVtbl;
+    type Vtable = IEasComplianceResults_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x463c299c_7f19_4c66_b403_cb45dd57a2b3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEasComplianceResultsVtbl {
+pub struct IEasComplianceResults_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Compliant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub RequireEncryptionResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasRequireEncryptionResult) -> ::windows::core::HRESULT,
@@ -956,12 +956,12 @@ pub struct IEasComplianceResultsVtbl {
 #[repr(transparent)]
 pub struct IEasComplianceResults2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEasComplianceResults2 {
-    type Vtable = IEasComplianceResults2Vtbl;
+    type Vtable = IEasComplianceResults2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fbe60c9_1aa8_47f5_88bb_cb3ef0bffb15);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEasComplianceResults2Vtbl {
+pub struct IEasComplianceResults2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EncryptionProviderType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasEncryptionProviderType) -> ::windows::core::HRESULT,
 }

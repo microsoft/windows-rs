@@ -124,7 +124,7 @@ unsafe impl ::windows::core::RuntimeType for Compressor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Compression.Compressor;{0ac3645a-57ac-4ee1-b702-84d39d5424e0})");
 }
 unsafe impl ::windows::core::Interface for Compressor {
-    type Vtable = ICompressorVtbl;
+    type Vtable = ICompressor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ac3645a_57ac_4ee1_b702_84d39d5424e0);
 }
 impl ::windows::core::RuntimeName for Compressor {
@@ -286,7 +286,7 @@ unsafe impl ::windows::core::RuntimeType for Decompressor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Compression.Decompressor;{b883fe46-d68a-4c8b-ada0-4ee813fc5283})");
 }
 unsafe impl ::windows::core::Interface for Decompressor {
-    type Vtable = IDecompressorVtbl;
+    type Vtable = IDecompressor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb883fe46_d68a_4c8b_ada0_4ee813fc5283);
 }
 impl ::windows::core::RuntimeName for Decompressor {
@@ -390,12 +390,12 @@ unsafe impl ::core::marker::Sync for Decompressor {}
 #[repr(transparent)]
 pub struct ICompressor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompressor {
-    type Vtable = ICompressorVtbl;
+    type Vtable = ICompressor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ac3645a_57ac_4ee1_b702_84d39d5424e0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICompressorVtbl {
+pub struct ICompressor_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FinishAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -410,12 +410,12 @@ pub struct ICompressorVtbl {
 #[repr(transparent)]
 pub struct ICompressorFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompressorFactory {
-    type Vtable = ICompressorFactoryVtbl;
+    type Vtable = ICompressorFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f3d96a4_2cfb_442c_a8ba_d7d11b039da0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICompressorFactoryVtbl {
+pub struct ICompressorFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub CreateCompressor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, underlyingstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -430,12 +430,12 @@ pub struct ICompressorFactoryVtbl {
 #[repr(transparent)]
 pub struct IDecompressor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDecompressor {
-    type Vtable = IDecompressorVtbl;
+    type Vtable = IDecompressor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb883fe46_d68a_4c8b_ada0_4ee813fc5283);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDecompressorVtbl {
+pub struct IDecompressor_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub DetachStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -446,12 +446,12 @@ pub struct IDecompressorVtbl {
 #[repr(transparent)]
 pub struct IDecompressorFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDecompressorFactory {
-    type Vtable = IDecompressorFactoryVtbl;
+    type Vtable = IDecompressorFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5337e252_1da2_42e1_8834_0379d28d742f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDecompressorFactoryVtbl {
+pub struct IDecompressorFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub CreateDecompressor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, underlyingstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

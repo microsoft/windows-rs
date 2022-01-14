@@ -198,7 +198,7 @@ unsafe impl ::windows::core::RuntimeType for AudioEncodingProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.AudioEncodingProperties;{62bc7a16-005c-4b3b-8a0b-0a090e9687f3})");
 }
 unsafe impl ::windows::core::Interface for AudioEncodingProperties {
-    type Vtable = IAudioEncodingPropertiesVtbl;
+    type Vtable = IAudioEncodingProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62bc7a16_005c_4b3b_8a0b_0a090e9687f3);
 }
 impl ::windows::core::RuntimeName for AudioEncodingProperties {
@@ -373,7 +373,7 @@ unsafe impl ::windows::core::RuntimeType for ContainerEncodingProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.ContainerEncodingProperties;{59ac2a57-b32a-479e-8a61-4b7f2e9e7ea0})");
 }
 unsafe impl ::windows::core::Interface for ContainerEncodingProperties {
-    type Vtable = IContainerEncodingPropertiesVtbl;
+    type Vtable = IContainerEncodingProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59ac2a57_b32a_479e_8a61_4b7f2e9e7ea0);
 }
 impl ::windows::core::RuntimeName for ContainerEncodingProperties {
@@ -529,12 +529,12 @@ impl ::windows::core::RuntimeName for H264ProfileIds {
 #[repr(transparent)]
 pub struct IAudioEncodingProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioEncodingProperties {
-    type Vtable = IAudioEncodingPropertiesVtbl;
+    type Vtable = IAudioEncodingProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62bc7a16_005c_4b3b_8a0b_0a090e9687f3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioEncodingPropertiesVtbl {
+pub struct IAudioEncodingProperties_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetBitrate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
     pub Bitrate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -549,12 +549,12 @@ pub struct IAudioEncodingPropertiesVtbl {
 #[repr(transparent)]
 pub struct IAudioEncodingProperties2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioEncodingProperties2 {
-    type Vtable = IAudioEncodingProperties2Vtbl;
+    type Vtable = IAudioEncodingProperties2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc45d54da_80bd_4c23_80d5_72d4a181e894);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioEncodingProperties2Vtbl {
+pub struct IAudioEncodingProperties2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsSpatial: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -562,12 +562,12 @@ pub struct IAudioEncodingProperties2Vtbl {
 #[repr(transparent)]
 pub struct IAudioEncodingProperties3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioEncodingProperties3 {
-    type Vtable = IAudioEncodingProperties3Vtbl;
+    type Vtable = IAudioEncodingProperties3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87600341_748c_4f8d_b0fd_10caf08ff087);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioEncodingProperties3Vtbl {
+pub struct IAudioEncodingProperties3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -575,12 +575,12 @@ pub struct IAudioEncodingProperties3Vtbl {
 #[repr(transparent)]
 pub struct IAudioEncodingPropertiesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioEncodingPropertiesStatics {
-    type Vtable = IAudioEncodingPropertiesStaticsVtbl;
+    type Vtable = IAudioEncodingPropertiesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cad332c_ebe9_4527_b36d_e42a13cf38db);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioEncodingPropertiesStaticsVtbl {
+pub struct IAudioEncodingPropertiesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateAac: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, samplerate: u32, channelcount: u32, bitrate: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateAacAdts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, samplerate: u32, channelcount: u32, bitrate: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -592,12 +592,12 @@ pub struct IAudioEncodingPropertiesStaticsVtbl {
 #[repr(transparent)]
 pub struct IAudioEncodingPropertiesStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioEncodingPropertiesStatics2 {
-    type Vtable = IAudioEncodingPropertiesStatics2Vtbl;
+    type Vtable = IAudioEncodingPropertiesStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7489316f_77a0_433d_8ed5_4040280e8665);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioEncodingPropertiesStatics2Vtbl {
+pub struct IAudioEncodingPropertiesStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateAlac: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, samplerate: u32, channelcount: u32, bitspersample: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateFlac: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, samplerate: u32, channelcount: u32, bitspersample: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -606,12 +606,12 @@ pub struct IAudioEncodingPropertiesStatics2Vtbl {
 #[repr(transparent)]
 pub struct IAudioEncodingPropertiesWithFormatUserData(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioEncodingPropertiesWithFormatUserData {
-    type Vtable = IAudioEncodingPropertiesWithFormatUserDataVtbl;
+    type Vtable = IAudioEncodingPropertiesWithFormatUserData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98f10d79_13ea_49ff_be70_2673db69702c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioEncodingPropertiesWithFormatUserDataVtbl {
+pub struct IAudioEncodingPropertiesWithFormatUserData_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetFormatUserData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u8) -> ::windows::core::HRESULT,
     pub GetFormatUserData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut u8) -> ::windows::core::HRESULT,
@@ -620,24 +620,24 @@ pub struct IAudioEncodingPropertiesWithFormatUserDataVtbl {
 #[repr(transparent)]
 pub struct IContainerEncodingProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContainerEncodingProperties {
-    type Vtable = IContainerEncodingPropertiesVtbl;
+    type Vtable = IContainerEncodingProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59ac2a57_b32a_479e_8a61_4b7f2e9e7ea0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContainerEncodingPropertiesVtbl {
+pub struct IContainerEncodingProperties_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IContainerEncodingProperties2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContainerEncodingProperties2 {
-    type Vtable = IContainerEncodingProperties2Vtbl;
+    type Vtable = IContainerEncodingProperties2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb272c029_ae26_4819_baad_ad7a49b0a876);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContainerEncodingProperties2Vtbl {
+pub struct IContainerEncodingProperties2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -645,12 +645,12 @@ pub struct IContainerEncodingProperties2Vtbl {
 #[repr(transparent)]
 pub struct IH264ProfileIdsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IH264ProfileIdsStatics {
-    type Vtable = IH264ProfileIdsStaticsVtbl;
+    type Vtable = IH264ProfileIdsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38654ca7_846a_4f97_a2e5_c3a15bbf70fd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IH264ProfileIdsStaticsVtbl {
+pub struct IH264ProfileIdsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ConstrainedBaseline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub Baseline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -667,12 +667,12 @@ pub struct IH264ProfileIdsStaticsVtbl {
 #[repr(transparent)]
 pub struct IImageEncodingProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IImageEncodingProperties {
-    type Vtable = IImageEncodingPropertiesVtbl;
+    type Vtable = IImageEncodingProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78625635_f331_4189_b1c3_b48d5ae034f1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IImageEncodingPropertiesVtbl {
+pub struct IImageEncodingProperties_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
     pub Width: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -683,12 +683,12 @@ pub struct IImageEncodingPropertiesVtbl {
 #[repr(transparent)]
 pub struct IImageEncodingProperties2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IImageEncodingProperties2 {
-    type Vtable = IImageEncodingProperties2Vtbl;
+    type Vtable = IImageEncodingProperties2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc854a2df_c923_469b_ac8e_6a9f3c1cd9e3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IImageEncodingProperties2Vtbl {
+pub struct IImageEncodingProperties2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -696,12 +696,12 @@ pub struct IImageEncodingProperties2Vtbl {
 #[repr(transparent)]
 pub struct IImageEncodingPropertiesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IImageEncodingPropertiesStatics {
-    type Vtable = IImageEncodingPropertiesStaticsVtbl;
+    type Vtable = IImageEncodingPropertiesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x257c68dc_8b99_439e_aa59_913a36161297);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IImageEncodingPropertiesStaticsVtbl {
+pub struct IImageEncodingPropertiesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateJpeg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreatePng: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -711,12 +711,12 @@ pub struct IImageEncodingPropertiesStaticsVtbl {
 #[repr(transparent)]
 pub struct IImageEncodingPropertiesStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IImageEncodingPropertiesStatics2 {
-    type Vtable = IImageEncodingPropertiesStatics2Vtbl;
+    type Vtable = IImageEncodingPropertiesStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6c25b29_3824_46b0_956e_501329e1be3c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IImageEncodingPropertiesStatics2Vtbl {
+pub struct IImageEncodingPropertiesStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateUncompressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, format: MediaPixelFormat, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateBmp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -725,12 +725,12 @@ pub struct IImageEncodingPropertiesStatics2Vtbl {
 #[repr(transparent)]
 pub struct IImageEncodingPropertiesStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IImageEncodingPropertiesStatics3 {
-    type Vtable = IImageEncodingPropertiesStatics3Vtbl;
+    type Vtable = IImageEncodingPropertiesStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48f4814d_a2ff_48dc_8ea0_e90680663656);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IImageEncodingPropertiesStatics3Vtbl {
+pub struct IImageEncodingPropertiesStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateHeif: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -738,12 +738,12 @@ pub struct IImageEncodingPropertiesStatics3Vtbl {
 #[repr(transparent)]
 pub struct IMediaEncodingProfile(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaEncodingProfile {
-    type Vtable = IMediaEncodingProfileVtbl;
+    type Vtable = IMediaEncodingProfile_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7dbf5a8_1db9_4783_876b_3dfe12acfdb3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaEncodingProfileVtbl {
+pub struct IMediaEncodingProfile_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetAudio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Audio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -756,12 +756,12 @@ pub struct IMediaEncodingProfileVtbl {
 #[repr(transparent)]
 pub struct IMediaEncodingProfile2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaEncodingProfile2 {
-    type Vtable = IMediaEncodingProfile2Vtbl;
+    type Vtable = IMediaEncodingProfile2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x349b3e0a_4035_488e_9877_85632865ed10);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaEncodingProfile2Vtbl {
+pub struct IMediaEncodingProfile2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub SetAudioTracks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -784,12 +784,12 @@ pub struct IMediaEncodingProfile2Vtbl {
 #[repr(transparent)]
 pub struct IMediaEncodingProfile3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaEncodingProfile3 {
-    type Vtable = IMediaEncodingProfile3Vtbl;
+    type Vtable = IMediaEncodingProfile3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba6ebe88_7570_4e69_accf_5611ad015f88);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaEncodingProfile3Vtbl {
+pub struct IMediaEncodingProfile3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub SetTimedMetadataTracks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -804,12 +804,12 @@ pub struct IMediaEncodingProfile3Vtbl {
 #[repr(transparent)]
 pub struct IMediaEncodingProfileStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaEncodingProfileStatics {
-    type Vtable = IMediaEncodingProfileStaticsVtbl;
+    type Vtable = IMediaEncodingProfileStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x197f352c_2ede_4a45_a896_817a4854f8fe);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaEncodingProfileStaticsVtbl {
+pub struct IMediaEncodingProfileStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateM4a: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, quality: AudioEncodingQuality, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateMp3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, quality: AudioEncodingQuality, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -829,12 +829,12 @@ pub struct IMediaEncodingProfileStaticsVtbl {
 #[repr(transparent)]
 pub struct IMediaEncodingProfileStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaEncodingProfileStatics2 {
-    type Vtable = IMediaEncodingProfileStatics2Vtbl;
+    type Vtable = IMediaEncodingProfileStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce8de74f_6af4_4288_8fe2_79adf1f79a43);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaEncodingProfileStatics2Vtbl {
+pub struct IMediaEncodingProfileStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateWav: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, quality: AudioEncodingQuality, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateAvi: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, quality: VideoEncodingQuality, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -843,12 +843,12 @@ pub struct IMediaEncodingProfileStatics2Vtbl {
 #[repr(transparent)]
 pub struct IMediaEncodingProfileStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaEncodingProfileStatics3 {
-    type Vtable = IMediaEncodingProfileStatics3Vtbl;
+    type Vtable = IMediaEncodingProfileStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90dac5aa_cf76_4294_a9ed_1a1420f51f6b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaEncodingProfileStatics3Vtbl {
+pub struct IMediaEncodingProfileStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateAlac: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, quality: AudioEncodingQuality, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateFlac: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, quality: AudioEncodingQuality, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -949,12 +949,12 @@ unsafe impl ::windows::core::RuntimeType for IMediaEncodingProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b4002af6-acd4-4e5a-a24b-5d7498a8b8c4}");
 }
 unsafe impl ::windows::core::Interface for IMediaEncodingProperties {
-    type Vtable = IMediaEncodingPropertiesVtbl;
+    type Vtable = IMediaEncodingProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4002af6_acd4_4e5a_a24b_5d7498a8b8c4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaEncodingPropertiesVtbl {
+pub struct IMediaEncodingProperties_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -968,12 +968,12 @@ pub struct IMediaEncodingPropertiesVtbl {
 #[repr(transparent)]
 pub struct IMediaEncodingSubtypesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaEncodingSubtypesStatics {
-    type Vtable = IMediaEncodingSubtypesStaticsVtbl;
+    type Vtable = IMediaEncodingSubtypesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37b6580e_a171_4464_ba5a_53189e48c1c8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaEncodingSubtypesStaticsVtbl {
+pub struct IMediaEncodingSubtypesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Aac: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub AacAdts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1020,12 +1020,12 @@ pub struct IMediaEncodingSubtypesStaticsVtbl {
 #[repr(transparent)]
 pub struct IMediaEncodingSubtypesStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaEncodingSubtypesStatics2 {
-    type Vtable = IMediaEncodingSubtypesStatics2Vtbl;
+    type Vtable = IMediaEncodingSubtypesStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b7cd23d_42ff_4d33_8531_0626bee4b52d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaEncodingSubtypesStatics2Vtbl {
+pub struct IMediaEncodingSubtypesStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Vp9: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub L8: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1036,12 +1036,12 @@ pub struct IMediaEncodingSubtypesStatics2Vtbl {
 #[repr(transparent)]
 pub struct IMediaEncodingSubtypesStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaEncodingSubtypesStatics3 {
-    type Vtable = IMediaEncodingSubtypesStatics3Vtbl;
+    type Vtable = IMediaEncodingSubtypesStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba2414e4_883d_464e_a44f_097da08ef7ff);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaEncodingSubtypesStatics3Vtbl {
+pub struct IMediaEncodingSubtypesStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Alac: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Flac: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1050,12 +1050,12 @@ pub struct IMediaEncodingSubtypesStatics3Vtbl {
 #[repr(transparent)]
 pub struct IMediaEncodingSubtypesStatics4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaEncodingSubtypesStatics4 {
-    type Vtable = IMediaEncodingSubtypesStatics4Vtbl;
+    type Vtable = IMediaEncodingSubtypesStatics4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddece58a_3949_4644_8a2c_59ef02c642fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaEncodingSubtypesStatics4Vtbl {
+pub struct IMediaEncodingSubtypesStatics4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub P010: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -1063,12 +1063,12 @@ pub struct IMediaEncodingSubtypesStatics4Vtbl {
 #[repr(transparent)]
 pub struct IMediaEncodingSubtypesStatics5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaEncodingSubtypesStatics5 {
-    type Vtable = IMediaEncodingSubtypesStatics5Vtbl;
+    type Vtable = IMediaEncodingSubtypesStatics5_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ad4a007_ffce_4760_9828_5d0c99637e6a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaEncodingSubtypesStatics5Vtbl {
+pub struct IMediaEncodingSubtypesStatics5_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Heif: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -1076,12 +1076,12 @@ pub struct IMediaEncodingSubtypesStatics5Vtbl {
 #[repr(transparent)]
 pub struct IMediaEncodingSubtypesStatics6(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaEncodingSubtypesStatics6 {
-    type Vtable = IMediaEncodingSubtypesStatics6Vtbl;
+    type Vtable = IMediaEncodingSubtypesStatics6_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1252973_a984_5912_93bb_54e7e569e053);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaEncodingSubtypesStatics6Vtbl {
+pub struct IMediaEncodingSubtypesStatics6_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Pgs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Srt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1092,12 +1092,12 @@ pub struct IMediaEncodingSubtypesStatics6Vtbl {
 #[repr(transparent)]
 pub struct IMediaRatio(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaRatio {
-    type Vtable = IMediaRatioVtbl;
+    type Vtable = IMediaRatio_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2d0fee5_8929_401d_ac78_7d357e378163);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaRatioVtbl {
+pub struct IMediaRatio_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetNumerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
     pub Numerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -1108,12 +1108,12 @@ pub struct IMediaRatioVtbl {
 #[repr(transparent)]
 pub struct IMpeg2ProfileIdsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMpeg2ProfileIdsStatics {
-    type Vtable = IMpeg2ProfileIdsStaticsVtbl;
+    type Vtable = IMpeg2ProfileIdsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa461ff85_e57a_4128_9b21_d5331b04235c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMpeg2ProfileIdsStaticsVtbl {
+pub struct IMpeg2ProfileIdsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Simple: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub Main: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -1125,12 +1125,12 @@ pub struct IMpeg2ProfileIdsStaticsVtbl {
 #[repr(transparent)]
 pub struct ITimedMetadataEncodingProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITimedMetadataEncodingProperties {
-    type Vtable = ITimedMetadataEncodingPropertiesVtbl;
+    type Vtable = ITimedMetadataEncodingProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51cd30d3_d690_4cfa_97f4_4a398e9db420);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITimedMetadataEncodingPropertiesVtbl {
+pub struct ITimedMetadataEncodingProperties_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetFormatUserData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u8) -> ::windows::core::HRESULT,
     pub GetFormatUserData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut u8) -> ::windows::core::HRESULT,
@@ -1140,12 +1140,12 @@ pub struct ITimedMetadataEncodingPropertiesVtbl {
 #[repr(transparent)]
 pub struct ITimedMetadataEncodingPropertiesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITimedMetadataEncodingPropertiesStatics {
-    type Vtable = ITimedMetadataEncodingPropertiesStaticsVtbl;
+    type Vtable = ITimedMetadataEncodingPropertiesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6629bb67_6e55_5643_89a0_7a7e8d85b52c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITimedMetadataEncodingPropertiesStaticsVtbl {
+pub struct ITimedMetadataEncodingPropertiesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreatePgs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateSrt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1156,12 +1156,12 @@ pub struct ITimedMetadataEncodingPropertiesStaticsVtbl {
 #[repr(transparent)]
 pub struct IVideoEncodingProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoEncodingProperties {
-    type Vtable = IVideoEncodingPropertiesVtbl;
+    type Vtable = IVideoEncodingProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76ee6c9a_37c2_4f2a_880a_1282bbb4373d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVideoEncodingPropertiesVtbl {
+pub struct IVideoEncodingProperties_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetBitrate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
     pub Bitrate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -1176,12 +1176,12 @@ pub struct IVideoEncodingPropertiesVtbl {
 #[repr(transparent)]
 pub struct IVideoEncodingProperties2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoEncodingProperties2 {
-    type Vtable = IVideoEncodingProperties2Vtbl;
+    type Vtable = IVideoEncodingProperties2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf743a1ef_d465_4290_a94b_ef0f1528f8e3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVideoEncodingProperties2Vtbl {
+pub struct IVideoEncodingProperties2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetFormatUserData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u8) -> ::windows::core::HRESULT,
     pub GetFormatUserData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut u8) -> ::windows::core::HRESULT,
@@ -1192,12 +1192,12 @@ pub struct IVideoEncodingProperties2Vtbl {
 #[repr(transparent)]
 pub struct IVideoEncodingProperties3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoEncodingProperties3 {
-    type Vtable = IVideoEncodingProperties3Vtbl;
+    type Vtable = IVideoEncodingProperties3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x386bcdc4_873a_479f_b3eb_56c1fcbec6d7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVideoEncodingProperties3Vtbl {
+pub struct IVideoEncodingProperties3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub StereoscopicVideoPackingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut StereoscopicVideoPackingMode) -> ::windows::core::HRESULT,
 }
@@ -1205,12 +1205,12 @@ pub struct IVideoEncodingProperties3Vtbl {
 #[repr(transparent)]
 pub struct IVideoEncodingProperties4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoEncodingProperties4 {
-    type Vtable = IVideoEncodingProperties4Vtbl;
+    type Vtable = IVideoEncodingProperties4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x724ef014_c10c_40f2_9d72_3ee13b45fa8e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVideoEncodingProperties4Vtbl {
+pub struct IVideoEncodingProperties4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SphericalVideoFrameFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SphericalVideoFrameFormat) -> ::windows::core::HRESULT,
 }
@@ -1218,12 +1218,12 @@ pub struct IVideoEncodingProperties4Vtbl {
 #[repr(transparent)]
 pub struct IVideoEncodingProperties5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoEncodingProperties5 {
-    type Vtable = IVideoEncodingProperties5Vtbl;
+    type Vtable = IVideoEncodingProperties5_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4959080f_272f_4ece_a4df_c0ccdb33d840);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVideoEncodingProperties5Vtbl {
+pub struct IVideoEncodingProperties5_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1231,12 +1231,12 @@ pub struct IVideoEncodingProperties5Vtbl {
 #[repr(transparent)]
 pub struct IVideoEncodingPropertiesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoEncodingPropertiesStatics {
-    type Vtable = IVideoEncodingPropertiesStaticsVtbl;
+    type Vtable = IVideoEncodingPropertiesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ce14d44_1dc5_43db_9f38_ebebf90152cb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVideoEncodingPropertiesStaticsVtbl {
+pub struct IVideoEncodingPropertiesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateH264: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateMpeg2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1246,12 +1246,12 @@ pub struct IVideoEncodingPropertiesStaticsVtbl {
 #[repr(transparent)]
 pub struct IVideoEncodingPropertiesStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVideoEncodingPropertiesStatics2 {
-    type Vtable = IVideoEncodingPropertiesStatics2Vtbl;
+    type Vtable = IVideoEncodingPropertiesStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf1ebd5d_49fe_4d00_b59a_cfa4dfc51944);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVideoEncodingPropertiesStatics2Vtbl {
+pub struct IVideoEncodingPropertiesStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateHevc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1408,7 +1408,7 @@ unsafe impl ::windows::core::RuntimeType for ImageEncodingProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.ImageEncodingProperties;{78625635-f331-4189-b1c3-b48d5ae034f1})");
 }
 unsafe impl ::windows::core::Interface for ImageEncodingProperties {
-    type Vtable = IImageEncodingPropertiesVtbl;
+    type Vtable = IImageEncodingProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78625635_f331_4189_b1c3_b48d5ae034f1);
 }
 impl ::windows::core::RuntimeName for ImageEncodingProperties {
@@ -1695,7 +1695,7 @@ unsafe impl ::windows::core::RuntimeType for MediaEncodingProfile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.MediaEncodingProfile;{e7dbf5a8-1db9-4783-876b-3dfe12acfdb3})");
 }
 unsafe impl ::windows::core::Interface for MediaEncodingProfile {
-    type Vtable = IMediaEncodingProfileVtbl;
+    type Vtable = IMediaEncodingProfile_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7dbf5a8_1db9_4783_876b_3dfe12acfdb3);
 }
 impl ::windows::core::RuntimeName for MediaEncodingProfile {
@@ -2346,7 +2346,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPropertySet {
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for MediaPropertySet {
-    type Vtable = super::super::Foundation::Collections::IMapVtbl<::windows::core::GUID, ::windows::core::IInspectable>;
+    type Vtable = super::super::Foundation::Collections::IMap_Vtbl<::windows::core::GUID, ::windows::core::IInspectable>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2524,7 +2524,7 @@ unsafe impl ::windows::core::RuntimeType for MediaRatio {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.MediaRatio;{d2d0fee5-8929-401d-ac78-7d357e378163})");
 }
 unsafe impl ::windows::core::Interface for MediaRatio {
-    type Vtable = IMediaRatioVtbl;
+    type Vtable = IMediaRatio_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2d0fee5_8929_401d_ac78_7d357e378163);
 }
 impl ::windows::core::RuntimeName for MediaRatio {
@@ -2868,7 +2868,7 @@ unsafe impl ::windows::core::RuntimeType for TimedMetadataEncodingProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.TimedMetadataEncodingProperties;{b4002af6-acd4-4e5a-a24b-5d7498a8b8c4})");
 }
 unsafe impl ::windows::core::Interface for TimedMetadataEncodingProperties {
-    type Vtable = IMediaEncodingPropertiesVtbl;
+    type Vtable = IMediaEncodingProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4002af6_acd4_4e5a_a24b_5d7498a8b8c4);
 }
 impl ::windows::core::RuntimeName for TimedMetadataEncodingProperties {
@@ -3140,7 +3140,7 @@ unsafe impl ::windows::core::RuntimeType for VideoEncodingProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.MediaProperties.VideoEncodingProperties;{76ee6c9a-37c2-4f2a-880a-1282bbb4373d})");
 }
 unsafe impl ::windows::core::Interface for VideoEncodingProperties {
-    type Vtable = IVideoEncodingPropertiesVtbl;
+    type Vtable = IVideoEncodingProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76ee6c9a_37c2_4f2a_880a_1282bbb4373d);
 }
 impl ::windows::core::RuntimeName for VideoEncodingProperties {

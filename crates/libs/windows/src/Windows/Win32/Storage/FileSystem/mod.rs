@@ -7639,14 +7639,14 @@ impl ::core::fmt::Debug for IDiskQuotaControl {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IDiskQuotaControl {
-    type Vtable = IDiskQuotaControlVtbl;
+    type Vtable = IDiskQuotaControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b572_ec89_11cf_9c00_00aa00a14f56);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiskQuotaControlVtbl {
-    pub base: super::super::System::Com::IConnectionPointContainerVtbl,
+pub struct IDiskQuotaControl_Vtbl {
+    pub base: super::super::System::Com::IConnectionPointContainer_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, breadwrite: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7739,12 +7739,12 @@ impl ::core::fmt::Debug for IDiskQuotaEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IDiskQuotaEvents {
-    type Vtable = IDiskQuotaEventsVtbl;
+    type Vtable = IDiskQuotaEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b579_ec89_11cf_9c00_00aa00a14f56);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiskQuotaEventsVtbl {
+pub struct IDiskQuotaEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnUserNameChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7856,12 +7856,12 @@ impl ::core::fmt::Debug for IDiskQuotaUser {
     }
 }
 unsafe impl ::windows::core::Interface for IDiskQuotaUser {
-    type Vtable = IDiskQuotaUserVtbl;
+    type Vtable = IDiskQuotaUser_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b574_ec89_11cf_9c00_00aa00a14f56);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiskQuotaUserVtbl {
+pub struct IDiskQuotaUser_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulid: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -7955,12 +7955,12 @@ impl ::core::fmt::Debug for IDiskQuotaUserBatch {
     }
 }
 unsafe impl ::windows::core::Interface for IDiskQuotaUserBatch {
-    type Vtable = IDiskQuotaUserBatchVtbl;
+    type Vtable = IDiskQuotaUserBatch_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b576_ec89_11cf_9c00_00aa00a14f56);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiskQuotaUserBatchVtbl {
+pub struct IDiskQuotaUserBatch_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8026,12 +8026,12 @@ impl ::core::fmt::Debug for IEnumDiskQuotaUsers {
     }
 }
 unsafe impl ::windows::core::Interface for IEnumDiskQuotaUsers {
-    type Vtable = IEnumDiskQuotaUsersVtbl;
+    type Vtable = IEnumDiskQuotaUsers_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b577_ec89_11cf_9c00_00aa00a14f56);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumDiskQuotaUsersVtbl {
+pub struct IEnumDiskQuotaUsers_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cusers: u32, rgusers: *mut ::windows::core::RawPtr, pcusersfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cusers: u32) -> ::windows::core::HRESULT,

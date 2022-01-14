@@ -214,12 +214,12 @@ impl ::core::fmt::Debug for IBitmapData {
     }
 }
 unsafe impl ::windows::core::Interface for IBitmapData {
-    type Vtable = IBitmapDataVtbl;
+    type Vtable = IBitmapData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1a34ef2_cad8_4635_a3d2_fcda8d3f3caf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBitmapDataVtbl {
+pub struct IBitmapData_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CopyBytesTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourceoffsetinbytes: u32, maxbytestocopy: u32, pvbytes: *mut u8, numberofbytescopied: *mut u32) -> ::windows::core::HRESULT,
     pub GetStride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstride: *mut u32) -> ::windows::core::HRESULT,
@@ -328,12 +328,12 @@ impl ::core::fmt::Debug for IVisualTreeService {
     }
 }
 unsafe impl ::windows::core::Interface for IVisualTreeService {
-    type Vtable = IVisualTreeServiceVtbl;
+    type Vtable = IVisualTreeService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa593b11a_d17f_48bb_8f66_83910731c8a5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVisualTreeServiceVtbl {
+pub struct IVisualTreeService_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub AdviseVisualTreeChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub UnadviseVisualTreeChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -496,13 +496,13 @@ impl ::core::fmt::Debug for IVisualTreeService2 {
     }
 }
 unsafe impl ::windows::core::Interface for IVisualTreeService2 {
-    type Vtable = IVisualTreeService2Vtbl;
+    type Vtable = IVisualTreeService2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x130f5136_ec43_4f61_89c7_9801a36d2e95);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVisualTreeService2Vtbl {
-    pub base: IVisualTreeServiceVtbl,
+pub struct IVisualTreeService2_Vtbl {
+    pub base: IVisualTreeService_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetPropertyIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: u64, propertyname: super::super::super::Foundation::PWSTR, ppropertyindex: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -686,13 +686,13 @@ impl ::core::fmt::Debug for IVisualTreeService3 {
     }
 }
 unsafe impl ::windows::core::Interface for IVisualTreeService3 {
-    type Vtable = IVisualTreeService3Vtbl;
+    type Vtable = IVisualTreeService3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e79c6e0_85a0_4be8_b41a_655cf1fd19bd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVisualTreeService3Vtbl {
-    pub base: IVisualTreeService2Vtbl,
+pub struct IVisualTreeService3_Vtbl {
+    pub base: IVisualTreeService2_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ResolveResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourcecontext: u64, resourcename: super::super::super::Foundation::PWSTR, resourcetype: ResourceType, propertyindex: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -751,12 +751,12 @@ impl ::core::fmt::Debug for IVisualTreeServiceCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IVisualTreeServiceCallback {
-    type Vtable = IVisualTreeServiceCallbackVtbl;
+    type Vtable = IVisualTreeServiceCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa7a8931_80e4_4fec_8f3b_553f87b4966e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVisualTreeServiceCallbackVtbl {
+pub struct IVisualTreeServiceCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub OnVisualTreeChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relation: ParentChildRelation, element: ::core::mem::ManuallyDrop<VisualElement>, mutationtype: VisualMutationType) -> ::windows::core::HRESULT,
@@ -835,13 +835,13 @@ impl ::core::fmt::Debug for IVisualTreeServiceCallback2 {
     }
 }
 unsafe impl ::windows::core::Interface for IVisualTreeServiceCallback2 {
-    type Vtable = IVisualTreeServiceCallback2Vtbl;
+    type Vtable = IVisualTreeServiceCallback2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad9eb88_ae77_4397_b948_5fa2db0a19ea);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVisualTreeServiceCallback2Vtbl {
-    pub base: IVisualTreeServiceCallbackVtbl,
+pub struct IVisualTreeServiceCallback2_Vtbl {
+    pub base: IVisualTreeServiceCallback_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub OnElementStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: u64, elementstate: VisualElementState, context: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -930,12 +930,12 @@ impl ::core::fmt::Debug for IXamlDiagnostics {
     }
 }
 unsafe impl ::windows::core::Interface for IXamlDiagnostics {
-    type Vtable = IXamlDiagnosticsVtbl;
+    type Vtable = IXamlDiagnostics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18c9e2b6_3f43_4116_9f2b_ff935d7770d2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXamlDiagnosticsVtbl {
+pub struct IXamlDiagnostics_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetDispatcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdispatcher: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetUiLayer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplayer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

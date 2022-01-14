@@ -37,7 +37,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationDataManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Core.ApplicationDataManager;{74d10432-2e99-4000-9a3a-64307e858129})");
 }
 unsafe impl ::windows::core::Interface for ApplicationDataManager {
-    type Vtable = IApplicationDataManagerVtbl;
+    type Vtable = IApplicationDataManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74d10432_2e99_4000_9a3a_64307e858129);
 }
 impl ::windows::core::RuntimeName for ApplicationDataManager {
@@ -89,24 +89,24 @@ unsafe impl ::core::marker::Sync for ApplicationDataManager {}
 #[repr(transparent)]
 pub struct IApplicationDataManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IApplicationDataManager {
-    type Vtable = IApplicationDataManagerVtbl;
+    type Vtable = IApplicationDataManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74d10432_2e99_4000_9a3a_64307e858129);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IApplicationDataManagerVtbl {
+pub struct IApplicationDataManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IApplicationDataManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IApplicationDataManagerStatics {
-    type Vtable = IApplicationDataManagerStaticsVtbl;
+    type Vtable = IApplicationDataManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e1862e3_698e_49a1_9752_dee94925b9b3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IApplicationDataManagerStaticsVtbl {
+pub struct IApplicationDataManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage")]
     pub CreateForPackageFamily: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

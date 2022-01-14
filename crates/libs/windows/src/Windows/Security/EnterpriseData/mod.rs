@@ -41,7 +41,7 @@ unsafe impl ::windows::core::RuntimeType for BufferProtectUnprotectResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.BufferProtectUnprotectResult;{47995edc-6cec-4e3a-b251-9e7485d79e7a})");
 }
 unsafe impl ::windows::core::Interface for BufferProtectUnprotectResult {
-    type Vtable = IBufferProtectUnprotectResultVtbl;
+    type Vtable = IBufferProtectUnprotectResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47995edc_6cec_4e3a_b251_9e7485d79e7a);
 }
 impl ::windows::core::RuntimeName for BufferProtectUnprotectResult {
@@ -130,7 +130,7 @@ unsafe impl ::windows::core::RuntimeType for DataProtectionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.DataProtectionInfo;{8420b0c1-5e31-4405-9540-3f943af0cb26})");
 }
 unsafe impl ::windows::core::Interface for DataProtectionInfo {
-    type Vtable = IDataProtectionInfoVtbl;
+    type Vtable = IDataProtectionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8420b0c1_5e31_4405_9540_3f943af0cb26);
 }
 impl ::windows::core::RuntimeName for DataProtectionInfo {
@@ -367,7 +367,7 @@ unsafe impl ::windows::core::RuntimeType for FileProtectionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.FileProtectionInfo;{4ee96486-147e-4dd0-8faf-5253ed91ad0c})");
 }
 unsafe impl ::windows::core::Interface for FileProtectionInfo {
-    type Vtable = IFileProtectionInfoVtbl;
+    type Vtable = IFileProtectionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ee96486_147e_4dd0_8faf_5253ed91ad0c);
 }
 impl ::windows::core::RuntimeName for FileProtectionInfo {
@@ -671,7 +671,7 @@ unsafe impl ::windows::core::RuntimeType for FileUnprotectOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.FileUnprotectOptions;{7d1312f1-3b0d-4dd8-a1f8-1ec53822e2f3})");
 }
 unsafe impl ::windows::core::Interface for FileUnprotectOptions {
-    type Vtable = IFileUnprotectOptionsVtbl;
+    type Vtable = IFileUnprotectOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d1312f1_3b0d_4dd8_a1f8_1ec53822e2f3);
 }
 impl ::windows::core::RuntimeName for FileUnprotectOptions {
@@ -723,12 +723,12 @@ unsafe impl ::core::marker::Sync for FileUnprotectOptions {}
 #[repr(transparent)]
 pub struct IBufferProtectUnprotectResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBufferProtectUnprotectResult {
-    type Vtable = IBufferProtectUnprotectResultVtbl;
+    type Vtable = IBufferProtectUnprotectResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47995edc_6cec_4e3a_b251_9e7485d79e7a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBufferProtectUnprotectResultVtbl {
+pub struct IBufferProtectUnprotectResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub Buffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -740,12 +740,12 @@ pub struct IBufferProtectUnprotectResultVtbl {
 #[repr(transparent)]
 pub struct IDataProtectionInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDataProtectionInfo {
-    type Vtable = IDataProtectionInfoVtbl;
+    type Vtable = IDataProtectionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8420b0c1_5e31_4405_9540_3f943af0cb26);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDataProtectionInfoVtbl {
+pub struct IDataProtectionInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DataProtectionStatus) -> ::windows::core::HRESULT,
     pub Identity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -754,12 +754,12 @@ pub struct IDataProtectionInfoVtbl {
 #[repr(transparent)]
 pub struct IDataProtectionManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDataProtectionManagerStatics {
-    type Vtable = IDataProtectionManagerStaticsVtbl;
+    type Vtable = IDataProtectionManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6149b74_9144_4ee4_8a8a_30b5f361430e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDataProtectionManagerStaticsVtbl {
+pub struct IDataProtectionManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub ProtectAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, identity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -790,12 +790,12 @@ pub struct IDataProtectionManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IFileProtectionInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFileProtectionInfo {
-    type Vtable = IFileProtectionInfoVtbl;
+    type Vtable = IFileProtectionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ee96486_147e_4dd0_8faf_5253ed91ad0c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileProtectionInfoVtbl {
+pub struct IFileProtectionInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut FileProtectionStatus) -> ::windows::core::HRESULT,
     pub IsRoamable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -805,12 +805,12 @@ pub struct IFileProtectionInfoVtbl {
 #[repr(transparent)]
 pub struct IFileProtectionInfo2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFileProtectionInfo2 {
-    type Vtable = IFileProtectionInfo2Vtbl;
+    type Vtable = IFileProtectionInfo2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82123a4c_557a_498d_8e94_944cd5836432);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileProtectionInfo2Vtbl {
+pub struct IFileProtectionInfo2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsProtectWhileOpenSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -818,12 +818,12 @@ pub struct IFileProtectionInfo2Vtbl {
 #[repr(transparent)]
 pub struct IFileProtectionManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFileProtectionManagerStatics {
-    type Vtable = IFileProtectionManagerStaticsVtbl;
+    type Vtable = IFileProtectionManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5846fc9b_e613_426b_bb38_88cba1dc9adb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileProtectionManagerStaticsVtbl {
+pub struct IFileProtectionManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub ProtectAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr, identity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -858,12 +858,12 @@ pub struct IFileProtectionManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IFileProtectionManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFileProtectionManagerStatics2 {
-    type Vtable = IFileProtectionManagerStatics2Vtbl;
+    type Vtable = IFileProtectionManagerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83d2a745_0483_41ab_b2d5_bc7f23d74ebb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileProtectionManagerStatics2Vtbl {
+pub struct IFileProtectionManagerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub IsContainerAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -882,12 +882,12 @@ pub struct IFileProtectionManagerStatics2Vtbl {
 #[repr(transparent)]
 pub struct IFileProtectionManagerStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFileProtectionManagerStatics3 {
-    type Vtable = IFileProtectionManagerStatics3Vtbl;
+    type Vtable = IFileProtectionManagerStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6918849a_624f_46d6_b241_e9cd5fdf3e3f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileProtectionManagerStatics3Vtbl {
+pub struct IFileProtectionManagerStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub UnprotectAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -904,13 +904,13 @@ pub struct IFileProtectionManagerStatics3Vtbl {
 pub struct IFileRevocationManagerStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IFileRevocationManagerStatics {
-    type Vtable = IFileRevocationManagerStaticsVtbl;
+    type Vtable = IFileRevocationManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x256bbc3d_1c5d_4260_8c75_9144cfb78ba9);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileRevocationManagerStaticsVtbl {
+pub struct IFileRevocationManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated"))]
     pub ProtectAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storageitem: ::windows::core::RawPtr, enterpriseidentity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -933,12 +933,12 @@ pub struct IFileRevocationManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IFileUnprotectOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFileUnprotectOptions {
-    type Vtable = IFileUnprotectOptionsVtbl;
+    type Vtable = IFileUnprotectOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d1312f1_3b0d_4dd8_a1f8_1ec53822e2f3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileUnprotectOptionsVtbl {
+pub struct IFileUnprotectOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetAudit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub Audit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -947,12 +947,12 @@ pub struct IFileUnprotectOptionsVtbl {
 #[repr(transparent)]
 pub struct IFileUnprotectOptionsFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFileUnprotectOptionsFactory {
-    type Vtable = IFileUnprotectOptionsFactoryVtbl;
+    type Vtable = IFileUnprotectOptionsFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51aeb39c_da8c_4c3f_9bfb_cb73a7cce0dd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileUnprotectOptionsFactoryVtbl {
+pub struct IFileUnprotectOptionsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, audit: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -960,12 +960,12 @@ pub struct IFileUnprotectOptionsFactoryVtbl {
 #[repr(transparent)]
 pub struct IProtectedAccessResumedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProtectedAccessResumedEventArgs {
-    type Vtable = IProtectedAccessResumedEventArgsVtbl;
+    type Vtable = IProtectedAccessResumedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac4dca59_5d80_4e95_8c5f_8539450eebe0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProtectedAccessResumedEventArgsVtbl {
+pub struct IProtectedAccessResumedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Identities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -976,12 +976,12 @@ pub struct IProtectedAccessResumedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IProtectedAccessSuspendingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProtectedAccessSuspendingEventArgs {
-    type Vtable = IProtectedAccessSuspendingEventArgsVtbl;
+    type Vtable = IProtectedAccessSuspendingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75a193e0_a344_429f_b975_04fc1f88c185);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProtectedAccessSuspendingEventArgsVtbl {
+pub struct IProtectedAccessSuspendingEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Identities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1000,12 +1000,12 @@ pub struct IProtectedAccessSuspendingEventArgsVtbl {
 #[repr(transparent)]
 pub struct IProtectedContainerExportResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProtectedContainerExportResult {
-    type Vtable = IProtectedContainerExportResultVtbl;
+    type Vtable = IProtectedContainerExportResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3948ef95_f7fb_4b42_afb0_df70b41543c1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProtectedContainerExportResultVtbl {
+pub struct IProtectedContainerExportResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ProtectedImportExportStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage")]
@@ -1017,12 +1017,12 @@ pub struct IProtectedContainerExportResultVtbl {
 #[repr(transparent)]
 pub struct IProtectedContainerImportResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProtectedContainerImportResult {
-    type Vtable = IProtectedContainerImportResultVtbl;
+    type Vtable = IProtectedContainerImportResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdb780d1_e7bb_4d1a_9339_34dc41149f9b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProtectedContainerImportResultVtbl {
+pub struct IProtectedContainerImportResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ProtectedImportExportStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage")]
@@ -1034,12 +1034,12 @@ pub struct IProtectedContainerImportResultVtbl {
 #[repr(transparent)]
 pub struct IProtectedContentRevokedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProtectedContentRevokedEventArgs {
-    type Vtable = IProtectedContentRevokedEventArgsVtbl;
+    type Vtable = IProtectedContentRevokedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63686821_58b9_47ee_93d9_f0f741cf43f0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProtectedContentRevokedEventArgsVtbl {
+pub struct IProtectedContentRevokedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Identities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1050,12 +1050,12 @@ pub struct IProtectedContentRevokedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IProtectedFileCreateResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProtectedFileCreateResult {
-    type Vtable = IProtectedFileCreateResultVtbl;
+    type Vtable = IProtectedFileCreateResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28e3ed6a_e9e7_4a03_9f53_bdb16172699b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProtectedFileCreateResultVtbl {
+pub struct IProtectedFileCreateResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage")]
     pub File: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1071,12 +1071,12 @@ pub struct IProtectedFileCreateResultVtbl {
 #[repr(transparent)]
 pub struct IProtectionPolicyAuditInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProtectionPolicyAuditInfo {
-    type Vtable = IProtectionPolicyAuditInfoVtbl;
+    type Vtable = IProtectionPolicyAuditInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x425ab7e4_feb7_44fc_b3bb_c3c4d7ecbebb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProtectionPolicyAuditInfoVtbl {
+pub struct IProtectionPolicyAuditInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ProtectionPolicyAuditAction) -> ::windows::core::HRESULT,
     pub Action: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ProtectionPolicyAuditAction) -> ::windows::core::HRESULT,
@@ -1091,12 +1091,12 @@ pub struct IProtectionPolicyAuditInfoVtbl {
 #[repr(transparent)]
 pub struct IProtectionPolicyAuditInfoFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProtectionPolicyAuditInfoFactory {
-    type Vtable = IProtectionPolicyAuditInfoFactoryVtbl;
+    type Vtable = IProtectionPolicyAuditInfoFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ed4180b_92e8_42d5_83d4_25440b423549);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProtectionPolicyAuditInfoFactoryVtbl {
+pub struct IProtectionPolicyAuditInfoFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, action: ProtectionPolicyAuditAction, datadescription: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sourcedescription: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, targetdescription: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateWithActionAndDataDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, action: ProtectionPolicyAuditAction, datadescription: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1105,12 +1105,12 @@ pub struct IProtectionPolicyAuditInfoFactoryVtbl {
 #[repr(transparent)]
 pub struct IProtectionPolicyManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProtectionPolicyManager {
-    type Vtable = IProtectionPolicyManagerVtbl;
+    type Vtable = IProtectionPolicyManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5703e18_a08d_47e6_a240_9934d7165eb5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProtectionPolicyManagerVtbl {
+pub struct IProtectionPolicyManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Identity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1119,12 +1119,12 @@ pub struct IProtectionPolicyManagerVtbl {
 #[repr(transparent)]
 pub struct IProtectionPolicyManager2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProtectionPolicyManager2 {
-    type Vtable = IProtectionPolicyManager2Vtbl;
+    type Vtable = IProtectionPolicyManager2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabf7527a_8435_417f_99b6_51beaf365888);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProtectionPolicyManager2Vtbl {
+pub struct IProtectionPolicyManager2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetShowEnterpriseIndicator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub ShowEnterpriseIndicator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1133,12 +1133,12 @@ pub struct IProtectionPolicyManager2Vtbl {
 #[repr(transparent)]
 pub struct IProtectionPolicyManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProtectionPolicyManagerStatics {
-    type Vtable = IProtectionPolicyManagerStaticsVtbl;
+    type Vtable = IProtectionPolicyManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0bffc66_8c3d_4d56_8804_c68f0ad32ec5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProtectionPolicyManagerStaticsVtbl {
+pub struct IProtectionPolicyManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsIdentityManaged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
     pub TryApplyProcessUIPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1184,12 +1184,12 @@ pub struct IProtectionPolicyManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IProtectionPolicyManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProtectionPolicyManagerStatics2 {
-    type Vtable = IProtectionPolicyManagerStatics2Vtbl;
+    type Vtable = IProtectionPolicyManagerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb68f9a8c_39e0_4649_b2e4_070ab8a579b3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProtectionPolicyManagerStatics2Vtbl {
+pub struct IProtectionPolicyManagerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub HasContentBeenRevokedSince: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, since: super::super::Foundation::DateTime, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1217,12 +1217,12 @@ pub struct IProtectionPolicyManagerStatics2Vtbl {
 #[repr(transparent)]
 pub struct IProtectionPolicyManagerStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProtectionPolicyManagerStatics3 {
-    type Vtable = IProtectionPolicyManagerStatics3Vtbl;
+    type Vtable = IProtectionPolicyManagerStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48ff9e8c_6a6f_4d9f_bced_18ab537aa015);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProtectionPolicyManagerStatics3Vtbl {
+pub struct IProtectionPolicyManagerStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestAccessWithAuditingInfoAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourceidentity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, targetidentity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, auditinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1246,12 +1246,12 @@ pub struct IProtectionPolicyManagerStatics3Vtbl {
 #[repr(transparent)]
 pub struct IProtectionPolicyManagerStatics4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProtectionPolicyManagerStatics4 {
-    type Vtable = IProtectionPolicyManagerStatics4Vtbl;
+    type Vtable = IProtectionPolicyManagerStatics4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20b794db_ccbd_490f_8c83_49ccb77aea6c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProtectionPolicyManagerStatics4Vtbl {
+pub struct IProtectionPolicyManagerStatics4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsRoamableProtectionEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1293,12 +1293,12 @@ pub struct IProtectionPolicyManagerStatics4Vtbl {
 #[repr(transparent)]
 pub struct IThreadNetworkContext(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IThreadNetworkContext {
-    type Vtable = IThreadNetworkContextVtbl;
+    type Vtable = IThreadNetworkContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa4ea8e9_ef13_405a_b12c_d7348c6f41fc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IThreadNetworkContextVtbl {
+pub struct IThreadNetworkContext_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc = "*Required features: 'Security_EnterpriseData'*"]
@@ -1335,7 +1335,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectedAccessResumedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedAccessResumedEventArgs;{ac4dca59-5d80-4e95-8c5f-8539450eebe0})");
 }
 unsafe impl ::windows::core::Interface for ProtectedAccessResumedEventArgs {
-    type Vtable = IProtectedAccessResumedEventArgsVtbl;
+    type Vtable = IProtectedAccessResumedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac4dca59_5d80_4e95_8c5f_8539450eebe0);
 }
 impl ::windows::core::RuntimeName for ProtectedAccessResumedEventArgs {
@@ -1435,7 +1435,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectedAccessSuspendingEventArgs 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedAccessSuspendingEventArgs;{75a193e0-a344-429f-b975-04fc1f88c185})");
 }
 unsafe impl ::windows::core::Interface for ProtectedAccessSuspendingEventArgs {
-    type Vtable = IProtectedAccessSuspendingEventArgsVtbl;
+    type Vtable = IProtectedAccessSuspendingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75a193e0_a344_429f_b975_04fc1f88c185);
 }
 impl ::windows::core::RuntimeName for ProtectedAccessSuspendingEventArgs {
@@ -1525,7 +1525,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectedContainerExportResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedContainerExportResult;{3948ef95-f7fb-4b42-afb0-df70b41543c1})");
 }
 unsafe impl ::windows::core::Interface for ProtectedContainerExportResult {
-    type Vtable = IProtectedContainerExportResultVtbl;
+    type Vtable = IProtectedContainerExportResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3948ef95_f7fb_4b42_afb0_df70b41543c1);
 }
 impl ::windows::core::RuntimeName for ProtectedContainerExportResult {
@@ -1615,7 +1615,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectedContainerImportResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedContainerImportResult;{cdb780d1-e7bb-4d1a-9339-34dc41149f9b})");
 }
 unsafe impl ::windows::core::Interface for ProtectedContainerImportResult {
-    type Vtable = IProtectedContainerImportResultVtbl;
+    type Vtable = IProtectedContainerImportResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdb780d1_e7bb_4d1a_9339_34dc41149f9b);
 }
 impl ::windows::core::RuntimeName for ProtectedContainerImportResult {
@@ -1697,7 +1697,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectedContentRevokedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedContentRevokedEventArgs;{63686821-58b9-47ee-93d9-f0f741cf43f0})");
 }
 unsafe impl ::windows::core::Interface for ProtectedContentRevokedEventArgs {
-    type Vtable = IProtectedContentRevokedEventArgsVtbl;
+    type Vtable = IProtectedContentRevokedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63686821_58b9_47ee_93d9_f0f741cf43f0);
 }
 impl ::windows::core::RuntimeName for ProtectedContentRevokedEventArgs {
@@ -1796,7 +1796,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectedFileCreateResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedFileCreateResult;{28e3ed6a-e9e7-4a03-9f53-bdb16172699b})");
 }
 unsafe impl ::windows::core::Interface for ProtectedFileCreateResult {
-    type Vtable = IProtectedFileCreateResultVtbl;
+    type Vtable = IProtectedFileCreateResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28e3ed6a_e9e7_4a03_9f53_bdb16172699b);
 }
 impl ::windows::core::RuntimeName for ProtectedFileCreateResult {
@@ -2014,7 +2014,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectionPolicyAuditInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectionPolicyAuditInfo;{425ab7e4-feb7-44fc-b3bb-c3c4d7ecbebb})");
 }
 unsafe impl ::windows::core::Interface for ProtectionPolicyAuditInfo {
-    type Vtable = IProtectionPolicyAuditInfoVtbl;
+    type Vtable = IProtectionPolicyAuditInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x425ab7e4_feb7_44fc_b3bb_c3c4d7ecbebb);
 }
 impl ::windows::core::RuntimeName for ProtectionPolicyAuditInfo {
@@ -2450,7 +2450,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectionPolicyManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectionPolicyManager;{d5703e18-a08d-47e6-a240-9934d7165eb5})");
 }
 unsafe impl ::windows::core::Interface for ProtectionPolicyManager {
-    type Vtable = IProtectionPolicyManagerVtbl;
+    type Vtable = IProtectionPolicyManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5703e18_a08d_47e6_a240_9934d7165eb5);
 }
 impl ::windows::core::RuntimeName for ProtectionPolicyManager {
@@ -2562,7 +2562,7 @@ unsafe impl ::windows::core::RuntimeType for ThreadNetworkContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ThreadNetworkContext;{fa4ea8e9-ef13-405a-b12c-d7348c6f41fc})");
 }
 unsafe impl ::windows::core::Interface for ThreadNetworkContext {
-    type Vtable = IThreadNetworkContextVtbl;
+    type Vtable = IThreadNetworkContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa4ea8e9_ef13_405a_b12c_d7348c6f41fc);
 }
 impl ::windows::core::RuntimeName for ThreadNetworkContext {

@@ -1,12 +1,12 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IAttachableInputObjectImpl: Sized {}
+pub trait IAttachableInputObject_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAttachableInputObject {
     const NAME: &'static str = "Windows.UI.Input.IAttachableInputObject";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAttachableInputObjectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAttachableInputObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAttachableInputObjectVtbl {
+impl IAttachableInputObject_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAttachableInputObject_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAttachableInputObject_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAttachableInputObject, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -14,14 +14,14 @@ impl IAttachableInputObjectVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAttachableInputObjectFactoryImpl: Sized {}
+pub trait IAttachableInputObjectFactory_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IAttachableInputObjectFactory {
     const NAME: &'static str = "Windows.UI.Input.IAttachableInputObjectFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAttachableInputObjectFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAttachableInputObjectFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAttachableInputObjectFactoryVtbl {
+impl IAttachableInputObjectFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAttachableInputObjectFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAttachableInputObjectFactory_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IAttachableInputObjectFactory, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -29,7 +29,7 @@ impl IAttachableInputObjectFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICrossSlidingEventArgsImpl: Sized {
+pub trait ICrossSlidingEventArgs_Impl: Sized {
     fn PointerDeviceType(&mut self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType>;
     fn Position(&mut self) -> ::windows::core::Result<super::super::Foundation::Point>;
     fn CrossSlidingState(&mut self) -> ::windows::core::Result<CrossSlidingState>;
@@ -39,9 +39,9 @@ impl ::windows::core::RuntimeName for ICrossSlidingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ICrossSlidingEventArgs";
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
-impl ICrossSlidingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICrossSlidingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICrossSlidingEventArgsVtbl {
-        unsafe extern "system" fn PointerDeviceType<Impl: ICrossSlidingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
+impl ICrossSlidingEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICrossSlidingEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICrossSlidingEventArgs_Vtbl {
+        unsafe extern "system" fn PointerDeviceType<Impl: ICrossSlidingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerDeviceType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -52,7 +52,7 @@ impl ICrossSlidingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: ICrossSlidingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: ICrossSlidingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -63,7 +63,7 @@ impl ICrossSlidingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CrossSlidingState<Impl: ICrossSlidingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CrossSlidingState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CrossSlidingState<Impl: ICrossSlidingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CrossSlidingState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CrossSlidingState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -86,7 +86,7 @@ impl ICrossSlidingEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICrossSlidingEventArgs2Impl: Sized {
+pub trait ICrossSlidingEventArgs2_Impl: Sized {
     fn ContactCount(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -94,9 +94,9 @@ impl ::windows::core::RuntimeName for ICrossSlidingEventArgs2 {
     const NAME: &'static str = "Windows.UI.Input.ICrossSlidingEventArgs2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICrossSlidingEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICrossSlidingEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICrossSlidingEventArgs2Vtbl {
-        unsafe extern "system" fn ContactCount<Impl: ICrossSlidingEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl ICrossSlidingEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICrossSlidingEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICrossSlidingEventArgs2_Vtbl {
+        unsafe extern "system" fn ContactCount<Impl: ICrossSlidingEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -117,7 +117,7 @@ impl ICrossSlidingEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IDraggingEventArgsImpl: Sized {
+pub trait IDraggingEventArgs_Impl: Sized {
     fn PointerDeviceType(&mut self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType>;
     fn Position(&mut self) -> ::windows::core::Result<super::super::Foundation::Point>;
     fn DraggingState(&mut self) -> ::windows::core::Result<DraggingState>;
@@ -127,9 +127,9 @@ impl ::windows::core::RuntimeName for IDraggingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IDraggingEventArgs";
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
-impl IDraggingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDraggingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDraggingEventArgsVtbl {
-        unsafe extern "system" fn PointerDeviceType<Impl: IDraggingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
+impl IDraggingEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDraggingEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDraggingEventArgs_Vtbl {
+        unsafe extern "system" fn PointerDeviceType<Impl: IDraggingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerDeviceType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -140,7 +140,7 @@ impl IDraggingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: IDraggingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: IDraggingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -151,7 +151,7 @@ impl IDraggingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DraggingState<Impl: IDraggingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DraggingState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DraggingState<Impl: IDraggingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DraggingState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DraggingState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -174,7 +174,7 @@ impl IDraggingEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDraggingEventArgs2Impl: Sized {
+pub trait IDraggingEventArgs2_Impl: Sized {
     fn ContactCount(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -182,9 +182,9 @@ impl ::windows::core::RuntimeName for IDraggingEventArgs2 {
     const NAME: &'static str = "Windows.UI.Input.IDraggingEventArgs2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDraggingEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDraggingEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDraggingEventArgs2Vtbl {
-        unsafe extern "system" fn ContactCount<Impl: IDraggingEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IDraggingEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDraggingEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDraggingEventArgs2_Vtbl {
+        unsafe extern "system" fn ContactCount<Impl: IDraggingEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -202,7 +202,7 @@ impl IDraggingEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEdgeGestureImpl: Sized {
+pub trait IEdgeGesture_Impl: Sized {
     fn Starting(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveStarting(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn Completed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -215,9 +215,9 @@ impl ::windows::core::RuntimeName for IEdgeGesture {
     const NAME: &'static str = "Windows.UI.Input.IEdgeGesture";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEdgeGestureVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEdgeGestureImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEdgeGestureVtbl {
-        unsafe extern "system" fn Starting<Impl: IEdgeGestureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IEdgeGesture_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEdgeGesture_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEdgeGesture_Vtbl {
+        unsafe extern "system" fn Starting<Impl: IEdgeGesture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Starting(&*(&handler as *const <super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -228,11 +228,11 @@ impl IEdgeGestureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStarting<Impl: IEdgeGestureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStarting<Impl: IEdgeGesture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStarting(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Completed<Impl: IEdgeGestureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Completed<Impl: IEdgeGesture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Completed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -243,11 +243,11 @@ impl IEdgeGestureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCompleted<Impl: IEdgeGestureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCompleted<Impl: IEdgeGesture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCompleted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Canceled<Impl: IEdgeGestureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Canceled<Impl: IEdgeGesture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Canceled(&*(&handler as *const <super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -258,7 +258,7 @@ impl IEdgeGestureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCanceled<Impl: IEdgeGestureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCanceled<Impl: IEdgeGesture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCanceled(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -277,7 +277,7 @@ impl IEdgeGestureVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEdgeGestureEventArgsImpl: Sized {
+pub trait IEdgeGestureEventArgs_Impl: Sized {
     fn Kind(&mut self) -> ::windows::core::Result<EdgeGestureKind>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -285,9 +285,9 @@ impl ::windows::core::RuntimeName for IEdgeGestureEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IEdgeGestureEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEdgeGestureEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEdgeGestureEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEdgeGestureEventArgsVtbl {
-        unsafe extern "system" fn Kind<Impl: IEdgeGestureEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EdgeGestureKind) -> ::windows::core::HRESULT {
+impl IEdgeGestureEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEdgeGestureEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEdgeGestureEventArgs_Vtbl {
+        unsafe extern "system" fn Kind<Impl: IEdgeGestureEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EdgeGestureKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -305,7 +305,7 @@ impl IEdgeGestureEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEdgeGestureStaticsImpl: Sized {
+pub trait IEdgeGestureStatics_Impl: Sized {
     fn GetForCurrentView(&mut self) -> ::windows::core::Result<EdgeGesture>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -313,9 +313,9 @@ impl ::windows::core::RuntimeName for IEdgeGestureStatics {
     const NAME: &'static str = "Windows.UI.Input.IEdgeGestureStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEdgeGestureStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEdgeGestureStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEdgeGestureStaticsVtbl {
-        unsafe extern "system" fn GetForCurrentView<Impl: IEdgeGestureStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEdgeGestureStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEdgeGestureStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEdgeGestureStatics_Vtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: IEdgeGestureStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -336,7 +336,7 @@ impl IEdgeGestureStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IGestureRecognizerImpl: Sized {
+pub trait IGestureRecognizer_Impl: Sized {
     fn GestureSettings(&mut self) -> ::windows::core::Result<GestureSettings>;
     fn SetGestureSettings(&mut self, value: GestureSettings) -> ::windows::core::Result<()>;
     fn IsInertial(&mut self) -> ::windows::core::Result<bool>;
@@ -401,9 +401,9 @@ impl ::windows::core::RuntimeName for IGestureRecognizer {
     const NAME: &'static str = "Windows.UI.Input.IGestureRecognizer";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IGestureRecognizerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGestureRecognizerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGestureRecognizerVtbl {
-        unsafe extern "system" fn GestureSettings<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GestureSettings) -> ::windows::core::HRESULT {
+impl IGestureRecognizer_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGestureRecognizer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGestureRecognizer_Vtbl {
+        unsafe extern "system" fn GestureSettings<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GestureSettings) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GestureSettings() {
                 ::core::result::Result::Ok(ok__) => {
@@ -414,11 +414,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGestureSettings<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: GestureSettings) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGestureSettings<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: GestureSettings) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetGestureSettings(value).into()
         }
-        unsafe extern "system" fn IsInertial<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsInertial<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsInertial() {
                 ::core::result::Result::Ok(ok__) => {
@@ -429,7 +429,7 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsActive<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsActive<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsActive() {
                 ::core::result::Result::Ok(ok__) => {
@@ -440,7 +440,7 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShowGestureFeedback<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowGestureFeedback<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowGestureFeedback() {
                 ::core::result::Result::Ok(ok__) => {
@@ -451,11 +451,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetShowGestureFeedback<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetShowGestureFeedback<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetShowGestureFeedback(value).into()
         }
-        unsafe extern "system" fn PivotCenter<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PivotCenter<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PivotCenter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -466,11 +466,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPivotCenter<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPivotCenter<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPivotCenter(&*(&value as *const <super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PivotRadius<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PivotRadius<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PivotRadius() {
                 ::core::result::Result::Ok(ok__) => {
@@ -481,11 +481,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPivotRadius<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPivotRadius<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPivotRadius(value).into()
         }
-        unsafe extern "system" fn InertiaTranslationDeceleration<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InertiaTranslationDeceleration<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InertiaTranslationDeceleration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -496,11 +496,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInertiaTranslationDeceleration<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInertiaTranslationDeceleration<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInertiaTranslationDeceleration(value).into()
         }
-        unsafe extern "system" fn InertiaRotationDeceleration<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InertiaRotationDeceleration<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InertiaRotationDeceleration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -511,11 +511,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInertiaRotationDeceleration<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInertiaRotationDeceleration<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInertiaRotationDeceleration(value).into()
         }
-        unsafe extern "system" fn InertiaExpansionDeceleration<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InertiaExpansionDeceleration<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InertiaExpansionDeceleration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -526,11 +526,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInertiaExpansionDeceleration<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInertiaExpansionDeceleration<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInertiaExpansionDeceleration(value).into()
         }
-        unsafe extern "system" fn InertiaTranslationDisplacement<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InertiaTranslationDisplacement<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InertiaTranslationDisplacement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -541,11 +541,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInertiaTranslationDisplacement<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInertiaTranslationDisplacement<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInertiaTranslationDisplacement(value).into()
         }
-        unsafe extern "system" fn InertiaRotationAngle<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InertiaRotationAngle<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InertiaRotationAngle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -556,11 +556,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInertiaRotationAngle<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInertiaRotationAngle<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInertiaRotationAngle(value).into()
         }
-        unsafe extern "system" fn InertiaExpansion<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InertiaExpansion<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InertiaExpansion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -571,11 +571,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInertiaExpansion<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInertiaExpansion<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInertiaExpansion(value).into()
         }
-        unsafe extern "system" fn ManipulationExact<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ManipulationExact<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ManipulationExact() {
                 ::core::result::Result::Ok(ok__) => {
@@ -586,11 +586,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetManipulationExact<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetManipulationExact<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetManipulationExact(value).into()
         }
-        unsafe extern "system" fn CrossSlideThresholds<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CrossSlideThresholds) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CrossSlideThresholds<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CrossSlideThresholds) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CrossSlideThresholds() {
                 ::core::result::Result::Ok(ok__) => {
@@ -601,11 +601,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCrossSlideThresholds<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CrossSlideThresholds) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCrossSlideThresholds<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CrossSlideThresholds) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCrossSlideThresholds(&*(&value as *const <CrossSlideThresholds as ::windows::core::Abi>::Abi as *const <CrossSlideThresholds as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CrossSlideHorizontally<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CrossSlideHorizontally<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CrossSlideHorizontally() {
                 ::core::result::Result::Ok(ok__) => {
@@ -616,11 +616,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCrossSlideHorizontally<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCrossSlideHorizontally<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCrossSlideHorizontally(value).into()
         }
-        unsafe extern "system" fn CrossSlideExact<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CrossSlideExact<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CrossSlideExact() {
                 ::core::result::Result::Ok(ok__) => {
@@ -631,11 +631,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCrossSlideExact<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCrossSlideExact<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCrossSlideExact(value).into()
         }
-        unsafe extern "system" fn AutoProcessInertia<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AutoProcessInertia<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutoProcessInertia() {
                 ::core::result::Result::Ok(ok__) => {
@@ -646,11 +646,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAutoProcessInertia<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAutoProcessInertia<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAutoProcessInertia(value).into()
         }
-        unsafe extern "system" fn MouseWheelParameters<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MouseWheelParameters<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MouseWheelParameters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -661,7 +661,7 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanBeDoubleTap<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanBeDoubleTap<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanBeDoubleTap(&*(&value as *const <PointerPoint as ::windows::core::Abi>::Abi as *const <PointerPoint as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -672,31 +672,31 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProcessDownEvent<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProcessDownEvent<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ProcessDownEvent(&*(&value as *const <PointerPoint as ::windows::core::Abi>::Abi as *const <PointerPoint as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ProcessMoveEvents<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProcessMoveEvents<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ProcessMoveEvents(&*(&value as *const <super::super::Foundation::Collections::IVector<PointerPoint> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IVector<PointerPoint> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ProcessUpEvent<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProcessUpEvent<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ProcessUpEvent(&*(&value as *const <PointerPoint as ::windows::core::Abi>::Abi as *const <PointerPoint as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ProcessMouseWheelEvent<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, isshiftkeydown: bool, iscontrolkeydown: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProcessMouseWheelEvent<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, isshiftkeydown: bool, iscontrolkeydown: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ProcessMouseWheelEvent(&*(&value as *const <PointerPoint as ::windows::core::Abi>::Abi as *const <PointerPoint as ::windows::core::DefaultType>::DefaultType), isshiftkeydown, iscontrolkeydown).into()
         }
-        unsafe extern "system" fn ProcessInertia<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProcessInertia<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ProcessInertia().into()
         }
-        unsafe extern "system" fn CompleteGesture<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CompleteGesture<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CompleteGesture().into()
         }
-        unsafe extern "system" fn Tapped<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Tapped<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Tapped(&*(&handler as *const <super::super::Foundation::TypedEventHandler<GestureRecognizer, TappedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<GestureRecognizer, TappedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -707,11 +707,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveTapped<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveTapped<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTapped(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RightTapped<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RightTapped<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RightTapped(&*(&handler as *const <super::super::Foundation::TypedEventHandler<GestureRecognizer, RightTappedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<GestureRecognizer, RightTappedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -722,11 +722,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRightTapped<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveRightTapped<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRightTapped(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Holding<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Holding<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Holding(&*(&handler as *const <super::super::Foundation::TypedEventHandler<GestureRecognizer, HoldingEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<GestureRecognizer, HoldingEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -737,11 +737,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveHolding<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveHolding<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveHolding(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Dragging<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Dragging<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Dragging(&*(&handler as *const <super::super::Foundation::TypedEventHandler<GestureRecognizer, DraggingEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<GestureRecognizer, DraggingEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -752,11 +752,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDragging<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDragging<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDragging(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ManipulationStarted<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ManipulationStarted<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ManipulationStarted(&*(&handler as *const <super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationStartedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationStartedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -767,11 +767,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveManipulationStarted<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveManipulationStarted<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveManipulationStarted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ManipulationUpdated<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ManipulationUpdated<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ManipulationUpdated(&*(&handler as *const <super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationUpdatedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationUpdatedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -782,11 +782,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveManipulationUpdated<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveManipulationUpdated<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveManipulationUpdated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ManipulationInertiaStarting<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ManipulationInertiaStarting<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ManipulationInertiaStarting(&*(&handler as *const <super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationInertiaStartingEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationInertiaStartingEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -797,11 +797,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveManipulationInertiaStarting<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveManipulationInertiaStarting<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveManipulationInertiaStarting(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ManipulationCompleted<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ManipulationCompleted<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ManipulationCompleted(&*(&handler as *const <super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationCompletedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationCompletedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -812,11 +812,11 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveManipulationCompleted<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveManipulationCompleted<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveManipulationCompleted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CrossSliding<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CrossSliding<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CrossSliding(&*(&handler as *const <super::super::Foundation::TypedEventHandler<GestureRecognizer, CrossSlidingEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<GestureRecognizer, CrossSlidingEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -827,7 +827,7 @@ impl IGestureRecognizerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCrossSliding<Impl: IGestureRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCrossSliding<Impl: IGestureRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCrossSliding(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -898,7 +898,7 @@ impl IGestureRecognizerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGestureRecognizer2Impl: Sized {
+pub trait IGestureRecognizer2_Impl: Sized {
     fn TapMinContactCount(&mut self) -> ::windows::core::Result<u32>;
     fn SetTapMinContactCount(&mut self, value: u32) -> ::windows::core::Result<()>;
     fn TapMaxContactCount(&mut self) -> ::windows::core::Result<u32>;
@@ -921,9 +921,9 @@ impl ::windows::core::RuntimeName for IGestureRecognizer2 {
     const NAME: &'static str = "Windows.UI.Input.IGestureRecognizer2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGestureRecognizer2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGestureRecognizer2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGestureRecognizer2Vtbl {
-        unsafe extern "system" fn TapMinContactCount<Impl: IGestureRecognizer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IGestureRecognizer2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGestureRecognizer2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGestureRecognizer2_Vtbl {
+        unsafe extern "system" fn TapMinContactCount<Impl: IGestureRecognizer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TapMinContactCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -934,11 +934,11 @@ impl IGestureRecognizer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTapMinContactCount<Impl: IGestureRecognizer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTapMinContactCount<Impl: IGestureRecognizer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTapMinContactCount(value).into()
         }
-        unsafe extern "system" fn TapMaxContactCount<Impl: IGestureRecognizer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TapMaxContactCount<Impl: IGestureRecognizer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TapMaxContactCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -949,11 +949,11 @@ impl IGestureRecognizer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTapMaxContactCount<Impl: IGestureRecognizer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTapMaxContactCount<Impl: IGestureRecognizer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTapMaxContactCount(value).into()
         }
-        unsafe extern "system" fn HoldMinContactCount<Impl: IGestureRecognizer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HoldMinContactCount<Impl: IGestureRecognizer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HoldMinContactCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -964,11 +964,11 @@ impl IGestureRecognizer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHoldMinContactCount<Impl: IGestureRecognizer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHoldMinContactCount<Impl: IGestureRecognizer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHoldMinContactCount(value).into()
         }
-        unsafe extern "system" fn HoldMaxContactCount<Impl: IGestureRecognizer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HoldMaxContactCount<Impl: IGestureRecognizer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HoldMaxContactCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -979,11 +979,11 @@ impl IGestureRecognizer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHoldMaxContactCount<Impl: IGestureRecognizer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHoldMaxContactCount<Impl: IGestureRecognizer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHoldMaxContactCount(value).into()
         }
-        unsafe extern "system" fn HoldRadius<Impl: IGestureRecognizer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HoldRadius<Impl: IGestureRecognizer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HoldRadius() {
                 ::core::result::Result::Ok(ok__) => {
@@ -994,11 +994,11 @@ impl IGestureRecognizer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHoldRadius<Impl: IGestureRecognizer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHoldRadius<Impl: IGestureRecognizer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHoldRadius(value).into()
         }
-        unsafe extern "system" fn HoldStartDelay<Impl: IGestureRecognizer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HoldStartDelay<Impl: IGestureRecognizer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HoldStartDelay() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1009,11 +1009,11 @@ impl IGestureRecognizer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHoldStartDelay<Impl: IGestureRecognizer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHoldStartDelay<Impl: IGestureRecognizer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHoldStartDelay(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TranslationMinContactCount<Impl: IGestureRecognizer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TranslationMinContactCount<Impl: IGestureRecognizer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TranslationMinContactCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1024,11 +1024,11 @@ impl IGestureRecognizer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTranslationMinContactCount<Impl: IGestureRecognizer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTranslationMinContactCount<Impl: IGestureRecognizer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTranslationMinContactCount(value).into()
         }
-        unsafe extern "system" fn TranslationMaxContactCount<Impl: IGestureRecognizer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TranslationMaxContactCount<Impl: IGestureRecognizer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TranslationMaxContactCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1039,7 +1039,7 @@ impl IGestureRecognizer2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTranslationMaxContactCount<Impl: IGestureRecognizer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTranslationMaxContactCount<Impl: IGestureRecognizer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTranslationMaxContactCount(value).into()
         }
@@ -1068,7 +1068,7 @@ impl IGestureRecognizer2Vtbl {
     }
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IHoldingEventArgsImpl: Sized {
+pub trait IHoldingEventArgs_Impl: Sized {
     fn PointerDeviceType(&mut self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType>;
     fn Position(&mut self) -> ::windows::core::Result<super::super::Foundation::Point>;
     fn HoldingState(&mut self) -> ::windows::core::Result<HoldingState>;
@@ -1078,9 +1078,9 @@ impl ::windows::core::RuntimeName for IHoldingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IHoldingEventArgs";
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
-impl IHoldingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHoldingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHoldingEventArgsVtbl {
-        unsafe extern "system" fn PointerDeviceType<Impl: IHoldingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
+impl IHoldingEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHoldingEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHoldingEventArgs_Vtbl {
+        unsafe extern "system" fn PointerDeviceType<Impl: IHoldingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerDeviceType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1091,7 +1091,7 @@ impl IHoldingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: IHoldingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: IHoldingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1102,7 +1102,7 @@ impl IHoldingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HoldingState<Impl: IHoldingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HoldingState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HoldingState<Impl: IHoldingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut HoldingState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HoldingState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1125,7 +1125,7 @@ impl IHoldingEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHoldingEventArgs2Impl: Sized {
+pub trait IHoldingEventArgs2_Impl: Sized {
     fn ContactCount(&mut self) -> ::windows::core::Result<u32>;
     fn CurrentContactCount(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -1134,9 +1134,9 @@ impl ::windows::core::RuntimeName for IHoldingEventArgs2 {
     const NAME: &'static str = "Windows.UI.Input.IHoldingEventArgs2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHoldingEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHoldingEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHoldingEventArgs2Vtbl {
-        unsafe extern "system" fn ContactCount<Impl: IHoldingEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IHoldingEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHoldingEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHoldingEventArgs2_Vtbl {
+        unsafe extern "system" fn ContactCount<Impl: IHoldingEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1147,7 +1147,7 @@ impl IHoldingEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentContactCount<Impl: IHoldingEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentContactCount<Impl: IHoldingEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentContactCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1169,7 +1169,7 @@ impl IHoldingEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IInputActivationListenerImpl: Sized {
+pub trait IInputActivationListener_Impl: Sized {
     fn State(&mut self) -> ::windows::core::Result<InputActivationState>;
     fn InputActivationChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<InputActivationListener, InputActivationListenerActivationChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveInputActivationChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -1179,9 +1179,9 @@ impl ::windows::core::RuntimeName for IInputActivationListener {
     const NAME: &'static str = "Windows.UI.Input.IInputActivationListener";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IInputActivationListenerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputActivationListenerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputActivationListenerVtbl {
-        unsafe extern "system" fn State<Impl: IInputActivationListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InputActivationState) -> ::windows::core::HRESULT {
+impl IInputActivationListener_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputActivationListener_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputActivationListener_Vtbl {
+        unsafe extern "system" fn State<Impl: IInputActivationListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InputActivationState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1192,7 +1192,7 @@ impl IInputActivationListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InputActivationChanged<Impl: IInputActivationListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InputActivationChanged<Impl: IInputActivationListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InputActivationChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<InputActivationListener, InputActivationListenerActivationChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<InputActivationListener, InputActivationListenerActivationChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1203,7 +1203,7 @@ impl IInputActivationListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveInputActivationChanged<Impl: IInputActivationListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveInputActivationChanged<Impl: IInputActivationListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveInputActivationChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1219,7 +1219,7 @@ impl IInputActivationListenerVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInputActivationListenerActivationChangedEventArgsImpl: Sized {
+pub trait IInputActivationListenerActivationChangedEventArgs_Impl: Sized {
     fn State(&mut self) -> ::windows::core::Result<InputActivationState>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1227,9 +1227,9 @@ impl ::windows::core::RuntimeName for IInputActivationListenerActivationChangedE
     const NAME: &'static str = "Windows.UI.Input.IInputActivationListenerActivationChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInputActivationListenerActivationChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputActivationListenerActivationChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputActivationListenerActivationChangedEventArgsVtbl {
-        unsafe extern "system" fn State<Impl: IInputActivationListenerActivationChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InputActivationState) -> ::windows::core::HRESULT {
+impl IInputActivationListenerActivationChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInputActivationListenerActivationChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInputActivationListenerActivationChangedEventArgs_Vtbl {
+        unsafe extern "system" fn State<Impl: IInputActivationListenerActivationChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InputActivationState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1250,7 +1250,7 @@ impl IInputActivationListenerActivationChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Core", feature = "implement_exclusive"))]
-pub trait IKeyboardDeliveryInterceptorImpl: Sized {
+pub trait IKeyboardDeliveryInterceptor_Impl: Sized {
     fn IsInterceptionEnabledWhenInForeground(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsInterceptionEnabledWhenInForeground(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn KeyDown(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -1263,9 +1263,9 @@ impl ::windows::core::RuntimeName for IKeyboardDeliveryInterceptor {
     const NAME: &'static str = "Windows.UI.Input.IKeyboardDeliveryInterceptor";
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Core", feature = "implement_exclusive"))]
-impl IKeyboardDeliveryInterceptorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyboardDeliveryInterceptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyboardDeliveryInterceptorVtbl {
-        unsafe extern "system" fn IsInterceptionEnabledWhenInForeground<Impl: IKeyboardDeliveryInterceptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IKeyboardDeliveryInterceptor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyboardDeliveryInterceptor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyboardDeliveryInterceptor_Vtbl {
+        unsafe extern "system" fn IsInterceptionEnabledWhenInForeground<Impl: IKeyboardDeliveryInterceptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsInterceptionEnabledWhenInForeground() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1276,11 +1276,11 @@ impl IKeyboardDeliveryInterceptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsInterceptionEnabledWhenInForeground<Impl: IKeyboardDeliveryInterceptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsInterceptionEnabledWhenInForeground<Impl: IKeyboardDeliveryInterceptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsInterceptionEnabledWhenInForeground(value).into()
         }
-        unsafe extern "system" fn KeyDown<Impl: IKeyboardDeliveryInterceptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KeyDown<Impl: IKeyboardDeliveryInterceptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyDown(&*(&handler as *const <super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1291,11 +1291,11 @@ impl IKeyboardDeliveryInterceptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveKeyDown<Impl: IKeyboardDeliveryInterceptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveKeyDown<Impl: IKeyboardDeliveryInterceptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveKeyDown(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn KeyUp<Impl: IKeyboardDeliveryInterceptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KeyUp<Impl: IKeyboardDeliveryInterceptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyUp(&*(&handler as *const <super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1306,7 +1306,7 @@ impl IKeyboardDeliveryInterceptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveKeyUp<Impl: IKeyboardDeliveryInterceptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveKeyUp<Impl: IKeyboardDeliveryInterceptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveKeyUp(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1325,7 +1325,7 @@ impl IKeyboardDeliveryInterceptorVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IKeyboardDeliveryInterceptorStaticsImpl: Sized {
+pub trait IKeyboardDeliveryInterceptorStatics_Impl: Sized {
     fn GetForCurrentView(&mut self) -> ::windows::core::Result<KeyboardDeliveryInterceptor>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1333,9 +1333,9 @@ impl ::windows::core::RuntimeName for IKeyboardDeliveryInterceptorStatics {
     const NAME: &'static str = "Windows.UI.Input.IKeyboardDeliveryInterceptorStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IKeyboardDeliveryInterceptorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyboardDeliveryInterceptorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyboardDeliveryInterceptorStaticsVtbl {
-        unsafe extern "system" fn GetForCurrentView<Impl: IKeyboardDeliveryInterceptorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IKeyboardDeliveryInterceptorStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyboardDeliveryInterceptorStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyboardDeliveryInterceptorStatics_Vtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: IKeyboardDeliveryInterceptorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1356,7 +1356,7 @@ impl IKeyboardDeliveryInterceptorStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IManipulationCompletedEventArgsImpl: Sized {
+pub trait IManipulationCompletedEventArgs_Impl: Sized {
     fn PointerDeviceType(&mut self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType>;
     fn Position(&mut self) -> ::windows::core::Result<super::super::Foundation::Point>;
     fn Cumulative(&mut self) -> ::windows::core::Result<ManipulationDelta>;
@@ -1367,9 +1367,9 @@ impl ::windows::core::RuntimeName for IManipulationCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IManipulationCompletedEventArgs";
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
-impl IManipulationCompletedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationCompletedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationCompletedEventArgsVtbl {
-        unsafe extern "system" fn PointerDeviceType<Impl: IManipulationCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
+impl IManipulationCompletedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationCompletedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationCompletedEventArgs_Vtbl {
+        unsafe extern "system" fn PointerDeviceType<Impl: IManipulationCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerDeviceType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1380,7 +1380,7 @@ impl IManipulationCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: IManipulationCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: IManipulationCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1391,7 +1391,7 @@ impl IManipulationCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Cumulative<Impl: IManipulationCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ManipulationDelta) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Cumulative<Impl: IManipulationCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ManipulationDelta) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Cumulative() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1402,7 +1402,7 @@ impl IManipulationCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Velocities<Impl: IManipulationCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ManipulationVelocities) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Velocities<Impl: IManipulationCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ManipulationVelocities) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Velocities() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1426,7 +1426,7 @@ impl IManipulationCompletedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IManipulationCompletedEventArgs2Impl: Sized {
+pub trait IManipulationCompletedEventArgs2_Impl: Sized {
     fn ContactCount(&mut self) -> ::windows::core::Result<u32>;
     fn CurrentContactCount(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -1435,9 +1435,9 @@ impl ::windows::core::RuntimeName for IManipulationCompletedEventArgs2 {
     const NAME: &'static str = "Windows.UI.Input.IManipulationCompletedEventArgs2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IManipulationCompletedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationCompletedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationCompletedEventArgs2Vtbl {
-        unsafe extern "system" fn ContactCount<Impl: IManipulationCompletedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IManipulationCompletedEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationCompletedEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationCompletedEventArgs2_Vtbl {
+        unsafe extern "system" fn ContactCount<Impl: IManipulationCompletedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1448,7 +1448,7 @@ impl IManipulationCompletedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentContactCount<Impl: IManipulationCompletedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentContactCount<Impl: IManipulationCompletedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentContactCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1470,7 +1470,7 @@ impl IManipulationCompletedEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IManipulationInertiaStartingEventArgsImpl: Sized {
+pub trait IManipulationInertiaStartingEventArgs_Impl: Sized {
     fn PointerDeviceType(&mut self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType>;
     fn Position(&mut self) -> ::windows::core::Result<super::super::Foundation::Point>;
     fn Delta(&mut self) -> ::windows::core::Result<ManipulationDelta>;
@@ -1482,9 +1482,9 @@ impl ::windows::core::RuntimeName for IManipulationInertiaStartingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IManipulationInertiaStartingEventArgs";
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
-impl IManipulationInertiaStartingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationInertiaStartingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationInertiaStartingEventArgsVtbl {
-        unsafe extern "system" fn PointerDeviceType<Impl: IManipulationInertiaStartingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
+impl IManipulationInertiaStartingEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationInertiaStartingEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationInertiaStartingEventArgs_Vtbl {
+        unsafe extern "system" fn PointerDeviceType<Impl: IManipulationInertiaStartingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerDeviceType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1495,7 +1495,7 @@ impl IManipulationInertiaStartingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: IManipulationInertiaStartingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: IManipulationInertiaStartingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1506,7 +1506,7 @@ impl IManipulationInertiaStartingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Delta<Impl: IManipulationInertiaStartingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ManipulationDelta) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Delta<Impl: IManipulationInertiaStartingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ManipulationDelta) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Delta() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1517,7 +1517,7 @@ impl IManipulationInertiaStartingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Cumulative<Impl: IManipulationInertiaStartingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ManipulationDelta) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Cumulative<Impl: IManipulationInertiaStartingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ManipulationDelta) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Cumulative() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1528,7 +1528,7 @@ impl IManipulationInertiaStartingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Velocities<Impl: IManipulationInertiaStartingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ManipulationVelocities) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Velocities<Impl: IManipulationInertiaStartingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ManipulationVelocities) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Velocities() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1553,7 +1553,7 @@ impl IManipulationInertiaStartingEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IManipulationInertiaStartingEventArgs2Impl: Sized {
+pub trait IManipulationInertiaStartingEventArgs2_Impl: Sized {
     fn ContactCount(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1561,9 +1561,9 @@ impl ::windows::core::RuntimeName for IManipulationInertiaStartingEventArgs2 {
     const NAME: &'static str = "Windows.UI.Input.IManipulationInertiaStartingEventArgs2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IManipulationInertiaStartingEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationInertiaStartingEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationInertiaStartingEventArgs2Vtbl {
-        unsafe extern "system" fn ContactCount<Impl: IManipulationInertiaStartingEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IManipulationInertiaStartingEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationInertiaStartingEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationInertiaStartingEventArgs2_Vtbl {
+        unsafe extern "system" fn ContactCount<Impl: IManipulationInertiaStartingEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1584,7 +1584,7 @@ impl IManipulationInertiaStartingEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IManipulationStartedEventArgsImpl: Sized {
+pub trait IManipulationStartedEventArgs_Impl: Sized {
     fn PointerDeviceType(&mut self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType>;
     fn Position(&mut self) -> ::windows::core::Result<super::super::Foundation::Point>;
     fn Cumulative(&mut self) -> ::windows::core::Result<ManipulationDelta>;
@@ -1594,9 +1594,9 @@ impl ::windows::core::RuntimeName for IManipulationStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IManipulationStartedEventArgs";
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
-impl IManipulationStartedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationStartedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationStartedEventArgsVtbl {
-        unsafe extern "system" fn PointerDeviceType<Impl: IManipulationStartedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
+impl IManipulationStartedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationStartedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationStartedEventArgs_Vtbl {
+        unsafe extern "system" fn PointerDeviceType<Impl: IManipulationStartedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerDeviceType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1607,7 +1607,7 @@ impl IManipulationStartedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: IManipulationStartedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: IManipulationStartedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1618,7 +1618,7 @@ impl IManipulationStartedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Cumulative<Impl: IManipulationStartedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ManipulationDelta) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Cumulative<Impl: IManipulationStartedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ManipulationDelta) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Cumulative() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1641,7 +1641,7 @@ impl IManipulationStartedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IManipulationStartedEventArgs2Impl: Sized {
+pub trait IManipulationStartedEventArgs2_Impl: Sized {
     fn ContactCount(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1649,9 +1649,9 @@ impl ::windows::core::RuntimeName for IManipulationStartedEventArgs2 {
     const NAME: &'static str = "Windows.UI.Input.IManipulationStartedEventArgs2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IManipulationStartedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationStartedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationStartedEventArgs2Vtbl {
-        unsafe extern "system" fn ContactCount<Impl: IManipulationStartedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IManipulationStartedEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationStartedEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationStartedEventArgs2_Vtbl {
+        unsafe extern "system" fn ContactCount<Impl: IManipulationStartedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1672,7 +1672,7 @@ impl IManipulationStartedEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IManipulationUpdatedEventArgsImpl: Sized {
+pub trait IManipulationUpdatedEventArgs_Impl: Sized {
     fn PointerDeviceType(&mut self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType>;
     fn Position(&mut self) -> ::windows::core::Result<super::super::Foundation::Point>;
     fn Delta(&mut self) -> ::windows::core::Result<ManipulationDelta>;
@@ -1684,9 +1684,9 @@ impl ::windows::core::RuntimeName for IManipulationUpdatedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IManipulationUpdatedEventArgs";
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
-impl IManipulationUpdatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationUpdatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationUpdatedEventArgsVtbl {
-        unsafe extern "system" fn PointerDeviceType<Impl: IManipulationUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
+impl IManipulationUpdatedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationUpdatedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationUpdatedEventArgs_Vtbl {
+        unsafe extern "system" fn PointerDeviceType<Impl: IManipulationUpdatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerDeviceType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1697,7 +1697,7 @@ impl IManipulationUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: IManipulationUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: IManipulationUpdatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1708,7 +1708,7 @@ impl IManipulationUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Delta<Impl: IManipulationUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ManipulationDelta) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Delta<Impl: IManipulationUpdatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ManipulationDelta) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Delta() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1719,7 +1719,7 @@ impl IManipulationUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Cumulative<Impl: IManipulationUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ManipulationDelta) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Cumulative<Impl: IManipulationUpdatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ManipulationDelta) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Cumulative() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1730,7 +1730,7 @@ impl IManipulationUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Velocities<Impl: IManipulationUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ManipulationVelocities) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Velocities<Impl: IManipulationUpdatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ManipulationVelocities) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Velocities() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1755,7 +1755,7 @@ impl IManipulationUpdatedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IManipulationUpdatedEventArgs2Impl: Sized {
+pub trait IManipulationUpdatedEventArgs2_Impl: Sized {
     fn ContactCount(&mut self) -> ::windows::core::Result<u32>;
     fn CurrentContactCount(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -1764,9 +1764,9 @@ impl ::windows::core::RuntimeName for IManipulationUpdatedEventArgs2 {
     const NAME: &'static str = "Windows.UI.Input.IManipulationUpdatedEventArgs2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IManipulationUpdatedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationUpdatedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationUpdatedEventArgs2Vtbl {
-        unsafe extern "system" fn ContactCount<Impl: IManipulationUpdatedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IManipulationUpdatedEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationUpdatedEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IManipulationUpdatedEventArgs2_Vtbl {
+        unsafe extern "system" fn ContactCount<Impl: IManipulationUpdatedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1777,7 +1777,7 @@ impl IManipulationUpdatedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentContactCount<Impl: IManipulationUpdatedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentContactCount<Impl: IManipulationUpdatedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentContactCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1799,7 +1799,7 @@ impl IManipulationUpdatedEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMouseWheelParametersImpl: Sized {
+pub trait IMouseWheelParameters_Impl: Sized {
     fn CharTranslation(&mut self) -> ::windows::core::Result<super::super::Foundation::Point>;
     fn SetCharTranslation(&mut self, value: &super::super::Foundation::Point) -> ::windows::core::Result<()>;
     fn DeltaScale(&mut self) -> ::windows::core::Result<f32>;
@@ -1814,9 +1814,9 @@ impl ::windows::core::RuntimeName for IMouseWheelParameters {
     const NAME: &'static str = "Windows.UI.Input.IMouseWheelParameters";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMouseWheelParametersVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMouseWheelParametersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMouseWheelParametersVtbl {
-        unsafe extern "system" fn CharTranslation<Impl: IMouseWheelParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
+impl IMouseWheelParameters_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMouseWheelParameters_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMouseWheelParameters_Vtbl {
+        unsafe extern "system" fn CharTranslation<Impl: IMouseWheelParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CharTranslation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1827,11 +1827,11 @@ impl IMouseWheelParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCharTranslation<Impl: IMouseWheelParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCharTranslation<Impl: IMouseWheelParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCharTranslation(&*(&value as *const <super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DeltaScale<Impl: IMouseWheelParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeltaScale<Impl: IMouseWheelParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeltaScale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1842,11 +1842,11 @@ impl IMouseWheelParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDeltaScale<Impl: IMouseWheelParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDeltaScale<Impl: IMouseWheelParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDeltaScale(value).into()
         }
-        unsafe extern "system" fn DeltaRotationAngle<Impl: IMouseWheelParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeltaRotationAngle<Impl: IMouseWheelParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeltaRotationAngle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1857,11 +1857,11 @@ impl IMouseWheelParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDeltaRotationAngle<Impl: IMouseWheelParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDeltaRotationAngle<Impl: IMouseWheelParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDeltaRotationAngle(value).into()
         }
-        unsafe extern "system" fn PageTranslation<Impl: IMouseWheelParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PageTranslation<Impl: IMouseWheelParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageTranslation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1872,7 +1872,7 @@ impl IMouseWheelParametersVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPageTranslation<Impl: IMouseWheelParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPageTranslation<Impl: IMouseWheelParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPageTranslation(&*(&value as *const <super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1893,7 +1893,7 @@ impl IMouseWheelParametersVtbl {
     }
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPointerPointImpl: Sized {
+pub trait IPointerPoint_Impl: Sized {
     fn PointerDevice(&mut self) -> ::windows::core::Result<super::super::Devices::Input::PointerDevice>;
     fn Position(&mut self) -> ::windows::core::Result<super::super::Foundation::Point>;
     fn RawPosition(&mut self) -> ::windows::core::Result<super::super::Foundation::Point>;
@@ -1908,9 +1908,9 @@ impl ::windows::core::RuntimeName for IPointerPoint {
     const NAME: &'static str = "Windows.UI.Input.IPointerPoint";
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
-impl IPointerPointVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerPointImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerPointVtbl {
-        unsafe extern "system" fn PointerDevice<Impl: IPointerPointImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPointerPoint_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerPoint_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerPoint_Vtbl {
+        unsafe extern "system" fn PointerDevice<Impl: IPointerPoint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerDevice() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1921,7 +1921,7 @@ impl IPointerPointVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: IPointerPointImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: IPointerPoint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1932,7 +1932,7 @@ impl IPointerPointVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RawPosition<Impl: IPointerPointImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RawPosition<Impl: IPointerPoint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RawPosition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1943,7 +1943,7 @@ impl IPointerPointVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PointerId<Impl: IPointerPointImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PointerId<Impl: IPointerPoint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1954,7 +1954,7 @@ impl IPointerPointVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FrameId<Impl: IPointerPointImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FrameId<Impl: IPointerPoint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1965,7 +1965,7 @@ impl IPointerPointVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Timestamp<Impl: IPointerPointImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Timestamp<Impl: IPointerPoint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1976,7 +1976,7 @@ impl IPointerPointVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsInContact<Impl: IPointerPointImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsInContact<Impl: IPointerPoint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsInContact() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1987,7 +1987,7 @@ impl IPointerPointVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Properties<Impl: IPointerPointImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Properties<Impl: IPointerPoint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2015,7 +2015,7 @@ impl IPointerPointVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPointerPointPropertiesImpl: Sized {
+pub trait IPointerPointProperties_Impl: Sized {
     fn Pressure(&mut self) -> ::windows::core::Result<f32>;
     fn IsInverted(&mut self) -> ::windows::core::Result<bool>;
     fn IsEraser(&mut self) -> ::windows::core::Result<bool>;
@@ -2046,9 +2046,9 @@ impl ::windows::core::RuntimeName for IPointerPointProperties {
     const NAME: &'static str = "Windows.UI.Input.IPointerPointProperties";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPointerPointPropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerPointPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerPointPropertiesVtbl {
-        unsafe extern "system" fn Pressure<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+impl IPointerPointProperties_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerPointProperties_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerPointProperties_Vtbl {
+        unsafe extern "system" fn Pressure<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pressure() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2059,7 +2059,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsInverted<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsInverted<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsInverted() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2070,7 +2070,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsEraser<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEraser<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEraser() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2081,7 +2081,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Orientation<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Orientation<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Orientation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2092,7 +2092,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn XTilt<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn XTilt<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).XTilt() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2103,7 +2103,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn YTilt<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn YTilt<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).YTilt() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2114,7 +2114,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Twist<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Twist<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Twist() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2125,7 +2125,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContactRect<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContactRect<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactRect() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2136,7 +2136,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContactRectRaw<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContactRectRaw<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactRectRaw() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2147,7 +2147,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TouchConfidence<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TouchConfidence<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TouchConfidence() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2158,7 +2158,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsLeftButtonPressed<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsLeftButtonPressed<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsLeftButtonPressed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2169,7 +2169,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsRightButtonPressed<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsRightButtonPressed<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsRightButtonPressed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2180,7 +2180,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsMiddleButtonPressed<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsMiddleButtonPressed<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsMiddleButtonPressed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2191,7 +2191,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MouseWheelDelta<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MouseWheelDelta<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MouseWheelDelta() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2202,7 +2202,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsHorizontalMouseWheel<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsHorizontalMouseWheel<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsHorizontalMouseWheel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2213,7 +2213,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsPrimary<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPrimary<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPrimary() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2224,7 +2224,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsInRange<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsInRange<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsInRange() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2235,7 +2235,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsCanceled<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCanceled<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCanceled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2246,7 +2246,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsBarrelButtonPressed<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsBarrelButtonPressed<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBarrelButtonPressed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2257,7 +2257,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsXButton1Pressed<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsXButton1Pressed<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsXButton1Pressed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2268,7 +2268,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsXButton2Pressed<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsXButton2Pressed<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsXButton2Pressed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2279,7 +2279,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PointerUpdateKind<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PointerUpdateKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PointerUpdateKind<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PointerUpdateKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerUpdateKind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2290,7 +2290,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasUsage<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, usagepage: u32, usageid: u32, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasUsage<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, usagepage: u32, usageid: u32, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasUsage(usagepage, usageid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2301,7 +2301,7 @@ impl IPointerPointPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetUsageValue<Impl: IPointerPointPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, usagepage: u32, usageid: u32, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetUsageValue<Impl: IPointerPointProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, usagepage: u32, usageid: u32, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetUsageValue(usagepage, usageid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2345,7 +2345,7 @@ impl IPointerPointPropertiesVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPointerPointProperties2Impl: Sized {
+pub trait IPointerPointProperties2_Impl: Sized {
     fn ZDistance(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -2353,9 +2353,9 @@ impl ::windows::core::RuntimeName for IPointerPointProperties2 {
     const NAME: &'static str = "Windows.UI.Input.IPointerPointProperties2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPointerPointProperties2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerPointProperties2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerPointProperties2Vtbl {
-        unsafe extern "system" fn ZDistance<Impl: IPointerPointProperties2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPointerPointProperties2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerPointProperties2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerPointProperties2_Vtbl {
+        unsafe extern "system" fn ZDistance<Impl: IPointerPointProperties2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ZDistance() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2373,7 +2373,7 @@ impl IPointerPointProperties2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPointerPointStaticsImpl: Sized {
+pub trait IPointerPointStatics_Impl: Sized {
     fn GetCurrentPoint(&mut self, pointerid: u32) -> ::windows::core::Result<PointerPoint>;
     fn GetIntermediatePoints(&mut self, pointerid: u32) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<PointerPoint>>;
     fn GetCurrentPointTransformed(&mut self, pointerid: u32, transform: &::core::option::Option<IPointerPointTransform>) -> ::windows::core::Result<PointerPoint>;
@@ -2384,9 +2384,9 @@ impl ::windows::core::RuntimeName for IPointerPointStatics {
     const NAME: &'static str = "Windows.UI.Input.IPointerPointStatics";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPointerPointStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerPointStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerPointStaticsVtbl {
-        unsafe extern "system" fn GetCurrentPoint<Impl: IPointerPointStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pointerid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPointerPointStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerPointStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerPointStatics_Vtbl {
+        unsafe extern "system" fn GetCurrentPoint<Impl: IPointerPointStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pointerid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentPoint(pointerid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2397,7 +2397,7 @@ impl IPointerPointStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIntermediatePoints<Impl: IPointerPointStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pointerid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIntermediatePoints<Impl: IPointerPointStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pointerid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIntermediatePoints(pointerid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2408,7 +2408,7 @@ impl IPointerPointStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentPointTransformed<Impl: IPointerPointStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pointerid: u32, transform: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentPointTransformed<Impl: IPointerPointStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pointerid: u32, transform: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentPointTransformed(pointerid, &*(&transform as *const <IPointerPointTransform as ::windows::core::Abi>::Abi as *const <IPointerPointTransform as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2419,7 +2419,7 @@ impl IPointerPointStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIntermediatePointsTransformed<Impl: IPointerPointStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pointerid: u32, transform: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIntermediatePointsTransformed<Impl: IPointerPointStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pointerid: u32, transform: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIntermediatePointsTransformed(pointerid, &*(&transform as *const <IPointerPointTransform as ::windows::core::Abi>::Abi as *const <IPointerPointTransform as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2443,7 +2443,7 @@ impl IPointerPointStaticsVtbl {
     }
 }
 #[cfg(feature = "Foundation")]
-pub trait IPointerPointTransformImpl: Sized {
+pub trait IPointerPointTransform_Impl: Sized {
     fn Inverse(&mut self) -> ::windows::core::Result<IPointerPointTransform>;
     fn TryTransform(&mut self, inpoint: &super::super::Foundation::Point, outpoint: &mut super::super::Foundation::Point) -> ::windows::core::Result<bool>;
     fn TransformBounds(&mut self, rect: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::Rect>;
@@ -2453,9 +2453,9 @@ impl ::windows::core::RuntimeName for IPointerPointTransform {
     const NAME: &'static str = "Windows.UI.Input.IPointerPointTransform";
 }
 #[cfg(feature = "Foundation")]
-impl IPointerPointTransformVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerPointTransformImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerPointTransformVtbl {
-        unsafe extern "system" fn Inverse<Impl: IPointerPointTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPointerPointTransform_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerPointTransform_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerPointTransform_Vtbl {
+        unsafe extern "system" fn Inverse<Impl: IPointerPointTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Inverse() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2466,7 +2466,7 @@ impl IPointerPointTransformVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryTransform<Impl: IPointerPointTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inpoint: super::super::Foundation::Point, outpoint: *mut super::super::Foundation::Point, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryTransform<Impl: IPointerPointTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inpoint: super::super::Foundation::Point, outpoint: *mut super::super::Foundation::Point, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryTransform(&*(&inpoint as *const <super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&outpoint)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2477,7 +2477,7 @@ impl IPointerPointTransformVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TransformBounds<Impl: IPointerPointTransformImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rect: super::super::Foundation::Rect, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransformBounds<Impl: IPointerPointTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rect: super::super::Foundation::Rect, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransformBounds(&*(&rect as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2500,7 +2500,7 @@ impl IPointerPointTransformVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPointerVisualizationSettingsImpl: Sized {
+pub trait IPointerVisualizationSettings_Impl: Sized {
     fn SetIsContactFeedbackEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn IsContactFeedbackEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsBarrelButtonFeedbackEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -2511,13 +2511,13 @@ impl ::windows::core::RuntimeName for IPointerVisualizationSettings {
     const NAME: &'static str = "Windows.UI.Input.IPointerVisualizationSettings";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPointerVisualizationSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerVisualizationSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerVisualizationSettingsVtbl {
-        unsafe extern "system" fn SetIsContactFeedbackEnabled<Impl: IPointerVisualizationSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+impl IPointerVisualizationSettings_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerVisualizationSettings_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerVisualizationSettings_Vtbl {
+        unsafe extern "system" fn SetIsContactFeedbackEnabled<Impl: IPointerVisualizationSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsContactFeedbackEnabled(value).into()
         }
-        unsafe extern "system" fn IsContactFeedbackEnabled<Impl: IPointerVisualizationSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsContactFeedbackEnabled<Impl: IPointerVisualizationSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsContactFeedbackEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2528,11 +2528,11 @@ impl IPointerVisualizationSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsBarrelButtonFeedbackEnabled<Impl: IPointerVisualizationSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsBarrelButtonFeedbackEnabled<Impl: IPointerVisualizationSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsBarrelButtonFeedbackEnabled(value).into()
         }
-        unsafe extern "system" fn IsBarrelButtonFeedbackEnabled<Impl: IPointerVisualizationSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsBarrelButtonFeedbackEnabled<Impl: IPointerVisualizationSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBarrelButtonFeedbackEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2556,7 +2556,7 @@ impl IPointerVisualizationSettingsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPointerVisualizationSettingsStaticsImpl: Sized {
+pub trait IPointerVisualizationSettingsStatics_Impl: Sized {
     fn GetForCurrentView(&mut self) -> ::windows::core::Result<PointerVisualizationSettings>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2564,9 +2564,9 @@ impl ::windows::core::RuntimeName for IPointerVisualizationSettingsStatics {
     const NAME: &'static str = "Windows.UI.Input.IPointerVisualizationSettingsStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPointerVisualizationSettingsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerVisualizationSettingsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerVisualizationSettingsStaticsVtbl {
-        unsafe extern "system" fn GetForCurrentView<Impl: IPointerVisualizationSettingsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPointerVisualizationSettingsStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerVisualizationSettingsStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerVisualizationSettingsStatics_Vtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: IPointerVisualizationSettingsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2587,7 +2587,7 @@ impl IPointerVisualizationSettingsStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IRadialControllerImpl: Sized {
+pub trait IRadialController_Impl: Sized {
     fn Menu(&mut self) -> ::windows::core::Result<RadialControllerMenu>;
     fn RotationResolutionInDegrees(&mut self) -> ::windows::core::Result<f64>;
     fn SetRotationResolutionInDegrees(&mut self, value: f64) -> ::windows::core::Result<()>;
@@ -2613,9 +2613,9 @@ impl ::windows::core::RuntimeName for IRadialController {
     const NAME: &'static str = "Windows.UI.Input.IRadialController";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IRadialControllerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerVtbl {
-        unsafe extern "system" fn Menu<Impl: IRadialControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRadialController_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialController_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialController_Vtbl {
+        unsafe extern "system" fn Menu<Impl: IRadialController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Menu() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2626,7 +2626,7 @@ impl IRadialControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RotationResolutionInDegrees<Impl: IRadialControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RotationResolutionInDegrees<Impl: IRadialController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RotationResolutionInDegrees() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2637,11 +2637,11 @@ impl IRadialControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRotationResolutionInDegrees<Impl: IRadialControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRotationResolutionInDegrees<Impl: IRadialController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRotationResolutionInDegrees(value).into()
         }
-        unsafe extern "system" fn UseAutomaticHapticFeedback<Impl: IRadialControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UseAutomaticHapticFeedback<Impl: IRadialController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UseAutomaticHapticFeedback() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2652,11 +2652,11 @@ impl IRadialControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetUseAutomaticHapticFeedback<Impl: IRadialControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUseAutomaticHapticFeedback<Impl: IRadialController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUseAutomaticHapticFeedback(value).into()
         }
-        unsafe extern "system" fn ScreenContactStarted<Impl: IRadialControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScreenContactStarted<Impl: IRadialController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScreenContactStarted(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RadialController, RadialControllerScreenContactStartedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RadialController, RadialControllerScreenContactStartedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2667,11 +2667,11 @@ impl IRadialControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveScreenContactStarted<Impl: IRadialControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveScreenContactStarted<Impl: IRadialController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveScreenContactStarted(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ScreenContactEnded<Impl: IRadialControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScreenContactEnded<Impl: IRadialController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScreenContactEnded(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RadialController, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RadialController, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2682,11 +2682,11 @@ impl IRadialControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveScreenContactEnded<Impl: IRadialControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveScreenContactEnded<Impl: IRadialController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveScreenContactEnded(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ScreenContactContinued<Impl: IRadialControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScreenContactContinued<Impl: IRadialController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScreenContactContinued(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RadialController, RadialControllerScreenContactContinuedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RadialController, RadialControllerScreenContactContinuedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2697,11 +2697,11 @@ impl IRadialControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveScreenContactContinued<Impl: IRadialControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveScreenContactContinued<Impl: IRadialController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveScreenContactContinued(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ControlLost<Impl: IRadialControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ControlLost<Impl: IRadialController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ControlLost(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RadialController, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RadialController, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2712,11 +2712,11 @@ impl IRadialControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveControlLost<Impl: IRadialControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveControlLost<Impl: IRadialController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveControlLost(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RotationChanged<Impl: IRadialControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RotationChanged<Impl: IRadialController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RotationChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RadialController, RadialControllerRotationChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RadialController, RadialControllerRotationChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2727,11 +2727,11 @@ impl IRadialControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRotationChanged<Impl: IRadialControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveRotationChanged<Impl: IRadialController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRotationChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ButtonClicked<Impl: IRadialControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ButtonClicked<Impl: IRadialController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ButtonClicked(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonClickedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonClickedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2742,11 +2742,11 @@ impl IRadialControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveButtonClicked<Impl: IRadialControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveButtonClicked<Impl: IRadialController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveButtonClicked(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ControlAcquired<Impl: IRadialControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ControlAcquired<Impl: IRadialController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ControlAcquired(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RadialController, RadialControllerControlAcquiredEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RadialController, RadialControllerControlAcquiredEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2757,7 +2757,7 @@ impl IRadialControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveControlAcquired<Impl: IRadialControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveControlAcquired<Impl: IRadialController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveControlAcquired(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2789,7 +2789,7 @@ impl IRadialControllerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IRadialController2Impl: Sized {
+pub trait IRadialController2_Impl: Sized {
     fn ButtonPressed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonPressedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveButtonPressed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn ButtonHolding(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonHoldingEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -2802,9 +2802,9 @@ impl ::windows::core::RuntimeName for IRadialController2 {
     const NAME: &'static str = "Windows.UI.Input.IRadialController2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IRadialController2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialController2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialController2Vtbl {
-        unsafe extern "system" fn ButtonPressed<Impl: IRadialController2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IRadialController2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialController2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialController2_Vtbl {
+        unsafe extern "system" fn ButtonPressed<Impl: IRadialController2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ButtonPressed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonPressedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonPressedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2815,11 +2815,11 @@ impl IRadialController2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveButtonPressed<Impl: IRadialController2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveButtonPressed<Impl: IRadialController2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveButtonPressed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ButtonHolding<Impl: IRadialController2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ButtonHolding<Impl: IRadialController2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ButtonHolding(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonHoldingEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonHoldingEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2830,11 +2830,11 @@ impl IRadialController2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveButtonHolding<Impl: IRadialController2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveButtonHolding<Impl: IRadialController2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveButtonHolding(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ButtonReleased<Impl: IRadialController2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ButtonReleased<Impl: IRadialController2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ButtonReleased(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonReleasedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonReleasedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2845,7 +2845,7 @@ impl IRadialController2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveButtonReleased<Impl: IRadialController2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveButtonReleased<Impl: IRadialController2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveButtonReleased(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2864,7 +2864,7 @@ impl IRadialController2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRadialControllerButtonClickedEventArgsImpl: Sized {
+pub trait IRadialControllerButtonClickedEventArgs_Impl: Sized {
     fn Contact(&mut self) -> ::windows::core::Result<RadialControllerScreenContact>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2872,9 +2872,9 @@ impl ::windows::core::RuntimeName for IRadialControllerButtonClickedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerButtonClickedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRadialControllerButtonClickedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerButtonClickedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerButtonClickedEventArgsVtbl {
-        unsafe extern "system" fn Contact<Impl: IRadialControllerButtonClickedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRadialControllerButtonClickedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerButtonClickedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerButtonClickedEventArgs_Vtbl {
+        unsafe extern "system" fn Contact<Impl: IRadialControllerButtonClickedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contact() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2895,7 +2895,7 @@ impl IRadialControllerButtonClickedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
-pub trait IRadialControllerButtonClickedEventArgs2Impl: Sized {
+pub trait IRadialControllerButtonClickedEventArgs2_Impl: Sized {
     fn SimpleHapticsController(&mut self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController>;
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
@@ -2903,9 +2903,9 @@ impl ::windows::core::RuntimeName for IRadialControllerButtonClickedEventArgs2 {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerButtonClickedEventArgs2";
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
-impl IRadialControllerButtonClickedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerButtonClickedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerButtonClickedEventArgs2Vtbl {
-        unsafe extern "system" fn SimpleHapticsController<Impl: IRadialControllerButtonClickedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRadialControllerButtonClickedEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerButtonClickedEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerButtonClickedEventArgs2_Vtbl {
+        unsafe extern "system" fn SimpleHapticsController<Impl: IRadialControllerButtonClickedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SimpleHapticsController() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2926,7 +2926,7 @@ impl IRadialControllerButtonClickedEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
-pub trait IRadialControllerButtonHoldingEventArgsImpl: Sized {
+pub trait IRadialControllerButtonHoldingEventArgs_Impl: Sized {
     fn Contact(&mut self) -> ::windows::core::Result<RadialControllerScreenContact>;
     fn SimpleHapticsController(&mut self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController>;
 }
@@ -2935,9 +2935,9 @@ impl ::windows::core::RuntimeName for IRadialControllerButtonHoldingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerButtonHoldingEventArgs";
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
-impl IRadialControllerButtonHoldingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerButtonHoldingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerButtonHoldingEventArgsVtbl {
-        unsafe extern "system" fn Contact<Impl: IRadialControllerButtonHoldingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRadialControllerButtonHoldingEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerButtonHoldingEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerButtonHoldingEventArgs_Vtbl {
+        unsafe extern "system" fn Contact<Impl: IRadialControllerButtonHoldingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contact() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2948,7 +2948,7 @@ impl IRadialControllerButtonHoldingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SimpleHapticsController<Impl: IRadialControllerButtonHoldingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SimpleHapticsController<Impl: IRadialControllerButtonHoldingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SimpleHapticsController() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2970,7 +2970,7 @@ impl IRadialControllerButtonHoldingEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
-pub trait IRadialControllerButtonPressedEventArgsImpl: Sized {
+pub trait IRadialControllerButtonPressedEventArgs_Impl: Sized {
     fn Contact(&mut self) -> ::windows::core::Result<RadialControllerScreenContact>;
     fn SimpleHapticsController(&mut self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController>;
 }
@@ -2979,9 +2979,9 @@ impl ::windows::core::RuntimeName for IRadialControllerButtonPressedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerButtonPressedEventArgs";
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
-impl IRadialControllerButtonPressedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerButtonPressedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerButtonPressedEventArgsVtbl {
-        unsafe extern "system" fn Contact<Impl: IRadialControllerButtonPressedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRadialControllerButtonPressedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerButtonPressedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerButtonPressedEventArgs_Vtbl {
+        unsafe extern "system" fn Contact<Impl: IRadialControllerButtonPressedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contact() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2992,7 +2992,7 @@ impl IRadialControllerButtonPressedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SimpleHapticsController<Impl: IRadialControllerButtonPressedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SimpleHapticsController<Impl: IRadialControllerButtonPressedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SimpleHapticsController() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3014,7 +3014,7 @@ impl IRadialControllerButtonPressedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
-pub trait IRadialControllerButtonReleasedEventArgsImpl: Sized {
+pub trait IRadialControllerButtonReleasedEventArgs_Impl: Sized {
     fn Contact(&mut self) -> ::windows::core::Result<RadialControllerScreenContact>;
     fn SimpleHapticsController(&mut self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController>;
 }
@@ -3023,9 +3023,9 @@ impl ::windows::core::RuntimeName for IRadialControllerButtonReleasedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerButtonReleasedEventArgs";
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
-impl IRadialControllerButtonReleasedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerButtonReleasedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerButtonReleasedEventArgsVtbl {
-        unsafe extern "system" fn Contact<Impl: IRadialControllerButtonReleasedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRadialControllerButtonReleasedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerButtonReleasedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerButtonReleasedEventArgs_Vtbl {
+        unsafe extern "system" fn Contact<Impl: IRadialControllerButtonReleasedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contact() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3036,7 +3036,7 @@ impl IRadialControllerButtonReleasedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SimpleHapticsController<Impl: IRadialControllerButtonReleasedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SimpleHapticsController<Impl: IRadialControllerButtonReleasedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SimpleHapticsController() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3058,7 +3058,7 @@ impl IRadialControllerButtonReleasedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IRadialControllerConfigurationImpl: Sized {
+pub trait IRadialControllerConfiguration_Impl: Sized {
     fn SetDefaultMenuItems(&mut self, buttons: &::core::option::Option<super::super::Foundation::Collections::IIterable<RadialControllerSystemMenuItemKind>>) -> ::windows::core::Result<()>;
     fn ResetToDefaultMenuItems(&mut self) -> ::windows::core::Result<()>;
     fn TrySelectDefaultMenuItem(&mut self, r#type: RadialControllerSystemMenuItemKind) -> ::windows::core::Result<bool>;
@@ -3068,17 +3068,17 @@ impl ::windows::core::RuntimeName for IRadialControllerConfiguration {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerConfiguration";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IRadialControllerConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerConfigurationVtbl {
-        unsafe extern "system" fn SetDefaultMenuItems<Impl: IRadialControllerConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buttons: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRadialControllerConfiguration_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerConfiguration_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerConfiguration_Vtbl {
+        unsafe extern "system" fn SetDefaultMenuItems<Impl: IRadialControllerConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buttons: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDefaultMenuItems(&*(&buttons as *const <super::super::Foundation::Collections::IIterable<RadialControllerSystemMenuItemKind> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<RadialControllerSystemMenuItemKind> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ResetToDefaultMenuItems<Impl: IRadialControllerConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResetToDefaultMenuItems<Impl: IRadialControllerConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ResetToDefaultMenuItems().into()
         }
-        unsafe extern "system" fn TrySelectDefaultMenuItem<Impl: IRadialControllerConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: RadialControllerSystemMenuItemKind, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrySelectDefaultMenuItem<Impl: IRadialControllerConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: RadialControllerSystemMenuItemKind, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrySelectDefaultMenuItem(r#type) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3101,7 +3101,7 @@ impl IRadialControllerConfigurationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRadialControllerConfiguration2Impl: Sized {
+pub trait IRadialControllerConfiguration2_Impl: Sized {
     fn SetActiveControllerWhenMenuIsSuppressed(&mut self, value: &::core::option::Option<RadialController>) -> ::windows::core::Result<()>;
     fn ActiveControllerWhenMenuIsSuppressed(&mut self) -> ::windows::core::Result<RadialController>;
     fn SetIsMenuSuppressed(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -3112,13 +3112,13 @@ impl ::windows::core::RuntimeName for IRadialControllerConfiguration2 {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerConfiguration2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRadialControllerConfiguration2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerConfiguration2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerConfiguration2Vtbl {
-        unsafe extern "system" fn SetActiveControllerWhenMenuIsSuppressed<Impl: IRadialControllerConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRadialControllerConfiguration2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerConfiguration2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerConfiguration2_Vtbl {
+        unsafe extern "system" fn SetActiveControllerWhenMenuIsSuppressed<Impl: IRadialControllerConfiguration2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetActiveControllerWhenMenuIsSuppressed(&*(&value as *const <RadialController as ::windows::core::Abi>::Abi as *const <RadialController as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ActiveControllerWhenMenuIsSuppressed<Impl: IRadialControllerConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ActiveControllerWhenMenuIsSuppressed<Impl: IRadialControllerConfiguration2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActiveControllerWhenMenuIsSuppressed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3129,11 +3129,11 @@ impl IRadialControllerConfiguration2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsMenuSuppressed<Impl: IRadialControllerConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsMenuSuppressed<Impl: IRadialControllerConfiguration2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsMenuSuppressed(value).into()
         }
-        unsafe extern "system" fn IsMenuSuppressed<Impl: IRadialControllerConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsMenuSuppressed<Impl: IRadialControllerConfiguration2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsMenuSuppressed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3157,7 +3157,7 @@ impl IRadialControllerConfiguration2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRadialControllerConfigurationStaticsImpl: Sized {
+pub trait IRadialControllerConfigurationStatics_Impl: Sized {
     fn GetForCurrentView(&mut self) -> ::windows::core::Result<RadialControllerConfiguration>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3165,9 +3165,9 @@ impl ::windows::core::RuntimeName for IRadialControllerConfigurationStatics {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerConfigurationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRadialControllerConfigurationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerConfigurationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerConfigurationStaticsVtbl {
-        unsafe extern "system" fn GetForCurrentView<Impl: IRadialControllerConfigurationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRadialControllerConfigurationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerConfigurationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerConfigurationStatics_Vtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: IRadialControllerConfigurationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3188,7 +3188,7 @@ impl IRadialControllerConfigurationStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRadialControllerConfigurationStatics2Impl: Sized {
+pub trait IRadialControllerConfigurationStatics2_Impl: Sized {
     fn SetAppController(&mut self, value: &::core::option::Option<RadialController>) -> ::windows::core::Result<()>;
     fn AppController(&mut self) -> ::windows::core::Result<RadialController>;
     fn SetIsAppControllerEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -3199,13 +3199,13 @@ impl ::windows::core::RuntimeName for IRadialControllerConfigurationStatics2 {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerConfigurationStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRadialControllerConfigurationStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerConfigurationStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerConfigurationStatics2Vtbl {
-        unsafe extern "system" fn SetAppController<Impl: IRadialControllerConfigurationStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRadialControllerConfigurationStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerConfigurationStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerConfigurationStatics2_Vtbl {
+        unsafe extern "system" fn SetAppController<Impl: IRadialControllerConfigurationStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAppController(&*(&value as *const <RadialController as ::windows::core::Abi>::Abi as *const <RadialController as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AppController<Impl: IRadialControllerConfigurationStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppController<Impl: IRadialControllerConfigurationStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppController() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3216,11 +3216,11 @@ impl IRadialControllerConfigurationStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsAppControllerEnabled<Impl: IRadialControllerConfigurationStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsAppControllerEnabled<Impl: IRadialControllerConfigurationStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsAppControllerEnabled(value).into()
         }
-        unsafe extern "system" fn IsAppControllerEnabled<Impl: IRadialControllerConfigurationStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsAppControllerEnabled<Impl: IRadialControllerConfigurationStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAppControllerEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3244,7 +3244,7 @@ impl IRadialControllerConfigurationStatics2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRadialControllerControlAcquiredEventArgsImpl: Sized {
+pub trait IRadialControllerControlAcquiredEventArgs_Impl: Sized {
     fn Contact(&mut self) -> ::windows::core::Result<RadialControllerScreenContact>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3252,9 +3252,9 @@ impl ::windows::core::RuntimeName for IRadialControllerControlAcquiredEventArgs 
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerControlAcquiredEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRadialControllerControlAcquiredEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerControlAcquiredEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerControlAcquiredEventArgsVtbl {
-        unsafe extern "system" fn Contact<Impl: IRadialControllerControlAcquiredEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRadialControllerControlAcquiredEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerControlAcquiredEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerControlAcquiredEventArgs_Vtbl {
+        unsafe extern "system" fn Contact<Impl: IRadialControllerControlAcquiredEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contact() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3275,7 +3275,7 @@ impl IRadialControllerControlAcquiredEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
-pub trait IRadialControllerControlAcquiredEventArgs2Impl: Sized {
+pub trait IRadialControllerControlAcquiredEventArgs2_Impl: Sized {
     fn IsButtonPressed(&mut self) -> ::windows::core::Result<bool>;
     fn SimpleHapticsController(&mut self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController>;
 }
@@ -3284,9 +3284,9 @@ impl ::windows::core::RuntimeName for IRadialControllerControlAcquiredEventArgs2
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerControlAcquiredEventArgs2";
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
-impl IRadialControllerControlAcquiredEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerControlAcquiredEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerControlAcquiredEventArgs2Vtbl {
-        unsafe extern "system" fn IsButtonPressed<Impl: IRadialControllerControlAcquiredEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IRadialControllerControlAcquiredEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerControlAcquiredEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerControlAcquiredEventArgs2_Vtbl {
+        unsafe extern "system" fn IsButtonPressed<Impl: IRadialControllerControlAcquiredEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsButtonPressed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3297,7 +3297,7 @@ impl IRadialControllerControlAcquiredEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SimpleHapticsController<Impl: IRadialControllerControlAcquiredEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SimpleHapticsController<Impl: IRadialControllerControlAcquiredEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SimpleHapticsController() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3319,7 +3319,7 @@ impl IRadialControllerControlAcquiredEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IRadialControllerMenuImpl: Sized {
+pub trait IRadialControllerMenu_Impl: Sized {
     fn Items(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<RadialControllerMenuItem>>;
     fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -3332,9 +3332,9 @@ impl ::windows::core::RuntimeName for IRadialControllerMenu {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerMenu";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IRadialControllerMenuVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerMenuImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerMenuVtbl {
-        unsafe extern "system" fn Items<Impl: IRadialControllerMenuImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRadialControllerMenu_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerMenu_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerMenu_Vtbl {
+        unsafe extern "system" fn Items<Impl: IRadialControllerMenu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Items() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3345,7 +3345,7 @@ impl IRadialControllerMenuVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsEnabled<Impl: IRadialControllerMenuImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEnabled<Impl: IRadialControllerMenu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3356,11 +3356,11 @@ impl IRadialControllerMenuVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsEnabled<Impl: IRadialControllerMenuImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsEnabled<Impl: IRadialControllerMenu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsEnabled(value).into()
         }
-        unsafe extern "system" fn GetSelectedMenuItem<Impl: IRadialControllerMenuImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSelectedMenuItem<Impl: IRadialControllerMenu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSelectedMenuItem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3371,11 +3371,11 @@ impl IRadialControllerMenuVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectMenuItem<Impl: IRadialControllerMenuImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, menuitem: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectMenuItem<Impl: IRadialControllerMenu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, menuitem: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SelectMenuItem(&*(&menuitem as *const <RadialControllerMenuItem as ::windows::core::Abi>::Abi as *const <RadialControllerMenuItem as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TrySelectPreviouslySelectedMenuItem<Impl: IRadialControllerMenuImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrySelectPreviouslySelectedMenuItem<Impl: IRadialControllerMenu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrySelectPreviouslySelectedMenuItem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3401,7 +3401,7 @@ impl IRadialControllerMenuVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IRadialControllerMenuItemImpl: Sized {
+pub trait IRadialControllerMenuItem_Impl: Sized {
     fn DisplayText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Tag(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn SetTag(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
@@ -3413,9 +3413,9 @@ impl ::windows::core::RuntimeName for IRadialControllerMenuItem {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerMenuItem";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IRadialControllerMenuItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerMenuItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerMenuItemVtbl {
-        unsafe extern "system" fn DisplayText<Impl: IRadialControllerMenuItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IRadialControllerMenuItem_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerMenuItem_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerMenuItem_Vtbl {
+        unsafe extern "system" fn DisplayText<Impl: IRadialControllerMenuItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3426,7 +3426,7 @@ impl IRadialControllerMenuItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Tag<Impl: IRadialControllerMenuItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Tag<Impl: IRadialControllerMenuItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Tag() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3437,11 +3437,11 @@ impl IRadialControllerMenuItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTag<Impl: IRadialControllerMenuItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTag<Impl: IRadialControllerMenuItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTag(&*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Invoked<Impl: IRadialControllerMenuItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Invoked<Impl: IRadialControllerMenuItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Invoked(&*(&handler as *const <super::super::Foundation::TypedEventHandler<RadialControllerMenuItem, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<RadialControllerMenuItem, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3452,7 +3452,7 @@ impl IRadialControllerMenuItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveInvoked<Impl: IRadialControllerMenuItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveInvoked<Impl: IRadialControllerMenuItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveInvoked(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3470,7 +3470,7 @@ impl IRadialControllerMenuItemVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IRadialControllerMenuItemStaticsImpl: Sized {
+pub trait IRadialControllerMenuItemStatics_Impl: Sized {
     fn CreateFromIcon(&mut self, displaytext: &::windows::core::HSTRING, icon: &::core::option::Option<super::super::Storage::Streams::RandomAccessStreamReference>) -> ::windows::core::Result<RadialControllerMenuItem>;
     fn CreateFromKnownIcon(&mut self, displaytext: &::windows::core::HSTRING, value: RadialControllerMenuKnownIcon) -> ::windows::core::Result<RadialControllerMenuItem>;
 }
@@ -3479,9 +3479,9 @@ impl ::windows::core::RuntimeName for IRadialControllerMenuItemStatics {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerMenuItemStatics";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IRadialControllerMenuItemStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerMenuItemStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerMenuItemStaticsVtbl {
-        unsafe extern "system" fn CreateFromIcon<Impl: IRadialControllerMenuItemStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, icon: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRadialControllerMenuItemStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerMenuItemStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerMenuItemStatics_Vtbl {
+        unsafe extern "system" fn CreateFromIcon<Impl: IRadialControllerMenuItemStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, icon: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromIcon(&*(&displaytext as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&icon as *const <super::super::Storage::Streams::RandomAccessStreamReference as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::RandomAccessStreamReference as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3492,7 +3492,7 @@ impl IRadialControllerMenuItemStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromKnownIcon<Impl: IRadialControllerMenuItemStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: RadialControllerMenuKnownIcon, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromKnownIcon<Impl: IRadialControllerMenuItemStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: RadialControllerMenuKnownIcon, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromKnownIcon(&*(&displaytext as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), value) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3514,7 +3514,7 @@ impl IRadialControllerMenuItemStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IRadialControllerMenuItemStatics2Impl: Sized {
+pub trait IRadialControllerMenuItemStatics2_Impl: Sized {
     fn CreateFromFontGlyph(&mut self, displaytext: &::windows::core::HSTRING, glyph: &::windows::core::HSTRING, fontfamily: &::windows::core::HSTRING) -> ::windows::core::Result<RadialControllerMenuItem>;
     fn CreateFromFontGlyphWithUri(&mut self, displaytext: &::windows::core::HSTRING, glyph: &::windows::core::HSTRING, fontfamily: &::windows::core::HSTRING, fonturi: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<RadialControllerMenuItem>;
 }
@@ -3523,9 +3523,9 @@ impl ::windows::core::RuntimeName for IRadialControllerMenuItemStatics2 {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerMenuItemStatics2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IRadialControllerMenuItemStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerMenuItemStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerMenuItemStatics2Vtbl {
-        unsafe extern "system" fn CreateFromFontGlyph<Impl: IRadialControllerMenuItemStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, glyph: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fontfamily: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRadialControllerMenuItemStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerMenuItemStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerMenuItemStatics2_Vtbl {
+        unsafe extern "system" fn CreateFromFontGlyph<Impl: IRadialControllerMenuItemStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, glyph: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fontfamily: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromFontGlyph(
                 &*(&displaytext as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -3540,7 +3540,7 @@ impl IRadialControllerMenuItemStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromFontGlyphWithUri<Impl: IRadialControllerMenuItemStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, glyph: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fontfamily: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fonturi: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromFontGlyphWithUri<Impl: IRadialControllerMenuItemStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, glyph: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fontfamily: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fonturi: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromFontGlyphWithUri(
                 &*(&displaytext as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -3567,7 +3567,7 @@ impl IRadialControllerMenuItemStatics2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRadialControllerRotationChangedEventArgsImpl: Sized {
+pub trait IRadialControllerRotationChangedEventArgs_Impl: Sized {
     fn RotationDeltaInDegrees(&mut self) -> ::windows::core::Result<f64>;
     fn Contact(&mut self) -> ::windows::core::Result<RadialControllerScreenContact>;
 }
@@ -3576,9 +3576,9 @@ impl ::windows::core::RuntimeName for IRadialControllerRotationChangedEventArgs 
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerRotationChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRadialControllerRotationChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerRotationChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerRotationChangedEventArgsVtbl {
-        unsafe extern "system" fn RotationDeltaInDegrees<Impl: IRadialControllerRotationChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+impl IRadialControllerRotationChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerRotationChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerRotationChangedEventArgs_Vtbl {
+        unsafe extern "system" fn RotationDeltaInDegrees<Impl: IRadialControllerRotationChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RotationDeltaInDegrees() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3589,7 +3589,7 @@ impl IRadialControllerRotationChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Contact<Impl: IRadialControllerRotationChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Contact<Impl: IRadialControllerRotationChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contact() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3611,7 +3611,7 @@ impl IRadialControllerRotationChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
-pub trait IRadialControllerRotationChangedEventArgs2Impl: Sized {
+pub trait IRadialControllerRotationChangedEventArgs2_Impl: Sized {
     fn IsButtonPressed(&mut self) -> ::windows::core::Result<bool>;
     fn SimpleHapticsController(&mut self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController>;
 }
@@ -3620,9 +3620,9 @@ impl ::windows::core::RuntimeName for IRadialControllerRotationChangedEventArgs2
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerRotationChangedEventArgs2";
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
-impl IRadialControllerRotationChangedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerRotationChangedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerRotationChangedEventArgs2Vtbl {
-        unsafe extern "system" fn IsButtonPressed<Impl: IRadialControllerRotationChangedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IRadialControllerRotationChangedEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerRotationChangedEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerRotationChangedEventArgs2_Vtbl {
+        unsafe extern "system" fn IsButtonPressed<Impl: IRadialControllerRotationChangedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsButtonPressed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3633,7 +3633,7 @@ impl IRadialControllerRotationChangedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SimpleHapticsController<Impl: IRadialControllerRotationChangedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SimpleHapticsController<Impl: IRadialControllerRotationChangedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SimpleHapticsController() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3655,7 +3655,7 @@ impl IRadialControllerRotationChangedEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IRadialControllerScreenContactImpl: Sized {
+pub trait IRadialControllerScreenContact_Impl: Sized {
     fn Bounds(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
     fn Position(&mut self) -> ::windows::core::Result<super::super::Foundation::Point>;
 }
@@ -3664,9 +3664,9 @@ impl ::windows::core::RuntimeName for IRadialControllerScreenContact {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerScreenContact";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IRadialControllerScreenContactVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerScreenContactVtbl {
-        unsafe extern "system" fn Bounds<Impl: IRadialControllerScreenContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+impl IRadialControllerScreenContact_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContact_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerScreenContact_Vtbl {
+        unsafe extern "system" fn Bounds<Impl: IRadialControllerScreenContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bounds() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3677,7 +3677,7 @@ impl IRadialControllerScreenContactVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: IRadialControllerScreenContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: IRadialControllerScreenContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3699,7 +3699,7 @@ impl IRadialControllerScreenContactVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRadialControllerScreenContactContinuedEventArgsImpl: Sized {
+pub trait IRadialControllerScreenContactContinuedEventArgs_Impl: Sized {
     fn Contact(&mut self) -> ::windows::core::Result<RadialControllerScreenContact>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3707,9 +3707,9 @@ impl ::windows::core::RuntimeName for IRadialControllerScreenContactContinuedEve
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerScreenContactContinuedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRadialControllerScreenContactContinuedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactContinuedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerScreenContactContinuedEventArgsVtbl {
-        unsafe extern "system" fn Contact<Impl: IRadialControllerScreenContactContinuedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRadialControllerScreenContactContinuedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactContinuedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerScreenContactContinuedEventArgs_Vtbl {
+        unsafe extern "system" fn Contact<Impl: IRadialControllerScreenContactContinuedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contact() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3730,7 +3730,7 @@ impl IRadialControllerScreenContactContinuedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
-pub trait IRadialControllerScreenContactContinuedEventArgs2Impl: Sized {
+pub trait IRadialControllerScreenContactContinuedEventArgs2_Impl: Sized {
     fn IsButtonPressed(&mut self) -> ::windows::core::Result<bool>;
     fn SimpleHapticsController(&mut self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController>;
 }
@@ -3739,9 +3739,9 @@ impl ::windows::core::RuntimeName for IRadialControllerScreenContactContinuedEve
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerScreenContactContinuedEventArgs2";
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
-impl IRadialControllerScreenContactContinuedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactContinuedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerScreenContactContinuedEventArgs2Vtbl {
-        unsafe extern "system" fn IsButtonPressed<Impl: IRadialControllerScreenContactContinuedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IRadialControllerScreenContactContinuedEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactContinuedEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerScreenContactContinuedEventArgs2_Vtbl {
+        unsafe extern "system" fn IsButtonPressed<Impl: IRadialControllerScreenContactContinuedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsButtonPressed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3752,7 +3752,7 @@ impl IRadialControllerScreenContactContinuedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SimpleHapticsController<Impl: IRadialControllerScreenContactContinuedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SimpleHapticsController<Impl: IRadialControllerScreenContactContinuedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SimpleHapticsController() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3774,7 +3774,7 @@ impl IRadialControllerScreenContactContinuedEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
-pub trait IRadialControllerScreenContactEndedEventArgsImpl: Sized {
+pub trait IRadialControllerScreenContactEndedEventArgs_Impl: Sized {
     fn IsButtonPressed(&mut self) -> ::windows::core::Result<bool>;
     fn SimpleHapticsController(&mut self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController>;
 }
@@ -3783,9 +3783,9 @@ impl ::windows::core::RuntimeName for IRadialControllerScreenContactEndedEventAr
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerScreenContactEndedEventArgs";
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
-impl IRadialControllerScreenContactEndedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactEndedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerScreenContactEndedEventArgsVtbl {
-        unsafe extern "system" fn IsButtonPressed<Impl: IRadialControllerScreenContactEndedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IRadialControllerScreenContactEndedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactEndedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerScreenContactEndedEventArgs_Vtbl {
+        unsafe extern "system" fn IsButtonPressed<Impl: IRadialControllerScreenContactEndedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsButtonPressed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3796,7 +3796,7 @@ impl IRadialControllerScreenContactEndedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SimpleHapticsController<Impl: IRadialControllerScreenContactEndedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SimpleHapticsController<Impl: IRadialControllerScreenContactEndedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SimpleHapticsController() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3818,7 +3818,7 @@ impl IRadialControllerScreenContactEndedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRadialControllerScreenContactStartedEventArgsImpl: Sized {
+pub trait IRadialControllerScreenContactStartedEventArgs_Impl: Sized {
     fn Contact(&mut self) -> ::windows::core::Result<RadialControllerScreenContact>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3826,9 +3826,9 @@ impl ::windows::core::RuntimeName for IRadialControllerScreenContactStartedEvent
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerScreenContactStartedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRadialControllerScreenContactStartedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactStartedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerScreenContactStartedEventArgsVtbl {
-        unsafe extern "system" fn Contact<Impl: IRadialControllerScreenContactStartedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IRadialControllerScreenContactStartedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactStartedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerScreenContactStartedEventArgs_Vtbl {
+        unsafe extern "system" fn Contact<Impl: IRadialControllerScreenContactStartedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contact() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3849,7 +3849,7 @@ impl IRadialControllerScreenContactStartedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
-pub trait IRadialControllerScreenContactStartedEventArgs2Impl: Sized {
+pub trait IRadialControllerScreenContactStartedEventArgs2_Impl: Sized {
     fn IsButtonPressed(&mut self) -> ::windows::core::Result<bool>;
     fn SimpleHapticsController(&mut self) -> ::windows::core::Result<super::super::Devices::Haptics::SimpleHapticsController>;
 }
@@ -3858,9 +3858,9 @@ impl ::windows::core::RuntimeName for IRadialControllerScreenContactStartedEvent
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerScreenContactStartedEventArgs2";
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
-impl IRadialControllerScreenContactStartedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactStartedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerScreenContactStartedEventArgs2Vtbl {
-        unsafe extern "system" fn IsButtonPressed<Impl: IRadialControllerScreenContactStartedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IRadialControllerScreenContactStartedEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerScreenContactStartedEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerScreenContactStartedEventArgs2_Vtbl {
+        unsafe extern "system" fn IsButtonPressed<Impl: IRadialControllerScreenContactStartedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsButtonPressed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3871,7 +3871,7 @@ impl IRadialControllerScreenContactStartedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SimpleHapticsController<Impl: IRadialControllerScreenContactStartedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SimpleHapticsController<Impl: IRadialControllerScreenContactStartedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SimpleHapticsController() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3893,7 +3893,7 @@ impl IRadialControllerScreenContactStartedEventArgs2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRadialControllerStaticsImpl: Sized {
+pub trait IRadialControllerStatics_Impl: Sized {
     fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
     fn CreateForCurrentView(&mut self) -> ::windows::core::Result<RadialController>;
 }
@@ -3902,9 +3902,9 @@ impl ::windows::core::RuntimeName for IRadialControllerStatics {
     const NAME: &'static str = "Windows.UI.Input.IRadialControllerStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRadialControllerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerStaticsVtbl {
-        unsafe extern "system" fn IsSupported<Impl: IRadialControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IRadialControllerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerStatics_Vtbl {
+        unsafe extern "system" fn IsSupported<Impl: IRadialControllerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3915,7 +3915,7 @@ impl IRadialControllerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateForCurrentView<Impl: IRadialControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateForCurrentView<Impl: IRadialControllerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3937,7 +3937,7 @@ impl IRadialControllerStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IRightTappedEventArgsImpl: Sized {
+pub trait IRightTappedEventArgs_Impl: Sized {
     fn PointerDeviceType(&mut self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType>;
     fn Position(&mut self) -> ::windows::core::Result<super::super::Foundation::Point>;
 }
@@ -3946,9 +3946,9 @@ impl ::windows::core::RuntimeName for IRightTappedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.IRightTappedEventArgs";
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
-impl IRightTappedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRightTappedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRightTappedEventArgsVtbl {
-        unsafe extern "system" fn PointerDeviceType<Impl: IRightTappedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
+impl IRightTappedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRightTappedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRightTappedEventArgs_Vtbl {
+        unsafe extern "system" fn PointerDeviceType<Impl: IRightTappedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerDeviceType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3959,7 +3959,7 @@ impl IRightTappedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: IRightTappedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: IRightTappedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3981,7 +3981,7 @@ impl IRightTappedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IRightTappedEventArgs2Impl: Sized {
+pub trait IRightTappedEventArgs2_Impl: Sized {
     fn ContactCount(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3989,9 +3989,9 @@ impl ::windows::core::RuntimeName for IRightTappedEventArgs2 {
     const NAME: &'static str = "Windows.UI.Input.IRightTappedEventArgs2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IRightTappedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRightTappedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRightTappedEventArgs2Vtbl {
-        unsafe extern "system" fn ContactCount<Impl: IRightTappedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IRightTappedEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRightTappedEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRightTappedEventArgs2_Vtbl {
+        unsafe extern "system" fn ContactCount<Impl: IRightTappedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4009,7 +4009,7 @@ impl IRightTappedEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISystemButtonEventControllerImpl: Sized {
+pub trait ISystemButtonEventController_Impl: Sized {
     fn SystemFunctionButtonPressed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSystemFunctionButtonPressed(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn SystemFunctionButtonReleased(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -4024,9 +4024,9 @@ impl ::windows::core::RuntimeName for ISystemButtonEventController {
     const NAME: &'static str = "Windows.UI.Input.ISystemButtonEventController";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISystemButtonEventControllerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemButtonEventControllerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemButtonEventControllerVtbl {
-        unsafe extern "system" fn SystemFunctionButtonPressed<Impl: ISystemButtonEventControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl ISystemButtonEventController_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemButtonEventController_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemButtonEventController_Vtbl {
+        unsafe extern "system" fn SystemFunctionButtonPressed<Impl: ISystemButtonEventController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemFunctionButtonPressed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4037,11 +4037,11 @@ impl ISystemButtonEventControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSystemFunctionButtonPressed<Impl: ISystemButtonEventControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSystemFunctionButtonPressed<Impl: ISystemButtonEventController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSystemFunctionButtonPressed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SystemFunctionButtonReleased<Impl: ISystemButtonEventControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SystemFunctionButtonReleased<Impl: ISystemButtonEventController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemFunctionButtonReleased(&*(&handler as *const <super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4052,11 +4052,11 @@ impl ISystemButtonEventControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSystemFunctionButtonReleased<Impl: ISystemButtonEventControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSystemFunctionButtonReleased<Impl: ISystemButtonEventController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSystemFunctionButtonReleased(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SystemFunctionLockChanged<Impl: ISystemButtonEventControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SystemFunctionLockChanged<Impl: ISystemButtonEventController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemFunctionLockChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionLockChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionLockChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4067,11 +4067,11 @@ impl ISystemButtonEventControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSystemFunctionLockChanged<Impl: ISystemButtonEventControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSystemFunctionLockChanged<Impl: ISystemButtonEventController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSystemFunctionLockChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SystemFunctionLockIndicatorChanged<Impl: ISystemButtonEventControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SystemFunctionLockIndicatorChanged<Impl: ISystemButtonEventController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemFunctionLockIndicatorChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionLockIndicatorChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionLockIndicatorChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4082,7 +4082,7 @@ impl ISystemButtonEventControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSystemFunctionLockIndicatorChanged<Impl: ISystemButtonEventControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSystemFunctionLockIndicatorChanged<Impl: ISystemButtonEventController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSystemFunctionLockIndicatorChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -4103,7 +4103,7 @@ impl ISystemButtonEventControllerVtbl {
     }
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-pub trait ISystemButtonEventControllerStaticsImpl: Sized {
+pub trait ISystemButtonEventControllerStatics_Impl: Sized {
     fn CreateForDispatcherQueue(&mut self, queue: &::core::option::Option<super::super::System::DispatcherQueue>) -> ::windows::core::Result<SystemButtonEventController>;
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
@@ -4111,9 +4111,9 @@ impl ::windows::core::RuntimeName for ISystemButtonEventControllerStatics {
     const NAME: &'static str = "Windows.UI.Input.ISystemButtonEventControllerStatics";
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-impl ISystemButtonEventControllerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemButtonEventControllerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemButtonEventControllerStaticsVtbl {
-        unsafe extern "system" fn CreateForDispatcherQueue<Impl: ISystemButtonEventControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queue: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISystemButtonEventControllerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemButtonEventControllerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemButtonEventControllerStatics_Vtbl {
+        unsafe extern "system" fn CreateForDispatcherQueue<Impl: ISystemButtonEventControllerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queue: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateForDispatcherQueue(&*(&queue as *const <super::super::System::DispatcherQueue as ::windows::core::Abi>::Abi as *const <super::super::System::DispatcherQueue as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4134,7 +4134,7 @@ impl ISystemButtonEventControllerStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISystemFunctionButtonEventArgsImpl: Sized {
+pub trait ISystemFunctionButtonEventArgs_Impl: Sized {
     fn Timestamp(&mut self) -> ::windows::core::Result<u64>;
     fn Handled(&mut self) -> ::windows::core::Result<bool>;
     fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -4144,9 +4144,9 @@ impl ::windows::core::RuntimeName for ISystemFunctionButtonEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ISystemFunctionButtonEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISystemFunctionButtonEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemFunctionButtonEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemFunctionButtonEventArgsVtbl {
-        unsafe extern "system" fn Timestamp<Impl: ISystemFunctionButtonEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+impl ISystemFunctionButtonEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemFunctionButtonEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemFunctionButtonEventArgs_Vtbl {
+        unsafe extern "system" fn Timestamp<Impl: ISystemFunctionButtonEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4157,7 +4157,7 @@ impl ISystemFunctionButtonEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Handled<Impl: ISystemFunctionButtonEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Handled<Impl: ISystemFunctionButtonEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4168,7 +4168,7 @@ impl ISystemFunctionButtonEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandled<Impl: ISystemFunctionButtonEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHandled<Impl: ISystemFunctionButtonEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
@@ -4184,7 +4184,7 @@ impl ISystemFunctionButtonEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISystemFunctionLockChangedEventArgsImpl: Sized {
+pub trait ISystemFunctionLockChangedEventArgs_Impl: Sized {
     fn Timestamp(&mut self) -> ::windows::core::Result<u64>;
     fn IsLocked(&mut self) -> ::windows::core::Result<bool>;
     fn Handled(&mut self) -> ::windows::core::Result<bool>;
@@ -4195,9 +4195,9 @@ impl ::windows::core::RuntimeName for ISystemFunctionLockChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ISystemFunctionLockChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISystemFunctionLockChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemFunctionLockChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemFunctionLockChangedEventArgsVtbl {
-        unsafe extern "system" fn Timestamp<Impl: ISystemFunctionLockChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+impl ISystemFunctionLockChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemFunctionLockChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemFunctionLockChangedEventArgs_Vtbl {
+        unsafe extern "system" fn Timestamp<Impl: ISystemFunctionLockChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4208,7 +4208,7 @@ impl ISystemFunctionLockChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsLocked<Impl: ISystemFunctionLockChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsLocked<Impl: ISystemFunctionLockChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsLocked() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4219,7 +4219,7 @@ impl ISystemFunctionLockChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Handled<Impl: ISystemFunctionLockChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Handled<Impl: ISystemFunctionLockChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4230,7 +4230,7 @@ impl ISystemFunctionLockChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandled<Impl: ISystemFunctionLockChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHandled<Impl: ISystemFunctionLockChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
@@ -4247,7 +4247,7 @@ impl ISystemFunctionLockChangedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISystemFunctionLockIndicatorChangedEventArgsImpl: Sized {
+pub trait ISystemFunctionLockIndicatorChangedEventArgs_Impl: Sized {
     fn Timestamp(&mut self) -> ::windows::core::Result<u64>;
     fn IsIndicatorOn(&mut self) -> ::windows::core::Result<bool>;
     fn Handled(&mut self) -> ::windows::core::Result<bool>;
@@ -4258,9 +4258,9 @@ impl ::windows::core::RuntimeName for ISystemFunctionLockIndicatorChangedEventAr
     const NAME: &'static str = "Windows.UI.Input.ISystemFunctionLockIndicatorChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISystemFunctionLockIndicatorChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemFunctionLockIndicatorChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemFunctionLockIndicatorChangedEventArgsVtbl {
-        unsafe extern "system" fn Timestamp<Impl: ISystemFunctionLockIndicatorChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+impl ISystemFunctionLockIndicatorChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemFunctionLockIndicatorChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemFunctionLockIndicatorChangedEventArgs_Vtbl {
+        unsafe extern "system" fn Timestamp<Impl: ISystemFunctionLockIndicatorChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4271,7 +4271,7 @@ impl ISystemFunctionLockIndicatorChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsIndicatorOn<Impl: ISystemFunctionLockIndicatorChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsIndicatorOn<Impl: ISystemFunctionLockIndicatorChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsIndicatorOn() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4282,7 +4282,7 @@ impl ISystemFunctionLockIndicatorChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Handled<Impl: ISystemFunctionLockIndicatorChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Handled<Impl: ISystemFunctionLockIndicatorChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4293,7 +4293,7 @@ impl ISystemFunctionLockIndicatorChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandled<Impl: ISystemFunctionLockIndicatorChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHandled<Impl: ISystemFunctionLockIndicatorChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
@@ -4310,7 +4310,7 @@ impl ISystemFunctionLockIndicatorChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ITappedEventArgsImpl: Sized {
+pub trait ITappedEventArgs_Impl: Sized {
     fn PointerDeviceType(&mut self) -> ::windows::core::Result<super::super::Devices::Input::PointerDeviceType>;
     fn Position(&mut self) -> ::windows::core::Result<super::super::Foundation::Point>;
     fn TapCount(&mut self) -> ::windows::core::Result<u32>;
@@ -4320,9 +4320,9 @@ impl ::windows::core::RuntimeName for ITappedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ITappedEventArgs";
 }
 #[cfg(all(feature = "Devices_Input", feature = "Foundation", feature = "implement_exclusive"))]
-impl ITappedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITappedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITappedEventArgsVtbl {
-        unsafe extern "system" fn PointerDeviceType<Impl: ITappedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
+impl ITappedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITappedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITappedEventArgs_Vtbl {
+        unsafe extern "system" fn PointerDeviceType<Impl: ITappedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerDeviceType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4333,7 +4333,7 @@ impl ITappedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: ITappedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: ITappedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4344,7 +4344,7 @@ impl ITappedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TapCount<Impl: ITappedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TapCount<Impl: ITappedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TapCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4367,7 +4367,7 @@ impl ITappedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ITappedEventArgs2Impl: Sized {
+pub trait ITappedEventArgs2_Impl: Sized {
     fn ContactCount(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -4375,9 +4375,9 @@ impl ::windows::core::RuntimeName for ITappedEventArgs2 {
     const NAME: &'static str = "Windows.UI.Input.ITappedEventArgs2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ITappedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITappedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITappedEventArgs2Vtbl {
-        unsafe extern "system" fn ContactCount<Impl: ITappedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl ITappedEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITappedEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITappedEventArgs2_Vtbl {
+        unsafe extern "system" fn ContactCount<Impl: ITappedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContactCount() {
                 ::core::result::Result::Ok(ok__) => {

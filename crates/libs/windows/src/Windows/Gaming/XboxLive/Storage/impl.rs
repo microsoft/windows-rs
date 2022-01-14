@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IGameSaveBlobGetResultImpl: Sized {
+pub trait IGameSaveBlobGetResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<GameSaveErrorStatus>;
     fn Value(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::super::Storage::Streams::IBuffer>>;
 }
@@ -8,9 +8,9 @@ impl ::windows::core::RuntimeName for IGameSaveBlobGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.IGameSaveBlobGetResult";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IGameSaveBlobGetResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveBlobGetResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveBlobGetResultVtbl {
-        unsafe extern "system" fn Status<Impl: IGameSaveBlobGetResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameSaveErrorStatus) -> ::windows::core::HRESULT {
+impl IGameSaveBlobGetResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveBlobGetResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveBlobGetResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IGameSaveBlobGetResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameSaveErrorStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -21,7 +21,7 @@ impl IGameSaveBlobGetResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Impl: IGameSaveBlobGetResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: IGameSaveBlobGetResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -43,7 +43,7 @@ impl IGameSaveBlobGetResultVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGameSaveBlobInfoImpl: Sized {
+pub trait IGameSaveBlobInfo_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Size(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -52,9 +52,9 @@ impl ::windows::core::RuntimeName for IGameSaveBlobInfo {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.IGameSaveBlobInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGameSaveBlobInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveBlobInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveBlobInfoVtbl {
-        unsafe extern "system" fn Name<Impl: IGameSaveBlobInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IGameSaveBlobInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveBlobInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveBlobInfo_Vtbl {
+        unsafe extern "system" fn Name<Impl: IGameSaveBlobInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -65,7 +65,7 @@ impl IGameSaveBlobInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Size<Impl: IGameSaveBlobInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Size<Impl: IGameSaveBlobInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Size() {
                 ::core::result::Result::Ok(ok__) => {
@@ -87,7 +87,7 @@ impl IGameSaveBlobInfoVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IGameSaveBlobInfoGetResultImpl: Sized {
+pub trait IGameSaveBlobInfoGetResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<GameSaveErrorStatus>;
     fn Value(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GameSaveBlobInfo>>;
 }
@@ -96,9 +96,9 @@ impl ::windows::core::RuntimeName for IGameSaveBlobInfoGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.IGameSaveBlobInfoGetResult";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IGameSaveBlobInfoGetResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveBlobInfoGetResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveBlobInfoGetResultVtbl {
-        unsafe extern "system" fn Status<Impl: IGameSaveBlobInfoGetResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameSaveErrorStatus) -> ::windows::core::HRESULT {
+impl IGameSaveBlobInfoGetResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveBlobInfoGetResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveBlobInfoGetResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IGameSaveBlobInfoGetResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameSaveErrorStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -109,7 +109,7 @@ impl IGameSaveBlobInfoGetResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Impl: IGameSaveBlobInfoGetResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: IGameSaveBlobInfoGetResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -131,7 +131,7 @@ impl IGameSaveBlobInfoGetResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGameSaveBlobInfoQueryImpl: Sized {
+pub trait IGameSaveBlobInfoQuery_Impl: Sized {
     fn GetBlobInfoAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>>;
     fn GetBlobInfoWithIndexAndMaxAsync(&mut self, startindex: u32, maxnumberofitems: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>>;
     fn GetItemCountAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<u32>>;
@@ -141,9 +141,9 @@ impl ::windows::core::RuntimeName for IGameSaveBlobInfoQuery {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.IGameSaveBlobInfoQuery";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGameSaveBlobInfoQueryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveBlobInfoQueryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveBlobInfoQueryVtbl {
-        unsafe extern "system" fn GetBlobInfoAsync<Impl: IGameSaveBlobInfoQueryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGameSaveBlobInfoQuery_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveBlobInfoQuery_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveBlobInfoQuery_Vtbl {
+        unsafe extern "system" fn GetBlobInfoAsync<Impl: IGameSaveBlobInfoQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetBlobInfoAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -154,7 +154,7 @@ impl IGameSaveBlobInfoQueryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBlobInfoWithIndexAndMaxAsync<Impl: IGameSaveBlobInfoQueryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxnumberofitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBlobInfoWithIndexAndMaxAsync<Impl: IGameSaveBlobInfoQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxnumberofitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetBlobInfoWithIndexAndMaxAsync(startindex, maxnumberofitems) {
                 ::core::result::Result::Ok(ok__) => {
@@ -165,7 +165,7 @@ impl IGameSaveBlobInfoQueryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetItemCountAsync<Impl: IGameSaveBlobInfoQueryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetItemCountAsync<Impl: IGameSaveBlobInfoQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItemCountAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -188,7 +188,7 @@ impl IGameSaveBlobInfoQueryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IGameSaveContainerImpl: Sized {
+pub trait IGameSaveContainer_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Provider(&mut self) -> ::windows::core::Result<GameSaveProvider>;
     fn SubmitUpdatesAsync(&mut self, blobstowrite: &::core::option::Option<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::super::Storage::Streams::IBuffer>>, blobstodelete: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>;
@@ -202,9 +202,9 @@ impl ::windows::core::RuntimeName for IGameSaveContainer {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.IGameSaveContainer";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IGameSaveContainerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveContainerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveContainerVtbl {
-        unsafe extern "system" fn Name<Impl: IGameSaveContainerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IGameSaveContainer_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveContainer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveContainer_Vtbl {
+        unsafe extern "system" fn Name<Impl: IGameSaveContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -215,7 +215,7 @@ impl IGameSaveContainerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Provider<Impl: IGameSaveContainerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Provider<Impl: IGameSaveContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Provider() {
                 ::core::result::Result::Ok(ok__) => {
@@ -226,7 +226,7 @@ impl IGameSaveContainerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SubmitUpdatesAsync<Impl: IGameSaveContainerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blobstowrite: ::windows::core::RawPtr, blobstodelete: ::windows::core::RawPtr, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SubmitUpdatesAsync<Impl: IGameSaveContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blobstowrite: ::windows::core::RawPtr, blobstodelete: ::windows::core::RawPtr, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SubmitUpdatesAsync(
                 &*(&blobstowrite as *const <super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::super::Storage::Streams::IBuffer> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::super::Storage::Streams::IBuffer> as ::windows::core::DefaultType>::DefaultType),
@@ -241,7 +241,7 @@ impl IGameSaveContainerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadAsync<Impl: IGameSaveContainerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blobstoread: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadAsync<Impl: IGameSaveContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blobstoread: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadAsync(&*(&blobstoread as *const <super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::super::Storage::Streams::IBuffer> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::super::Storage::Streams::IBuffer> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -252,7 +252,7 @@ impl IGameSaveContainerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAsync<Impl: IGameSaveContainerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blobstoread: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAsync<Impl: IGameSaveContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blobstoread: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAsync(&*(&blobstoread as *const <super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -263,7 +263,7 @@ impl IGameSaveContainerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SubmitPropertySetUpdatesAsync<Impl: IGameSaveContainerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blobstowrite: ::windows::core::RawPtr, blobstodelete: ::windows::core::RawPtr, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SubmitPropertySetUpdatesAsync<Impl: IGameSaveContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blobstowrite: ::windows::core::RawPtr, blobstodelete: ::windows::core::RawPtr, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SubmitPropertySetUpdatesAsync(
                 &*(&blobstowrite as *const <super::super::super::Foundation::Collections::IPropertySet as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IPropertySet as ::windows::core::DefaultType>::DefaultType),
@@ -278,7 +278,7 @@ impl IGameSaveContainerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateBlobInfoQuery<Impl: IGameSaveContainerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blobnameprefix: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateBlobInfoQuery<Impl: IGameSaveContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blobnameprefix: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateBlobInfoQuery(&*(&blobnameprefix as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -305,7 +305,7 @@ impl IGameSaveContainerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGameSaveContainerInfoImpl: Sized {
+pub trait IGameSaveContainerInfo_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn TotalSize(&mut self) -> ::windows::core::Result<u64>;
     fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -317,9 +317,9 @@ impl ::windows::core::RuntimeName for IGameSaveContainerInfo {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.IGameSaveContainerInfo";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGameSaveContainerInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveContainerInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveContainerInfoVtbl {
-        unsafe extern "system" fn Name<Impl: IGameSaveContainerInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IGameSaveContainerInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveContainerInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveContainerInfo_Vtbl {
+        unsafe extern "system" fn Name<Impl: IGameSaveContainerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -330,7 +330,7 @@ impl IGameSaveContainerInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TotalSize<Impl: IGameSaveContainerInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TotalSize<Impl: IGameSaveContainerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TotalSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -341,7 +341,7 @@ impl IGameSaveContainerInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayName<Impl: IGameSaveContainerInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayName<Impl: IGameSaveContainerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -352,7 +352,7 @@ impl IGameSaveContainerInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LastModifiedTime<Impl: IGameSaveContainerInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LastModifiedTime<Impl: IGameSaveContainerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LastModifiedTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -363,7 +363,7 @@ impl IGameSaveContainerInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NeedsSync<Impl: IGameSaveContainerInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NeedsSync<Impl: IGameSaveContainerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NeedsSync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -388,7 +388,7 @@ impl IGameSaveContainerInfoVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IGameSaveContainerInfoGetResultImpl: Sized {
+pub trait IGameSaveContainerInfoGetResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<GameSaveErrorStatus>;
     fn Value(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GameSaveContainerInfo>>;
 }
@@ -397,9 +397,9 @@ impl ::windows::core::RuntimeName for IGameSaveContainerInfoGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.IGameSaveContainerInfoGetResult";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IGameSaveContainerInfoGetResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveContainerInfoGetResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveContainerInfoGetResultVtbl {
-        unsafe extern "system" fn Status<Impl: IGameSaveContainerInfoGetResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameSaveErrorStatus) -> ::windows::core::HRESULT {
+impl IGameSaveContainerInfoGetResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveContainerInfoGetResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveContainerInfoGetResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IGameSaveContainerInfoGetResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameSaveErrorStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -410,7 +410,7 @@ impl IGameSaveContainerInfoGetResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Impl: IGameSaveContainerInfoGetResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: IGameSaveContainerInfoGetResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -432,7 +432,7 @@ impl IGameSaveContainerInfoGetResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGameSaveContainerInfoQueryImpl: Sized {
+pub trait IGameSaveContainerInfoQuery_Impl: Sized {
     fn GetContainerInfoAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>>;
     fn GetContainerInfoWithIndexAndMaxAsync(&mut self, startindex: u32, maxnumberofitems: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>>;
     fn GetItemCountAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<u32>>;
@@ -442,9 +442,9 @@ impl ::windows::core::RuntimeName for IGameSaveContainerInfoQuery {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.IGameSaveContainerInfoQuery";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGameSaveContainerInfoQueryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveContainerInfoQueryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveContainerInfoQueryVtbl {
-        unsafe extern "system" fn GetContainerInfoAsync<Impl: IGameSaveContainerInfoQueryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGameSaveContainerInfoQuery_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveContainerInfoQuery_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveContainerInfoQuery_Vtbl {
+        unsafe extern "system" fn GetContainerInfoAsync<Impl: IGameSaveContainerInfoQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetContainerInfoAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -455,7 +455,7 @@ impl IGameSaveContainerInfoQueryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetContainerInfoWithIndexAndMaxAsync<Impl: IGameSaveContainerInfoQueryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxnumberofitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetContainerInfoWithIndexAndMaxAsync<Impl: IGameSaveContainerInfoQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxnumberofitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetContainerInfoWithIndexAndMaxAsync(startindex, maxnumberofitems) {
                 ::core::result::Result::Ok(ok__) => {
@@ -466,7 +466,7 @@ impl IGameSaveContainerInfoQueryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetItemCountAsync<Impl: IGameSaveContainerInfoQueryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetItemCountAsync<Impl: IGameSaveContainerInfoQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItemCountAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -489,7 +489,7 @@ impl IGameSaveContainerInfoQueryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGameSaveOperationResultImpl: Sized {
+pub trait IGameSaveOperationResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<GameSaveErrorStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -497,9 +497,9 @@ impl ::windows::core::RuntimeName for IGameSaveOperationResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.IGameSaveOperationResult";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGameSaveOperationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveOperationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveOperationResultVtbl {
-        unsafe extern "system" fn Status<Impl: IGameSaveOperationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameSaveErrorStatus) -> ::windows::core::HRESULT {
+impl IGameSaveOperationResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveOperationResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveOperationResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IGameSaveOperationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameSaveErrorStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -517,7 +517,7 @@ impl IGameSaveOperationResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
-pub trait IGameSaveProviderImpl: Sized {
+pub trait IGameSaveProvider_Impl: Sized {
     fn User(&mut self) -> ::windows::core::Result<super::super::super::System::User>;
     fn CreateContainer(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<GameSaveContainer>;
     fn DeleteContainerAsync(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>;
@@ -531,9 +531,9 @@ impl ::windows::core::RuntimeName for IGameSaveProvider {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.IGameSaveProvider";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System", feature = "implement_exclusive"))]
-impl IGameSaveProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveProviderVtbl {
-        unsafe extern "system" fn User<Impl: IGameSaveProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGameSaveProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveProvider_Vtbl {
+        unsafe extern "system" fn User<Impl: IGameSaveProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
                 ::core::result::Result::Ok(ok__) => {
@@ -544,7 +544,7 @@ impl IGameSaveProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateContainer<Impl: IGameSaveProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateContainer<Impl: IGameSaveProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateContainer(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -555,7 +555,7 @@ impl IGameSaveProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteContainerAsync<Impl: IGameSaveProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteContainerAsync<Impl: IGameSaveProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeleteContainerAsync(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -566,7 +566,7 @@ impl IGameSaveProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateContainerInfoQuery<Impl: IGameSaveProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateContainerInfoQuery<Impl: IGameSaveProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateContainerInfoQuery() {
                 ::core::result::Result::Ok(ok__) => {
@@ -577,7 +577,7 @@ impl IGameSaveProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateContainerInfoQueryWithName<Impl: IGameSaveProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, containernameprefix: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateContainerInfoQueryWithName<Impl: IGameSaveProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, containernameprefix: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateContainerInfoQueryWithName(&*(&containernameprefix as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -588,7 +588,7 @@ impl IGameSaveProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRemainingBytesInQuotaAsync<Impl: IGameSaveProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRemainingBytesInQuotaAsync<Impl: IGameSaveProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRemainingBytesInQuotaAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -599,7 +599,7 @@ impl IGameSaveProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContainersChangedSinceLastSync<Impl: IGameSaveProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContainersChangedSinceLastSync<Impl: IGameSaveProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContainersChangedSinceLastSync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -626,7 +626,7 @@ impl IGameSaveProviderVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGameSaveProviderGetResultImpl: Sized {
+pub trait IGameSaveProviderGetResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<GameSaveErrorStatus>;
     fn Value(&mut self) -> ::windows::core::Result<GameSaveProvider>;
 }
@@ -635,9 +635,9 @@ impl ::windows::core::RuntimeName for IGameSaveProviderGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.IGameSaveProviderGetResult";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGameSaveProviderGetResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveProviderGetResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveProviderGetResultVtbl {
-        unsafe extern "system" fn Status<Impl: IGameSaveProviderGetResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameSaveErrorStatus) -> ::windows::core::HRESULT {
+impl IGameSaveProviderGetResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveProviderGetResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveProviderGetResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IGameSaveProviderGetResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameSaveErrorStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -648,7 +648,7 @@ impl IGameSaveProviderGetResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Impl: IGameSaveProviderGetResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: IGameSaveProviderGetResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -670,7 +670,7 @@ impl IGameSaveProviderGetResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
-pub trait IGameSaveProviderStaticsImpl: Sized {
+pub trait IGameSaveProviderStatics_Impl: Sized {
     fn GetForUserAsync(&mut self, user: &::core::option::Option<super::super::super::System::User>, serviceconfigid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>;
     fn GetSyncOnDemandForUserAsync(&mut self, user: &::core::option::Option<super::super::super::System::User>, serviceconfigid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>;
 }
@@ -679,9 +679,9 @@ impl ::windows::core::RuntimeName for IGameSaveProviderStatics {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.IGameSaveProviderStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
-impl IGameSaveProviderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveProviderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveProviderStaticsVtbl {
-        unsafe extern "system" fn GetForUserAsync<Impl: IGameSaveProviderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, serviceconfigid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGameSaveProviderStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameSaveProviderStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameSaveProviderStatics_Vtbl {
+        unsafe extern "system" fn GetForUserAsync<Impl: IGameSaveProviderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, serviceconfigid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForUserAsync(&*(&user as *const <super::super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::super::System::User as ::windows::core::DefaultType>::DefaultType), &*(&serviceconfigid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -692,7 +692,7 @@ impl IGameSaveProviderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSyncOnDemandForUserAsync<Impl: IGameSaveProviderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, serviceconfigid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSyncOnDemandForUserAsync<Impl: IGameSaveProviderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, serviceconfigid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSyncOnDemandForUserAsync(&*(&user as *const <super::super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::super::System::User as ::windows::core::DefaultType>::DefaultType), &*(&serviceconfigid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

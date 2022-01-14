@@ -62,12 +62,12 @@ impl ::core::fmt::Debug for IEnumVdsObject {
     }
 }
 unsafe impl ::windows::core::Interface for IEnumVdsObject {
-    type Vtable = IEnumVdsObjectVtbl;
+    type Vtable = IEnumVdsObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x118610b7_8d94_4030_b5b8_500889788e4e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumVdsObjectVtbl {
+pub struct IEnumVdsObject_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppobjectarray: *mut *mut ::core::ffi::c_void, pcfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
@@ -125,12 +125,12 @@ impl ::core::fmt::Debug for IVdsAdmin {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsAdmin {
-    type Vtable = IVdsAdminVtbl;
+    type Vtable = IVdsAdmin_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd188e97d_85aa_4d33_abc6_26299a10ffc1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsAdminVtbl {
+pub struct IVdsAdmin_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RegisterProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, providerid: ::windows::core::GUID, providerclsid: ::windows::core::GUID, pwszname: super::super::Foundation::PWSTR, r#type: VDS_PROVIDER_TYPE, pwszmachinename: super::super::Foundation::PWSTR, pwszversion: super::super::Foundation::PWSTR, guidversionid: ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -184,12 +184,12 @@ impl ::core::fmt::Debug for IVdsAdviseSink {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsAdviseSink {
-    type Vtable = IVdsAdviseSinkVtbl;
+    type Vtable = IVdsAdviseSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8326cd1d_cf59_4936_b786_5efc08798e25);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsAdviseSinkVtbl {
+pub struct IVdsAdviseSink_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnumberofnotifications: i32, pnotificationarray: *const VDS_NOTIFICATION) -> ::windows::core::HRESULT,
 }
@@ -247,12 +247,12 @@ impl ::core::fmt::Debug for IVdsAsync {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsAsync {
-    type Vtable = IVdsAsyncVtbl;
+    type Vtable = IVdsAsync_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5d23b6d_5a55_4492_9889_397a3c2d2dbc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsAsyncVtbl {
+pub struct IVdsAsync_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Wait: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows::core::HRESULT, pasyncout: *mut VDS_ASYNC_OUTPUT) -> ::windows::core::HRESULT,
@@ -338,12 +338,12 @@ impl ::core::fmt::Debug for IVdsController {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsController {
-    type Vtable = IVdsControllerVtbl;
+    type Vtable = IVdsController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb53d96e_dffb_474a_a078_790d1e2bc082);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsControllerVtbl {
+pub struct IVdsController_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontrollerprop: *mut VDS_CONTROLLER_PROP) -> ::windows::core::HRESULT,
@@ -407,12 +407,12 @@ impl ::core::fmt::Debug for IVdsControllerControllerPort {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsControllerControllerPort {
-    type Vtable = IVdsControllerControllerPortVtbl;
+    type Vtable = IVdsControllerControllerPort_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca5d735f_6bae_42c0_b30e_f2666045ce71);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsControllerControllerPortVtbl {
+pub struct IVdsControllerControllerPort_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub QueryControllerPorts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -482,12 +482,12 @@ impl ::core::fmt::Debug for IVdsControllerPort {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsControllerPort {
-    type Vtable = IVdsControllerPortVtbl;
+    type Vtable = IVdsControllerPort_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18691d0d_4e7f_43e8_92e4_cf44beeed11c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsControllerPortVtbl {
+pub struct IVdsControllerPort_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pportprop: *mut VDS_PORT_PROP) -> ::windows::core::HRESULT,
@@ -568,12 +568,12 @@ impl ::core::fmt::Debug for IVdsDrive {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsDrive {
-    type Vtable = IVdsDriveVtbl;
+    type Vtable = IVdsDrive_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff24efa4_aade_4b6b_898b_eaa6a20887c7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsDriveVtbl {
+pub struct IVdsDrive_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdriveprop: *mut VDS_DRIVE_PROP) -> ::windows::core::HRESULT,
@@ -636,12 +636,12 @@ impl ::core::fmt::Debug for IVdsDrive2 {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsDrive2 {
-    type Vtable = IVdsDrive2Vtbl;
+    type Vtable = IVdsDrive2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60b5a730_addf_4436_8ca7_5769e2d1ffa4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsDrive2Vtbl {
+pub struct IVdsDrive2_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetProperties2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdriveprop2: *mut VDS_DRIVE_PROP2) -> ::windows::core::HRESULT,
@@ -703,12 +703,12 @@ impl ::core::fmt::Debug for IVdsHwProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsHwProvider {
-    type Vtable = IVdsHwProviderVtbl;
+    type Vtable = IVdsHwProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd99bdaae_b13a_4178_9fdb_e27f16b4603e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsHwProviderVtbl {
+pub struct IVdsHwProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub QuerySubSystems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Reenumerate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -762,12 +762,12 @@ impl ::core::fmt::Debug for IVdsHwProviderPrivate {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsHwProviderPrivate {
-    type Vtable = IVdsHwProviderPrivateVtbl;
+    type Vtable = IVdsHwProviderPrivate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98f17bf3_9f33_4f12_8714_8b4075092c2e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsHwProviderPrivateVtbl {
+pub struct IVdsHwProviderPrivate_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub QueryIfCreatedLun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszdevicepath: super::super::Foundation::PWSTR, pvdsluninformation: *const VDS_LUN_INFORMATION, plunid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -820,12 +820,12 @@ impl ::core::fmt::Debug for IVdsHwProviderPrivateMpio {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsHwProviderPrivateMpio {
-    type Vtable = IVdsHwProviderPrivateMpioVtbl;
+    type Vtable = IVdsHwProviderPrivateMpio_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x310a7715_ac2b_4c6f_9827_3d742f351676);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsHwProviderPrivateMpioVtbl {
+pub struct IVdsHwProviderPrivateMpio_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetAllPathStatusesFromHbaPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hbaportprop: VDS_HBAPORT_PROP, status: VDS_PATH_STATUS) -> ::windows::core::HRESULT,
 }
@@ -889,12 +889,12 @@ impl ::core::fmt::Debug for IVdsHwProviderStoragePools {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsHwProviderStoragePools {
-    type Vtable = IVdsHwProviderStoragePoolsVtbl;
+    type Vtable = IVdsHwProviderStoragePools_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5b5937a_f188_4c79_b86c_11c920ad11b8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsHwProviderStoragePoolsVtbl {
+pub struct IVdsHwProviderStoragePools_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub QueryStoragePools: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, ullremainingfreespace: u64, ppoolattributes: *const VDS_POOL_ATTRIBUTES, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -956,12 +956,12 @@ impl ::core::fmt::Debug for IVdsHwProviderType {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsHwProviderType {
-    type Vtable = IVdsHwProviderTypeVtbl;
+    type Vtable = IVdsHwProviderType_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e0f5166_542d_4fc6_947a_012174240b7e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsHwProviderTypeVtbl {
+pub struct IVdsHwProviderType_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetProviderType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut VDS_HWPROVIDER_TYPE) -> ::windows::core::HRESULT,
 }
@@ -1012,12 +1012,12 @@ impl ::core::fmt::Debug for IVdsHwProviderType2 {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsHwProviderType2 {
-    type Vtable = IVdsHwProviderType2Vtbl;
+    type Vtable = IVdsHwProviderType2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8190236f_c4d0_4e81_8011_d69512fcc984);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsHwProviderType2Vtbl {
+pub struct IVdsHwProviderType2_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetProviderType2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut VDS_HWPROVIDER_TYPE) -> ::windows::core::HRESULT,
 }
@@ -1095,12 +1095,12 @@ impl ::core::fmt::Debug for IVdsIscsiPortal {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsIscsiPortal {
-    type Vtable = IVdsIscsiPortalVtbl;
+    type Vtable = IVdsIscsiPortal_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fa1499d_ec85_4a8a_a47b_ff69201fcd34);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsIscsiPortalVtbl {
+pub struct IVdsIscsiPortal_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pportalprop: *mut VDS_ISCSI_PORTAL_PROP) -> ::windows::core::HRESULT,
     pub GetSubSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsubsystem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1182,12 +1182,12 @@ impl ::core::fmt::Debug for IVdsIscsiPortalGroup {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsIscsiPortalGroup {
-    type Vtable = IVdsIscsiPortalGroupVtbl;
+    type Vtable = IVdsIscsiPortalGroup_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfef5f89d_a3dd_4b36_bf28_e7dde045c593);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsIscsiPortalGroupVtbl {
+pub struct IVdsIscsiPortalGroup_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pportalgroupprop: *mut VDS_ISCSI_PORTALGROUP_PROP) -> ::windows::core::HRESULT,
     pub GetTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptarget: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1289,12 +1289,12 @@ impl ::core::fmt::Debug for IVdsIscsiTarget {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsIscsiTarget {
-    type Vtable = IVdsIscsiTargetVtbl;
+    type Vtable = IVdsIscsiTarget_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa8f5055_83e5_4bcc_aa73_19851a36a849);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsIscsiTargetVtbl {
+pub struct IVdsIscsiTarget_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptargetprop: *mut VDS_ISCSI_TARGET_PROP) -> ::windows::core::HRESULT,
@@ -1449,12 +1449,12 @@ impl ::core::fmt::Debug for IVdsLun {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsLun {
-    type Vtable = IVdsLunVtbl;
+    type Vtable = IVdsLun_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3540a9c7_e60f_4111_a840_8bba6c2c83d8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsLunVtbl {
+pub struct IVdsLun_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plunprop: *mut VDS_LUN_PROP) -> ::windows::core::HRESULT,
@@ -1542,12 +1542,12 @@ impl ::core::fmt::Debug for IVdsLun2 {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsLun2 {
-    type Vtable = IVdsLun2Vtbl;
+    type Vtable = IVdsLun2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5b3a735_9efb_499a_8071_4394d9ee6fcb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsLun2Vtbl {
+pub struct IVdsLun2_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub QueryHints2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phints2: *mut VDS_HINTS2) -> ::windows::core::HRESULT,
@@ -1609,12 +1609,12 @@ impl ::core::fmt::Debug for IVdsLunControllerPorts {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsLunControllerPorts {
-    type Vtable = IVdsLunControllerPortsVtbl;
+    type Vtable = IVdsLunControllerPorts_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x451fe266_da6d_406a_bb60_82e534f85aeb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsLunControllerPortsVtbl {
+pub struct IVdsLunControllerPorts_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub AssociateControllerPorts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pactivecontrollerportidarray: *const ::windows::core::GUID, lnumberofactivecontrollerports: i32, pinactivecontrollerportidarray: *const ::windows::core::GUID, lnumberofinactivecontrollerports: i32) -> ::windows::core::HRESULT,
     pub QueryActiveControllerPorts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1670,12 +1670,12 @@ impl ::core::fmt::Debug for IVdsLunIscsi {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsLunIscsi {
-    type Vtable = IVdsLunIscsiVtbl;
+    type Vtable = IVdsLunIscsi_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d7c1e64_b59b_45ae_b86a_2c2cc6a42067);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsLunIscsiVtbl {
+pub struct IVdsLunIscsi_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub AssociateTargets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptargetidarray: *const ::windows::core::GUID, lnumberoftargets: i32) -> ::windows::core::HRESULT,
     pub QueryAssociatedTargets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1741,12 +1741,12 @@ impl ::core::fmt::Debug for IVdsLunMpio {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsLunMpio {
-    type Vtable = IVdsLunMpioVtbl;
+    type Vtable = IVdsLunMpio_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c5fbae3_333a_48a1_a982_33c15788cde3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsLunMpioVtbl {
+pub struct IVdsLunMpio_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetPathInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppaths: *mut *mut VDS_PATH_INFO, plnumberofpaths: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -1806,12 +1806,12 @@ impl ::core::fmt::Debug for IVdsLunNaming {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsLunNaming {
-    type Vtable = IVdsLunNamingVtbl;
+    type Vtable = IVdsLunNaming_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x907504cb_6b4e_4d88_a34d_17ba661fbb06);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsLunNamingVtbl {
+pub struct IVdsLunNaming_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszfriendlyname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -1865,12 +1865,12 @@ impl ::core::fmt::Debug for IVdsLunNumber {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsLunNumber {
-    type Vtable = IVdsLunNumberVtbl;
+    type Vtable = IVdsLunNumber_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3f95e46_54b3_41f9_b678_0f1871443a08);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsLunNumberVtbl {
+pub struct IVdsLunNumber_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetLunNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pullunnumber: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -1942,12 +1942,12 @@ impl ::core::fmt::Debug for IVdsLunPlex {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsLunPlex {
-    type Vtable = IVdsLunPlexVtbl;
+    type Vtable = IVdsLunPlex_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ee1a790_5d2e_4abb_8c99_c481e8be2138);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsLunPlexVtbl {
+pub struct IVdsLunPlex_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplexprop: *mut VDS_LUN_PLEX_PROP) -> ::windows::core::HRESULT,
     pub GetLun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplun: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2018,12 +2018,12 @@ impl ::core::fmt::Debug for IVdsMaintenance {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsMaintenance {
-    type Vtable = IVdsMaintenanceVtbl;
+    type Vtable = IVdsMaintenance_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaebeef3_8523_47ed_a2b9_05cecce2a1ae);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsMaintenanceVtbl {
+pub struct IVdsMaintenance_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub StartMaintenance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operation: VDS_MAINTENANCE_OPERATION) -> ::windows::core::HRESULT,
     pub StopMaintenance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operation: VDS_MAINTENANCE_OPERATION) -> ::windows::core::HRESULT,
@@ -2077,12 +2077,12 @@ impl ::core::fmt::Debug for IVdsProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsProvider {
-    type Vtable = IVdsProviderVtbl;
+    type Vtable = IVdsProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10c5e575_7984_4e81_a56b_431f5f92ae42);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsProviderVtbl {
+pub struct IVdsProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pproviderprop: *mut VDS_PROVIDER_PROP) -> ::windows::core::HRESULT,
@@ -2146,12 +2146,12 @@ impl ::core::fmt::Debug for IVdsProviderPrivate {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsProviderPrivate {
-    type Vtable = IVdsProviderPrivateVtbl;
+    type Vtable = IVdsProviderPrivate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11f3cd41_b7e8_48ff_9472_9dff018aa292);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsProviderPrivateVtbl {
+pub struct IVdsProviderPrivate_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectid: ::windows::core::GUID, r#type: VDS_OBJECT_TYPE, ppobjectunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -2210,12 +2210,12 @@ impl ::core::fmt::Debug for IVdsProviderSupport {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsProviderSupport {
-    type Vtable = IVdsProviderSupportVtbl;
+    type Vtable = IVdsProviderSupport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1732be13_e8f9_4a03_bfbc_5f616aa66ce1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsProviderSupportVtbl {
+pub struct IVdsProviderSupport_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetVersionSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulversionsupport: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -2293,12 +2293,12 @@ impl ::core::fmt::Debug for IVdsStoragePool {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsStoragePool {
-    type Vtable = IVdsStoragePoolVtbl;
+    type Vtable = IVdsStoragePool_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932ca8cf_0eb3_4ba8_9620_22665d7f8450);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsStoragePoolVtbl {
+pub struct IVdsStoragePool_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -2417,12 +2417,12 @@ impl ::core::fmt::Debug for IVdsSubSystem {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsSubSystem {
-    type Vtable = IVdsSubSystemVtbl;
+    type Vtable = IVdsSubSystem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fcee2d3_6d90_4f91_80e2_a5c7caaca9d8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsSubSystemVtbl {
+pub struct IVdsSubSystem_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psubsystemprop: *mut VDS_SUB_SYSTEM_PROP) -> ::windows::core::HRESULT,
@@ -2511,12 +2511,12 @@ impl ::core::fmt::Debug for IVdsSubSystem2 {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsSubSystem2 {
-    type Vtable = IVdsSubSystem2Vtbl;
+    type Vtable = IVdsSubSystem2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe666735_7800_4a77_9d9c_40f85b87e292);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsSubSystem2Vtbl {
+pub struct IVdsSubSystem2_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetProperties2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psubsystemprop2: *mut VDS_SUB_SYSTEM_PROP2) -> ::windows::core::HRESULT,
@@ -2579,12 +2579,12 @@ impl ::core::fmt::Debug for IVdsSubSystemInterconnect {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsSubSystemInterconnect {
-    type Vtable = IVdsSubSystemInterconnectVtbl;
+    type Vtable = IVdsSubSystemInterconnect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e6fa560_c141_477b_83ba_0b6c38f7febf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsSubSystemInterconnectVtbl {
+pub struct IVdsSubSystemInterconnect_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetSupportedInterconnects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulsupportedinterconnectsflag: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -2650,12 +2650,12 @@ impl ::core::fmt::Debug for IVdsSubSystemIscsi {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsSubSystemIscsi {
-    type Vtable = IVdsSubSystemIscsiVtbl;
+    type Vtable = IVdsSubSystemIscsi_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0027346f_40d0_4b45_8cec_5906dc0380c8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsSubSystemIscsiVtbl {
+pub struct IVdsSubSystemIscsi_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub QueryTargets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub QueryPortals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2712,12 +2712,12 @@ impl ::core::fmt::Debug for IVdsSubSystemNaming {
     }
 }
 unsafe impl ::windows::core::Interface for IVdsSubSystemNaming {
-    type Vtable = IVdsSubSystemNamingVtbl;
+    type Vtable = IVdsSubSystemNaming_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d70faa3_9cd4_4900_aa20_6981b6aafc75);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsSubSystemNamingVtbl {
+pub struct IVdsSubSystemNaming_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszfriendlyname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,

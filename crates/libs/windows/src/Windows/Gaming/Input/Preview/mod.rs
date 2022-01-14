@@ -31,12 +31,12 @@ impl ::windows::core::RuntimeName for GameControllerProviderInfo {
 #[repr(transparent)]
 pub struct IGameControllerProviderInfoStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameControllerProviderInfoStatics {
-    type Vtable = IGameControllerProviderInfoStaticsVtbl;
+    type Vtable = IGameControllerProviderInfoStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0be1e6c5_d9bd_44ee_8362_488b2e464bfb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameControllerProviderInfoStaticsVtbl {
+pub struct IGameControllerProviderInfoStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Gaming_Input_Custom")]
     pub GetParentProviderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,

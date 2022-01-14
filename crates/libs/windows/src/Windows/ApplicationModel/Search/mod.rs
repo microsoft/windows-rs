@@ -5,12 +5,12 @@ pub mod Core;
 #[repr(transparent)]
 pub struct ILocalContentSuggestionSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILocalContentSuggestionSettings {
-    type Vtable = ILocalContentSuggestionSettingsVtbl;
+    type Vtable = ILocalContentSuggestionSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeeaeb062_743d_456e_84a3_23f06f2d15d7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILocalContentSuggestionSettingsVtbl {
+pub struct ILocalContentSuggestionSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -31,13 +31,13 @@ pub struct ILocalContentSuggestionSettingsVtbl {
 pub struct ISearchPane(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISearchPane {
-    type Vtable = ISearchPaneVtbl;
+    type Vtable = ISearchPane_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdacec38_3700_4d73_91a1_2f998674238a);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchPaneVtbl {
+pub struct ISearchPane_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub SetSearchHistoryEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -248,13 +248,13 @@ unsafe impl ::windows::core::RuntimeType for ISearchPaneQueryChangedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISearchPaneQueryChangedEventArgs {
-    type Vtable = ISearchPaneQueryChangedEventArgsVtbl;
+    type Vtable = ISearchPaneQueryChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c064fe9_2351_4248_a529_7110f464a785);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchPaneQueryChangedEventArgsVtbl {
+pub struct ISearchPaneQueryChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub QueryText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -273,12 +273,12 @@ pub struct ISearchPaneQueryChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISearchPaneQueryLinguisticDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISearchPaneQueryLinguisticDetails {
-    type Vtable = ISearchPaneQueryLinguisticDetailsVtbl;
+    type Vtable = ISearchPaneQueryLinguisticDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82fb460e_0940_4b6d_b8d0_642b30989e15);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchPaneQueryLinguisticDetailsVtbl {
+pub struct ISearchPaneQueryLinguisticDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub QueryTextAlternatives: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -293,13 +293,13 @@ pub struct ISearchPaneQueryLinguisticDetailsVtbl {
 pub struct ISearchPaneQuerySubmittedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISearchPaneQuerySubmittedEventArgs {
-    type Vtable = ISearchPaneQuerySubmittedEventArgsVtbl;
+    type Vtable = ISearchPaneQuerySubmittedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x143ba4fc_e9c5_4736_91b2_e8eb9cb88356);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchPaneQuerySubmittedEventArgsVtbl {
+pub struct ISearchPaneQuerySubmittedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub QueryText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -316,13 +316,13 @@ pub struct ISearchPaneQuerySubmittedEventArgsVtbl {
 pub struct ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails {
-    type Vtable = ISearchPaneQuerySubmittedEventArgsWithLinguisticDetailsVtbl;
+    type Vtable = ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x460c92e5_4c32_4538_a4d4_b6b4400d140f);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchPaneQuerySubmittedEventArgsWithLinguisticDetailsVtbl {
+pub struct ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub LinguisticDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -335,13 +335,13 @@ pub struct ISearchPaneQuerySubmittedEventArgsWithLinguisticDetailsVtbl {
 pub struct ISearchPaneResultSuggestionChosenEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISearchPaneResultSuggestionChosenEventArgs {
-    type Vtable = ISearchPaneResultSuggestionChosenEventArgsVtbl;
+    type Vtable = ISearchPaneResultSuggestionChosenEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8316cc0_aed2_41e0_bce0_c26ca74f85ec);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchPaneResultSuggestionChosenEventArgsVtbl {
+pub struct ISearchPaneResultSuggestionChosenEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Tag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -354,13 +354,13 @@ pub struct ISearchPaneResultSuggestionChosenEventArgsVtbl {
 pub struct ISearchPaneStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISearchPaneStatics {
-    type Vtable = ISearchPaneStaticsVtbl;
+    type Vtable = ISearchPaneStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9572adf1_8f1d_481f_a15b_c61655f16a0e);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchPaneStaticsVtbl {
+pub struct ISearchPaneStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -373,13 +373,13 @@ pub struct ISearchPaneStaticsVtbl {
 pub struct ISearchPaneStaticsWithHideThisApplication(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISearchPaneStaticsWithHideThisApplication {
-    type Vtable = ISearchPaneStaticsWithHideThisApplicationVtbl;
+    type Vtable = ISearchPaneStaticsWithHideThisApplication_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00732830_50f1_4d03_99ac_c6644c8ed8b5);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchPaneStaticsWithHideThisApplicationVtbl {
+pub struct ISearchPaneStaticsWithHideThisApplication_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub HideThisApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -392,13 +392,13 @@ pub struct ISearchPaneStaticsWithHideThisApplicationVtbl {
 pub struct ISearchPaneSuggestionsRequest(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISearchPaneSuggestionsRequest {
-    type Vtable = ISearchPaneSuggestionsRequestVtbl;
+    type Vtable = ISearchPaneSuggestionsRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81b10b1c_e561_4093_9b4d_2ad482794a53);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchPaneSuggestionsRequestVtbl {
+pub struct ISearchPaneSuggestionsRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -419,13 +419,13 @@ pub struct ISearchPaneSuggestionsRequestVtbl {
 pub struct ISearchPaneSuggestionsRequestDeferral(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISearchPaneSuggestionsRequestDeferral {
-    type Vtable = ISearchPaneSuggestionsRequestDeferralVtbl;
+    type Vtable = ISearchPaneSuggestionsRequestDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0d009f7_8748_4ee2_ad44_afa6be997c51);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchPaneSuggestionsRequestDeferralVtbl {
+pub struct ISearchPaneSuggestionsRequestDeferral_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -438,13 +438,13 @@ pub struct ISearchPaneSuggestionsRequestDeferralVtbl {
 pub struct ISearchPaneSuggestionsRequestedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISearchPaneSuggestionsRequestedEventArgs {
-    type Vtable = ISearchPaneSuggestionsRequestedEventArgsVtbl;
+    type Vtable = ISearchPaneSuggestionsRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc89b8a2f_ac56_4460_8d2f_80023bec4fc5);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchPaneSuggestionsRequestedEventArgsVtbl {
+pub struct ISearchPaneSuggestionsRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -457,13 +457,13 @@ pub struct ISearchPaneSuggestionsRequestedEventArgsVtbl {
 pub struct ISearchPaneVisibilityChangedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISearchPaneVisibilityChangedEventArgs {
-    type Vtable = ISearchPaneVisibilityChangedEventArgsVtbl;
+    type Vtable = ISearchPaneVisibilityChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c4d3046_ac4b_49f2_97d6_020e6182cb9c);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchPaneVisibilityChangedEventArgsVtbl {
+pub struct ISearchPaneVisibilityChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Visible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -474,12 +474,12 @@ pub struct ISearchPaneVisibilityChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISearchQueryLinguisticDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISearchQueryLinguisticDetails {
-    type Vtable = ISearchQueryLinguisticDetailsVtbl;
+    type Vtable = ISearchQueryLinguisticDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46a1205b_69c9_4745_b72f_a8a4fc8f24ae);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchQueryLinguisticDetailsVtbl {
+pub struct ISearchQueryLinguisticDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub QueryTextAlternatives: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -492,12 +492,12 @@ pub struct ISearchQueryLinguisticDetailsVtbl {
 #[repr(transparent)]
 pub struct ISearchQueryLinguisticDetailsFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISearchQueryLinguisticDetailsFactory {
-    type Vtable = ISearchQueryLinguisticDetailsFactoryVtbl;
+    type Vtable = ISearchQueryLinguisticDetailsFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcac6c3b8_3c64_4dfd_ad9f_479e4d4065a4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchQueryLinguisticDetailsFactoryVtbl {
+pub struct ISearchQueryLinguisticDetailsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, querytextalternatives: ::windows::core::RawPtr, querytextcompositionstart: u32, querytextcompositionlength: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -508,12 +508,12 @@ pub struct ISearchQueryLinguisticDetailsFactoryVtbl {
 #[repr(transparent)]
 pub struct ISearchSuggestionCollection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISearchSuggestionCollection {
-    type Vtable = ISearchSuggestionCollectionVtbl;
+    type Vtable = ISearchSuggestionCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x323a8a4b_fbea_4446_abbc_3da7915fdd3a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchSuggestionCollectionVtbl {
+pub struct ISearchSuggestionCollection_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub AppendQuerySuggestion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -531,12 +531,12 @@ pub struct ISearchSuggestionCollectionVtbl {
 #[repr(transparent)]
 pub struct ISearchSuggestionsRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISearchSuggestionsRequest {
-    type Vtable = ISearchSuggestionsRequestVtbl;
+    type Vtable = ISearchSuggestionsRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e4e26a7_44e5_4039_9099_6000ead1f0c6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchSuggestionsRequestVtbl {
+pub struct ISearchSuggestionsRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SearchSuggestionCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -546,12 +546,12 @@ pub struct ISearchSuggestionsRequestVtbl {
 #[repr(transparent)]
 pub struct ISearchSuggestionsRequestDeferral(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISearchSuggestionsRequestDeferral {
-    type Vtable = ISearchSuggestionsRequestDeferralVtbl;
+    type Vtable = ISearchSuggestionsRequestDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb71598a9_c065_456d_a845_1eccec5dc28b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchSuggestionsRequestDeferralVtbl {
+pub struct ISearchSuggestionsRequestDeferral_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -631,7 +631,7 @@ unsafe impl ::windows::core::RuntimeType for LocalContentSuggestionSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.LocalContentSuggestionSettings;{eeaeb062-743d-456e-84a3-23f06f2d15d7})");
 }
 unsafe impl ::windows::core::Interface for LocalContentSuggestionSettings {
-    type Vtable = ILocalContentSuggestionSettingsVtbl;
+    type Vtable = ILocalContentSuggestionSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeeaeb062_743d_456e_84a3_23f06f2d15d7);
 }
 impl ::windows::core::RuntimeName for LocalContentSuggestionSettings {
@@ -924,7 +924,7 @@ unsafe impl ::windows::core::RuntimeType for SearchPane {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SearchPane {
-    type Vtable = ISearchPaneVtbl;
+    type Vtable = ISearchPane_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdacec38_3700_4d73_91a1_2f998674238a);
 }
 #[cfg(feature = "deprecated")]
@@ -1039,7 +1039,7 @@ unsafe impl ::windows::core::RuntimeType for SearchPaneQueryChangedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SearchPaneQueryChangedEventArgs {
-    type Vtable = ISearchPaneQueryChangedEventArgsVtbl;
+    type Vtable = ISearchPaneQueryChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c064fe9_2351_4248_a529_7110f464a785);
 }
 #[cfg(feature = "deprecated")]
@@ -1174,7 +1174,7 @@ unsafe impl ::windows::core::RuntimeType for SearchPaneQueryLinguisticDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.SearchPaneQueryLinguisticDetails;{82fb460e-0940-4b6d-b8d0-642b30989e15})");
 }
 unsafe impl ::windows::core::Interface for SearchPaneQueryLinguisticDetails {
-    type Vtable = ISearchPaneQueryLinguisticDetailsVtbl;
+    type Vtable = ISearchPaneQueryLinguisticDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82fb460e_0940_4b6d_b8d0_642b30989e15);
 }
 impl ::windows::core::RuntimeName for SearchPaneQueryLinguisticDetails {
@@ -1282,7 +1282,7 @@ unsafe impl ::windows::core::RuntimeType for SearchPaneQuerySubmittedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SearchPaneQuerySubmittedEventArgs {
-    type Vtable = ISearchPaneQuerySubmittedEventArgsVtbl;
+    type Vtable = ISearchPaneQuerySubmittedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x143ba4fc_e9c5_4736_91b2_e8eb9cb88356);
 }
 #[cfg(feature = "deprecated")]
@@ -1383,7 +1383,7 @@ unsafe impl ::windows::core::RuntimeType for SearchPaneResultSuggestionChosenEve
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SearchPaneResultSuggestionChosenEventArgs {
-    type Vtable = ISearchPaneResultSuggestionChosenEventArgsVtbl;
+    type Vtable = ISearchPaneResultSuggestionChosenEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8316cc0_aed2_41e0_bce0_c26ca74f85ec);
 }
 #[cfg(feature = "deprecated")]
@@ -1502,7 +1502,7 @@ unsafe impl ::windows::core::RuntimeType for SearchPaneSuggestionsRequest {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SearchPaneSuggestionsRequest {
-    type Vtable = ISearchPaneSuggestionsRequestVtbl;
+    type Vtable = ISearchPaneSuggestionsRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81b10b1c_e561_4093_9b4d_2ad482794a53);
 }
 #[cfg(feature = "deprecated")]
@@ -1600,7 +1600,7 @@ unsafe impl ::windows::core::RuntimeType for SearchPaneSuggestionsRequestDeferra
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SearchPaneSuggestionsRequestDeferral {
-    type Vtable = ISearchPaneSuggestionsRequestDeferralVtbl;
+    type Vtable = ISearchPaneSuggestionsRequestDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0d009f7_8748_4ee2_ad44_afa6be997c51);
 }
 #[cfg(feature = "deprecated")]
@@ -1728,7 +1728,7 @@ unsafe impl ::windows::core::RuntimeType for SearchPaneSuggestionsRequestedEvent
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SearchPaneSuggestionsRequestedEventArgs {
-    type Vtable = ISearchPaneSuggestionsRequestedEventArgsVtbl;
+    type Vtable = ISearchPaneSuggestionsRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc89b8a2f_ac56_4460_8d2f_80023bec4fc5);
 }
 #[cfg(feature = "deprecated")]
@@ -1855,7 +1855,7 @@ unsafe impl ::windows::core::RuntimeType for SearchPaneVisibilityChangedEventArg
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SearchPaneVisibilityChangedEventArgs {
-    type Vtable = ISearchPaneVisibilityChangedEventArgsVtbl;
+    type Vtable = ISearchPaneVisibilityChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c4d3046_ac4b_49f2_97d6_020e6182cb9c);
 }
 #[cfg(feature = "deprecated")]
@@ -1977,7 +1977,7 @@ unsafe impl ::windows::core::RuntimeType for SearchQueryLinguisticDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.SearchQueryLinguisticDetails;{46a1205b-69c9-4745-b72f-a8a4fc8f24ae})");
 }
 unsafe impl ::windows::core::Interface for SearchQueryLinguisticDetails {
-    type Vtable = ISearchQueryLinguisticDetailsVtbl;
+    type Vtable = ISearchQueryLinguisticDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46a1205b_69c9_4745_b72f_a8a4fc8f24ae);
 }
 impl ::windows::core::RuntimeName for SearchQueryLinguisticDetails {
@@ -2080,7 +2080,7 @@ unsafe impl ::windows::core::RuntimeType for SearchSuggestionCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.SearchSuggestionCollection;{323a8a4b-fbea-4446-abbc-3da7915fdd3a})");
 }
 unsafe impl ::windows::core::Interface for SearchSuggestionCollection {
-    type Vtable = ISearchSuggestionCollectionVtbl;
+    type Vtable = ISearchSuggestionCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x323a8a4b_fbea_4446_abbc_3da7915fdd3a);
 }
 impl ::windows::core::RuntimeName for SearchSuggestionCollection {
@@ -2177,7 +2177,7 @@ unsafe impl ::windows::core::RuntimeType for SearchSuggestionsRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.SearchSuggestionsRequest;{4e4e26a7-44e5-4039-9099-6000ead1f0c6})");
 }
 unsafe impl ::windows::core::Interface for SearchSuggestionsRequest {
-    type Vtable = ISearchSuggestionsRequestVtbl;
+    type Vtable = ISearchSuggestionsRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e4e26a7_44e5_4039_9099_6000ead1f0c6);
 }
 impl ::windows::core::RuntimeName for SearchSuggestionsRequest {
@@ -2255,7 +2255,7 @@ unsafe impl ::windows::core::RuntimeType for SearchSuggestionsRequestDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.SearchSuggestionsRequestDeferral;{b71598a9-c065-456d-a845-1eccec5dc28b})");
 }
 unsafe impl ::windows::core::Interface for SearchSuggestionsRequestDeferral {
-    type Vtable = ISearchSuggestionsRequestDeferralVtbl;
+    type Vtable = ISearchSuggestionsRequestDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb71598a9_c065_456d_a845_1eccec5dc28b);
 }
 impl ::windows::core::RuntimeName for SearchSuggestionsRequestDeferral {

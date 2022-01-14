@@ -194,7 +194,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynAboutData {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynAboutData {
-    type Vtable = IAllJoynAboutDataVtbl;
+    type Vtable = IAllJoynAboutData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5a9bf00_1fa2_4839_93ef_f9df404890f7);
 }
 #[cfg(feature = "deprecated")]
@@ -452,7 +452,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynAboutDataView {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynAboutDataView {
-    type Vtable = IAllJoynAboutDataViewVtbl;
+    type Vtable = IAllJoynAboutDataView_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6823111f_6212_4934_9c48_e19ca4984288);
 }
 #[cfg(feature = "deprecated")]
@@ -609,7 +609,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynAcceptSessionJoinerEventArgs
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynAcceptSessionJoinerEventArgs {
-    type Vtable = IAllJoynAcceptSessionJoinerEventArgsVtbl;
+    type Vtable = IAllJoynAcceptSessionJoinerEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4efb5365_3e8a_4257_8f10_539ce0d56c0f);
 }
 #[cfg(feature = "deprecated")]
@@ -728,7 +728,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynAuthenticationCompleteEventA
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynAuthenticationCompleteEventArgs {
-    type Vtable = IAllJoynAuthenticationCompleteEventArgsVtbl;
+    type Vtable = IAllJoynAuthenticationCompleteEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97b4701c_15dc_4b53_b6a4_7d134300d7bf);
 }
 #[cfg(feature = "deprecated")]
@@ -1085,7 +1085,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynBusAttachment {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynBusAttachment {
-    type Vtable = IAllJoynBusAttachmentVtbl;
+    type Vtable = IAllJoynBusAttachment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf309f153_1eed_42c3_a20e_436d41fe62f6);
 }
 #[cfg(feature = "deprecated")]
@@ -1240,7 +1240,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynBusAttachmentStateChangedEve
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynBusAttachmentStateChangedEventArgs {
-    type Vtable = IAllJoynBusAttachmentStateChangedEventArgsVtbl;
+    type Vtable = IAllJoynBusAttachmentStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd82e75f4_c02a_41ec_a8d5_eab1558953aa);
 }
 #[cfg(feature = "deprecated")]
@@ -1412,7 +1412,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynBusObject {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynBusObject {
-    type Vtable = IAllJoynBusObjectVtbl;
+    type Vtable = IAllJoynBusObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8fd825e_f73a_490c_8804_04e026643047);
 }
 #[cfg(feature = "deprecated")]
@@ -1527,7 +1527,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynBusObjectStoppedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynBusObjectStoppedEventArgs {
-    type Vtable = IAllJoynBusObjectStoppedEventArgsVtbl;
+    type Vtable = IAllJoynBusObjectStoppedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde102115_ef8e_4d42_b93b_a2ae74519766);
 }
 #[cfg(feature = "deprecated")]
@@ -1673,7 +1673,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynCredentials {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynCredentials {
-    type Vtable = IAllJoynCredentialsVtbl;
+    type Vtable = IAllJoynCredentials_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x824650f2_a190_40b1_abab_349ec244dfaa);
 }
 #[cfg(feature = "deprecated")]
@@ -1810,7 +1810,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynCredentialsRequestedEventArg
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynCredentialsRequestedEventArgs {
-    type Vtable = IAllJoynCredentialsRequestedEventArgsVtbl;
+    type Vtable = IAllJoynCredentialsRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a87e34e_b069_4b80_9e1a_41bc837c65d2);
 }
 #[cfg(feature = "deprecated")]
@@ -1971,7 +1971,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynCredentialsVerificationReque
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynCredentialsVerificationRequestedEventArgs {
-    type Vtable = IAllJoynCredentialsVerificationRequestedEventArgsVtbl;
+    type Vtable = IAllJoynCredentialsVerificationRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x800a7612_b805_44af_a2e1_792ab655a2d0);
 }
 #[cfg(feature = "deprecated")]
@@ -2086,7 +2086,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynMessageInfo {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynMessageInfo {
-    type Vtable = IAllJoynMessageInfoVtbl;
+    type Vtable = IAllJoynMessageInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff2b0127_2c12_4859_aa3a_c74461ee814c);
 }
 #[cfg(feature = "deprecated")]
@@ -2201,7 +2201,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynProducerStoppedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynProducerStoppedEventArgs {
-    type Vtable = IAllJoynProducerStoppedEventArgsVtbl;
+    type Vtable = IAllJoynProducerStoppedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51309770_4937_492d_8080_236439987ceb);
 }
 #[cfg(feature = "deprecated")]
@@ -2348,7 +2348,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynServiceInfo {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynServiceInfo {
-    type Vtable = IAllJoynServiceInfoVtbl;
+    type Vtable = IAllJoynServiceInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cbe8209_b93e_4182_999b_ddd000f9c575);
 }
 #[cfg(feature = "deprecated")]
@@ -2463,7 +2463,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynServiceInfoRemovedEventArgs 
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynServiceInfoRemovedEventArgs {
-    type Vtable = IAllJoynServiceInfoRemovedEventArgsVtbl;
+    type Vtable = IAllJoynServiceInfoRemovedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3057a95f_1d3f_41f3_8969_e32792627396);
 }
 #[cfg(feature = "deprecated")]
@@ -2649,7 +2649,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynSession {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynSession {
-    type Vtable = IAllJoynSessionVtbl;
+    type Vtable = IAllJoynSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8d11b0c_c0d4_406c_88a9_a93efa85d4b1);
 }
 #[cfg(feature = "deprecated")]
@@ -2764,7 +2764,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynSessionJoinedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynSessionJoinedEventArgs {
-    type Vtable = IAllJoynSessionJoinedEventArgsVtbl;
+    type Vtable = IAllJoynSessionJoinedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e9f5bd0_b5d7_47c5_8dab_b040cc192871);
 }
 #[cfg(feature = "deprecated")]
@@ -2879,7 +2879,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynSessionLostEventArgs {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynSessionLostEventArgs {
-    type Vtable = IAllJoynSessionLostEventArgsVtbl;
+    type Vtable = IAllJoynSessionLostEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe766a48a_8bb8_4954_ae67_d2fa43d1f96b);
 }
 #[cfg(feature = "deprecated")]
@@ -3041,7 +3041,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynSessionMemberAddedEventArgs 
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynSessionMemberAddedEventArgs {
-    type Vtable = IAllJoynSessionMemberAddedEventArgsVtbl;
+    type Vtable = IAllJoynSessionMemberAddedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49a2798a_0dd1_46c1_9cd6_27190e503a5e);
 }
 #[cfg(feature = "deprecated")]
@@ -3156,7 +3156,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynSessionMemberRemovedEventArg
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynSessionMemberRemovedEventArgs {
-    type Vtable = IAllJoynSessionMemberRemovedEventArgsVtbl;
+    type Vtable = IAllJoynSessionMemberRemovedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x409a219f_aa4a_4893_b430_baa1b63c6219);
 }
 #[cfg(feature = "deprecated")]
@@ -3476,7 +3476,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynWatcherStoppedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynWatcherStoppedEventArgs {
-    type Vtable = IAllJoynWatcherStoppedEventArgsVtbl;
+    type Vtable = IAllJoynWatcherStoppedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9fca03b_701d_4aa8_97dd_a2bb0a8f5fa3);
 }
 #[cfg(feature = "deprecated")]
@@ -3541,13 +3541,13 @@ unsafe impl ::core::marker::Sync for AllJoynWatcherStoppedEventArgs {}
 pub struct IAllJoynAboutData(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynAboutData {
-    type Vtable = IAllJoynAboutDataVtbl;
+    type Vtable = IAllJoynAboutData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5a9bf00_1fa2_4839_93ef_f9df404890f7);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynAboutDataVtbl {
+pub struct IAllJoynAboutData_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -3640,13 +3640,13 @@ pub struct IAllJoynAboutDataVtbl {
 pub struct IAllJoynAboutDataView(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynAboutDataView {
-    type Vtable = IAllJoynAboutDataViewVtbl;
+    type Vtable = IAllJoynAboutDataView_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6823111f_6212_4934_9c48_e19ca4984288);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynAboutDataViewVtbl {
+pub struct IAllJoynAboutDataView_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -3719,13 +3719,13 @@ pub struct IAllJoynAboutDataViewVtbl {
 pub struct IAllJoynAboutDataViewStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynAboutDataViewStatics {
-    type Vtable = IAllJoynAboutDataViewStaticsVtbl;
+    type Vtable = IAllJoynAboutDataViewStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57edb688_0c5e_416e_88b5_39b32d25c47d);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynAboutDataViewStaticsVtbl {
+pub struct IAllJoynAboutDataViewStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub GetDataBySessionPortAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, busattachment: ::windows::core::RawPtr, sessionport: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3823,13 +3823,13 @@ unsafe impl ::windows::core::RuntimeType for IAllJoynAcceptSessionJoiner {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynAcceptSessionJoiner {
-    type Vtable = IAllJoynAcceptSessionJoinerVtbl;
+    type Vtable = IAllJoynAcceptSessionJoiner_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4da817d2_cd1d_4023_a7c4_16def89c28df);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynAcceptSessionJoinerVtbl {
+pub struct IAllJoynAcceptSessionJoiner_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Accept: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3842,13 +3842,13 @@ pub struct IAllJoynAcceptSessionJoinerVtbl {
 pub struct IAllJoynAcceptSessionJoinerEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynAcceptSessionJoinerEventArgs {
-    type Vtable = IAllJoynAcceptSessionJoinerEventArgsVtbl;
+    type Vtable = IAllJoynAcceptSessionJoinerEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4efb5365_3e8a_4257_8f10_539ce0d56c0f);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynAcceptSessionJoinerEventArgsVtbl {
+pub struct IAllJoynAcceptSessionJoinerEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub UniqueName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3881,13 +3881,13 @@ pub struct IAllJoynAcceptSessionJoinerEventArgsVtbl {
 pub struct IAllJoynAcceptSessionJoinerEventArgsFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynAcceptSessionJoinerEventArgsFactory {
-    type Vtable = IAllJoynAcceptSessionJoinerEventArgsFactoryVtbl;
+    type Vtable = IAllJoynAcceptSessionJoinerEventArgsFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4435bc0_6145_429e_84db_d5bfe772b14f);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynAcceptSessionJoinerEventArgsFactoryVtbl {
+pub struct IAllJoynAcceptSessionJoinerEventArgsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionport: u16, traffictype: AllJoynTrafficType, proximity: u8, acceptsessionjoiner: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3900,13 +3900,13 @@ pub struct IAllJoynAcceptSessionJoinerEventArgsFactoryVtbl {
 pub struct IAllJoynAuthenticationCompleteEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynAuthenticationCompleteEventArgs {
-    type Vtable = IAllJoynAuthenticationCompleteEventArgsVtbl;
+    type Vtable = IAllJoynAuthenticationCompleteEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97b4701c_15dc_4b53_b6a4_7d134300d7bf);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynAuthenticationCompleteEventArgsVtbl {
+pub struct IAllJoynAuthenticationCompleteEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub AuthenticationMechanism: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AllJoynAuthenticationMechanism) -> ::windows::core::HRESULT,
@@ -3927,13 +3927,13 @@ pub struct IAllJoynAuthenticationCompleteEventArgsVtbl {
 pub struct IAllJoynBusAttachment(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynBusAttachment {
-    type Vtable = IAllJoynBusAttachmentVtbl;
+    type Vtable = IAllJoynBusAttachment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf309f153_1eed_42c3_a20e_436d41fe62f6);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynBusAttachmentVtbl {
+pub struct IAllJoynBusAttachment_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub AboutData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4006,13 +4006,13 @@ pub struct IAllJoynBusAttachmentVtbl {
 pub struct IAllJoynBusAttachment2(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynBusAttachment2 {
-    type Vtable = IAllJoynBusAttachment2Vtbl;
+    type Vtable = IAllJoynBusAttachment2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3474cb1e_2368_43b2_b43e_6a3ac1278d98);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynBusAttachment2Vtbl {
+pub struct IAllJoynBusAttachment2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub GetAboutDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, serviceinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4045,13 +4045,13 @@ pub struct IAllJoynBusAttachment2Vtbl {
 pub struct IAllJoynBusAttachmentFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynBusAttachmentFactory {
-    type Vtable = IAllJoynBusAttachmentFactoryVtbl;
+    type Vtable = IAllJoynBusAttachmentFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x642ef1a4_ad85_4ddf_90ae_604452b22288);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynBusAttachmentFactoryVtbl {
+pub struct IAllJoynBusAttachmentFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionspecification: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4064,13 +4064,13 @@ pub struct IAllJoynBusAttachmentFactoryVtbl {
 pub struct IAllJoynBusAttachmentStateChangedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynBusAttachmentStateChangedEventArgs {
-    type Vtable = IAllJoynBusAttachmentStateChangedEventArgsVtbl;
+    type Vtable = IAllJoynBusAttachmentStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd82e75f4_c02a_41ec_a8d5_eab1558953aa);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynBusAttachmentStateChangedEventArgsVtbl {
+pub struct IAllJoynBusAttachmentStateChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AllJoynBusAttachmentState) -> ::windows::core::HRESULT,
@@ -4087,13 +4087,13 @@ pub struct IAllJoynBusAttachmentStateChangedEventArgsVtbl {
 pub struct IAllJoynBusAttachmentStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynBusAttachmentStatics {
-    type Vtable = IAllJoynBusAttachmentStaticsVtbl;
+    type Vtable = IAllJoynBusAttachmentStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x839d4d3d_1051_40d7_872a_8d0141115b1f);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynBusAttachmentStaticsVtbl {
+pub struct IAllJoynBusAttachmentStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4110,13 +4110,13 @@ pub struct IAllJoynBusAttachmentStaticsVtbl {
 pub struct IAllJoynBusObject(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynBusObject {
-    type Vtable = IAllJoynBusObjectVtbl;
+    type Vtable = IAllJoynBusObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8fd825e_f73a_490c_8804_04e026643047);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynBusObjectVtbl {
+pub struct IAllJoynBusObject_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4153,13 +4153,13 @@ pub struct IAllJoynBusObjectVtbl {
 pub struct IAllJoynBusObjectFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynBusObjectFactory {
-    type Vtable = IAllJoynBusObjectFactoryVtbl;
+    type Vtable = IAllJoynBusObjectFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c2f9f0b_8e02_4f9c_ac27_ea6dad5d3b50);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynBusObjectFactoryVtbl {
+pub struct IAllJoynBusObjectFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectpath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4176,13 +4176,13 @@ pub struct IAllJoynBusObjectFactoryVtbl {
 pub struct IAllJoynBusObjectStoppedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynBusObjectStoppedEventArgs {
-    type Vtable = IAllJoynBusObjectStoppedEventArgsVtbl;
+    type Vtable = IAllJoynBusObjectStoppedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde102115_ef8e_4d42_b93b_a2ae74519766);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynBusObjectStoppedEventArgsVtbl {
+pub struct IAllJoynBusObjectStoppedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -4195,13 +4195,13 @@ pub struct IAllJoynBusObjectStoppedEventArgsVtbl {
 pub struct IAllJoynBusObjectStoppedEventArgsFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynBusObjectStoppedEventArgsFactory {
-    type Vtable = IAllJoynBusObjectStoppedEventArgsFactoryVtbl;
+    type Vtable = IAllJoynBusObjectStoppedEventArgsFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b22fd48_d0a3_4255_953a_4772b4028073);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynBusObjectStoppedEventArgsFactoryVtbl {
+pub struct IAllJoynBusObjectStoppedEventArgsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4214,13 +4214,13 @@ pub struct IAllJoynBusObjectStoppedEventArgsFactoryVtbl {
 pub struct IAllJoynCredentials(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynCredentials {
-    type Vtable = IAllJoynCredentialsVtbl;
+    type Vtable = IAllJoynCredentials_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x824650f2_a190_40b1_abab_349ec244dfaa);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynCredentialsVtbl {
+pub struct IAllJoynCredentials_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub AuthenticationMechanism: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AllJoynAuthenticationMechanism) -> ::windows::core::HRESULT,
@@ -4257,13 +4257,13 @@ pub struct IAllJoynCredentialsVtbl {
 pub struct IAllJoynCredentialsRequestedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynCredentialsRequestedEventArgs {
-    type Vtable = IAllJoynCredentialsRequestedEventArgsVtbl;
+    type Vtable = IAllJoynCredentialsRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a87e34e_b069_4b80_9e1a_41bc837c65d2);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynCredentialsRequestedEventArgsVtbl {
+pub struct IAllJoynCredentialsRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub AttemptCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
@@ -4292,13 +4292,13 @@ pub struct IAllJoynCredentialsRequestedEventArgsVtbl {
 pub struct IAllJoynCredentialsVerificationRequestedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynCredentialsVerificationRequestedEventArgs {
-    type Vtable = IAllJoynCredentialsVerificationRequestedEventArgsVtbl;
+    type Vtable = IAllJoynCredentialsVerificationRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x800a7612_b805_44af_a2e1_792ab655a2d0);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynCredentialsVerificationRequestedEventArgsVtbl {
+pub struct IAllJoynCredentialsVerificationRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub AuthenticationMechanism: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AllJoynAuthenticationMechanism) -> ::windows::core::HRESULT,
@@ -4339,13 +4339,13 @@ pub struct IAllJoynCredentialsVerificationRequestedEventArgsVtbl {
 pub struct IAllJoynMessageInfo(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynMessageInfo {
-    type Vtable = IAllJoynMessageInfoVtbl;
+    type Vtable = IAllJoynMessageInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff2b0127_2c12_4859_aa3a_c74461ee814c);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynMessageInfoVtbl {
+pub struct IAllJoynMessageInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub SenderUniqueName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4358,13 +4358,13 @@ pub struct IAllJoynMessageInfoVtbl {
 pub struct IAllJoynMessageInfoFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynMessageInfoFactory {
-    type Vtable = IAllJoynMessageInfoFactoryVtbl;
+    type Vtable = IAllJoynMessageInfoFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34664c2a_8289_43d4_b4a8_3f4de359f043);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynMessageInfoFactoryVtbl {
+pub struct IAllJoynMessageInfoFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, senderuniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4458,13 +4458,13 @@ unsafe impl ::windows::core::RuntimeType for IAllJoynProducer {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynProducer {
-    type Vtable = IAllJoynProducerVtbl;
+    type Vtable = IAllJoynProducer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d084679_469b_495a_a710_ac50f123069f);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynProducerVtbl {
+pub struct IAllJoynProducer_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub SetBusObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, busobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4477,13 +4477,13 @@ pub struct IAllJoynProducerVtbl {
 pub struct IAllJoynProducerStoppedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynProducerStoppedEventArgs {
-    type Vtable = IAllJoynProducerStoppedEventArgsVtbl;
+    type Vtable = IAllJoynProducerStoppedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51309770_4937_492d_8080_236439987ceb);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynProducerStoppedEventArgsVtbl {
+pub struct IAllJoynProducerStoppedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -4496,13 +4496,13 @@ pub struct IAllJoynProducerStoppedEventArgsVtbl {
 pub struct IAllJoynProducerStoppedEventArgsFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynProducerStoppedEventArgsFactory {
-    type Vtable = IAllJoynProducerStoppedEventArgsFactoryVtbl;
+    type Vtable = IAllJoynProducerStoppedEventArgsFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56529961_b219_4d6e_9f78_fa3f99fa8fe5);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynProducerStoppedEventArgsFactoryVtbl {
+pub struct IAllJoynProducerStoppedEventArgsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4515,13 +4515,13 @@ pub struct IAllJoynProducerStoppedEventArgsFactoryVtbl {
 pub struct IAllJoynServiceInfo(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynServiceInfo {
-    type Vtable = IAllJoynServiceInfoVtbl;
+    type Vtable = IAllJoynServiceInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cbe8209_b93e_4182_999b_ddd000f9c575);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynServiceInfoVtbl {
+pub struct IAllJoynServiceInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub UniqueName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4542,13 +4542,13 @@ pub struct IAllJoynServiceInfoVtbl {
 pub struct IAllJoynServiceInfoFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynServiceInfoFactory {
-    type Vtable = IAllJoynServiceInfoFactoryVtbl;
+    type Vtable = IAllJoynServiceInfoFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7581dabd_fe03_4f4b_94a4_f02fdcbd11b8);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynServiceInfoFactoryVtbl {
+pub struct IAllJoynServiceInfoFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, objectpath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionport: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4561,13 +4561,13 @@ pub struct IAllJoynServiceInfoFactoryVtbl {
 pub struct IAllJoynServiceInfoRemovedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynServiceInfoRemovedEventArgs {
-    type Vtable = IAllJoynServiceInfoRemovedEventArgsVtbl;
+    type Vtable = IAllJoynServiceInfoRemovedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3057a95f_1d3f_41f3_8969_e32792627396);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynServiceInfoRemovedEventArgsVtbl {
+pub struct IAllJoynServiceInfoRemovedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub UniqueName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4580,13 +4580,13 @@ pub struct IAllJoynServiceInfoRemovedEventArgsVtbl {
 pub struct IAllJoynServiceInfoRemovedEventArgsFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynServiceInfoRemovedEventArgsFactory {
-    type Vtable = IAllJoynServiceInfoRemovedEventArgsFactoryVtbl;
+    type Vtable = IAllJoynServiceInfoRemovedEventArgsFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0dbf8627_9aff_4955_9227_6953baf41569);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynServiceInfoRemovedEventArgsFactoryVtbl {
+pub struct IAllJoynServiceInfoRemovedEventArgsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4599,13 +4599,13 @@ pub struct IAllJoynServiceInfoRemovedEventArgsFactoryVtbl {
 pub struct IAllJoynServiceInfoStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynServiceInfoStatics {
-    type Vtable = IAllJoynServiceInfoStaticsVtbl;
+    type Vtable = IAllJoynServiceInfoStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5678570a_603a_49fc_b750_0ef13609213c);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynServiceInfoStaticsVtbl {
+pub struct IAllJoynServiceInfoStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4618,13 +4618,13 @@ pub struct IAllJoynServiceInfoStaticsVtbl {
 pub struct IAllJoynSession(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynSession {
-    type Vtable = IAllJoynSessionVtbl;
+    type Vtable = IAllJoynSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8d11b0c_c0d4_406c_88a9_a93efa85d4b1);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynSessionVtbl {
+pub struct IAllJoynSession_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -4669,13 +4669,13 @@ pub struct IAllJoynSessionVtbl {
 pub struct IAllJoynSessionJoinedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynSessionJoinedEventArgs {
-    type Vtable = IAllJoynSessionJoinedEventArgsVtbl;
+    type Vtable = IAllJoynSessionJoinedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e9f5bd0_b5d7_47c5_8dab_b040cc192871);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynSessionJoinedEventArgsVtbl {
+pub struct IAllJoynSessionJoinedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4688,13 +4688,13 @@ pub struct IAllJoynSessionJoinedEventArgsVtbl {
 pub struct IAllJoynSessionJoinedEventArgsFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynSessionJoinedEventArgsFactory {
-    type Vtable = IAllJoynSessionJoinedEventArgsFactoryVtbl;
+    type Vtable = IAllJoynSessionJoinedEventArgsFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6824d689_d6cb_4d9e_a09e_35806870b17f);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynSessionJoinedEventArgsFactoryVtbl {
+pub struct IAllJoynSessionJoinedEventArgsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, session: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4707,13 +4707,13 @@ pub struct IAllJoynSessionJoinedEventArgsFactoryVtbl {
 pub struct IAllJoynSessionLostEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynSessionLostEventArgs {
-    type Vtable = IAllJoynSessionLostEventArgsVtbl;
+    type Vtable = IAllJoynSessionLostEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe766a48a_8bb8_4954_ae67_d2fa43d1f96b);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynSessionLostEventArgsVtbl {
+pub struct IAllJoynSessionLostEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AllJoynSessionLostReason) -> ::windows::core::HRESULT,
@@ -4726,13 +4726,13 @@ pub struct IAllJoynSessionLostEventArgsVtbl {
 pub struct IAllJoynSessionLostEventArgsFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynSessionLostEventArgsFactory {
-    type Vtable = IAllJoynSessionLostEventArgsFactoryVtbl;
+    type Vtable = IAllJoynSessionLostEventArgsFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13bbfd32_d2f4_49c9_980e_2805e13586b1);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynSessionLostEventArgsFactoryVtbl {
+pub struct IAllJoynSessionLostEventArgsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reason: AllJoynSessionLostReason, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4745,13 +4745,13 @@ pub struct IAllJoynSessionLostEventArgsFactoryVtbl {
 pub struct IAllJoynSessionMemberAddedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynSessionMemberAddedEventArgs {
-    type Vtable = IAllJoynSessionMemberAddedEventArgsVtbl;
+    type Vtable = IAllJoynSessionMemberAddedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49a2798a_0dd1_46c1_9cd6_27190e503a5e);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynSessionMemberAddedEventArgsVtbl {
+pub struct IAllJoynSessionMemberAddedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub UniqueName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4764,13 +4764,13 @@ pub struct IAllJoynSessionMemberAddedEventArgsVtbl {
 pub struct IAllJoynSessionMemberAddedEventArgsFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynSessionMemberAddedEventArgsFactory {
-    type Vtable = IAllJoynSessionMemberAddedEventArgsFactoryVtbl;
+    type Vtable = IAllJoynSessionMemberAddedEventArgsFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x341de352_1d33_40a1_a1d3_e5777020e1f1);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynSessionMemberAddedEventArgsFactoryVtbl {
+pub struct IAllJoynSessionMemberAddedEventArgsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4783,13 +4783,13 @@ pub struct IAllJoynSessionMemberAddedEventArgsFactoryVtbl {
 pub struct IAllJoynSessionMemberRemovedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynSessionMemberRemovedEventArgs {
-    type Vtable = IAllJoynSessionMemberRemovedEventArgsVtbl;
+    type Vtable = IAllJoynSessionMemberRemovedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x409a219f_aa4a_4893_b430_baa1b63c6219);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynSessionMemberRemovedEventArgsVtbl {
+pub struct IAllJoynSessionMemberRemovedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub UniqueName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4802,13 +4802,13 @@ pub struct IAllJoynSessionMemberRemovedEventArgsVtbl {
 pub struct IAllJoynSessionMemberRemovedEventArgsFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynSessionMemberRemovedEventArgsFactory {
-    type Vtable = IAllJoynSessionMemberRemovedEventArgsFactoryVtbl;
+    type Vtable = IAllJoynSessionMemberRemovedEventArgsFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4d355e8_42b8_4b67_b757_d0cfcad59280);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynSessionMemberRemovedEventArgsFactoryVtbl {
+pub struct IAllJoynSessionMemberRemovedEventArgsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4821,13 +4821,13 @@ pub struct IAllJoynSessionMemberRemovedEventArgsFactoryVtbl {
 pub struct IAllJoynSessionStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynSessionStatics {
-    type Vtable = IAllJoynSessionStaticsVtbl;
+    type Vtable = IAllJoynSessionStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e05d604_a06c_46d4_b46c_0b0b54105b44);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynSessionStaticsVtbl {
+pub struct IAllJoynSessionStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub GetFromServiceInfoAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, serviceinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4844,13 +4844,13 @@ pub struct IAllJoynSessionStaticsVtbl {
 pub struct IAllJoynStatusStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynStatusStatics {
-    type Vtable = IAllJoynStatusStaticsVtbl;
+    type Vtable = IAllJoynStatusStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0b7a17e_0d29_4da9_8ac6_54c554bedbc5);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynStatusStaticsVtbl {
+pub struct IAllJoynStatusStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Ok: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -4931,13 +4931,13 @@ pub struct IAllJoynStatusStaticsVtbl {
 pub struct IAllJoynWatcherStoppedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynWatcherStoppedEventArgs {
-    type Vtable = IAllJoynWatcherStoppedEventArgsVtbl;
+    type Vtable = IAllJoynWatcherStoppedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9fca03b_701d_4aa8_97dd_a2bb0a8f5fa3);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynWatcherStoppedEventArgsVtbl {
+pub struct IAllJoynWatcherStoppedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -4950,13 +4950,13 @@ pub struct IAllJoynWatcherStoppedEventArgsVtbl {
 pub struct IAllJoynWatcherStoppedEventArgsFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IAllJoynWatcherStoppedEventArgsFactory {
-    type Vtable = IAllJoynWatcherStoppedEventArgsFactoryVtbl;
+    type Vtable = IAllJoynWatcherStoppedEventArgsFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x878fa5a8_2d50_47e1_904a_20bf0d48c782);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAllJoynWatcherStoppedEventArgsFactoryVtbl {
+pub struct IAllJoynWatcherStoppedEventArgsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

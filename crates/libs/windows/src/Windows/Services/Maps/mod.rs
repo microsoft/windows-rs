@@ -60,7 +60,7 @@ unsafe impl ::windows::core::RuntimeType for EnhancedWaypoint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.EnhancedWaypoint;{ed268c74-5913-11e6-8b77-86f30ca893d3})");
 }
 unsafe impl ::windows::core::Interface for EnhancedWaypoint {
-    type Vtable = IEnhancedWaypointVtbl;
+    type Vtable = IEnhancedWaypoint_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed268c74_5913_11e6_8b77_86f30ca893d3);
 }
 impl ::windows::core::RuntimeName for EnhancedWaypoint {
@@ -112,12 +112,12 @@ unsafe impl ::core::marker::Sync for EnhancedWaypoint {}
 #[repr(transparent)]
 pub struct IEnhancedWaypoint(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEnhancedWaypoint {
-    type Vtable = IEnhancedWaypointVtbl;
+    type Vtable = IEnhancedWaypoint_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed268c74_5913_11e6_8b77_86f30ca893d3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnhancedWaypointVtbl {
+pub struct IEnhancedWaypoint_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub Point: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -129,12 +129,12 @@ pub struct IEnhancedWaypointVtbl {
 #[repr(transparent)]
 pub struct IEnhancedWaypointFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEnhancedWaypointFactory {
-    type Vtable = IEnhancedWaypointFactoryVtbl;
+    type Vtable = IEnhancedWaypointFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf868477_a2aa_46dd_b645_23b31b8aa6c7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnhancedWaypointFactoryVtbl {
+pub struct IEnhancedWaypointFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, point: ::windows::core::RawPtr, kind: WaypointKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -145,12 +145,12 @@ pub struct IEnhancedWaypointFactoryVtbl {
 #[repr(transparent)]
 pub struct IManeuverWarning(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IManeuverWarning {
-    type Vtable = IManeuverWarningVtbl;
+    type Vtable = IManeuverWarning_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1a36d8a_2630_4378_9e4a_6e44253dceba);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IManeuverWarningVtbl {
+pub struct IManeuverWarning_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ManeuverWarningKind) -> ::windows::core::HRESULT,
     pub Severity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ManeuverWarningSeverity) -> ::windows::core::HRESULT,
@@ -159,12 +159,12 @@ pub struct IManeuverWarningVtbl {
 #[repr(transparent)]
 pub struct IMapAddress(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapAddress {
-    type Vtable = IMapAddressVtbl;
+    type Vtable = IMapAddress_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfa7a973_a3b4_4494_b3ff_cba94db69699);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapAddressVtbl {
+pub struct IMapAddress_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub BuildingName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub BuildingFloor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -186,12 +186,12 @@ pub struct IMapAddressVtbl {
 #[repr(transparent)]
 pub struct IMapAddress2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapAddress2 {
-    type Vtable = IMapAddress2Vtbl;
+    type Vtable = IMapAddress2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75cd6df1_e5ad_45a9_bf40_6cf256c1dd13);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapAddress2Vtbl {
+pub struct IMapAddress2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FormattedAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -199,12 +199,12 @@ pub struct IMapAddress2Vtbl {
 #[repr(transparent)]
 pub struct IMapLocation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapLocation {
-    type Vtable = IMapLocationVtbl;
+    type Vtable = IMapLocation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c073f57_0da4_42e8_9ee2_a96fcf2371dc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapLocationVtbl {
+pub struct IMapLocation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub Point: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -218,12 +218,12 @@ pub struct IMapLocationVtbl {
 #[repr(transparent)]
 pub struct IMapLocationFinderResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapLocationFinderResult {
-    type Vtable = IMapLocationFinderResultVtbl;
+    type Vtable = IMapLocationFinderResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43f1f179_e8cc_45f6_bed2_54ccbf965d9a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapLocationFinderResultVtbl {
+pub struct IMapLocationFinderResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Locations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -235,12 +235,12 @@ pub struct IMapLocationFinderResultVtbl {
 #[repr(transparent)]
 pub struct IMapLocationFinderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapLocationFinderStatics {
-    type Vtable = IMapLocationFinderStaticsVtbl;
+    type Vtable = IMapLocationFinderStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x318adb5d_1c5d_4f35_a2df_aaca94959517);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapLocationFinderStaticsVtbl {
+pub struct IMapLocationFinderStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub FindLocationsAtAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, querypoint: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -259,12 +259,12 @@ pub struct IMapLocationFinderStaticsVtbl {
 #[repr(transparent)]
 pub struct IMapLocationFinderStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapLocationFinderStatics2 {
-    type Vtable = IMapLocationFinderStatics2Vtbl;
+    type Vtable = IMapLocationFinderStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x959a8b96_6485_4dfd_851a_33ac317e3af6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapLocationFinderStatics2Vtbl {
+pub struct IMapLocationFinderStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub FindLocationsAtWithAccuracyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, querypoint: ::windows::core::RawPtr, accuracy: MapLocationDesiredAccuracy, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -275,12 +275,12 @@ pub struct IMapLocationFinderStatics2Vtbl {
 #[repr(transparent)]
 pub struct IMapManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapManagerStatics {
-    type Vtable = IMapManagerStaticsVtbl;
+    type Vtable = IMapManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37e3e515_82b4_4d54_8fd9_af2624b3011c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapManagerStaticsVtbl {
+pub struct IMapManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ShowDownloadedMapsUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ShowMapsUpdateUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -289,12 +289,12 @@ pub struct IMapManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IMapRoute(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRoute {
-    type Vtable = IMapRouteVtbl;
+    type Vtable = IMapRoute_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb07b732_584d_4583_9c60_641fea274349);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapRouteVtbl {
+pub struct IMapRoute_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub BoundingBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -319,12 +319,12 @@ pub struct IMapRouteVtbl {
 #[repr(transparent)]
 pub struct IMapRoute2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRoute2 {
-    type Vtable = IMapRoute2Vtbl;
+    type Vtable = IMapRoute2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1c5d40c_2213_4ab0_a260_46b38169beac);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapRoute2Vtbl {
+pub struct IMapRoute2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ViolatedRestrictions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MapRouteRestrictions) -> ::windows::core::HRESULT,
     pub HasBlockedRoads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -333,12 +333,12 @@ pub struct IMapRoute2Vtbl {
 #[repr(transparent)]
 pub struct IMapRoute3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRoute3 {
-    type Vtable = IMapRoute3Vtbl;
+    type Vtable = IMapRoute3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x858d1eae_f2ad_429f_bb37_cd21094ffc92);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapRoute3Vtbl {
+pub struct IMapRoute3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub DurationWithoutTraffic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -350,12 +350,12 @@ pub struct IMapRoute3Vtbl {
 #[repr(transparent)]
 pub struct IMapRoute4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRoute4 {
-    type Vtable = IMapRoute4Vtbl;
+    type Vtable = IMapRoute4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x366c8ca5_3053_4fa1_80ff_d475f3ed1e6e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapRoute4Vtbl {
+pub struct IMapRoute4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsScenic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -363,12 +363,12 @@ pub struct IMapRoute4Vtbl {
 #[repr(transparent)]
 pub struct IMapRouteDrivingOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRouteDrivingOptions {
-    type Vtable = IMapRouteDrivingOptionsVtbl;
+    type Vtable = IMapRouteDrivingOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6815364d_c6dc_4697_a452_b18f8f0b67a1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapRouteDrivingOptionsVtbl {
+pub struct IMapRouteDrivingOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MaxAlternateRouteCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub SetMaxAlternateRouteCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
@@ -389,12 +389,12 @@ pub struct IMapRouteDrivingOptionsVtbl {
 #[repr(transparent)]
 pub struct IMapRouteDrivingOptions2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRouteDrivingOptions2 {
-    type Vtable = IMapRouteDrivingOptions2Vtbl;
+    type Vtable = IMapRouteDrivingOptions2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35dc8670_c298_48d0_b5ad_825460645603);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapRouteDrivingOptions2Vtbl {
+pub struct IMapRouteDrivingOptions2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub DepartureTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -409,12 +409,12 @@ pub struct IMapRouteDrivingOptions2Vtbl {
 #[repr(transparent)]
 pub struct IMapRouteFinderResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRouteFinderResult {
-    type Vtable = IMapRouteFinderResultVtbl;
+    type Vtable = IMapRouteFinderResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa868a31a_9422_46ac_8ca1_b1614d4bfbe2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapRouteFinderResultVtbl {
+pub struct IMapRouteFinderResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Route: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MapRouteFinderStatus) -> ::windows::core::HRESULT,
@@ -423,12 +423,12 @@ pub struct IMapRouteFinderResultVtbl {
 #[repr(transparent)]
 pub struct IMapRouteFinderResult2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRouteFinderResult2 {
-    type Vtable = IMapRouteFinderResult2Vtbl;
+    type Vtable = IMapRouteFinderResult2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20709c6d_d90c_46c8_91c6_7d4be4efb215);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapRouteFinderResult2Vtbl {
+pub struct IMapRouteFinderResult2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub AlternateRoutes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -439,12 +439,12 @@ pub struct IMapRouteFinderResult2Vtbl {
 #[repr(transparent)]
 pub struct IMapRouteFinderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRouteFinderStatics {
-    type Vtable = IMapRouteFinderStaticsVtbl;
+    type Vtable = IMapRouteFinderStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8a5c50f_1c64_4c3a_81eb_1f7c152afbbb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapRouteFinderStaticsVtbl {
+pub struct IMapRouteFinderStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub GetDrivingRouteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startpoint: ::windows::core::RawPtr, endpoint: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -491,12 +491,12 @@ pub struct IMapRouteFinderStaticsVtbl {
 #[repr(transparent)]
 pub struct IMapRouteFinderStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRouteFinderStatics2 {
-    type Vtable = IMapRouteFinderStatics2Vtbl;
+    type Vtable = IMapRouteFinderStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafcc2c73_7760_49af_b3bd_baf135b703e1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapRouteFinderStatics2Vtbl {
+pub struct IMapRouteFinderStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub GetDrivingRouteWithOptionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startpoint: ::windows::core::RawPtr, endpoint: ::windows::core::RawPtr, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -507,12 +507,12 @@ pub struct IMapRouteFinderStatics2Vtbl {
 #[repr(transparent)]
 pub struct IMapRouteFinderStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRouteFinderStatics3 {
-    type Vtable = IMapRouteFinderStatics3Vtbl;
+    type Vtable = IMapRouteFinderStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6098134_5913_11e6_8b77_86f30ca893d3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapRouteFinderStatics3Vtbl {
+pub struct IMapRouteFinderStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetDrivingRouteFromEnhancedWaypointsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, waypoints: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -527,12 +527,12 @@ pub struct IMapRouteFinderStatics3Vtbl {
 #[repr(transparent)]
 pub struct IMapRouteLeg(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRouteLeg {
-    type Vtable = IMapRouteLegVtbl;
+    type Vtable = IMapRouteLeg_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96f8b2f6_5bba_4d17_9db6_1a263fec7471);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapRouteLegVtbl {
+pub struct IMapRouteLeg_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub BoundingBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -556,12 +556,12 @@ pub struct IMapRouteLegVtbl {
 #[repr(transparent)]
 pub struct IMapRouteLeg2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRouteLeg2 {
-    type Vtable = IMapRouteLeg2Vtbl;
+    type Vtable = IMapRouteLeg2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02e2062d_c9c6_45b8_8e54_1a10b57a17e8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapRouteLeg2Vtbl {
+pub struct IMapRouteLeg2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub DurationWithoutTraffic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -573,12 +573,12 @@ pub struct IMapRouteLeg2Vtbl {
 #[repr(transparent)]
 pub struct IMapRouteManeuver(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRouteManeuver {
-    type Vtable = IMapRouteManeuverVtbl;
+    type Vtable = IMapRouteManeuver_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed5c17f0_a6ab_4d65_a086_fa8a7e340df2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapRouteManeuverVtbl {
+pub struct IMapRouteManeuver_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub StartingPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -594,12 +594,12 @@ pub struct IMapRouteManeuverVtbl {
 #[repr(transparent)]
 pub struct IMapRouteManeuver2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRouteManeuver2 {
-    type Vtable = IMapRouteManeuver2Vtbl;
+    type Vtable = IMapRouteManeuver2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d7bcd9c_7c9b_41df_838b_eae21e4b05a9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapRouteManeuver2Vtbl {
+pub struct IMapRouteManeuver2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub StartHeading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub EndHeading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -609,12 +609,12 @@ pub struct IMapRouteManeuver2Vtbl {
 #[repr(transparent)]
 pub struct IMapRouteManeuver3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapRouteManeuver3 {
-    type Vtable = IMapRouteManeuver3Vtbl;
+    type Vtable = IMapRouteManeuver3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6a138df_0483_4166_85be_b99336c11875);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapRouteManeuver3Vtbl {
+pub struct IMapRouteManeuver3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Warnings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -625,12 +625,12 @@ pub struct IMapRouteManeuver3Vtbl {
 #[repr(transparent)]
 pub struct IMapServiceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapServiceStatics {
-    type Vtable = IMapServiceStaticsVtbl;
+    type Vtable = IMapServiceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0144ad85_c04c_4cdd_871a_a0726d097cd4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapServiceStaticsVtbl {
+pub struct IMapServiceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetServiceToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ServiceToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -639,12 +639,12 @@ pub struct IMapServiceStaticsVtbl {
 #[repr(transparent)]
 pub struct IMapServiceStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapServiceStatics2 {
-    type Vtable = IMapServiceStatics2Vtbl;
+    type Vtable = IMapServiceStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8193eed_9c85_40a9_8896_0fc3fd2b7c2a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapServiceStatics2Vtbl {
+pub struct IMapServiceStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub WorldViewRegionCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -652,12 +652,12 @@ pub struct IMapServiceStatics2Vtbl {
 #[repr(transparent)]
 pub struct IMapServiceStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapServiceStatics3 {
-    type Vtable = IMapServiceStatics3Vtbl;
+    type Vtable = IMapServiceStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a11ce20_63a7_4854_b355_d6dcda223d1b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapServiceStatics3Vtbl {
+pub struct IMapServiceStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DataAttributions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -665,12 +665,12 @@ pub struct IMapServiceStatics3Vtbl {
 #[repr(transparent)]
 pub struct IMapServiceStatics4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMapServiceStatics4 {
-    type Vtable = IMapServiceStatics4Vtbl;
+    type Vtable = IMapServiceStatics4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x088a2862_6abc_420e_945f_4cfd89c67356);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapServiceStatics4Vtbl {
+pub struct IMapServiceStatics4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetDataUsagePreference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: MapServiceDataUsagePreference) -> ::windows::core::HRESULT,
     pub DataUsagePreference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MapServiceDataUsagePreference) -> ::windows::core::HRESULT,
@@ -679,12 +679,12 @@ pub struct IMapServiceStatics4Vtbl {
 #[repr(transparent)]
 pub struct IPlaceInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlaceInfo {
-    type Vtable = IPlaceInfoVtbl;
+    type Vtable = IPlaceInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a0810b6_31c8_4f6a_9f18_950b4c38951a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlaceInfoVtbl {
+pub struct IPlaceInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect) -> ::windows::core::HRESULT,
@@ -706,12 +706,12 @@ pub struct IPlaceInfoVtbl {
 #[repr(transparent)]
 pub struct IPlaceInfoCreateOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlaceInfoCreateOptions {
-    type Vtable = IPlaceInfoCreateOptionsVtbl;
+    type Vtable = IPlaceInfoCreateOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd33c125_67f1_4bb3_9907_ecce939b0399);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlaceInfoCreateOptionsVtbl {
+pub struct IPlaceInfoCreateOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -722,12 +722,12 @@ pub struct IPlaceInfoCreateOptionsVtbl {
 #[repr(transparent)]
 pub struct IPlaceInfoStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlaceInfoStatics {
-    type Vtable = IPlaceInfoStaticsVtbl;
+    type Vtable = IPlaceInfoStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82b9ff71_6cd0_48a4_afd9_5ed82097936b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlaceInfoStaticsVtbl {
+pub struct IPlaceInfoStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, referencepoint: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -749,12 +749,12 @@ pub struct IPlaceInfoStaticsVtbl {
 #[repr(transparent)]
 pub struct IPlaceInfoStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlaceInfoStatics2 {
-    type Vtable = IPlaceInfoStatics2Vtbl;
+    type Vtable = IPlaceInfoStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x730f0249_4047_44a3_8f81_2550a5216370);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlaceInfoStatics2Vtbl {
+pub struct IPlaceInfoStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateFromAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayaddress: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateFromAddressWithName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayaddress: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -800,7 +800,7 @@ unsafe impl ::windows::core::RuntimeType for ManeuverWarning {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.ManeuverWarning;{c1a36d8a-2630-4378-9e4a-6e44253dceba})");
 }
 unsafe impl ::windows::core::Interface for ManeuverWarning {
-    type Vtable = IManeuverWarningVtbl;
+    type Vtable = IManeuverWarning_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1a36d8a_2630_4378_9e4a_6e44253dceba);
 }
 impl ::windows::core::RuntimeName for ManeuverWarning {
@@ -1104,7 +1104,7 @@ unsafe impl ::windows::core::RuntimeType for MapAddress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapAddress;{cfa7a973-a3b4-4494-b3ff-cba94db69699})");
 }
 unsafe impl ::windows::core::Interface for MapAddress {
-    type Vtable = IMapAddressVtbl;
+    type Vtable = IMapAddress_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfa7a973_a3b4_4494_b3ff_cba94db69699);
 }
 impl ::windows::core::RuntimeName for MapAddress {
@@ -1210,7 +1210,7 @@ unsafe impl ::windows::core::RuntimeType for MapLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapLocation;{3c073f57-0da4-42e8-9ee2-a96fcf2371dc})");
 }
 unsafe impl ::windows::core::Interface for MapLocation {
-    type Vtable = IMapLocationVtbl;
+    type Vtable = IMapLocation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c073f57_0da4_42e8_9ee2_a96fcf2371dc);
 }
 impl ::windows::core::RuntimeName for MapLocation {
@@ -1382,7 +1382,7 @@ unsafe impl ::windows::core::RuntimeType for MapLocationFinderResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapLocationFinderResult;{43f1f179-e8cc-45f6-bed2-54ccbf965d9a})");
 }
 unsafe impl ::windows::core::Interface for MapLocationFinderResult {
-    type Vtable = IMapLocationFinderResultVtbl;
+    type Vtable = IMapLocationFinderResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43f1f179_e8cc_45f6_bed2_54ccbf965d9a);
 }
 impl ::windows::core::RuntimeName for MapLocationFinderResult {
@@ -1668,7 +1668,7 @@ unsafe impl ::windows::core::RuntimeType for MapRoute {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRoute;{fb07b732-584d-4583-9c60-641fea274349})");
 }
 unsafe impl ::windows::core::Interface for MapRoute {
-    type Vtable = IMapRouteVtbl;
+    type Vtable = IMapRoute_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb07b732_584d_4583_9c60_641fea274349);
 }
 impl ::windows::core::RuntimeName for MapRoute {
@@ -1817,7 +1817,7 @@ unsafe impl ::windows::core::RuntimeType for MapRouteDrivingOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRouteDrivingOptions;{6815364d-c6dc-4697-a452-b18f8f0b67a1})");
 }
 unsafe impl ::windows::core::Interface for MapRouteDrivingOptions {
-    type Vtable = IMapRouteDrivingOptionsVtbl;
+    type Vtable = IMapRouteDrivingOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6815364d_c6dc_4697_a452_b18f8f0b67a1);
 }
 impl ::windows::core::RuntimeName for MapRouteDrivingOptions {
@@ -2041,7 +2041,7 @@ unsafe impl ::windows::core::RuntimeType for MapRouteFinderResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRouteFinderResult;{a868a31a-9422-46ac-8ca1-b1614d4bfbe2})");
 }
 unsafe impl ::windows::core::Interface for MapRouteFinderResult {
-    type Vtable = IMapRouteFinderResultVtbl;
+    type Vtable = IMapRouteFinderResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa868a31a_9422_46ac_8ca1_b1614d4bfbe2);
 }
 impl ::windows::core::RuntimeName for MapRouteFinderResult {
@@ -2216,7 +2216,7 @@ unsafe impl ::windows::core::RuntimeType for MapRouteLeg {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRouteLeg;{96f8b2f6-5bba-4d17-9db6-1a263fec7471})");
 }
 unsafe impl ::windows::core::Interface for MapRouteLeg {
-    type Vtable = IMapRouteLegVtbl;
+    type Vtable = IMapRouteLeg_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96f8b2f6_5bba_4d17_9db6_1a263fec7471);
 }
 impl ::windows::core::RuntimeName for MapRouteLeg {
@@ -2371,7 +2371,7 @@ unsafe impl ::windows::core::RuntimeType for MapRouteManeuver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRouteManeuver;{ed5c17f0-a6ab-4d65-a086-fa8a7e340df2})");
 }
 unsafe impl ::windows::core::Interface for MapRouteManeuver {
-    type Vtable = IMapRouteManeuverVtbl;
+    type Vtable = IMapRouteManeuver_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed5c17f0_a6ab_4d65_a086_fa8a7e340df2);
 }
 impl ::windows::core::RuntimeName for MapRouteManeuver {
@@ -2811,7 +2811,7 @@ unsafe impl ::windows::core::RuntimeType for PlaceInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.PlaceInfo;{9a0810b6-31c8-4f6a-9f18-950b4c38951a})");
 }
 unsafe impl ::windows::core::Interface for PlaceInfo {
-    type Vtable = IPlaceInfoVtbl;
+    type Vtable = IPlaceInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a0810b6_31c8_4f6a_9f18_950b4c38951a);
 }
 impl ::windows::core::RuntimeName for PlaceInfo {
@@ -2917,7 +2917,7 @@ unsafe impl ::windows::core::RuntimeType for PlaceInfoCreateOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.PlaceInfoCreateOptions;{cd33c125-67f1-4bb3-9907-ecce939b0399})");
 }
 unsafe impl ::windows::core::Interface for PlaceInfoCreateOptions {
-    type Vtable = IPlaceInfoCreateOptionsVtbl;
+    type Vtable = IPlaceInfoCreateOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd33c125_67f1_4bb3_9907_ecce939b0399);
 }
 impl ::windows::core::RuntimeName for PlaceInfoCreateOptions {

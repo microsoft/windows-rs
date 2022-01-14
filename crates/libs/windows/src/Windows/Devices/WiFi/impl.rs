@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "Security_Credentials", feature = "implement_exclusive"))]
-pub trait IWiFiAdapterImpl: Sized {
+pub trait IWiFiAdapter_Impl: Sized {
     fn NetworkAdapter(&mut self) -> ::windows::core::Result<super::super::Networking::Connectivity::NetworkAdapter>;
     fn ScanAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn NetworkReport(&mut self) -> ::windows::core::Result<WiFiNetworkReport>;
@@ -15,9 +15,9 @@ impl ::windows::core::RuntimeName for IWiFiAdapter {
     const NAME: &'static str = "Windows.Devices.WiFi.IWiFiAdapter";
 }
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "Security_Credentials", feature = "implement_exclusive"))]
-impl IWiFiAdapterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiAdapterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiAdapterVtbl {
-        unsafe extern "system" fn NetworkAdapter<Impl: IWiFiAdapterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IWiFiAdapter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiAdapter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiAdapter_Vtbl {
+        unsafe extern "system" fn NetworkAdapter<Impl: IWiFiAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkAdapter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -28,7 +28,7 @@ impl IWiFiAdapterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ScanAsync<Impl: IWiFiAdapterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScanAsync<Impl: IWiFiAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScanAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -39,7 +39,7 @@ impl IWiFiAdapterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NetworkReport<Impl: IWiFiAdapterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NetworkReport<Impl: IWiFiAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkReport() {
                 ::core::result::Result::Ok(ok__) => {
@@ -50,7 +50,7 @@ impl IWiFiAdapterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AvailableNetworksChanged<Impl: IWiFiAdapterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, args: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AvailableNetworksChanged<Impl: IWiFiAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, args: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AvailableNetworksChanged(&*(&args as *const <super::super::Foundation::TypedEventHandler<WiFiAdapter, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<WiFiAdapter, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -61,11 +61,11 @@ impl IWiFiAdapterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAvailableNetworksChanged<Impl: IWiFiAdapterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAvailableNetworksChanged<Impl: IWiFiAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAvailableNetworksChanged(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ConnectAsync<Impl: IWiFiAdapterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, availablenetwork: ::windows::core::RawPtr, reconnectionkind: WiFiReconnectionKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectAsync<Impl: IWiFiAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, availablenetwork: ::windows::core::RawPtr, reconnectionkind: WiFiReconnectionKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectAsync(&*(&availablenetwork as *const <WiFiAvailableNetwork as ::windows::core::Abi>::Abi as *const <WiFiAvailableNetwork as ::windows::core::DefaultType>::DefaultType), reconnectionkind) {
                 ::core::result::Result::Ok(ok__) => {
@@ -76,7 +76,7 @@ impl IWiFiAdapterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectWithPasswordCredentialAsync<Impl: IWiFiAdapterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, availablenetwork: ::windows::core::RawPtr, reconnectionkind: WiFiReconnectionKind, passwordcredential: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectWithPasswordCredentialAsync<Impl: IWiFiAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, availablenetwork: ::windows::core::RawPtr, reconnectionkind: WiFiReconnectionKind, passwordcredential: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectWithPasswordCredentialAsync(&*(&availablenetwork as *const <WiFiAvailableNetwork as ::windows::core::Abi>::Abi as *const <WiFiAvailableNetwork as ::windows::core::DefaultType>::DefaultType), reconnectionkind, &*(&passwordcredential as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::Abi>::Abi as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -87,7 +87,7 @@ impl IWiFiAdapterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectWithPasswordCredentialAndSsidAsync<Impl: IWiFiAdapterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, availablenetwork: ::windows::core::RawPtr, reconnectionkind: WiFiReconnectionKind, passwordcredential: ::windows::core::RawPtr, ssid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectWithPasswordCredentialAndSsidAsync<Impl: IWiFiAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, availablenetwork: ::windows::core::RawPtr, reconnectionkind: WiFiReconnectionKind, passwordcredential: ::windows::core::RawPtr, ssid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectWithPasswordCredentialAndSsidAsync(
                 &*(&availablenetwork as *const <WiFiAvailableNetwork as ::windows::core::Abi>::Abi as *const <WiFiAvailableNetwork as ::windows::core::DefaultType>::DefaultType),
@@ -103,7 +103,7 @@ impl IWiFiAdapterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Disconnect<Impl: IWiFiAdapterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Disconnect<Impl: IWiFiAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Disconnect().into()
         }
@@ -125,7 +125,7 @@ impl IWiFiAdapterVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
-pub trait IWiFiAdapter2Impl: Sized {
+pub trait IWiFiAdapter2_Impl: Sized {
     fn GetWpsConfigurationAsync(&mut self, availablenetwork: &::core::option::Option<WiFiAvailableNetwork>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiWpsConfigurationResult>>;
     fn ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync(&mut self, availablenetwork: &::core::option::Option<WiFiAvailableNetwork>, reconnectionkind: WiFiReconnectionKind, passwordcredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>, ssid: &::windows::core::HSTRING, connectionmethod: WiFiConnectionMethod) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>;
 }
@@ -134,9 +134,9 @@ impl ::windows::core::RuntimeName for IWiFiAdapter2 {
     const NAME: &'static str = "Windows.Devices.WiFi.IWiFiAdapter2";
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "implement_exclusive"))]
-impl IWiFiAdapter2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiAdapter2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiAdapter2Vtbl {
-        unsafe extern "system" fn GetWpsConfigurationAsync<Impl: IWiFiAdapter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, availablenetwork: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IWiFiAdapter2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiAdapter2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiAdapter2_Vtbl {
+        unsafe extern "system" fn GetWpsConfigurationAsync<Impl: IWiFiAdapter2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, availablenetwork: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetWpsConfigurationAsync(&*(&availablenetwork as *const <WiFiAvailableNetwork as ::windows::core::Abi>::Abi as *const <WiFiAvailableNetwork as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -147,7 +147,7 @@ impl IWiFiAdapter2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync<Impl: IWiFiAdapter2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, availablenetwork: ::windows::core::RawPtr, reconnectionkind: WiFiReconnectionKind, passwordcredential: ::windows::core::RawPtr, ssid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, connectionmethod: WiFiConnectionMethod, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync<Impl: IWiFiAdapter2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, availablenetwork: ::windows::core::RawPtr, reconnectionkind: WiFiReconnectionKind, passwordcredential: ::windows::core::RawPtr, ssid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, connectionmethod: WiFiConnectionMethod, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync(
                 &*(&availablenetwork as *const <WiFiAvailableNetwork as ::windows::core::Abi>::Abi as *const <WiFiAvailableNetwork as ::windows::core::DefaultType>::DefaultType),
@@ -175,7 +175,7 @@ impl IWiFiAdapter2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IWiFiAdapterStaticsImpl: Sized {
+pub trait IWiFiAdapterStatics_Impl: Sized {
     fn FindAllAdaptersAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WiFiAdapter>>>;
     fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiAdapter>>;
@@ -186,9 +186,9 @@ impl ::windows::core::RuntimeName for IWiFiAdapterStatics {
     const NAME: &'static str = "Windows.Devices.WiFi.IWiFiAdapterStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IWiFiAdapterStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiAdapterStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiAdapterStaticsVtbl {
-        unsafe extern "system" fn FindAllAdaptersAsync<Impl: IWiFiAdapterStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IWiFiAdapterStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiAdapterStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiAdapterStatics_Vtbl {
+        unsafe extern "system" fn FindAllAdaptersAsync<Impl: IWiFiAdapterStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAllAdaptersAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -199,7 +199,7 @@ impl IWiFiAdapterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelector<Impl: IWiFiAdapterStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelector<Impl: IWiFiAdapterStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
                 ::core::result::Result::Ok(ok__) => {
@@ -210,7 +210,7 @@ impl IWiFiAdapterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromIdAsync<Impl: IWiFiAdapterStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromIdAsync<Impl: IWiFiAdapterStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -221,7 +221,7 @@ impl IWiFiAdapterStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestAccessAsync<Impl: IWiFiAdapterStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestAccessAsync<Impl: IWiFiAdapterStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAccessAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -245,7 +245,7 @@ impl IWiFiAdapterStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
-pub trait IWiFiAvailableNetworkImpl: Sized {
+pub trait IWiFiAvailableNetwork_Impl: Sized {
     fn Uptime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn Ssid(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Bssid(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -263,9 +263,9 @@ impl ::windows::core::RuntimeName for IWiFiAvailableNetwork {
     const NAME: &'static str = "Windows.Devices.WiFi.IWiFiAvailableNetwork";
 }
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
-impl IWiFiAvailableNetworkVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiAvailableNetworkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiAvailableNetworkVtbl {
-        unsafe extern "system" fn Uptime<Impl: IWiFiAvailableNetworkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+impl IWiFiAvailableNetwork_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiAvailableNetwork_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiAvailableNetwork_Vtbl {
+        unsafe extern "system" fn Uptime<Impl: IWiFiAvailableNetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uptime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -276,7 +276,7 @@ impl IWiFiAvailableNetworkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Ssid<Impl: IWiFiAvailableNetworkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ssid<Impl: IWiFiAvailableNetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Ssid() {
                 ::core::result::Result::Ok(ok__) => {
@@ -287,7 +287,7 @@ impl IWiFiAvailableNetworkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Bssid<Impl: IWiFiAvailableNetworkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Bssid<Impl: IWiFiAvailableNetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bssid() {
                 ::core::result::Result::Ok(ok__) => {
@@ -298,7 +298,7 @@ impl IWiFiAvailableNetworkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ChannelCenterFrequencyInKilohertz<Impl: IWiFiAvailableNetworkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ChannelCenterFrequencyInKilohertz<Impl: IWiFiAvailableNetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChannelCenterFrequencyInKilohertz() {
                 ::core::result::Result::Ok(ok__) => {
@@ -309,7 +309,7 @@ impl IWiFiAvailableNetworkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NetworkRssiInDecibelMilliwatts<Impl: IWiFiAvailableNetworkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NetworkRssiInDecibelMilliwatts<Impl: IWiFiAvailableNetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkRssiInDecibelMilliwatts() {
                 ::core::result::Result::Ok(ok__) => {
@@ -320,7 +320,7 @@ impl IWiFiAvailableNetworkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SignalBars<Impl: IWiFiAvailableNetworkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignalBars<Impl: IWiFiAvailableNetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignalBars() {
                 ::core::result::Result::Ok(ok__) => {
@@ -331,7 +331,7 @@ impl IWiFiAvailableNetworkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NetworkKind<Impl: IWiFiAvailableNetworkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WiFiNetworkKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NetworkKind<Impl: IWiFiAvailableNetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WiFiNetworkKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkKind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -342,7 +342,7 @@ impl IWiFiAvailableNetworkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhyKind<Impl: IWiFiAvailableNetworkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WiFiPhyKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhyKind<Impl: IWiFiAvailableNetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WiFiPhyKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhyKind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -353,7 +353,7 @@ impl IWiFiAvailableNetworkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SecuritySettings<Impl: IWiFiAvailableNetworkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SecuritySettings<Impl: IWiFiAvailableNetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SecuritySettings() {
                 ::core::result::Result::Ok(ok__) => {
@@ -364,7 +364,7 @@ impl IWiFiAvailableNetworkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BeaconInterval<Impl: IWiFiAvailableNetworkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeaconInterval<Impl: IWiFiAvailableNetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BeaconInterval() {
                 ::core::result::Result::Ok(ok__) => {
@@ -375,7 +375,7 @@ impl IWiFiAvailableNetworkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsWiFiDirect<Impl: IWiFiAvailableNetworkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsWiFiDirect<Impl: IWiFiAvailableNetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsWiFiDirect() {
                 ::core::result::Result::Ok(ok__) => {
@@ -406,7 +406,7 @@ impl IWiFiAvailableNetworkVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IWiFiConnectionResultImpl: Sized {
+pub trait IWiFiConnectionResult_Impl: Sized {
     fn ConnectionStatus(&mut self) -> ::windows::core::Result<WiFiConnectionStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -414,9 +414,9 @@ impl ::windows::core::RuntimeName for IWiFiConnectionResult {
     const NAME: &'static str = "Windows.Devices.WiFi.IWiFiConnectionResult";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IWiFiConnectionResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiConnectionResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiConnectionResultVtbl {
-        unsafe extern "system" fn ConnectionStatus<Impl: IWiFiConnectionResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WiFiConnectionStatus) -> ::windows::core::HRESULT {
+impl IWiFiConnectionResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiConnectionResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiConnectionResult_Vtbl {
+        unsafe extern "system" fn ConnectionStatus<Impl: IWiFiConnectionResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WiFiConnectionStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -437,7 +437,7 @@ impl IWiFiConnectionResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IWiFiNetworkReportImpl: Sized {
+pub trait IWiFiNetworkReport_Impl: Sized {
     fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn AvailableNetworks(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WiFiAvailableNetwork>>;
 }
@@ -446,9 +446,9 @@ impl ::windows::core::RuntimeName for IWiFiNetworkReport {
     const NAME: &'static str = "Windows.Devices.WiFi.IWiFiNetworkReport";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IWiFiNetworkReportVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiNetworkReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiNetworkReportVtbl {
-        unsafe extern "system" fn Timestamp<Impl: IWiFiNetworkReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+impl IWiFiNetworkReport_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiNetworkReport_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiNetworkReport_Vtbl {
+        unsafe extern "system" fn Timestamp<Impl: IWiFiNetworkReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -459,7 +459,7 @@ impl IWiFiNetworkReportVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AvailableNetworks<Impl: IWiFiNetworkReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AvailableNetworks<Impl: IWiFiNetworkReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AvailableNetworks() {
                 ::core::result::Result::Ok(ok__) => {
@@ -481,7 +481,7 @@ impl IWiFiNetworkReportVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IWiFiWpsConfigurationResultImpl: Sized {
+pub trait IWiFiWpsConfigurationResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<WiFiWpsConfigurationStatus>;
     fn SupportedWpsKinds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WiFiWpsKind>>;
 }
@@ -490,9 +490,9 @@ impl ::windows::core::RuntimeName for IWiFiWpsConfigurationResult {
     const NAME: &'static str = "Windows.Devices.WiFi.IWiFiWpsConfigurationResult";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IWiFiWpsConfigurationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiWpsConfigurationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiWpsConfigurationResultVtbl {
-        unsafe extern "system" fn Status<Impl: IWiFiWpsConfigurationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WiFiWpsConfigurationStatus) -> ::windows::core::HRESULT {
+impl IWiFiWpsConfigurationResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWiFiWpsConfigurationResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWiFiWpsConfigurationResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IWiFiWpsConfigurationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut WiFiWpsConfigurationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -503,7 +503,7 @@ impl IWiFiWpsConfigurationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedWpsKinds<Impl: IWiFiWpsConfigurationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedWpsKinds<Impl: IWiFiWpsConfigurationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedWpsKinds() {
                 ::core::result::Result::Ok(ok__) => {

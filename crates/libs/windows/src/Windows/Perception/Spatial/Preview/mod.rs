@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct ISpatialGraphInteropFrameOfReferencePreview(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialGraphInteropFrameOfReferencePreview {
-    type Vtable = ISpatialGraphInteropFrameOfReferencePreviewVtbl;
+    type Vtable = ISpatialGraphInteropFrameOfReferencePreview_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8271b23_735f_5729_a98e_e64ed189abc5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialGraphInteropFrameOfReferencePreviewVtbl {
+pub struct ISpatialGraphInteropFrameOfReferencePreview_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CoordinateSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub NodeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -21,12 +21,12 @@ pub struct ISpatialGraphInteropFrameOfReferencePreviewVtbl {
 #[repr(transparent)]
 pub struct ISpatialGraphInteropPreviewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialGraphInteropPreviewStatics {
-    type Vtable = ISpatialGraphInteropPreviewStaticsVtbl;
+    type Vtable = ISpatialGraphInteropPreviewStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc042644c_20d8_4ed0_aef7_6805b8e53f55);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialGraphInteropPreviewStaticsVtbl {
+pub struct ISpatialGraphInteropPreviewStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateCoordinateSystemForNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodeid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
@@ -43,12 +43,12 @@ pub struct ISpatialGraphInteropPreviewStaticsVtbl {
 #[repr(transparent)]
 pub struct ISpatialGraphInteropPreviewStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialGraphInteropPreviewStatics2 {
-    type Vtable = ISpatialGraphInteropPreviewStatics2Vtbl;
+    type Vtable = ISpatialGraphInteropPreviewStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2490b15f_6cbd_4b1e_b765_31e462a32df2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialGraphInteropPreviewStatics2Vtbl {
+pub struct ISpatialGraphInteropPreviewStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TryCreateFrameOfReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
@@ -110,7 +110,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialGraphInteropFrameOfReference
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Preview.SpatialGraphInteropFrameOfReferencePreview;{a8271b23-735f-5729-a98e-e64ed189abc5})");
 }
 unsafe impl ::windows::core::Interface for SpatialGraphInteropFrameOfReferencePreview {
-    type Vtable = ISpatialGraphInteropFrameOfReferencePreviewVtbl;
+    type Vtable = ISpatialGraphInteropFrameOfReferencePreview_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8271b23_735f_5729_a98e_e64ed189abc5);
 }
 impl ::windows::core::RuntimeName for SpatialGraphInteropFrameOfReferencePreview {

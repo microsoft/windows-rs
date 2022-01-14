@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IUsbBulkInEndpointDescriptorImpl: Sized {
+pub trait IUsbBulkInEndpointDescriptor_Impl: Sized {
     fn MaxPacketSize(&mut self) -> ::windows::core::Result<u32>;
     fn EndpointNumber(&mut self) -> ::windows::core::Result<u8>;
     fn Pipe(&mut self) -> ::windows::core::Result<UsbBulkInPipe>;
@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for IUsbBulkInEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbBulkInEndpointDescriptor";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUsbBulkInEndpointDescriptorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbBulkInEndpointDescriptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbBulkInEndpointDescriptorVtbl {
-        unsafe extern "system" fn MaxPacketSize<Impl: IUsbBulkInEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IUsbBulkInEndpointDescriptor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbBulkInEndpointDescriptor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbBulkInEndpointDescriptor_Vtbl {
+        unsafe extern "system" fn MaxPacketSize<Impl: IUsbBulkInEndpointDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxPacketSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -22,7 +22,7 @@ impl IUsbBulkInEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EndpointNumber<Impl: IUsbBulkInEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EndpointNumber<Impl: IUsbBulkInEndpointDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndpointNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -33,7 +33,7 @@ impl IUsbBulkInEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Pipe<Impl: IUsbBulkInEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pipe<Impl: IUsbBulkInEndpointDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pipe() {
                 ::core::result::Result::Ok(ok__) => {
@@ -56,7 +56,7 @@ impl IUsbBulkInEndpointDescriptorVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IUsbBulkInPipeImpl: Sized {
+pub trait IUsbBulkInPipe_Impl: Sized {
     fn MaxTransferSizeBytes(&mut self) -> ::windows::core::Result<u32>;
     fn EndpointDescriptor(&mut self) -> ::windows::core::Result<UsbBulkInEndpointDescriptor>;
     fn ClearStallAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -70,9 +70,9 @@ impl ::windows::core::RuntimeName for IUsbBulkInPipe {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbBulkInPipe";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IUsbBulkInPipeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbBulkInPipeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbBulkInPipeVtbl {
-        unsafe extern "system" fn MaxTransferSizeBytes<Impl: IUsbBulkInPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IUsbBulkInPipe_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbBulkInPipe_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbBulkInPipe_Vtbl {
+        unsafe extern "system" fn MaxTransferSizeBytes<Impl: IUsbBulkInPipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxTransferSizeBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -83,7 +83,7 @@ impl IUsbBulkInPipeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EndpointDescriptor<Impl: IUsbBulkInPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EndpointDescriptor<Impl: IUsbBulkInPipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndpointDescriptor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -94,7 +94,7 @@ impl IUsbBulkInPipeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClearStallAsync<Impl: IUsbBulkInPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearStallAsync<Impl: IUsbBulkInPipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClearStallAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -105,11 +105,11 @@ impl IUsbBulkInPipeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetReadOptions<Impl: IUsbBulkInPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: UsbReadOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetReadOptions<Impl: IUsbBulkInPipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: UsbReadOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetReadOptions(value).into()
         }
-        unsafe extern "system" fn ReadOptions<Impl: IUsbBulkInPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UsbReadOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadOptions<Impl: IUsbBulkInPipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UsbReadOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadOptions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -120,11 +120,11 @@ impl IUsbBulkInPipeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FlushBuffer<Impl: IUsbBulkInPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FlushBuffer<Impl: IUsbBulkInPipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).FlushBuffer().into()
         }
-        unsafe extern "system" fn InputStream<Impl: IUsbBulkInPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InputStream<Impl: IUsbBulkInPipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InputStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -151,7 +151,7 @@ impl IUsbBulkInPipeVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUsbBulkOutEndpointDescriptorImpl: Sized {
+pub trait IUsbBulkOutEndpointDescriptor_Impl: Sized {
     fn MaxPacketSize(&mut self) -> ::windows::core::Result<u32>;
     fn EndpointNumber(&mut self) -> ::windows::core::Result<u8>;
     fn Pipe(&mut self) -> ::windows::core::Result<UsbBulkOutPipe>;
@@ -161,9 +161,9 @@ impl ::windows::core::RuntimeName for IUsbBulkOutEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbBulkOutEndpointDescriptor";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUsbBulkOutEndpointDescriptorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbBulkOutEndpointDescriptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbBulkOutEndpointDescriptorVtbl {
-        unsafe extern "system" fn MaxPacketSize<Impl: IUsbBulkOutEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IUsbBulkOutEndpointDescriptor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbBulkOutEndpointDescriptor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbBulkOutEndpointDescriptor_Vtbl {
+        unsafe extern "system" fn MaxPacketSize<Impl: IUsbBulkOutEndpointDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxPacketSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -174,7 +174,7 @@ impl IUsbBulkOutEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EndpointNumber<Impl: IUsbBulkOutEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EndpointNumber<Impl: IUsbBulkOutEndpointDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndpointNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -185,7 +185,7 @@ impl IUsbBulkOutEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Pipe<Impl: IUsbBulkOutEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pipe<Impl: IUsbBulkOutEndpointDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pipe() {
                 ::core::result::Result::Ok(ok__) => {
@@ -208,7 +208,7 @@ impl IUsbBulkOutEndpointDescriptorVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IUsbBulkOutPipeImpl: Sized {
+pub trait IUsbBulkOutPipe_Impl: Sized {
     fn EndpointDescriptor(&mut self) -> ::windows::core::Result<UsbBulkOutEndpointDescriptor>;
     fn ClearStallAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn SetWriteOptions(&mut self, value: UsbWriteOptions) -> ::windows::core::Result<()>;
@@ -220,9 +220,9 @@ impl ::windows::core::RuntimeName for IUsbBulkOutPipe {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbBulkOutPipe";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IUsbBulkOutPipeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbBulkOutPipeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbBulkOutPipeVtbl {
-        unsafe extern "system" fn EndpointDescriptor<Impl: IUsbBulkOutPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUsbBulkOutPipe_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbBulkOutPipe_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbBulkOutPipe_Vtbl {
+        unsafe extern "system" fn EndpointDescriptor<Impl: IUsbBulkOutPipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndpointDescriptor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -233,7 +233,7 @@ impl IUsbBulkOutPipeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClearStallAsync<Impl: IUsbBulkOutPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearStallAsync<Impl: IUsbBulkOutPipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClearStallAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -244,11 +244,11 @@ impl IUsbBulkOutPipeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetWriteOptions<Impl: IUsbBulkOutPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: UsbWriteOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetWriteOptions<Impl: IUsbBulkOutPipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: UsbWriteOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWriteOptions(value).into()
         }
-        unsafe extern "system" fn WriteOptions<Impl: IUsbBulkOutPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UsbWriteOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteOptions<Impl: IUsbBulkOutPipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UsbWriteOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteOptions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -259,7 +259,7 @@ impl IUsbBulkOutPipeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OutputStream<Impl: IUsbBulkOutPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OutputStream<Impl: IUsbBulkOutPipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutputStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -284,7 +284,7 @@ impl IUsbBulkOutPipeVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IUsbConfigurationImpl: Sized {
+pub trait IUsbConfiguration_Impl: Sized {
     fn UsbInterfaces(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UsbInterface>>;
     fn ConfigurationDescriptor(&mut self) -> ::windows::core::Result<UsbConfigurationDescriptor>;
     fn Descriptors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UsbDescriptor>>;
@@ -294,9 +294,9 @@ impl ::windows::core::RuntimeName for IUsbConfiguration {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbConfiguration";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IUsbConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbConfigurationVtbl {
-        unsafe extern "system" fn UsbInterfaces<Impl: IUsbConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUsbConfiguration_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbConfiguration_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbConfiguration_Vtbl {
+        unsafe extern "system" fn UsbInterfaces<Impl: IUsbConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UsbInterfaces() {
                 ::core::result::Result::Ok(ok__) => {
@@ -307,7 +307,7 @@ impl IUsbConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConfigurationDescriptor<Impl: IUsbConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConfigurationDescriptor<Impl: IUsbConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConfigurationDescriptor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -318,7 +318,7 @@ impl IUsbConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Descriptors<Impl: IUsbConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Descriptors<Impl: IUsbConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Descriptors() {
                 ::core::result::Result::Ok(ok__) => {
@@ -341,7 +341,7 @@ impl IUsbConfigurationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUsbConfigurationDescriptorImpl: Sized {
+pub trait IUsbConfigurationDescriptor_Impl: Sized {
     fn ConfigurationValue(&mut self) -> ::windows::core::Result<u8>;
     fn MaxPowerMilliamps(&mut self) -> ::windows::core::Result<u32>;
     fn SelfPowered(&mut self) -> ::windows::core::Result<bool>;
@@ -352,9 +352,9 @@ impl ::windows::core::RuntimeName for IUsbConfigurationDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbConfigurationDescriptor";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUsbConfigurationDescriptorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbConfigurationDescriptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbConfigurationDescriptorVtbl {
-        unsafe extern "system" fn ConfigurationValue<Impl: IUsbConfigurationDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+impl IUsbConfigurationDescriptor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbConfigurationDescriptor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbConfigurationDescriptor_Vtbl {
+        unsafe extern "system" fn ConfigurationValue<Impl: IUsbConfigurationDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConfigurationValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -365,7 +365,7 @@ impl IUsbConfigurationDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxPowerMilliamps<Impl: IUsbConfigurationDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxPowerMilliamps<Impl: IUsbConfigurationDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxPowerMilliamps() {
                 ::core::result::Result::Ok(ok__) => {
@@ -376,7 +376,7 @@ impl IUsbConfigurationDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelfPowered<Impl: IUsbConfigurationDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelfPowered<Impl: IUsbConfigurationDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelfPowered() {
                 ::core::result::Result::Ok(ok__) => {
@@ -387,7 +387,7 @@ impl IUsbConfigurationDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoteWakeup<Impl: IUsbConfigurationDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoteWakeup<Impl: IUsbConfigurationDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteWakeup() {
                 ::core::result::Result::Ok(ok__) => {
@@ -411,7 +411,7 @@ impl IUsbConfigurationDescriptorVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUsbConfigurationDescriptorStaticsImpl: Sized {
+pub trait IUsbConfigurationDescriptorStatics_Impl: Sized {
     fn TryParse(&mut self, descriptor: &::core::option::Option<UsbDescriptor>, parsed: &mut ::core::option::Option<UsbConfigurationDescriptor>) -> ::windows::core::Result<bool>;
     fn Parse(&mut self, descriptor: &::core::option::Option<UsbDescriptor>) -> ::windows::core::Result<UsbConfigurationDescriptor>;
 }
@@ -420,9 +420,9 @@ impl ::windows::core::RuntimeName for IUsbConfigurationDescriptorStatics {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbConfigurationDescriptorStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUsbConfigurationDescriptorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbConfigurationDescriptorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbConfigurationDescriptorStaticsVtbl {
-        unsafe extern "system" fn TryParse<Impl: IUsbConfigurationDescriptorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: ::windows::core::RawPtr, parsed: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IUsbConfigurationDescriptorStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbConfigurationDescriptorStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbConfigurationDescriptorStatics_Vtbl {
+        unsafe extern "system" fn TryParse<Impl: IUsbConfigurationDescriptorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: ::windows::core::RawPtr, parsed: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&descriptor as *const <UsbDescriptor as ::windows::core::Abi>::Abi as *const <UsbDescriptor as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&parsed)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -433,7 +433,7 @@ impl IUsbConfigurationDescriptorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Parse<Impl: IUsbConfigurationDescriptorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Parse<Impl: IUsbConfigurationDescriptorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&descriptor as *const <UsbDescriptor as ::windows::core::Abi>::Abi as *const <UsbDescriptor as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -455,7 +455,7 @@ impl IUsbConfigurationDescriptorStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUsbControlRequestTypeImpl: Sized {
+pub trait IUsbControlRequestType_Impl: Sized {
     fn Direction(&mut self) -> ::windows::core::Result<UsbTransferDirection>;
     fn SetDirection(&mut self, value: UsbTransferDirection) -> ::windows::core::Result<()>;
     fn ControlTransferType(&mut self) -> ::windows::core::Result<UsbControlTransferType>;
@@ -470,9 +470,9 @@ impl ::windows::core::RuntimeName for IUsbControlRequestType {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbControlRequestType";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUsbControlRequestTypeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbControlRequestTypeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbControlRequestTypeVtbl {
-        unsafe extern "system" fn Direction<Impl: IUsbControlRequestTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UsbTransferDirection) -> ::windows::core::HRESULT {
+impl IUsbControlRequestType_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbControlRequestType_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbControlRequestType_Vtbl {
+        unsafe extern "system" fn Direction<Impl: IUsbControlRequestType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UsbTransferDirection) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Direction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -483,11 +483,11 @@ impl IUsbControlRequestTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDirection<Impl: IUsbControlRequestTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: UsbTransferDirection) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDirection<Impl: IUsbControlRequestType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: UsbTransferDirection) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDirection(value).into()
         }
-        unsafe extern "system" fn ControlTransferType<Impl: IUsbControlRequestTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UsbControlTransferType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ControlTransferType<Impl: IUsbControlRequestType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UsbControlTransferType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ControlTransferType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -498,11 +498,11 @@ impl IUsbControlRequestTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetControlTransferType<Impl: IUsbControlRequestTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: UsbControlTransferType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetControlTransferType<Impl: IUsbControlRequestType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: UsbControlTransferType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetControlTransferType(value).into()
         }
-        unsafe extern "system" fn Recipient<Impl: IUsbControlRequestTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UsbControlRecipient) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Recipient<Impl: IUsbControlRequestType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UsbControlRecipient) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Recipient() {
                 ::core::result::Result::Ok(ok__) => {
@@ -513,11 +513,11 @@ impl IUsbControlRequestTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRecipient<Impl: IUsbControlRequestTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: UsbControlRecipient) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRecipient<Impl: IUsbControlRequestType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: UsbControlRecipient) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRecipient(value).into()
         }
-        unsafe extern "system" fn AsByte<Impl: IUsbControlRequestTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AsByte<Impl: IUsbControlRequestType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AsByte() {
                 ::core::result::Result::Ok(ok__) => {
@@ -528,7 +528,7 @@ impl IUsbControlRequestTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAsByte<Impl: IUsbControlRequestTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAsByte<Impl: IUsbControlRequestType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAsByte(value).into()
         }
@@ -549,7 +549,7 @@ impl IUsbControlRequestTypeVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IUsbDescriptorImpl: Sized {
+pub trait IUsbDescriptor_Impl: Sized {
     fn Length(&mut self) -> ::windows::core::Result<u8>;
     fn DescriptorType(&mut self) -> ::windows::core::Result<u8>;
     fn ReadDescriptorBuffer(&mut self, buffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
@@ -559,9 +559,9 @@ impl ::windows::core::RuntimeName for IUsbDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbDescriptor";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IUsbDescriptorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDescriptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbDescriptorVtbl {
-        unsafe extern "system" fn Length<Impl: IUsbDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+impl IUsbDescriptor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDescriptor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbDescriptor_Vtbl {
+        unsafe extern "system" fn Length<Impl: IUsbDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Length() {
                 ::core::result::Result::Ok(ok__) => {
@@ -572,7 +572,7 @@ impl IUsbDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DescriptorType<Impl: IUsbDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DescriptorType<Impl: IUsbDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DescriptorType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -583,7 +583,7 @@ impl IUsbDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadDescriptorBuffer<Impl: IUsbDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadDescriptorBuffer<Impl: IUsbDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReadDescriptorBuffer(&*(&buffer as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -599,7 +599,7 @@ impl IUsbDescriptorVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IUsbDeviceImpl: Sized + IClosableImpl {
+pub trait IUsbDevice_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn SendControlOutTransferAsync(&mut self, setuppacket: &::core::option::Option<UsbSetupPacket>, buffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
     fn SendControlOutTransferAsyncNoBuffer(&mut self, setuppacket: &::core::option::Option<UsbSetupPacket>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
     fn SendControlInTransferAsync(&mut self, setuppacket: &::core::option::Option<UsbSetupPacket>, buffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>;
@@ -613,9 +613,9 @@ impl ::windows::core::RuntimeName for IUsbDevice {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbDevice";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IUsbDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbDeviceVtbl {
-        unsafe extern "system" fn SendControlOutTransferAsync<Impl: IUsbDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, setuppacket: ::windows::core::RawPtr, buffer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUsbDevice_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDevice_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbDevice_Vtbl {
+        unsafe extern "system" fn SendControlOutTransferAsync<Impl: IUsbDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, setuppacket: ::windows::core::RawPtr, buffer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SendControlOutTransferAsync(&*(&setuppacket as *const <UsbSetupPacket as ::windows::core::Abi>::Abi as *const <UsbSetupPacket as ::windows::core::DefaultType>::DefaultType), &*(&buffer as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -626,7 +626,7 @@ impl IUsbDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SendControlOutTransferAsyncNoBuffer<Impl: IUsbDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, setuppacket: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendControlOutTransferAsyncNoBuffer<Impl: IUsbDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, setuppacket: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SendControlOutTransferAsyncNoBuffer(&*(&setuppacket as *const <UsbSetupPacket as ::windows::core::Abi>::Abi as *const <UsbSetupPacket as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -637,7 +637,7 @@ impl IUsbDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SendControlInTransferAsync<Impl: IUsbDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, setuppacket: ::windows::core::RawPtr, buffer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendControlInTransferAsync<Impl: IUsbDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, setuppacket: ::windows::core::RawPtr, buffer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SendControlInTransferAsync(&*(&setuppacket as *const <UsbSetupPacket as ::windows::core::Abi>::Abi as *const <UsbSetupPacket as ::windows::core::DefaultType>::DefaultType), &*(&buffer as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -648,7 +648,7 @@ impl IUsbDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SendControlInTransferAsyncNoBuffer<Impl: IUsbDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, setuppacket: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendControlInTransferAsyncNoBuffer<Impl: IUsbDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, setuppacket: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SendControlInTransferAsyncNoBuffer(&*(&setuppacket as *const <UsbSetupPacket as ::windows::core::Abi>::Abi as *const <UsbSetupPacket as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -659,7 +659,7 @@ impl IUsbDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DefaultInterface<Impl: IUsbDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultInterface<Impl: IUsbDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultInterface() {
                 ::core::result::Result::Ok(ok__) => {
@@ -670,7 +670,7 @@ impl IUsbDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceDescriptor<Impl: IUsbDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceDescriptor<Impl: IUsbDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceDescriptor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -681,7 +681,7 @@ impl IUsbDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Configuration<Impl: IUsbDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Configuration<Impl: IUsbDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Configuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -708,7 +708,7 @@ impl IUsbDeviceVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IUsbDeviceClassImpl: Sized {
+pub trait IUsbDeviceClass_Impl: Sized {
     fn ClassCode(&mut self) -> ::windows::core::Result<u8>;
     fn SetClassCode(&mut self, value: u8) -> ::windows::core::Result<()>;
     fn SubclassCode(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u8>>;
@@ -721,9 +721,9 @@ impl ::windows::core::RuntimeName for IUsbDeviceClass {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbDeviceClass";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IUsbDeviceClassVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceClassImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbDeviceClassVtbl {
-        unsafe extern "system" fn ClassCode<Impl: IUsbDeviceClassImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+impl IUsbDeviceClass_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceClass_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbDeviceClass_Vtbl {
+        unsafe extern "system" fn ClassCode<Impl: IUsbDeviceClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClassCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -734,11 +734,11 @@ impl IUsbDeviceClassVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClassCode<Impl: IUsbDeviceClassImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClassCode<Impl: IUsbDeviceClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetClassCode(value).into()
         }
-        unsafe extern "system" fn SubclassCode<Impl: IUsbDeviceClassImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SubclassCode<Impl: IUsbDeviceClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SubclassCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -749,11 +749,11 @@ impl IUsbDeviceClassVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSubclassCode<Impl: IUsbDeviceClassImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSubclassCode<Impl: IUsbDeviceClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSubclassCode(&*(&value as *const <super::super::Foundation::IReference<u8> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<u8> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ProtocolCode<Impl: IUsbDeviceClassImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProtocolCode<Impl: IUsbDeviceClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtocolCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -764,7 +764,7 @@ impl IUsbDeviceClassVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProtocolCode<Impl: IUsbDeviceClassImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProtocolCode<Impl: IUsbDeviceClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProtocolCode(&*(&value as *const <super::super::Foundation::IReference<u8> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<u8> as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -783,14 +783,14 @@ impl IUsbDeviceClassVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUsbDeviceClassesImpl: Sized {}
+pub trait IUsbDeviceClasses_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IUsbDeviceClasses {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbDeviceClasses";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUsbDeviceClassesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceClassesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbDeviceClassesVtbl {
+impl IUsbDeviceClasses_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceClasses_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbDeviceClasses_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IUsbDeviceClasses, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -798,7 +798,7 @@ impl IUsbDeviceClassesVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUsbDeviceClassesStaticsImpl: Sized {
+pub trait IUsbDeviceClassesStatics_Impl: Sized {
     fn CdcControl(&mut self) -> ::windows::core::Result<UsbDeviceClass>;
     fn Physical(&mut self) -> ::windows::core::Result<UsbDeviceClass>;
     fn PersonalHealthcare(&mut self) -> ::windows::core::Result<UsbDeviceClass>;
@@ -814,9 +814,9 @@ impl ::windows::core::RuntimeName for IUsbDeviceClassesStatics {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbDeviceClassesStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUsbDeviceClassesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceClassesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbDeviceClassesStaticsVtbl {
-        unsafe extern "system" fn CdcControl<Impl: IUsbDeviceClassesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUsbDeviceClassesStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceClassesStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbDeviceClassesStatics_Vtbl {
+        unsafe extern "system" fn CdcControl<Impl: IUsbDeviceClassesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CdcControl() {
                 ::core::result::Result::Ok(ok__) => {
@@ -827,7 +827,7 @@ impl IUsbDeviceClassesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Physical<Impl: IUsbDeviceClassesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Physical<Impl: IUsbDeviceClassesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Physical() {
                 ::core::result::Result::Ok(ok__) => {
@@ -838,7 +838,7 @@ impl IUsbDeviceClassesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PersonalHealthcare<Impl: IUsbDeviceClassesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PersonalHealthcare<Impl: IUsbDeviceClassesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PersonalHealthcare() {
                 ::core::result::Result::Ok(ok__) => {
@@ -849,7 +849,7 @@ impl IUsbDeviceClassesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ActiveSync<Impl: IUsbDeviceClassesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ActiveSync<Impl: IUsbDeviceClassesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActiveSync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -860,7 +860,7 @@ impl IUsbDeviceClassesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PalmSync<Impl: IUsbDeviceClassesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PalmSync<Impl: IUsbDeviceClassesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PalmSync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -871,7 +871,7 @@ impl IUsbDeviceClassesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceFirmwareUpdate<Impl: IUsbDeviceClassesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceFirmwareUpdate<Impl: IUsbDeviceClassesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceFirmwareUpdate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -882,7 +882,7 @@ impl IUsbDeviceClassesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Irda<Impl: IUsbDeviceClassesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Irda<Impl: IUsbDeviceClassesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Irda() {
                 ::core::result::Result::Ok(ok__) => {
@@ -893,7 +893,7 @@ impl IUsbDeviceClassesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Measurement<Impl: IUsbDeviceClassesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Measurement<Impl: IUsbDeviceClassesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Measurement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -904,7 +904,7 @@ impl IUsbDeviceClassesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VendorSpecific<Impl: IUsbDeviceClassesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VendorSpecific<Impl: IUsbDeviceClassesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VendorSpecific() {
                 ::core::result::Result::Ok(ok__) => {
@@ -933,7 +933,7 @@ impl IUsbDeviceClassesStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUsbDeviceDescriptorImpl: Sized {
+pub trait IUsbDeviceDescriptor_Impl: Sized {
     fn BcdUsb(&mut self) -> ::windows::core::Result<u32>;
     fn MaxPacketSize0(&mut self) -> ::windows::core::Result<u8>;
     fn VendorId(&mut self) -> ::windows::core::Result<u32>;
@@ -946,9 +946,9 @@ impl ::windows::core::RuntimeName for IUsbDeviceDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbDeviceDescriptor";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUsbDeviceDescriptorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceDescriptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbDeviceDescriptorVtbl {
-        unsafe extern "system" fn BcdUsb<Impl: IUsbDeviceDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IUsbDeviceDescriptor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceDescriptor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbDeviceDescriptor_Vtbl {
+        unsafe extern "system" fn BcdUsb<Impl: IUsbDeviceDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BcdUsb() {
                 ::core::result::Result::Ok(ok__) => {
@@ -959,7 +959,7 @@ impl IUsbDeviceDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxPacketSize0<Impl: IUsbDeviceDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxPacketSize0<Impl: IUsbDeviceDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxPacketSize0() {
                 ::core::result::Result::Ok(ok__) => {
@@ -970,7 +970,7 @@ impl IUsbDeviceDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VendorId<Impl: IUsbDeviceDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VendorId<Impl: IUsbDeviceDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VendorId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -981,7 +981,7 @@ impl IUsbDeviceDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProductId<Impl: IUsbDeviceDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProductId<Impl: IUsbDeviceDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProductId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -992,7 +992,7 @@ impl IUsbDeviceDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BcdDeviceRevision<Impl: IUsbDeviceDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BcdDeviceRevision<Impl: IUsbDeviceDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BcdDeviceRevision() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1003,7 +1003,7 @@ impl IUsbDeviceDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NumberOfConfigurations<Impl: IUsbDeviceDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NumberOfConfigurations<Impl: IUsbDeviceDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NumberOfConfigurations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1029,7 +1029,7 @@ impl IUsbDeviceDescriptorVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IUsbDeviceStaticsImpl: Sized {
+pub trait IUsbDeviceStatics_Impl: Sized {
     fn GetDeviceSelector(&mut self, vendorid: u32, productid: u32, winusbinterfaceclass: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeviceSelectorGuidOnly(&mut self, winusbinterfaceclass: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeviceSelectorVidPidOnly(&mut self, vendorid: u32, productid: u32) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1041,9 +1041,9 @@ impl ::windows::core::RuntimeName for IUsbDeviceStatics {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbDeviceStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IUsbDeviceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbDeviceStaticsVtbl {
-        unsafe extern "system" fn GetDeviceSelector<Impl: IUsbDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vendorid: u32, productid: u32, winusbinterfaceclass: ::windows::core::GUID, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IUsbDeviceStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbDeviceStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbDeviceStatics_Vtbl {
+        unsafe extern "system" fn GetDeviceSelector<Impl: IUsbDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vendorid: u32, productid: u32, winusbinterfaceclass: ::windows::core::GUID, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector(vendorid, productid, &*(&winusbinterfaceclass as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1054,7 +1054,7 @@ impl IUsbDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelectorGuidOnly<Impl: IUsbDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, winusbinterfaceclass: ::windows::core::GUID, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelectorGuidOnly<Impl: IUsbDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, winusbinterfaceclass: ::windows::core::GUID, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorGuidOnly(&*(&winusbinterfaceclass as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1065,7 +1065,7 @@ impl IUsbDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelectorVidPidOnly<Impl: IUsbDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vendorid: u32, productid: u32, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelectorVidPidOnly<Impl: IUsbDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vendorid: u32, productid: u32, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorVidPidOnly(vendorid, productid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1076,7 +1076,7 @@ impl IUsbDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceClassSelector<Impl: IUsbDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, usbclass: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceClassSelector<Impl: IUsbDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, usbclass: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceClassSelector(&*(&usbclass as *const <UsbDeviceClass as ::windows::core::Abi>::Abi as *const <UsbDeviceClass as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1087,7 +1087,7 @@ impl IUsbDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromIdAsync<Impl: IUsbDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromIdAsync<Impl: IUsbDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1112,7 +1112,7 @@ impl IUsbDeviceStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUsbEndpointDescriptorImpl: Sized {
+pub trait IUsbEndpointDescriptor_Impl: Sized {
     fn EndpointNumber(&mut self) -> ::windows::core::Result<u8>;
     fn Direction(&mut self) -> ::windows::core::Result<UsbTransferDirection>;
     fn EndpointType(&mut self) -> ::windows::core::Result<UsbEndpointType>;
@@ -1126,9 +1126,9 @@ impl ::windows::core::RuntimeName for IUsbEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbEndpointDescriptor";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUsbEndpointDescriptorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbEndpointDescriptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbEndpointDescriptorVtbl {
-        unsafe extern "system" fn EndpointNumber<Impl: IUsbEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+impl IUsbEndpointDescriptor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbEndpointDescriptor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbEndpointDescriptor_Vtbl {
+        unsafe extern "system" fn EndpointNumber<Impl: IUsbEndpointDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndpointNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1139,7 +1139,7 @@ impl IUsbEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Direction<Impl: IUsbEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UsbTransferDirection) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Direction<Impl: IUsbEndpointDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UsbTransferDirection) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Direction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1150,7 +1150,7 @@ impl IUsbEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EndpointType<Impl: IUsbEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UsbEndpointType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EndpointType<Impl: IUsbEndpointDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UsbEndpointType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndpointType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1161,7 +1161,7 @@ impl IUsbEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AsBulkInEndpointDescriptor<Impl: IUsbEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AsBulkInEndpointDescriptor<Impl: IUsbEndpointDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AsBulkInEndpointDescriptor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1172,7 +1172,7 @@ impl IUsbEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AsInterruptInEndpointDescriptor<Impl: IUsbEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AsInterruptInEndpointDescriptor<Impl: IUsbEndpointDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AsInterruptInEndpointDescriptor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1183,7 +1183,7 @@ impl IUsbEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AsBulkOutEndpointDescriptor<Impl: IUsbEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AsBulkOutEndpointDescriptor<Impl: IUsbEndpointDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AsBulkOutEndpointDescriptor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1194,7 +1194,7 @@ impl IUsbEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AsInterruptOutEndpointDescriptor<Impl: IUsbEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AsInterruptOutEndpointDescriptor<Impl: IUsbEndpointDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AsInterruptOutEndpointDescriptor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1221,7 +1221,7 @@ impl IUsbEndpointDescriptorVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUsbEndpointDescriptorStaticsImpl: Sized {
+pub trait IUsbEndpointDescriptorStatics_Impl: Sized {
     fn TryParse(&mut self, descriptor: &::core::option::Option<UsbDescriptor>, parsed: &mut ::core::option::Option<UsbEndpointDescriptor>) -> ::windows::core::Result<bool>;
     fn Parse(&mut self, descriptor: &::core::option::Option<UsbDescriptor>) -> ::windows::core::Result<UsbEndpointDescriptor>;
 }
@@ -1230,9 +1230,9 @@ impl ::windows::core::RuntimeName for IUsbEndpointDescriptorStatics {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbEndpointDescriptorStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUsbEndpointDescriptorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbEndpointDescriptorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbEndpointDescriptorStaticsVtbl {
-        unsafe extern "system" fn TryParse<Impl: IUsbEndpointDescriptorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: ::windows::core::RawPtr, parsed: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IUsbEndpointDescriptorStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbEndpointDescriptorStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbEndpointDescriptorStatics_Vtbl {
+        unsafe extern "system" fn TryParse<Impl: IUsbEndpointDescriptorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: ::windows::core::RawPtr, parsed: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&descriptor as *const <UsbDescriptor as ::windows::core::Abi>::Abi as *const <UsbDescriptor as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&parsed)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1243,7 +1243,7 @@ impl IUsbEndpointDescriptorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Parse<Impl: IUsbEndpointDescriptorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Parse<Impl: IUsbEndpointDescriptorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&descriptor as *const <UsbDescriptor as ::windows::core::Abi>::Abi as *const <UsbDescriptor as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1265,7 +1265,7 @@ impl IUsbEndpointDescriptorStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IUsbInterfaceImpl: Sized {
+pub trait IUsbInterface_Impl: Sized {
     fn BulkInPipes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UsbBulkInPipe>>;
     fn InterruptInPipes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UsbInterruptInPipe>>;
     fn BulkOutPipes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UsbBulkOutPipe>>;
@@ -1279,9 +1279,9 @@ impl ::windows::core::RuntimeName for IUsbInterface {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbInterface";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IUsbInterfaceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterfaceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterfaceVtbl {
-        unsafe extern "system" fn BulkInPipes<Impl: IUsbInterfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUsbInterface_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterface_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterface_Vtbl {
+        unsafe extern "system" fn BulkInPipes<Impl: IUsbInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BulkInPipes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1292,7 +1292,7 @@ impl IUsbInterfaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InterruptInPipes<Impl: IUsbInterfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InterruptInPipes<Impl: IUsbInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InterruptInPipes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1303,7 +1303,7 @@ impl IUsbInterfaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BulkOutPipes<Impl: IUsbInterfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BulkOutPipes<Impl: IUsbInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BulkOutPipes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1314,7 +1314,7 @@ impl IUsbInterfaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InterruptOutPipes<Impl: IUsbInterfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InterruptOutPipes<Impl: IUsbInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InterruptOutPipes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1325,7 +1325,7 @@ impl IUsbInterfaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InterfaceSettings<Impl: IUsbInterfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InterfaceSettings<Impl: IUsbInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InterfaceSettings() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1336,7 +1336,7 @@ impl IUsbInterfaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InterfaceNumber<Impl: IUsbInterfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InterfaceNumber<Impl: IUsbInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InterfaceNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1347,7 +1347,7 @@ impl IUsbInterfaceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Descriptors<Impl: IUsbInterfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Descriptors<Impl: IUsbInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Descriptors() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1374,7 +1374,7 @@ impl IUsbInterfaceVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUsbInterfaceDescriptorImpl: Sized {
+pub trait IUsbInterfaceDescriptor_Impl: Sized {
     fn ClassCode(&mut self) -> ::windows::core::Result<u8>;
     fn SubclassCode(&mut self) -> ::windows::core::Result<u8>;
     fn ProtocolCode(&mut self) -> ::windows::core::Result<u8>;
@@ -1386,9 +1386,9 @@ impl ::windows::core::RuntimeName for IUsbInterfaceDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbInterfaceDescriptor";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUsbInterfaceDescriptorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterfaceDescriptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterfaceDescriptorVtbl {
-        unsafe extern "system" fn ClassCode<Impl: IUsbInterfaceDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+impl IUsbInterfaceDescriptor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterfaceDescriptor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterfaceDescriptor_Vtbl {
+        unsafe extern "system" fn ClassCode<Impl: IUsbInterfaceDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClassCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1399,7 +1399,7 @@ impl IUsbInterfaceDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SubclassCode<Impl: IUsbInterfaceDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SubclassCode<Impl: IUsbInterfaceDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SubclassCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1410,7 +1410,7 @@ impl IUsbInterfaceDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProtocolCode<Impl: IUsbInterfaceDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProtocolCode<Impl: IUsbInterfaceDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtocolCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1421,7 +1421,7 @@ impl IUsbInterfaceDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AlternateSettingNumber<Impl: IUsbInterfaceDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AlternateSettingNumber<Impl: IUsbInterfaceDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlternateSettingNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1432,7 +1432,7 @@ impl IUsbInterfaceDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InterfaceNumber<Impl: IUsbInterfaceDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InterfaceNumber<Impl: IUsbInterfaceDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InterfaceNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1457,7 +1457,7 @@ impl IUsbInterfaceDescriptorVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUsbInterfaceDescriptorStaticsImpl: Sized {
+pub trait IUsbInterfaceDescriptorStatics_Impl: Sized {
     fn TryParse(&mut self, descriptor: &::core::option::Option<UsbDescriptor>, parsed: &mut ::core::option::Option<UsbInterfaceDescriptor>) -> ::windows::core::Result<bool>;
     fn Parse(&mut self, descriptor: &::core::option::Option<UsbDescriptor>) -> ::windows::core::Result<UsbInterfaceDescriptor>;
 }
@@ -1466,9 +1466,9 @@ impl ::windows::core::RuntimeName for IUsbInterfaceDescriptorStatics {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbInterfaceDescriptorStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUsbInterfaceDescriptorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterfaceDescriptorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterfaceDescriptorStaticsVtbl {
-        unsafe extern "system" fn TryParse<Impl: IUsbInterfaceDescriptorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: ::windows::core::RawPtr, parsed: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IUsbInterfaceDescriptorStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterfaceDescriptorStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterfaceDescriptorStatics_Vtbl {
+        unsafe extern "system" fn TryParse<Impl: IUsbInterfaceDescriptorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: ::windows::core::RawPtr, parsed: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&descriptor as *const <UsbDescriptor as ::windows::core::Abi>::Abi as *const <UsbDescriptor as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&parsed)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1479,7 +1479,7 @@ impl IUsbInterfaceDescriptorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Parse<Impl: IUsbInterfaceDescriptorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Parse<Impl: IUsbInterfaceDescriptorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&descriptor as *const <UsbDescriptor as ::windows::core::Abi>::Abi as *const <UsbDescriptor as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1501,7 +1501,7 @@ impl IUsbInterfaceDescriptorStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IUsbInterfaceSettingImpl: Sized {
+pub trait IUsbInterfaceSetting_Impl: Sized {
     fn BulkInEndpoints(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UsbBulkInEndpointDescriptor>>;
     fn InterruptInEndpoints(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UsbInterruptInEndpointDescriptor>>;
     fn BulkOutEndpoints(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UsbBulkOutEndpointDescriptor>>;
@@ -1516,9 +1516,9 @@ impl ::windows::core::RuntimeName for IUsbInterfaceSetting {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbInterfaceSetting";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IUsbInterfaceSettingVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterfaceSettingImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterfaceSettingVtbl {
-        unsafe extern "system" fn BulkInEndpoints<Impl: IUsbInterfaceSettingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUsbInterfaceSetting_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterfaceSetting_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterfaceSetting_Vtbl {
+        unsafe extern "system" fn BulkInEndpoints<Impl: IUsbInterfaceSetting_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BulkInEndpoints() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1529,7 +1529,7 @@ impl IUsbInterfaceSettingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InterruptInEndpoints<Impl: IUsbInterfaceSettingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InterruptInEndpoints<Impl: IUsbInterfaceSetting_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InterruptInEndpoints() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1540,7 +1540,7 @@ impl IUsbInterfaceSettingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BulkOutEndpoints<Impl: IUsbInterfaceSettingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BulkOutEndpoints<Impl: IUsbInterfaceSetting_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BulkOutEndpoints() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1551,7 +1551,7 @@ impl IUsbInterfaceSettingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InterruptOutEndpoints<Impl: IUsbInterfaceSettingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InterruptOutEndpoints<Impl: IUsbInterfaceSetting_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InterruptOutEndpoints() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1562,7 +1562,7 @@ impl IUsbInterfaceSettingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Selected<Impl: IUsbInterfaceSettingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Selected<Impl: IUsbInterfaceSetting_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Selected() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1573,7 +1573,7 @@ impl IUsbInterfaceSettingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectSettingAsync<Impl: IUsbInterfaceSettingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectSettingAsync<Impl: IUsbInterfaceSetting_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectSettingAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1584,7 +1584,7 @@ impl IUsbInterfaceSettingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InterfaceDescriptor<Impl: IUsbInterfaceSettingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InterfaceDescriptor<Impl: IUsbInterfaceSetting_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InterfaceDescriptor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1595,7 +1595,7 @@ impl IUsbInterfaceSettingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Descriptors<Impl: IUsbInterfaceSettingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Descriptors<Impl: IUsbInterfaceSetting_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Descriptors() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1623,7 +1623,7 @@ impl IUsbInterfaceSettingVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IUsbInterruptInEndpointDescriptorImpl: Sized {
+pub trait IUsbInterruptInEndpointDescriptor_Impl: Sized {
     fn MaxPacketSize(&mut self) -> ::windows::core::Result<u32>;
     fn EndpointNumber(&mut self) -> ::windows::core::Result<u8>;
     fn Interval(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -1634,9 +1634,9 @@ impl ::windows::core::RuntimeName for IUsbInterruptInEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbInterruptInEndpointDescriptor";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IUsbInterruptInEndpointDescriptorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterruptInEndpointDescriptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterruptInEndpointDescriptorVtbl {
-        unsafe extern "system" fn MaxPacketSize<Impl: IUsbInterruptInEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IUsbInterruptInEndpointDescriptor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterruptInEndpointDescriptor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterruptInEndpointDescriptor_Vtbl {
+        unsafe extern "system" fn MaxPacketSize<Impl: IUsbInterruptInEndpointDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxPacketSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1647,7 +1647,7 @@ impl IUsbInterruptInEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EndpointNumber<Impl: IUsbInterruptInEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EndpointNumber<Impl: IUsbInterruptInEndpointDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndpointNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1658,7 +1658,7 @@ impl IUsbInterruptInEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Interval<Impl: IUsbInterruptInEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Interval<Impl: IUsbInterruptInEndpointDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Interval() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1669,7 +1669,7 @@ impl IUsbInterruptInEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Pipe<Impl: IUsbInterruptInEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pipe<Impl: IUsbInterruptInEndpointDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pipe() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1693,7 +1693,7 @@ impl IUsbInterruptInEndpointDescriptorVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IUsbInterruptInEventArgsImpl: Sized {
+pub trait IUsbInterruptInEventArgs_Impl: Sized {
     fn InterruptData(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -1701,9 +1701,9 @@ impl ::windows::core::RuntimeName for IUsbInterruptInEventArgs {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbInterruptInEventArgs";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IUsbInterruptInEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterruptInEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterruptInEventArgsVtbl {
-        unsafe extern "system" fn InterruptData<Impl: IUsbInterruptInEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUsbInterruptInEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterruptInEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterruptInEventArgs_Vtbl {
+        unsafe extern "system" fn InterruptData<Impl: IUsbInterruptInEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InterruptData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1724,7 +1724,7 @@ impl IUsbInterruptInEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IUsbInterruptInPipeImpl: Sized {
+pub trait IUsbInterruptInPipe_Impl: Sized {
     fn EndpointDescriptor(&mut self) -> ::windows::core::Result<UsbInterruptInEndpointDescriptor>;
     fn ClearStallAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn DataReceived(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<UsbInterruptInPipe, UsbInterruptInEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -1735,9 +1735,9 @@ impl ::windows::core::RuntimeName for IUsbInterruptInPipe {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbInterruptInPipe";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IUsbInterruptInPipeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterruptInPipeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterruptInPipeVtbl {
-        unsafe extern "system" fn EndpointDescriptor<Impl: IUsbInterruptInPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUsbInterruptInPipe_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterruptInPipe_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterruptInPipe_Vtbl {
+        unsafe extern "system" fn EndpointDescriptor<Impl: IUsbInterruptInPipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndpointDescriptor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1748,7 +1748,7 @@ impl IUsbInterruptInPipeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClearStallAsync<Impl: IUsbInterruptInPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearStallAsync<Impl: IUsbInterruptInPipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClearStallAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1759,7 +1759,7 @@ impl IUsbInterruptInPipeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DataReceived<Impl: IUsbInterruptInPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DataReceived<Impl: IUsbInterruptInPipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataReceived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<UsbInterruptInPipe, UsbInterruptInEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<UsbInterruptInPipe, UsbInterruptInEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1770,7 +1770,7 @@ impl IUsbInterruptInPipeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDataReceived<Impl: IUsbInterruptInPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDataReceived<Impl: IUsbInterruptInPipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDataReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1787,7 +1787,7 @@ impl IUsbInterruptInPipeVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IUsbInterruptOutEndpointDescriptorImpl: Sized {
+pub trait IUsbInterruptOutEndpointDescriptor_Impl: Sized {
     fn MaxPacketSize(&mut self) -> ::windows::core::Result<u32>;
     fn EndpointNumber(&mut self) -> ::windows::core::Result<u8>;
     fn Interval(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -1798,9 +1798,9 @@ impl ::windows::core::RuntimeName for IUsbInterruptOutEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbInterruptOutEndpointDescriptor";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IUsbInterruptOutEndpointDescriptorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterruptOutEndpointDescriptorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterruptOutEndpointDescriptorVtbl {
-        unsafe extern "system" fn MaxPacketSize<Impl: IUsbInterruptOutEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IUsbInterruptOutEndpointDescriptor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterruptOutEndpointDescriptor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterruptOutEndpointDescriptor_Vtbl {
+        unsafe extern "system" fn MaxPacketSize<Impl: IUsbInterruptOutEndpointDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxPacketSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1811,7 +1811,7 @@ impl IUsbInterruptOutEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EndpointNumber<Impl: IUsbInterruptOutEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EndpointNumber<Impl: IUsbInterruptOutEndpointDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndpointNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1822,7 +1822,7 @@ impl IUsbInterruptOutEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Interval<Impl: IUsbInterruptOutEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Interval<Impl: IUsbInterruptOutEndpointDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Interval() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1833,7 +1833,7 @@ impl IUsbInterruptOutEndpointDescriptorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Pipe<Impl: IUsbInterruptOutEndpointDescriptorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pipe<Impl: IUsbInterruptOutEndpointDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pipe() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1857,7 +1857,7 @@ impl IUsbInterruptOutEndpointDescriptorVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IUsbInterruptOutPipeImpl: Sized {
+pub trait IUsbInterruptOutPipe_Impl: Sized {
     fn EndpointDescriptor(&mut self) -> ::windows::core::Result<UsbInterruptOutEndpointDescriptor>;
     fn ClearStallAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn SetWriteOptions(&mut self, value: UsbWriteOptions) -> ::windows::core::Result<()>;
@@ -1869,9 +1869,9 @@ impl ::windows::core::RuntimeName for IUsbInterruptOutPipe {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbInterruptOutPipe";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IUsbInterruptOutPipeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterruptOutPipeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterruptOutPipeVtbl {
-        unsafe extern "system" fn EndpointDescriptor<Impl: IUsbInterruptOutPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUsbInterruptOutPipe_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbInterruptOutPipe_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbInterruptOutPipe_Vtbl {
+        unsafe extern "system" fn EndpointDescriptor<Impl: IUsbInterruptOutPipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EndpointDescriptor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1882,7 +1882,7 @@ impl IUsbInterruptOutPipeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClearStallAsync<Impl: IUsbInterruptOutPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearStallAsync<Impl: IUsbInterruptOutPipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClearStallAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1893,11 +1893,11 @@ impl IUsbInterruptOutPipeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetWriteOptions<Impl: IUsbInterruptOutPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: UsbWriteOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetWriteOptions<Impl: IUsbInterruptOutPipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: UsbWriteOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWriteOptions(value).into()
         }
-        unsafe extern "system" fn WriteOptions<Impl: IUsbInterruptOutPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UsbWriteOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteOptions<Impl: IUsbInterruptOutPipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UsbWriteOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WriteOptions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1908,7 +1908,7 @@ impl IUsbInterruptOutPipeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OutputStream<Impl: IUsbInterruptOutPipeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OutputStream<Impl: IUsbInterruptOutPipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutputStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1933,7 +1933,7 @@ impl IUsbInterruptOutPipeVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUsbSetupPacketImpl: Sized {
+pub trait IUsbSetupPacket_Impl: Sized {
     fn RequestType(&mut self) -> ::windows::core::Result<UsbControlRequestType>;
     fn SetRequestType(&mut self, value: &::core::option::Option<UsbControlRequestType>) -> ::windows::core::Result<()>;
     fn Request(&mut self) -> ::windows::core::Result<u8>;
@@ -1950,9 +1950,9 @@ impl ::windows::core::RuntimeName for IUsbSetupPacket {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbSetupPacket";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUsbSetupPacketVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbSetupPacketImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbSetupPacketVtbl {
-        unsafe extern "system" fn RequestType<Impl: IUsbSetupPacketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUsbSetupPacket_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbSetupPacket_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbSetupPacket_Vtbl {
+        unsafe extern "system" fn RequestType<Impl: IUsbSetupPacket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1963,11 +1963,11 @@ impl IUsbSetupPacketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRequestType<Impl: IUsbSetupPacketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRequestType<Impl: IUsbSetupPacket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRequestType(&*(&value as *const <UsbControlRequestType as ::windows::core::Abi>::Abi as *const <UsbControlRequestType as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Request<Impl: IUsbSetupPacketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Request<Impl: IUsbSetupPacket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1978,11 +1978,11 @@ impl IUsbSetupPacketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRequest<Impl: IUsbSetupPacketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRequest<Impl: IUsbSetupPacket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRequest(value).into()
         }
-        unsafe extern "system" fn Value<Impl: IUsbSetupPacketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: IUsbSetupPacket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1993,11 +1993,11 @@ impl IUsbSetupPacketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Impl: IUsbSetupPacketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Impl: IUsbSetupPacket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(value).into()
         }
-        unsafe extern "system" fn Index<Impl: IUsbSetupPacketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Index<Impl: IUsbSetupPacket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Index() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2008,11 +2008,11 @@ impl IUsbSetupPacketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIndex<Impl: IUsbSetupPacketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIndex<Impl: IUsbSetupPacket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIndex(value).into()
         }
-        unsafe extern "system" fn Length<Impl: IUsbSetupPacketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Length<Impl: IUsbSetupPacket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Length() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2023,7 +2023,7 @@ impl IUsbSetupPacketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLength<Impl: IUsbSetupPacketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLength<Impl: IUsbSetupPacket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLength(value).into()
         }
@@ -2046,7 +2046,7 @@ impl IUsbSetupPacketVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IUsbSetupPacketFactoryImpl: Sized {
+pub trait IUsbSetupPacketFactory_Impl: Sized {
     fn CreateWithEightByteBuffer(&mut self, eightbytebuffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<UsbSetupPacket>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -2054,9 +2054,9 @@ impl ::windows::core::RuntimeName for IUsbSetupPacketFactory {
     const NAME: &'static str = "Windows.Devices.Usb.IUsbSetupPacketFactory";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IUsbSetupPacketFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbSetupPacketFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbSetupPacketFactoryVtbl {
-        unsafe extern "system" fn CreateWithEightByteBuffer<Impl: IUsbSetupPacketFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eightbytebuffer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUsbSetupPacketFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUsbSetupPacketFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUsbSetupPacketFactory_Vtbl {
+        unsafe extern "system" fn CreateWithEightByteBuffer<Impl: IUsbSetupPacketFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eightbytebuffer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithEightByteBuffer(&*(&eightbytebuffer as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

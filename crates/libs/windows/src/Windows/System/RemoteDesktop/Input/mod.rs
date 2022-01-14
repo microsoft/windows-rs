@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IRemoteTextConnection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteTextConnection {
-    type Vtable = IRemoteTextConnectionVtbl;
+    type Vtable = IRemoteTextConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e7bb02a_183e_5e66_b5e4_3e6e5c570cf1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRemoteTextConnectionVtbl {
+pub struct IRemoteTextConnection_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -20,12 +20,12 @@ pub struct IRemoteTextConnectionVtbl {
 #[repr(transparent)]
 pub struct IRemoteTextConnectionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteTextConnectionFactory {
-    type Vtable = IRemoteTextConnectionFactoryVtbl;
+    type Vtable = IRemoteTextConnectionFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88e075c2_0cae_596c_850f_78d345cd728b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRemoteTextConnectionFactoryVtbl {
+pub struct IRemoteTextConnectionFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionid: ::windows::core::GUID, pduforwarder: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -100,7 +100,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteTextConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteDesktop.Input.RemoteTextConnection;{4e7bb02a-183e-5e66-b5e4-3e6e5c570cf1})");
 }
 unsafe impl ::windows::core::Interface for RemoteTextConnection {
-    type Vtable = IRemoteTextConnectionVtbl;
+    type Vtable = IRemoteTextConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e7bb02a_183e_5e66_b5e4_3e6e5c570cf1);
 }
 impl ::windows::core::RuntimeName for RemoteTextConnection {
@@ -193,12 +193,12 @@ impl RemoteTextConnectionDataHandler {
 }
 #[repr(C)]
 struct RemoteTextConnectionDataHandlerBox<F: FnMut(&[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<bool> + 'static> {
-    vtable: *const RemoteTextConnectionDataHandlerVtbl,
+    vtable: *const RemoteTextConnectionDataHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<bool> + 'static> RemoteTextConnectionDataHandlerBox<F> {
-    const VTABLE: RemoteTextConnectionDataHandlerVtbl = RemoteTextConnectionDataHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: RemoteTextConnectionDataHandler_Vtbl = RemoteTextConnectionDataHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<RemoteTextConnectionDataHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -250,7 +250,7 @@ impl ::core::fmt::Debug for RemoteTextConnectionDataHandler {
     }
 }
 unsafe impl ::windows::core::Interface for RemoteTextConnectionDataHandler {
-    type Vtable = RemoteTextConnectionDataHandlerVtbl;
+    type Vtable = RemoteTextConnectionDataHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x099ffbc8_8bcb_41b5_b056_57e77021bf1b);
 }
 unsafe impl ::windows::core::RuntimeType for RemoteTextConnectionDataHandler {
@@ -258,7 +258,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteTextConnectionDataHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct RemoteTextConnectionDataHandlerVtbl {
+pub struct RemoteTextConnectionDataHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pduData_array_size: u32, pdudata: *const u8, result__: *mut bool) -> ::windows::core::HRESULT,
 }

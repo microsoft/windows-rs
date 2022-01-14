@@ -100,14 +100,14 @@ impl ::core::fmt::Debug for AppEvents {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for AppEvents {
-    type Vtable = AppEventsVtbl;
+    type Vtable = AppEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc7a4252_78ac_4532_8c5a_563cfe138863);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct AppEventsVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct AppEvents_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
 }
 pub const AppEventsDHTMLConnector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xade6444b_c91f_4e37_92a4_5bb430a33340);
 pub const Application: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49b2791a_b1ae_4c90_9b8e_e860ba07f889);
@@ -400,14 +400,14 @@ impl ::core::fmt::Debug for Column {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for Column {
-    type Vtable = ColumnVtbl;
+    type Vtable = Column_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd1c5f63_2b16_4d06_9ab3_f45350b940ab);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ColumnVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct Column_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -545,14 +545,14 @@ impl ::core::fmt::Debug for Columns {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for Columns {
-    type Vtable = ColumnsVtbl;
+    type Vtable = Columns_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x383d4d97_fc44_478b_b139_6323dc48611c);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ColumnsVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct Columns_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, column: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -676,14 +676,14 @@ impl ::core::fmt::Debug for ContextMenu {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ContextMenu {
-    type Vtable = ContextMenuVtbl;
+    type Vtable = ContextMenu_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdab39ce0_25e6_4e07_8362_ba9c95706545);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ContextMenuVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct ContextMenu_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexorpath: ::core::mem::ManuallyDrop<super::Com::VARIANT>, menuitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -886,14 +886,14 @@ impl ::core::fmt::Debug for Document {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for Document {
-    type Vtable = DocumentVtbl;
+    type Vtable = Document_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x225120d6_1e0f_40a3_93fe_1079e6a8017b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct DocumentVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct Document_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SaveAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -1079,14 +1079,14 @@ impl ::core::fmt::Debug for Extension {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for Extension {
-    type Vtable = ExtensionVtbl;
+    type Vtable = Extension_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad4d6ca6_912f_409b_a26e_7fd234aef542);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ExtensionVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct Extension_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut u16) -> ::windows::core::HRESULT,
     pub Vendor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vendor: *mut *mut u16) -> ::windows::core::HRESULT,
     pub Version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, version: *mut *mut u16) -> ::windows::core::HRESULT,
@@ -1219,14 +1219,14 @@ impl ::core::fmt::Debug for Extensions {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for Extensions {
-    type Vtable = ExtensionsVtbl;
+    type Vtable = Extensions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82dbea43_8ca4_44bc_a2ca_d18741059ec8);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ExtensionsVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct Extensions_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, extension: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1381,14 +1381,14 @@ impl ::core::fmt::Debug for Frame {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for Frame {
-    type Vtable = FrameVtbl;
+    type Vtable = Frame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5e2d970_5bb3_4306_8804_b0968a31c8e6);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct FrameVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct Frame_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Maximize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Minimize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Restore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1465,12 +1465,12 @@ impl ::core::fmt::Debug for IColumnData {
     }
 }
 unsafe impl ::windows::core::Interface for IColumnData {
-    type Vtable = IColumnDataVtbl;
+    type Vtable = IColumnData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x547c1354_024d_11d3_a707_00c04f8ef4cb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IColumnDataVtbl {
+pub struct IColumnData_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetColumnConfigData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcolid: *const SColumnSetID, pcolsetdata: *const MMC_COLUMN_SET_DATA) -> ::windows::core::HRESULT,
     pub GetColumnConfigData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcolid: *const SColumnSetID, ppcolsetdata: *mut *mut MMC_COLUMN_SET_DATA) -> ::windows::core::HRESULT,
@@ -1553,12 +1553,12 @@ impl ::core::fmt::Debug for IComponent {
     }
 }
 unsafe impl ::windows::core::Interface for IComponent {
-    type Vtable = IComponentVtbl;
+    type Vtable = IComponent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43136eb2_d36c_11cf_adbc_00aa00a80033);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IComponentVtbl {
+pub struct IComponent_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpconsole: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1695,13 +1695,13 @@ impl ::core::fmt::Debug for IComponent2 {
     }
 }
 unsafe impl ::windows::core::Interface for IComponent2 {
-    type Vtable = IComponent2Vtbl;
+    type Vtable = IComponent2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79a2d615_4a10_4ed4_8c65_8633f9335095);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IComponent2Vtbl {
-    pub base: IComponentVtbl,
+pub struct IComponent2_Vtbl {
+    pub base: IComponent_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub QueryDispatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: isize, r#type: DATA_OBJECT_TYPES, ppdispatch: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1791,12 +1791,12 @@ impl ::core::fmt::Debug for IComponentData {
     }
 }
 unsafe impl ::windows::core::Interface for IComponentData {
-    type Vtable = IComponentDataVtbl;
+    type Vtable = IComponentData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x955ab28a_5218_11d0_a985_00c04fd8d565);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IComponentDataVtbl {
+pub struct IComponentData_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcomponent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1920,13 +1920,13 @@ impl ::core::fmt::Debug for IComponentData2 {
     }
 }
 unsafe impl ::windows::core::Interface for IComponentData2 {
-    type Vtable = IComponentData2Vtbl;
+    type Vtable = IComponentData2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcca0f2d2_82de_41b5_bf47_3b2076273d5c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IComponentData2Vtbl {
-    pub base: IComponentDataVtbl,
+pub struct IComponentData2_Vtbl {
+    pub base: IComponentData_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub QueryDispatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: isize, r#type: DATA_OBJECT_TYPES, ppdispatch: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2027,12 +2027,12 @@ impl ::core::fmt::Debug for IConsole {
     }
 }
 unsafe impl ::windows::core::Interface for IConsole {
-    type Vtable = IConsoleVtbl;
+    type Vtable = IConsole_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43136eb1_d36c_11cf_adbc_00aa00a80033);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IConsoleVtbl {
+pub struct IConsole_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pheader: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetToolbar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptoolbar: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2184,13 +2184,13 @@ impl ::core::fmt::Debug for IConsole2 {
     }
 }
 unsafe impl ::windows::core::Interface for IConsole2 {
-    type Vtable = IConsole2Vtbl;
+    type Vtable = IConsole2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x103d842a_aa63_11d1_a7e1_00c04fd8d565);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IConsole2Vtbl {
-    pub base: IConsoleVtbl,
+pub struct IConsole2_Vtbl {
+    pub base: IConsole_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Expand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hitem: isize, bexpand: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2354,13 +2354,13 @@ impl ::core::fmt::Debug for IConsole3 {
     }
 }
 unsafe impl ::windows::core::Interface for IConsole3 {
-    type Vtable = IConsole3Vtbl;
+    type Vtable = IConsole3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f85efdb_d0e1_498c_8d4a_d010dfdd404f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IConsole3Vtbl {
-    pub base: IConsole2Vtbl,
+pub struct IConsole3_Vtbl {
+    pub base: IConsole2_Vtbl,
     pub RenameScopeItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hscopeitem: isize) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
@@ -2436,12 +2436,12 @@ impl ::core::fmt::Debug for IConsoleNameSpace {
     }
 }
 unsafe impl ::windows::core::Interface for IConsoleNameSpace {
-    type Vtable = IConsoleNameSpaceVtbl;
+    type Vtable = IConsoleNameSpace_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbedeb620_f24d_11cf_8afc_00aa003ca9f6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IConsoleNameSpaceVtbl {
+pub struct IConsoleNameSpace_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub InsertItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut SCOPEDATAITEM) -> ::windows::core::HRESULT,
@@ -2561,13 +2561,13 @@ impl ::core::fmt::Debug for IConsoleNameSpace2 {
     }
 }
 unsafe impl ::windows::core::Interface for IConsoleNameSpace2 {
-    type Vtable = IConsoleNameSpace2Vtbl;
+    type Vtable = IConsoleNameSpace2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x255f18cc_65db_11d1_a7dc_00c04fd8d565);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IConsoleNameSpace2Vtbl {
-    pub base: IConsoleNameSpaceVtbl,
+pub struct IConsoleNameSpace2_Vtbl {
+    pub base: IConsoleNameSpace_Vtbl,
     pub Expand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hitem: isize) -> ::windows::core::HRESULT,
     pub AddExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hitem: isize, lpclsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
@@ -2621,12 +2621,12 @@ impl ::core::fmt::Debug for IConsolePower {
     }
 }
 unsafe impl ::windows::core::Interface for IConsolePower {
-    type Vtable = IConsolePowerVtbl;
+    type Vtable = IConsolePower_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cfbdd0e_62ca_49ce_a3af_dbb2de61b068);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IConsolePowerVtbl {
+pub struct IConsolePower_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetExecutionState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwadd: u32, dwremove: u32) -> ::windows::core::HRESULT,
     pub ResetIdleTimer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
@@ -2679,12 +2679,12 @@ impl ::core::fmt::Debug for IConsolePowerSink {
     }
 }
 unsafe impl ::windows::core::Interface for IConsolePowerSink {
-    type Vtable = IConsolePowerSinkVtbl;
+    type Vtable = IConsolePowerSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3333759f_fe4f_4975_b143_fec0a5dd6d65);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IConsolePowerSinkVtbl {
+pub struct IConsolePowerSink_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub OnPowerBroadcast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nevent: u32, lparam: super::super::Foundation::LPARAM, plreturn: *mut super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
@@ -2753,12 +2753,12 @@ impl ::core::fmt::Debug for IConsoleVerb {
     }
 }
 unsafe impl ::windows::core::Interface for IConsoleVerb {
-    type Vtable = IConsoleVerbVtbl;
+    type Vtable = IConsoleVerb_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe49f7a60_74af_11d0_a286_00c04fd8fe93);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IConsoleVerbVtbl {
+pub struct IConsoleVerb_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetVerbState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ecmdid: MMC_CONSOLE_VERB, nstate: MMC_BUTTON_STATE, pstate: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -2818,12 +2818,12 @@ impl ::core::fmt::Debug for IContextMenuCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IContextMenuCallback {
-    type Vtable = IContextMenuCallbackVtbl;
+    type Vtable = IContextMenuCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43136eb7_d36c_11cf_adbc_00aa00a80033);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContextMenuCallbackVtbl {
+pub struct IContextMenuCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitem: *const CONTEXTMENUITEM) -> ::windows::core::HRESULT,
@@ -2877,12 +2877,12 @@ impl ::core::fmt::Debug for IContextMenuCallback2 {
     }
 }
 unsafe impl ::windows::core::Interface for IContextMenuCallback2 {
-    type Vtable = IContextMenuCallback2Vtbl;
+    type Vtable = IContextMenuCallback2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe178bc0e_2ed0_4b5e_8097_42c9087e8b33);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContextMenuCallback2Vtbl {
+pub struct IContextMenuCallback2_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitem: *const CONTEXTMENUITEM2) -> ::windows::core::HRESULT,
@@ -2976,13 +2976,13 @@ impl ::core::fmt::Debug for IContextMenuProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IContextMenuProvider {
-    type Vtable = IContextMenuProviderVtbl;
+    type Vtable = IContextMenuProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43136eb6_d36c_11cf_adbc_00aa00a80033);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContextMenuProviderVtbl {
-    pub base: IContextMenuCallbackVtbl,
+pub struct IContextMenuProvider_Vtbl {
+    pub base: IContextMenuCallback_Vtbl,
     pub EmptyMenuList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub AddPrimaryExtensionItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piextension: *mut ::core::ffi::c_void, pidataobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3052,12 +3052,12 @@ impl ::core::fmt::Debug for IControlbar {
     }
 }
 unsafe impl ::windows::core::Interface for IControlbar {
-    type Vtable = IControlbarVtbl;
+    type Vtable = IControlbar_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69fb811e_6c1c_11d0_a2cb_00c04fd909dd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IControlbarVtbl {
+pub struct IControlbar_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ntype: MMC_CONTROL_TYPE, pextendcontrolbar: ::windows::core::RawPtr, ppunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Attach: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ntype: MMC_CONTROL_TYPE, lpunknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3110,12 +3110,12 @@ impl ::core::fmt::Debug for IDisplayHelp {
     }
 }
 unsafe impl ::windows::core::Interface for IDisplayHelp {
-    type Vtable = IDisplayHelpVtbl;
+    type Vtable = IDisplayHelp_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc593830_b926_11d1_8063_0000f875a9ce);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayHelpVtbl {
+pub struct IDisplayHelp_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ShowTopic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszhelptopic: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -3182,12 +3182,12 @@ impl ::core::fmt::Debug for IEnumTASK {
     }
 }
 unsafe impl ::windows::core::Interface for IEnumTASK {
-    type Vtable = IEnumTASKVtbl;
+    type Vtable = IEnumTASK_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x338698b1_5a02_11d1_9fec_00600832db4a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumTASKVtbl {
+pub struct IEnumTASK_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut MMC_TASK, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
@@ -3249,12 +3249,12 @@ impl ::core::fmt::Debug for IExtendContextMenu {
     }
 }
 unsafe impl ::windows::core::Interface for IExtendContextMenu {
-    type Vtable = IExtendContextMenuVtbl;
+    type Vtable = IExtendContextMenu_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f3b7a4f_cfac_11cf_b8e3_00c04fd8d5b0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IExtendContextMenuVtbl {
+pub struct IExtendContextMenu_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub AddMenuItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidataobject: ::windows::core::RawPtr, picallback: ::windows::core::RawPtr, pinsertionallowed: *mut i32) -> ::windows::core::HRESULT,
@@ -3316,12 +3316,12 @@ impl ::core::fmt::Debug for IExtendControlbar {
     }
 }
 unsafe impl ::windows::core::Interface for IExtendControlbar {
-    type Vtable = IExtendControlbarVtbl;
+    type Vtable = IExtendControlbar_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49506520_6f40_11d0_a98b_00c04fd8d565);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IExtendControlbarVtbl {
+pub struct IExtendControlbar_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetControlbar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontrolbar: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -3381,12 +3381,12 @@ impl ::core::fmt::Debug for IExtendPropertySheet {
     }
 }
 unsafe impl ::windows::core::Interface for IExtendPropertySheet {
-    type Vtable = IExtendPropertySheetVtbl;
+    type Vtable = IExtendPropertySheet_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85de64dc_ef21_11cf_a285_00c04fd8dbe6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IExtendPropertySheetVtbl {
+pub struct IExtendPropertySheet_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub CreatePropertyPages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpprovider: ::windows::core::RawPtr, handle: isize, lpidataobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3474,13 +3474,13 @@ impl ::core::fmt::Debug for IExtendPropertySheet2 {
     }
 }
 unsafe impl ::windows::core::Interface for IExtendPropertySheet2 {
-    type Vtable = IExtendPropertySheet2Vtbl;
+    type Vtable = IExtendPropertySheet2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7a87232_4a51_11d1_a7ea_00c04fd909dd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IExtendPropertySheet2Vtbl {
-    pub base: IExtendPropertySheetVtbl,
+pub struct IExtendPropertySheet2_Vtbl {
+    pub base: IExtendPropertySheet_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub GetWatermarks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpidataobject: ::windows::core::RawPtr, lphwatermark: *mut super::super::Graphics::Gdi::HBITMAP, lphheader: *mut super::super::Graphics::Gdi::HBITMAP, lphpalette: *mut super::super::Graphics::Gdi::HPALETTE, bstretch: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))]
@@ -3563,12 +3563,12 @@ impl ::core::fmt::Debug for IExtendTaskPad {
     }
 }
 unsafe impl ::windows::core::Interface for IExtendTaskPad {
-    type Vtable = IExtendTaskPadVtbl;
+    type Vtable = IExtendTaskPad_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8dee6511_554d_11d1_9fea_00600832db4a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IExtendTaskPadVtbl {
+pub struct IExtendTaskPad_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub TaskNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdo: ::windows::core::RawPtr, arg: *const super::Com::VARIANT, param2: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -3642,12 +3642,12 @@ impl ::core::fmt::Debug for IExtendView {
     }
 }
 unsafe impl ::windows::core::Interface for IExtendView {
-    type Vtable = IExtendViewVtbl;
+    type Vtable = IExtendView_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89995cee_d2ed_4c0e_ae5e_df7e76f3fa53);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IExtendViewVtbl {
+pub struct IExtendView_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetViews: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobject: ::windows::core::RawPtr, pviewextensioncallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3725,12 +3725,12 @@ impl ::core::fmt::Debug for IHeaderCtrl {
     }
 }
 unsafe impl ::windows::core::Interface for IHeaderCtrl {
-    type Vtable = IHeaderCtrlVtbl;
+    type Vtable = IHeaderCtrl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43136eb3_d36c_11cf_adbc_00aa00a80033);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHeaderCtrlVtbl {
+pub struct IHeaderCtrl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub InsertColumn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncol: i32, title: super::super::Foundation::PWSTR, nformat: i32, nwidth: i32) -> ::windows::core::HRESULT,
@@ -3853,13 +3853,13 @@ impl ::core::fmt::Debug for IHeaderCtrl2 {
     }
 }
 unsafe impl ::windows::core::Interface for IHeaderCtrl2 {
-    type Vtable = IHeaderCtrl2Vtbl;
+    type Vtable = IHeaderCtrl2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9757abb8_1b32_11d1_a7ce_00c04fd8d565);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHeaderCtrl2Vtbl {
-    pub base: IHeaderCtrlVtbl,
+pub struct IHeaderCtrl2_Vtbl {
+    pub base: IHeaderCtrl_Vtbl,
     pub SetChangeTimeOut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, utimeout: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetColumnFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncolumn: u32, dwtype: u32, pfilterdata: *const MMC_FILTERDATA) -> ::windows::core::HRESULT,
@@ -3920,12 +3920,12 @@ impl ::core::fmt::Debug for IImageList {
     }
 }
 unsafe impl ::windows::core::Interface for IImageList {
-    type Vtable = IImageListVtbl;
+    type Vtable = IImageList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43136eb8_d36c_11cf_adbc_00aa00a80033);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IImageListVtbl {
+pub struct IImageList_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub ImageListSetIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, picon: *const isize, nloc: i32) -> ::windows::core::HRESULT,
     pub ImageListSetStrip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbmapsm: *const isize, pbmaplg: *const isize, nstartloc: i32, cmask: u32) -> ::windows::core::HRESULT,
@@ -3980,12 +3980,12 @@ impl ::core::fmt::Debug for IMMCVersionInfo {
     }
 }
 unsafe impl ::windows::core::Interface for IMMCVersionInfo {
-    type Vtable = IMMCVersionInfoVtbl;
+    type Vtable = IMMCVersionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8d2c5fe_cdcb_4b9d_bde5_a27343ff54bc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMMCVersionInfoVtbl {
+pub struct IMMCVersionInfo_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetMMCVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pversionmajor: *mut i32, pversionminor: *mut i32) -> ::windows::core::HRESULT,
 }
@@ -4046,12 +4046,12 @@ impl ::core::fmt::Debug for IMenuButton {
     }
 }
 unsafe impl ::windows::core::Interface for IMenuButton {
-    type Vtable = IMenuButtonVtbl;
+    type Vtable = IMenuButton_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x951ed750_d080_11d0_b197_000000000000);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMenuButtonVtbl {
+pub struct IMenuButton_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddButton: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idcommand: i32, lpbuttontext: super::super::Foundation::PWSTR, lptooltiptext: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -4126,12 +4126,12 @@ impl ::core::fmt::Debug for IMessageView {
     }
 }
 unsafe impl ::windows::core::Interface for IMessageView {
-    type Vtable = IMessageViewVtbl;
+    type Vtable = IMessageView_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80f94174_fccc_11d2_b991_00c04f8ecd78);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMessageViewVtbl {
+pub struct IMessageView_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetTitleText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psztitletext: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -4192,12 +4192,12 @@ impl ::core::fmt::Debug for INodeProperties {
     }
 }
 unsafe impl ::windows::core::Interface for INodeProperties {
-    type Vtable = INodePropertiesVtbl;
+    type Vtable = INodeProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15bc4d24_a522_4406_aa55_0749537a6865);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INodePropertiesVtbl {
+pub struct INodeProperties_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobject: ::windows::core::RawPtr, szpropertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrproperty: *mut *mut u16) -> ::windows::core::HRESULT,
@@ -4256,12 +4256,12 @@ impl ::core::fmt::Debug for IPropertySheetCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertySheetCallback {
-    type Vtable = IPropertySheetCallbackVtbl;
+    type Vtable = IPropertySheetCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85de64dd_ef21_11cf_a285_00c04fd8dbe6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertySheetCallbackVtbl {
+pub struct IPropertySheetCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_UI_Controls")]
     pub AddPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hpage: super::super::UI::Controls::HPROPSHEETPAGE) -> ::windows::core::HRESULT,
@@ -4337,12 +4337,12 @@ impl ::core::fmt::Debug for IPropertySheetProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertySheetProvider {
-    type Vtable = IPropertySheetProviderVtbl;
+    type Vtable = IPropertySheetProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85de64de_ef21_11cf_a285_00c04fd8dbe6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertySheetProviderVtbl {
+pub struct IPropertySheetProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub CreatePropertySheet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, title: super::super::Foundation::PWSTR, r#type: u8, cookie: isize, pidataobjectm: ::windows::core::RawPtr, dwoptions: u32) -> ::windows::core::HRESULT,
@@ -4415,12 +4415,12 @@ impl ::core::fmt::Debug for IRequiredExtensions {
     }
 }
 unsafe impl ::windows::core::Interface for IRequiredExtensions {
-    type Vtable = IRequiredExtensionsVtbl;
+    type Vtable = IRequiredExtensions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72782d7a_a4a0_11d1_af0f_00c04fb6dd2c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRequiredExtensionsVtbl {
+pub struct IRequiredExtensions_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub EnableAllExtensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetFirstExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -4537,12 +4537,12 @@ impl ::core::fmt::Debug for IResultData {
     }
 }
 unsafe impl ::windows::core::Interface for IResultData {
-    type Vtable = IResultDataVtbl;
+    type Vtable = IResultData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31da5fa0_e0eb_11cf_9f21_00aa003ca9f6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResultDataVtbl {
+pub struct IResultData_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub InsertItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut RESULTDATAITEM) -> ::windows::core::HRESULT,
@@ -4716,13 +4716,13 @@ impl ::core::fmt::Debug for IResultData2 {
     }
 }
 unsafe impl ::windows::core::Interface for IResultData2 {
-    type Vtable = IResultData2Vtbl;
+    type Vtable = IResultData2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f36e0eb_a7f1_4a81_be5a_9247f7de4b1b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResultData2Vtbl {
-    pub base: IResultDataVtbl,
+pub struct IResultData2_Vtbl {
+    pub base: IResultData_Vtbl,
     pub RenameResultItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itemid: isize) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
@@ -4772,12 +4772,12 @@ impl ::core::fmt::Debug for IResultDataCompare {
     }
 }
 unsafe impl ::windows::core::Interface for IResultDataCompare {
-    type Vtable = IResultDataCompareVtbl;
+    type Vtable = IResultDataCompare_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8315a52_7a1a_11d0_a2d2_00c04fd909dd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResultDataCompareVtbl {
+pub struct IResultDataCompare_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Compare: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, luserparam: super::super::Foundation::LPARAM, cookiea: isize, cookieb: isize, pnresult: *mut i32) -> ::windows::core::HRESULT,
@@ -4832,12 +4832,12 @@ impl ::core::fmt::Debug for IResultDataCompareEx {
     }
 }
 unsafe impl ::windows::core::Interface for IResultDataCompareEx {
-    type Vtable = IResultDataCompareExVtbl;
+    type Vtable = IResultDataCompareEx_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96933476_0251_11d3_aeb0_00c04f8ecd78);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResultDataCompareExVtbl {
+pub struct IResultDataCompareEx_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Compare: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prdc: *const RDCOMPARE, pnresult: *mut i32) -> ::windows::core::HRESULT,
@@ -4901,12 +4901,12 @@ impl ::core::fmt::Debug for IResultOwnerData {
     }
 }
 unsafe impl ::windows::core::Interface for IResultOwnerData {
-    type Vtable = IResultOwnerDataVtbl;
+    type Vtable = IResultOwnerData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cb396d8_ea83_11d0_aef1_00c04fb6dd2c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResultOwnerDataVtbl {
+pub struct IResultOwnerData_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub FindItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfindinfo: *const RESULTFINDINFO, pnfoundindex: *mut i32) -> ::windows::core::HRESULT,
@@ -4989,12 +4989,12 @@ impl ::core::fmt::Debug for ISnapinAbout {
     }
 }
 unsafe impl ::windows::core::Interface for ISnapinAbout {
-    type Vtable = ISnapinAboutVtbl;
+    type Vtable = ISnapinAbout_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1245208c_a151_11d0_a7d7_00c04fd909dd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISnapinAboutVtbl {
+pub struct ISnapinAbout_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetSnapinDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpdescription: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -5065,12 +5065,12 @@ impl ::core::fmt::Debug for ISnapinHelp {
     }
 }
 unsafe impl ::windows::core::Interface for ISnapinHelp {
-    type Vtable = ISnapinHelpVtbl;
+    type Vtable = ISnapinHelp_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6b15ace_df59_11d0_a7dd_00c04fd909dd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISnapinHelpVtbl {
+pub struct ISnapinHelp_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetHelpTopic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpcompiledhelpfile: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -5151,13 +5151,13 @@ impl ::core::fmt::Debug for ISnapinHelp2 {
     }
 }
 unsafe impl ::windows::core::Interface for ISnapinHelp2 {
-    type Vtable = ISnapinHelp2Vtbl;
+    type Vtable = ISnapinHelp2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4861a010_20f9_11d2_a510_00c04fb6dd2c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISnapinHelp2Vtbl {
-    pub base: ISnapinHelpVtbl,
+pub struct ISnapinHelp2_Vtbl {
+    pub base: ISnapinHelp_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetLinkedTopics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpcompiledhelpfiles: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5219,12 +5219,12 @@ impl ::core::fmt::Debug for ISnapinProperties {
     }
 }
 unsafe impl ::windows::core::Interface for ISnapinProperties {
-    type Vtable = ISnapinPropertiesVtbl;
+    type Vtable = ISnapinProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7889da9_4a02_4837_bf89_1a6f2a021010);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISnapinPropertiesVtbl {
+pub struct ISnapinProperties_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pproperties: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5283,12 +5283,12 @@ impl ::core::fmt::Debug for ISnapinPropertiesCallback {
     }
 }
 unsafe impl ::windows::core::Interface for ISnapinPropertiesCallback {
-    type Vtable = ISnapinPropertiesCallbackVtbl;
+    type Vtable = ISnapinPropertiesCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa50fa2e5_7e61_45eb_a8d4_9a07b3e851a8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISnapinPropertiesCallbackVtbl {
+pub struct ISnapinPropertiesCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddPropertyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpropname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT,
@@ -5373,12 +5373,12 @@ impl ::core::fmt::Debug for IStringTable {
     }
 }
 unsafe impl ::windows::core::Interface for IStringTable {
-    type Vtable = IStringTableVtbl;
+    type Vtable = IStringTable_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde40b7a4_0f65_11d2_8e25_00c04f8ecd78);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStringTableVtbl {
+pub struct IStringTable_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszadd: super::super::Foundation::PWSTR, pstringid: *mut u32) -> ::windows::core::HRESULT,
@@ -5472,12 +5472,12 @@ impl ::core::fmt::Debug for IToolbar {
     }
 }
 unsafe impl ::windows::core::Interface for IToolbar {
-    type Vtable = IToolbarVtbl;
+    type Vtable = IToolbar_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43136eb9_d36c_11cf_adbc_00aa00a80033);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IToolbarVtbl {
+pub struct IToolbar_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub AddBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nimages: i32, hbmp: super::super::Graphics::Gdi::HBITMAP, cxsize: i32, cysize: i32, crmask: u32) -> ::windows::core::HRESULT,
@@ -5548,12 +5548,12 @@ impl ::core::fmt::Debug for IViewExtensionCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IViewExtensionCallback {
-    type Vtable = IViewExtensionCallbackVtbl;
+    type Vtable = IViewExtensionCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34dd928a_7599_41e5_9f5e_d6bc3062c2da);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IViewExtensionCallbackVtbl {
+pub struct IViewExtensionCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextviewdata: *const MMC_EXT_VIEW_DATA) -> ::windows::core::HRESULT,
@@ -6675,14 +6675,14 @@ impl ::core::fmt::Debug for MenuItem {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for MenuItem {
-    type Vtable = MenuItemVtbl;
+    type Vtable = MenuItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0178fad1_b361_4b27_96ad_67c57ebf2e1d);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct MenuItemVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct MenuItem_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayname: *mut *mut u16) -> ::windows::core::HRESULT,
     pub LanguageIndependentName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languageindependentname: *mut *mut u16) -> ::windows::core::HRESULT,
     pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut *mut u16) -> ::windows::core::HRESULT,
@@ -6819,14 +6819,14 @@ impl ::core::fmt::Debug for Node {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for Node {
-    type Vtable = NodeVtbl;
+    type Vtable = Node_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf81ed800_7839_4447_945d_8e15da59ca55);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct NodeVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct Node_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, propertyvalue: *mut *mut u16) -> ::windows::core::HRESULT,
@@ -6954,14 +6954,14 @@ impl ::core::fmt::Debug for Nodes {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for Nodes {
-    type Vtable = NodesVtbl;
+    type Vtable = Nodes_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x313b01df_b22f_4d42_b1b8_483cdcf51d35);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct NodesVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct Nodes_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, node: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7089,14 +7089,14 @@ impl ::core::fmt::Debug for Properties {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for Properties {
-    type Vtable = PropertiesVtbl;
+    type Vtable = Properties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2886abc2_a425_42b2_91c6_e25c0e04581c);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct PropertiesVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct Properties_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, property: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7223,14 +7223,14 @@ impl ::core::fmt::Debug for Property {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for Property {
-    type Vtable = PropertyVtbl;
+    type Vtable = Property_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4600c3a5_e301_41d8_b6d0_ef2e4212e0ca);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct PropertyVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct Property_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -7972,14 +7972,14 @@ impl ::core::fmt::Debug for ScopeNamespace {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ScopeNamespace {
-    type Vtable = ScopeNamespaceVtbl;
+    type Vtable = ScopeNamespace_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebbb48dc_1a3b_4d86_b786_c21b28389012);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ScopeNamespaceVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct ScopeNamespace_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetParent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, node: ::windows::core::RawPtr, parent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -8137,14 +8137,14 @@ impl ::core::fmt::Debug for SnapIn {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for SnapIn {
-    type Vtable = SnapInVtbl;
+    type Vtable = SnapIn_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3be910f6_3459_49c6_a1bb_41e6be9df3ea);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct SnapInVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct SnapIn_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut u16) -> ::windows::core::HRESULT,
     pub Vendor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vendor: *mut *mut u16) -> ::windows::core::HRESULT,
     pub Version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, version: *mut *mut u16) -> ::windows::core::HRESULT,
@@ -8288,14 +8288,14 @@ impl ::core::fmt::Debug for SnapIns {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for SnapIns {
-    type Vtable = SnapInsVtbl;
+    type Vtable = SnapIns_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ef3de1d_b12a_49d1_92c5_0b00798768f1);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct SnapInsVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct SnapIns_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, snapin: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8626,14 +8626,14 @@ impl ::core::fmt::Debug for View {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for View {
-    type Vtable = ViewVtbl;
+    type Vtable = View_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6efc2da2_b38c_457e_9abb_ed2d189b8c38);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ViewVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct View_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub ActiveScopeNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, node: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -8890,14 +8890,14 @@ impl ::core::fmt::Debug for Views {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for Views {
-    type Vtable = ViewsVtbl;
+    type Vtable = Views_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6b8c29d_a1ff_4d72_aab0_e381e9b9338d);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ViewsVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct Views_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, view: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -9067,14 +9067,14 @@ impl ::core::fmt::Debug for _AppEvents {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for _AppEvents {
-    type Vtable = _AppEventsVtbl;
+    type Vtable = _AppEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde46cbdd_53f5_4635_af54_4fe71e923d3f);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct _AppEventsVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct _AppEvents_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub OnQuit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, application: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -9280,14 +9280,14 @@ impl ::core::fmt::Debug for _Application {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for _Application {
-    type Vtable = _ApplicationVtbl;
+    type Vtable = _Application_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3afb9cc_b653_4741_86ab_f0470ec1384c);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct _ApplicationVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct _Application_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Help: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub Quit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     #[cfg(feature = "Win32_System_Com")]
@@ -9443,14 +9443,14 @@ impl ::core::fmt::Debug for _EventConnector {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for _EventConnector {
-    type Vtable = _EventConnectorVtbl;
+    type Vtable = _EventConnector_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0bccd30_de44_4528_8403_a05a6a1cc8ea);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct _EventConnectorVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct _EventConnector_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub ConnectTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, application: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]

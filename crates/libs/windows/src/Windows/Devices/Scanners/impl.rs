@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IImageScannerImpl: Sized {
+pub trait IImageScanner_Impl: Sized {
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DefaultScanSource(&mut self) -> ::windows::core::Result<ImageScannerScanSource>;
     fn IsScanSourceSupported(&mut self, value: ImageScannerScanSource) -> ::windows::core::Result<bool>;
@@ -15,9 +15,9 @@ impl ::windows::core::RuntimeName for IImageScanner {
     const NAME: &'static str = "Windows.Devices.Scanners.IImageScanner";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IImageScannerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageScannerVtbl {
-        unsafe extern "system" fn DeviceId<Impl: IImageScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IImageScanner_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScanner_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageScanner_Vtbl {
+        unsafe extern "system" fn DeviceId<Impl: IImageScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -28,7 +28,7 @@ impl IImageScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DefaultScanSource<Impl: IImageScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerScanSource) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultScanSource<Impl: IImageScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerScanSource) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultScanSource() {
                 ::core::result::Result::Ok(ok__) => {
@@ -39,7 +39,7 @@ impl IImageScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsScanSourceSupported<Impl: IImageScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ImageScannerScanSource, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsScanSourceSupported<Impl: IImageScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ImageScannerScanSource, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsScanSourceSupported(value) {
                 ::core::result::Result::Ok(ok__) => {
@@ -50,7 +50,7 @@ impl IImageScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FlatbedConfiguration<Impl: IImageScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FlatbedConfiguration<Impl: IImageScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FlatbedConfiguration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -61,7 +61,7 @@ impl IImageScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FeederConfiguration<Impl: IImageScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeederConfiguration<Impl: IImageScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FeederConfiguration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -72,7 +72,7 @@ impl IImageScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AutoConfiguration<Impl: IImageScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AutoConfiguration<Impl: IImageScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutoConfiguration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -83,7 +83,7 @@ impl IImageScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsPreviewSupported<Impl: IImageScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scansource: ImageScannerScanSource, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPreviewSupported<Impl: IImageScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scansource: ImageScannerScanSource, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPreviewSupported(scansource) {
                 ::core::result::Result::Ok(ok__) => {
@@ -94,7 +94,7 @@ impl IImageScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ScanPreviewToStreamAsync<Impl: IImageScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scansource: ImageScannerScanSource, targetstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScanPreviewToStreamAsync<Impl: IImageScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scansource: ImageScannerScanSource, targetstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScanPreviewToStreamAsync(scansource, &*(&targetstream as *const <super::super::Storage::Streams::IRandomAccessStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStream as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -105,7 +105,7 @@ impl IImageScannerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ScanFilesToFolderAsync<Impl: IImageScannerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scansource: ImageScannerScanSource, storagefolder: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScanFilesToFolderAsync<Impl: IImageScanner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scansource: ImageScannerScanSource, storagefolder: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScanFilesToFolderAsync(scansource, &*(&storagefolder as *const <super::super::Storage::StorageFolder as ::windows::core::Abi>::Abi as *const <super::super::Storage::StorageFolder as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -134,7 +134,7 @@ impl IImageScannerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Printing", feature = "implement_exclusive"))]
-pub trait IImageScannerFeederConfigurationImpl: Sized + IImageScannerFormatConfigurationImpl + IImageScannerSourceConfigurationImpl {
+pub trait IImageScannerFeederConfiguration_Impl: Sized + IImageScannerFormatConfiguration_Impl + IImageScannerSourceConfiguration_Impl {
     fn CanAutoDetectPageSize(&mut self) -> ::windows::core::Result<bool>;
     fn AutoDetectPageSize(&mut self) -> ::windows::core::Result<bool>;
     fn SetAutoDetectPageSize(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -158,9 +158,9 @@ impl ::windows::core::RuntimeName for IImageScannerFeederConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.IImageScannerFeederConfiguration";
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Printing", feature = "implement_exclusive"))]
-impl IImageScannerFeederConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerFeederConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageScannerFeederConfigurationVtbl {
-        unsafe extern "system" fn CanAutoDetectPageSize<Impl: IImageScannerFeederConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IImageScannerFeederConfiguration_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerFeederConfiguration_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageScannerFeederConfiguration_Vtbl {
+        unsafe extern "system" fn CanAutoDetectPageSize<Impl: IImageScannerFeederConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanAutoDetectPageSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -171,7 +171,7 @@ impl IImageScannerFeederConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AutoDetectPageSize<Impl: IImageScannerFeederConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AutoDetectPageSize<Impl: IImageScannerFeederConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutoDetectPageSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -182,11 +182,11 @@ impl IImageScannerFeederConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAutoDetectPageSize<Impl: IImageScannerFeederConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAutoDetectPageSize<Impl: IImageScannerFeederConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAutoDetectPageSize(value).into()
         }
-        unsafe extern "system" fn PageSize<Impl: IImageScannerFeederConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Printing::PrintMediaSize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PageSize<Impl: IImageScannerFeederConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Printing::PrintMediaSize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -197,11 +197,11 @@ impl IImageScannerFeederConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPageSize<Impl: IImageScannerFeederConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Graphics::Printing::PrintMediaSize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPageSize<Impl: IImageScannerFeederConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Graphics::Printing::PrintMediaSize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPageSize(value).into()
         }
-        unsafe extern "system" fn PageOrientation<Impl: IImageScannerFeederConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Printing::PrintOrientation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PageOrientation<Impl: IImageScannerFeederConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Printing::PrintOrientation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageOrientation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -212,11 +212,11 @@ impl IImageScannerFeederConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPageOrientation<Impl: IImageScannerFeederConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Graphics::Printing::PrintOrientation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPageOrientation<Impl: IImageScannerFeederConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Graphics::Printing::PrintOrientation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPageOrientation(value).into()
         }
-        unsafe extern "system" fn PageSizeDimensions<Impl: IImageScannerFeederConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PageSizeDimensions<Impl: IImageScannerFeederConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageSizeDimensions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -227,7 +227,7 @@ impl IImageScannerFeederConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsPageSizeSupported<Impl: IImageScannerFeederConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pagesize: super::super::Graphics::Printing::PrintMediaSize, pageorientation: super::super::Graphics::Printing::PrintOrientation, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPageSizeSupported<Impl: IImageScannerFeederConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pagesize: super::super::Graphics::Printing::PrintMediaSize, pageorientation: super::super::Graphics::Printing::PrintOrientation, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPageSizeSupported(pagesize, pageorientation) {
                 ::core::result::Result::Ok(ok__) => {
@@ -238,7 +238,7 @@ impl IImageScannerFeederConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxNumberOfPages<Impl: IImageScannerFeederConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxNumberOfPages<Impl: IImageScannerFeederConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxNumberOfPages() {
                 ::core::result::Result::Ok(ok__) => {
@@ -249,11 +249,11 @@ impl IImageScannerFeederConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxNumberOfPages<Impl: IImageScannerFeederConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxNumberOfPages<Impl: IImageScannerFeederConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxNumberOfPages(value).into()
         }
-        unsafe extern "system" fn CanScanDuplex<Impl: IImageScannerFeederConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanScanDuplex<Impl: IImageScannerFeederConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanScanDuplex() {
                 ::core::result::Result::Ok(ok__) => {
@@ -264,7 +264,7 @@ impl IImageScannerFeederConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Duplex<Impl: IImageScannerFeederConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Duplex<Impl: IImageScannerFeederConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Duplex() {
                 ::core::result::Result::Ok(ok__) => {
@@ -275,11 +275,11 @@ impl IImageScannerFeederConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDuplex<Impl: IImageScannerFeederConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDuplex<Impl: IImageScannerFeederConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDuplex(value).into()
         }
-        unsafe extern "system" fn CanScanAhead<Impl: IImageScannerFeederConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanScanAhead<Impl: IImageScannerFeederConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanScanAhead() {
                 ::core::result::Result::Ok(ok__) => {
@@ -290,7 +290,7 @@ impl IImageScannerFeederConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ScanAhead<Impl: IImageScannerFeederConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScanAhead<Impl: IImageScannerFeederConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScanAhead() {
                 ::core::result::Result::Ok(ok__) => {
@@ -301,7 +301,7 @@ impl IImageScannerFeederConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetScanAhead<Impl: IImageScannerFeederConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScanAhead<Impl: IImageScannerFeederConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScanAhead(value).into()
         }
@@ -330,7 +330,7 @@ impl IImageScannerFeederConfigurationVtbl {
         iid == &<IImageScannerFeederConfiguration as ::windows::core::Interface>::IID
     }
 }
-pub trait IImageScannerFormatConfigurationImpl: Sized {
+pub trait IImageScannerFormatConfiguration_Impl: Sized {
     fn DefaultFormat(&mut self) -> ::windows::core::Result<ImageScannerFormat>;
     fn Format(&mut self) -> ::windows::core::Result<ImageScannerFormat>;
     fn SetFormat(&mut self, value: ImageScannerFormat) -> ::windows::core::Result<()>;
@@ -339,9 +339,9 @@ pub trait IImageScannerFormatConfigurationImpl: Sized {
 impl ::windows::core::RuntimeName for IImageScannerFormatConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.IImageScannerFormatConfiguration";
 }
-impl IImageScannerFormatConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerFormatConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageScannerFormatConfigurationVtbl {
-        unsafe extern "system" fn DefaultFormat<Impl: IImageScannerFormatConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerFormat) -> ::windows::core::HRESULT {
+impl IImageScannerFormatConfiguration_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerFormatConfiguration_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageScannerFormatConfiguration_Vtbl {
+        unsafe extern "system" fn DefaultFormat<Impl: IImageScannerFormatConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultFormat() {
                 ::core::result::Result::Ok(ok__) => {
@@ -352,7 +352,7 @@ impl IImageScannerFormatConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Format<Impl: IImageScannerFormatConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Format<Impl: IImageScannerFormatConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Format() {
                 ::core::result::Result::Ok(ok__) => {
@@ -363,11 +363,11 @@ impl IImageScannerFormatConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFormat<Impl: IImageScannerFormatConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ImageScannerFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFormat<Impl: IImageScannerFormatConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ImageScannerFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFormat(value).into()
         }
-        unsafe extern "system" fn IsFormatSupported<Impl: IImageScannerFormatConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ImageScannerFormat, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsFormatSupported<Impl: IImageScannerFormatConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ImageScannerFormat, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsFormatSupported(value) {
                 ::core::result::Result::Ok(ok__) => {
@@ -391,7 +391,7 @@ impl IImageScannerFormatConfigurationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IImageScannerPreviewResultImpl: Sized {
+pub trait IImageScannerPreviewResult_Impl: Sized {
     fn Succeeded(&mut self) -> ::windows::core::Result<bool>;
     fn Format(&mut self) -> ::windows::core::Result<ImageScannerFormat>;
 }
@@ -400,9 +400,9 @@ impl ::windows::core::RuntimeName for IImageScannerPreviewResult {
     const NAME: &'static str = "Windows.Devices.Scanners.IImageScannerPreviewResult";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IImageScannerPreviewResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerPreviewResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageScannerPreviewResultVtbl {
-        unsafe extern "system" fn Succeeded<Impl: IImageScannerPreviewResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IImageScannerPreviewResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerPreviewResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageScannerPreviewResult_Vtbl {
+        unsafe extern "system" fn Succeeded<Impl: IImageScannerPreviewResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Succeeded() {
                 ::core::result::Result::Ok(ok__) => {
@@ -413,7 +413,7 @@ impl IImageScannerPreviewResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Format<Impl: IImageScannerPreviewResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Format<Impl: IImageScannerPreviewResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Format() {
                 ::core::result::Result::Ok(ok__) => {
@@ -435,7 +435,7 @@ impl IImageScannerPreviewResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
-pub trait IImageScannerScanResultImpl: Sized {
+pub trait IImageScannerScanResult_Impl: Sized {
     fn ScannedFiles(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
@@ -443,9 +443,9 @@ impl ::windows::core::RuntimeName for IImageScannerScanResult {
     const NAME: &'static str = "Windows.Devices.Scanners.IImageScannerScanResult";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
-impl IImageScannerScanResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerScanResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageScannerScanResultVtbl {
-        unsafe extern "system" fn ScannedFiles<Impl: IImageScannerScanResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IImageScannerScanResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerScanResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageScannerScanResult_Vtbl {
+        unsafe extern "system" fn ScannedFiles<Impl: IImageScannerScanResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScannedFiles() {
                 ::core::result::Result::Ok(ok__) => {
@@ -466,7 +466,7 @@ impl IImageScannerScanResultVtbl {
     }
 }
 #[cfg(feature = "Foundation")]
-pub trait IImageScannerSourceConfigurationImpl: Sized + IImageScannerFormatConfigurationImpl {
+pub trait IImageScannerSourceConfiguration_Impl: Sized + IImageScannerFormatConfiguration_Impl {
     fn MinScanArea(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
     fn MaxScanArea(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
     fn SelectedScanRegion(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
@@ -502,9 +502,9 @@ impl ::windows::core::RuntimeName for IImageScannerSourceConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.IImageScannerSourceConfiguration";
 }
 #[cfg(feature = "Foundation")]
-impl IImageScannerSourceConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerSourceConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageScannerSourceConfigurationVtbl {
-        unsafe extern "system" fn MinScanArea<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+impl IImageScannerSourceConfiguration_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerSourceConfiguration_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageScannerSourceConfiguration_Vtbl {
+        unsafe extern "system" fn MinScanArea<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinScanArea() {
                 ::core::result::Result::Ok(ok__) => {
@@ -515,7 +515,7 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxScanArea<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxScanArea<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxScanArea() {
                 ::core::result::Result::Ok(ok__) => {
@@ -526,7 +526,7 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectedScanRegion<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectedScanRegion<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedScanRegion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -537,11 +537,11 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSelectedScanRegion<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSelectedScanRegion<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSelectedScanRegion(&*(&value as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AutoCroppingMode<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerAutoCroppingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AutoCroppingMode<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerAutoCroppingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutoCroppingMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -552,11 +552,11 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAutoCroppingMode<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ImageScannerAutoCroppingMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAutoCroppingMode<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ImageScannerAutoCroppingMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAutoCroppingMode(value).into()
         }
-        unsafe extern "system" fn IsAutoCroppingModeSupported<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ImageScannerAutoCroppingMode, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsAutoCroppingModeSupported<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ImageScannerAutoCroppingMode, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAutoCroppingModeSupported(value) {
                 ::core::result::Result::Ok(ok__) => {
@@ -567,7 +567,7 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MinResolution<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerResolution) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinResolution<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerResolution) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinResolution() {
                 ::core::result::Result::Ok(ok__) => {
@@ -578,7 +578,7 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxResolution<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerResolution) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxResolution<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerResolution) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxResolution() {
                 ::core::result::Result::Ok(ok__) => {
@@ -589,7 +589,7 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OpticalResolution<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerResolution) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpticalResolution<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerResolution) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpticalResolution() {
                 ::core::result::Result::Ok(ok__) => {
@@ -600,7 +600,7 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DesiredResolution<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerResolution) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DesiredResolution<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerResolution) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesiredResolution() {
                 ::core::result::Result::Ok(ok__) => {
@@ -611,11 +611,11 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDesiredResolution<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ImageScannerResolution) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDesiredResolution<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ImageScannerResolution) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDesiredResolution(&*(&value as *const <ImageScannerResolution as ::windows::core::Abi>::Abi as *const <ImageScannerResolution as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ActualResolution<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerResolution) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ActualResolution<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerResolution) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActualResolution() {
                 ::core::result::Result::Ok(ok__) => {
@@ -626,7 +626,7 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DefaultColorMode<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerColorMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultColorMode<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerColorMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultColorMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -637,7 +637,7 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ColorMode<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerColorMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ColorMode<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerColorMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ColorMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -648,11 +648,11 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetColorMode<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ImageScannerColorMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetColorMode<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ImageScannerColorMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetColorMode(value).into()
         }
-        unsafe extern "system" fn IsColorModeSupported<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ImageScannerColorMode, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsColorModeSupported<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ImageScannerColorMode, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsColorModeSupported(value) {
                 ::core::result::Result::Ok(ok__) => {
@@ -663,7 +663,7 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MinBrightness<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinBrightness<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinBrightness() {
                 ::core::result::Result::Ok(ok__) => {
@@ -674,7 +674,7 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxBrightness<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxBrightness<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxBrightness() {
                 ::core::result::Result::Ok(ok__) => {
@@ -685,7 +685,7 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BrightnessStep<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BrightnessStep<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BrightnessStep() {
                 ::core::result::Result::Ok(ok__) => {
@@ -696,7 +696,7 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DefaultBrightness<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultBrightness<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultBrightness() {
                 ::core::result::Result::Ok(ok__) => {
@@ -707,7 +707,7 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Brightness<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Brightness<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Brightness() {
                 ::core::result::Result::Ok(ok__) => {
@@ -718,11 +718,11 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBrightness<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBrightness<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBrightness(value).into()
         }
-        unsafe extern "system" fn MinContrast<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinContrast<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinContrast() {
                 ::core::result::Result::Ok(ok__) => {
@@ -733,7 +733,7 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxContrast<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxContrast<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxContrast() {
                 ::core::result::Result::Ok(ok__) => {
@@ -744,7 +744,7 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContrastStep<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContrastStep<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContrastStep() {
                 ::core::result::Result::Ok(ok__) => {
@@ -755,7 +755,7 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DefaultContrast<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultContrast<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultContrast() {
                 ::core::result::Result::Ok(ok__) => {
@@ -766,7 +766,7 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Contrast<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Contrast<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contrast() {
                 ::core::result::Result::Ok(ok__) => {
@@ -777,7 +777,7 @@ impl IImageScannerSourceConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContrast<Impl: IImageScannerSourceConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContrast<Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContrast(value).into()
         }
@@ -819,7 +819,7 @@ impl IImageScannerSourceConfigurationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IImageScannerStaticsImpl: Sized {
+pub trait IImageScannerStatics_Impl: Sized {
     fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageScanner>>;
     fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -828,9 +828,9 @@ impl ::windows::core::RuntimeName for IImageScannerStatics {
     const NAME: &'static str = "Windows.Devices.Scanners.IImageScannerStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IImageScannerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageScannerStaticsVtbl {
-        unsafe extern "system" fn FromIdAsync<Impl: IImageScannerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IImageScannerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageScannerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IImageScannerStatics_Vtbl {
+        unsafe extern "system" fn FromIdAsync<Impl: IImageScannerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -841,7 +841,7 @@ impl IImageScannerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelector<Impl: IImageScannerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelector<Impl: IImageScannerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
                 ::core::result::Result::Ok(ok__) => {

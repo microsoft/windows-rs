@@ -101,7 +101,7 @@ unsafe impl ::windows::core::RuntimeType for ExtendedExecutionRevokedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedEventArgs;{bfbc9f16-63b5-4c0b-aad6-828af5373ec3})");
 }
 unsafe impl ::windows::core::Interface for ExtendedExecutionRevokedEventArgs {
-    type Vtable = IExtendedExecutionRevokedEventArgsVtbl;
+    type Vtable = IExtendedExecutionRevokedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfbc9f16_63b5_4c0b_aad6_828af5373ec3);
 }
 impl ::windows::core::RuntimeName for ExtendedExecutionRevokedEventArgs {
@@ -283,7 +283,7 @@ unsafe impl ::windows::core::RuntimeType for ExtendedExecutionSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionSession;{af908a2d-118b-48f1-9308-0c4fc41e200f})");
 }
 unsafe impl ::windows::core::Interface for ExtendedExecutionSession {
-    type Vtable = IExtendedExecutionSessionVtbl;
+    type Vtable = IExtendedExecutionSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf908a2d_118b_48f1_9308_0c4fc41e200f);
 }
 impl ::windows::core::RuntimeName for ExtendedExecutionSession {
@@ -361,12 +361,12 @@ unsafe impl ::core::marker::Sync for ExtendedExecutionSession {}
 #[repr(transparent)]
 pub struct IExtendedExecutionRevokedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IExtendedExecutionRevokedEventArgs {
-    type Vtable = IExtendedExecutionRevokedEventArgsVtbl;
+    type Vtable = IExtendedExecutionRevokedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfbc9f16_63b5_4c0b_aad6_828af5373ec3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IExtendedExecutionRevokedEventArgsVtbl {
+pub struct IExtendedExecutionRevokedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ExtendedExecutionRevokedReason) -> ::windows::core::HRESULT,
 }
@@ -374,12 +374,12 @@ pub struct IExtendedExecutionRevokedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IExtendedExecutionSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IExtendedExecutionSession {
-    type Vtable = IExtendedExecutionSessionVtbl;
+    type Vtable = IExtendedExecutionSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf908a2d_118b_48f1_9308_0c4fc41e200f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IExtendedExecutionSessionVtbl {
+pub struct IExtendedExecutionSession_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ExtendedExecutionReason) -> ::windows::core::HRESULT,
     pub SetReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ExtendedExecutionReason) -> ::windows::core::HRESULT,

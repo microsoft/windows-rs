@@ -50,7 +50,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextCompositionCompletedEventAr
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextCompositionCompletedEventArgs;{1f34ebb6-b79f-4121-a5e7-fda9b8616e30})");
 }
 unsafe impl ::windows::core::Interface for CoreTextCompositionCompletedEventArgs {
-    type Vtable = ICoreTextCompositionCompletedEventArgsVtbl;
+    type Vtable = ICoreTextCompositionCompletedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f34ebb6_b79f_4121_a5e7_fda9b8616e30);
 }
 impl ::windows::core::RuntimeName for CoreTextCompositionCompletedEventArgs {
@@ -139,7 +139,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextCompositionSegment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextCompositionSegment;{776c6bd9-4ead-4da7-8f47-3a88b523cc34})");
 }
 unsafe impl ::windows::core::Interface for CoreTextCompositionSegment {
-    type Vtable = ICoreTextCompositionSegmentVtbl;
+    type Vtable = ICoreTextCompositionSegment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x776c6bd9_4ead_4da7_8f47_3a88b523cc34);
 }
 impl ::windows::core::RuntimeName for CoreTextCompositionSegment {
@@ -229,7 +229,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextCompositionStartedEventArgs
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextCompositionStartedEventArgs;{276b16a9-64e7-4ab0-bc4b-a02d73835bfb})");
 }
 unsafe impl ::windows::core::Interface for CoreTextCompositionStartedEventArgs {
-    type Vtable = ICoreTextCompositionStartedEventArgsVtbl;
+    type Vtable = ICoreTextCompositionStartedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x276b16a9_64e7_4ab0_bc4b_a02d73835bfb);
 }
 impl ::windows::core::RuntimeName for CoreTextCompositionStartedEventArgs {
@@ -529,7 +529,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextEditContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextEditContext;{bf6608af-4041-47c3-b263-a918eb5eaef2})");
 }
 unsafe impl ::windows::core::Interface for CoreTextEditContext {
-    type Vtable = ICoreTextEditContextVtbl;
+    type Vtable = ICoreTextEditContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf6608af_4041_47c3_b263_a918eb5eaef2);
 }
 impl ::windows::core::RuntimeName for CoreTextEditContext {
@@ -684,7 +684,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextFormatUpdatingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextFormatUpdatingEventArgs;{7310bd33-b4a8-43b1-b37b-0724d4aca7ab})");
 }
 unsafe impl ::windows::core::Interface for CoreTextFormatUpdatingEventArgs {
-    type Vtable = ICoreTextFormatUpdatingEventArgsVtbl;
+    type Vtable = ICoreTextFormatUpdatingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7310bd33_b4a8_43b1_b37b_0724d4aca7ab);
 }
 impl ::windows::core::RuntimeName for CoreTextFormatUpdatingEventArgs {
@@ -987,7 +987,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextLayoutBounds {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextLayoutBounds;{e972c974-4436-4917-80d0-a525e4ca6780})");
 }
 unsafe impl ::windows::core::Interface for CoreTextLayoutBounds {
-    type Vtable = ICoreTextLayoutBoundsVtbl;
+    type Vtable = ICoreTextLayoutBounds_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe972c974_4436_4917_80d0_a525e4ca6780);
 }
 impl ::windows::core::RuntimeName for CoreTextLayoutBounds {
@@ -1101,7 +1101,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextLayoutRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextLayoutRequest;{2555a8cc-51fd-4f03-98bf-ac78174d68e0})");
 }
 unsafe impl ::windows::core::Interface for CoreTextLayoutRequest {
-    type Vtable = ICoreTextLayoutRequestVtbl;
+    type Vtable = ICoreTextLayoutRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2555a8cc_51fd_4f03_98bf_ac78174d68e0);
 }
 impl ::windows::core::RuntimeName for CoreTextLayoutRequest {
@@ -1182,7 +1182,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextLayoutRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextLayoutRequestedEventArgs;{b1dc6ae0-9a7b-4e9e-a566-4a6b5f8ad676})");
 }
 unsafe impl ::windows::core::Interface for CoreTextLayoutRequestedEventArgs {
-    type Vtable = ICoreTextLayoutRequestedEventArgsVtbl;
+    type Vtable = ICoreTextLayoutRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1dc6ae0_9a7b_4e9e_a566_4a6b5f8ad676);
 }
 impl ::windows::core::RuntimeName for CoreTextLayoutRequestedEventArgs {
@@ -1322,7 +1322,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextSelectionRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextSelectionRequest;{f0a70403-208b-4301-883c-74ca7485fd8d})");
 }
 unsafe impl ::windows::core::Interface for CoreTextSelectionRequest {
-    type Vtable = ICoreTextSelectionRequestVtbl;
+    type Vtable = ICoreTextSelectionRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0a70403_208b_4301_883c_74ca7485fd8d);
 }
 impl ::windows::core::RuntimeName for CoreTextSelectionRequest {
@@ -1403,7 +1403,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextSelectionRequestedEventArgs
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextSelectionRequestedEventArgs;{13c6682b-f614-421a-8f4b-9ec8a5a37fcd})");
 }
 unsafe impl ::windows::core::Interface for CoreTextSelectionRequestedEventArgs {
-    type Vtable = ICoreTextSelectionRequestedEventArgsVtbl;
+    type Vtable = ICoreTextSelectionRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13c6682b_f614_421a_8f4b_9ec8a5a37fcd);
 }
 impl ::windows::core::RuntimeName for CoreTextSelectionRequestedEventArgs {
@@ -1514,7 +1514,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextSelectionUpdatingEventArgs 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextSelectionUpdatingEventArgs;{d445839f-fe7f-4bd5-8a26-0922c1b3e639})");
 }
 unsafe impl ::windows::core::Interface for CoreTextSelectionUpdatingEventArgs {
-    type Vtable = ICoreTextSelectionUpdatingEventArgsVtbl;
+    type Vtable = ICoreTextSelectionUpdatingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd445839f_fe7f_4bd5_8a26_0922c1b3e639);
 }
 impl ::windows::core::RuntimeName for CoreTextSelectionUpdatingEventArgs {
@@ -1683,7 +1683,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextServicesManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextServicesManager;{c2507d83-6e0a-4a8a-bdf8-1948874854ba})");
 }
 unsafe impl ::windows::core::Interface for CoreTextServicesManager {
-    type Vtable = ICoreTextServicesManagerVtbl;
+    type Vtable = ICoreTextServicesManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2507d83_6e0a_4a8a_bdf8_1948874854ba);
 }
 impl ::windows::core::RuntimeName for CoreTextServicesManager {
@@ -1794,7 +1794,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextTextRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextTextRequest;{50d950a9-f51e-4cc1-8ca1-e6346d1a61be})");
 }
 unsafe impl ::windows::core::Interface for CoreTextTextRequest {
-    type Vtable = ICoreTextTextRequestVtbl;
+    type Vtable = ICoreTextTextRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50d950a9_f51e_4cc1_8ca1_e6346d1a61be);
 }
 impl ::windows::core::RuntimeName for CoreTextTextRequest {
@@ -1875,7 +1875,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextTextRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextTextRequestedEventArgs;{f096a2d0-41c6-4c02-8b1a-d953b00cabb3})");
 }
 unsafe impl ::windows::core::Interface for CoreTextTextRequestedEventArgs {
-    type Vtable = ICoreTextTextRequestedEventArgsVtbl;
+    type Vtable = ICoreTextTextRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf096a2d0_41c6_4c02_8b1a_d953b00cabb3);
 }
 impl ::windows::core::RuntimeName for CoreTextTextRequestedEventArgs {
@@ -2011,7 +2011,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextTextUpdatingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextTextUpdatingEventArgs;{eea7918d-cc2b-4f03-8ff6-02fd217db450})");
 }
 unsafe impl ::windows::core::Interface for CoreTextTextUpdatingEventArgs {
-    type Vtable = ICoreTextTextUpdatingEventArgsVtbl;
+    type Vtable = ICoreTextTextUpdatingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeea7918d_cc2b_4f03_8ff6_02fd217db450);
 }
 impl ::windows::core::RuntimeName for CoreTextTextUpdatingEventArgs {
@@ -2096,12 +2096,12 @@ impl ::windows::core::DefaultType for CoreTextTextUpdatingResult {
 #[repr(transparent)]
 pub struct ICoreTextCompositionCompletedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextCompositionCompletedEventArgs {
-    type Vtable = ICoreTextCompositionCompletedEventArgsVtbl;
+    type Vtable = ICoreTextCompositionCompletedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f34ebb6_b79f_4121_a5e7_fda9b8616e30);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreTextCompositionCompletedEventArgsVtbl {
+pub struct ICoreTextCompositionCompletedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -2117,12 +2117,12 @@ pub struct ICoreTextCompositionCompletedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICoreTextCompositionSegment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextCompositionSegment {
-    type Vtable = ICoreTextCompositionSegmentVtbl;
+    type Vtable = ICoreTextCompositionSegment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x776c6bd9_4ead_4da7_8f47_3a88b523cc34);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreTextCompositionSegmentVtbl {
+pub struct ICoreTextCompositionSegment_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PreconversionString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Range: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,
@@ -2131,12 +2131,12 @@ pub struct ICoreTextCompositionSegmentVtbl {
 #[repr(transparent)]
 pub struct ICoreTextCompositionStartedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextCompositionStartedEventArgs {
-    type Vtable = ICoreTextCompositionStartedEventArgsVtbl;
+    type Vtable = ICoreTextCompositionStartedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x276b16a9_64e7_4ab0_bc4b_a02d73835bfb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreTextCompositionStartedEventArgsVtbl {
+pub struct ICoreTextCompositionStartedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -2148,12 +2148,12 @@ pub struct ICoreTextCompositionStartedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICoreTextEditContext(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextEditContext {
-    type Vtable = ICoreTextEditContextVtbl;
+    type Vtable = ICoreTextEditContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf6608af_4041_47c3_b263_a918eb5eaef2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreTextEditContextVtbl {
+pub struct ICoreTextEditContext_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2245,12 +2245,12 @@ pub struct ICoreTextEditContextVtbl {
 #[repr(transparent)]
 pub struct ICoreTextEditContext2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextEditContext2 {
-    type Vtable = ICoreTextEditContext2Vtbl;
+    type Vtable = ICoreTextEditContext2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1867dbb_083b_49e1_b281_2b35d62bf466);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreTextEditContext2Vtbl {
+pub struct ICoreTextEditContext2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub NotifyFocusLeaveCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -2265,12 +2265,12 @@ pub struct ICoreTextEditContext2Vtbl {
 #[repr(transparent)]
 pub struct ICoreTextFormatUpdatingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextFormatUpdatingEventArgs {
-    type Vtable = ICoreTextFormatUpdatingEventArgsVtbl;
+    type Vtable = ICoreTextFormatUpdatingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7310bd33_b4a8_43b1_b37b_0724d4aca7ab);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreTextFormatUpdatingEventArgsVtbl {
+pub struct ICoreTextFormatUpdatingEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Range: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "UI_ViewManagement"))]
@@ -2302,12 +2302,12 @@ pub struct ICoreTextFormatUpdatingEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICoreTextLayoutBounds(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextLayoutBounds {
-    type Vtable = ICoreTextLayoutBoundsVtbl;
+    type Vtable = ICoreTextLayoutBounds_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe972c974_4436_4917_80d0_a525e4ca6780);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreTextLayoutBoundsVtbl {
+pub struct ICoreTextLayoutBounds_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub TextBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
@@ -2330,12 +2330,12 @@ pub struct ICoreTextLayoutBoundsVtbl {
 #[repr(transparent)]
 pub struct ICoreTextLayoutRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextLayoutRequest {
-    type Vtable = ICoreTextLayoutRequestVtbl;
+    type Vtable = ICoreTextLayoutRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2555a8cc_51fd_4f03_98bf_ac78174d68e0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreTextLayoutRequestVtbl {
+pub struct ICoreTextLayoutRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Range: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,
     pub LayoutBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2349,12 +2349,12 @@ pub struct ICoreTextLayoutRequestVtbl {
 #[repr(transparent)]
 pub struct ICoreTextLayoutRequest2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextLayoutRequest2 {
-    type Vtable = ICoreTextLayoutRequest2Vtbl;
+    type Vtable = ICoreTextLayoutRequest2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x676de624_cd3d_4bcd_bf01_7f7110954511);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreTextLayoutRequest2Vtbl {
+pub struct ICoreTextLayoutRequest2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LayoutBoundsVisualPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2362,12 +2362,12 @@ pub struct ICoreTextLayoutRequest2Vtbl {
 #[repr(transparent)]
 pub struct ICoreTextLayoutRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextLayoutRequestedEventArgs {
-    type Vtable = ICoreTextLayoutRequestedEventArgsVtbl;
+    type Vtable = ICoreTextLayoutRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1dc6ae0_9a7b_4e9e_a566_4a6b5f8ad676);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreTextLayoutRequestedEventArgsVtbl {
+pub struct ICoreTextLayoutRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2375,12 +2375,12 @@ pub struct ICoreTextLayoutRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICoreTextSelectionRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextSelectionRequest {
-    type Vtable = ICoreTextSelectionRequestVtbl;
+    type Vtable = ICoreTextSelectionRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0a70403_208b_4301_883c_74ca7485fd8d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreTextSelectionRequestVtbl {
+pub struct ICoreTextSelectionRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Selection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,
     pub SetSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreTextRange) -> ::windows::core::HRESULT,
@@ -2394,12 +2394,12 @@ pub struct ICoreTextSelectionRequestVtbl {
 #[repr(transparent)]
 pub struct ICoreTextSelectionRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextSelectionRequestedEventArgs {
-    type Vtable = ICoreTextSelectionRequestedEventArgsVtbl;
+    type Vtable = ICoreTextSelectionRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13c6682b_f614_421a_8f4b_9ec8a5a37fcd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreTextSelectionRequestedEventArgsVtbl {
+pub struct ICoreTextSelectionRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2407,12 +2407,12 @@ pub struct ICoreTextSelectionRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICoreTextSelectionUpdatingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextSelectionUpdatingEventArgs {
-    type Vtable = ICoreTextSelectionUpdatingEventArgsVtbl;
+    type Vtable = ICoreTextSelectionUpdatingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd445839f_fe7f_4bd5_8a26_0922c1b3e639);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreTextSelectionUpdatingEventArgsVtbl {
+pub struct ICoreTextSelectionUpdatingEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Selection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,
     pub Result: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextSelectionUpdatingResult) -> ::windows::core::HRESULT,
@@ -2427,12 +2427,12 @@ pub struct ICoreTextSelectionUpdatingEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICoreTextServicesManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextServicesManager {
-    type Vtable = ICoreTextServicesManagerVtbl;
+    type Vtable = ICoreTextServicesManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2507d83_6e0a_4a8a_bdf8_1948874854ba);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreTextServicesManagerVtbl {
+pub struct ICoreTextServicesManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Globalization")]
     pub InputLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2452,12 +2452,12 @@ pub struct ICoreTextServicesManagerVtbl {
 #[repr(transparent)]
 pub struct ICoreTextServicesManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextServicesManagerStatics {
-    type Vtable = ICoreTextServicesManagerStaticsVtbl;
+    type Vtable = ICoreTextServicesManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1520a388_e2cf_4d65_aeb9_b32d86fe39b9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreTextServicesManagerStaticsVtbl {
+pub struct ICoreTextServicesManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2465,12 +2465,12 @@ pub struct ICoreTextServicesManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct ICoreTextServicesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextServicesStatics {
-    type Vtable = ICoreTextServicesStaticsVtbl;
+    type Vtable = ICoreTextServicesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91859a46_eccf_47a4_8ae7_098a9c6fbb15);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreTextServicesStaticsVtbl {
+pub struct ICoreTextServicesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub HiddenCharacter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
 }
@@ -2478,12 +2478,12 @@ pub struct ICoreTextServicesStaticsVtbl {
 #[repr(transparent)]
 pub struct ICoreTextTextRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextTextRequest {
-    type Vtable = ICoreTextTextRequestVtbl;
+    type Vtable = ICoreTextTextRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50d950a9_f51e_4cc1_8ca1_e6346d1a61be);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreTextTextRequestVtbl {
+pub struct ICoreTextTextRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Range: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,
     pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2498,12 +2498,12 @@ pub struct ICoreTextTextRequestVtbl {
 #[repr(transparent)]
 pub struct ICoreTextTextRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextTextRequestedEventArgs {
-    type Vtable = ICoreTextTextRequestedEventArgsVtbl;
+    type Vtable = ICoreTextTextRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf096a2d0_41c6_4c02_8b1a_d953b00cabb3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreTextTextRequestedEventArgsVtbl {
+pub struct ICoreTextTextRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2511,12 +2511,12 @@ pub struct ICoreTextTextRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICoreTextTextUpdatingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTextTextUpdatingEventArgs {
-    type Vtable = ICoreTextTextUpdatingEventArgsVtbl;
+    type Vtable = ICoreTextTextUpdatingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeea7918d_cc2b_4f03_8ff6_02fd217db450);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreTextTextUpdatingEventArgsVtbl {
+pub struct ICoreTextTextUpdatingEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Range: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,
     pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,

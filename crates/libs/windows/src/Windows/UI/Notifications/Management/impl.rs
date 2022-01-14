@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IUserNotificationListenerImpl: Sized {
+pub trait IUserNotificationListener_Impl: Sized {
     fn RequestAccessAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<UserNotificationListenerAccessStatus>>;
     fn GetAccessStatus(&mut self) -> ::windows::core::Result<UserNotificationListenerAccessStatus>;
     fn NotificationChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<UserNotificationListener, super::UserNotificationChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
@@ -14,9 +14,9 @@ impl ::windows::core::RuntimeName for IUserNotificationListener {
     const NAME: &'static str = "Windows.UI.Notifications.Management.IUserNotificationListener";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IUserNotificationListenerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserNotificationListenerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserNotificationListenerVtbl {
-        unsafe extern "system" fn RequestAccessAsync<Impl: IUserNotificationListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUserNotificationListener_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserNotificationListener_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserNotificationListener_Vtbl {
+        unsafe extern "system" fn RequestAccessAsync<Impl: IUserNotificationListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAccessAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -27,7 +27,7 @@ impl IUserNotificationListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAccessStatus<Impl: IUserNotificationListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UserNotificationListenerAccessStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAccessStatus<Impl: IUserNotificationListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UserNotificationListenerAccessStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAccessStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -38,7 +38,7 @@ impl IUserNotificationListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NotificationChanged<Impl: IUserNotificationListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NotificationChanged<Impl: IUserNotificationListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NotificationChanged(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<UserNotificationListener, super::UserNotificationChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<UserNotificationListener, super::UserNotificationChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -49,11 +49,11 @@ impl IUserNotificationListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveNotificationChanged<Impl: IUserNotificationListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveNotificationChanged<Impl: IUserNotificationListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveNotificationChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetNotificationsAsync<Impl: IUserNotificationListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kinds: super::NotificationKinds, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNotificationsAsync<Impl: IUserNotificationListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kinds: super::NotificationKinds, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNotificationsAsync(kinds) {
                 ::core::result::Result::Ok(ok__) => {
@@ -64,7 +64,7 @@ impl IUserNotificationListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNotification<Impl: IUserNotificationListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, notificationid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNotification<Impl: IUserNotificationListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, notificationid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNotification(notificationid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -75,11 +75,11 @@ impl IUserNotificationListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClearNotifications<Impl: IUserNotificationListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearNotifications<Impl: IUserNotificationListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearNotifications().into()
         }
-        unsafe extern "system" fn RemoveNotification<Impl: IUserNotificationListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, notificationid: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveNotification<Impl: IUserNotificationListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, notificationid: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveNotification(notificationid).into()
         }
@@ -100,7 +100,7 @@ impl IUserNotificationListenerVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUserNotificationListenerStaticsImpl: Sized {
+pub trait IUserNotificationListenerStatics_Impl: Sized {
     fn Current(&mut self) -> ::windows::core::Result<UserNotificationListener>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -108,9 +108,9 @@ impl ::windows::core::RuntimeName for IUserNotificationListenerStatics {
     const NAME: &'static str = "Windows.UI.Notifications.Management.IUserNotificationListenerStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUserNotificationListenerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserNotificationListenerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserNotificationListenerStaticsVtbl {
-        unsafe extern "system" fn Current<Impl: IUserNotificationListenerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUserNotificationListenerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserNotificationListenerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserNotificationListenerStatics_Vtbl {
+        unsafe extern "system" fn Current<Impl: IUserNotificationListenerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Current() {
                 ::core::result::Result::Ok(ok__) => {

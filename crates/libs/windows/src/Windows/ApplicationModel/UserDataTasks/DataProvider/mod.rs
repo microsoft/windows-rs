@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IUserDataTaskDataProviderConnection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataTaskDataProviderConnection {
-    type Vtable = IUserDataTaskDataProviderConnectionVtbl;
+    type Vtable = IUserDataTaskDataProviderConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ff39d1d_a447_428b_afe9_e5402bdeb041);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataTaskDataProviderConnectionVtbl {
+pub struct IUserDataTaskDataProviderConnection_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CreateOrUpdateTaskRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -56,12 +56,12 @@ pub struct IUserDataTaskDataProviderConnectionVtbl {
 #[repr(transparent)]
 pub struct IUserDataTaskDataProviderTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataTaskDataProviderTriggerDetails {
-    type Vtable = IUserDataTaskDataProviderTriggerDetailsVtbl;
+    type Vtable = IUserDataTaskDataProviderTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae273202_b1c9_453e_afc5_b30af3bd217d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataTaskDataProviderTriggerDetailsVtbl {
+pub struct IUserDataTaskDataProviderTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Connection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -69,12 +69,12 @@ pub struct IUserDataTaskDataProviderTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IUserDataTaskListCompleteTaskRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataTaskListCompleteTaskRequest {
-    type Vtable = IUserDataTaskListCompleteTaskRequestVtbl;
+    type Vtable = IUserDataTaskListCompleteTaskRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf65e14a3_1a42_49da_8552_2873e52c55eb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataTaskListCompleteTaskRequestVtbl {
+pub struct IUserDataTaskListCompleteTaskRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TaskListId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub TaskId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -91,12 +91,12 @@ pub struct IUserDataTaskListCompleteTaskRequestVtbl {
 #[repr(transparent)]
 pub struct IUserDataTaskListCompleteTaskRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataTaskListCompleteTaskRequestEventArgs {
-    type Vtable = IUserDataTaskListCompleteTaskRequestEventArgsVtbl;
+    type Vtable = IUserDataTaskListCompleteTaskRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd77c393d_4cf2_48ad_87fd_963f0eaa7a95);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataTaskListCompleteTaskRequestEventArgsVtbl {
+pub struct IUserDataTaskListCompleteTaskRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -108,12 +108,12 @@ pub struct IUserDataTaskListCompleteTaskRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IUserDataTaskListCreateOrUpdateTaskRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataTaskListCreateOrUpdateTaskRequest {
-    type Vtable = IUserDataTaskListCreateOrUpdateTaskRequestVtbl;
+    type Vtable = IUserDataTaskListCreateOrUpdateTaskRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2133772c_55c2_4300_8279_04326e07cce4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataTaskListCreateOrUpdateTaskRequestVtbl {
+pub struct IUserDataTaskListCreateOrUpdateTaskRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TaskListId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Task: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -130,12 +130,12 @@ pub struct IUserDataTaskListCreateOrUpdateTaskRequestVtbl {
 #[repr(transparent)]
 pub struct IUserDataTaskListCreateOrUpdateTaskRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataTaskListCreateOrUpdateTaskRequestEventArgs {
-    type Vtable = IUserDataTaskListCreateOrUpdateTaskRequestEventArgsVtbl;
+    type Vtable = IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12c55a52_e378_419b_ae38_a5e9e604476e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataTaskListCreateOrUpdateTaskRequestEventArgsVtbl {
+pub struct IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -147,12 +147,12 @@ pub struct IUserDataTaskListCreateOrUpdateTaskRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IUserDataTaskListDeleteTaskRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataTaskListDeleteTaskRequest {
-    type Vtable = IUserDataTaskListDeleteTaskRequestVtbl;
+    type Vtable = IUserDataTaskListDeleteTaskRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b863c68_7657_4f3d_b074_d47ec8df07e7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataTaskListDeleteTaskRequestVtbl {
+pub struct IUserDataTaskListDeleteTaskRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TaskListId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub TaskId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -169,12 +169,12 @@ pub struct IUserDataTaskListDeleteTaskRequestVtbl {
 #[repr(transparent)]
 pub struct IUserDataTaskListDeleteTaskRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataTaskListDeleteTaskRequestEventArgs {
-    type Vtable = IUserDataTaskListDeleteTaskRequestEventArgsVtbl;
+    type Vtable = IUserDataTaskListDeleteTaskRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6063dad9_f562_4145_8efe_d50078c92b7f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataTaskListDeleteTaskRequestEventArgsVtbl {
+pub struct IUserDataTaskListDeleteTaskRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -186,12 +186,12 @@ pub struct IUserDataTaskListDeleteTaskRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IUserDataTaskListSkipOccurrenceRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataTaskListSkipOccurrenceRequest {
-    type Vtable = IUserDataTaskListSkipOccurrenceRequestVtbl;
+    type Vtable = IUserDataTaskListSkipOccurrenceRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab87e34d_1cd3_431c_9f58_089aa4338d85);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataTaskListSkipOccurrenceRequestVtbl {
+pub struct IUserDataTaskListSkipOccurrenceRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TaskListId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub TaskId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -208,12 +208,12 @@ pub struct IUserDataTaskListSkipOccurrenceRequestVtbl {
 #[repr(transparent)]
 pub struct IUserDataTaskListSkipOccurrenceRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataTaskListSkipOccurrenceRequestEventArgs {
-    type Vtable = IUserDataTaskListSkipOccurrenceRequestEventArgsVtbl;
+    type Vtable = IUserDataTaskListSkipOccurrenceRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a3b924a_cc2f_4e7b_aacd_a5b9d29cfa4e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataTaskListSkipOccurrenceRequestEventArgsVtbl {
+pub struct IUserDataTaskListSkipOccurrenceRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -225,12 +225,12 @@ pub struct IUserDataTaskListSkipOccurrenceRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IUserDataTaskListSyncManagerSyncRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataTaskListSyncManagerSyncRequest {
-    type Vtable = IUserDataTaskListSyncManagerSyncRequestVtbl;
+    type Vtable = IUserDataTaskListSyncManagerSyncRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40a73807_7590_4149_ae19_b211431a9f48);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataTaskListSyncManagerSyncRequestVtbl {
+pub struct IUserDataTaskListSyncManagerSyncRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TaskListId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -246,12 +246,12 @@ pub struct IUserDataTaskListSyncManagerSyncRequestVtbl {
 #[repr(transparent)]
 pub struct IUserDataTaskListSyncManagerSyncRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataTaskListSyncManagerSyncRequestEventArgs {
-    type Vtable = IUserDataTaskListSyncManagerSyncRequestEventArgsVtbl;
+    type Vtable = IUserDataTaskListSyncManagerSyncRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ead1c12_768e_43bd_8385_5cdc351ffdea);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataTaskListSyncManagerSyncRequestEventArgsVtbl {
+pub struct IUserDataTaskListSyncManagerSyncRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -364,7 +364,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskDataProviderConnection 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskDataProviderConnection;{9ff39d1d-a447-428b-afe9-e5402bdeb041})");
 }
 unsafe impl ::windows::core::Interface for UserDataTaskDataProviderConnection {
-    type Vtable = IUserDataTaskDataProviderConnectionVtbl;
+    type Vtable = IUserDataTaskDataProviderConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ff39d1d_a447_428b_afe9_e5402bdeb041);
 }
 impl ::windows::core::RuntimeName for UserDataTaskDataProviderConnection {
@@ -445,7 +445,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskDataProviderTriggerDeta
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskDataProviderTriggerDetails;{ae273202-b1c9-453e-afc5-b30af3bd217d})");
 }
 unsafe impl ::windows::core::Interface for UserDataTaskDataProviderTriggerDetails {
-    type Vtable = IUserDataTaskDataProviderTriggerDetailsVtbl;
+    type Vtable = IUserDataTaskDataProviderTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae273202_b1c9_453e_afc5_b30af3bd217d);
 }
 impl ::windows::core::RuntimeName for UserDataTaskDataProviderTriggerDetails {
@@ -552,7 +552,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskListCompleteTaskRequest
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCompleteTaskRequest;{f65e14a3-1a42-49da-8552-2873e52c55eb})");
 }
 unsafe impl ::windows::core::Interface for UserDataTaskListCompleteTaskRequest {
-    type Vtable = IUserDataTaskListCompleteTaskRequestVtbl;
+    type Vtable = IUserDataTaskListCompleteTaskRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf65e14a3_1a42_49da_8552_2873e52c55eb);
 }
 impl ::windows::core::RuntimeName for UserDataTaskListCompleteTaskRequest {
@@ -642,7 +642,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskListCompleteTaskRequest
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCompleteTaskRequestEventArgs;{d77c393d-4cf2-48ad-87fd-963f0eaa7a95})");
 }
 unsafe impl ::windows::core::Interface for UserDataTaskListCompleteTaskRequestEventArgs {
-    type Vtable = IUserDataTaskListCompleteTaskRequestEventArgsVtbl;
+    type Vtable = IUserDataTaskListCompleteTaskRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd77c393d_4cf2_48ad_87fd_963f0eaa7a95);
 }
 impl ::windows::core::RuntimeName for UserDataTaskListCompleteTaskRequestEventArgs {
@@ -749,7 +749,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskListCreateOrUpdateTaskR
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCreateOrUpdateTaskRequest;{2133772c-55c2-4300-8279-04326e07cce4})");
 }
 unsafe impl ::windows::core::Interface for UserDataTaskListCreateOrUpdateTaskRequest {
-    type Vtable = IUserDataTaskListCreateOrUpdateTaskRequestVtbl;
+    type Vtable = IUserDataTaskListCreateOrUpdateTaskRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2133772c_55c2_4300_8279_04326e07cce4);
 }
 impl ::windows::core::RuntimeName for UserDataTaskListCreateOrUpdateTaskRequest {
@@ -839,7 +839,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskListCreateOrUpdateTaskR
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCreateOrUpdateTaskRequestEventArgs;{12c55a52-e378-419b-ae38-a5e9e604476e})");
 }
 unsafe impl ::windows::core::Interface for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
-    type Vtable = IUserDataTaskListCreateOrUpdateTaskRequestEventArgsVtbl;
+    type Vtable = IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12c55a52_e378_419b_ae38_a5e9e604476e);
 }
 impl ::windows::core::RuntimeName for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
@@ -946,7 +946,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskListDeleteTaskRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListDeleteTaskRequest;{4b863c68-7657-4f3d-b074-d47ec8df07e7})");
 }
 unsafe impl ::windows::core::Interface for UserDataTaskListDeleteTaskRequest {
-    type Vtable = IUserDataTaskListDeleteTaskRequestVtbl;
+    type Vtable = IUserDataTaskListDeleteTaskRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b863c68_7657_4f3d_b074_d47ec8df07e7);
 }
 impl ::windows::core::RuntimeName for UserDataTaskListDeleteTaskRequest {
@@ -1036,7 +1036,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskListDeleteTaskRequestEv
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListDeleteTaskRequestEventArgs;{6063dad9-f562-4145-8efe-d50078c92b7f})");
 }
 unsafe impl ::windows::core::Interface for UserDataTaskListDeleteTaskRequestEventArgs {
-    type Vtable = IUserDataTaskListDeleteTaskRequestEventArgsVtbl;
+    type Vtable = IUserDataTaskListDeleteTaskRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6063dad9_f562_4145_8efe_d50078c92b7f);
 }
 impl ::windows::core::RuntimeName for UserDataTaskListDeleteTaskRequestEventArgs {
@@ -1143,7 +1143,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskListSkipOccurrenceReque
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSkipOccurrenceRequest;{ab87e34d-1cd3-431c-9f58-089aa4338d85})");
 }
 unsafe impl ::windows::core::Interface for UserDataTaskListSkipOccurrenceRequest {
-    type Vtable = IUserDataTaskListSkipOccurrenceRequestVtbl;
+    type Vtable = IUserDataTaskListSkipOccurrenceRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab87e34d_1cd3_431c_9f58_089aa4338d85);
 }
 impl ::windows::core::RuntimeName for UserDataTaskListSkipOccurrenceRequest {
@@ -1233,7 +1233,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskListSkipOccurrenceReque
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSkipOccurrenceRequestEventArgs;{7a3b924a-cc2f-4e7b-aacd-a5b9d29cfa4e})");
 }
 unsafe impl ::windows::core::Interface for UserDataTaskListSkipOccurrenceRequestEventArgs {
-    type Vtable = IUserDataTaskListSkipOccurrenceRequestEventArgsVtbl;
+    type Vtable = IUserDataTaskListSkipOccurrenceRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a3b924a_cc2f_4e7b_aacd_a5b9d29cfa4e);
 }
 impl ::windows::core::RuntimeName for UserDataTaskListSkipOccurrenceRequestEventArgs {
@@ -1332,7 +1332,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskListSyncManagerSyncRequ
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSyncManagerSyncRequest;{40a73807-7590-4149-ae19-b211431a9f48})");
 }
 unsafe impl ::windows::core::Interface for UserDataTaskListSyncManagerSyncRequest {
-    type Vtable = IUserDataTaskListSyncManagerSyncRequestVtbl;
+    type Vtable = IUserDataTaskListSyncManagerSyncRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40a73807_7590_4149_ae19_b211431a9f48);
 }
 impl ::windows::core::RuntimeName for UserDataTaskListSyncManagerSyncRequest {
@@ -1422,7 +1422,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskListSyncManagerSyncRequ
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSyncManagerSyncRequestEventArgs;{8ead1c12-768e-43bd-8385-5cdc351ffdea})");
 }
 unsafe impl ::windows::core::Interface for UserDataTaskListSyncManagerSyncRequestEventArgs {
-    type Vtable = IUserDataTaskListSyncManagerSyncRequestEventArgsVtbl;
+    type Vtable = IUserDataTaskListSyncManagerSyncRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ead1c12_768e_43bd_8385_5cdc351ffdea);
 }
 impl ::windows::core::RuntimeName for UserDataTaskListSyncManagerSyncRequestEventArgs {

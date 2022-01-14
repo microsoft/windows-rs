@@ -429,7 +429,7 @@ unsafe impl ::windows::core::RuntimeType for FileInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.BulkAccess.FileInformation;{87a5cb8b-8972-4f40-8de0-d86fb179d8fa})");
 }
 unsafe impl ::windows::core::Interface for FileInformation {
-    type Vtable = IStorageItemInformationVtbl;
+    type Vtable = IStorageItemInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa);
 }
 impl ::windows::core::RuntimeName for FileInformation {
@@ -843,7 +843,7 @@ unsafe impl ::windows::core::RuntimeType for FileInformationFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.BulkAccess.FileInformationFactory;{401d88be-960f-4d6d-a7d0-1a3861e76c83})");
 }
 unsafe impl ::windows::core::Interface for FileInformationFactory {
-    type Vtable = IFileInformationFactoryVtbl;
+    type Vtable = IFileInformationFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x401d88be_960f_4d6d_a7d0_1a3861e76c83);
 }
 impl ::windows::core::RuntimeName for FileInformationFactory {
@@ -1423,7 +1423,7 @@ unsafe impl ::windows::core::RuntimeType for FolderInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.BulkAccess.FolderInformation;{87a5cb8b-8972-4f40-8de0-d86fb179d8fa})");
 }
 unsafe impl ::windows::core::Interface for FolderInformation {
-    type Vtable = IStorageItemInformationVtbl;
+    type Vtable = IStorageItemInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa);
 }
 impl ::windows::core::RuntimeName for FolderInformation {
@@ -1653,12 +1653,12 @@ impl<'a> ::windows::core::IntoParam<'a, super::IStorageItemPropertiesWithProvide
 #[repr(transparent)]
 pub struct IFileInformationFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFileInformationFactory {
-    type Vtable = IFileInformationFactoryVtbl;
+    type Vtable = IFileInformationFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x401d88be_960f_4d6d_a7d0_1a3861e76c83);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileInformationFactoryVtbl {
+pub struct IFileInformationFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetItemsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1692,12 +1692,12 @@ pub struct IFileInformationFactoryVtbl {
 #[repr(transparent)]
 pub struct IFileInformationFactoryFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFileInformationFactoryFactory {
-    type Vtable = IFileInformationFactoryFactoryVtbl;
+    type Vtable = IFileInformationFactoryFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84ea0e7d_e4a2_4f00_8afa_af5e0f826bd5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileInformationFactoryFactoryVtbl {
+pub struct IFileInformationFactoryFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
     pub CreateWithMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queryresult: ::windows::core::RawPtr, mode: super::FileProperties::ThumbnailMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1865,12 +1865,12 @@ unsafe impl ::windows::core::RuntimeType for IStorageItemInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{87a5cb8b-8972-4f40-8de0-d86fb179d8fa}");
 }
 unsafe impl ::windows::core::Interface for IStorageItemInformation {
-    type Vtable = IStorageItemInformationVtbl;
+    type Vtable = IStorageItemInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageItemInformationVtbl {
+pub struct IStorageItemInformation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_FileProperties")]
     pub MusicProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

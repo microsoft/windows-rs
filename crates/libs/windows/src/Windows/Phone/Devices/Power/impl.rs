@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IBatteryImpl: Sized {
+pub trait IBattery_Impl: Sized {
     fn RemainingChargePercent(&mut self) -> ::windows::core::Result<i32>;
     fn RemainingDischargeTime(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
     fn RemainingChargePercentChanged(&mut self, changehandler: &::core::option::Option<super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
@@ -10,9 +10,9 @@ impl ::windows::core::RuntimeName for IBattery {
     const NAME: &'static str = "Windows.Phone.Devices.Power.IBattery";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IBatteryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBatteryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBatteryVtbl {
-        unsafe extern "system" fn RemainingChargePercent<Impl: IBatteryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IBattery_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBattery_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBattery_Vtbl {
+        unsafe extern "system" fn RemainingChargePercent<Impl: IBattery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemainingChargePercent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -23,7 +23,7 @@ impl IBatteryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemainingDischargeTime<Impl: IBatteryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemainingDischargeTime<Impl: IBattery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemainingDischargeTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -34,7 +34,7 @@ impl IBatteryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemainingChargePercentChanged<Impl: IBatteryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changehandler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemainingChargePercentChanged<Impl: IBattery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changehandler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemainingChargePercentChanged(&*(&changehandler as *const <super::super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -45,7 +45,7 @@ impl IBatteryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRemainingChargePercentChanged<Impl: IBatteryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveRemainingChargePercentChanged<Impl: IBattery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRemainingChargePercentChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -62,7 +62,7 @@ impl IBatteryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBatteryStaticsImpl: Sized {
+pub trait IBatteryStatics_Impl: Sized {
     fn GetDefault(&mut self) -> ::windows::core::Result<Battery>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -70,9 +70,9 @@ impl ::windows::core::RuntimeName for IBatteryStatics {
     const NAME: &'static str = "Windows.Phone.Devices.Power.IBatteryStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBatteryStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBatteryStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBatteryStaticsVtbl {
-        unsafe extern "system" fn GetDefault<Impl: IBatteryStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBatteryStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBatteryStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBatteryStatics_Vtbl {
+        unsafe extern "system" fn GetDefault<Impl: IBatteryStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
                 ::core::result::Result::Ok(ok__) => {

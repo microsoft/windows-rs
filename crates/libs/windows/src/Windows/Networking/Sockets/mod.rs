@@ -176,7 +176,7 @@ unsafe impl ::windows::core::RuntimeType for ControlChannelTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ControlChannelTrigger;{7d1431a7-ee96-40e8-a199-8703cd969ec3})");
 }
 unsafe impl ::windows::core::Interface for ControlChannelTrigger {
-    type Vtable = IControlChannelTriggerVtbl;
+    type Vtable = IControlChannelTrigger_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d1431a7_ee96_40e8_a199_8703cd969ec3);
 }
 impl ::windows::core::RuntimeName for ControlChannelTrigger {
@@ -558,7 +558,7 @@ unsafe impl ::windows::core::RuntimeType for DatagramSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocket;{7fe25bbb-c3bc-4677-8446-ca28a465a3af})");
 }
 unsafe impl ::windows::core::Interface for DatagramSocket {
-    type Vtable = IDatagramSocketVtbl;
+    type Vtable = IDatagramSocket_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fe25bbb_c3bc_4677_8446_ca28a465a3af);
 }
 impl ::windows::core::RuntimeName for DatagramSocket {
@@ -722,7 +722,7 @@ unsafe impl ::windows::core::RuntimeType for DatagramSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketControl;{52ac3f2e-349a-4135-bb58-b79b2647d390})");
 }
 unsafe impl ::windows::core::Interface for DatagramSocketControl {
-    type Vtable = IDatagramSocketControlVtbl;
+    type Vtable = IDatagramSocketControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52ac3f2e_349a_4135_bb58_b79b2647d390);
 }
 impl ::windows::core::RuntimeName for DatagramSocketControl {
@@ -827,7 +827,7 @@ unsafe impl ::windows::core::RuntimeType for DatagramSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketInformation;{5f1a569a-55fb-48cd-9706-7a974f7b1585})");
 }
 unsafe impl ::windows::core::Interface for DatagramSocketInformation {
-    type Vtable = IDatagramSocketInformationVtbl;
+    type Vtable = IDatagramSocketInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f1a569a_55fb_48cd_9706_7a974f7b1585);
 }
 impl ::windows::core::RuntimeName for DatagramSocketInformation {
@@ -942,7 +942,7 @@ unsafe impl ::windows::core::RuntimeType for DatagramSocketMessageReceivedEventA
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketMessageReceivedEventArgs;{9e2ddca2-1712-4ce4-b179-8c652c6d107e})");
 }
 unsafe impl ::windows::core::Interface for DatagramSocketMessageReceivedEventArgs {
-    type Vtable = IDatagramSocketMessageReceivedEventArgsVtbl;
+    type Vtable = IDatagramSocketMessageReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e2ddca2_1712_4ce4_b179_8c652c6d107e);
 }
 impl ::windows::core::RuntimeName for DatagramSocketMessageReceivedEventArgs {
@@ -994,12 +994,12 @@ unsafe impl ::core::marker::Sync for DatagramSocketMessageReceivedEventArgs {}
 #[repr(transparent)]
 pub struct IControlChannelTrigger(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IControlChannelTrigger {
-    type Vtable = IControlChannelTriggerVtbl;
+    type Vtable = IControlChannelTrigger_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d1431a7_ee96_40e8_a199_8703cd969ec3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IControlChannelTriggerVtbl {
+pub struct IControlChannelTrigger_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ControlChannelTriggerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ServerKeepAliveIntervalInMinutes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -1023,12 +1023,12 @@ pub struct IControlChannelTriggerVtbl {
 #[repr(transparent)]
 pub struct IControlChannelTrigger2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IControlChannelTrigger2 {
-    type Vtable = IControlChannelTrigger2Vtbl;
+    type Vtable = IControlChannelTrigger2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf00d237_51be_4514_9725_3556e1879580);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IControlChannelTrigger2Vtbl {
+pub struct IControlChannelTrigger2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsWakeFromLowPowerSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -1105,12 +1105,12 @@ unsafe impl ::windows::core::RuntimeType for IControlChannelTriggerEventDetails 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1b36e047-89bb-4236-96ac-71d012bb4869}");
 }
 unsafe impl ::windows::core::Interface for IControlChannelTriggerEventDetails {
-    type Vtable = IControlChannelTriggerEventDetailsVtbl;
+    type Vtable = IControlChannelTriggerEventDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b36e047_89bb_4236_96ac_71d012bb4869);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IControlChannelTriggerEventDetailsVtbl {
+pub struct IControlChannelTriggerEventDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ControlChannelTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1118,12 +1118,12 @@ pub struct IControlChannelTriggerEventDetailsVtbl {
 #[repr(transparent)]
 pub struct IControlChannelTriggerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IControlChannelTriggerFactory {
-    type Vtable = IControlChannelTriggerFactoryVtbl;
+    type Vtable = IControlChannelTriggerFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda4b7cf0_8d71_446f_88c3_b95184a2d6cd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IControlChannelTriggerFactoryVtbl {
+pub struct IControlChannelTriggerFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateControlChannelTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, serverkeepaliveintervalinminutes: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateControlChannelTriggerEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, serverkeepaliveintervalinminutes: u32, resourcerequesttype: ControlChannelTriggerResourceType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1217,12 +1217,12 @@ unsafe impl ::windows::core::RuntimeType for IControlChannelTriggerResetEventDet
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6851038e-8ec4-42fe-9bb2-21e91b7bfcb1}");
 }
 unsafe impl ::windows::core::Interface for IControlChannelTriggerResetEventDetails {
-    type Vtable = IControlChannelTriggerResetEventDetailsVtbl;
+    type Vtable = IControlChannelTriggerResetEventDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6851038e_8ec4_42fe_9bb2_21e91b7bfcb1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IControlChannelTriggerResetEventDetailsVtbl {
+pub struct IControlChannelTriggerResetEventDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ResetReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ControlChannelTriggerResetReason) -> ::windows::core::HRESULT,
     pub HardwareSlotReset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1232,12 +1232,12 @@ pub struct IControlChannelTriggerResetEventDetailsVtbl {
 #[repr(transparent)]
 pub struct IDatagramSocket(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDatagramSocket {
-    type Vtable = IDatagramSocketVtbl;
+    type Vtable = IDatagramSocket_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fe25bbb_c3bc_4677_8446_ca28a465a3af);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDatagramSocketVtbl {
+pub struct IDatagramSocket_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Control: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Information: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1283,12 +1283,12 @@ pub struct IDatagramSocketVtbl {
 #[repr(transparent)]
 pub struct IDatagramSocket2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDatagramSocket2 {
-    type Vtable = IDatagramSocket2Vtbl;
+    type Vtable = IDatagramSocket2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd83ba354_9a9d_4185_a20a_1424c9c2a7cd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDatagramSocket2Vtbl {
+pub struct IDatagramSocket2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity"))]
     pub BindServiceNameAndAdapterAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, adapter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1299,12 +1299,12 @@ pub struct IDatagramSocket2Vtbl {
 #[repr(transparent)]
 pub struct IDatagramSocket3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDatagramSocket3 {
-    type Vtable = IDatagramSocket3Vtbl;
+    type Vtable = IDatagramSocket3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37544f09_ab92_4306_9ac1_0c381283d9c6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDatagramSocket3Vtbl {
+pub struct IDatagramSocket3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CancelIOAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1323,12 +1323,12 @@ pub struct IDatagramSocket3Vtbl {
 #[repr(transparent)]
 pub struct IDatagramSocketControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDatagramSocketControl {
-    type Vtable = IDatagramSocketControlVtbl;
+    type Vtable = IDatagramSocketControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52ac3f2e_349a_4135_bb58_b79b2647d390);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDatagramSocketControlVtbl {
+pub struct IDatagramSocketControl_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub QualityOfService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SocketQualityOfService) -> ::windows::core::HRESULT,
     pub SetQualityOfService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: SocketQualityOfService) -> ::windows::core::HRESULT,
@@ -1339,12 +1339,12 @@ pub struct IDatagramSocketControlVtbl {
 #[repr(transparent)]
 pub struct IDatagramSocketControl2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDatagramSocketControl2 {
-    type Vtable = IDatagramSocketControl2Vtbl;
+    type Vtable = IDatagramSocketControl2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33ead5c2_979c_4415_82a1_3cfaf646c192);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDatagramSocketControl2Vtbl {
+pub struct IDatagramSocketControl2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InboundBufferSizeInBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub SetInboundBufferSizeInBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
@@ -1355,12 +1355,12 @@ pub struct IDatagramSocketControl2Vtbl {
 #[repr(transparent)]
 pub struct IDatagramSocketControl3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDatagramSocketControl3 {
-    type Vtable = IDatagramSocketControl3Vtbl;
+    type Vtable = IDatagramSocketControl3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4eb8256_1f6d_4598_9b57_d42a001df349);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDatagramSocketControl3Vtbl {
+pub struct IDatagramSocketControl3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MulticastOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetMulticastOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -1369,12 +1369,12 @@ pub struct IDatagramSocketControl3Vtbl {
 #[repr(transparent)]
 pub struct IDatagramSocketInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDatagramSocketInformation {
-    type Vtable = IDatagramSocketInformationVtbl;
+    type Vtable = IDatagramSocketInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f1a569a_55fb_48cd_9706_7a974f7b1585);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDatagramSocketInformationVtbl {
+pub struct IDatagramSocketInformation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LocalAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub LocalPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1385,12 +1385,12 @@ pub struct IDatagramSocketInformationVtbl {
 #[repr(transparent)]
 pub struct IDatagramSocketMessageReceivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDatagramSocketMessageReceivedEventArgs {
-    type Vtable = IDatagramSocketMessageReceivedEventArgsVtbl;
+    type Vtable = IDatagramSocketMessageReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e2ddca2_1712_4ce4_b179_8c652c6d107e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDatagramSocketMessageReceivedEventArgsVtbl {
+pub struct IDatagramSocketMessageReceivedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RemoteAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RemotePort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1408,12 +1408,12 @@ pub struct IDatagramSocketMessageReceivedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IDatagramSocketStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDatagramSocketStatics {
-    type Vtable = IDatagramSocketStaticsVtbl;
+    type Vtable = IDatagramSocketStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9c62aee_1494_4a21_bb7e_8589fc751d9d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDatagramSocketStaticsVtbl {
+pub struct IDatagramSocketStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetEndpointPairsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1428,12 +1428,12 @@ pub struct IDatagramSocketStaticsVtbl {
 #[repr(transparent)]
 pub struct IMessageWebSocket(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMessageWebSocket {
-    type Vtable = IMessageWebSocketVtbl;
+    type Vtable = IMessageWebSocket_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33727d08_34d5_4746_ad7b_8dde5bc2ef88);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMessageWebSocketVtbl {
+pub struct IMessageWebSocket_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Control: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Information: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1450,12 +1450,12 @@ pub struct IMessageWebSocketVtbl {
 #[repr(transparent)]
 pub struct IMessageWebSocket2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMessageWebSocket2 {
-    type Vtable = IMessageWebSocket2Vtbl;
+    type Vtable = IMessageWebSocket2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbed0cee7_f9c8_440a_9ad5_737281d9742e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMessageWebSocket2Vtbl {
+pub struct IMessageWebSocket2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ServerCustomValidationRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -1470,12 +1470,12 @@ pub struct IMessageWebSocket2Vtbl {
 #[repr(transparent)]
 pub struct IMessageWebSocket3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMessageWebSocket3 {
-    type Vtable = IMessageWebSocket3Vtbl;
+    type Vtable = IMessageWebSocket3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59d9defb_71af_4349_8487_911fcf681597);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMessageWebSocket3Vtbl {
+pub struct IMessageWebSocket3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub SendNonfinalFrameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1490,12 +1490,12 @@ pub struct IMessageWebSocket3Vtbl {
 #[repr(transparent)]
 pub struct IMessageWebSocketControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMessageWebSocketControl {
-    type Vtable = IMessageWebSocketControlVtbl;
+    type Vtable = IMessageWebSocketControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8118388a_c629_4f0a_80fb_81fc05538862);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMessageWebSocketControlVtbl {
+pub struct IMessageWebSocketControl_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MaxMessageSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub SetMaxMessageSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
@@ -1506,12 +1506,12 @@ pub struct IMessageWebSocketControlVtbl {
 #[repr(transparent)]
 pub struct IMessageWebSocketControl2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMessageWebSocketControl2 {
-    type Vtable = IMessageWebSocketControl2Vtbl;
+    type Vtable = IMessageWebSocketControl2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe30fd791_080c_400a_a712_27dfa9e744d8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMessageWebSocketControl2Vtbl {
+pub struct IMessageWebSocketControl2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub DesiredUnsolicitedPongInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -1540,12 +1540,12 @@ pub struct IMessageWebSocketControl2Vtbl {
 #[repr(transparent)]
 pub struct IMessageWebSocketMessageReceivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMessageWebSocketMessageReceivedEventArgs {
-    type Vtable = IMessageWebSocketMessageReceivedEventArgsVtbl;
+    type Vtable = IMessageWebSocketMessageReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x478c22ac_4c4b_42ed_9ed7_1ef9f94fa3d5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMessageWebSocketMessageReceivedEventArgsVtbl {
+pub struct IMessageWebSocketMessageReceivedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MessageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SocketMessageType) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -1561,12 +1561,12 @@ pub struct IMessageWebSocketMessageReceivedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IMessageWebSocketMessageReceivedEventArgs2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMessageWebSocketMessageReceivedEventArgs2 {
-    type Vtable = IMessageWebSocketMessageReceivedEventArgs2Vtbl;
+    type Vtable = IMessageWebSocketMessageReceivedEventArgs2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89ce06fd_dd6f_4a07_87f9_f9eb4d89d83d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMessageWebSocketMessageReceivedEventArgs2Vtbl {
+pub struct IMessageWebSocketMessageReceivedEventArgs2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsMessageComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -1574,12 +1574,12 @@ pub struct IMessageWebSocketMessageReceivedEventArgs2Vtbl {
 #[repr(transparent)]
 pub struct IServerMessageWebSocket(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IServerMessageWebSocket {
-    type Vtable = IServerMessageWebSocketVtbl;
+    type Vtable = IServerMessageWebSocket_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3ac9240_813b_5efd_7e11_ae2305fc77f1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IServerMessageWebSocketVtbl {
+pub struct IServerMessageWebSocket_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub MessageReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -1609,12 +1609,12 @@ pub struct IServerMessageWebSocketVtbl {
 #[repr(transparent)]
 pub struct IServerMessageWebSocketControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IServerMessageWebSocketControl {
-    type Vtable = IServerMessageWebSocketControlVtbl;
+    type Vtable = IServerMessageWebSocketControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69c2f051_1c1f_587a_4519_2181610192b7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IServerMessageWebSocketControlVtbl {
+pub struct IServerMessageWebSocketControl_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MessageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SocketMessageType) -> ::windows::core::HRESULT,
     pub SetMessageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: SocketMessageType) -> ::windows::core::HRESULT,
@@ -1623,12 +1623,12 @@ pub struct IServerMessageWebSocketControlVtbl {
 #[repr(transparent)]
 pub struct IServerMessageWebSocketInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IServerMessageWebSocketInformation {
-    type Vtable = IServerMessageWebSocketInformationVtbl;
+    type Vtable = IServerMessageWebSocketInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc32b45f_4448_5505_6cc9_09afa8915f5d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IServerMessageWebSocketInformationVtbl {
+pub struct IServerMessageWebSocketInformation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub BandwidthStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BandwidthStatistics) -> ::windows::core::HRESULT,
     pub Protocol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1638,12 +1638,12 @@ pub struct IServerMessageWebSocketInformationVtbl {
 #[repr(transparent)]
 pub struct IServerStreamWebSocket(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IServerStreamWebSocket {
-    type Vtable = IServerStreamWebSocketVtbl;
+    type Vtable = IServerStreamWebSocket_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ced5bbf_74f6_55e4_79df_9132680dfee8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IServerStreamWebSocketVtbl {
+pub struct IServerStreamWebSocket_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Information: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -1668,12 +1668,12 @@ pub struct IServerStreamWebSocketVtbl {
 #[repr(transparent)]
 pub struct IServerStreamWebSocketInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IServerStreamWebSocketInformation {
-    type Vtable = IServerStreamWebSocketInformationVtbl;
+    type Vtable = IServerStreamWebSocketInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc32b45f_4448_5505_6cc9_09aba8915f5d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IServerStreamWebSocketInformationVtbl {
+pub struct IServerStreamWebSocketInformation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub BandwidthStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BandwidthStatistics) -> ::windows::core::HRESULT,
     pub Protocol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1683,12 +1683,12 @@ pub struct IServerStreamWebSocketInformationVtbl {
 #[repr(transparent)]
 pub struct ISocketActivityContext(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISocketActivityContext {
-    type Vtable = ISocketActivityContextVtbl;
+    type Vtable = ISocketActivityContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43b04d64_4c85_4396_a637_1d973f6ebd49);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISocketActivityContextVtbl {
+pub struct ISocketActivityContext_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub Data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1699,12 +1699,12 @@ pub struct ISocketActivityContextVtbl {
 #[repr(transparent)]
 pub struct ISocketActivityContextFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISocketActivityContextFactory {
-    type Vtable = ISocketActivityContextFactoryVtbl;
+    type Vtable = ISocketActivityContextFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb99fc3c3_088c_4388_83ae_2525138e049a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISocketActivityContextFactoryVtbl {
+pub struct ISocketActivityContextFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1715,12 +1715,12 @@ pub struct ISocketActivityContextFactoryVtbl {
 #[repr(transparent)]
 pub struct ISocketActivityInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISocketActivityInformation {
-    type Vtable = ISocketActivityInformationVtbl;
+    type Vtable = ISocketActivityInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d8a42e4_a87e_4b74_9968_185b2511defe);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISocketActivityInformationVtbl {
+pub struct ISocketActivityInformation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TaskId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1734,12 +1734,12 @@ pub struct ISocketActivityInformationVtbl {
 #[repr(transparent)]
 pub struct ISocketActivityInformationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISocketActivityInformationStatics {
-    type Vtable = ISocketActivityInformationStaticsVtbl;
+    type Vtable = ISocketActivityInformationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8570b47a_7e7d_4736_8041_1327a6543c56);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISocketActivityInformationStaticsVtbl {
+pub struct ISocketActivityInformationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub AllSockets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1750,12 +1750,12 @@ pub struct ISocketActivityInformationStaticsVtbl {
 #[repr(transparent)]
 pub struct ISocketActivityTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISocketActivityTriggerDetails {
-    type Vtable = ISocketActivityTriggerDetailsVtbl;
+    type Vtable = ISocketActivityTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45f406a7_fc9f_4f81_acad_355fef51e67b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISocketActivityTriggerDetailsVtbl {
+pub struct ISocketActivityTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SocketActivityTriggerReason) -> ::windows::core::HRESULT,
     pub SocketInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1764,12 +1764,12 @@ pub struct ISocketActivityTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct ISocketErrorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISocketErrorStatics {
-    type Vtable = ISocketErrorStaticsVtbl;
+    type Vtable = ISocketErrorStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x828337f4_7d56_4d8e_b7b4_a07dd7c1bca9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISocketErrorStaticsVtbl {
+pub struct ISocketErrorStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut SocketErrorStatus) -> ::windows::core::HRESULT,
 }
@@ -1777,12 +1777,12 @@ pub struct ISocketErrorStaticsVtbl {
 #[repr(transparent)]
 pub struct IStreamSocket(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocket {
-    type Vtable = IStreamSocketVtbl;
+    type Vtable = IStreamSocket_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69a22cf3_fc7b_4857_af38_f6e7de6a5b49);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamSocketVtbl {
+pub struct IStreamSocket_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Control: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Information: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1819,12 +1819,12 @@ pub struct IStreamSocketVtbl {
 #[repr(transparent)]
 pub struct IStreamSocket2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocket2 {
-    type Vtable = IStreamSocket2Vtbl;
+    type Vtable = IStreamSocket2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29d0e575_f314_4d09_adf0_0fbd967fbd9f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamSocket2Vtbl {
+pub struct IStreamSocket2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity"))]
     pub ConnectWithProtectionLevelAndAdapterAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, protectionlevel: SocketProtectionLevel, adapter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1835,12 +1835,12 @@ pub struct IStreamSocket2Vtbl {
 #[repr(transparent)]
 pub struct IStreamSocket3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocket3 {
-    type Vtable = IStreamSocket3Vtbl;
+    type Vtable = IStreamSocket3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f430b00_9d28_4854_bac3_2301941ec223);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamSocket3Vtbl {
+pub struct IStreamSocket3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CancelIOAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1859,12 +1859,12 @@ pub struct IStreamSocket3Vtbl {
 #[repr(transparent)]
 pub struct IStreamSocketControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocketControl {
-    type Vtable = IStreamSocketControlVtbl;
+    type Vtable = IStreamSocketControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe25adf1_92ab_4af3_9992_0f4c85e36cc4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamSocketControlVtbl {
+pub struct IStreamSocketControl_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub NoDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetNoDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -1881,12 +1881,12 @@ pub struct IStreamSocketControlVtbl {
 #[repr(transparent)]
 pub struct IStreamSocketControl2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocketControl2 {
-    type Vtable = IStreamSocketControl2Vtbl;
+    type Vtable = IStreamSocketControl2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2d09a56_060f_44c1_b8e2_1fbf60bd62c5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamSocketControl2Vtbl {
+pub struct IStreamSocketControl2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub IgnorableServerCertificateErrors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1897,12 +1897,12 @@ pub struct IStreamSocketControl2Vtbl {
 #[repr(transparent)]
 pub struct IStreamSocketControl3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocketControl3 {
-    type Vtable = IStreamSocketControl3Vtbl;
+    type Vtable = IStreamSocketControl3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc56a444c_4e74_403e_894c_b31cae5c7342);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamSocketControl3Vtbl {
+pub struct IStreamSocketControl3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SerializeConnectionAttempts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetSerializeConnectionAttempts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -1919,12 +1919,12 @@ pub struct IStreamSocketControl3Vtbl {
 #[repr(transparent)]
 pub struct IStreamSocketControl4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocketControl4 {
-    type Vtable = IStreamSocketControl4Vtbl;
+    type Vtable = IStreamSocketControl4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x964e2b3d_ec27_4888_b3ce_c74b418423ad);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamSocketControl4Vtbl {
+pub struct IStreamSocketControl4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MinProtectionLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SocketProtectionLevel) -> ::windows::core::HRESULT,
     pub SetMinProtectionLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: SocketProtectionLevel) -> ::windows::core::HRESULT,
@@ -1933,12 +1933,12 @@ pub struct IStreamSocketControl4Vtbl {
 #[repr(transparent)]
 pub struct IStreamSocketInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocketInformation {
-    type Vtable = IStreamSocketInformationVtbl;
+    type Vtable = IStreamSocketInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b80ae30_5e68_4205_88f0_dc85d2e25ded);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamSocketInformationVtbl {
+pub struct IStreamSocketInformation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LocalAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub LocalPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1958,12 +1958,12 @@ pub struct IStreamSocketInformationVtbl {
 #[repr(transparent)]
 pub struct IStreamSocketInformation2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocketInformation2 {
-    type Vtable = IStreamSocketInformation2Vtbl;
+    type Vtable = IStreamSocketInformation2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12c28452_4bdc_4ee4_976a_cf130e9d92e3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamSocketInformation2Vtbl {
+pub struct IStreamSocketInformation2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ServerCertificateErrorSeverity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SocketSslErrorSeverity) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
@@ -1983,12 +1983,12 @@ pub struct IStreamSocketInformation2Vtbl {
 #[repr(transparent)]
 pub struct IStreamSocketListener(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocketListener {
-    type Vtable = IStreamSocketListenerVtbl;
+    type Vtable = IStreamSocketListener_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff513437_df9f_4df0_bf82_0ec5d7b35aae);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamSocketListenerVtbl {
+pub struct IStreamSocketListener_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Control: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Information: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2013,12 +2013,12 @@ pub struct IStreamSocketListenerVtbl {
 #[repr(transparent)]
 pub struct IStreamSocketListener2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocketListener2 {
-    type Vtable = IStreamSocketListener2Vtbl;
+    type Vtable = IStreamSocketListener2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x658dc13e_bb3e_4458_b232_ed1088694b98);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamSocketListener2Vtbl {
+pub struct IStreamSocketListener2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub BindServiceNameWithProtectionLevelAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, protectionlevel: SocketProtectionLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2033,12 +2033,12 @@ pub struct IStreamSocketListener2Vtbl {
 #[repr(transparent)]
 pub struct IStreamSocketListener3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocketListener3 {
-    type Vtable = IStreamSocketListener3Vtbl;
+    type Vtable = IStreamSocketListener3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4798201c_bdf8_4919_8542_28d450e74507);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamSocketListener3Vtbl {
+pub struct IStreamSocketListener3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CancelIOAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2053,12 +2053,12 @@ pub struct IStreamSocketListener3Vtbl {
 #[repr(transparent)]
 pub struct IStreamSocketListenerConnectionReceivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocketListenerConnectionReceivedEventArgs {
-    type Vtable = IStreamSocketListenerConnectionReceivedEventArgsVtbl;
+    type Vtable = IStreamSocketListenerConnectionReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c472ea9_373f_447b_85b1_ddd4548803ba);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamSocketListenerConnectionReceivedEventArgsVtbl {
+pub struct IStreamSocketListenerConnectionReceivedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Socket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2066,12 +2066,12 @@ pub struct IStreamSocketListenerConnectionReceivedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IStreamSocketListenerControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocketListenerControl {
-    type Vtable = IStreamSocketListenerControlVtbl;
+    type Vtable = IStreamSocketListenerControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20d8c576_8d8a_4dba_9722_a16c4d984980);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamSocketListenerControlVtbl {
+pub struct IStreamSocketListenerControl_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub QualityOfService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SocketQualityOfService) -> ::windows::core::HRESULT,
     pub SetQualityOfService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: SocketQualityOfService) -> ::windows::core::HRESULT,
@@ -2080,12 +2080,12 @@ pub struct IStreamSocketListenerControlVtbl {
 #[repr(transparent)]
 pub struct IStreamSocketListenerControl2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocketListenerControl2 {
-    type Vtable = IStreamSocketListenerControl2Vtbl;
+    type Vtable = IStreamSocketListenerControl2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x948bb665_2c3e_404b_b8b0_8eb249a2b0a1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamSocketListenerControl2Vtbl {
+pub struct IStreamSocketListenerControl2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub NoDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetNoDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -2100,12 +2100,12 @@ pub struct IStreamSocketListenerControl2Vtbl {
 #[repr(transparent)]
 pub struct IStreamSocketListenerInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocketListenerInformation {
-    type Vtable = IStreamSocketListenerInformationVtbl;
+    type Vtable = IStreamSocketListenerInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe62ba82f_a63a_430b_bf62_29e93e5633b4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamSocketListenerInformationVtbl {
+pub struct IStreamSocketListenerInformation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LocalPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -2113,12 +2113,12 @@ pub struct IStreamSocketListenerInformationVtbl {
 #[repr(transparent)]
 pub struct IStreamSocketStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamSocketStatics {
-    type Vtable = IStreamSocketStaticsVtbl;
+    type Vtable = IStreamSocketStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa420bc4a_6e2e_4af5_b556_355ae0cd4f29);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamSocketStaticsVtbl {
+pub struct IStreamSocketStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetEndpointPairsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2133,12 +2133,12 @@ pub struct IStreamSocketStaticsVtbl {
 #[repr(transparent)]
 pub struct IStreamWebSocket(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamWebSocket {
-    type Vtable = IStreamWebSocketVtbl;
+    type Vtable = IStreamWebSocket_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd4a49d8_b289_45bb_97eb_c7525205a843);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamWebSocketVtbl {
+pub struct IStreamWebSocket_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Control: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Information: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2151,12 +2151,12 @@ pub struct IStreamWebSocketVtbl {
 #[repr(transparent)]
 pub struct IStreamWebSocket2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamWebSocket2 {
-    type Vtable = IStreamWebSocket2Vtbl;
+    type Vtable = IStreamWebSocket2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa4d08cb_93f5_4678_8236_57cce5417ed5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamWebSocket2Vtbl {
+pub struct IStreamWebSocket2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ServerCustomValidationRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -2171,12 +2171,12 @@ pub struct IStreamWebSocket2Vtbl {
 #[repr(transparent)]
 pub struct IStreamWebSocketControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamWebSocketControl {
-    type Vtable = IStreamWebSocketControlVtbl;
+    type Vtable = IStreamWebSocketControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4f478b1_a45a_48db_953a_645b7d964c07);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamWebSocketControlVtbl {
+pub struct IStreamWebSocketControl_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub NoDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetNoDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -2185,12 +2185,12 @@ pub struct IStreamWebSocketControlVtbl {
 #[repr(transparent)]
 pub struct IStreamWebSocketControl2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStreamWebSocketControl2 {
-    type Vtable = IStreamWebSocketControl2Vtbl;
+    type Vtable = IStreamWebSocketControl2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x215d9f7e_fa58_40da_9f11_a48dafe95037);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamWebSocketControl2Vtbl {
+pub struct IStreamWebSocketControl2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub DesiredUnsolicitedPongInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -2353,12 +2353,12 @@ unsafe impl ::windows::core::RuntimeType for IWebSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f877396f-99b1-4e18-bc08-850c9adf156e}");
 }
 unsafe impl ::windows::core::Interface for IWebSocket {
-    type Vtable = IWebSocketVtbl;
+    type Vtable = IWebSocket_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf877396f_99b1_4e18_bc08_850c9adf156e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebSocketVtbl {
+pub struct IWebSocket_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub OutputStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2383,12 +2383,12 @@ pub struct IWebSocketVtbl {
 #[repr(transparent)]
 pub struct IWebSocketClosedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebSocketClosedEventArgs {
-    type Vtable = IWebSocketClosedEventArgsVtbl;
+    type Vtable = IWebSocketClosedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xceb78d07_d0a8_4703_a091_c8c2c0915bc3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebSocketClosedEventArgsVtbl {
+pub struct IWebSocketClosedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Code: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2510,12 +2510,12 @@ unsafe impl ::windows::core::RuntimeType for IWebSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2ec4bdc3-d9a5-455a-9811-de24d45337e9}");
 }
 unsafe impl ::windows::core::Interface for IWebSocketControl {
-    type Vtable = IWebSocketControlVtbl;
+    type Vtable = IWebSocketControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ec4bdc3_d9a5_455a_9811_de24d45337e9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebSocketControlVtbl {
+pub struct IWebSocketControl_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OutboundBufferSizeInBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub SetOutboundBufferSizeInBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
@@ -2688,12 +2688,12 @@ unsafe impl ::windows::core::RuntimeType for IWebSocketControl2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{79c3be03-f2ca-461e-af4e-9665bc2d0620}");
 }
 unsafe impl ::windows::core::Interface for IWebSocketControl2 {
-    type Vtable = IWebSocketControl2Vtbl;
+    type Vtable = IWebSocketControl2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79c3be03_f2ca_461e_af4e_9665bc2d0620);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebSocketControl2Vtbl {
+pub struct IWebSocketControl2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub IgnorableServerCertificateErrors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2704,12 +2704,12 @@ pub struct IWebSocketControl2Vtbl {
 #[repr(transparent)]
 pub struct IWebSocketErrorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebSocketErrorStatics {
-    type Vtable = IWebSocketErrorStaticsVtbl;
+    type Vtable = IWebSocketErrorStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27cdf35b_1f61_4709_8e02_61283ada4e9d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebSocketErrorStaticsVtbl {
+pub struct IWebSocketErrorStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Web")]
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut super::super::Web::WebErrorStatus) -> ::windows::core::HRESULT,
@@ -2805,12 +2805,12 @@ unsafe impl ::windows::core::RuntimeType for IWebSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5e01e316-c92a-47a5-b25f-07847639d181}");
 }
 unsafe impl ::windows::core::Interface for IWebSocketInformation {
-    type Vtable = IWebSocketInformationVtbl;
+    type Vtable = IWebSocketInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e01e316_c92a_47a5_b25f_07847639d181);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebSocketInformationVtbl {
+pub struct IWebSocketInformation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LocalAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub BandwidthStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BandwidthStatistics) -> ::windows::core::HRESULT,
@@ -2962,12 +2962,12 @@ unsafe impl ::windows::core::RuntimeType for IWebSocketInformation2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ce1d39ce-a1b7-4d43-8269-8d5b981bd47a}");
 }
 unsafe impl ::windows::core::Interface for IWebSocketInformation2 {
-    type Vtable = IWebSocketInformation2Vtbl;
+    type Vtable = IWebSocketInformation2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce1d39ce_a1b7_4d43_8269_8d5b981bd47a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebSocketInformation2Vtbl {
+pub struct IWebSocketInformation2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub ServerCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2987,12 +2987,12 @@ pub struct IWebSocketInformation2Vtbl {
 #[repr(transparent)]
 pub struct IWebSocketServerCustomValidationRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebSocketServerCustomValidationRequestedEventArgs {
-    type Vtable = IWebSocketServerCustomValidationRequestedEventArgsVtbl;
+    type Vtable = IWebSocketServerCustomValidationRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffeffe48_022a_4ab7_8b36_e10af4640e6b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebSocketServerCustomValidationRequestedEventArgsVtbl {
+pub struct IWebSocketServerCustomValidationRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub ServerCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3158,7 +3158,7 @@ unsafe impl ::windows::core::RuntimeType for MessageWebSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocket;{33727d08-34d5-4746-ad7b-8dde5bc2ef88})");
 }
 unsafe impl ::windows::core::Interface for MessageWebSocket {
-    type Vtable = IMessageWebSocketVtbl;
+    type Vtable = IMessageWebSocket_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33727d08_34d5_4746_ad7b_8dde5bc2ef88);
 }
 impl ::windows::core::RuntimeName for MessageWebSocket {
@@ -3418,7 +3418,7 @@ unsafe impl ::windows::core::RuntimeType for MessageWebSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocketControl;{8118388a-c629-4f0a-80fb-81fc05538862})");
 }
 unsafe impl ::windows::core::Interface for MessageWebSocketControl {
-    type Vtable = IMessageWebSocketControlVtbl;
+    type Vtable = IMessageWebSocketControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8118388a_c629_4f0a_80fb_81fc05538862);
 }
 impl ::windows::core::RuntimeName for MessageWebSocketControl {
@@ -3594,7 +3594,7 @@ unsafe impl ::windows::core::RuntimeType for MessageWebSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocketInformation;{5e01e316-c92a-47a5-b25f-07847639d181})");
 }
 unsafe impl ::windows::core::Interface for MessageWebSocketInformation {
-    type Vtable = IWebSocketInformationVtbl;
+    type Vtable = IWebSocketInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e01e316_c92a_47a5_b25f_07847639d181);
 }
 impl ::windows::core::RuntimeName for MessageWebSocketInformation {
@@ -3745,7 +3745,7 @@ unsafe impl ::windows::core::RuntimeType for MessageWebSocketMessageReceivedEven
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocketMessageReceivedEventArgs;{478c22ac-4c4b-42ed-9ed7-1ef9f94fa3d5})");
 }
 unsafe impl ::windows::core::Interface for MessageWebSocketMessageReceivedEventArgs {
-    type Vtable = IMessageWebSocketMessageReceivedEventArgsVtbl;
+    type Vtable = IMessageWebSocketMessageReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x478c22ac_4c4b_42ed_9ed7_1ef9f94fa3d5);
 }
 impl ::windows::core::RuntimeName for MessageWebSocketMessageReceivedEventArgs {
@@ -3956,7 +3956,7 @@ unsafe impl ::windows::core::RuntimeType for ServerMessageWebSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerMessageWebSocket;{e3ac9240-813b-5efd-7e11-ae2305fc77f1})");
 }
 unsafe impl ::windows::core::Interface for ServerMessageWebSocket {
-    type Vtable = IServerMessageWebSocketVtbl;
+    type Vtable = IServerMessageWebSocket_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3ac9240_813b_5efd_7e11_ae2305fc77f1);
 }
 impl ::windows::core::RuntimeName for ServerMessageWebSocket {
@@ -4068,7 +4068,7 @@ unsafe impl ::windows::core::RuntimeType for ServerMessageWebSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerMessageWebSocketControl;{69c2f051-1c1f-587a-4519-2181610192b7})");
 }
 unsafe impl ::windows::core::Interface for ServerMessageWebSocketControl {
-    type Vtable = IServerMessageWebSocketControlVtbl;
+    type Vtable = IServerMessageWebSocketControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69c2f051_1c1f_587a_4519_2181610192b7);
 }
 impl ::windows::core::RuntimeName for ServerMessageWebSocketControl {
@@ -4165,7 +4165,7 @@ unsafe impl ::windows::core::RuntimeType for ServerMessageWebSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerMessageWebSocketInformation;{fc32b45f-4448-5505-6cc9-09afa8915f5d})");
 }
 unsafe impl ::windows::core::Interface for ServerMessageWebSocketInformation {
-    type Vtable = IServerMessageWebSocketInformationVtbl;
+    type Vtable = IServerMessageWebSocketInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc32b45f_4448_5505_6cc9_09afa8915f5d);
 }
 impl ::windows::core::RuntimeName for ServerMessageWebSocketInformation {
@@ -4290,7 +4290,7 @@ unsafe impl ::windows::core::RuntimeType for ServerStreamWebSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerStreamWebSocket;{2ced5bbf-74f6-55e4-79df-9132680dfee8})");
 }
 unsafe impl ::windows::core::Interface for ServerStreamWebSocket {
-    type Vtable = IServerStreamWebSocketVtbl;
+    type Vtable = IServerStreamWebSocket_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ced5bbf_74f6_55e4_79df_9132680dfee8);
 }
 impl ::windows::core::RuntimeName for ServerStreamWebSocket {
@@ -4413,7 +4413,7 @@ unsafe impl ::windows::core::RuntimeType for ServerStreamWebSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerStreamWebSocketInformation;{fc32b45f-4448-5505-6cc9-09aba8915f5d})");
 }
 unsafe impl ::windows::core::Interface for ServerStreamWebSocketInformation {
-    type Vtable = IServerStreamWebSocketInformationVtbl;
+    type Vtable = IServerStreamWebSocketInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc32b45f_4448_5505_6cc9_09aba8915f5d);
 }
 impl ::windows::core::RuntimeName for ServerStreamWebSocketInformation {
@@ -4541,7 +4541,7 @@ unsafe impl ::windows::core::RuntimeType for SocketActivityContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.SocketActivityContext;{43b04d64-4c85-4396-a637-1d973f6ebd49})");
 }
 unsafe impl ::windows::core::Interface for SocketActivityContext {
-    type Vtable = ISocketActivityContextVtbl;
+    type Vtable = ISocketActivityContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43b04d64_4c85_4396_a637_1d973f6ebd49);
 }
 impl ::windows::core::RuntimeName for SocketActivityContext {
@@ -4683,7 +4683,7 @@ unsafe impl ::windows::core::RuntimeType for SocketActivityInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.SocketActivityInformation;{8d8a42e4-a87e-4b74-9968-185b2511defe})");
 }
 unsafe impl ::windows::core::Interface for SocketActivityInformation {
-    type Vtable = ISocketActivityInformationVtbl;
+    type Vtable = ISocketActivityInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d8a42e4_a87e_4b74_9968_185b2511defe);
 }
 impl ::windows::core::RuntimeName for SocketActivityInformation {
@@ -4807,7 +4807,7 @@ unsafe impl ::windows::core::RuntimeType for SocketActivityTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.SocketActivityTriggerDetails;{45f406a7-fc9f-4f81-acad-355fef51e67b})");
 }
 unsafe impl ::windows::core::Interface for SocketActivityTriggerDetails {
-    type Vtable = ISocketActivityTriggerDetailsVtbl;
+    type Vtable = ISocketActivityTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45f406a7_fc9f_4f81_acad_355fef51e67b);
 }
 impl ::windows::core::RuntimeName for SocketActivityTriggerDetails {
@@ -5295,7 +5295,7 @@ unsafe impl ::windows::core::RuntimeType for StreamSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocket;{69a22cf3-fc7b-4857-af38-f6e7de6a5b49})");
 }
 unsafe impl ::windows::core::Interface for StreamSocket {
-    type Vtable = IStreamSocketVtbl;
+    type Vtable = IStreamSocket_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69a22cf3_fc7b_4857_af38_f6e7de6a5b49);
 }
 impl ::windows::core::RuntimeName for StreamSocket {
@@ -5509,7 +5509,7 @@ unsafe impl ::windows::core::RuntimeType for StreamSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketControl;{fe25adf1-92ab-4af3-9992-0f4c85e36cc4})");
 }
 unsafe impl ::windows::core::Interface for StreamSocketControl {
-    type Vtable = IStreamSocketControlVtbl;
+    type Vtable = IStreamSocketControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe25adf1_92ab_4af3_9992_0f4c85e36cc4);
 }
 impl ::windows::core::RuntimeName for StreamSocketControl {
@@ -5698,7 +5698,7 @@ unsafe impl ::windows::core::RuntimeType for StreamSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketInformation;{3b80ae30-5e68-4205-88f0-dc85d2e25ded})");
 }
 unsafe impl ::windows::core::Interface for StreamSocketInformation {
-    type Vtable = IStreamSocketInformationVtbl;
+    type Vtable = IStreamSocketInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b80ae30_5e68_4205_88f0_dc85d2e25ded);
 }
 impl ::windows::core::RuntimeName for StreamSocketInformation {
@@ -5880,7 +5880,7 @@ unsafe impl ::windows::core::RuntimeType for StreamSocketListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListener;{ff513437-df9f-4df0-bf82-0ec5d7b35aae})");
 }
 unsafe impl ::windows::core::Interface for StreamSocketListener {
-    type Vtable = IStreamSocketListenerVtbl;
+    type Vtable = IStreamSocketListener_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff513437_df9f_4df0_bf82_0ec5d7b35aae);
 }
 impl ::windows::core::RuntimeName for StreamSocketListener {
@@ -5987,7 +5987,7 @@ unsafe impl ::windows::core::RuntimeType for StreamSocketListenerConnectionRecei
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListenerConnectionReceivedEventArgs;{0c472ea9-373f-447b-85b1-ddd4548803ba})");
 }
 unsafe impl ::windows::core::Interface for StreamSocketListenerConnectionReceivedEventArgs {
-    type Vtable = IStreamSocketListenerConnectionReceivedEventArgsVtbl;
+    type Vtable = IStreamSocketListenerConnectionReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c472ea9_373f_447b_85b1_ddd4548803ba);
 }
 impl ::windows::core::RuntimeName for StreamSocketListenerConnectionReceivedEventArgs {
@@ -6125,7 +6125,7 @@ unsafe impl ::windows::core::RuntimeType for StreamSocketListenerControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListenerControl;{20d8c576-8d8a-4dba-9722-a16c4d984980})");
 }
 unsafe impl ::windows::core::Interface for StreamSocketListenerControl {
-    type Vtable = IStreamSocketListenerControlVtbl;
+    type Vtable = IStreamSocketListenerControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20d8c576_8d8a_4dba_9722_a16c4d984980);
 }
 impl ::windows::core::RuntimeName for StreamSocketListenerControl {
@@ -6206,7 +6206,7 @@ unsafe impl ::windows::core::RuntimeType for StreamSocketListenerInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListenerInformation;{e62ba82f-a63a-430b-bf62-29e93e5633b4})");
 }
 unsafe impl ::windows::core::Interface for StreamSocketListenerInformation {
-    type Vtable = IStreamSocketListenerInformationVtbl;
+    type Vtable = IStreamSocketListenerInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe62ba82f_a63a_430b_bf62_29e93e5633b4);
 }
 impl ::windows::core::RuntimeName for StreamSocketListenerInformation {
@@ -6375,7 +6375,7 @@ unsafe impl ::windows::core::RuntimeType for StreamWebSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamWebSocket;{bd4a49d8-b289-45bb-97eb-c7525205a843})");
 }
 unsafe impl ::windows::core::Interface for StreamWebSocket {
-    type Vtable = IStreamWebSocketVtbl;
+    type Vtable = IStreamWebSocket_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd4a49d8_b289_45bb_97eb_c7525205a843);
 }
 impl ::windows::core::RuntimeName for StreamWebSocket {
@@ -6609,7 +6609,7 @@ unsafe impl ::windows::core::RuntimeType for StreamWebSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamWebSocketControl;{b4f478b1-a45a-48db-953a-645b7d964c07})");
 }
 unsafe impl ::windows::core::Interface for StreamWebSocketControl {
-    type Vtable = IStreamWebSocketControlVtbl;
+    type Vtable = IStreamWebSocketControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4f478b1_a45a_48db_953a_645b7d964c07);
 }
 impl ::windows::core::RuntimeName for StreamWebSocketControl {
@@ -6785,7 +6785,7 @@ unsafe impl ::windows::core::RuntimeType for StreamWebSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamWebSocketInformation;{5e01e316-c92a-47a5-b25f-07847639d181})");
 }
 unsafe impl ::windows::core::Interface for StreamWebSocketInformation {
-    type Vtable = IWebSocketInformationVtbl;
+    type Vtable = IWebSocketInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e01e316_c92a_47a5_b25f_07847639d181);
 }
 impl ::windows::core::RuntimeName for StreamWebSocketInformation {
@@ -6918,7 +6918,7 @@ unsafe impl ::windows::core::RuntimeType for WebSocketClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.WebSocketClosedEventArgs;{ceb78d07-d0a8-4703-a091-c8c2c0915bc3})");
 }
 unsafe impl ::windows::core::Interface for WebSocketClosedEventArgs {
-    type Vtable = IWebSocketClosedEventArgsVtbl;
+    type Vtable = IWebSocketClosedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xceb78d07_d0a8_4703_a091_c8c2c0915bc3);
 }
 impl ::windows::core::RuntimeName for WebSocketClosedEventArgs {
@@ -7032,7 +7032,7 @@ unsafe impl ::windows::core::RuntimeType for WebSocketKeepAlive {
 }
 #[cfg(feature = "ApplicationModel_Background")]
 unsafe impl ::windows::core::Interface for WebSocketKeepAlive {
-    type Vtable = super::super::ApplicationModel::Background::IBackgroundTaskVtbl;
+    type Vtable = super::super::ApplicationModel::Background::IBackgroundTask_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d13d534_fd12_43ce_8c22_ea1ff13c06df);
 }
 #[cfg(feature = "ApplicationModel_Background")]
@@ -7191,7 +7191,7 @@ unsafe impl ::windows::core::RuntimeType for WebSocketServerCustomValidationRequ
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.WebSocketServerCustomValidationRequestedEventArgs;{ffeffe48-022a-4ab7-8b36-e10af4640e6b})");
 }
 unsafe impl ::windows::core::Interface for WebSocketServerCustomValidationRequestedEventArgs {
-    type Vtable = IWebSocketServerCustomValidationRequestedEventArgsVtbl;
+    type Vtable = IWebSocketServerCustomValidationRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffeffe48_022a_4ab7_8b36_e10af4640e6b);
 }
 impl ::windows::core::RuntimeName for WebSocketServerCustomValidationRequestedEventArgs {

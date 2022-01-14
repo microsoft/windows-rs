@@ -78,12 +78,12 @@ impl ::core::fmt::Debug for IADesktopP2 {
     }
 }
 unsafe impl ::windows::core::Interface for IADesktopP2 {
-    type Vtable = IADesktopP2Vtbl;
+    type Vtable = IADesktopP2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb22754e2_4574_11d1_9888_006097deacf9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IADesktopP2Vtbl {
+pub struct IADesktopP2_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub ReReadWallpaper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetADObjectFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32, dwmask: u32) -> ::windows::core::HRESULT,
@@ -153,12 +153,12 @@ impl ::core::fmt::Debug for IActiveDesktopP {
     }
 }
 unsafe impl ::windows::core::Interface for IActiveDesktopP {
-    type Vtable = IActiveDesktopPVtbl;
+    type Vtable = IActiveDesktopP_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52502ee0_ec80_11d0_89ab_00c04fc2972d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActiveDesktopPVtbl {
+pub struct IActiveDesktopP_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetSafeMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
     pub EnsureUpdateHTML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -218,12 +218,12 @@ impl ::core::fmt::Debug for IBriefcaseInitiator {
     }
 }
 unsafe impl ::windows::core::Interface for IBriefcaseInitiator {
-    type Vtable = IBriefcaseInitiatorVtbl;
+    type Vtable = IBriefcaseInitiator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99180164_da16_101a_935c_444553540000);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBriefcaseInitiatorVtbl {
+pub struct IBriefcaseInitiator_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub IsMonikerInBriefcase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmk: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -295,12 +295,12 @@ impl ::core::fmt::Debug for IEmptyVolumeCache {
     }
 }
 unsafe impl ::windows::core::Interface for IEmptyVolumeCache {
-    type Vtable = IEmptyVolumeCacheVtbl;
+    type Vtable = IEmptyVolumeCache_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fce5227_04da_11d1_a004_00805f8abe06);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmptyVolumeCacheVtbl {
+pub struct IEmptyVolumeCache_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkregkey: super::super::System::Registry::HKEY, pcwszvolume: super::super::Foundation::PWSTR, ppwszdisplayname: *mut super::super::Foundation::PWSTR, ppwszdescription: *mut super::super::Foundation::PWSTR, pdwflags: *mut u32) -> ::windows::core::HRESULT,
@@ -404,13 +404,13 @@ impl ::core::fmt::Debug for IEmptyVolumeCache2 {
     }
 }
 unsafe impl ::windows::core::Interface for IEmptyVolumeCache2 {
-    type Vtable = IEmptyVolumeCache2Vtbl;
+    type Vtable = IEmptyVolumeCache2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02b7e3ba_4db3_11d2_b2d9_00c04f8eec8c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmptyVolumeCache2Vtbl {
-    pub base: IEmptyVolumeCacheVtbl,
+pub struct IEmptyVolumeCache2_Vtbl {
+    pub base: IEmptyVolumeCache_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
     pub InitializeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkregkey: super::super::System::Registry::HKEY, pcwszvolume: super::super::Foundation::PWSTR, pcwszkeyname: super::super::Foundation::PWSTR, ppwszdisplayname: *mut super::super::Foundation::PWSTR, ppwszdescription: *mut super::super::Foundation::PWSTR, ppwszbtntext: *mut super::super::Foundation::PWSTR, pdwflags: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Registry")))]
@@ -468,12 +468,12 @@ impl ::core::fmt::Debug for IEmptyVolumeCacheCallBack {
     }
 }
 unsafe impl ::windows::core::Interface for IEmptyVolumeCacheCallBack {
-    type Vtable = IEmptyVolumeCacheCallBackVtbl;
+    type Vtable = IEmptyVolumeCacheCallBack_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e793361_73c6_11d0_8469_00aa00442901);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmptyVolumeCacheCallBackVtbl {
+pub struct IEmptyVolumeCacheCallBack_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ScanProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlspaceused: u64, dwflags: u32, pcwszstatus: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -536,12 +536,12 @@ impl ::core::fmt::Debug for IReconcilableObject {
     }
 }
 unsafe impl ::windows::core::Interface for IReconcilableObject {
-    type Vtable = IReconcilableObjectVtbl;
+    type Vtable = IReconcilableObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99180162_da16_101a_935c_444553540000);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IReconcilableObjectVtbl {
+pub struct IReconcilableObject_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub Reconcile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinitiator: ::windows::core::RawPtr, dwflags: u32, hwndowner: super::super::Foundation::HWND, hwndprogressfeedback: super::super::Foundation::HWND, ulcinput: u32, rgpmkotherinput: *mut ::windows::core::RawPtr, ploutindex: *mut i32, pstgnewresidues: ::windows::core::RawPtr, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -599,12 +599,12 @@ impl ::core::fmt::Debug for IReconcileInitiator {
     }
 }
 unsafe impl ::windows::core::Interface for IReconcileInitiator {
-    type Vtable = IReconcileInitiatorVtbl;
+    type Vtable = IReconcileInitiator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99180161_da16_101a_935c_444553540000);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IReconcileInitiatorVtbl {
+pub struct IReconcileInitiator_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetAbortCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkforabort: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetProgressFeedback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulprogress: u32, ulprogressmax: u32) -> ::windows::core::HRESULT,

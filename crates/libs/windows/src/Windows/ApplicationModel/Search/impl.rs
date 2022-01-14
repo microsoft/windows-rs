@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
-pub trait ILocalContentSuggestionSettingsImpl: Sized {
+pub trait ILocalContentSuggestionSettings_Impl: Sized {
     fn SetEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn Enabled(&mut self) -> ::windows::core::Result<bool>;
     fn Locations(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Storage::StorageFolder>>;
@@ -12,13 +12,13 @@ impl ::windows::core::RuntimeName for ILocalContentSuggestionSettings {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ILocalContentSuggestionSettings";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "implement_exclusive"))]
-impl ILocalContentSuggestionSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILocalContentSuggestionSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILocalContentSuggestionSettingsVtbl {
-        unsafe extern "system" fn SetEnabled<Impl: ILocalContentSuggestionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+impl ILocalContentSuggestionSettings_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILocalContentSuggestionSettings_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILocalContentSuggestionSettings_Vtbl {
+        unsafe extern "system" fn SetEnabled<Impl: ILocalContentSuggestionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnabled(value).into()
         }
-        unsafe extern "system" fn Enabled<Impl: ILocalContentSuggestionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Enabled<Impl: ILocalContentSuggestionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Enabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -29,7 +29,7 @@ impl ILocalContentSuggestionSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Locations<Impl: ILocalContentSuggestionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Locations<Impl: ILocalContentSuggestionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Locations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -40,11 +40,11 @@ impl ILocalContentSuggestionSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAqsFilter<Impl: ILocalContentSuggestionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAqsFilter<Impl: ILocalContentSuggestionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAqsFilter(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AqsFilter<Impl: ILocalContentSuggestionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AqsFilter<Impl: ILocalContentSuggestionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AqsFilter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -55,7 +55,7 @@ impl ILocalContentSuggestionSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PropertiesToMatch<Impl: ILocalContentSuggestionSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PropertiesToMatch<Impl: ILocalContentSuggestionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PropertiesToMatch() {
                 ::core::result::Result::Ok(ok__) => {
@@ -81,7 +81,7 @@ impl ILocalContentSuggestionSettingsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISearchPaneImpl: Sized {
+pub trait ISearchPane_Impl: Sized {
     fn SetSearchHistoryEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn SearchHistoryEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetSearchHistoryContext(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -113,13 +113,13 @@ impl ::windows::core::RuntimeName for ISearchPane {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchPane";
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated", feature = "implement_exclusive"))]
-impl ISearchPaneVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneVtbl {
-        unsafe extern "system" fn SetSearchHistoryEnabled<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+impl ISearchPane_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPane_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPane_Vtbl {
+        unsafe extern "system" fn SetSearchHistoryEnabled<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSearchHistoryEnabled(value).into()
         }
-        unsafe extern "system" fn SearchHistoryEnabled<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchHistoryEnabled<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchHistoryEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -130,11 +130,11 @@ impl ISearchPaneVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSearchHistoryContext<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSearchHistoryContext<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSearchHistoryContext(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SearchHistoryContext<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchHistoryContext<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchHistoryContext() {
                 ::core::result::Result::Ok(ok__) => {
@@ -145,11 +145,11 @@ impl ISearchPaneVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlaceholderText<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPlaceholderText<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlaceholderText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PlaceholderText<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlaceholderText<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaceholderText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -160,7 +160,7 @@ impl ISearchPaneVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QueryText<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryText<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -171,7 +171,7 @@ impl ISearchPaneVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Language<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Language<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Language() {
                 ::core::result::Result::Ok(ok__) => {
@@ -182,7 +182,7 @@ impl ISearchPaneVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Visible<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Visible<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Visible() {
                 ::core::result::Result::Ok(ok__) => {
@@ -193,7 +193,7 @@ impl ISearchPaneVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VisibilityChanged<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VisibilityChanged<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VisibilityChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneVisibilityChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneVisibilityChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -204,11 +204,11 @@ impl ISearchPaneVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveVisibilityChanged<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveVisibilityChanged<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveVisibilityChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn QueryChanged<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryChanged<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneQueryChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneQueryChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -219,11 +219,11 @@ impl ISearchPaneVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveQueryChanged<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveQueryChanged<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveQueryChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SuggestionsRequested<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SuggestionsRequested<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SuggestionsRequested(&*(&handler as *const <super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneSuggestionsRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneSuggestionsRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -234,11 +234,11 @@ impl ISearchPaneVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSuggestionsRequested<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSuggestionsRequested<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSuggestionsRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn QuerySubmitted<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QuerySubmitted<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QuerySubmitted(&*(&handler as *const <super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneQuerySubmittedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneQuerySubmittedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -249,11 +249,11 @@ impl ISearchPaneVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveQuerySubmitted<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveQuerySubmitted<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveQuerySubmitted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ResultSuggestionChosen<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResultSuggestionChosen<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResultSuggestionChosen(&*(&handler as *const <super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneResultSuggestionChosenEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneResultSuggestionChosenEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -264,27 +264,27 @@ impl ISearchPaneVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveResultSuggestionChosen<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveResultSuggestionChosen<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveResultSuggestionChosen(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetLocalContentSuggestionSettings<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLocalContentSuggestionSettings<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLocalContentSuggestionSettings(&*(&settings as *const <LocalContentSuggestionSettings as ::windows::core::Abi>::Abi as *const <LocalContentSuggestionSettings as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ShowOverloadDefault<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowOverloadDefault<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowOverloadDefault().into()
         }
-        unsafe extern "system" fn ShowOverloadWithQuery<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowOverloadWithQuery<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowOverloadWithQuery(&*(&query as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetShowOnKeyboardInput<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetShowOnKeyboardInput<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetShowOnKeyboardInput(value).into()
         }
-        unsafe extern "system" fn ShowOnKeyboardInput<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowOnKeyboardInput<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowOnKeyboardInput() {
                 ::core::result::Result::Ok(ok__) => {
@@ -295,7 +295,7 @@ impl ISearchPaneVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrySetQueryText<Impl: ISearchPaneImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrySetQueryText<Impl: ISearchPane_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrySetQueryText(&*(&query as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -340,7 +340,7 @@ impl ISearchPaneVtbl {
     }
 }
 #[cfg(feature = "deprecated")]
-pub trait ISearchPaneQueryChangedEventArgsImpl: Sized {
+pub trait ISearchPaneQueryChangedEventArgs_Impl: Sized {
     fn QueryText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn LinguisticDetails(&mut self) -> ::windows::core::Result<SearchPaneQueryLinguisticDetails>;
@@ -350,9 +350,9 @@ impl ::windows::core::RuntimeName for ISearchPaneQueryChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchPaneQueryChangedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ISearchPaneQueryChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneQueryChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneQueryChangedEventArgsVtbl {
-        unsafe extern "system" fn QueryText<Impl: ISearchPaneQueryChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISearchPaneQueryChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneQueryChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneQueryChangedEventArgs_Vtbl {
+        unsafe extern "system" fn QueryText<Impl: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -363,7 +363,7 @@ impl ISearchPaneQueryChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Language<Impl: ISearchPaneQueryChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Language<Impl: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Language() {
                 ::core::result::Result::Ok(ok__) => {
@@ -374,7 +374,7 @@ impl ISearchPaneQueryChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LinguisticDetails<Impl: ISearchPaneQueryChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LinguisticDetails<Impl: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LinguisticDetails() {
                 ::core::result::Result::Ok(ok__) => {
@@ -397,7 +397,7 @@ impl ISearchPaneQueryChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ISearchPaneQueryLinguisticDetailsImpl: Sized {
+pub trait ISearchPaneQueryLinguisticDetails_Impl: Sized {
     fn QueryTextAlternatives(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn QueryTextCompositionStart(&mut self) -> ::windows::core::Result<u32>;
     fn QueryTextCompositionLength(&mut self) -> ::windows::core::Result<u32>;
@@ -407,9 +407,9 @@ impl ::windows::core::RuntimeName for ISearchPaneQueryLinguisticDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchPaneQueryLinguisticDetails";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ISearchPaneQueryLinguisticDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneQueryLinguisticDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneQueryLinguisticDetailsVtbl {
-        unsafe extern "system" fn QueryTextAlternatives<Impl: ISearchPaneQueryLinguisticDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISearchPaneQueryLinguisticDetails_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneQueryLinguisticDetails_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneQueryLinguisticDetails_Vtbl {
+        unsafe extern "system" fn QueryTextAlternatives<Impl: ISearchPaneQueryLinguisticDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryTextAlternatives() {
                 ::core::result::Result::Ok(ok__) => {
@@ -420,7 +420,7 @@ impl ISearchPaneQueryLinguisticDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QueryTextCompositionStart<Impl: ISearchPaneQueryLinguisticDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryTextCompositionStart<Impl: ISearchPaneQueryLinguisticDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryTextCompositionStart() {
                 ::core::result::Result::Ok(ok__) => {
@@ -431,7 +431,7 @@ impl ISearchPaneQueryLinguisticDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QueryTextCompositionLength<Impl: ISearchPaneQueryLinguisticDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryTextCompositionLength<Impl: ISearchPaneQueryLinguisticDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryTextCompositionLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -454,7 +454,7 @@ impl ISearchPaneQueryLinguisticDetailsVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISearchPaneQuerySubmittedEventArgsImpl: Sized {
+pub trait ISearchPaneQuerySubmittedEventArgs_Impl: Sized {
     fn QueryText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -463,9 +463,9 @@ impl ::windows::core::RuntimeName for ISearchPaneQuerySubmittedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchPaneQuerySubmittedEventArgs";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl ISearchPaneQuerySubmittedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneQuerySubmittedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneQuerySubmittedEventArgsVtbl {
-        unsafe extern "system" fn QueryText<Impl: ISearchPaneQuerySubmittedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISearchPaneQuerySubmittedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneQuerySubmittedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneQuerySubmittedEventArgs_Vtbl {
+        unsafe extern "system" fn QueryText<Impl: ISearchPaneQuerySubmittedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -476,7 +476,7 @@ impl ISearchPaneQuerySubmittedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Language<Impl: ISearchPaneQuerySubmittedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Language<Impl: ISearchPaneQuerySubmittedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Language() {
                 ::core::result::Result::Ok(ok__) => {
@@ -498,7 +498,7 @@ impl ISearchPaneQuerySubmittedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISearchPaneQuerySubmittedEventArgsWithLinguisticDetailsImpl: Sized {
+pub trait ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_Impl: Sized {
     fn LinguisticDetails(&mut self) -> ::windows::core::Result<SearchPaneQueryLinguisticDetails>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -506,9 +506,9 @@ impl ::windows::core::RuntimeName for ISearchPaneQuerySubmittedEventArgsWithLing
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl ISearchPaneQuerySubmittedEventArgsWithLinguisticDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneQuerySubmittedEventArgsWithLinguisticDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneQuerySubmittedEventArgsWithLinguisticDetailsVtbl {
-        unsafe extern "system" fn LinguisticDetails<Impl: ISearchPaneQuerySubmittedEventArgsWithLinguisticDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_Vtbl {
+        unsafe extern "system" fn LinguisticDetails<Impl: ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LinguisticDetails() {
                 ::core::result::Result::Ok(ok__) => {
@@ -529,7 +529,7 @@ impl ISearchPaneQuerySubmittedEventArgsWithLinguisticDetailsVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISearchPaneResultSuggestionChosenEventArgsImpl: Sized {
+pub trait ISearchPaneResultSuggestionChosenEventArgs_Impl: Sized {
     fn Tag(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -537,9 +537,9 @@ impl ::windows::core::RuntimeName for ISearchPaneResultSuggestionChosenEventArgs
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchPaneResultSuggestionChosenEventArgs";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl ISearchPaneResultSuggestionChosenEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneResultSuggestionChosenEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneResultSuggestionChosenEventArgsVtbl {
-        unsafe extern "system" fn Tag<Impl: ISearchPaneResultSuggestionChosenEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISearchPaneResultSuggestionChosenEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneResultSuggestionChosenEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneResultSuggestionChosenEventArgs_Vtbl {
+        unsafe extern "system" fn Tag<Impl: ISearchPaneResultSuggestionChosenEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Tag() {
                 ::core::result::Result::Ok(ok__) => {
@@ -560,7 +560,7 @@ impl ISearchPaneResultSuggestionChosenEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISearchPaneStaticsImpl: Sized {
+pub trait ISearchPaneStatics_Impl: Sized {
     fn GetForCurrentView(&mut self) -> ::windows::core::Result<SearchPane>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -568,9 +568,9 @@ impl ::windows::core::RuntimeName for ISearchPaneStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchPaneStatics";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl ISearchPaneStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneStaticsVtbl {
-        unsafe extern "system" fn GetForCurrentView<Impl: ISearchPaneStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISearchPaneStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneStatics_Vtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: ISearchPaneStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -591,7 +591,7 @@ impl ISearchPaneStaticsVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISearchPaneStaticsWithHideThisApplicationImpl: Sized {
+pub trait ISearchPaneStaticsWithHideThisApplication_Impl: Sized {
     fn HideThisApplication(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -599,9 +599,9 @@ impl ::windows::core::RuntimeName for ISearchPaneStaticsWithHideThisApplication 
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchPaneStaticsWithHideThisApplication";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl ISearchPaneStaticsWithHideThisApplicationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneStaticsWithHideThisApplicationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneStaticsWithHideThisApplicationVtbl {
-        unsafe extern "system" fn HideThisApplication<Impl: ISearchPaneStaticsWithHideThisApplicationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl ISearchPaneStaticsWithHideThisApplication_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneStaticsWithHideThisApplication_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneStaticsWithHideThisApplication_Vtbl {
+        unsafe extern "system" fn HideThisApplication<Impl: ISearchPaneStaticsWithHideThisApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).HideThisApplication().into()
         }
@@ -615,7 +615,7 @@ impl ISearchPaneStaticsWithHideThisApplicationVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISearchPaneSuggestionsRequestImpl: Sized {
+pub trait ISearchPaneSuggestionsRequest_Impl: Sized {
     fn IsCanceled(&mut self) -> ::windows::core::Result<bool>;
     fn SearchSuggestionCollection(&mut self) -> ::windows::core::Result<SearchSuggestionCollection>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<SearchPaneSuggestionsRequestDeferral>;
@@ -625,9 +625,9 @@ impl ::windows::core::RuntimeName for ISearchPaneSuggestionsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchPaneSuggestionsRequest";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl ISearchPaneSuggestionsRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneSuggestionsRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneSuggestionsRequestVtbl {
-        unsafe extern "system" fn IsCanceled<Impl: ISearchPaneSuggestionsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ISearchPaneSuggestionsRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneSuggestionsRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneSuggestionsRequest_Vtbl {
+        unsafe extern "system" fn IsCanceled<Impl: ISearchPaneSuggestionsRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCanceled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -638,7 +638,7 @@ impl ISearchPaneSuggestionsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchSuggestionCollection<Impl: ISearchPaneSuggestionsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchSuggestionCollection<Impl: ISearchPaneSuggestionsRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchSuggestionCollection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -649,7 +649,7 @@ impl ISearchPaneSuggestionsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: ISearchPaneSuggestionsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: ISearchPaneSuggestionsRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -672,7 +672,7 @@ impl ISearchPaneSuggestionsRequestVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISearchPaneSuggestionsRequestDeferralImpl: Sized {
+pub trait ISearchPaneSuggestionsRequestDeferral_Impl: Sized {
     fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -680,9 +680,9 @@ impl ::windows::core::RuntimeName for ISearchPaneSuggestionsRequestDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchPaneSuggestionsRequestDeferral";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl ISearchPaneSuggestionsRequestDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneSuggestionsRequestDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneSuggestionsRequestDeferralVtbl {
-        unsafe extern "system" fn Complete<Impl: ISearchPaneSuggestionsRequestDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl ISearchPaneSuggestionsRequestDeferral_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneSuggestionsRequestDeferral_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneSuggestionsRequestDeferral_Vtbl {
+        unsafe extern "system" fn Complete<Impl: ISearchPaneSuggestionsRequestDeferral_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
@@ -696,7 +696,7 @@ impl ISearchPaneSuggestionsRequestDeferralVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISearchPaneSuggestionsRequestedEventArgsImpl: Sized + ISearchPaneQueryChangedEventArgsImpl {
+pub trait ISearchPaneSuggestionsRequestedEventArgs_Impl: Sized + ISearchPaneQueryChangedEventArgs_Impl {
     fn Request(&mut self) -> ::windows::core::Result<SearchPaneSuggestionsRequest>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -704,9 +704,9 @@ impl ::windows::core::RuntimeName for ISearchPaneSuggestionsRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchPaneSuggestionsRequestedEventArgs";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl ISearchPaneSuggestionsRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneSuggestionsRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneSuggestionsRequestedEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: ISearchPaneSuggestionsRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISearchPaneSuggestionsRequestedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneSuggestionsRequestedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneSuggestionsRequestedEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: ISearchPaneSuggestionsRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -727,7 +727,7 @@ impl ISearchPaneSuggestionsRequestedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait ISearchPaneVisibilityChangedEventArgsImpl: Sized {
+pub trait ISearchPaneVisibilityChangedEventArgs_Impl: Sized {
     fn Visible(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -735,9 +735,9 @@ impl ::windows::core::RuntimeName for ISearchPaneVisibilityChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchPaneVisibilityChangedEventArgs";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl ISearchPaneVisibilityChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneVisibilityChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneVisibilityChangedEventArgsVtbl {
-        unsafe extern "system" fn Visible<Impl: ISearchPaneVisibilityChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ISearchPaneVisibilityChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPaneVisibilityChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPaneVisibilityChangedEventArgs_Vtbl {
+        unsafe extern "system" fn Visible<Impl: ISearchPaneVisibilityChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Visible() {
                 ::core::result::Result::Ok(ok__) => {
@@ -758,7 +758,7 @@ impl ISearchPaneVisibilityChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ISearchQueryLinguisticDetailsImpl: Sized {
+pub trait ISearchQueryLinguisticDetails_Impl: Sized {
     fn QueryTextAlternatives(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
     fn QueryTextCompositionStart(&mut self) -> ::windows::core::Result<u32>;
     fn QueryTextCompositionLength(&mut self) -> ::windows::core::Result<u32>;
@@ -768,9 +768,9 @@ impl ::windows::core::RuntimeName for ISearchQueryLinguisticDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchQueryLinguisticDetails";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ISearchQueryLinguisticDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryLinguisticDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchQueryLinguisticDetailsVtbl {
-        unsafe extern "system" fn QueryTextAlternatives<Impl: ISearchQueryLinguisticDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISearchQueryLinguisticDetails_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryLinguisticDetails_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchQueryLinguisticDetails_Vtbl {
+        unsafe extern "system" fn QueryTextAlternatives<Impl: ISearchQueryLinguisticDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryTextAlternatives() {
                 ::core::result::Result::Ok(ok__) => {
@@ -781,7 +781,7 @@ impl ISearchQueryLinguisticDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QueryTextCompositionStart<Impl: ISearchQueryLinguisticDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryTextCompositionStart<Impl: ISearchQueryLinguisticDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryTextCompositionStart() {
                 ::core::result::Result::Ok(ok__) => {
@@ -792,7 +792,7 @@ impl ISearchQueryLinguisticDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QueryTextCompositionLength<Impl: ISearchQueryLinguisticDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryTextCompositionLength<Impl: ISearchQueryLinguisticDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryTextCompositionLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -815,7 +815,7 @@ impl ISearchQueryLinguisticDetailsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ISearchQueryLinguisticDetailsFactoryImpl: Sized {
+pub trait ISearchQueryLinguisticDetailsFactory_Impl: Sized {
     fn CreateInstance(&mut self, querytextalternatives: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, querytextcompositionstart: u32, querytextcompositionlength: u32) -> ::windows::core::Result<SearchQueryLinguisticDetails>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -823,9 +823,9 @@ impl ::windows::core::RuntimeName for ISearchQueryLinguisticDetailsFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchQueryLinguisticDetailsFactory";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ISearchQueryLinguisticDetailsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryLinguisticDetailsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchQueryLinguisticDetailsFactoryVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: ISearchQueryLinguisticDetailsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, querytextalternatives: ::windows::core::RawPtr, querytextcompositionstart: u32, querytextcompositionlength: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISearchQueryLinguisticDetailsFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryLinguisticDetailsFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchQueryLinguisticDetailsFactory_Vtbl {
+        unsafe extern "system" fn CreateInstance<Impl: ISearchQueryLinguisticDetailsFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, querytextalternatives: ::windows::core::RawPtr, querytextcompositionstart: u32, querytextcompositionlength: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&querytextalternatives as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType), querytextcompositionstart, querytextcompositionlength) {
                 ::core::result::Result::Ok(ok__) => {
@@ -846,7 +846,7 @@ impl ISearchQueryLinguisticDetailsFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISearchSuggestionCollectionImpl: Sized {
+pub trait ISearchSuggestionCollection_Impl: Sized {
     fn Size(&mut self) -> ::windows::core::Result<u32>;
     fn AppendQuerySuggestion(&mut self, text: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn AppendQuerySuggestions(&mut self, suggestions: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<()>;
@@ -858,9 +858,9 @@ impl ::windows::core::RuntimeName for ISearchSuggestionCollection {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchSuggestionCollection";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISearchSuggestionCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchSuggestionCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchSuggestionCollectionVtbl {
-        unsafe extern "system" fn Size<Impl: ISearchSuggestionCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl ISearchSuggestionCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchSuggestionCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchSuggestionCollection_Vtbl {
+        unsafe extern "system" fn Size<Impl: ISearchSuggestionCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Size() {
                 ::core::result::Result::Ok(ok__) => {
@@ -871,15 +871,15 @@ impl ISearchSuggestionCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppendQuerySuggestion<Impl: ISearchSuggestionCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppendQuerySuggestion<Impl: ISearchSuggestionCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AppendQuerySuggestion(&*(&text as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AppendQuerySuggestions<Impl: ISearchSuggestionCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, suggestions: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppendQuerySuggestions<Impl: ISearchSuggestionCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, suggestions: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AppendQuerySuggestions(&*(&suggestions as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AppendResultSuggestion<Impl: ISearchSuggestionCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, detailtext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, tag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, image: ::windows::core::RawPtr, imagealternatetext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppendResultSuggestion<Impl: ISearchSuggestionCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, detailtext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, tag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, image: ::windows::core::RawPtr, imagealternatetext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .AppendResultSuggestion(
@@ -891,7 +891,7 @@ impl ISearchSuggestionCollectionVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn AppendSearchSeparator<Impl: ISearchSuggestionCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppendSearchSeparator<Impl: ISearchSuggestionCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AppendSearchSeparator(&*(&label as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -909,7 +909,7 @@ impl ISearchSuggestionCollectionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISearchSuggestionsRequestImpl: Sized {
+pub trait ISearchSuggestionsRequest_Impl: Sized {
     fn IsCanceled(&mut self) -> ::windows::core::Result<bool>;
     fn SearchSuggestionCollection(&mut self) -> ::windows::core::Result<SearchSuggestionCollection>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<SearchSuggestionsRequestDeferral>;
@@ -919,9 +919,9 @@ impl ::windows::core::RuntimeName for ISearchSuggestionsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchSuggestionsRequest";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISearchSuggestionsRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchSuggestionsRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchSuggestionsRequestVtbl {
-        unsafe extern "system" fn IsCanceled<Impl: ISearchSuggestionsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ISearchSuggestionsRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchSuggestionsRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchSuggestionsRequest_Vtbl {
+        unsafe extern "system" fn IsCanceled<Impl: ISearchSuggestionsRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCanceled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -932,7 +932,7 @@ impl ISearchSuggestionsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchSuggestionCollection<Impl: ISearchSuggestionsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchSuggestionCollection<Impl: ISearchSuggestionsRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchSuggestionCollection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -943,7 +943,7 @@ impl ISearchSuggestionsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: ISearchSuggestionsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: ISearchSuggestionsRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -966,7 +966,7 @@ impl ISearchSuggestionsRequestVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISearchSuggestionsRequestDeferralImpl: Sized {
+pub trait ISearchSuggestionsRequestDeferral_Impl: Sized {
     fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -974,9 +974,9 @@ impl ::windows::core::RuntimeName for ISearchSuggestionsRequestDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchSuggestionsRequestDeferral";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISearchSuggestionsRequestDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchSuggestionsRequestDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchSuggestionsRequestDeferralVtbl {
-        unsafe extern "system" fn Complete<Impl: ISearchSuggestionsRequestDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl ISearchSuggestionsRequestDeferral_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchSuggestionsRequestDeferral_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchSuggestionsRequestDeferral_Vtbl {
+        unsafe extern "system" fn Complete<Impl: ISearchSuggestionsRequestDeferral_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }

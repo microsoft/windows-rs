@@ -100,7 +100,7 @@ unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundRevokedE
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedEventArgs;{b07cd940-9557-aea4-2c99-bdd56d9be461})");
 }
 unsafe impl ::windows::core::Interface for ExtendedExecutionForegroundRevokedEventArgs {
-    type Vtable = IExtendedExecutionForegroundRevokedEventArgsVtbl;
+    type Vtable = IExtendedExecutionForegroundRevokedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb07cd940_9557_aea4_2c99_bdd56d9be461);
 }
 impl ::windows::core::RuntimeName for ExtendedExecutionForegroundRevokedEventArgs {
@@ -269,7 +269,7 @@ unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundSession 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundSession;{fbf440e1-9d10-4201-b01e-c83275296f2e})");
 }
 unsafe impl ::windows::core::Interface for ExtendedExecutionForegroundSession {
-    type Vtable = IExtendedExecutionForegroundSessionVtbl;
+    type Vtable = IExtendedExecutionForegroundSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbf440e1_9d10_4201_b01e_c83275296f2e);
 }
 impl ::windows::core::RuntimeName for ExtendedExecutionForegroundSession {
@@ -347,12 +347,12 @@ unsafe impl ::core::marker::Sync for ExtendedExecutionForegroundSession {}
 #[repr(transparent)]
 pub struct IExtendedExecutionForegroundRevokedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IExtendedExecutionForegroundRevokedEventArgs {
-    type Vtable = IExtendedExecutionForegroundRevokedEventArgsVtbl;
+    type Vtable = IExtendedExecutionForegroundRevokedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb07cd940_9557_aea4_2c99_bdd56d9be461);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IExtendedExecutionForegroundRevokedEventArgsVtbl {
+pub struct IExtendedExecutionForegroundRevokedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ExtendedExecutionForegroundRevokedReason) -> ::windows::core::HRESULT,
 }
@@ -360,12 +360,12 @@ pub struct IExtendedExecutionForegroundRevokedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IExtendedExecutionForegroundSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IExtendedExecutionForegroundSession {
-    type Vtable = IExtendedExecutionForegroundSessionVtbl;
+    type Vtable = IExtendedExecutionForegroundSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbf440e1_9d10_4201_b01e_c83275296f2e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IExtendedExecutionForegroundSessionVtbl {
+pub struct IExtendedExecutionForegroundSession_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,

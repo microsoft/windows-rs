@@ -1380,12 +1380,12 @@ impl ::core::fmt::Debug for IMarshal {
     }
 }
 unsafe impl ::windows::core::Interface for IMarshal {
-    type Vtable = IMarshalVtbl;
+    type Vtable = IMarshal_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000003_0000_0000_c000_000000000046);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMarshalVtbl {
+pub struct IMarshal_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetUnmarshalClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32, pcid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetMarshalSizeMax: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32, psize: *mut u32) -> ::windows::core::HRESULT,
@@ -1480,13 +1480,13 @@ impl ::core::fmt::Debug for IMarshal2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMarshal2 {
-    type Vtable = IMarshal2Vtbl;
+    type Vtable = IMarshal2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x000001cf_0000_0000_c000_000000000046);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMarshal2Vtbl {
-    pub base: IMarshalVtbl,
+pub struct IMarshal2_Vtbl {
+    pub base: IMarshal_Vtbl,
 }
 #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
 #[repr(transparent)]
@@ -1624,13 +1624,13 @@ impl ::core::fmt::Debug for IMarshalingStream {
     }
 }
 unsafe impl ::windows::core::Interface for IMarshalingStream {
-    type Vtable = IMarshalingStreamVtbl;
+    type Vtable = IMarshalingStream_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8f2f5e6_6102_4863_9f26_389a4676efde);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMarshalingStreamVtbl {
-    pub base: super::IStreamVtbl,
+pub struct IMarshalingStream_Vtbl {
+    pub base: super::IStream_Vtbl,
     pub GetMarshalingContextAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES, pattributevalue: *mut usize) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]

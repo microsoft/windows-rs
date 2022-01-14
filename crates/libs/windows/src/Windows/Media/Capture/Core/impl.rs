@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IVariablePhotoCapturedEventArgsImpl: Sized {
+pub trait IVariablePhotoCapturedEventArgs_Impl: Sized {
     fn Frame(&mut self) -> ::windows::core::Result<super::CapturedFrame>;
     fn CaptureTimeOffset(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
     fn UsedFrameControllerIndex(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u32>>;
@@ -10,9 +10,9 @@ impl ::windows::core::RuntimeName for IVariablePhotoCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.Core.IVariablePhotoCapturedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IVariablePhotoCapturedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVariablePhotoCapturedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVariablePhotoCapturedEventArgsVtbl {
-        unsafe extern "system" fn Frame<Impl: IVariablePhotoCapturedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVariablePhotoCapturedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVariablePhotoCapturedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVariablePhotoCapturedEventArgs_Vtbl {
+        unsafe extern "system" fn Frame<Impl: IVariablePhotoCapturedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Frame() {
                 ::core::result::Result::Ok(ok__) => {
@@ -23,7 +23,7 @@ impl IVariablePhotoCapturedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CaptureTimeOffset<Impl: IVariablePhotoCapturedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CaptureTimeOffset<Impl: IVariablePhotoCapturedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CaptureTimeOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -34,7 +34,7 @@ impl IVariablePhotoCapturedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UsedFrameControllerIndex<Impl: IVariablePhotoCapturedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UsedFrameControllerIndex<Impl: IVariablePhotoCapturedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UsedFrameControllerIndex() {
                 ::core::result::Result::Ok(ok__) => {
@@ -45,7 +45,7 @@ impl IVariablePhotoCapturedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CapturedFrameControlValues<Impl: IVariablePhotoCapturedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CapturedFrameControlValues<Impl: IVariablePhotoCapturedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CapturedFrameControlValues() {
                 ::core::result::Result::Ok(ok__) => {
@@ -69,7 +69,7 @@ impl IVariablePhotoCapturedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IVariablePhotoSequenceCaptureImpl: Sized {
+pub trait IVariablePhotoSequenceCapture_Impl: Sized {
     fn StartAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
     fn StopAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
     fn FinishAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
@@ -83,9 +83,9 @@ impl ::windows::core::RuntimeName for IVariablePhotoSequenceCapture {
     const NAME: &'static str = "Windows.Media.Capture.Core.IVariablePhotoSequenceCapture";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IVariablePhotoSequenceCaptureVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVariablePhotoSequenceCaptureImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVariablePhotoSequenceCaptureVtbl {
-        unsafe extern "system" fn StartAsync<Impl: IVariablePhotoSequenceCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVariablePhotoSequenceCapture_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVariablePhotoSequenceCapture_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVariablePhotoSequenceCapture_Vtbl {
+        unsafe extern "system" fn StartAsync<Impl: IVariablePhotoSequenceCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -96,7 +96,7 @@ impl IVariablePhotoSequenceCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StopAsync<Impl: IVariablePhotoSequenceCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopAsync<Impl: IVariablePhotoSequenceCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StopAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -107,7 +107,7 @@ impl IVariablePhotoSequenceCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FinishAsync<Impl: IVariablePhotoSequenceCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FinishAsync<Impl: IVariablePhotoSequenceCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FinishAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -118,7 +118,7 @@ impl IVariablePhotoSequenceCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhotoCaptured<Impl: IVariablePhotoSequenceCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhotoCaptured<Impl: IVariablePhotoSequenceCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhotoCaptured(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<VariablePhotoSequenceCapture, VariablePhotoCapturedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<VariablePhotoSequenceCapture, VariablePhotoCapturedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -129,11 +129,11 @@ impl IVariablePhotoSequenceCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePhotoCaptured<Impl: IVariablePhotoSequenceCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePhotoCaptured<Impl: IVariablePhotoSequenceCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePhotoCaptured(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Stopped<Impl: IVariablePhotoSequenceCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stopped<Impl: IVariablePhotoSequenceCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Stopped(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<VariablePhotoSequenceCapture, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<VariablePhotoSequenceCapture, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -144,7 +144,7 @@ impl IVariablePhotoSequenceCaptureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStopped<Impl: IVariablePhotoSequenceCaptureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStopped<Impl: IVariablePhotoSequenceCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStopped(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -164,7 +164,7 @@ impl IVariablePhotoSequenceCaptureVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IVariablePhotoSequenceCapture2Impl: Sized {
+pub trait IVariablePhotoSequenceCapture2_Impl: Sized {
     fn UpdateSettingsAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -172,9 +172,9 @@ impl ::windows::core::RuntimeName for IVariablePhotoSequenceCapture2 {
     const NAME: &'static str = "Windows.Media.Capture.Core.IVariablePhotoSequenceCapture2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IVariablePhotoSequenceCapture2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVariablePhotoSequenceCapture2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVariablePhotoSequenceCapture2Vtbl {
-        unsafe extern "system" fn UpdateSettingsAsync<Impl: IVariablePhotoSequenceCapture2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVariablePhotoSequenceCapture2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVariablePhotoSequenceCapture2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVariablePhotoSequenceCapture2_Vtbl {
+        unsafe extern "system" fn UpdateSettingsAsync<Impl: IVariablePhotoSequenceCapture2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateSettingsAsync() {
                 ::core::result::Result::Ok(ok__) => {

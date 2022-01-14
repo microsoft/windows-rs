@@ -905,14 +905,14 @@ impl ::core::fmt::Debug for ISdo {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISdo {
-    type Vtable = ISdoVtbl;
+    type Vtable = ISdo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56bc53de_96db_11d1_bf3f_000000000000);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISdoVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct ISdo_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub GetPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32, pppropertyinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32, pvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -1066,14 +1066,14 @@ impl ::core::fmt::Debug for ISdoCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISdoCollection {
-    type Vtable = ISdoCollectionVtbl;
+    type Vtable = ISdoCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56bc53e2_96db_11d1_bf3f_000000000000);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISdoCollectionVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct ISdoCollection_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1222,14 +1222,14 @@ impl ::core::fmt::Debug for ISdoDictionaryOld {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISdoDictionaryOld {
-    type Vtable = ISdoDictionaryOldVtbl;
+    type Vtable = ISdoDictionaryOld_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd432e5f4_53d8_11d2_9a3a_00c04fb998ac);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISdoDictionaryOldVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct ISdoDictionaryOld_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub EnumAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut super::super::System::Com::VARIANT, pvalues: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -1398,14 +1398,14 @@ impl ::core::fmt::Debug for ISdoMachine {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISdoMachine {
-    type Vtable = ISdoMachineVtbl;
+    type Vtable = ISdoMachine_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x479f6e75_49a2_11d2_8eca_00c04fc2f519);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISdoMachineVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct ISdoMachine_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Attach: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcomputername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1623,14 +1623,14 @@ impl ::core::fmt::Debug for ISdoMachine2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISdoMachine2 {
-    type Vtable = ISdoMachine2Vtbl;
+    type Vtable = ISdoMachine2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x518e5ffe_d8ce_4f7e_a5db_b40a35419d3b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISdoMachine2Vtbl {
-    pub base: ISdoMachineVtbl,
+pub struct ISdoMachine2_Vtbl {
+    pub base: ISdoMachine_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetTemplatesSDO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrservicename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pptemplatessdo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1762,14 +1762,14 @@ impl ::core::fmt::Debug for ISdoServiceControl {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISdoServiceControl {
-    type Vtable = ISdoServiceControlVtbl;
+    type Vtable = ISdoServiceControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x479f6e74_49a2_11d2_8eca_00c04fc2f519);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISdoServiceControlVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct ISdoServiceControl_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub StartService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub StopService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetServiceStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut i32) -> ::windows::core::HRESULT,
@@ -1946,14 +1946,14 @@ impl ::core::fmt::Debug for ITemplateSdo {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ITemplateSdo {
-    type Vtable = ITemplateSdoVtbl;
+    type Vtable = ITemplateSdo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8aa85302_d2e2_4e20_8b1f_a571e437d6c9);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITemplateSdoVtbl {
-    pub base: ISdoVtbl,
+pub struct ITemplateSdo_Vtbl {
+    pub base: ISdo_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub AddToCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcollection: ::windows::core::RawPtr, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]

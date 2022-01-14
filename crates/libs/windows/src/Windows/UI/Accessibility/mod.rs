@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IScreenReaderPositionChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IScreenReaderPositionChangedEventArgs {
-    type Vtable = IScreenReaderPositionChangedEventArgsVtbl;
+    type Vtable = IScreenReaderPositionChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x557eb5e5_54d0_5ccd_9fc5_ed33357f8a9f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IScreenReaderPositionChangedEventArgsVtbl {
+pub struct IScreenReaderPositionChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ScreenPositionInRawPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT,
@@ -20,12 +20,12 @@ pub struct IScreenReaderPositionChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IScreenReaderService(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IScreenReaderService {
-    type Vtable = IScreenReaderServiceVtbl;
+    type Vtable = IScreenReaderService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19475427_eac0_50d3_bdd9_9b487a226256);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IScreenReaderServiceVtbl {
+pub struct IScreenReaderService_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CurrentScreenReaderPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -79,7 +79,7 @@ unsafe impl ::windows::core::RuntimeType for ScreenReaderPositionChangedEventArg
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Accessibility.ScreenReaderPositionChangedEventArgs;{557eb5e5-54d0-5ccd-9fc5-ed33357f8a9f})");
 }
 unsafe impl ::windows::core::Interface for ScreenReaderPositionChangedEventArgs {
-    type Vtable = IScreenReaderPositionChangedEventArgsVtbl;
+    type Vtable = IScreenReaderPositionChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x557eb5e5_54d0_5ccd_9fc5_ed33357f8a9f);
 }
 impl ::windows::core::RuntimeName for ScreenReaderPositionChangedEventArgs {
@@ -182,7 +182,7 @@ unsafe impl ::windows::core::RuntimeType for ScreenReaderService {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Accessibility.ScreenReaderService;{19475427-eac0-50d3-bdd9-9b487a226256})");
 }
 unsafe impl ::windows::core::Interface for ScreenReaderService {
-    type Vtable = IScreenReaderServiceVtbl;
+    type Vtable = IScreenReaderService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19475427_eac0_50d3_bdd9_9b487a226256);
 }
 impl ::windows::core::RuntimeName for ScreenReaderService {

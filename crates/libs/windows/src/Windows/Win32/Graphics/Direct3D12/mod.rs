@@ -13922,13 +13922,13 @@ impl ::core::fmt::Debug for ID3D12CommandAllocator {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12CommandAllocator {
-    type Vtable = ID3D12CommandAllocatorVtbl;
+    type Vtable = ID3D12CommandAllocator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6102dee4_af59_4b09_b999_b44d73f09b24);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12CommandAllocatorVtbl {
-    pub base: ID3D12PageableVtbl,
+pub struct ID3D12CommandAllocator_Vtbl {
+    pub base: ID3D12Pageable_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -14038,13 +14038,13 @@ impl ::core::fmt::Debug for ID3D12CommandList {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12CommandList {
-    type Vtable = ID3D12CommandListVtbl;
+    type Vtable = ID3D12CommandList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7116d91c_e7e4_47ce_b8c6_ec8168f437e5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12CommandListVtbl {
-    pub base: ID3D12DeviceChildVtbl,
+pub struct ID3D12CommandList_Vtbl {
+    pub base: ID3D12DeviceChild_Vtbl,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D3D12_COMMAND_LIST_TYPE,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -14219,13 +14219,13 @@ impl ::core::fmt::Debug for ID3D12CommandQueue {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12CommandQueue {
-    type Vtable = ID3D12CommandQueueVtbl;
+    type Vtable = ID3D12CommandQueue_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ec870a6_5d7e_4c22_8cfc_5baae07616ed);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12CommandQueueVtbl {
-    pub base: ID3D12PageableVtbl,
+pub struct ID3D12CommandQueue_Vtbl {
+    pub base: ID3D12Pageable_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub UpdateTileMappings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, numresourceregions: u32, presourceregionstartcoordinates: *const D3D12_TILED_RESOURCE_COORDINATE, presourceregionsizes: *const D3D12_TILE_REGION_SIZE, pheap: ::windows::core::RawPtr, numranges: u32, prangeflags: *const D3D12_TILE_RANGE_FLAGS, pheaprangestartoffsets: *const u32, prangetilecounts: *const u32, flags: D3D12_TILE_MAPPING_FLAGS),
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -14367,13 +14367,13 @@ impl ::core::fmt::Debug for ID3D12CommandSignature {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12CommandSignature {
-    type Vtable = ID3D12CommandSignatureVtbl;
+    type Vtable = ID3D12CommandSignature_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc36a797c_ec80_4f0a_8985_a7b2475082d1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12CommandSignatureVtbl {
-    pub base: ID3D12PageableVtbl,
+pub struct ID3D12CommandSignature_Vtbl {
+    pub base: ID3D12Pageable_Vtbl,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 #[repr(transparent)]
@@ -14421,12 +14421,12 @@ impl ::core::fmt::Debug for ID3D12Debug {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Debug {
-    type Vtable = ID3D12DebugVtbl;
+    type Vtable = ID3D12Debug_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x344488b7_6846_474b_b989_f027448245e0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12DebugVtbl {
+pub struct ID3D12Debug_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub EnableDebugLayer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 }
@@ -14486,12 +14486,12 @@ impl ::core::fmt::Debug for ID3D12Debug1 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Debug1 {
-    type Vtable = ID3D12Debug1Vtbl;
+    type Vtable = ID3D12Debug1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaffaa4ca_63fe_4d8e_b8ad_159000af4304);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12Debug1Vtbl {
+pub struct ID3D12Debug1_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub EnableDebugLayer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     #[cfg(feature = "Win32_Foundation")]
@@ -14549,12 +14549,12 @@ impl ::core::fmt::Debug for ID3D12Debug2 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Debug2 {
-    type Vtable = ID3D12Debug2Vtbl;
+    type Vtable = ID3D12Debug2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93a665c4_a3b2_4e5d_b692_a26ae14e3374);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12Debug2Vtbl {
+pub struct ID3D12Debug2_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetGPUBasedValidationFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: D3D12_GPU_BASED_VALIDATION_FLAGS),
 }
@@ -14638,13 +14638,13 @@ impl ::core::fmt::Debug for ID3D12Debug3 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Debug3 {
-    type Vtable = ID3D12Debug3Vtbl;
+    type Vtable = ID3D12Debug3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cf4e58f_f671_4ff1_a542_3686e3d153d1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12Debug3Vtbl {
-    pub base: ID3D12DebugVtbl,
+pub struct ID3D12Debug3_Vtbl {
+    pub base: ID3D12Debug_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetEnableGPUBasedValidation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enable: super::super::Foundation::BOOL),
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -14759,13 +14759,13 @@ impl ::core::fmt::Debug for ID3D12Debug4 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Debug4 {
-    type Vtable = ID3D12Debug4Vtbl;
+    type Vtable = ID3D12Debug4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x014b816e_9ec5_4a2f_a845_ffbe441ce13a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12Debug4Vtbl {
-    pub base: ID3D12Debug3Vtbl,
+pub struct ID3D12Debug4_Vtbl {
+    pub base: ID3D12Debug3_Vtbl,
     pub DisableDebugLayer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -14897,13 +14897,13 @@ impl ::core::fmt::Debug for ID3D12Debug5 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Debug5 {
-    type Vtable = ID3D12Debug5Vtbl;
+    type Vtable = ID3D12Debug5_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x548d6b12_09fa_40e0_9069_5dcd589a52c9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12Debug5Vtbl {
-    pub base: ID3D12Debug4Vtbl,
+pub struct ID3D12Debug5_Vtbl {
+    pub base: ID3D12Debug4_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetEnableAutoName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enable: super::super::Foundation::BOOL),
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -14964,12 +14964,12 @@ impl ::core::fmt::Debug for ID3D12DebugCommandList {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12DebugCommandList {
-    type Vtable = ID3D12DebugCommandListVtbl;
+    type Vtable = ID3D12DebugCommandList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09e0bf36_54ac_484f_8847_4baeeab6053f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12DebugCommandListVtbl {
+pub struct ID3D12DebugCommandList_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AssertResourceState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, subresource: u32, state: u32) -> super::super::Foundation::BOOL,
@@ -15033,12 +15033,12 @@ impl ::core::fmt::Debug for ID3D12DebugCommandList1 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12DebugCommandList1 {
-    type Vtable = ID3D12DebugCommandList1Vtbl;
+    type Vtable = ID3D12DebugCommandList1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x102ca951_311b_4b01_b11f_ecb83e061b37);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12DebugCommandList1Vtbl {
+pub struct ID3D12DebugCommandList1_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AssertResourceState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, subresource: u32, state: u32) -> super::super::Foundation::BOOL,
@@ -15130,13 +15130,13 @@ impl ::core::fmt::Debug for ID3D12DebugCommandList2 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12DebugCommandList2 {
-    type Vtable = ID3D12DebugCommandList2Vtbl;
+    type Vtable = ID3D12DebugCommandList2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaeb575cf_4e06_48be_ba3b_c450fc96652e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12DebugCommandList2Vtbl {
-    pub base: ID3D12DebugCommandListVtbl,
+pub struct ID3D12DebugCommandList2_Vtbl {
+    pub base: ID3D12DebugCommandList_Vtbl,
     pub SetDebugParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const ::core::ffi::c_void, datasize: u32) -> ::windows::core::HRESULT,
     pub GetDebugParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut ::core::ffi::c_void, datasize: u32) -> ::windows::core::HRESULT,
 }
@@ -15187,12 +15187,12 @@ impl ::core::fmt::Debug for ID3D12DebugCommandQueue {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12DebugCommandQueue {
-    type Vtable = ID3D12DebugCommandQueueVtbl;
+    type Vtable = ID3D12DebugCommandQueue_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09e0bf36_54ac_484f_8847_4baeeab6053a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12DebugCommandQueueVtbl {
+pub struct ID3D12DebugCommandQueue_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AssertResourceState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, subresource: u32, state: u32) -> super::super::Foundation::BOOL,
@@ -15253,12 +15253,12 @@ impl ::core::fmt::Debug for ID3D12DebugDevice {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12DebugDevice {
-    type Vtable = ID3D12DebugDeviceVtbl;
+    type Vtable = ID3D12DebugDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3febd6dd_4973_4787_8194_e45f9e28923e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12DebugDeviceVtbl {
+pub struct ID3D12DebugDevice_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetFeatureMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mask: D3D12_DEBUG_FEATURE) -> ::windows::core::HRESULT,
     pub GetFeatureMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D3D12_DEBUG_FEATURE,
@@ -15318,12 +15318,12 @@ impl ::core::fmt::Debug for ID3D12DebugDevice1 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12DebugDevice1 {
-    type Vtable = ID3D12DebugDevice1Vtbl;
+    type Vtable = ID3D12DebugDevice1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9b71770_d099_4a65_a698_3dee10020f88);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12DebugDevice1Vtbl {
+pub struct ID3D12DebugDevice1_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetDebugParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *const ::core::ffi::c_void, datasize: u32) -> ::windows::core::HRESULT,
     pub GetDebugParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *mut ::core::ffi::c_void, datasize: u32) -> ::windows::core::HRESULT,
@@ -15411,13 +15411,13 @@ impl ::core::fmt::Debug for ID3D12DebugDevice2 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12DebugDevice2 {
-    type Vtable = ID3D12DebugDevice2Vtbl;
+    type Vtable = ID3D12DebugDevice2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60eccbc1_378d_4df1_894c_f8ac5ce4d7dd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12DebugDevice2Vtbl {
-    pub base: ID3D12DebugDeviceVtbl,
+pub struct ID3D12DebugDevice2_Vtbl {
+    pub base: ID3D12DebugDevice_Vtbl,
     pub SetDebugParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *const ::core::ffi::c_void, datasize: u32) -> ::windows::core::HRESULT,
     pub GetDebugParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *mut ::core::ffi::c_void, datasize: u32) -> ::windows::core::HRESULT,
 }
@@ -15562,13 +15562,13 @@ impl ::core::fmt::Debug for ID3D12DescriptorHeap {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12DescriptorHeap {
-    type Vtable = ID3D12DescriptorHeapVtbl;
+    type Vtable = ID3D12DescriptorHeap_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8efb471d_616c_4f49_90f7_127bb763fa51);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12DescriptorHeapVtbl {
-    pub base: ID3D12PageableVtbl,
+pub struct ID3D12DescriptorHeap_Vtbl {
+    pub base: ID3D12Pageable_Vtbl,
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_DESCRIPTOR_HEAP_DESC),
     pub GetCPUDescriptorHandleForHeapStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_CPU_DESCRIPTOR_HANDLE),
     pub GetGPUDescriptorHandleForHeapStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_GPU_DESCRIPTOR_HANDLE),
@@ -15831,13 +15831,13 @@ impl ::core::fmt::Debug for ID3D12Device {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Device {
-    type Vtable = ID3D12DeviceVtbl;
+    type Vtable = ID3D12Device_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x189819f1_1db6_4b57_be54_1821339b85f7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12DeviceVtbl {
-    pub base: ID3D12ObjectVtbl,
+pub struct ID3D12Device_Vtbl {
+    pub base: ID3D12Object_Vtbl,
     pub GetNodeCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub CreateCommandQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_COMMAND_QUEUE_DESC, riid: *const ::windows::core::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateCommandAllocator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: D3D12_COMMAND_LIST_TYPE, riid: *const ::windows::core::GUID, ppcommandallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -16213,13 +16213,13 @@ impl ::core::fmt::Debug for ID3D12Device1 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Device1 {
-    type Vtable = ID3D12Device1Vtbl;
+    type Vtable = ID3D12Device1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77acce80_638e_4e65_8895_c1f23386863e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12Device1Vtbl {
-    pub base: ID3D12DeviceVtbl,
+pub struct ID3D12Device1_Vtbl {
+    pub base: ID3D12Device_Vtbl,
     pub CreatePipelineLibrary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plibraryblob: *const ::core::ffi::c_void, bloblength: usize, riid: *const ::windows::core::GUID, pppipelinelibrary: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetEventOnMultipleFenceCompletion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppfences: *const ::windows::core::RawPtr, pfencevalues: *const u64, numfences: u32, flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
@@ -16544,13 +16544,13 @@ impl ::core::fmt::Debug for ID3D12Device2 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Device2 {
-    type Vtable = ID3D12Device2Vtbl;
+    type Vtable = ID3D12Device2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30baa41e_b15b_475c_a0bb_1af5c5b64328);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12Device2Vtbl {
-    pub base: ID3D12Device1Vtbl,
+pub struct ID3D12Device2_Vtbl {
+    pub base: ID3D12Device1_Vtbl,
     pub CreatePipelineState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -16905,13 +16905,13 @@ impl ::core::fmt::Debug for ID3D12Device3 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Device3 {
-    type Vtable = ID3D12Device3Vtbl;
+    type Vtable = ID3D12Device3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81dadc15_2bad_4392_93c5_101345c4aa98);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12Device3Vtbl {
-    pub base: ID3D12Device2Vtbl,
+pub struct ID3D12Device3_Vtbl {
+    pub base: ID3D12Device2_Vtbl,
     pub OpenExistingHeapFromAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddress: *const ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub OpenExistingHeapFromFileMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hfilemapping: super::super::Foundation::HANDLE, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -17322,13 +17322,13 @@ impl ::core::fmt::Debug for ID3D12Device4 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Device4 {
-    type Vtable = ID3D12Device4Vtbl;
+    type Vtable = ID3D12Device4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe865df17_a9ee_46f9_a463_3098315aa2e5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12Device4Vtbl {
-    pub base: ID3D12Device3Vtbl,
+pub struct ID3D12Device4_Vtbl {
+    pub base: ID3D12Device3_Vtbl,
     pub CreateCommandList1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, flags: D3D12_COMMAND_LIST_FLAGS, riid: *const ::windows::core::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateProtectedResourceSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC, riid: *const ::windows::core::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -17806,13 +17806,13 @@ impl ::core::fmt::Debug for ID3D12Device5 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Device5 {
-    type Vtable = ID3D12Device5Vtbl;
+    type Vtable = ID3D12Device5_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b4f173b_2fea_4b80_8f58_4307191ab95d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12Device5Vtbl {
-    pub base: ID3D12Device4Vtbl,
+pub struct ID3D12Device5_Vtbl {
+    pub base: ID3D12Device4_Vtbl,
     pub CreateLifetimeTracker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, powner: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvtracker: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoveDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     #[cfg(feature = "Win32_Foundation")]
@@ -18318,13 +18318,13 @@ impl ::core::fmt::Debug for ID3D12Device6 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Device6 {
-    type Vtable = ID3D12Device6Vtbl;
+    type Vtable = ID3D12Device6_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc70b221b_40e4_4a17_89af_025a0727a6dc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12Device6Vtbl {
-    pub base: ID3D12Device5Vtbl,
+pub struct ID3D12Device6_Vtbl {
+    pub base: ID3D12Device5_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetBackgroundProcessingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: super::super::Foundation::HANDLE, pbfurthermeasurementsdesired: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -18847,13 +18847,13 @@ impl ::core::fmt::Debug for ID3D12Device7 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Device7 {
-    type Vtable = ID3D12Device7Vtbl;
+    type Vtable = ID3D12Device7_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c014b53_68a1_4b9b_8bd1_dd6046b9358b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12Device7Vtbl {
-    pub base: ID3D12Device6Vtbl,
+pub struct ID3D12Device7_Vtbl {
+    pub base: ID3D12Device6_Vtbl,
     pub AddToStateObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddition: *const D3D12_STATE_OBJECT_DESC, pstateobjecttogrowfrom: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppnewstateobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateProtectedResourceSession1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC1, riid: *const ::windows::core::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -19420,13 +19420,13 @@ impl ::core::fmt::Debug for ID3D12Device8 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Device8 {
-    type Vtable = ID3D12Device8Vtbl;
+    type Vtable = ID3D12Device8_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9218e6bb_f944_4f7e_a75c_b1b2c7b701f3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12Device8Vtbl {
-    pub base: ID3D12Device7Vtbl,
+pub struct ID3D12Device8_Vtbl {
+    pub base: ID3D12Device7_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub GetResourceAllocationInfo2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
@@ -20041,13 +20041,13 @@ impl ::core::fmt::Debug for ID3D12Device9 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Device9 {
-    type Vtable = ID3D12Device9Vtbl;
+    type Vtable = ID3D12Device9_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c80e962_f032_4f60_bc9e_ebc2cfa1d83c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12Device9Vtbl {
-    pub base: ID3D12Device8Vtbl,
+pub struct ID3D12Device9_Vtbl {
+    pub base: ID3D12Device8_Vtbl,
     pub CreateShaderCacheSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_SHADER_CACHE_SESSION_DESC, riid: *const ::windows::core::GUID, ppvsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ShaderCacheControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kinds: D3D12_SHADER_CACHE_KIND_FLAGS, control: D3D12_SHADER_CACHE_CONTROL_FLAGS) -> ::windows::core::HRESULT,
     pub CreateCommandQueue1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_COMMAND_QUEUE_DESC, creatorid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -20135,13 +20135,13 @@ impl ::core::fmt::Debug for ID3D12DeviceChild {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12DeviceChild {
-    type Vtable = ID3D12DeviceChildVtbl;
+    type Vtable = ID3D12DeviceChild_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905db94b_a00c_4140_9df5_2b64ca9ea357);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12DeviceChildVtbl {
-    pub base: ID3D12ObjectVtbl,
+pub struct ID3D12DeviceChild_Vtbl {
+    pub base: ID3D12Object_Vtbl,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -20198,12 +20198,12 @@ impl ::core::fmt::Debug for ID3D12DeviceRemovedExtendedData {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12DeviceRemovedExtendedData {
-    type Vtable = ID3D12DeviceRemovedExtendedDataVtbl;
+    type Vtable = ID3D12DeviceRemovedExtendedData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98931d33_5ae8_4791_aa3c_1a73a2934e71);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12DeviceRemovedExtendedDataVtbl {
+pub struct ID3D12DeviceRemovedExtendedData_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetAutoBreadcrumbsOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poutput: *mut D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT) -> ::windows::core::HRESULT,
@@ -20300,13 +20300,13 @@ impl ::core::fmt::Debug for ID3D12DeviceRemovedExtendedData1 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12DeviceRemovedExtendedData1 {
-    type Vtable = ID3D12DeviceRemovedExtendedData1Vtbl;
+    type Vtable = ID3D12DeviceRemovedExtendedData1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9727a022_cf1d_4dda_9eba_effa653fc506);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12DeviceRemovedExtendedData1Vtbl {
-    pub base: ID3D12DeviceRemovedExtendedDataVtbl,
+pub struct ID3D12DeviceRemovedExtendedData1_Vtbl {
+    pub base: ID3D12DeviceRemovedExtendedData_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetAutoBreadcrumbsOutput1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poutput: *mut D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -20432,13 +20432,13 @@ impl ::core::fmt::Debug for ID3D12DeviceRemovedExtendedData2 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12DeviceRemovedExtendedData2 {
-    type Vtable = ID3D12DeviceRemovedExtendedData2Vtbl;
+    type Vtable = ID3D12DeviceRemovedExtendedData2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67fc5816_e4ca_4915_bf18_42541272da54);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12DeviceRemovedExtendedData2Vtbl {
-    pub base: ID3D12DeviceRemovedExtendedData1Vtbl,
+pub struct ID3D12DeviceRemovedExtendedData2_Vtbl {
+    pub base: ID3D12DeviceRemovedExtendedData1_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetPageFaultAllocationOutput2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poutput: *mut D3D12_DRED_PAGE_FAULT_OUTPUT2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -20499,12 +20499,12 @@ impl ::core::fmt::Debug for ID3D12DeviceRemovedExtendedDataSettings {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12DeviceRemovedExtendedDataSettings {
-    type Vtable = ID3D12DeviceRemovedExtendedDataSettingsVtbl;
+    type Vtable = ID3D12DeviceRemovedExtendedDataSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82bc481c_6b9b_4030_aedb_7ee3d1df1e63);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12DeviceRemovedExtendedDataSettingsVtbl {
+pub struct ID3D12DeviceRemovedExtendedDataSettings_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetAutoBreadcrumbsEnablement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enablement: D3D12_DRED_ENABLEMENT),
     pub SetPageFaultEnablement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enablement: D3D12_DRED_ENABLEMENT),
@@ -20588,13 +20588,13 @@ impl ::core::fmt::Debug for ID3D12DeviceRemovedExtendedDataSettings1 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12DeviceRemovedExtendedDataSettings1 {
-    type Vtable = ID3D12DeviceRemovedExtendedDataSettings1Vtbl;
+    type Vtable = ID3D12DeviceRemovedExtendedDataSettings1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbd5ae51_3317_4f0a_adf9_1d7cedcaae0b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12DeviceRemovedExtendedDataSettings1Vtbl {
-    pub base: ID3D12DeviceRemovedExtendedDataSettingsVtbl,
+pub struct ID3D12DeviceRemovedExtendedDataSettings1_Vtbl {
+    pub base: ID3D12DeviceRemovedExtendedDataSettings_Vtbl,
     pub SetBreadcrumbContextEnablement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enablement: D3D12_DRED_ENABLEMENT),
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -20733,13 +20733,13 @@ impl ::core::fmt::Debug for ID3D12Fence {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Fence {
-    type Vtable = ID3D12FenceVtbl;
+    type Vtable = ID3D12Fence_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a753dcf_c4d8_4b91_adf6_be5a60d95a76);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12FenceVtbl {
-    pub base: ID3D12PageableVtbl,
+pub struct ID3D12Fence_Vtbl {
+    pub base: ID3D12Pageable_Vtbl,
     pub GetCompletedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
     #[cfg(feature = "Win32_Foundation")]
     pub SetEventOnCompletion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u64, hevent: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
@@ -20907,13 +20907,13 @@ impl ::core::fmt::Debug for ID3D12Fence1 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Fence1 {
-    type Vtable = ID3D12Fence1Vtbl;
+    type Vtable = ID3D12Fence1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x433685fe_e22b_4ca0_a8db_b5b4f4dd0e4a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12Fence1Vtbl {
-    pub base: ID3D12FenceVtbl,
+pub struct ID3D12Fence1_Vtbl {
+    pub base: ID3D12Fence_Vtbl,
     pub GetCreationFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D3D12_FENCE_FLAGS,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -20944,12 +20944,12 @@ impl ::core::fmt::Debug for ID3D12FunctionParameterReflection {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12FunctionParameterReflection {
-    type Vtable = ID3D12FunctionParameterReflectionVtbl;
+    type Vtable = ID3D12FunctionParameterReflection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec25f42d_7006_4f2b_b33e_02cc3375733f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12FunctionParameterReflectionVtbl {
+pub struct ID3D12FunctionParameterReflection_Vtbl {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D12_PARAMETER_DESC) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D")))]
@@ -21013,12 +21013,12 @@ impl ::core::fmt::Debug for ID3D12FunctionReflection {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12FunctionReflection {
-    type Vtable = ID3D12FunctionReflectionVtbl;
+    type Vtable = ID3D12FunctionReflection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1108795c_2772_4ba9_b2a8_d464dc7e2799);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12FunctionReflectionVtbl {
+pub struct ID3D12FunctionReflection_Vtbl {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D12_FUNCTION_DESC) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D")))]
@@ -21385,13 +21385,13 @@ impl ::core::fmt::Debug for ID3D12GraphicsCommandList {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList {
-    type Vtable = ID3D12GraphicsCommandListVtbl;
+    type Vtable = ID3D12GraphicsCommandList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b160d0f_ac1b_4185_8ba8_b3ae42a5a455);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12GraphicsCommandListVtbl {
-    pub base: ID3D12CommandListVtbl,
+pub struct ID3D12GraphicsCommandList_Vtbl {
+    pub base: ID3D12CommandList_Vtbl,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pallocator: ::windows::core::RawPtr, pinitialstate: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ClearState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppipelinestate: ::windows::core::RawPtr),
@@ -21868,13 +21868,13 @@ impl ::core::fmt::Debug for ID3D12GraphicsCommandList1 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList1 {
-    type Vtable = ID3D12GraphicsCommandList1Vtbl;
+    type Vtable = ID3D12GraphicsCommandList1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x553103fb_1fe7_4557_bb38_946d7d0e7ca7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12GraphicsCommandList1Vtbl {
-    pub base: ID3D12GraphicsCommandListVtbl,
+pub struct ID3D12GraphicsCommandList1_Vtbl {
+    pub base: ID3D12GraphicsCommandList_Vtbl,
     pub AtomicCopyBufferUINT: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdstbuffer: ::windows::core::RawPtr, dstoffset: u64, psrcbuffer: ::windows::core::RawPtr, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::windows::core::RawPtr, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64),
     pub AtomicCopyBufferUINT64: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdstbuffer: ::windows::core::RawPtr, dstoffset: u64, psrcbuffer: ::windows::core::RawPtr, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::windows::core::RawPtr, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64),
     pub OMSetDepthBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, min: f32, max: f32),
@@ -22297,13 +22297,13 @@ impl ::core::fmt::Debug for ID3D12GraphicsCommandList2 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList2 {
-    type Vtable = ID3D12GraphicsCommandList2Vtbl;
+    type Vtable = ID3D12GraphicsCommandList2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38c3e585_ff17_412c_9150_4fc6f9d72a28);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12GraphicsCommandList2Vtbl {
-    pub base: ID3D12GraphicsCommandList1Vtbl,
+pub struct ID3D12GraphicsCommandList2_Vtbl {
+    pub base: ID3D12GraphicsCommandList1_Vtbl,
     pub WriteBufferImmediate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE),
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -22742,13 +22742,13 @@ impl ::core::fmt::Debug for ID3D12GraphicsCommandList3 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList3 {
-    type Vtable = ID3D12GraphicsCommandList3Vtbl;
+    type Vtable = ID3D12GraphicsCommandList3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fda83a7_b84c_4e38_9ac8_c7bd22016b3d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12GraphicsCommandList3Vtbl {
-    pub base: ID3D12GraphicsCommandList2Vtbl,
+pub struct ID3D12GraphicsCommandList3_Vtbl {
+    pub base: ID3D12GraphicsCommandList2_Vtbl,
     pub SetProtectedResourceSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprotectedresourcesession: ::windows::core::RawPtr),
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -23245,13 +23245,13 @@ impl ::core::fmt::Debug for ID3D12GraphicsCommandList4 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList4 {
-    type Vtable = ID3D12GraphicsCommandList4Vtbl;
+    type Vtable = ID3D12GraphicsCommandList4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8754318e_d3a9_4541_98cf_645b50dc4874);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12GraphicsCommandList4Vtbl {
-    pub base: ID3D12GraphicsCommandList3Vtbl,
+pub struct ID3D12GraphicsCommandList4_Vtbl {
+    pub base: ID3D12GraphicsCommandList3_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub BeginRenderPass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numrendertargets: u32, prendertargets: *const D3D12_RENDER_PASS_RENDER_TARGET_DESC, pdepthstencil: *const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC, flags: D3D12_RENDER_PASS_FLAGS),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))]
@@ -23790,13 +23790,13 @@ impl ::core::fmt::Debug for ID3D12GraphicsCommandList5 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList5 {
-    type Vtable = ID3D12GraphicsCommandList5Vtbl;
+    type Vtable = ID3D12GraphicsCommandList5_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55050859_4024_474c_87f5_6472eaee44ea);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12GraphicsCommandList5Vtbl {
-    pub base: ID3D12GraphicsCommandList4Vtbl,
+pub struct ID3D12GraphicsCommandList5_Vtbl {
+    pub base: ID3D12GraphicsCommandList4_Vtbl,
     pub RSSetShadingRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseshadingrate: D3D12_SHADING_RATE, combiners: *const D3D12_SHADING_RATE_COMBINER),
     pub RSSetShadingRateImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shadingrateimage: ::windows::core::RawPtr),
 }
@@ -24346,13 +24346,13 @@ impl ::core::fmt::Debug for ID3D12GraphicsCommandList6 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList6 {
-    type Vtable = ID3D12GraphicsCommandList6Vtbl;
+    type Vtable = ID3D12GraphicsCommandList6_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3827890_e548_4cfa_96cf_5689a9370f80);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12GraphicsCommandList6Vtbl {
-    pub base: ID3D12GraphicsCommandList5Vtbl,
+pub struct ID3D12GraphicsCommandList6_Vtbl {
+    pub base: ID3D12GraphicsCommandList5_Vtbl,
     pub DispatchMesh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32),
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -24484,13 +24484,13 @@ impl ::core::fmt::Debug for ID3D12Heap {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Heap {
-    type Vtable = ID3D12HeapVtbl;
+    type Vtable = ID3D12Heap_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b3b2502_6e51_45b3_90ee_9884265e8df3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12HeapVtbl {
-    pub base: ID3D12PageableVtbl,
+pub struct ID3D12Heap_Vtbl {
+    pub base: ID3D12Pageable_Vtbl,
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_HEAP_DESC),
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -24646,13 +24646,13 @@ impl ::core::fmt::Debug for ID3D12Heap1 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Heap1 {
-    type Vtable = ID3D12Heap1Vtbl;
+    type Vtable = ID3D12Heap1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x572f7389_2168_49e3_9693_d6df5871bf6d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12Heap1Vtbl {
-    pub base: ID3D12HeapVtbl,
+pub struct ID3D12Heap1_Vtbl {
+    pub base: ID3D12Heap_Vtbl,
     pub GetProtectedResourceSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -24847,12 +24847,12 @@ impl ::core::fmt::Debug for ID3D12InfoQueue {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12InfoQueue {
-    type Vtable = ID3D12InfoQueueVtbl;
+    type Vtable = ID3D12InfoQueue_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0742a90b_c387_483f_b946_30a7e4e61458);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12InfoQueueVtbl {
+pub struct ID3D12InfoQueue_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetMessageCountLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, messagecountlimit: u64) -> ::windows::core::HRESULT,
     pub ClearStoredMessages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
@@ -25141,13 +25141,13 @@ impl ::core::fmt::Debug for ID3D12InfoQueue1 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12InfoQueue1 {
-    type Vtable = ID3D12InfoQueue1Vtbl;
+    type Vtable = ID3D12InfoQueue1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2852dd88_b484_4c0c_b6b1_67168500e600);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12InfoQueue1Vtbl {
-    pub base: ID3D12InfoQueueVtbl,
+pub struct ID3D12InfoQueue1_Vtbl {
+    pub base: ID3D12InfoQueue_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RegisterMessageCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callbackfunc: ::windows::core::RawPtr, callbackfilterflags: D3D12_MESSAGE_CALLBACK_FLAGS, pcontext: *const ::core::ffi::c_void, pcallbackcookie: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -25206,12 +25206,12 @@ impl ::core::fmt::Debug for ID3D12LibraryReflection {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12LibraryReflection {
-    type Vtable = ID3D12LibraryReflectionVtbl;
+    type Vtable = ID3D12LibraryReflection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e349d19_54db_4a56_9dc9_119d87bdb804);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12LibraryReflectionVtbl {
+pub struct ID3D12LibraryReflection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D12_LIBRARY_DESC) -> ::windows::core::HRESULT,
@@ -25265,12 +25265,12 @@ impl ::core::fmt::Debug for ID3D12LifetimeOwner {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12LifetimeOwner {
-    type Vtable = ID3D12LifetimeOwnerVtbl;
+    type Vtable = ID3D12LifetimeOwner_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe667af9f_cd56_4f46_83ce_032e595d70a8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12LifetimeOwnerVtbl {
+pub struct ID3D12LifetimeOwner_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub LifetimeStateUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newstate: D3D12_LIFETIME_STATE),
 }
@@ -25381,13 +25381,13 @@ impl ::core::fmt::Debug for ID3D12LifetimeTracker {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12LifetimeTracker {
-    type Vtable = ID3D12LifetimeTrackerVtbl;
+    type Vtable = ID3D12LifetimeTracker_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fd03d36_4eb1_424a_a582_494ecb8ba813);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12LifetimeTrackerVtbl {
-    pub base: ID3D12DeviceChildVtbl,
+pub struct ID3D12LifetimeTracker_Vtbl {
+    pub base: ID3D12DeviceChild_Vtbl,
     pub DestroyOwnedObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -25517,13 +25517,13 @@ impl ::core::fmt::Debug for ID3D12MetaCommand {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12MetaCommand {
-    type Vtable = ID3D12MetaCommandVtbl;
+    type Vtable = ID3D12MetaCommand_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbb84c27_36ce_4fc9_b801_f048c46ac570);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12MetaCommandVtbl {
-    pub base: ID3D12PageableVtbl,
+pub struct ID3D12MetaCommand_Vtbl {
+    pub base: ID3D12Pageable_Vtbl,
     pub GetRequiredParameterResourceSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stage: D3D12_META_COMMAND_PARAMETER_STAGE, parameterindex: u32) -> u64,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -25585,12 +25585,12 @@ impl ::core::fmt::Debug for ID3D12Object {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Object {
-    type Vtable = ID3D12ObjectVtbl;
+    type Vtable = ID3D12Object_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4fec28f_7966_4e95_9f94_f431cb56c3b8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12ObjectVtbl {
+pub struct ID3D12Object_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -25703,13 +25703,13 @@ impl ::core::fmt::Debug for ID3D12Pageable {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Pageable {
-    type Vtable = ID3D12PageableVtbl;
+    type Vtable = ID3D12Pageable_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63ee58fb_1268_4835_86da_f008ce62f0d6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12PageableVtbl {
-    pub base: ID3D12DeviceChildVtbl,
+pub struct ID3D12Pageable_Vtbl {
+    pub base: ID3D12DeviceChild_Vtbl,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 #[repr(transparent)]
@@ -25839,13 +25839,13 @@ impl ::core::fmt::Debug for ID3D12PipelineLibrary {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12PipelineLibrary {
-    type Vtable = ID3D12PipelineLibraryVtbl;
+    type Vtable = ID3D12PipelineLibrary_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc64226a8_9201_46af_b4cc_53fb9ff7414f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12PipelineLibraryVtbl {
-    pub base: ID3D12DeviceChildVtbl,
+pub struct ID3D12PipelineLibrary_Vtbl {
+    pub base: ID3D12DeviceChild_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub StorePipeline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: super::super::Foundation::PWSTR, ppipeline: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -26015,13 +26015,13 @@ impl ::core::fmt::Debug for ID3D12PipelineLibrary1 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12PipelineLibrary1 {
-    type Vtable = ID3D12PipelineLibrary1Vtbl;
+    type Vtable = ID3D12PipelineLibrary1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80eabf42_2568_4e5e_bd82_c37f86961dc3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12PipelineLibrary1Vtbl {
-    pub base: ID3D12PipelineLibraryVtbl,
+pub struct ID3D12PipelineLibrary1_Vtbl {
+    pub base: ID3D12PipelineLibrary_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub LoadPipeline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: super::super::Foundation::PWSTR, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -26156,13 +26156,13 @@ impl ::core::fmt::Debug for ID3D12PipelineState {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12PipelineState {
-    type Vtable = ID3D12PipelineStateVtbl;
+    type Vtable = ID3D12PipelineState_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x765a30f3_f624_4c6f_a828_ace948622445);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12PipelineStateVtbl {
-    pub base: ID3D12PageableVtbl,
+pub struct ID3D12PipelineState_Vtbl {
+    pub base: ID3D12Pageable_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub GetCachedBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
@@ -26305,13 +26305,13 @@ impl ::core::fmt::Debug for ID3D12ProtectedResourceSession {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12ProtectedResourceSession {
-    type Vtable = ID3D12ProtectedResourceSessionVtbl;
+    type Vtable = ID3D12ProtectedResourceSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cd696f4_f289_40cc_8091_5a6c0a099c3d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12ProtectedResourceSessionVtbl {
-    pub base: ID3D12ProtectedSessionVtbl,
+pub struct ID3D12ProtectedResourceSession_Vtbl {
+    pub base: ID3D12ProtectedSession_Vtbl,
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_PROTECTED_RESOURCE_SESSION_DESC),
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -26477,13 +26477,13 @@ impl ::core::fmt::Debug for ID3D12ProtectedResourceSession1 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12ProtectedResourceSession1 {
-    type Vtable = ID3D12ProtectedResourceSession1Vtbl;
+    type Vtable = ID3D12ProtectedResourceSession1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6f12dd6_76fb_406e_8961_4296eefc0409);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12ProtectedResourceSession1Vtbl {
-    pub base: ID3D12ProtectedResourceSessionVtbl,
+pub struct ID3D12ProtectedResourceSession1_Vtbl {
+    pub base: ID3D12ProtectedResourceSession_Vtbl,
     pub GetDesc1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_PROTECTED_RESOURCE_SESSION_DESC1),
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -26597,13 +26597,13 @@ impl ::core::fmt::Debug for ID3D12ProtectedSession {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12ProtectedSession {
-    type Vtable = ID3D12ProtectedSessionVtbl;
+    type Vtable = ID3D12ProtectedSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1533d18_0ac1_4084_85b9_89a96116806b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12ProtectedSessionVtbl {
-    pub base: ID3D12DeviceChildVtbl,
+pub struct ID3D12ProtectedSession_Vtbl {
+    pub base: ID3D12DeviceChild_Vtbl,
     pub GetStatusFence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSessionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D3D12_PROTECTED_SESSION_STATUS,
 }
@@ -26730,13 +26730,13 @@ impl ::core::fmt::Debug for ID3D12QueryHeap {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12QueryHeap {
-    type Vtable = ID3D12QueryHeapVtbl;
+    type Vtable = ID3D12QueryHeap_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d9658ae_ed45_469e_a61d_970ec583cab4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12QueryHeapVtbl {
-    pub base: ID3D12PageableVtbl,
+pub struct ID3D12QueryHeap_Vtbl {
+    pub base: ID3D12Pageable_Vtbl,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 #[repr(transparent)]
@@ -26892,13 +26892,13 @@ impl ::core::fmt::Debug for ID3D12Resource {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Resource {
-    type Vtable = ID3D12ResourceVtbl;
+    type Vtable = ID3D12Resource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x696442be_a72e_4059_bc79_5b5c98040fad);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12ResourceVtbl {
-    pub base: ID3D12PageableVtbl,
+pub struct ID3D12Resource_Vtbl {
+    pub base: ID3D12Pageable_Vtbl,
     pub Map: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subresource: u32, preadrange: *const D3D12_RANGE, ppdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Unmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subresource: u32, pwrittenrange: *const D3D12_RANGE),
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -27088,13 +27088,13 @@ impl ::core::fmt::Debug for ID3D12Resource1 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Resource1 {
-    type Vtable = ID3D12Resource1Vtbl;
+    type Vtable = ID3D12Resource1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d5e227a_4430_4161_88b3_3eca6bb16e19);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12Resource1Vtbl {
-    pub base: ID3D12ResourceVtbl,
+pub struct ID3D12Resource1_Vtbl {
+    pub base: ID3D12Resource_Vtbl,
     pub GetProtectedResourceSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -27302,13 +27302,13 @@ impl ::core::fmt::Debug for ID3D12Resource2 {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Resource2 {
-    type Vtable = ID3D12Resource2Vtbl;
+    type Vtable = ID3D12Resource2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe36ec3b_ea85_4aeb_a45a_e9d76404a495);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12Resource2Vtbl {
-    pub base: ID3D12Resource1Vtbl,
+pub struct ID3D12Resource2_Vtbl {
+    pub base: ID3D12Resource1_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub GetDesc1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_RESOURCE_DESC1),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
@@ -27417,13 +27417,13 @@ impl ::core::fmt::Debug for ID3D12RootSignature {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12RootSignature {
-    type Vtable = ID3D12RootSignatureVtbl;
+    type Vtable = ID3D12RootSignature_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc54a6b66_72df_4ee8_8be5_a946a1429214);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12RootSignatureVtbl {
-    pub base: ID3D12DeviceChildVtbl,
+pub struct ID3D12RootSignature_Vtbl {
+    pub base: ID3D12DeviceChild_Vtbl,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 #[repr(transparent)]
@@ -27471,12 +27471,12 @@ impl ::core::fmt::Debug for ID3D12RootSignatureDeserializer {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12RootSignatureDeserializer {
-    type Vtable = ID3D12RootSignatureDeserializerVtbl;
+    type Vtable = ID3D12RootSignatureDeserializer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34ab647b_3cc8_46ac_841b_c0965645c046);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12RootSignatureDeserializerVtbl {
+pub struct ID3D12RootSignatureDeserializer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetRootSignatureDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut D3D12_ROOT_SIGNATURE_DESC,
 }
@@ -27527,12 +27527,12 @@ impl ::core::fmt::Debug for ID3D12SDKConfiguration {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12SDKConfiguration {
-    type Vtable = ID3D12SDKConfigurationVtbl;
+    type Vtable = ID3D12SDKConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9eb5314_33aa_42b2_a718_d77f58b1f1c7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12SDKConfigurationVtbl {
+pub struct ID3D12SDKConfiguration_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetSDKVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sdkversion: u32, sdkpath: super::super::Foundation::PSTR) -> ::windows::core::HRESULT,
@@ -27660,13 +27660,13 @@ impl ::core::fmt::Debug for ID3D12ShaderCacheSession {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12ShaderCacheSession {
-    type Vtable = ID3D12ShaderCacheSessionVtbl;
+    type Vtable = ID3D12ShaderCacheSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28e2495d_0f64_4ae4_a6ec_129255dc49a8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12ShaderCacheSessionVtbl {
-    pub base: ID3D12DeviceChildVtbl,
+pub struct ID3D12ShaderCacheSession_Vtbl {
+    pub base: ID3D12DeviceChild_Vtbl,
     pub FindValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkey: *const ::core::ffi::c_void, keysize: u32, pvalue: *mut ::core::ffi::c_void, pvaluesize: *mut u32) -> ::windows::core::HRESULT,
     pub StoreValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkey: *const ::core::ffi::c_void, keysize: u32, pvalue: *const ::core::ffi::c_void, valuesize: u32) -> ::windows::core::HRESULT,
     pub SetDeleteOnDestroy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
@@ -27808,12 +27808,12 @@ impl ::core::fmt::Debug for ID3D12ShaderReflection {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12ShaderReflection {
-    type Vtable = ID3D12ShaderReflectionVtbl;
+    type Vtable = ID3D12ShaderReflection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a58797d_a72c_478d_8ba2_efc6b0efe88e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12ShaderReflectionVtbl {
+pub struct ID3D12ShaderReflection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D12_SHADER_DESC) -> ::windows::core::HRESULT,
@@ -27904,12 +27904,12 @@ impl ::core::fmt::Debug for ID3D12ShaderReflectionConstantBuffer {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12ShaderReflectionConstantBuffer {
-    type Vtable = ID3D12ShaderReflectionConstantBufferVtbl;
+    type Vtable = ID3D12ShaderReflectionConstantBuffer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc59598b4_48b3_4869_b9b1_b1618b14a8b7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12ShaderReflectionConstantBufferVtbl {
+pub struct ID3D12ShaderReflectionConstantBuffer_Vtbl {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D12_SHADER_BUFFER_DESC) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D")))]
@@ -27990,12 +27990,12 @@ impl ::core::fmt::Debug for ID3D12ShaderReflectionType {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12ShaderReflectionType {
-    type Vtable = ID3D12ShaderReflectionTypeVtbl;
+    type Vtable = ID3D12ShaderReflectionType_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe913c351_783d_48ca_a1d1_4f306284ad56);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12ShaderReflectionTypeVtbl {
+pub struct ID3D12ShaderReflectionType_Vtbl {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D12_SHADER_TYPE_DESC) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D")))]
@@ -28057,12 +28057,12 @@ impl ::core::fmt::Debug for ID3D12ShaderReflectionVariable {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12ShaderReflectionVariable {
-    type Vtable = ID3D12ShaderReflectionVariableVtbl;
+    type Vtable = ID3D12ShaderReflectionVariable_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8337a8a6_a216_444a_b2f4_314733a73aea);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12ShaderReflectionVariableVtbl {
+pub struct ID3D12ShaderReflectionVariable_Vtbl {
     #[cfg(feature = "Win32_Foundation")]
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D12_SHADER_VARIABLE_DESC) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -28130,12 +28130,12 @@ impl ::core::fmt::Debug for ID3D12SharingContract {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12SharingContract {
-    type Vtable = ID3D12SharingContractVtbl;
+    type Vtable = ID3D12SharingContract_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adf7d52_929c_4e61_addb_ffed30de66ef);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12SharingContractVtbl {
+pub struct ID3D12SharingContract_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Present: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, subresource: u32, window: super::super::Foundation::HWND),
@@ -28268,13 +28268,13 @@ impl ::core::fmt::Debug for ID3D12StateObject {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12StateObject {
-    type Vtable = ID3D12StateObjectVtbl;
+    type Vtable = ID3D12StateObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47016943_fca8_4594_93ea_af258b55346d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12StateObjectVtbl {
-    pub base: ID3D12PageableVtbl,
+pub struct ID3D12StateObject_Vtbl {
+    pub base: ID3D12Pageable_Vtbl,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 #[repr(transparent)]
@@ -28336,12 +28336,12 @@ impl ::core::fmt::Debug for ID3D12StateObjectProperties {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12StateObjectProperties {
-    type Vtable = ID3D12StateObjectPropertiesVtbl;
+    type Vtable = ID3D12StateObjectProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde5fa827_9bf9_4f26_89ff_d7f56fde3860);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12StateObjectPropertiesVtbl {
+pub struct ID3D12StateObjectProperties_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetShaderIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexportname: super::super::Foundation::PWSTR) -> *mut ::core::ffi::c_void,
@@ -28417,12 +28417,12 @@ impl ::core::fmt::Debug for ID3D12SwapChainAssistant {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12SwapChainAssistant {
-    type Vtable = ID3D12SwapChainAssistantVtbl;
+    type Vtable = ID3D12SwapChainAssistant_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1df64b6_57fd_49cd_8807_c0eb88b45c8f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12SwapChainAssistantVtbl {
+pub struct ID3D12SwapChainAssistant_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetLUID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::LUID),
@@ -28484,12 +28484,12 @@ impl ::core::fmt::Debug for ID3D12Tools {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12Tools {
-    type Vtable = ID3D12ToolsVtbl;
+    type Vtable = ID3D12Tools_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7071e1f0_e84b_4b33_974f_12fa49de65c5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12ToolsVtbl {
+pub struct ID3D12Tools_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub EnableShaderInstrumentation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, benable: super::super::Foundation::BOOL),
@@ -28551,12 +28551,12 @@ impl ::core::fmt::Debug for ID3D12VersionedRootSignatureDeserializer {
     }
 }
 unsafe impl ::windows::core::Interface for ID3D12VersionedRootSignatureDeserializer {
-    type Vtable = ID3D12VersionedRootSignatureDeserializerVtbl;
+    type Vtable = ID3D12VersionedRootSignatureDeserializer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f91ce67_090c_4bb7_b78e_ed8ff2e31da0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D12VersionedRootSignatureDeserializerVtbl {
+pub struct ID3D12VersionedRootSignatureDeserializer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetRootSignatureDescAtVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, converttoversion: D3D_ROOT_SIGNATURE_VERSION, ppdesc: *mut *mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC) -> ::windows::core::HRESULT,
     pub GetUnconvertedRootSignatureDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC,

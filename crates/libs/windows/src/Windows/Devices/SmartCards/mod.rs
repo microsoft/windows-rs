@@ -32,7 +32,7 @@ unsafe impl ::windows::core::RuntimeType for CardAddedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.CardAddedEventArgs;{18bbef98-f18b-4dd3-b118-dfb2c8e23cc6})");
 }
 unsafe impl ::windows::core::Interface for CardAddedEventArgs {
-    type Vtable = ICardAddedEventArgsVtbl;
+    type Vtable = ICardAddedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18bbef98_f18b_4dd3_b118_dfb2c8e23cc6);
 }
 impl ::windows::core::RuntimeName for CardAddedEventArgs {
@@ -113,7 +113,7 @@ unsafe impl ::windows::core::RuntimeType for CardRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.CardRemovedEventArgs;{15331aaf-22d7-4945-afc9-03b46f42a6cd})");
 }
 unsafe impl ::windows::core::Interface for CardRemovedEventArgs {
-    type Vtable = ICardRemovedEventArgsVtbl;
+    type Vtable = ICardRemovedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15331aaf_22d7_4945_afc9_03b46f42a6cd);
 }
 impl ::windows::core::RuntimeName for CardRemovedEventArgs {
@@ -165,12 +165,12 @@ unsafe impl ::core::marker::Sync for CardRemovedEventArgs {}
 #[repr(transparent)]
 pub struct ICardAddedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICardAddedEventArgs {
-    type Vtable = ICardAddedEventArgsVtbl;
+    type Vtable = ICardAddedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18bbef98_f18b_4dd3_b118_dfb2c8e23cc6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICardAddedEventArgsVtbl {
+pub struct ICardAddedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SmartCard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -178,12 +178,12 @@ pub struct ICardAddedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICardRemovedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICardRemovedEventArgs {
-    type Vtable = ICardRemovedEventArgsVtbl;
+    type Vtable = ICardRemovedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15331aaf_22d7_4945_afc9_03b46f42a6cd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICardRemovedEventArgsVtbl {
+pub struct ICardRemovedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SmartCard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -191,12 +191,12 @@ pub struct ICardRemovedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IKnownSmartCardAppletIds(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKnownSmartCardAppletIds {
-    type Vtable = IKnownSmartCardAppletIdsVtbl;
+    type Vtable = IKnownSmartCardAppletIds_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b04d8d8_95b4_4c88_8cea_411e55511efc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKnownSmartCardAppletIdsVtbl {
+pub struct IKnownSmartCardAppletIds_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub PaymentSystemEnvironment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -211,12 +211,12 @@ pub struct IKnownSmartCardAppletIdsVtbl {
 #[repr(transparent)]
 pub struct ISmartCard(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCard {
-    type Vtable = ISmartCardVtbl;
+    type Vtable = ISmartCard_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b718871_6434_43f4_b55a_6a29623870aa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardVtbl {
+pub struct ISmartCard_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Reader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -232,12 +232,12 @@ pub struct ISmartCardVtbl {
 #[repr(transparent)]
 pub struct ISmartCardAppletIdGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardAppletIdGroup {
-    type Vtable = ISmartCardAppletIdGroupVtbl;
+    type Vtable = ISmartCardAppletIdGroup_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7db165e6_6264_56f4_5e03_c86385395eb1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardAppletIdGroupVtbl {
+pub struct ISmartCardAppletIdGroup_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -256,12 +256,12 @@ pub struct ISmartCardAppletIdGroupVtbl {
 #[repr(transparent)]
 pub struct ISmartCardAppletIdGroup2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardAppletIdGroup2 {
-    type Vtable = ISmartCardAppletIdGroup2Vtbl;
+    type Vtable = ISmartCardAppletIdGroup2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b0ef9dc_9956_4a62_8d4e_d37a68ebc3a6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardAppletIdGroup2Vtbl {
+pub struct ISmartCardAppletIdGroup2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub Logo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -284,12 +284,12 @@ pub struct ISmartCardAppletIdGroup2Vtbl {
 #[repr(transparent)]
 pub struct ISmartCardAppletIdGroupFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardAppletIdGroupFactory {
-    type Vtable = ISmartCardAppletIdGroupFactoryVtbl;
+    type Vtable = ISmartCardAppletIdGroupFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9105eb4d_4a65_4e41_8061_cbe83f3695e5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardAppletIdGroupFactoryVtbl {
+pub struct ISmartCardAppletIdGroupFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, appletids: ::windows::core::RawPtr, emulationcategory: SmartCardEmulationCategory, emulationtype: SmartCardEmulationType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -300,12 +300,12 @@ pub struct ISmartCardAppletIdGroupFactoryVtbl {
 #[repr(transparent)]
 pub struct ISmartCardAppletIdGroupRegistration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardAppletIdGroupRegistration {
-    type Vtable = ISmartCardAppletIdGroupRegistrationVtbl;
+    type Vtable = ISmartCardAppletIdGroupRegistration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf1208d1_31bb_5596_43b1_6d69a0257b3a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardAppletIdGroupRegistrationVtbl {
+pub struct ISmartCardAppletIdGroupRegistration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ActivationPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmartCardAppletIdGroupActivationPolicy) -> ::windows::core::HRESULT,
     pub AppletIdGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -323,12 +323,12 @@ pub struct ISmartCardAppletIdGroupRegistrationVtbl {
 #[repr(transparent)]
 pub struct ISmartCardAppletIdGroupRegistration2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardAppletIdGroupRegistration2 {
-    type Vtable = ISmartCardAppletIdGroupRegistration2Vtbl;
+    type Vtable = ISmartCardAppletIdGroupRegistration2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f5508d8_98a7_4f2e_91d9_6cfcceda407f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardAppletIdGroupRegistration2Vtbl {
+pub struct ISmartCardAppletIdGroupRegistration2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SmartCardReaderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -340,12 +340,12 @@ pub struct ISmartCardAppletIdGroupRegistration2Vtbl {
 #[repr(transparent)]
 pub struct ISmartCardAppletIdGroupStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardAppletIdGroupStatics {
-    type Vtable = ISmartCardAppletIdGroupStaticsVtbl;
+    type Vtable = ISmartCardAppletIdGroupStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab2899a9_e76c_45cf_bf1d_90eaa6205927);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardAppletIdGroupStaticsVtbl {
+pub struct ISmartCardAppletIdGroupStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MaxAppletIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
 }
@@ -353,12 +353,12 @@ pub struct ISmartCardAppletIdGroupStaticsVtbl {
 #[repr(transparent)]
 pub struct ISmartCardAutomaticResponseApdu(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardAutomaticResponseApdu {
-    type Vtable = ISmartCardAutomaticResponseApduVtbl;
+    type Vtable = ISmartCardAutomaticResponseApdu_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52152bab_c63e_4531_a857_d756d99b986a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardAutomaticResponseApduVtbl {
+pub struct ISmartCardAutomaticResponseApdu_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub CommandApdu: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -399,12 +399,12 @@ pub struct ISmartCardAutomaticResponseApduVtbl {
 #[repr(transparent)]
 pub struct ISmartCardAutomaticResponseApdu2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardAutomaticResponseApdu2 {
-    type Vtable = ISmartCardAutomaticResponseApdu2Vtbl;
+    type Vtable = ISmartCardAutomaticResponseApdu2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44aebb14_559d_4531_4e51_89db6fa8a57a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardAutomaticResponseApdu2Vtbl {
+pub struct ISmartCardAutomaticResponseApdu2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub InputState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -427,12 +427,12 @@ pub struct ISmartCardAutomaticResponseApdu2Vtbl {
 #[repr(transparent)]
 pub struct ISmartCardAutomaticResponseApdu3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardAutomaticResponseApdu3 {
-    type Vtable = ISmartCardAutomaticResponseApdu3Vtbl;
+    type Vtable = ISmartCardAutomaticResponseApdu3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf43da74_6576_4392_9367_fe3bc9e2d496);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardAutomaticResponseApdu3Vtbl {
+pub struct ISmartCardAutomaticResponseApdu3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AllowWhenCryptogramGeneratorNotPrepared: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAllowWhenCryptogramGeneratorNotPrepared: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -441,12 +441,12 @@ pub struct ISmartCardAutomaticResponseApdu3Vtbl {
 #[repr(transparent)]
 pub struct ISmartCardAutomaticResponseApduFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardAutomaticResponseApduFactory {
-    type Vtable = ISmartCardAutomaticResponseApduFactoryVtbl;
+    type Vtable = ISmartCardAutomaticResponseApduFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe97ea2fa_d02c_4c55_b02a_8cff7fa9f05b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardAutomaticResponseApduFactoryVtbl {
+pub struct ISmartCardAutomaticResponseApduFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, commandapdu: ::windows::core::RawPtr, responseapdu: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -457,12 +457,12 @@ pub struct ISmartCardAutomaticResponseApduFactoryVtbl {
 #[repr(transparent)]
 pub struct ISmartCardChallengeContext(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardChallengeContext {
-    type Vtable = ISmartCardChallengeContextVtbl;
+    type Vtable = ISmartCardChallengeContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x192a5319_c9c4_4947_81cc_44794a61ef91);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardChallengeContextVtbl {
+pub struct ISmartCardChallengeContext_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub Challenge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -489,12 +489,12 @@ pub struct ISmartCardChallengeContextVtbl {
 #[repr(transparent)]
 pub struct ISmartCardConnect(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardConnect {
-    type Vtable = ISmartCardConnectVtbl;
+    type Vtable = ISmartCardConnect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fdf87e5_028d_491e_a058_3382c3986f40);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardConnectVtbl {
+pub struct ISmartCardConnect_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ConnectAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -505,12 +505,12 @@ pub struct ISmartCardConnectVtbl {
 #[repr(transparent)]
 pub struct ISmartCardConnection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardConnection {
-    type Vtable = ISmartCardConnectionVtbl;
+    type Vtable = ISmartCardConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7edb991a_a81a_47bc_a649_156be6b7f231);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardConnectionVtbl {
+pub struct ISmartCardConnection_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub TransmitAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, command: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -521,12 +521,12 @@ pub struct ISmartCardConnectionVtbl {
 #[repr(transparent)]
 pub struct ISmartCardCryptogramGenerator(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardCryptogramGenerator {
-    type Vtable = ISmartCardCryptogramGeneratorVtbl;
+    type Vtable = ISmartCardCryptogramGenerator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe39f587b_edd3_4e49_b594_0ff5e4d0c76f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardCryptogramGeneratorVtbl {
+pub struct ISmartCardCryptogramGenerator_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub SupportedCryptogramMaterialTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -581,12 +581,12 @@ pub struct ISmartCardCryptogramGeneratorVtbl {
 #[repr(transparent)]
 pub struct ISmartCardCryptogramGenerator2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardCryptogramGenerator2 {
-    type Vtable = ISmartCardCryptogramGenerator2Vtbl;
+    type Vtable = ISmartCardCryptogramGenerator2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7116aa34_5d6d_4b4a_96a3_efa47d2a7e25);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardCryptogramGenerator2Vtbl {
+pub struct ISmartCardCryptogramGenerator2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub ValidateRequestApduAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, promptingbehavior: SmartCardUnlockPromptingBehavior, apdutovalidate: ::windows::core::RawPtr, cryptogramplacementsteps: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -613,12 +613,12 @@ pub struct ISmartCardCryptogramGenerator2Vtbl {
 #[repr(transparent)]
 pub struct ISmartCardCryptogramGeneratorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardCryptogramGeneratorStatics {
-    type Vtable = ISmartCardCryptogramGeneratorStaticsVtbl;
+    type Vtable = ISmartCardCryptogramGeneratorStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09933910_cb9c_4015_967d_5234f3b02900);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardCryptogramGeneratorStaticsVtbl {
+pub struct ISmartCardCryptogramGeneratorStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetSmartCardCryptogramGeneratorAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -629,12 +629,12 @@ pub struct ISmartCardCryptogramGeneratorStaticsVtbl {
 #[repr(transparent)]
 pub struct ISmartCardCryptogramGeneratorStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardCryptogramGeneratorStatics2 {
-    type Vtable = ISmartCardCryptogramGeneratorStatics2Vtbl;
+    type Vtable = ISmartCardCryptogramGeneratorStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09bdf5e5_b4bd_4e23_a588_74469204c128);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardCryptogramGeneratorStatics2Vtbl {
+pub struct ISmartCardCryptogramGeneratorStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -642,12 +642,12 @@ pub struct ISmartCardCryptogramGeneratorStatics2Vtbl {
 #[repr(transparent)]
 pub struct ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
-    type Vtable = ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultVtbl;
+    type Vtable = ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2798e029_d687_4c92_86c6_399e9a0ecb09);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultVtbl {
+pub struct ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OperationStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramGeneratorOperationStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -659,12 +659,12 @@ pub struct ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultVtbl
 #[repr(transparent)]
 pub struct ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
-    type Vtable = ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultVtbl;
+    type Vtable = ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e6a8a5c_9773_46c4_a32f_b1e543159e04);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultVtbl {
+pub struct ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OperationStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramGeneratorOperationStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -676,12 +676,12 @@ pub struct ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsRes
 #[repr(transparent)]
 pub struct ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
-    type Vtable = ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultVtbl;
+    type Vtable = ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c7ce857_a7e7_489d_b9d6_368061515012);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultVtbl {
+pub struct ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OperationStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramGeneratorOperationStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -693,12 +693,12 @@ pub struct ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultVt
 #[repr(transparent)]
 pub struct ISmartCardCryptogramMaterialCharacteristics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardCryptogramMaterialCharacteristics {
-    type Vtable = ISmartCardCryptogramMaterialCharacteristicsVtbl;
+    type Vtable = ISmartCardCryptogramMaterialCharacteristics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc9ac5cc_c1d7_4153_923b_a2d43c6c8d49);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardCryptogramMaterialCharacteristicsVtbl {
+pub struct ISmartCardCryptogramMaterialCharacteristics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MaterialName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -722,12 +722,12 @@ pub struct ISmartCardCryptogramMaterialCharacteristicsVtbl {
 #[repr(transparent)]
 pub struct ISmartCardCryptogramMaterialPackageCharacteristics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardCryptogramMaterialPackageCharacteristics {
-    type Vtable = ISmartCardCryptogramMaterialPackageCharacteristicsVtbl;
+    type Vtable = ISmartCardCryptogramMaterialPackageCharacteristics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffb58e1f_0692_4c47_93cf_34d91f9dcd00);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardCryptogramMaterialPackageCharacteristicsVtbl {
+pub struct ISmartCardCryptogramMaterialPackageCharacteristics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PackageName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub StorageKeyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -741,12 +741,12 @@ pub struct ISmartCardCryptogramMaterialPackageCharacteristicsVtbl {
 #[repr(transparent)]
 pub struct ISmartCardCryptogramMaterialPossessionProof(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardCryptogramMaterialPossessionProof {
-    type Vtable = ISmartCardCryptogramMaterialPossessionProofVtbl;
+    type Vtable = ISmartCardCryptogramMaterialPossessionProof_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5b9ab8c_a141_4135_9add_b0d2e3aa1fc9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardCryptogramMaterialPossessionProofVtbl {
+pub struct ISmartCardCryptogramMaterialPossessionProof_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OperationStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramGeneratorOperationStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -758,12 +758,12 @@ pub struct ISmartCardCryptogramMaterialPossessionProofVtbl {
 #[repr(transparent)]
 pub struct ISmartCardCryptogramPlacementStep(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardCryptogramPlacementStep {
-    type Vtable = ISmartCardCryptogramPlacementStepVtbl;
+    type Vtable = ISmartCardCryptogramPlacementStep_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x947b03eb_8342_4792_a2e5_925636378a53);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardCryptogramPlacementStepVtbl {
+pub struct ISmartCardCryptogramPlacementStep_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Algorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramAlgorithm) -> ::windows::core::HRESULT,
     pub SetAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: SmartCardCryptogramAlgorithm) -> ::windows::core::HRESULT,
@@ -794,12 +794,12 @@ pub struct ISmartCardCryptogramPlacementStepVtbl {
 #[repr(transparent)]
 pub struct ISmartCardCryptogramStorageKeyCharacteristics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardCryptogramStorageKeyCharacteristics {
-    type Vtable = ISmartCardCryptogramStorageKeyCharacteristicsVtbl;
+    type Vtable = ISmartCardCryptogramStorageKeyCharacteristics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8552546e_4457_4825_b464_635471a39f5c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardCryptogramStorageKeyCharacteristicsVtbl {
+pub struct ISmartCardCryptogramStorageKeyCharacteristics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub StorageKeyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -813,12 +813,12 @@ pub struct ISmartCardCryptogramStorageKeyCharacteristicsVtbl {
 #[repr(transparent)]
 pub struct ISmartCardCryptogramStorageKeyInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardCryptogramStorageKeyInfo {
-    type Vtable = ISmartCardCryptogramStorageKeyInfoVtbl;
+    type Vtable = ISmartCardCryptogramStorageKeyInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77b0f00d_b097_4f61_a26a_9561639c9c3a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardCryptogramStorageKeyInfoVtbl {
+pub struct ISmartCardCryptogramStorageKeyInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OperationStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramGeneratorOperationStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Security_Cryptography_Core")]
@@ -844,12 +844,12 @@ pub struct ISmartCardCryptogramStorageKeyInfoVtbl {
 #[repr(transparent)]
 pub struct ISmartCardCryptogramStorageKeyInfo2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardCryptogramStorageKeyInfo2 {
-    type Vtable = ISmartCardCryptogramStorageKeyInfo2Vtbl;
+    type Vtable = ISmartCardCryptogramStorageKeyInfo2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x000440f9_f7fd_417d_89e1_fbb0382adc4d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardCryptogramStorageKeyInfo2Vtbl {
+pub struct ISmartCardCryptogramStorageKeyInfo2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OperationalRequirements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -857,12 +857,12 @@ pub struct ISmartCardCryptogramStorageKeyInfo2Vtbl {
 #[repr(transparent)]
 pub struct ISmartCardEmulator(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardEmulator {
-    type Vtable = ISmartCardEmulatorVtbl;
+    type Vtable = ISmartCardEmulator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfb906b2_875e_47e5_8077_e8bff1b1c6fb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardEmulatorVtbl {
+pub struct ISmartCardEmulator_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EnablementPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmartCardEmulatorEnablementPolicy) -> ::windows::core::HRESULT,
 }
@@ -870,12 +870,12 @@ pub struct ISmartCardEmulatorVtbl {
 #[repr(transparent)]
 pub struct ISmartCardEmulator2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardEmulator2 {
-    type Vtable = ISmartCardEmulator2Vtbl;
+    type Vtable = ISmartCardEmulator2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe3fc0b8_8529_411a_807b_48edc2a0ab44);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardEmulator2Vtbl {
+pub struct ISmartCardEmulator2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ApduReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -900,12 +900,12 @@ pub struct ISmartCardEmulator2Vtbl {
 #[repr(transparent)]
 pub struct ISmartCardEmulatorApduReceivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardEmulatorApduReceivedEventArgs {
-    type Vtable = ISmartCardEmulatorApduReceivedEventArgsVtbl;
+    type Vtable = ISmartCardEmulatorApduReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd55d1576_69d2_5333_5b5f_f8c0d6e9f09f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardEmulatorApduReceivedEventArgsVtbl {
+pub struct ISmartCardEmulatorApduReceivedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub CommandApdu: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -922,12 +922,12 @@ pub struct ISmartCardEmulatorApduReceivedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISmartCardEmulatorApduReceivedEventArgs2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardEmulatorApduReceivedEventArgs2 {
-    type Vtable = ISmartCardEmulatorApduReceivedEventArgs2Vtbl;
+    type Vtable = ISmartCardEmulatorApduReceivedEventArgs2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bf93df0_22e1_4238_8610_94ce4a965425);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardEmulatorApduReceivedEventArgs2Vtbl {
+pub struct ISmartCardEmulatorApduReceivedEventArgs2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -939,12 +939,12 @@ pub struct ISmartCardEmulatorApduReceivedEventArgs2Vtbl {
 #[repr(transparent)]
 pub struct ISmartCardEmulatorApduReceivedEventArgsWithCryptograms(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardEmulatorApduReceivedEventArgsWithCryptograms {
-    type Vtable = ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsVtbl;
+    type Vtable = ISmartCardEmulatorApduReceivedEventArgsWithCryptograms_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd550bac7_b7bf_4e29_9294_0c4ac3c941bd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsVtbl {
+pub struct ISmartCardEmulatorApduReceivedEventArgsWithCryptograms_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub TryRespondWithCryptogramsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, responsetemplate: ::windows::core::RawPtr, cryptogramplacementsteps: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -959,12 +959,12 @@ pub struct ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsVtbl {
 #[repr(transparent)]
 pub struct ISmartCardEmulatorConnectionDeactivatedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardEmulatorConnectionDeactivatedEventArgs {
-    type Vtable = ISmartCardEmulatorConnectionDeactivatedEventArgsVtbl;
+    type Vtable = ISmartCardEmulatorConnectionDeactivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2186d8d3_c5eb_5262_43df_62a0a1b55557);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardEmulatorConnectionDeactivatedEventArgsVtbl {
+pub struct ISmartCardEmulatorConnectionDeactivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ConnectionProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmartCardEmulatorConnectionDeactivatedReason) -> ::windows::core::HRESULT,
@@ -973,12 +973,12 @@ pub struct ISmartCardEmulatorConnectionDeactivatedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISmartCardEmulatorConnectionProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardEmulatorConnectionProperties {
-    type Vtable = ISmartCardEmulatorConnectionPropertiesVtbl;
+    type Vtable = ISmartCardEmulatorConnectionProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e2ca5ee_f969_507d_6cf9_34e2d18df311);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardEmulatorConnectionPropertiesVtbl {
+pub struct ISmartCardEmulatorConnectionProperties_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmartCardEmulatorConnectionSource) -> ::windows::core::HRESULT,
@@ -987,12 +987,12 @@ pub struct ISmartCardEmulatorConnectionPropertiesVtbl {
 #[repr(transparent)]
 pub struct ISmartCardEmulatorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardEmulatorStatics {
-    type Vtable = ISmartCardEmulatorStaticsVtbl;
+    type Vtable = ISmartCardEmulatorStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a9bfc4b_c4d3_494f_b8a2_6215d81e85b2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardEmulatorStaticsVtbl {
+pub struct ISmartCardEmulatorStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetDefaultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1003,12 +1003,12 @@ pub struct ISmartCardEmulatorStaticsVtbl {
 #[repr(transparent)]
 pub struct ISmartCardEmulatorStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardEmulatorStatics2 {
-    type Vtable = ISmartCardEmulatorStatics2Vtbl;
+    type Vtable = ISmartCardEmulatorStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69ae9f8a_b775_488b_8436_6c1e28ed731f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardEmulatorStatics2Vtbl {
+pub struct ISmartCardEmulatorStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetAppletIdGroupRegistrationsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1028,12 +1028,12 @@ pub struct ISmartCardEmulatorStatics2Vtbl {
 #[repr(transparent)]
 pub struct ISmartCardEmulatorStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardEmulatorStatics3 {
-    type Vtable = ISmartCardEmulatorStatics3Vtbl;
+    type Vtable = ISmartCardEmulatorStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59ea142a_9f09_43f5_8565_cfa8148e4cb2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardEmulatorStatics3Vtbl {
+pub struct ISmartCardEmulatorStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -1041,12 +1041,12 @@ pub struct ISmartCardEmulatorStatics3Vtbl {
 #[repr(transparent)]
 pub struct ISmartCardPinPolicy(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardPinPolicy {
-    type Vtable = ISmartCardPinPolicyVtbl;
+    type Vtable = ISmartCardPinPolicy_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x183ce184_4db6_4841_ac9e_2ac1f39b7304);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardPinPolicyVtbl {
+pub struct ISmartCardPinPolicy_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MinLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub SetMinLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
@@ -1065,12 +1065,12 @@ pub struct ISmartCardPinPolicyVtbl {
 #[repr(transparent)]
 pub struct ISmartCardPinResetDeferral(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardPinResetDeferral {
-    type Vtable = ISmartCardPinResetDeferralVtbl;
+    type Vtable = ISmartCardPinResetDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18c94aac_7805_4004_85e4_bbefac8f6884);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardPinResetDeferralVtbl {
+pub struct ISmartCardPinResetDeferral_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -1078,12 +1078,12 @@ pub struct ISmartCardPinResetDeferralVtbl {
 #[repr(transparent)]
 pub struct ISmartCardPinResetRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardPinResetRequest {
-    type Vtable = ISmartCardPinResetRequestVtbl;
+    type Vtable = ISmartCardPinResetRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12fe3c4d_5fb9_4e8e_9ff6_61f475124fef);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardPinResetRequestVtbl {
+pub struct ISmartCardPinResetRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub Challenge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1103,12 +1103,12 @@ pub struct ISmartCardPinResetRequestVtbl {
 #[repr(transparent)]
 pub struct ISmartCardProvisioning(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardProvisioning {
-    type Vtable = ISmartCardProvisioningVtbl;
+    type Vtable = ISmartCardProvisioning_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19eeedbd_1fab_477c_b712_1a2c5af1fd6e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardProvisioningVtbl {
+pub struct ISmartCardProvisioning_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SmartCard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1136,12 +1136,12 @@ pub struct ISmartCardProvisioningVtbl {
 #[repr(transparent)]
 pub struct ISmartCardProvisioning2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardProvisioning2 {
-    type Vtable = ISmartCardProvisioning2Vtbl;
+    type Vtable = ISmartCardProvisioning2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10fd28eb_3f79_4b66_9b7c_11c149b7d0bc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardProvisioning2Vtbl {
+pub struct ISmartCardProvisioning2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetAuthorityKeyContainerNameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1152,12 +1152,12 @@ pub struct ISmartCardProvisioning2Vtbl {
 #[repr(transparent)]
 pub struct ISmartCardProvisioningStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardProvisioningStatics {
-    type Vtable = ISmartCardProvisioningStaticsVtbl;
+    type Vtable = ISmartCardProvisioningStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13882848_0d13_4e70_9735_51daeca5254f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardProvisioningStaticsVtbl {
+pub struct ISmartCardProvisioningStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FromSmartCardAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, card: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1180,12 +1180,12 @@ pub struct ISmartCardProvisioningStaticsVtbl {
 #[repr(transparent)]
 pub struct ISmartCardProvisioningStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardProvisioningStatics2 {
-    type Vtable = ISmartCardProvisioningStatics2Vtbl;
+    type Vtable = ISmartCardProvisioningStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3447c6a8_c9a0_4bd6_b50d_251f4e8d3a62);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardProvisioningStatics2Vtbl {
+pub struct ISmartCardProvisioningStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub RequestAttestedVirtualSmartCardCreationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, friendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, administrativekey: ::windows::core::RawPtr, pinpolicy: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1200,12 +1200,12 @@ pub struct ISmartCardProvisioningStatics2Vtbl {
 #[repr(transparent)]
 pub struct ISmartCardReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardReader {
-    type Vtable = ISmartCardReaderVtbl;
+    type Vtable = ISmartCardReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1074b4e0_54c2_4df0_817a_14c14378f06c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardReaderVtbl {
+pub struct ISmartCardReader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1239,12 +1239,12 @@ pub struct ISmartCardReaderVtbl {
 #[repr(transparent)]
 pub struct ISmartCardReaderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardReaderStatics {
-    type Vtable = ISmartCardReaderStaticsVtbl;
+    type Vtable = ISmartCardReaderStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x103c04e1_a1ca_48f2_a281_5b6f669af107);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardReaderStaticsVtbl {
+pub struct ISmartCardReaderStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub GetDeviceSelectorWithKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: SmartCardReaderKind, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1257,12 +1257,12 @@ pub struct ISmartCardReaderStaticsVtbl {
 #[repr(transparent)]
 pub struct ISmartCardTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardTriggerDetails {
-    type Vtable = ISmartCardTriggerDetailsVtbl;
+    type Vtable = ISmartCardTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f9bf11e_39ef_4f2b_b44f_0a9155b177bc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardTriggerDetailsVtbl {
+pub struct ISmartCardTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TriggerType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmartCardTriggerType) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -1278,12 +1278,12 @@ pub struct ISmartCardTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct ISmartCardTriggerDetails2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardTriggerDetails2 {
-    type Vtable = ISmartCardTriggerDetails2Vtbl;
+    type Vtable = ISmartCardTriggerDetails2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2945c569_8975_4a51_9e1a_5f8a76ee51af);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardTriggerDetails2Vtbl {
+pub struct ISmartCardTriggerDetails2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Emulator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1299,12 +1299,12 @@ pub struct ISmartCardTriggerDetails2Vtbl {
 #[repr(transparent)]
 pub struct ISmartCardTriggerDetails3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmartCardTriggerDetails3 {
-    type Vtable = ISmartCardTriggerDetails3Vtbl;
+    type Vtable = ISmartCardTriggerDetails3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3e2c27d_18c6_4ba8_8376_ef03d4912666);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmartCardTriggerDetails3Vtbl {
+pub struct ISmartCardTriggerDetails3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SmartCard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1396,7 +1396,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCard {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCard;{1b718871-6434-43f4-b55a-6a29623870aa})");
 }
 unsafe impl ::windows::core::Interface for SmartCard {
-    type Vtable = ISmartCardVtbl;
+    type Vtable = ISmartCard_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b718871_6434_43f4_b55a_6a29623870aa);
 }
 impl ::windows::core::RuntimeName for SmartCard {
@@ -1645,7 +1645,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardAppletIdGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardAppletIdGroup;{7db165e6-6264-56f4-5e03-c86385395eb1})");
 }
 unsafe impl ::windows::core::Interface for SmartCardAppletIdGroup {
-    type Vtable = ISmartCardAppletIdGroupVtbl;
+    type Vtable = ISmartCardAppletIdGroup_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7db165e6_6264_56f4_5e03_c86385395eb1);
 }
 impl ::windows::core::RuntimeName for SmartCardAppletIdGroup {
@@ -1811,7 +1811,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardAppletIdGroupRegistration 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardAppletIdGroupRegistration;{df1208d1-31bb-5596-43b1-6d69a0257b3a})");
 }
 unsafe impl ::windows::core::Interface for SmartCardAppletIdGroupRegistration {
-    type Vtable = ISmartCardAppletIdGroupRegistrationVtbl;
+    type Vtable = ISmartCardAppletIdGroupRegistration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf1208d1_31bb_5596_43b1_6d69a0257b3a);
 }
 impl ::windows::core::RuntimeName for SmartCardAppletIdGroupRegistration {
@@ -2013,7 +2013,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardAutomaticResponseApdu {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardAutomaticResponseApdu;{52152bab-c63e-4531-a857-d756d99b986a})");
 }
 unsafe impl ::windows::core::Interface for SmartCardAutomaticResponseApdu {
-    type Vtable = ISmartCardAutomaticResponseApduVtbl;
+    type Vtable = ISmartCardAutomaticResponseApdu_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52152bab_c63e_4531_a857_d756d99b986a);
 }
 impl ::windows::core::RuntimeName for SmartCardAutomaticResponseApdu {
@@ -2171,7 +2171,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardChallengeContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardChallengeContext;{192a5319-c9c4-4947-81cc-44794a61ef91})");
 }
 unsafe impl ::windows::core::Interface for SmartCardChallengeContext {
-    type Vtable = ISmartCardChallengeContextVtbl;
+    type Vtable = ISmartCardChallengeContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x192a5319_c9c4_4947_81cc_44794a61ef91);
 }
 impl ::windows::core::RuntimeName for SmartCardChallengeContext {
@@ -2285,7 +2285,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardConnection;{7edb991a-a81a-47bc-a649-156be6b7f231})");
 }
 unsafe impl ::windows::core::Interface for SmartCardConnection {
-    type Vtable = ISmartCardConnectionVtbl;
+    type Vtable = ISmartCardConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7edb991a_a81a_47bc_a649_156be6b7f231);
 }
 impl ::windows::core::RuntimeName for SmartCardConnection {
@@ -2602,7 +2602,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramGenerator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramGenerator;{e39f587b-edd3-4e49-b594-0ff5e4d0c76f})");
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramGenerator {
-    type Vtable = ISmartCardCryptogramGeneratorVtbl;
+    type Vtable = ISmartCardCryptogramGenerator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe39f587b_edd3_4e49_b594_0ff5e4d0c76f);
 }
 impl ::windows::core::RuntimeName for SmartCardCryptogramGenerator {
@@ -2744,7 +2744,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramGetAllCryptogram
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult;{2798e029-d687-4c92-86c6-399e9a0ecb09})");
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
-    type Vtable = ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultVtbl;
+    type Vtable = ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2798e029_d687_4c92_86c6_399e9a0ecb09);
 }
 impl ::windows::core::RuntimeName for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
@@ -2841,7 +2841,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramGetAllCryptogram
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult;{4e6a8a5c-9773-46c4-a32f-b1e543159e04})");
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
-    type Vtable = ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultVtbl;
+    type Vtable = ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e6a8a5c_9773_46c4_a32f_b1e543159e04);
 }
 impl ::windows::core::RuntimeName for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
@@ -2938,7 +2938,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramGetAllCryptogram
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult;{8c7ce857-a7e7-489d-b9d6-368061515012})");
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
-    type Vtable = ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultVtbl;
+    type Vtable = ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c7ce857_a7e7_489d_b9d6_368061515012);
 }
 impl ::windows::core::RuntimeName for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
@@ -3085,7 +3085,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialCharacte
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramMaterialCharacteristics;{fc9ac5cc-c1d7-4153-923b-a2d43c6c8d49})");
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramMaterialCharacteristics {
-    type Vtable = ISmartCardCryptogramMaterialCharacteristicsVtbl;
+    type Vtable = ISmartCardCryptogramMaterialCharacteristics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc9ac5cc_c1d7_4153_923b_a2d43c6c8d49);
 }
 impl ::windows::core::RuntimeName for SmartCardCryptogramMaterialCharacteristics {
@@ -3198,7 +3198,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPackageC
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageCharacteristics;{ffb58e1f-0692-4c47-93cf-34d91f9dcd00})");
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramMaterialPackageCharacteristics {
-    type Vtable = ISmartCardCryptogramMaterialPackageCharacteristicsVtbl;
+    type Vtable = ISmartCardCryptogramMaterialPackageCharacteristics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffb58e1f_0692_4c47_93cf_34d91f9dcd00);
 }
 impl ::windows::core::RuntimeName for SmartCardCryptogramMaterialPackageCharacteristics {
@@ -3354,7 +3354,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPossessi
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPossessionProof;{e5b9ab8c-a141-4135-9add-b0d2e3aa1fc9})");
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramMaterialPossessionProof {
-    type Vtable = ISmartCardCryptogramMaterialPossessionProofVtbl;
+    type Vtable = ISmartCardCryptogramMaterialPossessionProof_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5b9ab8c_a141_4135_9add_b0d2e3aa1fc9);
 }
 impl ::windows::core::RuntimeName for SmartCardCryptogramMaterialPossessionProof {
@@ -3684,7 +3684,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramPlacementStep {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramPlacementStep;{947b03eb-8342-4792-a2e5-925636378a53})");
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramPlacementStep {
-    type Vtable = ISmartCardCryptogramPlacementStepVtbl;
+    type Vtable = ISmartCardCryptogramPlacementStep_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x947b03eb_8342_4792_a2e5_925636378a53);
 }
 impl ::windows::core::RuntimeName for SmartCardCryptogramPlacementStep {
@@ -3892,7 +3892,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyCharac
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyCharacteristics;{8552546e-4457-4825-b464-635471a39f5c})");
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramStorageKeyCharacteristics {
-    type Vtable = ISmartCardCryptogramStorageKeyCharacteristicsVtbl;
+    type Vtable = ISmartCardCryptogramStorageKeyCharacteristics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8552546e_4457_4825_b464_635471a39f5c);
 }
 impl ::windows::core::RuntimeName for SmartCardCryptogramStorageKeyCharacteristics {
@@ -4033,7 +4033,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyInfo;{77b0f00d-b097-4f61-a26a-9561639c9c3a})");
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramStorageKeyInfo {
-    type Vtable = ISmartCardCryptogramStorageKeyInfoVtbl;
+    type Vtable = ISmartCardCryptogramStorageKeyInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77b0f00d_b097_4f61_a26a_9561639c9c3a);
 }
 impl ::windows::core::RuntimeName for SmartCardCryptogramStorageKeyInfo {
@@ -4324,7 +4324,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardEmulator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardEmulator;{dfb906b2-875e-47e5-8077-e8bff1b1c6fb})");
 }
 unsafe impl ::windows::core::Interface for SmartCardEmulator {
-    type Vtable = ISmartCardEmulatorVtbl;
+    type Vtable = ISmartCardEmulator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfb906b2_875e_47e5_8077_e8bff1b1c6fb);
 }
 impl ::windows::core::RuntimeName for SmartCardEmulator {
@@ -4466,7 +4466,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorApduReceivedEventA
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardEmulatorApduReceivedEventArgs;{d55d1576-69d2-5333-5b5f-f8c0d6e9f09f})");
 }
 unsafe impl ::windows::core::Interface for SmartCardEmulatorApduReceivedEventArgs {
-    type Vtable = ISmartCardEmulatorApduReceivedEventArgsVtbl;
+    type Vtable = ISmartCardEmulatorApduReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd55d1576_69d2_5333_5b5f_f8c0d6e9f09f);
 }
 impl ::windows::core::RuntimeName for SmartCardEmulatorApduReceivedEventArgs {
@@ -4555,7 +4555,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionDeactiva
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedEventArgs;{2186d8d3-c5eb-5262-43df-62a0a1b55557})");
 }
 unsafe impl ::windows::core::Interface for SmartCardEmulatorConnectionDeactivatedEventArgs {
-    type Vtable = ISmartCardEmulatorConnectionDeactivatedEventArgsVtbl;
+    type Vtable = ISmartCardEmulatorConnectionDeactivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2186d8d3_c5eb_5262_43df_62a0a1b55557);
 }
 impl ::windows::core::RuntimeName for SmartCardEmulatorConnectionDeactivatedEventArgs {
@@ -4677,7 +4677,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionProperti
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardEmulatorConnectionProperties;{4e2ca5ee-f969-507d-6cf9-34e2d18df311})");
 }
 unsafe impl ::windows::core::Interface for SmartCardEmulatorConnectionProperties {
-    type Vtable = ISmartCardEmulatorConnectionPropertiesVtbl;
+    type Vtable = ISmartCardEmulatorConnectionProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e2ca5ee_f969_507d_6cf9_34e2d18df311);
 }
 impl ::windows::core::RuntimeName for SmartCardEmulatorConnectionProperties {
@@ -4970,7 +4970,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardPinPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardPinPolicy;{183ce184-4db6-4841-ac9e-2ac1f39b7304})");
 }
 unsafe impl ::windows::core::Interface for SmartCardPinPolicy {
-    type Vtable = ISmartCardPinPolicyVtbl;
+    type Vtable = ISmartCardPinPolicy_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x183ce184_4db6_4841_ac9e_2ac1f39b7304);
 }
 impl ::windows::core::RuntimeName for SmartCardPinPolicy {
@@ -5048,7 +5048,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardPinResetDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardPinResetDeferral;{18c94aac-7805-4004-85e4-bbefac8f6884})");
 }
 unsafe impl ::windows::core::Interface for SmartCardPinResetDeferral {
-    type Vtable = ISmartCardPinResetDeferralVtbl;
+    type Vtable = ISmartCardPinResetDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18c94aac_7805_4004_85e4_bbefac8f6884);
 }
 impl ::windows::core::RuntimeName for SmartCardPinResetDeferral {
@@ -5112,12 +5112,12 @@ impl SmartCardPinResetHandler {
 }
 #[repr(C)]
 struct SmartCardPinResetHandlerBox<F: FnMut(&::core::option::Option<SmartCardProvisioning>, &::core::option::Option<SmartCardPinResetRequest>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const SmartCardPinResetHandlerVtbl,
+    vtable: *const SmartCardPinResetHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<SmartCardProvisioning>, &::core::option::Option<SmartCardPinResetRequest>) -> ::windows::core::Result<()> + 'static> SmartCardPinResetHandlerBox<F> {
-    const VTABLE: SmartCardPinResetHandlerVtbl = SmartCardPinResetHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: SmartCardPinResetHandler_Vtbl = SmartCardPinResetHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<SmartCardPinResetHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -5162,7 +5162,7 @@ impl ::core::fmt::Debug for SmartCardPinResetHandler {
     }
 }
 unsafe impl ::windows::core::Interface for SmartCardPinResetHandler {
-    type Vtable = SmartCardPinResetHandlerVtbl;
+    type Vtable = SmartCardPinResetHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x138d5e40_f3bc_4a5c_b41d_4b4ef684e237);
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardPinResetHandler {
@@ -5170,7 +5170,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardPinResetHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct SmartCardPinResetHandlerVtbl {
+pub struct SmartCardPinResetHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, request: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -5231,7 +5231,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardPinResetRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardPinResetRequest;{12fe3c4d-5fb9-4e8e-9ff6-61f475124fef})");
 }
 unsafe impl ::windows::core::Interface for SmartCardPinResetRequest {
-    type Vtable = ISmartCardPinResetRequestVtbl;
+    type Vtable = ISmartCardPinResetRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12fe3c4d_5fb9_4e8e_9ff6_61f475124fef);
 }
 impl ::windows::core::RuntimeName for SmartCardPinResetRequest {
@@ -5424,7 +5424,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardProvisioning {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardProvisioning;{19eeedbd-1fab-477c-b712-1a2c5af1fd6e})");
 }
 unsafe impl ::windows::core::Interface for SmartCardProvisioning {
-    type Vtable = ISmartCardProvisioningVtbl;
+    type Vtable = ISmartCardProvisioning_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19eeedbd_1fab_477c_b712_1a2c5af1fd6e);
 }
 impl ::windows::core::RuntimeName for SmartCardProvisioning {
@@ -5596,7 +5596,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardReader;{1074b4e0-54c2-4df0-817a-14c14378f06c})");
 }
 unsafe impl ::windows::core::Interface for SmartCardReader {
-    type Vtable = ISmartCardReaderVtbl;
+    type Vtable = ISmartCardReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1074b4e0_54c2_4df0_817a_14c14378f06c);
 }
 impl ::windows::core::RuntimeName for SmartCardReader {
@@ -5836,7 +5836,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardTriggerDetails;{5f9bf11e-39ef-4f2b-b44f-0a9155b177bc})");
 }
 unsafe impl ::windows::core::Interface for SmartCardTriggerDetails {
-    type Vtable = ISmartCardTriggerDetailsVtbl;
+    type Vtable = ISmartCardTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f9bf11e_39ef_4f2b_b44f_0a9155b177bc);
 }
 impl ::windows::core::RuntimeName for SmartCardTriggerDetails {

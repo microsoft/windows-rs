@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IPlaylist(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlaylist {
-    type Vtable = IPlaylistVtbl;
+    type Vtable = IPlaylist_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x803736f5_cf44_4d97_83b3_7a089e9ab663);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlaylistVtbl {
+pub struct IPlaylist_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub Files: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -31,12 +31,12 @@ pub struct IPlaylistVtbl {
 #[repr(transparent)]
 pub struct IPlaylistStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlaylistStatics {
-    type Vtable = IPlaylistStaticsVtbl;
+    type Vtable = IPlaylistStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5c331cd_81f9_4ff3_95b9_70b6ff046b68);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlaylistStaticsVtbl {
+pub struct IPlaylistStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub LoadAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -124,7 +124,7 @@ unsafe impl ::windows::core::RuntimeType for Playlist {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playlists.Playlist;{803736f5-cf44-4d97-83b3-7a089e9ab663})");
 }
 unsafe impl ::windows::core::Interface for Playlist {
-    type Vtable = IPlaylistVtbl;
+    type Vtable = IPlaylist_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x803736f5_cf44_4d97_83b3_7a089e9ab663);
 }
 impl ::windows::core::RuntimeName for Playlist {

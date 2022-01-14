@@ -104,12 +104,12 @@ unsafe impl ::windows::core::RuntimeType for IAnnotationProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{95ba1417-4437-451b-9461-050a49b59d06}");
 }
 unsafe impl ::windows::core::Interface for IAnnotationProvider {
-    type Vtable = IAnnotationProviderVtbl;
+    type Vtable = IAnnotationProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95ba1417_4437_451b_9461_050a49b59d06);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAnnotationProviderVtbl {
+pub struct IAnnotationProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AnnotationTypeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub AnnotationTypeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -191,12 +191,12 @@ unsafe impl ::windows::core::RuntimeType for ICustomNavigationProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2bd8a6d0-2fa3-4717-b28c-4917ce54928d}");
 }
 unsafe impl ::windows::core::Interface for ICustomNavigationProvider {
-    type Vtable = ICustomNavigationProviderVtbl;
+    type Vtable = ICustomNavigationProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bd8a6d0_2fa3_4717_b28c_4917ce54928d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICustomNavigationProviderVtbl {
+pub struct ICustomNavigationProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
     pub NavigateCustom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, direction: super::Peers::AutomationNavigationDirection, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -281,12 +281,12 @@ unsafe impl ::windows::core::RuntimeType for IDockProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{48c243f8-78b1-44a0-ac5f-750757bcde3c}");
 }
 unsafe impl ::windows::core::Interface for IDockProvider {
-    type Vtable = IDockProviderVtbl;
+    type Vtable = IDockProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48c243f8_78b1_44a0_ac5f_750757bcde3c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDockProviderVtbl {
+pub struct IDockProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DockPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::DockPosition) -> ::windows::core::HRESULT,
     pub SetDockPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dockposition: super::DockPosition) -> ::windows::core::HRESULT,
@@ -388,12 +388,12 @@ unsafe impl ::windows::core::RuntimeType for IDragProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2e7786a9-7ffc-4f57-b965-1ef1f373f546}");
 }
 unsafe impl ::windows::core::Interface for IDragProvider {
-    type Vtable = IDragProviderVtbl;
+    type Vtable = IDragProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e7786a9_7ffc_4f57_b965_1ef1f373f546);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDragProviderVtbl {
+pub struct IDragProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsGrabbed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub DropEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -481,12 +481,12 @@ unsafe impl ::windows::core::RuntimeType for IDropTargetProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7a245bdd-b458-4fe0-98c8-aac89df56d61}");
 }
 unsafe impl ::windows::core::Interface for IDropTargetProvider {
-    type Vtable = IDropTargetProviderVtbl;
+    type Vtable = IDropTargetProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a245bdd_b458_4fe0_98c8_aac89df56d61);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDropTargetProviderVtbl {
+pub struct IDropTargetProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DropEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DropEffects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -574,12 +574,12 @@ unsafe impl ::windows::core::RuntimeType for IExpandCollapseProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{49ac8399-d626-4543-94b9-a6d9a9593af6}");
 }
 unsafe impl ::windows::core::Interface for IExpandCollapseProvider {
-    type Vtable = IExpandCollapseProviderVtbl;
+    type Vtable = IExpandCollapseProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49ac8399_d626_4543_94b9_a6d9a9593af6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IExpandCollapseProviderVtbl {
+pub struct IExpandCollapseProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ExpandCollapseState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::ExpandCollapseState) -> ::windows::core::HRESULT,
     pub Collapse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -690,12 +690,12 @@ unsafe impl ::windows::core::RuntimeType for IGridItemProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fff3683c-7407-45bb-a936-df3ed6d3837d}");
 }
 unsafe impl ::windows::core::Interface for IGridItemProvider {
-    type Vtable = IGridItemProviderVtbl;
+    type Vtable = IGridItemProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfff3683c_7407_45bb_a936_df3ed6d3837d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGridItemProviderVtbl {
+pub struct IGridItemProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Column: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub ColumnSpan: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -792,12 +792,12 @@ unsafe impl ::windows::core::RuntimeType for IGridProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8b62b7a0-932c-4490-9a13-02fdb39a8f5b}");
 }
 unsafe impl ::windows::core::Interface for IGridProvider {
-    type Vtable = IGridProviderVtbl;
+    type Vtable = IGridProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b62b7a0_932c_4490_9a13_02fdb39a8f5b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGridProviderVtbl {
+pub struct IGridProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ColumnCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub RowCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -807,12 +807,12 @@ pub struct IGridProviderVtbl {
 #[repr(transparent)]
 pub struct IIRawElementProviderSimple(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIRawElementProviderSimple {
-    type Vtable = IIRawElementProviderSimpleVtbl;
+    type Vtable = IIRawElementProviderSimple_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec752224_9b77_4720_bb21_4ac89fdb1afd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIRawElementProviderSimpleVtbl {
+pub struct IIRawElementProviderSimple_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
@@ -885,12 +885,12 @@ unsafe impl ::windows::core::RuntimeType for IInvokeProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f7d1a187-b13c-4540-b09e-6778e2dc9ba5}");
 }
 unsafe impl ::windows::core::Interface for IInvokeProvider {
-    type Vtable = IInvokeProviderVtbl;
+    type Vtable = IInvokeProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7d1a187_b13c_4540_b09e_6778e2dc9ba5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInvokeProviderVtbl {
+pub struct IInvokeProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -967,12 +967,12 @@ unsafe impl ::windows::core::RuntimeType for IItemContainerProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ef5cd845-e1d4-40f4-bad5-c7fad44a703e}");
 }
 unsafe impl ::windows::core::Interface for IItemContainerProvider {
-    type Vtable = IItemContainerProviderVtbl;
+    type Vtable = IItemContainerProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef5cd845_e1d4_40f4_bad5_c7fad44a703e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IItemContainerProviderVtbl {
+pub struct IItemContainerProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FindItemByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startafter: ::windows::core::RawPtr, automationproperty: ::windows::core::RawPtr, value: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1070,12 +1070,12 @@ unsafe impl ::windows::core::RuntimeType for IMultipleViewProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d014e196-0e50-4843-a5d2-c22897c8845a}");
 }
 unsafe impl ::windows::core::Interface for IMultipleViewProvider {
-    type Vtable = IMultipleViewProviderVtbl;
+    type Vtable = IMultipleViewProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd014e196_0e50_4843_a5d2_c22897c8845a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMultipleViewProviderVtbl {
+pub struct IMultipleViewProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub GetSupportedViews: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut i32) -> ::windows::core::HRESULT,
@@ -1155,12 +1155,12 @@ unsafe impl ::windows::core::RuntimeType for IObjectModelProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c3ca36b9-0793-4ed0-bbf4-9ff4e0f98f80}");
 }
 unsafe impl ::windows::core::Interface for IObjectModelProvider {
-    type Vtable = IObjectModelProviderVtbl;
+    type Vtable = IObjectModelProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3ca36b9_0793_4ed0_bbf4_9ff4e0f98f80);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IObjectModelProviderVtbl {
+pub struct IObjectModelProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetUnderlyingObjectModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -1282,12 +1282,12 @@ unsafe impl ::windows::core::RuntimeType for IRangeValueProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{838a34a8-7d5f-4079-af03-c3d015e93413}");
 }
 unsafe impl ::windows::core::Interface for IRangeValueProvider {
-    type Vtable = IRangeValueProviderVtbl;
+    type Vtable = IRangeValueProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x838a34a8_7d5f_4079_af03_c3d015e93413);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRangeValueProviderVtbl {
+pub struct IRangeValueProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsReadOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub LargeChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -1321,7 +1321,7 @@ unsafe impl ::windows::core::RuntimeType for IRawElementProviderSimple {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Provider.IRawElementProviderSimple;{ec752224-9b77-4720-bb21-4ac89fdb1afd})");
 }
 unsafe impl ::windows::core::Interface for IRawElementProviderSimple {
-    type Vtable = IIRawElementProviderSimpleVtbl;
+    type Vtable = IIRawElementProviderSimple_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec752224_9b77_4720_bb21_4ac89fdb1afd);
 }
 impl ::windows::core::RuntimeName for IRawElementProviderSimple {
@@ -1459,12 +1459,12 @@ unsafe impl ::windows::core::RuntimeType for IScrollItemProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9a3ec090-5d2c-4e42-9ee6-9d58db100b55}");
 }
 unsafe impl ::windows::core::Interface for IScrollItemProvider {
-    type Vtable = IScrollItemProviderVtbl;
+    type Vtable = IScrollItemProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a3ec090_5d2c_4e42_9ee6_9d58db100b55);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IScrollItemProviderVtbl {
+pub struct IScrollItemProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ScrollIntoView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -1591,12 +1591,12 @@ unsafe impl ::windows::core::RuntimeType for IScrollProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{374bf581-7716-4bbc-82eb-d997006ea999}");
 }
 unsafe impl ::windows::core::Interface for IScrollProvider {
-    type Vtable = IScrollProviderVtbl;
+    type Vtable = IScrollProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x374bf581_7716_4bbc_82eb_d997006ea999);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IScrollProviderVtbl {
+pub struct IScrollProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub HorizontallyScrollable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub HorizontalScrollPercent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -1703,12 +1703,12 @@ unsafe impl ::windows::core::RuntimeType for ISelectionItemProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6a4977c1-830d-42d2-bf62-042ebddecc19}");
 }
 unsafe impl ::windows::core::Interface for ISelectionItemProvider {
-    type Vtable = ISelectionItemProviderVtbl;
+    type Vtable = ISelectionItemProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a4977c1_830d_42d2_bf62_042ebddecc19);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISelectionItemProviderVtbl {
+pub struct ISelectionItemProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsSelected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SelectionContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1805,12 +1805,12 @@ unsafe impl ::windows::core::RuntimeType for ISelectionProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1f018fca-b944-4395-8de1-88f674af51d3}");
 }
 unsafe impl ::windows::core::Interface for ISelectionProvider {
-    type Vtable = ISelectionProviderVtbl;
+    type Vtable = ISelectionProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f018fca_b944_4395_8de1_88f674af51d3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISelectionProviderVtbl {
+pub struct ISelectionProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CanSelectMultiple: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsSelectionRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1905,12 +1905,12 @@ unsafe impl ::windows::core::RuntimeType for ISpreadsheetItemProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ebde8f92-6015-4826-b719-47521a81c67e}");
 }
 unsafe impl ::windows::core::Interface for ISpreadsheetItemProvider {
-    type Vtable = ISpreadsheetItemProviderVtbl;
+    type Vtable = ISpreadsheetItemProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebde8f92_6015_4826_b719_47521a81c67e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpreadsheetItemProviderVtbl {
+pub struct ISpreadsheetItemProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Formula: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub GetAnnotationObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1989,12 +1989,12 @@ unsafe impl ::windows::core::RuntimeType for ISpreadsheetProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{15359093-bd99-4cfd-9f07-3b14b315e23d}");
 }
 unsafe impl ::windows::core::Interface for ISpreadsheetProvider {
-    type Vtable = ISpreadsheetProviderVtbl;
+    type Vtable = ISpreadsheetProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15359093_bd99_4cfd_9f07_3b14b315e23d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpreadsheetProviderVtbl {
+pub struct ISpreadsheetProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2119,12 +2119,12 @@ unsafe impl ::windows::core::RuntimeType for IStylesProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1a5b7a17-7c01-4bec-9cd4-2dfa7dc246cd}");
 }
 unsafe impl ::windows::core::Interface for IStylesProvider {
-    type Vtable = IStylesProviderVtbl;
+    type Vtable = IStylesProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a5b7a17_7c01_4bec_9cd4_2dfa7dc246cd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStylesProviderVtbl {
+pub struct IStylesProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ExtendedProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub FillColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Color) -> ::windows::core::HRESULT,
@@ -2209,12 +2209,12 @@ unsafe impl ::windows::core::RuntimeType for ISynchronizedInputProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3d60cecb-da54-4aa3-b915-e3244427d4ac}");
 }
 unsafe impl ::windows::core::Interface for ISynchronizedInputProvider {
-    type Vtable = ISynchronizedInputProviderVtbl;
+    type Vtable = ISynchronizedInputProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d60cecb_da54_4aa3_b915_e3244427d4ac);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISynchronizedInputProviderVtbl {
+pub struct ISynchronizedInputProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub StartListening: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputtype: super::SynchronizedInputType) -> ::windows::core::HRESULT,
@@ -2300,12 +2300,12 @@ unsafe impl ::windows::core::RuntimeType for ITableItemProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3b2c49cd-1de2-4ee2-a3e1-fb553559d15d}");
 }
 unsafe impl ::windows::core::Interface for ITableItemProvider {
-    type Vtable = ITableItemProviderVtbl;
+    type Vtable = ITableItemProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b2c49cd_1de2_4ee2_a3e1_fb553559d15d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITableItemProviderVtbl {
+pub struct ITableItemProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetColumnHeaderItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetRowHeaderItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2399,12 +2399,12 @@ unsafe impl ::windows::core::RuntimeType for ITableProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7a8ed399-6824-4595-bab3-464bc9a04417}");
 }
 unsafe impl ::windows::core::Interface for ITableProvider {
-    type Vtable = ITableProviderVtbl;
+    type Vtable = ITableProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a8ed399_6824_4595_bab3_464bc9a04417);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITableProviderVtbl {
+pub struct ITableProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RowOrColumnMajor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::RowOrColumnMajor) -> ::windows::core::HRESULT,
     pub GetColumnHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2491,12 +2491,12 @@ unsafe impl ::windows::core::RuntimeType for ITextChildProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1133c336-a89b-4130-9be6-55e33334f557}");
 }
 unsafe impl ::windows::core::Interface for ITextChildProvider {
-    type Vtable = ITextChildProviderVtbl;
+    type Vtable = ITextChildProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1133c336_a89b_4130_9be6_55e33334f557);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextChildProviderVtbl {
+pub struct ITextChildProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TextContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub TextRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2653,12 +2653,12 @@ unsafe impl ::windows::core::RuntimeType for ITextEditProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ea3605b4-3a05-400e-b5f9-4e91b40f6176}");
 }
 unsafe impl ::windows::core::Interface for ITextEditProvider {
-    type Vtable = ITextEditProviderVtbl;
+    type Vtable = ITextEditProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea3605b4_3a05_400e_b5f9_4e91b40f6176);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextEditProviderVtbl {
+pub struct ITextEditProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetActiveComposition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetConversionTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2777,12 +2777,12 @@ unsafe impl ::windows::core::RuntimeType for ITextProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{db5bbc9f-4807-4f2a-8678-1b13f3c60e22}");
 }
 unsafe impl ::windows::core::Interface for ITextProvider {
-    type Vtable = ITextProviderVtbl;
+    type Vtable = ITextProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb5bbc9f_4807_4f2a_8678_1b13f3c60e22);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextProviderVtbl {
+pub struct ITextProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DocumentRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SupportedTextSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::SupportedTextSelection) -> ::windows::core::HRESULT,
@@ -2946,12 +2946,12 @@ unsafe impl ::windows::core::RuntimeType for ITextProvider2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{df1d48bc-0487-4e7f-9d5e-f09e77e41246}");
 }
 unsafe impl ::windows::core::Interface for ITextProvider2 {
-    type Vtable = ITextProvider2Vtbl;
+    type Vtable = ITextProvider2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf1d48bc_0487_4e7f_9d5e_f09e77e41246);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextProvider2Vtbl {
+pub struct ITextProvider2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RangeFromAnnotation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, annotationelement: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetCaretRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isactive: *mut bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3149,12 +3149,12 @@ unsafe impl ::windows::core::RuntimeType for ITextRangeProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0274688d-06e9-4f66-9446-28a5be98fbd0}");
 }
 unsafe impl ::windows::core::Interface for ITextRangeProvider {
-    type Vtable = ITextRangeProviderVtbl;
+    type Vtable = ITextRangeProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0274688d_06e9_4f66_9446_28a5be98fbd0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextRangeProviderVtbl {
+pub struct ITextRangeProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Compare: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textrangeprovider: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -3410,12 +3410,12 @@ unsafe impl ::windows::core::RuntimeType for ITextRangeProvider2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d3be3dfb-9f54-4642-a7a5-5c18d5ee2a3f}");
 }
 unsafe impl ::windows::core::Interface for ITextRangeProvider2 {
-    type Vtable = ITextRangeProvider2Vtbl;
+    type Vtable = ITextRangeProvider2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3be3dfb_9f54_4642_a7a5_5c18d5ee2a3f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextRangeProvider2Vtbl {
+pub struct ITextRangeProvider2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ShowContextMenu: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -3497,12 +3497,12 @@ unsafe impl ::windows::core::RuntimeType for IToggleProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{93b88290-656f-44f7-aeaf-78b8f944d062}");
 }
 unsafe impl ::windows::core::Interface for IToggleProvider {
-    type Vtable = IToggleProviderVtbl;
+    type Vtable = IToggleProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93b88290_656f_44f7_aeaf_78b8f944d062);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IToggleProviderVtbl {
+pub struct IToggleProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ToggleState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::ToggleState) -> ::windows::core::HRESULT,
     pub Toggle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3611,12 +3611,12 @@ unsafe impl ::windows::core::RuntimeType for ITransformProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{79670fdd-f6a9-4a65-af17-861db799a2da}");
 }
 unsafe impl ::windows::core::Interface for ITransformProvider {
-    type Vtable = ITransformProviderVtbl;
+    type Vtable = ITransformProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79670fdd_f6a9_4a65_af17_861db799a2da);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITransformProviderVtbl {
+pub struct ITransformProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CanMove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub CanResize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -3793,12 +3793,12 @@ unsafe impl ::windows::core::RuntimeType for ITransformProvider2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a8b11756-a39f-4e97-8c7d-c1ea8dd633c5}");
 }
 unsafe impl ::windows::core::Interface for ITransformProvider2 {
-    type Vtable = ITransformProvider2Vtbl;
+    type Vtable = ITransformProvider2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8b11756_a39f_4e97_8c7d_c1ea8dd633c5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITransformProvider2Vtbl {
+pub struct ITransformProvider2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CanZoom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub ZoomLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -3893,12 +3893,12 @@ unsafe impl ::windows::core::RuntimeType for IValueProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2086b7a7-ac0e-47d1-ab9b-2a64292afdf8}");
 }
 unsafe impl ::windows::core::Interface for IValueProvider {
-    type Vtable = IValueProviderVtbl;
+    type Vtable = IValueProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2086b7a7_ac0e_47d1_ab9b_2a64292afdf8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IValueProviderVtbl {
+pub struct IValueProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsReadOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3974,12 +3974,12 @@ unsafe impl ::windows::core::RuntimeType for IVirtualizedItemProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{17d4a04b-d658-48e0-a574-5a516c58dfa7}");
 }
 unsafe impl ::windows::core::Interface for IVirtualizedItemProvider {
-    type Vtable = IVirtualizedItemProviderVtbl;
+    type Vtable = IVirtualizedItemProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17d4a04b_d658_48e0_a574_5a516c58dfa7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVirtualizedItemProviderVtbl {
+pub struct IVirtualizedItemProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Realize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -4114,12 +4114,12 @@ unsafe impl ::windows::core::RuntimeType for IWindowProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1baa8b3d-38cf-415a-85d3-20e43a0ec1b1}");
 }
 unsafe impl ::windows::core::Interface for IWindowProvider {
-    type Vtable = IWindowProviderVtbl;
+    type Vtable = IWindowProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1baa8b3d_38cf_415a_85d3_20e43a0ec1b1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowProviderVtbl {
+pub struct IWindowProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsModal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsTopmost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,

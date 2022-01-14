@@ -60,7 +60,7 @@ unsafe impl ::windows::core::RuntimeType for AddAppointmentOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentsProvider.AddAppointmentOperation;{ec4a9af3-620d-4c69-add7-9794e918081f})");
 }
 unsafe impl ::windows::core::Interface for AddAppointmentOperation {
-    type Vtable = IAddAppointmentOperationVtbl;
+    type Vtable = IAddAppointmentOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec4a9af3_620d_4c69_add7_9794e918081f);
 }
 impl ::windows::core::RuntimeName for AddAppointmentOperation {
@@ -164,12 +164,12 @@ impl ::windows::core::RuntimeName for AppointmentsProviderLaunchActionVerbs {
 #[repr(transparent)]
 pub struct IAddAppointmentOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAddAppointmentOperation {
-    type Vtable = IAddAppointmentOperationVtbl;
+    type Vtable = IAddAppointmentOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec4a9af3_620d_4c69_add7_9794e918081f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAddAppointmentOperationVtbl {
+pub struct IAddAppointmentOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AppointmentInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SourcePackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -182,12 +182,12 @@ pub struct IAddAppointmentOperationVtbl {
 #[repr(transparent)]
 pub struct IAppointmentsProviderLaunchActionVerbsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentsProviderLaunchActionVerbsStatics {
-    type Vtable = IAppointmentsProviderLaunchActionVerbsStaticsVtbl;
+    type Vtable = IAppointmentsProviderLaunchActionVerbsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36dbba28_9e2e_49c6_8ef7_3ab7a5dcc8b8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentsProviderLaunchActionVerbsStaticsVtbl {
+pub struct IAppointmentsProviderLaunchActionVerbsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AddAppointment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ReplaceAppointment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -198,12 +198,12 @@ pub struct IAppointmentsProviderLaunchActionVerbsStaticsVtbl {
 #[repr(transparent)]
 pub struct IAppointmentsProviderLaunchActionVerbsStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentsProviderLaunchActionVerbsStatics2 {
-    type Vtable = IAppointmentsProviderLaunchActionVerbsStatics2Vtbl;
+    type Vtable = IAppointmentsProviderLaunchActionVerbsStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef9049a4_af21_473c_88dc_76cd89f60ca5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentsProviderLaunchActionVerbsStatics2Vtbl {
+pub struct IAppointmentsProviderLaunchActionVerbsStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ShowAppointmentDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -211,12 +211,12 @@ pub struct IAppointmentsProviderLaunchActionVerbsStatics2Vtbl {
 #[repr(transparent)]
 pub struct IRemoveAppointmentOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoveAppointmentOperation {
-    type Vtable = IRemoveAppointmentOperationVtbl;
+    type Vtable = IRemoveAppointmentOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08b66aba_fe33_46cd_a50c_a8ffb3260537);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRemoveAppointmentOperationVtbl {
+pub struct IRemoveAppointmentOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AppointmentId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -233,12 +233,12 @@ pub struct IRemoveAppointmentOperationVtbl {
 #[repr(transparent)]
 pub struct IReplaceAppointmentOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IReplaceAppointmentOperation {
-    type Vtable = IReplaceAppointmentOperationVtbl;
+    type Vtable = IReplaceAppointmentOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4903d9b_9e61_4de2_a732_2687c07d1de8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IReplaceAppointmentOperationVtbl {
+pub struct IReplaceAppointmentOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AppointmentId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub AppointmentInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -322,7 +322,7 @@ unsafe impl ::windows::core::RuntimeType for RemoveAppointmentOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentsProvider.RemoveAppointmentOperation;{08b66aba-fe33-46cd-a50c-a8ffb3260537})");
 }
 unsafe impl ::windows::core::Interface for RemoveAppointmentOperation {
-    type Vtable = IRemoveAppointmentOperationVtbl;
+    type Vtable = IRemoveAppointmentOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08b66aba_fe33_46cd_a50c_a8ffb3260537);
 }
 impl ::windows::core::RuntimeName for RemoveAppointmentOperation {
@@ -448,7 +448,7 @@ unsafe impl ::windows::core::RuntimeType for ReplaceAppointmentOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentsProvider.ReplaceAppointmentOperation;{f4903d9b-9e61-4de2-a732-2687c07d1de8})");
 }
 unsafe impl ::windows::core::Interface for ReplaceAppointmentOperation {
-    type Vtable = IReplaceAppointmentOperationVtbl;
+    type Vtable = IReplaceAppointmentOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4903d9b_9e61_4de2_a732_2687c07d1de8);
 }
 impl ::windows::core::RuntimeName for ReplaceAppointmentOperation {

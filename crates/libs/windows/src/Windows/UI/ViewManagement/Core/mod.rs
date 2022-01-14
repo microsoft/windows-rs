@@ -73,7 +73,7 @@ unsafe impl ::windows::core::RuntimeType for CoreFrameworkInputView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreFrameworkInputView;{d77c94ae-46b8-5d4a-9489-8ddec3d639a6})");
 }
 unsafe impl ::windows::core::Interface for CoreFrameworkInputView {
-    type Vtable = ICoreFrameworkInputViewVtbl;
+    type Vtable = ICoreFrameworkInputView_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd77c94ae_46b8_5d4a_9489_8ddec3d639a6);
 }
 impl ::windows::core::RuntimeName for CoreFrameworkInputView {
@@ -172,7 +172,7 @@ unsafe impl ::windows::core::RuntimeType for CoreFrameworkInputViewAnimationStar
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreFrameworkInputViewAnimationStartingEventArgs;{c0ec901c-bba4-501b-ae8b-65c9e756a719})");
 }
 unsafe impl ::windows::core::Interface for CoreFrameworkInputViewAnimationStartingEventArgs {
-    type Vtable = ICoreFrameworkInputViewAnimationStartingEventArgsVtbl;
+    type Vtable = ICoreFrameworkInputViewAnimationStartingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0ec901c_bba4_501b_ae8b_65c9e756a719);
 }
 impl ::windows::core::RuntimeName for CoreFrameworkInputViewAnimationStartingEventArgs {
@@ -262,7 +262,7 @@ unsafe impl ::windows::core::RuntimeType for CoreFrameworkInputViewOcclusionsCha
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreFrameworkInputViewOcclusionsChangedEventArgs;{f36f4949-c82c-53d1-a75d-2b2baf0d9b0d})");
 }
 unsafe impl ::windows::core::Interface for CoreFrameworkInputViewOcclusionsChangedEventArgs {
-    type Vtable = ICoreFrameworkInputViewOcclusionsChangedEventArgsVtbl;
+    type Vtable = ICoreFrameworkInputViewOcclusionsChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf36f4949_c82c_53d1_a75d_2b2baf0d9b0d);
 }
 impl ::windows::core::RuntimeName for CoreFrameworkInputViewOcclusionsChangedEventArgs {
@@ -530,7 +530,7 @@ unsafe impl ::windows::core::RuntimeType for CoreInputView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputView;{c770cd7a-7001-4c32-bf94-25c1f554cbf1})");
 }
 unsafe impl ::windows::core::Interface for CoreInputView {
-    type Vtable = ICoreInputViewVtbl;
+    type Vtable = ICoreInputView_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc770cd7a_7001_4c32_bf94_25c1f554cbf1);
 }
 impl ::windows::core::RuntimeName for CoreInputView {
@@ -634,7 +634,7 @@ unsafe impl ::windows::core::RuntimeType for CoreInputViewAnimationStartingEvent
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewAnimationStartingEventArgs;{a9144af2-b55c-5ea1-b8ab-5340f3e94897})");
 }
 unsafe impl ::windows::core::Interface for CoreInputViewAnimationStartingEventArgs {
-    type Vtable = ICoreInputViewAnimationStartingEventArgsVtbl;
+    type Vtable = ICoreInputViewAnimationStartingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9144af2_b55c_5ea1_b8ab_5340f3e94897);
 }
 impl ::windows::core::RuntimeName for CoreInputViewAnimationStartingEventArgs {
@@ -715,7 +715,7 @@ unsafe impl ::windows::core::RuntimeType for CoreInputViewHidingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewHidingEventArgs;{eada47bd-bac5-5336-848d-41083584daad})");
 }
 unsafe impl ::windows::core::Interface for CoreInputViewHidingEventArgs {
-    type Vtable = ICoreInputViewHidingEventArgsVtbl;
+    type Vtable = ICoreInputViewHidingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeada47bd_bac5_5336_848d_41083584daad);
 }
 impl ::windows::core::RuntimeName for CoreInputViewHidingEventArgs {
@@ -843,7 +843,7 @@ unsafe impl ::windows::core::RuntimeType for CoreInputViewOcclusion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewOcclusion;{cc36ce06-3865-4177-b5f5-8b65e0b9ce84})");
 }
 unsafe impl ::windows::core::Interface for CoreInputViewOcclusion {
-    type Vtable = ICoreInputViewOcclusionVtbl;
+    type Vtable = ICoreInputViewOcclusion_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc36ce06_3865_4177_b5f5_8b65e0b9ce84);
 }
 impl ::windows::core::RuntimeName for CoreInputViewOcclusion {
@@ -972,7 +972,7 @@ unsafe impl ::windows::core::RuntimeType for CoreInputViewOcclusionsChangedEvent
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewOcclusionsChangedEventArgs;{be1027e8-b3ee-4df7-9554-89cdc66082c2})");
 }
 unsafe impl ::windows::core::Interface for CoreInputViewOcclusionsChangedEventArgs {
-    type Vtable = ICoreInputViewOcclusionsChangedEventArgsVtbl;
+    type Vtable = ICoreInputViewOcclusionsChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe1027e8_b3ee_4df7_9554_89cdc66082c2);
 }
 impl ::windows::core::RuntimeName for CoreInputViewOcclusionsChangedEventArgs {
@@ -1053,7 +1053,7 @@ unsafe impl ::windows::core::RuntimeType for CoreInputViewShowingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewShowingEventArgs;{ca52261b-fb9e-5daf-a98c-262b8b76af50})");
 }
 unsafe impl ::windows::core::Interface for CoreInputViewShowingEventArgs {
-    type Vtable = ICoreInputViewShowingEventArgsVtbl;
+    type Vtable = ICoreInputViewShowingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca52261b_fb9e_5daf_a98c_262b8b76af50);
 }
 impl ::windows::core::RuntimeName for CoreInputViewShowingEventArgs {
@@ -1169,7 +1169,7 @@ unsafe impl ::windows::core::RuntimeType for CoreInputViewTransferringXYFocusEve
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewTransferringXYFocusEventArgs;{04de169f-ba02-4850-8b55-d82d03ba6d7f})");
 }
 unsafe impl ::windows::core::Interface for CoreInputViewTransferringXYFocusEventArgs {
-    type Vtable = ICoreInputViewTransferringXYFocusEventArgsVtbl;
+    type Vtable = ICoreInputViewTransferringXYFocusEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04de169f_ba02_4850_8b55_d82d03ba6d7f);
 }
 impl ::windows::core::RuntimeName for CoreInputViewTransferringXYFocusEventArgs {
@@ -1256,12 +1256,12 @@ impl ::windows::core::DefaultType for CoreInputViewXYFocusTransferDirection {
 #[repr(transparent)]
 pub struct ICoreFrameworkInputView(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreFrameworkInputView {
-    type Vtable = ICoreFrameworkInputViewVtbl;
+    type Vtable = ICoreFrameworkInputView_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd77c94ae_46b8_5d4a_9489_8ddec3d639a6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreFrameworkInputViewVtbl {
+pub struct ICoreFrameworkInputView_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub PrimaryViewAnimationStarting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -1284,12 +1284,12 @@ pub struct ICoreFrameworkInputViewVtbl {
 #[repr(transparent)]
 pub struct ICoreFrameworkInputViewAnimationStartingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreFrameworkInputViewAnimationStartingEventArgs {
-    type Vtable = ICoreFrameworkInputViewAnimationStartingEventArgsVtbl;
+    type Vtable = ICoreFrameworkInputViewAnimationStartingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0ec901c_bba4_501b_ae8b_65c9e756a719);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreFrameworkInputViewAnimationStartingEventArgsVtbl {
+pub struct ICoreFrameworkInputViewAnimationStartingEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Occlusions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1305,12 +1305,12 @@ pub struct ICoreFrameworkInputViewAnimationStartingEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICoreFrameworkInputViewOcclusionsChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreFrameworkInputViewOcclusionsChangedEventArgs {
-    type Vtable = ICoreFrameworkInputViewOcclusionsChangedEventArgsVtbl;
+    type Vtable = ICoreFrameworkInputViewOcclusionsChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf36f4949_c82c_53d1_a75d_2b2baf0d9b0d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreFrameworkInputViewOcclusionsChangedEventArgsVtbl {
+pub struct ICoreFrameworkInputViewOcclusionsChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Occlusions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1322,12 +1322,12 @@ pub struct ICoreFrameworkInputViewOcclusionsChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICoreFrameworkInputViewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreFrameworkInputViewStatics {
-    type Vtable = ICoreFrameworkInputViewStaticsVtbl;
+    type Vtable = ICoreFrameworkInputViewStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eebd9b6_eac2_5f8b_975f_772ee3e42eeb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreFrameworkInputViewStaticsVtbl {
+pub struct ICoreFrameworkInputViewStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForUIContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1336,12 +1336,12 @@ pub struct ICoreFrameworkInputViewStaticsVtbl {
 #[repr(transparent)]
 pub struct ICoreInputView(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInputView {
-    type Vtable = ICoreInputViewVtbl;
+    type Vtable = ICoreInputView_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc770cd7a_7001_4c32_bf94_25c1f554cbf1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreInputViewVtbl {
+pub struct ICoreInputView_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub OcclusionsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -1362,12 +1362,12 @@ pub struct ICoreInputViewVtbl {
 #[repr(transparent)]
 pub struct ICoreInputView2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInputView2 {
-    type Vtable = ICoreInputView2Vtbl;
+    type Vtable = ICoreInputView2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ed726c1_e09a_4ae8_aedf_dfa4857d1a01);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreInputView2Vtbl {
+pub struct ICoreInputView2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub XYFocusTransferringFromPrimaryView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -1394,12 +1394,12 @@ pub struct ICoreInputView2Vtbl {
 #[repr(transparent)]
 pub struct ICoreInputView3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInputView3 {
-    type Vtable = ICoreInputView3Vtbl;
+    type Vtable = ICoreInputView3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc941653_3ab9_4849_8f58_46e7f0353cfc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreInputView3Vtbl {
+pub struct ICoreInputView3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TryShow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub TryShowWithKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: CoreInputViewKind, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1409,12 +1409,12 @@ pub struct ICoreInputView3Vtbl {
 #[repr(transparent)]
 pub struct ICoreInputView4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInputView4 {
-    type Vtable = ICoreInputView4Vtbl;
+    type Vtable = ICoreInputView4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x002863d6_d9ef_57eb_8cef_77f6ce1b7ee7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreInputView4Vtbl {
+pub struct ICoreInputView4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub PrimaryViewShowing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -1437,12 +1437,12 @@ pub struct ICoreInputView4Vtbl {
 #[repr(transparent)]
 pub struct ICoreInputView5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInputView5 {
-    type Vtable = ICoreInputView5Vtbl;
+    type Vtable = ICoreInputView5_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x136316e0_c6d5_5c57_811e_1ad8a99ba6ab);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreInputView5Vtbl {
+pub struct ICoreInputView5_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsKindSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: CoreInputViewKind, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1466,12 +1466,12 @@ pub struct ICoreInputView5Vtbl {
 #[repr(transparent)]
 pub struct ICoreInputViewAnimationStartingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInputViewAnimationStartingEventArgs {
-    type Vtable = ICoreInputViewAnimationStartingEventArgsVtbl;
+    type Vtable = ICoreInputViewAnimationStartingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9144af2_b55c_5ea1_b8ab_5340f3e94897);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreInputViewAnimationStartingEventArgsVtbl {
+pub struct ICoreInputViewAnimationStartingEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Occlusions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1488,12 +1488,12 @@ pub struct ICoreInputViewAnimationStartingEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICoreInputViewHidingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInputViewHidingEventArgs {
-    type Vtable = ICoreInputViewHidingEventArgsVtbl;
+    type Vtable = ICoreInputViewHidingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeada47bd_bac5_5336_848d_41083584daad);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreInputViewHidingEventArgsVtbl {
+pub struct ICoreInputViewHidingEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TryCancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -1501,12 +1501,12 @@ pub struct ICoreInputViewHidingEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICoreInputViewOcclusion(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInputViewOcclusion {
-    type Vtable = ICoreInputViewOcclusionVtbl;
+    type Vtable = ICoreInputViewOcclusion_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc36ce06_3865_4177_b5f5_8b65e0b9ce84);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreInputViewOcclusionVtbl {
+pub struct ICoreInputViewOcclusion_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub OccludingRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
@@ -1518,12 +1518,12 @@ pub struct ICoreInputViewOcclusionVtbl {
 #[repr(transparent)]
 pub struct ICoreInputViewOcclusionsChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInputViewOcclusionsChangedEventArgs {
-    type Vtable = ICoreInputViewOcclusionsChangedEventArgsVtbl;
+    type Vtable = ICoreInputViewOcclusionsChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe1027e8_b3ee_4df7_9554_89cdc66082c2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreInputViewOcclusionsChangedEventArgsVtbl {
+pub struct ICoreInputViewOcclusionsChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Occlusions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1536,12 +1536,12 @@ pub struct ICoreInputViewOcclusionsChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICoreInputViewShowingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInputViewShowingEventArgs {
-    type Vtable = ICoreInputViewShowingEventArgsVtbl;
+    type Vtable = ICoreInputViewShowingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca52261b_fb9e_5daf_a98c_262b8b76af50);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreInputViewShowingEventArgsVtbl {
+pub struct ICoreInputViewShowingEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TryCancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -1549,12 +1549,12 @@ pub struct ICoreInputViewShowingEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICoreInputViewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInputViewStatics {
-    type Vtable = ICoreInputViewStaticsVtbl;
+    type Vtable = ICoreInputViewStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d9b97cd_edbe_49cf_a54f_337de052907f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreInputViewStaticsVtbl {
+pub struct ICoreInputViewStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1562,12 +1562,12 @@ pub struct ICoreInputViewStaticsVtbl {
 #[repr(transparent)]
 pub struct ICoreInputViewStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInputViewStatics2 {
-    type Vtable = ICoreInputViewStatics2Vtbl;
+    type Vtable = ICoreInputViewStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ebc0862_d049_4e52_87b0_1e90e98c49ed);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreInputViewStatics2Vtbl {
+pub struct ICoreInputViewStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForUIContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1575,12 +1575,12 @@ pub struct ICoreInputViewStatics2Vtbl {
 #[repr(transparent)]
 pub struct ICoreInputViewTransferringXYFocusEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreInputViewTransferringXYFocusEventArgs {
-    type Vtable = ICoreInputViewTransferringXYFocusEventArgsVtbl;
+    type Vtable = ICoreInputViewTransferringXYFocusEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04de169f_ba02_4850_8b55_d82d03ba6d7f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreInputViewTransferringXYFocusEventArgsVtbl {
+pub struct ICoreInputViewTransferringXYFocusEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Origin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
@@ -1596,12 +1596,12 @@ pub struct ICoreInputViewTransferringXYFocusEventArgsVtbl {
 #[repr(transparent)]
 pub struct IUISettingsController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUISettingsController {
-    type Vtable = IUISettingsControllerVtbl;
+    type Vtable = IUISettingsController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78a51ac4_15c0_5a1b_a75b_acbf9cb8bb9e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUISettingsControllerVtbl {
+pub struct IUISettingsController_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetAdvancedEffectsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub SetAnimationsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -1613,12 +1613,12 @@ pub struct IUISettingsControllerVtbl {
 #[repr(transparent)]
 pub struct IUISettingsControllerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUISettingsControllerStatics {
-    type Vtable = IUISettingsControllerStaticsVtbl;
+    type Vtable = IUISettingsControllerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb3c68cc_c220_578c_8119_7db324ed26a6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUISettingsControllerStaticsVtbl {
+pub struct IUISettingsControllerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestDefaultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1688,7 +1688,7 @@ unsafe impl ::windows::core::RuntimeType for UISettingsController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.UISettingsController;{78a51ac4-15c0-5a1b-a75b-acbf9cb8bb9e})");
 }
 unsafe impl ::windows::core::Interface for UISettingsController {
-    type Vtable = IUISettingsControllerVtbl;
+    type Vtable = IUISettingsController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78a51ac4_15c0_5a1b_a75b_acbf9cb8bb9e);
 }
 impl ::windows::core::RuntimeName for UISettingsController {

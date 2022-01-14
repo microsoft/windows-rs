@@ -74,7 +74,7 @@ unsafe impl ::windows::core::RuntimeType for AcceleratorKeyEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AcceleratorKeyEventArgs;{ff1c4c4a-9287-470b-836e-9086e3126ade})");
 }
 unsafe impl ::windows::core::Interface for AcceleratorKeyEventArgs {
-    type Vtable = IAcceleratorKeyEventArgsVtbl;
+    type Vtable = IAcceleratorKeyEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff1c4c4a_9287_470b_836e_9086e3126ade);
 }
 impl ::windows::core::RuntimeName for AcceleratorKeyEventArgs {
@@ -229,7 +229,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationProviderRequestedEventArg
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AutomationProviderRequestedEventArgs;{961ff258-21bf-4b42-a298-fa479d4c52e2})");
 }
 unsafe impl ::windows::core::Interface for AutomationProviderRequestedEventArgs {
-    type Vtable = IAutomationProviderRequestedEventArgsVtbl;
+    type Vtable = IAutomationProviderRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x961ff258_21bf_4b42_a298_fa479d4c52e2);
 }
 impl ::windows::core::RuntimeName for AutomationProviderRequestedEventArgs {
@@ -335,7 +335,7 @@ unsafe impl ::windows::core::RuntimeType for BackRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.BackRequestedEventArgs;{d603d28a-e411-4a4e-ba41-6a327a8675bc})");
 }
 unsafe impl ::windows::core::Interface for BackRequestedEventArgs {
-    type Vtable = IBackRequestedEventArgsVtbl;
+    type Vtable = IBackRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd603d28a_e411_4a4e_ba41_6a327a8675bc);
 }
 impl ::windows::core::RuntimeName for BackRequestedEventArgs {
@@ -437,7 +437,7 @@ unsafe impl ::windows::core::RuntimeType for CharacterReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CharacterReceivedEventArgs;{c584659f-99b2-4bcc-bd33-04e63f42902e})");
 }
 unsafe impl ::windows::core::Interface for CharacterReceivedEventArgs {
-    type Vtable = ICharacterReceivedEventArgsVtbl;
+    type Vtable = ICharacterReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc584659f_99b2_4bcc_bd33_04e63f42902e);
 }
 impl ::windows::core::RuntimeName for CharacterReceivedEventArgs {
@@ -563,7 +563,7 @@ unsafe impl ::windows::core::RuntimeType for ClosestInteractiveBoundsRequestedEv
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.ClosestInteractiveBoundsRequestedEventArgs;{347c11d7-f6f8-40e3-b29f-ae50d3e86486})");
 }
 unsafe impl ::windows::core::Interface for ClosestInteractiveBoundsRequestedEventArgs {
-    type Vtable = IClosestInteractiveBoundsRequestedEventArgsVtbl;
+    type Vtable = IClosestInteractiveBoundsRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x347c11d7_f6f8_40e3_b29f_ae50d3e86486);
 }
 impl ::windows::core::RuntimeName for ClosestInteractiveBoundsRequestedEventArgs {
@@ -689,7 +689,7 @@ unsafe impl ::windows::core::RuntimeType for CoreAcceleratorKeys {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreAcceleratorKeys;{9ffdf7f5-b8c9-4ef0-b7d2-1de626561fc8})");
 }
 unsafe impl ::windows::core::Interface for CoreAcceleratorKeys {
-    type Vtable = ICoreAcceleratorKeysVtbl;
+    type Vtable = ICoreAcceleratorKeys_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ffdf7f5_b8c9_4ef0_b7d2_1de626561fc8);
 }
 impl ::windows::core::RuntimeName for CoreAcceleratorKeys {
@@ -1104,7 +1104,7 @@ unsafe impl ::windows::core::RuntimeType for CoreComponentInputSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreComponentInputSource;{9f488807-4580-4be8-be68-92a9311713bb})");
 }
 unsafe impl ::windows::core::Interface for CoreComponentInputSource {
-    type Vtable = ICoreInputSourceBaseVtbl;
+    type Vtable = ICoreInputSourceBase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f488807_4580_4be8_be68_92a9311713bb);
 }
 impl ::windows::core::RuntimeName for CoreComponentInputSource {
@@ -1271,7 +1271,7 @@ unsafe impl ::windows::core::RuntimeType for CoreCursor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreCursor;{96893acf-111d-442c-8a77-b87992f8e2d6})");
 }
 unsafe impl ::windows::core::Interface for CoreCursor {
-    type Vtable = ICoreCursorVtbl;
+    type Vtable = ICoreCursor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96893acf_111d_442c_8a77_b87992f8e2d6);
 }
 impl ::windows::core::RuntimeName for CoreCursor {
@@ -1489,7 +1489,7 @@ unsafe impl ::windows::core::RuntimeType for CoreDispatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreDispatcher;{60db2fa8-b705-4fde-a7d6-ebbb1891d39e})");
 }
 unsafe impl ::windows::core::Interface for CoreDispatcher {
-    type Vtable = ICoreDispatcherVtbl;
+    type Vtable = ICoreDispatcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60db2fa8_b705_4fde_a7d6_ebbb1891d39e);
 }
 impl ::windows::core::RuntimeName for CoreDispatcher {
@@ -1919,7 +1919,7 @@ unsafe impl ::windows::core::RuntimeType for CoreIndependentInputSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreIndependentInputSource;{9f488807-4580-4be8-be68-92a9311713bb})");
 }
 unsafe impl ::windows::core::Interface for CoreIndependentInputSource {
-    type Vtable = ICoreInputSourceBaseVtbl;
+    type Vtable = ICoreInputSourceBase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f488807_4580_4be8_be68_92a9311713bb);
 }
 impl ::windows::core::RuntimeName for CoreIndependentInputSource {
@@ -2151,7 +2151,7 @@ unsafe impl ::windows::core::RuntimeType for CoreIndependentInputSourceControlle
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreIndependentInputSourceController;{0963261c-84fe-578a-83ca-6425309ccde4})");
 }
 unsafe impl ::windows::core::Interface for CoreIndependentInputSourceController {
-    type Vtable = ICoreIndependentInputSourceControllerVtbl;
+    type Vtable = ICoreIndependentInputSourceController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0963261c_84fe_578a_83ca_6425309ccde4);
 }
 impl ::windows::core::RuntimeName for CoreIndependentInputSourceController {
@@ -3055,7 +3055,7 @@ unsafe impl ::windows::core::RuntimeType for CoreWindow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindow;{79b9d5f2-879e-4b89-b798-79e47598030c})");
 }
 unsafe impl ::windows::core::Interface for CoreWindow {
-    type Vtable = ICoreWindowVtbl;
+    type Vtable = ICoreWindow_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79b9d5f2_879e_4b89_b798_79e47598030c);
 }
 impl ::windows::core::RuntimeName for CoreWindow {
@@ -3376,7 +3376,7 @@ unsafe impl ::windows::core::RuntimeType for CoreWindowDialog {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowDialog;{e7392ce0-c78d-427e-8b2c-01ff420c69d5})");
 }
 unsafe impl ::windows::core::Interface for CoreWindowDialog {
-    type Vtable = ICoreWindowDialogVtbl;
+    type Vtable = ICoreWindowDialog_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7392ce0_c78d_427e_8b2c_01ff420c69d5);
 }
 impl ::windows::core::RuntimeName for CoreWindowDialog {
@@ -3460,7 +3460,7 @@ unsafe impl ::windows::core::RuntimeType for CoreWindowEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowEventArgs;{272b1ef3-c633-4da5-a26c-c6d0f56b29da})");
 }
 unsafe impl ::windows::core::Interface for CoreWindowEventArgs {
-    type Vtable = ICoreWindowEventArgsVtbl;
+    type Vtable = ICoreWindowEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x272b1ef3_c633_4da5_a26c_c6d0f56b29da);
 }
 impl ::windows::core::RuntimeName for CoreWindowEventArgs {
@@ -3712,7 +3712,7 @@ unsafe impl ::windows::core::RuntimeType for CoreWindowFlyout {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowFlyout;{e89d854d-2050-40bb-b344-f6f355eeb314})");
 }
 unsafe impl ::windows::core::Interface for CoreWindowFlyout {
-    type Vtable = ICoreWindowFlyoutVtbl;
+    type Vtable = ICoreWindowFlyout_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe89d854d_2050_40bb_b344_f6f355eeb314);
 }
 impl ::windows::core::RuntimeName for CoreWindowFlyout {
@@ -3789,7 +3789,7 @@ unsafe impl ::windows::core::RuntimeType for CoreWindowPopupShowingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowPopupShowingEventArgs;{26155fa2-5ba5-4ea4-a3b4-2dc7d63c8e26})");
 }
 unsafe impl ::windows::core::Interface for CoreWindowPopupShowingEventArgs {
-    type Vtable = ICoreWindowPopupShowingEventArgsVtbl;
+    type Vtable = ICoreWindowPopupShowingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26155fa2_5ba5_4ea4_a3b4_2dc7d63c8e26);
 }
 impl ::windows::core::RuntimeName for CoreWindowPopupShowingEventArgs {
@@ -3890,7 +3890,7 @@ unsafe impl ::windows::core::RuntimeType for CoreWindowResizeManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowResizeManager;{b8f0b925-b350-48b3-a198-5c1a84700243})");
 }
 unsafe impl ::windows::core::Interface for CoreWindowResizeManager {
-    type Vtable = ICoreWindowResizeManagerVtbl;
+    type Vtable = ICoreWindowResizeManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8f0b925_b350_48b3_a198_5c1a84700243);
 }
 impl ::windows::core::RuntimeName for CoreWindowResizeManager {
@@ -3954,12 +3954,12 @@ impl DispatchedHandler {
 }
 #[repr(C)]
 struct DispatchedHandlerBox<F: FnMut() -> ::windows::core::Result<()> + 'static> {
-    vtable: *const DispatchedHandlerVtbl,
+    vtable: *const DispatchedHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut() -> ::windows::core::Result<()> + 'static> DispatchedHandlerBox<F> {
-    const VTABLE: DispatchedHandlerVtbl = DispatchedHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: DispatchedHandler_Vtbl = DispatchedHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<DispatchedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -4004,7 +4004,7 @@ impl ::core::fmt::Debug for DispatchedHandler {
     }
 }
 unsafe impl ::windows::core::Interface for DispatchedHandler {
-    type Vtable = DispatchedHandlerVtbl;
+    type Vtable = DispatchedHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1f276c4_98d8_4636_bf49_eb79507548e9);
 }
 unsafe impl ::windows::core::RuntimeType for DispatchedHandler {
@@ -4012,7 +4012,7 @@ unsafe impl ::windows::core::RuntimeType for DispatchedHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct DispatchedHandlerVtbl {
+pub struct DispatchedHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -4020,12 +4020,12 @@ pub struct DispatchedHandlerVtbl {
 #[repr(transparent)]
 pub struct IAcceleratorKeyEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAcceleratorKeyEventArgs {
-    type Vtable = IAcceleratorKeyEventArgsVtbl;
+    type Vtable = IAcceleratorKeyEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff1c4c4a_9287_470b_836e_9086e3126ade);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAcceleratorKeyEventArgsVtbl {
+pub struct IAcceleratorKeyEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EventType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreAcceleratorKeyEventType) -> ::windows::core::HRESULT,
     #[cfg(feature = "System")]
@@ -4038,12 +4038,12 @@ pub struct IAcceleratorKeyEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAcceleratorKeyEventArgs2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAcceleratorKeyEventArgs2 {
-    type Vtable = IAcceleratorKeyEventArgs2Vtbl;
+    type Vtable = IAcceleratorKeyEventArgs2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd300a9f6_2f7e_4873_a555_166e596ee1c5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAcceleratorKeyEventArgs2Vtbl {
+pub struct IAcceleratorKeyEventArgs2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -4051,12 +4051,12 @@ pub struct IAcceleratorKeyEventArgs2Vtbl {
 #[repr(transparent)]
 pub struct IAutomationProviderRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationProviderRequestedEventArgs {
-    type Vtable = IAutomationProviderRequestedEventArgsVtbl;
+    type Vtable = IAutomationProviderRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x961ff258_21bf_4b42_a298_fa479d4c52e2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationProviderRequestedEventArgsVtbl {
+pub struct IAutomationProviderRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AutomationProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetAutomationProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4065,12 +4065,12 @@ pub struct IAutomationProviderRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IBackRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackRequestedEventArgs {
-    type Vtable = IBackRequestedEventArgsVtbl;
+    type Vtable = IBackRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd603d28a_e411_4a4e_ba41_6a327a8675bc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackRequestedEventArgsVtbl {
+pub struct IBackRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -4079,12 +4079,12 @@ pub struct IBackRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICharacterReceivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICharacterReceivedEventArgs {
-    type Vtable = ICharacterReceivedEventArgsVtbl;
+    type Vtable = ICharacterReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc584659f_99b2_4bcc_bd33_04e63f42902e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICharacterReceivedEventArgsVtbl {
+pub struct ICharacterReceivedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub KeyCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub KeyStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CorePhysicalKeyStatus) -> ::windows::core::HRESULT,
@@ -4093,12 +4093,12 @@ pub struct ICharacterReceivedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IClosestInteractiveBoundsRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClosestInteractiveBoundsRequestedEventArgs {
-    type Vtable = IClosestInteractiveBoundsRequestedEventArgsVtbl;
+    type Vtable = IClosestInteractiveBoundsRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x347c11d7_f6f8_40e3_b29f_ae50d3e86486);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClosestInteractiveBoundsRequestedEventArgsVtbl {
+pub struct IClosestInteractiveBoundsRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub PointerPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
@@ -4197,12 +4197,12 @@ unsafe impl ::windows::core::RuntimeType for ICoreAcceleratorKeys {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9ffdf7f5-b8c9-4ef0-b7d2-1de626561fc8}");
 }
 unsafe impl ::windows::core::Interface for ICoreAcceleratorKeys {
-    type Vtable = ICoreAcceleratorKeysVtbl;
+    type Vtable = ICoreAcceleratorKeys_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ffdf7f5_b8c9_4ef0_b7d2_1de626561fc8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreAcceleratorKeysVtbl {
+pub struct ICoreAcceleratorKeys_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub AcceleratorKeyActivated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -4217,12 +4217,12 @@ pub struct ICoreAcceleratorKeysVtbl {
 #[repr(transparent)]
 pub struct ICoreClosestInteractiveBoundsRequested(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreClosestInteractiveBoundsRequested {
-    type Vtable = ICoreClosestInteractiveBoundsRequestedVtbl;
+    type Vtable = ICoreClosestInteractiveBoundsRequested_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf303043a_e8bf_4e8e_ae69_c9dadd57a114);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreClosestInteractiveBoundsRequestedVtbl {
+pub struct ICoreClosestInteractiveBoundsRequested_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ClosestInteractiveBoundsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -4237,12 +4237,12 @@ pub struct ICoreClosestInteractiveBoundsRequestedVtbl {
 #[repr(transparent)]
 pub struct ICoreComponentFocusable(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreComponentFocusable {
-    type Vtable = ICoreComponentFocusableVtbl;
+    type Vtable = ICoreComponentFocusable_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52f96fa3_8742_4411_ae69_79a85f29ac8b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreComponentFocusableVtbl {
+pub struct ICoreComponentFocusable_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub HasFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -4266,12 +4266,12 @@ pub struct ICoreComponentFocusableVtbl {
 #[repr(transparent)]
 pub struct ICoreCursor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreCursor {
-    type Vtable = ICoreCursorVtbl;
+    type Vtable = ICoreCursor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96893acf_111d_442c_8a77_b87992f8e2d6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreCursorVtbl {
+pub struct ICoreCursor_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreCursorType) -> ::windows::core::HRESULT,
@@ -4280,12 +4280,12 @@ pub struct ICoreCursorVtbl {
 #[repr(transparent)]
 pub struct ICoreCursorFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreCursorFactory {
-    type Vtable = ICoreCursorFactoryVtbl;
+    type Vtable = ICoreCursorFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6359621_a79d_4ed3_8c32_a9ef9d6b76a4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreCursorFactoryVtbl {
+pub struct ICoreCursorFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateCursor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: CoreCursorType, id: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -4293,12 +4293,12 @@ pub struct ICoreCursorFactoryVtbl {
 #[repr(transparent)]
 pub struct ICoreDispatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreDispatcher {
-    type Vtable = ICoreDispatcherVtbl;
+    type Vtable = ICoreDispatcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60db2fa8_b705_4fde_a7d6_ebbb1891d39e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreDispatcherVtbl {
+pub struct ICoreDispatcher_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub HasThreadAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub ProcessEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: CoreProcessEventsOption) -> ::windows::core::HRESULT,
@@ -4315,12 +4315,12 @@ pub struct ICoreDispatcherVtbl {
 #[repr(transparent)]
 pub struct ICoreDispatcher2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreDispatcher2 {
-    type Vtable = ICoreDispatcher2Vtbl;
+    type Vtable = ICoreDispatcher2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f5e63c7_e3aa_4eae_b0e0_dcf321ca4b2f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreDispatcher2Vtbl {
+pub struct ICoreDispatcher2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub TryRunAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, priority: CoreDispatcherPriority, agilecallback: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4335,12 +4335,12 @@ pub struct ICoreDispatcher2Vtbl {
 #[repr(transparent)]
 pub struct ICoreDispatcherWithTaskPriority(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreDispatcherWithTaskPriority {
-    type Vtable = ICoreDispatcherWithTaskPriorityVtbl;
+    type Vtable = ICoreDispatcherWithTaskPriority_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbafaecad_484d_41be_ba80_1d58c65263ea);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreDispatcherWithTaskPriorityVtbl {
+pub struct ICoreDispatcherWithTaskPriority_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CurrentPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreDispatcherPriority) -> ::windows::core::HRESULT,
     pub SetCurrentPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreDispatcherPriority) -> ::windows::core::HRESULT,
@@ -4352,12 +4352,12 @@ pub struct ICoreDispatcherWithTaskPriorityVtbl {
 #[repr(transparent)]
 pub struct ICoreIndependentInputSourceController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreIndependentInputSourceController {
-    type Vtable = ICoreIndependentInputSourceControllerVtbl;
+    type Vtable = ICoreIndependentInputSourceController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0963261c_84fe_578a_83ca_6425309ccde4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreIndependentInputSourceControllerVtbl {
+pub struct ICoreIndependentInputSourceController_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsTransparentForUncontrolledInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsTransparentForUncontrolledInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -4371,12 +4371,12 @@ pub struct ICoreIndependentInputSourceControllerVtbl {
 #[repr(transparent)]
 pub struct ICoreIndependentInputSourceControllerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreIndependentInputSourceControllerStatics {
-    type Vtable = ICoreIndependentInputSourceControllerStaticsVtbl;
+    type Vtable = ICoreIndependentInputSourceControllerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3edc4e20_9a8a_5691_8586_fca4cb57526d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreIndependentInputSourceControllerStaticsVtbl {
+pub struct ICoreIndependentInputSourceControllerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Composition")]
     pub CreateForVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4488,12 +4488,12 @@ unsafe impl ::windows::core::RuntimeType for ICoreInputSourceBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9f488807-4580-4be8-be68-92a9311713bb}");
 }
 unsafe impl ::windows::core::Interface for ICoreInputSourceBase {
-    type Vtable = ICoreInputSourceBaseVtbl;
+    type Vtable = ICoreInputSourceBase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f488807_4580_4be8_be68_92a9311713bb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreInputSourceBaseVtbl {
+pub struct ICoreInputSourceBase_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Dispatcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsInputEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -4511,12 +4511,12 @@ pub struct ICoreInputSourceBaseVtbl {
 #[repr(transparent)]
 pub struct ICoreKeyboardInputSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreKeyboardInputSource {
-    type Vtable = ICoreKeyboardInputSourceVtbl;
+    type Vtable = ICoreKeyboardInputSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x231c9088_e469_4df1_b208_6e490d71cb90);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreKeyboardInputSourceVtbl {
+pub struct ICoreKeyboardInputSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub GetCurrentKeyState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, virtualkey: super::super::System::VirtualKey, result__: *mut CoreVirtualKeyStates) -> ::windows::core::HRESULT,
@@ -4551,12 +4551,12 @@ pub struct ICoreKeyboardInputSourceVtbl {
 #[repr(transparent)]
 pub struct ICoreKeyboardInputSource2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreKeyboardInputSource2 {
-    type Vtable = ICoreKeyboardInputSource2Vtbl;
+    type Vtable = ICoreKeyboardInputSource2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa24cb94_f963_47a5_8778_207c482b0afd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreKeyboardInputSource2Vtbl {
+pub struct ICoreKeyboardInputSource2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetCurrentKeyEventDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -4770,12 +4770,12 @@ unsafe impl ::windows::core::RuntimeType for ICorePointerInputSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{bbf1bb18-e47a-48eb-8807-f8f8d3ea4551}");
 }
 unsafe impl ::windows::core::Interface for ICorePointerInputSource {
-    type Vtable = ICorePointerInputSourceVtbl;
+    type Vtable = ICorePointerInputSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbf1bb18_e47a_48eb_8807_f8f8d3ea4551);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICorePointerInputSourceVtbl {
+pub struct ICorePointerInputSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ReleasePointerCapture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetPointerCapture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -5084,12 +5084,12 @@ unsafe impl ::windows::core::RuntimeType for ICorePointerInputSource2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d703708a-4516-4786-b1e5-2751d563f997}");
 }
 unsafe impl ::windows::core::Interface for ICorePointerInputSource2 {
-    type Vtable = ICorePointerInputSource2Vtbl;
+    type Vtable = ICorePointerInputSource2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd703708a_4516_4786_b1e5_2751d563f997);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICorePointerInputSource2Vtbl {
+pub struct ICorePointerInputSource2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub DispatcherQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5206,12 +5206,12 @@ unsafe impl ::windows::core::RuntimeType for ICorePointerRedirector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8f9d0c94-5688-4b0c-a9f1-f931f7fa3dc3}");
 }
 unsafe impl ::windows::core::Interface for ICorePointerRedirector {
-    type Vtable = ICorePointerRedirectorVtbl;
+    type Vtable = ICorePointerRedirector_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f9d0c94_5688_4b0c_a9f1_f931f7fa3dc3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICorePointerRedirectorVtbl {
+pub struct ICorePointerRedirector_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub PointerRoutedAway: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -5242,12 +5242,12 @@ pub struct ICorePointerRedirectorVtbl {
 #[repr(transparent)]
 pub struct ICoreTouchHitTesting(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreTouchHitTesting {
-    type Vtable = ICoreTouchHitTestingVtbl;
+    type Vtable = ICoreTouchHitTesting_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1d8a289_3acf_4124_9fa3_ea8aba353c21);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreTouchHitTestingVtbl {
+pub struct ICoreTouchHitTesting_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub TouchHitTesting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -5706,12 +5706,12 @@ unsafe impl ::windows::core::RuntimeType for ICoreWindow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{79b9d5f2-879e-4b89-b798-79e47598030c}");
 }
 unsafe impl ::windows::core::Interface for ICoreWindow {
-    type Vtable = ICoreWindowVtbl;
+    type Vtable = ICoreWindow_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79b9d5f2_879e_4b89_b798_79e47598030c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreWindowVtbl {
+pub struct ICoreWindow_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AutomationHostProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -5887,12 +5887,12 @@ pub struct ICoreWindowVtbl {
 #[repr(transparent)]
 pub struct ICoreWindow2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWindow2 {
-    type Vtable = ICoreWindow2Vtbl;
+    type Vtable = ICoreWindow2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c2b1b85_6917_4361_9c02_0d9e3a420b95);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreWindow2Vtbl {
+pub struct ICoreWindow2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SetPointerPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Point) -> ::windows::core::HRESULT,
@@ -5903,12 +5903,12 @@ pub struct ICoreWindow2Vtbl {
 #[repr(transparent)]
 pub struct ICoreWindow3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWindow3 {
-    type Vtable = ICoreWindow3Vtbl;
+    type Vtable = ICoreWindow3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32c20dd8_faef_4375_a2ab_32640e4815c7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreWindow3Vtbl {
+pub struct ICoreWindow3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ClosestInteractiveBoundsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -5924,12 +5924,12 @@ pub struct ICoreWindow3Vtbl {
 #[repr(transparent)]
 pub struct ICoreWindow4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWindow4 {
-    type Vtable = ICoreWindow4Vtbl;
+    type Vtable = ICoreWindow4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35caf0d0_47f0_436c_af97_0dd88f6f5f02);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreWindow4Vtbl {
+pub struct ICoreWindow4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ResizeStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -5952,12 +5952,12 @@ pub struct ICoreWindow4Vtbl {
 #[repr(transparent)]
 pub struct ICoreWindow5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWindow5 {
-    type Vtable = ICoreWindow5Vtbl;
+    type Vtable = ICoreWindow5_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b4ae1e1_2e6d_4eaa_bda1_1c5cc1bee141);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreWindow5Vtbl {
+pub struct ICoreWindow5_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub DispatcherQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5969,12 +5969,12 @@ pub struct ICoreWindow5Vtbl {
 #[repr(transparent)]
 pub struct ICoreWindowDialog(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWindowDialog {
-    type Vtable = ICoreWindowDialogVtbl;
+    type Vtable = ICoreWindowDialog_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7392ce0_c78d_427e_8b2c_01ff420c69d5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreWindowDialogVtbl {
+pub struct ICoreWindowDialog_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Showing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -6021,12 +6021,12 @@ pub struct ICoreWindowDialogVtbl {
 #[repr(transparent)]
 pub struct ICoreWindowDialogFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWindowDialogFactory {
-    type Vtable = ICoreWindowDialogFactoryVtbl;
+    type Vtable = ICoreWindowDialogFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfb2a855_1c59_4b13_b1e5_16e29805f7c4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreWindowDialogFactoryVtbl {
+pub struct ICoreWindowDialogFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateWithTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -6108,12 +6108,12 @@ unsafe impl ::windows::core::RuntimeType for ICoreWindowEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{272b1ef3-c633-4da5-a26c-c6d0f56b29da}");
 }
 unsafe impl ::windows::core::Interface for ICoreWindowEventArgs {
-    type Vtable = ICoreWindowEventArgsVtbl;
+    type Vtable = ICoreWindowEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x272b1ef3_c633_4da5_a26c_c6d0f56b29da);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreWindowEventArgsVtbl {
+pub struct ICoreWindowEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -6122,12 +6122,12 @@ pub struct ICoreWindowEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICoreWindowFlyout(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWindowFlyout {
-    type Vtable = ICoreWindowFlyoutVtbl;
+    type Vtable = ICoreWindowFlyout_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe89d854d_2050_40bb_b344_f6f355eeb314);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreWindowFlyoutVtbl {
+pub struct ICoreWindowFlyout_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Showing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -6172,12 +6172,12 @@ pub struct ICoreWindowFlyoutVtbl {
 #[repr(transparent)]
 pub struct ICoreWindowFlyoutFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWindowFlyoutFactory {
-    type Vtable = ICoreWindowFlyoutFactoryVtbl;
+    type Vtable = ICoreWindowFlyoutFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdec4c6c4_93e8_4f7c_be27_cefaa1af68a7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreWindowFlyoutFactoryVtbl {
+pub struct ICoreWindowFlyoutFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: super::super::Foundation::Point, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6192,12 +6192,12 @@ pub struct ICoreWindowFlyoutFactoryVtbl {
 #[repr(transparent)]
 pub struct ICoreWindowPopupShowingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWindowPopupShowingEventArgs {
-    type Vtable = ICoreWindowPopupShowingEventArgsVtbl;
+    type Vtable = ICoreWindowPopupShowingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26155fa2_5ba5_4ea4_a3b4_2dc7d63c8e26);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreWindowPopupShowingEventArgsVtbl {
+pub struct ICoreWindowPopupShowingEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SetDesiredSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Size) -> ::windows::core::HRESULT,
@@ -6208,12 +6208,12 @@ pub struct ICoreWindowPopupShowingEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICoreWindowResizeManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWindowResizeManager {
-    type Vtable = ICoreWindowResizeManagerVtbl;
+    type Vtable = ICoreWindowResizeManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8f0b925_b350_48b3_a198_5c1a84700243);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreWindowResizeManagerVtbl {
+pub struct ICoreWindowResizeManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub NotifyLayoutCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -6221,12 +6221,12 @@ pub struct ICoreWindowResizeManagerVtbl {
 #[repr(transparent)]
 pub struct ICoreWindowResizeManagerLayoutCapability(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWindowResizeManagerLayoutCapability {
-    type Vtable = ICoreWindowResizeManagerLayoutCapabilityVtbl;
+    type Vtable = ICoreWindowResizeManagerLayoutCapability_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb74f27b_a544_4301_80e6_0ae033ef4536);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreWindowResizeManagerLayoutCapabilityVtbl {
+pub struct ICoreWindowResizeManagerLayoutCapability_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetShouldWaitForLayoutCompletion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub ShouldWaitForLayoutCompletion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -6235,12 +6235,12 @@ pub struct ICoreWindowResizeManagerLayoutCapabilityVtbl {
 #[repr(transparent)]
 pub struct ICoreWindowResizeManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWindowResizeManagerStatics {
-    type Vtable = ICoreWindowResizeManagerStaticsVtbl;
+    type Vtable = ICoreWindowResizeManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae4a9045_6d70_49db_8e68_46ffbd17d38d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreWindowResizeManagerStaticsVtbl {
+pub struct ICoreWindowResizeManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -6248,12 +6248,12 @@ pub struct ICoreWindowResizeManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct ICoreWindowStatic(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWindowStatic {
-    type Vtable = ICoreWindowStaticVtbl;
+    type Vtable = ICoreWindowStatic_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d239005_3c2a_41b1_9022_536bb9cf93b1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreWindowStaticVtbl {
+pub struct ICoreWindowStatic_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForCurrentThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -6261,12 +6261,12 @@ pub struct ICoreWindowStaticVtbl {
 #[repr(transparent)]
 pub struct ICoreWindowWithContext(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreWindowWithContext {
-    type Vtable = ICoreWindowWithContextVtbl;
+    type Vtable = ICoreWindowWithContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ac40241_3575_4c3b_af66_e8c529d4d06c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreWindowWithContextVtbl {
+pub struct ICoreWindowWithContext_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub UIContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -6274,12 +6274,12 @@ pub struct ICoreWindowWithContextVtbl {
 #[repr(transparent)]
 pub struct IIdleDispatchedHandlerArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIdleDispatchedHandlerArgs {
-    type Vtable = IIdleDispatchedHandlerArgsVtbl;
+    type Vtable = IIdleDispatchedHandlerArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98bb6a24_dc1c_43cb_b4ed_d1c0eb2391f3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIdleDispatchedHandlerArgsVtbl {
+pub struct IIdleDispatchedHandlerArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsDispatcherIdle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -6353,12 +6353,12 @@ unsafe impl ::windows::core::RuntimeType for IInitializeWithCoreWindow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{188f20d6-9873-464a-ace5-57e010f465e6}");
 }
 unsafe impl ::windows::core::Interface for IInitializeWithCoreWindow {
-    type Vtable = IInitializeWithCoreWindowVtbl;
+    type Vtable = IInitializeWithCoreWindow_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x188f20d6_9873_464a_ace5_57e010f465e6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInitializeWithCoreWindowVtbl {
+pub struct IInitializeWithCoreWindow_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -6366,12 +6366,12 @@ pub struct IInitializeWithCoreWindowVtbl {
 #[repr(transparent)]
 pub struct IInputEnabledEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInputEnabledEventArgs {
-    type Vtable = IInputEnabledEventArgsVtbl;
+    type Vtable = IInputEnabledEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80371d4f_2fd8_4c24_aa86_3163a87b4e5a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInputEnabledEventArgsVtbl {
+pub struct IInputEnabledEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InputEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -6379,12 +6379,12 @@ pub struct IInputEnabledEventArgsVtbl {
 #[repr(transparent)]
 pub struct IKeyEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyEventArgs {
-    type Vtable = IKeyEventArgsVtbl;
+    type Vtable = IKeyEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ff5e930_2544_4a17_bd78_1f2fdebb106b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKeyEventArgsVtbl {
+pub struct IKeyEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub VirtualKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::VirtualKey) -> ::windows::core::HRESULT,
@@ -6396,12 +6396,12 @@ pub struct IKeyEventArgsVtbl {
 #[repr(transparent)]
 pub struct IKeyEventArgs2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyEventArgs2 {
-    type Vtable = IKeyEventArgs2Vtbl;
+    type Vtable = IKeyEventArgs2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x583add98_0790_4571_9b12_645ef9d79e42);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKeyEventArgs2Vtbl {
+pub struct IKeyEventArgs2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -6409,12 +6409,12 @@ pub struct IKeyEventArgs2Vtbl {
 #[repr(transparent)]
 pub struct IPointerEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointerEventArgs {
-    type Vtable = IPointerEventArgsVtbl;
+    type Vtable = IPointerEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x920d9cb1_a5fc_4a21_8c09_49dfe6ffe25f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPointerEventArgsVtbl {
+pub struct IPointerEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Input")]
     pub CurrentPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6433,12 +6433,12 @@ pub struct IPointerEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISystemNavigationManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemNavigationManager {
-    type Vtable = ISystemNavigationManagerVtbl;
+    type Vtable = ISystemNavigationManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93023118_cf50_42a6_9706_69107fa122e1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISystemNavigationManagerVtbl {
+pub struct ISystemNavigationManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub BackRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -6453,12 +6453,12 @@ pub struct ISystemNavigationManagerVtbl {
 #[repr(transparent)]
 pub struct ISystemNavigationManager2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemNavigationManager2 {
-    type Vtable = ISystemNavigationManager2Vtbl;
+    type Vtable = ISystemNavigationManager2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c510401_67be_49ae_9509_671c1e54a389);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISystemNavigationManager2Vtbl {
+pub struct ISystemNavigationManager2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AppViewBackButtonVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppViewBackButtonVisibility) -> ::windows::core::HRESULT,
     pub SetAppViewBackButtonVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: AppViewBackButtonVisibility) -> ::windows::core::HRESULT,
@@ -6467,12 +6467,12 @@ pub struct ISystemNavigationManager2Vtbl {
 #[repr(transparent)]
 pub struct ISystemNavigationManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemNavigationManagerStatics {
-    type Vtable = ISystemNavigationManagerStaticsVtbl;
+    type Vtable = ISystemNavigationManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc52b5ce_bee0_4305_8c54_68228ed683b5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISystemNavigationManagerStaticsVtbl {
+pub struct ISystemNavigationManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -6480,12 +6480,12 @@ pub struct ISystemNavigationManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct ITouchHitTestingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITouchHitTestingEventArgs {
-    type Vtable = ITouchHitTestingEventArgsVtbl;
+    type Vtable = ITouchHitTestingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22f3b823_0b7c_424e_9df7_33d4f962931b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITouchHitTestingEventArgsVtbl {
+pub struct ITouchHitTestingEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ProximityEvaluation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreProximityEvaluation) -> ::windows::core::HRESULT,
@@ -6516,12 +6516,12 @@ pub struct ITouchHitTestingEventArgsVtbl {
 #[repr(transparent)]
 pub struct IVisibilityChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVisibilityChangedEventArgs {
-    type Vtable = IVisibilityChangedEventArgsVtbl;
+    type Vtable = IVisibilityChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf9918ea_d801_4564_a495_b1e84f8ad085);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVisibilityChangedEventArgsVtbl {
+pub struct IVisibilityChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Visible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -6529,12 +6529,12 @@ pub struct IVisibilityChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IWindowActivatedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWindowActivatedEventArgs {
-    type Vtable = IWindowActivatedEventArgsVtbl;
+    type Vtable = IWindowActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x179d65e7_4658_4cb6_aa13_41d094ea255e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowActivatedEventArgsVtbl {
+pub struct IWindowActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub WindowActivationState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreWindowActivationState) -> ::windows::core::HRESULT,
 }
@@ -6542,12 +6542,12 @@ pub struct IWindowActivatedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IWindowSizeChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWindowSizeChangedEventArgs {
-    type Vtable = IWindowSizeChangedEventArgsVtbl;
+    type Vtable = IWindowSizeChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a200ec7_0426_47dc_b86c_6f475915e451);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowSizeChangedEventArgsVtbl {
+pub struct IWindowSizeChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT,
@@ -6570,12 +6570,12 @@ impl IdleDispatchedHandler {
 }
 #[repr(C)]
 struct IdleDispatchedHandlerBox<F: FnMut(&::core::option::Option<IdleDispatchedHandlerArgs>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const IdleDispatchedHandlerVtbl,
+    vtable: *const IdleDispatchedHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<IdleDispatchedHandlerArgs>) -> ::windows::core::Result<()> + 'static> IdleDispatchedHandlerBox<F> {
-    const VTABLE: IdleDispatchedHandlerVtbl = IdleDispatchedHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: IdleDispatchedHandler_Vtbl = IdleDispatchedHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<IdleDispatchedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -6620,7 +6620,7 @@ impl ::core::fmt::Debug for IdleDispatchedHandler {
     }
 }
 unsafe impl ::windows::core::Interface for IdleDispatchedHandler {
-    type Vtable = IdleDispatchedHandlerVtbl;
+    type Vtable = IdleDispatchedHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa42b0c24_7f21_4abc_99c1_8f01007f0880);
 }
 unsafe impl ::windows::core::RuntimeType for IdleDispatchedHandler {
@@ -6628,7 +6628,7 @@ unsafe impl ::windows::core::RuntimeType for IdleDispatchedHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IdleDispatchedHandlerVtbl {
+pub struct IdleDispatchedHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -6665,7 +6665,7 @@ unsafe impl ::windows::core::RuntimeType for IdleDispatchedHandlerArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.IdleDispatchedHandlerArgs;{98bb6a24-dc1c-43cb-b4ed-d1c0eb2391f3})");
 }
 unsafe impl ::windows::core::Interface for IdleDispatchedHandlerArgs {
-    type Vtable = IIdleDispatchedHandlerArgsVtbl;
+    type Vtable = IIdleDispatchedHandlerArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98bb6a24_dc1c_43cb_b4ed_d1c0eb2391f3);
 }
 impl ::windows::core::RuntimeName for IdleDispatchedHandlerArgs {
@@ -6757,7 +6757,7 @@ unsafe impl ::windows::core::RuntimeType for InputEnabledEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.InputEnabledEventArgs;{80371d4f-2fd8-4c24-aa86-3163a87b4e5a})");
 }
 unsafe impl ::windows::core::Interface for InputEnabledEventArgs {
-    type Vtable = IInputEnabledEventArgsVtbl;
+    type Vtable = IInputEnabledEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80371d4f_2fd8_4c24_aa86_3163a87b4e5a);
 }
 impl ::windows::core::RuntimeName for InputEnabledEventArgs {
@@ -6888,7 +6888,7 @@ unsafe impl ::windows::core::RuntimeType for KeyEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.KeyEventArgs;{5ff5e930-2544-4a17-bd78-1f2fdebb106b})");
 }
 unsafe impl ::windows::core::Interface for KeyEventArgs {
-    type Vtable = IKeyEventArgsVtbl;
+    type Vtable = IKeyEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ff5e930_2544_4a17_bd78_1f2fdebb106b);
 }
 impl ::windows::core::RuntimeName for KeyEventArgs {
@@ -7021,7 +7021,7 @@ unsafe impl ::windows::core::RuntimeType for PointerEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.PointerEventArgs;{920d9cb1-a5fc-4a21-8c09-49dfe6ffe25f})");
 }
 unsafe impl ::windows::core::Interface for PointerEventArgs {
-    type Vtable = IPointerEventArgsVtbl;
+    type Vtable = IPointerEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x920d9cb1_a5fc_4a21_8c09_49dfe6ffe25f);
 }
 impl ::windows::core::RuntimeName for PointerEventArgs {
@@ -7154,7 +7154,7 @@ unsafe impl ::windows::core::RuntimeType for SystemNavigationManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.SystemNavigationManager;{93023118-cf50-42a6-9706-69107fa122e1})");
 }
 unsafe impl ::windows::core::Interface for SystemNavigationManager {
-    type Vtable = ISystemNavigationManagerVtbl;
+    type Vtable = ISystemNavigationManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93023118_cf50_42a6_9706_69107fa122e1);
 }
 impl ::windows::core::RuntimeName for SystemNavigationManager {
@@ -7291,7 +7291,7 @@ unsafe impl ::windows::core::RuntimeType for TouchHitTestingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.TouchHitTestingEventArgs;{22f3b823-0b7c-424e-9df7-33d4f962931b})");
 }
 unsafe impl ::windows::core::Interface for TouchHitTestingEventArgs {
-    type Vtable = ITouchHitTestingEventArgsVtbl;
+    type Vtable = ITouchHitTestingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22f3b823_0b7c_424e_9df7_33d4f962931b);
 }
 impl ::windows::core::RuntimeName for TouchHitTestingEventArgs {
@@ -7405,7 +7405,7 @@ unsafe impl ::windows::core::RuntimeType for VisibilityChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.VisibilityChangedEventArgs;{bf9918ea-d801-4564-a495-b1e84f8ad085})");
 }
 unsafe impl ::windows::core::Interface for VisibilityChangedEventArgs {
-    type Vtable = IVisibilityChangedEventArgsVtbl;
+    type Vtable = IVisibilityChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf9918ea_d801_4564_a495_b1e84f8ad085);
 }
 impl ::windows::core::RuntimeName for VisibilityChangedEventArgs {
@@ -7519,7 +7519,7 @@ unsafe impl ::windows::core::RuntimeType for WindowActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.WindowActivatedEventArgs;{179d65e7-4658-4cb6-aa13-41d094ea255e})");
 }
 unsafe impl ::windows::core::Interface for WindowActivatedEventArgs {
-    type Vtable = IWindowActivatedEventArgsVtbl;
+    type Vtable = IWindowActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x179d65e7_4658_4cb6_aa13_41d094ea255e);
 }
 impl ::windows::core::RuntimeName for WindowActivatedEventArgs {
@@ -7634,7 +7634,7 @@ unsafe impl ::windows::core::RuntimeType for WindowSizeChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.WindowSizeChangedEventArgs;{5a200ec7-0426-47dc-b86c-6f475915e451})");
 }
 unsafe impl ::windows::core::Interface for WindowSizeChangedEventArgs {
-    type Vtable = IWindowSizeChangedEventArgsVtbl;
+    type Vtable = IWindowSizeChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a200ec7_0426_47dc_b86c_6f475915e451);
 }
 impl ::windows::core::RuntimeName for WindowSizeChangedEventArgs {

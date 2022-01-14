@@ -5,12 +5,12 @@ pub mod Core;
 #[repr(transparent)]
 pub struct IUserActivity(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivity {
-    type Vtable = IUserActivityVtbl;
+    type Vtable = IUserActivity_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc103e9e_2cab_4d36_aea2_b4bb556cef0f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserActivityVtbl {
+pub struct IUserActivity_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserActivityState) -> ::windows::core::HRESULT,
     pub ActivityId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -53,12 +53,12 @@ pub struct IUserActivityVtbl {
 #[repr(transparent)]
 pub struct IUserActivity2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivity2 {
-    type Vtable = IUserActivity2Vtbl;
+    type Vtable = IUserActivity2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9dc40c62_08c4_47ac_aa9c_2bb2221c55fd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserActivity2Vtbl {
+pub struct IUserActivity2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ToJson: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -66,12 +66,12 @@ pub struct IUserActivity2Vtbl {
 #[repr(transparent)]
 pub struct IUserActivity3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivity3 {
-    type Vtable = IUserActivity3Vtbl;
+    type Vtable = IUserActivity3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7697744_e1a2_5147_8e06_55f1eeef271c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserActivity3Vtbl {
+pub struct IUserActivity3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsRoamable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsRoamable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -80,12 +80,12 @@ pub struct IUserActivity3Vtbl {
 #[repr(transparent)]
 pub struct IUserActivityAttribution(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityAttribution {
-    type Vtable = IUserActivityAttributionVtbl;
+    type Vtable = IUserActivityAttribution_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34a5c8b5_86dd_4aec_a491_6a4faea5d22e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserActivityAttributionVtbl {
+pub struct IUserActivityAttribution_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub IconUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -104,12 +104,12 @@ pub struct IUserActivityAttributionVtbl {
 #[repr(transparent)]
 pub struct IUserActivityAttributionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityAttributionFactory {
-    type Vtable = IUserActivityAttributionFactoryVtbl;
+    type Vtable = IUserActivityAttributionFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe62bd252_c566_4f42_9974_916c4d76377e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserActivityAttributionFactoryVtbl {
+pub struct IUserActivityAttributionFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CreateWithUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iconuri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -120,12 +120,12 @@ pub struct IUserActivityAttributionFactoryVtbl {
 #[repr(transparent)]
 pub struct IUserActivityChannel(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityChannel {
-    type Vtable = IUserActivityChannelVtbl;
+    type Vtable = IUserActivityChannel_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbac0f8b8_a0e4_483b_b948_9cbabd06070c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserActivityChannelVtbl {
+pub struct IUserActivityChannel_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetOrCreateUserActivityAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activityid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -144,12 +144,12 @@ pub struct IUserActivityChannelVtbl {
 #[repr(transparent)]
 pub struct IUserActivityChannel2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityChannel2 {
-    type Vtable = IUserActivityChannel2Vtbl;
+    type Vtable = IUserActivityChannel2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1698e35b_eb7e_4ea0_bf17_a459e8be706c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserActivityChannel2Vtbl {
+pub struct IUserActivityChannel2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetRecentUserActivitiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxuniqueactivities: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -164,12 +164,12 @@ pub struct IUserActivityChannel2Vtbl {
 #[repr(transparent)]
 pub struct IUserActivityChannelStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityChannelStatics {
-    type Vtable = IUserActivityChannelStaticsVtbl;
+    type Vtable = IUserActivityChannelStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8c005ab_198d_4d80_abb2_c9775ec4a729);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserActivityChannelStaticsVtbl {
+pub struct IUserActivityChannelStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -177,12 +177,12 @@ pub struct IUserActivityChannelStaticsVtbl {
 #[repr(transparent)]
 pub struct IUserActivityChannelStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityChannelStatics2 {
-    type Vtable = IUserActivityChannelStatics2Vtbl;
+    type Vtable = IUserActivityChannelStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e87de30_aa4f_4624_9ad0_d40f3ba0317c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserActivityChannelStatics2Vtbl {
+pub struct IUserActivityChannelStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DisableAutoSessionCreation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Security_Credentials")]
@@ -194,12 +194,12 @@ pub struct IUserActivityChannelStatics2Vtbl {
 #[repr(transparent)]
 pub struct IUserActivityChannelStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityChannelStatics3 {
-    type Vtable = IUserActivityChannelStatics3Vtbl;
+    type Vtable = IUserActivityChannelStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53bc4ddb_bbdf_5984_802a_5305874e205c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserActivityChannelStatics3Vtbl {
+pub struct IUserActivityChannelStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -279,12 +279,12 @@ unsafe impl ::windows::core::RuntimeType for IUserActivityContentInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b399e5ad-137f-409d-822d-e1af27ce08dc}");
 }
 unsafe impl ::windows::core::Interface for IUserActivityContentInfo {
-    type Vtable = IUserActivityContentInfoVtbl;
+    type Vtable = IUserActivityContentInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb399e5ad_137f_409d_822d_e1af27ce08dc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserActivityContentInfoVtbl {
+pub struct IUserActivityContentInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ToJson: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -292,12 +292,12 @@ pub struct IUserActivityContentInfoVtbl {
 #[repr(transparent)]
 pub struct IUserActivityContentInfoStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityContentInfoStatics {
-    type Vtable = IUserActivityContentInfoStaticsVtbl;
+    type Vtable = IUserActivityContentInfoStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9988c34b_0386_4bc9_968a_8200b004144f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserActivityContentInfoStaticsVtbl {
+pub struct IUserActivityContentInfoStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FromJson: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -305,12 +305,12 @@ pub struct IUserActivityContentInfoStaticsVtbl {
 #[repr(transparent)]
 pub struct IUserActivityFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityFactory {
-    type Vtable = IUserActivityFactoryVtbl;
+    type Vtable = IUserActivityFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c385758_361d_4a67_8a3b_34ca2978f9a3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserActivityFactoryVtbl {
+pub struct IUserActivityFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateWithActivityId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activityid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -318,12 +318,12 @@ pub struct IUserActivityFactoryVtbl {
 #[repr(transparent)]
 pub struct IUserActivityRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityRequest {
-    type Vtable = IUserActivityRequestVtbl;
+    type Vtable = IUserActivityRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0ef6355_cf35_4ff0_8833_50cb4b72e06d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserActivityRequestVtbl {
+pub struct IUserActivityRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetUserActivity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activity: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -331,12 +331,12 @@ pub struct IUserActivityRequestVtbl {
 #[repr(transparent)]
 pub struct IUserActivityRequestManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityRequestManager {
-    type Vtable = IUserActivityRequestManagerVtbl;
+    type Vtable = IUserActivityRequestManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c30be4e_903d_48d6_82d4_4043ed57791b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserActivityRequestManagerVtbl {
+pub struct IUserActivityRequestManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub UserActivityRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -351,12 +351,12 @@ pub struct IUserActivityRequestManagerVtbl {
 #[repr(transparent)]
 pub struct IUserActivityRequestManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityRequestManagerStatics {
-    type Vtable = IUserActivityRequestManagerStaticsVtbl;
+    type Vtable = IUserActivityRequestManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0392df1_224a_432c_81e5_0c76b4c4cefa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserActivityRequestManagerStaticsVtbl {
+pub struct IUserActivityRequestManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -364,12 +364,12 @@ pub struct IUserActivityRequestManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IUserActivityRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityRequestedEventArgs {
-    type Vtable = IUserActivityRequestedEventArgsVtbl;
+    type Vtable = IUserActivityRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4cc7a4c_8229_4cfd_a3bc_c61d318575a4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserActivityRequestedEventArgsVtbl {
+pub struct IUserActivityRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -381,12 +381,12 @@ pub struct IUserActivityRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IUserActivitySession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivitySession {
-    type Vtable = IUserActivitySessionVtbl;
+    type Vtable = IUserActivitySession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae434d78_24fa_44a3_ad48_6eda61aa1924);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserActivitySessionVtbl {
+pub struct IUserActivitySession_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ActivityId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -394,12 +394,12 @@ pub struct IUserActivitySessionVtbl {
 #[repr(transparent)]
 pub struct IUserActivitySessionHistoryItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivitySessionHistoryItem {
-    type Vtable = IUserActivitySessionHistoryItemVtbl;
+    type Vtable = IUserActivitySessionHistoryItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8d59bd3_3e5d_49fd_98d7_6da97521e255);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserActivitySessionHistoryItemVtbl {
+pub struct IUserActivitySessionHistoryItem_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub UserActivity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -415,12 +415,12 @@ pub struct IUserActivitySessionHistoryItemVtbl {
 #[repr(transparent)]
 pub struct IUserActivityStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityStatics {
-    type Vtable = IUserActivityStaticsVtbl;
+    type Vtable = IUserActivityStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c8fd333_0e09_47f6_9ac7_95cf5c39367b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserActivityStaticsVtbl {
+pub struct IUserActivityStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TryParseFromJson: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, json: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -436,12 +436,12 @@ pub struct IUserActivityStaticsVtbl {
 #[repr(transparent)]
 pub struct IUserActivityVisualElements(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityVisualElements {
-    type Vtable = IUserActivityVisualElementsVtbl;
+    type Vtable = IUserActivityVisualElements_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94757513_262f_49ef_bbbf_9b75d2e85250);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserActivityVisualElementsVtbl {
+pub struct IUserActivityVisualElements_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DisplayText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetDisplayText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -470,12 +470,12 @@ pub struct IUserActivityVisualElementsVtbl {
 #[repr(transparent)]
 pub struct IUserActivityVisualElements2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserActivityVisualElements2 {
-    type Vtable = IUserActivityVisualElements2Vtbl;
+    type Vtable = IUserActivityVisualElements2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaae7fc7_3eef_4359_825c_9d51b9220de3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserActivityVisualElements2Vtbl {
+pub struct IUserActivityVisualElements2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AttributionDisplayText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetAttributionDisplayText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -678,7 +678,7 @@ unsafe impl ::windows::core::RuntimeType for UserActivity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivity;{fc103e9e-2cab-4d36-aea2-b4bb556cef0f})");
 }
 unsafe impl ::windows::core::Interface for UserActivity {
-    type Vtable = IUserActivityVtbl;
+    type Vtable = IUserActivity_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc103e9e_2cab_4d36_aea2_b4bb556cef0f);
 }
 impl ::windows::core::RuntimeName for UserActivity {
@@ -812,7 +812,7 @@ unsafe impl ::windows::core::RuntimeType for UserActivityAttribution {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityAttribution;{34a5c8b5-86dd-4aec-a491-6a4faea5d22e})");
 }
 unsafe impl ::windows::core::Interface for UserActivityAttribution {
-    type Vtable = IUserActivityAttributionVtbl;
+    type Vtable = IUserActivityAttribution_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34a5c8b5_86dd_4aec_a491_6a4faea5d22e);
 }
 impl ::windows::core::RuntimeName for UserActivityAttribution {
@@ -972,7 +972,7 @@ unsafe impl ::windows::core::RuntimeType for UserActivityChannel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityChannel;{bac0f8b8-a0e4-483b-b948-9cbabd06070c})");
 }
 unsafe impl ::windows::core::Interface for UserActivityChannel {
-    type Vtable = IUserActivityChannelVtbl;
+    type Vtable = IUserActivityChannel_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbac0f8b8_a0e4_483b_b948_9cbabd06070c);
 }
 impl ::windows::core::RuntimeName for UserActivityChannel {
@@ -1065,7 +1065,7 @@ unsafe impl ::windows::core::RuntimeType for UserActivityContentInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityContentInfo;{b399e5ad-137f-409d-822d-e1af27ce08dc})");
 }
 unsafe impl ::windows::core::Interface for UserActivityContentInfo {
-    type Vtable = IUserActivityContentInfoVtbl;
+    type Vtable = IUserActivityContentInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb399e5ad_137f_409d_822d_e1af27ce08dc);
 }
 impl ::windows::core::RuntimeName for UserActivityContentInfo {
@@ -1165,7 +1165,7 @@ unsafe impl ::windows::core::RuntimeType for UserActivityRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityRequest;{a0ef6355-cf35-4ff0-8833-50cb4b72e06d})");
 }
 unsafe impl ::windows::core::Interface for UserActivityRequest {
-    type Vtable = IUserActivityRequestVtbl;
+    type Vtable = IUserActivityRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0ef6355_cf35_4ff0_8833_50cb4b72e06d);
 }
 impl ::windows::core::RuntimeName for UserActivityRequest {
@@ -1265,7 +1265,7 @@ unsafe impl ::windows::core::RuntimeType for UserActivityRequestManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityRequestManager;{0c30be4e-903d-48d6-82d4-4043ed57791b})");
 }
 unsafe impl ::windows::core::Interface for UserActivityRequestManager {
-    type Vtable = IUserActivityRequestManagerVtbl;
+    type Vtable = IUserActivityRequestManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c30be4e_903d_48d6_82d4_4043ed57791b);
 }
 impl ::windows::core::RuntimeName for UserActivityRequestManager {
@@ -1353,7 +1353,7 @@ unsafe impl ::windows::core::RuntimeType for UserActivityRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityRequestedEventArgs;{a4cc7a4c-8229-4cfd-a3bc-c61d318575a4})");
 }
 unsafe impl ::windows::core::Interface for UserActivityRequestedEventArgs {
-    type Vtable = IUserActivityRequestedEventArgsVtbl;
+    type Vtable = IUserActivityRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4cc7a4c_8229_4cfd_a3bc_c61d318575a4);
 }
 impl ::windows::core::RuntimeName for UserActivityRequestedEventArgs {
@@ -1440,7 +1440,7 @@ unsafe impl ::windows::core::RuntimeType for UserActivitySession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivitySession;{ae434d78-24fa-44a3-ad48-6eda61aa1924})");
 }
 unsafe impl ::windows::core::Interface for UserActivitySession {
-    type Vtable = IUserActivitySessionVtbl;
+    type Vtable = IUserActivitySession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae434d78_24fa_44a3_ad48_6eda61aa1924);
 }
 impl ::windows::core::RuntimeName for UserActivitySession {
@@ -1565,7 +1565,7 @@ unsafe impl ::windows::core::RuntimeType for UserActivitySessionHistoryItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem;{e8d59bd3-3e5d-49fd-98d7-6da97521e255})");
 }
 unsafe impl ::windows::core::Interface for UserActivitySessionHistoryItem {
-    type Vtable = IUserActivitySessionHistoryItemVtbl;
+    type Vtable = IUserActivitySessionHistoryItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8d59bd3_3e5d_49fd_98d7_6da97521e255);
 }
 impl ::windows::core::RuntimeName for UserActivitySessionHistoryItem {
@@ -1753,7 +1753,7 @@ unsafe impl ::windows::core::RuntimeType for UserActivityVisualElements {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityVisualElements;{94757513-262f-49ef-bbbf-9b75d2e85250})");
 }
 unsafe impl ::windows::core::Interface for UserActivityVisualElements {
-    type Vtable = IUserActivityVisualElementsVtbl;
+    type Vtable = IUserActivityVisualElements_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94757513_262f_49ef_bbbf_9b75d2e85250);
 }
 impl ::windows::core::RuntimeName for UserActivityVisualElements {

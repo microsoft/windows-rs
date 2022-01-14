@@ -63,12 +63,12 @@ impl ::core::fmt::Debug for IMLOperatorAttributes {
     }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorAttributes {
-    type Vtable = IMLOperatorAttributesVtbl;
+    type Vtable = IMLOperatorAttributes_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b1b1759_ec40_466c_aab4_beb5347fd24c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMLOperatorAttributesVtbl {
+pub struct IMLOperatorAttributes_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetAttributeElementCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PSTR, r#type: MLOperatorAttributeType, elementcount: *mut u32) -> ::windows::core::HRESULT,
@@ -133,12 +133,12 @@ impl ::core::fmt::Debug for IMLOperatorKernel {
     }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorKernel {
-    type Vtable = IMLOperatorKernelVtbl;
+    type Vtable = IMLOperatorKernel_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11c4b4a0_b467_4eaa_a1a6_b961d8d0ed79);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMLOperatorKernelVtbl {
+pub struct IMLOperatorKernel_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Compute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -208,12 +208,12 @@ impl ::core::fmt::Debug for IMLOperatorKernelContext {
     }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorKernelContext {
-    type Vtable = IMLOperatorKernelContextVtbl;
+    type Vtable = IMLOperatorKernelContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82536a28_f022_4769_9d3f_8b278f84c0c3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMLOperatorKernelContextVtbl {
+pub struct IMLOperatorKernelContext_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetInputTensor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputindex: u32, tensor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetOutputTensor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputindex: u32, dimensioncount: u32, dimensionsizes: *const u32, tensor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -344,13 +344,13 @@ impl ::core::fmt::Debug for IMLOperatorKernelCreationContext {
     }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorKernelCreationContext {
-    type Vtable = IMLOperatorKernelCreationContextVtbl;
+    type Vtable = IMLOperatorKernelCreationContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5459b53d_a0fc_4665_addd_70171ef7e631);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMLOperatorKernelCreationContextVtbl {
-    pub base: IMLOperatorAttributesVtbl,
+pub struct IMLOperatorKernelCreationContext_Vtbl {
+    pub base: IMLOperatorAttributes_Vtbl,
     pub GetInputCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetOutputCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub IsInputValid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputindex: u32) -> bool,
@@ -408,12 +408,12 @@ impl ::core::fmt::Debug for IMLOperatorKernelFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorKernelFactory {
-    type Vtable = IMLOperatorKernelFactoryVtbl;
+    type Vtable = IMLOperatorKernelFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef15ad6f_0dc9_4908_ab35_a575a30dfbf8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMLOperatorKernelFactoryVtbl {
+pub struct IMLOperatorKernelFactory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateKernel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, kernel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -469,12 +469,12 @@ impl ::core::fmt::Debug for IMLOperatorRegistry {
     }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorRegistry {
-    type Vtable = IMLOperatorRegistryVtbl;
+    type Vtable = IMLOperatorRegistry_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2af9dd2d_b516_4672_9ab5_530c208493ad);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMLOperatorRegistryVtbl {
+pub struct IMLOperatorRegistry_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RegisterOperatorSetSchema: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: ::windows::core::RawPtr, shapeinferrer: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -603,13 +603,13 @@ impl ::core::fmt::Debug for IMLOperatorShapeInferenceContext {
     }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorShapeInferenceContext {
-    type Vtable = IMLOperatorShapeInferenceContextVtbl;
+    type Vtable = IMLOperatorShapeInferenceContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x105b6b29_5408_4a68_9959_09b5955a3492);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMLOperatorShapeInferenceContextVtbl {
-    pub base: IMLOperatorAttributesVtbl,
+pub struct IMLOperatorShapeInferenceContext_Vtbl {
+    pub base: IMLOperatorAttributes_Vtbl,
     pub GetInputCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetOutputCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub IsInputValid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputindex: u32) -> bool,
@@ -665,12 +665,12 @@ impl ::core::fmt::Debug for IMLOperatorShapeInferrer {
     }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorShapeInferrer {
-    type Vtable = IMLOperatorShapeInferrerVtbl;
+    type Vtable = IMLOperatorShapeInferrer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x540be5be_a6c9_40ee_83f6_d2b8b40a7798);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMLOperatorShapeInferrerVtbl {
+pub struct IMLOperatorShapeInferrer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub InferOutputShapes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -744,12 +744,12 @@ impl ::core::fmt::Debug for IMLOperatorTensor {
     }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorTensor {
-    type Vtable = IMLOperatorTensorVtbl;
+    type Vtable = IMLOperatorTensor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fe41f41_f430_440e_aece_54416dc8b9db);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMLOperatorTensorVtbl {
+pub struct IMLOperatorTensor_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetDimensionCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetShape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dimensioncount: u32, dimensions: *mut u32) -> ::windows::core::HRESULT,
@@ -823,12 +823,12 @@ impl ::core::fmt::Debug for IMLOperatorTensorShapeDescription {
     }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorTensorShapeDescription {
-    type Vtable = IMLOperatorTensorShapeDescriptionVtbl;
+    type Vtable = IMLOperatorTensorShapeDescription_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf20e8cbe_3b28_4248_be95_f96fbc6e4643);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMLOperatorTensorShapeDescriptionVtbl {
+pub struct IMLOperatorTensorShapeDescription_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetInputTensorDimensionCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputindex: u32, dimensioncount: *mut u32) -> ::windows::core::HRESULT,
     pub GetInputTensorShape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::core::HRESULT,
@@ -945,13 +945,13 @@ impl ::core::fmt::Debug for IMLOperatorTypeInferenceContext {
     }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorTypeInferenceContext {
-    type Vtable = IMLOperatorTypeInferenceContextVtbl;
+    type Vtable = IMLOperatorTypeInferenceContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec893bb1_f938_427b_8488_c8dcf775f138);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMLOperatorTypeInferenceContextVtbl {
-    pub base: IMLOperatorAttributesVtbl,
+pub struct IMLOperatorTypeInferenceContext_Vtbl {
+    pub base: IMLOperatorAttributes_Vtbl,
     pub GetInputCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetOutputCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub IsInputValid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputindex: u32) -> bool,
@@ -1005,12 +1005,12 @@ impl ::core::fmt::Debug for IMLOperatorTypeInferrer {
     }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorTypeInferrer {
-    type Vtable = IMLOperatorTypeInferrerVtbl;
+    type Vtable = IMLOperatorTypeInferrer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x781aeb48_9bcb_4797_bf77_8bf455217beb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMLOperatorTypeInferrerVtbl {
+pub struct IMLOperatorTypeInferrer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub InferOutputTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1071,12 +1071,12 @@ impl ::core::fmt::Debug for IWinMLEvaluationContext {
     }
 }
 unsafe impl ::windows::core::Interface for IWinMLEvaluationContext {
-    type Vtable = IWinMLEvaluationContextVtbl;
+    type Vtable = IWinMLEvaluationContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95848f9e_583d_4054_af12_916387cd8426);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWinMLEvaluationContextVtbl {
+pub struct IWinMLEvaluationContext_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub BindValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdescriptor: *const WINML_BINDING_DESC) -> ::windows::core::HRESULT,
@@ -1153,12 +1153,12 @@ impl ::core::fmt::Debug for IWinMLModel {
     }
 }
 unsafe impl ::windows::core::Interface for IWinMLModel {
-    type Vtable = IWinMLModelVtbl;
+    type Vtable = IWinMLModel_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2eeb6a9_f31f_4055_a521_e30b5b33664a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWinMLModelVtbl {
+pub struct IWinMLModel_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdescription: *mut *mut WINML_MODEL_DESC) -> ::windows::core::HRESULT,
@@ -1235,12 +1235,12 @@ impl ::core::fmt::Debug for IWinMLRuntime {
     }
 }
 unsafe impl ::windows::core::Interface for IWinMLRuntime {
-    type Vtable = IWinMLRuntimeVtbl;
+    type Vtable = IWinMLRuntime_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0425329_40ae_48d9_bce3_829ef7b8a41a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWinMLRuntimeVtbl {
+pub struct IWinMLRuntime_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub LoadModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: super::super::super::Foundation::PWSTR, ppmodel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1299,12 +1299,12 @@ impl ::core::fmt::Debug for IWinMLRuntimeFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IWinMLRuntimeFactory {
-    type Vtable = IWinMLRuntimeFactoryVtbl;
+    type Vtable = IWinMLRuntimeFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa807b84d_4ae5_4bc0_a76a_941aa246bd41);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWinMLRuntimeFactoryVtbl {
+pub struct IWinMLRuntimeFactory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateRuntime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, runtimetype: WINML_RUNTIME_TYPE, ppruntime: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }

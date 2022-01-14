@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IMediaTranscoder(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaTranscoder {
-    type Vtable = IMediaTranscoderVtbl;
+    type Vtable = IMediaTranscoder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x190c99d2_a0aa_4d34_86bc_eed1b12c2f5b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaTranscoderVtbl {
+pub struct IMediaTranscoder_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SetTrimStartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -54,12 +54,12 @@ pub struct IMediaTranscoderVtbl {
 #[repr(transparent)]
 pub struct IMediaTranscoder2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaTranscoder2 {
-    type Vtable = IMediaTranscoder2Vtbl;
+    type Vtable = IMediaTranscoder2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40531d74_35e0_4f04_8574_ca8bc4e5a082);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaTranscoder2Vtbl {
+pub struct IMediaTranscoder2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
     pub PrepareMediaStreamSourceTranscodeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, destination: ::windows::core::RawPtr, profile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -72,12 +72,12 @@ pub struct IMediaTranscoder2Vtbl {
 #[repr(transparent)]
 pub struct IPrepareTranscodeResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrepareTranscodeResult {
-    type Vtable = IPrepareTranscodeResultVtbl;
+    type Vtable = IPrepareTranscodeResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05f25dce_994f_4a34_9d68_97ccce1730d6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrepareTranscodeResultVtbl {
+pub struct IPrepareTranscodeResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CanTranscode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub FailureReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TranscodeFailureReason) -> ::windows::core::HRESULT,
@@ -241,7 +241,7 @@ unsafe impl ::windows::core::RuntimeType for MediaTranscoder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Transcoding.MediaTranscoder;{190c99d2-a0aa-4d34-86bc-eed1b12c2f5b})");
 }
 unsafe impl ::windows::core::Interface for MediaTranscoder {
-    type Vtable = IMediaTranscoderVtbl;
+    type Vtable = IMediaTranscoder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x190c99d2_a0aa_4d34_86bc_eed1b12c2f5b);
 }
 impl ::windows::core::RuntimeName for MediaTranscoder {
@@ -372,7 +372,7 @@ unsafe impl ::windows::core::RuntimeType for PrepareTranscodeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Transcoding.PrepareTranscodeResult;{05f25dce-994f-4a34-9d68-97ccce1730d6})");
 }
 unsafe impl ::windows::core::Interface for PrepareTranscodeResult {
-    type Vtable = IPrepareTranscodeResultVtbl;
+    type Vtable = IPrepareTranscodeResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05f25dce_994f_4a34_9d68_97ccce1730d6);
 }
 impl ::windows::core::RuntimeName for PrepareTranscodeResult {

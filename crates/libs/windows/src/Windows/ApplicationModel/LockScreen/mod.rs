@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct ILockApplicationHost(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILockApplicationHost {
-    type Vtable = ILockApplicationHostVtbl;
+    type Vtable = ILockApplicationHost_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38ee31ad_d94f_4e7c_81fa_4f4436506281);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILockApplicationHostVtbl {
+pub struct ILockApplicationHost_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RequestUnlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -24,12 +24,12 @@ pub struct ILockApplicationHostVtbl {
 #[repr(transparent)]
 pub struct ILockApplicationHostStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILockApplicationHostStatics {
-    type Vtable = ILockApplicationHostStaticsVtbl;
+    type Vtable = ILockApplicationHostStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf48fab8e_23d7_4e63_96a1_666ff52d3b2c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILockApplicationHostStaticsVtbl {
+pub struct ILockApplicationHostStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -37,12 +37,12 @@ pub struct ILockApplicationHostStaticsVtbl {
 #[repr(transparent)]
 pub struct ILockScreenBadge(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILockScreenBadge {
-    type Vtable = ILockScreenBadgeVtbl;
+    type Vtable = ILockScreenBadge_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe95105d9_2bff_4db0_9b4f_3824778b9c9a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILockScreenBadgeVtbl {
+pub struct ILockScreenBadge_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub Logo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -63,12 +63,12 @@ pub struct ILockScreenBadgeVtbl {
 #[repr(transparent)]
 pub struct ILockScreenInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILockScreenInfo {
-    type Vtable = ILockScreenInfoVtbl;
+    type Vtable = ILockScreenInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf59aa65c_9711_4dc9_a630_95b6cb8cdad0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILockScreenInfoVtbl {
+pub struct ILockScreenInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub LockScreenImageChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -123,12 +123,12 @@ pub struct ILockScreenInfoVtbl {
 #[repr(transparent)]
 pub struct ILockScreenUnlockingDeferral(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILockScreenUnlockingDeferral {
-    type Vtable = ILockScreenUnlockingDeferralVtbl;
+    type Vtable = ILockScreenUnlockingDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e7d1ad6_5203_43e7_9bd6_7c3947d1e3fe);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILockScreenUnlockingDeferralVtbl {
+pub struct ILockScreenUnlockingDeferral_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -136,12 +136,12 @@ pub struct ILockScreenUnlockingDeferralVtbl {
 #[repr(transparent)]
 pub struct ILockScreenUnlockingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILockScreenUnlockingEventArgs {
-    type Vtable = ILockScreenUnlockingEventArgsVtbl;
+    type Vtable = ILockScreenUnlockingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44e6c007_75fb_4abb_9f8b_824748900c71);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILockScreenUnlockingEventArgsVtbl {
+pub struct ILockScreenUnlockingEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -206,7 +206,7 @@ unsafe impl ::windows::core::RuntimeType for LockApplicationHost {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LockScreen.LockApplicationHost;{38ee31ad-d94f-4e7c-81fa-4f4436506281})");
 }
 unsafe impl ::windows::core::Interface for LockApplicationHost {
-    type Vtable = ILockApplicationHostVtbl;
+    type Vtable = ILockApplicationHost_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38ee31ad_d94f_4e7c_81fa_4f4436506281);
 }
 impl ::windows::core::RuntimeName for LockApplicationHost {
@@ -319,7 +319,7 @@ unsafe impl ::windows::core::RuntimeType for LockScreenBadge {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LockScreen.LockScreenBadge;{e95105d9-2bff-4db0-9b4f-3824778b9c9a})");
 }
 unsafe impl ::windows::core::Interface for LockScreenBadge {
-    type Vtable = ILockScreenBadgeVtbl;
+    type Vtable = ILockScreenBadge_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe95105d9_2bff_4db0_9b4f_3824778b9c9a);
 }
 impl ::windows::core::RuntimeName for LockScreenBadge {
@@ -488,7 +488,7 @@ unsafe impl ::windows::core::RuntimeType for LockScreenInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LockScreen.LockScreenInfo;{f59aa65c-9711-4dc9-a630-95b6cb8cdad0})");
 }
 unsafe impl ::windows::core::Interface for LockScreenInfo {
-    type Vtable = ILockScreenInfoVtbl;
+    type Vtable = ILockScreenInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf59aa65c_9711_4dc9_a630_95b6cb8cdad0);
 }
 impl ::windows::core::RuntimeName for LockScreenInfo {
@@ -566,7 +566,7 @@ unsafe impl ::windows::core::RuntimeType for LockScreenUnlockingDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LockScreen.LockScreenUnlockingDeferral;{7e7d1ad6-5203-43e7-9bd6-7c3947d1e3fe})");
 }
 unsafe impl ::windows::core::Interface for LockScreenUnlockingDeferral {
-    type Vtable = ILockScreenUnlockingDeferralVtbl;
+    type Vtable = ILockScreenUnlockingDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e7d1ad6_5203_43e7_9bd6_7c3947d1e3fe);
 }
 impl ::windows::core::RuntimeName for LockScreenUnlockingDeferral {
@@ -656,7 +656,7 @@ unsafe impl ::windows::core::RuntimeType for LockScreenUnlockingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LockScreen.LockScreenUnlockingEventArgs;{44e6c007-75fb-4abb-9f8b-824748900c71})");
 }
 unsafe impl ::windows::core::Interface for LockScreenUnlockingEventArgs {
-    type Vtable = ILockScreenUnlockingEventArgsVtbl;
+    type Vtable = ILockScreenUnlockingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44e6c007_75fb_4abb_9f8b_824748900c71);
 }
 impl ::windows::core::RuntimeName for LockScreenUnlockingEventArgs {

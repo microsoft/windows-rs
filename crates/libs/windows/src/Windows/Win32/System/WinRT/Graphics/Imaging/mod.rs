@@ -67,12 +67,12 @@ impl ::core::fmt::Debug for ISoftwareBitmapNative {
     }
 }
 unsafe impl ::windows::core::Interface for ISoftwareBitmapNative {
-    type Vtable = ISoftwareBitmapNativeVtbl;
+    type Vtable = ISoftwareBitmapNative_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94bc8415_04ea_4b2e_af13_4de95aa898eb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISoftwareBitmapNativeVtbl {
+pub struct ISoftwareBitmapNative_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -150,12 +150,12 @@ impl ::core::fmt::Debug for ISoftwareBitmapNativeFactory {
     }
 }
 unsafe impl ::windows::core::Interface for ISoftwareBitmapNativeFactory {
-    type Vtable = ISoftwareBitmapNativeFactoryVtbl;
+    type Vtable = ISoftwareBitmapNativeFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3c181ec_2914_4791_af02_02d224a10b43);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISoftwareBitmapNativeFactoryVtbl {
+pub struct ISoftwareBitmapNativeFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Imaging"))]
     pub CreateFromWICBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, forcereadonly: super::super::super::super::Foundation::BOOL, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

@@ -52,7 +52,7 @@ unsafe impl ::windows::core::RuntimeType for CustomXamlResourceLoader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Resources.CustomXamlResourceLoader;{511a84ab-4a88-419f-852e-54083b90b078})");
 }
 unsafe impl ::windows::core::Interface for CustomXamlResourceLoader {
-    type Vtable = ICustomXamlResourceLoaderVtbl;
+    type Vtable = ICustomXamlResourceLoader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x511a84ab_4a88_419f_852e_54083b90b078);
 }
 impl ::windows::core::RuntimeName for CustomXamlResourceLoader {
@@ -104,24 +104,24 @@ unsafe impl ::core::marker::Sync for CustomXamlResourceLoader {}
 #[repr(transparent)]
 pub struct ICustomXamlResourceLoader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICustomXamlResourceLoader {
-    type Vtable = ICustomXamlResourceLoaderVtbl;
+    type Vtable = ICustomXamlResourceLoader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x511a84ab_4a88_419f_852e_54083b90b078);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICustomXamlResourceLoaderVtbl {
+pub struct ICustomXamlResourceLoader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICustomXamlResourceLoaderFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICustomXamlResourceLoaderFactory {
-    type Vtable = ICustomXamlResourceLoaderFactoryVtbl;
+    type Vtable = ICustomXamlResourceLoaderFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bfd7e49_7886_44f3_8ed3_6fec0463ed69);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICustomXamlResourceLoaderFactoryVtbl {
+pub struct ICustomXamlResourceLoaderFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -129,12 +129,12 @@ pub struct ICustomXamlResourceLoaderFactoryVtbl {
 #[repr(transparent)]
 pub struct ICustomXamlResourceLoaderOverrides(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICustomXamlResourceLoaderOverrides {
-    type Vtable = ICustomXamlResourceLoaderOverridesVtbl;
+    type Vtable = ICustomXamlResourceLoaderOverrides_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf851e991_af02_46e8_9af8_427b7ebfe9f8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICustomXamlResourceLoaderOverridesVtbl {
+pub struct ICustomXamlResourceLoaderOverrides_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, objecttype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertytype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -142,12 +142,12 @@ pub struct ICustomXamlResourceLoaderOverridesVtbl {
 #[repr(transparent)]
 pub struct ICustomXamlResourceLoaderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICustomXamlResourceLoaderStatics {
-    type Vtable = ICustomXamlResourceLoaderStaticsVtbl;
+    type Vtable = ICustomXamlResourceLoaderStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x224ff617_e4dc_4c27_ad32_db93d5d0e5da);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICustomXamlResourceLoaderStaticsVtbl {
+pub struct ICustomXamlResourceLoaderStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,

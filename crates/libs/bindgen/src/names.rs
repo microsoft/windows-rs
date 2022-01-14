@@ -17,12 +17,12 @@ pub fn gen_type_ident(def: &TypeDef, gen: &Gen) -> TokenStream {
 
 // TODO: use above instead
 pub fn gen_vtbl_ident(def: &TypeDef, gen: &Gen) -> TokenStream {
-    gen_type_ident_impl(def, gen, "Vtbl")
+    gen_type_ident_impl(def, gen, "_Vtbl")
 }
 
 // TODO: use above instead
 pub fn gen_impl_ident(def: &TypeDef, gen: &Gen) -> TokenStream {
-    gen_type_ident_impl(def, gen, "Impl")
+    gen_type_ident_impl(def, gen, "_Impl")
 }
 
 fn gen_type_ident_impl(def: &TypeDef, gen: &Gen, vtbl: &str) -> TokenStream {

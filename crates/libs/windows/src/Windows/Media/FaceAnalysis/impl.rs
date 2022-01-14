@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-pub trait IDetectedFaceImpl: Sized {
+pub trait IDetectedFace_Impl: Sized {
     fn FaceBox(&mut self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapBounds>;
 }
 #[cfg(all(feature = "Graphics_Imaging", feature = "implement_exclusive"))]
@@ -7,9 +7,9 @@ impl ::windows::core::RuntimeName for IDetectedFace {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.IDetectedFace";
 }
 #[cfg(all(feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-impl IDetectedFaceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDetectedFaceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDetectedFaceVtbl {
-        unsafe extern "system" fn FaceBox<Impl: IDetectedFaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapBounds) -> ::windows::core::HRESULT {
+impl IDetectedFace_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDetectedFace_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDetectedFace_Vtbl {
+        unsafe extern "system" fn FaceBox<Impl: IDetectedFace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapBounds) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FaceBox() {
                 ::core::result::Result::Ok(ok__) => {
@@ -27,7 +27,7 @@ impl IDetectedFaceVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-pub trait IFaceDetectorImpl: Sized {
+pub trait IFaceDetector_Impl: Sized {
     fn DetectFacesAsync(&mut self, image: &::core::option::Option<super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>;
     fn DetectFacesWithSearchAreaAsync(&mut self, image: &::core::option::Option<super::super::Graphics::Imaging::SoftwareBitmap>, searcharea: &super::super::Graphics::Imaging::BitmapBounds) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>;
     fn MinDetectableFaceSize(&mut self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapSize>;
@@ -40,9 +40,9 @@ impl ::windows::core::RuntimeName for IFaceDetector {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.IFaceDetector";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-impl IFaceDetectorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaceDetectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaceDetectorVtbl {
-        unsafe extern "system" fn DetectFacesAsync<Impl: IFaceDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, image: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IFaceDetector_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaceDetector_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaceDetector_Vtbl {
+        unsafe extern "system" fn DetectFacesAsync<Impl: IFaceDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, image: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DetectFacesAsync(&*(&image as *const <super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -53,7 +53,7 @@ impl IFaceDetectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DetectFacesWithSearchAreaAsync<Impl: IFaceDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, image: ::windows::core::RawPtr, searcharea: super::super::Graphics::Imaging::BitmapBounds, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DetectFacesWithSearchAreaAsync<Impl: IFaceDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, image: ::windows::core::RawPtr, searcharea: super::super::Graphics::Imaging::BitmapBounds, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DetectFacesWithSearchAreaAsync(&*(&image as *const <super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::DefaultType>::DefaultType), &*(&searcharea as *const <super::super::Graphics::Imaging::BitmapBounds as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Imaging::BitmapBounds as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -64,7 +64,7 @@ impl IFaceDetectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MinDetectableFaceSize<Impl: IFaceDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinDetectableFaceSize<Impl: IFaceDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinDetectableFaceSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -75,11 +75,11 @@ impl IFaceDetectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMinDetectableFaceSize<Impl: IFaceDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMinDetectableFaceSize<Impl: IFaceDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMinDetectableFaceSize(&*(&value as *const <super::super::Graphics::Imaging::BitmapSize as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Imaging::BitmapSize as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MaxDetectableFaceSize<Impl: IFaceDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxDetectableFaceSize<Impl: IFaceDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxDetectableFaceSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -90,7 +90,7 @@ impl IFaceDetectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxDetectableFaceSize<Impl: IFaceDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxDetectableFaceSize<Impl: IFaceDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxDetectableFaceSize(&*(&value as *const <super::super::Graphics::Imaging::BitmapSize as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Imaging::BitmapSize as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -109,7 +109,7 @@ impl IFaceDetectorVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-pub trait IFaceDetectorStaticsImpl: Sized {
+pub trait IFaceDetectorStatics_Impl: Sized {
     fn CreateAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FaceDetector>>;
     fn GetSupportedBitmapPixelFormats(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>>;
     fn IsBitmapPixelFormatSupported(&mut self, bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::Result<bool>;
@@ -120,9 +120,9 @@ impl ::windows::core::RuntimeName for IFaceDetectorStatics {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.IFaceDetectorStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-impl IFaceDetectorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaceDetectorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaceDetectorStaticsVtbl {
-        unsafe extern "system" fn CreateAsync<Impl: IFaceDetectorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IFaceDetectorStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaceDetectorStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaceDetectorStatics_Vtbl {
+        unsafe extern "system" fn CreateAsync<Impl: IFaceDetectorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -133,7 +133,7 @@ impl IFaceDetectorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSupportedBitmapPixelFormats<Impl: IFaceDetectorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSupportedBitmapPixelFormats<Impl: IFaceDetectorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSupportedBitmapPixelFormats() {
                 ::core::result::Result::Ok(ok__) => {
@@ -144,7 +144,7 @@ impl IFaceDetectorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsBitmapPixelFormatSupported<Impl: IFaceDetectorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsBitmapPixelFormatSupported<Impl: IFaceDetectorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBitmapPixelFormatSupported(bitmappixelformat) {
                 ::core::result::Result::Ok(ok__) => {
@@ -155,7 +155,7 @@ impl IFaceDetectorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSupported<Impl: IFaceDetectorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSupported<Impl: IFaceDetectorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -179,7 +179,7 @@ impl IFaceDetectorStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-pub trait IFaceTrackerImpl: Sized {
+pub trait IFaceTracker_Impl: Sized {
     fn ProcessNextFrameAsync(&mut self, videoframe: &::core::option::Option<super::VideoFrame>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>;
     fn MinDetectableFaceSize(&mut self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapSize>;
     fn SetMinDetectableFaceSize(&mut self, value: &super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<()>;
@@ -191,9 +191,9 @@ impl ::windows::core::RuntimeName for IFaceTracker {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.IFaceTracker";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-impl IFaceTrackerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaceTrackerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaceTrackerVtbl {
-        unsafe extern "system" fn ProcessNextFrameAsync<Impl: IFaceTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, videoframe: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IFaceTracker_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaceTracker_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaceTracker_Vtbl {
+        unsafe extern "system" fn ProcessNextFrameAsync<Impl: IFaceTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, videoframe: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProcessNextFrameAsync(&*(&videoframe as *const <super::VideoFrame as ::windows::core::Abi>::Abi as *const <super::VideoFrame as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -204,7 +204,7 @@ impl IFaceTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MinDetectableFaceSize<Impl: IFaceTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinDetectableFaceSize<Impl: IFaceTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinDetectableFaceSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -215,11 +215,11 @@ impl IFaceTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMinDetectableFaceSize<Impl: IFaceTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMinDetectableFaceSize<Impl: IFaceTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMinDetectableFaceSize(&*(&value as *const <super::super::Graphics::Imaging::BitmapSize as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Imaging::BitmapSize as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MaxDetectableFaceSize<Impl: IFaceTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxDetectableFaceSize<Impl: IFaceTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxDetectableFaceSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -230,7 +230,7 @@ impl IFaceTrackerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxDetectableFaceSize<Impl: IFaceTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxDetectableFaceSize<Impl: IFaceTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxDetectableFaceSize(&*(&value as *const <super::super::Graphics::Imaging::BitmapSize as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Imaging::BitmapSize as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -248,7 +248,7 @@ impl IFaceTrackerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-pub trait IFaceTrackerStaticsImpl: Sized {
+pub trait IFaceTrackerStatics_Impl: Sized {
     fn CreateAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FaceTracker>>;
     fn GetSupportedBitmapPixelFormats(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>>;
     fn IsBitmapPixelFormatSupported(&mut self, bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::Result<bool>;
@@ -259,9 +259,9 @@ impl ::windows::core::RuntimeName for IFaceTrackerStatics {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.IFaceTrackerStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-impl IFaceTrackerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaceTrackerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaceTrackerStaticsVtbl {
-        unsafe extern "system" fn CreateAsync<Impl: IFaceTrackerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IFaceTrackerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaceTrackerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaceTrackerStatics_Vtbl {
+        unsafe extern "system" fn CreateAsync<Impl: IFaceTrackerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -272,7 +272,7 @@ impl IFaceTrackerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSupportedBitmapPixelFormats<Impl: IFaceTrackerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSupportedBitmapPixelFormats<Impl: IFaceTrackerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSupportedBitmapPixelFormats() {
                 ::core::result::Result::Ok(ok__) => {
@@ -283,7 +283,7 @@ impl IFaceTrackerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsBitmapPixelFormatSupported<Impl: IFaceTrackerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsBitmapPixelFormatSupported<Impl: IFaceTrackerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBitmapPixelFormatSupported(bitmappixelformat) {
                 ::core::result::Result::Ok(ok__) => {
@@ -294,7 +294,7 @@ impl IFaceTrackerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSupported<Impl: IFaceTrackerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSupported<Impl: IFaceTrackerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
                 ::core::result::Result::Ok(ok__) => {

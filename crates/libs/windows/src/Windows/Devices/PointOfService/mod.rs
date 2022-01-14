@@ -173,7 +173,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScanner {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScanner;{bea33e06-b264-4f03-a9c1-45b20f01134f})");
 }
 unsafe impl ::windows::core::Interface for BarcodeScanner {
-    type Vtable = IBarcodeScannerVtbl;
+    type Vtable = IBarcodeScanner_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbea33e06_b264_4f03_a9c1_45b20f01134f);
 }
 impl ::windows::core::RuntimeName for BarcodeScanner {
@@ -320,7 +320,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerCapabilities;{c60691e4-f2c8-4420-a307-b12ef6622857})");
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerCapabilities {
-    type Vtable = IBarcodeScannerCapabilitiesVtbl;
+    type Vtable = IBarcodeScannerCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc60691e4_f2c8_4420_a307_b12ef6622857);
 }
 impl ::windows::core::RuntimeName for BarcodeScannerCapabilities {
@@ -401,7 +401,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerDataReceivedEventArgs
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerDataReceivedEventArgs;{4234a7e2-ed97-467d-ad2b-01e44313a929})");
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerDataReceivedEventArgs {
-    type Vtable = IBarcodeScannerDataReceivedEventArgsVtbl;
+    type Vtable = IBarcodeScannerDataReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4234a7e2_ed97_467d_ad2b_01e44313a929);
 }
 impl ::windows::core::RuntimeName for BarcodeScannerDataReceivedEventArgs {
@@ -498,7 +498,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerErrorOccurredEventArg
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerErrorOccurredEventArgs;{2cd2602f-cf3a-4002-a75a-c5ec468f0a20})");
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerErrorOccurredEventArgs {
-    type Vtable = IBarcodeScannerErrorOccurredEventArgsVtbl;
+    type Vtable = IBarcodeScannerErrorOccurredEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd2602f_cf3a_4002_a75a_c5ec468f0a20);
 }
 impl ::windows::core::RuntimeName for BarcodeScannerErrorOccurredEventArgs {
@@ -580,7 +580,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerImagePreviewReceivedE
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerImagePreviewReceivedEventArgs;{f3b7de85-6e8b-434e-9f58-06ef26bc4baf})");
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerImagePreviewReceivedEventArgs {
-    type Vtable = IBarcodeScannerImagePreviewReceivedEventArgsVtbl;
+    type Vtable = IBarcodeScannerImagePreviewReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3b7de85_6e8b_434e_9f58_06ef26bc4baf);
 }
 impl ::windows::core::RuntimeName for BarcodeScannerImagePreviewReceivedEventArgs {
@@ -692,7 +692,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerReport;{5ce4d8b0-a489-4b96-86c4-f0bf8a37753d})");
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerReport {
-    type Vtable = IBarcodeScannerReportVtbl;
+    type Vtable = IBarcodeScannerReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ce4d8b0_a489_4b96_86c4_f0bf8a37753d);
 }
 impl ::windows::core::RuntimeName for BarcodeScannerReport {
@@ -817,7 +817,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerStatusUpdatedEventArg
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerStatusUpdatedEventArgs;{355d8586-9c43-462b-a91a-816dc97f452c})");
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerStatusUpdatedEventArgs {
-    type Vtable = IBarcodeScannerStatusUpdatedEventArgsVtbl;
+    type Vtable = IBarcodeScannerStatusUpdatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x355d8586_9c43_462b_a91a_816dc97f452c);
 }
 impl ::windows::core::RuntimeName for BarcodeScannerStatusUpdatedEventArgs {
@@ -1661,7 +1661,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeSymbologyAttributes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeSymbologyAttributes;{66413a78-ab7a-4ada-8ece-936014b2ead7})");
 }
 unsafe impl ::windows::core::Interface for BarcodeSymbologyAttributes {
-    type Vtable = IBarcodeSymbologyAttributesVtbl;
+    type Vtable = IBarcodeSymbologyAttributes_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66413a78_ab7a_4ada_8ece_936014b2ead7);
 }
 impl ::windows::core::RuntimeName for BarcodeSymbologyAttributes {
@@ -1896,7 +1896,7 @@ unsafe impl ::windows::core::RuntimeType for CashDrawer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawer;{9f88f5c8-de54-4aee-a890-920bcbfe30fc})");
 }
 unsafe impl ::windows::core::Interface for CashDrawer {
-    type Vtable = ICashDrawerVtbl;
+    type Vtable = ICashDrawer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f88f5c8_de54_4aee_a890_920bcbfe30fc);
 }
 impl ::windows::core::RuntimeName for CashDrawer {
@@ -2043,7 +2043,7 @@ unsafe impl ::windows::core::RuntimeType for CashDrawerCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerCapabilities;{0bc6de0b-e8e7-4b1f-b1d1-3e501ad08247})");
 }
 unsafe impl ::windows::core::Interface for CashDrawerCapabilities {
-    type Vtable = ICashDrawerCapabilitiesVtbl;
+    type Vtable = ICashDrawerCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bc6de0b_e8e7_4b1f_b1d1_3e501ad08247);
 }
 impl ::windows::core::RuntimeName for CashDrawerCapabilities {
@@ -2198,7 +2198,7 @@ unsafe impl ::windows::core::RuntimeType for CashDrawerCloseAlarm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerCloseAlarm;{6bf88cc7-6f63-430e-ab3b-95d75ffbe87f})");
 }
 unsafe impl ::windows::core::Interface for CashDrawerCloseAlarm {
-    type Vtable = ICashDrawerCloseAlarmVtbl;
+    type Vtable = ICashDrawerCloseAlarm_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bf88cc7_6f63_430e_ab3b_95d75ffbe87f);
 }
 impl ::windows::core::RuntimeName for CashDrawerCloseAlarm {
@@ -2279,7 +2279,7 @@ unsafe impl ::windows::core::RuntimeType for CashDrawerClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerClosedEventArgs;{69cb3bc1-147f-421c-9c23-090123bb786c})");
 }
 unsafe impl ::windows::core::Interface for CashDrawerClosedEventArgs {
-    type Vtable = ICashDrawerEventSourceEventArgsVtbl;
+    type Vtable = ICashDrawerEventSourceEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69cb3bc1_147f_421c_9c23_090123bb786c);
 }
 impl ::windows::core::RuntimeName for CashDrawerClosedEventArgs {
@@ -2404,7 +2404,7 @@ unsafe impl ::windows::core::RuntimeType for CashDrawerEventSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerEventSource;{e006e46c-f2f9-442f-8dd6-06c10a4227ba})");
 }
 unsafe impl ::windows::core::Interface for CashDrawerEventSource {
-    type Vtable = ICashDrawerEventSourceVtbl;
+    type Vtable = ICashDrawerEventSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe006e46c_f2f9_442f_8dd6_06c10a4227ba);
 }
 impl ::windows::core::RuntimeName for CashDrawerEventSource {
@@ -2485,7 +2485,7 @@ unsafe impl ::windows::core::RuntimeType for CashDrawerOpenedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerOpenedEventArgs;{69cb3bc1-147f-421c-9c23-090123bb786c})");
 }
 unsafe impl ::windows::core::Interface for CashDrawerOpenedEventArgs {
-    type Vtable = ICashDrawerEventSourceEventArgsVtbl;
+    type Vtable = ICashDrawerEventSourceEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69cb3bc1_147f_421c_9c23_090123bb786c);
 }
 impl ::windows::core::RuntimeName for CashDrawerOpenedEventArgs {
@@ -2596,7 +2596,7 @@ unsafe impl ::windows::core::RuntimeType for CashDrawerStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerStatus;{6bbd78bf-dca1-4e06-99eb-5af6a5aec108})");
 }
 unsafe impl ::windows::core::Interface for CashDrawerStatus {
-    type Vtable = ICashDrawerStatusVtbl;
+    type Vtable = ICashDrawerStatus_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bbd78bf_dca1_4e06_99eb_5af6a5aec108);
 }
 impl ::windows::core::RuntimeName for CashDrawerStatus {
@@ -2713,7 +2713,7 @@ unsafe impl ::windows::core::RuntimeType for CashDrawerStatusUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerStatusUpdatedEventArgs;{30aae98a-0d70-459c-9553-87e124c52488})");
 }
 unsafe impl ::windows::core::Interface for CashDrawerStatusUpdatedEventArgs {
-    type Vtable = ICashDrawerStatusUpdatedEventArgsVtbl;
+    type Vtable = ICashDrawerStatusUpdatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30aae98a_0d70_459c_9553_87e124c52488);
 }
 impl ::windows::core::RuntimeName for CashDrawerStatusUpdatedEventArgs {
@@ -3061,7 +3061,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedBarcodeScanner {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedBarcodeScanner;{4a63b49c-8fa4-4332-bb26-945d11d81e0f})");
 }
 unsafe impl ::windows::core::Interface for ClaimedBarcodeScanner {
-    type Vtable = IClaimedBarcodeScannerVtbl;
+    type Vtable = IClaimedBarcodeScanner_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a63b49c_8fa4_4332_bb26_945d11d81e0f);
 }
 impl ::windows::core::RuntimeName for ClaimedBarcodeScanner {
@@ -3159,7 +3159,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedBarcodeScannerClosedEventArg
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedBarcodeScannerClosedEventArgs;{cf7d5489-a22c-4c65-a901-88d77d833954})");
 }
 unsafe impl ::windows::core::Interface for ClaimedBarcodeScannerClosedEventArgs {
-    type Vtable = IClaimedBarcodeScannerClosedEventArgsVtbl;
+    type Vtable = IClaimedBarcodeScannerClosedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf7d5489_a22c_4c65_a901_88d77d833954);
 }
 impl ::windows::core::RuntimeName for ClaimedBarcodeScannerClosedEventArgs {
@@ -3354,7 +3354,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedCashDrawer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedCashDrawer;{ca3f99af-abb8-42c1-8a84-5c66512f5a75})");
 }
 unsafe impl ::windows::core::Interface for ClaimedCashDrawer {
-    type Vtable = IClaimedCashDrawerVtbl;
+    type Vtable = IClaimedCashDrawer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca3f99af_abb8_42c1_8a84_5c66512f5a75);
 }
 impl ::windows::core::RuntimeName for ClaimedCashDrawer {
@@ -3452,7 +3452,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedCashDrawerClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedCashDrawerClosedEventArgs;{cc573f33-3f34-4c5c-baae-deadf16cd7fa})");
 }
 unsafe impl ::windows::core::Interface for ClaimedCashDrawerClosedEventArgs {
-    type Vtable = IClaimedCashDrawerClosedEventArgsVtbl;
+    type Vtable = IClaimedCashDrawerClosedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc573f33_3f34_4c5c_baae_deadf16cd7fa);
 }
 impl ::windows::core::RuntimeName for ClaimedCashDrawerClosedEventArgs {
@@ -3670,7 +3670,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedJournalPrinter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedJournalPrinter;{67ea0630-517d-487f-9fdf-d2e0a0a264a5})");
 }
 unsafe impl ::windows::core::Interface for ClaimedJournalPrinter {
-    type Vtable = IClaimedJournalPrinterVtbl;
+    type Vtable = IClaimedJournalPrinter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67ea0630_517d_487f_9fdf_d2e0a0a264a5);
 }
 impl ::windows::core::RuntimeName for ClaimedJournalPrinter {
@@ -4045,7 +4045,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedLineDisplay {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedLineDisplay;{120ac970-9a75-4acf-aae7-09972bcf8794})");
 }
 unsafe impl ::windows::core::Interface for ClaimedLineDisplay {
-    type Vtable = IClaimedLineDisplayVtbl;
+    type Vtable = IClaimedLineDisplay_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x120ac970_9a75_4acf_aae7_09972bcf8794);
 }
 impl ::windows::core::RuntimeName for ClaimedLineDisplay {
@@ -4143,7 +4143,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedLineDisplayClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedLineDisplayClosedEventArgs;{f915f364-d3d5-4f10-b511-90939edfacd8})");
 }
 unsafe impl ::windows::core::Interface for ClaimedLineDisplayClosedEventArgs {
-    type Vtable = IClaimedLineDisplayClosedEventArgsVtbl;
+    type Vtable = IClaimedLineDisplayClosedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf915f364_d3d5_4f10_b511_90939edfacd8);
 }
 impl ::windows::core::RuntimeName for ClaimedLineDisplayClosedEventArgs {
@@ -4483,7 +4483,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedMagneticStripeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedMagneticStripeReader;{475ca8f3-9417-48bc-b9d7-4163a7844c02})");
 }
 unsafe impl ::windows::core::Interface for ClaimedMagneticStripeReader {
-    type Vtable = IClaimedMagneticStripeReaderVtbl;
+    type Vtable = IClaimedMagneticStripeReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x475ca8f3_9417_48bc_b9d7_4163a7844c02);
 }
 impl ::windows::core::RuntimeName for ClaimedMagneticStripeReader {
@@ -4581,7 +4581,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedMagneticStripeReaderClosedEv
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedMagneticStripeReaderClosedEventArgs;{14ada93a-adcd-4c80-acda-c3eaed2647e1})");
 }
 unsafe impl ::windows::core::Interface for ClaimedMagneticStripeReaderClosedEventArgs {
-    type Vtable = IClaimedMagneticStripeReaderClosedEventArgsVtbl;
+    type Vtable = IClaimedMagneticStripeReaderClosedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14ada93a_adcd_4c80_acda_c3eaed2647e1);
 }
 impl ::windows::core::RuntimeName for ClaimedMagneticStripeReaderClosedEventArgs {
@@ -4822,7 +4822,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedPosPrinter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedPosPrinter;{6d64ce0c-e03e-4b14-a38e-c28c34b86353})");
 }
 unsafe impl ::windows::core::Interface for ClaimedPosPrinter {
-    type Vtable = IClaimedPosPrinterVtbl;
+    type Vtable = IClaimedPosPrinter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d64ce0c_e03e_4b14_a38e_c28c34b86353);
 }
 impl ::windows::core::RuntimeName for ClaimedPosPrinter {
@@ -4920,7 +4920,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedPosPrinterClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedPosPrinterClosedEventArgs;{e2b7a27b-4d40-471d-92ed-63375b18c788})");
 }
 unsafe impl ::windows::core::Interface for ClaimedPosPrinterClosedEventArgs {
-    type Vtable = IClaimedPosPrinterClosedEventArgsVtbl;
+    type Vtable = IClaimedPosPrinterClosedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2b7a27b_4d40_471d_92ed_63375b18c788);
 }
 impl ::windows::core::RuntimeName for ClaimedPosPrinterClosedEventArgs {
@@ -5180,7 +5180,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedReceiptPrinter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedReceiptPrinter;{9ad27a74-dd61-4ee2-9837-5b5d72d538b9})");
 }
 unsafe impl ::windows::core::Interface for ClaimedReceiptPrinter {
-    type Vtable = IClaimedReceiptPrinterVtbl;
+    type Vtable = IClaimedReceiptPrinter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ad27a74_dd61_4ee2_9837_5b5d72d538b9);
 }
 impl ::windows::core::RuntimeName for ClaimedReceiptPrinter {
@@ -5511,7 +5511,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedSlipPrinter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedSlipPrinter;{bd5deff2-af90-4e8a-b77b-e3ae9ca63a7f})");
 }
 unsafe impl ::windows::core::Interface for ClaimedSlipPrinter {
-    type Vtable = IClaimedSlipPrinterVtbl;
+    type Vtable = IClaimedSlipPrinter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd5deff2_af90_4e8a_b77b_e3ae9ca63a7f);
 }
 impl ::windows::core::RuntimeName for ClaimedSlipPrinter {
@@ -5585,12 +5585,12 @@ unsafe impl ::core::marker::Sync for ClaimedSlipPrinter {}
 #[repr(transparent)]
 pub struct IBarcodeScanner(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScanner {
-    type Vtable = IBarcodeScannerVtbl;
+    type Vtable = IBarcodeScanner_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbea33e06_b264_4f03_a9c1_45b20f01134f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBarcodeScannerVtbl {
+pub struct IBarcodeScanner_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Capabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5632,12 +5632,12 @@ pub struct IBarcodeScannerVtbl {
 #[repr(transparent)]
 pub struct IBarcodeScanner2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScanner2 {
-    type Vtable = IBarcodeScanner2Vtbl;
+    type Vtable = IBarcodeScanner2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89215167_8cee_436d_89ab_8dfb43bb4286);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBarcodeScanner2Vtbl {
+pub struct IBarcodeScanner2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub VideoDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -5645,12 +5645,12 @@ pub struct IBarcodeScanner2Vtbl {
 #[repr(transparent)]
 pub struct IBarcodeScannerCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerCapabilities {
-    type Vtable = IBarcodeScannerCapabilitiesVtbl;
+    type Vtable = IBarcodeScannerCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc60691e4_f2c8_4420_a307_b12ef6622857);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBarcodeScannerCapabilitiesVtbl {
+pub struct IBarcodeScannerCapabilities_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PowerReportingType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UnifiedPosPowerReportingType) -> ::windows::core::HRESULT,
     pub IsStatisticsReportingSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -5661,12 +5661,12 @@ pub struct IBarcodeScannerCapabilitiesVtbl {
 #[repr(transparent)]
 pub struct IBarcodeScannerCapabilities1(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerCapabilities1 {
-    type Vtable = IBarcodeScannerCapabilities1Vtbl;
+    type Vtable = IBarcodeScannerCapabilities1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e5ab3e9_0e2c_472f_a1cc_ee8054b6a684);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBarcodeScannerCapabilities1Vtbl {
+pub struct IBarcodeScannerCapabilities1_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsSoftwareTriggerSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -5674,12 +5674,12 @@ pub struct IBarcodeScannerCapabilities1Vtbl {
 #[repr(transparent)]
 pub struct IBarcodeScannerCapabilities2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerCapabilities2 {
-    type Vtable = IBarcodeScannerCapabilities2Vtbl;
+    type Vtable = IBarcodeScannerCapabilities2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf211cfec_e1a1_4ea8_9abc_92b1596270ab);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBarcodeScannerCapabilities2Vtbl {
+pub struct IBarcodeScannerCapabilities2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsVideoPreviewSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -5687,12 +5687,12 @@ pub struct IBarcodeScannerCapabilities2Vtbl {
 #[repr(transparent)]
 pub struct IBarcodeScannerDataReceivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerDataReceivedEventArgs {
-    type Vtable = IBarcodeScannerDataReceivedEventArgsVtbl;
+    type Vtable = IBarcodeScannerDataReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4234a7e2_ed97_467d_ad2b_01e44313a929);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBarcodeScannerDataReceivedEventArgsVtbl {
+pub struct IBarcodeScannerDataReceivedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Report: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -5700,12 +5700,12 @@ pub struct IBarcodeScannerDataReceivedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IBarcodeScannerErrorOccurredEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerErrorOccurredEventArgs {
-    type Vtable = IBarcodeScannerErrorOccurredEventArgsVtbl;
+    type Vtable = IBarcodeScannerErrorOccurredEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd2602f_cf3a_4002_a75a_c5ec468f0a20);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBarcodeScannerErrorOccurredEventArgsVtbl {
+pub struct IBarcodeScannerErrorOccurredEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PartialInputData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsRetriable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -5715,12 +5715,12 @@ pub struct IBarcodeScannerErrorOccurredEventArgsVtbl {
 #[repr(transparent)]
 pub struct IBarcodeScannerImagePreviewReceivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerImagePreviewReceivedEventArgs {
-    type Vtable = IBarcodeScannerImagePreviewReceivedEventArgsVtbl;
+    type Vtable = IBarcodeScannerImagePreviewReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3b7de85_6e8b_434e_9f58_06ef26bc4baf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBarcodeScannerImagePreviewReceivedEventArgsVtbl {
+pub struct IBarcodeScannerImagePreviewReceivedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub Preview: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5731,12 +5731,12 @@ pub struct IBarcodeScannerImagePreviewReceivedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IBarcodeScannerReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerReport {
-    type Vtable = IBarcodeScannerReportVtbl;
+    type Vtable = IBarcodeScannerReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ce4d8b0_a489_4b96_86c4_f0bf8a37753d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBarcodeScannerReportVtbl {
+pub struct IBarcodeScannerReport_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ScanDataType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -5752,12 +5752,12 @@ pub struct IBarcodeScannerReportVtbl {
 #[repr(transparent)]
 pub struct IBarcodeScannerReportFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerReportFactory {
-    type Vtable = IBarcodeScannerReportFactoryVtbl;
+    type Vtable = IBarcodeScannerReportFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2547326_2013_457c_8963_49c15dca78ce);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBarcodeScannerReportFactoryVtbl {
+pub struct IBarcodeScannerReportFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scandatatype: u32, scandata: ::windows::core::RawPtr, scandatalabel: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5768,12 +5768,12 @@ pub struct IBarcodeScannerReportFactoryVtbl {
 #[repr(transparent)]
 pub struct IBarcodeScannerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerStatics {
-    type Vtable = IBarcodeScannerStaticsVtbl;
+    type Vtable = IBarcodeScannerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d115f6f_da49_41e8_8c8c_f0cb62a9c4fc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBarcodeScannerStaticsVtbl {
+pub struct IBarcodeScannerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetDefaultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5789,12 +5789,12 @@ pub struct IBarcodeScannerStaticsVtbl {
 #[repr(transparent)]
 pub struct IBarcodeScannerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerStatics2 {
-    type Vtable = IBarcodeScannerStatics2Vtbl;
+    type Vtable = IBarcodeScannerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8652473_a36f_4007_b1d0_279ebe92a656);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBarcodeScannerStatics2Vtbl {
+pub struct IBarcodeScannerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceSelectorWithConnectionTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectiontypes: PosConnectionTypes, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -5802,12 +5802,12 @@ pub struct IBarcodeScannerStatics2Vtbl {
 #[repr(transparent)]
 pub struct IBarcodeScannerStatusUpdatedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeScannerStatusUpdatedEventArgs {
-    type Vtable = IBarcodeScannerStatusUpdatedEventArgsVtbl;
+    type Vtable = IBarcodeScannerStatusUpdatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x355d8586_9c43_462b_a91a_816dc97f452c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBarcodeScannerStatusUpdatedEventArgsVtbl {
+pub struct IBarcodeScannerStatusUpdatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BarcodeScannerStatus) -> ::windows::core::HRESULT,
     pub ExtendedStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -5816,12 +5816,12 @@ pub struct IBarcodeScannerStatusUpdatedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IBarcodeSymbologiesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeSymbologiesStatics {
-    type Vtable = IBarcodeSymbologiesStaticsVtbl;
+    type Vtable = IBarcodeSymbologiesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca8549bb_06d2_43f4_a44b_c620679fd8d0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBarcodeSymbologiesStaticsVtbl {
+pub struct IBarcodeSymbologiesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Unknown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub Ean8: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -5922,12 +5922,12 @@ pub struct IBarcodeSymbologiesStaticsVtbl {
 #[repr(transparent)]
 pub struct IBarcodeSymbologiesStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeSymbologiesStatics2 {
-    type Vtable = IBarcodeSymbologiesStatics2Vtbl;
+    type Vtable = IBarcodeSymbologiesStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b7518f4_99d0_40bf_9424_b91d6dd4c6e0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBarcodeSymbologiesStatics2Vtbl {
+pub struct IBarcodeSymbologiesStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Gs1DWCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -5935,12 +5935,12 @@ pub struct IBarcodeSymbologiesStatics2Vtbl {
 #[repr(transparent)]
 pub struct IBarcodeSymbologyAttributes(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBarcodeSymbologyAttributes {
-    type Vtable = IBarcodeSymbologyAttributesVtbl;
+    type Vtable = IBarcodeSymbologyAttributes_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66413a78_ab7a_4ada_8ece_936014b2ead7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBarcodeSymbologyAttributesVtbl {
+pub struct IBarcodeSymbologyAttributes_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsCheckDigitValidationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsCheckDigitValidationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -5960,12 +5960,12 @@ pub struct IBarcodeSymbologyAttributesVtbl {
 #[repr(transparent)]
 pub struct ICashDrawer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICashDrawer {
-    type Vtable = ICashDrawerVtbl;
+    type Vtable = ICashDrawer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f88f5c8_de54_4aee_a890_920bcbfe30fc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICashDrawerVtbl {
+pub struct ICashDrawer_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Capabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5997,12 +5997,12 @@ pub struct ICashDrawerVtbl {
 #[repr(transparent)]
 pub struct ICashDrawerCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICashDrawerCapabilities {
-    type Vtable = ICashDrawerCapabilitiesVtbl;
+    type Vtable = ICashDrawerCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bc6de0b_e8e7_4b1f_b1d1_3e501ad08247);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICashDrawerCapabilitiesVtbl {
+pub struct ICashDrawerCapabilities_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PowerReportingType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UnifiedPosPowerReportingType) -> ::windows::core::HRESULT,
     pub IsStatisticsReportingSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -6015,12 +6015,12 @@ pub struct ICashDrawerCapabilitiesVtbl {
 #[repr(transparent)]
 pub struct ICashDrawerCloseAlarm(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICashDrawerCloseAlarm {
-    type Vtable = ICashDrawerCloseAlarmVtbl;
+    type Vtable = ICashDrawerCloseAlarm_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bf88cc7_6f63_430e_ab3b_95d75ffbe87f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICashDrawerCloseAlarmVtbl {
+pub struct ICashDrawerCloseAlarm_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SetAlarmTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -6065,12 +6065,12 @@ pub struct ICashDrawerCloseAlarmVtbl {
 #[repr(transparent)]
 pub struct ICashDrawerEventSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICashDrawerEventSource {
-    type Vtable = ICashDrawerEventSourceVtbl;
+    type Vtable = ICashDrawerEventSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe006e46c_f2f9_442f_8dd6_06c10a4227ba);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICashDrawerEventSourceVtbl {
+pub struct ICashDrawerEventSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub DrawerClosed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -6162,12 +6162,12 @@ unsafe impl ::windows::core::RuntimeType for ICashDrawerEventSourceEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{69cb3bc1-147f-421c-9c23-090123bb786c}");
 }
 unsafe impl ::windows::core::Interface for ICashDrawerEventSourceEventArgs {
-    type Vtable = ICashDrawerEventSourceEventArgsVtbl;
+    type Vtable = ICashDrawerEventSourceEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69cb3bc1_147f_421c_9c23_090123bb786c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICashDrawerEventSourceEventArgsVtbl {
+pub struct ICashDrawerEventSourceEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CashDrawer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -6175,12 +6175,12 @@ pub struct ICashDrawerEventSourceEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICashDrawerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICashDrawerStatics {
-    type Vtable = ICashDrawerStaticsVtbl;
+    type Vtable = ICashDrawerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfa0955a_d437_4fff_b547_dda969a4f883);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICashDrawerStaticsVtbl {
+pub struct ICashDrawerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetDefaultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6196,12 +6196,12 @@ pub struct ICashDrawerStaticsVtbl {
 #[repr(transparent)]
 pub struct ICashDrawerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICashDrawerStatics2 {
-    type Vtable = ICashDrawerStatics2Vtbl;
+    type Vtable = ICashDrawerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e818121_8c42_40e8_9c0e_40297048104c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICashDrawerStatics2Vtbl {
+pub struct ICashDrawerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceSelectorWithConnectionTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectiontypes: PosConnectionTypes, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -6209,12 +6209,12 @@ pub struct ICashDrawerStatics2Vtbl {
 #[repr(transparent)]
 pub struct ICashDrawerStatus(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICashDrawerStatus {
-    type Vtable = ICashDrawerStatusVtbl;
+    type Vtable = ICashDrawerStatus_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bbd78bf_dca1_4e06_99eb_5af6a5aec108);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICashDrawerStatusVtbl {
+pub struct ICashDrawerStatus_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub StatusKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CashDrawerStatusKind) -> ::windows::core::HRESULT,
     pub ExtendedStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -6223,12 +6223,12 @@ pub struct ICashDrawerStatusVtbl {
 #[repr(transparent)]
 pub struct ICashDrawerStatusUpdatedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICashDrawerStatusUpdatedEventArgs {
-    type Vtable = ICashDrawerStatusUpdatedEventArgsVtbl;
+    type Vtable = ICashDrawerStatusUpdatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30aae98a_0d70_459c_9553_87e124c52488);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICashDrawerStatusUpdatedEventArgsVtbl {
+pub struct ICashDrawerStatusUpdatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -6236,12 +6236,12 @@ pub struct ICashDrawerStatusUpdatedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IClaimedBarcodeScanner(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedBarcodeScanner {
-    type Vtable = IClaimedBarcodeScannerVtbl;
+    type Vtable = IClaimedBarcodeScanner_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a63b49c_8fa4_4332_bb26_945d11d81e0f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedBarcodeScannerVtbl {
+pub struct IClaimedBarcodeScanner_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -6327,12 +6327,12 @@ pub struct IClaimedBarcodeScannerVtbl {
 #[repr(transparent)]
 pub struct IClaimedBarcodeScanner1(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedBarcodeScanner1 {
-    type Vtable = IClaimedBarcodeScanner1Vtbl;
+    type Vtable = IClaimedBarcodeScanner1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf61aad0c_8551_42b4_998c_970c20210a22);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedBarcodeScanner1Vtbl {
+pub struct IClaimedBarcodeScanner1_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub StartSoftwareTriggerAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6347,12 +6347,12 @@ pub struct IClaimedBarcodeScanner1Vtbl {
 #[repr(transparent)]
 pub struct IClaimedBarcodeScanner2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedBarcodeScanner2 {
-    type Vtable = IClaimedBarcodeScanner2Vtbl;
+    type Vtable = IClaimedBarcodeScanner2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3b59e8c_2d8b_4f70_8af3_3448bedd5fe2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedBarcodeScanner2Vtbl {
+pub struct IClaimedBarcodeScanner2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetSymbologyAttributesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, barcodesymbology: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6367,12 +6367,12 @@ pub struct IClaimedBarcodeScanner2Vtbl {
 #[repr(transparent)]
 pub struct IClaimedBarcodeScanner3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedBarcodeScanner3 {
-    type Vtable = IClaimedBarcodeScanner3Vtbl;
+    type Vtable = IClaimedBarcodeScanner3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6ceb430_712e_45fc_8b86_cd55f5aef79d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedBarcodeScanner3Vtbl {
+pub struct IClaimedBarcodeScanner3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ShowVideoPreviewAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6386,12 +6386,12 @@ pub struct IClaimedBarcodeScanner3Vtbl {
 #[repr(transparent)]
 pub struct IClaimedBarcodeScanner4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedBarcodeScanner4 {
-    type Vtable = IClaimedBarcodeScanner4Vtbl;
+    type Vtable = IClaimedBarcodeScanner4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d501f97_376a_41a8_a230_2f37c1949dde);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedBarcodeScanner4Vtbl {
+pub struct IClaimedBarcodeScanner4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Closed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -6406,24 +6406,24 @@ pub struct IClaimedBarcodeScanner4Vtbl {
 #[repr(transparent)]
 pub struct IClaimedBarcodeScannerClosedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedBarcodeScannerClosedEventArgs {
-    type Vtable = IClaimedBarcodeScannerClosedEventArgsVtbl;
+    type Vtable = IClaimedBarcodeScannerClosedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf7d5489_a22c_4c65_a901_88d77d833954);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedBarcodeScannerClosedEventArgsVtbl {
+pub struct IClaimedBarcodeScannerClosedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IClaimedCashDrawer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedCashDrawer {
-    type Vtable = IClaimedCashDrawerVtbl;
+    type Vtable = IClaimedCashDrawer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca3f99af_abb8_42c1_8a84_5c66512f5a75);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedCashDrawerVtbl {
+pub struct IClaimedCashDrawer_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -6466,12 +6466,12 @@ pub struct IClaimedCashDrawerVtbl {
 #[repr(transparent)]
 pub struct IClaimedCashDrawer2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedCashDrawer2 {
-    type Vtable = IClaimedCashDrawer2Vtbl;
+    type Vtable = IClaimedCashDrawer2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cbab5a2_de42_4d5b_b0c1_9b57a2ba89c3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedCashDrawer2Vtbl {
+pub struct IClaimedCashDrawer2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Closed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -6486,24 +6486,24 @@ pub struct IClaimedCashDrawer2Vtbl {
 #[repr(transparent)]
 pub struct IClaimedCashDrawerClosedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedCashDrawerClosedEventArgs {
-    type Vtable = IClaimedCashDrawerClosedEventArgsVtbl;
+    type Vtable = IClaimedCashDrawerClosedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc573f33_3f34_4c5c_baae_deadf16cd7fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedCashDrawerClosedEventArgsVtbl {
+pub struct IClaimedCashDrawerClosedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IClaimedJournalPrinter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedJournalPrinter {
-    type Vtable = IClaimedJournalPrinterVtbl;
+    type Vtable = IClaimedJournalPrinter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67ea0630_517d_487f_9fdf_d2e0a0a264a5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedJournalPrinterVtbl {
+pub struct IClaimedJournalPrinter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateJob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -6511,12 +6511,12 @@ pub struct IClaimedJournalPrinterVtbl {
 #[repr(transparent)]
 pub struct IClaimedLineDisplay(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedLineDisplay {
-    type Vtable = IClaimedLineDisplayVtbl;
+    type Vtable = IClaimedLineDisplay_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x120ac970_9a75_4acf_aae7_09972bcf8794);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedLineDisplayVtbl {
+pub struct IClaimedLineDisplay_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Capabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6540,12 +6540,12 @@ pub struct IClaimedLineDisplayVtbl {
 #[repr(transparent)]
 pub struct IClaimedLineDisplay2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedLineDisplay2 {
-    type Vtable = IClaimedLineDisplay2Vtbl;
+    type Vtable = IClaimedLineDisplay2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa31c75ed_41f5_4e76_a074_795e47a46e97);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedLineDisplay2Vtbl {
+pub struct IClaimedLineDisplay2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetStatisticsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, statisticscategories: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6614,12 +6614,12 @@ pub struct IClaimedLineDisplay2Vtbl {
 #[repr(transparent)]
 pub struct IClaimedLineDisplay3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedLineDisplay3 {
-    type Vtable = IClaimedLineDisplay3Vtbl;
+    type Vtable = IClaimedLineDisplay3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x642ecd92_e9d4_4ecc_af75_329c274cd18f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedLineDisplay3Vtbl {
+pub struct IClaimedLineDisplay3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Closed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -6634,24 +6634,24 @@ pub struct IClaimedLineDisplay3Vtbl {
 #[repr(transparent)]
 pub struct IClaimedLineDisplayClosedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedLineDisplayClosedEventArgs {
-    type Vtable = IClaimedLineDisplayClosedEventArgsVtbl;
+    type Vtable = IClaimedLineDisplayClosedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf915f364_d3d5_4f10_b511_90939edfacd8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedLineDisplayClosedEventArgsVtbl {
+pub struct IClaimedLineDisplayClosedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IClaimedLineDisplayStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedLineDisplayStatics {
-    type Vtable = IClaimedLineDisplayStaticsVtbl;
+    type Vtable = IClaimedLineDisplayStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78ca98fb_8b6b_4973_86f0_3e570c351825);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedLineDisplayStaticsVtbl {
+pub struct IClaimedLineDisplayStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6664,12 +6664,12 @@ pub struct IClaimedLineDisplayStaticsVtbl {
 #[repr(transparent)]
 pub struct IClaimedMagneticStripeReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedMagneticStripeReader {
-    type Vtable = IClaimedMagneticStripeReaderVtbl;
+    type Vtable = IClaimedMagneticStripeReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x475ca8f3_9417_48bc_b9d7_4163a7844c02);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedMagneticStripeReaderVtbl {
+pub struct IClaimedMagneticStripeReader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -6763,12 +6763,12 @@ pub struct IClaimedMagneticStripeReaderVtbl {
 #[repr(transparent)]
 pub struct IClaimedMagneticStripeReader2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedMagneticStripeReader2 {
-    type Vtable = IClaimedMagneticStripeReader2Vtbl;
+    type Vtable = IClaimedMagneticStripeReader2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x236fafdf_e2dc_4d7d_9c78_060df2bf2928);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedMagneticStripeReader2Vtbl {
+pub struct IClaimedMagneticStripeReader2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Closed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -6783,24 +6783,24 @@ pub struct IClaimedMagneticStripeReader2Vtbl {
 #[repr(transparent)]
 pub struct IClaimedMagneticStripeReaderClosedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedMagneticStripeReaderClosedEventArgs {
-    type Vtable = IClaimedMagneticStripeReaderClosedEventArgsVtbl;
+    type Vtable = IClaimedMagneticStripeReaderClosedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14ada93a_adcd_4c80_acda_c3eaed2647e1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedMagneticStripeReaderClosedEventArgsVtbl {
+pub struct IClaimedMagneticStripeReaderClosedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IClaimedPosPrinter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedPosPrinter {
-    type Vtable = IClaimedPosPrinterVtbl;
+    type Vtable = IClaimedPosPrinter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d64ce0c_e03e_4b14_a38e_c28c34b86353);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedPosPrinterVtbl {
+pub struct IClaimedPosPrinter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -6847,12 +6847,12 @@ pub struct IClaimedPosPrinterVtbl {
 #[repr(transparent)]
 pub struct IClaimedPosPrinter2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedPosPrinter2 {
-    type Vtable = IClaimedPosPrinter2Vtbl;
+    type Vtable = IClaimedPosPrinter2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bf7a3d5_5198_437a_82df_589993fa77e1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedPosPrinter2Vtbl {
+pub struct IClaimedPosPrinter2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Closed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -6867,24 +6867,24 @@ pub struct IClaimedPosPrinter2Vtbl {
 #[repr(transparent)]
 pub struct IClaimedPosPrinterClosedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedPosPrinterClosedEventArgs {
-    type Vtable = IClaimedPosPrinterClosedEventArgsVtbl;
+    type Vtable = IClaimedPosPrinterClosedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2b7a27b_4d40_471d_92ed_63375b18c788);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedPosPrinterClosedEventArgsVtbl {
+pub struct IClaimedPosPrinterClosedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IClaimedReceiptPrinter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedReceiptPrinter {
-    type Vtable = IClaimedReceiptPrinterVtbl;
+    type Vtable = IClaimedReceiptPrinter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ad27a74_dd61_4ee2_9837_5b5d72d538b9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedReceiptPrinterVtbl {
+pub struct IClaimedReceiptPrinter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SidewaysMaxLines: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub SidewaysMaxChars: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -6903,12 +6903,12 @@ pub struct IClaimedReceiptPrinterVtbl {
 #[repr(transparent)]
 pub struct IClaimedSlipPrinter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClaimedSlipPrinter {
-    type Vtable = IClaimedSlipPrinterVtbl;
+    type Vtable = IClaimedSlipPrinter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd5deff2_af90_4e8a_b77b_e3ae9ca63a7f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClaimedSlipPrinterVtbl {
+pub struct IClaimedSlipPrinter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SidewaysMaxLines: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub SidewaysMaxChars: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -7138,12 +7138,12 @@ unsafe impl ::windows::core::RuntimeType for ICommonClaimedPosPrinterStation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b7eb66a8-fe8a-4cfb-8b42-e35b280cb27c}");
 }
 unsafe impl ::windows::core::Interface for ICommonClaimedPosPrinterStation {
-    type Vtable = ICommonClaimedPosPrinterStationVtbl;
+    type Vtable = ICommonClaimedPosPrinterStation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7eb66a8_fe8a_4cfb_8b42_e35b280cb27c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICommonClaimedPosPrinterStationVtbl {
+pub struct ICommonClaimedPosPrinterStation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetCharactersPerLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
     pub CharactersPerLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -7335,12 +7335,12 @@ unsafe impl ::windows::core::RuntimeType for ICommonPosPrintStationCapabilities 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{de5b52ca-e02e-40e9-9e5e-1b488e6aacfc}");
 }
 unsafe impl ::windows::core::Interface for ICommonPosPrintStationCapabilities {
-    type Vtable = ICommonPosPrintStationCapabilitiesVtbl;
+    type Vtable = ICommonPosPrintStationCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde5b52ca_e02e_40e9_9e5e_1b488e6aacfc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICommonPosPrintStationCapabilitiesVtbl {
+pub struct ICommonPosPrintStationCapabilities_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsPrinterPresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsDualColorSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -7625,12 +7625,12 @@ unsafe impl ::windows::core::RuntimeType for ICommonReceiptSlipCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{09286b8b-9873-4d05-bfbe-4727a6038f69}");
 }
 unsafe impl ::windows::core::Interface for ICommonReceiptSlipCapabilities {
-    type Vtable = ICommonReceiptSlipCapabilitiesVtbl;
+    type Vtable = ICommonReceiptSlipCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09286b8b_9873_4d05_bfbe_4727a6038f69);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICommonReceiptSlipCapabilitiesVtbl {
+pub struct ICommonReceiptSlipCapabilities_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsBarcodeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsBitmapSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -7652,12 +7652,12 @@ pub struct ICommonReceiptSlipCapabilitiesVtbl {
 #[repr(transparent)]
 pub struct IJournalPrintJob(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJournalPrintJob {
-    type Vtable = IJournalPrintJobVtbl;
+    type Vtable = IJournalPrintJob_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f4f2864_f3f0_55d0_8c39_74cc91783eed);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IJournalPrintJobVtbl {
+pub struct IJournalPrintJob_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Print: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, printoptions: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FeedPaperByLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, linecount: i32) -> ::windows::core::HRESULT,
@@ -7667,24 +7667,24 @@ pub struct IJournalPrintJobVtbl {
 #[repr(transparent)]
 pub struct IJournalPrinterCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJournalPrinterCapabilities {
-    type Vtable = IJournalPrinterCapabilitiesVtbl;
+    type Vtable = IJournalPrinterCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b5ccc43_e047_4463_bb58_17b5ba1d8056);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IJournalPrinterCapabilitiesVtbl {
+pub struct IJournalPrinterCapabilities_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IJournalPrinterCapabilities2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IJournalPrinterCapabilities2 {
-    type Vtable = IJournalPrinterCapabilities2Vtbl;
+    type Vtable = IJournalPrinterCapabilities2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03b0b645_33b8_533b_baaa_a4389283ab0a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IJournalPrinterCapabilities2Vtbl {
+pub struct IJournalPrinterCapabilities2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsReverseVideoSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsStrikethroughSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -7697,12 +7697,12 @@ pub struct IJournalPrinterCapabilities2Vtbl {
 #[repr(transparent)]
 pub struct ILineDisplay(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineDisplay {
-    type Vtable = ILineDisplayVtbl;
+    type Vtable = ILineDisplay_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24f5df4e_3c99_44e2_b73f_e51be3637a8c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILineDisplayVtbl {
+pub struct ILineDisplay_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Capabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7720,12 +7720,12 @@ pub struct ILineDisplayVtbl {
 #[repr(transparent)]
 pub struct ILineDisplay2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineDisplay2 {
-    type Vtable = ILineDisplay2Vtbl;
+    type Vtable = ILineDisplay2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc296a628_ef44_40f3_bd1c_b04c6a5cdc7d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILineDisplay2Vtbl {
+pub struct ILineDisplay2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CheckPowerStatusAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7736,12 +7736,12 @@ pub struct ILineDisplay2Vtbl {
 #[repr(transparent)]
 pub struct ILineDisplayAttributes(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineDisplayAttributes {
-    type Vtable = ILineDisplayAttributesVtbl;
+    type Vtable = ILineDisplayAttributes_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc17de99c_229a_4c14_a6f1_b4e4b1fead92);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILineDisplayAttributesVtbl {
+pub struct ILineDisplayAttributes_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsPowerNotifyEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsPowerNotifyEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -7774,12 +7774,12 @@ pub struct ILineDisplayAttributesVtbl {
 #[repr(transparent)]
 pub struct ILineDisplayCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineDisplayCapabilities {
-    type Vtable = ILineDisplayCapabilitiesVtbl;
+    type Vtable = ILineDisplayCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a15b5d1_8dc5_4b9c_9172_303e47b70c55);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILineDisplayCapabilitiesVtbl {
+pub struct ILineDisplayCapabilities_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsStatisticsReportingSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsStatisticsUpdatingSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -7804,12 +7804,12 @@ pub struct ILineDisplayCapabilitiesVtbl {
 #[repr(transparent)]
 pub struct ILineDisplayCursor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineDisplayCursor {
-    type Vtable = ILineDisplayCursorVtbl;
+    type Vtable = ILineDisplayCursor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecdffc45_754a_4e3b_ab2b_151181085605);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILineDisplayCursorVtbl {
+pub struct ILineDisplayCursor_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CanCustomize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsBlinkSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -7828,12 +7828,12 @@ pub struct ILineDisplayCursorVtbl {
 #[repr(transparent)]
 pub struct ILineDisplayCursorAttributes(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineDisplayCursorAttributes {
-    type Vtable = ILineDisplayCursorAttributesVtbl;
+    type Vtable = ILineDisplayCursorAttributes_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e2d54fe_4ffd_4190_aae1_ce285f20c896);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILineDisplayCursorAttributesVtbl {
+pub struct ILineDisplayCursorAttributes_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsBlinkEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsBlinkEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -7854,12 +7854,12 @@ pub struct ILineDisplayCursorAttributesVtbl {
 #[repr(transparent)]
 pub struct ILineDisplayCustomGlyphs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineDisplayCustomGlyphs {
-    type Vtable = ILineDisplayCustomGlyphsVtbl;
+    type Vtable = ILineDisplayCustomGlyphs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2257f63c_f263_44f1_a1a0_e750a6a0ec54);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILineDisplayCustomGlyphsVtbl {
+pub struct ILineDisplayCustomGlyphs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SizeInPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT,
@@ -7878,12 +7878,12 @@ pub struct ILineDisplayCustomGlyphsVtbl {
 #[repr(transparent)]
 pub struct ILineDisplayMarquee(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineDisplayMarquee {
-    type Vtable = ILineDisplayMarqueeVtbl;
+    type Vtable = ILineDisplayMarquee_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3d33e3e_f46a_4b7a_bc21_53eb3b57f8b4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILineDisplayMarqueeVtbl {
+pub struct ILineDisplayMarquee_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Format: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut LineDisplayMarqueeFormat) -> ::windows::core::HRESULT,
     pub SetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: LineDisplayMarqueeFormat) -> ::windows::core::HRESULT,
@@ -7916,12 +7916,12 @@ pub struct ILineDisplayMarqueeVtbl {
 #[repr(transparent)]
 pub struct ILineDisplayStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineDisplayStatics {
-    type Vtable = ILineDisplayStaticsVtbl;
+    type Vtable = ILineDisplayStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x022dc0b6_11b0_4690_9547_0b39c5af2114);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILineDisplayStaticsVtbl {
+pub struct ILineDisplayStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7938,12 +7938,12 @@ pub struct ILineDisplayStaticsVtbl {
 #[repr(transparent)]
 pub struct ILineDisplayStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineDisplayStatics2 {
-    type Vtable = ILineDisplayStatics2Vtbl;
+    type Vtable = ILineDisplayStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x600c3f1c_77ab_4968_a7de_c02ff169f2cc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILineDisplayStatics2Vtbl {
+pub struct ILineDisplayStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub StatisticsCategorySelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7951,12 +7951,12 @@ pub struct ILineDisplayStatics2Vtbl {
 #[repr(transparent)]
 pub struct ILineDisplayStatisticsCategorySelector(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineDisplayStatisticsCategorySelector {
-    type Vtable = ILineDisplayStatisticsCategorySelectorVtbl;
+    type Vtable = ILineDisplayStatisticsCategorySelector_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb521c46b_9274_4d24_94f3_b6017b832444);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILineDisplayStatisticsCategorySelectorVtbl {
+pub struct ILineDisplayStatisticsCategorySelector_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AllStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub UnifiedPosStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -7966,12 +7966,12 @@ pub struct ILineDisplayStatisticsCategorySelectorVtbl {
 #[repr(transparent)]
 pub struct ILineDisplayStatusUpdatedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineDisplayStatusUpdatedEventArgs {
-    type Vtable = ILineDisplayStatusUpdatedEventArgsVtbl;
+    type Vtable = ILineDisplayStatusUpdatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddd57c1a_86fb_4eba_93d1_6f5eda52b752);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILineDisplayStatusUpdatedEventArgsVtbl {
+pub struct ILineDisplayStatusUpdatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut LineDisplayPowerStatus) -> ::windows::core::HRESULT,
 }
@@ -7979,12 +7979,12 @@ pub struct ILineDisplayStatusUpdatedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ILineDisplayStoredBitmap(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineDisplayStoredBitmap {
-    type Vtable = ILineDisplayStoredBitmapVtbl;
+    type Vtable = ILineDisplayStoredBitmap_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf621515b_d81e_43ba_bf1b_bcfa3c785ba0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILineDisplayStoredBitmapVtbl {
+pub struct ILineDisplayStoredBitmap_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EscapeSequence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -7996,12 +7996,12 @@ pub struct ILineDisplayStoredBitmapVtbl {
 #[repr(transparent)]
 pub struct ILineDisplayWindow(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineDisplayWindow {
-    type Vtable = ILineDisplayWindowVtbl;
+    type Vtable = ILineDisplayWindow_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd21feef4_2364_4be5_bee1_851680af4964);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILineDisplayWindowVtbl {
+pub struct ILineDisplayWindow_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SizeInCharacters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT,
@@ -8044,12 +8044,12 @@ pub struct ILineDisplayWindowVtbl {
 #[repr(transparent)]
 pub struct ILineDisplayWindow2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineDisplayWindow2 {
-    type Vtable = ILineDisplayWindow2Vtbl;
+    type Vtable = ILineDisplayWindow2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa95ce2e6_bdd8_4365_8e11_de94de8dff02);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILineDisplayWindow2Vtbl {
+pub struct ILineDisplayWindow2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Cursor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Marquee: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8086,12 +8086,12 @@ pub struct ILineDisplayWindow2Vtbl {
 #[repr(transparent)]
 pub struct IMagneticStripeReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMagneticStripeReader {
-    type Vtable = IMagneticStripeReaderVtbl;
+    type Vtable = IMagneticStripeReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a92b015_47c3_468a_9333_0c6517574883);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderVtbl {
+pub struct IMagneticStripeReader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Capabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8123,12 +8123,12 @@ pub struct IMagneticStripeReaderVtbl {
 #[repr(transparent)]
 pub struct IMagneticStripeReaderAamvaCardDataReceivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMagneticStripeReaderAamvaCardDataReceivedEventArgs {
-    type Vtable = IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl;
+    type Vtable = IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a4bbd51_c316_4910_87f3_7a62ba862d31);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
+pub struct IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Report: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub LicenseNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8154,12 +8154,12 @@ pub struct IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IMagneticStripeReaderBankCardDataReceivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMagneticStripeReaderBankCardDataReceivedEventArgs {
-    type Vtable = IMagneticStripeReaderBankCardDataReceivedEventArgsVtbl;
+    type Vtable = IMagneticStripeReaderBankCardDataReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e958823_a31a_4763_882c_23725e39b08e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderBankCardDataReceivedEventArgsVtbl {
+pub struct IMagneticStripeReaderBankCardDataReceivedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Report: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AccountNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8175,12 +8175,12 @@ pub struct IMagneticStripeReaderBankCardDataReceivedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IMagneticStripeReaderCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMagneticStripeReaderCapabilities {
-    type Vtable = IMagneticStripeReaderCapabilitiesVtbl;
+    type Vtable = IMagneticStripeReaderCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7128809c_c440_44a2_a467_469175d02896);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderCapabilitiesVtbl {
+pub struct IMagneticStripeReaderCapabilities_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CardAuthentication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SupportedEncryptionAlgorithms: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -8198,12 +8198,12 @@ pub struct IMagneticStripeReaderCapabilitiesVtbl {
 #[repr(transparent)]
 pub struct IMagneticStripeReaderCardTypesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMagneticStripeReaderCardTypesStatics {
-    type Vtable = IMagneticStripeReaderCardTypesStaticsVtbl;
+    type Vtable = IMagneticStripeReaderCardTypesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x528f2c5d_2986_474f_8454_7ccd05928d5f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderCardTypesStaticsVtbl {
+pub struct IMagneticStripeReaderCardTypesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Unknown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub Bank: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -8214,12 +8214,12 @@ pub struct IMagneticStripeReaderCardTypesStaticsVtbl {
 #[repr(transparent)]
 pub struct IMagneticStripeReaderEncryptionAlgorithmsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMagneticStripeReaderEncryptionAlgorithmsStatics {
-    type Vtable = IMagneticStripeReaderEncryptionAlgorithmsStaticsVtbl;
+    type Vtable = IMagneticStripeReaderEncryptionAlgorithmsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53b57350_c3db_4754_9c00_41392374a109);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderEncryptionAlgorithmsStaticsVtbl {
+pub struct IMagneticStripeReaderEncryptionAlgorithmsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub None: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub TripleDesDukpt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -8229,12 +8229,12 @@ pub struct IMagneticStripeReaderEncryptionAlgorithmsStaticsVtbl {
 #[repr(transparent)]
 pub struct IMagneticStripeReaderErrorOccurredEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMagneticStripeReaderErrorOccurredEventArgs {
-    type Vtable = IMagneticStripeReaderErrorOccurredEventArgsVtbl;
+    type Vtable = IMagneticStripeReaderErrorOccurredEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fedf95d_2c84_41ad_b778_f2356a789ab1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderErrorOccurredEventArgsVtbl {
+pub struct IMagneticStripeReaderErrorOccurredEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Track1Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderTrackErrorType) -> ::windows::core::HRESULT,
     pub Track2Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderTrackErrorType) -> ::windows::core::HRESULT,
@@ -8247,12 +8247,12 @@ pub struct IMagneticStripeReaderErrorOccurredEventArgsVtbl {
 #[repr(transparent)]
 pub struct IMagneticStripeReaderReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMagneticStripeReaderReport {
-    type Vtable = IMagneticStripeReaderReportVtbl;
+    type Vtable = IMagneticStripeReaderReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a5b6047_99b0_4188_bef1_eddf79f78fe6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderReportVtbl {
+pub struct IMagneticStripeReaderReport_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CardType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub Track1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8277,12 +8277,12 @@ pub struct IMagneticStripeReaderReportVtbl {
 #[repr(transparent)]
 pub struct IMagneticStripeReaderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMagneticStripeReaderStatics {
-    type Vtable = IMagneticStripeReaderStaticsVtbl;
+    type Vtable = IMagneticStripeReaderStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc45fab4a_efd7_4760_a5ce_15b0e47e94eb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderStaticsVtbl {
+pub struct IMagneticStripeReaderStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetDefaultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8298,12 +8298,12 @@ pub struct IMagneticStripeReaderStaticsVtbl {
 #[repr(transparent)]
 pub struct IMagneticStripeReaderStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMagneticStripeReaderStatics2 {
-    type Vtable = IMagneticStripeReaderStatics2Vtbl;
+    type Vtable = IMagneticStripeReaderStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cadc362_d667_48fa_86bc_f5ae1189262b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderStatics2Vtbl {
+pub struct IMagneticStripeReaderStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceSelectorWithConnectionTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectiontypes: PosConnectionTypes, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -8311,12 +8311,12 @@ pub struct IMagneticStripeReaderStatics2Vtbl {
 #[repr(transparent)]
 pub struct IMagneticStripeReaderStatusUpdatedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMagneticStripeReaderStatusUpdatedEventArgs {
-    type Vtable = IMagneticStripeReaderStatusUpdatedEventArgsVtbl;
+    type Vtable = IMagneticStripeReaderStatusUpdatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09cc6bb0_3262_401d_9e8a_e80d6358906b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderStatusUpdatedEventArgsVtbl {
+pub struct IMagneticStripeReaderStatusUpdatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MagneticStripeReaderStatus) -> ::windows::core::HRESULT,
     pub ExtendedStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -8325,12 +8325,12 @@ pub struct IMagneticStripeReaderStatusUpdatedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IMagneticStripeReaderTrackData(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMagneticStripeReaderTrackData {
-    type Vtable = IMagneticStripeReaderTrackDataVtbl;
+    type Vtable = IMagneticStripeReaderTrackData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x104cf671_4a9d_446e_abc5_20402307ba36);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderTrackDataVtbl {
+pub struct IMagneticStripeReaderTrackData_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub Data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8349,12 +8349,12 @@ pub struct IMagneticStripeReaderTrackDataVtbl {
 #[repr(transparent)]
 pub struct IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
-    type Vtable = IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgsVtbl;
+    type Vtable = IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf0a5514_59cc_4a60_99e8_99a53dace5aa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgsVtbl {
+pub struct IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Report: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8362,12 +8362,12 @@ pub struct IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPosPrinter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPosPrinter {
-    type Vtable = IPosPrinterVtbl;
+    type Vtable = IPosPrinter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a03c10e_9a19_4a01_994f_12dfad6adcbf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPosPrinterVtbl {
+pub struct IPosPrinter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Capabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8405,12 +8405,12 @@ pub struct IPosPrinterVtbl {
 #[repr(transparent)]
 pub struct IPosPrinter2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPosPrinter2 {
-    type Vtable = IPosPrinter2Vtbl;
+    type Vtable = IPosPrinter2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x248475e8_8b98_5517_8e48_760e86f68987);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPosPrinter2Vtbl {
+pub struct IPosPrinter2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub SupportedBarcodeSymbologies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8422,12 +8422,12 @@ pub struct IPosPrinter2Vtbl {
 #[repr(transparent)]
 pub struct IPosPrinterCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPosPrinterCapabilities {
-    type Vtable = IPosPrinterCapabilitiesVtbl;
+    type Vtable = IPosPrinterCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcde95721_4380_4985_adc5_39db30cd93bc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPosPrinterCapabilitiesVtbl {
+pub struct IPosPrinterCapabilities_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PowerReportingType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UnifiedPosPowerReportingType) -> ::windows::core::HRESULT,
     pub IsStatisticsReportingSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -8444,12 +8444,12 @@ pub struct IPosPrinterCapabilitiesVtbl {
 #[repr(transparent)]
 pub struct IPosPrinterCharacterSetIdsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPosPrinterCharacterSetIdsStatics {
-    type Vtable = IPosPrinterCharacterSetIdsStaticsVtbl;
+    type Vtable = IPosPrinterCharacterSetIdsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c709eff_709a_4fe7_b215_06a748a38b39);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPosPrinterCharacterSetIdsStaticsVtbl {
+pub struct IPosPrinterCharacterSetIdsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Utf16LE: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub Ascii: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -8459,12 +8459,12 @@ pub struct IPosPrinterCharacterSetIdsStaticsVtbl {
 #[repr(transparent)]
 pub struct IPosPrinterFontProperty(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPosPrinterFontProperty {
-    type Vtable = IPosPrinterFontPropertyVtbl;
+    type Vtable = IPosPrinterFontProperty_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7f4e93a_f8ac_5f04_84d2_29b16d8a633c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPosPrinterFontPropertyVtbl {
+pub struct IPosPrinterFontProperty_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TypeFace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub IsScalableToAnySize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -8562,12 +8562,12 @@ unsafe impl ::windows::core::RuntimeType for IPosPrinterJob {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9a94005c-0615-4591-a58f-30f87edfe2e4}");
 }
 unsafe impl ::windows::core::Interface for IPosPrinterJob {
-    type Vtable = IPosPrinterJobVtbl;
+    type Vtable = IPosPrinterJob_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a94005c_0615_4591_a58f_30f87edfe2e4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPosPrinterJobVtbl {
+pub struct IPosPrinterJob_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Print: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub PrintLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8581,12 +8581,12 @@ pub struct IPosPrinterJobVtbl {
 #[repr(transparent)]
 pub struct IPosPrinterPrintOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPosPrinterPrintOptions {
-    type Vtable = IPosPrinterPrintOptionsVtbl;
+    type Vtable = IPosPrinterPrintOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a2e16fd_1d02_5a58_9d59_bfcde76fde86);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPosPrinterPrintOptionsVtbl {
+pub struct IPosPrinterPrintOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TypeFace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTypeFace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8619,24 +8619,24 @@ pub struct IPosPrinterPrintOptionsVtbl {
 #[repr(transparent)]
 pub struct IPosPrinterReleaseDeviceRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPosPrinterReleaseDeviceRequestedEventArgs {
-    type Vtable = IPosPrinterReleaseDeviceRequestedEventArgsVtbl;
+    type Vtable = IPosPrinterReleaseDeviceRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bcba359_1cef_40b2_9ecb_f927f856ae3c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPosPrinterReleaseDeviceRequestedEventArgsVtbl {
+pub struct IPosPrinterReleaseDeviceRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPosPrinterStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPosPrinterStatics {
-    type Vtable = IPosPrinterStaticsVtbl;
+    type Vtable = IPosPrinterStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ce0d4ea_132f_4cdf_a64a_2d0d7c96a85b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPosPrinterStaticsVtbl {
+pub struct IPosPrinterStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetDefaultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8652,12 +8652,12 @@ pub struct IPosPrinterStaticsVtbl {
 #[repr(transparent)]
 pub struct IPosPrinterStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPosPrinterStatics2 {
-    type Vtable = IPosPrinterStatics2Vtbl;
+    type Vtable = IPosPrinterStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeecd2c1c_b0d0_42e7_b137_b89b16244d41);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPosPrinterStatics2Vtbl {
+pub struct IPosPrinterStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceSelectorWithConnectionTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectiontypes: PosConnectionTypes, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -8665,12 +8665,12 @@ pub struct IPosPrinterStatics2Vtbl {
 #[repr(transparent)]
 pub struct IPosPrinterStatus(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPosPrinterStatus {
-    type Vtable = IPosPrinterStatusVtbl;
+    type Vtable = IPosPrinterStatus_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1f0c730_da40_4328_bf76_5156fa33b747);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPosPrinterStatusVtbl {
+pub struct IPosPrinterStatus_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub StatusKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PosPrinterStatusKind) -> ::windows::core::HRESULT,
     pub ExtendedStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -8679,12 +8679,12 @@ pub struct IPosPrinterStatusVtbl {
 #[repr(transparent)]
 pub struct IPosPrinterStatusUpdatedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPosPrinterStatusUpdatedEventArgs {
-    type Vtable = IPosPrinterStatusUpdatedEventArgsVtbl;
+    type Vtable = IPosPrinterStatusUpdatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2edb87df_13a6_428d_ba81_b0e7c3e5a3cd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPosPrinterStatusUpdatedEventArgsVtbl {
+pub struct IPosPrinterStatusUpdatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8883,12 +8883,12 @@ unsafe impl ::windows::core::RuntimeType for IReceiptOrSlipJob {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{532199be-c8c3-4dc2-89e9-5c4a37b34ddc}");
 }
 unsafe impl ::windows::core::Interface for IReceiptOrSlipJob {
-    type Vtable = IReceiptOrSlipJobVtbl;
+    type Vtable = IReceiptOrSlipJob_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x532199be_c8c3_4dc2_89e9_5c4a37b34ddc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IReceiptOrSlipJobVtbl {
+pub struct IReceiptOrSlipJob_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetBarcodeRotation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: PosPrinterRotation) -> ::windows::core::HRESULT,
     pub SetPrintRotation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: PosPrinterRotation, includebitmaps: bool) -> ::windows::core::HRESULT,
@@ -8937,12 +8937,12 @@ pub struct IReceiptOrSlipJobVtbl {
 #[repr(transparent)]
 pub struct IReceiptPrintJob(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IReceiptPrintJob {
-    type Vtable = IReceiptPrintJobVtbl;
+    type Vtable = IReceiptPrintJob_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa96066e_acad_4b79_9d0f_c0cfc08dc77b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IReceiptPrintJobVtbl {
+pub struct IReceiptPrintJob_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MarkFeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: PosPrinterMarkFeedKind) -> ::windows::core::HRESULT,
     pub CutPaper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, percentage: f64) -> ::windows::core::HRESULT,
@@ -8952,12 +8952,12 @@ pub struct IReceiptPrintJobVtbl {
 #[repr(transparent)]
 pub struct IReceiptPrintJob2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IReceiptPrintJob2 {
-    type Vtable = IReceiptPrintJob2Vtbl;
+    type Vtable = IReceiptPrintJob2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cbc12e3_9e29_5179_bcd8_1811d3b9a10e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IReceiptPrintJob2Vtbl {
+pub struct IReceiptPrintJob2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub StampPaper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Print: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, printoptions: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8968,12 +8968,12 @@ pub struct IReceiptPrintJob2Vtbl {
 #[repr(transparent)]
 pub struct IReceiptPrinterCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IReceiptPrinterCapabilities {
-    type Vtable = IReceiptPrinterCapabilitiesVtbl;
+    type Vtable = IReceiptPrinterCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8f0b58f_51a8_43fc_9bd5_8de272a6415b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IReceiptPrinterCapabilitiesVtbl {
+pub struct IReceiptPrinterCapabilities_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CanCutPaper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsStampSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -8983,12 +8983,12 @@ pub struct IReceiptPrinterCapabilitiesVtbl {
 #[repr(transparent)]
 pub struct IReceiptPrinterCapabilities2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IReceiptPrinterCapabilities2 {
-    type Vtable = IReceiptPrinterCapabilities2Vtbl;
+    type Vtable = IReceiptPrinterCapabilities2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20030638_8a2c_55ac_9a7b_7576d8869e99);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IReceiptPrinterCapabilities2Vtbl {
+pub struct IReceiptPrinterCapabilities2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsReverseVideoSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsStrikethroughSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -9001,12 +9001,12 @@ pub struct IReceiptPrinterCapabilities2Vtbl {
 #[repr(transparent)]
 pub struct ISlipPrintJob(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISlipPrintJob {
-    type Vtable = ISlipPrintJobVtbl;
+    type Vtable = ISlipPrintJob_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d88f95d_6131_5a4b_b7d5_8ef2da7b4165);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISlipPrintJobVtbl {
+pub struct ISlipPrintJob_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Print: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, printoptions: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FeedPaperByLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, linecount: i32) -> ::windows::core::HRESULT,
@@ -9016,12 +9016,12 @@ pub struct ISlipPrintJobVtbl {
 #[repr(transparent)]
 pub struct ISlipPrinterCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISlipPrinterCapabilities {
-    type Vtable = ISlipPrinterCapabilitiesVtbl;
+    type Vtable = ISlipPrinterCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99b16399_488c_4157_8ac2_9f57f708d3db);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISlipPrinterCapabilitiesVtbl {
+pub struct ISlipPrinterCapabilities_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsFullLengthSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsBothSidesPrintingSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -9030,12 +9030,12 @@ pub struct ISlipPrinterCapabilitiesVtbl {
 #[repr(transparent)]
 pub struct ISlipPrinterCapabilities2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISlipPrinterCapabilities2 {
-    type Vtable = ISlipPrinterCapabilities2Vtbl;
+    type Vtable = ISlipPrinterCapabilities2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ff89671_2d1a_5000_87c2_b0851bfdf07e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISlipPrinterCapabilities2Vtbl {
+pub struct ISlipPrinterCapabilities2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsReverseVideoSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsStrikethroughSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -9048,12 +9048,12 @@ pub struct ISlipPrinterCapabilities2Vtbl {
 #[repr(transparent)]
 pub struct IUnifiedPosErrorData(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUnifiedPosErrorData {
-    type Vtable = IUnifiedPosErrorDataVtbl;
+    type Vtable = IUnifiedPosErrorData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b998c3a_555c_4889_8ed8_c599bb3a712a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUnifiedPosErrorDataVtbl {
+pub struct IUnifiedPosErrorData_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Severity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UnifiedPosErrorSeverity) -> ::windows::core::HRESULT,
@@ -9064,12 +9064,12 @@ pub struct IUnifiedPosErrorDataVtbl {
 #[repr(transparent)]
 pub struct IUnifiedPosErrorDataFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUnifiedPosErrorDataFactory {
-    type Vtable = IUnifiedPosErrorDataFactoryVtbl;
+    type Vtable = IUnifiedPosErrorDataFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b982551_1ffe_451b_a368_63e0ce465f5a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUnifiedPosErrorDataFactoryVtbl {
+pub struct IUnifiedPosErrorDataFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, severity: UnifiedPosErrorSeverity, reason: UnifiedPosErrorReason, extendedreason: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -9137,7 +9137,7 @@ unsafe impl ::windows::core::RuntimeType for JournalPrintJob {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.JournalPrintJob;{9a94005c-0615-4591-a58f-30f87edfe2e4})");
 }
 unsafe impl ::windows::core::Interface for JournalPrintJob {
-    type Vtable = IPosPrinterJobVtbl;
+    type Vtable = IPosPrinterJob_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a94005c_0615_4591_a58f_30f87edfe2e4);
 }
 impl ::windows::core::RuntimeName for JournalPrintJob {
@@ -9385,7 +9385,7 @@ unsafe impl ::windows::core::RuntimeType for JournalPrinterCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.JournalPrinterCapabilities;{3b5ccc43-e047-4463-bb58-17b5ba1d8056})");
 }
 unsafe impl ::windows::core::Interface for JournalPrinterCapabilities {
-    type Vtable = IJournalPrinterCapabilitiesVtbl;
+    type Vtable = IJournalPrinterCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b5ccc43_e047_4463_bb58_17b5ba1d8056);
 }
 impl ::windows::core::RuntimeName for JournalPrinterCapabilities {
@@ -9607,7 +9607,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplay {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplay;{24f5df4e-3c99-44e2-b73f-e51be3637a8c})");
 }
 unsafe impl ::windows::core::Interface for LineDisplay {
-    type Vtable = ILineDisplayVtbl;
+    type Vtable = ILineDisplay_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24f5df4e_3c99_44e2_b73f_e51be3637a8c);
 }
 impl ::windows::core::RuntimeName for LineDisplay {
@@ -9801,7 +9801,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayAttributes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayAttributes;{c17de99c-229a-4c14-a6f1-b4e4b1fead92})");
 }
 unsafe impl ::windows::core::Interface for LineDisplayAttributes {
-    type Vtable = ILineDisplayAttributesVtbl;
+    type Vtable = ILineDisplayAttributes_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc17de99c_229a_4c14_a6f1_b4e4b1fead92);
 }
 impl ::windows::core::RuntimeName for LineDisplayAttributes {
@@ -10018,7 +10018,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCapabilities;{5a15b5d1-8dc5-4b9c-9172-303e47b70c55})");
 }
 unsafe impl ::windows::core::Interface for LineDisplayCapabilities {
-    type Vtable = ILineDisplayCapabilitiesVtbl;
+    type Vtable = ILineDisplayCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a15b5d1_8dc5_4b9c_9172_303e47b70c55);
 }
 impl ::windows::core::RuntimeName for LineDisplayCapabilities {
@@ -10164,7 +10164,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayCursor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCursor;{ecdffc45-754a-4e3b-ab2b-151181085605})");
 }
 unsafe impl ::windows::core::Interface for LineDisplayCursor {
-    type Vtable = ILineDisplayCursorVtbl;
+    type Vtable = ILineDisplayCursor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecdffc45_754a_4e3b_ab2b_151181085605);
 }
 impl ::windows::core::RuntimeName for LineDisplayCursor {
@@ -10291,7 +10291,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayCursorAttributes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCursorAttributes;{4e2d54fe-4ffd-4190-aae1-ce285f20c896})");
 }
 unsafe impl ::windows::core::Interface for LineDisplayCursorAttributes {
-    type Vtable = ILineDisplayCursorAttributesVtbl;
+    type Vtable = ILineDisplayCursorAttributes_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e2d54fe_4ffd_4190_aae1_ce285f20c896);
 }
 impl ::windows::core::RuntimeName for LineDisplayCursorAttributes {
@@ -10428,7 +10428,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayCustomGlyphs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCustomGlyphs;{2257f63c-f263-44f1-a1a0-e750a6a0ec54})");
 }
 unsafe impl ::windows::core::Interface for LineDisplayCustomGlyphs {
-    type Vtable = ILineDisplayCustomGlyphsVtbl;
+    type Vtable = ILineDisplayCustomGlyphs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2257f63c_f263_44f1_a1a0_e750a6a0ec54);
 }
 impl ::windows::core::RuntimeName for LineDisplayCustomGlyphs {
@@ -10630,7 +10630,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayMarquee {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayMarquee;{a3d33e3e-f46a-4b7a-bc21-53eb3b57f8b4})");
 }
 unsafe impl ::windows::core::Interface for LineDisplayMarquee {
-    type Vtable = ILineDisplayMarqueeVtbl;
+    type Vtable = ILineDisplayMarquee_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3d33e3e_f46a_4b7a_bc21_53eb3b57f8b4);
 }
 impl ::windows::core::RuntimeName for LineDisplayMarquee {
@@ -10832,7 +10832,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayStatisticsCategorySelect
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayStatisticsCategorySelector;{b521c46b-9274-4d24-94f3-b6017b832444})");
 }
 unsafe impl ::windows::core::Interface for LineDisplayStatisticsCategorySelector {
-    type Vtable = ILineDisplayStatisticsCategorySelectorVtbl;
+    type Vtable = ILineDisplayStatisticsCategorySelector_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb521c46b_9274_4d24_94f3_b6017b832444);
 }
 impl ::windows::core::RuntimeName for LineDisplayStatisticsCategorySelector {
@@ -10913,7 +10913,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayStatusUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayStatusUpdatedEventArgs;{ddd57c1a-86fb-4eba-93d1-6f5eda52b752})");
 }
 unsafe impl ::windows::core::Interface for LineDisplayStatusUpdatedEventArgs {
-    type Vtable = ILineDisplayStatusUpdatedEventArgsVtbl;
+    type Vtable = ILineDisplayStatusUpdatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddd57c1a_86fb_4eba_93d1_6f5eda52b752);
 }
 impl ::windows::core::RuntimeName for LineDisplayStatusUpdatedEventArgs {
@@ -11003,7 +11003,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayStoredBitmap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayStoredBitmap;{f621515b-d81e-43ba-bf1b-bcfa3c785ba0})");
 }
 unsafe impl ::windows::core::Interface for LineDisplayStoredBitmap {
-    type Vtable = ILineDisplayStoredBitmapVtbl;
+    type Vtable = ILineDisplayStoredBitmap_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf621515b_d81e_43ba_bf1b_bcfa3c785ba0);
 }
 impl ::windows::core::RuntimeName for LineDisplayStoredBitmap {
@@ -11342,7 +11342,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayWindow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayWindow;{d21feef4-2364-4be5-bee1-851680af4964})");
 }
 unsafe impl ::windows::core::Interface for LineDisplayWindow {
-    type Vtable = ILineDisplayWindowVtbl;
+    type Vtable = ILineDisplayWindow_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd21feef4_2364_4be5_bee1_851680af4964);
 }
 impl ::windows::core::RuntimeName for LineDisplayWindow {
@@ -11569,7 +11569,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReader;{1a92b015-47c3-468a-9333-0c6517574883})");
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReader {
-    type Vtable = IMagneticStripeReaderVtbl;
+    type Vtable = IMagneticStripeReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a92b015_47c3_468a_9333_0c6517574883);
 }
 impl ::windows::core::RuntimeName for MagneticStripeReader {
@@ -11820,7 +11820,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderAamvaCardDataRe
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderAamvaCardDataReceivedEventArgs;{0a4bbd51-c316-4910-87f3-7a62ba862d31})");
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
-    type Vtable = IMagneticStripeReaderAamvaCardDataReceivedEventArgsVtbl;
+    type Vtable = IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a4bbd51_c316_4910_87f3_7a62ba862d31);
 }
 impl ::windows::core::RuntimeName for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
@@ -12032,7 +12032,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderBankCardDataRec
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderBankCardDataReceivedEventArgs;{2e958823-a31a-4763-882c-23725e39b08e})");
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderBankCardDataReceivedEventArgs {
-    type Vtable = IMagneticStripeReaderBankCardDataReceivedEventArgsVtbl;
+    type Vtable = IMagneticStripeReaderBankCardDataReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e958823_a31a_4763_882c_23725e39b08e);
 }
 impl ::windows::core::RuntimeName for MagneticStripeReaderBankCardDataReceivedEventArgs {
@@ -12193,7 +12193,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderCapabilities;{7128809c-c440-44a2-a467-469175d02896})");
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderCapabilities {
-    type Vtable = IMagneticStripeReaderCapabilitiesVtbl;
+    type Vtable = IMagneticStripeReaderCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7128809c_c440_44a2_a467_469175d02896);
 }
 impl ::windows::core::RuntimeName for MagneticStripeReaderCapabilities {
@@ -12387,7 +12387,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderErrorOccurredEv
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderErrorOccurredEventArgs;{1fedf95d-2c84-41ad-b778-f2356a789ab1})");
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderErrorOccurredEventArgs {
-    type Vtable = IMagneticStripeReaderErrorOccurredEventArgsVtbl;
+    type Vtable = IMagneticStripeReaderErrorOccurredEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fedf95d_2c84_41ad_b778_f2356a789ab1);
 }
 impl ::windows::core::RuntimeName for MagneticStripeReaderErrorOccurredEventArgs {
@@ -12568,7 +12568,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderReport;{6a5b6047-99b0-4188-bef1-eddf79f78fe6})");
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderReport {
-    type Vtable = IMagneticStripeReaderReportVtbl;
+    type Vtable = IMagneticStripeReaderReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a5b6047_99b0_4188_bef1_eddf79f78fe6);
 }
 impl ::windows::core::RuntimeName for MagneticStripeReaderReport {
@@ -12691,7 +12691,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderStatusUpdatedEv
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderStatusUpdatedEventArgs;{09cc6bb0-3262-401d-9e8a-e80d6358906b})");
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderStatusUpdatedEventArgs {
-    type Vtable = IMagneticStripeReaderStatusUpdatedEventArgsVtbl;
+    type Vtable = IMagneticStripeReaderStatusUpdatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09cc6bb0_3262_401d_9e8a_e80d6358906b);
 }
 impl ::windows::core::RuntimeName for MagneticStripeReaderStatusUpdatedEventArgs {
@@ -12791,7 +12791,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderTrackData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderTrackData;{104cf671-4a9d-446e-abc5-20402307ba36})");
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderTrackData {
-    type Vtable = IMagneticStripeReaderTrackDataVtbl;
+    type Vtable = IMagneticStripeReaderTrackData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x104cf671_4a9d_446e_abc5_20402307ba36);
 }
 impl ::windows::core::RuntimeName for MagneticStripeReaderTrackData {
@@ -12945,7 +12945,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderVendorSpecificC
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs;{af0a5514-59cc-4a60-99e8-99a53dace5aa})");
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
-    type Vtable = IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgsVtbl;
+    type Vtable = IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf0a5514_59cc_4a60_99e8_99a53dace5aa);
 }
 impl ::windows::core::RuntimeName for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
@@ -13228,7 +13228,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinter;{2a03c10e-9a19-4a01-994f-12dfad6adcbf})");
 }
 unsafe impl ::windows::core::Interface for PosPrinter {
-    type Vtable = IPosPrinterVtbl;
+    type Vtable = IPosPrinter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a03c10e_9a19_4a01_994f_12dfad6adcbf);
 }
 impl ::windows::core::RuntimeName for PosPrinter {
@@ -13475,7 +13475,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterCapabilities;{cde95721-4380-4985-adc5-39db30cd93bc})");
 }
 unsafe impl ::windows::core::Interface for PosPrinterCapabilities {
-    type Vtable = IPosPrinterCapabilitiesVtbl;
+    type Vtable = IPosPrinterCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcde95721_4380_4985_adc5_39db30cd93bc);
 }
 impl ::windows::core::RuntimeName for PosPrinterCapabilities {
@@ -13783,7 +13783,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterFontProperty {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterFontProperty;{a7f4e93a-f8ac-5f04-84d2-29b16d8a633c})");
 }
 unsafe impl ::windows::core::Interface for PosPrinterFontProperty {
-    type Vtable = IPosPrinterFontPropertyVtbl;
+    type Vtable = IPosPrinterFontProperty_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7f4e93a_f8ac_5f04_84d2_29b16d8a633c);
 }
 impl ::windows::core::RuntimeName for PosPrinterFontProperty {
@@ -14234,7 +14234,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterPrintOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterPrintOptions;{0a2e16fd-1d02-5a58-9d59-bfcde76fde86})");
 }
 unsafe impl ::windows::core::Interface for PosPrinterPrintOptions {
-    type Vtable = IPosPrinterPrintOptionsVtbl;
+    type Vtable = IPosPrinterPrintOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a2e16fd_1d02_5a58_9d59_bfcde76fde86);
 }
 impl ::windows::core::RuntimeName for PosPrinterPrintOptions {
@@ -14340,7 +14340,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterReleaseDeviceRequestedEve
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterReleaseDeviceRequestedEventArgs;{2bcba359-1cef-40b2-9ecb-f927f856ae3c})");
 }
 unsafe impl ::windows::core::Interface for PosPrinterReleaseDeviceRequestedEventArgs {
-    type Vtable = IPosPrinterReleaseDeviceRequestedEventArgsVtbl;
+    type Vtable = IPosPrinterReleaseDeviceRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bcba359_1cef_40b2_9ecb_f927f856ae3c);
 }
 impl ::windows::core::RuntimeName for PosPrinterReleaseDeviceRequestedEventArgs {
@@ -14526,7 +14526,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterStatus;{d1f0c730-da40-4328-bf76-5156fa33b747})");
 }
 unsafe impl ::windows::core::Interface for PosPrinterStatus {
-    type Vtable = IPosPrinterStatusVtbl;
+    type Vtable = IPosPrinterStatus_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1f0c730_da40_4328_bf76_5156fa33b747);
 }
 impl ::windows::core::RuntimeName for PosPrinterStatus {
@@ -14643,7 +14643,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterStatusUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterStatusUpdatedEventArgs;{2edb87df-13a6-428d-ba81-b0e7c3e5a3cd})");
 }
 unsafe impl ::windows::core::Interface for PosPrinterStatusUpdatedEventArgs {
-    type Vtable = IPosPrinterStatusUpdatedEventArgsVtbl;
+    type Vtable = IPosPrinterStatusUpdatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2edb87df_13a6_428d_ba81_b0e7c3e5a3cd);
 }
 impl ::windows::core::RuntimeName for PosPrinterStatusUpdatedEventArgs {
@@ -14859,7 +14859,7 @@ unsafe impl ::windows::core::RuntimeType for ReceiptPrintJob {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ReceiptPrintJob;{aa96066e-acad-4b79-9d0f-c0cfc08dc77b})");
 }
 unsafe impl ::windows::core::Interface for ReceiptPrintJob {
-    type Vtable = IReceiptPrintJobVtbl;
+    type Vtable = IReceiptPrintJob_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa96066e_acad_4b79_9d0f_c0cfc08dc77b);
 }
 impl ::windows::core::RuntimeName for ReceiptPrintJob {
@@ -15227,7 +15227,7 @@ unsafe impl ::windows::core::RuntimeType for ReceiptPrinterCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ReceiptPrinterCapabilities;{b8f0b58f-51a8-43fc-9bd5-8de272a6415b})");
 }
 unsafe impl ::windows::core::Interface for ReceiptPrinterCapabilities {
-    type Vtable = IReceiptPrinterCapabilitiesVtbl;
+    type Vtable = IReceiptPrinterCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8f0b58f_51a8_43fc_9bd5_8de272a6415b);
 }
 impl ::windows::core::RuntimeName for ReceiptPrinterCapabilities {
@@ -15504,7 +15504,7 @@ unsafe impl ::windows::core::RuntimeType for SlipPrintJob {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.SlipPrintJob;{532199be-c8c3-4dc2-89e9-5c4a37b34ddc})");
 }
 unsafe impl ::windows::core::Interface for SlipPrintJob {
-    type Vtable = IReceiptOrSlipJobVtbl;
+    type Vtable = IReceiptOrSlipJob_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x532199be_c8c3_4dc2_89e9_5c4a37b34ddc);
 }
 impl ::windows::core::RuntimeName for SlipPrintJob {
@@ -15864,7 +15864,7 @@ unsafe impl ::windows::core::RuntimeType for SlipPrinterCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.SlipPrinterCapabilities;{99b16399-488c-4157-8ac2-9f57f708d3db})");
 }
 unsafe impl ::windows::core::Interface for SlipPrinterCapabilities {
-    type Vtable = ISlipPrinterCapabilitiesVtbl;
+    type Vtable = ISlipPrinterCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99b16399_488c_4157_8ac2_9f57f708d3db);
 }
 impl ::windows::core::RuntimeName for SlipPrinterCapabilities {
@@ -16025,7 +16025,7 @@ unsafe impl ::windows::core::RuntimeType for UnifiedPosErrorData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.UnifiedPosErrorData;{2b998c3a-555c-4889-8ed8-c599bb3a712a})");
 }
 unsafe impl ::windows::core::Interface for UnifiedPosErrorData {
-    type Vtable = IUnifiedPosErrorDataVtbl;
+    type Vtable = IUnifiedPosErrorData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b998c3a_555c_4889_8ed8_c599bb3a712a);
 }
 impl ::windows::core::RuntimeName for UnifiedPosErrorData {

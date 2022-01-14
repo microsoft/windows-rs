@@ -237,7 +237,7 @@ unsafe impl ::windows::core::RuntimeType for CredentialPickerOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.UI.CredentialPickerOptions;{965a0b4c-95fa-467f-992b-0b22e5859bf6})");
 }
 unsafe impl ::windows::core::Interface for CredentialPickerOptions {
-    type Vtable = ICredentialPickerOptionsVtbl;
+    type Vtable = ICredentialPickerOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x965a0b4c_95fa_467f_992b_0b22e5859bf6);
 }
 impl ::windows::core::RuntimeName for CredentialPickerOptions {
@@ -365,7 +365,7 @@ unsafe impl ::windows::core::RuntimeType for CredentialPickerResults {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.UI.CredentialPickerResults;{1948f99a-cc30-410c-9c38-cc0884c5b3d7})");
 }
 unsafe impl ::windows::core::Interface for CredentialPickerResults {
-    type Vtable = ICredentialPickerResultsVtbl;
+    type Vtable = ICredentialPickerResults_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1948f99a_cc30_410c_9c38_cc0884c5b3d7);
 }
 impl ::windows::core::RuntimeName for CredentialPickerResults {
@@ -449,12 +449,12 @@ impl ::windows::core::DefaultType for CredentialSaveOption {
 #[repr(transparent)]
 pub struct ICredentialPickerOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICredentialPickerOptions {
-    type Vtable = ICredentialPickerOptionsVtbl;
+    type Vtable = ICredentialPickerOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x965a0b4c_95fa_467f_992b_0b22e5859bf6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICredentialPickerOptionsVtbl {
+pub struct ICredentialPickerOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetCaption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Caption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -487,12 +487,12 @@ pub struct ICredentialPickerOptionsVtbl {
 #[repr(transparent)]
 pub struct ICredentialPickerResults(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICredentialPickerResults {
-    type Vtable = ICredentialPickerResultsVtbl;
+    type Vtable = ICredentialPickerResults_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1948f99a_cc30_410c_9c38_cc0884c5b3d7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICredentialPickerResultsVtbl {
+pub struct ICredentialPickerResults_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub CredentialSaveOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CredentialSaveOption) -> ::windows::core::HRESULT,
@@ -509,12 +509,12 @@ pub struct ICredentialPickerResultsVtbl {
 #[repr(transparent)]
 pub struct ICredentialPickerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICredentialPickerStatics {
-    type Vtable = ICredentialPickerStaticsVtbl;
+    type Vtable = ICredentialPickerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa3a5c73_c9ea_4782_99fb_e6d7e938e12d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICredentialPickerStaticsVtbl {
+pub struct ICredentialPickerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub PickWithOptionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -533,12 +533,12 @@ pub struct ICredentialPickerStaticsVtbl {
 #[repr(transparent)]
 pub struct IUserConsentVerifierStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserConsentVerifierStatics {
-    type Vtable = IUserConsentVerifierStaticsVtbl;
+    type Vtable = IUserConsentVerifierStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf4f3f91_564c_4ddc_b8b5_973447627c65);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserConsentVerifierStaticsVtbl {
+pub struct IUserConsentVerifierStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CheckAvailabilityAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

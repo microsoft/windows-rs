@@ -115,7 +115,7 @@ unsafe impl ::windows::core::RuntimeType for AdvertisingManagerForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.AdvertisingManagerForUser;{928bf3d0-cf7c-4ab0-a7dc-6dc5bcd44252})");
 }
 unsafe impl ::windows::core::Interface for AdvertisingManagerForUser {
-    type Vtable = IAdvertisingManagerForUserVtbl;
+    type Vtable = IAdvertisingManagerForUser_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x928bf3d0_cf7c_4ab0_a7dc_6dc5bcd44252);
 }
 impl ::windows::core::RuntimeName for AdvertisingManagerForUser {
@@ -231,7 +231,7 @@ unsafe impl ::windows::core::RuntimeType for AssignedAccessSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.AssignedAccessSettings;{1bc57f1c-e971-5757-b8e0-512f8b8c46d2})");
 }
 unsafe impl ::windows::core::Interface for AssignedAccessSettings {
-    type Vtable = IAssignedAccessSettingsVtbl;
+    type Vtable = IAssignedAccessSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bc57f1c_e971_5757_b8e0_512f8b8c46d2);
 }
 impl ::windows::core::RuntimeName for AssignedAccessSettings {
@@ -339,7 +339,7 @@ unsafe impl ::windows::core::RuntimeType for DiagnosticsSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.DiagnosticsSettings;{e5e9eccd-2711-44e0-973c-491d78048d24})");
 }
 unsafe impl ::windows::core::Interface for DiagnosticsSettings {
-    type Vtable = IDiagnosticsSettingsVtbl;
+    type Vtable = IDiagnosticsSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5e9eccd_2711_44e0_973c_491d78048d24);
 }
 impl ::windows::core::RuntimeName for DiagnosticsSettings {
@@ -466,7 +466,7 @@ unsafe impl ::windows::core::RuntimeType for FirstSignInSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.FirstSignInSettings;{3e945153-3a5e-452e-a601-f5baad2a4870})");
 }
 unsafe impl ::windows::core::Interface for FirstSignInSettings {
-    type Vtable = IFirstSignInSettingsVtbl;
+    type Vtable = IFirstSignInSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e945153_3a5e_452e_a601_f5baad2a4870);
 }
 impl ::windows::core::RuntimeName for FirstSignInSettings {
@@ -759,7 +759,7 @@ unsafe impl ::windows::core::RuntimeType for GlobalizationPreferencesForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.GlobalizationPreferencesForUser;{150f0795-4f6e-40ba-a010-e27d81bda7f5})");
 }
 unsafe impl ::windows::core::Interface for GlobalizationPreferencesForUser {
-    type Vtable = IGlobalizationPreferencesForUserVtbl;
+    type Vtable = IGlobalizationPreferencesForUser_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x150f0795_4f6e_40ba_a010_e27d81bda7f5);
 }
 impl ::windows::core::RuntimeName for GlobalizationPreferencesForUser {
@@ -811,12 +811,12 @@ unsafe impl ::core::marker::Sync for GlobalizationPreferencesForUser {}
 #[repr(transparent)]
 pub struct IAdvertisingManagerForUser(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdvertisingManagerForUser {
-    type Vtable = IAdvertisingManagerForUserVtbl;
+    type Vtable = IAdvertisingManagerForUser_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x928bf3d0_cf7c_4ab0_a7dc_6dc5bcd44252);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAdvertisingManagerForUserVtbl {
+pub struct IAdvertisingManagerForUser_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AdvertisingId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -825,12 +825,12 @@ pub struct IAdvertisingManagerForUserVtbl {
 #[repr(transparent)]
 pub struct IAdvertisingManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdvertisingManagerStatics {
-    type Vtable = IAdvertisingManagerStaticsVtbl;
+    type Vtable = IAdvertisingManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadd3468c_a273_48cb_b346_3544522d5581);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAdvertisingManagerStaticsVtbl {
+pub struct IAdvertisingManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AdvertisingId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -838,12 +838,12 @@ pub struct IAdvertisingManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IAdvertisingManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdvertisingManagerStatics2 {
-    type Vtable = IAdvertisingManagerStatics2Vtbl;
+    type Vtable = IAdvertisingManagerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd0947af_1a6d_46b0_95bc_f3f9d6beb9fb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAdvertisingManagerStatics2Vtbl {
+pub struct IAdvertisingManagerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -851,12 +851,12 @@ pub struct IAdvertisingManagerStatics2Vtbl {
 #[repr(transparent)]
 pub struct IAssignedAccessSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAssignedAccessSettings {
-    type Vtable = IAssignedAccessSettingsVtbl;
+    type Vtable = IAssignedAccessSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bc57f1c_e971_5757_b8e0_512f8b8c46d2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAssignedAccessSettingsVtbl {
+pub struct IAssignedAccessSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsSingleAppKioskMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -866,12 +866,12 @@ pub struct IAssignedAccessSettingsVtbl {
 #[repr(transparent)]
 pub struct IAssignedAccessSettingsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAssignedAccessSettingsStatics {
-    type Vtable = IAssignedAccessSettingsStaticsVtbl;
+    type Vtable = IAssignedAccessSettingsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34a81d0d_8a29_5ef3_a7be_618e6ac3bd01);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAssignedAccessSettingsStaticsVtbl {
+pub struct IAssignedAccessSettingsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -880,12 +880,12 @@ pub struct IAssignedAccessSettingsStaticsVtbl {
 #[repr(transparent)]
 pub struct IDiagnosticsSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDiagnosticsSettings {
-    type Vtable = IDiagnosticsSettingsVtbl;
+    type Vtable = IDiagnosticsSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5e9eccd_2711_44e0_973c_491d78048d24);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiagnosticsSettingsVtbl {
+pub struct IDiagnosticsSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CanUseDiagnosticsToTailorExperiences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -894,12 +894,12 @@ pub struct IDiagnosticsSettingsVtbl {
 #[repr(transparent)]
 pub struct IDiagnosticsSettingsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDiagnosticsSettingsStatics {
-    type Vtable = IDiagnosticsSettingsStaticsVtbl;
+    type Vtable = IDiagnosticsSettingsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72d2e80f_5390_4793_990b_3ccc7d6ac9c8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiagnosticsSettingsStaticsVtbl {
+pub struct IDiagnosticsSettingsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -908,24 +908,24 @@ pub struct IDiagnosticsSettingsStaticsVtbl {
 #[repr(transparent)]
 pub struct IFirstSignInSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFirstSignInSettings {
-    type Vtable = IFirstSignInSettingsVtbl;
+    type Vtable = IFirstSignInSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e945153_3a5e_452e_a601_f5baad2a4870);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFirstSignInSettingsVtbl {
+pub struct IFirstSignInSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IFirstSignInSettingsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFirstSignInSettingsStatics {
-    type Vtable = IFirstSignInSettingsStaticsVtbl;
+    type Vtable = IFirstSignInSettingsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ce18f0f_1c41_4ea0_b7a2_6f0c1c7e8438);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFirstSignInSettingsStaticsVtbl {
+pub struct IFirstSignInSettingsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -933,12 +933,12 @@ pub struct IFirstSignInSettingsStaticsVtbl {
 #[repr(transparent)]
 pub struct IGlobalizationPreferencesForUser(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGlobalizationPreferencesForUser {
-    type Vtable = IGlobalizationPreferencesForUserVtbl;
+    type Vtable = IGlobalizationPreferencesForUser_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x150f0795_4f6e_40ba_a010_e27d81bda7f5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGlobalizationPreferencesForUserVtbl {
+pub struct IGlobalizationPreferencesForUser_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -967,12 +967,12 @@ pub struct IGlobalizationPreferencesForUserVtbl {
 #[repr(transparent)]
 pub struct IGlobalizationPreferencesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGlobalizationPreferencesStatics {
-    type Vtable = IGlobalizationPreferencesStaticsVtbl;
+    type Vtable = IGlobalizationPreferencesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01bf4326_ed37_4e96_b0e9_c1340d1ea158);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGlobalizationPreferencesStaticsVtbl {
+pub struct IGlobalizationPreferencesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Calendars: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1000,12 +1000,12 @@ pub struct IGlobalizationPreferencesStaticsVtbl {
 #[repr(transparent)]
 pub struct IGlobalizationPreferencesStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGlobalizationPreferencesStatics2 {
-    type Vtable = IGlobalizationPreferencesStatics2Vtbl;
+    type Vtable = IGlobalizationPreferencesStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcce85f1_4300_4cd0_9cac_1a8e7b7e18f4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGlobalizationPreferencesStatics2Vtbl {
+pub struct IGlobalizationPreferencesStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TrySetHomeGeographicRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, region: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -1017,12 +1017,12 @@ pub struct IGlobalizationPreferencesStatics2Vtbl {
 #[repr(transparent)]
 pub struct IGlobalizationPreferencesStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGlobalizationPreferencesStatics3 {
-    type Vtable = IGlobalizationPreferencesStatics3Vtbl;
+    type Vtable = IGlobalizationPreferencesStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e059733_35f5_40d8_b9e8_aef3ef856fce);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGlobalizationPreferencesStatics3Vtbl {
+pub struct IGlobalizationPreferencesStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1030,12 +1030,12 @@ pub struct IGlobalizationPreferencesStatics3Vtbl {
 #[repr(transparent)]
 pub struct ILockScreenImageFeedStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILockScreenImageFeedStatics {
-    type Vtable = ILockScreenImageFeedStaticsVtbl;
+    type Vtable = ILockScreenImageFeedStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c0d73f6_03a9_41a6_9b01_495251ff51d5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILockScreenImageFeedStaticsVtbl {
+pub struct ILockScreenImageFeedStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestSetImageFeedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syndicationfeeduri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1047,12 +1047,12 @@ pub struct ILockScreenImageFeedStaticsVtbl {
 #[repr(transparent)]
 pub struct ILockScreenStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILockScreenStatics {
-    type Vtable = ILockScreenStaticsVtbl;
+    type Vtable = ILockScreenStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ee9d3ad_b607_40ae_b426_7631d9821269);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILockScreenStaticsVtbl {
+pub struct ILockScreenStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub OriginalImageFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1077,13 +1077,13 @@ pub struct ILockScreenStaticsVtbl {
 pub struct IUserInformationStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IUserInformationStatics {
-    type Vtable = IUserInformationStaticsVtbl;
+    type Vtable = IUserInformationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77f3a910_48fa_489c_934e_2ae85ba8f772);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserInformationStaticsVtbl {
+pub struct IUserInformationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub AccountPictureChangeEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1150,12 +1150,12 @@ pub struct IUserInformationStaticsVtbl {
 #[repr(transparent)]
 pub struct IUserProfilePersonalizationSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserProfilePersonalizationSettings {
-    type Vtable = IUserProfilePersonalizationSettingsVtbl;
+    type Vtable = IUserProfilePersonalizationSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ceddab4_7998_46d5_8dd3_184f1c5f9ab9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserProfilePersonalizationSettingsVtbl {
+pub struct IUserProfilePersonalizationSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub TrySetLockScreenImageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagefile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1170,12 +1170,12 @@ pub struct IUserProfilePersonalizationSettingsVtbl {
 #[repr(transparent)]
 pub struct IUserProfilePersonalizationSettingsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserProfilePersonalizationSettingsStatics {
-    type Vtable = IUserProfilePersonalizationSettingsStaticsVtbl;
+    type Vtable = IUserProfilePersonalizationSettingsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91acb841_5037_454b_9883_bb772d08dd16);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserProfilePersonalizationSettingsStaticsVtbl {
+pub struct IUserProfilePersonalizationSettingsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1520,7 +1520,7 @@ unsafe impl ::windows::core::RuntimeType for UserProfilePersonalizationSettings 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.UserProfilePersonalizationSettings;{8ceddab4-7998-46d5-8dd3-184f1c5f9ab9})");
 }
 unsafe impl ::windows::core::Interface for UserProfilePersonalizationSettings {
-    type Vtable = IUserProfilePersonalizationSettingsVtbl;
+    type Vtable = IUserProfilePersonalizationSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ceddab4_7998_46d5_8dd3_184f1c5f9ab9);
 }
 impl ::windows::core::RuntimeName for UserProfilePersonalizationSettings {

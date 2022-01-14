@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait ICardAddedEventArgsImpl: Sized {
+pub trait ICardAddedEventArgs_Impl: Sized {
     fn SmartCard(&mut self) -> ::windows::core::Result<SmartCard>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7,9 +7,9 @@ impl ::windows::core::RuntimeName for ICardAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.ICardAddedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICardAddedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICardAddedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICardAddedEventArgsVtbl {
-        unsafe extern "system" fn SmartCard<Impl: ICardAddedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICardAddedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICardAddedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICardAddedEventArgs_Vtbl {
+        unsafe extern "system" fn SmartCard<Impl: ICardAddedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SmartCard() {
                 ::core::result::Result::Ok(ok__) => {
@@ -27,7 +27,7 @@ impl ICardAddedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICardRemovedEventArgsImpl: Sized {
+pub trait ICardRemovedEventArgs_Impl: Sized {
     fn SmartCard(&mut self) -> ::windows::core::Result<SmartCard>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -35,9 +35,9 @@ impl ::windows::core::RuntimeName for ICardRemovedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.ICardRemovedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICardRemovedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICardRemovedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICardRemovedEventArgsVtbl {
-        unsafe extern "system" fn SmartCard<Impl: ICardRemovedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICardRemovedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICardRemovedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICardRemovedEventArgs_Vtbl {
+        unsafe extern "system" fn SmartCard<Impl: ICardRemovedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SmartCard() {
                 ::core::result::Result::Ok(ok__) => {
@@ -55,7 +55,7 @@ impl ICardRemovedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IKnownSmartCardAppletIdsImpl: Sized {
+pub trait IKnownSmartCardAppletIds_Impl: Sized {
     fn PaymentSystemEnvironment(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn ProximityPaymentSystemEnvironment(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
@@ -64,9 +64,9 @@ impl ::windows::core::RuntimeName for IKnownSmartCardAppletIds {
     const NAME: &'static str = "Windows.Devices.SmartCards.IKnownSmartCardAppletIds";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IKnownSmartCardAppletIdsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownSmartCardAppletIdsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownSmartCardAppletIdsVtbl {
-        unsafe extern "system" fn PaymentSystemEnvironment<Impl: IKnownSmartCardAppletIdsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IKnownSmartCardAppletIds_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownSmartCardAppletIds_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownSmartCardAppletIds_Vtbl {
+        unsafe extern "system" fn PaymentSystemEnvironment<Impl: IKnownSmartCardAppletIds_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PaymentSystemEnvironment() {
                 ::core::result::Result::Ok(ok__) => {
@@ -77,7 +77,7 @@ impl IKnownSmartCardAppletIdsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProximityPaymentSystemEnvironment<Impl: IKnownSmartCardAppletIdsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProximityPaymentSystemEnvironment<Impl: IKnownSmartCardAppletIds_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProximityPaymentSystemEnvironment() {
                 ::core::result::Result::Ok(ok__) => {
@@ -99,7 +99,7 @@ impl IKnownSmartCardAppletIdsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISmartCardImpl: Sized {
+pub trait ISmartCard_Impl: Sized {
     fn Reader(&mut self) -> ::windows::core::Result<SmartCardReader>;
     fn GetStatusAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardStatus>>;
     fn GetAnswerToResetAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>;
@@ -109,9 +109,9 @@ impl ::windows::core::RuntimeName for ISmartCard {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCard";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISmartCardVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardVtbl {
-        unsafe extern "system" fn Reader<Impl: ISmartCardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCard_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCard_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCard_Vtbl {
+        unsafe extern "system" fn Reader<Impl: ISmartCard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reader() {
                 ::core::result::Result::Ok(ok__) => {
@@ -122,7 +122,7 @@ impl ISmartCardVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStatusAsync<Impl: ISmartCardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStatusAsync<Impl: ISmartCard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStatusAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -133,7 +133,7 @@ impl ISmartCardVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAnswerToResetAsync<Impl: ISmartCardImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAnswerToResetAsync<Impl: ISmartCard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAnswerToResetAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -156,7 +156,7 @@ impl ISmartCardVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISmartCardAppletIdGroupImpl: Sized {
+pub trait ISmartCardAppletIdGroup_Impl: Sized {
     fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn AppletIds(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>>;
@@ -172,9 +172,9 @@ impl ::windows::core::RuntimeName for ISmartCardAppletIdGroup {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardAppletIdGroup";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISmartCardAppletIdGroupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAppletIdGroupVtbl {
-        unsafe extern "system" fn DisplayName<Impl: ISmartCardAppletIdGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISmartCardAppletIdGroup_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroup_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAppletIdGroup_Vtbl {
+        unsafe extern "system" fn DisplayName<Impl: ISmartCardAppletIdGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -185,11 +185,11 @@ impl ISmartCardAppletIdGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDisplayName<Impl: ISmartCardAppletIdGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDisplayName<Impl: ISmartCardAppletIdGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AppletIds<Impl: ISmartCardAppletIdGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppletIds<Impl: ISmartCardAppletIdGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppletIds() {
                 ::core::result::Result::Ok(ok__) => {
@@ -200,7 +200,7 @@ impl ISmartCardAppletIdGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SmartCardEmulationCategory<Impl: ISmartCardAppletIdGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardEmulationCategory) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SmartCardEmulationCategory<Impl: ISmartCardAppletIdGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardEmulationCategory) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SmartCardEmulationCategory() {
                 ::core::result::Result::Ok(ok__) => {
@@ -211,11 +211,11 @@ impl ISmartCardAppletIdGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSmartCardEmulationCategory<Impl: ISmartCardAppletIdGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SmartCardEmulationCategory) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSmartCardEmulationCategory<Impl: ISmartCardAppletIdGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SmartCardEmulationCategory) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSmartCardEmulationCategory(value).into()
         }
-        unsafe extern "system" fn SmartCardEmulationType<Impl: ISmartCardAppletIdGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardEmulationType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SmartCardEmulationType<Impl: ISmartCardAppletIdGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardEmulationType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SmartCardEmulationType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -226,11 +226,11 @@ impl ISmartCardAppletIdGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSmartCardEmulationType<Impl: ISmartCardAppletIdGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SmartCardEmulationType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSmartCardEmulationType<Impl: ISmartCardAppletIdGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SmartCardEmulationType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSmartCardEmulationType(value).into()
         }
-        unsafe extern "system" fn AutomaticEnablement<Impl: ISmartCardAppletIdGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AutomaticEnablement<Impl: ISmartCardAppletIdGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutomaticEnablement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -241,7 +241,7 @@ impl ISmartCardAppletIdGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAutomaticEnablement<Impl: ISmartCardAppletIdGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAutomaticEnablement<Impl: ISmartCardAppletIdGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAutomaticEnablement(value).into()
         }
@@ -263,7 +263,7 @@ impl ISmartCardAppletIdGroupVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISmartCardAppletIdGroup2Impl: Sized {
+pub trait ISmartCardAppletIdGroup2_Impl: Sized {
     fn Logo(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
     fn SetLogo(&mut self, value: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStreamReference>) -> ::windows::core::Result<()>;
     fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -277,9 +277,9 @@ impl ::windows::core::RuntimeName for ISmartCardAppletIdGroup2 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardAppletIdGroup2";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISmartCardAppletIdGroup2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroup2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAppletIdGroup2Vtbl {
-        unsafe extern "system" fn Logo<Impl: ISmartCardAppletIdGroup2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardAppletIdGroup2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroup2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAppletIdGroup2_Vtbl {
+        unsafe extern "system" fn Logo<Impl: ISmartCardAppletIdGroup2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Logo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -290,11 +290,11 @@ impl ISmartCardAppletIdGroup2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLogo<Impl: ISmartCardAppletIdGroup2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLogo<Impl: ISmartCardAppletIdGroup2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLogo(&*(&value as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Description<Impl: ISmartCardAppletIdGroup2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Impl: ISmartCardAppletIdGroup2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -305,11 +305,11 @@ impl ISmartCardAppletIdGroup2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDescription<Impl: ISmartCardAppletIdGroup2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDescription<Impl: ISmartCardAppletIdGroup2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDescription(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Properties<Impl: ISmartCardAppletIdGroup2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Properties<Impl: ISmartCardAppletIdGroup2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -320,7 +320,7 @@ impl ISmartCardAppletIdGroup2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SecureUserAuthenticationRequired<Impl: ISmartCardAppletIdGroup2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SecureUserAuthenticationRequired<Impl: ISmartCardAppletIdGroup2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SecureUserAuthenticationRequired() {
                 ::core::result::Result::Ok(ok__) => {
@@ -331,7 +331,7 @@ impl ISmartCardAppletIdGroup2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSecureUserAuthenticationRequired<Impl: ISmartCardAppletIdGroup2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSecureUserAuthenticationRequired<Impl: ISmartCardAppletIdGroup2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSecureUserAuthenticationRequired(value).into()
         }
@@ -351,7 +351,7 @@ impl ISmartCardAppletIdGroup2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISmartCardAppletIdGroupFactoryImpl: Sized {
+pub trait ISmartCardAppletIdGroupFactory_Impl: Sized {
     fn Create(&mut self, displayname: &::windows::core::HSTRING, appletids: &::core::option::Option<super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>>, emulationcategory: SmartCardEmulationCategory, emulationtype: SmartCardEmulationType) -> ::windows::core::Result<SmartCardAppletIdGroup>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -359,9 +359,9 @@ impl ::windows::core::RuntimeName for ISmartCardAppletIdGroupFactory {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardAppletIdGroupFactory";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISmartCardAppletIdGroupFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroupFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAppletIdGroupFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: ISmartCardAppletIdGroupFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, appletids: ::windows::core::RawPtr, emulationcategory: SmartCardEmulationCategory, emulationtype: SmartCardEmulationType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardAppletIdGroupFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroupFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAppletIdGroupFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: ISmartCardAppletIdGroupFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, appletids: ::windows::core::RawPtr, emulationcategory: SmartCardEmulationCategory, emulationtype: SmartCardEmulationType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(
                 &*(&displayname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -384,7 +384,7 @@ impl ISmartCardAppletIdGroupFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ISmartCardAppletIdGroupRegistrationImpl: Sized {
+pub trait ISmartCardAppletIdGroupRegistration_Impl: Sized {
     fn ActivationPolicy(&mut self) -> ::windows::core::Result<SmartCardAppletIdGroupActivationPolicy>;
     fn AppletIdGroup(&mut self) -> ::windows::core::Result<SmartCardAppletIdGroup>;
     fn RequestActivationPolicyChangeAsync(&mut self, policy: SmartCardAppletIdGroupActivationPolicy) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardActivationPolicyChangeResult>>;
@@ -396,9 +396,9 @@ impl ::windows::core::RuntimeName for ISmartCardAppletIdGroupRegistration {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardAppletIdGroupRegistration";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ISmartCardAppletIdGroupRegistrationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroupRegistrationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAppletIdGroupRegistrationVtbl {
-        unsafe extern "system" fn ActivationPolicy<Impl: ISmartCardAppletIdGroupRegistrationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardAppletIdGroupActivationPolicy) -> ::windows::core::HRESULT {
+impl ISmartCardAppletIdGroupRegistration_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroupRegistration_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAppletIdGroupRegistration_Vtbl {
+        unsafe extern "system" fn ActivationPolicy<Impl: ISmartCardAppletIdGroupRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardAppletIdGroupActivationPolicy) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivationPolicy() {
                 ::core::result::Result::Ok(ok__) => {
@@ -409,7 +409,7 @@ impl ISmartCardAppletIdGroupRegistrationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppletIdGroup<Impl: ISmartCardAppletIdGroupRegistrationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppletIdGroup<Impl: ISmartCardAppletIdGroupRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppletIdGroup() {
                 ::core::result::Result::Ok(ok__) => {
@@ -420,7 +420,7 @@ impl ISmartCardAppletIdGroupRegistrationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestActivationPolicyChangeAsync<Impl: ISmartCardAppletIdGroupRegistrationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, policy: SmartCardAppletIdGroupActivationPolicy, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestActivationPolicyChangeAsync<Impl: ISmartCardAppletIdGroupRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, policy: SmartCardAppletIdGroupActivationPolicy, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestActivationPolicyChangeAsync(policy) {
                 ::core::result::Result::Ok(ok__) => {
@@ -431,7 +431,7 @@ impl ISmartCardAppletIdGroupRegistrationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Id<Impl: ISmartCardAppletIdGroupRegistrationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Id<Impl: ISmartCardAppletIdGroupRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -442,7 +442,7 @@ impl ISmartCardAppletIdGroupRegistrationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAutomaticResponseApdusAsync<Impl: ISmartCardAppletIdGroupRegistrationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, apdus: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAutomaticResponseApdusAsync<Impl: ISmartCardAppletIdGroupRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, apdus: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetAutomaticResponseApdusAsync(&*(&apdus as *const <super::super::Foundation::Collections::IIterable<SmartCardAutomaticResponseApdu> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<SmartCardAutomaticResponseApdu> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -467,7 +467,7 @@ impl ISmartCardAppletIdGroupRegistrationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ISmartCardAppletIdGroupRegistration2Impl: Sized {
+pub trait ISmartCardAppletIdGroupRegistration2_Impl: Sized {
     fn SmartCardReaderId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetPropertiesAsync(&mut self, props: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
@@ -476,9 +476,9 @@ impl ::windows::core::RuntimeName for ISmartCardAppletIdGroupRegistration2 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardAppletIdGroupRegistration2";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ISmartCardAppletIdGroupRegistration2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroupRegistration2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAppletIdGroupRegistration2Vtbl {
-        unsafe extern "system" fn SmartCardReaderId<Impl: ISmartCardAppletIdGroupRegistration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISmartCardAppletIdGroupRegistration2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroupRegistration2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAppletIdGroupRegistration2_Vtbl {
+        unsafe extern "system" fn SmartCardReaderId<Impl: ISmartCardAppletIdGroupRegistration2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SmartCardReaderId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -489,7 +489,7 @@ impl ISmartCardAppletIdGroupRegistration2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPropertiesAsync<Impl: ISmartCardAppletIdGroupRegistration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, props: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPropertiesAsync<Impl: ISmartCardAppletIdGroupRegistration2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, props: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetPropertiesAsync(&*(&props as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -511,7 +511,7 @@ impl ISmartCardAppletIdGroupRegistration2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardAppletIdGroupStaticsImpl: Sized {
+pub trait ISmartCardAppletIdGroupStatics_Impl: Sized {
     fn MaxAppletIds(&mut self) -> ::windows::core::Result<u16>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -519,9 +519,9 @@ impl ::windows::core::RuntimeName for ISmartCardAppletIdGroupStatics {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardAppletIdGroupStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISmartCardAppletIdGroupStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroupStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAppletIdGroupStaticsVtbl {
-        unsafe extern "system" fn MaxAppletIds<Impl: ISmartCardAppletIdGroupStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+impl ISmartCardAppletIdGroupStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAppletIdGroupStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAppletIdGroupStatics_Vtbl {
+        unsafe extern "system" fn MaxAppletIds<Impl: ISmartCardAppletIdGroupStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxAppletIds() {
                 ::core::result::Result::Ok(ok__) => {
@@ -542,7 +542,7 @@ impl ISmartCardAppletIdGroupStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISmartCardAutomaticResponseApduImpl: Sized {
+pub trait ISmartCardAutomaticResponseApdu_Impl: Sized {
     fn CommandApdu(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn SetCommandApdu(&mut self, value: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
     fn CommandApduBitMask(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
@@ -559,9 +559,9 @@ impl ::windows::core::RuntimeName for ISmartCardAutomaticResponseApdu {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardAutomaticResponseApdu";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISmartCardAutomaticResponseApduVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAutomaticResponseApduImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAutomaticResponseApduVtbl {
-        unsafe extern "system" fn CommandApdu<Impl: ISmartCardAutomaticResponseApduImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardAutomaticResponseApdu_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAutomaticResponseApdu_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAutomaticResponseApdu_Vtbl {
+        unsafe extern "system" fn CommandApdu<Impl: ISmartCardAutomaticResponseApdu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CommandApdu() {
                 ::core::result::Result::Ok(ok__) => {
@@ -572,11 +572,11 @@ impl ISmartCardAutomaticResponseApduVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCommandApdu<Impl: ISmartCardAutomaticResponseApduImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCommandApdu<Impl: ISmartCardAutomaticResponseApdu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCommandApdu(&*(&value as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CommandApduBitMask<Impl: ISmartCardAutomaticResponseApduImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CommandApduBitMask<Impl: ISmartCardAutomaticResponseApdu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CommandApduBitMask() {
                 ::core::result::Result::Ok(ok__) => {
@@ -587,11 +587,11 @@ impl ISmartCardAutomaticResponseApduVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCommandApduBitMask<Impl: ISmartCardAutomaticResponseApduImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCommandApduBitMask<Impl: ISmartCardAutomaticResponseApdu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCommandApduBitMask(&*(&value as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ShouldMatchLength<Impl: ISmartCardAutomaticResponseApduImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShouldMatchLength<Impl: ISmartCardAutomaticResponseApdu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShouldMatchLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -602,11 +602,11 @@ impl ISmartCardAutomaticResponseApduVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetShouldMatchLength<Impl: ISmartCardAutomaticResponseApduImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetShouldMatchLength<Impl: ISmartCardAutomaticResponseApdu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetShouldMatchLength(value).into()
         }
-        unsafe extern "system" fn AppletId<Impl: ISmartCardAutomaticResponseApduImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppletId<Impl: ISmartCardAutomaticResponseApdu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppletId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -617,11 +617,11 @@ impl ISmartCardAutomaticResponseApduVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAppletId<Impl: ISmartCardAutomaticResponseApduImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAppletId<Impl: ISmartCardAutomaticResponseApdu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAppletId(&*(&value as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ResponseApdu<Impl: ISmartCardAutomaticResponseApduImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResponseApdu<Impl: ISmartCardAutomaticResponseApdu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResponseApdu() {
                 ::core::result::Result::Ok(ok__) => {
@@ -632,7 +632,7 @@ impl ISmartCardAutomaticResponseApduVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetResponseApdu<Impl: ISmartCardAutomaticResponseApduImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetResponseApdu<Impl: ISmartCardAutomaticResponseApdu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetResponseApdu(&*(&value as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -655,7 +655,7 @@ impl ISmartCardAutomaticResponseApduVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISmartCardAutomaticResponseApdu2Impl: Sized {
+pub trait ISmartCardAutomaticResponseApdu2_Impl: Sized {
     fn InputState(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
     fn SetInputState(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<()>;
     fn OutputState(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>>;
@@ -666,9 +666,9 @@ impl ::windows::core::RuntimeName for ISmartCardAutomaticResponseApdu2 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardAutomaticResponseApdu2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISmartCardAutomaticResponseApdu2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAutomaticResponseApdu2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAutomaticResponseApdu2Vtbl {
-        unsafe extern "system" fn InputState<Impl: ISmartCardAutomaticResponseApdu2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardAutomaticResponseApdu2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAutomaticResponseApdu2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAutomaticResponseApdu2_Vtbl {
+        unsafe extern "system" fn InputState<Impl: ISmartCardAutomaticResponseApdu2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InputState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -679,11 +679,11 @@ impl ISmartCardAutomaticResponseApdu2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInputState<Impl: ISmartCardAutomaticResponseApdu2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInputState<Impl: ISmartCardAutomaticResponseApdu2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInputState(&*(&value as *const <super::super::Foundation::IReference<u32> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<u32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn OutputState<Impl: ISmartCardAutomaticResponseApdu2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OutputState<Impl: ISmartCardAutomaticResponseApdu2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutputState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -694,7 +694,7 @@ impl ISmartCardAutomaticResponseApdu2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOutputState<Impl: ISmartCardAutomaticResponseApdu2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOutputState<Impl: ISmartCardAutomaticResponseApdu2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOutputState(&*(&value as *const <super::super::Foundation::IReference<u32> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<u32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -711,7 +711,7 @@ impl ISmartCardAutomaticResponseApdu2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardAutomaticResponseApdu3Impl: Sized {
+pub trait ISmartCardAutomaticResponseApdu3_Impl: Sized {
     fn AllowWhenCryptogramGeneratorNotPrepared(&mut self) -> ::windows::core::Result<bool>;
     fn SetAllowWhenCryptogramGeneratorNotPrepared(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
@@ -720,9 +720,9 @@ impl ::windows::core::RuntimeName for ISmartCardAutomaticResponseApdu3 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardAutomaticResponseApdu3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISmartCardAutomaticResponseApdu3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAutomaticResponseApdu3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAutomaticResponseApdu3Vtbl {
-        unsafe extern "system" fn AllowWhenCryptogramGeneratorNotPrepared<Impl: ISmartCardAutomaticResponseApdu3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ISmartCardAutomaticResponseApdu3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAutomaticResponseApdu3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAutomaticResponseApdu3_Vtbl {
+        unsafe extern "system" fn AllowWhenCryptogramGeneratorNotPrepared<Impl: ISmartCardAutomaticResponseApdu3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowWhenCryptogramGeneratorNotPrepared() {
                 ::core::result::Result::Ok(ok__) => {
@@ -733,7 +733,7 @@ impl ISmartCardAutomaticResponseApdu3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAllowWhenCryptogramGeneratorNotPrepared<Impl: ISmartCardAutomaticResponseApdu3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAllowWhenCryptogramGeneratorNotPrepared<Impl: ISmartCardAutomaticResponseApdu3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowWhenCryptogramGeneratorNotPrepared(value).into()
         }
@@ -748,7 +748,7 @@ impl ISmartCardAutomaticResponseApdu3Vtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISmartCardAutomaticResponseApduFactoryImpl: Sized {
+pub trait ISmartCardAutomaticResponseApduFactory_Impl: Sized {
     fn Create(&mut self, commandapdu: &::core::option::Option<super::super::Storage::Streams::IBuffer>, responseapdu: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<SmartCardAutomaticResponseApdu>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -756,9 +756,9 @@ impl ::windows::core::RuntimeName for ISmartCardAutomaticResponseApduFactory {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardAutomaticResponseApduFactory";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISmartCardAutomaticResponseApduFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAutomaticResponseApduFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAutomaticResponseApduFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: ISmartCardAutomaticResponseApduFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, commandapdu: ::windows::core::RawPtr, responseapdu: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardAutomaticResponseApduFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardAutomaticResponseApduFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardAutomaticResponseApduFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: ISmartCardAutomaticResponseApduFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, commandapdu: ::windows::core::RawPtr, responseapdu: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&commandapdu as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType), &*(&responseapdu as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -779,7 +779,7 @@ impl ISmartCardAutomaticResponseApduFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISmartCardChallengeContextImpl: Sized + IClosableImpl {
+pub trait ISmartCardChallengeContext_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn Challenge(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn VerifyResponseAsync(&mut self, response: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn ProvisionAsync(&mut self, response: &::core::option::Option<super::super::Storage::Streams::IBuffer>, formatcard: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -791,9 +791,9 @@ impl ::windows::core::RuntimeName for ISmartCardChallengeContext {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardChallengeContext";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISmartCardChallengeContextVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardChallengeContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardChallengeContextVtbl {
-        unsafe extern "system" fn Challenge<Impl: ISmartCardChallengeContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardChallengeContext_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardChallengeContext_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardChallengeContext_Vtbl {
+        unsafe extern "system" fn Challenge<Impl: ISmartCardChallengeContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Challenge() {
                 ::core::result::Result::Ok(ok__) => {
@@ -804,7 +804,7 @@ impl ISmartCardChallengeContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VerifyResponseAsync<Impl: ISmartCardChallengeContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, response: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VerifyResponseAsync<Impl: ISmartCardChallengeContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, response: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VerifyResponseAsync(&*(&response as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -815,7 +815,7 @@ impl ISmartCardChallengeContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProvisionAsync<Impl: ISmartCardChallengeContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, response: ::windows::core::RawPtr, formatcard: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProvisionAsync<Impl: ISmartCardChallengeContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, response: ::windows::core::RawPtr, formatcard: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProvisionAsync(&*(&response as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType), formatcard) {
                 ::core::result::Result::Ok(ok__) => {
@@ -826,7 +826,7 @@ impl ISmartCardChallengeContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProvisionAsyncWithNewCardId<Impl: ISmartCardChallengeContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, response: ::windows::core::RawPtr, formatcard: bool, newcardid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProvisionAsyncWithNewCardId<Impl: ISmartCardChallengeContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, response: ::windows::core::RawPtr, formatcard: bool, newcardid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProvisionAsyncWithNewCardId(&*(&response as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType), formatcard, &*(&newcardid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -837,7 +837,7 @@ impl ISmartCardChallengeContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ChangeAdministrativeKeyAsync<Impl: ISmartCardChallengeContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, response: ::windows::core::RawPtr, newadministrativekey: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ChangeAdministrativeKeyAsync<Impl: ISmartCardChallengeContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, response: ::windows::core::RawPtr, newadministrativekey: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChangeAdministrativeKeyAsync(&*(&response as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType), &*(&newadministrativekey as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -862,7 +862,7 @@ impl ISmartCardChallengeContextVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISmartCardConnectImpl: Sized {
+pub trait ISmartCardConnect_Impl: Sized {
     fn ConnectAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardConnection>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -870,9 +870,9 @@ impl ::windows::core::RuntimeName for ISmartCardConnect {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardConnect";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISmartCardConnectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardConnectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardConnectVtbl {
-        unsafe extern "system" fn ConnectAsync<Impl: ISmartCardConnectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardConnect_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardConnect_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardConnect_Vtbl {
+        unsafe extern "system" fn ConnectAsync<Impl: ISmartCardConnect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -890,7 +890,7 @@ impl ISmartCardConnectVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISmartCardConnectionImpl: Sized + IClosableImpl {
+pub trait ISmartCardConnection_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn TransmitAsync(&mut self, command: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -898,9 +898,9 @@ impl ::windows::core::RuntimeName for ISmartCardConnection {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardConnection";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISmartCardConnectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardConnectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardConnectionVtbl {
-        unsafe extern "system" fn TransmitAsync<Impl: ISmartCardConnectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, command: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardConnection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardConnection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardConnection_Vtbl {
+        unsafe extern "system" fn TransmitAsync<Impl: ISmartCardConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, command: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransmitAsync(&*(&command as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -918,7 +918,7 @@ impl ISmartCardConnectionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Core", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISmartCardCryptogramGeneratorImpl: Sized {
+pub trait ISmartCardCryptogramGenerator_Impl: Sized {
     fn SupportedCryptogramMaterialTypes(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialType>>;
     fn SupportedCryptogramAlgorithms(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramAlgorithm>>;
     fn SupportedCryptogramMaterialPackageFormats(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialPackageFormat>>;
@@ -937,9 +937,9 @@ impl ::windows::core::RuntimeName for ISmartCardCryptogramGenerator {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramGenerator";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Core", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISmartCardCryptogramGeneratorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGeneratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramGeneratorVtbl {
-        unsafe extern "system" fn SupportedCryptogramMaterialTypes<Impl: ISmartCardCryptogramGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardCryptogramGenerator_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGenerator_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramGenerator_Vtbl {
+        unsafe extern "system" fn SupportedCryptogramMaterialTypes<Impl: ISmartCardCryptogramGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedCryptogramMaterialTypes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -950,7 +950,7 @@ impl ISmartCardCryptogramGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedCryptogramAlgorithms<Impl: ISmartCardCryptogramGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedCryptogramAlgorithms<Impl: ISmartCardCryptogramGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedCryptogramAlgorithms() {
                 ::core::result::Result::Ok(ok__) => {
@@ -961,7 +961,7 @@ impl ISmartCardCryptogramGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedCryptogramMaterialPackageFormats<Impl: ISmartCardCryptogramGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedCryptogramMaterialPackageFormats<Impl: ISmartCardCryptogramGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedCryptogramMaterialPackageFormats() {
                 ::core::result::Result::Ok(ok__) => {
@@ -972,7 +972,7 @@ impl ISmartCardCryptogramGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedCryptogramMaterialPackageConfirmationResponseFormats<Impl: ISmartCardCryptogramGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedCryptogramMaterialPackageConfirmationResponseFormats<Impl: ISmartCardCryptogramGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedCryptogramMaterialPackageConfirmationResponseFormats() {
                 ::core::result::Result::Ok(ok__) => {
@@ -983,7 +983,7 @@ impl ISmartCardCryptogramGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedSmartCardCryptogramStorageKeyCapabilities<Impl: ISmartCardCryptogramGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedSmartCardCryptogramStorageKeyCapabilities<Impl: ISmartCardCryptogramGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedSmartCardCryptogramStorageKeyCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
@@ -994,7 +994,7 @@ impl ISmartCardCryptogramGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteCryptogramMaterialStorageKeyAsync<Impl: ISmartCardCryptogramGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storagekeyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteCryptogramMaterialStorageKeyAsync<Impl: ISmartCardCryptogramGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storagekeyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeleteCryptogramMaterialStorageKeyAsync(&*(&storagekeyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1005,7 +1005,7 @@ impl ISmartCardCryptogramGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateCryptogramMaterialStorageKeyAsync<Impl: ISmartCardCryptogramGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, promptingbehavior: SmartCardUnlockPromptingBehavior, storagekeyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, algorithm: SmartCardCryptogramStorageKeyAlgorithm, capabilities: SmartCardCryptogramStorageKeyCapabilities, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCryptogramMaterialStorageKeyAsync<Impl: ISmartCardCryptogramGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, promptingbehavior: SmartCardUnlockPromptingBehavior, storagekeyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, algorithm: SmartCardCryptogramStorageKeyAlgorithm, capabilities: SmartCardCryptogramStorageKeyCapabilities, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCryptogramMaterialStorageKeyAsync(promptingbehavior, &*(&storagekeyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), algorithm, capabilities) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1016,7 +1016,7 @@ impl ISmartCardCryptogramGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestCryptogramMaterialStorageKeyInfoAsync<Impl: ISmartCardCryptogramGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, promptingbehavior: SmartCardUnlockPromptingBehavior, storagekeyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, format: super::super::Security::Cryptography::Core::CryptographicPublicKeyBlobType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestCryptogramMaterialStorageKeyInfoAsync<Impl: ISmartCardCryptogramGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, promptingbehavior: SmartCardUnlockPromptingBehavior, storagekeyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, format: super::super::Security::Cryptography::Core::CryptographicPublicKeyBlobType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestCryptogramMaterialStorageKeyInfoAsync(promptingbehavior, &*(&storagekeyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), format) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1027,7 +1027,7 @@ impl ISmartCardCryptogramGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImportCryptogramMaterialPackageAsync<Impl: ISmartCardCryptogramGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: SmartCardCryptogramMaterialPackageFormat, storagekeyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, materialpackagename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, cryptogrammaterialpackage: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImportCryptogramMaterialPackageAsync<Impl: ISmartCardCryptogramGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: SmartCardCryptogramMaterialPackageFormat, storagekeyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, materialpackagename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, cryptogrammaterialpackage: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImportCryptogramMaterialPackageAsync(
                 format,
@@ -1043,7 +1043,7 @@ impl ISmartCardCryptogramGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryProvePossessionOfCryptogramMaterialPackageAsync<Impl: ISmartCardCryptogramGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, promptingbehavior: SmartCardUnlockPromptingBehavior, responseformat: SmartCardCryptogramMaterialPackageConfirmationResponseFormat, materialpackagename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, materialname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, challenge: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryProvePossessionOfCryptogramMaterialPackageAsync<Impl: ISmartCardCryptogramGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, promptingbehavior: SmartCardUnlockPromptingBehavior, responseformat: SmartCardCryptogramMaterialPackageConfirmationResponseFormat, materialpackagename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, materialname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, challenge: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryProvePossessionOfCryptogramMaterialPackageAsync(
                 promptingbehavior,
@@ -1060,7 +1060,7 @@ impl ISmartCardCryptogramGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestUnlockCryptogramMaterialForUseAsync<Impl: ISmartCardCryptogramGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, promptingbehavior: SmartCardUnlockPromptingBehavior, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestUnlockCryptogramMaterialForUseAsync<Impl: ISmartCardCryptogramGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, promptingbehavior: SmartCardUnlockPromptingBehavior, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestUnlockCryptogramMaterialForUseAsync(promptingbehavior) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1071,7 +1071,7 @@ impl ISmartCardCryptogramGeneratorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteCryptogramMaterialPackageAsync<Impl: ISmartCardCryptogramGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, materialpackagename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteCryptogramMaterialPackageAsync<Impl: ISmartCardCryptogramGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, materialpackagename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeleteCryptogramMaterialPackageAsync(&*(&materialpackagename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1103,7 +1103,7 @@ impl ISmartCardCryptogramGeneratorVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISmartCardCryptogramGenerator2Impl: Sized {
+pub trait ISmartCardCryptogramGenerator2_Impl: Sized {
     fn ValidateRequestApduAsync(&mut self, promptingbehavior: SmartCardUnlockPromptingBehavior, apdutovalidate: &::core::option::Option<super::super::Storage::Streams::IBuffer>, cryptogramplacementsteps: &::core::option::Option<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
     fn GetAllCryptogramStorageKeyCharacteristicsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult>>;
     fn GetAllCryptogramMaterialPackageCharacteristicsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>>;
@@ -1115,9 +1115,9 @@ impl ::windows::core::RuntimeName for ISmartCardCryptogramGenerator2 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramGenerator2";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISmartCardCryptogramGenerator2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGenerator2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramGenerator2Vtbl {
-        unsafe extern "system" fn ValidateRequestApduAsync<Impl: ISmartCardCryptogramGenerator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, promptingbehavior: SmartCardUnlockPromptingBehavior, apdutovalidate: ::windows::core::RawPtr, cryptogramplacementsteps: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardCryptogramGenerator2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGenerator2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramGenerator2_Vtbl {
+        unsafe extern "system" fn ValidateRequestApduAsync<Impl: ISmartCardCryptogramGenerator2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, promptingbehavior: SmartCardUnlockPromptingBehavior, apdutovalidate: ::windows::core::RawPtr, cryptogramplacementsteps: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ValidateRequestApduAsync(
                 promptingbehavior,
@@ -1132,7 +1132,7 @@ impl ISmartCardCryptogramGenerator2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAllCryptogramStorageKeyCharacteristicsAsync<Impl: ISmartCardCryptogramGenerator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAllCryptogramStorageKeyCharacteristicsAsync<Impl: ISmartCardCryptogramGenerator2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAllCryptogramStorageKeyCharacteristicsAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1143,7 +1143,7 @@ impl ISmartCardCryptogramGenerator2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAllCryptogramMaterialPackageCharacteristicsAsync<Impl: ISmartCardCryptogramGenerator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAllCryptogramMaterialPackageCharacteristicsAsync<Impl: ISmartCardCryptogramGenerator2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAllCryptogramMaterialPackageCharacteristicsAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1154,7 +1154,7 @@ impl ISmartCardCryptogramGenerator2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync<Impl: ISmartCardCryptogramGenerator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storagekeyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync<Impl: ISmartCardCryptogramGenerator2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storagekeyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync(&*(&storagekeyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1165,7 +1165,7 @@ impl ISmartCardCryptogramGenerator2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAllCryptogramMaterialCharacteristicsAsync<Impl: ISmartCardCryptogramGenerator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, promptingbehavior: SmartCardUnlockPromptingBehavior, materialpackagename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAllCryptogramMaterialCharacteristicsAsync<Impl: ISmartCardCryptogramGenerator2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, promptingbehavior: SmartCardUnlockPromptingBehavior, materialpackagename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAllCryptogramMaterialCharacteristicsAsync(promptingbehavior, &*(&materialpackagename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1190,7 +1190,7 @@ impl ISmartCardCryptogramGenerator2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISmartCardCryptogramGeneratorStaticsImpl: Sized {
+pub trait ISmartCardCryptogramGeneratorStatics_Impl: Sized {
     fn GetSmartCardCryptogramGeneratorAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGenerator>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -1198,9 +1198,9 @@ impl ::windows::core::RuntimeName for ISmartCardCryptogramGeneratorStatics {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramGeneratorStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISmartCardCryptogramGeneratorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGeneratorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramGeneratorStaticsVtbl {
-        unsafe extern "system" fn GetSmartCardCryptogramGeneratorAsync<Impl: ISmartCardCryptogramGeneratorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardCryptogramGeneratorStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGeneratorStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramGeneratorStatics_Vtbl {
+        unsafe extern "system" fn GetSmartCardCryptogramGeneratorAsync<Impl: ISmartCardCryptogramGeneratorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSmartCardCryptogramGeneratorAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1221,7 +1221,7 @@ impl ISmartCardCryptogramGeneratorStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardCryptogramGeneratorStatics2Impl: Sized {
+pub trait ISmartCardCryptogramGeneratorStatics2_Impl: Sized {
     fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1229,9 +1229,9 @@ impl ::windows::core::RuntimeName for ISmartCardCryptogramGeneratorStatics2 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramGeneratorStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISmartCardCryptogramGeneratorStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGeneratorStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramGeneratorStatics2Vtbl {
-        unsafe extern "system" fn IsSupported<Impl: ISmartCardCryptogramGeneratorStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ISmartCardCryptogramGeneratorStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGeneratorStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramGeneratorStatics2_Vtbl {
+        unsafe extern "system" fn IsSupported<Impl: ISmartCardCryptogramGeneratorStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1252,7 +1252,7 @@ impl ISmartCardCryptogramGeneratorStatics2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultImpl: Sized {
+pub trait ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Impl: Sized {
     fn OperationStatus(&mut self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus>;
     fn Characteristics(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialCharacteristics>>;
 }
@@ -1261,9 +1261,9 @@ impl ::windows::core::RuntimeName for ISmartCardCryptogramGetAllCryptogramMateri
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultVtbl {
-        unsafe extern "system" fn OperationStatus<Impl: ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramGeneratorOperationStatus) -> ::windows::core::HRESULT {
+impl ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Vtbl {
+        unsafe extern "system" fn OperationStatus<Impl: ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramGeneratorOperationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OperationStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1274,7 +1274,7 @@ impl ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Characteristics<Impl: ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Characteristics<Impl: ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Characteristics() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1296,7 +1296,7 @@ impl ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultImpl: Sized {
+pub trait ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Impl: Sized {
     fn OperationStatus(&mut self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus>;
     fn Characteristics(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialPackageCharacteristics>>;
 }
@@ -1305,9 +1305,9 @@ impl ::windows::core::RuntimeName for ISmartCardCryptogramGetAllCryptogramMateri
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultVtbl {
-        unsafe extern "system" fn OperationStatus<Impl: ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramGeneratorOperationStatus) -> ::windows::core::HRESULT {
+impl ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Vtbl {
+        unsafe extern "system" fn OperationStatus<Impl: ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramGeneratorOperationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OperationStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1318,7 +1318,7 @@ impl ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultVtb
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Characteristics<Impl: ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Characteristics<Impl: ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Characteristics() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1340,7 +1340,7 @@ impl ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResultVtb
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultImpl: Sized {
+pub trait ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Impl: Sized {
     fn OperationStatus(&mut self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus>;
     fn Characteristics(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramStorageKeyCharacteristics>>;
 }
@@ -1349,9 +1349,9 @@ impl ::windows::core::RuntimeName for ISmartCardCryptogramGetAllCryptogramStorag
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultVtbl {
-        unsafe extern "system" fn OperationStatus<Impl: ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramGeneratorOperationStatus) -> ::windows::core::HRESULT {
+impl ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Vtbl {
+        unsafe extern "system" fn OperationStatus<Impl: ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramGeneratorOperationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OperationStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1362,7 +1362,7 @@ impl ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Characteristics<Impl: ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Characteristics<Impl: ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Characteristics() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1384,7 +1384,7 @@ impl ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ISmartCardCryptogramMaterialCharacteristicsImpl: Sized {
+pub trait ISmartCardCryptogramMaterialCharacteristics_Impl: Sized {
     fn MaterialName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn AllowedAlgorithms(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramAlgorithm>>;
     fn AllowedProofOfPossessionAlgorithms(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SmartCardCryptogramMaterialPackageConfirmationResponseFormat>>;
@@ -1399,9 +1399,9 @@ impl ::windows::core::RuntimeName for ISmartCardCryptogramMaterialCharacteristic
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramMaterialCharacteristics";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ISmartCardCryptogramMaterialCharacteristicsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramMaterialCharacteristicsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramMaterialCharacteristicsVtbl {
-        unsafe extern "system" fn MaterialName<Impl: ISmartCardCryptogramMaterialCharacteristicsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISmartCardCryptogramMaterialCharacteristics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramMaterialCharacteristics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramMaterialCharacteristics_Vtbl {
+        unsafe extern "system" fn MaterialName<Impl: ISmartCardCryptogramMaterialCharacteristics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaterialName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1412,7 +1412,7 @@ impl ISmartCardCryptogramMaterialCharacteristicsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AllowedAlgorithms<Impl: ISmartCardCryptogramMaterialCharacteristicsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllowedAlgorithms<Impl: ISmartCardCryptogramMaterialCharacteristics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowedAlgorithms() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1423,7 +1423,7 @@ impl ISmartCardCryptogramMaterialCharacteristicsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AllowedProofOfPossessionAlgorithms<Impl: ISmartCardCryptogramMaterialCharacteristicsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllowedProofOfPossessionAlgorithms<Impl: ISmartCardCryptogramMaterialCharacteristics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowedProofOfPossessionAlgorithms() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1434,7 +1434,7 @@ impl ISmartCardCryptogramMaterialCharacteristicsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AllowedValidations<Impl: ISmartCardCryptogramMaterialCharacteristicsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllowedValidations<Impl: ISmartCardCryptogramMaterialCharacteristics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowedValidations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1445,7 +1445,7 @@ impl ISmartCardCryptogramMaterialCharacteristicsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaterialType<Impl: ISmartCardCryptogramMaterialCharacteristicsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramMaterialType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaterialType<Impl: ISmartCardCryptogramMaterialCharacteristics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramMaterialType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaterialType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1456,7 +1456,7 @@ impl ISmartCardCryptogramMaterialCharacteristicsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProtectionMethod<Impl: ISmartCardCryptogramMaterialCharacteristicsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramMaterialProtectionMethod) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProtectionMethod<Impl: ISmartCardCryptogramMaterialCharacteristics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramMaterialProtectionMethod) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtectionMethod() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1467,7 +1467,7 @@ impl ISmartCardCryptogramMaterialCharacteristicsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProtectionVersion<Impl: ISmartCardCryptogramMaterialCharacteristicsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProtectionVersion<Impl: ISmartCardCryptogramMaterialCharacteristics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtectionVersion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1478,7 +1478,7 @@ impl ISmartCardCryptogramMaterialCharacteristicsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaterialLength<Impl: ISmartCardCryptogramMaterialCharacteristicsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaterialLength<Impl: ISmartCardCryptogramMaterialCharacteristics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaterialLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1506,7 +1506,7 @@ impl ISmartCardCryptogramMaterialCharacteristicsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISmartCardCryptogramMaterialPackageCharacteristicsImpl: Sized {
+pub trait ISmartCardCryptogramMaterialPackageCharacteristics_Impl: Sized {
     fn PackageName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn StorageKeyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DateImported(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
@@ -1517,9 +1517,9 @@ impl ::windows::core::RuntimeName for ISmartCardCryptogramMaterialPackageCharact
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramMaterialPackageCharacteristics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISmartCardCryptogramMaterialPackageCharacteristicsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramMaterialPackageCharacteristicsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramMaterialPackageCharacteristicsVtbl {
-        unsafe extern "system" fn PackageName<Impl: ISmartCardCryptogramMaterialPackageCharacteristicsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISmartCardCryptogramMaterialPackageCharacteristics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramMaterialPackageCharacteristics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramMaterialPackageCharacteristics_Vtbl {
+        unsafe extern "system" fn PackageName<Impl: ISmartCardCryptogramMaterialPackageCharacteristics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PackageName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1530,7 +1530,7 @@ impl ISmartCardCryptogramMaterialPackageCharacteristicsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StorageKeyName<Impl: ISmartCardCryptogramMaterialPackageCharacteristicsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StorageKeyName<Impl: ISmartCardCryptogramMaterialPackageCharacteristics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StorageKeyName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1541,7 +1541,7 @@ impl ISmartCardCryptogramMaterialPackageCharacteristicsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DateImported<Impl: ISmartCardCryptogramMaterialPackageCharacteristicsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DateImported<Impl: ISmartCardCryptogramMaterialPackageCharacteristics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DateImported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1552,7 +1552,7 @@ impl ISmartCardCryptogramMaterialPackageCharacteristicsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PackageFormat<Impl: ISmartCardCryptogramMaterialPackageCharacteristicsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramMaterialPackageFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PackageFormat<Impl: ISmartCardCryptogramMaterialPackageCharacteristics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramMaterialPackageFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PackageFormat() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1576,7 +1576,7 @@ impl ISmartCardCryptogramMaterialPackageCharacteristicsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISmartCardCryptogramMaterialPossessionProofImpl: Sized {
+pub trait ISmartCardCryptogramMaterialPossessionProof_Impl: Sized {
     fn OperationStatus(&mut self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus>;
     fn Proof(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
@@ -1585,9 +1585,9 @@ impl ::windows::core::RuntimeName for ISmartCardCryptogramMaterialPossessionProo
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramMaterialPossessionProof";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISmartCardCryptogramMaterialPossessionProofVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramMaterialPossessionProofImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramMaterialPossessionProofVtbl {
-        unsafe extern "system" fn OperationStatus<Impl: ISmartCardCryptogramMaterialPossessionProofImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramGeneratorOperationStatus) -> ::windows::core::HRESULT {
+impl ISmartCardCryptogramMaterialPossessionProof_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramMaterialPossessionProof_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramMaterialPossessionProof_Vtbl {
+        unsafe extern "system" fn OperationStatus<Impl: ISmartCardCryptogramMaterialPossessionProof_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramGeneratorOperationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OperationStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1598,7 +1598,7 @@ impl ISmartCardCryptogramMaterialPossessionProofVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Proof<Impl: ISmartCardCryptogramMaterialPossessionProofImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Proof<Impl: ISmartCardCryptogramMaterialPossessionProof_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Proof() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1620,7 +1620,7 @@ impl ISmartCardCryptogramMaterialPossessionProofVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISmartCardCryptogramPlacementStepImpl: Sized {
+pub trait ISmartCardCryptogramPlacementStep_Impl: Sized {
     fn Algorithm(&mut self) -> ::windows::core::Result<SmartCardCryptogramAlgorithm>;
     fn SetAlgorithm(&mut self, value: SmartCardCryptogramAlgorithm) -> ::windows::core::Result<()>;
     fn SourceData(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
@@ -1645,9 +1645,9 @@ impl ::windows::core::RuntimeName for ISmartCardCryptogramPlacementStep {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramPlacementStep";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISmartCardCryptogramPlacementStepVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramPlacementStepImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramPlacementStepVtbl {
-        unsafe extern "system" fn Algorithm<Impl: ISmartCardCryptogramPlacementStepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramAlgorithm) -> ::windows::core::HRESULT {
+impl ISmartCardCryptogramPlacementStep_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramPlacementStep_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramPlacementStep_Vtbl {
+        unsafe extern "system" fn Algorithm<Impl: ISmartCardCryptogramPlacementStep_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramAlgorithm) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Algorithm() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1658,11 +1658,11 @@ impl ISmartCardCryptogramPlacementStepVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAlgorithm<Impl: ISmartCardCryptogramPlacementStepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SmartCardCryptogramAlgorithm) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAlgorithm<Impl: ISmartCardCryptogramPlacementStep_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SmartCardCryptogramAlgorithm) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAlgorithm(value).into()
         }
-        unsafe extern "system" fn SourceData<Impl: ISmartCardCryptogramPlacementStepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SourceData<Impl: ISmartCardCryptogramPlacementStep_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1673,11 +1673,11 @@ impl ISmartCardCryptogramPlacementStepVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSourceData<Impl: ISmartCardCryptogramPlacementStepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSourceData<Impl: ISmartCardCryptogramPlacementStep_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSourceData(&*(&value as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CryptogramMaterialPackageName<Impl: ISmartCardCryptogramPlacementStepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CryptogramMaterialPackageName<Impl: ISmartCardCryptogramPlacementStep_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CryptogramMaterialPackageName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1688,11 +1688,11 @@ impl ISmartCardCryptogramPlacementStepVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCryptogramMaterialPackageName<Impl: ISmartCardCryptogramPlacementStepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCryptogramMaterialPackageName<Impl: ISmartCardCryptogramPlacementStep_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCryptogramMaterialPackageName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CryptogramMaterialName<Impl: ISmartCardCryptogramPlacementStepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CryptogramMaterialName<Impl: ISmartCardCryptogramPlacementStep_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CryptogramMaterialName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1703,11 +1703,11 @@ impl ISmartCardCryptogramPlacementStepVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCryptogramMaterialName<Impl: ISmartCardCryptogramPlacementStepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCryptogramMaterialName<Impl: ISmartCardCryptogramPlacementStep_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCryptogramMaterialName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TemplateOffset<Impl: ISmartCardCryptogramPlacementStepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TemplateOffset<Impl: ISmartCardCryptogramPlacementStep_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TemplateOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1718,11 +1718,11 @@ impl ISmartCardCryptogramPlacementStepVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTemplateOffset<Impl: ISmartCardCryptogramPlacementStepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTemplateOffset<Impl: ISmartCardCryptogramPlacementStep_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTemplateOffset(value).into()
         }
-        unsafe extern "system" fn CryptogramOffset<Impl: ISmartCardCryptogramPlacementStepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CryptogramOffset<Impl: ISmartCardCryptogramPlacementStep_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CryptogramOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1733,11 +1733,11 @@ impl ISmartCardCryptogramPlacementStepVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCryptogramOffset<Impl: ISmartCardCryptogramPlacementStepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCryptogramOffset<Impl: ISmartCardCryptogramPlacementStep_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCryptogramOffset(value).into()
         }
-        unsafe extern "system" fn CryptogramLength<Impl: ISmartCardCryptogramPlacementStepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CryptogramLength<Impl: ISmartCardCryptogramPlacementStep_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CryptogramLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1748,11 +1748,11 @@ impl ISmartCardCryptogramPlacementStepVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCryptogramLength<Impl: ISmartCardCryptogramPlacementStepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCryptogramLength<Impl: ISmartCardCryptogramPlacementStep_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCryptogramLength(value).into()
         }
-        unsafe extern "system" fn CryptogramPlacementOptions<Impl: ISmartCardCryptogramPlacementStepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramPlacementOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CryptogramPlacementOptions<Impl: ISmartCardCryptogramPlacementStep_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramPlacementOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CryptogramPlacementOptions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1763,11 +1763,11 @@ impl ISmartCardCryptogramPlacementStepVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCryptogramPlacementOptions<Impl: ISmartCardCryptogramPlacementStepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SmartCardCryptogramPlacementOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCryptogramPlacementOptions<Impl: ISmartCardCryptogramPlacementStep_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SmartCardCryptogramPlacementOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCryptogramPlacementOptions(value).into()
         }
-        unsafe extern "system" fn ChainedOutputStep<Impl: ISmartCardCryptogramPlacementStepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ChainedOutputStep<Impl: ISmartCardCryptogramPlacementStep_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChainedOutputStep() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1778,7 +1778,7 @@ impl ISmartCardCryptogramPlacementStepVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetChainedOutputStep<Impl: ISmartCardCryptogramPlacementStepImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetChainedOutputStep<Impl: ISmartCardCryptogramPlacementStep_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetChainedOutputStep(&*(&value as *const <SmartCardCryptogramPlacementStep as ::windows::core::Abi>::Abi as *const <SmartCardCryptogramPlacementStep as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1809,7 +1809,7 @@ impl ISmartCardCryptogramPlacementStepVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISmartCardCryptogramStorageKeyCharacteristicsImpl: Sized {
+pub trait ISmartCardCryptogramStorageKeyCharacteristics_Impl: Sized {
     fn StorageKeyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DateCreated(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn Algorithm(&mut self) -> ::windows::core::Result<SmartCardCryptogramStorageKeyAlgorithm>;
@@ -1820,9 +1820,9 @@ impl ::windows::core::RuntimeName for ISmartCardCryptogramStorageKeyCharacterist
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramStorageKeyCharacteristics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISmartCardCryptogramStorageKeyCharacteristicsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramStorageKeyCharacteristicsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramStorageKeyCharacteristicsVtbl {
-        unsafe extern "system" fn StorageKeyName<Impl: ISmartCardCryptogramStorageKeyCharacteristicsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISmartCardCryptogramStorageKeyCharacteristics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramStorageKeyCharacteristics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramStorageKeyCharacteristics_Vtbl {
+        unsafe extern "system" fn StorageKeyName<Impl: ISmartCardCryptogramStorageKeyCharacteristics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StorageKeyName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1833,7 +1833,7 @@ impl ISmartCardCryptogramStorageKeyCharacteristicsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DateCreated<Impl: ISmartCardCryptogramStorageKeyCharacteristicsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DateCreated<Impl: ISmartCardCryptogramStorageKeyCharacteristics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DateCreated() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1844,7 +1844,7 @@ impl ISmartCardCryptogramStorageKeyCharacteristicsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Algorithm<Impl: ISmartCardCryptogramStorageKeyCharacteristicsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramStorageKeyAlgorithm) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Algorithm<Impl: ISmartCardCryptogramStorageKeyCharacteristics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramStorageKeyAlgorithm) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Algorithm() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1855,7 +1855,7 @@ impl ISmartCardCryptogramStorageKeyCharacteristicsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Capabilities<Impl: ISmartCardCryptogramStorageKeyCharacteristicsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramStorageKeyCapabilities) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Capabilities<Impl: ISmartCardCryptogramStorageKeyCharacteristics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramStorageKeyCapabilities) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Capabilities() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1879,7 +1879,7 @@ impl ISmartCardCryptogramStorageKeyCharacteristicsVtbl {
     }
 }
 #[cfg(all(feature = "Security_Cryptography_Core", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISmartCardCryptogramStorageKeyInfoImpl: Sized {
+pub trait ISmartCardCryptogramStorageKeyInfo_Impl: Sized {
     fn OperationStatus(&mut self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus>;
     fn PublicKeyBlobType(&mut self) -> ::windows::core::Result<super::super::Security::Cryptography::Core::CryptographicPublicKeyBlobType>;
     fn PublicKey(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
@@ -1893,9 +1893,9 @@ impl ::windows::core::RuntimeName for ISmartCardCryptogramStorageKeyInfo {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramStorageKeyInfo";
 }
 #[cfg(all(feature = "Security_Cryptography_Core", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISmartCardCryptogramStorageKeyInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramStorageKeyInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramStorageKeyInfoVtbl {
-        unsafe extern "system" fn OperationStatus<Impl: ISmartCardCryptogramStorageKeyInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramGeneratorOperationStatus) -> ::windows::core::HRESULT {
+impl ISmartCardCryptogramStorageKeyInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramStorageKeyInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramStorageKeyInfo_Vtbl {
+        unsafe extern "system" fn OperationStatus<Impl: ISmartCardCryptogramStorageKeyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramGeneratorOperationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OperationStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1906,7 +1906,7 @@ impl ISmartCardCryptogramStorageKeyInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PublicKeyBlobType<Impl: ISmartCardCryptogramStorageKeyInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Security::Cryptography::Core::CryptographicPublicKeyBlobType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PublicKeyBlobType<Impl: ISmartCardCryptogramStorageKeyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Security::Cryptography::Core::CryptographicPublicKeyBlobType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PublicKeyBlobType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1917,7 +1917,7 @@ impl ISmartCardCryptogramStorageKeyInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PublicKey<Impl: ISmartCardCryptogramStorageKeyInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PublicKey<Impl: ISmartCardCryptogramStorageKeyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PublicKey() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1928,7 +1928,7 @@ impl ISmartCardCryptogramStorageKeyInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AttestationStatus<Impl: ISmartCardCryptogramStorageKeyInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptographicKeyAttestationStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AttestationStatus<Impl: ISmartCardCryptogramStorageKeyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptographicKeyAttestationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AttestationStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1939,7 +1939,7 @@ impl ISmartCardCryptogramStorageKeyInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Attestation<Impl: ISmartCardCryptogramStorageKeyInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Attestation<Impl: ISmartCardCryptogramStorageKeyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Attestation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1950,7 +1950,7 @@ impl ISmartCardCryptogramStorageKeyInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AttestationCertificateChain<Impl: ISmartCardCryptogramStorageKeyInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AttestationCertificateChain<Impl: ISmartCardCryptogramStorageKeyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AttestationCertificateChain() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1961,7 +1961,7 @@ impl ISmartCardCryptogramStorageKeyInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Capabilities<Impl: ISmartCardCryptogramStorageKeyInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramStorageKeyCapabilities) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Capabilities<Impl: ISmartCardCryptogramStorageKeyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramStorageKeyCapabilities) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Capabilities() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1988,7 +1988,7 @@ impl ISmartCardCryptogramStorageKeyInfoVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardCryptogramStorageKeyInfo2Impl: Sized {
+pub trait ISmartCardCryptogramStorageKeyInfo2_Impl: Sized {
     fn OperationalRequirements(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1996,9 +1996,9 @@ impl ::windows::core::RuntimeName for ISmartCardCryptogramStorageKeyInfo2 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardCryptogramStorageKeyInfo2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISmartCardCryptogramStorageKeyInfo2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramStorageKeyInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramStorageKeyInfo2Vtbl {
-        unsafe extern "system" fn OperationalRequirements<Impl: ISmartCardCryptogramStorageKeyInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISmartCardCryptogramStorageKeyInfo2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardCryptogramStorageKeyInfo2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardCryptogramStorageKeyInfo2_Vtbl {
+        unsafe extern "system" fn OperationalRequirements<Impl: ISmartCardCryptogramStorageKeyInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OperationalRequirements() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2019,7 +2019,7 @@ impl ISmartCardCryptogramStorageKeyInfo2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardEmulatorImpl: Sized {
+pub trait ISmartCardEmulator_Impl: Sized {
     fn EnablementPolicy(&mut self) -> ::windows::core::Result<SmartCardEmulatorEnablementPolicy>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2027,9 +2027,9 @@ impl ::windows::core::RuntimeName for ISmartCardEmulator {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardEmulator";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISmartCardEmulatorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorVtbl {
-        unsafe extern "system" fn EnablementPolicy<Impl: ISmartCardEmulatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardEmulatorEnablementPolicy) -> ::windows::core::HRESULT {
+impl ISmartCardEmulator_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulator_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulator_Vtbl {
+        unsafe extern "system" fn EnablementPolicy<Impl: ISmartCardEmulator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardEmulatorEnablementPolicy) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnablementPolicy() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2050,7 +2050,7 @@ impl ISmartCardEmulatorVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISmartCardEmulator2Impl: Sized {
+pub trait ISmartCardEmulator2_Impl: Sized {
     fn ApduReceived(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorApduReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveApduReceived(&mut self, value: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn ConnectionDeactivated(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorConnectionDeactivatedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -2063,9 +2063,9 @@ impl ::windows::core::RuntimeName for ISmartCardEmulator2 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardEmulator2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISmartCardEmulator2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulator2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulator2Vtbl {
-        unsafe extern "system" fn ApduReceived<Impl: ISmartCardEmulator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl ISmartCardEmulator2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulator2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulator2_Vtbl {
+        unsafe extern "system" fn ApduReceived<Impl: ISmartCardEmulator2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ApduReceived(&*(&value as *const <super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorApduReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorApduReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2076,11 +2076,11 @@ impl ISmartCardEmulator2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveApduReceived<Impl: ISmartCardEmulator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveApduReceived<Impl: ISmartCardEmulator2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveApduReceived(&*(&value as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ConnectionDeactivated<Impl: ISmartCardEmulator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectionDeactivated<Impl: ISmartCardEmulator2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionDeactivated(&*(&value as *const <super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorConnectionDeactivatedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorConnectionDeactivatedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2091,15 +2091,15 @@ impl ISmartCardEmulator2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveConnectionDeactivated<Impl: ISmartCardEmulator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveConnectionDeactivated<Impl: ISmartCardEmulator2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveConnectionDeactivated(&*(&value as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Start<Impl: ISmartCardEmulator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Start<Impl: ISmartCardEmulator2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        unsafe extern "system" fn IsHostCardEmulationSupported<Impl: ISmartCardEmulator2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsHostCardEmulationSupported<Impl: ISmartCardEmulator2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsHostCardEmulationSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2125,7 +2125,7 @@ impl ISmartCardEmulator2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISmartCardEmulatorApduReceivedEventArgsImpl: Sized {
+pub trait ISmartCardEmulatorApduReceivedEventArgs_Impl: Sized {
     fn CommandApdu(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn ConnectionProperties(&mut self) -> ::windows::core::Result<SmartCardEmulatorConnectionProperties>;
     fn TryRespondAsync(&mut self, responseapdu: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
@@ -2136,9 +2136,9 @@ impl ::windows::core::RuntimeName for ISmartCardEmulatorApduReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardEmulatorApduReceivedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISmartCardEmulatorApduReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorApduReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorApduReceivedEventArgsVtbl {
-        unsafe extern "system" fn CommandApdu<Impl: ISmartCardEmulatorApduReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardEmulatorApduReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorApduReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorApduReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn CommandApdu<Impl: ISmartCardEmulatorApduReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CommandApdu() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2149,7 +2149,7 @@ impl ISmartCardEmulatorApduReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectionProperties<Impl: ISmartCardEmulatorApduReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectionProperties<Impl: ISmartCardEmulatorApduReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2160,7 +2160,7 @@ impl ISmartCardEmulatorApduReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryRespondAsync<Impl: ISmartCardEmulatorApduReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, responseapdu: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryRespondAsync<Impl: ISmartCardEmulatorApduReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, responseapdu: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryRespondAsync(&*(&responseapdu as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2171,7 +2171,7 @@ impl ISmartCardEmulatorApduReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AutomaticResponseStatus<Impl: ISmartCardEmulatorApduReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardAutomaticResponseStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AutomaticResponseStatus<Impl: ISmartCardEmulatorApduReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardAutomaticResponseStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AutomaticResponseStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2195,7 +2195,7 @@ impl ISmartCardEmulatorApduReceivedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISmartCardEmulatorApduReceivedEventArgs2Impl: Sized {
+pub trait ISmartCardEmulatorApduReceivedEventArgs2_Impl: Sized {
     fn State(&mut self) -> ::windows::core::Result<u32>;
     fn TryRespondWithStateAsync(&mut self, responseapdu: &::core::option::Option<super::super::Storage::Streams::IBuffer>, nextstate: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
@@ -2204,9 +2204,9 @@ impl ::windows::core::RuntimeName for ISmartCardEmulatorApduReceivedEventArgs2 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardEmulatorApduReceivedEventArgs2";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISmartCardEmulatorApduReceivedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorApduReceivedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorApduReceivedEventArgs2Vtbl {
-        unsafe extern "system" fn State<Impl: ISmartCardEmulatorApduReceivedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl ISmartCardEmulatorApduReceivedEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorApduReceivedEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorApduReceivedEventArgs2_Vtbl {
+        unsafe extern "system" fn State<Impl: ISmartCardEmulatorApduReceivedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2217,7 +2217,7 @@ impl ISmartCardEmulatorApduReceivedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryRespondWithStateAsync<Impl: ISmartCardEmulatorApduReceivedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, responseapdu: ::windows::core::RawPtr, nextstate: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryRespondWithStateAsync<Impl: ISmartCardEmulatorApduReceivedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, responseapdu: ::windows::core::RawPtr, nextstate: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryRespondWithStateAsync(&*(&responseapdu as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType), &*(&nextstate as *const <super::super::Foundation::IReference<u32> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<u32> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2239,7 +2239,7 @@ impl ISmartCardEmulatorApduReceivedEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsImpl: Sized {
+pub trait ISmartCardEmulatorApduReceivedEventArgsWithCryptograms_Impl: Sized {
     fn TryRespondWithCryptogramsAsync(&mut self, responsetemplate: &::core::option::Option<super::super::Storage::Streams::IBuffer>, cryptogramplacementsteps: &::core::option::Option<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
     fn TryRespondWithCryptogramsAndStateAsync(&mut self, responsetemplate: &::core::option::Option<super::super::Storage::Streams::IBuffer>, cryptogramplacementsteps: &::core::option::Option<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>, nextstate: &::core::option::Option<super::super::Foundation::IReference<u32>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>;
 }
@@ -2248,9 +2248,9 @@ impl ::windows::core::RuntimeName for ISmartCardEmulatorApduReceivedEventArgsWit
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardEmulatorApduReceivedEventArgsWithCryptograms";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsVtbl {
-        unsafe extern "system" fn TryRespondWithCryptogramsAsync<Impl: ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, responsetemplate: ::windows::core::RawPtr, cryptogramplacementsteps: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardEmulatorApduReceivedEventArgsWithCryptograms_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorApduReceivedEventArgsWithCryptograms_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorApduReceivedEventArgsWithCryptograms_Vtbl {
+        unsafe extern "system" fn TryRespondWithCryptogramsAsync<Impl: ISmartCardEmulatorApduReceivedEventArgsWithCryptograms_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, responsetemplate: ::windows::core::RawPtr, cryptogramplacementsteps: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryRespondWithCryptogramsAsync(
                 &*(&responsetemplate as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType),
@@ -2264,7 +2264,7 @@ impl ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryRespondWithCryptogramsAndStateAsync<Impl: ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, responsetemplate: ::windows::core::RawPtr, cryptogramplacementsteps: ::windows::core::RawPtr, nextstate: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryRespondWithCryptogramsAndStateAsync<Impl: ISmartCardEmulatorApduReceivedEventArgsWithCryptograms_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, responsetemplate: ::windows::core::RawPtr, cryptogramplacementsteps: ::windows::core::RawPtr, nextstate: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryRespondWithCryptogramsAndStateAsync(
                 &*(&responsetemplate as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType),
@@ -2290,7 +2290,7 @@ impl ISmartCardEmulatorApduReceivedEventArgsWithCryptogramsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardEmulatorConnectionDeactivatedEventArgsImpl: Sized {
+pub trait ISmartCardEmulatorConnectionDeactivatedEventArgs_Impl: Sized {
     fn ConnectionProperties(&mut self) -> ::windows::core::Result<SmartCardEmulatorConnectionProperties>;
     fn Reason(&mut self) -> ::windows::core::Result<SmartCardEmulatorConnectionDeactivatedReason>;
 }
@@ -2299,9 +2299,9 @@ impl ::windows::core::RuntimeName for ISmartCardEmulatorConnectionDeactivatedEve
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardEmulatorConnectionDeactivatedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISmartCardEmulatorConnectionDeactivatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorConnectionDeactivatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorConnectionDeactivatedEventArgsVtbl {
-        unsafe extern "system" fn ConnectionProperties<Impl: ISmartCardEmulatorConnectionDeactivatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardEmulatorConnectionDeactivatedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorConnectionDeactivatedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorConnectionDeactivatedEventArgs_Vtbl {
+        unsafe extern "system" fn ConnectionProperties<Impl: ISmartCardEmulatorConnectionDeactivatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2312,7 +2312,7 @@ impl ISmartCardEmulatorConnectionDeactivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Reason<Impl: ISmartCardEmulatorConnectionDeactivatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardEmulatorConnectionDeactivatedReason) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Reason<Impl: ISmartCardEmulatorConnectionDeactivatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardEmulatorConnectionDeactivatedReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reason() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2334,7 +2334,7 @@ impl ISmartCardEmulatorConnectionDeactivatedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardEmulatorConnectionPropertiesImpl: Sized {
+pub trait ISmartCardEmulatorConnectionProperties_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Source(&mut self) -> ::windows::core::Result<SmartCardEmulatorConnectionSource>;
 }
@@ -2343,9 +2343,9 @@ impl ::windows::core::RuntimeName for ISmartCardEmulatorConnectionProperties {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardEmulatorConnectionProperties";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISmartCardEmulatorConnectionPropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorConnectionPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorConnectionPropertiesVtbl {
-        unsafe extern "system" fn Id<Impl: ISmartCardEmulatorConnectionPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl ISmartCardEmulatorConnectionProperties_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorConnectionProperties_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorConnectionProperties_Vtbl {
+        unsafe extern "system" fn Id<Impl: ISmartCardEmulatorConnectionProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2356,7 +2356,7 @@ impl ISmartCardEmulatorConnectionPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Source<Impl: ISmartCardEmulatorConnectionPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardEmulatorConnectionSource) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Source<Impl: ISmartCardEmulatorConnectionProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardEmulatorConnectionSource) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Source() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2378,7 +2378,7 @@ impl ISmartCardEmulatorConnectionPropertiesVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISmartCardEmulatorStaticsImpl: Sized {
+pub trait ISmartCardEmulatorStatics_Impl: Sized {
     fn GetDefaultAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardEmulator>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -2386,9 +2386,9 @@ impl ::windows::core::RuntimeName for ISmartCardEmulatorStatics {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardEmulatorStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISmartCardEmulatorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorStaticsVtbl {
-        unsafe extern "system" fn GetDefaultAsync<Impl: ISmartCardEmulatorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardEmulatorStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorStatics_Vtbl {
+        unsafe extern "system" fn GetDefaultAsync<Impl: ISmartCardEmulatorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2409,7 +2409,7 @@ impl ISmartCardEmulatorStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ISmartCardEmulatorStatics2Impl: Sized {
+pub trait ISmartCardEmulatorStatics2_Impl: Sized {
     fn GetAppletIdGroupRegistrationsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SmartCardAppletIdGroupRegistration>>>;
     fn RegisterAppletIdGroupAsync(&mut self, appletidgroup: &::core::option::Option<SmartCardAppletIdGroup>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardAppletIdGroupRegistration>>;
     fn UnregisterAppletIdGroupAsync(&mut self, registration: &::core::option::Option<SmartCardAppletIdGroupRegistration>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -2420,9 +2420,9 @@ impl ::windows::core::RuntimeName for ISmartCardEmulatorStatics2 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardEmulatorStatics2";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ISmartCardEmulatorStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorStatics2Vtbl {
-        unsafe extern "system" fn GetAppletIdGroupRegistrationsAsync<Impl: ISmartCardEmulatorStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardEmulatorStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorStatics2_Vtbl {
+        unsafe extern "system" fn GetAppletIdGroupRegistrationsAsync<Impl: ISmartCardEmulatorStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAppletIdGroupRegistrationsAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2433,7 +2433,7 @@ impl ISmartCardEmulatorStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisterAppletIdGroupAsync<Impl: ISmartCardEmulatorStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appletidgroup: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterAppletIdGroupAsync<Impl: ISmartCardEmulatorStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appletidgroup: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RegisterAppletIdGroupAsync(&*(&appletidgroup as *const <SmartCardAppletIdGroup as ::windows::core::Abi>::Abi as *const <SmartCardAppletIdGroup as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2444,7 +2444,7 @@ impl ISmartCardEmulatorStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnregisterAppletIdGroupAsync<Impl: ISmartCardEmulatorStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, registration: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterAppletIdGroupAsync<Impl: ISmartCardEmulatorStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, registration: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnregisterAppletIdGroupAsync(&*(&registration as *const <SmartCardAppletIdGroupRegistration as ::windows::core::Abi>::Abi as *const <SmartCardAppletIdGroupRegistration as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2455,7 +2455,7 @@ impl ISmartCardEmulatorStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxAppletIdGroupRegistrations<Impl: ISmartCardEmulatorStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxAppletIdGroupRegistrations<Impl: ISmartCardEmulatorStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxAppletIdGroupRegistrations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2479,7 +2479,7 @@ impl ISmartCardEmulatorStatics2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardEmulatorStatics3Impl: Sized {
+pub trait ISmartCardEmulatorStatics3_Impl: Sized {
     fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2487,9 +2487,9 @@ impl ::windows::core::RuntimeName for ISmartCardEmulatorStatics3 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardEmulatorStatics3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISmartCardEmulatorStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorStatics3Vtbl {
-        unsafe extern "system" fn IsSupported<Impl: ISmartCardEmulatorStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ISmartCardEmulatorStatics3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardEmulatorStatics3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardEmulatorStatics3_Vtbl {
+        unsafe extern "system" fn IsSupported<Impl: ISmartCardEmulatorStatics3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2510,7 +2510,7 @@ impl ISmartCardEmulatorStatics3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardPinPolicyImpl: Sized {
+pub trait ISmartCardPinPolicy_Impl: Sized {
     fn MinLength(&mut self) -> ::windows::core::Result<u32>;
     fn SetMinLength(&mut self, value: u32) -> ::windows::core::Result<()>;
     fn MaxLength(&mut self) -> ::windows::core::Result<u32>;
@@ -2529,9 +2529,9 @@ impl ::windows::core::RuntimeName for ISmartCardPinPolicy {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardPinPolicy";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISmartCardPinPolicyVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardPinPolicyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardPinPolicyVtbl {
-        unsafe extern "system" fn MinLength<Impl: ISmartCardPinPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl ISmartCardPinPolicy_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardPinPolicy_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardPinPolicy_Vtbl {
+        unsafe extern "system" fn MinLength<Impl: ISmartCardPinPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2542,11 +2542,11 @@ impl ISmartCardPinPolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMinLength<Impl: ISmartCardPinPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMinLength<Impl: ISmartCardPinPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMinLength(value).into()
         }
-        unsafe extern "system" fn MaxLength<Impl: ISmartCardPinPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxLength<Impl: ISmartCardPinPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2557,11 +2557,11 @@ impl ISmartCardPinPolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxLength<Impl: ISmartCardPinPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxLength<Impl: ISmartCardPinPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxLength(value).into()
         }
-        unsafe extern "system" fn UppercaseLetters<Impl: ISmartCardPinPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardPinCharacterPolicyOption) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UppercaseLetters<Impl: ISmartCardPinPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardPinCharacterPolicyOption) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UppercaseLetters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2572,11 +2572,11 @@ impl ISmartCardPinPolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetUppercaseLetters<Impl: ISmartCardPinPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUppercaseLetters<Impl: ISmartCardPinPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUppercaseLetters(value).into()
         }
-        unsafe extern "system" fn LowercaseLetters<Impl: ISmartCardPinPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardPinCharacterPolicyOption) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LowercaseLetters<Impl: ISmartCardPinPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardPinCharacterPolicyOption) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LowercaseLetters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2587,11 +2587,11 @@ impl ISmartCardPinPolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLowercaseLetters<Impl: ISmartCardPinPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLowercaseLetters<Impl: ISmartCardPinPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLowercaseLetters(value).into()
         }
-        unsafe extern "system" fn Digits<Impl: ISmartCardPinPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardPinCharacterPolicyOption) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Digits<Impl: ISmartCardPinPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardPinCharacterPolicyOption) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Digits() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2602,11 +2602,11 @@ impl ISmartCardPinPolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDigits<Impl: ISmartCardPinPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDigits<Impl: ISmartCardPinPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDigits(value).into()
         }
-        unsafe extern "system" fn SpecialCharacters<Impl: ISmartCardPinPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardPinCharacterPolicyOption) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SpecialCharacters<Impl: ISmartCardPinPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardPinCharacterPolicyOption) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SpecialCharacters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2617,7 +2617,7 @@ impl ISmartCardPinPolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSpecialCharacters<Impl: ISmartCardPinPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSpecialCharacters<Impl: ISmartCardPinPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSpecialCharacters(value).into()
         }
@@ -2642,7 +2642,7 @@ impl ISmartCardPinPolicyVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardPinResetDeferralImpl: Sized {
+pub trait ISmartCardPinResetDeferral_Impl: Sized {
     fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2650,9 +2650,9 @@ impl ::windows::core::RuntimeName for ISmartCardPinResetDeferral {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardPinResetDeferral";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISmartCardPinResetDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardPinResetDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardPinResetDeferralVtbl {
-        unsafe extern "system" fn Complete<Impl: ISmartCardPinResetDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl ISmartCardPinResetDeferral_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardPinResetDeferral_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardPinResetDeferral_Vtbl {
+        unsafe extern "system" fn Complete<Impl: ISmartCardPinResetDeferral_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
@@ -2663,7 +2663,7 @@ impl ISmartCardPinResetDeferralVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISmartCardPinResetRequestImpl: Sized {
+pub trait ISmartCardPinResetRequest_Impl: Sized {
     fn Challenge(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn Deadline(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<SmartCardPinResetDeferral>;
@@ -2674,9 +2674,9 @@ impl ::windows::core::RuntimeName for ISmartCardPinResetRequest {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardPinResetRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISmartCardPinResetRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardPinResetRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardPinResetRequestVtbl {
-        unsafe extern "system" fn Challenge<Impl: ISmartCardPinResetRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardPinResetRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardPinResetRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardPinResetRequest_Vtbl {
+        unsafe extern "system" fn Challenge<Impl: ISmartCardPinResetRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Challenge() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2687,7 +2687,7 @@ impl ISmartCardPinResetRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Deadline<Impl: ISmartCardPinResetRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Deadline<Impl: ISmartCardPinResetRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Deadline() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2698,7 +2698,7 @@ impl ISmartCardPinResetRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: ISmartCardPinResetRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: ISmartCardPinResetRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2709,7 +2709,7 @@ impl ISmartCardPinResetRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetResponse<Impl: ISmartCardPinResetRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, response: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetResponse<Impl: ISmartCardPinResetRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, response: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetResponse(&*(&response as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2726,7 +2726,7 @@ impl ISmartCardPinResetRequestVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISmartCardProvisioningImpl: Sized {
+pub trait ISmartCardProvisioning_Impl: Sized {
     fn SmartCard(&mut self) -> ::windows::core::Result<SmartCard>;
     fn GetIdAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::GUID>>;
     fn GetNameAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
@@ -2739,9 +2739,9 @@ impl ::windows::core::RuntimeName for ISmartCardProvisioning {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardProvisioning";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISmartCardProvisioningVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardProvisioningImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardProvisioningVtbl {
-        unsafe extern "system" fn SmartCard<Impl: ISmartCardProvisioningImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardProvisioning_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardProvisioning_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardProvisioning_Vtbl {
+        unsafe extern "system" fn SmartCard<Impl: ISmartCardProvisioning_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SmartCard() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2752,7 +2752,7 @@ impl ISmartCardProvisioningVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIdAsync<Impl: ISmartCardProvisioningImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIdAsync<Impl: ISmartCardProvisioning_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIdAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2763,7 +2763,7 @@ impl ISmartCardProvisioningVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNameAsync<Impl: ISmartCardProvisioningImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNameAsync<Impl: ISmartCardProvisioning_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetNameAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2774,7 +2774,7 @@ impl ISmartCardProvisioningVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetChallengeContextAsync<Impl: ISmartCardProvisioningImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetChallengeContextAsync<Impl: ISmartCardProvisioning_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetChallengeContextAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2785,7 +2785,7 @@ impl ISmartCardProvisioningVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestPinChangeAsync<Impl: ISmartCardProvisioningImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestPinChangeAsync<Impl: ISmartCardProvisioning_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestPinChangeAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2796,7 +2796,7 @@ impl ISmartCardProvisioningVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestPinResetAsync<Impl: ISmartCardProvisioningImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestPinResetAsync<Impl: ISmartCardProvisioning_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestPinResetAsync(&*(&handler as *const <SmartCardPinResetHandler as ::windows::core::Abi>::Abi as *const <SmartCardPinResetHandler as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2822,7 +2822,7 @@ impl ISmartCardProvisioningVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISmartCardProvisioning2Impl: Sized {
+pub trait ISmartCardProvisioning2_Impl: Sized {
     fn GetAuthorityKeyContainerNameAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -2830,9 +2830,9 @@ impl ::windows::core::RuntimeName for ISmartCardProvisioning2 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardProvisioning2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISmartCardProvisioning2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardProvisioning2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardProvisioning2Vtbl {
-        unsafe extern "system" fn GetAuthorityKeyContainerNameAsync<Impl: ISmartCardProvisioning2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardProvisioning2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardProvisioning2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardProvisioning2_Vtbl {
+        unsafe extern "system" fn GetAuthorityKeyContainerNameAsync<Impl: ISmartCardProvisioning2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAuthorityKeyContainerNameAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2853,7 +2853,7 @@ impl ISmartCardProvisioning2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISmartCardProvisioningStaticsImpl: Sized {
+pub trait ISmartCardProvisioningStatics_Impl: Sized {
     fn FromSmartCardAsync(&mut self, card: &::core::option::Option<SmartCard>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>;
     fn RequestVirtualSmartCardCreationAsync(&mut self, friendlyname: &::windows::core::HSTRING, administrativekey: &::core::option::Option<super::super::Storage::Streams::IBuffer>, pinpolicy: &::core::option::Option<SmartCardPinPolicy>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>;
     fn RequestVirtualSmartCardCreationAsyncWithCardId(&mut self, friendlyname: &::windows::core::HSTRING, administrativekey: &::core::option::Option<super::super::Storage::Streams::IBuffer>, pinpolicy: &::core::option::Option<SmartCardPinPolicy>, cardid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>;
@@ -2864,9 +2864,9 @@ impl ::windows::core::RuntimeName for ISmartCardProvisioningStatics {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardProvisioningStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISmartCardProvisioningStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardProvisioningStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardProvisioningStaticsVtbl {
-        unsafe extern "system" fn FromSmartCardAsync<Impl: ISmartCardProvisioningStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, card: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardProvisioningStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardProvisioningStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardProvisioningStatics_Vtbl {
+        unsafe extern "system" fn FromSmartCardAsync<Impl: ISmartCardProvisioningStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, card: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromSmartCardAsync(&*(&card as *const <SmartCard as ::windows::core::Abi>::Abi as *const <SmartCard as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2877,7 +2877,7 @@ impl ISmartCardProvisioningStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestVirtualSmartCardCreationAsync<Impl: ISmartCardProvisioningStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, friendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, administrativekey: ::windows::core::RawPtr, pinpolicy: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestVirtualSmartCardCreationAsync<Impl: ISmartCardProvisioningStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, friendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, administrativekey: ::windows::core::RawPtr, pinpolicy: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestVirtualSmartCardCreationAsync(
                 &*(&friendlyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -2892,7 +2892,7 @@ impl ISmartCardProvisioningStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestVirtualSmartCardCreationAsyncWithCardId<Impl: ISmartCardProvisioningStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, friendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, administrativekey: ::windows::core::RawPtr, pinpolicy: ::windows::core::RawPtr, cardid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestVirtualSmartCardCreationAsyncWithCardId<Impl: ISmartCardProvisioningStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, friendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, administrativekey: ::windows::core::RawPtr, pinpolicy: ::windows::core::RawPtr, cardid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestVirtualSmartCardCreationAsyncWithCardId(
                 &*(&friendlyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -2908,7 +2908,7 @@ impl ISmartCardProvisioningStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestVirtualSmartCardDeletionAsync<Impl: ISmartCardProvisioningStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, card: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestVirtualSmartCardDeletionAsync<Impl: ISmartCardProvisioningStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, card: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestVirtualSmartCardDeletionAsync(&*(&card as *const <SmartCard as ::windows::core::Abi>::Abi as *const <SmartCard as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2932,7 +2932,7 @@ impl ISmartCardProvisioningStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISmartCardProvisioningStatics2Impl: Sized {
+pub trait ISmartCardProvisioningStatics2_Impl: Sized {
     fn RequestAttestedVirtualSmartCardCreationAsync(&mut self, friendlyname: &::windows::core::HSTRING, administrativekey: &::core::option::Option<super::super::Storage::Streams::IBuffer>, pinpolicy: &::core::option::Option<SmartCardPinPolicy>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>;
     fn RequestAttestedVirtualSmartCardCreationAsyncWithCardId(&mut self, friendlyname: &::windows::core::HSTRING, administrativekey: &::core::option::Option<super::super::Storage::Streams::IBuffer>, pinpolicy: &::core::option::Option<SmartCardPinPolicy>, cardid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>;
 }
@@ -2941,9 +2941,9 @@ impl ::windows::core::RuntimeName for ISmartCardProvisioningStatics2 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardProvisioningStatics2";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISmartCardProvisioningStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardProvisioningStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardProvisioningStatics2Vtbl {
-        unsafe extern "system" fn RequestAttestedVirtualSmartCardCreationAsync<Impl: ISmartCardProvisioningStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, friendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, administrativekey: ::windows::core::RawPtr, pinpolicy: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardProvisioningStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardProvisioningStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardProvisioningStatics2_Vtbl {
+        unsafe extern "system" fn RequestAttestedVirtualSmartCardCreationAsync<Impl: ISmartCardProvisioningStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, friendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, administrativekey: ::windows::core::RawPtr, pinpolicy: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAttestedVirtualSmartCardCreationAsync(
                 &*(&friendlyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -2958,7 +2958,7 @@ impl ISmartCardProvisioningStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestAttestedVirtualSmartCardCreationAsyncWithCardId<Impl: ISmartCardProvisioningStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, friendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, administrativekey: ::windows::core::RawPtr, pinpolicy: ::windows::core::RawPtr, cardid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestAttestedVirtualSmartCardCreationAsyncWithCardId<Impl: ISmartCardProvisioningStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, friendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, administrativekey: ::windows::core::RawPtr, pinpolicy: ::windows::core::RawPtr, cardid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAttestedVirtualSmartCardCreationAsyncWithCardId(
                 &*(&friendlyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -2985,7 +2985,7 @@ impl ISmartCardProvisioningStatics2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISmartCardReaderImpl: Sized {
+pub trait ISmartCardReader_Impl: Sized {
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Kind(&mut self) -> ::windows::core::Result<SmartCardReaderKind>;
@@ -3001,9 +3001,9 @@ impl ::windows::core::RuntimeName for ISmartCardReader {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardReader";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISmartCardReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardReaderVtbl {
-        unsafe extern "system" fn DeviceId<Impl: ISmartCardReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISmartCardReader_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardReader_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardReader_Vtbl {
+        unsafe extern "system" fn DeviceId<Impl: ISmartCardReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3014,7 +3014,7 @@ impl ISmartCardReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Impl: ISmartCardReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Impl: ISmartCardReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3025,7 +3025,7 @@ impl ISmartCardReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Kind<Impl: ISmartCardReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardReaderKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Kind<Impl: ISmartCardReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardReaderKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3036,7 +3036,7 @@ impl ISmartCardReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStatusAsync<Impl: ISmartCardReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStatusAsync<Impl: ISmartCardReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStatusAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3047,7 +3047,7 @@ impl ISmartCardReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindAllCardsAsync<Impl: ISmartCardReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindAllCardsAsync<Impl: ISmartCardReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAllCardsAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3058,7 +3058,7 @@ impl ISmartCardReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CardAdded<Impl: ISmartCardReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CardAdded<Impl: ISmartCardReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CardAdded(&*(&handler as *const <super::super::Foundation::TypedEventHandler<SmartCardReader, CardAddedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SmartCardReader, CardAddedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3069,11 +3069,11 @@ impl ISmartCardReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCardAdded<Impl: ISmartCardReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCardAdded<Impl: ISmartCardReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCardAdded(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CardRemoved<Impl: ISmartCardReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CardRemoved<Impl: ISmartCardReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CardRemoved(&*(&handler as *const <super::super::Foundation::TypedEventHandler<SmartCardReader, CardRemovedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SmartCardReader, CardRemovedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3084,7 +3084,7 @@ impl ISmartCardReaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCardRemoved<Impl: ISmartCardReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCardRemoved<Impl: ISmartCardReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCardRemoved(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3106,7 +3106,7 @@ impl ISmartCardReaderVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISmartCardReaderStaticsImpl: Sized {
+pub trait ISmartCardReaderStatics_Impl: Sized {
     fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetDeviceSelectorWithKind(&mut self, kind: SmartCardReaderKind) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardReader>>;
@@ -3116,9 +3116,9 @@ impl ::windows::core::RuntimeName for ISmartCardReaderStatics {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardReaderStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISmartCardReaderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardReaderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardReaderStaticsVtbl {
-        unsafe extern "system" fn GetDeviceSelector<Impl: ISmartCardReaderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISmartCardReaderStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardReaderStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardReaderStatics_Vtbl {
+        unsafe extern "system" fn GetDeviceSelector<Impl: ISmartCardReaderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3129,7 +3129,7 @@ impl ISmartCardReaderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelectorWithKind<Impl: ISmartCardReaderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kind: SmartCardReaderKind, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelectorWithKind<Impl: ISmartCardReaderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kind: SmartCardReaderKind, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelectorWithKind(kind) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3140,7 +3140,7 @@ impl ISmartCardReaderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromIdAsync<Impl: ISmartCardReaderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromIdAsync<Impl: ISmartCardReaderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3163,7 +3163,7 @@ impl ISmartCardReaderStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISmartCardTriggerDetailsImpl: Sized {
+pub trait ISmartCardTriggerDetails_Impl: Sized {
     fn TriggerType(&mut self) -> ::windows::core::Result<SmartCardTriggerType>;
     fn SourceAppletId(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn TriggerData(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
@@ -3173,9 +3173,9 @@ impl ::windows::core::RuntimeName for ISmartCardTriggerDetails {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardTriggerDetails";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISmartCardTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardTriggerDetailsVtbl {
-        unsafe extern "system" fn TriggerType<Impl: ISmartCardTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardTriggerType) -> ::windows::core::HRESULT {
+impl ISmartCardTriggerDetails_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardTriggerDetails_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardTriggerDetails_Vtbl {
+        unsafe extern "system" fn TriggerType<Impl: ISmartCardTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmartCardTriggerType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TriggerType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3186,7 +3186,7 @@ impl ISmartCardTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SourceAppletId<Impl: ISmartCardTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SourceAppletId<Impl: ISmartCardTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceAppletId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3197,7 +3197,7 @@ impl ISmartCardTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TriggerData<Impl: ISmartCardTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TriggerData<Impl: ISmartCardTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TriggerData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3220,7 +3220,7 @@ impl ISmartCardTriggerDetailsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISmartCardTriggerDetails2Impl: Sized {
+pub trait ISmartCardTriggerDetails2_Impl: Sized {
     fn Emulator(&mut self) -> ::windows::core::Result<SmartCardEmulator>;
     fn TryLaunchCurrentAppAsync(&mut self, arguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn TryLaunchCurrentAppWithBehaviorAsync(&mut self, arguments: &::windows::core::HSTRING, behavior: SmartCardLaunchBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
@@ -3230,9 +3230,9 @@ impl ::windows::core::RuntimeName for ISmartCardTriggerDetails2 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardTriggerDetails2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISmartCardTriggerDetails2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardTriggerDetails2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardTriggerDetails2Vtbl {
-        unsafe extern "system" fn Emulator<Impl: ISmartCardTriggerDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardTriggerDetails2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardTriggerDetails2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardTriggerDetails2_Vtbl {
+        unsafe extern "system" fn Emulator<Impl: ISmartCardTriggerDetails2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Emulator() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3243,7 +3243,7 @@ impl ISmartCardTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryLaunchCurrentAppAsync<Impl: ISmartCardTriggerDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, arguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryLaunchCurrentAppAsync<Impl: ISmartCardTriggerDetails2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, arguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryLaunchCurrentAppAsync(&*(&arguments as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3254,7 +3254,7 @@ impl ISmartCardTriggerDetails2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryLaunchCurrentAppWithBehaviorAsync<Impl: ISmartCardTriggerDetails2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, arguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, behavior: SmartCardLaunchBehavior, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryLaunchCurrentAppWithBehaviorAsync<Impl: ISmartCardTriggerDetails2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, arguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, behavior: SmartCardLaunchBehavior, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryLaunchCurrentAppWithBehaviorAsync(&*(&arguments as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), behavior) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3277,7 +3277,7 @@ impl ISmartCardTriggerDetails2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISmartCardTriggerDetails3Impl: Sized {
+pub trait ISmartCardTriggerDetails3_Impl: Sized {
     fn SmartCard(&mut self) -> ::windows::core::Result<SmartCard>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3285,9 +3285,9 @@ impl ::windows::core::RuntimeName for ISmartCardTriggerDetails3 {
     const NAME: &'static str = "Windows.Devices.SmartCards.ISmartCardTriggerDetails3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISmartCardTriggerDetails3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardTriggerDetails3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardTriggerDetails3Vtbl {
-        unsafe extern "system" fn SmartCard<Impl: ISmartCardTriggerDetails3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISmartCardTriggerDetails3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmartCardTriggerDetails3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISmartCardTriggerDetails3_Vtbl {
+        unsafe extern "system" fn SmartCard<Impl: ISmartCardTriggerDetails3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SmartCard() {
                 ::core::result::Result::Ok(ok__) => {

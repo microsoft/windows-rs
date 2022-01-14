@@ -49,7 +49,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceServicingDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Background.DeviceServicingDetails;{4aabee29-2344-4ac4-8527-4a8ef6905645})");
 }
 unsafe impl ::windows::core::Interface for DeviceServicingDetails {
-    type Vtable = IDeviceServicingDetailsVtbl;
+    type Vtable = IDeviceServicingDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4aabee29_2344_4ac4_8527_4a8ef6905645);
 }
 impl ::windows::core::RuntimeName for DeviceServicingDetails {
@@ -138,7 +138,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceUseDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Background.DeviceUseDetails;{7d565141-557e-4154-b994-e4f7a11fb323})");
 }
 unsafe impl ::windows::core::Interface for DeviceUseDetails {
-    type Vtable = IDeviceUseDetailsVtbl;
+    type Vtable = IDeviceUseDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d565141_557e_4154_b994_e4f7a11fb323);
 }
 impl ::windows::core::RuntimeName for DeviceUseDetails {
@@ -190,12 +190,12 @@ unsafe impl ::core::marker::Sync for DeviceUseDetails {}
 #[repr(transparent)]
 pub struct IDeviceServicingDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceServicingDetails {
-    type Vtable = IDeviceServicingDetailsVtbl;
+    type Vtable = IDeviceServicingDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4aabee29_2344_4ac4_8527_4a8ef6905645);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceServicingDetailsVtbl {
+pub struct IDeviceServicingDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Arguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -208,12 +208,12 @@ pub struct IDeviceServicingDetailsVtbl {
 #[repr(transparent)]
 pub struct IDeviceUseDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDeviceUseDetails {
-    type Vtable = IDeviceUseDetailsVtbl;
+    type Vtable = IDeviceUseDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d565141_557e_4154_b994_e4f7a11fb323);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceUseDetailsVtbl {
+pub struct IDeviceUseDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Arguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,

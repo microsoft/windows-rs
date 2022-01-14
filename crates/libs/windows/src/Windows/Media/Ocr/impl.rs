@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Globalization", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-pub trait IOcrEngineImpl: Sized {
+pub trait IOcrEngine_Impl: Sized {
     fn RecognizeAsync(&mut self, bitmap: &::core::option::Option<super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<OcrResult>>;
     fn RecognizerLanguage(&mut self) -> ::windows::core::Result<super::super::Globalization::Language>;
 }
@@ -8,9 +8,9 @@ impl ::windows::core::RuntimeName for IOcrEngine {
     const NAME: &'static str = "Windows.Media.Ocr.IOcrEngine";
 }
 #[cfg(all(feature = "Foundation", feature = "Globalization", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-impl IOcrEngineVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOcrEngineImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOcrEngineVtbl {
-        unsafe extern "system" fn RecognizeAsync<Impl: IOcrEngineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IOcrEngine_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOcrEngine_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOcrEngine_Vtbl {
+        unsafe extern "system" fn RecognizeAsync<Impl: IOcrEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RecognizeAsync(&*(&bitmap as *const <super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::Abi>::Abi as *const <super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -21,7 +21,7 @@ impl IOcrEngineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RecognizerLanguage<Impl: IOcrEngineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RecognizerLanguage<Impl: IOcrEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RecognizerLanguage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -43,7 +43,7 @@ impl IOcrEngineVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Globalization", feature = "implement_exclusive"))]
-pub trait IOcrEngineStaticsImpl: Sized {
+pub trait IOcrEngineStatics_Impl: Sized {
     fn MaxImageDimension(&mut self) -> ::windows::core::Result<u32>;
     fn AvailableRecognizerLanguages(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>>;
     fn IsLanguageSupported(&mut self, language: &::core::option::Option<super::super::Globalization::Language>) -> ::windows::core::Result<bool>;
@@ -55,9 +55,9 @@ impl ::windows::core::RuntimeName for IOcrEngineStatics {
     const NAME: &'static str = "Windows.Media.Ocr.IOcrEngineStatics";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Globalization", feature = "implement_exclusive"))]
-impl IOcrEngineStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOcrEngineStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOcrEngineStaticsVtbl {
-        unsafe extern "system" fn MaxImageDimension<Impl: IOcrEngineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IOcrEngineStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOcrEngineStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOcrEngineStatics_Vtbl {
+        unsafe extern "system" fn MaxImageDimension<Impl: IOcrEngineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxImageDimension() {
                 ::core::result::Result::Ok(ok__) => {
@@ -68,7 +68,7 @@ impl IOcrEngineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AvailableRecognizerLanguages<Impl: IOcrEngineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AvailableRecognizerLanguages<Impl: IOcrEngineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AvailableRecognizerLanguages() {
                 ::core::result::Result::Ok(ok__) => {
@@ -79,7 +79,7 @@ impl IOcrEngineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsLanguageSupported<Impl: IOcrEngineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, language: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsLanguageSupported<Impl: IOcrEngineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, language: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsLanguageSupported(&*(&language as *const <super::super::Globalization::Language as ::windows::core::Abi>::Abi as *const <super::super::Globalization::Language as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -90,7 +90,7 @@ impl IOcrEngineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryCreateFromLanguage<Impl: IOcrEngineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, language: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryCreateFromLanguage<Impl: IOcrEngineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, language: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreateFromLanguage(&*(&language as *const <super::super::Globalization::Language as ::windows::core::Abi>::Abi as *const <super::super::Globalization::Language as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -101,7 +101,7 @@ impl IOcrEngineStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryCreateFromUserProfileLanguages<Impl: IOcrEngineStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryCreateFromUserProfileLanguages<Impl: IOcrEngineStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCreateFromUserProfileLanguages() {
                 ::core::result::Result::Ok(ok__) => {
@@ -126,7 +126,7 @@ impl IOcrEngineStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IOcrLineImpl: Sized {
+pub trait IOcrLine_Impl: Sized {
     fn Words(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<OcrWord>>;
     fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -135,9 +135,9 @@ impl ::windows::core::RuntimeName for IOcrLine {
     const NAME: &'static str = "Windows.Media.Ocr.IOcrLine";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IOcrLineVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOcrLineImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOcrLineVtbl {
-        unsafe extern "system" fn Words<Impl: IOcrLineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IOcrLine_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOcrLine_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOcrLine_Vtbl {
+        unsafe extern "system" fn Words<Impl: IOcrLine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Words() {
                 ::core::result::Result::Ok(ok__) => {
@@ -148,7 +148,7 @@ impl IOcrLineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Text<Impl: IOcrLineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Text<Impl: IOcrLine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text() {
                 ::core::result::Result::Ok(ok__) => {
@@ -170,7 +170,7 @@ impl IOcrLineVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IOcrResultImpl: Sized {
+pub trait IOcrResult_Impl: Sized {
     fn Lines(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<OcrLine>>;
     fn TextAngle(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
     fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -180,9 +180,9 @@ impl ::windows::core::RuntimeName for IOcrResult {
     const NAME: &'static str = "Windows.Media.Ocr.IOcrResult";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IOcrResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOcrResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOcrResultVtbl {
-        unsafe extern "system" fn Lines<Impl: IOcrResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IOcrResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOcrResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOcrResult_Vtbl {
+        unsafe extern "system" fn Lines<Impl: IOcrResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Lines() {
                 ::core::result::Result::Ok(ok__) => {
@@ -193,7 +193,7 @@ impl IOcrResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TextAngle<Impl: IOcrResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TextAngle<Impl: IOcrResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TextAngle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -204,7 +204,7 @@ impl IOcrResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Text<Impl: IOcrResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Text<Impl: IOcrResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text() {
                 ::core::result::Result::Ok(ok__) => {
@@ -227,7 +227,7 @@ impl IOcrResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IOcrWordImpl: Sized {
+pub trait IOcrWord_Impl: Sized {
     fn BoundingRect(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
     fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -236,9 +236,9 @@ impl ::windows::core::RuntimeName for IOcrWord {
     const NAME: &'static str = "Windows.Media.Ocr.IOcrWord";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IOcrWordVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOcrWordImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOcrWordVtbl {
-        unsafe extern "system" fn BoundingRect<Impl: IOcrWordImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+impl IOcrWord_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOcrWord_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOcrWord_Vtbl {
+        unsafe extern "system" fn BoundingRect<Impl: IOcrWord_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BoundingRect() {
                 ::core::result::Result::Ok(ok__) => {
@@ -249,7 +249,7 @@ impl IOcrWordVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Text<Impl: IOcrWordImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Text<Impl: IOcrWord_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text() {
                 ::core::result::Result::Ok(ok__) => {

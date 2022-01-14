@@ -1,5 +1,5 @@
 #[cfg(feature = "Foundation")]
-pub trait IDirect3DDeviceImpl: Sized + IClosableImpl {
+pub trait IDirect3DDevice_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
     fn Trim(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
@@ -7,9 +7,9 @@ impl ::windows::core::RuntimeName for IDirect3DDevice {
     const NAME: &'static str = "Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice";
 }
 #[cfg(feature = "Foundation")]
-impl IDirect3DDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirect3DDeviceVtbl {
-        unsafe extern "system" fn Trim<Impl: IDirect3DDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IDirect3DDevice_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DDevice_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirect3DDevice_Vtbl {
+        unsafe extern "system" fn Trim<Impl: IDirect3DDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Trim().into()
         }
@@ -20,7 +20,7 @@ impl IDirect3DDeviceVtbl {
     }
 }
 #[cfg(feature = "Foundation")]
-pub trait IDirect3DSurfaceImpl: Sized + IClosableImpl {
+pub trait IDirect3DSurface_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
     fn Description(&mut self) -> ::windows::core::Result<Direct3DSurfaceDescription>;
 }
 #[cfg(feature = "Foundation")]
@@ -28,9 +28,9 @@ impl ::windows::core::RuntimeName for IDirect3DSurface {
     const NAME: &'static str = "Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface";
 }
 #[cfg(feature = "Foundation")]
-impl IDirect3DSurfaceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DSurfaceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirect3DSurfaceVtbl {
-        unsafe extern "system" fn Description<Impl: IDirect3DSurfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Direct3DSurfaceDescription) -> ::windows::core::HRESULT {
+impl IDirect3DSurface_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DSurface_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirect3DSurface_Vtbl {
+        unsafe extern "system" fn Description<Impl: IDirect3DSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Direct3DSurfaceDescription) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {

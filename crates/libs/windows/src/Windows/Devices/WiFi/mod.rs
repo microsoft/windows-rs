@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IWiFiAdapter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiAdapter {
-    type Vtable = IWiFiAdapterVtbl;
+    type Vtable = IWiFiAdapter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6c4e423_3d75_43a4_b9de_11e26b72d9b0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWiFiAdapterVtbl {
+pub struct IWiFiAdapter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Networking_Connectivity")]
     pub NetworkAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -45,12 +45,12 @@ pub struct IWiFiAdapterVtbl {
 #[repr(transparent)]
 pub struct IWiFiAdapter2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiAdapter2 {
-    type Vtable = IWiFiAdapter2Vtbl;
+    type Vtable = IWiFiAdapter2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bc4501d_81e4_453d_9430_1fcafbadd6b6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWiFiAdapter2Vtbl {
+pub struct IWiFiAdapter2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetWpsConfigurationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, availablenetwork: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -65,12 +65,12 @@ pub struct IWiFiAdapter2Vtbl {
 #[repr(transparent)]
 pub struct IWiFiAdapterStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiAdapterStatics {
-    type Vtable = IWiFiAdapterStaticsVtbl;
+    type Vtable = IWiFiAdapterStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda25fddd_d24c_43e3_aabd_c4659f730f99);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWiFiAdapterStaticsVtbl {
+pub struct IWiFiAdapterStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub FindAllAdaptersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -90,12 +90,12 @@ pub struct IWiFiAdapterStaticsVtbl {
 #[repr(transparent)]
 pub struct IWiFiAvailableNetwork(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiAvailableNetwork {
-    type Vtable = IWiFiAvailableNetworkVtbl;
+    type Vtable = IWiFiAvailableNetwork_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26e96246_183e_4704_9826_71b4a2f0f668);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWiFiAvailableNetworkVtbl {
+pub struct IWiFiAvailableNetwork_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Uptime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -122,12 +122,12 @@ pub struct IWiFiAvailableNetworkVtbl {
 #[repr(transparent)]
 pub struct IWiFiConnectionResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiConnectionResult {
-    type Vtable = IWiFiConnectionResultVtbl;
+    type Vtable = IWiFiConnectionResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x143bdfd9_c37d_40be_a5c8_857bce85a931);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWiFiConnectionResultVtbl {
+pub struct IWiFiConnectionResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ConnectionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WiFiConnectionStatus) -> ::windows::core::HRESULT,
 }
@@ -135,12 +135,12 @@ pub struct IWiFiConnectionResultVtbl {
 #[repr(transparent)]
 pub struct IWiFiNetworkReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiNetworkReport {
-    type Vtable = IWiFiNetworkReportVtbl;
+    type Vtable = IWiFiNetworkReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9524ded2_5911_445e_8194_be4f1a704895);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWiFiNetworkReportVtbl {
+pub struct IWiFiNetworkReport_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -155,12 +155,12 @@ pub struct IWiFiNetworkReportVtbl {
 #[repr(transparent)]
 pub struct IWiFiWpsConfigurationResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWiFiWpsConfigurationResult {
-    type Vtable = IWiFiWpsConfigurationResultVtbl;
+    type Vtable = IWiFiWpsConfigurationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67b49871_17ee_42d1_b14f_5a11f1226fb5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWiFiWpsConfigurationResultVtbl {
+pub struct IWiFiWpsConfigurationResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WiFiWpsConfigurationStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -355,7 +355,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiAdapter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiAdapter;{a6c4e423-3d75-43a4-b9de-11e26b72d9b0})");
 }
 unsafe impl ::windows::core::Interface for WiFiAdapter {
-    type Vtable = IWiFiAdapterVtbl;
+    type Vtable = IWiFiAdapter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6c4e423_3d75_43a4_b9de_11e26b72d9b0);
 }
 impl ::windows::core::RuntimeName for WiFiAdapter {
@@ -519,7 +519,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiAvailableNetwork {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiAvailableNetwork;{26e96246-183e-4704-9826-71b4a2f0f668})");
 }
 unsafe impl ::windows::core::Interface for WiFiAvailableNetwork {
-    type Vtable = IWiFiAvailableNetworkVtbl;
+    type Vtable = IWiFiAvailableNetwork_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26e96246_183e_4704_9826_71b4a2f0f668);
 }
 impl ::windows::core::RuntimeName for WiFiAvailableNetwork {
@@ -634,7 +634,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiConnectionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiConnectionResult;{143bdfd9-c37d-40be-a5c8-857bce85a931})");
 }
 unsafe impl ::windows::core::Interface for WiFiConnectionResult {
-    type Vtable = IWiFiConnectionResultVtbl;
+    type Vtable = IWiFiConnectionResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x143bdfd9_c37d_40be_a5c8_857bce85a931);
 }
 impl ::windows::core::RuntimeName for WiFiConnectionResult {
@@ -797,7 +797,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiNetworkReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiNetworkReport;{9524ded2-5911-445e-8194-be4f1a704895})");
 }
 unsafe impl ::windows::core::Interface for WiFiNetworkReport {
-    type Vtable = IWiFiNetworkReportVtbl;
+    type Vtable = IWiFiNetworkReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9524ded2_5911_445e_8194_be4f1a704895);
 }
 impl ::windows::core::RuntimeName for WiFiNetworkReport {
@@ -962,7 +962,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiWpsConfigurationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiWpsConfigurationResult;{67b49871-17ee-42d1-b14f-5a11f1226fb5})");
 }
 unsafe impl ::windows::core::Interface for WiFiWpsConfigurationResult {
-    type Vtable = IWiFiWpsConfigurationResultVtbl;
+    type Vtable = IWiFiWpsConfigurationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67b49871_17ee_42d1_b14f_5a11f1226fb5);
 }
 impl ::windows::core::RuntimeName for WiFiWpsConfigurationResult {

@@ -1001,12 +1001,12 @@ impl ::core::fmt::Debug for IDirectWriterLock {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectWriterLock {
-    type Vtable = IDirectWriterLockVtbl;
+    type Vtable = IDirectWriterLock_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e6d4d92_6738_11cf_9608_00aa00680db4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectWriterLockVtbl {
+pub struct IDirectWriterLock_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub WaitForWriteAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtimeout: u32) -> ::windows::core::HRESULT,
     pub ReleaseWriteAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1072,12 +1072,12 @@ impl ::core::fmt::Debug for IEnumSTATPROPSETSTG {
     }
 }
 unsafe impl ::windows::core::Interface for IEnumSTATPROPSETSTG {
-    type Vtable = IEnumSTATPROPSETSTGVtbl;
+    type Vtable = IEnumSTATPROPSETSTG_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000013b_0000_0000_c000_000000000046);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumSTATPROPSETSTGVtbl {
+pub struct IEnumSTATPROPSETSTG_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut STATPROPSETSTG, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
@@ -1147,12 +1147,12 @@ impl ::core::fmt::Debug for IEnumSTATPROPSTG {
     }
 }
 unsafe impl ::windows::core::Interface for IEnumSTATPROPSTG {
-    type Vtable = IEnumSTATPROPSTGVtbl;
+    type Vtable = IEnumSTATPROPSTG_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000139_0000_0000_c000_000000000046);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumSTATPROPSTGVtbl {
+pub struct IEnumSTATPROPSTG_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut STATPROPSTG, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
@@ -1222,12 +1222,12 @@ impl ::core::fmt::Debug for IEnumSTATSTG {
     }
 }
 unsafe impl ::windows::core::Interface for IEnumSTATSTG {
-    type Vtable = IEnumSTATSTGVtbl;
+    type Vtable = IEnumSTATSTG_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000d_0000_0000_c000_000000000046);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumSTATSTGVtbl {
+pub struct IEnumSTATSTG_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut super::STATSTG, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
@@ -1298,12 +1298,12 @@ impl ::core::fmt::Debug for IFillLockBytes {
     }
 }
 unsafe impl ::windows::core::Interface for IFillLockBytes {
-    type Vtable = IFillLockBytesVtbl;
+    type Vtable = IFillLockBytes_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99caf010_415e_11cf_8814_00aa00b569f5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFillLockBytesVtbl {
+pub struct IFillLockBytes_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub FillAppend: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pv: *const ::core::ffi::c_void, cb: u32, pcbwritten: *mut u32) -> ::windows::core::HRESULT,
     pub FillAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uloffset: u64, pv: *const ::core::ffi::c_void, cb: u32, pcbwritten: *mut u32) -> ::windows::core::HRESULT,
@@ -1377,12 +1377,12 @@ impl ::core::fmt::Debug for ILayoutStorage {
     }
 }
 unsafe impl ::windows::core::Interface for ILayoutStorage {
-    type Vtable = ILayoutStorageVtbl;
+    type Vtable = ILayoutStorage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e6d4d90_6738_11cf_9608_00aa00680db4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILayoutStorageVtbl {
+pub struct ILayoutStorage_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub LayoutScript: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstoragelayout: *const super::StorageLayout, nentries: u32, glfinterleavedflag: u32) -> ::windows::core::HRESULT,
@@ -1468,12 +1468,12 @@ impl ::core::fmt::Debug for ILockBytes {
     }
 }
 unsafe impl ::windows::core::Interface for ILockBytes {
-    type Vtable = ILockBytesVtbl;
+    type Vtable = ILockBytes_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000a_0000_0000_c000_000000000046);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILockBytesVtbl {
+pub struct ILockBytes_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub ReadAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uloffset: u64, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::HRESULT,
     pub WriteAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uloffset: u64, pv: *const ::core::ffi::c_void, cb: u32, pcbwritten: *mut u32) -> ::windows::core::HRESULT,
@@ -1578,13 +1578,13 @@ impl ::core::fmt::Debug for IPersistStorage {
     }
 }
 unsafe impl ::windows::core::Interface for IPersistStorage {
-    type Vtable = IPersistStorageVtbl;
+    type Vtable = IPersistStorage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000010a_0000_0000_c000_000000000046);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPersistStorageVtbl {
-    pub base: super::IPersistVtbl,
+pub struct IPersistStorage_Vtbl {
+    pub base: super::IPersist_Vtbl,
     pub IsDirty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub InitNew: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstg: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstg: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1647,12 +1647,12 @@ impl ::core::fmt::Debug for IPropertyBag {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertyBag {
-    type Vtable = IPropertyBagVtbl;
+    type Vtable = IPropertyBag_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55272a00_42cb_11ce_8135_00aa004bb851);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyBagVtbl {
+pub struct IPropertyBag_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpropname: super::super::super::Foundation::PWSTR, pvar: *mut super::VARIANT, perrorlog: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1730,12 +1730,12 @@ impl ::core::fmt::Debug for IPropertyBag2 {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertyBag2 {
-    type Vtable = IPropertyBag2Vtbl;
+    type Vtable = IPropertyBag2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22f55882_280b_11d0_a8a9_00a0c90c2004);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyBag2Vtbl {
+pub struct IPropertyBag2_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: ::windows::core::RawPtr, pvarvalue: *mut super::VARIANT, phrerror: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -1816,12 +1816,12 @@ impl ::core::fmt::Debug for IPropertySetStorage {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertySetStorage {
-    type Vtable = IPropertySetStorageVtbl;
+    type Vtable = IPropertySetStorage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000013a_0000_0000_c000_000000000046);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertySetStorageVtbl {
+pub struct IPropertySetStorage_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rfmtid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, grfflags: u32, grfmode: u32, ppprstg: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rfmtid: *const ::windows::core::GUID, grfmode: u32, ppprstg: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1927,12 +1927,12 @@ impl ::core::fmt::Debug for IPropertyStorage {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertyStorage {
-    type Vtable = IPropertyStorageVtbl;
+    type Vtable = IPropertyStorage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000138_0000_0000_c000_000000000046);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyStorageVtbl {
+pub struct IPropertyStorage_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ReadMultiple: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut PROPVARIANT) -> ::windows::core::HRESULT,
@@ -2015,12 +2015,12 @@ impl ::core::fmt::Debug for IRootStorage {
     }
 }
 unsafe impl ::windows::core::Interface for IRootStorage {
-    type Vtable = IRootStorageVtbl;
+    type Vtable = IRootStorage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000012_0000_0000_c000_000000000046);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRootStorageVtbl {
+pub struct IRootStorage_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SwitchToFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfile: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -2141,12 +2141,12 @@ impl ::core::fmt::Debug for IStorage {
     }
 }
 unsafe impl ::windows::core::Interface for IStorage {
-    type Vtable = IStorageVtbl;
+    type Vtable = IStorage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000b_0000_0000_c000_000000000046);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageVtbl {
+pub struct IStorage_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcsname: super::super::super::Foundation::PWSTR, grfmode: STGM, reserved1: u32, reserved2: u32, ppstm: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

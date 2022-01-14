@@ -1,11 +1,11 @@
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-pub trait IDummyHICONIncluderImpl: Sized {
+pub trait IDummyHICONIncluder_Impl: Sized {
     fn Dummy(&mut self, h1: super::super::super::UI::WindowsAndMessaging::HICON, h2: super::super::super::Graphics::Gdi::HDC) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl IDummyHICONIncluderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDummyHICONIncluderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDummyHICONIncluderVtbl {
-        unsafe extern "system" fn Dummy<Impl: IDummyHICONIncluderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, h1: super::super::super::UI::WindowsAndMessaging::HICON, h2: super::super::super::Graphics::Gdi::HDC) -> ::windows::core::HRESULT {
+impl IDummyHICONIncluder_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDummyHICONIncluder_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDummyHICONIncluder_Vtbl {
+        unsafe extern "system" fn Dummy<Impl: IDummyHICONIncluder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, h1: super::super::super::UI::WindowsAndMessaging::HICON, h2: super::super::super::Graphics::Gdi::HDC) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Dummy(::core::mem::transmute_copy(&h1), ::core::mem::transmute_copy(&h2)).into()
         }
@@ -16,18 +16,18 @@ impl IDummyHICONIncluderVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-pub trait IThumbnailExtractorImpl: Sized {
+pub trait IThumbnailExtractor_Impl: Sized {
     fn ExtractThumbnail(&mut self, pstg: ::core::option::Option<super::StructuredStorage::IStorage>, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::Result<()>;
     fn OnFileUpdated(&mut self, pstg: ::core::option::Option<super::StructuredStorage::IStorage>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-impl IThumbnailExtractorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IThumbnailExtractorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IThumbnailExtractorVtbl {
-        unsafe extern "system" fn ExtractThumbnail<Impl: IThumbnailExtractorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstg: ::windows::core::RawPtr, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::HRESULT {
+impl IThumbnailExtractor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IThumbnailExtractor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IThumbnailExtractor_Vtbl {
+        unsafe extern "system" fn ExtractThumbnail<Impl: IThumbnailExtractor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstg: ::windows::core::RawPtr, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ExtractThumbnail(::core::mem::transmute(&pstg), ::core::mem::transmute_copy(&ullength), ::core::mem::transmute_copy(&ulheight), ::core::mem::transmute_copy(&puloutputlength), ::core::mem::transmute_copy(&puloutputheight), ::core::mem::transmute_copy(&phoutputbitmap)).into()
         }
-        unsafe extern "system" fn OnFileUpdated<Impl: IThumbnailExtractorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstg: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnFileUpdated<Impl: IThumbnailExtractor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstg: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnFileUpdated(::core::mem::transmute(&pstg)).into()
         }

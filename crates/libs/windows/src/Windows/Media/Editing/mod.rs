@@ -155,7 +155,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundAudioTrack {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.BackgroundAudioTrack;{4b91b3bd-9e21-4266-a9c2-67dd011a2357})");
 }
 unsafe impl ::windows::core::Interface for BackgroundAudioTrack {
-    type Vtable = IBackgroundAudioTrackVtbl;
+    type Vtable = IBackgroundAudioTrack_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b91b3bd_9e21_4266_a9c2_67dd011a2357);
 }
 impl ::windows::core::RuntimeName for BackgroundAudioTrack {
@@ -237,7 +237,7 @@ unsafe impl ::windows::core::RuntimeType for EmbeddedAudioTrack {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.EmbeddedAudioTrack;{55ee5a7a-2d30-3fba-a190-4f1a6454f88f})");
 }
 unsafe impl ::windows::core::Interface for EmbeddedAudioTrack {
-    type Vtable = IEmbeddedAudioTrackVtbl;
+    type Vtable = IEmbeddedAudioTrack_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55ee5a7a_2d30_3fba_a190_4f1a6454f88f);
 }
 impl ::windows::core::RuntimeName for EmbeddedAudioTrack {
@@ -289,12 +289,12 @@ unsafe impl ::core::marker::Sync for EmbeddedAudioTrack {}
 #[repr(transparent)]
 pub struct IBackgroundAudioTrack(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundAudioTrack {
-    type Vtable = IBackgroundAudioTrackVtbl;
+    type Vtable = IBackgroundAudioTrack_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b91b3bd_9e21_4266_a9c2_67dd011a2357);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundAudioTrackVtbl {
+pub struct IBackgroundAudioTrack_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub TrimTimeFromStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -348,12 +348,12 @@ pub struct IBackgroundAudioTrackVtbl {
 #[repr(transparent)]
 pub struct IBackgroundAudioTrackStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundAudioTrackStatics {
-    type Vtable = IBackgroundAudioTrackStaticsVtbl;
+    type Vtable = IBackgroundAudioTrackStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9b1c0d7_d018_42a8_a559_cb4d9e97e664);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundAudioTrackStaticsVtbl {
+pub struct IBackgroundAudioTrackStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateFromEmbeddedAudioTrack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, embeddedaudiotrack: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
@@ -365,12 +365,12 @@ pub struct IBackgroundAudioTrackStaticsVtbl {
 #[repr(transparent)]
 pub struct IEmbeddedAudioTrack(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmbeddedAudioTrack {
-    type Vtable = IEmbeddedAudioTrackVtbl;
+    type Vtable = IEmbeddedAudioTrack_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55ee5a7a_2d30_3fba_a190_4f1a6454f88f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmbeddedAudioTrackVtbl {
+pub struct IEmbeddedAudioTrack_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_MediaProperties")]
     pub GetAudioEncodingProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -381,12 +381,12 @@ pub struct IEmbeddedAudioTrackVtbl {
 #[repr(transparent)]
 pub struct IMediaClip(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaClip {
-    type Vtable = IMediaClipVtbl;
+    type Vtable = IMediaClip_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f25366_5fba_3ea4_8693_24761811140a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaClipVtbl {
+pub struct IMediaClip_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub TrimTimeFromStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -450,12 +450,12 @@ pub struct IMediaClipVtbl {
 #[repr(transparent)]
 pub struct IMediaClipStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaClipStatics {
-    type Vtable = IMediaClipStaticsVtbl;
+    type Vtable = IMediaClipStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa402b68_928f_43c4_bc6e_783a1a359656);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaClipStaticsVtbl {
+pub struct IMediaClipStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "UI"))]
     pub CreateFromColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: super::super::UI::Color, originalduration: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -474,12 +474,12 @@ pub struct IMediaClipStaticsVtbl {
 #[repr(transparent)]
 pub struct IMediaClipStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaClipStatics2 {
-    type Vtable = IMediaClipStatics2Vtbl;
+    type Vtable = IMediaClipStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b1dd7b3_854e_4d9b_877d_4774a556cd12);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaClipStatics2Vtbl {
+pub struct IMediaClipStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11"))]
     pub CreateFromSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, surface: ::windows::core::RawPtr, originalduration: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -490,12 +490,12 @@ pub struct IMediaClipStatics2Vtbl {
 #[repr(transparent)]
 pub struct IMediaComposition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaComposition {
-    type Vtable = IMediaCompositionVtbl;
+    type Vtable = IMediaComposition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e06e605_dc71_41d6_b837_2d2bc14a2947);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCompositionVtbl {
+pub struct IMediaComposition_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -559,12 +559,12 @@ pub struct IMediaCompositionVtbl {
 #[repr(transparent)]
 pub struct IMediaComposition2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaComposition2 {
-    type Vtable = IMediaComposition2Vtbl;
+    type Vtable = IMediaComposition2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa59e5372_2366_492c_bec8_e6dfba6d0281);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaComposition2Vtbl {
+pub struct IMediaComposition2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub OverlayLayers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -575,12 +575,12 @@ pub struct IMediaComposition2Vtbl {
 #[repr(transparent)]
 pub struct IMediaCompositionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaCompositionStatics {
-    type Vtable = IMediaCompositionStaticsVtbl;
+    type Vtable = IMediaCompositionStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87a08f04_e32a_45ce_8f66_a30df0766224);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaCompositionStaticsVtbl {
+pub struct IMediaCompositionStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub LoadAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -591,12 +591,12 @@ pub struct IMediaCompositionStaticsVtbl {
 #[repr(transparent)]
 pub struct IMediaOverlay(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaOverlay {
-    type Vtable = IMediaOverlayVtbl;
+    type Vtable = IMediaOverlay_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa902ae5d_7869_4830_8ab1_94dc01c05fa4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaOverlayVtbl {
+pub struct IMediaOverlay_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT,
@@ -625,12 +625,12 @@ pub struct IMediaOverlayVtbl {
 #[repr(transparent)]
 pub struct IMediaOverlayFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaOverlayFactory {
-    type Vtable = IMediaOverlayFactoryVtbl;
+    type Vtable = IMediaOverlayFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb584828a_6188_4f8f_a2e0_aa552d598e18);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaOverlayFactoryVtbl {
+pub struct IMediaOverlayFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clip: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -642,12 +642,12 @@ pub struct IMediaOverlayFactoryVtbl {
 #[repr(transparent)]
 pub struct IMediaOverlayLayer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaOverlayLayer {
-    type Vtable = IMediaOverlayLayerVtbl;
+    type Vtable = IMediaOverlayLayer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6d9ba57_eeda_46c6_bbe5_e398c84168ac);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaOverlayLayerVtbl {
+pub struct IMediaOverlayLayer_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -663,12 +663,12 @@ pub struct IMediaOverlayLayerVtbl {
 #[repr(transparent)]
 pub struct IMediaOverlayLayerFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaOverlayLayerFactory {
-    type Vtable = IMediaOverlayLayerFactoryVtbl;
+    type Vtable = IMediaOverlayLayerFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x947cb473_a39e_4362_abbf_9f8b5070a062);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaOverlayLayerFactoryVtbl {
+pub struct IMediaOverlayLayerFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_Effects")]
     pub CreateWithCompositorDefinition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositordefinition: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -887,7 +887,7 @@ unsafe impl ::windows::core::RuntimeType for MediaClip {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaClip;{53f25366-5fba-3ea4-8693-24761811140a})");
 }
 unsafe impl ::windows::core::Interface for MediaClip {
-    type Vtable = IMediaClipVtbl;
+    type Vtable = IMediaClip_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f25366_5fba_3ea4_8693_24761811140a);
 }
 impl ::windows::core::RuntimeName for MediaClip {
@@ -1123,7 +1123,7 @@ unsafe impl ::windows::core::RuntimeType for MediaComposition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaComposition;{2e06e605-dc71-41d6-b837-2d2bc14a2947})");
 }
 unsafe impl ::windows::core::Interface for MediaComposition {
-    type Vtable = IMediaCompositionVtbl;
+    type Vtable = IMediaComposition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e06e605_dc71_41d6_b837_2d2bc14a2947);
 }
 impl ::windows::core::RuntimeName for MediaComposition {
@@ -1288,7 +1288,7 @@ unsafe impl ::windows::core::RuntimeType for MediaOverlay {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaOverlay;{a902ae5d-7869-4830-8ab1-94dc01c05fa4})");
 }
 unsafe impl ::windows::core::Interface for MediaOverlay {
-    type Vtable = IMediaOverlayVtbl;
+    type Vtable = IMediaOverlay_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa902ae5d_7869_4830_8ab1_94dc01c05fa4);
 }
 impl ::windows::core::RuntimeName for MediaOverlay {
@@ -1407,7 +1407,7 @@ unsafe impl ::windows::core::RuntimeType for MediaOverlayLayer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaOverlayLayer;{a6d9ba57-eeda-46c6-bbe5-e398c84168ac})");
 }
 unsafe impl ::windows::core::Interface for MediaOverlayLayer {
-    type Vtable = IMediaOverlayLayerVtbl;
+    type Vtable = IMediaOverlayLayer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6d9ba57_eeda_46c6_bbe5_e398c84168ac);
 }
 impl ::windows::core::RuntimeName for MediaOverlayLayer {

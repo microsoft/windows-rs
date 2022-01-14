@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IPdfDocumentImpl: Sized {
+pub trait IPdfDocument_Impl: Sized {
     fn GetPage(&mut self, pageindex: u32) -> ::windows::core::Result<PdfPage>;
     fn PageCount(&mut self) -> ::windows::core::Result<u32>;
     fn IsPasswordProtected(&mut self) -> ::windows::core::Result<bool>;
@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for IPdfDocument {
     const NAME: &'static str = "Windows.Data.Pdf.IPdfDocument";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPdfDocumentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPdfDocumentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPdfDocumentVtbl {
-        unsafe extern "system" fn GetPage<Impl: IPdfDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pageindex: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPdfDocument_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPdfDocument_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPdfDocument_Vtbl {
+        unsafe extern "system" fn GetPage<Impl: IPdfDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pageindex: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPage(pageindex) {
                 ::core::result::Result::Ok(ok__) => {
@@ -22,7 +22,7 @@ impl IPdfDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PageCount<Impl: IPdfDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PageCount<Impl: IPdfDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -33,7 +33,7 @@ impl IPdfDocumentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsPasswordProtected<Impl: IPdfDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPasswordProtected<Impl: IPdfDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPasswordProtected() {
                 ::core::result::Result::Ok(ok__) => {
@@ -56,7 +56,7 @@ impl IPdfDocumentVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IPdfDocumentStaticsImpl: Sized {
+pub trait IPdfDocumentStatics_Impl: Sized {
     fn LoadFromFileAsync(&mut self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>;
     fn LoadFromFileWithPasswordAsync(&mut self, file: &::core::option::Option<super::super::Storage::IStorageFile>, password: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>;
     fn LoadFromStreamAsync(&mut self, inputstream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>;
@@ -67,9 +67,9 @@ impl ::windows::core::RuntimeName for IPdfDocumentStatics {
     const NAME: &'static str = "Windows.Data.Pdf.IPdfDocumentStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IPdfDocumentStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPdfDocumentStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPdfDocumentStaticsVtbl {
-        unsafe extern "system" fn LoadFromFileAsync<Impl: IPdfDocumentStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPdfDocumentStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPdfDocumentStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPdfDocumentStatics_Vtbl {
+        unsafe extern "system" fn LoadFromFileAsync<Impl: IPdfDocumentStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadFromFileAsync(&*(&file as *const <super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -80,7 +80,7 @@ impl IPdfDocumentStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadFromFileWithPasswordAsync<Impl: IPdfDocumentStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadFromFileWithPasswordAsync<Impl: IPdfDocumentStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadFromFileWithPasswordAsync(&*(&file as *const <super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType), &*(&password as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -91,7 +91,7 @@ impl IPdfDocumentStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadFromStreamAsync<Impl: IPdfDocumentStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadFromStreamAsync<Impl: IPdfDocumentStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadFromStreamAsync(&*(&inputstream as *const <super::super::Storage::Streams::IRandomAccessStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStream as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -102,7 +102,7 @@ impl IPdfDocumentStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadFromStreamWithPasswordAsync<Impl: IPdfDocumentStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadFromStreamWithPasswordAsync<Impl: IPdfDocumentStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, password: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadFromStreamWithPasswordAsync(&*(&inputstream as *const <super::super::Storage::Streams::IRandomAccessStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStream as ::windows::core::DefaultType>::DefaultType), &*(&password as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -126,7 +126,7 @@ impl IPdfDocumentStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IPdfPageImpl: Sized {
+pub trait IPdfPage_Impl: Sized {
     fn RenderToStreamAsync(&mut self, outputstream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn RenderWithOptionsToStreamAsync(&mut self, outputstream: &::core::option::Option<super::super::Storage::Streams::IRandomAccessStream>, options: &::core::option::Option<PdfPageRenderOptions>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn PreparePageAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -141,9 +141,9 @@ impl ::windows::core::RuntimeName for IPdfPage {
     const NAME: &'static str = "Windows.Data.Pdf.IPdfPage";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IPdfPageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPdfPageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPdfPageVtbl {
-        unsafe extern "system" fn RenderToStreamAsync<Impl: IPdfPageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPdfPage_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPdfPage_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPdfPage_Vtbl {
+        unsafe extern "system" fn RenderToStreamAsync<Impl: IPdfPage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RenderToStreamAsync(&*(&outputstream as *const <super::super::Storage::Streams::IRandomAccessStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStream as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -154,7 +154,7 @@ impl IPdfPageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RenderWithOptionsToStreamAsync<Impl: IPdfPageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RenderWithOptionsToStreamAsync<Impl: IPdfPage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RenderWithOptionsToStreamAsync(&*(&outputstream as *const <super::super::Storage::Streams::IRandomAccessStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStream as ::windows::core::DefaultType>::DefaultType), &*(&options as *const <PdfPageRenderOptions as ::windows::core::Abi>::Abi as *const <PdfPageRenderOptions as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -165,7 +165,7 @@ impl IPdfPageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PreparePageAsync<Impl: IPdfPageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PreparePageAsync<Impl: IPdfPage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PreparePageAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -176,7 +176,7 @@ impl IPdfPageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Index<Impl: IPdfPageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Index<Impl: IPdfPage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Index() {
                 ::core::result::Result::Ok(ok__) => {
@@ -187,7 +187,7 @@ impl IPdfPageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Size<Impl: IPdfPageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Size<Impl: IPdfPage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Size() {
                 ::core::result::Result::Ok(ok__) => {
@@ -198,7 +198,7 @@ impl IPdfPageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Dimensions<Impl: IPdfPageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Dimensions<Impl: IPdfPage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Dimensions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -209,7 +209,7 @@ impl IPdfPageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Rotation<Impl: IPdfPageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PdfPageRotation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Rotation<Impl: IPdfPage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PdfPageRotation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Rotation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -220,7 +220,7 @@ impl IPdfPageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PreferredZoom<Impl: IPdfPageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PreferredZoom<Impl: IPdfPage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PreferredZoom() {
                 ::core::result::Result::Ok(ok__) => {
@@ -248,7 +248,7 @@ impl IPdfPageVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPdfPageDimensionsImpl: Sized {
+pub trait IPdfPageDimensions_Impl: Sized {
     fn MediaBox(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
     fn CropBox(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
     fn BleedBox(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
@@ -260,9 +260,9 @@ impl ::windows::core::RuntimeName for IPdfPageDimensions {
     const NAME: &'static str = "Windows.Data.Pdf.IPdfPageDimensions";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPdfPageDimensionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPdfPageDimensionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPdfPageDimensionsVtbl {
-        unsafe extern "system" fn MediaBox<Impl: IPdfPageDimensionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+impl IPdfPageDimensions_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPdfPageDimensions_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPdfPageDimensions_Vtbl {
+        unsafe extern "system" fn MediaBox<Impl: IPdfPageDimensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaBox() {
                 ::core::result::Result::Ok(ok__) => {
@@ -273,7 +273,7 @@ impl IPdfPageDimensionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CropBox<Impl: IPdfPageDimensionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CropBox<Impl: IPdfPageDimensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CropBox() {
                 ::core::result::Result::Ok(ok__) => {
@@ -284,7 +284,7 @@ impl IPdfPageDimensionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BleedBox<Impl: IPdfPageDimensionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BleedBox<Impl: IPdfPageDimensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BleedBox() {
                 ::core::result::Result::Ok(ok__) => {
@@ -295,7 +295,7 @@ impl IPdfPageDimensionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrimBox<Impl: IPdfPageDimensionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrimBox<Impl: IPdfPageDimensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrimBox() {
                 ::core::result::Result::Ok(ok__) => {
@@ -306,7 +306,7 @@ impl IPdfPageDimensionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ArtBox<Impl: IPdfPageDimensionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ArtBox<Impl: IPdfPageDimensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ArtBox() {
                 ::core::result::Result::Ok(ok__) => {
@@ -331,7 +331,7 @@ impl IPdfPageDimensionsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
-pub trait IPdfPageRenderOptionsImpl: Sized {
+pub trait IPdfPageRenderOptions_Impl: Sized {
     fn SourceRect(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
     fn SetSourceRect(&mut self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
     fn DestinationWidth(&mut self) -> ::windows::core::Result<u32>;
@@ -350,9 +350,9 @@ impl ::windows::core::RuntimeName for IPdfPageRenderOptions {
     const NAME: &'static str = "Windows.Data.Pdf.IPdfPageRenderOptions";
 }
 #[cfg(all(feature = "Foundation", feature = "UI", feature = "implement_exclusive"))]
-impl IPdfPageRenderOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPdfPageRenderOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPdfPageRenderOptionsVtbl {
-        unsafe extern "system" fn SourceRect<Impl: IPdfPageRenderOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+impl IPdfPageRenderOptions_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPdfPageRenderOptions_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPdfPageRenderOptions_Vtbl {
+        unsafe extern "system" fn SourceRect<Impl: IPdfPageRenderOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceRect() {
                 ::core::result::Result::Ok(ok__) => {
@@ -363,11 +363,11 @@ impl IPdfPageRenderOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSourceRect<Impl: IPdfPageRenderOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSourceRect<Impl: IPdfPageRenderOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSourceRect(&*(&value as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DestinationWidth<Impl: IPdfPageRenderOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DestinationWidth<Impl: IPdfPageRenderOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DestinationWidth() {
                 ::core::result::Result::Ok(ok__) => {
@@ -378,11 +378,11 @@ impl IPdfPageRenderOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDestinationWidth<Impl: IPdfPageRenderOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDestinationWidth<Impl: IPdfPageRenderOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDestinationWidth(value).into()
         }
-        unsafe extern "system" fn DestinationHeight<Impl: IPdfPageRenderOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DestinationHeight<Impl: IPdfPageRenderOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DestinationHeight() {
                 ::core::result::Result::Ok(ok__) => {
@@ -393,11 +393,11 @@ impl IPdfPageRenderOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDestinationHeight<Impl: IPdfPageRenderOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDestinationHeight<Impl: IPdfPageRenderOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDestinationHeight(value).into()
         }
-        unsafe extern "system" fn BackgroundColor<Impl: IPdfPageRenderOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackgroundColor<Impl: IPdfPageRenderOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackgroundColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -408,11 +408,11 @@ impl IPdfPageRenderOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBackgroundColor<Impl: IPdfPageRenderOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBackgroundColor<Impl: IPdfPageRenderOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBackgroundColor(&*(&value as *const <super::super::UI::Color as ::windows::core::Abi>::Abi as *const <super::super::UI::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IsIgnoringHighContrast<Impl: IPdfPageRenderOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsIgnoringHighContrast<Impl: IPdfPageRenderOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsIgnoringHighContrast() {
                 ::core::result::Result::Ok(ok__) => {
@@ -423,11 +423,11 @@ impl IPdfPageRenderOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsIgnoringHighContrast<Impl: IPdfPageRenderOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsIgnoringHighContrast<Impl: IPdfPageRenderOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsIgnoringHighContrast(value).into()
         }
-        unsafe extern "system" fn BitmapEncoderId<Impl: IPdfPageRenderOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BitmapEncoderId<Impl: IPdfPageRenderOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BitmapEncoderId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -438,7 +438,7 @@ impl IPdfPageRenderOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBitmapEncoderId<Impl: IPdfPageRenderOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBitmapEncoderId<Impl: IPdfPageRenderOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBitmapEncoderId(&*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }

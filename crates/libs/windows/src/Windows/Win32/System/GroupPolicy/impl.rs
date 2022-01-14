@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-pub trait IGPEInformationImpl: Sized {
+pub trait IGPEInformation_Impl: Sized {
     fn GetName(&mut self, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::Result<()>;
     fn GetDisplayName(&mut self, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::Result<()>;
     fn GetRegistryKey(&mut self, dwsection: u32, hkey: *mut super::Registry::HKEY) -> ::windows::core::Result<()>;
@@ -11,41 +11,41 @@ pub trait IGPEInformationImpl: Sized {
     fn PolicyChanged(&mut self, bmachine: super::super::Foundation::BOOL, badd: super::super::Foundation::BOOL, pguidextension: *mut ::windows::core::GUID, pguidsnapin: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-impl IGPEInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPEInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPEInformationVtbl {
-        unsafe extern "system" fn GetName<Impl: IGPEInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
+impl IGPEInformation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPEInformation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPEInformation_Vtbl {
+        unsafe extern "system" fn GetName<Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetName(::core::mem::transmute_copy(&pszname), ::core::mem::transmute_copy(&cchmaxlength)).into()
         }
-        unsafe extern "system" fn GetDisplayName<Impl: IGPEInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDisplayName<Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetDisplayName(::core::mem::transmute_copy(&pszname), ::core::mem::transmute_copy(&cchmaxlength)).into()
         }
-        unsafe extern "system" fn GetRegistryKey<Impl: IGPEInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, hkey: *mut super::Registry::HKEY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRegistryKey<Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, hkey: *mut super::Registry::HKEY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetRegistryKey(::core::mem::transmute_copy(&dwsection), ::core::mem::transmute_copy(&hkey)).into()
         }
-        unsafe extern "system" fn GetDSPath<Impl: IGPEInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, pszpath: super::super::Foundation::PWSTR, cchmaxpath: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDSPath<Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, pszpath: super::super::Foundation::PWSTR, cchmaxpath: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetDSPath(::core::mem::transmute_copy(&dwsection), ::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&cchmaxpath)).into()
         }
-        unsafe extern "system" fn GetFileSysPath<Impl: IGPEInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, pszpath: super::super::Foundation::PWSTR, cchmaxpath: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFileSysPath<Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, pszpath: super::super::Foundation::PWSTR, cchmaxpath: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetFileSysPath(::core::mem::transmute_copy(&dwsection), ::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&cchmaxpath)).into()
         }
-        unsafe extern "system" fn GetOptions<Impl: IGPEInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoptions: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOptions<Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoptions: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetOptions(::core::mem::transmute_copy(&dwoptions)).into()
         }
-        unsafe extern "system" fn GetType<Impl: IGPEInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpotype: *mut GROUP_POLICY_OBJECT_TYPE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetType<Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpotype: *mut GROUP_POLICY_OBJECT_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetType(::core::mem::transmute_copy(&gpotype)).into()
         }
-        unsafe extern "system" fn GetHint<Impl: IGPEInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gphint: *mut GROUP_POLICY_HINT_TYPE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetHint<Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gphint: *mut GROUP_POLICY_HINT_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetHint(::core::mem::transmute_copy(&gphint)).into()
         }
-        unsafe extern "system" fn PolicyChanged<Impl: IGPEInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bmachine: super::super::Foundation::BOOL, badd: super::super::Foundation::BOOL, pguidextension: *mut ::windows::core::GUID, pguidsnapin: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PolicyChanged<Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bmachine: super::super::Foundation::BOOL, badd: super::super::Foundation::BOOL, pguidextension: *mut ::windows::core::GUID, pguidsnapin: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PolicyChanged(::core::mem::transmute_copy(&bmachine), ::core::mem::transmute_copy(&badd), ::core::mem::transmute_copy(&pguidextension), ::core::mem::transmute_copy(&pguidsnapin)).into()
         }
@@ -67,7 +67,7 @@ impl IGPEInformationVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMImpl: Sized + IDispatchImpl {
+pub trait IGPM_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetDomain(&mut self, bstrdomain: super::super::Foundation::BSTR, bstrdomaincontroller: super::super::Foundation::BSTR, ldcflags: i32) -> ::windows::core::Result<IGPMDomain>;
     fn GetBackupDir(&mut self, bstrbackupdir: super::super::Foundation::BSTR) -> ::windows::core::Result<IGPMBackupDir>;
     fn GetSitesContainer(&mut self, bstrforest: super::super::Foundation::BSTR, bstrdomain: super::super::Foundation::BSTR, bstrdomaincontroller: super::super::Foundation::BSTR, ldcflags: i32) -> ::windows::core::Result<IGPMSitesContainer>;
@@ -82,9 +82,9 @@ pub trait IGPMImpl: Sized + IDispatchImpl {
     fn InitializeReporting(&mut self, bstradmpath: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMVtbl {
-        unsafe extern "system" fn GetDomain<Impl: IGPMImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdomain: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdomaincontroller: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ldcflags: i32, pigpmdomain: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGPM_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPM_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPM_Vtbl {
+        unsafe extern "system" fn GetDomain<Impl: IGPM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdomain: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdomaincontroller: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ldcflags: i32, pigpmdomain: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDomain(::core::mem::transmute_copy(&bstrdomain), ::core::mem::transmute_copy(&bstrdomaincontroller), ::core::mem::transmute_copy(&ldcflags)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -94,7 +94,7 @@ impl IGPMVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBackupDir<Impl: IGPMImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbackupdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pigpmbackupdir: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBackupDir<Impl: IGPM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbackupdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pigpmbackupdir: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetBackupDir(::core::mem::transmute_copy(&bstrbackupdir)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -104,7 +104,7 @@ impl IGPMVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSitesContainer<Impl: IGPMImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrforest: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdomain: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdomaincontroller: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ldcflags: i32, ppigpmsitescontainer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSitesContainer<Impl: IGPM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrforest: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdomain: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdomaincontroller: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ldcflags: i32, ppigpmsitescontainer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSitesContainer(::core::mem::transmute_copy(&bstrforest), ::core::mem::transmute_copy(&bstrdomain), ::core::mem::transmute_copy(&bstrdomaincontroller), ::core::mem::transmute_copy(&ldcflags)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -114,7 +114,7 @@ impl IGPMVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRSOP<Impl: IGPMImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmrsopmode: GPMRSOPMode, bstrnamespace: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lflags: i32, ppigpmrsop: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRSOP<Impl: IGPM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmrsopmode: GPMRSOPMode, bstrnamespace: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lflags: i32, ppigpmrsop: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRSOP(::core::mem::transmute_copy(&gpmrsopmode), ::core::mem::transmute_copy(&bstrnamespace), ::core::mem::transmute_copy(&lflags)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -124,7 +124,7 @@ impl IGPMVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePermission<Impl: IGPMImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtrustee: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, perm: GPMPermissionType, binheritable: i16, ppperm: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePermission<Impl: IGPM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtrustee: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, perm: GPMPermissionType, binheritable: i16, ppperm: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreatePermission(::core::mem::transmute_copy(&bstrtrustee), ::core::mem::transmute_copy(&perm), ::core::mem::transmute_copy(&binheritable)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -134,7 +134,7 @@ impl IGPMVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSearchCriteria<Impl: IGPMImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmsearchcriteria: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSearchCriteria<Impl: IGPM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmsearchcriteria: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSearchCriteria() {
                 ::core::result::Result::Ok(ok__) => {
@@ -144,7 +144,7 @@ impl IGPMVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTrustee<Impl: IGPMImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtrustee: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmtrustee: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTrustee<Impl: IGPM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtrustee: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmtrustee: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateTrustee(::core::mem::transmute_copy(&bstrtrustee)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -154,7 +154,7 @@ impl IGPMVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetClientSideExtensions<Impl: IGPMImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmcsecollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetClientSideExtensions<Impl: IGPM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmcsecollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetClientSideExtensions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -164,7 +164,7 @@ impl IGPMVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetConstants<Impl: IGPMImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmconstants: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetConstants<Impl: IGPM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmconstants: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetConstants() {
                 ::core::result::Result::Ok(ok__) => {
@@ -174,7 +174,7 @@ impl IGPMVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMigrationTable<Impl: IGPMImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmigrationtablepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppmigrationtable: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMigrationTable<Impl: IGPM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmigrationtablepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppmigrationtable: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMigrationTable(::core::mem::transmute_copy(&bstrmigrationtablepath)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -184,7 +184,7 @@ impl IGPMVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateMigrationTable<Impl: IGPMImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmigrationtable: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateMigrationTable<Impl: IGPM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmigrationtable: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMigrationTable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -194,12 +194,12 @@ impl IGPMVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InitializeReporting<Impl: IGPMImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstradmpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeReporting<Impl: IGPM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstradmpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InitializeReporting(::core::mem::transmute_copy(&bstradmpath)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             GetDomain: GetDomain::<Impl, IMPL_OFFSET>,
             GetBackupDir: GetBackupDir::<Impl, IMPL_OFFSET>,
             GetSitesContainer: GetSitesContainer::<Impl, IMPL_OFFSET>,
@@ -219,14 +219,14 @@ impl IGPMVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPM2Impl: Sized + IDispatchImpl + IGPMImpl {
+pub trait IGPM2_Impl: Sized + super::Com::IDispatch_Impl + IGPM_Impl {
     fn GetBackupDirEx(&mut self, bstrbackupdir: super::super::Foundation::BSTR, backupdirtype: GPMBackupType) -> ::windows::core::Result<IGPMBackupDirEx>;
     fn InitializeReportingEx(&mut self, bstradmpath: super::super::Foundation::BSTR, reportingoptions: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPM2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPM2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPM2Vtbl {
-        unsafe extern "system" fn GetBackupDirEx<Impl: IGPM2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbackupdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, backupdirtype: GPMBackupType, ppigpmbackupdirex: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGPM2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPM2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPM2_Vtbl {
+        unsafe extern "system" fn GetBackupDirEx<Impl: IGPM2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbackupdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, backupdirtype: GPMBackupType, ppigpmbackupdirex: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetBackupDirEx(::core::mem::transmute_copy(&bstrbackupdir), ::core::mem::transmute_copy(&backupdirtype)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -236,12 +236,12 @@ impl IGPM2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InitializeReportingEx<Impl: IGPM2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstradmpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, reportingoptions: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeReportingEx<Impl: IGPM2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstradmpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, reportingoptions: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).InitializeReportingEx(::core::mem::transmute_copy(&bstradmpath), ::core::mem::transmute_copy(&reportingoptions)).into()
         }
         Self {
-            base: IGPMVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IGPM_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             GetBackupDirEx: GetBackupDirEx::<Impl, IMPL_OFFSET>,
             InitializeReportingEx: InitializeReportingEx::<Impl, IMPL_OFFSET>,
         }
@@ -251,41 +251,41 @@ impl IGPM2Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMAsyncCancelImpl: Sized + IDispatchImpl {
+pub trait IGPMAsyncCancel_Impl: Sized + super::Com::IDispatch_Impl {
     fn Cancel(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMAsyncCancelVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMAsyncCancelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMAsyncCancelVtbl {
-        unsafe extern "system" fn Cancel<Impl: IGPMAsyncCancelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IGPMAsyncCancel_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMAsyncCancel_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMAsyncCancel_Vtbl {
+        unsafe extern "system" fn Cancel<Impl: IGPMAsyncCancel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Cancel().into()
         }
-        Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Cancel: Cancel::<Impl, IMPL_OFFSET> }
+        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Cancel: Cancel::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGPMAsyncCancel as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMAsyncProgressImpl: Sized + IDispatchImpl {
+pub trait IGPMAsyncProgress_Impl: Sized + super::Com::IDispatch_Impl {
     fn Status(&mut self, lprogressnumerator: i32, lprogressdenominator: i32, hrstatus: ::windows::core::HRESULT, presult: *const super::Com::VARIANT, ppigpmstatusmsgcollection: ::core::option::Option<IGPMStatusMsgCollection>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMAsyncProgressVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMAsyncProgressImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMAsyncProgressVtbl {
-        unsafe extern "system" fn Status<Impl: IGPMAsyncProgressImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lprogressnumerator: i32, lprogressdenominator: i32, hrstatus: ::windows::core::HRESULT, presult: *const super::Com::VARIANT, ppigpmstatusmsgcollection: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGPMAsyncProgress_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMAsyncProgress_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMAsyncProgress_Vtbl {
+        unsafe extern "system" fn Status<Impl: IGPMAsyncProgress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lprogressnumerator: i32, lprogressdenominator: i32, hrstatus: ::windows::core::HRESULT, presult: *const super::Com::VARIANT, ppigpmstatusmsgcollection: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Status(::core::mem::transmute_copy(&lprogressnumerator), ::core::mem::transmute_copy(&lprogressdenominator), ::core::mem::transmute_copy(&hrstatus), ::core::mem::transmute_copy(&presult), ::core::mem::transmute(&ppigpmstatusmsgcollection)).into()
         }
-        Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Status: Status::<Impl, IMPL_OFFSET> }
+        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Status: Status::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGPMAsyncProgress as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMBackupImpl: Sized + IDispatchImpl {
+pub trait IGPMBackup_Impl: Sized + super::Com::IDispatch_Impl {
     fn ID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GPOID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GPODomain(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -298,9 +298,9 @@ pub trait IGPMBackupImpl: Sized + IDispatchImpl {
     fn GenerateReportToFile(&mut self, gpmreporttype: GPMReportType, bstrtargetfilepath: super::super::Foundation::BSTR) -> ::windows::core::Result<IGPMResult>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMBackupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMBackupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMBackupVtbl {
-        unsafe extern "system" fn ID<Impl: IGPMBackupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IGPMBackup_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMBackup_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMBackup_Vtbl {
+        unsafe extern "system" fn ID<Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -310,7 +310,7 @@ impl IGPMBackupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GPOID<Impl: IGPMBackupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GPOID<Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GPOID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -320,7 +320,7 @@ impl IGPMBackupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GPODomain<Impl: IGPMBackupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GPODomain<Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GPODomain() {
                 ::core::result::Result::Ok(ok__) => {
@@ -330,7 +330,7 @@ impl IGPMBackupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GPODisplayName<Impl: IGPMBackupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GPODisplayName<Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GPODisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -340,7 +340,7 @@ impl IGPMBackupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Timestamp<Impl: IGPMBackupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Timestamp<Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -350,7 +350,7 @@ impl IGPMBackupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Comment<Impl: IGPMBackupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Comment<Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Comment() {
                 ::core::result::Result::Ok(ok__) => {
@@ -360,7 +360,7 @@ impl IGPMBackupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BackupDir<Impl: IGPMBackupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackupDir<Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackupDir() {
                 ::core::result::Result::Ok(ok__) => {
@@ -370,15 +370,15 @@ impl IGPMBackupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Delete<Impl: IGPMBackupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Delete<Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Delete().into()
         }
-        unsafe extern "system" fn GenerateReport<Impl: IGPMBackupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GenerateReport<Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GenerateReport(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel), ::core::mem::transmute_copy(&ppigpmresult)).into()
         }
-        unsafe extern "system" fn GenerateReportToFile<Impl: IGPMBackupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GenerateReportToFile<Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GenerateReportToFile(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute_copy(&bstrtargetfilepath)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -389,7 +389,7 @@ impl IGPMBackupVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             ID: ID::<Impl, IMPL_OFFSET>,
             GPOID: GPOID::<Impl, IMPL_OFFSET>,
             GPODomain: GPODomain::<Impl, IMPL_OFFSET>,
@@ -407,15 +407,15 @@ impl IGPMBackupVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMBackupCollectionImpl: Sized + IDispatchImpl {
+pub trait IGPMBackupCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn Item(&mut self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMBackupCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMBackupCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMBackupCollectionVtbl {
-        unsafe extern "system" fn Count<Impl: IGPMBackupCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+impl IGPMBackupCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMBackupCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMBackupCollection_Vtbl {
+        unsafe extern "system" fn Count<Impl: IGPMBackupCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -425,7 +425,7 @@ impl IGPMBackupCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Impl: IGPMBackupCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Item<Impl: IGPMBackupCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -435,7 +435,7 @@ impl IGPMBackupCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn _NewEnum<Impl: IGPMBackupCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmbackup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn _NewEnum<Impl: IGPMBackupCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmbackup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -446,7 +446,7 @@ impl IGPMBackupCollectionVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Count: Count::<Impl, IMPL_OFFSET>,
             Item: Item::<Impl, IMPL_OFFSET>,
             _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
@@ -457,15 +457,15 @@ impl IGPMBackupCollectionVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMBackupDirImpl: Sized + IDispatchImpl {
+pub trait IGPMBackupDir_Impl: Sized + super::Com::IDispatch_Impl {
     fn BackupDirectory(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetBackup(&mut self, bstrid: super::super::Foundation::BSTR) -> ::windows::core::Result<IGPMBackup>;
     fn SearchBackups(&mut self, pigpmsearchcriteria: ::core::option::Option<IGPMSearchCriteria>) -> ::windows::core::Result<IGPMBackupCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMBackupDirVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMBackupDirImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMBackupDirVtbl {
-        unsafe extern "system" fn BackupDirectory<Impl: IGPMBackupDirImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IGPMBackupDir_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMBackupDir_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMBackupDir_Vtbl {
+        unsafe extern "system" fn BackupDirectory<Impl: IGPMBackupDir_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackupDirectory() {
                 ::core::result::Result::Ok(ok__) => {
@@ -475,7 +475,7 @@ impl IGPMBackupDirVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBackup<Impl: IGPMBackupDirImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppbackup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBackup<Impl: IGPMBackupDir_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppbackup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetBackup(::core::mem::transmute_copy(&bstrid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -485,7 +485,7 @@ impl IGPMBackupDirVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchBackups<Impl: IGPMBackupDirImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pigpmsearchcriteria: ::windows::core::RawPtr, ppigpmbackupcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchBackups<Impl: IGPMBackupDir_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pigpmsearchcriteria: ::windows::core::RawPtr, ppigpmbackupcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchBackups(::core::mem::transmute(&pigpmsearchcriteria)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -496,7 +496,7 @@ impl IGPMBackupDirVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             BackupDirectory: BackupDirectory::<Impl, IMPL_OFFSET>,
             GetBackup: GetBackup::<Impl, IMPL_OFFSET>,
             SearchBackups: SearchBackups::<Impl, IMPL_OFFSET>,
@@ -507,16 +507,16 @@ impl IGPMBackupDirVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMBackupDirExImpl: Sized + IDispatchImpl {
+pub trait IGPMBackupDirEx_Impl: Sized + super::Com::IDispatch_Impl {
     fn BackupDir(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn BackupType(&mut self) -> ::windows::core::Result<GPMBackupType>;
     fn GetBackup(&mut self, bstrid: super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SearchBackups(&mut self, pigpmsearchcriteria: ::core::option::Option<IGPMSearchCriteria>) -> ::windows::core::Result<super::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMBackupDirExVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMBackupDirExImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMBackupDirExVtbl {
-        unsafe extern "system" fn BackupDir<Impl: IGPMBackupDirExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbackupdir: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IGPMBackupDirEx_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMBackupDirEx_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMBackupDirEx_Vtbl {
+        unsafe extern "system" fn BackupDir<Impl: IGPMBackupDirEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbackupdir: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackupDir() {
                 ::core::result::Result::Ok(ok__) => {
@@ -526,7 +526,7 @@ impl IGPMBackupDirExVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BackupType<Impl: IGPMBackupDirExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgpmbackuptype: *mut GPMBackupType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackupType<Impl: IGPMBackupDirEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgpmbackuptype: *mut GPMBackupType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackupType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -536,7 +536,7 @@ impl IGPMBackupDirExVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBackup<Impl: IGPMBackupDirExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvarbackup: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBackup<Impl: IGPMBackupDirEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvarbackup: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetBackup(::core::mem::transmute_copy(&bstrid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -546,7 +546,7 @@ impl IGPMBackupDirExVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchBackups<Impl: IGPMBackupDirExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pigpmsearchcriteria: ::windows::core::RawPtr, pvarbackupcollection: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchBackups<Impl: IGPMBackupDirEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pigpmsearchcriteria: ::windows::core::RawPtr, pvarbackupcollection: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchBackups(::core::mem::transmute(&pigpmsearchcriteria)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -557,7 +557,7 @@ impl IGPMBackupDirExVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             BackupDir: BackupDir::<Impl, IMPL_OFFSET>,
             BackupType: BackupType::<Impl, IMPL_OFFSET>,
             GetBackup: GetBackup::<Impl, IMPL_OFFSET>,
@@ -569,15 +569,15 @@ impl IGPMBackupDirExVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMCSECollectionImpl: Sized + IDispatchImpl {
+pub trait IGPMCSECollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn Item(&mut self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMCSECollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMCSECollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMCSECollectionVtbl {
-        unsafe extern "system" fn Count<Impl: IGPMCSECollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+impl IGPMCSECollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMCSECollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMCSECollection_Vtbl {
+        unsafe extern "system" fn Count<Impl: IGPMCSECollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -587,7 +587,7 @@ impl IGPMCSECollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Impl: IGPMCSECollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Item<Impl: IGPMCSECollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -597,7 +597,7 @@ impl IGPMCSECollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn _NewEnum<Impl: IGPMCSECollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmcses: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn _NewEnum<Impl: IGPMCSECollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmcses: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -608,7 +608,7 @@ impl IGPMCSECollectionVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Count: Count::<Impl, IMPL_OFFSET>,
             Item: Item::<Impl, IMPL_OFFSET>,
             _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
@@ -619,16 +619,16 @@ impl IGPMCSECollectionVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMClientSideExtensionImpl: Sized + IDispatchImpl {
+pub trait IGPMClientSideExtension_Impl: Sized + super::Com::IDispatch_Impl {
     fn ID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn DisplayName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn IsUserEnabled(&mut self) -> ::windows::core::Result<i16>;
     fn IsComputerEnabled(&mut self) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMClientSideExtensionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMClientSideExtensionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMClientSideExtensionVtbl {
-        unsafe extern "system" fn ID<Impl: IGPMClientSideExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IGPMClientSideExtension_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMClientSideExtension_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMClientSideExtension_Vtbl {
+        unsafe extern "system" fn ID<Impl: IGPMClientSideExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -638,7 +638,7 @@ impl IGPMClientSideExtensionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayName<Impl: IGPMClientSideExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayName<Impl: IGPMClientSideExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -648,7 +648,7 @@ impl IGPMClientSideExtensionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsUserEnabled<Impl: IGPMClientSideExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvbenabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsUserEnabled<Impl: IGPMClientSideExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvbenabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsUserEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -658,7 +658,7 @@ impl IGPMClientSideExtensionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsComputerEnabled<Impl: IGPMClientSideExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvbenabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsComputerEnabled<Impl: IGPMClientSideExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvbenabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsComputerEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -669,7 +669,7 @@ impl IGPMClientSideExtensionVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             ID: ID::<Impl, IMPL_OFFSET>,
             DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
             IsUserEnabled: IsUserEnabled::<Impl, IMPL_OFFSET>,
@@ -681,7 +681,7 @@ impl IGPMClientSideExtensionVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMConstantsImpl: Sized + IDispatchImpl {
+pub trait IGPMConstants_Impl: Sized + super::Com::IDispatch_Impl {
     fn PermGPOApply(&mut self) -> ::windows::core::Result<GPMPermissionType>;
     fn PermGPORead(&mut self) -> ::windows::core::Result<GPMPermissionType>;
     fn PermGPOEdit(&mut self) -> ::windows::core::Result<GPMPermissionType>;
@@ -744,9 +744,9 @@ pub trait IGPMConstantsImpl: Sized + IDispatchImpl {
     fn RsopPlanningAssumeCompWQLFilterTrue(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMConstantsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMConstantsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMConstantsVtbl {
-        unsafe extern "system" fn PermGPOApply<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
+impl IGPMConstants_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMConstants_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMConstants_Vtbl {
+        unsafe extern "system" fn PermGPOApply<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PermGPOApply() {
                 ::core::result::Result::Ok(ok__) => {
@@ -756,7 +756,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PermGPORead<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PermGPORead<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PermGPORead() {
                 ::core::result::Result::Ok(ok__) => {
@@ -766,7 +766,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PermGPOEdit<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PermGPOEdit<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PermGPOEdit() {
                 ::core::result::Result::Ok(ok__) => {
@@ -776,7 +776,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PermGPOEditSecurityAndDelete<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PermGPOEditSecurityAndDelete<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PermGPOEditSecurityAndDelete() {
                 ::core::result::Result::Ok(ok__) => {
@@ -786,7 +786,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PermGPOCustom<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PermGPOCustom<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PermGPOCustom() {
                 ::core::result::Result::Ok(ok__) => {
@@ -796,7 +796,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PermWMIFilterEdit<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PermWMIFilterEdit<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PermWMIFilterEdit() {
                 ::core::result::Result::Ok(ok__) => {
@@ -806,7 +806,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PermWMIFilterFullControl<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PermWMIFilterFullControl<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PermWMIFilterFullControl() {
                 ::core::result::Result::Ok(ok__) => {
@@ -816,7 +816,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PermWMIFilterCustom<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PermWMIFilterCustom<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PermWMIFilterCustom() {
                 ::core::result::Result::Ok(ok__) => {
@@ -826,7 +826,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PermSOMLink<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PermSOMLink<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PermSOMLink() {
                 ::core::result::Result::Ok(ok__) => {
@@ -836,7 +836,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PermSOMLogging<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PermSOMLogging<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PermSOMLogging() {
                 ::core::result::Result::Ok(ok__) => {
@@ -846,7 +846,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PermSOMPlanning<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PermSOMPlanning<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PermSOMPlanning() {
                 ::core::result::Result::Ok(ok__) => {
@@ -856,7 +856,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PermSOMGPOCreate<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PermSOMGPOCreate<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PermSOMGPOCreate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -866,7 +866,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PermSOMWMICreate<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PermSOMWMICreate<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PermSOMWMICreate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -876,7 +876,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PermSOMWMIFullControl<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PermSOMWMIFullControl<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PermSOMWMIFullControl() {
                 ::core::result::Result::Ok(ok__) => {
@@ -886,7 +886,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchPropertyGPOPermissions<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchPropertyGPOPermissions<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchPropertyGPOPermissions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -896,7 +896,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchPropertyGPOEffectivePermissions<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchPropertyGPOEffectivePermissions<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchPropertyGPOEffectivePermissions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -906,7 +906,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchPropertyGPODisplayName<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchPropertyGPODisplayName<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchPropertyGPODisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -916,7 +916,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchPropertyGPOWMIFilter<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchPropertyGPOWMIFilter<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchPropertyGPOWMIFilter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -926,7 +926,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchPropertyGPOID<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchPropertyGPOID<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchPropertyGPOID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -936,7 +936,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchPropertyGPOComputerExtensions<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchPropertyGPOComputerExtensions<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchPropertyGPOComputerExtensions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -946,7 +946,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchPropertyGPOUserExtensions<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchPropertyGPOUserExtensions<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchPropertyGPOUserExtensions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -956,7 +956,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchPropertySOMLinks<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchPropertySOMLinks<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchPropertySOMLinks() {
                 ::core::result::Result::Ok(ok__) => {
@@ -966,7 +966,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchPropertyGPODomain<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchPropertyGPODomain<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchPropertyGPODomain() {
                 ::core::result::Result::Ok(ok__) => {
@@ -976,7 +976,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchPropertyBackupMostRecent<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchPropertyBackupMostRecent<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchPropertyBackupMostRecent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -986,7 +986,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchOpEquals<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchOperation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchOpEquals<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchOperation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchOpEquals() {
                 ::core::result::Result::Ok(ok__) => {
@@ -996,7 +996,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchOpContains<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchOperation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchOpContains<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchOperation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchOpContains() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1006,7 +1006,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchOpNotContains<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchOperation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchOpNotContains<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchOperation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchOpNotContains() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1016,7 +1016,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchOpNotEquals<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchOperation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchOpNotEquals<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchOperation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchOpNotEquals() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1026,7 +1026,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UsePDC<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UsePDC<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UsePDC() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1036,7 +1036,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UseAnyDC<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UseAnyDC<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UseAnyDC() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1046,7 +1046,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DoNotUseW2KDC<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DoNotUseW2KDC<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DoNotUseW2KDC() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1056,7 +1056,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SOMSite<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSOMType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SOMSite<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSOMType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SOMSite() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1066,7 +1066,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SOMDomain<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSOMType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SOMDomain<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSOMType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SOMDomain() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1076,7 +1076,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SOMOU<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSOMType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SOMOU<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSOMType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SOMOU() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1086,7 +1086,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SecurityFlags<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vbowner: i16, vbgroup: i16, vbdacl: i16, vbsacl: i16, pval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SecurityFlags<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vbowner: i16, vbgroup: i16, vbdacl: i16, vbsacl: i16, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SecurityFlags(::core::mem::transmute_copy(&vbowner), ::core::mem::transmute_copy(&vbgroup), ::core::mem::transmute_copy(&vbdacl), ::core::mem::transmute_copy(&vbsacl)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1096,7 +1096,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DoNotValidateDC<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DoNotValidateDC<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DoNotValidateDC() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1106,7 +1106,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportHTML<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMReportType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportHTML<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMReportType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportHTML() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1116,7 +1116,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportXML<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMReportType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportXML<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMReportType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportXML() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1126,7 +1126,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RSOPModeUnknown<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMRSOPMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RSOPModeUnknown<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMRSOPMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RSOPModeUnknown() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1136,7 +1136,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RSOPModePlanning<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMRSOPMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RSOPModePlanning<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMRSOPMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RSOPModePlanning() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1146,7 +1146,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RSOPModeLogging<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMRSOPMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RSOPModeLogging<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMRSOPMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RSOPModeLogging() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1156,7 +1156,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EntryTypeUser<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMEntryType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EntryTypeUser<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMEntryType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EntryTypeUser() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1166,7 +1166,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EntryTypeComputer<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMEntryType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EntryTypeComputer<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMEntryType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EntryTypeComputer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1176,7 +1176,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EntryTypeLocalGroup<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMEntryType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EntryTypeLocalGroup<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMEntryType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EntryTypeLocalGroup() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1186,7 +1186,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EntryTypeGlobalGroup<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMEntryType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EntryTypeGlobalGroup<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMEntryType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EntryTypeGlobalGroup() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1196,7 +1196,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EntryTypeUniversalGroup<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMEntryType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EntryTypeUniversalGroup<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMEntryType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EntryTypeUniversalGroup() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1206,7 +1206,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EntryTypeUNCPath<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMEntryType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EntryTypeUNCPath<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMEntryType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EntryTypeUNCPath() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1216,7 +1216,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EntryTypeUnknown<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMEntryType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EntryTypeUnknown<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMEntryType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EntryTypeUnknown() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1226,7 +1226,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DestinationOptionSameAsSource<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMDestinationOption) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DestinationOptionSameAsSource<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMDestinationOption) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DestinationOptionSameAsSource() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1236,7 +1236,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DestinationOptionNone<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMDestinationOption) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DestinationOptionNone<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMDestinationOption) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DestinationOptionNone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1246,7 +1246,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DestinationOptionByRelativeName<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMDestinationOption) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DestinationOptionByRelativeName<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMDestinationOption) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DestinationOptionByRelativeName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1256,7 +1256,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DestinationOptionSet<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMDestinationOption) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DestinationOptionSet<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMDestinationOption) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DestinationOptionSet() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1266,7 +1266,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MigrationTableOnly<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MigrationTableOnly<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MigrationTableOnly() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1276,7 +1276,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProcessSecurity<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProcessSecurity<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProcessSecurity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1286,7 +1286,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RsopLoggingNoComputer<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RsopLoggingNoComputer<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RsopLoggingNoComputer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1296,7 +1296,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RsopLoggingNoUser<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RsopLoggingNoUser<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RsopLoggingNoUser() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1306,7 +1306,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RsopPlanningAssumeSlowLink<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RsopPlanningAssumeSlowLink<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RsopPlanningAssumeSlowLink() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1316,7 +1316,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RsopPlanningLoopbackOption<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vbmerge: i16, pval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RsopPlanningLoopbackOption<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vbmerge: i16, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RsopPlanningLoopbackOption(::core::mem::transmute_copy(&vbmerge)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1326,7 +1326,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RsopPlanningAssumeUserWQLFilterTrue<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RsopPlanningAssumeUserWQLFilterTrue<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RsopPlanningAssumeUserWQLFilterTrue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1336,7 +1336,7 @@ impl IGPMConstantsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RsopPlanningAssumeCompWQLFilterTrue<Impl: IGPMConstantsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RsopPlanningAssumeCompWQLFilterTrue<Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RsopPlanningAssumeCompWQLFilterTrue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1347,7 +1347,7 @@ impl IGPMConstantsVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             PermGPOApply: PermGPOApply::<Impl, IMPL_OFFSET>,
             PermGPORead: PermGPORead::<Impl, IMPL_OFFSET>,
             PermGPOEdit: PermGPOEdit::<Impl, IMPL_OFFSET>,
@@ -1415,7 +1415,7 @@ impl IGPMConstantsVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMConstants2Impl: Sized + IDispatchImpl + IGPMConstantsImpl {
+pub trait IGPMConstants2_Impl: Sized + super::Com::IDispatch_Impl + IGPMConstants_Impl {
     fn BackupTypeGPO(&mut self) -> ::windows::core::Result<GPMBackupType>;
     fn BackupTypeStarterGPO(&mut self) -> ::windows::core::Result<GPMBackupType>;
     fn StarterGPOTypeSystem(&mut self) -> ::windows::core::Result<GPMStarterGPOType>;
@@ -1433,9 +1433,9 @@ pub trait IGPMConstants2Impl: Sized + IDispatchImpl + IGPMConstantsImpl {
     fn ReportComments(&mut self) -> ::windows::core::Result<GPMReportingOptions>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMConstants2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMConstants2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMConstants2Vtbl {
-        unsafe extern "system" fn BackupTypeGPO<Impl: IGPMConstants2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMBackupType) -> ::windows::core::HRESULT {
+impl IGPMConstants2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMConstants2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMConstants2_Vtbl {
+        unsafe extern "system" fn BackupTypeGPO<Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMBackupType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackupTypeGPO() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1445,7 +1445,7 @@ impl IGPMConstants2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BackupTypeStarterGPO<Impl: IGPMConstants2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMBackupType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackupTypeStarterGPO<Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMBackupType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackupTypeStarterGPO() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1455,7 +1455,7 @@ impl IGPMConstants2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StarterGPOTypeSystem<Impl: IGPMConstants2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMStarterGPOType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StarterGPOTypeSystem<Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMStarterGPOType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StarterGPOTypeSystem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1465,7 +1465,7 @@ impl IGPMConstants2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StarterGPOTypeCustom<Impl: IGPMConstants2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMStarterGPOType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StarterGPOTypeCustom<Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMStarterGPOType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StarterGPOTypeCustom() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1475,7 +1475,7 @@ impl IGPMConstants2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchPropertyStarterGPOPermissions<Impl: IGPMConstants2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchPropertyStarterGPOPermissions<Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchPropertyStarterGPOPermissions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1485,7 +1485,7 @@ impl IGPMConstants2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchPropertyStarterGPOEffectivePermissions<Impl: IGPMConstants2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchPropertyStarterGPOEffectivePermissions<Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchPropertyStarterGPOEffectivePermissions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1495,7 +1495,7 @@ impl IGPMConstants2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchPropertyStarterGPODisplayName<Impl: IGPMConstants2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchPropertyStarterGPODisplayName<Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchPropertyStarterGPODisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1505,7 +1505,7 @@ impl IGPMConstants2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchPropertyStarterGPOID<Impl: IGPMConstants2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchPropertyStarterGPOID<Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchPropertyStarterGPOID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1515,7 +1515,7 @@ impl IGPMConstants2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchPropertyStarterGPODomain<Impl: IGPMConstants2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchPropertyStarterGPODomain<Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSearchProperty) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchPropertyStarterGPODomain() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1525,7 +1525,7 @@ impl IGPMConstants2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PermStarterGPORead<Impl: IGPMConstants2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PermStarterGPORead<Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PermStarterGPORead() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1535,7 +1535,7 @@ impl IGPMConstants2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PermStarterGPOEdit<Impl: IGPMConstants2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PermStarterGPOEdit<Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PermStarterGPOEdit() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1545,7 +1545,7 @@ impl IGPMConstants2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PermStarterGPOFullControl<Impl: IGPMConstants2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PermStarterGPOFullControl<Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PermStarterGPOFullControl() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1555,7 +1555,7 @@ impl IGPMConstants2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PermStarterGPOCustom<Impl: IGPMConstants2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PermStarterGPOCustom<Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PermStarterGPOCustom() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1565,7 +1565,7 @@ impl IGPMConstants2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportLegacy<Impl: IGPMConstants2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMReportingOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportLegacy<Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMReportingOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportLegacy() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1575,7 +1575,7 @@ impl IGPMConstants2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportComments<Impl: IGPMConstants2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMReportingOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportComments<Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMReportingOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportComments() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1586,7 +1586,7 @@ impl IGPMConstants2Vtbl {
             }
         }
         Self {
-            base: IGPMConstantsVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IGPMConstants_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             BackupTypeGPO: BackupTypeGPO::<Impl, IMPL_OFFSET>,
             BackupTypeStarterGPO: BackupTypeStarterGPO::<Impl, IMPL_OFFSET>,
             StarterGPOTypeSystem: StarterGPOTypeSystem::<Impl, IMPL_OFFSET>,
@@ -1609,7 +1609,7 @@ impl IGPMConstants2Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMDomainImpl: Sized + IDispatchImpl {
+pub trait IGPMDomain_Impl: Sized + super::Com::IDispatch_Impl {
     fn DomainController(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Domain(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn CreateGPO(&mut self) -> ::windows::core::Result<IGPMGPO>;
@@ -1622,9 +1622,9 @@ pub trait IGPMDomainImpl: Sized + IDispatchImpl {
     fn SearchWMIFilters(&mut self, pigpmsearchcriteria: ::core::option::Option<IGPMSearchCriteria>) -> ::windows::core::Result<IGPMWMIFilterCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMDomainVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMDomainImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMDomainVtbl {
-        unsafe extern "system" fn DomainController<Impl: IGPMDomainImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IGPMDomain_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMDomain_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMDomain_Vtbl {
+        unsafe extern "system" fn DomainController<Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DomainController() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1634,7 +1634,7 @@ impl IGPMDomainVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Domain<Impl: IGPMDomainImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Domain<Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Domain() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1644,7 +1644,7 @@ impl IGPMDomainVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateGPO<Impl: IGPMDomainImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnewgpo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateGPO<Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnewgpo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateGPO() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1654,7 +1654,7 @@ impl IGPMDomainVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetGPO<Impl: IGPMDomainImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppgpo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGPO<Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppgpo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetGPO(::core::mem::transmute_copy(&bstrguid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1664,7 +1664,7 @@ impl IGPMDomainVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchGPOs<Impl: IGPMDomainImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pigpmsearchcriteria: ::windows::core::RawPtr, ppigpmgpocollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchGPOs<Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pigpmsearchcriteria: ::windows::core::RawPtr, ppigpmgpocollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchGPOs(::core::mem::transmute(&pigpmsearchcriteria)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1674,11 +1674,11 @@ impl IGPMDomainVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RestoreGPO<Impl: IGPMDomainImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pigpmbackup: ::windows::core::RawPtr, ldcflags: i32, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RestoreGPO<Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pigpmbackup: ::windows::core::RawPtr, ldcflags: i32, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RestoreGPO(::core::mem::transmute(&pigpmbackup), ::core::mem::transmute_copy(&ldcflags), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel), ::core::mem::transmute_copy(&ppigpmresult)).into()
         }
-        unsafe extern "system" fn GetSOM<Impl: IGPMDomainImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppsom: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSOM<Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppsom: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSOM(::core::mem::transmute_copy(&bstrpath)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1688,7 +1688,7 @@ impl IGPMDomainVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchSOMs<Impl: IGPMDomainImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pigpmsearchcriteria: ::windows::core::RawPtr, ppigpmsomcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchSOMs<Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pigpmsearchcriteria: ::windows::core::RawPtr, ppigpmsomcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchSOMs(::core::mem::transmute(&pigpmsearchcriteria)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1698,7 +1698,7 @@ impl IGPMDomainVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetWMIFilter<Impl: IGPMDomainImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppwmifilter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetWMIFilter<Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppwmifilter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetWMIFilter(::core::mem::transmute_copy(&bstrpath)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1708,7 +1708,7 @@ impl IGPMDomainVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchWMIFilters<Impl: IGPMDomainImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pigpmsearchcriteria: ::windows::core::RawPtr, ppigpmwmifiltercollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchWMIFilters<Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pigpmsearchcriteria: ::windows::core::RawPtr, ppigpmwmifiltercollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchWMIFilters(::core::mem::transmute(&pigpmsearchcriteria)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1719,7 +1719,7 @@ impl IGPMDomainVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             DomainController: DomainController::<Impl, IMPL_OFFSET>,
             Domain: Domain::<Impl, IMPL_OFFSET>,
             CreateGPO: CreateGPO::<Impl, IMPL_OFFSET>,
@@ -1737,7 +1737,7 @@ impl IGPMDomainVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMDomain2Impl: Sized + IDispatchImpl + IGPMDomainImpl {
+pub trait IGPMDomain2_Impl: Sized + super::Com::IDispatch_Impl + IGPMDomain_Impl {
     fn CreateStarterGPO(&mut self) -> ::windows::core::Result<IGPMStarterGPO>;
     fn CreateGPOFromStarterGPO(&mut self, pgpotemplate: ::core::option::Option<IGPMStarterGPO>) -> ::windows::core::Result<IGPMGPO>;
     fn GetStarterGPO(&mut self, bstrguid: super::super::Foundation::BSTR) -> ::windows::core::Result<IGPMStarterGPO>;
@@ -1746,9 +1746,9 @@ pub trait IGPMDomain2Impl: Sized + IDispatchImpl + IGPMDomainImpl {
     fn RestoreStarterGPO(&mut self, pigpmtmplbackup: ::core::option::Option<IGPMStarterGPOBackup>, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMDomain2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMDomain2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMDomain2Vtbl {
-        unsafe extern "system" fn CreateStarterGPO<Impl: IGPMDomain2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnewtemplate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGPMDomain2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMDomain2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMDomain2_Vtbl {
+        unsafe extern "system" fn CreateStarterGPO<Impl: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnewtemplate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateStarterGPO() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1758,7 +1758,7 @@ impl IGPMDomain2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateGPOFromStarterGPO<Impl: IGPMDomain2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgpotemplate: ::windows::core::RawPtr, ppnewgpo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateGPOFromStarterGPO<Impl: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgpotemplate: ::windows::core::RawPtr, ppnewgpo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateGPOFromStarterGPO(::core::mem::transmute(&pgpotemplate)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1768,7 +1768,7 @@ impl IGPMDomain2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStarterGPO<Impl: IGPMDomain2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pptemplate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStarterGPO<Impl: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pptemplate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStarterGPO(::core::mem::transmute_copy(&bstrguid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1778,7 +1778,7 @@ impl IGPMDomain2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchStarterGPOs<Impl: IGPMDomain2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pigpmsearchcriteria: ::windows::core::RawPtr, ppigpmtemplatecollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchStarterGPOs<Impl: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pigpmsearchcriteria: ::windows::core::RawPtr, ppigpmtemplatecollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchStarterGPOs(::core::mem::transmute(&pigpmsearchcriteria)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1788,16 +1788,16 @@ impl IGPMDomain2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadStarterGPO<Impl: IGPMDomain2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrloadfile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, boverwrite: i16, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadStarterGPO<Impl: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrloadfile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, boverwrite: i16, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).LoadStarterGPO(::core::mem::transmute_copy(&bstrloadfile), ::core::mem::transmute_copy(&boverwrite), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel), ::core::mem::transmute_copy(&ppigpmresult)).into()
         }
-        unsafe extern "system" fn RestoreStarterGPO<Impl: IGPMDomain2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pigpmtmplbackup: ::windows::core::RawPtr, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RestoreStarterGPO<Impl: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pigpmtmplbackup: ::windows::core::RawPtr, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RestoreStarterGPO(::core::mem::transmute(&pigpmtmplbackup), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel), ::core::mem::transmute_copy(&ppigpmresult)).into()
         }
         Self {
-            base: IGPMDomainVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IGPMDomain_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             CreateStarterGPO: CreateStarterGPO::<Impl, IMPL_OFFSET>,
             CreateGPOFromStarterGPO: CreateGPOFromStarterGPO::<Impl, IMPL_OFFSET>,
             GetStarterGPO: GetStarterGPO::<Impl, IMPL_OFFSET>,
@@ -1811,20 +1811,20 @@ impl IGPMDomain2Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMDomain3Impl: Sized + IDispatchImpl + IGPMDomainImpl + IGPMDomain2Impl {
+pub trait IGPMDomain3_Impl: Sized + super::Com::IDispatch_Impl + IGPMDomain_Impl + IGPMDomain2_Impl {
     fn GenerateReport(&mut self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()>;
     fn InfrastructureDC(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetInfrastructureDC(&mut self, newval: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SetInfrastructureFlags(&mut self, dwflags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMDomain3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMDomain3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMDomain3Vtbl {
-        unsafe extern "system" fn GenerateReport<Impl: IGPMDomain3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGPMDomain3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMDomain3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMDomain3_Vtbl {
+        unsafe extern "system" fn GenerateReport<Impl: IGPMDomain3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GenerateReport(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel), ::core::mem::transmute_copy(&ppigpmresult)).into()
         }
-        unsafe extern "system" fn InfrastructureDC<Impl: IGPMDomain3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InfrastructureDC<Impl: IGPMDomain3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InfrastructureDC() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1834,16 +1834,16 @@ impl IGPMDomain3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInfrastructureDC<Impl: IGPMDomain3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInfrastructureDC<Impl: IGPMDomain3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInfrastructureDC(::core::mem::transmute_copy(&newval)).into()
         }
-        unsafe extern "system" fn SetInfrastructureFlags<Impl: IGPMDomain3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInfrastructureFlags<Impl: IGPMDomain3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInfrastructureFlags(::core::mem::transmute_copy(&dwflags)).into()
         }
         Self {
-            base: IGPMDomain2Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IGPMDomain2_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             GenerateReport: GenerateReport::<Impl, IMPL_OFFSET>,
             InfrastructureDC: InfrastructureDC::<Impl, IMPL_OFFSET>,
             SetInfrastructureDC: SetInfrastructureDC::<Impl, IMPL_OFFSET>,
@@ -1855,7 +1855,7 @@ impl IGPMDomain3Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMGPOImpl: Sized + IDispatchImpl {
+pub trait IGPMGPO_Impl: Sized + super::Com::IDispatch_Impl {
     fn DisplayName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetDisplayName(&mut self, newval: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Path(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -1887,9 +1887,9 @@ pub trait IGPMGPOImpl: Sized + IDispatchImpl {
     fn MakeACLConsistent(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMGPOVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPOImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMGPOVtbl {
-        unsafe extern "system" fn DisplayName<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IGPMGPO_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPO_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMGPO_Vtbl {
+        unsafe extern "system" fn DisplayName<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1899,11 +1899,11 @@ impl IGPMGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDisplayName<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDisplayName<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayName(::core::mem::transmute_copy(&newval)).into()
         }
-        unsafe extern "system" fn Path<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Path<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Path() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1913,7 +1913,7 @@ impl IGPMGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ID<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ID<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1923,7 +1923,7 @@ impl IGPMGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DomainName<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DomainName<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DomainName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1933,7 +1933,7 @@ impl IGPMGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreationTime<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdate: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreationTime<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdate: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreationTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1943,7 +1943,7 @@ impl IGPMGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModificationTime<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdate: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ModificationTime<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdate: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ModificationTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1953,7 +1953,7 @@ impl IGPMGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UserDSVersionNumber<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UserDSVersionNumber<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserDSVersionNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1963,7 +1963,7 @@ impl IGPMGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ComputerDSVersionNumber<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ComputerDSVersionNumber<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ComputerDSVersionNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1973,7 +1973,7 @@ impl IGPMGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UserSysvolVersionNumber<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UserSysvolVersionNumber<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserSysvolVersionNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1983,7 +1983,7 @@ impl IGPMGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ComputerSysvolVersionNumber<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ComputerSysvolVersionNumber<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ComputerSysvolVersionNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1993,7 +1993,7 @@ impl IGPMGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetWMIFilter<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmwmifilter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetWMIFilter<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmwmifilter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetWMIFilter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2003,19 +2003,19 @@ impl IGPMGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetWMIFilter<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pigpmwmifilter: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetWMIFilter<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pigpmwmifilter: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWMIFilter(::core::mem::transmute(&pigpmwmifilter)).into()
         }
-        unsafe extern "system" fn SetUserEnabled<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vbenabled: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUserEnabled<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vbenabled: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUserEnabled(::core::mem::transmute_copy(&vbenabled)).into()
         }
-        unsafe extern "system" fn SetComputerEnabled<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vbenabled: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetComputerEnabled<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vbenabled: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetComputerEnabled(::core::mem::transmute_copy(&vbenabled)).into()
         }
-        unsafe extern "system" fn IsUserEnabled<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvbenabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsUserEnabled<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvbenabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsUserEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2025,7 +2025,7 @@ impl IGPMGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsComputerEnabled<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvbenabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsComputerEnabled<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvbenabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsComputerEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2035,7 +2035,7 @@ impl IGPMGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSecurityInfo<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsecurityinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSecurityInfo<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsecurityinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSecurityInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2045,27 +2045,27 @@ impl IGPMGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSecurityInfo<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psecurityinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSecurityInfo<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psecurityinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSecurityInfo(::core::mem::transmute(&psecurityinfo)).into()
         }
-        unsafe extern "system" fn Delete<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Delete<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Delete().into()
         }
-        unsafe extern "system" fn Backup<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbackupdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrcomment: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Backup<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbackupdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrcomment: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Backup(::core::mem::transmute_copy(&bstrbackupdir), ::core::mem::transmute_copy(&bstrcomment), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel), ::core::mem::transmute_copy(&ppigpmresult)).into()
         }
-        unsafe extern "system" fn Import<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, pigpmbackup: ::windows::core::RawPtr, pvarmigrationtable: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Import<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, pigpmbackup: ::windows::core::RawPtr, pvarmigrationtable: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Import(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&pigpmbackup), ::core::mem::transmute_copy(&pvarmigrationtable), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel), ::core::mem::transmute_copy(&ppigpmresult)).into()
         }
-        unsafe extern "system" fn GenerateReport<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GenerateReport<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GenerateReport(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel), ::core::mem::transmute_copy(&ppigpmresult)).into()
         }
-        unsafe extern "system" fn GenerateReportToFile<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GenerateReportToFile<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GenerateReportToFile(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute_copy(&bstrtargetfilepath)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2075,15 +2075,15 @@ impl IGPMGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CopyTo<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, pigpmdomain: ::windows::core::RawPtr, pvarnewdisplayname: *const super::Com::VARIANT, pvarmigrationtable: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CopyTo<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, pigpmdomain: ::windows::core::RawPtr, pvarnewdisplayname: *const super::Com::VARIANT, pvarmigrationtable: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CopyTo(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&pigpmdomain), ::core::mem::transmute_copy(&pvarnewdisplayname), ::core::mem::transmute_copy(&pvarmigrationtable), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel), ::core::mem::transmute_copy(&ppigpmresult)).into()
         }
-        unsafe extern "system" fn SetSecurityDescriptor<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, psd: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSecurityDescriptor<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, psd: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSecurityDescriptor(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&psd)).into()
         }
-        unsafe extern "system" fn GetSecurityDescriptor<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, ppsd: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSecurityDescriptor<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, ppsd: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSecurityDescriptor(::core::mem::transmute_copy(&lflags)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2093,7 +2093,7 @@ impl IGPMGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsACLConsistent<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvbconsistent: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsACLConsistent<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvbconsistent: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsACLConsistent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2103,12 +2103,12 @@ impl IGPMGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MakeACLConsistent<Impl: IGPMGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MakeACLConsistent<Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).MakeACLConsistent().into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
             SetDisplayName: SetDisplayName::<Impl, IMPL_OFFSET>,
             Path: Path::<Impl, IMPL_OFFSET>,
@@ -2145,14 +2145,14 @@ impl IGPMGPOVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMGPO2Impl: Sized + IDispatchImpl + IGPMGPOImpl {
+pub trait IGPMGPO2_Impl: Sized + super::Com::IDispatch_Impl + IGPMGPO_Impl {
     fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetDescription(&mut self, newval: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMGPO2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPO2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMGPO2Vtbl {
-        unsafe extern "system" fn Description<Impl: IGPMGPO2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IGPMGPO2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPO2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMGPO2_Vtbl {
+        unsafe extern "system" fn Description<Impl: IGPMGPO2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2162,12 +2162,12 @@ impl IGPMGPO2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDescription<Impl: IGPMGPO2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDescription<Impl: IGPMGPO2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDescription(::core::mem::transmute_copy(&newval)).into()
         }
         Self {
-            base: IGPMGPOVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IGPMGPO_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Description: Description::<Impl, IMPL_OFFSET>,
             SetDescription: SetDescription::<Impl, IMPL_OFFSET>,
         }
@@ -2177,15 +2177,15 @@ impl IGPMGPO2Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMGPO3Impl: Sized + IDispatchImpl + IGPMGPOImpl + IGPMGPO2Impl {
+pub trait IGPMGPO3_Impl: Sized + super::Com::IDispatch_Impl + IGPMGPO_Impl + IGPMGPO2_Impl {
     fn InfrastructureDC(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetInfrastructureDC(&mut self, newval: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SetInfrastructureFlags(&mut self, dwflags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMGPO3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPO3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMGPO3Vtbl {
-        unsafe extern "system" fn InfrastructureDC<Impl: IGPMGPO3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IGPMGPO3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPO3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMGPO3_Vtbl {
+        unsafe extern "system" fn InfrastructureDC<Impl: IGPMGPO3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InfrastructureDC() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2195,16 +2195,16 @@ impl IGPMGPO3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInfrastructureDC<Impl: IGPMGPO3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInfrastructureDC<Impl: IGPMGPO3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInfrastructureDC(::core::mem::transmute_copy(&newval)).into()
         }
-        unsafe extern "system" fn SetInfrastructureFlags<Impl: IGPMGPO3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInfrastructureFlags<Impl: IGPMGPO3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInfrastructureFlags(::core::mem::transmute_copy(&dwflags)).into()
         }
         Self {
-            base: IGPMGPO2Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IGPMGPO2_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             InfrastructureDC: InfrastructureDC::<Impl, IMPL_OFFSET>,
             SetInfrastructureDC: SetInfrastructureDC::<Impl, IMPL_OFFSET>,
             SetInfrastructureFlags: SetInfrastructureFlags::<Impl, IMPL_OFFSET>,
@@ -2215,15 +2215,15 @@ impl IGPMGPO3Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMGPOCollectionImpl: Sized + IDispatchImpl {
+pub trait IGPMGPOCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn Item(&mut self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMGPOCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPOCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMGPOCollectionVtbl {
-        unsafe extern "system" fn Count<Impl: IGPMGPOCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+impl IGPMGPOCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPOCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMGPOCollection_Vtbl {
+        unsafe extern "system" fn Count<Impl: IGPMGPOCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2233,7 +2233,7 @@ impl IGPMGPOCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Impl: IGPMGPOCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Item<Impl: IGPMGPOCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2243,7 +2243,7 @@ impl IGPMGPOCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn _NewEnum<Impl: IGPMGPOCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmgpos: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn _NewEnum<Impl: IGPMGPOCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmgpos: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2254,7 +2254,7 @@ impl IGPMGPOCollectionVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Count: Count::<Impl, IMPL_OFFSET>,
             Item: Item::<Impl, IMPL_OFFSET>,
             _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
@@ -2265,7 +2265,7 @@ impl IGPMGPOCollectionVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMGPOLinkImpl: Sized + IDispatchImpl {
+pub trait IGPMGPOLink_Impl: Sized + super::Com::IDispatch_Impl {
     fn GPOID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GPODomain(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Enabled(&mut self) -> ::windows::core::Result<i16>;
@@ -2277,9 +2277,9 @@ pub trait IGPMGPOLinkImpl: Sized + IDispatchImpl {
     fn Delete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMGPOLinkVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPOLinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMGPOLinkVtbl {
-        unsafe extern "system" fn GPOID<Impl: IGPMGPOLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IGPMGPOLink_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPOLink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMGPOLink_Vtbl {
+        unsafe extern "system" fn GPOID<Impl: IGPMGPOLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GPOID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2289,7 +2289,7 @@ impl IGPMGPOLinkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GPODomain<Impl: IGPMGPOLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GPODomain<Impl: IGPMGPOLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GPODomain() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2299,7 +2299,7 @@ impl IGPMGPOLinkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Enabled<Impl: IGPMGPOLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Enabled<Impl: IGPMGPOLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Enabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2309,11 +2309,11 @@ impl IGPMGPOLinkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEnabled<Impl: IGPMGPOLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnabled<Impl: IGPMGPOLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnabled(::core::mem::transmute_copy(&newval)).into()
         }
-        unsafe extern "system" fn Enforced<Impl: IGPMGPOLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Enforced<Impl: IGPMGPOLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Enforced() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2323,11 +2323,11 @@ impl IGPMGPOLinkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEnforced<Impl: IGPMGPOLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnforced<Impl: IGPMGPOLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnforced(::core::mem::transmute_copy(&newval)).into()
         }
-        unsafe extern "system" fn SOMLinkOrder<Impl: IGPMGPOLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SOMLinkOrder<Impl: IGPMGPOLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SOMLinkOrder() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2337,7 +2337,7 @@ impl IGPMGPOLinkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SOM<Impl: IGPMGPOLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmsom: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SOM<Impl: IGPMGPOLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmsom: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SOM() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2347,12 +2347,12 @@ impl IGPMGPOLinkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Delete<Impl: IGPMGPOLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Delete<Impl: IGPMGPOLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Delete().into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             GPOID: GPOID::<Impl, IMPL_OFFSET>,
             GPODomain: GPODomain::<Impl, IMPL_OFFSET>,
             Enabled: Enabled::<Impl, IMPL_OFFSET>,
@@ -2369,15 +2369,15 @@ impl IGPMGPOLinkVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMGPOLinksCollectionImpl: Sized + IDispatchImpl {
+pub trait IGPMGPOLinksCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn Item(&mut self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMGPOLinksCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPOLinksCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMGPOLinksCollectionVtbl {
-        unsafe extern "system" fn Count<Impl: IGPMGPOLinksCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+impl IGPMGPOLinksCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPOLinksCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMGPOLinksCollection_Vtbl {
+        unsafe extern "system" fn Count<Impl: IGPMGPOLinksCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2387,7 +2387,7 @@ impl IGPMGPOLinksCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Impl: IGPMGPOLinksCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Item<Impl: IGPMGPOLinksCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2397,7 +2397,7 @@ impl IGPMGPOLinksCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn _NewEnum<Impl: IGPMGPOLinksCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmlinks: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn _NewEnum<Impl: IGPMGPOLinksCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmlinks: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2408,7 +2408,7 @@ impl IGPMGPOLinksCollectionVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Count: Count::<Impl, IMPL_OFFSET>,
             Item: Item::<Impl, IMPL_OFFSET>,
             _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
@@ -2419,16 +2419,16 @@ impl IGPMGPOLinksCollectionVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMMapEntryImpl: Sized + IDispatchImpl {
+pub trait IGPMMapEntry_Impl: Sized + super::Com::IDispatch_Impl {
     fn Source(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Destination(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn DestinationOption(&mut self) -> ::windows::core::Result<GPMDestinationOption>;
     fn EntryType(&mut self) -> ::windows::core::Result<GPMEntryType>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMMapEntryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMMapEntryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMMapEntryVtbl {
-        unsafe extern "system" fn Source<Impl: IGPMMapEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsource: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IGPMMapEntry_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMMapEntry_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMMapEntry_Vtbl {
+        unsafe extern "system" fn Source<Impl: IGPMMapEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsource: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Source() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2438,7 +2438,7 @@ impl IGPMMapEntryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Destination<Impl: IGPMMapEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdestination: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Destination<Impl: IGPMMapEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdestination: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Destination() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2448,7 +2448,7 @@ impl IGPMMapEntryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DestinationOption<Impl: IGPMMapEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgpmdestoption: *mut GPMDestinationOption) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DestinationOption<Impl: IGPMMapEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgpmdestoption: *mut GPMDestinationOption) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DestinationOption() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2458,7 +2458,7 @@ impl IGPMMapEntryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EntryType<Impl: IGPMMapEntryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgpmentrytype: *mut GPMEntryType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EntryType<Impl: IGPMMapEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgpmentrytype: *mut GPMEntryType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EntryType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2469,7 +2469,7 @@ impl IGPMMapEntryVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Source: Source::<Impl, IMPL_OFFSET>,
             Destination: Destination::<Impl, IMPL_OFFSET>,
             DestinationOption: DestinationOption::<Impl, IMPL_OFFSET>,
@@ -2481,15 +2481,15 @@ impl IGPMMapEntryVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMMapEntryCollectionImpl: Sized + IDispatchImpl {
+pub trait IGPMMapEntryCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn Item(&mut self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMMapEntryCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMMapEntryCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMMapEntryCollectionVtbl {
-        unsafe extern "system" fn Count<Impl: IGPMMapEntryCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+impl IGPMMapEntryCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMMapEntryCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMMapEntryCollection_Vtbl {
+        unsafe extern "system" fn Count<Impl: IGPMMapEntryCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2499,7 +2499,7 @@ impl IGPMMapEntryCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Impl: IGPMMapEntryCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Item<Impl: IGPMMapEntryCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2509,7 +2509,7 @@ impl IGPMMapEntryCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn _NewEnum<Impl: IGPMMapEntryCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn _NewEnum<Impl: IGPMMapEntryCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2520,7 +2520,7 @@ impl IGPMMapEntryCollectionVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Count: Count::<Impl, IMPL_OFFSET>,
             Item: Item::<Impl, IMPL_OFFSET>,
             _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
@@ -2531,7 +2531,7 @@ impl IGPMMapEntryCollectionVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMMigrationTableImpl: Sized + IDispatchImpl {
+pub trait IGPMMigrationTable_Impl: Sized + super::Com::IDispatch_Impl {
     fn Save(&mut self, bstrmigrationtablepath: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Add(&mut self, lflags: i32, var: super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn AddEntry(&mut self, bstrsource: super::super::Foundation::BSTR, gpmentrytype: GPMEntryType, pvardestination: *const super::Com::VARIANT) -> ::windows::core::Result<IGPMMapEntry>;
@@ -2542,17 +2542,17 @@ pub trait IGPMMigrationTableImpl: Sized + IDispatchImpl {
     fn GetEntries(&mut self) -> ::windows::core::Result<IGPMMapEntryCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMMigrationTableVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMMigrationTableImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMMigrationTableVtbl {
-        unsafe extern "system" fn Save<Impl: IGPMMigrationTableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmigrationtablepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+impl IGPMMigrationTable_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMMigrationTable_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMMigrationTable_Vtbl {
+        unsafe extern "system" fn Save<Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmigrationtablepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Save(::core::mem::transmute_copy(&bstrmigrationtablepath)).into()
         }
-        unsafe extern "system" fn Add<Impl: IGPMMigrationTableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, var: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, var: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Add(::core::mem::transmute_copy(&lflags), ::core::mem::transmute_copy(&var)).into()
         }
-        unsafe extern "system" fn AddEntry<Impl: IGPMMigrationTableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsource: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, gpmentrytype: GPMEntryType, pvardestination: *const super::Com::VARIANT, ppentry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddEntry<Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsource: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, gpmentrytype: GPMEntryType, pvardestination: *const super::Com::VARIANT, ppentry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddEntry(::core::mem::transmute_copy(&bstrsource), ::core::mem::transmute_copy(&gpmentrytype), ::core::mem::transmute_copy(&pvardestination)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2562,7 +2562,7 @@ impl IGPMMigrationTableVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEntry<Impl: IGPMMigrationTableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsource: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppentry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEntry<Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsource: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppentry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEntry(::core::mem::transmute_copy(&bstrsource)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2572,11 +2572,11 @@ impl IGPMMigrationTableVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteEntry<Impl: IGPMMigrationTableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsource: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteEntry<Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsource: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DeleteEntry(::core::mem::transmute_copy(&bstrsource)).into()
         }
-        unsafe extern "system" fn UpdateDestination<Impl: IGPMMigrationTableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsource: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvardestination: *const super::Com::VARIANT, ppentry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateDestination<Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsource: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvardestination: *const super::Com::VARIANT, ppentry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateDestination(::core::mem::transmute_copy(&bstrsource), ::core::mem::transmute_copy(&pvardestination)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2586,7 +2586,7 @@ impl IGPMMigrationTableVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Validate<Impl: IGPMMigrationTableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Validate<Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Validate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2596,7 +2596,7 @@ impl IGPMMigrationTableVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEntries<Impl: IGPMMigrationTableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppentries: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEntries<Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppentries: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEntries() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2607,7 +2607,7 @@ impl IGPMMigrationTableVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Save: Save::<Impl, IMPL_OFFSET>,
             Add: Add::<Impl, IMPL_OFFSET>,
             AddEntry: AddEntry::<Impl, IMPL_OFFSET>,
@@ -2623,7 +2623,7 @@ impl IGPMMigrationTableVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMPermissionImpl: Sized + IDispatchImpl {
+pub trait IGPMPermission_Impl: Sized + super::Com::IDispatch_Impl {
     fn Inherited(&mut self) -> ::windows::core::Result<i16>;
     fn Inheritable(&mut self) -> ::windows::core::Result<i16>;
     fn Denied(&mut self) -> ::windows::core::Result<i16>;
@@ -2631,9 +2631,9 @@ pub trait IGPMPermissionImpl: Sized + IDispatchImpl {
     fn Trustee(&mut self) -> ::windows::core::Result<IGPMTrustee>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMPermissionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMPermissionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMPermissionVtbl {
-        unsafe extern "system" fn Inherited<Impl: IGPMPermissionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT {
+impl IGPMPermission_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMPermission_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMPermission_Vtbl {
+        unsafe extern "system" fn Inherited<Impl: IGPMPermission_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Inherited() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2643,7 +2643,7 @@ impl IGPMPermissionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Inheritable<Impl: IGPMPermissionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Inheritable<Impl: IGPMPermission_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Inheritable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2653,7 +2653,7 @@ impl IGPMPermissionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Denied<Impl: IGPMPermissionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Denied<Impl: IGPMPermission_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Denied() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2663,7 +2663,7 @@ impl IGPMPermissionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Permission<Impl: IGPMPermissionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Permission<Impl: IGPMPermission_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Permission() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2673,7 +2673,7 @@ impl IGPMPermissionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Trustee<Impl: IGPMPermissionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmtrustee: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Trustee<Impl: IGPMPermission_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmtrustee: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Trustee() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2684,7 +2684,7 @@ impl IGPMPermissionVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Inherited: Inherited::<Impl, IMPL_OFFSET>,
             Inheritable: Inheritable::<Impl, IMPL_OFFSET>,
             Denied: Denied::<Impl, IMPL_OFFSET>,
@@ -2697,7 +2697,7 @@ impl IGPMPermissionVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMRSOPImpl: Sized + IDispatchImpl {
+pub trait IGPMRSOP_Impl: Sized + super::Com::IDispatch_Impl {
     fn Mode(&mut self) -> ::windows::core::Result<GPMRSOPMode>;
     fn Namespace(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetLoggingComputer(&mut self, bstrval: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
@@ -2735,9 +2735,9 @@ pub trait IGPMRSOPImpl: Sized + IDispatchImpl {
     fn GenerateReportToFile(&mut self, gpmreporttype: GPMReportType, bstrtargetfilepath: super::super::Foundation::BSTR) -> ::windows::core::Result<IGPMResult>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMRSOPVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOPImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMRSOPVtbl {
-        unsafe extern "system" fn Mode<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMRSOPMode) -> ::windows::core::HRESULT {
+impl IGPMRSOP_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMRSOP_Vtbl {
+        unsafe extern "system" fn Mode<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMRSOPMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Mode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2747,7 +2747,7 @@ impl IGPMRSOPVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Namespace<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Namespace<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Namespace() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2757,11 +2757,11 @@ impl IGPMRSOPVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLoggingComputer<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLoggingComputer<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLoggingComputer(::core::mem::transmute_copy(&bstrval)).into()
         }
-        unsafe extern "system" fn LoggingComputer<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoggingComputer<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoggingComputer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2771,11 +2771,11 @@ impl IGPMRSOPVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLoggingUser<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLoggingUser<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLoggingUser(::core::mem::transmute_copy(&bstrval)).into()
         }
-        unsafe extern "system" fn LoggingUser<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoggingUser<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoggingUser() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2785,11 +2785,11 @@ impl IGPMRSOPVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLoggingFlags<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lval: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLoggingFlags<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lval: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLoggingFlags(::core::mem::transmute_copy(&lval)).into()
         }
-        unsafe extern "system" fn LoggingFlags<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoggingFlags<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoggingFlags() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2799,11 +2799,11 @@ impl IGPMRSOPVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlanningFlags<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lval: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPlanningFlags<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lval: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlanningFlags(::core::mem::transmute_copy(&lval)).into()
         }
-        unsafe extern "system" fn PlanningFlags<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlanningFlags<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlanningFlags() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2813,11 +2813,11 @@ impl IGPMRSOPVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlanningDomainController<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPlanningDomainController<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlanningDomainController(::core::mem::transmute_copy(&bstrval)).into()
         }
-        unsafe extern "system" fn PlanningDomainController<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlanningDomainController<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlanningDomainController() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2827,11 +2827,11 @@ impl IGPMRSOPVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlanningSiteName<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPlanningSiteName<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlanningSiteName(::core::mem::transmute_copy(&bstrval)).into()
         }
-        unsafe extern "system" fn PlanningSiteName<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlanningSiteName<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlanningSiteName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2841,11 +2841,11 @@ impl IGPMRSOPVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlanningUser<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPlanningUser<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlanningUser(::core::mem::transmute_copy(&bstrval)).into()
         }
-        unsafe extern "system" fn PlanningUser<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlanningUser<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlanningUser() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2855,11 +2855,11 @@ impl IGPMRSOPVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlanningUserSOM<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPlanningUserSOM<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlanningUserSOM(::core::mem::transmute_copy(&bstrval)).into()
         }
-        unsafe extern "system" fn PlanningUserSOM<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlanningUserSOM<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlanningUserSOM() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2869,11 +2869,11 @@ impl IGPMRSOPVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlanningUserWMIFilters<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPlanningUserWMIFilters<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlanningUserWMIFilters(::core::mem::transmute_copy(&varval)).into()
         }
-        unsafe extern "system" fn PlanningUserWMIFilters<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlanningUserWMIFilters<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlanningUserWMIFilters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2883,11 +2883,11 @@ impl IGPMRSOPVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlanningUserSecurityGroups<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPlanningUserSecurityGroups<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlanningUserSecurityGroups(::core::mem::transmute_copy(&varval)).into()
         }
-        unsafe extern "system" fn PlanningUserSecurityGroups<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlanningUserSecurityGroups<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlanningUserSecurityGroups() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2897,11 +2897,11 @@ impl IGPMRSOPVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlanningComputer<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPlanningComputer<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlanningComputer(::core::mem::transmute_copy(&bstrval)).into()
         }
-        unsafe extern "system" fn PlanningComputer<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlanningComputer<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlanningComputer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2911,11 +2911,11 @@ impl IGPMRSOPVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlanningComputerSOM<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPlanningComputerSOM<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlanningComputerSOM(::core::mem::transmute_copy(&bstrval)).into()
         }
-        unsafe extern "system" fn PlanningComputerSOM<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlanningComputerSOM<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlanningComputerSOM() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2925,11 +2925,11 @@ impl IGPMRSOPVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlanningComputerWMIFilters<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPlanningComputerWMIFilters<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlanningComputerWMIFilters(::core::mem::transmute_copy(&varval)).into()
         }
-        unsafe extern "system" fn PlanningComputerWMIFilters<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlanningComputerWMIFilters<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlanningComputerWMIFilters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2939,11 +2939,11 @@ impl IGPMRSOPVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlanningComputerSecurityGroups<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPlanningComputerSecurityGroups<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPlanningComputerSecurityGroups(::core::mem::transmute_copy(&varval)).into()
         }
-        unsafe extern "system" fn PlanningComputerSecurityGroups<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlanningComputerSecurityGroups<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlanningComputerSecurityGroups() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2953,7 +2953,7 @@ impl IGPMRSOPVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoggingEnumerateUsers<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoggingEnumerateUsers<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoggingEnumerateUsers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2963,19 +2963,19 @@ impl IGPMRSOPVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateQueryResults<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateQueryResults<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CreateQueryResults().into()
         }
-        unsafe extern "system" fn ReleaseQueryResults<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReleaseQueryResults<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReleaseQueryResults().into()
         }
-        unsafe extern "system" fn GenerateReport<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GenerateReport<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GenerateReport(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel), ::core::mem::transmute_copy(&ppigpmresult)).into()
         }
-        unsafe extern "system" fn GenerateReportToFile<Impl: IGPMRSOPImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GenerateReportToFile<Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GenerateReportToFile(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute_copy(&bstrtargetfilepath)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2986,7 +2986,7 @@ impl IGPMRSOPVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Mode: Mode::<Impl, IMPL_OFFSET>,
             Namespace: Namespace::<Impl, IMPL_OFFSET>,
             SetLoggingComputer: SetLoggingComputer::<Impl, IMPL_OFFSET>,
@@ -3029,15 +3029,15 @@ impl IGPMRSOPVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMResultImpl: Sized + IDispatchImpl {
+pub trait IGPMResult_Impl: Sized + super::Com::IDispatch_Impl {
     fn Status(&mut self) -> ::windows::core::Result<IGPMStatusMsgCollection>;
     fn Result(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn OverallStatus(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMResultVtbl {
-        unsafe extern "system" fn Status<Impl: IGPMResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmstatusmsgcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGPMResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IGPMResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmstatusmsgcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3047,7 +3047,7 @@ impl IGPMResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Result<Impl: IGPMResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Result<Impl: IGPMResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Result() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3057,12 +3057,12 @@ impl IGPMResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OverallStatus<Impl: IGPMResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OverallStatus<Impl: IGPMResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OverallStatus().into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Status: Status::<Impl, IMPL_OFFSET>,
             Result: Result::<Impl, IMPL_OFFSET>,
             OverallStatus: OverallStatus::<Impl, IMPL_OFFSET>,
@@ -3073,7 +3073,7 @@ impl IGPMResultVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMSOMImpl: Sized + IDispatchImpl {
+pub trait IGPMSOM_Impl: Sized + super::Com::IDispatch_Impl {
     fn GPOInheritanceBlocked(&mut self) -> ::windows::core::Result<i16>;
     fn SetGPOInheritanceBlocked(&mut self, newval: i16) -> ::windows::core::Result<()>;
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -3086,9 +3086,9 @@ pub trait IGPMSOMImpl: Sized + IDispatchImpl {
     fn SetSecurityInfo(&mut self, psecurityinfo: ::core::option::Option<IGPMSecurityInfo>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMSOMVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSOMImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMSOMVtbl {
-        unsafe extern "system" fn GPOInheritanceBlocked<Impl: IGPMSOMImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT {
+impl IGPMSOM_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSOM_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMSOM_Vtbl {
+        unsafe extern "system" fn GPOInheritanceBlocked<Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GPOInheritanceBlocked() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3098,11 +3098,11 @@ impl IGPMSOMVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGPOInheritanceBlocked<Impl: IGPMSOMImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGPOInheritanceBlocked<Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetGPOInheritanceBlocked(::core::mem::transmute_copy(&newval)).into()
         }
-        unsafe extern "system" fn Name<Impl: IGPMSOMImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3112,7 +3112,7 @@ impl IGPMSOMVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Path<Impl: IGPMSOMImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Path<Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Path() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3122,7 +3122,7 @@ impl IGPMSOMVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateGPOLink<Impl: IGPMSOMImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llinkpos: i32, pgpo: ::windows::core::RawPtr, ppnewgpolink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateGPOLink<Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llinkpos: i32, pgpo: ::windows::core::RawPtr, ppnewgpolink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateGPOLink(::core::mem::transmute_copy(&llinkpos), ::core::mem::transmute(&pgpo)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3132,7 +3132,7 @@ impl IGPMSOMVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Type<Impl: IGPMSOMImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSOMType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Type<Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMSOMType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3142,7 +3142,7 @@ impl IGPMSOMVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetGPOLinks<Impl: IGPMSOMImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppgpolinks: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGPOLinks<Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppgpolinks: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetGPOLinks() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3152,7 +3152,7 @@ impl IGPMSOMVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetInheritedGPOLinks<Impl: IGPMSOMImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppgpolinks: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetInheritedGPOLinks<Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppgpolinks: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetInheritedGPOLinks() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3162,7 +3162,7 @@ impl IGPMSOMVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSecurityInfo<Impl: IGPMSOMImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsecurityinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSecurityInfo<Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsecurityinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSecurityInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3172,12 +3172,12 @@ impl IGPMSOMVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSecurityInfo<Impl: IGPMSOMImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psecurityinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSecurityInfo<Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psecurityinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSecurityInfo(::core::mem::transmute(&psecurityinfo)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             GPOInheritanceBlocked: GPOInheritanceBlocked::<Impl, IMPL_OFFSET>,
             SetGPOInheritanceBlocked: SetGPOInheritanceBlocked::<Impl, IMPL_OFFSET>,
             Name: Name::<Impl, IMPL_OFFSET>,
@@ -3195,15 +3195,15 @@ impl IGPMSOMVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMSOMCollectionImpl: Sized + IDispatchImpl {
+pub trait IGPMSOMCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn Item(&mut self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMSOMCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSOMCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMSOMCollectionVtbl {
-        unsafe extern "system" fn Count<Impl: IGPMSOMCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+impl IGPMSOMCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSOMCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMSOMCollection_Vtbl {
+        unsafe extern "system" fn Count<Impl: IGPMSOMCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3213,7 +3213,7 @@ impl IGPMSOMCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Impl: IGPMSOMCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Item<Impl: IGPMSOMCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3223,7 +3223,7 @@ impl IGPMSOMCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn _NewEnum<Impl: IGPMSOMCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmsom: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn _NewEnum<Impl: IGPMSOMCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmsom: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3234,7 +3234,7 @@ impl IGPMSOMCollectionVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Count: Count::<Impl, IMPL_OFFSET>,
             Item: Item::<Impl, IMPL_OFFSET>,
             _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
@@ -3245,24 +3245,24 @@ impl IGPMSOMCollectionVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMSearchCriteriaImpl: Sized + IDispatchImpl {
+pub trait IGPMSearchCriteria_Impl: Sized + super::Com::IDispatch_Impl {
     fn Add(&mut self, searchproperty: GPMSearchProperty, searchoperation: GPMSearchOperation, varvalue: super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMSearchCriteriaVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSearchCriteriaImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMSearchCriteriaVtbl {
-        unsafe extern "system" fn Add<Impl: IGPMSearchCriteriaImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, searchproperty: GPMSearchProperty, searchoperation: GPMSearchOperation, varvalue: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+impl IGPMSearchCriteria_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSearchCriteria_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMSearchCriteria_Vtbl {
+        unsafe extern "system" fn Add<Impl: IGPMSearchCriteria_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, searchproperty: GPMSearchProperty, searchoperation: GPMSearchOperation, varvalue: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Add(::core::mem::transmute_copy(&searchproperty), ::core::mem::transmute_copy(&searchoperation), ::core::mem::transmute_copy(&varvalue)).into()
         }
-        Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Add: Add::<Impl, IMPL_OFFSET> }
+        Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Add: Add::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGPMSearchCriteria as ::windows::core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMSecurityInfoImpl: Sized + IDispatchImpl {
+pub trait IGPMSecurityInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn Item(&mut self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
@@ -3271,9 +3271,9 @@ pub trait IGPMSecurityInfoImpl: Sized + IDispatchImpl {
     fn RemoveTrustee(&mut self, bstrtrustee: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMSecurityInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSecurityInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMSecurityInfoVtbl {
-        unsafe extern "system" fn Count<Impl: IGPMSecurityInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+impl IGPMSecurityInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSecurityInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMSecurityInfo_Vtbl {
+        unsafe extern "system" fn Count<Impl: IGPMSecurityInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3283,7 +3283,7 @@ impl IGPMSecurityInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Impl: IGPMSecurityInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Item<Impl: IGPMSecurityInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3293,7 +3293,7 @@ impl IGPMSecurityInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn _NewEnum<Impl: IGPMSecurityInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn _NewEnum<Impl: IGPMSecurityInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3303,20 +3303,20 @@ impl IGPMSecurityInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Impl: IGPMSecurityInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pperm: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Impl: IGPMSecurityInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pperm: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Add(::core::mem::transmute(&pperm)).into()
         }
-        unsafe extern "system" fn Remove<Impl: IGPMSecurityInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pperm: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Remove<Impl: IGPMSecurityInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pperm: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Remove(::core::mem::transmute(&pperm)).into()
         }
-        unsafe extern "system" fn RemoveTrustee<Impl: IGPMSecurityInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtrustee: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveTrustee<Impl: IGPMSecurityInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtrustee: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTrustee(::core::mem::transmute_copy(&bstrtrustee)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Count: Count::<Impl, IMPL_OFFSET>,
             Item: Item::<Impl, IMPL_OFFSET>,
             _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
@@ -3330,7 +3330,7 @@ impl IGPMSecurityInfoVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMSitesContainerImpl: Sized + IDispatchImpl {
+pub trait IGPMSitesContainer_Impl: Sized + super::Com::IDispatch_Impl {
     fn DomainController(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Domain(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Forest(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -3338,9 +3338,9 @@ pub trait IGPMSitesContainerImpl: Sized + IDispatchImpl {
     fn SearchSites(&mut self, pigpmsearchcriteria: ::core::option::Option<IGPMSearchCriteria>) -> ::windows::core::Result<IGPMSOMCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMSitesContainerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSitesContainerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMSitesContainerVtbl {
-        unsafe extern "system" fn DomainController<Impl: IGPMSitesContainerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IGPMSitesContainer_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSitesContainer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMSitesContainer_Vtbl {
+        unsafe extern "system" fn DomainController<Impl: IGPMSitesContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DomainController() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3350,7 +3350,7 @@ impl IGPMSitesContainerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Domain<Impl: IGPMSitesContainerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Domain<Impl: IGPMSitesContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Domain() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3360,7 +3360,7 @@ impl IGPMSitesContainerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Forest<Impl: IGPMSitesContainerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Forest<Impl: IGPMSitesContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Forest() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3370,7 +3370,7 @@ impl IGPMSitesContainerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSite<Impl: IGPMSitesContainerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsitename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppsom: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSite<Impl: IGPMSitesContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsitename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppsom: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSite(::core::mem::transmute_copy(&bstrsitename)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3380,7 +3380,7 @@ impl IGPMSitesContainerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchSites<Impl: IGPMSitesContainerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pigpmsearchcriteria: ::windows::core::RawPtr, ppigpmsomcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchSites<Impl: IGPMSitesContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pigpmsearchcriteria: ::windows::core::RawPtr, ppigpmsomcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SearchSites(::core::mem::transmute(&pigpmsearchcriteria)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3391,7 +3391,7 @@ impl IGPMSitesContainerVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             DomainController: DomainController::<Impl, IMPL_OFFSET>,
             Domain: Domain::<Impl, IMPL_OFFSET>,
             Forest: Forest::<Impl, IMPL_OFFSET>,
@@ -3404,7 +3404,7 @@ impl IGPMSitesContainerVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMStarterGPOImpl: Sized + IDispatchImpl {
+pub trait IGPMStarterGPO_Impl: Sized + super::Com::IDispatch_Impl {
     fn DisplayName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetDisplayName(&mut self, newval: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -3428,9 +3428,9 @@ pub trait IGPMStarterGPOImpl: Sized + IDispatchImpl {
     fn SetSecurityInfo(&mut self, psecurityinfo: ::core::option::Option<IGPMSecurityInfo>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMStarterGPOVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPOImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMStarterGPOVtbl {
-        unsafe extern "system" fn DisplayName<Impl: IGPMStarterGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IGPMStarterGPO_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPO_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMStarterGPO_Vtbl {
+        unsafe extern "system" fn DisplayName<Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3440,11 +3440,11 @@ impl IGPMStarterGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDisplayName<Impl: IGPMStarterGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDisplayName<Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayName(::core::mem::transmute_copy(&newval)).into()
         }
-        unsafe extern "system" fn Description<Impl: IGPMStarterGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3454,11 +3454,11 @@ impl IGPMStarterGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDescription<Impl: IGPMStarterGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDescription<Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDescription(::core::mem::transmute_copy(&newval)).into()
         }
-        unsafe extern "system" fn Author<Impl: IGPMStarterGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Author<Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Author() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3468,7 +3468,7 @@ impl IGPMStarterGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Product<Impl: IGPMStarterGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Product<Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Product() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3478,7 +3478,7 @@ impl IGPMStarterGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreationTime<Impl: IGPMStarterGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreationTime<Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreationTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3488,7 +3488,7 @@ impl IGPMStarterGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ID<Impl: IGPMStarterGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ID<Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3498,7 +3498,7 @@ impl IGPMStarterGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModifiedTime<Impl: IGPMStarterGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ModifiedTime<Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ModifiedTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3508,7 +3508,7 @@ impl IGPMStarterGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Type<Impl: IGPMStarterGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMStarterGPOType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Type<Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMStarterGPOType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3518,7 +3518,7 @@ impl IGPMStarterGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ComputerVersion<Impl: IGPMStarterGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ComputerVersion<Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ComputerVersion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3528,7 +3528,7 @@ impl IGPMStarterGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UserVersion<Impl: IGPMStarterGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UserVersion<Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserVersion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3538,7 +3538,7 @@ impl IGPMStarterGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StarterGPOVersion<Impl: IGPMStarterGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StarterGPOVersion<Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StarterGPOVersion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3548,11 +3548,11 @@ impl IGPMStarterGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Delete<Impl: IGPMStarterGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Delete<Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Delete().into()
         }
-        unsafe extern "system" fn Save<Impl: IGPMStarterGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsavefile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, boverwrite: i16, bsaveassystem: i16, bstrlanguage: *const super::Com::VARIANT, bstrauthor: *const super::Com::VARIANT, bstrproduct: *const super::Com::VARIANT, bstruniqueid: *const super::Com::VARIANT, bstrversion: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Save<Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsavefile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, boverwrite: i16, bsaveassystem: i16, bstrlanguage: *const super::Com::VARIANT, bstrauthor: *const super::Com::VARIANT, bstrproduct: *const super::Com::VARIANT, bstruniqueid: *const super::Com::VARIANT, bstrversion: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .Save(
@@ -3570,11 +3570,11 @@ impl IGPMStarterGPOVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn Backup<Impl: IGPMStarterGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbackupdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrcomment: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Backup<Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbackupdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrcomment: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Backup(::core::mem::transmute_copy(&bstrbackupdir), ::core::mem::transmute_copy(&bstrcomment), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel), ::core::mem::transmute_copy(&ppigpmresult)).into()
         }
-        unsafe extern "system" fn CopyTo<Impl: IGPMStarterGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarnewdisplayname: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *const super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CopyTo<Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarnewdisplayname: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *const super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CopyTo(::core::mem::transmute_copy(&pvarnewdisplayname), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3584,7 +3584,7 @@ impl IGPMStarterGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GenerateReport<Impl: IGPMStarterGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *const super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GenerateReport<Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *const super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GenerateReport(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3594,7 +3594,7 @@ impl IGPMStarterGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GenerateReportToFile<Impl: IGPMStarterGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GenerateReportToFile<Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GenerateReportToFile(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute_copy(&bstrtargetfilepath)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3604,7 +3604,7 @@ impl IGPMStarterGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSecurityInfo<Impl: IGPMStarterGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsecurityinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSecurityInfo<Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsecurityinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSecurityInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3614,12 +3614,12 @@ impl IGPMStarterGPOVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSecurityInfo<Impl: IGPMStarterGPOImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psecurityinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSecurityInfo<Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psecurityinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSecurityInfo(::core::mem::transmute(&psecurityinfo)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
             SetDisplayName: SetDisplayName::<Impl, IMPL_OFFSET>,
             Description: Description::<Impl, IMPL_OFFSET>,
@@ -3648,7 +3648,7 @@ impl IGPMStarterGPOVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMStarterGPOBackupImpl: Sized + IDispatchImpl {
+pub trait IGPMStarterGPOBackup_Impl: Sized + super::Com::IDispatch_Impl {
     fn BackupDir(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Comment(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn DisplayName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -3662,9 +3662,9 @@ pub trait IGPMStarterGPOBackupImpl: Sized + IDispatchImpl {
     fn GenerateReportToFile(&mut self, gpmreporttype: GPMReportType, bstrtargetfilepath: super::super::Foundation::BSTR) -> ::windows::core::Result<IGPMResult>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMStarterGPOBackupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPOBackupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMStarterGPOBackupVtbl {
-        unsafe extern "system" fn BackupDir<Impl: IGPMStarterGPOBackupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbackupdir: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IGPMStarterGPOBackup_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPOBackup_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMStarterGPOBackup_Vtbl {
+        unsafe extern "system" fn BackupDir<Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbackupdir: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackupDir() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3674,7 +3674,7 @@ impl IGPMStarterGPOBackupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Comment<Impl: IGPMStarterGPOBackupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcomment: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Comment<Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcomment: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Comment() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3684,7 +3684,7 @@ impl IGPMStarterGPOBackupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayName<Impl: IGPMStarterGPOBackupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdisplayname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayName<Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdisplayname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3694,7 +3694,7 @@ impl IGPMStarterGPOBackupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Domain<Impl: IGPMStarterGPOBackupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtemplatedomain: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Domain<Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtemplatedomain: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Domain() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3704,7 +3704,7 @@ impl IGPMStarterGPOBackupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StarterGPOID<Impl: IGPMStarterGPOBackupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtemplateid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StarterGPOID<Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtemplateid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StarterGPOID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3714,7 +3714,7 @@ impl IGPMStarterGPOBackupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ID<Impl: IGPMStarterGPOBackupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ID<Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3724,7 +3724,7 @@ impl IGPMStarterGPOBackupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Timestamp<Impl: IGPMStarterGPOBackupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptimestamp: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Timestamp<Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptimestamp: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3734,7 +3734,7 @@ impl IGPMStarterGPOBackupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Type<Impl: IGPMStarterGPOBackupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptype: *mut GPMStarterGPOType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Type<Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptype: *mut GPMStarterGPOType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3744,15 +3744,15 @@ impl IGPMStarterGPOBackupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Delete<Impl: IGPMStarterGPOBackupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Delete<Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Delete().into()
         }
-        unsafe extern "system" fn GenerateReport<Impl: IGPMStarterGPOBackupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GenerateReport<Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GenerateReport(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel), ::core::mem::transmute_copy(&ppigpmresult)).into()
         }
-        unsafe extern "system" fn GenerateReportToFile<Impl: IGPMStarterGPOBackupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GenerateReportToFile<Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GenerateReportToFile(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute_copy(&bstrtargetfilepath)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3763,7 +3763,7 @@ impl IGPMStarterGPOBackupVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             BackupDir: BackupDir::<Impl, IMPL_OFFSET>,
             Comment: Comment::<Impl, IMPL_OFFSET>,
             DisplayName: DisplayName::<Impl, IMPL_OFFSET>,
@@ -3782,15 +3782,15 @@ impl IGPMStarterGPOBackupVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMStarterGPOBackupCollectionImpl: Sized + IDispatchImpl {
+pub trait IGPMStarterGPOBackupCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn Item(&mut self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMStarterGPOBackupCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPOBackupCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMStarterGPOBackupCollectionVtbl {
-        unsafe extern "system" fn Count<Impl: IGPMStarterGPOBackupCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+impl IGPMStarterGPOBackupCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPOBackupCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMStarterGPOBackupCollection_Vtbl {
+        unsafe extern "system" fn Count<Impl: IGPMStarterGPOBackupCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3800,7 +3800,7 @@ impl IGPMStarterGPOBackupCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Impl: IGPMStarterGPOBackupCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Item<Impl: IGPMStarterGPOBackupCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3810,7 +3810,7 @@ impl IGPMStarterGPOBackupCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn _NewEnum<Impl: IGPMStarterGPOBackupCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmtmplbackup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn _NewEnum<Impl: IGPMStarterGPOBackupCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmtmplbackup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3821,7 +3821,7 @@ impl IGPMStarterGPOBackupCollectionVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Count: Count::<Impl, IMPL_OFFSET>,
             Item: Item::<Impl, IMPL_OFFSET>,
             _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
@@ -3832,15 +3832,15 @@ impl IGPMStarterGPOBackupCollectionVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMStarterGPOCollectionImpl: Sized + IDispatchImpl {
+pub trait IGPMStarterGPOCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn Item(&mut self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMStarterGPOCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPOCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMStarterGPOCollectionVtbl {
-        unsafe extern "system" fn Count<Impl: IGPMStarterGPOCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+impl IGPMStarterGPOCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPOCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMStarterGPOCollection_Vtbl {
+        unsafe extern "system" fn Count<Impl: IGPMStarterGPOCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3850,7 +3850,7 @@ impl IGPMStarterGPOCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Impl: IGPMStarterGPOCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Item<Impl: IGPMStarterGPOCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3860,7 +3860,7 @@ impl IGPMStarterGPOCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn _NewEnum<Impl: IGPMStarterGPOCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmtemplates: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn _NewEnum<Impl: IGPMStarterGPOCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmtemplates: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3871,7 +3871,7 @@ impl IGPMStarterGPOCollectionVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Count: Count::<Impl, IMPL_OFFSET>,
             Item: Item::<Impl, IMPL_OFFSET>,
             _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
@@ -3882,7 +3882,7 @@ impl IGPMStarterGPOCollectionVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMStatusMessageImpl: Sized + IDispatchImpl {
+pub trait IGPMStatusMessage_Impl: Sized + super::Com::IDispatch_Impl {
     fn ObjectPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn ErrorCode(&mut self) -> ::windows::core::Result<()>;
     fn ExtensionName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -3891,9 +3891,9 @@ pub trait IGPMStatusMessageImpl: Sized + IDispatchImpl {
     fn Message(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMStatusMessageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStatusMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMStatusMessageVtbl {
-        unsafe extern "system" fn ObjectPath<Impl: IGPMStatusMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IGPMStatusMessage_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStatusMessage_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMStatusMessage_Vtbl {
+        unsafe extern "system" fn ObjectPath<Impl: IGPMStatusMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ObjectPath() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3903,11 +3903,11 @@ impl IGPMStatusMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ErrorCode<Impl: IGPMStatusMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ErrorCode<Impl: IGPMStatusMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ErrorCode().into()
         }
-        unsafe extern "system" fn ExtensionName<Impl: IGPMStatusMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtensionName<Impl: IGPMStatusMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtensionName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3917,7 +3917,7 @@ impl IGPMStatusMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SettingsName<Impl: IGPMStatusMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SettingsName<Impl: IGPMStatusMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SettingsName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3927,11 +3927,11 @@ impl IGPMStatusMessageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OperationCode<Impl: IGPMStatusMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OperationCode<Impl: IGPMStatusMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OperationCode().into()
         }
-        unsafe extern "system" fn Message<Impl: IGPMStatusMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Message<Impl: IGPMStatusMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Message() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3942,7 +3942,7 @@ impl IGPMStatusMessageVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             ObjectPath: ObjectPath::<Impl, IMPL_OFFSET>,
             ErrorCode: ErrorCode::<Impl, IMPL_OFFSET>,
             ExtensionName: ExtensionName::<Impl, IMPL_OFFSET>,
@@ -3956,15 +3956,15 @@ impl IGPMStatusMessageVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMStatusMsgCollectionImpl: Sized + IDispatchImpl {
+pub trait IGPMStatusMsgCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn Item(&mut self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMStatusMsgCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStatusMsgCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMStatusMsgCollectionVtbl {
-        unsafe extern "system" fn Count<Impl: IGPMStatusMsgCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+impl IGPMStatusMsgCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStatusMsgCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMStatusMsgCollection_Vtbl {
+        unsafe extern "system" fn Count<Impl: IGPMStatusMsgCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3974,7 +3974,7 @@ impl IGPMStatusMsgCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Impl: IGPMStatusMsgCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Item<Impl: IGPMStatusMsgCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3984,7 +3984,7 @@ impl IGPMStatusMsgCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn _NewEnum<Impl: IGPMStatusMsgCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn _NewEnum<Impl: IGPMStatusMsgCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3995,7 +3995,7 @@ impl IGPMStatusMsgCollectionVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Count: Count::<Impl, IMPL_OFFSET>,
             Item: Item::<Impl, IMPL_OFFSET>,
             _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
@@ -4006,7 +4006,7 @@ impl IGPMStatusMsgCollectionVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMTrusteeImpl: Sized + IDispatchImpl {
+pub trait IGPMTrustee_Impl: Sized + super::Com::IDispatch_Impl {
     fn TrusteeSid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn TrusteeName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn TrusteeDomain(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -4014,9 +4014,9 @@ pub trait IGPMTrusteeImpl: Sized + IDispatchImpl {
     fn TrusteeType(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMTrusteeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMTrusteeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMTrusteeVtbl {
-        unsafe extern "system" fn TrusteeSid<Impl: IGPMTrusteeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IGPMTrustee_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMTrustee_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMTrustee_Vtbl {
+        unsafe extern "system" fn TrusteeSid<Impl: IGPMTrustee_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrusteeSid() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4026,7 +4026,7 @@ impl IGPMTrusteeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrusteeName<Impl: IGPMTrusteeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrusteeName<Impl: IGPMTrustee_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrusteeName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4036,7 +4036,7 @@ impl IGPMTrusteeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrusteeDomain<Impl: IGPMTrusteeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrusteeDomain<Impl: IGPMTrustee_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrusteeDomain() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4046,7 +4046,7 @@ impl IGPMTrusteeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrusteeDSPath<Impl: IGPMTrusteeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrusteeDSPath<Impl: IGPMTrustee_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrusteeDSPath() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4056,7 +4056,7 @@ impl IGPMTrusteeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrusteeType<Impl: IGPMTrusteeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrusteeType<Impl: IGPMTrustee_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrusteeType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4067,7 +4067,7 @@ impl IGPMTrusteeVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             TrusteeSid: TrusteeSid::<Impl, IMPL_OFFSET>,
             TrusteeName: TrusteeName::<Impl, IMPL_OFFSET>,
             TrusteeDomain: TrusteeDomain::<Impl, IMPL_OFFSET>,
@@ -4080,7 +4080,7 @@ impl IGPMTrusteeVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMWMIFilterImpl: Sized + IDispatchImpl {
+pub trait IGPMWMIFilter_Impl: Sized + super::Com::IDispatch_Impl {
     fn Path(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetName(&mut self, newval: super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -4091,9 +4091,9 @@ pub trait IGPMWMIFilterImpl: Sized + IDispatchImpl {
     fn SetSecurityInfo(&mut self, psecurityinfo: ::core::option::Option<IGPMSecurityInfo>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMWMIFilterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMWMIFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMWMIFilterVtbl {
-        unsafe extern "system" fn Path<Impl: IGPMWMIFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IGPMWMIFilter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMWMIFilter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMWMIFilter_Vtbl {
+        unsafe extern "system" fn Path<Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Path() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4103,11 +4103,11 @@ impl IGPMWMIFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetName<Impl: IGPMWMIFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetName<Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetName(::core::mem::transmute_copy(&newval)).into()
         }
-        unsafe extern "system" fn Name<Impl: IGPMWMIFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4117,11 +4117,11 @@ impl IGPMWMIFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDescription<Impl: IGPMWMIFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDescription<Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDescription(::core::mem::transmute_copy(&newval)).into()
         }
-        unsafe extern "system" fn Description<Impl: IGPMWMIFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4131,7 +4131,7 @@ impl IGPMWMIFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetQueryList<Impl: IGPMWMIFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pqrylist: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetQueryList<Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pqrylist: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetQueryList() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4141,7 +4141,7 @@ impl IGPMWMIFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSecurityInfo<Impl: IGPMWMIFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsecurityinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSecurityInfo<Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsecurityinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSecurityInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4151,12 +4151,12 @@ impl IGPMWMIFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSecurityInfo<Impl: IGPMWMIFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psecurityinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSecurityInfo<Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psecurityinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSecurityInfo(::core::mem::transmute(&psecurityinfo)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Path: Path::<Impl, IMPL_OFFSET>,
             SetName: SetName::<Impl, IMPL_OFFSET>,
             Name: Name::<Impl, IMPL_OFFSET>,
@@ -4172,15 +4172,15 @@ impl IGPMWMIFilterVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMWMIFilterCollectionImpl: Sized + IDispatchImpl {
+pub trait IGPMWMIFilterCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&mut self) -> ::windows::core::Result<i32>;
     fn Item(&mut self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&mut self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl IGPMWMIFilterCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMWMIFilterCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMWMIFilterCollectionVtbl {
-        unsafe extern "system" fn Count<Impl: IGPMWMIFilterCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+impl IGPMWMIFilterCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMWMIFilterCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGPMWMIFilterCollection_Vtbl {
+        unsafe extern "system" fn Count<Impl: IGPMWMIFilterCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4190,7 +4190,7 @@ impl IGPMWMIFilterCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Impl: IGPMWMIFilterCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Item<Impl: IGPMWMIFilterCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4200,7 +4200,7 @@ impl IGPMWMIFilterCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn _NewEnum<Impl: IGPMWMIFilterCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn _NewEnum<Impl: IGPMWMIFilterCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4211,7 +4211,7 @@ impl IGPMWMIFilterCollectionVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Count: Count::<Impl, IMPL_OFFSET>,
             Item: Item::<Impl, IMPL_OFFSET>,
             _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
@@ -4222,7 +4222,7 @@ impl IGPMWMIFilterCollectionVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_UI_Controls"))]
-pub trait IGroupPolicyObjectImpl: Sized {
+pub trait IGroupPolicyObject_Impl: Sized {
     fn New(&mut self, pszdomainname: super::super::Foundation::PWSTR, pszdisplayname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
     fn OpenDSGPO(&mut self, pszpath: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
     fn OpenLocalMachineGPO(&mut self, dwflags: u32) -> ::windows::core::Result<()>;
@@ -4243,77 +4243,77 @@ pub trait IGroupPolicyObjectImpl: Sized {
     fn GetPropertySheetPages(&mut self, hpages: *mut *mut super::super::UI::Controls::HPROPSHEETPAGE, upagecount: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_UI_Controls"))]
-impl IGroupPolicyObjectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGroupPolicyObjectVtbl {
-        unsafe extern "system" fn New<Impl: IGroupPolicyObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdomainname: super::super::Foundation::PWSTR, pszdisplayname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT {
+impl IGroupPolicyObject_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGroupPolicyObject_Vtbl {
+        unsafe extern "system" fn New<Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdomainname: super::super::Foundation::PWSTR, pszdisplayname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).New(::core::mem::transmute_copy(&pszdomainname), ::core::mem::transmute_copy(&pszdisplayname), ::core::mem::transmute_copy(&dwflags)).into()
         }
-        unsafe extern "system" fn OpenDSGPO<Impl: IGroupPolicyObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenDSGPO<Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OpenDSGPO(::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&dwflags)).into()
         }
-        unsafe extern "system" fn OpenLocalMachineGPO<Impl: IGroupPolicyObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenLocalMachineGPO<Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OpenLocalMachineGPO(::core::mem::transmute_copy(&dwflags)).into()
         }
-        unsafe extern "system" fn OpenRemoteMachineGPO<Impl: IGroupPolicyObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcomputername: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenRemoteMachineGPO<Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcomputername: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OpenRemoteMachineGPO(::core::mem::transmute_copy(&pszcomputername), ::core::mem::transmute_copy(&dwflags)).into()
         }
-        unsafe extern "system" fn Save<Impl: IGroupPolicyObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bmachine: super::super::Foundation::BOOL, badd: super::super::Foundation::BOOL, pguidextension: *mut ::windows::core::GUID, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Save<Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bmachine: super::super::Foundation::BOOL, badd: super::super::Foundation::BOOL, pguidextension: *mut ::windows::core::GUID, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Save(::core::mem::transmute_copy(&bmachine), ::core::mem::transmute_copy(&badd), ::core::mem::transmute_copy(&pguidextension), ::core::mem::transmute_copy(&pguid)).into()
         }
-        unsafe extern "system" fn Delete<Impl: IGroupPolicyObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Delete<Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Delete().into()
         }
-        unsafe extern "system" fn GetName<Impl: IGroupPolicyObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetName<Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetName(::core::mem::transmute_copy(&pszname), ::core::mem::transmute_copy(&cchmaxlength)).into()
         }
-        unsafe extern "system" fn GetDisplayName<Impl: IGroupPolicyObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDisplayName<Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetDisplayName(::core::mem::transmute_copy(&pszname), ::core::mem::transmute_copy(&cchmaxlength)).into()
         }
-        unsafe extern "system" fn SetDisplayName<Impl: IGroupPolicyObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDisplayName<Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayName(::core::mem::transmute_copy(&pszname)).into()
         }
-        unsafe extern "system" fn GetPath<Impl: IGroupPolicyObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPath<Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetPath(::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&cchmaxlength)).into()
         }
-        unsafe extern "system" fn GetDSPath<Impl: IGroupPolicyObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, pszpath: super::super::Foundation::PWSTR, cchmaxpath: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDSPath<Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, pszpath: super::super::Foundation::PWSTR, cchmaxpath: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetDSPath(::core::mem::transmute_copy(&dwsection), ::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&cchmaxpath)).into()
         }
-        unsafe extern "system" fn GetFileSysPath<Impl: IGroupPolicyObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, pszpath: super::super::Foundation::PWSTR, cchmaxpath: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFileSysPath<Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, pszpath: super::super::Foundation::PWSTR, cchmaxpath: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetFileSysPath(::core::mem::transmute_copy(&dwsection), ::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&cchmaxpath)).into()
         }
-        unsafe extern "system" fn GetRegistryKey<Impl: IGroupPolicyObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, hkey: *mut super::Registry::HKEY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRegistryKey<Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, hkey: *mut super::Registry::HKEY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetRegistryKey(::core::mem::transmute_copy(&dwsection), ::core::mem::transmute_copy(&hkey)).into()
         }
-        unsafe extern "system" fn GetOptions<Impl: IGroupPolicyObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoptions: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOptions<Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoptions: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetOptions(::core::mem::transmute_copy(&dwoptions)).into()
         }
-        unsafe extern "system" fn SetOptions<Impl: IGroupPolicyObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoptions: u32, dwmask: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOptions<Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoptions: u32, dwmask: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOptions(::core::mem::transmute_copy(&dwoptions), ::core::mem::transmute_copy(&dwmask)).into()
         }
-        unsafe extern "system" fn GetType<Impl: IGroupPolicyObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpotype: *mut GROUP_POLICY_OBJECT_TYPE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetType<Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpotype: *mut GROUP_POLICY_OBJECT_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetType(::core::mem::transmute_copy(&gpotype)).into()
         }
-        unsafe extern "system" fn GetMachineName<Impl: IGroupPolicyObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMachineName<Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetMachineName(::core::mem::transmute_copy(&pszname), ::core::mem::transmute_copy(&cchmaxlength)).into()
         }
-        unsafe extern "system" fn GetPropertySheetPages<Impl: IGroupPolicyObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hpages: *mut *mut super::super::UI::Controls::HPROPSHEETPAGE, upagecount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertySheetPages<Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hpages: *mut *mut super::super::UI::Controls::HPROPSHEETPAGE, upagecount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetPropertySheetPages(::core::mem::transmute_copy(&hpages), ::core::mem::transmute_copy(&upagecount)).into()
         }
@@ -4344,23 +4344,23 @@ impl IGroupPolicyObjectVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IRSOPInformationImpl: Sized {
+pub trait IRSOPInformation_Impl: Sized {
     fn GetNamespace(&mut self, dwsection: u32, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::Result<()>;
     fn GetFlags(&mut self, pdwflags: *mut u32) -> ::windows::core::Result<()>;
     fn GetEventLogEntryText(&mut self, pszeventsource: super::super::Foundation::PWSTR, pszeventlogname: super::super::Foundation::PWSTR, pszeventtime: super::super::Foundation::PWSTR, dweventid: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IRSOPInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRSOPInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRSOPInformationVtbl {
-        unsafe extern "system" fn GetNamespace<Impl: IRSOPInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
+impl IRSOPInformation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRSOPInformation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRSOPInformation_Vtbl {
+        unsafe extern "system" fn GetNamespace<Impl: IRSOPInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetNamespace(::core::mem::transmute_copy(&dwsection), ::core::mem::transmute_copy(&pszname), ::core::mem::transmute_copy(&cchmaxlength)).into()
         }
-        unsafe extern "system" fn GetFlags<Impl: IRSOPInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFlags<Impl: IRSOPInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetFlags(::core::mem::transmute_copy(&pdwflags)).into()
         }
-        unsafe extern "system" fn GetEventLogEntryText<Impl: IRSOPInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszeventsource: super::super::Foundation::PWSTR, pszeventlogname: super::super::Foundation::PWSTR, pszeventtime: super::super::Foundation::PWSTR, dweventid: u32, ppsztext: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEventLogEntryText<Impl: IRSOPInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszeventsource: super::super::Foundation::PWSTR, pszeventlogname: super::super::Foundation::PWSTR, pszeventtime: super::super::Foundation::PWSTR, dweventid: u32, ppsztext: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEventLogEntryText(::core::mem::transmute_copy(&pszeventsource), ::core::mem::transmute_copy(&pszeventlogname), ::core::mem::transmute_copy(&pszeventtime), ::core::mem::transmute_copy(&dweventid)) {
                 ::core::result::Result::Ok(ok__) => {

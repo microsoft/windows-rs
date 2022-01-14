@@ -3,24 +3,24 @@
 #[repr(transparent)]
 pub struct IWindowManagementPreview(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWindowManagementPreview {
-    type Vtable = IWindowManagementPreviewVtbl;
+    type Vtable = IWindowManagementPreview_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ef55b0d_561d_513c_a67c_2c02b69cef41);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowManagementPreviewVtbl {
+pub struct IWindowManagementPreview_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowManagementPreviewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWindowManagementPreviewStatics {
-    type Vtable = IWindowManagementPreviewStaticsVtbl;
+    type Vtable = IWindowManagementPreviewStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f9725c6_c004_5a23_8fd2_8d092ce2704a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowManagementPreviewStaticsVtbl {
+pub struct IWindowManagementPreviewStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SetPreferredMinSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: ::windows::core::RawPtr, preferredframeminsize: super::super::super::Foundation::Size) -> ::windows::core::HRESULT,
@@ -62,7 +62,7 @@ unsafe impl ::windows::core::RuntimeType for WindowManagementPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.Preview.WindowManagementPreview;{4ef55b0d-561d-513c-a67c-2c02b69cef41})");
 }
 unsafe impl ::windows::core::Interface for WindowManagementPreview {
-    type Vtable = IWindowManagementPreviewVtbl;
+    type Vtable = IWindowManagementPreview_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ef55b0d_561d_513c_a67c_2c02b69cef41);
 }
 impl ::windows::core::RuntimeName for WindowManagementPreview {

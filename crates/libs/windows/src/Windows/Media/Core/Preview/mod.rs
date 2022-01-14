@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct ISoundLevelBrokerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISoundLevelBrokerStatics {
-    type Vtable = ISoundLevelBrokerStaticsVtbl;
+    type Vtable = ISoundLevelBrokerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a633961_dbed_464c_a09a_33412f5caa3f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISoundLevelBrokerStaticsVtbl {
+pub struct ISoundLevelBrokerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SoundLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::SoundLevel) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]

@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IServiceDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IServiceDeviceStatics {
-    type Vtable = IServiceDeviceStaticsVtbl;
+    type Vtable = IServiceDeviceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa88214e1_59c7_4a20_aba6_9f6707937230);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IServiceDeviceStaticsVtbl {
+pub struct IServiceDeviceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servicetype: ServiceDeviceType, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub GetDeviceSelectorFromServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, serviceid: ::windows::core::GUID, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -17,12 +17,12 @@ pub struct IServiceDeviceStaticsVtbl {
 #[repr(transparent)]
 pub struct IStorageDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageDeviceStatics {
-    type Vtable = IStorageDeviceStaticsVtbl;
+    type Vtable = IStorageDeviceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ece44ee_1b23_4dd2_8652_bc164f003128);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageDeviceStaticsVtbl {
+pub struct IStorageDeviceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage")]
     pub FromId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IMessageDialogImpl: Sized {
+pub trait IMessageDialog_Impl: Sized {
     fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Commands(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IUICommand>>;
@@ -18,9 +18,9 @@ impl ::windows::core::RuntimeName for IMessageDialog {
     const NAME: &'static str = "Windows.UI.Popups.IMessageDialog";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IMessageDialogVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageDialogImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageDialogVtbl {
-        unsafe extern "system" fn Title<Impl: IMessageDialogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IMessageDialog_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageDialog_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageDialog_Vtbl {
+        unsafe extern "system" fn Title<Impl: IMessageDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
                 ::core::result::Result::Ok(ok__) => {
@@ -31,11 +31,11 @@ impl IMessageDialogVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTitle<Impl: IMessageDialogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTitle<Impl: IMessageDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTitle(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Commands<Impl: IMessageDialogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Commands<Impl: IMessageDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Commands() {
                 ::core::result::Result::Ok(ok__) => {
@@ -46,7 +46,7 @@ impl IMessageDialogVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DefaultCommandIndex<Impl: IMessageDialogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultCommandIndex<Impl: IMessageDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DefaultCommandIndex() {
                 ::core::result::Result::Ok(ok__) => {
@@ -57,11 +57,11 @@ impl IMessageDialogVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDefaultCommandIndex<Impl: IMessageDialogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDefaultCommandIndex<Impl: IMessageDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDefaultCommandIndex(value).into()
         }
-        unsafe extern "system" fn CancelCommandIndex<Impl: IMessageDialogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CancelCommandIndex<Impl: IMessageDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CancelCommandIndex() {
                 ::core::result::Result::Ok(ok__) => {
@@ -72,11 +72,11 @@ impl IMessageDialogVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCancelCommandIndex<Impl: IMessageDialogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCancelCommandIndex<Impl: IMessageDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCancelCommandIndex(value).into()
         }
-        unsafe extern "system" fn Content<Impl: IMessageDialogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Content<Impl: IMessageDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Content() {
                 ::core::result::Result::Ok(ok__) => {
@@ -87,11 +87,11 @@ impl IMessageDialogVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContent<Impl: IMessageDialogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContent<Impl: IMessageDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContent(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ShowAsync<Impl: IMessageDialogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowAsync<Impl: IMessageDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -102,7 +102,7 @@ impl IMessageDialogVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Options<Impl: IMessageDialogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MessageDialogOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Options<Impl: IMessageDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MessageDialogOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Options() {
                 ::core::result::Result::Ok(ok__) => {
@@ -113,7 +113,7 @@ impl IMessageDialogVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOptions<Impl: IMessageDialogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MessageDialogOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOptions<Impl: IMessageDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MessageDialogOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOptions(value).into()
         }
@@ -138,7 +138,7 @@ impl IMessageDialogVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMessageDialogFactoryImpl: Sized {
+pub trait IMessageDialogFactory_Impl: Sized {
     fn Create(&mut self, content: &::windows::core::HSTRING) -> ::windows::core::Result<MessageDialog>;
     fn CreateWithTitle(&mut self, content: &::windows::core::HSTRING, title: &::windows::core::HSTRING) -> ::windows::core::Result<MessageDialog>;
 }
@@ -147,9 +147,9 @@ impl ::windows::core::RuntimeName for IMessageDialogFactory {
     const NAME: &'static str = "Windows.UI.Popups.IMessageDialogFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMessageDialogFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageDialogFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageDialogFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IMessageDialogFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMessageDialogFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageDialogFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageDialogFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IMessageDialogFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&content as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -160,7 +160,7 @@ impl IMessageDialogFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithTitle<Impl: IMessageDialogFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithTitle<Impl: IMessageDialogFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithTitle(&*(&content as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&title as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -182,7 +182,7 @@ impl IMessageDialogFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPopupMenuImpl: Sized {
+pub trait IPopupMenu_Impl: Sized {
     fn Commands(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IUICommand>>;
     fn ShowAsync(&mut self, invocationpoint: &super::super::Foundation::Point) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IUICommand>>;
     fn ShowAsyncWithRect(&mut self, selection: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IUICommand>>;
@@ -193,9 +193,9 @@ impl ::windows::core::RuntimeName for IPopupMenu {
     const NAME: &'static str = "Windows.UI.Popups.IPopupMenu";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPopupMenuVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopupMenuImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPopupMenuVtbl {
-        unsafe extern "system" fn Commands<Impl: IPopupMenuImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPopupMenu_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPopupMenu_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPopupMenu_Vtbl {
+        unsafe extern "system" fn Commands<Impl: IPopupMenu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Commands() {
                 ::core::result::Result::Ok(ok__) => {
@@ -206,7 +206,7 @@ impl IPopupMenuVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShowAsync<Impl: IPopupMenuImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, invocationpoint: super::super::Foundation::Point, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowAsync<Impl: IPopupMenu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, invocationpoint: super::super::Foundation::Point, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowAsync(&*(&invocationpoint as *const <super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -217,7 +217,7 @@ impl IPopupMenuVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShowAsyncWithRect<Impl: IPopupMenuImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowAsyncWithRect<Impl: IPopupMenu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowAsyncWithRect(&*(&selection as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -228,7 +228,7 @@ impl IPopupMenuVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShowAsyncWithRectAndPlacement<Impl: IPopupMenuImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, preferredplacement: Placement, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowAsyncWithRectAndPlacement<Impl: IPopupMenu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, preferredplacement: Placement, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowAsyncWithRectAndPlacement(&*(&selection as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType), preferredplacement) {
                 ::core::result::Result::Ok(ok__) => {
@@ -251,7 +251,7 @@ impl IPopupMenuVtbl {
         iid == &<IPopupMenu as ::windows::core::Interface>::IID
     }
 }
-pub trait IUICommandImpl: Sized {
+pub trait IUICommand_Impl: Sized {
     fn Label(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetLabel(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Invoked(&mut self) -> ::windows::core::Result<UICommandInvokedHandler>;
@@ -262,9 +262,9 @@ pub trait IUICommandImpl: Sized {
 impl ::windows::core::RuntimeName for IUICommand {
     const NAME: &'static str = "Windows.UI.Popups.IUICommand";
 }
-impl IUICommandVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUICommandImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUICommandVtbl {
-        unsafe extern "system" fn Label<Impl: IUICommandImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IUICommand_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUICommand_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUICommand_Vtbl {
+        unsafe extern "system" fn Label<Impl: IUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Label() {
                 ::core::result::Result::Ok(ok__) => {
@@ -275,11 +275,11 @@ impl IUICommandVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLabel<Impl: IUICommandImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLabel<Impl: IUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLabel(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Invoked<Impl: IUICommandImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Invoked<Impl: IUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Invoked() {
                 ::core::result::Result::Ok(ok__) => {
@@ -290,11 +290,11 @@ impl IUICommandVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInvoked<Impl: IUICommandImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInvoked<Impl: IUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInvoked(&*(&value as *const <UICommandInvokedHandler as ::windows::core::Abi>::Abi as *const <UICommandInvokedHandler as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Id<Impl: IUICommandImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Id<Impl: IUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -305,7 +305,7 @@ impl IUICommandVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetId<Impl: IUICommandImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetId<Impl: IUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetId(&*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -324,7 +324,7 @@ impl IUICommandVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUICommandFactoryImpl: Sized {
+pub trait IUICommandFactory_Impl: Sized {
     fn Create(&mut self, label: &::windows::core::HSTRING) -> ::windows::core::Result<UICommand>;
     fn CreateWithHandler(&mut self, label: &::windows::core::HSTRING, action: &::core::option::Option<UICommandInvokedHandler>) -> ::windows::core::Result<UICommand>;
     fn CreateWithHandlerAndId(&mut self, label: &::windows::core::HSTRING, action: &::core::option::Option<UICommandInvokedHandler>, commandid: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<UICommand>;
@@ -334,9 +334,9 @@ impl ::windows::core::RuntimeName for IUICommandFactory {
     const NAME: &'static str = "Windows.UI.Popups.IUICommandFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUICommandFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUICommandFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUICommandFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IUICommandFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUICommandFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUICommandFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUICommandFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IUICommandFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&label as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -347,7 +347,7 @@ impl IUICommandFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithHandler<Impl: IUICommandFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, action: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithHandler<Impl: IUICommandFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, action: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithHandler(&*(&label as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&action as *const <UICommandInvokedHandler as ::windows::core::Abi>::Abi as *const <UICommandInvokedHandler as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -358,7 +358,7 @@ impl IUICommandFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithHandlerAndId<Impl: IUICommandFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, action: ::windows::core::RawPtr, commandid: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithHandlerAndId<Impl: IUICommandFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, action: ::windows::core::RawPtr, commandid: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithHandlerAndId(
                 &*(&label as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),

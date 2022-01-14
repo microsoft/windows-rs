@@ -122,12 +122,12 @@ impl ::core::fmt::Debug for ICreateObject {
     }
 }
 unsafe impl ::windows::core::Interface for ICreateObject {
-    type Vtable = ICreateObjectVtbl;
+    type Vtable = ICreateObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75121952_e0d0_43e5_9380_1d80483acf72);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICreateObjectVtbl {
+pub struct ICreateObject_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -208,13 +208,13 @@ impl ::core::fmt::Debug for IDelayedPropertyStoreFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IDelayedPropertyStoreFactory {
-    type Vtable = IDelayedPropertyStoreFactoryVtbl;
+    type Vtable = IDelayedPropertyStoreFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40d4577f_e237_4bdb_bd69_58f089431b6a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDelayedPropertyStoreFactoryVtbl {
-    pub base: IPropertyStoreFactoryVtbl,
+pub struct IDelayedPropertyStoreFactory_Vtbl {
+    pub base: IPropertyStoreFactory_Vtbl,
     pub GetDelayedPropertyStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: GETPROPERTYSTOREFLAGS, dwstoreid: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
@@ -264,12 +264,12 @@ impl ::core::fmt::Debug for IInitializeWithFile {
     }
 }
 unsafe impl ::windows::core::Interface for IInitializeWithFile {
-    type Vtable = IInitializeWithFileVtbl;
+    type Vtable = IInitializeWithFile_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7d14566_0509_4cce_a71f_0a554233bd9b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInitializeWithFileVtbl {
+pub struct IInitializeWithFile_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfilepath: super::super::super::Foundation::PWSTR, grfmode: u32) -> ::windows::core::HRESULT,
@@ -323,12 +323,12 @@ impl ::core::fmt::Debug for IInitializeWithStream {
     }
 }
 unsafe impl ::windows::core::Interface for IInitializeWithStream {
-    type Vtable = IInitializeWithStreamVtbl;
+    type Vtable = IInitializeWithStream_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb824b49d_22ac_4161_ac8a_9916e8fa3f7f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInitializeWithStreamVtbl {
+pub struct IInitializeWithStream_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstream: ::windows::core::RawPtr, grfmode: u32) -> ::windows::core::HRESULT,
@@ -399,12 +399,12 @@ impl ::core::fmt::Debug for INamedPropertyStore {
     }
 }
 unsafe impl ::windows::core::Interface for INamedPropertyStore {
-    type Vtable = INamedPropertyStoreVtbl;
+    type Vtable = INamedPropertyStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71604b0f_97b0_4764_8577_2f13e98a1422);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INamedPropertyStoreVtbl {
+pub struct INamedPropertyStore_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub GetNamedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: super::super::super::Foundation::PWSTR, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
@@ -471,12 +471,12 @@ impl ::core::fmt::Debug for IObjectWithPropertyKey {
     }
 }
 unsafe impl ::windows::core::Interface for IObjectWithPropertyKey {
-    type Vtable = IObjectWithPropertyKeyVtbl;
+    type Vtable = IObjectWithPropertyKey_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc0ca0a7_c316_4fd2_9031_3e628e6d4f23);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IObjectWithPropertyKeyVtbl {
+pub struct IObjectWithPropertyKey_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetPropertyKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY) -> ::windows::core::HRESULT,
     pub GetPropertyKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkey: *mut PROPERTYKEY) -> ::windows::core::HRESULT,
@@ -535,12 +535,12 @@ impl ::core::fmt::Debug for IPersistSerializedPropStorage {
     }
 }
 unsafe impl ::windows::core::Interface for IPersistSerializedPropStorage {
-    type Vtable = IPersistSerializedPropStorageVtbl;
+    type Vtable = IPersistSerializedPropStorage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe318ad57_0aa0_450f_aca5_6fab7103d917);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPersistSerializedPropStorageVtbl {
+pub struct IPersistSerializedPropStorage_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32) -> ::windows::core::HRESULT,
     pub SetPropertyStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psps: *const SERIALIZEDPROPSTORAGE, cb: u32) -> ::windows::core::HRESULT,
@@ -629,13 +629,13 @@ impl ::core::fmt::Debug for IPersistSerializedPropStorage2 {
     }
 }
 unsafe impl ::windows::core::Interface for IPersistSerializedPropStorage2 {
-    type Vtable = IPersistSerializedPropStorage2Vtbl;
+    type Vtable = IPersistSerializedPropStorage2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77effa68_4f98_4366_ba72_573b3d880571);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPersistSerializedPropStorage2Vtbl {
-    pub base: IPersistSerializedPropStorageVtbl,
+pub struct IPersistSerializedPropStorage2_Vtbl {
+    pub base: IPersistSerializedPropStorage_Vtbl,
     pub GetPropertyStorageSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcb: *mut u32) -> ::windows::core::HRESULT,
     pub GetPropertyStorageBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psps: *mut SERIALIZEDPROPSTORAGE, cb: u32, pcbwritten: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -716,13 +716,13 @@ impl ::core::fmt::Debug for IPropertyChange {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertyChange {
-    type Vtable = IPropertyChangeVtbl;
+    type Vtable = IPropertyChange_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf917bc8a_1bba_4478_a245_1bde03eb9431);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyChangeVtbl {
-    pub base: IObjectWithPropertyKeyVtbl,
+pub struct IPropertyChange_Vtbl {
+    pub base: IObjectWithPropertyKey_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub ApplyToPropVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvarout: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))]
@@ -800,12 +800,12 @@ impl ::core::fmt::Debug for IPropertyChangeArray {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertyChangeArray {
-    type Vtable = IPropertyChangeArrayVtbl;
+    type Vtable = IPropertyChangeArray_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x380f5cad_1b5e_42f2_805d_637fd392d31e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyChangeArrayVtbl {
+pub struct IPropertyChangeArray_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcoperations: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -967,12 +967,12 @@ impl ::core::fmt::Debug for IPropertyDescription {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertyDescription {
-    type Vtable = IPropertyDescriptionVtbl;
+    type Vtable = IPropertyDescription_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f79d558_3e96_4549_a1d1_7d75d2288814);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyDescriptionVtbl {
+pub struct IPropertyDescription_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetPropertyKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkey: *mut PROPERTYKEY) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -1201,13 +1201,13 @@ impl ::core::fmt::Debug for IPropertyDescription2 {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertyDescription2 {
-    type Vtable = IPropertyDescription2Vtbl;
+    type Vtable = IPropertyDescription2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57d2eded_5062_400e_b107_5dae79fe57a6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyDescription2Vtbl {
-    pub base: IPropertyDescriptionVtbl,
+pub struct IPropertyDescription2_Vtbl {
+    pub base: IPropertyDescription_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub GetImageReferenceForValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszimageres: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))]
@@ -1395,13 +1395,13 @@ impl ::core::fmt::Debug for IPropertyDescriptionAliasInfo {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertyDescriptionAliasInfo {
-    type Vtable = IPropertyDescriptionAliasInfoVtbl;
+    type Vtable = IPropertyDescriptionAliasInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf67104fc_2af9_46fd_b32d_243c1404f3d1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyDescriptionAliasInfoVtbl {
-    pub base: IPropertyDescriptionVtbl,
+pub struct IPropertyDescriptionAliasInfo_Vtbl {
+    pub base: IPropertyDescription_Vtbl,
     pub GetSortByAlias: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetAdditionalSortByAliases: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -1457,12 +1457,12 @@ impl ::core::fmt::Debug for IPropertyDescriptionList {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertyDescriptionList {
-    type Vtable = IPropertyDescriptionListVtbl;
+    type Vtable = IPropertyDescriptionList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f9fc1d0_c39b_4b26_817f_011967d3440e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyDescriptionListVtbl {
+pub struct IPropertyDescriptionList_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelem: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ielem: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1645,13 +1645,13 @@ impl ::core::fmt::Debug for IPropertyDescriptionRelatedPropertyInfo {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertyDescriptionRelatedPropertyInfo {
-    type Vtable = IPropertyDescriptionRelatedPropertyInfoVtbl;
+    type Vtable = IPropertyDescriptionRelatedPropertyInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x507393f4_2a3d_4a60_b59e_d9c75716c2dd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyDescriptionRelatedPropertyInfoVtbl {
-    pub base: IPropertyDescriptionVtbl,
+pub struct IPropertyDescriptionRelatedPropertyInfo_Vtbl {
+    pub base: IPropertyDescription_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetRelatedProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszrelationshipname: super::super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1850,13 +1850,13 @@ impl ::core::fmt::Debug for IPropertyDescriptionSearchInfo {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertyDescriptionSearchInfo {
-    type Vtable = IPropertyDescriptionSearchInfoVtbl;
+    type Vtable = IPropertyDescriptionSearchInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x078f91bd_29a2_440f_924e_46a291524520);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyDescriptionSearchInfoVtbl {
-    pub base: IPropertyDescriptionVtbl,
+pub struct IPropertyDescriptionSearchInfo_Vtbl {
+    pub base: IPropertyDescription_Vtbl,
     pub GetSearchInfoFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdsiflags: *mut PROPDESC_SEARCHINFO_FLAGS) -> ::windows::core::HRESULT,
     pub GetColumnIndexType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdcitype: *mut PROPDESC_COLUMNINDEX_TYPE) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -1936,12 +1936,12 @@ impl ::core::fmt::Debug for IPropertyEnumType {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertyEnumType {
-    type Vtable = IPropertyEnumTypeVtbl;
+    type Vtable = IPropertyEnumType_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11e1fbf9_2d56_4a6b_8db3_7cd193a471f2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyEnumTypeVtbl {
+pub struct IPropertyEnumType_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetEnumType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penumtype: *mut PROPENUMTYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -2058,13 +2058,13 @@ impl ::core::fmt::Debug for IPropertyEnumType2 {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertyEnumType2 {
-    type Vtable = IPropertyEnumType2Vtbl;
+    type Vtable = IPropertyEnumType2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b6e051c_5ddd_4321_9070_fe2acb55e794);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyEnumType2Vtbl {
-    pub base: IPropertyEnumTypeVtbl,
+pub struct IPropertyEnumType2_Vtbl {
+    pub base: IPropertyEnumType_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetImageReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszimageres: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2133,12 +2133,12 @@ impl ::core::fmt::Debug for IPropertyEnumTypeList {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertyEnumTypeList {
-    type Vtable = IPropertyEnumTypeListVtbl;
+    type Vtable = IPropertyEnumTypeList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa99400f4_3d84_4557_94ba_1242fb2cc9a6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyEnumTypeListVtbl {
+pub struct IPropertyEnumTypeList_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pctypes: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itype: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2215,12 +2215,12 @@ impl ::core::fmt::Debug for IPropertyStore {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertyStore {
-    type Vtable = IPropertyStoreVtbl;
+    type Vtable = IPropertyStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x886d8eeb_8cf2_4446_8d02_cdba1dbdcf99);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyStoreVtbl {
+pub struct IPropertyStore_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cprops: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iprop: u32, pkey: *mut PROPERTYKEY) -> ::windows::core::HRESULT,
@@ -2340,13 +2340,13 @@ impl ::core::fmt::Debug for IPropertyStoreCache {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertyStoreCache {
-    type Vtable = IPropertyStoreCacheVtbl;
+    type Vtable = IPropertyStoreCache_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3017056d_9a91_4e90_937d_746c72abbf4f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyStoreCacheVtbl {
-    pub base: IPropertyStoreVtbl,
+pub struct IPropertyStoreCache_Vtbl {
+    pub base: IPropertyStore_Vtbl,
     pub GetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, pstate: *mut PSC_STATE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub GetValueAndState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstate: *mut PSC_STATE) -> ::windows::core::HRESULT,
@@ -2404,12 +2404,12 @@ impl ::core::fmt::Debug for IPropertyStoreCapabilities {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertyStoreCapabilities {
-    type Vtable = IPropertyStoreCapabilitiesVtbl;
+    type Vtable = IPropertyStoreCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8e2d566_186e_4d49_bf41_6909ead56acc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyStoreCapabilitiesVtbl {
+pub struct IPropertyStoreCapabilities_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub IsPropertyWritable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY) -> ::windows::core::HRESULT,
 }
@@ -2465,12 +2465,12 @@ impl ::core::fmt::Debug for IPropertyStoreFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertyStoreFactory {
-    type Vtable = IPropertyStoreFactoryVtbl;
+    type Vtable = IPropertyStoreFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc110b6d_57e8_4148_a9c6_91015ab2f3a5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyStoreFactoryVtbl {
+pub struct IPropertyStoreFactory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetPropertyStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: GETPROPERTYSTOREFLAGS, punkfactory: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetPropertyStoreForKeys: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rgkeys: *const PROPERTYKEY, ckeys: u32, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2564,12 +2564,12 @@ impl ::core::fmt::Debug for IPropertySystem {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertySystem {
-    type Vtable = IPropertySystemVtbl;
+    type Vtable = IPropertySystem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca724e8a_c3e6_442b_88a4_6fb0db8035a3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertySystemVtbl {
+pub struct IPropertySystem_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetPropertyDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propkey: *const PROPERTYKEY, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -2645,12 +2645,12 @@ impl ::core::fmt::Debug for IPropertySystemChangeNotify {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertySystemChangeNotify {
-    type Vtable = IPropertySystemChangeNotifyVtbl;
+    type Vtable = IPropertySystemChangeNotify_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa955fd9_38be_4879_a6ce_824cf52d609f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertySystemChangeNotifyVtbl {
+pub struct IPropertySystemChangeNotify_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SchemaRefreshed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -2736,12 +2736,12 @@ impl ::core::fmt::Debug for IPropertyUI {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertyUI {
-    type Vtable = IPropertyUIVtbl;
+    type Vtable = IPropertyUI_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x757a7d9f_919a_4118_99d7_dbb208c8cc66);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertyUIVtbl {
+pub struct IPropertyUI_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ParsePropertyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: super::super::super::Foundation::PWSTR, pfmtid: *mut ::windows::core::GUID, ppid: *mut u32, pcheaten: *mut u32) -> ::windows::core::HRESULT,

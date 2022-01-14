@@ -177,7 +177,7 @@ unsafe impl ::windows::core::RuntimeType for AccessListEntryView {
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for AccessListEntryView {
-    type Vtable = super::super::Foundation::Collections::IVectorViewVtbl<AccessListEntry>;
+    type Vtable = super::super::Foundation::Collections::IVectorView_Vtbl<AccessListEntry>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -304,12 +304,12 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 #[repr(transparent)]
 pub struct IItemRemovedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IItemRemovedEventArgs {
-    type Vtable = IItemRemovedEventArgsVtbl;
+    type Vtable = IItemRemovedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59677e5c_55be_4c66_ba66_5eaea79d2631);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IItemRemovedEventArgsVtbl {
+pub struct IItemRemovedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RemovedEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<AccessListEntry>) -> ::windows::core::HRESULT,
 }
@@ -317,12 +317,12 @@ pub struct IItemRemovedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IStorageApplicationPermissionsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageApplicationPermissionsStatics {
-    type Vtable = IStorageApplicationPermissionsStaticsVtbl;
+    type Vtable = IStorageApplicationPermissionsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4391dfaa_d033_48f9_8060_3ec847d2e3f1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageApplicationPermissionsStaticsVtbl {
+pub struct IStorageApplicationPermissionsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FutureAccessList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub MostRecentlyUsedList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -331,12 +331,12 @@ pub struct IStorageApplicationPermissionsStaticsVtbl {
 #[repr(transparent)]
 pub struct IStorageApplicationPermissionsStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageApplicationPermissionsStatics2 {
-    type Vtable = IStorageApplicationPermissionsStatics2Vtbl;
+    type Vtable = IStorageApplicationPermissionsStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x072716ec_aa05_4294_9a11_1a3d04519ad0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageApplicationPermissionsStatics2Vtbl {
+pub struct IStorageApplicationPermissionsStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub GetFutureAccessListForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -535,12 +535,12 @@ unsafe impl ::windows::core::RuntimeType for IStorageItemAccessList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2caff6ad-de90-47f5-b2c3-dd36c9fdd453}");
 }
 unsafe impl ::windows::core::Interface for IStorageItemAccessList {
-    type Vtable = IStorageItemAccessListVtbl;
+    type Vtable = IStorageItemAccessList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2caff6ad_de90_47f5_b2c3_dd36c9fdd453);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageItemAccessListVtbl {
+pub struct IStorageItemAccessList_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AddOverloadDefaultMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, metadata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -584,12 +584,12 @@ pub struct IStorageItemAccessListVtbl {
 #[repr(transparent)]
 pub struct IStorageItemMostRecentlyUsedList(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageItemMostRecentlyUsedList {
-    type Vtable = IStorageItemMostRecentlyUsedListVtbl;
+    type Vtable = IStorageItemMostRecentlyUsedList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x016239d5_510d_411e_8cf1_c3d1effa4c33);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageItemMostRecentlyUsedListVtbl {
+pub struct IStorageItemMostRecentlyUsedList_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ItemRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -604,12 +604,12 @@ pub struct IStorageItemMostRecentlyUsedListVtbl {
 #[repr(transparent)]
 pub struct IStorageItemMostRecentlyUsedList2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStorageItemMostRecentlyUsedList2 {
-    type Vtable = IStorageItemMostRecentlyUsedList2Vtbl;
+    type Vtable = IStorageItemMostRecentlyUsedList2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda481ea0_ed8d_4731_a1db_e44ee2204093);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStorageItemMostRecentlyUsedList2Vtbl {
+pub struct IStorageItemMostRecentlyUsedList2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AddWithMetadataAndVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, metadata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, visibility: RecentStorageItemVisibility, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub AddOrReplaceWithMetadataAndVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, file: ::windows::core::RawPtr, metadata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, visibility: RecentStorageItemVisibility) -> ::windows::core::HRESULT,
@@ -647,7 +647,7 @@ unsafe impl ::windows::core::RuntimeType for ItemRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.ItemRemovedEventArgs;{59677e5c-55be-4c66-ba66-5eaea79d2631})");
 }
 unsafe impl ::windows::core::Interface for ItemRemovedEventArgs {
-    type Vtable = IItemRemovedEventArgsVtbl;
+    type Vtable = IItemRemovedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59677e5c_55be_4c66_ba66_5eaea79d2631);
 }
 impl ::windows::core::RuntimeName for ItemRemovedEventArgs {
@@ -921,7 +921,7 @@ unsafe impl ::windows::core::RuntimeType for StorageItemAccessList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.StorageItemAccessList;{2caff6ad-de90-47f5-b2c3-dd36c9fdd453})");
 }
 unsafe impl ::windows::core::Interface for StorageItemAccessList {
-    type Vtable = IStorageItemAccessListVtbl;
+    type Vtable = IStorageItemAccessList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2caff6ad_de90_47f5_b2c3_dd36c9fdd453);
 }
 impl ::windows::core::RuntimeName for StorageItemAccessList {
@@ -1165,7 +1165,7 @@ unsafe impl ::windows::core::RuntimeType for StorageItemMostRecentlyUsedList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.StorageItemMostRecentlyUsedList;{016239d5-510d-411e-8cf1-c3d1effa4c33})");
 }
 unsafe impl ::windows::core::Interface for StorageItemMostRecentlyUsedList {
-    type Vtable = IStorageItemMostRecentlyUsedListVtbl;
+    type Vtable = IStorageItemMostRecentlyUsedList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x016239d5_510d_411e_8cf1_c3d1effa4c33);
 }
 impl ::windows::core::RuntimeName for StorageItemMostRecentlyUsedList {

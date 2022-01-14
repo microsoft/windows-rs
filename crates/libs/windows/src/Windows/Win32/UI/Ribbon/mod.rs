@@ -54,12 +54,12 @@ impl ::core::fmt::Debug for IUIApplication {
     }
 }
 unsafe impl ::windows::core::Interface for IUIApplication {
-    type Vtable = IUIApplicationVtbl;
+    type Vtable = IUIApplication_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd428903c_729a_491d_910d_682a08ff2522);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUIApplicationVtbl {
+pub struct IUIApplication_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnViewChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewid: u32, typeid: UI_VIEWTYPE, view: *mut ::core::ffi::c_void, verb: UI_VIEWVERB, ureasoncode: i32) -> ::windows::core::HRESULT,
     pub OnCreateUICommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -137,12 +137,12 @@ impl ::core::fmt::Debug for IUICollection {
     }
 }
 unsafe impl ::windows::core::Interface for IUICollection {
-    type Vtable = IUICollectionVtbl;
+    type Vtable = IUICollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf4f45bf_6f9d_4dd7_9d68_d8f9cd18c4db);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUICollectionVtbl {
+pub struct IUICollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     pub GetItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, item: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -198,12 +198,12 @@ impl ::core::fmt::Debug for IUICollectionChangedEvent {
     }
 }
 unsafe impl ::windows::core::Interface for IUICollectionChangedEvent {
-    type Vtable = IUICollectionChangedEventVtbl;
+    type Vtable = IUICollectionChangedEvent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6502ae91_a14d_44b5_bbd0_62aacc581d52);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUICollectionChangedEventVtbl {
+pub struct IUICollectionChangedEvent_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, action: UI_COLLECTIONCHANGE, oldindex: u32, olditem: *mut ::core::ffi::c_void, newindex: u32, newitem: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -260,12 +260,12 @@ impl ::core::fmt::Debug for IUICommandHandler {
     }
 }
 unsafe impl ::windows::core::Interface for IUICommandHandler {
-    type Vtable = IUICommandHandlerVtbl;
+    type Vtable = IUICommandHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75ae0a2d_dc03_4c9f_8883_069660d0beb6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUICommandHandlerVtbl {
+pub struct IUICommandHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub Execute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, commandid: u32, verb: UI_EXECUTIONVERB, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, currentvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, commandexecutionproperties: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -322,12 +322,12 @@ impl ::core::fmt::Debug for IUIContextualUI {
     }
 }
 unsafe impl ::windows::core::Interface for IUIContextualUI {
-    type Vtable = IUIContextualUIVtbl;
+    type Vtable = IUIContextualUI_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeea11f37_7c46_437c_8e55_b52122b29293);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUIContextualUIVtbl {
+pub struct IUIContextualUI_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub ShowAtLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: i32, y: i32) -> ::windows::core::HRESULT,
 }
@@ -378,12 +378,12 @@ impl ::core::fmt::Debug for IUIEventLogger {
     }
 }
 unsafe impl ::windows::core::Interface for IUIEventLogger {
-    type Vtable = IUIEventLoggerVtbl;
+    type Vtable = IUIEventLogger_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec3e1034_dbf4_41a1_95d5_03e0f1026e05);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUIEventLoggerVtbl {
+pub struct IUIEventLogger_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub OnUIEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventparams: *const UI_EVENTPARAMS),
@@ -436,12 +436,12 @@ impl ::core::fmt::Debug for IUIEventingManager {
     }
 }
 unsafe impl ::windows::core::Interface for IUIEventingManager {
-    type Vtable = IUIEventingManagerVtbl;
+    type Vtable = IUIEventingManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3be6ea7f_9a9b_4198_9368_9b0f923bd534);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUIEventingManagerVtbl {
+pub struct IUIEventingManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetEventLogger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventlogger: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -529,12 +529,12 @@ impl ::core::fmt::Debug for IUIFramework {
     }
 }
 unsafe impl ::windows::core::Interface for IUIFramework {
-    type Vtable = IUIFrameworkVtbl;
+    type Vtable = IUIFramework_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4f0385d_6872_43a8_ad09_4c339cb3f5c5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUIFrameworkVtbl {
+pub struct IUIFramework_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, framewnd: super::super::Foundation::HWND, application: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -609,12 +609,12 @@ impl ::core::fmt::Debug for IUIImage {
     }
 }
 unsafe impl ::windows::core::Interface for IUIImage {
-    type Vtable = IUIImageVtbl;
+    type Vtable = IUIImage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23c8c838_4de6_436b_ab01_5554bb7c30dd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUIImageVtbl {
+pub struct IUIImage_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub GetBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::HRESULT,
@@ -669,12 +669,12 @@ impl ::core::fmt::Debug for IUIImageFromBitmap {
     }
 }
 unsafe impl ::windows::core::Interface for IUIImageFromBitmap {
-    type Vtable = IUIImageFromBitmapVtbl;
+    type Vtable = IUIImageFromBitmap_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18aba7f3_4c1c_4ba2_bf6c_f5c3326fa816);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUIImageFromBitmapVtbl {
+pub struct IUIImageFromBitmap_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub CreateImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmap: super::super::Graphics::Gdi::HBITMAP, options: UI_OWNERSHIP, image: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -738,12 +738,12 @@ impl ::core::fmt::Debug for IUIRibbon {
     }
 }
 unsafe impl ::windows::core::Interface for IUIRibbon {
-    type Vtable = IUIRibbonVtbl;
+    type Vtable = IUIRibbon_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x803982ab_370a_4f7e_a9e7_8784036a6e26);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUIRibbonVtbl {
+pub struct IUIRibbon_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetHeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cy: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -803,12 +803,12 @@ impl ::core::fmt::Debug for IUISimplePropertySet {
     }
 }
 unsafe impl ::windows::core::Interface for IUISimplePropertySet {
-    type Vtable = IUISimplePropertySetVtbl;
+    type Vtable = IUISimplePropertySet_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc205bb48_5b1c_4219_a106_15bd0a5f24e2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUISimplePropertySetVtbl {
+pub struct IUISimplePropertySet_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, value: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,

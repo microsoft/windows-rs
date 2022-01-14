@@ -49,12 +49,12 @@ impl ::core::fmt::Debug for IWCNConnectNotify {
     }
 }
 unsafe impl ::windows::core::Interface for IWCNConnectNotify {
-    type Vtable = IWCNConnectNotifyVtbl;
+    type Vtable = IWCNConnectNotify_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc100be9f_d33a_4a4b_bf23_bbef4663d017);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWCNConnectNotifyVtbl {
+pub struct IWCNConnectNotify_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub ConnectSucceeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ConnectFailed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrfailure: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -149,12 +149,12 @@ impl ::core::fmt::Debug for IWCNDevice {
     }
 }
 unsafe impl ::windows::core::Interface for IWCNDevice {
-    type Vtable = IWCNDeviceVtbl;
+    type Vtable = IWCNDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc100be9c_d33a_4a4b_bf23_bbef4663d017);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWCNDeviceVtbl {
+pub struct IWCNDevice_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetPassword: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: WCN_PASSWORD_TYPE, dwpasswordlength: u32, pbpassword: *const u8) -> ::windows::core::HRESULT,
     pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnotify: ::windows::core::RawPtr) -> ::windows::core::HRESULT,

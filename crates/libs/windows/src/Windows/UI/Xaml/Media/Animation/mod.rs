@@ -31,7 +31,7 @@ unsafe impl ::windows::core::RuntimeType for AddDeleteThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.AddDeleteThemeTransition;{adec852e-4424-4dab-99c1-3a04e36a3c48})");
 }
 unsafe impl ::windows::core::Interface for AddDeleteThemeTransition {
-    type Vtable = IAddDeleteThemeTransitionVtbl;
+    type Vtable = IAddDeleteThemeTransition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadec852e_4424_4dab_99c1_3a04e36a3c48);
 }
 impl ::windows::core::RuntimeName for AddDeleteThemeTransition {
@@ -176,7 +176,7 @@ unsafe impl ::windows::core::RuntimeType for BackEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.BackEase;{e47796e7-f805-4a8f-81c9-38e6472caa94})");
 }
 unsafe impl ::windows::core::Interface for BackEase {
-    type Vtable = IBackEaseVtbl;
+    type Vtable = IBackEase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe47796e7_f805_4a8f_81c9_38e6472caa94);
 }
 impl ::windows::core::RuntimeName for BackEase {
@@ -301,7 +301,7 @@ unsafe impl ::windows::core::RuntimeType for BasicConnectedAnimationConfiguratio
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.BasicConnectedAnimationConfiguration;{e675f9b5-a4d6-5353-83e6-c89e7cf8d456})");
 }
 unsafe impl ::windows::core::Interface for BasicConnectedAnimationConfiguration {
-    type Vtable = IBasicConnectedAnimationConfigurationVtbl;
+    type Vtable = IBasicConnectedAnimationConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe675f9b5_a4d6_5353_83e6_c89e7cf8d456);
 }
 impl ::windows::core::RuntimeName for BasicConnectedAnimationConfiguration {
@@ -426,7 +426,7 @@ unsafe impl ::windows::core::RuntimeType for BeginStoryboard {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.BeginStoryboard;{64189fcd-49ec-4e52-a6f6-55324c921053})");
 }
 unsafe impl ::windows::core::Interface for BeginStoryboard {
-    type Vtable = IBeginStoryboardVtbl;
+    type Vtable = IBeginStoryboard_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64189fcd_49ec_4e52_a6f6_55324c921053);
 }
 impl ::windows::core::RuntimeName for BeginStoryboard {
@@ -591,7 +591,7 @@ unsafe impl ::windows::core::RuntimeType for BounceEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.BounceEase;{2bf1464e-fc71-47ed-85a1-3ba9577718b4})");
 }
 unsafe impl ::windows::core::Interface for BounceEase {
-    type Vtable = IBounceEaseVtbl;
+    type Vtable = IBounceEase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bf1464e_fc71_47ed_85a1_3ba9577718b4);
 }
 impl ::windows::core::RuntimeName for BounceEase {
@@ -711,7 +711,7 @@ unsafe impl ::windows::core::RuntimeType for CircleEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.CircleEase;{53a3bdb2-9177-4e6e-a043-5082d889ab1f})");
 }
 unsafe impl ::windows::core::Interface for CircleEase {
-    type Vtable = ICircleEaseVtbl;
+    type Vtable = ICircleEase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53a3bdb2_9177_4e6e_a043_5082d889ab1f);
 }
 impl ::windows::core::RuntimeName for CircleEase {
@@ -976,7 +976,7 @@ unsafe impl ::windows::core::RuntimeType for ColorAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ColorAnimation;{b8ae8a15-0f63-4694-9467-bdafac1253ea})");
 }
 unsafe impl ::windows::core::Interface for ColorAnimation {
-    type Vtable = IColorAnimationVtbl;
+    type Vtable = IColorAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8ae8a15_0f63_4694_9467_bdafac1253ea);
 }
 impl ::windows::core::RuntimeName for ColorAnimation {
@@ -1130,7 +1130,7 @@ unsafe impl ::windows::core::RuntimeType for ColorAnimationUsingKeyFrames {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames;{f5c82640-13c3-42aa-9ae2-7e6b51c92f95})");
 }
 unsafe impl ::windows::core::Interface for ColorAnimationUsingKeyFrames {
-    type Vtable = IColorAnimationUsingKeyFramesVtbl;
+    type Vtable = IColorAnimationUsingKeyFrames_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5c82640_13c3_42aa_9ae2_7e6b51c92f95);
 }
 impl ::windows::core::RuntimeName for ColorAnimationUsingKeyFrames {
@@ -1290,7 +1290,7 @@ unsafe impl ::windows::core::RuntimeType for ColorKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ColorKeyFrame;{b51d82d9-0910-4589-a284-b0c9205858e9})");
 }
 unsafe impl ::windows::core::Interface for ColorKeyFrame {
-    type Vtable = IColorKeyFrameVtbl;
+    type Vtable = IColorKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb51d82d9_0910_4589_a284_b0c9205858e9);
 }
 impl ::windows::core::RuntimeName for ColorKeyFrame {
@@ -1494,7 +1494,7 @@ unsafe impl ::windows::core::RuntimeType for ColorKeyFrameCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ColorKeyFrameCollection {
-    type Vtable = super::super::super::super::Foundation::Collections::IVectorVtbl<ColorKeyFrame>;
+    type Vtable = super::super::super::super::Foundation::Collections::IVector_Vtbl<ColorKeyFrame>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1696,7 +1696,7 @@ unsafe impl ::windows::core::RuntimeType for CommonNavigationTransitionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo;{50345692-a555-4624-a361-0a91c1706473})");
 }
 unsafe impl ::windows::core::Interface for CommonNavigationTransitionInfo {
-    type Vtable = ICommonNavigationTransitionInfoVtbl;
+    type Vtable = ICommonNavigationTransitionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50345692_a555_4624_a361_0a91c1706473);
 }
 impl ::windows::core::RuntimeName for CommonNavigationTransitionInfo {
@@ -1878,7 +1878,7 @@ unsafe impl ::windows::core::RuntimeType for ConnectedAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ConnectedAnimation;{3518628c-f387-4c25-ac98-44e86c3cadf0})");
 }
 unsafe impl ::windows::core::Interface for ConnectedAnimation {
-    type Vtable = IConnectedAnimationVtbl;
+    type Vtable = IConnectedAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3518628c_f387_4c25_ac98_44e86c3cadf0);
 }
 impl ::windows::core::RuntimeName for ConnectedAnimation {
@@ -1985,7 +1985,7 @@ unsafe impl ::windows::core::RuntimeType for ConnectedAnimationConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ConnectedAnimationConfiguration;{00218aae-cd8c-5651-92a0-c1db95c03998})");
 }
 unsafe impl ::windows::core::Interface for ConnectedAnimationConfiguration {
-    type Vtable = IConnectedAnimationConfigurationVtbl;
+    type Vtable = IConnectedAnimationConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00218aae_cd8c_5651_92a0_c1db95c03998);
 }
 impl ::windows::core::RuntimeName for ConnectedAnimationConfiguration {
@@ -2116,7 +2116,7 @@ unsafe impl ::windows::core::RuntimeType for ConnectedAnimationService {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ConnectedAnimationService;{1c6875c9-19bb-4d47-b9aa-66c802dcb9ff})");
 }
 unsafe impl ::windows::core::Interface for ConnectedAnimationService {
-    type Vtable = IConnectedAnimationServiceVtbl;
+    type Vtable = IConnectedAnimationService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c6875c9_19bb_4d47_b9aa_66c802dcb9ff);
 }
 impl ::windows::core::RuntimeName for ConnectedAnimationService {
@@ -2241,7 +2241,7 @@ unsafe impl ::windows::core::RuntimeType for ContentThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ContentThemeTransition;{f66fc5c3-5915-437d-8e3b-adf8e7f0ab57})");
 }
 unsafe impl ::windows::core::Interface for ContentThemeTransition {
-    type Vtable = IContentThemeTransitionVtbl;
+    type Vtable = IContentThemeTransition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf66fc5c3_5915_437d_8e3b_adf8e7f0ab57);
 }
 impl ::windows::core::RuntimeName for ContentThemeTransition {
@@ -2442,7 +2442,7 @@ unsafe impl ::windows::core::RuntimeType for ContinuumNavigationTransitionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo;{4be1dbad-8ba6-4004-8438-8a9017978543})");
 }
 unsafe impl ::windows::core::Interface for ContinuumNavigationTransitionInfo {
-    type Vtable = IContinuumNavigationTransitionInfoVtbl;
+    type Vtable = IContinuumNavigationTransitionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4be1dbad_8ba6_4004_8438_8a9017978543);
 }
 impl ::windows::core::RuntimeName for ContinuumNavigationTransitionInfo {
@@ -2562,7 +2562,7 @@ unsafe impl ::windows::core::RuntimeType for CubicEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.CubicEase;{1b94fc76-dad7-4354-b1a2-7969fbf6a70d})");
 }
 unsafe impl ::windows::core::Interface for CubicEase {
-    type Vtable = ICubicEaseVtbl;
+    type Vtable = ICubicEase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b94fc76_dad7_4354_b1a2_7969fbf6a70d);
 }
 impl ::windows::core::RuntimeName for CubicEase {
@@ -2687,7 +2687,7 @@ unsafe impl ::windows::core::RuntimeType for DirectConnectedAnimationConfigurati
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DirectConnectedAnimationConfiguration;{ee5d736f-5738-5d86-b770-151948cf365e})");
 }
 unsafe impl ::windows::core::Interface for DirectConnectedAnimationConfiguration {
-    type Vtable = IDirectConnectedAnimationConfigurationVtbl;
+    type Vtable = IDirectConnectedAnimationConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee5d736f_5738_5d86_b770_151948cf365e);
 }
 impl ::windows::core::RuntimeName for DirectConnectedAnimationConfiguration {
@@ -2787,7 +2787,7 @@ unsafe impl ::windows::core::RuntimeType for DiscreteColorKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DiscreteColorKeyFrame;{230c08f4-e062-4cb1-8e2a-14093d73ed8c})");
 }
 unsafe impl ::windows::core::Interface for DiscreteColorKeyFrame {
-    type Vtable = IDiscreteColorKeyFrameVtbl;
+    type Vtable = IDiscreteColorKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x230c08f4_e062_4cb1_8e2a_14093d73ed8c);
 }
 impl ::windows::core::RuntimeName for DiscreteColorKeyFrame {
@@ -2907,7 +2907,7 @@ unsafe impl ::windows::core::RuntimeType for DiscreteDoubleKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DiscreteDoubleKeyFrame;{f5f51f3a-ad11-49ce-8e1c-08fdf1447446})");
 }
 unsafe impl ::windows::core::Interface for DiscreteDoubleKeyFrame {
-    type Vtable = IDiscreteDoubleKeyFrameVtbl;
+    type Vtable = IDiscreteDoubleKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5f51f3a_ad11_49ce_8e1c_08fdf1447446);
 }
 impl ::windows::core::RuntimeName for DiscreteDoubleKeyFrame {
@@ -3027,7 +3027,7 @@ unsafe impl ::windows::core::RuntimeType for DiscreteObjectKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame;{c7dcde89-f12d-4a9c-8199-e7a9ece3a473})");
 }
 unsafe impl ::windows::core::Interface for DiscreteObjectKeyFrame {
-    type Vtable = IDiscreteObjectKeyFrameVtbl;
+    type Vtable = IDiscreteObjectKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7dcde89_f12d_4a9c_8199_e7a9ece3a473);
 }
 impl ::windows::core::RuntimeName for DiscreteObjectKeyFrame {
@@ -3147,7 +3147,7 @@ unsafe impl ::windows::core::RuntimeType for DiscretePointKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DiscretePointKeyFrame;{e0a9070d-4c42-4a90-983a-75f5a83a2fbe})");
 }
 unsafe impl ::windows::core::Interface for DiscretePointKeyFrame {
-    type Vtable = IDiscretePointKeyFrameVtbl;
+    type Vtable = IDiscretePointKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0a9070d_4c42_4a90_983a_75f5a83a2fbe);
 }
 impl ::windows::core::RuntimeName for DiscretePointKeyFrame {
@@ -3378,7 +3378,7 @@ unsafe impl ::windows::core::RuntimeType for DoubleAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DoubleAnimation;{7e9f3d59-0f07-4bc9-977d-03763ff8154f})");
 }
 unsafe impl ::windows::core::Interface for DoubleAnimation {
-    type Vtable = IDoubleAnimationVtbl;
+    type Vtable = IDoubleAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e9f3d59_0f07_4bc9_977d_03763ff8154f);
 }
 impl ::windows::core::RuntimeName for DoubleAnimation {
@@ -3532,7 +3532,7 @@ unsafe impl ::windows::core::RuntimeType for DoubleAnimationUsingKeyFrames {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DoubleAnimationUsingKeyFrames;{4fee628f-bfee-4f75-83c2-a93b39488473})");
 }
 unsafe impl ::windows::core::Interface for DoubleAnimationUsingKeyFrames {
-    type Vtable = IDoubleAnimationUsingKeyFramesVtbl;
+    type Vtable = IDoubleAnimationUsingKeyFrames_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fee628f_bfee_4f75_83c2_a93b39488473);
 }
 impl ::windows::core::RuntimeName for DoubleAnimationUsingKeyFrames {
@@ -3692,7 +3692,7 @@ unsafe impl ::windows::core::RuntimeType for DoubleKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DoubleKeyFrame;{674456fd-e81e-4f4e-b4ad-0acfed9ecd68})");
 }
 unsafe impl ::windows::core::Interface for DoubleKeyFrame {
-    type Vtable = IDoubleKeyFrameVtbl;
+    type Vtable = IDoubleKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x674456fd_e81e_4f4e_b4ad_0acfed9ecd68);
 }
 impl ::windows::core::RuntimeName for DoubleKeyFrame {
@@ -3896,7 +3896,7 @@ unsafe impl ::windows::core::RuntimeType for DoubleKeyFrameCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for DoubleKeyFrameCollection {
-    type Vtable = super::super::super::super::Foundation::Collections::IVectorVtbl<DoubleKeyFrame>;
+    type Vtable = super::super::super::super::Foundation::Collections::IVector_Vtbl<DoubleKeyFrame>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -4080,7 +4080,7 @@ unsafe impl ::windows::core::RuntimeType for DragItemThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DragItemThemeAnimation;{0c7d5db5-7ed6-4949-b4e6-a78c9f4f978d})");
 }
 unsafe impl ::windows::core::Interface for DragItemThemeAnimation {
-    type Vtable = IDragItemThemeAnimationVtbl;
+    type Vtable = IDragItemThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c7d5db5_7ed6_4949_b4e6_a78c9f4f978d);
 }
 impl ::windows::core::RuntimeName for DragItemThemeAnimation {
@@ -4267,7 +4267,7 @@ unsafe impl ::windows::core::RuntimeType for DragOverThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DragOverThemeAnimation;{72f762f7-7e51-4a6b-b937-dc4b4c1c5458})");
 }
 unsafe impl ::windows::core::Interface for DragOverThemeAnimation {
-    type Vtable = IDragOverThemeAnimationVtbl;
+    type Vtable = IDragOverThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72f762f7_7e51_4a6b_b937_dc4b4c1c5458);
 }
 impl ::windows::core::RuntimeName for DragOverThemeAnimation {
@@ -4387,7 +4387,7 @@ unsafe impl ::windows::core::RuntimeType for DrillInNavigationTransitionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DrillInNavigationTransitionInfo;{3b86201a-45d3-463b-939e-c8595f439bcc})");
 }
 unsafe impl ::windows::core::Interface for DrillInNavigationTransitionInfo {
-    type Vtable = IDrillInNavigationTransitionInfoVtbl;
+    type Vtable = IDrillInNavigationTransitionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b86201a_45d3_463b_939e_c8595f439bcc);
 }
 impl ::windows::core::RuntimeName for DrillInNavigationTransitionInfo {
@@ -4592,7 +4592,7 @@ unsafe impl ::windows::core::RuntimeType for DrillInThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DrillInThemeAnimation;{b090b824-f1d2-41b8-87ba-78034126594c})");
 }
 unsafe impl ::windows::core::Interface for DrillInThemeAnimation {
-    type Vtable = IDrillInThemeAnimationVtbl;
+    type Vtable = IDrillInThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb090b824_f1d2_41b8_87ba_78034126594c);
 }
 impl ::windows::core::RuntimeName for DrillInThemeAnimation {
@@ -4797,7 +4797,7 @@ unsafe impl ::windows::core::RuntimeType for DrillOutThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DrillOutThemeAnimation;{d890ccdf-06d3-4f7e-8e4a-4fb76e256139})");
 }
 unsafe impl ::windows::core::Interface for DrillOutThemeAnimation {
-    type Vtable = IDrillOutThemeAnimationVtbl;
+    type Vtable = IDrillOutThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd890ccdf_06d3_4f7e_8e4a_4fb76e256139);
 }
 impl ::windows::core::RuntimeName for DrillOutThemeAnimation {
@@ -4942,7 +4942,7 @@ unsafe impl ::windows::core::RuntimeType for DropTargetItemThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation;{1881c968-1824-462b-87e8-c357212b977b})");
 }
 unsafe impl ::windows::core::Interface for DropTargetItemThemeAnimation {
-    type Vtable = IDropTargetItemThemeAnimationVtbl;
+    type Vtable = IDropTargetItemThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1881c968_1824_462b_87e8_c357212b977b);
 }
 impl ::windows::core::RuntimeName for DropTargetItemThemeAnimation {
@@ -5087,7 +5087,7 @@ unsafe impl ::windows::core::RuntimeType for EasingColorKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.EasingColorKeyFrame;{c733d630-f4b9-4934-9bdd-27ac5ed1cfd8})");
 }
 unsafe impl ::windows::core::Interface for EasingColorKeyFrame {
-    type Vtable = IEasingColorKeyFrameVtbl;
+    type Vtable = IEasingColorKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc733d630_f4b9_4934_9bdd_27ac5ed1cfd8);
 }
 impl ::windows::core::RuntimeName for EasingColorKeyFrame {
@@ -5232,7 +5232,7 @@ unsafe impl ::windows::core::RuntimeType for EasingDoubleKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.EasingDoubleKeyFrame;{965adb8d-9a54-4108-b4ff-b5a5212cb338})");
 }
 unsafe impl ::windows::core::Interface for EasingDoubleKeyFrame {
-    type Vtable = IEasingDoubleKeyFrameVtbl;
+    type Vtable = IEasingDoubleKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x965adb8d_9a54_4108_b4ff_b5a5212cb338);
 }
 impl ::windows::core::RuntimeName for EasingDoubleKeyFrame {
@@ -5378,7 +5378,7 @@ unsafe impl ::windows::core::RuntimeType for EasingFunctionBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.EasingFunctionBase;{c108383f-2c02-4151-8ecd-68ddaa3f0d9b})");
 }
 unsafe impl ::windows::core::Interface for EasingFunctionBase {
-    type Vtable = IEasingFunctionBaseVtbl;
+    type Vtable = IEasingFunctionBase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc108383f_2c02_4151_8ecd_68ddaa3f0d9b);
 }
 impl ::windows::core::RuntimeName for EasingFunctionBase {
@@ -5537,7 +5537,7 @@ unsafe impl ::windows::core::RuntimeType for EasingPointKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.EasingPointKeyFrame;{b3c91380-6868-4225-a70b-3981cc0b2947})");
 }
 unsafe impl ::windows::core::Interface for EasingPointKeyFrame {
-    type Vtable = IEasingPointKeyFrameVtbl;
+    type Vtable = IEasingPointKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3c91380_6868_4225_a70b_3981cc0b2947);
 }
 impl ::windows::core::RuntimeName for EasingPointKeyFrame {
@@ -5684,7 +5684,7 @@ unsafe impl ::windows::core::RuntimeType for EdgeUIThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.EdgeUIThemeTransition;{5c86c19b-49d7-19ec-cf19-83a73c6de75e})");
 }
 unsafe impl ::windows::core::Interface for EdgeUIThemeTransition {
-    type Vtable = IEdgeUIThemeTransitionVtbl;
+    type Vtable = IEdgeUIThemeTransition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c86c19b_49d7_19ec_cf19_83a73c6de75e);
 }
 impl ::windows::core::RuntimeName for EdgeUIThemeTransition {
@@ -5849,7 +5849,7 @@ unsafe impl ::windows::core::RuntimeType for ElasticEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ElasticEase;{ef5ba58c-b0b6-4a6c-9ca8-fb4233f12459})");
 }
 unsafe impl ::windows::core::Interface for ElasticEase {
-    type Vtable = IElasticEaseVtbl;
+    type Vtable = IElasticEase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef5ba58c_b0b6_4a6c_9ca8_fb4233f12459);
 }
 impl ::windows::core::RuntimeName for ElasticEase {
@@ -5992,7 +5992,7 @@ unsafe impl ::windows::core::RuntimeType for EntranceNavigationTransitionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo;{720a256b-1c8a-41ee-82ec-8a87c0cf47da})");
 }
 unsafe impl ::windows::core::Interface for EntranceNavigationTransitionInfo {
-    type Vtable = IEntranceNavigationTransitionInfoVtbl;
+    type Vtable = IEntranceNavigationTransitionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x720a256b_1c8a_41ee_82ec_8a87c0cf47da);
 }
 impl ::windows::core::RuntimeName for EntranceNavigationTransitionInfo {
@@ -6177,7 +6177,7 @@ unsafe impl ::windows::core::RuntimeType for EntranceThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.EntranceThemeTransition;{07698c09-a8e3-419a-a01d-7410a0ae8ec8})");
 }
 unsafe impl ::windows::core::Interface for EntranceThemeTransition {
-    type Vtable = IEntranceThemeTransitionVtbl;
+    type Vtable = IEntranceThemeTransition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07698c09_a8e3_419a_a01d_7410a0ae8ec8);
 }
 impl ::windows::core::RuntimeName for EntranceThemeTransition {
@@ -6322,7 +6322,7 @@ unsafe impl ::windows::core::RuntimeType for ExponentialEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ExponentialEase;{7cb9e41d-f0bb-4bca-9da5-9ba3a11734c4})");
 }
 unsafe impl ::windows::core::Interface for ExponentialEase {
-    type Vtable = IExponentialEaseVtbl;
+    type Vtable = IExponentialEase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cb9e41d_f0bb_4bca_9da5_9ba3a11734c4);
 }
 impl ::windows::core::RuntimeName for ExponentialEase {
@@ -6467,7 +6467,7 @@ unsafe impl ::windows::core::RuntimeType for FadeInThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.FadeInThemeAnimation;{6d4bc8f5-a918-4477-8078-554c68812ab8})");
 }
 unsafe impl ::windows::core::Interface for FadeInThemeAnimation {
-    type Vtable = IFadeInThemeAnimationVtbl;
+    type Vtable = IFadeInThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d4bc8f5_a918_4477_8078_554c68812ab8);
 }
 impl ::windows::core::RuntimeName for FadeInThemeAnimation {
@@ -6612,7 +6612,7 @@ unsafe impl ::windows::core::RuntimeType for FadeOutThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation;{89276ba9-ffd4-45b6-9b9a-ced48951e712})");
 }
 unsafe impl ::windows::core::Interface for FadeOutThemeAnimation {
-    type Vtable = IFadeOutThemeAnimationVtbl;
+    type Vtable = IFadeOutThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89276ba9_ffd4_45b6_9b9a_ced48951e712);
 }
 impl ::windows::core::RuntimeName for FadeOutThemeAnimation {
@@ -6783,7 +6783,7 @@ unsafe impl ::windows::core::RuntimeType for GravityConnectedAnimationConfigurat
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.GravityConnectedAnimationConfiguration;{c751a4b7-0459-5142-b891-aeaac1d41822})");
 }
 unsafe impl ::windows::core::Interface for GravityConnectedAnimationConfiguration {
-    type Vtable = IGravityConnectedAnimationConfigurationVtbl;
+    type Vtable = IGravityConnectedAnimationConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc751a4b7_0459_5142_b891_aeaac1d41822);
 }
 impl ::windows::core::RuntimeName for GravityConnectedAnimationConfiguration {
@@ -6855,24 +6855,24 @@ unsafe impl ::core::marker::Sync for GravityConnectedAnimationConfiguration {}
 #[repr(transparent)]
 pub struct IAddDeleteThemeTransition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAddDeleteThemeTransition {
-    type Vtable = IAddDeleteThemeTransitionVtbl;
+    type Vtable = IAddDeleteThemeTransition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadec852e_4424_4dab_99c1_3a04e36a3c48);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAddDeleteThemeTransitionVtbl {
+pub struct IAddDeleteThemeTransition_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBackEase(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackEase {
-    type Vtable = IBackEaseVtbl;
+    type Vtable = IBackEase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe47796e7_f805_4a8f_81c9_38e6472caa94);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackEaseVtbl {
+pub struct IBackEase_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Amplitude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetAmplitude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
@@ -6881,12 +6881,12 @@ pub struct IBackEaseVtbl {
 #[repr(transparent)]
 pub struct IBackEaseStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackEaseStatics {
-    type Vtable = IBackEaseStaticsVtbl;
+    type Vtable = IBackEaseStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c70a2ff_a0a0_4786_926c_22321f8f25b7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackEaseStaticsVtbl {
+pub struct IBackEaseStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AmplitudeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -6894,24 +6894,24 @@ pub struct IBackEaseStaticsVtbl {
 #[repr(transparent)]
 pub struct IBasicConnectedAnimationConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBasicConnectedAnimationConfiguration {
-    type Vtable = IBasicConnectedAnimationConfigurationVtbl;
+    type Vtable = IBasicConnectedAnimationConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe675f9b5_a4d6_5353_83e6_c89e7cf8d456);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBasicConnectedAnimationConfigurationVtbl {
+pub struct IBasicConnectedAnimationConfiguration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBasicConnectedAnimationConfigurationFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBasicConnectedAnimationConfigurationFactory {
-    type Vtable = IBasicConnectedAnimationConfigurationFactoryVtbl;
+    type Vtable = IBasicConnectedAnimationConfigurationFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95e6844a_4377_503c_bee2_11dfcd5570e6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBasicConnectedAnimationConfigurationFactoryVtbl {
+pub struct IBasicConnectedAnimationConfigurationFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -6919,12 +6919,12 @@ pub struct IBasicConnectedAnimationConfigurationFactoryVtbl {
 #[repr(transparent)]
 pub struct IBeginStoryboard(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBeginStoryboard {
-    type Vtable = IBeginStoryboardVtbl;
+    type Vtable = IBeginStoryboard_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64189fcd_49ec_4e52_a6f6_55324c921053);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBeginStoryboardVtbl {
+pub struct IBeginStoryboard_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Storyboard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetStoryboard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6933,12 +6933,12 @@ pub struct IBeginStoryboardVtbl {
 #[repr(transparent)]
 pub struct IBeginStoryboardStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBeginStoryboardStatics {
-    type Vtable = IBeginStoryboardStaticsVtbl;
+    type Vtable = IBeginStoryboardStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12cff18c_aa91_4c4a_b82f_df34fc57f94b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBeginStoryboardStaticsVtbl {
+pub struct IBeginStoryboardStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub StoryboardProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -6946,12 +6946,12 @@ pub struct IBeginStoryboardStaticsVtbl {
 #[repr(transparent)]
 pub struct IBounceEase(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBounceEase {
-    type Vtable = IBounceEaseVtbl;
+    type Vtable = IBounceEase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bf1464e_fc71_47ed_85a1_3ba9577718b4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBounceEaseVtbl {
+pub struct IBounceEase_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Bounces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetBounces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
@@ -6962,12 +6962,12 @@ pub struct IBounceEaseVtbl {
 #[repr(transparent)]
 pub struct IBounceEaseStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBounceEaseStatics {
-    type Vtable = IBounceEaseStaticsVtbl;
+    type Vtable = IBounceEaseStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0701da2_4f73_41c9_b2cb_2ea3105107ff);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBounceEaseStaticsVtbl {
+pub struct IBounceEaseStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub BouncesProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub BouncinessProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6976,24 +6976,24 @@ pub struct IBounceEaseStaticsVtbl {
 #[repr(transparent)]
 pub struct ICircleEase(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICircleEase {
-    type Vtable = ICircleEaseVtbl;
+    type Vtable = ICircleEase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53a3bdb2_9177_4e6e_a043_5082d889ab1f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICircleEaseVtbl {
+pub struct ICircleEase_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IColorAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorAnimation {
-    type Vtable = IColorAnimationVtbl;
+    type Vtable = IColorAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8ae8a15_0f63_4694_9467_bdafac1253ea);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IColorAnimationVtbl {
+pub struct IColorAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub From: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7028,12 +7028,12 @@ pub struct IColorAnimationVtbl {
 #[repr(transparent)]
 pub struct IColorAnimationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorAnimationStatics {
-    type Vtable = IColorAnimationStaticsVtbl;
+    type Vtable = IColorAnimationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55eaf6e2_87e3_4f48_958f_855b2f9ea9ec);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IColorAnimationStaticsVtbl {
+pub struct IColorAnimationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FromProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ToProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7045,12 +7045,12 @@ pub struct IColorAnimationStaticsVtbl {
 #[repr(transparent)]
 pub struct IColorAnimationUsingKeyFrames(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorAnimationUsingKeyFrames {
-    type Vtable = IColorAnimationUsingKeyFramesVtbl;
+    type Vtable = IColorAnimationUsingKeyFrames_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5c82640_13c3_42aa_9ae2_7e6b51c92f95);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IColorAnimationUsingKeyFramesVtbl {
+pub struct IColorAnimationUsingKeyFrames_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub KeyFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7063,12 +7063,12 @@ pub struct IColorAnimationUsingKeyFramesVtbl {
 #[repr(transparent)]
 pub struct IColorAnimationUsingKeyFramesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorAnimationUsingKeyFramesStatics {
-    type Vtable = IColorAnimationUsingKeyFramesStaticsVtbl;
+    type Vtable = IColorAnimationUsingKeyFramesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4723cdc_96e9_48f9_8d92_9b648b2f1cc6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IColorAnimationUsingKeyFramesStaticsVtbl {
+pub struct IColorAnimationUsingKeyFramesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EnableDependentAnimationProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7076,12 +7076,12 @@ pub struct IColorAnimationUsingKeyFramesStaticsVtbl {
 #[repr(transparent)]
 pub struct IColorKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorKeyFrame {
-    type Vtable = IColorKeyFrameVtbl;
+    type Vtable = IColorKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb51d82d9_0910_4589_a284_b0c9205858e9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IColorKeyFrameVtbl {
+pub struct IColorKeyFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Color) -> ::windows::core::HRESULT,
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::Color) -> ::windows::core::HRESULT,
@@ -7098,12 +7098,12 @@ pub struct IColorKeyFrameVtbl {
 #[repr(transparent)]
 pub struct IColorKeyFrameFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorKeyFrameFactory {
-    type Vtable = IColorKeyFrameFactoryVtbl;
+    type Vtable = IColorKeyFrameFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x769bd88a_9cfb_4a7d_96c4_a1e7de6fdb4b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IColorKeyFrameFactoryVtbl {
+pub struct IColorKeyFrameFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7111,12 +7111,12 @@ pub struct IColorKeyFrameFactoryVtbl {
 #[repr(transparent)]
 pub struct IColorKeyFrameStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorKeyFrameStatics {
-    type Vtable = IColorKeyFrameStaticsVtbl;
+    type Vtable = IColorKeyFrameStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc043ae99_210c_430f_9da5_df1082692055);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IColorKeyFrameStaticsVtbl {
+pub struct IColorKeyFrameStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ValueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub KeyTimeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7125,12 +7125,12 @@ pub struct IColorKeyFrameStaticsVtbl {
 #[repr(transparent)]
 pub struct ICommonNavigationTransitionInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICommonNavigationTransitionInfo {
-    type Vtable = ICommonNavigationTransitionInfoVtbl;
+    type Vtable = ICommonNavigationTransitionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50345692_a555_4624_a361_0a91c1706473);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICommonNavigationTransitionInfoVtbl {
+pub struct ICommonNavigationTransitionInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsStaggeringEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsStaggeringEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -7139,12 +7139,12 @@ pub struct ICommonNavigationTransitionInfoVtbl {
 #[repr(transparent)]
 pub struct ICommonNavigationTransitionInfoStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICommonNavigationTransitionInfoStatics {
-    type Vtable = ICommonNavigationTransitionInfoStaticsVtbl;
+    type Vtable = ICommonNavigationTransitionInfoStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e3efe33_50be_4443_883c_e5627201c2e5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICommonNavigationTransitionInfoStaticsVtbl {
+pub struct ICommonNavigationTransitionInfoStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsStaggeringEnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsStaggerElementProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7155,12 +7155,12 @@ pub struct ICommonNavigationTransitionInfoStaticsVtbl {
 #[repr(transparent)]
 pub struct IConnectedAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConnectedAnimation {
-    type Vtable = IConnectedAnimationVtbl;
+    type Vtable = IConnectedAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3518628c_f387_4c25_ac98_44e86c3cadf0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IConnectedAnimationVtbl {
+pub struct IConnectedAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Completed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -7177,12 +7177,12 @@ pub struct IConnectedAnimationVtbl {
 #[repr(transparent)]
 pub struct IConnectedAnimation2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConnectedAnimation2 {
-    type Vtable = IConnectedAnimation2Vtbl;
+    type Vtable = IConnectedAnimation2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d2f8e5c_584b_4ddd_b668_973891431459);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IConnectedAnimation2Vtbl {
+pub struct IConnectedAnimation2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsScaleAnimationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsScaleAnimationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -7199,12 +7199,12 @@ pub struct IConnectedAnimation2Vtbl {
 #[repr(transparent)]
 pub struct IConnectedAnimation3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConnectedAnimation3 {
-    type Vtable = IConnectedAnimation3Vtbl;
+    type Vtable = IConnectedAnimation3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e3040c6_0430_59c0_a80c_cceed2e778dd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IConnectedAnimation3Vtbl {
+pub struct IConnectedAnimation3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Configuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7213,36 +7213,36 @@ pub struct IConnectedAnimation3Vtbl {
 #[repr(transparent)]
 pub struct IConnectedAnimationConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConnectedAnimationConfiguration {
-    type Vtable = IConnectedAnimationConfigurationVtbl;
+    type Vtable = IConnectedAnimationConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00218aae_cd8c_5651_92a0_c1db95c03998);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IConnectedAnimationConfigurationVtbl {
+pub struct IConnectedAnimationConfiguration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IConnectedAnimationConfigurationFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConnectedAnimationConfigurationFactory {
-    type Vtable = IConnectedAnimationConfigurationFactoryVtbl;
+    type Vtable = IConnectedAnimationConfigurationFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30f9b84b_dd7e_593e_bf75_e959dc0ec52a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IConnectedAnimationConfigurationFactoryVtbl {
+pub struct IConnectedAnimationConfigurationFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IConnectedAnimationService(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConnectedAnimationService {
-    type Vtable = IConnectedAnimationServiceVtbl;
+    type Vtable = IConnectedAnimationService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c6875c9_19bb_4d47_b9aa_66c802dcb9ff);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IConnectedAnimationServiceVtbl {
+pub struct IConnectedAnimationService_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub DefaultDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -7267,12 +7267,12 @@ pub struct IConnectedAnimationServiceVtbl {
 #[repr(transparent)]
 pub struct IConnectedAnimationServiceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConnectedAnimationServiceStatics {
-    type Vtable = IConnectedAnimationServiceStaticsVtbl;
+    type Vtable = IConnectedAnimationServiceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7078ea5_d688_40e8_8f90_96a6279273d2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IConnectedAnimationServiceStaticsVtbl {
+pub struct IConnectedAnimationServiceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7280,12 +7280,12 @@ pub struct IConnectedAnimationServiceStaticsVtbl {
 #[repr(transparent)]
 pub struct IContentThemeTransition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContentThemeTransition {
-    type Vtable = IContentThemeTransitionVtbl;
+    type Vtable = IContentThemeTransition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf66fc5c3_5915_437d_8e3b_adf8e7f0ab57);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContentThemeTransitionVtbl {
+pub struct IContentThemeTransition_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub HorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetHorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
@@ -7296,12 +7296,12 @@ pub struct IContentThemeTransitionVtbl {
 #[repr(transparent)]
 pub struct IContentThemeTransitionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContentThemeTransitionStatics {
-    type Vtable = IContentThemeTransitionStaticsVtbl;
+    type Vtable = IContentThemeTransitionStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e8ee385_9a42_4459_afa9_337dc41e1587);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContentThemeTransitionStaticsVtbl {
+pub struct IContentThemeTransitionStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub HorizontalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub VerticalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7310,12 +7310,12 @@ pub struct IContentThemeTransitionStaticsVtbl {
 #[repr(transparent)]
 pub struct IContinuumNavigationTransitionInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContinuumNavigationTransitionInfo {
-    type Vtable = IContinuumNavigationTransitionInfoVtbl;
+    type Vtable = IContinuumNavigationTransitionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4be1dbad_8ba6_4004_8438_8a9017978543);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContinuumNavigationTransitionInfoVtbl {
+pub struct IContinuumNavigationTransitionInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ExitElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetExitElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7324,12 +7324,12 @@ pub struct IContinuumNavigationTransitionInfoVtbl {
 #[repr(transparent)]
 pub struct IContinuumNavigationTransitionInfoStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContinuumNavigationTransitionInfoStatics {
-    type Vtable = IContinuumNavigationTransitionInfoStaticsVtbl;
+    type Vtable = IContinuumNavigationTransitionInfoStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e25dd53_b18f_4bf1_b3bc_92f516f29903);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContinuumNavigationTransitionInfoStaticsVtbl {
+pub struct IContinuumNavigationTransitionInfoStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ExitElementProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsEntranceElementProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7352,36 +7352,36 @@ pub struct IContinuumNavigationTransitionInfoStaticsVtbl {
 #[repr(transparent)]
 pub struct ICubicEase(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICubicEase {
-    type Vtable = ICubicEaseVtbl;
+    type Vtable = ICubicEase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b94fc76_dad7_4354_b1a2_7969fbf6a70d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICubicEaseVtbl {
+pub struct ICubicEase_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDirectConnectedAnimationConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDirectConnectedAnimationConfiguration {
-    type Vtable = IDirectConnectedAnimationConfigurationVtbl;
+    type Vtable = IDirectConnectedAnimationConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee5d736f_5738_5d86_b770_151948cf365e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectConnectedAnimationConfigurationVtbl {
+pub struct IDirectConnectedAnimationConfiguration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDirectConnectedAnimationConfigurationFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDirectConnectedAnimationConfigurationFactory {
-    type Vtable = IDirectConnectedAnimationConfigurationFactoryVtbl;
+    type Vtable = IDirectConnectedAnimationConfigurationFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x059263e9_d2b3_5a77_9cf4_e26d8b542608);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectConnectedAnimationConfigurationFactoryVtbl {
+pub struct IDirectConnectedAnimationConfigurationFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7389,60 +7389,60 @@ pub struct IDirectConnectedAnimationConfigurationFactoryVtbl {
 #[repr(transparent)]
 pub struct IDiscreteColorKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDiscreteColorKeyFrame {
-    type Vtable = IDiscreteColorKeyFrameVtbl;
+    type Vtable = IDiscreteColorKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x230c08f4_e062_4cb1_8e2a_14093d73ed8c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiscreteColorKeyFrameVtbl {
+pub struct IDiscreteColorKeyFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDiscreteDoubleKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDiscreteDoubleKeyFrame {
-    type Vtable = IDiscreteDoubleKeyFrameVtbl;
+    type Vtable = IDiscreteDoubleKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5f51f3a_ad11_49ce_8e1c_08fdf1447446);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiscreteDoubleKeyFrameVtbl {
+pub struct IDiscreteDoubleKeyFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDiscreteObjectKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDiscreteObjectKeyFrame {
-    type Vtable = IDiscreteObjectKeyFrameVtbl;
+    type Vtable = IDiscreteObjectKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7dcde89_f12d_4a9c_8199_e7a9ece3a473);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiscreteObjectKeyFrameVtbl {
+pub struct IDiscreteObjectKeyFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDiscretePointKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDiscretePointKeyFrame {
-    type Vtable = IDiscretePointKeyFrameVtbl;
+    type Vtable = IDiscretePointKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0a9070d_4c42_4a90_983a_75f5a83a2fbe);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiscretePointKeyFrameVtbl {
+pub struct IDiscretePointKeyFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDoubleAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDoubleAnimation {
-    type Vtable = IDoubleAnimationVtbl;
+    type Vtable = IDoubleAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e9f3d59_0f07_4bc9_977d_03763ff8154f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDoubleAnimationVtbl {
+pub struct IDoubleAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub From: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7477,12 +7477,12 @@ pub struct IDoubleAnimationVtbl {
 #[repr(transparent)]
 pub struct IDoubleAnimationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDoubleAnimationStatics {
-    type Vtable = IDoubleAnimationStaticsVtbl;
+    type Vtable = IDoubleAnimationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe27a935d_f111_43b7_b824_832b58d7786b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDoubleAnimationStaticsVtbl {
+pub struct IDoubleAnimationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FromProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ToProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7494,12 +7494,12 @@ pub struct IDoubleAnimationStaticsVtbl {
 #[repr(transparent)]
 pub struct IDoubleAnimationUsingKeyFrames(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDoubleAnimationUsingKeyFrames {
-    type Vtable = IDoubleAnimationUsingKeyFramesVtbl;
+    type Vtable = IDoubleAnimationUsingKeyFrames_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fee628f_bfee_4f75_83c2_a93b39488473);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDoubleAnimationUsingKeyFramesVtbl {
+pub struct IDoubleAnimationUsingKeyFrames_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub KeyFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7512,12 +7512,12 @@ pub struct IDoubleAnimationUsingKeyFramesVtbl {
 #[repr(transparent)]
 pub struct IDoubleAnimationUsingKeyFramesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDoubleAnimationUsingKeyFramesStatics {
-    type Vtable = IDoubleAnimationUsingKeyFramesStaticsVtbl;
+    type Vtable = IDoubleAnimationUsingKeyFramesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x109bf2f6_c60f_49aa_abf6_f696d492116b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDoubleAnimationUsingKeyFramesStaticsVtbl {
+pub struct IDoubleAnimationUsingKeyFramesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EnableDependentAnimationProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7525,12 +7525,12 @@ pub struct IDoubleAnimationUsingKeyFramesStaticsVtbl {
 #[repr(transparent)]
 pub struct IDoubleKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDoubleKeyFrame {
-    type Vtable = IDoubleKeyFrameVtbl;
+    type Vtable = IDoubleKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x674456fd_e81e_4f4e_b4ad_0acfed9ecd68);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDoubleKeyFrameVtbl {
+pub struct IDoubleKeyFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
@@ -7547,12 +7547,12 @@ pub struct IDoubleKeyFrameVtbl {
 #[repr(transparent)]
 pub struct IDoubleKeyFrameFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDoubleKeyFrameFactory {
-    type Vtable = IDoubleKeyFrameFactoryVtbl;
+    type Vtable = IDoubleKeyFrameFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac97dec3_7538_40b9_b152_696f7fbf4722);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDoubleKeyFrameFactoryVtbl {
+pub struct IDoubleKeyFrameFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7560,12 +7560,12 @@ pub struct IDoubleKeyFrameFactoryVtbl {
 #[repr(transparent)]
 pub struct IDoubleKeyFrameStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDoubleKeyFrameStatics {
-    type Vtable = IDoubleKeyFrameStaticsVtbl;
+    type Vtable = IDoubleKeyFrameStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x324641b0_7d37_427a_adeb_43f38bb61a4d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDoubleKeyFrameStaticsVtbl {
+pub struct IDoubleKeyFrameStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ValueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub KeyTimeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7574,12 +7574,12 @@ pub struct IDoubleKeyFrameStaticsVtbl {
 #[repr(transparent)]
 pub struct IDragItemThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDragItemThemeAnimation {
-    type Vtable = IDragItemThemeAnimationVtbl;
+    type Vtable = IDragItemThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c7d5db5_7ed6_4949_b4e6_a78c9f4f978d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDragItemThemeAnimationVtbl {
+pub struct IDragItemThemeAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -7588,12 +7588,12 @@ pub struct IDragItemThemeAnimationVtbl {
 #[repr(transparent)]
 pub struct IDragItemThemeAnimationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDragItemThemeAnimationStatics {
-    type Vtable = IDragItemThemeAnimationStaticsVtbl;
+    type Vtable = IDragItemThemeAnimationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6218b9f5_013a_4fb1_86fc_92bc4e8d0241);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDragItemThemeAnimationStaticsVtbl {
+pub struct IDragItemThemeAnimationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7601,12 +7601,12 @@ pub struct IDragItemThemeAnimationStaticsVtbl {
 #[repr(transparent)]
 pub struct IDragOverThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDragOverThemeAnimation {
-    type Vtable = IDragOverThemeAnimationVtbl;
+    type Vtable = IDragOverThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72f762f7_7e51_4a6b_b937_dc4b4c1c5458);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDragOverThemeAnimationVtbl {
+pub struct IDragOverThemeAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -7625,12 +7625,12 @@ pub struct IDragOverThemeAnimationVtbl {
 #[repr(transparent)]
 pub struct IDragOverThemeAnimationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDragOverThemeAnimationStatics {
-    type Vtable = IDragOverThemeAnimationStaticsVtbl;
+    type Vtable = IDragOverThemeAnimationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x146ffe57_3c9d_41d9_a5ff_8d7239516810);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDragOverThemeAnimationStaticsVtbl {
+pub struct IDragOverThemeAnimationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ToOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7640,24 +7640,24 @@ pub struct IDragOverThemeAnimationStaticsVtbl {
 #[repr(transparent)]
 pub struct IDrillInNavigationTransitionInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDrillInNavigationTransitionInfo {
-    type Vtable = IDrillInNavigationTransitionInfoVtbl;
+    type Vtable = IDrillInNavigationTransitionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b86201a_45d3_463b_939e_c8595f439bcc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDrillInNavigationTransitionInfoVtbl {
+pub struct IDrillInNavigationTransitionInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDrillInThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDrillInThemeAnimation {
-    type Vtable = IDrillInThemeAnimationVtbl;
+    type Vtable = IDrillInThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb090b824_f1d2_41b8_87ba_78034126594c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDrillInThemeAnimationVtbl {
+pub struct IDrillInThemeAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EntranceTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetEntranceTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -7672,12 +7672,12 @@ pub struct IDrillInThemeAnimationVtbl {
 #[repr(transparent)]
 pub struct IDrillInThemeAnimationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDrillInThemeAnimationStatics {
-    type Vtable = IDrillInThemeAnimationStaticsVtbl;
+    type Vtable = IDrillInThemeAnimationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc61fe488_a17a_4b11_b53b_a4f1a07d4ba9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDrillInThemeAnimationStaticsVtbl {
+pub struct IDrillInThemeAnimationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EntranceTargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub EntranceTargetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7688,12 +7688,12 @@ pub struct IDrillInThemeAnimationStaticsVtbl {
 #[repr(transparent)]
 pub struct IDrillOutThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDrillOutThemeAnimation {
-    type Vtable = IDrillOutThemeAnimationVtbl;
+    type Vtable = IDrillOutThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd890ccdf_06d3_4f7e_8e4a_4fb76e256139);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDrillOutThemeAnimationVtbl {
+pub struct IDrillOutThemeAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EntranceTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetEntranceTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -7708,12 +7708,12 @@ pub struct IDrillOutThemeAnimationVtbl {
 #[repr(transparent)]
 pub struct IDrillOutThemeAnimationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDrillOutThemeAnimationStatics {
-    type Vtable = IDrillOutThemeAnimationStaticsVtbl;
+    type Vtable = IDrillOutThemeAnimationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbeb5db9b_2617_4888_80dd_72fa7bb6fac3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDrillOutThemeAnimationStaticsVtbl {
+pub struct IDrillOutThemeAnimationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EntranceTargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub EntranceTargetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7724,12 +7724,12 @@ pub struct IDrillOutThemeAnimationStaticsVtbl {
 #[repr(transparent)]
 pub struct IDropTargetItemThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDropTargetItemThemeAnimation {
-    type Vtable = IDropTargetItemThemeAnimationVtbl;
+    type Vtable = IDropTargetItemThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1881c968_1824_462b_87e8_c357212b977b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDropTargetItemThemeAnimationVtbl {
+pub struct IDropTargetItemThemeAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -7738,12 +7738,12 @@ pub struct IDropTargetItemThemeAnimationVtbl {
 #[repr(transparent)]
 pub struct IDropTargetItemThemeAnimationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDropTargetItemThemeAnimationStatics {
-    type Vtable = IDropTargetItemThemeAnimationStaticsVtbl;
+    type Vtable = IDropTargetItemThemeAnimationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae80f486_2e56_4513_bf18_d77470164ae5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDropTargetItemThemeAnimationStaticsVtbl {
+pub struct IDropTargetItemThemeAnimationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7751,12 +7751,12 @@ pub struct IDropTargetItemThemeAnimationStaticsVtbl {
 #[repr(transparent)]
 pub struct IEasingColorKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEasingColorKeyFrame {
-    type Vtable = IEasingColorKeyFrameVtbl;
+    type Vtable = IEasingColorKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc733d630_f4b9_4934_9bdd_27ac5ed1cfd8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEasingColorKeyFrameVtbl {
+pub struct IEasingColorKeyFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7765,12 +7765,12 @@ pub struct IEasingColorKeyFrameVtbl {
 #[repr(transparent)]
 pub struct IEasingColorKeyFrameStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEasingColorKeyFrameStatics {
-    type Vtable = IEasingColorKeyFrameStaticsVtbl;
+    type Vtable = IEasingColorKeyFrameStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f3837fc_8e3d_4522_9b0f_003db8609851);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEasingColorKeyFrameStaticsVtbl {
+pub struct IEasingColorKeyFrameStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EasingFunctionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7778,12 +7778,12 @@ pub struct IEasingColorKeyFrameStaticsVtbl {
 #[repr(transparent)]
 pub struct IEasingDoubleKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEasingDoubleKeyFrame {
-    type Vtable = IEasingDoubleKeyFrameVtbl;
+    type Vtable = IEasingDoubleKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x965adb8d_9a54_4108_b4ff_b5a5212cb338);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEasingDoubleKeyFrameVtbl {
+pub struct IEasingDoubleKeyFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7792,12 +7792,12 @@ pub struct IEasingDoubleKeyFrameVtbl {
 #[repr(transparent)]
 pub struct IEasingDoubleKeyFrameStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEasingDoubleKeyFrameStatics {
-    type Vtable = IEasingDoubleKeyFrameStaticsVtbl;
+    type Vtable = IEasingDoubleKeyFrameStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8d3d845_dbae_4e5b_8b84_d9537398e5b1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEasingDoubleKeyFrameStaticsVtbl {
+pub struct IEasingDoubleKeyFrameStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EasingFunctionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7805,12 +7805,12 @@ pub struct IEasingDoubleKeyFrameStaticsVtbl {
 #[repr(transparent)]
 pub struct IEasingFunctionBase(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEasingFunctionBase {
-    type Vtable = IEasingFunctionBaseVtbl;
+    type Vtable = IEasingFunctionBase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc108383f_2c02_4151_8ecd_68ddaa3f0d9b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEasingFunctionBaseVtbl {
+pub struct IEasingFunctionBase_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EasingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasingMode) -> ::windows::core::HRESULT,
     pub SetEasingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: EasingMode) -> ::windows::core::HRESULT,
@@ -7820,24 +7820,24 @@ pub struct IEasingFunctionBaseVtbl {
 #[repr(transparent)]
 pub struct IEasingFunctionBaseFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEasingFunctionBaseFactory {
-    type Vtable = IEasingFunctionBaseFactoryVtbl;
+    type Vtable = IEasingFunctionBaseFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1830fe6a_f01b_43e0_b61f_b452a1c66fd2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEasingFunctionBaseFactoryVtbl {
+pub struct IEasingFunctionBaseFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IEasingFunctionBaseStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEasingFunctionBaseStatics {
-    type Vtable = IEasingFunctionBaseStaticsVtbl;
+    type Vtable = IEasingFunctionBaseStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a5031aa_2c50_4a1d_bb04_d75e07b71548);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEasingFunctionBaseStaticsVtbl {
+pub struct IEasingFunctionBaseStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EasingModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7845,12 +7845,12 @@ pub struct IEasingFunctionBaseStaticsVtbl {
 #[repr(transparent)]
 pub struct IEasingPointKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEasingPointKeyFrame {
-    type Vtable = IEasingPointKeyFrameVtbl;
+    type Vtable = IEasingPointKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3c91380_6868_4225_a70b_3981cc0b2947);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEasingPointKeyFrameVtbl {
+pub struct IEasingPointKeyFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7859,12 +7859,12 @@ pub struct IEasingPointKeyFrameVtbl {
 #[repr(transparent)]
 pub struct IEasingPointKeyFrameStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEasingPointKeyFrameStatics {
-    type Vtable = IEasingPointKeyFrameStaticsVtbl;
+    type Vtable = IEasingPointKeyFrameStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe22dbfc4_080c_402c_a6b5_f48d0a98116b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEasingPointKeyFrameStaticsVtbl {
+pub struct IEasingPointKeyFrameStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EasingFunctionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7872,12 +7872,12 @@ pub struct IEasingPointKeyFrameStaticsVtbl {
 #[repr(transparent)]
 pub struct IEdgeUIThemeTransition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEdgeUIThemeTransition {
-    type Vtable = IEdgeUIThemeTransitionVtbl;
+    type Vtable = IEdgeUIThemeTransition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c86c19b_49d7_19ec_cf19_83a73c6de75e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEdgeUIThemeTransitionVtbl {
+pub struct IEdgeUIThemeTransition_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub Edge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::HRESULT,
@@ -7892,12 +7892,12 @@ pub struct IEdgeUIThemeTransitionVtbl {
 #[repr(transparent)]
 pub struct IEdgeUIThemeTransitionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEdgeUIThemeTransitionStatics {
-    type Vtable = IEdgeUIThemeTransitionStaticsVtbl;
+    type Vtable = IEdgeUIThemeTransitionStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16a2b13b_4705_302b_27c6_2aac92f645ac);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEdgeUIThemeTransitionStaticsVtbl {
+pub struct IEdgeUIThemeTransitionStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EdgeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7905,12 +7905,12 @@ pub struct IEdgeUIThemeTransitionStaticsVtbl {
 #[repr(transparent)]
 pub struct IElasticEase(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IElasticEase {
-    type Vtable = IElasticEaseVtbl;
+    type Vtable = IElasticEase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef5ba58c_b0b6_4a6c_9ca8_fb4233f12459);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IElasticEaseVtbl {
+pub struct IElasticEase_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Oscillations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetOscillations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
@@ -7921,12 +7921,12 @@ pub struct IElasticEaseVtbl {
 #[repr(transparent)]
 pub struct IElasticEaseStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IElasticEaseStatics {
-    type Vtable = IElasticEaseStaticsVtbl;
+    type Vtable = IElasticEaseStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9f566ec_fe9c_4b2b_8e52_bb785d562185);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IElasticEaseStaticsVtbl {
+pub struct IElasticEaseStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OscillationsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SpringinessProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7935,24 +7935,24 @@ pub struct IElasticEaseStaticsVtbl {
 #[repr(transparent)]
 pub struct IEntranceNavigationTransitionInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEntranceNavigationTransitionInfo {
-    type Vtable = IEntranceNavigationTransitionInfoVtbl;
+    type Vtable = IEntranceNavigationTransitionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x720a256b_1c8a_41ee_82ec_8a87c0cf47da);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEntranceNavigationTransitionInfoVtbl {
+pub struct IEntranceNavigationTransitionInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IEntranceNavigationTransitionInfoStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEntranceNavigationTransitionInfoStatics {
-    type Vtable = IEntranceNavigationTransitionInfoStaticsVtbl;
+    type Vtable = IEntranceNavigationTransitionInfoStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf948c27a_40c9_469f_8f33_bf45c8811f21);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEntranceNavigationTransitionInfoStaticsVtbl {
+pub struct IEntranceNavigationTransitionInfoStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsTargetElementProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetIsTargetElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -7962,12 +7962,12 @@ pub struct IEntranceNavigationTransitionInfoStaticsVtbl {
 #[repr(transparent)]
 pub struct IEntranceThemeTransition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEntranceThemeTransition {
-    type Vtable = IEntranceThemeTransitionVtbl;
+    type Vtable = IEntranceThemeTransition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07698c09_a8e3_419a_a01d_7410a0ae8ec8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEntranceThemeTransitionVtbl {
+pub struct IEntranceThemeTransition_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FromHorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetFromHorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
@@ -7980,12 +7980,12 @@ pub struct IEntranceThemeTransitionVtbl {
 #[repr(transparent)]
 pub struct IEntranceThemeTransitionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEntranceThemeTransitionStatics {
-    type Vtable = IEntranceThemeTransitionStaticsVtbl;
+    type Vtable = IEntranceThemeTransitionStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37cc0577_ff98_4aed_b86e_5ec23702f877);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEntranceThemeTransitionStaticsVtbl {
+pub struct IEntranceThemeTransitionStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FromHorizontalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FromVerticalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7995,12 +7995,12 @@ pub struct IEntranceThemeTransitionStaticsVtbl {
 #[repr(transparent)]
 pub struct IExponentialEase(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IExponentialEase {
-    type Vtable = IExponentialEaseVtbl;
+    type Vtable = IExponentialEase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cb9e41d_f0bb_4bca_9da5_9ba3a11734c4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IExponentialEaseVtbl {
+pub struct IExponentialEase_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Exponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetExponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
@@ -8009,12 +8009,12 @@ pub struct IExponentialEaseVtbl {
 #[repr(transparent)]
 pub struct IExponentialEaseStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IExponentialEaseStatics {
-    type Vtable = IExponentialEaseStaticsVtbl;
+    type Vtable = IExponentialEaseStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf37ee7e3_a761_4352_9ad6_70794567581a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IExponentialEaseStaticsVtbl {
+pub struct IExponentialEaseStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ExponentProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8022,12 +8022,12 @@ pub struct IExponentialEaseStaticsVtbl {
 #[repr(transparent)]
 pub struct IFadeInThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFadeInThemeAnimation {
-    type Vtable = IFadeInThemeAnimationVtbl;
+    type Vtable = IFadeInThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d4bc8f5_a918_4477_8078_554c68812ab8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFadeInThemeAnimationVtbl {
+pub struct IFadeInThemeAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8036,12 +8036,12 @@ pub struct IFadeInThemeAnimationVtbl {
 #[repr(transparent)]
 pub struct IFadeInThemeAnimationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFadeInThemeAnimationStatics {
-    type Vtable = IFadeInThemeAnimationStaticsVtbl;
+    type Vtable = IFadeInThemeAnimationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f0117e1_bea9_4923_b23a_0ddf4d7b8737);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFadeInThemeAnimationStaticsVtbl {
+pub struct IFadeInThemeAnimationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8049,12 +8049,12 @@ pub struct IFadeInThemeAnimationStaticsVtbl {
 #[repr(transparent)]
 pub struct IFadeOutThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFadeOutThemeAnimation {
-    type Vtable = IFadeOutThemeAnimationVtbl;
+    type Vtable = IFadeOutThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89276ba9_ffd4_45b6_9b9a_ced48951e712);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFadeOutThemeAnimationVtbl {
+pub struct IFadeOutThemeAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8063,12 +8063,12 @@ pub struct IFadeOutThemeAnimationVtbl {
 #[repr(transparent)]
 pub struct IFadeOutThemeAnimationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFadeOutThemeAnimationStatics {
-    type Vtable = IFadeOutThemeAnimationStaticsVtbl;
+    type Vtable = IFadeOutThemeAnimationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe17a81a_4168_4f68_a28c_e5dd98cf680f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFadeOutThemeAnimationStaticsVtbl {
+pub struct IFadeOutThemeAnimationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8076,24 +8076,24 @@ pub struct IFadeOutThemeAnimationStaticsVtbl {
 #[repr(transparent)]
 pub struct IGravityConnectedAnimationConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGravityConnectedAnimationConfiguration {
-    type Vtable = IGravityConnectedAnimationConfigurationVtbl;
+    type Vtable = IGravityConnectedAnimationConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc751a4b7_0459_5142_b891_aeaac1d41822);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGravityConnectedAnimationConfigurationVtbl {
+pub struct IGravityConnectedAnimationConfiguration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGravityConnectedAnimationConfiguration2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGravityConnectedAnimationConfiguration2 {
-    type Vtable = IGravityConnectedAnimationConfiguration2Vtbl;
+    type Vtable = IGravityConnectedAnimationConfiguration2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62333add_aed4_5fed_95ff_d128acce8be4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGravityConnectedAnimationConfiguration2Vtbl {
+pub struct IGravityConnectedAnimationConfiguration2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsShadowEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsShadowEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -8102,12 +8102,12 @@ pub struct IGravityConnectedAnimationConfiguration2Vtbl {
 #[repr(transparent)]
 pub struct IGravityConnectedAnimationConfigurationFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGravityConnectedAnimationConfigurationFactory {
-    type Vtable = IGravityConnectedAnimationConfigurationFactoryVtbl;
+    type Vtable = IGravityConnectedAnimationConfigurationFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe822c41f_3656_5090_92f5_c217eaacb682);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGravityConnectedAnimationConfigurationFactoryVtbl {
+pub struct IGravityConnectedAnimationConfigurationFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8115,12 +8115,12 @@ pub struct IGravityConnectedAnimationConfigurationFactoryVtbl {
 #[repr(transparent)]
 pub struct IKeySpline(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeySpline {
-    type Vtable = IKeySplineVtbl;
+    type Vtable = IKeySpline_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77a163bb_d5ca_4a32_ba0b_7dff988e58a0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKeySplineVtbl {
+pub struct IKeySpline_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ControlPoint1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
@@ -8143,24 +8143,24 @@ pub struct IKeySplineVtbl {
 #[repr(transparent)]
 pub struct IKeyTimeHelper(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyTimeHelper {
-    type Vtable = IKeyTimeHelperVtbl;
+    type Vtable = IKeyTimeHelper_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3643e480_4823_466a_abe5_5e79c8ed77ed);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKeyTimeHelperVtbl {
+pub struct IKeyTimeHelper_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IKeyTimeHelperStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IKeyTimeHelperStatics {
-    type Vtable = IKeyTimeHelperStaticsVtbl;
+    type Vtable = IKeyTimeHelperStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fa2612c_22a9_45e9_9af7_c7416efff7a5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKeyTimeHelperStaticsVtbl {
+pub struct IKeyTimeHelperStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FromTimeSpan: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timespan: super::super::super::super::Foundation::TimeSpan, result__: *mut KeyTime) -> ::windows::core::HRESULT,
@@ -8171,48 +8171,48 @@ pub struct IKeyTimeHelperStaticsVtbl {
 #[repr(transparent)]
 pub struct ILinearColorKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILinearColorKeyFrame {
-    type Vtable = ILinearColorKeyFrameVtbl;
+    type Vtable = ILinearColorKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66fdb6ef_ac81_4611_b1d2_61f545983f03);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILinearColorKeyFrameVtbl {
+pub struct ILinearColorKeyFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILinearDoubleKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILinearDoubleKeyFrame {
-    type Vtable = ILinearDoubleKeyFrameVtbl;
+    type Vtable = ILinearDoubleKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8efdf265_9a7b_431d_8f0c_14c56b5ea4d9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILinearDoubleKeyFrameVtbl {
+pub struct ILinearDoubleKeyFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILinearPointKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILinearPointKeyFrame {
-    type Vtable = ILinearPointKeyFrameVtbl;
+    type Vtable = ILinearPointKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7c9b8ef_af24_49ee_84f1_a86600a4e319);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILinearPointKeyFrameVtbl {
+pub struct ILinearPointKeyFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct INavigationThemeTransition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INavigationThemeTransition {
-    type Vtable = INavigationThemeTransitionVtbl;
+    type Vtable = INavigationThemeTransition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8833848c_4eb7_41f2_8799_9eef0a213b73);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INavigationThemeTransitionVtbl {
+pub struct INavigationThemeTransition_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DefaultNavigationTransitionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetDefaultNavigationTransitionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8221,12 +8221,12 @@ pub struct INavigationThemeTransitionVtbl {
 #[repr(transparent)]
 pub struct INavigationThemeTransitionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INavigationThemeTransitionStatics {
-    type Vtable = INavigationThemeTransitionStaticsVtbl;
+    type Vtable = INavigationThemeTransitionStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea2f06e0_5e60_4f8e_bcaf_431487a294ab);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INavigationThemeTransitionStaticsVtbl {
+pub struct INavigationThemeTransitionStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DefaultNavigationTransitionInfoProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8234,24 +8234,24 @@ pub struct INavigationThemeTransitionStaticsVtbl {
 #[repr(transparent)]
 pub struct INavigationTransitionInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INavigationTransitionInfo {
-    type Vtable = INavigationTransitionInfoVtbl;
+    type Vtable = INavigationTransitionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9b05091_ae4a_4372_8625_21b7a8b98ca4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INavigationTransitionInfoVtbl {
+pub struct INavigationTransitionInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct INavigationTransitionInfoFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INavigationTransitionInfoFactory {
-    type Vtable = INavigationTransitionInfoFactoryVtbl;
+    type Vtable = INavigationTransitionInfoFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedf4f8d5_af63_4fab_9d4a_87927f82dd6b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INavigationTransitionInfoFactoryVtbl {
+pub struct INavigationTransitionInfoFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8259,12 +8259,12 @@ pub struct INavigationTransitionInfoFactoryVtbl {
 #[repr(transparent)]
 pub struct INavigationTransitionInfoOverrides(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INavigationTransitionInfoOverrides {
-    type Vtable = INavigationTransitionInfoOverridesVtbl;
+    type Vtable = INavigationTransitionInfoOverrides_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9517e6a_a9d0_4bf7_9db0_4633a69daff2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INavigationTransitionInfoOverridesVtbl {
+pub struct INavigationTransitionInfoOverrides_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetNavigationStateCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetNavigationStateCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, navigationstate: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8273,12 +8273,12 @@ pub struct INavigationTransitionInfoOverridesVtbl {
 #[repr(transparent)]
 pub struct IObjectAnimationUsingKeyFrames(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IObjectAnimationUsingKeyFrames {
-    type Vtable = IObjectAnimationUsingKeyFramesVtbl;
+    type Vtable = IObjectAnimationUsingKeyFrames_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x334a2d92_b74a_4c64_b9a6_58bcfa314f22);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IObjectAnimationUsingKeyFramesVtbl {
+pub struct IObjectAnimationUsingKeyFrames_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub KeyFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8291,12 +8291,12 @@ pub struct IObjectAnimationUsingKeyFramesVtbl {
 #[repr(transparent)]
 pub struct IObjectAnimationUsingKeyFramesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IObjectAnimationUsingKeyFramesStatics {
-    type Vtable = IObjectAnimationUsingKeyFramesStaticsVtbl;
+    type Vtable = IObjectAnimationUsingKeyFramesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb736182_6af1_49a3_97b6_783ed97400fe);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IObjectAnimationUsingKeyFramesStaticsVtbl {
+pub struct IObjectAnimationUsingKeyFramesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EnableDependentAnimationProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8304,12 +8304,12 @@ pub struct IObjectAnimationUsingKeyFramesStaticsVtbl {
 #[repr(transparent)]
 pub struct IObjectKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IObjectKeyFrame {
-    type Vtable = IObjectKeyFrameVtbl;
+    type Vtable = IObjectKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9852a851_8593_48ee_a6a4_d5d4720f029a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IObjectKeyFrameVtbl {
+pub struct IObjectKeyFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -8326,12 +8326,12 @@ pub struct IObjectKeyFrameVtbl {
 #[repr(transparent)]
 pub struct IObjectKeyFrameFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IObjectKeyFrameFactory {
-    type Vtable = IObjectKeyFrameFactoryVtbl;
+    type Vtable = IObjectKeyFrameFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1626143e_3e6d_44d8_9b9a_04aea70f8492);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IObjectKeyFrameFactoryVtbl {
+pub struct IObjectKeyFrameFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8339,12 +8339,12 @@ pub struct IObjectKeyFrameFactoryVtbl {
 #[repr(transparent)]
 pub struct IObjectKeyFrameStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IObjectKeyFrameStatics {
-    type Vtable = IObjectKeyFrameStaticsVtbl;
+    type Vtable = IObjectKeyFrameStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd6ab00_5319_4286_8eed_4e755ea0cf9c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IObjectKeyFrameStaticsVtbl {
+pub struct IObjectKeyFrameStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ValueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub KeyTimeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8353,12 +8353,12 @@ pub struct IObjectKeyFrameStaticsVtbl {
 #[repr(transparent)]
 pub struct IPaneThemeTransition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaneThemeTransition {
-    type Vtable = IPaneThemeTransitionVtbl;
+    type Vtable = IPaneThemeTransition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4708eb8e_4bfc_ee46_d4f9_708def3fbb2b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPaneThemeTransitionVtbl {
+pub struct IPaneThemeTransition_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
     pub Edge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Controls::Primitives::EdgeTransitionLocation) -> ::windows::core::HRESULT,
@@ -8373,12 +8373,12 @@ pub struct IPaneThemeTransitionVtbl {
 #[repr(transparent)]
 pub struct IPaneThemeTransitionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPaneThemeTransitionStatics {
-    type Vtable = IPaneThemeTransitionStaticsVtbl;
+    type Vtable = IPaneThemeTransitionStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x316b382f_4be4_1797_b45c_cd900bbe0caa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPaneThemeTransitionStaticsVtbl {
+pub struct IPaneThemeTransitionStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EdgeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8386,12 +8386,12 @@ pub struct IPaneThemeTransitionStaticsVtbl {
 #[repr(transparent)]
 pub struct IPointAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointAnimation {
-    type Vtable = IPointAnimationVtbl;
+    type Vtable = IPointAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30f04312_7726_4f88_b8e2_2fa54518963b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPointAnimationVtbl {
+pub struct IPointAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub From: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8426,12 +8426,12 @@ pub struct IPointAnimationVtbl {
 #[repr(transparent)]
 pub struct IPointAnimationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointAnimationStatics {
-    type Vtable = IPointAnimationStaticsVtbl;
+    type Vtable = IPointAnimationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f99b356_e737_408b_a0fd_327826d32255);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPointAnimationStaticsVtbl {
+pub struct IPointAnimationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FromProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ToProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8443,12 +8443,12 @@ pub struct IPointAnimationStaticsVtbl {
 #[repr(transparent)]
 pub struct IPointAnimationUsingKeyFrames(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointAnimationUsingKeyFrames {
-    type Vtable = IPointAnimationUsingKeyFramesVtbl;
+    type Vtable = IPointAnimationUsingKeyFrames_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b944f72_446a_41d0_a129_41a620f4595d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPointAnimationUsingKeyFramesVtbl {
+pub struct IPointAnimationUsingKeyFrames_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub KeyFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8461,12 +8461,12 @@ pub struct IPointAnimationUsingKeyFramesVtbl {
 #[repr(transparent)]
 pub struct IPointAnimationUsingKeyFramesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointAnimationUsingKeyFramesStatics {
-    type Vtable = IPointAnimationUsingKeyFramesStaticsVtbl;
+    type Vtable = IPointAnimationUsingKeyFramesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f454c87_2390_46ea_baa7_762f4bc30d04);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPointAnimationUsingKeyFramesStaticsVtbl {
+pub struct IPointAnimationUsingKeyFramesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EnableDependentAnimationProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8474,12 +8474,12 @@ pub struct IPointAnimationUsingKeyFramesStaticsVtbl {
 #[repr(transparent)]
 pub struct IPointKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointKeyFrame {
-    type Vtable = IPointKeyFrameVtbl;
+    type Vtable = IPointKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcc88d01_7f82_4dae_8026_7b7e086878b3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPointKeyFrameVtbl {
+pub struct IPointKeyFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
@@ -8502,12 +8502,12 @@ pub struct IPointKeyFrameVtbl {
 #[repr(transparent)]
 pub struct IPointKeyFrameFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointKeyFrameFactory {
-    type Vtable = IPointKeyFrameFactoryVtbl;
+    type Vtable = IPointKeyFrameFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb214bdf_426a_4392_8355_c2ae52852623);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPointKeyFrameFactoryVtbl {
+pub struct IPointKeyFrameFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8515,12 +8515,12 @@ pub struct IPointKeyFrameFactoryVtbl {
 #[repr(transparent)]
 pub struct IPointKeyFrameStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointKeyFrameStatics {
-    type Vtable = IPointKeyFrameStaticsVtbl;
+    type Vtable = IPointKeyFrameStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95cf1b27_7965_4bec_b9fb_fbe94b65518e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPointKeyFrameStaticsVtbl {
+pub struct IPointKeyFrameStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ValueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub KeyTimeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8529,12 +8529,12 @@ pub struct IPointKeyFrameStaticsVtbl {
 #[repr(transparent)]
 pub struct IPointerDownThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointerDownThemeAnimation {
-    type Vtable = IPointerDownThemeAnimationVtbl;
+    type Vtable = IPointerDownThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb58e714e_c49d_4788_a233_0ae85d99dd5a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPointerDownThemeAnimationVtbl {
+pub struct IPointerDownThemeAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8543,12 +8543,12 @@ pub struct IPointerDownThemeAnimationVtbl {
 #[repr(transparent)]
 pub struct IPointerDownThemeAnimationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointerDownThemeAnimationStatics {
-    type Vtable = IPointerDownThemeAnimationStaticsVtbl;
+    type Vtable = IPointerDownThemeAnimationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63a7cb7b_6d46_4494_b94a_e72f3b492a61);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPointerDownThemeAnimationStaticsVtbl {
+pub struct IPointerDownThemeAnimationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8556,12 +8556,12 @@ pub struct IPointerDownThemeAnimationStaticsVtbl {
 #[repr(transparent)]
 pub struct IPointerUpThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointerUpThemeAnimation {
-    type Vtable = IPointerUpThemeAnimationVtbl;
+    type Vtable = IPointerUpThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9e9d07d_6340_4828_ad12_690694b9910b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPointerUpThemeAnimationVtbl {
+pub struct IPointerUpThemeAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8570,12 +8570,12 @@ pub struct IPointerUpThemeAnimationVtbl {
 #[repr(transparent)]
 pub struct IPointerUpThemeAnimationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPointerUpThemeAnimationStatics {
-    type Vtable = IPointerUpThemeAnimationStaticsVtbl;
+    type Vtable = IPointerUpThemeAnimationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c618f9c_7992_4139_8bfc_0883b9727a7e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPointerUpThemeAnimationStaticsVtbl {
+pub struct IPointerUpThemeAnimationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8583,12 +8583,12 @@ pub struct IPointerUpThemeAnimationStaticsVtbl {
 #[repr(transparent)]
 pub struct IPopInThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPopInThemeAnimation {
-    type Vtable = IPopInThemeAnimationVtbl;
+    type Vtable = IPopInThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x196938c1_1c07_4c28_8847_f9f055b32855);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPopInThemeAnimationVtbl {
+pub struct IPopInThemeAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8601,12 +8601,12 @@ pub struct IPopInThemeAnimationVtbl {
 #[repr(transparent)]
 pub struct IPopInThemeAnimationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPopInThemeAnimationStatics {
-    type Vtable = IPopInThemeAnimationStaticsVtbl;
+    type Vtable = IPopInThemeAnimationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefaa99d3_218a_4701_977f_f1bfae8ba649);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPopInThemeAnimationStaticsVtbl {
+pub struct IPopInThemeAnimationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FromHorizontalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8616,12 +8616,12 @@ pub struct IPopInThemeAnimationStaticsVtbl {
 #[repr(transparent)]
 pub struct IPopOutThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPopOutThemeAnimation {
-    type Vtable = IPopOutThemeAnimationVtbl;
+    type Vtable = IPopOutThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4786ab49_0e48_4e81_a2e5_cc5aa19e48d3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPopOutThemeAnimationVtbl {
+pub struct IPopOutThemeAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8630,12 +8630,12 @@ pub struct IPopOutThemeAnimationVtbl {
 #[repr(transparent)]
 pub struct IPopOutThemeAnimationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPopOutThemeAnimationStatics {
-    type Vtable = IPopOutThemeAnimationStaticsVtbl;
+    type Vtable = IPopOutThemeAnimationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d492c09_03c1_4490_99dc_909feab357fb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPopOutThemeAnimationStaticsVtbl {
+pub struct IPopOutThemeAnimationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8643,12 +8643,12 @@ pub struct IPopOutThemeAnimationStaticsVtbl {
 #[repr(transparent)]
 pub struct IPopupThemeTransition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPopupThemeTransition {
-    type Vtable = IPopupThemeTransitionVtbl;
+    type Vtable = IPopupThemeTransition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47843552_4283_545e_c791_268dca22ce4b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPopupThemeTransitionVtbl {
+pub struct IPopupThemeTransition_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FromHorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetFromHorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
@@ -8659,12 +8659,12 @@ pub struct IPopupThemeTransitionVtbl {
 #[repr(transparent)]
 pub struct IPopupThemeTransitionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPopupThemeTransitionStatics {
-    type Vtable = IPopupThemeTransitionStaticsVtbl;
+    type Vtable = IPopupThemeTransitionStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5a1640e_490d_1505_9f6b_8fafc044dec5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPopupThemeTransitionStaticsVtbl {
+pub struct IPopupThemeTransitionStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FromHorizontalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FromVerticalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8673,12 +8673,12 @@ pub struct IPopupThemeTransitionStaticsVtbl {
 #[repr(transparent)]
 pub struct IPowerEase(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPowerEase {
-    type Vtable = IPowerEaseVtbl;
+    type Vtable = IPowerEase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69c80579_eedf_405b_8680_d9606880c937);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPowerEaseVtbl {
+pub struct IPowerEase_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Power: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetPower: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
@@ -8687,12 +8687,12 @@ pub struct IPowerEaseVtbl {
 #[repr(transparent)]
 pub struct IPowerEaseStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPowerEaseStatics {
-    type Vtable = IPowerEaseStaticsVtbl;
+    type Vtable = IPowerEaseStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5955103_91a2_460c_9c41_d28f6a939bda);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPowerEaseStaticsVtbl {
+pub struct IPowerEaseStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PowerProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8700,72 +8700,72 @@ pub struct IPowerEaseStaticsVtbl {
 #[repr(transparent)]
 pub struct IQuadraticEase(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IQuadraticEase {
-    type Vtable = IQuadraticEaseVtbl;
+    type Vtable = IQuadraticEase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1510e91_ef6d_44f0_803d_68d16de0ddfc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IQuadraticEaseVtbl {
+pub struct IQuadraticEase_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IQuarticEase(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IQuarticEase {
-    type Vtable = IQuarticEaseVtbl;
+    type Vtable = IQuarticEase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8698814_fe42_4a05_b5b8_081f41157815);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IQuarticEaseVtbl {
+pub struct IQuarticEase_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IQuinticEase(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IQuinticEase {
-    type Vtable = IQuinticEaseVtbl;
+    type Vtable = IQuinticEase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92ee793b_3c49_4108_aa11_ab786603da21);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IQuinticEaseVtbl {
+pub struct IQuinticEase_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IReorderThemeTransition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IReorderThemeTransition {
-    type Vtable = IReorderThemeTransitionVtbl;
+    type Vtable = IReorderThemeTransition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2065c6c_d052_4ad1_8362_b71b36df7497);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IReorderThemeTransitionVtbl {
+pub struct IReorderThemeTransition_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRepeatBehaviorHelper(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRepeatBehaviorHelper {
-    type Vtable = IRepeatBehaviorHelperVtbl;
+    type Vtable = IRepeatBehaviorHelper_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6863ab72_4997_47f9_87ad_37efb75993ea);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRepeatBehaviorHelperVtbl {
+pub struct IRepeatBehaviorHelper_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRepeatBehaviorHelperStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRepeatBehaviorHelperStatics {
-    type Vtable = IRepeatBehaviorHelperStaticsVtbl;
+    type Vtable = IRepeatBehaviorHelperStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a795033_79f3_4dd9_b267_9cf50fb51f84);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRepeatBehaviorHelperStaticsVtbl {
+pub struct IRepeatBehaviorHelperStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Forever: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut RepeatBehavior) -> ::windows::core::HRESULT,
@@ -8796,12 +8796,12 @@ pub struct IRepeatBehaviorHelperStaticsVtbl {
 #[repr(transparent)]
 pub struct IRepositionThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRepositionThemeAnimation {
-    type Vtable = IRepositionThemeAnimationVtbl;
+    type Vtable = IRepositionThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecda24e8_8945_4949_a1bf_62109965a7e9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRepositionThemeAnimationVtbl {
+pub struct IRepositionThemeAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8814,12 +8814,12 @@ pub struct IRepositionThemeAnimationVtbl {
 #[repr(transparent)]
 pub struct IRepositionThemeAnimationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRepositionThemeAnimationStatics {
-    type Vtable = IRepositionThemeAnimationStaticsVtbl;
+    type Vtable = IRepositionThemeAnimationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d92b1b1_860b_4bf9_a59d_1eb1ccbe8fe0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRepositionThemeAnimationStaticsVtbl {
+pub struct IRepositionThemeAnimationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FromHorizontalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8829,24 +8829,24 @@ pub struct IRepositionThemeAnimationStaticsVtbl {
 #[repr(transparent)]
 pub struct IRepositionThemeTransition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRepositionThemeTransition {
-    type Vtable = IRepositionThemeTransitionVtbl;
+    type Vtable = IRepositionThemeTransition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88329b82_98f3_455a_ac53_2e7083b6e22c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRepositionThemeTransitionVtbl {
+pub struct IRepositionThemeTransition_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRepositionThemeTransition2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRepositionThemeTransition2 {
-    type Vtable = IRepositionThemeTransition2Vtbl;
+    type Vtable = IRepositionThemeTransition2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcebfe864_dbea_4404_8e6e_de55ada75239);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRepositionThemeTransition2Vtbl {
+pub struct IRepositionThemeTransition2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsStaggeringEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsStaggeringEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -8855,12 +8855,12 @@ pub struct IRepositionThemeTransition2Vtbl {
 #[repr(transparent)]
 pub struct IRepositionThemeTransitionStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRepositionThemeTransitionStatics2 {
-    type Vtable = IRepositionThemeTransitionStatics2Vtbl;
+    type Vtable = IRepositionThemeTransitionStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9240e930_0a19_468b_8c2a_68fab4500027);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRepositionThemeTransitionStatics2Vtbl {
+pub struct IRepositionThemeTransitionStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsStaggeringEnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8868,36 +8868,36 @@ pub struct IRepositionThemeTransitionStatics2Vtbl {
 #[repr(transparent)]
 pub struct ISineEase(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISineEase {
-    type Vtable = ISineEaseVtbl;
+    type Vtable = ISineEase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9382962_230b_49da_9e0d_664987892343);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISineEaseVtbl {
+pub struct ISineEase_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISlideNavigationTransitionInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISlideNavigationTransitionInfo {
-    type Vtable = ISlideNavigationTransitionInfoVtbl;
+    type Vtable = ISlideNavigationTransitionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6ac9d77_2e03_405f_80ed_e62beef3668f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISlideNavigationTransitionInfoVtbl {
+pub struct ISlideNavigationTransitionInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISlideNavigationTransitionInfo2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISlideNavigationTransitionInfo2 {
-    type Vtable = ISlideNavigationTransitionInfo2Vtbl;
+    type Vtable = ISlideNavigationTransitionInfo2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90e2d9c0_5c81_5001_8013_4fbfea4bf139);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISlideNavigationTransitionInfo2Vtbl {
+pub struct ISlideNavigationTransitionInfo2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Effect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SlideNavigationTransitionEffect) -> ::windows::core::HRESULT,
     pub SetEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: SlideNavigationTransitionEffect) -> ::windows::core::HRESULT,
@@ -8906,12 +8906,12 @@ pub struct ISlideNavigationTransitionInfo2Vtbl {
 #[repr(transparent)]
 pub struct ISlideNavigationTransitionInfoStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISlideNavigationTransitionInfoStatics2 {
-    type Vtable = ISlideNavigationTransitionInfoStatics2Vtbl;
+    type Vtable = ISlideNavigationTransitionInfoStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a861baa_981a_5ace_9f85_cb7fde648a67);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISlideNavigationTransitionInfoStatics2Vtbl {
+pub struct ISlideNavigationTransitionInfoStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EffectProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8919,12 +8919,12 @@ pub struct ISlideNavigationTransitionInfoStatics2Vtbl {
 #[repr(transparent)]
 pub struct ISplineColorKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISplineColorKeyFrame {
-    type Vtable = ISplineColorKeyFrameVtbl;
+    type Vtable = ISplineColorKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a4a5941_1fe0_473a_8efe_4316d8c86229);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISplineColorKeyFrameVtbl {
+pub struct ISplineColorKeyFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub KeySpline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetKeySpline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8933,12 +8933,12 @@ pub struct ISplineColorKeyFrameVtbl {
 #[repr(transparent)]
 pub struct ISplineColorKeyFrameStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISplineColorKeyFrameStatics {
-    type Vtable = ISplineColorKeyFrameStaticsVtbl;
+    type Vtable = ISplineColorKeyFrameStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61d1d997_8589_4f2f_8fbb_7d03edc98dd3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISplineColorKeyFrameStaticsVtbl {
+pub struct ISplineColorKeyFrameStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub KeySplineProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8946,12 +8946,12 @@ pub struct ISplineColorKeyFrameStaticsVtbl {
 #[repr(transparent)]
 pub struct ISplineDoubleKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISplineDoubleKeyFrame {
-    type Vtable = ISplineDoubleKeyFrameVtbl;
+    type Vtable = ISplineDoubleKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00d72d38_6b2b_4843_838e_c8b115eec801);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISplineDoubleKeyFrameVtbl {
+pub struct ISplineDoubleKeyFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub KeySpline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetKeySpline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8960,12 +8960,12 @@ pub struct ISplineDoubleKeyFrameVtbl {
 #[repr(transparent)]
 pub struct ISplineDoubleKeyFrameStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISplineDoubleKeyFrameStatics {
-    type Vtable = ISplineDoubleKeyFrameStaticsVtbl;
+    type Vtable = ISplineDoubleKeyFrameStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x060a8ffc_975f_4e4e_9ec7_13c5aee02062);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISplineDoubleKeyFrameStaticsVtbl {
+pub struct ISplineDoubleKeyFrameStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub KeySplineProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -8973,12 +8973,12 @@ pub struct ISplineDoubleKeyFrameStaticsVtbl {
 #[repr(transparent)]
 pub struct ISplinePointKeyFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISplinePointKeyFrame {
-    type Vtable = ISplinePointKeyFrameVtbl;
+    type Vtable = ISplinePointKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f19f306_7036_494f_bc3c_780df0cc524a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISplinePointKeyFrameVtbl {
+pub struct ISplinePointKeyFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub KeySpline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetKeySpline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8987,12 +8987,12 @@ pub struct ISplinePointKeyFrameVtbl {
 #[repr(transparent)]
 pub struct ISplinePointKeyFrameStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISplinePointKeyFrameStatics {
-    type Vtable = ISplinePointKeyFrameStaticsVtbl;
+    type Vtable = ISplinePointKeyFrameStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe97a32c2_0a7a_4766_95cb_0d692611cb4c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISplinePointKeyFrameStaticsVtbl {
+pub struct ISplinePointKeyFrameStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub KeySplineProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -9000,12 +9000,12 @@ pub struct ISplinePointKeyFrameStaticsVtbl {
 #[repr(transparent)]
 pub struct ISplitCloseThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISplitCloseThemeAnimation {
-    type Vtable = ISplitCloseThemeAnimationVtbl;
+    type Vtable = ISplitCloseThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f799518_ff39_4e90_bb74_2abd56027402);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISplitCloseThemeAnimationVtbl {
+pub struct ISplitCloseThemeAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OpenedTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetOpenedTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -9040,12 +9040,12 @@ pub struct ISplitCloseThemeAnimationVtbl {
 #[repr(transparent)]
 pub struct ISplitCloseThemeAnimationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISplitCloseThemeAnimationStatics {
-    type Vtable = ISplitCloseThemeAnimationStaticsVtbl;
+    type Vtable = ISplitCloseThemeAnimationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7aa94de9_cc9b_4e90_a11a_0050a2216a9e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISplitCloseThemeAnimationStaticsVtbl {
+pub struct ISplitCloseThemeAnimationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OpenedTargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OpenedTargetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9063,12 +9063,12 @@ pub struct ISplitCloseThemeAnimationStaticsVtbl {
 #[repr(transparent)]
 pub struct ISplitOpenThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISplitOpenThemeAnimation {
-    type Vtable = ISplitOpenThemeAnimationVtbl;
+    type Vtable = ISplitOpenThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x785fd7aa_5456_4639_8fd2_26bae6a5ffe4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISplitOpenThemeAnimationVtbl {
+pub struct ISplitOpenThemeAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OpenedTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetOpenedTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -9103,12 +9103,12 @@ pub struct ISplitOpenThemeAnimationVtbl {
 #[repr(transparent)]
 pub struct ISplitOpenThemeAnimationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISplitOpenThemeAnimationStatics {
-    type Vtable = ISplitOpenThemeAnimationStaticsVtbl;
+    type Vtable = ISplitOpenThemeAnimationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d4cfa89_3a91_458d_b0fb_4cad625cbf8d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISplitOpenThemeAnimationStaticsVtbl {
+pub struct ISplitOpenThemeAnimationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OpenedTargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OpenedTargetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9126,12 +9126,12 @@ pub struct ISplitOpenThemeAnimationStaticsVtbl {
 #[repr(transparent)]
 pub struct IStoryboard(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoryboard {
-    type Vtable = IStoryboardVtbl;
+    type Vtable = IStoryboard_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd45c1e6e_3594_460e_981a_32271bd3aa06);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoryboardVtbl {
+pub struct IStoryboard_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Children: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9160,12 +9160,12 @@ pub struct IStoryboardVtbl {
 #[repr(transparent)]
 pub struct IStoryboardStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStoryboardStatics {
-    type Vtable = IStoryboardStaticsVtbl;
+    type Vtable = IStoryboardStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd82f07d8_73d5_4379_bd48_7e05184a8bad);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStoryboardStaticsVtbl {
+pub struct IStoryboardStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetPropertyProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetTargetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -9179,24 +9179,24 @@ pub struct IStoryboardStaticsVtbl {
 #[repr(transparent)]
 pub struct ISuppressNavigationTransitionInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISuppressNavigationTransitionInfo {
-    type Vtable = ISuppressNavigationTransitionInfoVtbl;
+    type Vtable = ISuppressNavigationTransitionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x244d7b0c_b1b7_4871_9d3e_d56203a3a5b4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISuppressNavigationTransitionInfoVtbl {
+pub struct ISuppressNavigationTransitionInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISwipeBackThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISwipeBackThemeAnimation {
-    type Vtable = ISwipeBackThemeAnimationVtbl;
+    type Vtable = ISwipeBackThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa38a4214_0bca_4d2d_95f7_ceba57fbaf60);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISwipeBackThemeAnimationVtbl {
+pub struct ISwipeBackThemeAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -9209,12 +9209,12 @@ pub struct ISwipeBackThemeAnimationVtbl {
 #[repr(transparent)]
 pub struct ISwipeBackThemeAnimationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISwipeBackThemeAnimationStatics {
-    type Vtable = ISwipeBackThemeAnimationStaticsVtbl;
+    type Vtable = ISwipeBackThemeAnimationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x693f31bf_4da6_468a_8ce0_996c9aad42e0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISwipeBackThemeAnimationStaticsVtbl {
+pub struct ISwipeBackThemeAnimationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FromHorizontalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9224,12 +9224,12 @@ pub struct ISwipeBackThemeAnimationStaticsVtbl {
 #[repr(transparent)]
 pub struct ISwipeHintThemeAnimation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISwipeHintThemeAnimation {
-    type Vtable = ISwipeHintThemeAnimationVtbl;
+    type Vtable = ISwipeHintThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdd067c0_580e_4e40_be98_f202d3d84365);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISwipeHintThemeAnimationVtbl {
+pub struct ISwipeHintThemeAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -9242,12 +9242,12 @@ pub struct ISwipeHintThemeAnimationVtbl {
 #[repr(transparent)]
 pub struct ISwipeHintThemeAnimationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISwipeHintThemeAnimationStatics {
-    type Vtable = ISwipeHintThemeAnimationStaticsVtbl;
+    type Vtable = ISwipeHintThemeAnimationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23d61a57_9115_4d63_b04a_b89f1c744dc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISwipeHintThemeAnimationStaticsVtbl {
+pub struct ISwipeHintThemeAnimationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetNameProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ToHorizontalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9257,12 +9257,12 @@ pub struct ISwipeHintThemeAnimationStaticsVtbl {
 #[repr(transparent)]
 pub struct ITimeline(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITimeline {
-    type Vtable = ITimelineVtbl;
+    type Vtable = ITimeline_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bc465dc_be4d_4d0d_9549_2208b715f40d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITimelineVtbl {
+pub struct ITimeline_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AutoReverse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAutoReverse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -9307,12 +9307,12 @@ pub struct ITimelineVtbl {
 #[repr(transparent)]
 pub struct ITimelineFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITimelineFactory {
-    type Vtable = ITimelineFactoryVtbl;
+    type Vtable = ITimelineFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d56bb07_bda4_478b_8ada_eb04d580cd5e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITimelineFactoryVtbl {
+pub struct ITimelineFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -9320,12 +9320,12 @@ pub struct ITimelineFactoryVtbl {
 #[repr(transparent)]
 pub struct ITimelineStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITimelineStatics {
-    type Vtable = ITimelineStaticsVtbl;
+    type Vtable = ITimelineStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa902ed4e_ef10_4d6f_9a40_93cb8895f4e5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITimelineStaticsVtbl {
+pub struct ITimelineStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AllowDependentAnimations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAllowDependentAnimations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -9340,24 +9340,24 @@ pub struct ITimelineStaticsVtbl {
 #[repr(transparent)]
 pub struct ITransition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITransition {
-    type Vtable = ITransitionVtbl;
+    type Vtable = ITransition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c677c7c_01d0_4dce_b333_976f93312b08);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITransitionVtbl {
+pub struct ITransition_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITransitionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITransitionFactory {
-    type Vtable = ITransitionFactoryVtbl;
+    type Vtable = ITransitionFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc9ab2cf_3bc9_44aa_b3fc_883a83233a2c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITransitionFactoryVtbl {
+pub struct ITransitionFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
@@ -9422,7 +9422,7 @@ unsafe impl ::windows::core::RuntimeType for KeySpline {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.KeySpline;{77a163bb-d5ca-4a32-ba0b-7dff988e58a0})");
 }
 unsafe impl ::windows::core::Interface for KeySpline {
-    type Vtable = IKeySplineVtbl;
+    type Vtable = IKeySpline_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77a163bb_d5ca_4a32_ba0b_7dff988e58a0);
 }
 impl ::windows::core::RuntimeName for KeySpline {
@@ -9574,7 +9574,7 @@ unsafe impl ::windows::core::RuntimeType for KeyTimeHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.KeyTimeHelper;{3643e480-4823-466a-abe5-5e79c8ed77ed})");
 }
 unsafe impl ::windows::core::Interface for KeyTimeHelper {
-    type Vtable = IKeyTimeHelperVtbl;
+    type Vtable = IKeyTimeHelper_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3643e480_4823_466a_abe5_5e79c8ed77ed);
 }
 impl ::windows::core::RuntimeName for KeyTimeHelper {
@@ -9654,7 +9654,7 @@ unsafe impl ::windows::core::RuntimeType for LinearColorKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.LinearColorKeyFrame;{66fdb6ef-ac81-4611-b1d2-61f545983f03})");
 }
 unsafe impl ::windows::core::Interface for LinearColorKeyFrame {
-    type Vtable = ILinearColorKeyFrameVtbl;
+    type Vtable = ILinearColorKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66fdb6ef_ac81_4611_b1d2_61f545983f03);
 }
 impl ::windows::core::RuntimeName for LinearColorKeyFrame {
@@ -9774,7 +9774,7 @@ unsafe impl ::windows::core::RuntimeType for LinearDoubleKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.LinearDoubleKeyFrame;{8efdf265-9a7b-431d-8f0c-14c56b5ea4d9})");
 }
 unsafe impl ::windows::core::Interface for LinearDoubleKeyFrame {
-    type Vtable = ILinearDoubleKeyFrameVtbl;
+    type Vtable = ILinearDoubleKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8efdf265_9a7b_431d_8f0c_14c56b5ea4d9);
 }
 impl ::windows::core::RuntimeName for LinearDoubleKeyFrame {
@@ -9894,7 +9894,7 @@ unsafe impl ::windows::core::RuntimeType for LinearPointKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.LinearPointKeyFrame;{e7c9b8ef-af24-49ee-84f1-a86600a4e319})");
 }
 unsafe impl ::windows::core::Interface for LinearPointKeyFrame {
-    type Vtable = ILinearPointKeyFrameVtbl;
+    type Vtable = ILinearPointKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7c9b8ef_af24_49ee_84f1_a86600a4e319);
 }
 impl ::windows::core::RuntimeName for LinearPointKeyFrame {
@@ -10039,7 +10039,7 @@ unsafe impl ::windows::core::RuntimeType for NavigationThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.NavigationThemeTransition;{8833848c-4eb7-41f2-8799-9eef0a213b73})");
 }
 unsafe impl ::windows::core::Interface for NavigationThemeTransition {
-    type Vtable = INavigationThemeTransitionVtbl;
+    type Vtable = INavigationThemeTransition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8833848c_4eb7_41f2_8799_9eef0a213b73);
 }
 impl ::windows::core::RuntimeName for NavigationThemeTransition {
@@ -10151,7 +10151,7 @@ unsafe impl ::windows::core::RuntimeType for NavigationTransitionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo;{a9b05091-ae4a-4372-8625-21b7a8b98ca4})");
 }
 unsafe impl ::windows::core::Interface for NavigationTransitionInfo {
-    type Vtable = INavigationTransitionInfoVtbl;
+    type Vtable = INavigationTransitionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9b05091_ae4a_4372_8625_21b7a8b98ca4);
 }
 impl ::windows::core::RuntimeName for NavigationTransitionInfo {
@@ -10285,7 +10285,7 @@ unsafe impl ::windows::core::RuntimeType for ObjectAnimationUsingKeyFrames {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames;{334a2d92-b74a-4c64-b9a6-58bcfa314f22})");
 }
 unsafe impl ::windows::core::Interface for ObjectAnimationUsingKeyFrames {
-    type Vtable = IObjectAnimationUsingKeyFramesVtbl;
+    type Vtable = IObjectAnimationUsingKeyFrames_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x334a2d92_b74a_4c64_b9a6_58bcfa314f22);
 }
 impl ::windows::core::RuntimeName for ObjectAnimationUsingKeyFrames {
@@ -10445,7 +10445,7 @@ unsafe impl ::windows::core::RuntimeType for ObjectKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ObjectKeyFrame;{9852a851-8593-48ee-a6a4-d5d4720f029a})");
 }
 unsafe impl ::windows::core::Interface for ObjectKeyFrame {
-    type Vtable = IObjectKeyFrameVtbl;
+    type Vtable = IObjectKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9852a851_8593_48ee_a6a4_d5d4720f029a);
 }
 impl ::windows::core::RuntimeName for ObjectKeyFrame {
@@ -10649,7 +10649,7 @@ unsafe impl ::windows::core::RuntimeType for ObjectKeyFrameCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ObjectKeyFrameCollection {
-    type Vtable = super::super::super::super::Foundation::Collections::IVectorVtbl<ObjectKeyFrame>;
+    type Vtable = super::super::super::super::Foundation::Collections::IVector_Vtbl<ObjectKeyFrame>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -10835,7 +10835,7 @@ unsafe impl ::windows::core::RuntimeType for PaneThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PaneThemeTransition;{4708eb8e-4bfc-ee46-d4f9-708def3fbb2b})");
 }
 unsafe impl ::windows::core::Interface for PaneThemeTransition {
-    type Vtable = IPaneThemeTransitionVtbl;
+    type Vtable = IPaneThemeTransition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4708eb8e_4bfc_ee46_d4f9_708def3fbb2b);
 }
 impl ::windows::core::RuntimeName for PaneThemeTransition {
@@ -11066,7 +11066,7 @@ unsafe impl ::windows::core::RuntimeType for PointAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PointAnimation;{30f04312-7726-4f88-b8e2-2fa54518963b})");
 }
 unsafe impl ::windows::core::Interface for PointAnimation {
-    type Vtable = IPointAnimationVtbl;
+    type Vtable = IPointAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30f04312_7726_4f88_b8e2_2fa54518963b);
 }
 impl ::windows::core::RuntimeName for PointAnimation {
@@ -11220,7 +11220,7 @@ unsafe impl ::windows::core::RuntimeType for PointAnimationUsingKeyFrames {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames;{9b944f72-446a-41d0-a129-41a620f4595d})");
 }
 unsafe impl ::windows::core::Interface for PointAnimationUsingKeyFrames {
-    type Vtable = IPointAnimationUsingKeyFramesVtbl;
+    type Vtable = IPointAnimationUsingKeyFrames_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b944f72_446a_41d0_a129_41a620f4595d);
 }
 impl ::windows::core::RuntimeName for PointAnimationUsingKeyFrames {
@@ -11382,7 +11382,7 @@ unsafe impl ::windows::core::RuntimeType for PointKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PointKeyFrame;{fcc88d01-7f82-4dae-8026-7b7e086878b3})");
 }
 unsafe impl ::windows::core::Interface for PointKeyFrame {
-    type Vtable = IPointKeyFrameVtbl;
+    type Vtable = IPointKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcc88d01_7f82_4dae_8026_7b7e086878b3);
 }
 impl ::windows::core::RuntimeName for PointKeyFrame {
@@ -11586,7 +11586,7 @@ unsafe impl ::windows::core::RuntimeType for PointKeyFrameCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for PointKeyFrameCollection {
-    type Vtable = super::super::super::super::Foundation::Collections::IVectorVtbl<PointKeyFrame>;
+    type Vtable = super::super::super::super::Foundation::Collections::IVector_Vtbl<PointKeyFrame>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -11770,7 +11770,7 @@ unsafe impl ::windows::core::RuntimeType for PointerDownThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation;{b58e714e-c49d-4788-a233-0ae85d99dd5a})");
 }
 unsafe impl ::windows::core::Interface for PointerDownThemeAnimation {
-    type Vtable = IPointerDownThemeAnimationVtbl;
+    type Vtable = IPointerDownThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb58e714e_c49d_4788_a233_0ae85d99dd5a);
 }
 impl ::windows::core::RuntimeName for PointerDownThemeAnimation {
@@ -11915,7 +11915,7 @@ unsafe impl ::windows::core::RuntimeType for PointerUpThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation;{e9e9d07d-6340-4828-ad12-690694b9910b})");
 }
 unsafe impl ::windows::core::Interface for PointerUpThemeAnimation {
-    type Vtable = IPointerUpThemeAnimationVtbl;
+    type Vtable = IPointerUpThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9e9d07d_6340_4828_ad12_690694b9910b);
 }
 impl ::windows::core::RuntimeName for PointerUpThemeAnimation {
@@ -12100,7 +12100,7 @@ unsafe impl ::windows::core::RuntimeType for PopInThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PopInThemeAnimation;{196938c1-1c07-4c28-8847-f9f055b32855})");
 }
 unsafe impl ::windows::core::Interface for PopInThemeAnimation {
-    type Vtable = IPopInThemeAnimationVtbl;
+    type Vtable = IPopInThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x196938c1_1c07_4c28_8847_f9f055b32855);
 }
 impl ::windows::core::RuntimeName for PopInThemeAnimation {
@@ -12245,7 +12245,7 @@ unsafe impl ::windows::core::RuntimeType for PopOutThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PopOutThemeAnimation;{4786ab49-0e48-4e81-a2e5-cc5aa19e48d3})");
 }
 unsafe impl ::windows::core::Interface for PopOutThemeAnimation {
-    type Vtable = IPopOutThemeAnimationVtbl;
+    type Vtable = IPopOutThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4786ab49_0e48_4e81_a2e5_cc5aa19e48d3);
 }
 impl ::windows::core::RuntimeName for PopOutThemeAnimation {
@@ -12410,7 +12410,7 @@ unsafe impl ::windows::core::RuntimeType for PopupThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PopupThemeTransition;{47843552-4283-545e-c791-268dca22ce4b})");
 }
 unsafe impl ::windows::core::Interface for PopupThemeTransition {
-    type Vtable = IPopupThemeTransitionVtbl;
+    type Vtable = IPopupThemeTransition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47843552_4283_545e_c791_268dca22ce4b);
 }
 impl ::windows::core::RuntimeName for PopupThemeTransition {
@@ -12555,7 +12555,7 @@ unsafe impl ::windows::core::RuntimeType for PowerEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PowerEase;{69c80579-eedf-405b-8680-d9606880c937})");
 }
 unsafe impl ::windows::core::Interface for PowerEase {
-    type Vtable = IPowerEaseVtbl;
+    type Vtable = IPowerEase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69c80579_eedf_405b_8680_d9606880c937);
 }
 impl ::windows::core::RuntimeName for PowerEase {
@@ -12675,7 +12675,7 @@ unsafe impl ::windows::core::RuntimeType for QuadraticEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.QuadraticEase;{e1510e91-ef6d-44f0-803d-68d16de0ddfc})");
 }
 unsafe impl ::windows::core::Interface for QuadraticEase {
-    type Vtable = IQuadraticEaseVtbl;
+    type Vtable = IQuadraticEase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1510e91_ef6d_44f0_803d_68d16de0ddfc);
 }
 impl ::windows::core::RuntimeName for QuadraticEase {
@@ -12795,7 +12795,7 @@ unsafe impl ::windows::core::RuntimeType for QuarticEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.QuarticEase;{e8698814-fe42-4a05-b5b8-081f41157815})");
 }
 unsafe impl ::windows::core::Interface for QuarticEase {
-    type Vtable = IQuarticEaseVtbl;
+    type Vtable = IQuarticEase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8698814_fe42_4a05_b5b8_081f41157815);
 }
 impl ::windows::core::RuntimeName for QuarticEase {
@@ -12915,7 +12915,7 @@ unsafe impl ::windows::core::RuntimeType for QuinticEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.QuinticEase;{92ee793b-3c49-4108-aa11-ab786603da21})");
 }
 unsafe impl ::windows::core::Interface for QuinticEase {
-    type Vtable = IQuinticEaseVtbl;
+    type Vtable = IQuinticEase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92ee793b_3c49_4108_aa11_ab786603da21);
 }
 impl ::windows::core::RuntimeName for QuinticEase {
@@ -13035,7 +13035,7 @@ unsafe impl ::windows::core::RuntimeType for ReorderThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ReorderThemeTransition;{f2065c6c-d052-4ad1-8362-b71b36df7497})");
 }
 unsafe impl ::windows::core::Interface for ReorderThemeTransition {
-    type Vtable = IReorderThemeTransitionVtbl;
+    type Vtable = IReorderThemeTransition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2065c6c_d052_4ad1_8362_b71b36df7497);
 }
 impl ::windows::core::RuntimeName for ReorderThemeTransition {
@@ -13249,7 +13249,7 @@ unsafe impl ::windows::core::RuntimeType for RepeatBehaviorHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.RepeatBehaviorHelper;{6863ab72-4997-47f9-87ad-37efb75993ea})");
 }
 unsafe impl ::windows::core::Interface for RepeatBehaviorHelper {
-    type Vtable = IRepeatBehaviorHelperVtbl;
+    type Vtable = IRepeatBehaviorHelper_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6863ab72_4997_47f9_87ad_37efb75993ea);
 }
 impl ::windows::core::RuntimeName for RepeatBehaviorHelper {
@@ -13428,7 +13428,7 @@ unsafe impl ::windows::core::RuntimeType for RepositionThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation;{ecda24e8-8945-4949-a1bf-62109965a7e9})");
 }
 unsafe impl ::windows::core::Interface for RepositionThemeAnimation {
-    type Vtable = IRepositionThemeAnimationVtbl;
+    type Vtable = IRepositionThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecda24e8_8945_4949_a1bf_62109965a7e9);
 }
 impl ::windows::core::RuntimeName for RepositionThemeAnimation {
@@ -13573,7 +13573,7 @@ unsafe impl ::windows::core::RuntimeType for RepositionThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.RepositionThemeTransition;{88329b82-98f3-455a-ac53-2e7083b6e22c})");
 }
 unsafe impl ::windows::core::Interface for RepositionThemeTransition {
-    type Vtable = IRepositionThemeTransitionVtbl;
+    type Vtable = IRepositionThemeTransition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88329b82_98f3_455a_ac53_2e7083b6e22c);
 }
 impl ::windows::core::RuntimeName for RepositionThemeTransition {
@@ -13693,7 +13693,7 @@ unsafe impl ::windows::core::RuntimeType for SineEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SineEase;{a9382962-230b-49da-9e0d-664987892343})");
 }
 unsafe impl ::windows::core::Interface for SineEase {
-    type Vtable = ISineEaseVtbl;
+    type Vtable = ISineEase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9382962_230b_49da_9e0d_664987892343);
 }
 impl ::windows::core::RuntimeName for SineEase {
@@ -13872,7 +13872,7 @@ unsafe impl ::windows::core::RuntimeType for SlideNavigationTransitionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo;{d6ac9d77-2e03-405f-80ed-e62beef3668f})");
 }
 unsafe impl ::windows::core::Interface for SlideNavigationTransitionInfo {
-    type Vtable = ISlideNavigationTransitionInfoVtbl;
+    type Vtable = ISlideNavigationTransitionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6ac9d77_2e03_405f_80ed_e62beef3668f);
 }
 impl ::windows::core::RuntimeName for SlideNavigationTransitionInfo {
@@ -14017,7 +14017,7 @@ unsafe impl ::windows::core::RuntimeType for SplineColorKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SplineColorKeyFrame;{1a4a5941-1fe0-473a-8efe-4316d8c86229})");
 }
 unsafe impl ::windows::core::Interface for SplineColorKeyFrame {
-    type Vtable = ISplineColorKeyFrameVtbl;
+    type Vtable = ISplineColorKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a4a5941_1fe0_473a_8efe_4316d8c86229);
 }
 impl ::windows::core::RuntimeName for SplineColorKeyFrame {
@@ -14162,7 +14162,7 @@ unsafe impl ::windows::core::RuntimeType for SplineDoubleKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SplineDoubleKeyFrame;{00d72d38-6b2b-4843-838e-c8b115eec801})");
 }
 unsafe impl ::windows::core::Interface for SplineDoubleKeyFrame {
-    type Vtable = ISplineDoubleKeyFrameVtbl;
+    type Vtable = ISplineDoubleKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00d72d38_6b2b_4843_838e_c8b115eec801);
 }
 impl ::windows::core::RuntimeName for SplineDoubleKeyFrame {
@@ -14307,7 +14307,7 @@ unsafe impl ::windows::core::RuntimeType for SplinePointKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SplinePointKeyFrame;{0f19f306-7036-494f-bc3c-780df0cc524a})");
 }
 unsafe impl ::windows::core::Interface for SplinePointKeyFrame {
-    type Vtable = ISplinePointKeyFrameVtbl;
+    type Vtable = ISplinePointKeyFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f19f306_7036_494f_bc3c_780df0cc524a);
 }
 impl ::windows::core::RuntimeName for SplinePointKeyFrame {
@@ -14654,7 +14654,7 @@ unsafe impl ::windows::core::RuntimeType for SplitCloseThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SplitCloseThemeAnimation;{4f799518-ff39-4e90-bb74-2abd56027402})");
 }
 unsafe impl ::windows::core::Interface for SplitCloseThemeAnimation {
-    type Vtable = ISplitCloseThemeAnimationVtbl;
+    type Vtable = ISplitCloseThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f799518_ff39_4e90_bb74_2abd56027402);
 }
 impl ::windows::core::RuntimeName for SplitCloseThemeAnimation {
@@ -15001,7 +15001,7 @@ unsafe impl ::windows::core::RuntimeType for SplitOpenThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SplitOpenThemeAnimation;{785fd7aa-5456-4639-8fd2-26bae6a5ffe4})");
 }
 unsafe impl ::windows::core::Interface for SplitOpenThemeAnimation {
-    type Vtable = ISplitOpenThemeAnimationVtbl;
+    type Vtable = ISplitOpenThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x785fd7aa_5456_4639_8fd2_26bae6a5ffe4);
 }
 impl ::windows::core::RuntimeName for SplitOpenThemeAnimation {
@@ -15229,7 +15229,7 @@ unsafe impl ::windows::core::RuntimeType for Storyboard {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.Storyboard;{d45c1e6e-3594-460e-981a-32271bd3aa06})");
 }
 unsafe impl ::windows::core::Interface for Storyboard {
-    type Vtable = IStoryboardVtbl;
+    type Vtable = IStoryboard_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd45c1e6e_3594_460e_981a_32271bd3aa06);
 }
 impl ::windows::core::RuntimeName for Storyboard {
@@ -15349,7 +15349,7 @@ unsafe impl ::windows::core::RuntimeType for SuppressNavigationTransitionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SuppressNavigationTransitionInfo;{244d7b0c-b1b7-4871-9d3e-d56203a3a5b4})");
 }
 unsafe impl ::windows::core::Interface for SuppressNavigationTransitionInfo {
-    type Vtable = ISuppressNavigationTransitionInfoVtbl;
+    type Vtable = ISuppressNavigationTransitionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x244d7b0c_b1b7_4871_9d3e_d56203a3a5b4);
 }
 impl ::windows::core::RuntimeName for SuppressNavigationTransitionInfo {
@@ -15534,7 +15534,7 @@ unsafe impl ::windows::core::RuntimeType for SwipeBackThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SwipeBackThemeAnimation;{a38a4214-0bca-4d2d-95f7-ceba57fbaf60})");
 }
 unsafe impl ::windows::core::Interface for SwipeBackThemeAnimation {
-    type Vtable = ISwipeBackThemeAnimationVtbl;
+    type Vtable = ISwipeBackThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa38a4214_0bca_4d2d_95f7_ceba57fbaf60);
 }
 impl ::windows::core::RuntimeName for SwipeBackThemeAnimation {
@@ -15719,7 +15719,7 @@ unsafe impl ::windows::core::RuntimeType for SwipeHintThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SwipeHintThemeAnimation;{cdd067c0-580e-4e40-be98-f202d3d84365})");
 }
 unsafe impl ::windows::core::Interface for SwipeHintThemeAnimation {
-    type Vtable = ISwipeHintThemeAnimationVtbl;
+    type Vtable = ISwipeHintThemeAnimation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdd067c0_580e_4e40_be98_f202d3d84365);
 }
 impl ::windows::core::RuntimeName for SwipeHintThemeAnimation {
@@ -15989,7 +15989,7 @@ unsafe impl ::windows::core::RuntimeType for Timeline {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.Timeline;{0bc465dc-be4d-4d0d-9549-2208b715f40d})");
 }
 unsafe impl ::windows::core::Interface for Timeline {
-    type Vtable = ITimelineVtbl;
+    type Vtable = ITimeline_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bc465dc_be4d_4d0d_9549_2208b715f40d);
 }
 impl ::windows::core::RuntimeName for Timeline {
@@ -16193,7 +16193,7 @@ unsafe impl ::windows::core::RuntimeType for TimelineCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for TimelineCollection {
-    type Vtable = super::super::super::super::Foundation::Collections::IVectorVtbl<Timeline>;
+    type Vtable = super::super::super::super::Foundation::Collections::IVector_Vtbl<Timeline>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -16344,7 +16344,7 @@ unsafe impl ::windows::core::RuntimeType for Transition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.Transition;{3c677c7c-01d0-4dce-b333-976f93312b08})");
 }
 unsafe impl ::windows::core::Interface for Transition {
-    type Vtable = ITransitionVtbl;
+    type Vtable = ITransition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c677c7c_01d0_4dce_b333_976f93312b08);
 }
 impl ::windows::core::RuntimeName for Transition {
@@ -16548,7 +16548,7 @@ unsafe impl ::windows::core::RuntimeType for TransitionCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for TransitionCollection {
-    type Vtable = super::super::super::super::Foundation::Collections::IVectorVtbl<Transition>;
+    type Vtable = super::super::super::super::Foundation::Collections::IVector_Vtbl<Transition>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(feature = "Foundation_Collections")]

@@ -79,13 +79,13 @@ impl ::windows::core::RuntimeName for ForegroundEnergyDiagnostics {
 pub struct IBackgroundEnergyDiagnosticsStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IBackgroundEnergyDiagnosticsStatics {
-    type Vtable = IBackgroundEnergyDiagnosticsStaticsVtbl;
+    type Vtable = IBackgroundEnergyDiagnosticsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7663702_d3a6_46e0_8f9b_50b95bb4f9c5);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundEnergyDiagnosticsStaticsVtbl {
+pub struct IBackgroundEnergyDiagnosticsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub DeviceSpecificConversionFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -106,13 +106,13 @@ pub struct IBackgroundEnergyDiagnosticsStaticsVtbl {
 pub struct IForegroundEnergyDiagnosticsStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IForegroundEnergyDiagnosticsStatics {
-    type Vtable = IForegroundEnergyDiagnosticsStaticsVtbl;
+    type Vtable = IForegroundEnergyDiagnosticsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23ca0917_cd07_4609_be15_8fe894c5e41e);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IForegroundEnergyDiagnosticsStaticsVtbl {
+pub struct IForegroundEnergyDiagnosticsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub DeviceSpecificConversionFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,

@@ -66,12 +66,12 @@ impl ::core::fmt::Debug for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
     }
 }
 unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
-    type Vtable = IWindowsDevicesAllJoynBusAttachmentFactoryInteropVtbl;
+    type Vtable = IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b8f7505_b239_4e7b_88af_f6682575d861);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowsDevicesAllJoynBusAttachmentFactoryInteropVtbl {
+pub struct IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateFromWin32Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, win32handle: u64, enableaboutdata: u8, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -142,12 +142,12 @@ impl ::core::fmt::Debug for IWindowsDevicesAllJoynBusAttachmentInterop {
     }
 }
 unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusAttachmentInterop {
-    type Vtable = IWindowsDevicesAllJoynBusAttachmentInteropVtbl;
+    type Vtable = IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd89c65b_b50e_4a19_9d0c_b42b783281cd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowsDevicesAllJoynBusAttachmentInteropVtbl {
+pub struct IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Win32Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut u64) -> ::windows::core::HRESULT,
 }
@@ -218,12 +218,12 @@ impl ::core::fmt::Debug for IWindowsDevicesAllJoynBusObjectFactoryInterop {
     }
 }
 unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusObjectFactoryInterop {
-    type Vtable = IWindowsDevicesAllJoynBusObjectFactoryInteropVtbl;
+    type Vtable = IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6174e506_8b95_4e36_95c0_b88fed34938c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowsDevicesAllJoynBusObjectFactoryInteropVtbl {
+pub struct IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateFromWin32Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, win32handle: u64, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -302,12 +302,12 @@ impl ::core::fmt::Debug for IWindowsDevicesAllJoynBusObjectInterop {
     }
 }
 unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusObjectInterop {
-    type Vtable = IWindowsDevicesAllJoynBusObjectInteropVtbl;
+    type Vtable = IWindowsDevicesAllJoynBusObjectInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd78aa3d5_5054_428f_99f2_ec3a5de3c3bc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowsDevicesAllJoynBusObjectInteropVtbl {
+pub struct IWindowsDevicesAllJoynBusObjectInterop_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AddPropertyGetHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, callback: isize) -> ::windows::core::HRESULT,
     pub AddPropertySetHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, callback: isize) -> ::windows::core::HRESULT,

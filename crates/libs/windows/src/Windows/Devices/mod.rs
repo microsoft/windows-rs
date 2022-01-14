@@ -171,12 +171,12 @@ unsafe impl ::windows::core::RuntimeType for ILowLevelDevicesAggregateProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a73e561c-aac1-4ec7-a852-479f7060d01f}");
 }
 unsafe impl ::windows::core::Interface for ILowLevelDevicesAggregateProvider {
-    type Vtable = ILowLevelDevicesAggregateProviderVtbl;
+    type Vtable = ILowLevelDevicesAggregateProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa73e561c_aac1_4ec7_a852_479f7060d01f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILowLevelDevicesAggregateProviderVtbl {
+pub struct ILowLevelDevicesAggregateProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Adc_Provider")]
     pub AdcControllerProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -203,12 +203,12 @@ pub struct ILowLevelDevicesAggregateProviderVtbl {
 #[repr(transparent)]
 pub struct ILowLevelDevicesAggregateProviderFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILowLevelDevicesAggregateProviderFactory {
-    type Vtable = ILowLevelDevicesAggregateProviderFactoryVtbl;
+    type Vtable = ILowLevelDevicesAggregateProviderFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ac4aaf6_3473_465e_96d5_36281a2c57af);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILowLevelDevicesAggregateProviderFactoryVtbl {
+pub struct ILowLevelDevicesAggregateProviderFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adc: ::windows::core::RawPtr, pwm: ::windows::core::RawPtr, gpio: ::windows::core::RawPtr, i2c: ::windows::core::RawPtr, spi: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -219,24 +219,24 @@ pub struct ILowLevelDevicesAggregateProviderFactoryVtbl {
 #[repr(transparent)]
 pub struct ILowLevelDevicesController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILowLevelDevicesController {
-    type Vtable = ILowLevelDevicesControllerVtbl;
+    type Vtable = ILowLevelDevicesController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ec23dd4_179b_45de_9b39_3ae02527de52);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILowLevelDevicesControllerVtbl {
+pub struct ILowLevelDevicesController_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILowLevelDevicesControllerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILowLevelDevicesControllerStatics {
-    type Vtable = ILowLevelDevicesControllerStaticsVtbl;
+    type Vtable = ILowLevelDevicesControllerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x093e926a_fccb_4394_a697_19de637c2db3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILowLevelDevicesControllerStaticsVtbl {
+pub struct ILowLevelDevicesControllerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DefaultProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetDefaultProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -324,7 +324,7 @@ unsafe impl ::windows::core::RuntimeType for LowLevelDevicesAggregateProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.LowLevelDevicesAggregateProvider;{a73e561c-aac1-4ec7-a852-479f7060d01f})");
 }
 unsafe impl ::windows::core::Interface for LowLevelDevicesAggregateProvider {
-    type Vtable = ILowLevelDevicesAggregateProviderVtbl;
+    type Vtable = ILowLevelDevicesAggregateProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa73e561c_aac1_4ec7_a852_479f7060d01f);
 }
 impl ::windows::core::RuntimeName for LowLevelDevicesAggregateProvider {
@@ -435,7 +435,7 @@ unsafe impl ::windows::core::RuntimeType for LowLevelDevicesController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.LowLevelDevicesController;{2ec23dd4-179b-45de-9b39-3ae02527de52})");
 }
 unsafe impl ::windows::core::Interface for LowLevelDevicesController {
-    type Vtable = ILowLevelDevicesControllerVtbl;
+    type Vtable = ILowLevelDevicesController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ec23dd4_179b_45de_9b39_3ae02527de52);
 }
 impl ::windows::core::RuntimeName for LowLevelDevicesController {

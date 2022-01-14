@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct ISpatialSurfaceInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialSurfaceInfo {
-    type Vtable = ISpatialSurfaceInfoVtbl;
+    type Vtable = ISpatialSurfaceInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8e9ebe7_39b7_3962_bb03_57f56e1fb0a1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialSurfaceInfoVtbl {
+pub struct ISpatialSurfaceInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -32,12 +32,12 @@ pub struct ISpatialSurfaceInfoVtbl {
 #[repr(transparent)]
 pub struct ISpatialSurfaceMesh(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialSurfaceMesh {
-    type Vtable = ISpatialSurfaceMeshVtbl;
+    type Vtable = ISpatialSurfaceMesh_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x108f57d9_df0d_3950_a0fd_f972c77c27b4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialSurfaceMeshVtbl {
+pub struct ISpatialSurfaceMesh_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SurfaceInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CoordinateSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -53,12 +53,12 @@ pub struct ISpatialSurfaceMeshVtbl {
 #[repr(transparent)]
 pub struct ISpatialSurfaceMeshBuffer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialSurfaceMeshBuffer {
-    type Vtable = ISpatialSurfaceMeshBufferVtbl;
+    type Vtable = ISpatialSurfaceMeshBuffer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93cf59e0_871f_33f8_98b2_03d101458f6f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialSurfaceMeshBufferVtbl {
+pub struct ISpatialSurfaceMeshBuffer_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_DirectX")]
     pub Format: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT,
@@ -75,12 +75,12 @@ pub struct ISpatialSurfaceMeshBufferVtbl {
 #[repr(transparent)]
 pub struct ISpatialSurfaceMeshOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialSurfaceMeshOptions {
-    type Vtable = ISpatialSurfaceMeshOptionsVtbl;
+    type Vtable = ISpatialSurfaceMeshOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2759f89_3572_3d2d_a10d_5fee9394aa37);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialSurfaceMeshOptionsVtbl {
+pub struct ISpatialSurfaceMeshOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_DirectX")]
     pub VertexPositionFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT,
@@ -113,12 +113,12 @@ pub struct ISpatialSurfaceMeshOptionsVtbl {
 #[repr(transparent)]
 pub struct ISpatialSurfaceMeshOptionsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialSurfaceMeshOptionsStatics {
-    type Vtable = ISpatialSurfaceMeshOptionsStaticsVtbl;
+    type Vtable = ISpatialSurfaceMeshOptionsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b340abf_9781_4505_8935_013575caae5e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialSurfaceMeshOptionsStaticsVtbl {
+pub struct ISpatialSurfaceMeshOptionsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
     pub SupportedVertexPositionFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -137,12 +137,12 @@ pub struct ISpatialSurfaceMeshOptionsStaticsVtbl {
 #[repr(transparent)]
 pub struct ISpatialSurfaceObserver(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialSurfaceObserver {
-    type Vtable = ISpatialSurfaceObserverVtbl;
+    type Vtable = ISpatialSurfaceObserver_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10b69819_ddca_3483_ac3a_748fe8c86df5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialSurfaceObserverVtbl {
+pub struct ISpatialSurfaceObserver_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetObservedSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -166,12 +166,12 @@ pub struct ISpatialSurfaceObserverVtbl {
 #[repr(transparent)]
 pub struct ISpatialSurfaceObserverStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialSurfaceObserverStatics {
-    type Vtable = ISpatialSurfaceObserverStaticsVtbl;
+    type Vtable = ISpatialSurfaceObserverStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x165951ed_2108_4168_9175_87e027bc9285);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialSurfaceObserverStaticsVtbl {
+pub struct ISpatialSurfaceObserverStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestAccessAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -182,12 +182,12 @@ pub struct ISpatialSurfaceObserverStaticsVtbl {
 #[repr(transparent)]
 pub struct ISpatialSurfaceObserverStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialSurfaceObserverStatics2 {
-    type Vtable = ISpatialSurfaceObserverStatics2Vtbl;
+    type Vtable = ISpatialSurfaceObserverStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f534261_c55d_4e6b_a895_a19de69a42e3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialSurfaceObserverStatics2Vtbl {
+pub struct ISpatialSurfaceObserverStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -260,7 +260,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialSurfaceInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceInfo;{f8e9ebe7-39b7-3962-bb03-57f56e1fb0a1})");
 }
 unsafe impl ::windows::core::Interface for SpatialSurfaceInfo {
-    type Vtable = ISpatialSurfaceInfoVtbl;
+    type Vtable = ISpatialSurfaceInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8e9ebe7_39b7_3962_bb03_57f56e1fb0a1);
 }
 impl ::windows::core::RuntimeName for SpatialSurfaceInfo {
@@ -382,7 +382,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialSurfaceMesh {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceMesh;{108f57d9-df0d-3950-a0fd-f972c77c27b4})");
 }
 unsafe impl ::windows::core::Interface for SpatialSurfaceMesh {
-    type Vtable = ISpatialSurfaceMeshVtbl;
+    type Vtable = ISpatialSurfaceMesh_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x108f57d9_df0d_3950_a0fd_f972c77c27b4);
 }
 impl ::windows::core::RuntimeName for SpatialSurfaceMesh {
@@ -489,7 +489,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialSurfaceMeshBuffer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshBuffer;{93cf59e0-871f-33f8-98b2-03d101458f6f})");
 }
 unsafe impl ::windows::core::Interface for SpatialSurfaceMeshBuffer {
-    type Vtable = ISpatialSurfaceMeshBufferVtbl;
+    type Vtable = ISpatialSurfaceMeshBuffer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93cf59e0_871f_33f8_98b2_03d101458f6f);
 }
 impl ::windows::core::RuntimeName for SpatialSurfaceMeshBuffer {
@@ -656,7 +656,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialSurfaceMeshOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshOptions;{d2759f89-3572-3d2d-a10d-5fee9394aa37})");
 }
 unsafe impl ::windows::core::Interface for SpatialSurfaceMeshOptions {
-    type Vtable = ISpatialSurfaceMeshOptionsVtbl;
+    type Vtable = ISpatialSurfaceMeshOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2759f89_3572_3d2d_a10d_5fee9394aa37);
 }
 impl ::windows::core::RuntimeName for SpatialSurfaceMeshOptions {
@@ -796,7 +796,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialSurfaceObserver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceObserver;{10b69819-ddca-3483-ac3a-748fe8c86df5})");
 }
 unsafe impl ::windows::core::Interface for SpatialSurfaceObserver {
-    type Vtable = ISpatialSurfaceObserverVtbl;
+    type Vtable = ISpatialSurfaceObserver_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10b69819_ddca_3483_ac3a_748fe8c86df5);
 }
 impl ::windows::core::RuntimeName for SpatialSurfaceObserver {

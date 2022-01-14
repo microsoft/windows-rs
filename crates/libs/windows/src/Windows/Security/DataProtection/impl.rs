@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IUserDataAvailabilityStateChangedEventArgsImpl: Sized {
+pub trait IUserDataAvailabilityStateChangedEventArgs_Impl: Sized {
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -7,9 +7,9 @@ impl ::windows::core::RuntimeName for IUserDataAvailabilityStateChangedEventArgs
     const NAME: &'static str = "Windows.Security.DataProtection.IUserDataAvailabilityStateChangedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IUserDataAvailabilityStateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAvailabilityStateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataAvailabilityStateChangedEventArgsVtbl {
-        unsafe extern "system" fn GetDeferral<Impl: IUserDataAvailabilityStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUserDataAvailabilityStateChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataAvailabilityStateChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataAvailabilityStateChangedEventArgs_Vtbl {
+        unsafe extern "system" fn GetDeferral<Impl: IUserDataAvailabilityStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -30,7 +30,7 @@ impl IUserDataAvailabilityStateChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IUserDataBufferUnprotectResultImpl: Sized {
+pub trait IUserDataBufferUnprotectResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<UserDataBufferUnprotectStatus>;
     fn UnprotectedBuffer(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
@@ -39,9 +39,9 @@ impl ::windows::core::RuntimeName for IUserDataBufferUnprotectResult {
     const NAME: &'static str = "Windows.Security.DataProtection.IUserDataBufferUnprotectResult";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IUserDataBufferUnprotectResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataBufferUnprotectResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataBufferUnprotectResultVtbl {
-        unsafe extern "system" fn Status<Impl: IUserDataBufferUnprotectResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UserDataBufferUnprotectStatus) -> ::windows::core::HRESULT {
+impl IUserDataBufferUnprotectResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataBufferUnprotectResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataBufferUnprotectResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IUserDataBufferUnprotectResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UserDataBufferUnprotectStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -52,7 +52,7 @@ impl IUserDataBufferUnprotectResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnprotectedBuffer<Impl: IUserDataBufferUnprotectResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnprotectedBuffer<Impl: IUserDataBufferUnprotectResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnprotectedBuffer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -74,7 +74,7 @@ impl IUserDataBufferUnprotectResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IUserDataProtectionManagerImpl: Sized {
+pub trait IUserDataProtectionManager_Impl: Sized {
     fn ProtectStorageItemAsync(&mut self, storageitem: &::core::option::Option<super::super::Storage::IStorageItem>, availability: UserDataAvailability) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>>;
     fn GetStorageItemProtectionInfoAsync(&mut self, storageitem: &::core::option::Option<super::super::Storage::IStorageItem>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionInfo>>;
     fn ProtectBufferAsync(&mut self, unprotectedbuffer: &::core::option::Option<super::super::Storage::Streams::IBuffer>, availability: UserDataAvailability) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>;
@@ -88,9 +88,9 @@ impl ::windows::core::RuntimeName for IUserDataProtectionManager {
     const NAME: &'static str = "Windows.Security.DataProtection.IUserDataProtectionManager";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IUserDataProtectionManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataProtectionManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataProtectionManagerVtbl {
-        unsafe extern "system" fn ProtectStorageItemAsync<Impl: IUserDataProtectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storageitem: ::windows::core::RawPtr, availability: UserDataAvailability, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUserDataProtectionManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataProtectionManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataProtectionManager_Vtbl {
+        unsafe extern "system" fn ProtectStorageItemAsync<Impl: IUserDataProtectionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storageitem: ::windows::core::RawPtr, availability: UserDataAvailability, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtectStorageItemAsync(&*(&storageitem as *const <super::super::Storage::IStorageItem as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageItem as ::windows::core::DefaultType>::DefaultType), availability) {
                 ::core::result::Result::Ok(ok__) => {
@@ -101,7 +101,7 @@ impl IUserDataProtectionManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStorageItemProtectionInfoAsync<Impl: IUserDataProtectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storageitem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStorageItemProtectionInfoAsync<Impl: IUserDataProtectionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storageitem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStorageItemProtectionInfoAsync(&*(&storageitem as *const <super::super::Storage::IStorageItem as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageItem as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -112,7 +112,7 @@ impl IUserDataProtectionManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProtectBufferAsync<Impl: IUserDataProtectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, unprotectedbuffer: ::windows::core::RawPtr, availability: UserDataAvailability, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProtectBufferAsync<Impl: IUserDataProtectionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, unprotectedbuffer: ::windows::core::RawPtr, availability: UserDataAvailability, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtectBufferAsync(&*(&unprotectedbuffer as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType), availability) {
                 ::core::result::Result::Ok(ok__) => {
@@ -123,7 +123,7 @@ impl IUserDataProtectionManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnprotectBufferAsync<Impl: IUserDataProtectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, protectedbuffer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnprotectBufferAsync<Impl: IUserDataProtectionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, protectedbuffer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnprotectBufferAsync(&*(&protectedbuffer as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -134,7 +134,7 @@ impl IUserDataProtectionManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsContinuedDataAvailabilityExpected<Impl: IUserDataProtectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, availability: UserDataAvailability, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsContinuedDataAvailabilityExpected<Impl: IUserDataProtectionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, availability: UserDataAvailability, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsContinuedDataAvailabilityExpected(availability) {
                 ::core::result::Result::Ok(ok__) => {
@@ -145,7 +145,7 @@ impl IUserDataProtectionManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DataAvailabilityStateChanged<Impl: IUserDataProtectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DataAvailabilityStateChanged<Impl: IUserDataProtectionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataAvailabilityStateChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<UserDataProtectionManager, UserDataAvailabilityStateChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<UserDataProtectionManager, UserDataAvailabilityStateChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -156,7 +156,7 @@ impl IUserDataProtectionManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDataAvailabilityStateChanged<Impl: IUserDataProtectionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDataAvailabilityStateChanged<Impl: IUserDataProtectionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDataAvailabilityStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -176,7 +176,7 @@ impl IUserDataProtectionManagerVtbl {
     }
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-pub trait IUserDataProtectionManagerStaticsImpl: Sized {
+pub trait IUserDataProtectionManagerStatics_Impl: Sized {
     fn TryGetDefault(&mut self) -> ::windows::core::Result<UserDataProtectionManager>;
     fn TryGetForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<UserDataProtectionManager>;
 }
@@ -185,9 +185,9 @@ impl ::windows::core::RuntimeName for IUserDataProtectionManagerStatics {
     const NAME: &'static str = "Windows.Security.DataProtection.IUserDataProtectionManagerStatics";
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-impl IUserDataProtectionManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataProtectionManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataProtectionManagerStaticsVtbl {
-        unsafe extern "system" fn TryGetDefault<Impl: IUserDataProtectionManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUserDataProtectionManagerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataProtectionManagerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataProtectionManagerStatics_Vtbl {
+        unsafe extern "system" fn TryGetDefault<Impl: IUserDataProtectionManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetDefault() {
                 ::core::result::Result::Ok(ok__) => {
@@ -198,7 +198,7 @@ impl IUserDataProtectionManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryGetForUser<Impl: IUserDataProtectionManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryGetForUser<Impl: IUserDataProtectionManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryGetForUser(&*(&user as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -220,7 +220,7 @@ impl IUserDataProtectionManagerStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUserDataStorageItemProtectionInfoImpl: Sized {
+pub trait IUserDataStorageItemProtectionInfo_Impl: Sized {
     fn Availability(&mut self) -> ::windows::core::Result<UserDataAvailability>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -228,9 +228,9 @@ impl ::windows::core::RuntimeName for IUserDataStorageItemProtectionInfo {
     const NAME: &'static str = "Windows.Security.DataProtection.IUserDataStorageItemProtectionInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUserDataStorageItemProtectionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataStorageItemProtectionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataStorageItemProtectionInfoVtbl {
-        unsafe extern "system" fn Availability<Impl: IUserDataStorageItemProtectionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UserDataAvailability) -> ::windows::core::HRESULT {
+impl IUserDataStorageItemProtectionInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserDataStorageItemProtectionInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUserDataStorageItemProtectionInfo_Vtbl {
+        unsafe extern "system" fn Availability<Impl: IUserDataStorageItemProtectionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UserDataAvailability) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Availability() {
                 ::core::result::Result::Ok(ok__) => {

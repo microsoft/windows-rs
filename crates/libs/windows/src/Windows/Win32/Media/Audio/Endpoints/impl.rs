@@ -1,9 +1,9 @@
-pub trait IAudioEndpointFormatControlImpl: Sized {
+pub trait IAudioEndpointFormatControl_Impl: Sized {
     fn ResetToDefault(&mut self, resetflags: u32) -> ::windows::core::Result<()>;
 }
-impl IAudioEndpointFormatControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointFormatControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEndpointFormatControlVtbl {
-        unsafe extern "system" fn ResetToDefault<Impl: IAudioEndpointFormatControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resetflags: u32) -> ::windows::core::HRESULT {
+impl IAudioEndpointFormatControl_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointFormatControl_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEndpointFormatControl_Vtbl {
+        unsafe extern "system" fn ResetToDefault<Impl: IAudioEndpointFormatControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resetflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ResetToDefault(::core::mem::transmute_copy(&resetflags)).into()
         }
@@ -14,18 +14,18 @@ impl IAudioEndpointFormatControlVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_Apo"))]
-pub trait IAudioEndpointLastBufferControlImpl: Sized {
+pub trait IAudioEndpointLastBufferControl_Impl: Sized {
     fn IsLastBufferControlSupported(&mut self) -> super::super::super::Foundation::BOOL;
     fn ReleaseOutputDataPointerForLastBuffer(&mut self, pconnectionproperty: *const super::Apo::APO_CONNECTION_PROPERTY);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_Apo"))]
-impl IAudioEndpointLastBufferControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointLastBufferControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEndpointLastBufferControlVtbl {
-        unsafe extern "system" fn IsLastBufferControlSupported<Impl: IAudioEndpointLastBufferControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+impl IAudioEndpointLastBufferControl_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointLastBufferControl_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEndpointLastBufferControl_Vtbl {
+        unsafe extern "system" fn IsLastBufferControlSupported<Impl: IAudioEndpointLastBufferControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).IsLastBufferControlSupported()
         }
-        unsafe extern "system" fn ReleaseOutputDataPointerForLastBuffer<Impl: IAudioEndpointLastBufferControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnectionproperty: *const super::Apo::APO_CONNECTION_PROPERTY) {
+        unsafe extern "system" fn ReleaseOutputDataPointerForLastBuffer<Impl: IAudioEndpointLastBufferControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnectionproperty: *const super::Apo::APO_CONNECTION_PROPERTY) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReleaseOutputDataPointerForLastBuffer(::core::mem::transmute_copy(&pconnectionproperty))
         }
@@ -39,13 +39,13 @@ impl IAudioEndpointLastBufferControlVtbl {
         iid == &<IAudioEndpointLastBufferControl as ::windows::core::Interface>::IID
     }
 }
-pub trait IAudioEndpointOffloadStreamMeterImpl: Sized {
+pub trait IAudioEndpointOffloadStreamMeter_Impl: Sized {
     fn GetMeterChannelCount(&mut self) -> ::windows::core::Result<u32>;
     fn GetMeteringData(&mut self, u32channelcount: u32) -> ::windows::core::Result<f32>;
 }
-impl IAudioEndpointOffloadStreamMeterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointOffloadStreamMeterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEndpointOffloadStreamMeterVtbl {
-        unsafe extern "system" fn GetMeterChannelCount<Impl: IAudioEndpointOffloadStreamMeterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pu32channelcount: *mut u32) -> ::windows::core::HRESULT {
+impl IAudioEndpointOffloadStreamMeter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointOffloadStreamMeter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEndpointOffloadStreamMeter_Vtbl {
+        unsafe extern "system" fn GetMeterChannelCount<Impl: IAudioEndpointOffloadStreamMeter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pu32channelcount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMeterChannelCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -55,7 +55,7 @@ impl IAudioEndpointOffloadStreamMeterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMeteringData<Impl: IAudioEndpointOffloadStreamMeterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, u32channelcount: u32, pf32peakvalues: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMeteringData<Impl: IAudioEndpointOffloadStreamMeter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, u32channelcount: u32, pf32peakvalues: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMeteringData(::core::mem::transmute_copy(&u32channelcount)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -75,17 +75,17 @@ impl IAudioEndpointOffloadStreamMeterVtbl {
         iid == &<IAudioEndpointOffloadStreamMeter as ::windows::core::Interface>::IID
     }
 }
-pub trait IAudioEndpointOffloadStreamMuteImpl: Sized {
+pub trait IAudioEndpointOffloadStreamMute_Impl: Sized {
     fn SetMute(&mut self, bmuted: u8) -> ::windows::core::Result<()>;
     fn GetMute(&mut self) -> ::windows::core::Result<u8>;
 }
-impl IAudioEndpointOffloadStreamMuteVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointOffloadStreamMuteImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEndpointOffloadStreamMuteVtbl {
-        unsafe extern "system" fn SetMute<Impl: IAudioEndpointOffloadStreamMuteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bmuted: u8) -> ::windows::core::HRESULT {
+impl IAudioEndpointOffloadStreamMute_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointOffloadStreamMute_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEndpointOffloadStreamMute_Vtbl {
+        unsafe extern "system" fn SetMute<Impl: IAudioEndpointOffloadStreamMute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bmuted: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMute(::core::mem::transmute_copy(&bmuted)).into()
         }
-        unsafe extern "system" fn GetMute<Impl: IAudioEndpointOffloadStreamMuteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbmuted: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMute<Impl: IAudioEndpointOffloadStreamMute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbmuted: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMute() {
                 ::core::result::Result::Ok(ok__) => {
@@ -106,15 +106,15 @@ impl IAudioEndpointOffloadStreamMuteVtbl {
     }
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-pub trait IAudioEndpointOffloadStreamVolumeImpl: Sized {
+pub trait IAudioEndpointOffloadStreamVolume_Impl: Sized {
     fn GetVolumeChannelCount(&mut self) -> ::windows::core::Result<u32>;
     fn SetChannelVolumes(&mut self, u32channelcount: u32, pf32volumes: *const f32, u32curvetype: super::super::KernelStreaming::AUDIO_CURVE_TYPE, pcurveduration: *const i64) -> ::windows::core::Result<()>;
     fn GetChannelVolumes(&mut self, u32channelcount: u32) -> ::windows::core::Result<f32>;
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-impl IAudioEndpointOffloadStreamVolumeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointOffloadStreamVolumeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEndpointOffloadStreamVolumeVtbl {
-        unsafe extern "system" fn GetVolumeChannelCount<Impl: IAudioEndpointOffloadStreamVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pu32channelcount: *mut u32) -> ::windows::core::HRESULT {
+impl IAudioEndpointOffloadStreamVolume_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointOffloadStreamVolume_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEndpointOffloadStreamVolume_Vtbl {
+        unsafe extern "system" fn GetVolumeChannelCount<Impl: IAudioEndpointOffloadStreamVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pu32channelcount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetVolumeChannelCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -124,11 +124,11 @@ impl IAudioEndpointOffloadStreamVolumeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetChannelVolumes<Impl: IAudioEndpointOffloadStreamVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, u32channelcount: u32, pf32volumes: *const f32, u32curvetype: super::super::KernelStreaming::AUDIO_CURVE_TYPE, pcurveduration: *const i64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetChannelVolumes<Impl: IAudioEndpointOffloadStreamVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, u32channelcount: u32, pf32volumes: *const f32, u32curvetype: super::super::KernelStreaming::AUDIO_CURVE_TYPE, pcurveduration: *const i64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetChannelVolumes(::core::mem::transmute_copy(&u32channelcount), ::core::mem::transmute_copy(&pf32volumes), ::core::mem::transmute_copy(&u32curvetype), ::core::mem::transmute_copy(&pcurveduration)).into()
         }
-        unsafe extern "system" fn GetChannelVolumes<Impl: IAudioEndpointOffloadStreamVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, u32channelcount: u32, pf32volumes: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetChannelVolumes<Impl: IAudioEndpointOffloadStreamVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, u32channelcount: u32, pf32volumes: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetChannelVolumes(::core::mem::transmute_copy(&u32channelcount)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -150,7 +150,7 @@ impl IAudioEndpointOffloadStreamVolumeVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IAudioEndpointVolumeImpl: Sized {
+pub trait IAudioEndpointVolume_Impl: Sized {
     fn RegisterControlChangeNotify(&mut self, pnotify: ::core::option::Option<IAudioEndpointVolumeCallback>) -> ::windows::core::Result<()>;
     fn UnregisterControlChangeNotify(&mut self, pnotify: ::core::option::Option<IAudioEndpointVolumeCallback>) -> ::windows::core::Result<()>;
     fn GetChannelCount(&mut self) -> ::windows::core::Result<u32>;
@@ -171,17 +171,17 @@ pub trait IAudioEndpointVolumeImpl: Sized {
     fn GetVolumeRange(&mut self, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IAudioEndpointVolumeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointVolumeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEndpointVolumeVtbl {
-        unsafe extern "system" fn RegisterControlChangeNotify<Impl: IAudioEndpointVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnotify: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAudioEndpointVolume_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointVolume_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEndpointVolume_Vtbl {
+        unsafe extern "system" fn RegisterControlChangeNotify<Impl: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnotify: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RegisterControlChangeNotify(::core::mem::transmute(&pnotify)).into()
         }
-        unsafe extern "system" fn UnregisterControlChangeNotify<Impl: IAudioEndpointVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnotify: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterControlChangeNotify<Impl: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnotify: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UnregisterControlChangeNotify(::core::mem::transmute(&pnotify)).into()
         }
-        unsafe extern "system" fn GetChannelCount<Impl: IAudioEndpointVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnchannelcount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetChannelCount<Impl: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnchannelcount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetChannelCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -191,15 +191,15 @@ impl IAudioEndpointVolumeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMasterVolumeLevel<Impl: IAudioEndpointVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fleveldb: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMasterVolumeLevel<Impl: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fleveldb: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMasterVolumeLevel(::core::mem::transmute_copy(&fleveldb), ::core::mem::transmute_copy(&pguideventcontext)).into()
         }
-        unsafe extern "system" fn SetMasterVolumeLevelScalar<Impl: IAudioEndpointVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flevel: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMasterVolumeLevelScalar<Impl: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flevel: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMasterVolumeLevelScalar(::core::mem::transmute_copy(&flevel), ::core::mem::transmute_copy(&pguideventcontext)).into()
         }
-        unsafe extern "system" fn GetMasterVolumeLevel<Impl: IAudioEndpointVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfleveldb: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMasterVolumeLevel<Impl: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfleveldb: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMasterVolumeLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -209,7 +209,7 @@ impl IAudioEndpointVolumeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMasterVolumeLevelScalar<Impl: IAudioEndpointVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pflevel: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMasterVolumeLevelScalar<Impl: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pflevel: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMasterVolumeLevelScalar() {
                 ::core::result::Result::Ok(ok__) => {
@@ -219,15 +219,15 @@ impl IAudioEndpointVolumeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetChannelVolumeLevel<Impl: IAudioEndpointVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nchannel: u32, fleveldb: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetChannelVolumeLevel<Impl: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nchannel: u32, fleveldb: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetChannelVolumeLevel(::core::mem::transmute_copy(&nchannel), ::core::mem::transmute_copy(&fleveldb), ::core::mem::transmute_copy(&pguideventcontext)).into()
         }
-        unsafe extern "system" fn SetChannelVolumeLevelScalar<Impl: IAudioEndpointVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nchannel: u32, flevel: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetChannelVolumeLevelScalar<Impl: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nchannel: u32, flevel: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetChannelVolumeLevelScalar(::core::mem::transmute_copy(&nchannel), ::core::mem::transmute_copy(&flevel), ::core::mem::transmute_copy(&pguideventcontext)).into()
         }
-        unsafe extern "system" fn GetChannelVolumeLevel<Impl: IAudioEndpointVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nchannel: u32, pfleveldb: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetChannelVolumeLevel<Impl: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nchannel: u32, pfleveldb: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetChannelVolumeLevel(::core::mem::transmute_copy(&nchannel)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -237,7 +237,7 @@ impl IAudioEndpointVolumeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetChannelVolumeLevelScalar<Impl: IAudioEndpointVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nchannel: u32, pflevel: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetChannelVolumeLevelScalar<Impl: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nchannel: u32, pflevel: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetChannelVolumeLevelScalar(::core::mem::transmute_copy(&nchannel)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -247,11 +247,11 @@ impl IAudioEndpointVolumeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMute<Impl: IAudioEndpointVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bmute: super::super::super::Foundation::BOOL, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMute<Impl: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bmute: super::super::super::Foundation::BOOL, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMute(::core::mem::transmute_copy(&bmute), ::core::mem::transmute_copy(&pguideventcontext)).into()
         }
-        unsafe extern "system" fn GetMute<Impl: IAudioEndpointVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbmute: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMute<Impl: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbmute: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMute() {
                 ::core::result::Result::Ok(ok__) => {
@@ -261,19 +261,19 @@ impl IAudioEndpointVolumeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVolumeStepInfo<Impl: IAudioEndpointVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnstep: *mut u32, pnstepcount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetVolumeStepInfo<Impl: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnstep: *mut u32, pnstepcount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetVolumeStepInfo(::core::mem::transmute_copy(&pnstep), ::core::mem::transmute_copy(&pnstepcount)).into()
         }
-        unsafe extern "system" fn VolumeStepUp<Impl: IAudioEndpointVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VolumeStepUp<Impl: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).VolumeStepUp(::core::mem::transmute_copy(&pguideventcontext)).into()
         }
-        unsafe extern "system" fn VolumeStepDown<Impl: IAudioEndpointVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VolumeStepDown<Impl: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).VolumeStepDown(::core::mem::transmute_copy(&pguideventcontext)).into()
         }
-        unsafe extern "system" fn QueryHardwareSupport<Impl: IAudioEndpointVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwhardwaresupportmask: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryHardwareSupport<Impl: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwhardwaresupportmask: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryHardwareSupport() {
                 ::core::result::Result::Ok(ok__) => {
@@ -283,7 +283,7 @@ impl IAudioEndpointVolumeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVolumeRange<Impl: IAudioEndpointVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetVolumeRange<Impl: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetVolumeRange(::core::mem::transmute_copy(&pflvolumemindb), ::core::mem::transmute_copy(&pflvolumemaxdb), ::core::mem::transmute_copy(&pflvolumeincrementdb)).into()
         }
@@ -314,13 +314,13 @@ impl IAudioEndpointVolumeVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IAudioEndpointVolumeCallbackImpl: Sized {
+pub trait IAudioEndpointVolumeCallback_Impl: Sized {
     fn OnNotify(&mut self, pnotify: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IAudioEndpointVolumeCallbackVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointVolumeCallbackImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEndpointVolumeCallbackVtbl {
-        unsafe extern "system" fn OnNotify<Impl: IAudioEndpointVolumeCallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnotify: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA) -> ::windows::core::HRESULT {
+impl IAudioEndpointVolumeCallback_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointVolumeCallback_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEndpointVolumeCallback_Vtbl {
+        unsafe extern "system" fn OnNotify<Impl: IAudioEndpointVolumeCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnotify: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).OnNotify(::core::mem::transmute_copy(&pnotify)).into()
         }
@@ -331,18 +331,18 @@ impl IAudioEndpointVolumeCallbackVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IAudioEndpointVolumeExImpl: Sized + IAudioEndpointVolumeImpl {
+pub trait IAudioEndpointVolumeEx_Impl: Sized + IAudioEndpointVolume_Impl {
     fn GetVolumeRangeChannel(&mut self, ichannel: u32, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IAudioEndpointVolumeExVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointVolumeExImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEndpointVolumeExVtbl {
-        unsafe extern "system" fn GetVolumeRangeChannel<Impl: IAudioEndpointVolumeExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ichannel: u32, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> ::windows::core::HRESULT {
+impl IAudioEndpointVolumeEx_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointVolumeEx_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEndpointVolumeEx_Vtbl {
+        unsafe extern "system" fn GetVolumeRangeChannel<Impl: IAudioEndpointVolumeEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ichannel: u32, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetVolumeRangeChannel(::core::mem::transmute_copy(&ichannel), ::core::mem::transmute_copy(&pflvolumemindb), ::core::mem::transmute_copy(&pflvolumemaxdb), ::core::mem::transmute_copy(&pflvolumeincrementdb)).into()
         }
         Self {
-            base: IAudioEndpointVolumeVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IAudioEndpointVolume_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             GetVolumeRangeChannel: GetVolumeRangeChannel::<Impl, IMPL_OFFSET>,
         }
     }
@@ -351,18 +351,18 @@ impl IAudioEndpointVolumeExVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IAudioLfxControlImpl: Sized {
+pub trait IAudioLfxControl_Impl: Sized {
     fn SetLocalEffectsState(&mut self, benabled: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetLocalEffectsState(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IAudioLfxControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioLfxControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioLfxControlVtbl {
-        unsafe extern "system" fn SetLocalEffectsState<Impl: IAudioLfxControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, benabled: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+impl IAudioLfxControl_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioLfxControl_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioLfxControl_Vtbl {
+        unsafe extern "system" fn SetLocalEffectsState<Impl: IAudioLfxControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, benabled: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLocalEffectsState(::core::mem::transmute_copy(&benabled)).into()
         }
-        unsafe extern "system" fn GetLocalEffectsState<Impl: IAudioLfxControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbenabled: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLocalEffectsState<Impl: IAudioLfxControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbenabled: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetLocalEffectsState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -382,15 +382,15 @@ impl IAudioLfxControlVtbl {
         iid == &<IAudioLfxControl as ::windows::core::Interface>::IID
     }
 }
-pub trait IAudioMeterInformationImpl: Sized {
+pub trait IAudioMeterInformation_Impl: Sized {
     fn GetPeakValue(&mut self) -> ::windows::core::Result<f32>;
     fn GetMeteringChannelCount(&mut self) -> ::windows::core::Result<u32>;
     fn GetChannelsPeakValues(&mut self, u32channelcount: u32, afpeakvalues: *mut f32) -> ::windows::core::Result<()>;
     fn QueryHardwareSupport(&mut self) -> ::windows::core::Result<u32>;
 }
-impl IAudioMeterInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioMeterInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioMeterInformationVtbl {
-        unsafe extern "system" fn GetPeakValue<Impl: IAudioMeterInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfpeak: *mut f32) -> ::windows::core::HRESULT {
+impl IAudioMeterInformation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioMeterInformation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioMeterInformation_Vtbl {
+        unsafe extern "system" fn GetPeakValue<Impl: IAudioMeterInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfpeak: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPeakValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -400,7 +400,7 @@ impl IAudioMeterInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMeteringChannelCount<Impl: IAudioMeterInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnchannelcount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMeteringChannelCount<Impl: IAudioMeterInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnchannelcount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMeteringChannelCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -410,11 +410,11 @@ impl IAudioMeterInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetChannelsPeakValues<Impl: IAudioMeterInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, u32channelcount: u32, afpeakvalues: *mut f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetChannelsPeakValues<Impl: IAudioMeterInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, u32channelcount: u32, afpeakvalues: *mut f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetChannelsPeakValues(::core::mem::transmute_copy(&u32channelcount), ::core::mem::transmute_copy(&afpeakvalues)).into()
         }
-        unsafe extern "system" fn QueryHardwareSupport<Impl: IAudioMeterInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwhardwaresupportmask: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryHardwareSupport<Impl: IAudioMeterInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwhardwaresupportmask: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryHardwareSupport() {
                 ::core::result::Result::Ok(ok__) => {
@@ -437,7 +437,7 @@ impl IAudioMeterInformationVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IHardwareAudioEngineBaseImpl: Sized {
+pub trait IHardwareAudioEngineBase_Impl: Sized {
     fn GetAvailableOffloadConnectorCount(&mut self, _pwstrdeviceid: super::super::super::Foundation::PWSTR, _uconnectorid: u32) -> ::windows::core::Result<u32>;
     fn GetEngineFormat(&mut self, pdevice: ::core::option::Option<super::IMMDevice>, _brequestdeviceformat: super::super::super::Foundation::BOOL, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> ::windows::core::Result<()>;
     fn SetEngineDeviceFormat(&mut self, pdevice: ::core::option::Option<super::IMMDevice>, _pwfxformat: *mut super::WAVEFORMATEX) -> ::windows::core::Result<()>;
@@ -445,9 +445,9 @@ pub trait IHardwareAudioEngineBaseImpl: Sized {
     fn GetGfxState(&mut self, pdevice: ::core::option::Option<super::IMMDevice>) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IHardwareAudioEngineBaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHardwareAudioEngineBaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHardwareAudioEngineBaseVtbl {
-        unsafe extern "system" fn GetAvailableOffloadConnectorCount<Impl: IHardwareAudioEngineBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, _pwstrdeviceid: super::super::super::Foundation::PWSTR, _uconnectorid: u32, _pavailableconnectorinstancecount: *mut u32) -> ::windows::core::HRESULT {
+impl IHardwareAudioEngineBase_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHardwareAudioEngineBase_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHardwareAudioEngineBase_Vtbl {
+        unsafe extern "system" fn GetAvailableOffloadConnectorCount<Impl: IHardwareAudioEngineBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, _pwstrdeviceid: super::super::super::Foundation::PWSTR, _uconnectorid: u32, _pavailableconnectorinstancecount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAvailableOffloadConnectorCount(::core::mem::transmute_copy(&_pwstrdeviceid), ::core::mem::transmute_copy(&_uconnectorid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -457,19 +457,19 @@ impl IHardwareAudioEngineBaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEngineFormat<Impl: IHardwareAudioEngineBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, _brequestdeviceformat: super::super::super::Foundation::BOOL, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEngineFormat<Impl: IHardwareAudioEngineBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, _brequestdeviceformat: super::super::super::Foundation::BOOL, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetEngineFormat(::core::mem::transmute(&pdevice), ::core::mem::transmute_copy(&_brequestdeviceformat), ::core::mem::transmute_copy(&_ppwfxformat)).into()
         }
-        unsafe extern "system" fn SetEngineDeviceFormat<Impl: IHardwareAudioEngineBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, _pwfxformat: *mut super::WAVEFORMATEX) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEngineDeviceFormat<Impl: IHardwareAudioEngineBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, _pwfxformat: *mut super::WAVEFORMATEX) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEngineDeviceFormat(::core::mem::transmute(&pdevice), ::core::mem::transmute_copy(&_pwfxformat)).into()
         }
-        unsafe extern "system" fn SetGfxState<Impl: IHardwareAudioEngineBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, _benable: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGfxState<Impl: IHardwareAudioEngineBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, _benable: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetGfxState(::core::mem::transmute(&pdevice), ::core::mem::transmute_copy(&_benable)).into()
         }
-        unsafe extern "system" fn GetGfxState<Impl: IHardwareAudioEngineBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, _pbenable: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGfxState<Impl: IHardwareAudioEngineBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, _pbenable: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetGfxState(::core::mem::transmute(&pdevice)) {
                 ::core::result::Result::Ok(ok__) => {

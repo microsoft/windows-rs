@@ -139,12 +139,12 @@ impl ::windows::core::RuntimeName for CryptographicBuffer {
 #[repr(transparent)]
 pub struct ICryptographicBufferStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICryptographicBufferStatics {
-    type Vtable = ICryptographicBufferStaticsVtbl;
+    type Vtable = ICryptographicBufferStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x320b7e22_3cb0_4cdf_8663_1d28910065eb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICryptographicBufferStaticsVtbl {
+pub struct ICryptographicBufferStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub Compare: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object1: ::windows::core::RawPtr, object2: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,

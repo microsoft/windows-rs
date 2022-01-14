@@ -69,7 +69,7 @@ unsafe impl ::windows::core::RuntimeType for HidBooleanControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidBooleanControl;{524df48a-3695-408c-bba2-e2eb5abfbc20})");
 }
 unsafe impl ::windows::core::Interface for HidBooleanControl {
-    type Vtable = IHidBooleanControlVtbl;
+    type Vtable = IHidBooleanControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x524df48a_3695_408c_bba2_e2eb5abfbc20);
 }
 impl ::windows::core::RuntimeName for HidBooleanControl {
@@ -199,7 +199,7 @@ unsafe impl ::windows::core::RuntimeType for HidBooleanControlDescription {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription;{6196e543-29d8-4a2a-8683-849e207bbe31})");
 }
 unsafe impl ::windows::core::Interface for HidBooleanControlDescription {
-    type Vtable = IHidBooleanControlDescriptionVtbl;
+    type Vtable = IHidBooleanControlDescription_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6196e543_29d8_4a2a_8683_849e207bbe31);
 }
 impl ::windows::core::RuntimeName for HidBooleanControlDescription {
@@ -304,7 +304,7 @@ unsafe impl ::windows::core::RuntimeType for HidCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidCollection;{7189f5a3-32f1-46e3-befd-44d2663b7e6a})");
 }
 unsafe impl ::windows::core::Interface for HidCollection {
-    type Vtable = IHidCollectionVtbl;
+    type Vtable = IHidCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7189f5a3_32f1_46e3_befd_44d2663b7e6a);
 }
 impl ::windows::core::RuntimeName for HidCollection {
@@ -608,7 +608,7 @@ unsafe impl ::windows::core::RuntimeType for HidDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidDevice;{5f8a14e7-2200-432e-95da-d09b87d574a8})");
 }
 unsafe impl ::windows::core::Interface for HidDevice {
-    type Vtable = IHidDeviceVtbl;
+    type Vtable = IHidDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f8a14e7_2200_432e_95da_d09b87d574a8);
 }
 impl ::windows::core::RuntimeName for HidDevice {
@@ -762,7 +762,7 @@ unsafe impl ::windows::core::RuntimeType for HidFeatureReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidFeatureReport;{841d9b79-5ae5-46e3-82ef-1fec5c8942f4})");
 }
 unsafe impl ::windows::core::Interface for HidFeatureReport {
-    type Vtable = IHidFeatureReportVtbl;
+    type Vtable = IHidFeatureReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x841d9b79_5ae5_46e3_82ef_1fec5c8942f4);
 }
 impl ::windows::core::RuntimeName for HidFeatureReport {
@@ -902,7 +902,7 @@ unsafe impl ::windows::core::RuntimeType for HidInputReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidInputReport;{c35d0e50-f7e7-4e8d-b23e-cabbe56b90e9})");
 }
 unsafe impl ::windows::core::Interface for HidInputReport {
-    type Vtable = IHidInputReportVtbl;
+    type Vtable = IHidInputReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc35d0e50_f7e7_4e8d_b23e_cabbe56b90e9);
 }
 impl ::windows::core::RuntimeName for HidInputReport {
@@ -983,7 +983,7 @@ unsafe impl ::windows::core::RuntimeType for HidInputReportReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidInputReportReceivedEventArgs;{7059c5cb-59b2-4dc2-985c-0adc6136fa2d})");
 }
 unsafe impl ::windows::core::Interface for HidInputReportReceivedEventArgs {
-    type Vtable = IHidInputReportReceivedEventArgsVtbl;
+    type Vtable = IHidInputReportReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7059c5cb_59b2_4dc2_985c_0adc6136fa2d);
 }
 impl ::windows::core::RuntimeName for HidInputReportReceivedEventArgs {
@@ -1122,7 +1122,7 @@ unsafe impl ::windows::core::RuntimeType for HidNumericControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidNumericControl;{e38a12a5-35a7-4b75-89c8-fb1f28b10823})");
 }
 unsafe impl ::windows::core::Interface for HidNumericControl {
-    type Vtable = IHidNumericControlVtbl;
+    type Vtable = IHidNumericControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe38a12a5_35a7_4b75_89c8_fb1f28b10823);
 }
 impl ::windows::core::RuntimeName for HidNumericControl {
@@ -1324,7 +1324,7 @@ unsafe impl ::windows::core::RuntimeType for HidNumericControlDescription {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription;{638d5e86-1d97-4c75-927f-5ff58ba05e32})");
 }
 unsafe impl ::windows::core::Interface for HidNumericControlDescription {
-    type Vtable = IHidNumericControlDescriptionVtbl;
+    type Vtable = IHidNumericControlDescription_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x638d5e86_1d97_4c75_927f_5ff58ba05e32);
 }
 impl ::windows::core::RuntimeName for HidNumericControlDescription {
@@ -1452,7 +1452,7 @@ unsafe impl ::windows::core::RuntimeType for HidOutputReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidOutputReport;{62cb2544-c896-4463-93c1-df9db053c450})");
 }
 unsafe impl ::windows::core::Interface for HidOutputReport {
-    type Vtable = IHidOutputReportVtbl;
+    type Vtable = IHidOutputReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62cb2544_c896_4463_93c1_df9db053c450);
 }
 impl ::windows::core::RuntimeName for HidOutputReport {
@@ -1538,12 +1538,12 @@ impl ::windows::core::DefaultType for HidReportType {
 #[repr(transparent)]
 pub struct IHidBooleanControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHidBooleanControl {
-    type Vtable = IHidBooleanControlVtbl;
+    type Vtable = IHidBooleanControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x524df48a_3695_408c_bba2_e2eb5abfbc20);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHidBooleanControlVtbl {
+pub struct IHidBooleanControl_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub UsagePage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
@@ -1556,12 +1556,12 @@ pub struct IHidBooleanControlVtbl {
 #[repr(transparent)]
 pub struct IHidBooleanControlDescription(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHidBooleanControlDescription {
-    type Vtable = IHidBooleanControlDescriptionVtbl;
+    type Vtable = IHidBooleanControlDescription_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6196e543_29d8_4a2a_8683_849e207bbe31);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHidBooleanControlDescriptionVtbl {
+pub struct IHidBooleanControlDescription_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub ReportId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
@@ -1577,12 +1577,12 @@ pub struct IHidBooleanControlDescriptionVtbl {
 #[repr(transparent)]
 pub struct IHidBooleanControlDescription2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHidBooleanControlDescription2 {
-    type Vtable = IHidBooleanControlDescription2Vtbl;
+    type Vtable = IHidBooleanControlDescription2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8eed2ea_8a77_4c36_aa00_5ff0449d3e73);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHidBooleanControlDescription2Vtbl {
+pub struct IHidBooleanControlDescription2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsAbsolute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -1590,12 +1590,12 @@ pub struct IHidBooleanControlDescription2Vtbl {
 #[repr(transparent)]
 pub struct IHidCollection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHidCollection {
-    type Vtable = IHidCollectionVtbl;
+    type Vtable = IHidCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7189f5a3_32f1_46e3_befd_44d2663b7e6a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHidCollectionVtbl {
+pub struct IHidCollection_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut HidCollectionType) -> ::windows::core::HRESULT,
@@ -1606,12 +1606,12 @@ pub struct IHidCollectionVtbl {
 #[repr(transparent)]
 pub struct IHidDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHidDevice {
-    type Vtable = IHidDeviceVtbl;
+    type Vtable = IHidDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f8a14e7_2200_432e_95da_d09b87d574a8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHidDeviceVtbl {
+pub struct IHidDevice_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub VendorId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
     pub ProductId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
@@ -1667,12 +1667,12 @@ pub struct IHidDeviceVtbl {
 #[repr(transparent)]
 pub struct IHidDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHidDeviceStatics {
-    type Vtable = IHidDeviceStaticsVtbl;
+    type Vtable = IHidDeviceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e5981e4_9856_418c_9f73_77de0cd85754);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHidDeviceStaticsVtbl {
+pub struct IHidDeviceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usagepage: u16, usageid: u16, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub GetDeviceSelectorVidPid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usagepage: u16, usageid: u16, vendorid: u16, productid: u16, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1685,12 +1685,12 @@ pub struct IHidDeviceStaticsVtbl {
 #[repr(transparent)]
 pub struct IHidFeatureReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHidFeatureReport {
-    type Vtable = IHidFeatureReportVtbl;
+    type Vtable = IHidFeatureReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x841d9b79_5ae5_46e3_82ef_1fec5c8942f4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHidFeatureReportVtbl {
+pub struct IHidFeatureReport_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -1710,12 +1710,12 @@ pub struct IHidFeatureReportVtbl {
 #[repr(transparent)]
 pub struct IHidInputReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHidInputReport {
-    type Vtable = IHidInputReportVtbl;
+    type Vtable = IHidInputReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc35d0e50_f7e7_4e8d_b23e_cabbe56b90e9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHidInputReportVtbl {
+pub struct IHidInputReport_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -1739,12 +1739,12 @@ pub struct IHidInputReportVtbl {
 #[repr(transparent)]
 pub struct IHidInputReportReceivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHidInputReportReceivedEventArgs {
-    type Vtable = IHidInputReportReceivedEventArgsVtbl;
+    type Vtable = IHidInputReportReceivedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7059c5cb_59b2_4dc2_985c_0adc6136fa2d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHidInputReportReceivedEventArgsVtbl {
+pub struct IHidInputReportReceivedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Report: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1752,12 +1752,12 @@ pub struct IHidInputReportReceivedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IHidNumericControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHidNumericControl {
-    type Vtable = IHidNumericControlVtbl;
+    type Vtable = IHidNumericControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe38a12a5_35a7_4b75_89c8_fb1f28b10823);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHidNumericControlVtbl {
+pub struct IHidNumericControl_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub IsGrouped: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1773,12 +1773,12 @@ pub struct IHidNumericControlVtbl {
 #[repr(transparent)]
 pub struct IHidNumericControlDescription(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHidNumericControlDescription {
-    type Vtable = IHidNumericControlDescriptionVtbl;
+    type Vtable = IHidNumericControlDescription_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x638d5e86_1d97_4c75_927f_5ff58ba05e32);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHidNumericControlDescriptionVtbl {
+pub struct IHidNumericControlDescription_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub ReportId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
@@ -1804,12 +1804,12 @@ pub struct IHidNumericControlDescriptionVtbl {
 #[repr(transparent)]
 pub struct IHidOutputReport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHidOutputReport {
-    type Vtable = IHidOutputReportVtbl;
+    type Vtable = IHidOutputReport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62cb2544_c896_4463_93c1_df9db053c450);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHidOutputReportVtbl {
+pub struct IHidOutputReport_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]

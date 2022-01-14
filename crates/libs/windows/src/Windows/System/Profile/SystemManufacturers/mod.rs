@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IOemSupportInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IOemSupportInfo {
-    type Vtable = IOemSupportInfoVtbl;
+    type Vtable = IOemSupportInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d2eae55_87ef_4266_86d0_c4afbeb29bb9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IOemSupportInfoVtbl {
+pub struct IOemSupportInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SupportLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -24,12 +24,12 @@ pub struct IOemSupportInfoVtbl {
 #[repr(transparent)]
 pub struct ISmbiosInformationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISmbiosInformationStatics {
-    type Vtable = ISmbiosInformationStaticsVtbl;
+    type Vtable = ISmbiosInformationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x080cca7c_637c_48c4_b728_f9273812db8e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISmbiosInformationStaticsVtbl {
+pub struct ISmbiosInformationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SerialNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -37,12 +37,12 @@ pub struct ISmbiosInformationStaticsVtbl {
 #[repr(transparent)]
 pub struct ISystemSupportDeviceInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemSupportDeviceInfo {
-    type Vtable = ISystemSupportDeviceInfoVtbl;
+    type Vtable = ISystemSupportDeviceInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05880b99_8247_441b_a996_a1784bab79a8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISystemSupportDeviceInfoVtbl {
+pub struct ISystemSupportDeviceInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OperatingSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -56,12 +56,12 @@ pub struct ISystemSupportDeviceInfoVtbl {
 #[repr(transparent)]
 pub struct ISystemSupportInfoStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemSupportInfoStatics {
-    type Vtable = ISystemSupportInfoStaticsVtbl;
+    type Vtable = ISystemSupportInfoStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef750974_c422_45d7_a44d_5c1c0043a2b3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISystemSupportInfoStaticsVtbl {
+pub struct ISystemSupportInfoStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LocalSystemEdition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub OemSupportInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -70,12 +70,12 @@ pub struct ISystemSupportInfoStaticsVtbl {
 #[repr(transparent)]
 pub struct ISystemSupportInfoStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemSupportInfoStatics2 {
-    type Vtable = ISystemSupportInfoStatics2Vtbl;
+    type Vtable = ISystemSupportInfoStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33f349a4_3fa1_4986_aa4b_057420455e6d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISystemSupportInfoStatics2Vtbl {
+pub struct ISystemSupportInfoStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LocalDeviceInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -130,7 +130,7 @@ unsafe impl ::windows::core::RuntimeType for OemSupportInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.SystemManufacturers.OemSupportInfo;{8d2eae55-87ef-4266-86d0-c4afbeb29bb9})");
 }
 unsafe impl ::windows::core::Interface for OemSupportInfo {
-    type Vtable = IOemSupportInfoVtbl;
+    type Vtable = IOemSupportInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d2eae55_87ef_4266_86d0_c4afbeb29bb9);
 }
 impl ::windows::core::RuntimeName for OemSupportInfo {
@@ -278,7 +278,7 @@ unsafe impl ::windows::core::RuntimeType for SystemSupportDeviceInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.SystemManufacturers.SystemSupportDeviceInfo;{05880b99-8247-441b-a996-a1784bab79a8})");
 }
 unsafe impl ::windows::core::Interface for SystemSupportDeviceInfo {
-    type Vtable = ISystemSupportDeviceInfoVtbl;
+    type Vtable = ISystemSupportDeviceInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05880b99_8247_441b_a996_a1784bab79a8);
 }
 impl ::windows::core::RuntimeName for SystemSupportDeviceInfo {

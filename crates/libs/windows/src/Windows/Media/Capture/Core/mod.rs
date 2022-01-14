@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IVariablePhotoCapturedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVariablePhotoCapturedEventArgs {
-    type Vtable = IVariablePhotoCapturedEventArgsVtbl;
+    type Vtable = IVariablePhotoCapturedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1eb4c5c_1b53_4e4a_8b5c_db7887ac949b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVariablePhotoCapturedEventArgsVtbl {
+pub struct IVariablePhotoCapturedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Frame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -25,12 +25,12 @@ pub struct IVariablePhotoCapturedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IVariablePhotoSequenceCapture(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVariablePhotoSequenceCapture {
-    type Vtable = IVariablePhotoSequenceCaptureVtbl;
+    type Vtable = IVariablePhotoSequenceCapture_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0112d1d_031e_4041_a6d6_bd742476a8ee);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVariablePhotoSequenceCaptureVtbl {
+pub struct IVariablePhotoSequenceCapture_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub StartAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -65,12 +65,12 @@ pub struct IVariablePhotoSequenceCaptureVtbl {
 #[repr(transparent)]
 pub struct IVariablePhotoSequenceCapture2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVariablePhotoSequenceCapture2 {
-    type Vtable = IVariablePhotoSequenceCapture2Vtbl;
+    type Vtable = IVariablePhotoSequenceCapture2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe2c62bc_50b0_43e3_917c_e3b92798942f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVariablePhotoSequenceCapture2Vtbl {
+pub struct IVariablePhotoSequenceCapture2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub UpdateSettingsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -136,7 +136,7 @@ unsafe impl ::windows::core::RuntimeType for VariablePhotoCapturedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Core.VariablePhotoCapturedEventArgs;{d1eb4c5c-1b53-4e4a-8b5c-db7887ac949b})");
 }
 unsafe impl ::windows::core::Interface for VariablePhotoCapturedEventArgs {
-    type Vtable = IVariablePhotoCapturedEventArgsVtbl;
+    type Vtable = IVariablePhotoCapturedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1eb4c5c_1b53_4e4a_8b5c_db7887ac949b);
 }
 impl ::windows::core::RuntimeName for VariablePhotoCapturedEventArgs {
@@ -275,7 +275,7 @@ unsafe impl ::windows::core::RuntimeType for VariablePhotoSequenceCapture {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Core.VariablePhotoSequenceCapture;{d0112d1d-031e-4041-a6d6-bd742476a8ee})");
 }
 unsafe impl ::windows::core::Interface for VariablePhotoSequenceCapture {
-    type Vtable = IVariablePhotoSequenceCaptureVtbl;
+    type Vtable = IVariablePhotoSequenceCapture_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0112d1d_031e_4041_a6d6_bd742476a8ee);
 }
 impl ::windows::core::RuntimeName for VariablePhotoSequenceCapture {

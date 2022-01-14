@@ -41,7 +41,7 @@ unsafe impl ::windows::core::RuntimeType for GameSaveBlobGetResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveBlobGetResult;{917281e0-7201-4953-aa2c-4008f03aef45})");
 }
 unsafe impl ::windows::core::Interface for GameSaveBlobGetResult {
-    type Vtable = IGameSaveBlobGetResultVtbl;
+    type Vtable = IGameSaveBlobGetResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x917281e0_7201_4953_aa2c_4008f03aef45);
 }
 impl ::windows::core::RuntimeName for GameSaveBlobGetResult {
@@ -130,7 +130,7 @@ unsafe impl ::windows::core::RuntimeType for GameSaveBlobInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveBlobInfo;{add38034-baf0-4645-b6d0-46edaffb3c2b})");
 }
 unsafe impl ::windows::core::Interface for GameSaveBlobInfo {
-    type Vtable = IGameSaveBlobInfoVtbl;
+    type Vtable = IGameSaveBlobInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadd38034_baf0_4645_b6d0_46edaffb3c2b);
 }
 impl ::windows::core::RuntimeName for GameSaveBlobInfo {
@@ -220,7 +220,7 @@ unsafe impl ::windows::core::RuntimeType for GameSaveBlobInfoGetResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoGetResult;{c7578582-3697-42bf-989c-665d923b5231})");
 }
 unsafe impl ::windows::core::Interface for GameSaveBlobInfoGetResult {
-    type Vtable = IGameSaveBlobInfoGetResultVtbl;
+    type Vtable = IGameSaveBlobInfoGetResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7578582_3697_42bf_989c_665d923b5231);
 }
 impl ::windows::core::RuntimeName for GameSaveBlobInfoGetResult {
@@ -320,7 +320,7 @@ unsafe impl ::windows::core::RuntimeType for GameSaveBlobInfoQuery {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoQuery;{9fdd74b2-eeee-447b-a9d2-7f96c0f83208})");
 }
 unsafe impl ::windows::core::Interface for GameSaveBlobInfoQuery {
-    type Vtable = IGameSaveBlobInfoQueryVtbl;
+    type Vtable = IGameSaveBlobInfoQuery_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fdd74b2_eeee_447b_a9d2_7f96c0f83208);
 }
 impl ::windows::core::RuntimeName for GameSaveBlobInfoQuery {
@@ -453,7 +453,7 @@ unsafe impl ::windows::core::RuntimeType for GameSaveContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveContainer;{c3c08f89-563f-4ecd-9c6f-33fd0e323d10})");
 }
 unsafe impl ::windows::core::Interface for GameSaveContainer {
-    type Vtable = IGameSaveContainerVtbl;
+    type Vtable = IGameSaveContainer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3c08f89_563f_4ecd_9c6f_33fd0e323d10);
 }
 impl ::windows::core::RuntimeName for GameSaveContainer {
@@ -567,7 +567,7 @@ unsafe impl ::windows::core::RuntimeType for GameSaveContainerInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveContainerInfo;{b7e27300-155d-4bb4-b2ba-930306f391b5})");
 }
 unsafe impl ::windows::core::Interface for GameSaveContainerInfo {
-    type Vtable = IGameSaveContainerInfoVtbl;
+    type Vtable = IGameSaveContainerInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7e27300_155d_4bb4_b2ba_930306f391b5);
 }
 impl ::windows::core::RuntimeName for GameSaveContainerInfo {
@@ -657,7 +657,7 @@ unsafe impl ::windows::core::RuntimeType for GameSaveContainerInfoGetResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoGetResult;{ffc50d74-c581-4f9d-9e39-30a10c1e4c50})");
 }
 unsafe impl ::windows::core::Interface for GameSaveContainerInfoGetResult {
-    type Vtable = IGameSaveContainerInfoGetResultVtbl;
+    type Vtable = IGameSaveContainerInfoGetResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffc50d74_c581_4f9d_9e39_30a10c1e4c50);
 }
 impl ::windows::core::RuntimeName for GameSaveContainerInfoGetResult {
@@ -757,7 +757,7 @@ unsafe impl ::windows::core::RuntimeType for GameSaveContainerInfoQuery {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoQuery;{3c94e863-6f80-4327-9327-ffc11afd42b3})");
 }
 unsafe impl ::windows::core::Interface for GameSaveContainerInfoQuery {
-    type Vtable = IGameSaveContainerInfoQueryVtbl;
+    type Vtable = IGameSaveContainerInfoQuery_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c94e863_6f80_4327_9327_ffc11afd42b3);
 }
 impl ::windows::core::RuntimeName for GameSaveContainerInfoQuery {
@@ -884,7 +884,7 @@ unsafe impl ::windows::core::RuntimeType for GameSaveOperationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveOperationResult;{cf0f1a05-24a0-4582-9a55-b1bbbb9388d8})");
 }
 unsafe impl ::windows::core::Interface for GameSaveOperationResult {
-    type Vtable = IGameSaveOperationResultVtbl;
+    type Vtable = IGameSaveOperationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf0f1a05_24a0_4582_9a55_b1bbbb9388d8);
 }
 impl ::windows::core::RuntimeName for GameSaveOperationResult {
@@ -1038,7 +1038,7 @@ unsafe impl ::windows::core::RuntimeType for GameSaveProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveProvider;{90a60394-80fe-4211-97f8-a5de14dd95d2})");
 }
 unsafe impl ::windows::core::Interface for GameSaveProvider {
-    type Vtable = IGameSaveProviderVtbl;
+    type Vtable = IGameSaveProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90a60394_80fe_4211_97f8_a5de14dd95d2);
 }
 impl ::windows::core::RuntimeName for GameSaveProvider {
@@ -1127,7 +1127,7 @@ unsafe impl ::windows::core::RuntimeType for GameSaveProviderGetResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveProviderGetResult;{3ab90816-d393-4d65-ac16-41c3e67ab945})");
 }
 unsafe impl ::windows::core::Interface for GameSaveProviderGetResult {
-    type Vtable = IGameSaveProviderGetResultVtbl;
+    type Vtable = IGameSaveProviderGetResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ab90816_d393_4d65_ac16_41c3e67ab945);
 }
 impl ::windows::core::RuntimeName for GameSaveProviderGetResult {
@@ -1179,12 +1179,12 @@ unsafe impl ::core::marker::Sync for GameSaveProviderGetResult {}
 #[repr(transparent)]
 pub struct IGameSaveBlobGetResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameSaveBlobGetResult {
-    type Vtable = IGameSaveBlobGetResultVtbl;
+    type Vtable = IGameSaveBlobGetResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x917281e0_7201_4953_aa2c_4008f03aef45);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameSaveBlobGetResultVtbl {
+pub struct IGameSaveBlobGetResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GameSaveErrorStatus) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
@@ -1196,12 +1196,12 @@ pub struct IGameSaveBlobGetResultVtbl {
 #[repr(transparent)]
 pub struct IGameSaveBlobInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameSaveBlobInfo {
-    type Vtable = IGameSaveBlobInfoVtbl;
+    type Vtable = IGameSaveBlobInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadd38034_baf0_4645_b6d0_46edaffb3c2b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameSaveBlobInfoVtbl {
+pub struct IGameSaveBlobInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -1210,12 +1210,12 @@ pub struct IGameSaveBlobInfoVtbl {
 #[repr(transparent)]
 pub struct IGameSaveBlobInfoGetResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameSaveBlobInfoGetResult {
-    type Vtable = IGameSaveBlobInfoGetResultVtbl;
+    type Vtable = IGameSaveBlobInfoGetResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7578582_3697_42bf_989c_665d923b5231);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameSaveBlobInfoGetResultVtbl {
+pub struct IGameSaveBlobInfoGetResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GameSaveErrorStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -1227,12 +1227,12 @@ pub struct IGameSaveBlobInfoGetResultVtbl {
 #[repr(transparent)]
 pub struct IGameSaveBlobInfoQuery(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameSaveBlobInfoQuery {
-    type Vtable = IGameSaveBlobInfoQueryVtbl;
+    type Vtable = IGameSaveBlobInfoQuery_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fdd74b2_eeee_447b_a9d2_7f96c0f83208);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameSaveBlobInfoQueryVtbl {
+pub struct IGameSaveBlobInfoQuery_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetBlobInfoAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1251,12 +1251,12 @@ pub struct IGameSaveBlobInfoQueryVtbl {
 #[repr(transparent)]
 pub struct IGameSaveContainer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameSaveContainer {
-    type Vtable = IGameSaveContainerVtbl;
+    type Vtable = IGameSaveContainer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3c08f89_563f_4ecd_9c6f_33fd0e323d10);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameSaveContainerVtbl {
+pub struct IGameSaveContainer_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Provider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1282,12 +1282,12 @@ pub struct IGameSaveContainerVtbl {
 #[repr(transparent)]
 pub struct IGameSaveContainerInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameSaveContainerInfo {
-    type Vtable = IGameSaveContainerInfoVtbl;
+    type Vtable = IGameSaveContainerInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7e27300_155d_4bb4_b2ba_930306f391b5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameSaveContainerInfoVtbl {
+pub struct IGameSaveContainerInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub TotalSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
@@ -1302,12 +1302,12 @@ pub struct IGameSaveContainerInfoVtbl {
 #[repr(transparent)]
 pub struct IGameSaveContainerInfoGetResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameSaveContainerInfoGetResult {
-    type Vtable = IGameSaveContainerInfoGetResultVtbl;
+    type Vtable = IGameSaveContainerInfoGetResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffc50d74_c581_4f9d_9e39_30a10c1e4c50);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameSaveContainerInfoGetResultVtbl {
+pub struct IGameSaveContainerInfoGetResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GameSaveErrorStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -1319,12 +1319,12 @@ pub struct IGameSaveContainerInfoGetResultVtbl {
 #[repr(transparent)]
 pub struct IGameSaveContainerInfoQuery(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameSaveContainerInfoQuery {
-    type Vtable = IGameSaveContainerInfoQueryVtbl;
+    type Vtable = IGameSaveContainerInfoQuery_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c94e863_6f80_4327_9327_ffc11afd42b3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameSaveContainerInfoQueryVtbl {
+pub struct IGameSaveContainerInfoQuery_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetContainerInfoAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1343,12 +1343,12 @@ pub struct IGameSaveContainerInfoQueryVtbl {
 #[repr(transparent)]
 pub struct IGameSaveOperationResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameSaveOperationResult {
-    type Vtable = IGameSaveOperationResultVtbl;
+    type Vtable = IGameSaveOperationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf0f1a05_24a0_4582_9a55_b1bbbb9388d8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameSaveOperationResultVtbl {
+pub struct IGameSaveOperationResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GameSaveErrorStatus) -> ::windows::core::HRESULT,
 }
@@ -1356,12 +1356,12 @@ pub struct IGameSaveOperationResultVtbl {
 #[repr(transparent)]
 pub struct IGameSaveProvider(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameSaveProvider {
-    type Vtable = IGameSaveProviderVtbl;
+    type Vtable = IGameSaveProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90a60394_80fe_4211_97f8_a5de14dd95d2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameSaveProviderVtbl {
+pub struct IGameSaveProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1387,12 +1387,12 @@ pub struct IGameSaveProviderVtbl {
 #[repr(transparent)]
 pub struct IGameSaveProviderGetResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameSaveProviderGetResult {
-    type Vtable = IGameSaveProviderGetResultVtbl;
+    type Vtable = IGameSaveProviderGetResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ab90816_d393_4d65_ac16_41c3e67ab945);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameSaveProviderGetResultVtbl {
+pub struct IGameSaveProviderGetResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GameSaveErrorStatus) -> ::windows::core::HRESULT,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1401,12 +1401,12 @@ pub struct IGameSaveProviderGetResultVtbl {
 #[repr(transparent)]
 pub struct IGameSaveProviderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGameSaveProviderStatics {
-    type Vtable = IGameSaveProviderStaticsVtbl;
+    type Vtable = IGameSaveProviderStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd01d3ed0_7b03_449d_8cbd_3402842a1048);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameSaveProviderStaticsVtbl {
+pub struct IGameSaveProviderStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub GetForUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, serviceconfigid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

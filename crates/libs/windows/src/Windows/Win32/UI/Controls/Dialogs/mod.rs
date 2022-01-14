@@ -1316,12 +1316,12 @@ impl ::core::fmt::Debug for IPrintDialogCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IPrintDialogCallback {
-    type Vtable = IPrintDialogCallbackVtbl;
+    type Vtable = IPrintDialogCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5852a2c3_6530_11d1_b6a3_0000f8757bf9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintDialogCallbackVtbl {
+pub struct IPrintDialogCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub InitDone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SelectionChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1387,12 +1387,12 @@ impl ::core::fmt::Debug for IPrintDialogServices {
     }
 }
 unsafe impl ::windows::core::Interface for IPrintDialogServices {
-    type Vtable = IPrintDialogServicesVtbl;
+    type Vtable = IPrintDialogServices_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x509aaeda_5639_11d1_b6a1_0000f8757bf9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintDialogServicesVtbl {
+pub struct IPrintDialogServices_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub GetCurrentDevMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> ::windows::core::HRESULT,

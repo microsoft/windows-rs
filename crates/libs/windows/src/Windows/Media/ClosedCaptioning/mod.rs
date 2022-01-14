@@ -290,12 +290,12 @@ impl ::windows::core::DefaultType for ClosedCaptionStyle {
 #[repr(transparent)]
 pub struct IClosedCaptionPropertiesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClosedCaptionPropertiesStatics {
-    type Vtable = IClosedCaptionPropertiesStaticsVtbl;
+    type Vtable = IClosedCaptionPropertiesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10aa1f84_cc30_4141_b503_5272289e0c20);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClosedCaptionPropertiesStaticsVtbl {
+pub struct IClosedCaptionPropertiesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FontColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionColor) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI")]

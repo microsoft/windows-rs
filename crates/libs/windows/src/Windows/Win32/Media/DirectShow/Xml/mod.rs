@@ -57,12 +57,12 @@ impl ::core::fmt::Debug for IXMLGraphBuilder {
     }
 }
 unsafe impl ::windows::core::Interface for IXMLGraphBuilder {
-    type Vtable = IXMLGraphBuilderVtbl;
+    type Vtable = IXMLGraphBuilder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bb05960_5fbf_11d2_a521_44df07c10000);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXMLGraphBuilderVtbl {
+pub struct IXMLGraphBuilder_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub BuildFromXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgraph: ::windows::core::RawPtr, pxml: ::windows::core::RawPtr) -> ::windows::core::HRESULT,

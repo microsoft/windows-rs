@@ -4964,12 +4964,12 @@ impl ::core::fmt::Debug for IImageList {
     }
 }
 unsafe impl ::windows::core::Interface for IImageList {
-    type Vtable = IImageListVtbl;
+    type Vtable = IImageList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46eb5926_582e_4017_9fdf_e8998daa0950);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IImageListVtbl {
+pub struct IImageList_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP, pi: *mut i32) -> ::windows::core::HRESULT,
@@ -5288,13 +5288,13 @@ impl ::core::fmt::Debug for IImageList2 {
     }
 }
 unsafe impl ::windows::core::Interface for IImageList2 {
-    type Vtable = IImageList2Vtbl;
+    type Vtable = IImageList2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x192b9d83_50fc_457b_90a0_2b82a8b5dae1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IImageList2Vtbl {
-    pub base: IImageListVtbl,
+pub struct IImageList2_Vtbl {
+    pub base: IImageList_Vtbl,
     pub Resize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cxnewiconsize: i32, cynewiconsize: i32) -> ::windows::core::HRESULT,
     pub GetOriginalSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iimage: i32, dwflags: u32, pcx: *mut i32, pcy: *mut i32) -> ::windows::core::HRESULT,
     pub SetOriginalSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iimage: i32, cx: i32, cy: i32) -> ::windows::core::HRESULT,

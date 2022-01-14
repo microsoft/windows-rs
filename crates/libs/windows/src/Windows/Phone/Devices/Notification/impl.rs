@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IVibrationDeviceImpl: Sized {
+pub trait IVibrationDevice_Impl: Sized {
     fn Vibrate(&mut self, duration: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
     fn Cancel(&mut self) -> ::windows::core::Result<()>;
 }
@@ -8,13 +8,13 @@ impl ::windows::core::RuntimeName for IVibrationDevice {
     const NAME: &'static str = "Windows.Phone.Devices.Notification.IVibrationDevice";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IVibrationDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVibrationDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVibrationDeviceVtbl {
-        unsafe extern "system" fn Vibrate<Impl: IVibrationDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+impl IVibrationDevice_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVibrationDevice_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVibrationDevice_Vtbl {
+        unsafe extern "system" fn Vibrate<Impl: IVibrationDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Vibrate(&*(&duration as *const <super::super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Cancel<Impl: IVibrationDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Cancel<Impl: IVibrationDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Cancel().into()
         }
@@ -29,7 +29,7 @@ impl IVibrationDeviceVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVibrationDeviceStaticsImpl: Sized {
+pub trait IVibrationDeviceStatics_Impl: Sized {
     fn GetDefault(&mut self) -> ::windows::core::Result<VibrationDevice>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -37,9 +37,9 @@ impl ::windows::core::RuntimeName for IVibrationDeviceStatics {
     const NAME: &'static str = "Windows.Phone.Devices.Notification.IVibrationDeviceStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVibrationDeviceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVibrationDeviceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVibrationDeviceStaticsVtbl {
-        unsafe extern "system" fn GetDefault<Impl: IVibrationDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVibrationDeviceStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVibrationDeviceStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVibrationDeviceStatics_Vtbl {
+        unsafe extern "system" fn GetDefault<Impl: IVibrationDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
                 ::core::result::Result::Ok(ok__) => {

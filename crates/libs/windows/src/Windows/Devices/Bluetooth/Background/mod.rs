@@ -84,7 +84,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementPublisherTr
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.BluetoothLEAdvertisementPublisherTriggerDetails;{610eca86-3480-41c9-a918-7ddadf207e00})");
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementPublisherTriggerDetails {
-    type Vtable = IBluetoothLEAdvertisementPublisherTriggerDetailsVtbl;
+    type Vtable = IBluetoothLEAdvertisementPublisherTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x610eca86_3480_41c9_a918_7ddadf207e00);
 }
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementPublisherTriggerDetails {
@@ -182,7 +182,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementWatcherTrig
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.BluetoothLEAdvertisementWatcherTriggerDetails;{a7db5ad7-2257-4e69-9784-fee645c1dce0})");
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementWatcherTriggerDetails {
-    type Vtable = IBluetoothLEAdvertisementWatcherTriggerDetailsVtbl;
+    type Vtable = IBluetoothLEAdvertisementWatcherTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7db5ad7_2257_4e69_9784_fee645c1dce0);
 }
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementWatcherTriggerDetails {
@@ -298,7 +298,7 @@ unsafe impl ::windows::core::RuntimeType for GattCharacteristicNotificationTrigg
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.GattCharacteristicNotificationTriggerDetails;{9ba03b18-0fec-436a-93b1-f46c697532a2})");
 }
 unsafe impl ::windows::core::Interface for GattCharacteristicNotificationTriggerDetails {
-    type Vtable = IGattCharacteristicNotificationTriggerDetailsVtbl;
+    type Vtable = IGattCharacteristicNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ba03b18_0fec_436a_93b1_f46c697532a2);
 }
 impl ::windows::core::RuntimeName for GattCharacteristicNotificationTriggerDetails {
@@ -406,7 +406,7 @@ unsafe impl ::windows::core::RuntimeType for GattServiceProviderConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.GattServiceProviderConnection;{7fa1b9b9-2f13-40b5-9582-8eb78e98ef13})");
 }
 unsafe impl ::windows::core::Interface for GattServiceProviderConnection {
-    type Vtable = IGattServiceProviderConnectionVtbl;
+    type Vtable = IGattServiceProviderConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fa1b9b9_2f13_40b5_9582_8eb78e98ef13);
 }
 impl ::windows::core::RuntimeName for GattServiceProviderConnection {
@@ -487,7 +487,7 @@ unsafe impl ::windows::core::RuntimeType for GattServiceProviderTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.GattServiceProviderTriggerDetails;{ae8c0625-05ff-4afb-b16a-de95f3cf0158})");
 }
 unsafe impl ::windows::core::Interface for GattServiceProviderTriggerDetails {
-    type Vtable = IGattServiceProviderTriggerDetailsVtbl;
+    type Vtable = IGattServiceProviderTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae8c0625_05ff_4afb_b16a_de95f3cf0158);
 }
 impl ::windows::core::RuntimeName for GattServiceProviderTriggerDetails {
@@ -539,12 +539,12 @@ unsafe impl ::core::marker::Sync for GattServiceProviderTriggerDetails {}
 #[repr(transparent)]
 pub struct IBluetoothLEAdvertisementPublisherTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementPublisherTriggerDetails {
-    type Vtable = IBluetoothLEAdvertisementPublisherTriggerDetailsVtbl;
+    type Vtable = IBluetoothLEAdvertisementPublisherTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x610eca86_3480_41c9_a918_7ddadf207e00);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementPublisherTriggerDetailsVtbl {
+pub struct IBluetoothLEAdvertisementPublisherTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Bluetooth_Advertisement")]
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Advertisement::BluetoothLEAdvertisementPublisherStatus) -> ::windows::core::HRESULT,
@@ -556,12 +556,12 @@ pub struct IBluetoothLEAdvertisementPublisherTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IBluetoothLEAdvertisementPublisherTriggerDetails2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementPublisherTriggerDetails2 {
-    type Vtable = IBluetoothLEAdvertisementPublisherTriggerDetails2Vtbl;
+    type Vtable = IBluetoothLEAdvertisementPublisherTriggerDetails2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4a3d025_c601_42d6_9829_4ccb3f5cd77f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementPublisherTriggerDetails2Vtbl {
+pub struct IBluetoothLEAdvertisementPublisherTriggerDetails2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SelectedTransmitPowerLevelInDBm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -572,12 +572,12 @@ pub struct IBluetoothLEAdvertisementPublisherTriggerDetails2Vtbl {
 #[repr(transparent)]
 pub struct IBluetoothLEAdvertisementWatcherTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementWatcherTriggerDetails {
-    type Vtable = IBluetoothLEAdvertisementWatcherTriggerDetailsVtbl;
+    type Vtable = IBluetoothLEAdvertisementWatcherTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7db5ad7_2257_4e69_9784_fee645c1dce0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementWatcherTriggerDetailsVtbl {
+pub struct IBluetoothLEAdvertisementWatcherTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Devices_Bluetooth_Advertisement", feature = "Foundation_Collections"))]
@@ -590,12 +590,12 @@ pub struct IBluetoothLEAdvertisementWatcherTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IGattCharacteristicNotificationTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattCharacteristicNotificationTriggerDetails {
-    type Vtable = IGattCharacteristicNotificationTriggerDetailsVtbl;
+    type Vtable = IGattCharacteristicNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ba03b18_0fec_436a_93b1_f46c697532a2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattCharacteristicNotificationTriggerDetailsVtbl {
+pub struct IGattCharacteristicNotificationTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub Characteristic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -610,12 +610,12 @@ pub struct IGattCharacteristicNotificationTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IGattCharacteristicNotificationTriggerDetails2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattCharacteristicNotificationTriggerDetails2 {
-    type Vtable = IGattCharacteristicNotificationTriggerDetails2Vtbl;
+    type Vtable = IGattCharacteristicNotificationTriggerDetails2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x727a50dc_949d_454a_b192_983467e3d50f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattCharacteristicNotificationTriggerDetails2Vtbl {
+pub struct IGattCharacteristicNotificationTriggerDetails2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT,
     pub EventTriggeringMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BluetoothEventTriggeringMode) -> ::windows::core::HRESULT,
@@ -628,12 +628,12 @@ pub struct IGattCharacteristicNotificationTriggerDetails2Vtbl {
 #[repr(transparent)]
 pub struct IGattServiceProviderConnection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattServiceProviderConnection {
-    type Vtable = IGattServiceProviderConnectionVtbl;
+    type Vtable = IGattServiceProviderConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fa1b9b9_2f13_40b5_9582_8eb78e98ef13);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattServiceProviderConnectionVtbl {
+pub struct IGattServiceProviderConnection_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TriggerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
@@ -646,12 +646,12 @@ pub struct IGattServiceProviderConnectionVtbl {
 #[repr(transparent)]
 pub struct IGattServiceProviderConnectionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattServiceProviderConnectionStatics {
-    type Vtable = IGattServiceProviderConnectionStaticsVtbl;
+    type Vtable = IGattServiceProviderConnectionStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d509f4b_0b0e_4466_b8cd_6ebdda1fa17d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattServiceProviderConnectionStaticsVtbl {
+pub struct IGattServiceProviderConnectionStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub AllServices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -662,12 +662,12 @@ pub struct IGattServiceProviderConnectionStaticsVtbl {
 #[repr(transparent)]
 pub struct IGattServiceProviderTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattServiceProviderTriggerDetails {
-    type Vtable = IGattServiceProviderTriggerDetailsVtbl;
+    type Vtable = IGattServiceProviderTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae8c0625_05ff_4afb_b16a_de95f3cf0158);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattServiceProviderTriggerDetailsVtbl {
+pub struct IGattServiceProviderTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Connection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -675,12 +675,12 @@ pub struct IGattServiceProviderTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IRfcommConnectionTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommConnectionTriggerDetails {
-    type Vtable = IRfcommConnectionTriggerDetailsVtbl;
+    type Vtable = IRfcommConnectionTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf922734d_2e3c_4efc_ab59_fc5cf96f97e3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRfcommConnectionTriggerDetailsVtbl {
+pub struct IRfcommConnectionTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Networking_Sockets")]
     pub Socket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -693,12 +693,12 @@ pub struct IRfcommConnectionTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IRfcommInboundConnectionInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommInboundConnectionInformation {
-    type Vtable = IRfcommInboundConnectionInformationVtbl;
+    type Vtable = IRfcommInboundConnectionInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d3e75a8_5429_4059_92e3_1e8b65528707);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRfcommInboundConnectionInformationVtbl {
+pub struct IRfcommInboundConnectionInformation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub SdpRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -723,12 +723,12 @@ pub struct IRfcommInboundConnectionInformationVtbl {
 #[repr(transparent)]
 pub struct IRfcommOutboundConnectionInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRfcommOutboundConnectionInformation {
-    type Vtable = IRfcommOutboundConnectionInformationVtbl;
+    type Vtable = IRfcommOutboundConnectionInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb091227b_f434_4cb0_99b1_4ab8cedaedd7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRfcommOutboundConnectionInformationVtbl {
+pub struct IRfcommOutboundConnectionInformation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
     pub RemoteServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -789,7 +789,7 @@ unsafe impl ::windows::core::RuntimeType for RfcommConnectionTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.RfcommConnectionTriggerDetails;{f922734d-2e3c-4efc-ab59-fc5cf96f97e3})");
 }
 unsafe impl ::windows::core::Interface for RfcommConnectionTriggerDetails {
-    type Vtable = IRfcommConnectionTriggerDetailsVtbl;
+    type Vtable = IRfcommConnectionTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf922734d_2e3c_4efc_ab59_fc5cf96f97e3);
 }
 impl ::windows::core::RuntimeName for RfcommConnectionTriggerDetails {
@@ -905,7 +905,7 @@ unsafe impl ::windows::core::RuntimeType for RfcommInboundConnectionInformation 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.RfcommInboundConnectionInformation;{6d3e75a8-5429-4059-92e3-1e8b65528707})");
 }
 unsafe impl ::windows::core::Interface for RfcommInboundConnectionInformation {
-    type Vtable = IRfcommInboundConnectionInformationVtbl;
+    type Vtable = IRfcommInboundConnectionInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d3e75a8_5429_4059_92e3_1e8b65528707);
 }
 impl ::windows::core::RuntimeName for RfcommInboundConnectionInformation {
@@ -993,7 +993,7 @@ unsafe impl ::windows::core::RuntimeType for RfcommOutboundConnectionInformation
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Background.RfcommOutboundConnectionInformation;{b091227b-f434-4cb0-99b1-4ab8cedaedd7})");
 }
 unsafe impl ::windows::core::Interface for RfcommOutboundConnectionInformation {
-    type Vtable = IRfcommOutboundConnectionInformationVtbl;
+    type Vtable = IRfcommOutboundConnectionInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb091227b_f434_4cb0_99b1_4ab8cedaedd7);
 }
 impl ::windows::core::RuntimeName for RfcommOutboundConnectionInformation {

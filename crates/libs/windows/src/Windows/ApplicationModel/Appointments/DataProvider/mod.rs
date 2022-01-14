@@ -91,7 +91,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentCalendarCancelMeetingReq
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequest;{49460f8d-6434-40d7-ad46-6297419314d1})");
 }
 unsafe impl ::windows::core::Interface for AppointmentCalendarCancelMeetingRequest {
-    type Vtable = IAppointmentCalendarCancelMeetingRequestVtbl;
+    type Vtable = IAppointmentCalendarCancelMeetingRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49460f8d_6434_40d7_ad46_6297419314d1);
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarCancelMeetingRequest {
@@ -181,7 +181,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentCalendarCancelMeetingReq
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequestEventArgs;{1a79be16-7f30-4e35-beef-9d2c7b6dcae1})");
 }
 unsafe impl ::windows::core::Interface for AppointmentCalendarCancelMeetingRequestEventArgs {
-    type Vtable = IAppointmentCalendarCancelMeetingRequestEventArgsVtbl;
+    type Vtable = IAppointmentCalendarCancelMeetingRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a79be16_7f30_4e35_beef_9d2c7b6dcae1);
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarCancelMeetingRequestEventArgs {
@@ -305,7 +305,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentCalendarCreateOrUpdateAp
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequest;{2e62f2b2-ca96-48ac-9124-406b19fefa70})");
 }
 unsafe impl ::windows::core::Interface for AppointmentCalendarCreateOrUpdateAppointmentRequest {
-    type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequestVtbl;
+    type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e62f2b2_ca96_48ac_9124_406b19fefa70);
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarCreateOrUpdateAppointmentRequest {
@@ -395,7 +395,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentCalendarCreateOrUpdateAp
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs;{cf8ded28-002e-4bf7-8e9d-5e20d49aa3ba})");
 }
 unsafe impl ::windows::core::Interface for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
-    type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsVtbl;
+    type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf8ded28_002e_4bf7_8e9d_5e20d49aa3ba);
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
@@ -544,7 +544,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentCalendarForwardMeetingRe
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequest;{82e5ee56-26b6-4253-8a8f-6cf5f2ff7884})");
 }
 unsafe impl ::windows::core::Interface for AppointmentCalendarForwardMeetingRequest {
-    type Vtable = IAppointmentCalendarForwardMeetingRequestVtbl;
+    type Vtable = IAppointmentCalendarForwardMeetingRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82e5ee56_26b6_4253_8a8f_6cf5f2ff7884);
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarForwardMeetingRequest {
@@ -634,7 +634,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentCalendarForwardMeetingRe
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequestEventArgs;{3109151a-23a2-42fd-9c82-c9a60d59f8a8})");
 }
 unsafe impl ::windows::core::Interface for AppointmentCalendarForwardMeetingRequestEventArgs {
-    type Vtable = IAppointmentCalendarForwardMeetingRequestEventArgsVtbl;
+    type Vtable = IAppointmentCalendarForwardMeetingRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3109151a_23a2_42fd_9c82_c9a60d59f8a8);
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarForwardMeetingRequestEventArgs {
@@ -784,7 +784,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentCalendarProposeNewTimeFo
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequest;{ce1c63f5-edf6-43c3-82b7-be6b368c6900})");
 }
 unsafe impl ::windows::core::Interface for AppointmentCalendarProposeNewTimeForMeetingRequest {
-    type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequestVtbl;
+    type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce1c63f5_edf6_43c3_82b7_be6b368c6900);
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarProposeNewTimeForMeetingRequest {
@@ -874,7 +874,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentCalendarProposeNewTimeFo
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs;{d2d777d8-fed1-4280-a3ba-2e1f47609aa2})");
 }
 unsafe impl ::windows::core::Interface for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
-    type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsVtbl;
+    type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2d777d8_fed1_4280_a3ba_2e1f47609aa2);
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
@@ -973,7 +973,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentCalendarSyncManagerSyncR
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequest;{12ab382b-7163-4a56-9a4e-7223a84adf46})");
 }
 unsafe impl ::windows::core::Interface for AppointmentCalendarSyncManagerSyncRequest {
-    type Vtable = IAppointmentCalendarSyncManagerSyncRequestVtbl;
+    type Vtable = IAppointmentCalendarSyncManagerSyncRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12ab382b_7163_4a56_9a4e_7223a84adf46);
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarSyncManagerSyncRequest {
@@ -1063,7 +1063,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentCalendarSyncManagerSyncR
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequestEventArgs;{ca17c6f7-0284-4edd-87ba-4d8f69dcf5c0})");
 }
 unsafe impl ::windows::core::Interface for AppointmentCalendarSyncManagerSyncRequestEventArgs {
-    type Vtable = IAppointmentCalendarSyncManagerSyncRequestEventArgsVtbl;
+    type Vtable = IAppointmentCalendarSyncManagerSyncRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca17c6f7_0284_4edd_87ba_4d8f69dcf5c0);
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarSyncManagerSyncRequestEventArgs {
@@ -1211,7 +1211,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentCalendarUpdateMeetingRes
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequest;{a36d608c-c29d-4b94-b086-7e9ff7bd84a0})");
 }
 unsafe impl ::windows::core::Interface for AppointmentCalendarUpdateMeetingResponseRequest {
-    type Vtable = IAppointmentCalendarUpdateMeetingResponseRequestVtbl;
+    type Vtable = IAppointmentCalendarUpdateMeetingResponseRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa36d608c_c29d_4b94_b086_7e9ff7bd84a0);
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarUpdateMeetingResponseRequest {
@@ -1301,7 +1301,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentCalendarUpdateMeetingRes
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequestEventArgs;{88759883-97bf-479d-aed5-0be8ce567d1e})");
 }
 unsafe impl ::windows::core::Interface for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
-    type Vtable = IAppointmentCalendarUpdateMeetingResponseRequestEventArgsVtbl;
+    type Vtable = IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88759883_97bf_479d_aed5_0be8ce567d1e);
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
@@ -1469,7 +1469,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentDataProviderConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderConnection;{f3dd9d83-3254-465f-abdb-928046552cf4})");
 }
 unsafe impl ::windows::core::Interface for AppointmentDataProviderConnection {
-    type Vtable = IAppointmentDataProviderConnectionVtbl;
+    type Vtable = IAppointmentDataProviderConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3dd9d83_3254_465f_abdb_928046552cf4);
 }
 impl ::windows::core::RuntimeName for AppointmentDataProviderConnection {
@@ -1550,7 +1550,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentDataProviderTriggerDetai
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderTriggerDetails;{b3283c01-7e12-4e5e-b1ef-74fb68ac6f2a})");
 }
 unsafe impl ::windows::core::Interface for AppointmentDataProviderTriggerDetails {
-    type Vtable = IAppointmentDataProviderTriggerDetailsVtbl;
+    type Vtable = IAppointmentDataProviderTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3283c01_7e12_4e5e_b1ef_74fb68ac6f2a);
 }
 impl ::windows::core::RuntimeName for AppointmentDataProviderTriggerDetails {
@@ -1602,12 +1602,12 @@ unsafe impl ::core::marker::Sync for AppointmentDataProviderTriggerDetails {}
 #[repr(transparent)]
 pub struct IAppointmentCalendarCancelMeetingRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentCalendarCancelMeetingRequest {
-    type Vtable = IAppointmentCalendarCancelMeetingRequestVtbl;
+    type Vtable = IAppointmentCalendarCancelMeetingRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49460f8d_6434_40d7_ad46_6297419314d1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarCancelMeetingRequestVtbl {
+pub struct IAppointmentCalendarCancelMeetingRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AppointmentCalendarLocalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub AppointmentLocalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1631,12 +1631,12 @@ pub struct IAppointmentCalendarCancelMeetingRequestVtbl {
 #[repr(transparent)]
 pub struct IAppointmentCalendarCancelMeetingRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentCalendarCancelMeetingRequestEventArgs {
-    type Vtable = IAppointmentCalendarCancelMeetingRequestEventArgsVtbl;
+    type Vtable = IAppointmentCalendarCancelMeetingRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a79be16_7f30_4e35_beef_9d2c7b6dcae1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarCancelMeetingRequestEventArgsVtbl {
+pub struct IAppointmentCalendarCancelMeetingRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1648,12 +1648,12 @@ pub struct IAppointmentCalendarCancelMeetingRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentCalendarCreateOrUpdateAppointmentRequest {
-    type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequestVtbl;
+    type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e62f2b2_ca96_48ac_9124_406b19fefa70);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequestVtbl {
+pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AppointmentCalendarLocalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Appointment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1675,12 +1675,12 @@ pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequestVtbl {
 #[repr(transparent)]
 pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
-    type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsVtbl;
+    type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf8ded28_002e_4bf7_8e9d_5e20d49aa3ba);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsVtbl {
+pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1692,12 +1692,12 @@ pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAppointmentCalendarForwardMeetingRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentCalendarForwardMeetingRequest {
-    type Vtable = IAppointmentCalendarForwardMeetingRequestVtbl;
+    type Vtable = IAppointmentCalendarForwardMeetingRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82e5ee56_26b6_4253_8a8f_6cf5f2ff7884);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarForwardMeetingRequestVtbl {
+pub struct IAppointmentCalendarForwardMeetingRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AppointmentCalendarLocalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub AppointmentLocalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1725,12 +1725,12 @@ pub struct IAppointmentCalendarForwardMeetingRequestVtbl {
 #[repr(transparent)]
 pub struct IAppointmentCalendarForwardMeetingRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentCalendarForwardMeetingRequestEventArgs {
-    type Vtable = IAppointmentCalendarForwardMeetingRequestEventArgsVtbl;
+    type Vtable = IAppointmentCalendarForwardMeetingRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3109151a_23a2_42fd_9c82_c9a60d59f8a8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarForwardMeetingRequestEventArgsVtbl {
+pub struct IAppointmentCalendarForwardMeetingRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1742,12 +1742,12 @@ pub struct IAppointmentCalendarForwardMeetingRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAppointmentCalendarProposeNewTimeForMeetingRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentCalendarProposeNewTimeForMeetingRequest {
-    type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequestVtbl;
+    type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce1c63f5_edf6_43c3_82b7_be6b368c6900);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarProposeNewTimeForMeetingRequestVtbl {
+pub struct IAppointmentCalendarProposeNewTimeForMeetingRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AppointmentCalendarLocalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub AppointmentLocalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1778,12 +1778,12 @@ pub struct IAppointmentCalendarProposeNewTimeForMeetingRequestVtbl {
 #[repr(transparent)]
 pub struct IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
-    type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsVtbl;
+    type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2d777d8_fed1_4280_a3ba_2e1f47609aa2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsVtbl {
+pub struct IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1795,12 +1795,12 @@ pub struct IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAppointmentCalendarSyncManagerSyncRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentCalendarSyncManagerSyncRequest {
-    type Vtable = IAppointmentCalendarSyncManagerSyncRequestVtbl;
+    type Vtable = IAppointmentCalendarSyncManagerSyncRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12ab382b_7163_4a56_9a4e_7223a84adf46);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarSyncManagerSyncRequestVtbl {
+pub struct IAppointmentCalendarSyncManagerSyncRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AppointmentCalendarLocalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1816,12 +1816,12 @@ pub struct IAppointmentCalendarSyncManagerSyncRequestVtbl {
 #[repr(transparent)]
 pub struct IAppointmentCalendarSyncManagerSyncRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentCalendarSyncManagerSyncRequestEventArgs {
-    type Vtable = IAppointmentCalendarSyncManagerSyncRequestEventArgsVtbl;
+    type Vtable = IAppointmentCalendarSyncManagerSyncRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca17c6f7_0284_4edd_87ba_4d8f69dcf5c0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarSyncManagerSyncRequestEventArgsVtbl {
+pub struct IAppointmentCalendarSyncManagerSyncRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1833,12 +1833,12 @@ pub struct IAppointmentCalendarSyncManagerSyncRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAppointmentCalendarUpdateMeetingResponseRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentCalendarUpdateMeetingResponseRequest {
-    type Vtable = IAppointmentCalendarUpdateMeetingResponseRequestVtbl;
+    type Vtable = IAppointmentCalendarUpdateMeetingResponseRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa36d608c_c29d_4b94_b086_7e9ff7bd84a0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarUpdateMeetingResponseRequestVtbl {
+pub struct IAppointmentCalendarUpdateMeetingResponseRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AppointmentCalendarLocalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub AppointmentLocalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1863,12 +1863,12 @@ pub struct IAppointmentCalendarUpdateMeetingResponseRequestVtbl {
 #[repr(transparent)]
 pub struct IAppointmentCalendarUpdateMeetingResponseRequestEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentCalendarUpdateMeetingResponseRequestEventArgs {
-    type Vtable = IAppointmentCalendarUpdateMeetingResponseRequestEventArgsVtbl;
+    type Vtable = IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88759883_97bf_479d_aed5_0be8ce567d1e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentCalendarUpdateMeetingResponseRequestEventArgsVtbl {
+pub struct IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1880,12 +1880,12 @@ pub struct IAppointmentCalendarUpdateMeetingResponseRequestEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAppointmentDataProviderConnection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentDataProviderConnection {
-    type Vtable = IAppointmentDataProviderConnectionVtbl;
+    type Vtable = IAppointmentDataProviderConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3dd9d83_3254_465f_abdb_928046552cf4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentDataProviderConnectionVtbl {
+pub struct IAppointmentDataProviderConnection_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SyncRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -1941,12 +1941,12 @@ pub struct IAppointmentDataProviderConnectionVtbl {
 #[repr(transparent)]
 pub struct IAppointmentDataProviderTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppointmentDataProviderTriggerDetails {
-    type Vtable = IAppointmentDataProviderTriggerDetailsVtbl;
+    type Vtable = IAppointmentDataProviderTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3283c01_7e12_4e5e_b1ef_74fb68ac6f2a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentDataProviderTriggerDetailsVtbl {
+pub struct IAppointmentDataProviderTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Connection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }

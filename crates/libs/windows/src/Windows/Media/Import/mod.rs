@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IPhotoImportDeleteImportedItemsFromSourceResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportDeleteImportedItemsFromSourceResult {
-    type Vtable = IPhotoImportDeleteImportedItemsFromSourceResultVtbl;
+    type Vtable = IPhotoImportDeleteImportedItemsFromSourceResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4e112f8_843d_428a_a1a6_81510292b0ae);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
+pub struct IPhotoImportDeleteImportedItemsFromSourceResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub HasSucceeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -31,12 +31,12 @@ pub struct IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
 #[repr(transparent)]
 pub struct IPhotoImportFindItemsResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportFindItemsResult {
-    type Vtable = IPhotoImportFindItemsResultVtbl;
+    type Vtable = IPhotoImportFindItemsResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3915e647_6c78_492b_844e_8fe5e8f6bfb9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoImportFindItemsResultVtbl {
+pub struct IPhotoImportFindItemsResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub HasSucceeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -97,12 +97,12 @@ pub struct IPhotoImportFindItemsResultVtbl {
 #[repr(transparent)]
 pub struct IPhotoImportFindItemsResult2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportFindItemsResult2 {
-    type Vtable = IPhotoImportFindItemsResult2Vtbl;
+    type Vtable = IPhotoImportFindItemsResult2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbdd6a3b_ecf9_406a_815e_5015625b0a88);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoImportFindItemsResult2Vtbl {
+pub struct IPhotoImportFindItemsResult2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub AddItemsInDateRangeToSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -113,12 +113,12 @@ pub struct IPhotoImportFindItemsResult2Vtbl {
 #[repr(transparent)]
 pub struct IPhotoImportImportItemsResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportImportItemsResult {
-    type Vtable = IPhotoImportImportItemsResultVtbl;
+    type Vtable = IPhotoImportImportItemsResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4d4f478_d419_4443_a84e_f06a850c0b00);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoImportImportItemsResultVtbl {
+pub struct IPhotoImportImportItemsResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub HasSucceeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -145,12 +145,12 @@ pub struct IPhotoImportImportItemsResultVtbl {
 #[repr(transparent)]
 pub struct IPhotoImportItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportItem {
-    type Vtable = IPhotoImportItemVtbl;
+    type Vtable = IPhotoImportItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9d07e76_9bfc_43b8_b356_633b6a988c9e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoImportItemVtbl {
+pub struct IPhotoImportItem_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ItemKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
@@ -188,12 +188,12 @@ pub struct IPhotoImportItemVtbl {
 #[repr(transparent)]
 pub struct IPhotoImportItem2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportItem2 {
-    type Vtable = IPhotoImportItem2Vtbl;
+    type Vtable = IPhotoImportItem2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1053505_f53b_46a3_9e30_3610791a9110);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoImportItem2Vtbl {
+pub struct IPhotoImportItem2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -201,12 +201,12 @@ pub struct IPhotoImportItem2Vtbl {
 #[repr(transparent)]
 pub struct IPhotoImportItemImportedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportItemImportedEventArgs {
-    type Vtable = IPhotoImportItemImportedEventArgsVtbl;
+    type Vtable = IPhotoImportItemImportedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42cb2fdd_7d68_47b5_bc7c_ceb73e0c77dc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoImportItemImportedEventArgsVtbl {
+pub struct IPhotoImportItemImportedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ImportedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -214,12 +214,12 @@ pub struct IPhotoImportItemImportedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPhotoImportManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportManagerStatics {
-    type Vtable = IPhotoImportManagerStaticsVtbl;
+    type Vtable = IPhotoImportManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2771903d_a046_4f06_9b9c_bfd662e83287);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoImportManagerStaticsVtbl {
+pub struct IPhotoImportManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub IsSupportedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -238,12 +238,12 @@ pub struct IPhotoImportManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IPhotoImportOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportOperation {
-    type Vtable = IPhotoImportOperationVtbl;
+    type Vtable = IPhotoImportOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9f797e4_a09a_4ee4_a4b1_20940277a5be);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoImportOperationVtbl {
+pub struct IPhotoImportOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Stage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportStage) -> ::windows::core::HRESULT,
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -264,12 +264,12 @@ pub struct IPhotoImportOperationVtbl {
 #[repr(transparent)]
 pub struct IPhotoImportSelectionChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportSelectionChangedEventArgs {
-    type Vtable = IPhotoImportSelectionChangedEventArgsVtbl;
+    type Vtable = IPhotoImportSelectionChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10461782_fa9d_4c30_8bc9_4d64911572d5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoImportSelectionChangedEventArgsVtbl {
+pub struct IPhotoImportSelectionChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsSelectionEmpty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -277,12 +277,12 @@ pub struct IPhotoImportSelectionChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPhotoImportSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportSession {
-    type Vtable = IPhotoImportSessionVtbl;
+    type Vtable = IPhotoImportSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa63916e_ecdb_4efe_94c6_5f5cafe34cfb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoImportSessionVtbl {
+pub struct IPhotoImportSession_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SessionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -309,12 +309,12 @@ pub struct IPhotoImportSessionVtbl {
 #[repr(transparent)]
 pub struct IPhotoImportSession2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportSession2 {
-    type Vtable = IPhotoImportSession2Vtbl;
+    type Vtable = IPhotoImportSession2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a526710_3ec6_469d_a375_2b9f4785391e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoImportSession2Vtbl {
+pub struct IPhotoImportSession2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetSubfolderDateFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: PhotoImportSubfolderDateFormat) -> ::windows::core::HRESULT,
     pub SubfolderDateFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportSubfolderDateFormat) -> ::windows::core::HRESULT,
@@ -325,12 +325,12 @@ pub struct IPhotoImportSession2Vtbl {
 #[repr(transparent)]
 pub struct IPhotoImportSidecar(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportSidecar {
-    type Vtable = IPhotoImportSidecarVtbl;
+    type Vtable = IPhotoImportSidecar_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46d7d757_f802_44c7_9c98_7a71f4bc1486);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoImportSidecarVtbl {
+pub struct IPhotoImportSidecar_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SizeInBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
@@ -343,12 +343,12 @@ pub struct IPhotoImportSidecarVtbl {
 #[repr(transparent)]
 pub struct IPhotoImportSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportSource {
-    type Vtable = IPhotoImportSourceVtbl;
+    type Vtable = IPhotoImportSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f8ea35e_145b_4cd6_87f1_54965a982fef);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoImportSourceVtbl {
+pub struct IPhotoImportSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -387,12 +387,12 @@ pub struct IPhotoImportSourceVtbl {
 #[repr(transparent)]
 pub struct IPhotoImportSourceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportSourceStatics {
-    type Vtable = IPhotoImportSourceStaticsVtbl;
+    type Vtable = IPhotoImportSourceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0528e586_32d8_467c_8cee_23a1b2f43e85);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoImportSourceStaticsVtbl {
+pub struct IPhotoImportSourceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -407,12 +407,12 @@ pub struct IPhotoImportSourceStaticsVtbl {
 #[repr(transparent)]
 pub struct IPhotoImportStorageMedium(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportStorageMedium {
-    type Vtable = IPhotoImportStorageMediumVtbl;
+    type Vtable = IPhotoImportStorageMedium_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2b9b093_fc85_487f_87c2_58d675d05b07);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoImportStorageMediumVtbl {
+pub struct IPhotoImportStorageMedium_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -427,12 +427,12 @@ pub struct IPhotoImportStorageMediumVtbl {
 #[repr(transparent)]
 pub struct IPhotoImportVideoSegment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhotoImportVideoSegment {
-    type Vtable = IPhotoImportVideoSegmentVtbl;
+    type Vtable = IPhotoImportVideoSegment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x623c0289_321a_41d8_9166_8c62a333276c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhotoImportVideoSegmentVtbl {
+pub struct IPhotoImportVideoSegment_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SizeInBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
@@ -714,7 +714,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportDeleteImportedItemsFromS
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportDeleteImportedItemsFromSourceResult;{f4e112f8-843d-428a-a1a6-81510292b0ae})");
 }
 unsafe impl ::windows::core::Interface for PhotoImportDeleteImportedItemsFromSourceResult {
-    type Vtable = IPhotoImportDeleteImportedItemsFromSourceResultVtbl;
+    type Vtable = IPhotoImportDeleteImportedItemsFromSourceResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4e112f8_843d_428a_a1a6_81510292b0ae);
 }
 impl ::windows::core::RuntimeName for PhotoImportDeleteImportedItemsFromSourceResult {
@@ -1049,7 +1049,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportFindItemsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportFindItemsResult;{3915e647-6c78-492b-844e-8fe5e8f6bfb9})");
 }
 unsafe impl ::windows::core::Interface for PhotoImportFindItemsResult {
-    type Vtable = IPhotoImportFindItemsResultVtbl;
+    type Vtable = IPhotoImportFindItemsResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3915e647_6c78_492b_844e_8fe5e8f6bfb9);
 }
 impl ::windows::core::RuntimeName for PhotoImportFindItemsResult {
@@ -1236,7 +1236,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportImportItemsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportImportItemsResult;{e4d4f478-d419-4443-a84e-f06a850c0b00})");
 }
 unsafe impl ::windows::core::Interface for PhotoImportImportItemsResult {
-    type Vtable = IPhotoImportImportItemsResultVtbl;
+    type Vtable = IPhotoImportImportItemsResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4d4f478_d419_4443_a84e_f06a850c0b00);
 }
 impl ::windows::core::RuntimeName for PhotoImportImportItemsResult {
@@ -1459,7 +1459,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportItem;{a9d07e76-9bfc-43b8-b356-633b6a988c9e})");
 }
 unsafe impl ::windows::core::Interface for PhotoImportItem {
-    type Vtable = IPhotoImportItemVtbl;
+    type Vtable = IPhotoImportItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9d07e76_9bfc_43b8_b356_633b6a988c9e);
 }
 impl ::windows::core::RuntimeName for PhotoImportItem {
@@ -1540,7 +1540,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportItemImportedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportItemImportedEventArgs;{42cb2fdd-7d68-47b5-bc7c-ceb73e0c77dc})");
 }
 unsafe impl ::windows::core::Interface for PhotoImportItemImportedEventArgs {
-    type Vtable = IPhotoImportItemImportedEventArgsVtbl;
+    type Vtable = IPhotoImportItemImportedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42cb2fdd_7d68_47b5_bc7c_ceb73e0c77dc);
 }
 impl ::windows::core::RuntimeName for PhotoImportItemImportedEventArgs {
@@ -1726,7 +1726,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportOperation;{d9f797e4-a09a-4ee4-a4b1-20940277a5be})");
 }
 unsafe impl ::windows::core::Interface for PhotoImportOperation {
-    type Vtable = IPhotoImportOperationVtbl;
+    type Vtable = IPhotoImportOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9f797e4_a09a_4ee4_a4b1_20940277a5be);
 }
 impl ::windows::core::RuntimeName for PhotoImportOperation {
@@ -1881,7 +1881,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportSelectionChangedEventArg
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportSelectionChangedEventArgs;{10461782-fa9d-4c30-8bc9-4d64911572d5})");
 }
 unsafe impl ::windows::core::Interface for PhotoImportSelectionChangedEventArgs {
-    type Vtable = IPhotoImportSelectionChangedEventArgsVtbl;
+    type Vtable = IPhotoImportSelectionChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10461782_fa9d_4c30_8bc9_4d64911572d5);
 }
 impl ::windows::core::RuntimeName for PhotoImportSelectionChangedEventArgs {
@@ -2065,7 +2065,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportSession;{aa63916e-ecdb-4efe-94c6-5f5cafe34cfb})");
 }
 unsafe impl ::windows::core::Interface for PhotoImportSession {
-    type Vtable = IPhotoImportSessionVtbl;
+    type Vtable = IPhotoImportSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa63916e_ecdb_4efe_94c6_5f5cafe34cfb);
 }
 impl ::windows::core::RuntimeName for PhotoImportSession {
@@ -2189,7 +2189,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportSidecar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportSidecar;{46d7d757-f802-44c7-9c98-7a71f4bc1486})");
 }
 unsafe impl ::windows::core::Interface for PhotoImportSidecar {
-    type Vtable = IPhotoImportSidecarVtbl;
+    type Vtable = IPhotoImportSidecar_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46d7d757_f802_44c7_9c98_7a71f4bc1486);
 }
 impl ::windows::core::RuntimeName for PhotoImportSidecar {
@@ -2424,7 +2424,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportSource;{1f8ea35e-145b-4cd6-87f1-54965a982fef})");
 }
 unsafe impl ::windows::core::Interface for PhotoImportSource {
-    type Vtable = IPhotoImportSourceVtbl;
+    type Vtable = IPhotoImportSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f8ea35e_145b_4cd6_87f1_54965a982fef);
 }
 impl ::windows::core::RuntimeName for PhotoImportSource {
@@ -2631,7 +2631,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportStorageMedium {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportStorageMedium;{f2b9b093-fc85-487f-87c2-58d675d05b07})");
 }
 unsafe impl ::windows::core::Interface for PhotoImportStorageMedium {
-    type Vtable = IPhotoImportStorageMediumVtbl;
+    type Vtable = IPhotoImportStorageMedium_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2b9b093_fc85_487f_87c2_58d675d05b07);
 }
 impl ::windows::core::RuntimeName for PhotoImportStorageMedium {
@@ -2849,7 +2849,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportVideoSegment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportVideoSegment;{623c0289-321a-41d8-9166-8c62a333276c})");
 }
 unsafe impl ::windows::core::Interface for PhotoImportVideoSegment {
-    type Vtable = IPhotoImportVideoSegmentVtbl;
+    type Vtable = IPhotoImportVideoSegment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x623c0289_321a_41d8_9166_8c62a333276c);
 }
 impl ::windows::core::RuntimeName for PhotoImportVideoSegment {

@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPhotoImportDeleteImportedItemsFromSourceResultImpl: Sized {
+pub trait IPhotoImportDeleteImportedItemsFromSourceResult_Impl: Sized {
     fn Session(&mut self) -> ::windows::core::Result<PhotoImportSession>;
     fn HasSucceeded(&mut self) -> ::windows::core::Result<bool>;
     fn DeletedItems(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportItem>>;
@@ -19,9 +19,9 @@ impl ::windows::core::RuntimeName for IPhotoImportDeleteImportedItemsFromSourceR
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportDeleteImportedItemsFromSourceResult";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportDeleteImportedItemsFromSourceResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
-        unsafe extern "system" fn Session<Impl: IPhotoImportDeleteImportedItemsFromSourceResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPhotoImportDeleteImportedItemsFromSourceResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportDeleteImportedItemsFromSourceResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportDeleteImportedItemsFromSourceResult_Vtbl {
+        unsafe extern "system" fn Session<Impl: IPhotoImportDeleteImportedItemsFromSourceResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Session() {
                 ::core::result::Result::Ok(ok__) => {
@@ -32,7 +32,7 @@ impl IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasSucceeded<Impl: IPhotoImportDeleteImportedItemsFromSourceResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasSucceeded<Impl: IPhotoImportDeleteImportedItemsFromSourceResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasSucceeded() {
                 ::core::result::Result::Ok(ok__) => {
@@ -43,7 +43,7 @@ impl IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeletedItems<Impl: IPhotoImportDeleteImportedItemsFromSourceResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeletedItems<Impl: IPhotoImportDeleteImportedItemsFromSourceResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeletedItems() {
                 ::core::result::Result::Ok(ok__) => {
@@ -54,7 +54,7 @@ impl IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhotosCount<Impl: IPhotoImportDeleteImportedItemsFromSourceResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhotosCount<Impl: IPhotoImportDeleteImportedItemsFromSourceResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhotosCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -65,7 +65,7 @@ impl IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhotosSizeInBytes<Impl: IPhotoImportDeleteImportedItemsFromSourceResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhotosSizeInBytes<Impl: IPhotoImportDeleteImportedItemsFromSourceResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhotosSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -76,7 +76,7 @@ impl IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideosCount<Impl: IPhotoImportDeleteImportedItemsFromSourceResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideosCount<Impl: IPhotoImportDeleteImportedItemsFromSourceResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideosCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -87,7 +87,7 @@ impl IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideosSizeInBytes<Impl: IPhotoImportDeleteImportedItemsFromSourceResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideosSizeInBytes<Impl: IPhotoImportDeleteImportedItemsFromSourceResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideosSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -98,7 +98,7 @@ impl IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SidecarsCount<Impl: IPhotoImportDeleteImportedItemsFromSourceResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SidecarsCount<Impl: IPhotoImportDeleteImportedItemsFromSourceResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SidecarsCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -109,7 +109,7 @@ impl IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SidecarsSizeInBytes<Impl: IPhotoImportDeleteImportedItemsFromSourceResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SidecarsSizeInBytes<Impl: IPhotoImportDeleteImportedItemsFromSourceResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SidecarsSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -120,7 +120,7 @@ impl IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SiblingsCount<Impl: IPhotoImportDeleteImportedItemsFromSourceResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SiblingsCount<Impl: IPhotoImportDeleteImportedItemsFromSourceResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SiblingsCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -131,7 +131,7 @@ impl IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SiblingsSizeInBytes<Impl: IPhotoImportDeleteImportedItemsFromSourceResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SiblingsSizeInBytes<Impl: IPhotoImportDeleteImportedItemsFromSourceResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SiblingsSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -142,7 +142,7 @@ impl IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TotalCount<Impl: IPhotoImportDeleteImportedItemsFromSourceResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TotalCount<Impl: IPhotoImportDeleteImportedItemsFromSourceResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TotalCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -153,7 +153,7 @@ impl IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TotalSizeInBytes<Impl: IPhotoImportDeleteImportedItemsFromSourceResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TotalSizeInBytes<Impl: IPhotoImportDeleteImportedItemsFromSourceResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TotalSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -186,7 +186,7 @@ impl IPhotoImportDeleteImportedItemsFromSourceResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPhotoImportFindItemsResultImpl: Sized {
+pub trait IPhotoImportFindItemsResult_Impl: Sized {
     fn Session(&mut self) -> ::windows::core::Result<PhotoImportSession>;
     fn HasSucceeded(&mut self) -> ::windows::core::Result<bool>;
     fn FoundItems(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportItem>>;
@@ -226,9 +226,9 @@ impl ::windows::core::RuntimeName for IPhotoImportFindItemsResult {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportFindItemsResult";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPhotoImportFindItemsResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportFindItemsResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportFindItemsResultVtbl {
-        unsafe extern "system" fn Session<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPhotoImportFindItemsResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportFindItemsResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportFindItemsResult_Vtbl {
+        unsafe extern "system" fn Session<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Session() {
                 ::core::result::Result::Ok(ok__) => {
@@ -239,7 +239,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasSucceeded<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasSucceeded<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasSucceeded() {
                 ::core::result::Result::Ok(ok__) => {
@@ -250,7 +250,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FoundItems<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FoundItems<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FoundItems() {
                 ::core::result::Result::Ok(ok__) => {
@@ -261,7 +261,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhotosCount<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhotosCount<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhotosCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -272,7 +272,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhotosSizeInBytes<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhotosSizeInBytes<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhotosSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -283,7 +283,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideosCount<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideosCount<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideosCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -294,7 +294,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideosSizeInBytes<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideosSizeInBytes<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideosSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -305,7 +305,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SidecarsCount<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SidecarsCount<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SidecarsCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -316,7 +316,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SidecarsSizeInBytes<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SidecarsSizeInBytes<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SidecarsSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -327,7 +327,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SiblingsCount<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SiblingsCount<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SiblingsCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -338,7 +338,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SiblingsSizeInBytes<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SiblingsSizeInBytes<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SiblingsSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -349,7 +349,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TotalCount<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TotalCount<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TotalCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -360,7 +360,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TotalSizeInBytes<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TotalSizeInBytes<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TotalSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -371,15 +371,15 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectAll<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectAll<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SelectAll().into()
         }
-        unsafe extern "system" fn SelectNone<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectNone<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SelectNone().into()
         }
-        unsafe extern "system" fn SelectNewAsync<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectNewAsync<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectNewAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -390,11 +390,11 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetImportMode<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PhotoImportImportMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetImportMode<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PhotoImportImportMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetImportMode(value).into()
         }
-        unsafe extern "system" fn ImportMode<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportImportMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImportMode<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportImportMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImportMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -405,7 +405,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectedPhotosCount<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectedPhotosCount<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedPhotosCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -416,7 +416,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectedPhotosSizeInBytes<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectedPhotosSizeInBytes<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedPhotosSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -427,7 +427,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectedVideosCount<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectedVideosCount<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedVideosCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -438,7 +438,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectedVideosSizeInBytes<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectedVideosSizeInBytes<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedVideosSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -449,7 +449,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectedSidecarsCount<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectedSidecarsCount<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedSidecarsCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -460,7 +460,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectedSidecarsSizeInBytes<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectedSidecarsSizeInBytes<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedSidecarsSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -471,7 +471,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectedSiblingsCount<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectedSiblingsCount<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedSiblingsCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -482,7 +482,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectedSiblingsSizeInBytes<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectedSiblingsSizeInBytes<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedSiblingsSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -493,7 +493,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectedTotalCount<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectedTotalCount<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedTotalCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -504,7 +504,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectedTotalSizeInBytes<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectedTotalSizeInBytes<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedTotalSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -515,7 +515,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectionChanged<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectionChanged<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectionChanged(&*(&value as *const <super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportSelectionChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportSelectionChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -526,11 +526,11 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSelectionChanged<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSelectionChanged<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSelectionChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ImportItemsAsync<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImportItemsAsync<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImportItemsAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -541,7 +541,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ItemImported<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ItemImported<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ItemImported(&*(&value as *const <super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportItemImportedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportItemImportedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -552,7 +552,7 @@ impl IPhotoImportFindItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveItemImported<Impl: IPhotoImportFindItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveItemImported<Impl: IPhotoImportFindItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveItemImported(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -598,7 +598,7 @@ impl IPhotoImportFindItemsResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPhotoImportFindItemsResult2Impl: Sized {
+pub trait IPhotoImportFindItemsResult2_Impl: Sized {
     fn AddItemsInDateRangeToSelection(&mut self, rangestart: &super::super::Foundation::DateTime, rangelength: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -606,9 +606,9 @@ impl ::windows::core::RuntimeName for IPhotoImportFindItemsResult2 {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportFindItemsResult2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPhotoImportFindItemsResult2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportFindItemsResult2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportFindItemsResult2Vtbl {
-        unsafe extern "system" fn AddItemsInDateRangeToSelection<Impl: IPhotoImportFindItemsResult2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+impl IPhotoImportFindItemsResult2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportFindItemsResult2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportFindItemsResult2_Vtbl {
+        unsafe extern "system" fn AddItemsInDateRangeToSelection<Impl: IPhotoImportFindItemsResult2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddItemsInDateRangeToSelection(&*(&rangestart as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType), &*(&rangelength as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -622,7 +622,7 @@ impl IPhotoImportFindItemsResult2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPhotoImportImportItemsResultImpl: Sized {
+pub trait IPhotoImportImportItemsResult_Impl: Sized {
     fn Session(&mut self) -> ::windows::core::Result<PhotoImportSession>;
     fn HasSucceeded(&mut self) -> ::windows::core::Result<bool>;
     fn ImportedItems(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportItem>>;
@@ -643,9 +643,9 @@ impl ::windows::core::RuntimeName for IPhotoImportImportItemsResult {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportImportItemsResult";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPhotoImportImportItemsResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportImportItemsResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportImportItemsResultVtbl {
-        unsafe extern "system" fn Session<Impl: IPhotoImportImportItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPhotoImportImportItemsResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportImportItemsResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportImportItemsResult_Vtbl {
+        unsafe extern "system" fn Session<Impl: IPhotoImportImportItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Session() {
                 ::core::result::Result::Ok(ok__) => {
@@ -656,7 +656,7 @@ impl IPhotoImportImportItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasSucceeded<Impl: IPhotoImportImportItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasSucceeded<Impl: IPhotoImportImportItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasSucceeded() {
                 ::core::result::Result::Ok(ok__) => {
@@ -667,7 +667,7 @@ impl IPhotoImportImportItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImportedItems<Impl: IPhotoImportImportItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImportedItems<Impl: IPhotoImportImportItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImportedItems() {
                 ::core::result::Result::Ok(ok__) => {
@@ -678,7 +678,7 @@ impl IPhotoImportImportItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhotosCount<Impl: IPhotoImportImportItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhotosCount<Impl: IPhotoImportImportItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhotosCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -689,7 +689,7 @@ impl IPhotoImportImportItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhotosSizeInBytes<Impl: IPhotoImportImportItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhotosSizeInBytes<Impl: IPhotoImportImportItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhotosSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -700,7 +700,7 @@ impl IPhotoImportImportItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideosCount<Impl: IPhotoImportImportItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideosCount<Impl: IPhotoImportImportItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideosCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -711,7 +711,7 @@ impl IPhotoImportImportItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideosSizeInBytes<Impl: IPhotoImportImportItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideosSizeInBytes<Impl: IPhotoImportImportItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideosSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -722,7 +722,7 @@ impl IPhotoImportImportItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SidecarsCount<Impl: IPhotoImportImportItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SidecarsCount<Impl: IPhotoImportImportItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SidecarsCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -733,7 +733,7 @@ impl IPhotoImportImportItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SidecarsSizeInBytes<Impl: IPhotoImportImportItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SidecarsSizeInBytes<Impl: IPhotoImportImportItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SidecarsSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -744,7 +744,7 @@ impl IPhotoImportImportItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SiblingsCount<Impl: IPhotoImportImportItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SiblingsCount<Impl: IPhotoImportImportItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SiblingsCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -755,7 +755,7 @@ impl IPhotoImportImportItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SiblingsSizeInBytes<Impl: IPhotoImportImportItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SiblingsSizeInBytes<Impl: IPhotoImportImportItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SiblingsSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -766,7 +766,7 @@ impl IPhotoImportImportItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TotalCount<Impl: IPhotoImportImportItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TotalCount<Impl: IPhotoImportImportItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TotalCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -777,7 +777,7 @@ impl IPhotoImportImportItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TotalSizeInBytes<Impl: IPhotoImportImportItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TotalSizeInBytes<Impl: IPhotoImportImportItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TotalSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -788,7 +788,7 @@ impl IPhotoImportImportItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteImportedItemsFromSourceAsync<Impl: IPhotoImportImportItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteImportedItemsFromSourceAsync<Impl: IPhotoImportImportItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeleteImportedItemsFromSourceAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -822,7 +822,7 @@ impl IPhotoImportImportItemsResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IPhotoImportItemImpl: Sized {
+pub trait IPhotoImportItem_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ItemKey(&mut self) -> ::windows::core::Result<u64>;
     fn ContentType(&mut self) -> ::windows::core::Result<PhotoImportContentType>;
@@ -842,9 +842,9 @@ impl ::windows::core::RuntimeName for IPhotoImportItem {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportItem";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IPhotoImportItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportItemVtbl {
-        unsafe extern "system" fn Name<Impl: IPhotoImportItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPhotoImportItem_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportItem_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportItem_Vtbl {
+        unsafe extern "system" fn Name<Impl: IPhotoImportItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -855,7 +855,7 @@ impl IPhotoImportItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ItemKey<Impl: IPhotoImportItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ItemKey<Impl: IPhotoImportItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ItemKey() {
                 ::core::result::Result::Ok(ok__) => {
@@ -866,7 +866,7 @@ impl IPhotoImportItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentType<Impl: IPhotoImportItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportContentType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentType<Impl: IPhotoImportItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportContentType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -877,7 +877,7 @@ impl IPhotoImportItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SizeInBytes<Impl: IPhotoImportItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SizeInBytes<Impl: IPhotoImportItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -888,7 +888,7 @@ impl IPhotoImportItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Date<Impl: IPhotoImportItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Date<Impl: IPhotoImportItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Date() {
                 ::core::result::Result::Ok(ok__) => {
@@ -899,7 +899,7 @@ impl IPhotoImportItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Sibling<Impl: IPhotoImportItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Sibling<Impl: IPhotoImportItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sibling() {
                 ::core::result::Result::Ok(ok__) => {
@@ -910,7 +910,7 @@ impl IPhotoImportItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Sidecars<Impl: IPhotoImportItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Sidecars<Impl: IPhotoImportItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sidecars() {
                 ::core::result::Result::Ok(ok__) => {
@@ -921,7 +921,7 @@ impl IPhotoImportItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideoSegments<Impl: IPhotoImportItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoSegments<Impl: IPhotoImportItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoSegments() {
                 ::core::result::Result::Ok(ok__) => {
@@ -932,7 +932,7 @@ impl IPhotoImportItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSelected<Impl: IPhotoImportItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSelected<Impl: IPhotoImportItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSelected() {
                 ::core::result::Result::Ok(ok__) => {
@@ -943,11 +943,11 @@ impl IPhotoImportItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsSelected<Impl: IPhotoImportItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsSelected<Impl: IPhotoImportItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsSelected(value).into()
         }
-        unsafe extern "system" fn Thumbnail<Impl: IPhotoImportItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Thumbnail<Impl: IPhotoImportItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Thumbnail() {
                 ::core::result::Result::Ok(ok__) => {
@@ -958,7 +958,7 @@ impl IPhotoImportItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImportedFileNames<Impl: IPhotoImportItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImportedFileNames<Impl: IPhotoImportItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImportedFileNames() {
                 ::core::result::Result::Ok(ok__) => {
@@ -969,7 +969,7 @@ impl IPhotoImportItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeletedFileNames<Impl: IPhotoImportItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeletedFileNames<Impl: IPhotoImportItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeletedFileNames() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1002,7 +1002,7 @@ impl IPhotoImportItemVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPhotoImportItem2Impl: Sized {
+pub trait IPhotoImportItem2_Impl: Sized {
     fn Path(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1010,9 +1010,9 @@ impl ::windows::core::RuntimeName for IPhotoImportItem2 {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportItem2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPhotoImportItem2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportItem2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportItem2Vtbl {
-        unsafe extern "system" fn Path<Impl: IPhotoImportItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPhotoImportItem2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportItem2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportItem2_Vtbl {
+        unsafe extern "system" fn Path<Impl: IPhotoImportItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Path() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1030,7 +1030,7 @@ impl IPhotoImportItem2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPhotoImportItemImportedEventArgsImpl: Sized {
+pub trait IPhotoImportItemImportedEventArgs_Impl: Sized {
     fn ImportedItem(&mut self) -> ::windows::core::Result<PhotoImportItem>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1038,9 +1038,9 @@ impl ::windows::core::RuntimeName for IPhotoImportItemImportedEventArgs {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportItemImportedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPhotoImportItemImportedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportItemImportedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportItemImportedEventArgsVtbl {
-        unsafe extern "system" fn ImportedItem<Impl: IPhotoImportItemImportedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPhotoImportItemImportedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportItemImportedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportItemImportedEventArgs_Vtbl {
+        unsafe extern "system" fn ImportedItem<Impl: IPhotoImportItemImportedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImportedItem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1061,7 +1061,7 @@ impl IPhotoImportItemImportedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPhotoImportManagerStaticsImpl: Sized {
+pub trait IPhotoImportManagerStatics_Impl: Sized {
     fn IsSupportedAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn FindAllSourcesAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PhotoImportSource>>>;
     fn GetPendingOperations(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportOperation>>;
@@ -1071,9 +1071,9 @@ impl ::windows::core::RuntimeName for IPhotoImportManagerStatics {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportManagerStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPhotoImportManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportManagerStaticsVtbl {
-        unsafe extern "system" fn IsSupportedAsync<Impl: IPhotoImportManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPhotoImportManagerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportManagerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportManagerStatics_Vtbl {
+        unsafe extern "system" fn IsSupportedAsync<Impl: IPhotoImportManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupportedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1084,7 +1084,7 @@ impl IPhotoImportManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindAllSourcesAsync<Impl: IPhotoImportManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindAllSourcesAsync<Impl: IPhotoImportManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAllSourcesAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1095,7 +1095,7 @@ impl IPhotoImportManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPendingOperations<Impl: IPhotoImportManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPendingOperations<Impl: IPhotoImportManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPendingOperations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1118,7 +1118,7 @@ impl IPhotoImportManagerStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPhotoImportOperationImpl: Sized {
+pub trait IPhotoImportOperation_Impl: Sized {
     fn Stage(&mut self) -> ::windows::core::Result<PhotoImportStage>;
     fn Session(&mut self) -> ::windows::core::Result<PhotoImportSession>;
     fn ContinueFindingItemsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>>;
@@ -1130,9 +1130,9 @@ impl ::windows::core::RuntimeName for IPhotoImportOperation {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportOperation";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPhotoImportOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportOperationVtbl {
-        unsafe extern "system" fn Stage<Impl: IPhotoImportOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportStage) -> ::windows::core::HRESULT {
+impl IPhotoImportOperation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportOperation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportOperation_Vtbl {
+        unsafe extern "system" fn Stage<Impl: IPhotoImportOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportStage) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Stage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1143,7 +1143,7 @@ impl IPhotoImportOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Session<Impl: IPhotoImportOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Session<Impl: IPhotoImportOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Session() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1154,7 +1154,7 @@ impl IPhotoImportOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContinueFindingItemsAsync<Impl: IPhotoImportOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContinueFindingItemsAsync<Impl: IPhotoImportOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContinueFindingItemsAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1165,7 +1165,7 @@ impl IPhotoImportOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContinueImportingItemsAsync<Impl: IPhotoImportOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContinueImportingItemsAsync<Impl: IPhotoImportOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContinueImportingItemsAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1176,7 +1176,7 @@ impl IPhotoImportOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContinueDeletingImportedItemsFromSourceAsync<Impl: IPhotoImportOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContinueDeletingImportedItemsFromSourceAsync<Impl: IPhotoImportOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContinueDeletingImportedItemsFromSourceAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1201,7 +1201,7 @@ impl IPhotoImportOperationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPhotoImportSelectionChangedEventArgsImpl: Sized {
+pub trait IPhotoImportSelectionChangedEventArgs_Impl: Sized {
     fn IsSelectionEmpty(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1209,9 +1209,9 @@ impl ::windows::core::RuntimeName for IPhotoImportSelectionChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportSelectionChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPhotoImportSelectionChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSelectionChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportSelectionChangedEventArgsVtbl {
-        unsafe extern "system" fn IsSelectionEmpty<Impl: IPhotoImportSelectionChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IPhotoImportSelectionChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSelectionChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportSelectionChangedEventArgs_Vtbl {
+        unsafe extern "system" fn IsSelectionEmpty<Impl: IPhotoImportSelectionChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSelectionEmpty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1232,7 +1232,7 @@ impl IPhotoImportSelectionChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
-pub trait IPhotoImportSessionImpl: Sized + IClosableImpl {
+pub trait IPhotoImportSession_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn Source(&mut self) -> ::windows::core::Result<PhotoImportSource>;
     fn SessionId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn SetDestinationFolder(&mut self, value: &::core::option::Option<super::super::Storage::IStorageFolder>) -> ::windows::core::Result<()>;
@@ -1250,9 +1250,9 @@ impl ::windows::core::RuntimeName for IPhotoImportSession {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportSession";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
-impl IPhotoImportSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportSessionVtbl {
-        unsafe extern "system" fn Source<Impl: IPhotoImportSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPhotoImportSession_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSession_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportSession_Vtbl {
+        unsafe extern "system" fn Source<Impl: IPhotoImportSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Source() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1263,7 +1263,7 @@ impl IPhotoImportSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SessionId<Impl: IPhotoImportSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SessionId<Impl: IPhotoImportSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1274,11 +1274,11 @@ impl IPhotoImportSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDestinationFolder<Impl: IPhotoImportSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDestinationFolder<Impl: IPhotoImportSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDestinationFolder(&*(&value as *const <super::super::Storage::IStorageFolder as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFolder as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DestinationFolder<Impl: IPhotoImportSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DestinationFolder<Impl: IPhotoImportSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DestinationFolder() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1289,11 +1289,11 @@ impl IPhotoImportSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAppendSessionDateToDestinationFolder<Impl: IPhotoImportSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAppendSessionDateToDestinationFolder<Impl: IPhotoImportSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAppendSessionDateToDestinationFolder(value).into()
         }
-        unsafe extern "system" fn AppendSessionDateToDestinationFolder<Impl: IPhotoImportSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppendSessionDateToDestinationFolder<Impl: IPhotoImportSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppendSessionDateToDestinationFolder() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1304,11 +1304,11 @@ impl IPhotoImportSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSubfolderCreationMode<Impl: IPhotoImportSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PhotoImportSubfolderCreationMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSubfolderCreationMode<Impl: IPhotoImportSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PhotoImportSubfolderCreationMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSubfolderCreationMode(value).into()
         }
-        unsafe extern "system" fn SubfolderCreationMode<Impl: IPhotoImportSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportSubfolderCreationMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SubfolderCreationMode<Impl: IPhotoImportSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportSubfolderCreationMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SubfolderCreationMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1319,11 +1319,11 @@ impl IPhotoImportSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDestinationFileNamePrefix<Impl: IPhotoImportSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDestinationFileNamePrefix<Impl: IPhotoImportSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDestinationFileNamePrefix(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DestinationFileNamePrefix<Impl: IPhotoImportSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DestinationFileNamePrefix<Impl: IPhotoImportSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DestinationFileNamePrefix() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1334,7 +1334,7 @@ impl IPhotoImportSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindItemsAsync<Impl: IPhotoImportSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contenttypefilter: PhotoImportContentTypeFilter, itemselectionmode: PhotoImportItemSelectionMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindItemsAsync<Impl: IPhotoImportSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contenttypefilter: PhotoImportContentTypeFilter, itemselectionmode: PhotoImportItemSelectionMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindItemsAsync(contenttypefilter, itemselectionmode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1365,7 +1365,7 @@ impl IPhotoImportSessionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPhotoImportSession2Impl: Sized {
+pub trait IPhotoImportSession2_Impl: Sized {
     fn SetSubfolderDateFormat(&mut self, value: PhotoImportSubfolderDateFormat) -> ::windows::core::Result<()>;
     fn SubfolderDateFormat(&mut self) -> ::windows::core::Result<PhotoImportSubfolderDateFormat>;
     fn SetRememberDeselectedItems(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -1376,13 +1376,13 @@ impl ::windows::core::RuntimeName for IPhotoImportSession2 {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportSession2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPhotoImportSession2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSession2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportSession2Vtbl {
-        unsafe extern "system" fn SetSubfolderDateFormat<Impl: IPhotoImportSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PhotoImportSubfolderDateFormat) -> ::windows::core::HRESULT {
+impl IPhotoImportSession2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSession2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportSession2_Vtbl {
+        unsafe extern "system" fn SetSubfolderDateFormat<Impl: IPhotoImportSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PhotoImportSubfolderDateFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSubfolderDateFormat(value).into()
         }
-        unsafe extern "system" fn SubfolderDateFormat<Impl: IPhotoImportSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportSubfolderDateFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SubfolderDateFormat<Impl: IPhotoImportSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportSubfolderDateFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SubfolderDateFormat() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1393,11 +1393,11 @@ impl IPhotoImportSession2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRememberDeselectedItems<Impl: IPhotoImportSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRememberDeselectedItems<Impl: IPhotoImportSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRememberDeselectedItems(value).into()
         }
-        unsafe extern "system" fn RememberDeselectedItems<Impl: IPhotoImportSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RememberDeselectedItems<Impl: IPhotoImportSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RememberDeselectedItems() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1421,7 +1421,7 @@ impl IPhotoImportSession2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPhotoImportSidecarImpl: Sized {
+pub trait IPhotoImportSidecar_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SizeInBytes(&mut self) -> ::windows::core::Result<u64>;
     fn Date(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
@@ -1431,9 +1431,9 @@ impl ::windows::core::RuntimeName for IPhotoImportSidecar {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportSidecar";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPhotoImportSidecarVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSidecarImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportSidecarVtbl {
-        unsafe extern "system" fn Name<Impl: IPhotoImportSidecarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPhotoImportSidecar_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSidecar_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportSidecar_Vtbl {
+        unsafe extern "system" fn Name<Impl: IPhotoImportSidecar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1444,7 +1444,7 @@ impl IPhotoImportSidecarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SizeInBytes<Impl: IPhotoImportSidecarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SizeInBytes<Impl: IPhotoImportSidecar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1455,7 +1455,7 @@ impl IPhotoImportSidecarVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Date<Impl: IPhotoImportSidecarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Date<Impl: IPhotoImportSidecar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Date() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1478,7 +1478,7 @@ impl IPhotoImportSidecarVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IPhotoImportSourceImpl: Sized {
+pub trait IPhotoImportSource_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1502,9 +1502,9 @@ impl ::windows::core::RuntimeName for IPhotoImportSource {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportSource";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IPhotoImportSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportSourceVtbl {
-        unsafe extern "system" fn Id<Impl: IPhotoImportSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPhotoImportSource_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSource_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportSource_Vtbl {
+        unsafe extern "system" fn Id<Impl: IPhotoImportSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1515,7 +1515,7 @@ impl IPhotoImportSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayName<Impl: IPhotoImportSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayName<Impl: IPhotoImportSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1526,7 +1526,7 @@ impl IPhotoImportSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Impl: IPhotoImportSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Impl: IPhotoImportSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1537,7 +1537,7 @@ impl IPhotoImportSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Manufacturer<Impl: IPhotoImportSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Manufacturer<Impl: IPhotoImportSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Manufacturer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1548,7 +1548,7 @@ impl IPhotoImportSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Model<Impl: IPhotoImportSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Model<Impl: IPhotoImportSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Model() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1559,7 +1559,7 @@ impl IPhotoImportSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SerialNumber<Impl: IPhotoImportSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SerialNumber<Impl: IPhotoImportSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SerialNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1570,7 +1570,7 @@ impl IPhotoImportSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectionProtocol<Impl: IPhotoImportSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectionProtocol<Impl: IPhotoImportSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionProtocol() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1581,7 +1581,7 @@ impl IPhotoImportSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectionTransport<Impl: IPhotoImportSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportConnectionTransport) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectionTransport<Impl: IPhotoImportSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportConnectionTransport) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionTransport() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1592,7 +1592,7 @@ impl IPhotoImportSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Type<Impl: IPhotoImportSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportSourceType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Type<Impl: IPhotoImportSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportSourceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1603,7 +1603,7 @@ impl IPhotoImportSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PowerSource<Impl: IPhotoImportSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportPowerSource) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PowerSource<Impl: IPhotoImportSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportPowerSource) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PowerSource() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1614,7 +1614,7 @@ impl IPhotoImportSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BatteryLevelPercent<Impl: IPhotoImportSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BatteryLevelPercent<Impl: IPhotoImportSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BatteryLevelPercent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1625,7 +1625,7 @@ impl IPhotoImportSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DateTime<Impl: IPhotoImportSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DateTime<Impl: IPhotoImportSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DateTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1636,7 +1636,7 @@ impl IPhotoImportSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StorageMedia<Impl: IPhotoImportSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StorageMedia<Impl: IPhotoImportSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StorageMedia() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1647,7 +1647,7 @@ impl IPhotoImportSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsLocked<Impl: IPhotoImportSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsLocked<Impl: IPhotoImportSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsLocked() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1658,7 +1658,7 @@ impl IPhotoImportSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsMassStorage<Impl: IPhotoImportSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsMassStorage<Impl: IPhotoImportSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsMassStorage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1669,7 +1669,7 @@ impl IPhotoImportSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Thumbnail<Impl: IPhotoImportSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Thumbnail<Impl: IPhotoImportSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Thumbnail() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1680,7 +1680,7 @@ impl IPhotoImportSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateImportSession<Impl: IPhotoImportSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateImportSession<Impl: IPhotoImportSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateImportSession() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1717,7 +1717,7 @@ impl IPhotoImportSourceVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
-pub trait IPhotoImportSourceStaticsImpl: Sized {
+pub trait IPhotoImportSourceStatics_Impl: Sized {
     fn FromIdAsync(&mut self, sourceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhotoImportSource>>;
     fn FromFolderAsync(&mut self, sourcerootfolder: &::core::option::Option<super::super::Storage::IStorageFolder>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhotoImportSource>>;
 }
@@ -1726,9 +1726,9 @@ impl ::windows::core::RuntimeName for IPhotoImportSourceStatics {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportSourceStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
-impl IPhotoImportSourceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSourceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportSourceStaticsVtbl {
-        unsafe extern "system" fn FromIdAsync<Impl: IPhotoImportSourceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPhotoImportSourceStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportSourceStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportSourceStatics_Vtbl {
+        unsafe extern "system" fn FromIdAsync<Impl: IPhotoImportSourceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&sourceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1739,7 +1739,7 @@ impl IPhotoImportSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromFolderAsync<Impl: IPhotoImportSourceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourcerootfolder: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromFolderAsync<Impl: IPhotoImportSourceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourcerootfolder: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromFolderAsync(&*(&sourcerootfolder as *const <super::super::Storage::IStorageFolder as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFolder as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1761,7 +1761,7 @@ impl IPhotoImportSourceStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPhotoImportStorageMediumImpl: Sized {
+pub trait IPhotoImportStorageMedium_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SerialNumber(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1776,9 +1776,9 @@ impl ::windows::core::RuntimeName for IPhotoImportStorageMedium {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportStorageMedium";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPhotoImportStorageMediumVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportStorageMediumImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportStorageMediumVtbl {
-        unsafe extern "system" fn Name<Impl: IPhotoImportStorageMediumImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPhotoImportStorageMedium_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportStorageMedium_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportStorageMedium_Vtbl {
+        unsafe extern "system" fn Name<Impl: IPhotoImportStorageMedium_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1789,7 +1789,7 @@ impl IPhotoImportStorageMediumVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Impl: IPhotoImportStorageMediumImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Impl: IPhotoImportStorageMedium_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1800,7 +1800,7 @@ impl IPhotoImportStorageMediumVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SerialNumber<Impl: IPhotoImportStorageMediumImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SerialNumber<Impl: IPhotoImportStorageMedium_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SerialNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1811,7 +1811,7 @@ impl IPhotoImportStorageMediumVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StorageMediumType<Impl: IPhotoImportStorageMediumImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportStorageMediumType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StorageMediumType<Impl: IPhotoImportStorageMedium_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportStorageMediumType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StorageMediumType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1822,7 +1822,7 @@ impl IPhotoImportStorageMediumVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedAccessMode<Impl: IPhotoImportStorageMediumImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportAccessMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedAccessMode<Impl: IPhotoImportStorageMedium_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PhotoImportAccessMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedAccessMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1833,7 +1833,7 @@ impl IPhotoImportStorageMediumVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CapacityInBytes<Impl: IPhotoImportStorageMediumImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CapacityInBytes<Impl: IPhotoImportStorageMedium_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CapacityInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1844,7 +1844,7 @@ impl IPhotoImportStorageMediumVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AvailableSpaceInBytes<Impl: IPhotoImportStorageMediumImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AvailableSpaceInBytes<Impl: IPhotoImportStorageMedium_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AvailableSpaceInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1855,7 +1855,7 @@ impl IPhotoImportStorageMediumVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Refresh<Impl: IPhotoImportStorageMediumImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Refresh<Impl: IPhotoImportStorageMedium_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Refresh().into()
         }
@@ -1876,7 +1876,7 @@ impl IPhotoImportStorageMediumVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPhotoImportVideoSegmentImpl: Sized {
+pub trait IPhotoImportVideoSegment_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SizeInBytes(&mut self) -> ::windows::core::Result<u64>;
     fn Date(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
@@ -1888,9 +1888,9 @@ impl ::windows::core::RuntimeName for IPhotoImportVideoSegment {
     const NAME: &'static str = "Windows.Media.Import.IPhotoImportVideoSegment";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPhotoImportVideoSegmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportVideoSegmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportVideoSegmentVtbl {
-        unsafe extern "system" fn Name<Impl: IPhotoImportVideoSegmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPhotoImportVideoSegment_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoImportVideoSegment_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPhotoImportVideoSegment_Vtbl {
+        unsafe extern "system" fn Name<Impl: IPhotoImportVideoSegment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1901,7 +1901,7 @@ impl IPhotoImportVideoSegmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SizeInBytes<Impl: IPhotoImportVideoSegmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SizeInBytes<Impl: IPhotoImportVideoSegment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1912,7 +1912,7 @@ impl IPhotoImportVideoSegmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Date<Impl: IPhotoImportVideoSegmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Date<Impl: IPhotoImportVideoSegment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Date() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1923,7 +1923,7 @@ impl IPhotoImportVideoSegmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Sibling<Impl: IPhotoImportVideoSegmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Sibling<Impl: IPhotoImportVideoSegment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sibling() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1934,7 +1934,7 @@ impl IPhotoImportVideoSegmentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Sidecars<Impl: IPhotoImportVideoSegmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Sidecars<Impl: IPhotoImportVideoSegment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Sidecars() {
                 ::core::result::Result::Ok(ok__) => {

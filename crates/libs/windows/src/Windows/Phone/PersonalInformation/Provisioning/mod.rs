@@ -44,12 +44,12 @@ impl ::windows::core::RuntimeName for ContactPartnerProvisioningManager {
 #[repr(transparent)]
 pub struct IContactPartnerProvisioningManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactPartnerProvisioningManagerStatics {
-    type Vtable = IContactPartnerProvisioningManagerStaticsVtbl;
+    type Vtable = IContactPartnerProvisioningManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0d79a21_01af_4fd3_98cd_b3d656de15f4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactPartnerProvisioningManagerStaticsVtbl {
+pub struct IContactPartnerProvisioningManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub AssociateNetworkAccountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, store: ::windows::core::RawPtr, networkname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, networkaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -64,12 +64,12 @@ pub struct IContactPartnerProvisioningManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IContactPartnerProvisioningManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactPartnerProvisioningManagerStatics2 {
-    type Vtable = IContactPartnerProvisioningManagerStatics2Vtbl;
+    type Vtable = IContactPartnerProvisioningManagerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc26155f7_55ed_475d_9334_c5d484c30f1a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactPartnerProvisioningManagerStatics2Vtbl {
+pub struct IContactPartnerProvisioningManagerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub AssociateSocialNetworkAccountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, store: ::windows::core::RawPtr, networkname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, networkaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -80,12 +80,12 @@ pub struct IContactPartnerProvisioningManagerStatics2Vtbl {
 #[repr(transparent)]
 pub struct IMessagePartnerProvisioningManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMessagePartnerProvisioningManagerStatics {
-    type Vtable = IMessagePartnerProvisioningManagerStaticsVtbl;
+    type Vtable = IMessagePartnerProvisioningManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a1b0850_73c5_457c_bc59_ed7d615c05a4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMessagePartnerProvisioningManagerStaticsVtbl {
+pub struct IMessagePartnerProvisioningManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub ImportSmsToSystemAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, incoming: bool, read: bool, body: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sender: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, recipients: ::windows::core::RawPtr, deliverytime: super::super::super::Foundation::DateTime, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

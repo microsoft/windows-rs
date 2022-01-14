@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IContentIndexerImpl: Sized {
+pub trait IContentIndexer_Impl: Sized {
     fn AddAsync(&mut self, indexablecontent: &::core::option::Option<IIndexableContent>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn UpdateAsync(&mut self, indexablecontent: &::core::option::Option<IIndexableContent>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn DeleteAsync(&mut self, contentid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -13,9 +13,9 @@ impl ::windows::core::RuntimeName for IContentIndexer {
     const NAME: &'static str = "Windows.Storage.Search.IContentIndexer";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IContentIndexerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentIndexerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentIndexerVtbl {
-        unsafe extern "system" fn AddAsync<Impl: IContentIndexerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, indexablecontent: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IContentIndexer_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentIndexer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentIndexer_Vtbl {
+        unsafe extern "system" fn AddAsync<Impl: IContentIndexer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, indexablecontent: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddAsync(&*(&indexablecontent as *const <IIndexableContent as ::windows::core::Abi>::Abi as *const <IIndexableContent as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -26,7 +26,7 @@ impl IContentIndexerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpdateAsync<Impl: IContentIndexerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, indexablecontent: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateAsync<Impl: IContentIndexer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, indexablecontent: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateAsync(&*(&indexablecontent as *const <IIndexableContent as ::windows::core::Abi>::Abi as *const <IIndexableContent as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -37,7 +37,7 @@ impl IContentIndexerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteAsync<Impl: IContentIndexerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteAsync<Impl: IContentIndexer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeleteAsync(&*(&contentid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -48,7 +48,7 @@ impl IContentIndexerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteMultipleAsync<Impl: IContentIndexerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentids: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteMultipleAsync<Impl: IContentIndexer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentids: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeleteMultipleAsync(&*(&contentids as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -59,7 +59,7 @@ impl IContentIndexerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteAllAsync<Impl: IContentIndexerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteAllAsync<Impl: IContentIndexer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeleteAllAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -70,7 +70,7 @@ impl IContentIndexerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RetrievePropertiesAsync<Impl: IContentIndexerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertiestoretrieve: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RetrievePropertiesAsync<Impl: IContentIndexer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertiestoretrieve: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RetrievePropertiesAsync(&*(&contentid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&propertiestoretrieve as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -81,7 +81,7 @@ impl IContentIndexerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Revision<Impl: IContentIndexerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Revision<Impl: IContentIndexer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Revision() {
                 ::core::result::Result::Ok(ok__) => {
@@ -108,7 +108,7 @@ impl IContentIndexerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IContentIndexerQueryImpl: Sized {
+pub trait IContentIndexerQuery_Impl: Sized {
     fn GetCountAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
     fn GetPropertiesAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>>;
     fn GetPropertiesRangeAsync(&mut self, startindex: u32, maxitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>>;
@@ -121,9 +121,9 @@ impl ::windows::core::RuntimeName for IContentIndexerQuery {
     const NAME: &'static str = "Windows.Storage.Search.IContentIndexerQuery";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IContentIndexerQueryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentIndexerQueryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentIndexerQueryVtbl {
-        unsafe extern "system" fn GetCountAsync<Impl: IContentIndexerQueryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IContentIndexerQuery_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentIndexerQuery_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentIndexerQuery_Vtbl {
+        unsafe extern "system" fn GetCountAsync<Impl: IContentIndexerQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCountAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -134,7 +134,7 @@ impl IContentIndexerQueryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPropertiesAsync<Impl: IContentIndexerQueryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertiesAsync<Impl: IContentIndexerQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPropertiesAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -145,7 +145,7 @@ impl IContentIndexerQueryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPropertiesRangeAsync<Impl: IContentIndexerQueryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertiesRangeAsync<Impl: IContentIndexerQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPropertiesRangeAsync(startindex, maxitems) {
                 ::core::result::Result::Ok(ok__) => {
@@ -156,7 +156,7 @@ impl IContentIndexerQueryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAsync<Impl: IContentIndexerQueryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAsync<Impl: IContentIndexerQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -167,7 +167,7 @@ impl IContentIndexerQueryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRangeAsync<Impl: IContentIndexerQueryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRangeAsync<Impl: IContentIndexerQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRangeAsync(startindex, maxitems) {
                 ::core::result::Result::Ok(ok__) => {
@@ -178,7 +178,7 @@ impl IContentIndexerQueryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QueryFolder<Impl: IContentIndexerQueryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryFolder<Impl: IContentIndexerQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryFolder() {
                 ::core::result::Result::Ok(ok__) => {
@@ -204,7 +204,7 @@ impl IContentIndexerQueryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IContentIndexerQueryOperationsImpl: Sized {
+pub trait IContentIndexerQueryOperations_Impl: Sized {
     fn CreateQueryWithSortOrderAndLanguage(&mut self, searchfilter: &::windows::core::HSTRING, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, sortorder: &::core::option::Option<super::super::Foundation::Collections::IIterable<SortEntry>>, searchfilterlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<ContentIndexerQuery>;
     fn CreateQueryWithSortOrder(&mut self, searchfilter: &::windows::core::HSTRING, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, sortorder: &::core::option::Option<super::super::Foundation::Collections::IIterable<SortEntry>>) -> ::windows::core::Result<ContentIndexerQuery>;
     fn CreateQuery(&mut self, searchfilter: &::windows::core::HSTRING, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<ContentIndexerQuery>;
@@ -214,9 +214,9 @@ impl ::windows::core::RuntimeName for IContentIndexerQueryOperations {
     const NAME: &'static str = "Windows.Storage.Search.IContentIndexerQueryOperations";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IContentIndexerQueryOperationsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentIndexerQueryOperationsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentIndexerQueryOperationsVtbl {
-        unsafe extern "system" fn CreateQueryWithSortOrderAndLanguage<Impl: IContentIndexerQueryOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, searchfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertiestoretrieve: ::windows::core::RawPtr, sortorder: ::windows::core::RawPtr, searchfilterlanguage: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IContentIndexerQueryOperations_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentIndexerQueryOperations_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentIndexerQueryOperations_Vtbl {
+        unsafe extern "system" fn CreateQueryWithSortOrderAndLanguage<Impl: IContentIndexerQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, searchfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertiestoretrieve: ::windows::core::RawPtr, sortorder: ::windows::core::RawPtr, searchfilterlanguage: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateQueryWithSortOrderAndLanguage(
                 &*(&searchfilter as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -232,7 +232,7 @@ impl IContentIndexerQueryOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateQueryWithSortOrder<Impl: IContentIndexerQueryOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, searchfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertiestoretrieve: ::windows::core::RawPtr, sortorder: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateQueryWithSortOrder<Impl: IContentIndexerQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, searchfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertiestoretrieve: ::windows::core::RawPtr, sortorder: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateQueryWithSortOrder(
                 &*(&searchfilter as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -247,7 +247,7 @@ impl IContentIndexerQueryOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateQuery<Impl: IContentIndexerQueryOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, searchfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertiestoretrieve: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateQuery<Impl: IContentIndexerQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, searchfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertiestoretrieve: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateQuery(&*(&searchfilter as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&propertiestoretrieve as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -270,7 +270,7 @@ impl IContentIndexerQueryOperationsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IContentIndexerStaticsImpl: Sized {
+pub trait IContentIndexerStatics_Impl: Sized {
     fn GetIndexerWithName(&mut self, indexname: &::windows::core::HSTRING) -> ::windows::core::Result<ContentIndexer>;
     fn GetIndexer(&mut self) -> ::windows::core::Result<ContentIndexer>;
 }
@@ -279,9 +279,9 @@ impl ::windows::core::RuntimeName for IContentIndexerStatics {
     const NAME: &'static str = "Windows.Storage.Search.IContentIndexerStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IContentIndexerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentIndexerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentIndexerStaticsVtbl {
-        unsafe extern "system" fn GetIndexerWithName<Impl: IContentIndexerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, indexname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IContentIndexerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentIndexerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentIndexerStatics_Vtbl {
+        unsafe extern "system" fn GetIndexerWithName<Impl: IContentIndexerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, indexname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIndexerWithName(&*(&indexname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -292,7 +292,7 @@ impl IContentIndexerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIndexer<Impl: IContentIndexerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIndexer<Impl: IContentIndexerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIndexer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -314,7 +314,7 @@ impl IContentIndexerStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-pub trait IIndexableContentImpl: Sized {
+pub trait IIndexableContent_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>;
@@ -328,9 +328,9 @@ impl ::windows::core::RuntimeName for IIndexableContent {
     const NAME: &'static str = "Windows.Storage.Search.IIndexableContent";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-impl IIndexableContentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIndexableContentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIndexableContentVtbl {
-        unsafe extern "system" fn Id<Impl: IIndexableContentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IIndexableContent_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIndexableContent_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIndexableContent_Vtbl {
+        unsafe extern "system" fn Id<Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -341,11 +341,11 @@ impl IIndexableContentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetId<Impl: IIndexableContentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetId<Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Properties<Impl: IIndexableContentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Properties<Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -356,7 +356,7 @@ impl IIndexableContentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Stream<Impl: IIndexableContentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stream<Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Stream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -367,11 +367,11 @@ impl IIndexableContentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStream<Impl: IIndexableContentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStream<Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStream(&*(&value as *const <super::Streams::IRandomAccessStream as ::windows::core::Abi>::Abi as *const <super::Streams::IRandomAccessStream as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn StreamContentType<Impl: IIndexableContentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StreamContentType<Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StreamContentType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -382,7 +382,7 @@ impl IIndexableContentVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStreamContentType<Impl: IIndexableContentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStreamContentType<Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStreamContentType(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -402,7 +402,7 @@ impl IIndexableContentVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_FileProperties", feature = "implement_exclusive"))]
-pub trait IQueryOptionsImpl: Sized {
+pub trait IQueryOptions_Impl: Sized {
     fn FileTypeFilter(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
     fn FolderDepth(&mut self) -> ::windows::core::Result<FolderDepth>;
     fn SetFolderDepth(&mut self, value: FolderDepth) -> ::windows::core::Result<()>;
@@ -427,9 +427,9 @@ impl ::windows::core::RuntimeName for IQueryOptions {
     const NAME: &'static str = "Windows.Storage.Search.IQueryOptions";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_FileProperties", feature = "implement_exclusive"))]
-impl IQueryOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQueryOptionsVtbl {
-        unsafe extern "system" fn FileTypeFilter<Impl: IQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IQueryOptions_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryOptions_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQueryOptions_Vtbl {
+        unsafe extern "system" fn FileTypeFilter<Impl: IQueryOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FileTypeFilter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -440,7 +440,7 @@ impl IQueryOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FolderDepth<Impl: IQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut FolderDepth) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FolderDepth<Impl: IQueryOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut FolderDepth) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FolderDepth() {
                 ::core::result::Result::Ok(ok__) => {
@@ -451,11 +451,11 @@ impl IQueryOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFolderDepth<Impl: IQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: FolderDepth) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFolderDepth<Impl: IQueryOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: FolderDepth) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFolderDepth(value).into()
         }
-        unsafe extern "system" fn ApplicationSearchFilter<Impl: IQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ApplicationSearchFilter<Impl: IQueryOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ApplicationSearchFilter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -466,11 +466,11 @@ impl IQueryOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetApplicationSearchFilter<Impl: IQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetApplicationSearchFilter<Impl: IQueryOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetApplicationSearchFilter(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn UserSearchFilter<Impl: IQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UserSearchFilter<Impl: IQueryOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserSearchFilter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -481,11 +481,11 @@ impl IQueryOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetUserSearchFilter<Impl: IQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUserSearchFilter<Impl: IQueryOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUserSearchFilter(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Language<Impl: IQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Language<Impl: IQueryOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Language() {
                 ::core::result::Result::Ok(ok__) => {
@@ -496,11 +496,11 @@ impl IQueryOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLanguage<Impl: IQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLanguage<Impl: IQueryOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLanguage(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IndexerOption<Impl: IQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut IndexerOption) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IndexerOption<Impl: IQueryOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut IndexerOption) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IndexerOption() {
                 ::core::result::Result::Ok(ok__) => {
@@ -511,11 +511,11 @@ impl IQueryOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIndexerOption<Impl: IQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: IndexerOption) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIndexerOption<Impl: IQueryOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: IndexerOption) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIndexerOption(value).into()
         }
-        unsafe extern "system" fn SortOrder<Impl: IQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SortOrder<Impl: IQueryOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SortOrder() {
                 ::core::result::Result::Ok(ok__) => {
@@ -526,7 +526,7 @@ impl IQueryOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GroupPropertyName<Impl: IQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GroupPropertyName<Impl: IQueryOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GroupPropertyName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -537,7 +537,7 @@ impl IQueryOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DateStackOption<Impl: IQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DateStackOption) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DateStackOption<Impl: IQueryOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DateStackOption) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DateStackOption() {
                 ::core::result::Result::Ok(ok__) => {
@@ -548,7 +548,7 @@ impl IQueryOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SaveToString<Impl: IQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaveToString<Impl: IQueryOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SaveToString() {
                 ::core::result::Result::Ok(ok__) => {
@@ -559,15 +559,15 @@ impl IQueryOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadFromString<Impl: IQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadFromString<Impl: IQueryOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).LoadFromString(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetThumbnailPrefetch<Impl: IQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: super::FileProperties::ThumbnailMode, requestedsize: u32, options: super::FileProperties::ThumbnailOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetThumbnailPrefetch<Impl: IQueryOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: super::FileProperties::ThumbnailMode, requestedsize: u32, options: super::FileProperties::ThumbnailOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetThumbnailPrefetch(mode, requestedsize, options).into()
         }
-        unsafe extern "system" fn SetPropertyPrefetch<Impl: IQueryOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: super::FileProperties::PropertyPrefetchOptions, propertiestoretrieve: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPropertyPrefetch<Impl: IQueryOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: super::FileProperties::PropertyPrefetchOptions, propertiestoretrieve: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPropertyPrefetch(options, &*(&propertiestoretrieve as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -598,7 +598,7 @@ impl IQueryOptionsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IQueryOptionsFactoryImpl: Sized {
+pub trait IQueryOptionsFactory_Impl: Sized {
     fn CreateCommonFileQuery(&mut self, query: CommonFileQuery, filetypefilter: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<QueryOptions>;
     fn CreateCommonFolderQuery(&mut self, query: CommonFolderQuery) -> ::windows::core::Result<QueryOptions>;
 }
@@ -607,9 +607,9 @@ impl ::windows::core::RuntimeName for IQueryOptionsFactory {
     const NAME: &'static str = "Windows.Storage.Search.IQueryOptionsFactory";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IQueryOptionsFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryOptionsFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQueryOptionsFactoryVtbl {
-        unsafe extern "system" fn CreateCommonFileQuery<Impl: IQueryOptionsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: CommonFileQuery, filetypefilter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IQueryOptionsFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryOptionsFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQueryOptionsFactory_Vtbl {
+        unsafe extern "system" fn CreateCommonFileQuery<Impl: IQueryOptionsFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: CommonFileQuery, filetypefilter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCommonFileQuery(query, &*(&filetypefilter as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -620,7 +620,7 @@ impl IQueryOptionsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateCommonFolderQuery<Impl: IQueryOptionsFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: CommonFolderQuery, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCommonFolderQuery<Impl: IQueryOptionsFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: CommonFolderQuery, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateCommonFolderQuery(query) {
                 ::core::result::Result::Ok(ok__) => {
@@ -642,7 +642,7 @@ impl IQueryOptionsFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IQueryOptionsWithProviderFilterImpl: Sized {
+pub trait IQueryOptionsWithProviderFilter_Impl: Sized {
     fn StorageProviderIdFilter(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -650,9 +650,9 @@ impl ::windows::core::RuntimeName for IQueryOptionsWithProviderFilter {
     const NAME: &'static str = "Windows.Storage.Search.IQueryOptionsWithProviderFilter";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IQueryOptionsWithProviderFilterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryOptionsWithProviderFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQueryOptionsWithProviderFilterVtbl {
-        unsafe extern "system" fn StorageProviderIdFilter<Impl: IQueryOptionsWithProviderFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IQueryOptionsWithProviderFilter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryOptionsWithProviderFilter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQueryOptionsWithProviderFilter_Vtbl {
+        unsafe extern "system" fn StorageProviderIdFilter<Impl: IQueryOptionsWithProviderFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StorageProviderIdFilter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -673,7 +673,7 @@ impl IQueryOptionsWithProviderFilterVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IStorageFileQueryResultImpl: Sized + IStorageQueryResultBaseImpl {
+pub trait IStorageFileQueryResult_Impl: Sized + IStorageQueryResultBase_Impl {
     fn GetFilesAsync(&mut self, startindex: u32, maxnumberofitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>;
     fn GetFilesAsyncDefaultStartAndCount(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>;
 }
@@ -682,9 +682,9 @@ impl ::windows::core::RuntimeName for IStorageFileQueryResult {
     const NAME: &'static str = "Windows.Storage.Search.IStorageFileQueryResult";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IStorageFileQueryResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFileQueryResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageFileQueryResultVtbl {
-        unsafe extern "system" fn GetFilesAsync<Impl: IStorageFileQueryResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxnumberofitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStorageFileQueryResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFileQueryResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageFileQueryResult_Vtbl {
+        unsafe extern "system" fn GetFilesAsync<Impl: IStorageFileQueryResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxnumberofitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFilesAsync(startindex, maxnumberofitems) {
                 ::core::result::Result::Ok(ok__) => {
@@ -695,7 +695,7 @@ impl IStorageFileQueryResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFilesAsyncDefaultStartAndCount<Impl: IStorageFileQueryResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFilesAsyncDefaultStartAndCount<Impl: IStorageFileQueryResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFilesAsyncDefaultStartAndCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -717,7 +717,7 @@ impl IStorageFileQueryResultVtbl {
     }
 }
 #[cfg(all(feature = "Data_Text", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IStorageFileQueryResult2Impl: Sized + IStorageQueryResultBaseImpl {
+pub trait IStorageFileQueryResult2_Impl: Sized + IStorageQueryResultBase_Impl {
     fn GetMatchingPropertiesWithRanges(&mut self, file: &::core::option::Option<super::StorageFile>) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVectorView<super::super::Data::Text::TextSegment>>>;
 }
 #[cfg(all(feature = "Data_Text", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -725,9 +725,9 @@ impl ::windows::core::RuntimeName for IStorageFileQueryResult2 {
     const NAME: &'static str = "Windows.Storage.Search.IStorageFileQueryResult2";
 }
 #[cfg(all(feature = "Data_Text", feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IStorageFileQueryResult2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFileQueryResult2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageFileQueryResult2Vtbl {
-        unsafe extern "system" fn GetMatchingPropertiesWithRanges<Impl: IStorageFileQueryResult2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStorageFileQueryResult2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFileQueryResult2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageFileQueryResult2_Vtbl {
+        unsafe extern "system" fn GetMatchingPropertiesWithRanges<Impl: IStorageFileQueryResult2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMatchingPropertiesWithRanges(&*(&file as *const <super::StorageFile as ::windows::core::Abi>::Abi as *const <super::StorageFile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -748,7 +748,7 @@ impl IStorageFileQueryResult2Vtbl {
     }
 }
 #[cfg(feature = "Foundation")]
-pub trait IStorageFolderQueryOperationsImpl: Sized {
+pub trait IStorageFolderQueryOperations_Impl: Sized {
     fn GetIndexedStateAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IndexedState>>;
     fn CreateFileQueryOverloadDefault(&mut self) -> ::windows::core::Result<StorageFileQueryResult>;
     fn CreateFileQuery(&mut self, query: CommonFileQuery) -> ::windows::core::Result<StorageFileQueryResult>;
@@ -772,9 +772,9 @@ impl ::windows::core::RuntimeName for IStorageFolderQueryOperations {
     const NAME: &'static str = "Windows.Storage.Search.IStorageFolderQueryOperations";
 }
 #[cfg(feature = "Foundation")]
-impl IStorageFolderQueryOperationsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFolderQueryOperationsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageFolderQueryOperationsVtbl {
-        unsafe extern "system" fn GetIndexedStateAsync<Impl: IStorageFolderQueryOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStorageFolderQueryOperations_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFolderQueryOperations_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageFolderQueryOperations_Vtbl {
+        unsafe extern "system" fn GetIndexedStateAsync<Impl: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetIndexedStateAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -785,7 +785,7 @@ impl IStorageFolderQueryOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFileQueryOverloadDefault<Impl: IStorageFolderQueryOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFileQueryOverloadDefault<Impl: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFileQueryOverloadDefault() {
                 ::core::result::Result::Ok(ok__) => {
@@ -796,7 +796,7 @@ impl IStorageFolderQueryOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFileQuery<Impl: IStorageFolderQueryOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: CommonFileQuery, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFileQuery<Impl: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: CommonFileQuery, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFileQuery(query) {
                 ::core::result::Result::Ok(ok__) => {
@@ -807,7 +807,7 @@ impl IStorageFolderQueryOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFileQueryWithOptions<Impl: IStorageFolderQueryOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queryoptions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFileQueryWithOptions<Impl: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queryoptions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFileQueryWithOptions(&*(&queryoptions as *const <QueryOptions as ::windows::core::Abi>::Abi as *const <QueryOptions as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -818,7 +818,7 @@ impl IStorageFolderQueryOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFolderQueryOverloadDefault<Impl: IStorageFolderQueryOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFolderQueryOverloadDefault<Impl: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFolderQueryOverloadDefault() {
                 ::core::result::Result::Ok(ok__) => {
@@ -829,7 +829,7 @@ impl IStorageFolderQueryOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFolderQuery<Impl: IStorageFolderQueryOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: CommonFolderQuery, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFolderQuery<Impl: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: CommonFolderQuery, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFolderQuery(query) {
                 ::core::result::Result::Ok(ok__) => {
@@ -840,7 +840,7 @@ impl IStorageFolderQueryOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFolderQueryWithOptions<Impl: IStorageFolderQueryOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queryoptions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFolderQueryWithOptions<Impl: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queryoptions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFolderQueryWithOptions(&*(&queryoptions as *const <QueryOptions as ::windows::core::Abi>::Abi as *const <QueryOptions as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -851,7 +851,7 @@ impl IStorageFolderQueryOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateItemQuery<Impl: IStorageFolderQueryOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateItemQuery<Impl: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateItemQuery() {
                 ::core::result::Result::Ok(ok__) => {
@@ -862,7 +862,7 @@ impl IStorageFolderQueryOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateItemQueryWithOptions<Impl: IStorageFolderQueryOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queryoptions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateItemQueryWithOptions<Impl: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queryoptions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateItemQueryWithOptions(&*(&queryoptions as *const <QueryOptions as ::windows::core::Abi>::Abi as *const <QueryOptions as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -873,7 +873,7 @@ impl IStorageFolderQueryOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFilesAsync<Impl: IStorageFolderQueryOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: CommonFileQuery, startindex: u32, maxitemstoretrieve: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFilesAsync<Impl: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: CommonFileQuery, startindex: u32, maxitemstoretrieve: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFilesAsync(query, startindex, maxitemstoretrieve) {
                 ::core::result::Result::Ok(ok__) => {
@@ -884,7 +884,7 @@ impl IStorageFolderQueryOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFilesAsyncOverloadDefaultStartAndCount<Impl: IStorageFolderQueryOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: CommonFileQuery, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFilesAsyncOverloadDefaultStartAndCount<Impl: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: CommonFileQuery, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFilesAsyncOverloadDefaultStartAndCount(query) {
                 ::core::result::Result::Ok(ok__) => {
@@ -895,7 +895,7 @@ impl IStorageFolderQueryOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFoldersAsync<Impl: IStorageFolderQueryOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: CommonFolderQuery, startindex: u32, maxitemstoretrieve: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFoldersAsync<Impl: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: CommonFolderQuery, startindex: u32, maxitemstoretrieve: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFoldersAsync(query, startindex, maxitemstoretrieve) {
                 ::core::result::Result::Ok(ok__) => {
@@ -906,7 +906,7 @@ impl IStorageFolderQueryOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFoldersAsyncOverloadDefaultStartAndCount<Impl: IStorageFolderQueryOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: CommonFolderQuery, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFoldersAsyncOverloadDefaultStartAndCount<Impl: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: CommonFolderQuery, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFoldersAsyncOverloadDefaultStartAndCount(query) {
                 ::core::result::Result::Ok(ok__) => {
@@ -917,7 +917,7 @@ impl IStorageFolderQueryOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetItemsAsync<Impl: IStorageFolderQueryOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetItemsAsync<Impl: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItemsAsync(startindex, maxitemstoretrieve) {
                 ::core::result::Result::Ok(ok__) => {
@@ -928,7 +928,7 @@ impl IStorageFolderQueryOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AreQueryOptionsSupported<Impl: IStorageFolderQueryOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queryoptions: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AreQueryOptionsSupported<Impl: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queryoptions: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AreQueryOptionsSupported(&*(&queryoptions as *const <QueryOptions as ::windows::core::Abi>::Abi as *const <QueryOptions as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -939,7 +939,7 @@ impl IStorageFolderQueryOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsCommonFolderQuerySupported<Impl: IStorageFolderQueryOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: CommonFolderQuery, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCommonFolderQuerySupported<Impl: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: CommonFolderQuery, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCommonFolderQuerySupported(query) {
                 ::core::result::Result::Ok(ok__) => {
@@ -950,7 +950,7 @@ impl IStorageFolderQueryOperationsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsCommonFileQuerySupported<Impl: IStorageFolderQueryOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: CommonFileQuery, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCommonFileQuerySupported<Impl: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: CommonFileQuery, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCommonFileQuerySupported(query) {
                 ::core::result::Result::Ok(ok__) => {
@@ -987,7 +987,7 @@ impl IStorageFolderQueryOperationsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IStorageFolderQueryResultImpl: Sized + IStorageQueryResultBaseImpl {
+pub trait IStorageFolderQueryResult_Impl: Sized + IStorageQueryResultBase_Impl {
     fn GetFoldersAsync(&mut self, startindex: u32, maxnumberofitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>;
     fn GetFoldersAsyncDefaultStartAndCount(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>;
 }
@@ -996,9 +996,9 @@ impl ::windows::core::RuntimeName for IStorageFolderQueryResult {
     const NAME: &'static str = "Windows.Storage.Search.IStorageFolderQueryResult";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IStorageFolderQueryResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFolderQueryResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageFolderQueryResultVtbl {
-        unsafe extern "system" fn GetFoldersAsync<Impl: IStorageFolderQueryResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxnumberofitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStorageFolderQueryResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFolderQueryResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageFolderQueryResult_Vtbl {
+        unsafe extern "system" fn GetFoldersAsync<Impl: IStorageFolderQueryResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxnumberofitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFoldersAsync(startindex, maxnumberofitems) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1009,7 +1009,7 @@ impl IStorageFolderQueryResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFoldersAsyncDefaultStartAndCount<Impl: IStorageFolderQueryResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFoldersAsyncDefaultStartAndCount<Impl: IStorageFolderQueryResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFoldersAsyncDefaultStartAndCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1031,7 +1031,7 @@ impl IStorageFolderQueryResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IStorageItemQueryResultImpl: Sized + IStorageQueryResultBaseImpl {
+pub trait IStorageItemQueryResult_Impl: Sized + IStorageQueryResultBase_Impl {
     fn GetItemsAsync(&mut self, startindex: u32, maxnumberofitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>>;
     fn GetItemsAsyncDefaultStartAndCount(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>>;
 }
@@ -1040,9 +1040,9 @@ impl ::windows::core::RuntimeName for IStorageItemQueryResult {
     const NAME: &'static str = "Windows.Storage.Search.IStorageItemQueryResult";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IStorageItemQueryResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemQueryResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageItemQueryResultVtbl {
-        unsafe extern "system" fn GetItemsAsync<Impl: IStorageItemQueryResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxnumberofitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStorageItemQueryResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemQueryResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageItemQueryResult_Vtbl {
+        unsafe extern "system" fn GetItemsAsync<Impl: IStorageItemQueryResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxnumberofitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItemsAsync(startindex, maxnumberofitems) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1053,7 +1053,7 @@ impl IStorageItemQueryResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetItemsAsyncDefaultStartAndCount<Impl: IStorageItemQueryResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetItemsAsyncDefaultStartAndCount<Impl: IStorageItemQueryResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItemsAsyncDefaultStartAndCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1075,7 +1075,7 @@ impl IStorageItemQueryResultVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IStorageLibraryChangeTrackerTriggerDetailsImpl: Sized {
+pub trait IStorageLibraryChangeTrackerTriggerDetails_Impl: Sized {
     fn Folder(&mut self) -> ::windows::core::Result<super::StorageFolder>;
     fn ChangeTracker(&mut self) -> ::windows::core::Result<super::StorageLibraryChangeTracker>;
 }
@@ -1084,9 +1084,9 @@ impl ::windows::core::RuntimeName for IStorageLibraryChangeTrackerTriggerDetails
     const NAME: &'static str = "Windows.Storage.Search.IStorageLibraryChangeTrackerTriggerDetails";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IStorageLibraryChangeTrackerTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageLibraryChangeTrackerTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageLibraryChangeTrackerTriggerDetailsVtbl {
-        unsafe extern "system" fn Folder<Impl: IStorageLibraryChangeTrackerTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStorageLibraryChangeTrackerTriggerDetails_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageLibraryChangeTrackerTriggerDetails_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageLibraryChangeTrackerTriggerDetails_Vtbl {
+        unsafe extern "system" fn Folder<Impl: IStorageLibraryChangeTrackerTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Folder() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1097,7 +1097,7 @@ impl IStorageLibraryChangeTrackerTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ChangeTracker<Impl: IStorageLibraryChangeTrackerTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ChangeTracker<Impl: IStorageLibraryChangeTrackerTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChangeTracker() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1119,7 +1119,7 @@ impl IStorageLibraryChangeTrackerTriggerDetailsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IStorageLibraryContentChangedTriggerDetailsImpl: Sized {
+pub trait IStorageLibraryContentChangedTriggerDetails_Impl: Sized {
     fn Folder(&mut self) -> ::windows::core::Result<super::StorageFolder>;
     fn CreateModifiedSinceQuery(&mut self, lastquerytime: &super::super::Foundation::DateTime) -> ::windows::core::Result<StorageItemQueryResult>;
 }
@@ -1128,9 +1128,9 @@ impl ::windows::core::RuntimeName for IStorageLibraryContentChangedTriggerDetail
     const NAME: &'static str = "Windows.Storage.Search.IStorageLibraryContentChangedTriggerDetails";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IStorageLibraryContentChangedTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageLibraryContentChangedTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageLibraryContentChangedTriggerDetailsVtbl {
-        unsafe extern "system" fn Folder<Impl: IStorageLibraryContentChangedTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStorageLibraryContentChangedTriggerDetails_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageLibraryContentChangedTriggerDetails_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageLibraryContentChangedTriggerDetails_Vtbl {
+        unsafe extern "system" fn Folder<Impl: IStorageLibraryContentChangedTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Folder() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1141,7 +1141,7 @@ impl IStorageLibraryContentChangedTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateModifiedSinceQuery<Impl: IStorageLibraryContentChangedTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lastquerytime: super::super::Foundation::DateTime, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateModifiedSinceQuery<Impl: IStorageLibraryContentChangedTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lastquerytime: super::super::Foundation::DateTime, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateModifiedSinceQuery(&*(&lastquerytime as *const <super::super::Foundation::DateTime as ::windows::core::Abi>::Abi as *const <super::super::Foundation::DateTime as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1163,7 +1163,7 @@ impl IStorageLibraryContentChangedTriggerDetailsVtbl {
     }
 }
 #[cfg(feature = "Foundation")]
-pub trait IStorageQueryResultBaseImpl: Sized {
+pub trait IStorageQueryResultBase_Impl: Sized {
     fn GetItemCountAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
     fn Folder(&mut self) -> ::windows::core::Result<super::StorageFolder>;
     fn ContentsChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -1179,9 +1179,9 @@ impl ::windows::core::RuntimeName for IStorageQueryResultBase {
     const NAME: &'static str = "Windows.Storage.Search.IStorageQueryResultBase";
 }
 #[cfg(feature = "Foundation")]
-impl IStorageQueryResultBaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageQueryResultBaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageQueryResultBaseVtbl {
-        unsafe extern "system" fn GetItemCountAsync<Impl: IStorageQueryResultBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStorageQueryResultBase_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageQueryResultBase_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageQueryResultBase_Vtbl {
+        unsafe extern "system" fn GetItemCountAsync<Impl: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItemCountAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1192,7 +1192,7 @@ impl IStorageQueryResultBaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Folder<Impl: IStorageQueryResultBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Folder<Impl: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Folder() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1203,7 +1203,7 @@ impl IStorageQueryResultBaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentsChanged<Impl: IStorageQueryResultBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentsChanged<Impl: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentsChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1214,11 +1214,11 @@ impl IStorageQueryResultBaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveContentsChanged<Impl: IStorageQueryResultBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveContentsChanged<Impl: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveContentsChanged(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn OptionsChanged<Impl: IStorageQueryResultBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changedhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OptionsChanged<Impl: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changedhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OptionsChanged(&*(&changedhandler as *const <super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1229,11 +1229,11 @@ impl IStorageQueryResultBaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveOptionsChanged<Impl: IStorageQueryResultBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveOptionsChanged<Impl: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveOptionsChanged(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FindStartIndexAsync<Impl: IStorageQueryResultBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindStartIndexAsync<Impl: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindStartIndexAsync(&*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1244,7 +1244,7 @@ impl IStorageQueryResultBaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentQueryOptions<Impl: IStorageQueryResultBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentQueryOptions<Impl: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentQueryOptions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1255,7 +1255,7 @@ impl IStorageQueryResultBaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ApplyNewQueryOptions<Impl: IStorageQueryResultBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newqueryoptions: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ApplyNewQueryOptions<Impl: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newqueryoptions: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ApplyNewQueryOptions(&*(&newqueryoptions as *const <QueryOptions as ::windows::core::Abi>::Abi as *const <QueryOptions as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1277,7 +1277,7 @@ impl IStorageQueryResultBaseVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IValueAndLanguageImpl: Sized {
+pub trait IValueAndLanguage_Impl: Sized {
     fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetLanguage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Value(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
@@ -1288,9 +1288,9 @@ impl ::windows::core::RuntimeName for IValueAndLanguage {
     const NAME: &'static str = "Windows.Storage.Search.IValueAndLanguage";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IValueAndLanguageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IValueAndLanguageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IValueAndLanguageVtbl {
-        unsafe extern "system" fn Language<Impl: IValueAndLanguageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IValueAndLanguage_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IValueAndLanguage_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IValueAndLanguage_Vtbl {
+        unsafe extern "system" fn Language<Impl: IValueAndLanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Language() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1301,11 +1301,11 @@ impl IValueAndLanguageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLanguage<Impl: IValueAndLanguageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLanguage<Impl: IValueAndLanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLanguage(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Value<Impl: IValueAndLanguageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: IValueAndLanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1316,7 +1316,7 @@ impl IValueAndLanguageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Impl: IValueAndLanguageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Impl: IValueAndLanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }

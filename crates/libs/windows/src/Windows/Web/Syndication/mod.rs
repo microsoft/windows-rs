@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct ISyndicationAttribute(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationAttribute {
-    type Vtable = ISyndicationAttributeVtbl;
+    type Vtable = ISyndicationAttribute_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71e8f969_526e_4001_9a91_e84f83161ab1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationAttributeVtbl {
+pub struct ISyndicationAttribute_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -21,12 +21,12 @@ pub struct ISyndicationAttributeVtbl {
 #[repr(transparent)]
 pub struct ISyndicationAttributeFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationAttributeFactory {
-    type Vtable = ISyndicationAttributeFactoryVtbl;
+    type Vtable = ISyndicationAttributeFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x624f1599_ed3e_420f_be86_640414886e4b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationAttributeFactoryVtbl {
+pub struct ISyndicationAttributeFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateSyndicationAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, attributenamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, attributevalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -34,12 +34,12 @@ pub struct ISyndicationAttributeFactoryVtbl {
 #[repr(transparent)]
 pub struct ISyndicationCategory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationCategory {
-    type Vtable = ISyndicationCategoryVtbl;
+    type Vtable = ISyndicationCategory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8715626f_0cba_4a7f_89ff_ecb5281423b6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationCategoryVtbl {
+pub struct ISyndicationCategory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -52,12 +52,12 @@ pub struct ISyndicationCategoryVtbl {
 #[repr(transparent)]
 pub struct ISyndicationCategoryFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationCategoryFactory {
-    type Vtable = ISyndicationCategoryFactoryVtbl;
+    type Vtable = ISyndicationCategoryFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab42802f_49e0_4525_8ab2_ab45c02528ff);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationCategoryFactoryVtbl {
+pub struct ISyndicationCategoryFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateSyndicationCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, term: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateSyndicationCategoryEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, term: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, scheme: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -210,12 +210,12 @@ unsafe impl ::windows::core::RuntimeType for ISyndicationClient {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9e18a9b7-7249-4b45-b229-7df895a5a1f5}");
 }
 unsafe impl ::windows::core::Interface for ISyndicationClient {
-    type Vtable = ISyndicationClientVtbl;
+    type Vtable = ISyndicationClient_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e18a9b7_7249_4b45_b229_7df895a5a1f5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationClientVtbl {
+pub struct ISyndicationClient_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Security_Credentials")]
     pub ServerCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -249,12 +249,12 @@ pub struct ISyndicationClientVtbl {
 #[repr(transparent)]
 pub struct ISyndicationClientFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationClientFactory {
-    type Vtable = ISyndicationClientFactoryVtbl;
+    type Vtable = ISyndicationClientFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ec4b32c_a79b_4114_b29a_05dffbafb9a4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationClientFactoryVtbl {
+pub struct ISyndicationClientFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Security_Credentials")]
     pub CreateSyndicationClient: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servercredential: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -265,12 +265,12 @@ pub struct ISyndicationClientFactoryVtbl {
 #[repr(transparent)]
 pub struct ISyndicationContent(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationContent {
-    type Vtable = ISyndicationContentVtbl;
+    type Vtable = ISyndicationContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4641fefe_0e55_40d0_b8d0_6a2ccba9fc7c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationContentVtbl {
+pub struct ISyndicationContent_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SourceUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -285,12 +285,12 @@ pub struct ISyndicationContentVtbl {
 #[repr(transparent)]
 pub struct ISyndicationContentFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationContentFactory {
-    type Vtable = ISyndicationContentFactoryVtbl;
+    type Vtable = ISyndicationContentFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d2fbb93_9520_4173_9388_7e2df324a8a0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationContentFactoryVtbl {
+pub struct ISyndicationContentFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateSyndicationContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, r#type: SyndicationTextType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -302,12 +302,12 @@ pub struct ISyndicationContentFactoryVtbl {
 #[repr(transparent)]
 pub struct ISyndicationErrorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationErrorStatics {
-    type Vtable = ISyndicationErrorStaticsVtbl;
+    type Vtable = ISyndicationErrorStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fbb2361_45c7_4833_8aa0_be5f3b58a7f4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationErrorStaticsVtbl {
+pub struct ISyndicationErrorStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut SyndicationErrorStatus) -> ::windows::core::HRESULT,
 }
@@ -315,12 +315,12 @@ pub struct ISyndicationErrorStaticsVtbl {
 #[repr(transparent)]
 pub struct ISyndicationFeed(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationFeed {
-    type Vtable = ISyndicationFeedVtbl;
+    type Vtable = ISyndicationFeed_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ffe3cd2_5b66_4d62_8403_1bc10d910d6b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationFeedVtbl {
+pub struct ISyndicationFeed_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Authors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -403,12 +403,12 @@ pub struct ISyndicationFeedVtbl {
 #[repr(transparent)]
 pub struct ISyndicationFeedFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationFeedFactory {
-    type Vtable = ISyndicationFeedFactoryVtbl;
+    type Vtable = ISyndicationFeedFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23472232_8be9_48b7_8934_6205131d9357);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationFeedFactoryVtbl {
+pub struct ISyndicationFeedFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CreateSyndicationFeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, subtitle: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -419,12 +419,12 @@ pub struct ISyndicationFeedFactoryVtbl {
 #[repr(transparent)]
 pub struct ISyndicationGenerator(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationGenerator {
-    type Vtable = ISyndicationGeneratorVtbl;
+    type Vtable = ISyndicationGenerator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9768b379_fb2b_4f6d_b41c_088a5868825c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationGeneratorVtbl {
+pub struct ISyndicationGenerator_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -443,12 +443,12 @@ pub struct ISyndicationGeneratorVtbl {
 #[repr(transparent)]
 pub struct ISyndicationGeneratorFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationGeneratorFactory {
-    type Vtable = ISyndicationGeneratorFactoryVtbl;
+    type Vtable = ISyndicationGeneratorFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa34083e3_1e26_4dbc_ba9d_1ab84beff97b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationGeneratorFactoryVtbl {
+pub struct ISyndicationGeneratorFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateSyndicationGenerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -456,12 +456,12 @@ pub struct ISyndicationGeneratorFactoryVtbl {
 #[repr(transparent)]
 pub struct ISyndicationItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationItem {
-    type Vtable = ISyndicationItemVtbl;
+    type Vtable = ISyndicationItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x548db883_c384_45c1_8ae8_a378c4ec486c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationItemVtbl {
+pub struct ISyndicationItem_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Authors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -538,12 +538,12 @@ pub struct ISyndicationItemVtbl {
 #[repr(transparent)]
 pub struct ISyndicationItemFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationItemFactory {
-    type Vtable = ISyndicationItemFactoryVtbl;
+    type Vtable = ISyndicationItemFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x251d434f_7db8_487a_85e4_10d191e66ebb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationItemFactoryVtbl {
+pub struct ISyndicationItemFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CreateSyndicationItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, content: ::windows::core::RawPtr, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -554,12 +554,12 @@ pub struct ISyndicationItemFactoryVtbl {
 #[repr(transparent)]
 pub struct ISyndicationLink(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationLink {
-    type Vtable = ISyndicationLinkVtbl;
+    type Vtable = ISyndicationLink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27553abd_a10e_41b5_86bd_9759086eb0c5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationLinkVtbl {
+pub struct ISyndicationLink_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub SetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
@@ -584,12 +584,12 @@ pub struct ISyndicationLinkVtbl {
 #[repr(transparent)]
 pub struct ISyndicationLinkFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationLinkFactory {
-    type Vtable = ISyndicationLinkFactoryVtbl;
+    type Vtable = ISyndicationLinkFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ed863d4_5535_48ac_98d4_c190995080b3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationLinkFactoryVtbl {
+pub struct ISyndicationLinkFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CreateSyndicationLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -759,12 +759,12 @@ unsafe impl ::windows::core::RuntimeType for ISyndicationNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{753cef78-51f8-45c0-a9f5-f1719dec3fb2}");
 }
 unsafe impl ::windows::core::Interface for ISyndicationNode {
-    type Vtable = ISyndicationNodeVtbl;
+    type Vtable = ISyndicationNode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x753cef78_51f8_45c0_a9f5_f1719dec3fb2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationNodeVtbl {
+pub struct ISyndicationNode_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub NodeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetNodeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -799,12 +799,12 @@ pub struct ISyndicationNodeVtbl {
 #[repr(transparent)]
 pub struct ISyndicationNodeFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationNodeFactory {
-    type Vtable = ISyndicationNodeFactoryVtbl;
+    type Vtable = ISyndicationNodeFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12902188_4acb_49a8_b777_a5eb92e18a79);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationNodeFactoryVtbl {
+pub struct ISyndicationNodeFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateSyndicationNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, nodenamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, nodevalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -812,12 +812,12 @@ pub struct ISyndicationNodeFactoryVtbl {
 #[repr(transparent)]
 pub struct ISyndicationPerson(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationPerson {
-    type Vtable = ISyndicationPersonVtbl;
+    type Vtable = ISyndicationPerson_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa1ee5da_a7c6_4517_a096_0143faf29327);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationPersonVtbl {
+pub struct ISyndicationPerson_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Email: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetEmail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -836,12 +836,12 @@ pub struct ISyndicationPersonVtbl {
 #[repr(transparent)]
 pub struct ISyndicationPersonFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationPersonFactory {
-    type Vtable = ISyndicationPersonFactoryVtbl;
+    type Vtable = ISyndicationPersonFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcf4886d_229d_4b58_a49b_f3d2f0f5c99f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationPersonFactoryVtbl {
+pub struct ISyndicationPersonFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateSyndicationPerson: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1071,12 +1071,12 @@ unsafe impl ::windows::core::RuntimeType for ISyndicationText {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b9cc5e80-313a-4091-a2a6-243e0ee923f9}");
 }
 unsafe impl ::windows::core::Interface for ISyndicationText {
-    type Vtable = ISyndicationTextVtbl;
+    type Vtable = ISyndicationText_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9cc5e80_313a_4091_a2a6_243e0ee923f9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationTextVtbl {
+pub struct ISyndicationText_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1095,12 +1095,12 @@ pub struct ISyndicationTextVtbl {
 #[repr(transparent)]
 pub struct ISyndicationTextFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISyndicationTextFactory {
-    type Vtable = ISyndicationTextFactoryVtbl;
+    type Vtable = ISyndicationTextFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee7342f7_11c6_4b25_ab62_e596bd162946);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISyndicationTextFactoryVtbl {
+pub struct ISyndicationTextFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateSyndicationText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateSyndicationTextEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, r#type: SyndicationTextType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1225,7 +1225,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationAttribute {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationAttribute;{71e8f969-526e-4001-9a91-e84f83161ab1})");
 }
 unsafe impl ::windows::core::Interface for SyndicationAttribute {
-    type Vtable = ISyndicationAttributeVtbl;
+    type Vtable = ISyndicationAttribute_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71e8f969_526e_4001_9a91_e84f83161ab1);
 }
 impl ::windows::core::RuntimeName for SyndicationAttribute {
@@ -1457,7 +1457,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationCategory;{8715626f-0cba-4a7f-89ff-ecb5281423b6})");
 }
 unsafe impl ::windows::core::Interface for SyndicationCategory {
-    type Vtable = ISyndicationCategoryVtbl;
+    type Vtable = ISyndicationCategory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8715626f_0cba_4a7f_89ff_ecb5281423b6);
 }
 impl ::windows::core::RuntimeName for SyndicationCategory {
@@ -1655,7 +1655,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationClient {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationClient;{9e18a9b7-7249-4b45-b229-7df895a5a1f5})");
 }
 unsafe impl ::windows::core::Interface for SyndicationClient {
-    type Vtable = ISyndicationClientVtbl;
+    type Vtable = ISyndicationClient_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e18a9b7_7249_4b45_b229_7df895a5a1f5);
 }
 impl ::windows::core::RuntimeName for SyndicationClient {
@@ -1927,7 +1927,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationContent;{4641fefe-0e55-40d0-b8d0-6a2ccba9fc7c})");
 }
 unsafe impl ::windows::core::Interface for SyndicationContent {
-    type Vtable = ISyndicationContentVtbl;
+    type Vtable = ISyndicationContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4641fefe_0e55_40d0_b8d0_6a2ccba9fc7c);
 }
 impl ::windows::core::RuntimeName for SyndicationContent {
@@ -2424,7 +2424,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationFeed {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationFeed;{7ffe3cd2-5b66-4d62-8403-1bc10d910d6b})");
 }
 unsafe impl ::windows::core::Interface for SyndicationFeed {
-    type Vtable = ISyndicationFeedVtbl;
+    type Vtable = ISyndicationFeed_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ffe3cd2_5b66_4d62_8403_1bc10d910d6b);
 }
 impl ::windows::core::RuntimeName for SyndicationFeed {
@@ -2710,7 +2710,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationGenerator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationGenerator;{9768b379-fb2b-4f6d-b41c-088a5868825c})");
 }
 unsafe impl ::windows::core::Interface for SyndicationGenerator {
-    type Vtable = ISyndicationGeneratorVtbl;
+    type Vtable = ISyndicationGenerator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9768b379_fb2b_4f6d_b41c_088a5868825c);
 }
 impl ::windows::core::RuntimeName for SyndicationGenerator {
@@ -3124,7 +3124,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationItem;{548db883-c384-45c1-8ae8-a378c4ec486c})");
 }
 unsafe impl ::windows::core::Interface for SyndicationItem {
-    type Vtable = ISyndicationItemVtbl;
+    type Vtable = ISyndicationItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x548db883_c384_45c1_8ae8_a378c4ec486c);
 }
 impl ::windows::core::RuntimeName for SyndicationItem {
@@ -3421,7 +3421,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationLink {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationLink;{27553abd-a10e-41b5-86bd-9759086eb0c5})");
 }
 unsafe impl ::windows::core::Interface for SyndicationLink {
-    type Vtable = ISyndicationLinkVtbl;
+    type Vtable = ISyndicationLink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27553abd_a10e_41b5_86bd_9759086eb0c5);
 }
 impl ::windows::core::RuntimeName for SyndicationLink {
@@ -3629,7 +3629,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationNode;{753cef78-51f8-45c0-a9f5-f1719dec3fb2})");
 }
 unsafe impl ::windows::core::Interface for SyndicationNode {
-    type Vtable = ISyndicationNodeVtbl;
+    type Vtable = ISyndicationNode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x753cef78_51f8_45c0_a9f5_f1719dec3fb2);
 }
 impl ::windows::core::RuntimeName for SyndicationNode {
@@ -3886,7 +3886,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationPerson {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationPerson;{fa1ee5da-a7c6-4517-a096-0143faf29327})");
 }
 unsafe impl ::windows::core::Interface for SyndicationPerson {
-    type Vtable = ISyndicationPersonVtbl;
+    type Vtable = ISyndicationPerson_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa1ee5da_a7c6_4517_a096_0143faf29327);
 }
 impl ::windows::core::RuntimeName for SyndicationPerson {
@@ -4142,7 +4142,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationText {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationText;{b9cc5e80-313a-4091-a2a6-243e0ee923f9})");
 }
 unsafe impl ::windows::core::Interface for SyndicationText {
-    type Vtable = ISyndicationTextVtbl;
+    type Vtable = ISyndicationText_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9cc5e80_313a_4091_a2a6_243e0ee923f9);
 }
 impl ::windows::core::RuntimeName for SyndicationText {

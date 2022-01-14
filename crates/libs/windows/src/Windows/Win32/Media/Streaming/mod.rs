@@ -518,12 +518,12 @@ impl ::core::fmt::Debug for IMFDeviceTransform {
     }
 }
 unsafe impl ::windows::core::Interface for IMFDeviceTransform {
-    type Vtable = IMFDeviceTransformVtbl;
+    type Vtable = IMFDeviceTransform_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd818fbd8_fc46_42f2_87ac_1ea2d1f9bf32);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFDeviceTransformVtbl {
+pub struct IMFDeviceTransform_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub InitializeTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -641,12 +641,12 @@ impl ::core::fmt::Debug for IMFDeviceTransformCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IMFDeviceTransformCallback {
-    type Vtable = IMFDeviceTransformCallbackVtbl;
+    type Vtable = IMFDeviceTransformCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d5cb646_29ec_41fb_8179_8c4c6d750811);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFDeviceTransformCallbackVtbl {
+pub struct IMFDeviceTransformCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub OnBufferSent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallbackattributes: ::windows::core::RawPtr, pinid: u32) -> ::windows::core::HRESULT,

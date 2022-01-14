@@ -7,12 +7,12 @@ pub mod Management;
 #[repr(transparent)]
 pub struct IResourceLoader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceLoader {
-    type Vtable = IResourceLoaderVtbl;
+    type Vtable = IResourceLoader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08524908_16ef_45ad_a602_293637d7e61a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceLoaderVtbl {
+pub struct IResourceLoader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resource: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -20,12 +20,12 @@ pub struct IResourceLoaderVtbl {
 #[repr(transparent)]
 pub struct IResourceLoader2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceLoader2 {
-    type Vtable = IResourceLoader2Vtbl;
+    type Vtable = IResourceLoader2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10eb6ec6_8138_48c1_bc65_e1f14207367c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceLoader2Vtbl {
+pub struct IResourceLoader2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetStringForUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -36,12 +36,12 @@ pub struct IResourceLoader2Vtbl {
 #[repr(transparent)]
 pub struct IResourceLoaderFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceLoaderFactory {
-    type Vtable = IResourceLoaderFactoryVtbl;
+    type Vtable = IResourceLoaderFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc33a3603_69dc_4285_a077_d5c0e47ccbe8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceLoaderFactoryVtbl {
+pub struct IResourceLoaderFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateResourceLoaderByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -49,12 +49,12 @@ pub struct IResourceLoaderFactoryVtbl {
 #[repr(transparent)]
 pub struct IResourceLoaderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceLoaderStatics {
-    type Vtable = IResourceLoaderStaticsVtbl;
+    type Vtable = IResourceLoaderStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf777ce1_19c8_49c2_953c_47e9227b334e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceLoaderStaticsVtbl {
+pub struct IResourceLoaderStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetStringForReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -65,12 +65,12 @@ pub struct IResourceLoaderStaticsVtbl {
 #[repr(transparent)]
 pub struct IResourceLoaderStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceLoaderStatics2 {
-    type Vtable = IResourceLoaderStatics2Vtbl;
+    type Vtable = IResourceLoaderStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cc04141_6466_4989_9494_0b82dfc53f1f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceLoaderStatics2Vtbl {
+pub struct IResourceLoaderStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetForCurrentViewWithName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -81,12 +81,12 @@ pub struct IResourceLoaderStatics2Vtbl {
 #[repr(transparent)]
 pub struct IResourceLoaderStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceLoaderStatics3 {
-    type Vtable = IResourceLoaderStatics3Vtbl;
+    type Vtable = IResourceLoaderStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64609dfb_64ac_491b_8100_0e558d61c1d0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceLoaderStatics3Vtbl {
+pub struct IResourceLoaderStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI")]
     pub GetForUIContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -97,12 +97,12 @@ pub struct IResourceLoaderStatics3Vtbl {
 #[repr(transparent)]
 pub struct IResourceLoaderStatics4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceLoaderStatics4 {
-    type Vtable = IResourceLoaderStatics4Vtbl;
+    type Vtable = IResourceLoaderStatics4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fb36c32_6c8c_4316_962e_909539b5c259);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceLoaderStatics4Vtbl {
+pub struct IResourceLoaderStatics4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefaultPriPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -238,7 +238,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceLoader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.ResourceLoader;{08524908-16ef-45ad-a602-293637d7e61a})");
 }
 unsafe impl ::windows::core::Interface for ResourceLoader {
-    type Vtable = IResourceLoaderVtbl;
+    type Vtable = IResourceLoader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08524908_16ef_45ad_a602_293637d7e61a);
 }
 impl ::windows::core::RuntimeName for ResourceLoader {

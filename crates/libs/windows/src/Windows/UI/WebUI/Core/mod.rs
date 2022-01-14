@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IWebUICommandBar(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebUICommandBar {
-    type Vtable = IWebUICommandBarVtbl;
+    type Vtable = IWebUICommandBar_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4fc0016_dbe5_41ad_8d7b_14698bd6911d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUICommandBarVtbl {
+pub struct IWebUICommandBar_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Visible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -63,12 +63,12 @@ pub struct IWebUICommandBarVtbl {
 #[repr(transparent)]
 pub struct IWebUICommandBarBitmapIcon(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebUICommandBarBitmapIcon {
-    type Vtable = IWebUICommandBarBitmapIconVtbl;
+    type Vtable = IWebUICommandBarBitmapIcon_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x858f4f45_08d8_4a46_81ec_00015b0b1c6c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUICommandBarBitmapIconVtbl {
+pub struct IWebUICommandBarBitmapIcon_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Uri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -83,12 +83,12 @@ pub struct IWebUICommandBarBitmapIconVtbl {
 #[repr(transparent)]
 pub struct IWebUICommandBarBitmapIconFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebUICommandBarBitmapIconFactory {
-    type Vtable = IWebUICommandBarBitmapIconFactoryVtbl;
+    type Vtable = IWebUICommandBarBitmapIconFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3f7d78a_7673_444a_be62_ac12d31c2231);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUICommandBarBitmapIconFactoryVtbl {
+pub struct IWebUICommandBarBitmapIconFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -99,12 +99,12 @@ pub struct IWebUICommandBarBitmapIconFactoryVtbl {
 #[repr(transparent)]
 pub struct IWebUICommandBarConfirmationButton(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebUICommandBarConfirmationButton {
-    type Vtable = IWebUICommandBarConfirmationButtonVtbl;
+    type Vtable = IWebUICommandBarConfirmationButton_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86e7824a_e3d5_4eb6_b2ff_8f018a172105);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUICommandBarConfirmationButtonVtbl {
+pub struct IWebUICommandBarConfirmationButton_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -181,12 +181,12 @@ unsafe impl ::windows::core::RuntimeType for IWebUICommandBarElement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c9069ec2-284a-4633-8aad-637a27e282c3}");
 }
 unsafe impl ::windows::core::Interface for IWebUICommandBarElement {
-    type Vtable = IWebUICommandBarElementVtbl;
+    type Vtable = IWebUICommandBarElement_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9069ec2_284a_4633_8aad_637a27e282c3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUICommandBarElementVtbl {
+pub struct IWebUICommandBarElement_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc = "*Required features: 'UI_WebUI_Core'*"]
@@ -253,24 +253,24 @@ unsafe impl ::windows::core::RuntimeType for IWebUICommandBarIcon {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d587655d-2014-42be-969a-7d14ca6c8a49}");
 }
 unsafe impl ::windows::core::Interface for IWebUICommandBarIcon {
-    type Vtable = IWebUICommandBarIconVtbl;
+    type Vtable = IWebUICommandBarIcon_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd587655d_2014_42be_969a_7d14ca6c8a49);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUICommandBarIconVtbl {
+pub struct IWebUICommandBarIcon_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebUICommandBarIconButton(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebUICommandBarIconButton {
-    type Vtable = IWebUICommandBarIconButtonVtbl;
+    type Vtable = IWebUICommandBarIconButton_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f1bc93a_3a7c_4842_a0cf_aff6ea308586);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUICommandBarIconButtonVtbl {
+pub struct IWebUICommandBarIconButton_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -295,12 +295,12 @@ pub struct IWebUICommandBarIconButtonVtbl {
 #[repr(transparent)]
 pub struct IWebUICommandBarItemInvokedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebUICommandBarItemInvokedEventArgs {
-    type Vtable = IWebUICommandBarItemInvokedEventArgsVtbl;
+    type Vtable = IWebUICommandBarItemInvokedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x304edbdd_e741_41ef_bdc4_a45cea2a4f70);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUICommandBarItemInvokedEventArgsVtbl {
+pub struct IWebUICommandBarItemInvokedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsPrimaryCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -308,12 +308,12 @@ pub struct IWebUICommandBarItemInvokedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IWebUICommandBarSizeChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebUICommandBarSizeChangedEventArgs {
-    type Vtable = IWebUICommandBarSizeChangedEventArgsVtbl;
+    type Vtable = IWebUICommandBarSizeChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbf1e2f6_3029_4719_8378_92f82b87af1e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUICommandBarSizeChangedEventArgsVtbl {
+pub struct IWebUICommandBarSizeChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Size) -> ::windows::core::HRESULT,
@@ -324,12 +324,12 @@ pub struct IWebUICommandBarSizeChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IWebUICommandBarStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebUICommandBarStatics {
-    type Vtable = IWebUICommandBarStaticsVtbl;
+    type Vtable = IWebUICommandBarStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1449cdb9_a506_45be_8f42_b2837e2fe0c9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUICommandBarStaticsVtbl {
+pub struct IWebUICommandBarStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -337,12 +337,12 @@ pub struct IWebUICommandBarStaticsVtbl {
 #[repr(transparent)]
 pub struct IWebUICommandBarSymbolIcon(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebUICommandBarSymbolIcon {
-    type Vtable = IWebUICommandBarSymbolIconVtbl;
+    type Vtable = IWebUICommandBarSymbolIcon_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4935477_fd26_46ed_8658_1a3f4400e7b3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUICommandBarSymbolIconVtbl {
+pub struct IWebUICommandBarSymbolIcon_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Symbol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetSymbol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -351,12 +351,12 @@ pub struct IWebUICommandBarSymbolIconVtbl {
 #[repr(transparent)]
 pub struct IWebUICommandBarSymbolIconFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWebUICommandBarSymbolIconFactory {
-    type Vtable = IWebUICommandBarSymbolIconFactoryVtbl;
+    type Vtable = IWebUICommandBarSymbolIconFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51be1a1f_3730_429e_b622_14e2b7bf6a07);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebUICommandBarSymbolIconFactoryVtbl {
+pub struct IWebUICommandBarSymbolIconFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, symbol: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -376,12 +376,12 @@ impl MenuClosedEventHandler {
 }
 #[repr(C)]
 struct MenuClosedEventHandlerBox<F: FnMut() -> ::windows::core::Result<()> + 'static> {
-    vtable: *const MenuClosedEventHandlerVtbl,
+    vtable: *const MenuClosedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut() -> ::windows::core::Result<()> + 'static> MenuClosedEventHandlerBox<F> {
-    const VTABLE: MenuClosedEventHandlerVtbl = MenuClosedEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: MenuClosedEventHandler_Vtbl = MenuClosedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<MenuClosedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -426,7 +426,7 @@ impl ::core::fmt::Debug for MenuClosedEventHandler {
     }
 }
 unsafe impl ::windows::core::Interface for MenuClosedEventHandler {
-    type Vtable = MenuClosedEventHandlerVtbl;
+    type Vtable = MenuClosedEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x435387c8_4dd0_4c52_9489_d390ce7721d2);
 }
 unsafe impl ::windows::core::RuntimeType for MenuClosedEventHandler {
@@ -434,7 +434,7 @@ unsafe impl ::windows::core::RuntimeType for MenuClosedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct MenuClosedEventHandlerVtbl {
+pub struct MenuClosedEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -454,12 +454,12 @@ impl MenuOpenedEventHandler {
 }
 #[repr(C)]
 struct MenuOpenedEventHandlerBox<F: FnMut() -> ::windows::core::Result<()> + 'static> {
-    vtable: *const MenuOpenedEventHandlerVtbl,
+    vtable: *const MenuOpenedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut() -> ::windows::core::Result<()> + 'static> MenuOpenedEventHandlerBox<F> {
-    const VTABLE: MenuOpenedEventHandlerVtbl = MenuOpenedEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: MenuOpenedEventHandler_Vtbl = MenuOpenedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<MenuOpenedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -504,7 +504,7 @@ impl ::core::fmt::Debug for MenuOpenedEventHandler {
     }
 }
 unsafe impl ::windows::core::Interface for MenuOpenedEventHandler {
-    type Vtable = MenuOpenedEventHandlerVtbl;
+    type Vtable = MenuOpenedEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18dc0ad3_678f_4c19_8963_cc1c49a5ef9e);
 }
 unsafe impl ::windows::core::RuntimeType for MenuOpenedEventHandler {
@@ -512,7 +512,7 @@ unsafe impl ::windows::core::RuntimeType for MenuOpenedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct MenuOpenedEventHandlerVtbl {
+pub struct MenuOpenedEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -532,12 +532,12 @@ impl SizeChangedEventHandler {
 }
 #[repr(C)]
 struct SizeChangedEventHandlerBox<F: FnMut(&::core::option::Option<WebUICommandBarSizeChangedEventArgs>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const SizeChangedEventHandlerVtbl,
+    vtable: *const SizeChangedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<WebUICommandBarSizeChangedEventArgs>) -> ::windows::core::Result<()> + 'static> SizeChangedEventHandlerBox<F> {
-    const VTABLE: SizeChangedEventHandlerVtbl = SizeChangedEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: SizeChangedEventHandler_Vtbl = SizeChangedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<SizeChangedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -582,7 +582,7 @@ impl ::core::fmt::Debug for SizeChangedEventHandler {
     }
 }
 unsafe impl ::windows::core::Interface for SizeChangedEventHandler {
-    type Vtable = SizeChangedEventHandlerVtbl;
+    type Vtable = SizeChangedEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd49cfe3c_dd2e_4c28_b627_303a7f911af5);
 }
 unsafe impl ::windows::core::RuntimeType for SizeChangedEventHandler {
@@ -590,7 +590,7 @@ unsafe impl ::windows::core::RuntimeType for SizeChangedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct SizeChangedEventHandlerVtbl {
+pub struct SizeChangedEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -781,7 +781,7 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandBar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBar;{a4fc0016-dbe5-41ad-8d7b-14698bd6911d})");
 }
 unsafe impl ::windows::core::Interface for WebUICommandBar {
-    type Vtable = IWebUICommandBarVtbl;
+    type Vtable = IWebUICommandBar_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4fc0016_dbe5_41ad_8d7b_14698bd6911d);
 }
 impl ::windows::core::RuntimeName for WebUICommandBar {
@@ -889,7 +889,7 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandBarBitmapIcon {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarBitmapIcon;{858f4f45-08d8-4a46-81ec-00015b0b1c6c})");
 }
 unsafe impl ::windows::core::Interface for WebUICommandBarBitmapIcon {
-    type Vtable = IWebUICommandBarBitmapIconVtbl;
+    type Vtable = IWebUICommandBarBitmapIcon_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x858f4f45_08d8_4a46_81ec_00015b0b1c6c);
 }
 impl ::windows::core::RuntimeName for WebUICommandBarBitmapIcon {
@@ -1053,7 +1053,7 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandBarConfirmationButton {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarConfirmationButton;{86e7824a-e3d5-4eb6-b2ff-8f018a172105})");
 }
 unsafe impl ::windows::core::Interface for WebUICommandBarConfirmationButton {
-    type Vtable = IWebUICommandBarConfirmationButtonVtbl;
+    type Vtable = IWebUICommandBarConfirmationButton_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86e7824a_e3d5_4eb6_b2ff_8f018a172105);
 }
 impl ::windows::core::RuntimeName for WebUICommandBarConfirmationButton {
@@ -1235,7 +1235,7 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandBarIconButton {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarIconButton;{8f1bc93a-3a7c-4842-a0cf-aff6ea308586})");
 }
 unsafe impl ::windows::core::Interface for WebUICommandBarIconButton {
-    type Vtable = IWebUICommandBarIconButtonVtbl;
+    type Vtable = IWebUICommandBarIconButton_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f1bc93a_3a7c_4842_a0cf_aff6ea308586);
 }
 impl ::windows::core::RuntimeName for WebUICommandBarIconButton {
@@ -1338,7 +1338,7 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandBarItemInvokedEventArgs
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarItemInvokedEventArgs;{304edbdd-e741-41ef-bdc4-a45cea2a4f70})");
 }
 unsafe impl ::windows::core::Interface for WebUICommandBarItemInvokedEventArgs {
-    type Vtable = IWebUICommandBarItemInvokedEventArgsVtbl;
+    type Vtable = IWebUICommandBarItemInvokedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x304edbdd_e741_41ef_bdc4_a45cea2a4f70);
 }
 impl ::windows::core::RuntimeName for WebUICommandBarItemInvokedEventArgs {
@@ -1420,7 +1420,7 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandBarSizeChangedEventArgs
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarSizeChangedEventArgs;{fbf1e2f6-3029-4719-8378-92f82b87af1e})");
 }
 unsafe impl ::windows::core::Interface for WebUICommandBarSizeChangedEventArgs {
-    type Vtable = IWebUICommandBarSizeChangedEventArgsVtbl;
+    type Vtable = IWebUICommandBarSizeChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbf1e2f6_3029_4719_8378_92f82b87af1e);
 }
 impl ::windows::core::RuntimeName for WebUICommandBarSizeChangedEventArgs {
@@ -1525,7 +1525,7 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandBarSymbolIcon {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarSymbolIcon;{d4935477-fd26-46ed-8658-1a3f4400e7b3})");
 }
 unsafe impl ::windows::core::Interface for WebUICommandBarSymbolIcon {
-    type Vtable = IWebUICommandBarSymbolIconVtbl;
+    type Vtable = IWebUICommandBarSymbolIcon_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4935477_fd26_46ed_8658_1a3f4400e7b3);
 }
 impl ::windows::core::RuntimeName for WebUICommandBarSymbolIcon {

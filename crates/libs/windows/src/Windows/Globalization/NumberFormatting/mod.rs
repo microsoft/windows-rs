@@ -288,7 +288,7 @@ unsafe impl ::windows::core::RuntimeType for CurrencyFormatter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.CurrencyFormatter;{11730ca5-4b00-41b2-b332-73b12a497d54})");
 }
 unsafe impl ::windows::core::Interface for CurrencyFormatter {
-    type Vtable = ICurrencyFormatterVtbl;
+    type Vtable = ICurrencyFormatter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11730ca5_4b00_41b2_b332_73b12a497d54);
 }
 impl ::windows::core::RuntimeName for CurrencyFormatter {
@@ -780,7 +780,7 @@ unsafe impl ::windows::core::RuntimeType for DecimalFormatter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.DecimalFormatter;{a5007c49-7676-4db7-8631-1b6ff265caa9})");
 }
 unsafe impl ::windows::core::Interface for DecimalFormatter {
-    type Vtable = INumberFormatterVtbl;
+    type Vtable = INumberFormatter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5007c49_7676_4db7_8631_1b6ff265caa9);
 }
 impl ::windows::core::RuntimeName for DecimalFormatter {
@@ -986,12 +986,12 @@ unsafe impl ::core::marker::Sync for DecimalFormatter {}
 #[repr(transparent)]
 pub struct ICurrencyFormatter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICurrencyFormatter {
-    type Vtable = ICurrencyFormatterVtbl;
+    type Vtable = ICurrencyFormatter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11730ca5_4b00_41b2_b332_73b12a497d54);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICurrencyFormatterVtbl {
+pub struct ICurrencyFormatter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Currency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "deprecated")]
@@ -1003,12 +1003,12 @@ pub struct ICurrencyFormatterVtbl {
 #[repr(transparent)]
 pub struct ICurrencyFormatter2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICurrencyFormatter2 {
-    type Vtable = ICurrencyFormatter2Vtbl;
+    type Vtable = ICurrencyFormatter2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x072c2f1d_e7ba_4197_920e_247c92f7dea6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICurrencyFormatter2Vtbl {
+pub struct ICurrencyFormatter2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CurrencyFormatterMode) -> ::windows::core::HRESULT,
     pub SetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CurrencyFormatterMode) -> ::windows::core::HRESULT,
@@ -1018,12 +1018,12 @@ pub struct ICurrencyFormatter2Vtbl {
 #[repr(transparent)]
 pub struct ICurrencyFormatterFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICurrencyFormatterFactory {
-    type Vtable = ICurrencyFormatterFactoryVtbl;
+    type Vtable = ICurrencyFormatterFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86c7537e_b938_4aa2_84b0_2c33dc5b1450);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICurrencyFormatterFactoryVtbl {
+pub struct ICurrencyFormatterFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateCurrencyFormatterCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currencycode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -1035,12 +1035,12 @@ pub struct ICurrencyFormatterFactoryVtbl {
 #[repr(transparent)]
 pub struct IDecimalFormatterFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDecimalFormatterFactory {
-    type Vtable = IDecimalFormatterFactoryVtbl;
+    type Vtable = IDecimalFormatterFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d018c9a_e393_46b8_b830_7a69c8f89fbb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDecimalFormatterFactoryVtbl {
+pub struct IDecimalFormatterFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateDecimalFormatter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languages: ::windows::core::RawPtr, geographicregion: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1051,12 +1051,12 @@ pub struct IDecimalFormatterFactoryVtbl {
 #[repr(transparent)]
 pub struct IIncrementNumberRounder(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IIncrementNumberRounder {
-    type Vtable = IIncrementNumberRounderVtbl;
+    type Vtable = IIncrementNumberRounder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70a64ff8_66ab_4155_9da1_739e46764543);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIncrementNumberRounderVtbl {
+pub struct IIncrementNumberRounder_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RoundingAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut RoundingAlgorithm) -> ::windows::core::HRESULT,
     pub SetRoundingAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: RoundingAlgorithm) -> ::windows::core::HRESULT,
@@ -1152,12 +1152,12 @@ unsafe impl ::windows::core::RuntimeType for INumberFormatter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a5007c49-7676-4db7-8631-1b6ff265caa9}");
 }
 unsafe impl ::windows::core::Interface for INumberFormatter {
-    type Vtable = INumberFormatterVtbl;
+    type Vtable = INumberFormatter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5007c49_7676_4db7_8631_1b6ff265caa9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INumberFormatterVtbl {
+pub struct INumberFormatter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FormatInt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub FormatUInt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1252,12 +1252,12 @@ unsafe impl ::windows::core::RuntimeType for INumberFormatter2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d4a8c1f0-80d0-4b0d-a89e-882c1e8f8310}");
 }
 unsafe impl ::windows::core::Interface for INumberFormatter2 {
-    type Vtable = INumberFormatter2Vtbl;
+    type Vtable = INumberFormatter2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4a8c1f0_80d0_4b0d_a89e_882c1e8f8310);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INumberFormatter2Vtbl {
+pub struct INumberFormatter2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FormatInt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub FormatUInt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1426,12 +1426,12 @@ unsafe impl ::windows::core::RuntimeType for INumberFormatterOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{80332d21-aee1-4a39-baa2-07ed8c96daf6}");
 }
 unsafe impl ::windows::core::Interface for INumberFormatterOptions {
-    type Vtable = INumberFormatterOptionsVtbl;
+    type Vtable = INumberFormatterOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80332d21_aee1_4a39_baa2_07ed8c96daf6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INumberFormatterOptionsVtbl {
+pub struct INumberFormatterOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Languages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1543,12 +1543,12 @@ unsafe impl ::windows::core::RuntimeType for INumberParser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e6659412-4a13-4a53-83a1-392fbe4cff9f}");
 }
 unsafe impl ::windows::core::Interface for INumberParser {
-    type Vtable = INumberParserVtbl;
+    type Vtable = INumberParser_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6659412_4a13_4a53_83a1_392fbe4cff9f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INumberParserVtbl {
+pub struct INumberParser_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ParseInt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1676,12 +1676,12 @@ unsafe impl ::windows::core::RuntimeType for INumberRounder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5473c375-38ed-4631-b80c-ef34fc48b7f5}");
 }
 unsafe impl ::windows::core::Interface for INumberRounder {
-    type Vtable = INumberRounderVtbl;
+    type Vtable = INumberRounder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5473c375_38ed_4631_b80c_ef34fc48b7f5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INumberRounderVtbl {
+pub struct INumberRounder_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RoundInt32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32, result__: *mut i32) -> ::windows::core::HRESULT,
     pub RoundUInt32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -1768,12 +1768,12 @@ unsafe impl ::windows::core::RuntimeType for INumberRounderOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3b088433-646f-4efe-8d48-66eb2e49e736}");
 }
 unsafe impl ::windows::core::Interface for INumberRounderOption {
-    type Vtable = INumberRounderOptionVtbl;
+    type Vtable = INumberRounderOption_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b088433_646f_4efe_8d48_66eb2e49e736);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INumberRounderOptionVtbl {
+pub struct INumberRounderOption_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub NumberRounder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetNumberRounder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1782,12 +1782,12 @@ pub struct INumberRounderOptionVtbl {
 #[repr(transparent)]
 pub struct INumeralSystemTranslator(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INumeralSystemTranslator {
-    type Vtable = INumeralSystemTranslatorVtbl;
+    type Vtable = INumeralSystemTranslator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28f5bc2c_8c23_4234_ad2e_fa5a3a426e9b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INumeralSystemTranslatorVtbl {
+pub struct INumeralSystemTranslator_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Languages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1802,12 +1802,12 @@ pub struct INumeralSystemTranslatorVtbl {
 #[repr(transparent)]
 pub struct INumeralSystemTranslatorFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INumeralSystemTranslatorFactory {
-    type Vtable = INumeralSystemTranslatorFactoryVtbl;
+    type Vtable = INumeralSystemTranslatorFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9630c8da_36ef_4d88_a85c_6f0d98d620a6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INumeralSystemTranslatorFactoryVtbl {
+pub struct INumeralSystemTranslatorFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languages: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1818,12 +1818,12 @@ pub struct INumeralSystemTranslatorFactoryVtbl {
 #[repr(transparent)]
 pub struct IPercentFormatterFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPercentFormatterFactory {
-    type Vtable = IPercentFormatterFactoryVtbl;
+    type Vtable = IPercentFormatterFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7828aef_fed4_4018_a6e2_e09961e03765);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPercentFormatterFactoryVtbl {
+pub struct IPercentFormatterFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub CreatePercentFormatter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languages: ::windows::core::RawPtr, geographicregion: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1834,12 +1834,12 @@ pub struct IPercentFormatterFactoryVtbl {
 #[repr(transparent)]
 pub struct IPermilleFormatterFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPermilleFormatterFactory {
-    type Vtable = IPermilleFormatterFactoryVtbl;
+    type Vtable = IPermilleFormatterFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b37b4ac_e638_4ed5_a998_62f6b06a49ae);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPermilleFormatterFactoryVtbl {
+pub struct IPermilleFormatterFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub CreatePermilleFormatter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languages: ::windows::core::RawPtr, geographicregion: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1924,12 +1924,12 @@ unsafe impl ::windows::core::RuntimeType for ISignedZeroOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fd1cdd31-0a3c-49c4-a642-96a1564f4f30}");
 }
 unsafe impl ::windows::core::Interface for ISignedZeroOption {
-    type Vtable = ISignedZeroOptionVtbl;
+    type Vtable = ISignedZeroOption_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd1cdd31_0a3c_49c4_a642_96a1564f4f30);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISignedZeroOptionVtbl {
+pub struct ISignedZeroOption_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsZeroSigned: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsZeroSigned: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -1938,12 +1938,12 @@ pub struct ISignedZeroOptionVtbl {
 #[repr(transparent)]
 pub struct ISignificantDigitsNumberRounder(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISignificantDigitsNumberRounder {
-    type Vtable = ISignificantDigitsNumberRounderVtbl;
+    type Vtable = ISignificantDigitsNumberRounder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5941bca_6646_4913_8c76_1b191ff94dfd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISignificantDigitsNumberRounderVtbl {
+pub struct ISignificantDigitsNumberRounder_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RoundingAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut RoundingAlgorithm) -> ::windows::core::HRESULT,
     pub SetRoundingAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: RoundingAlgorithm) -> ::windows::core::HRESULT,
@@ -2028,12 +2028,12 @@ unsafe impl ::windows::core::RuntimeType for ISignificantDigitsOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1d4dfcdd-2d43-4ee8-bbf1-c1b26a711a58}");
 }
 unsafe impl ::windows::core::Interface for ISignificantDigitsOption {
-    type Vtable = ISignificantDigitsOptionVtbl;
+    type Vtable = ISignificantDigitsOption_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d4dfcdd_2d43_4ee8_bbf1_c1b26a711a58);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISignificantDigitsOptionVtbl {
+pub struct ISignificantDigitsOption_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SignificantDigits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetSignificantDigits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
@@ -2144,7 +2144,7 @@ unsafe impl ::windows::core::RuntimeType for IncrementNumberRounder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.IncrementNumberRounder;{5473c375-38ed-4631-b80c-ef34fc48b7f5})");
 }
 unsafe impl ::windows::core::Interface for IncrementNumberRounder {
-    type Vtable = INumberRounderVtbl;
+    type Vtable = INumberRounder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5473c375_38ed_4631_b80c_ef34fc48b7f5);
 }
 impl ::windows::core::RuntimeName for IncrementNumberRounder {
@@ -2297,7 +2297,7 @@ unsafe impl ::windows::core::RuntimeType for NumeralSystemTranslator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.NumeralSystemTranslator;{28f5bc2c-8c23-4234-ad2e-fa5a3a426e9b})");
 }
 unsafe impl ::windows::core::Interface for NumeralSystemTranslator {
-    type Vtable = INumeralSystemTranslatorVtbl;
+    type Vtable = INumeralSystemTranslator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28f5bc2c_8c23_4234_ad2e_fa5a3a426e9b);
 }
 impl ::windows::core::RuntimeName for NumeralSystemTranslator {
@@ -2602,7 +2602,7 @@ unsafe impl ::windows::core::RuntimeType for PercentFormatter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.PercentFormatter;{a5007c49-7676-4db7-8631-1b6ff265caa9})");
 }
 unsafe impl ::windows::core::Interface for PercentFormatter {
-    type Vtable = INumberFormatterVtbl;
+    type Vtable = INumberFormatter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5007c49_7676_4db7_8631_1b6ff265caa9);
 }
 impl ::windows::core::RuntimeName for PercentFormatter {
@@ -3061,7 +3061,7 @@ unsafe impl ::windows::core::RuntimeType for PermilleFormatter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.PermilleFormatter;{a5007c49-7676-4db7-8631-1b6ff265caa9})");
 }
 unsafe impl ::windows::core::Interface for PermilleFormatter {
-    type Vtable = INumberFormatterVtbl;
+    type Vtable = INumberFormatter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5007c49_7676_4db7_8631_1b6ff265caa9);
 }
 impl ::windows::core::RuntimeName for PermilleFormatter {
@@ -3411,7 +3411,7 @@ unsafe impl ::windows::core::RuntimeType for SignificantDigitsNumberRounder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.SignificantDigitsNumberRounder;{5473c375-38ed-4631-b80c-ef34fc48b7f5})");
 }
 unsafe impl ::windows::core::Interface for SignificantDigitsNumberRounder {
-    type Vtable = INumberRounderVtbl;
+    type Vtable = INumberRounder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5473c375_38ed_4631_b80c_ef34fc48b7f5);
 }
 impl ::windows::core::RuntimeName for SignificantDigitsNumberRounder {

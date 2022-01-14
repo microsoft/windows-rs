@@ -1,5 +1,5 @@
 #[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IControlChannelTriggerImpl: Sized + IClosableImpl {
+pub trait IControlChannelTrigger_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn ControlChannelTriggerId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ServerKeepAliveIntervalInMinutes(&mut self) -> ::windows::core::Result<u32>;
     fn SetServerKeepAliveIntervalInMinutes(&mut self, value: u32) -> ::windows::core::Result<()>;
@@ -17,9 +17,9 @@ impl ::windows::core::RuntimeName for IControlChannelTrigger {
     const NAME: &'static str = "Windows.Networking.Sockets.IControlChannelTrigger";
 }
 #[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation", feature = "implement_exclusive"))]
-impl IControlChannelTriggerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlChannelTriggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IControlChannelTriggerVtbl {
-        unsafe extern "system" fn ControlChannelTriggerId<Impl: IControlChannelTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IControlChannelTrigger_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlChannelTrigger_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IControlChannelTrigger_Vtbl {
+        unsafe extern "system" fn ControlChannelTriggerId<Impl: IControlChannelTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ControlChannelTriggerId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -30,7 +30,7 @@ impl IControlChannelTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServerKeepAliveIntervalInMinutes<Impl: IControlChannelTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServerKeepAliveIntervalInMinutes<Impl: IControlChannelTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerKeepAliveIntervalInMinutes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -41,11 +41,11 @@ impl IControlChannelTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetServerKeepAliveIntervalInMinutes<Impl: IControlChannelTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetServerKeepAliveIntervalInMinutes<Impl: IControlChannelTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetServerKeepAliveIntervalInMinutes(value).into()
         }
-        unsafe extern "system" fn CurrentKeepAliveIntervalInMinutes<Impl: IControlChannelTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentKeepAliveIntervalInMinutes<Impl: IControlChannelTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentKeepAliveIntervalInMinutes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -56,7 +56,7 @@ impl IControlChannelTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TransportObject<Impl: IControlChannelTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransportObject<Impl: IControlChannelTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransportObject() {
                 ::core::result::Result::Ok(ok__) => {
@@ -67,7 +67,7 @@ impl IControlChannelTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn KeepAliveTrigger<Impl: IControlChannelTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KeepAliveTrigger<Impl: IControlChannelTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeepAliveTrigger() {
                 ::core::result::Result::Ok(ok__) => {
@@ -78,7 +78,7 @@ impl IControlChannelTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PushNotificationTrigger<Impl: IControlChannelTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PushNotificationTrigger<Impl: IControlChannelTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PushNotificationTrigger() {
                 ::core::result::Result::Ok(ok__) => {
@@ -89,11 +89,11 @@ impl IControlChannelTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UsingTransport<Impl: IControlChannelTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transport: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UsingTransport<Impl: IControlChannelTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transport: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UsingTransport(&*(&transport as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn WaitForPushEnabled<Impl: IControlChannelTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ControlChannelTriggerStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WaitForPushEnabled<Impl: IControlChannelTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ControlChannelTriggerStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WaitForPushEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -104,11 +104,11 @@ impl IControlChannelTriggerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DecreaseNetworkKeepAliveInterval<Impl: IControlChannelTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DecreaseNetworkKeepAliveInterval<Impl: IControlChannelTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DecreaseNetworkKeepAliveInterval().into()
         }
-        unsafe extern "system" fn FlushTransport<Impl: IControlChannelTriggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FlushTransport<Impl: IControlChannelTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).FlushTransport().into()
         }
@@ -132,7 +132,7 @@ impl IControlChannelTriggerVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IControlChannelTrigger2Impl: Sized {
+pub trait IControlChannelTrigger2_Impl: Sized {
     fn IsWakeFromLowPowerSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -140,9 +140,9 @@ impl ::windows::core::RuntimeName for IControlChannelTrigger2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IControlChannelTrigger2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IControlChannelTrigger2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlChannelTrigger2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IControlChannelTrigger2Vtbl {
-        unsafe extern "system" fn IsWakeFromLowPowerSupported<Impl: IControlChannelTrigger2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IControlChannelTrigger2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlChannelTrigger2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IControlChannelTrigger2_Vtbl {
+        unsafe extern "system" fn IsWakeFromLowPowerSupported<Impl: IControlChannelTrigger2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsWakeFromLowPowerSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -162,15 +162,15 @@ impl IControlChannelTrigger2Vtbl {
         iid == &<IControlChannelTrigger2 as ::windows::core::Interface>::IID
     }
 }
-pub trait IControlChannelTriggerEventDetailsImpl: Sized {
+pub trait IControlChannelTriggerEventDetails_Impl: Sized {
     fn ControlChannelTrigger(&mut self) -> ::windows::core::Result<ControlChannelTrigger>;
 }
 impl ::windows::core::RuntimeName for IControlChannelTriggerEventDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.IControlChannelTriggerEventDetails";
 }
-impl IControlChannelTriggerEventDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlChannelTriggerEventDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IControlChannelTriggerEventDetailsVtbl {
-        unsafe extern "system" fn ControlChannelTrigger<Impl: IControlChannelTriggerEventDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IControlChannelTriggerEventDetails_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlChannelTriggerEventDetails_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IControlChannelTriggerEventDetails_Vtbl {
+        unsafe extern "system" fn ControlChannelTrigger<Impl: IControlChannelTriggerEventDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ControlChannelTrigger() {
                 ::core::result::Result::Ok(ok__) => {
@@ -191,7 +191,7 @@ impl IControlChannelTriggerEventDetailsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IControlChannelTriggerFactoryImpl: Sized {
+pub trait IControlChannelTriggerFactory_Impl: Sized {
     fn CreateControlChannelTrigger(&mut self, channelid: &::windows::core::HSTRING, serverkeepaliveintervalinminutes: u32) -> ::windows::core::Result<ControlChannelTrigger>;
     fn CreateControlChannelTriggerEx(&mut self, channelid: &::windows::core::HSTRING, serverkeepaliveintervalinminutes: u32, resourcerequesttype: ControlChannelTriggerResourceType) -> ::windows::core::Result<ControlChannelTrigger>;
 }
@@ -200,9 +200,9 @@ impl ::windows::core::RuntimeName for IControlChannelTriggerFactory {
     const NAME: &'static str = "Windows.Networking.Sockets.IControlChannelTriggerFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IControlChannelTriggerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlChannelTriggerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IControlChannelTriggerFactoryVtbl {
-        unsafe extern "system" fn CreateControlChannelTrigger<Impl: IControlChannelTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, serverkeepaliveintervalinminutes: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IControlChannelTriggerFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlChannelTriggerFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IControlChannelTriggerFactory_Vtbl {
+        unsafe extern "system" fn CreateControlChannelTrigger<Impl: IControlChannelTriggerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, serverkeepaliveintervalinminutes: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateControlChannelTrigger(&*(&channelid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), serverkeepaliveintervalinminutes) {
                 ::core::result::Result::Ok(ok__) => {
@@ -213,7 +213,7 @@ impl IControlChannelTriggerFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateControlChannelTriggerEx<Impl: IControlChannelTriggerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, serverkeepaliveintervalinminutes: u32, resourcerequesttype: ControlChannelTriggerResourceType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateControlChannelTriggerEx<Impl: IControlChannelTriggerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, serverkeepaliveintervalinminutes: u32, resourcerequesttype: ControlChannelTriggerResourceType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateControlChannelTriggerEx(&*(&channelid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), serverkeepaliveintervalinminutes, resourcerequesttype) {
                 ::core::result::Result::Ok(ok__) => {
@@ -234,7 +234,7 @@ impl IControlChannelTriggerFactoryVtbl {
         iid == &<IControlChannelTriggerFactory as ::windows::core::Interface>::IID
     }
 }
-pub trait IControlChannelTriggerResetEventDetailsImpl: Sized {
+pub trait IControlChannelTriggerResetEventDetails_Impl: Sized {
     fn ResetReason(&mut self) -> ::windows::core::Result<ControlChannelTriggerResetReason>;
     fn HardwareSlotReset(&mut self) -> ::windows::core::Result<bool>;
     fn SoftwareSlotReset(&mut self) -> ::windows::core::Result<bool>;
@@ -242,9 +242,9 @@ pub trait IControlChannelTriggerResetEventDetailsImpl: Sized {
 impl ::windows::core::RuntimeName for IControlChannelTriggerResetEventDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.IControlChannelTriggerResetEventDetails";
 }
-impl IControlChannelTriggerResetEventDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlChannelTriggerResetEventDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IControlChannelTriggerResetEventDetailsVtbl {
-        unsafe extern "system" fn ResetReason<Impl: IControlChannelTriggerResetEventDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ControlChannelTriggerResetReason) -> ::windows::core::HRESULT {
+impl IControlChannelTriggerResetEventDetails_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlChannelTriggerResetEventDetails_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IControlChannelTriggerResetEventDetails_Vtbl {
+        unsafe extern "system" fn ResetReason<Impl: IControlChannelTriggerResetEventDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ControlChannelTriggerResetReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResetReason() {
                 ::core::result::Result::Ok(ok__) => {
@@ -255,7 +255,7 @@ impl IControlChannelTriggerResetEventDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HardwareSlotReset<Impl: IControlChannelTriggerResetEventDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HardwareSlotReset<Impl: IControlChannelTriggerResetEventDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HardwareSlotReset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -266,7 +266,7 @@ impl IControlChannelTriggerResetEventDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SoftwareSlotReset<Impl: IControlChannelTriggerResetEventDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SoftwareSlotReset<Impl: IControlChannelTriggerResetEventDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SoftwareSlotReset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -289,7 +289,7 @@ impl IControlChannelTriggerResetEventDetailsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IDatagramSocketImpl: Sized + IClosableImpl {
+pub trait IDatagramSocket_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn Control(&mut self) -> ::windows::core::Result<DatagramSocketControl>;
     fn Information(&mut self) -> ::windows::core::Result<DatagramSocketInformation>;
     fn OutputStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
@@ -308,9 +308,9 @@ impl ::windows::core::RuntimeName for IDatagramSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.IDatagramSocket";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IDatagramSocketVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocketVtbl {
-        unsafe extern "system" fn Control<Impl: IDatagramSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDatagramSocket_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocket_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocket_Vtbl {
+        unsafe extern "system" fn Control<Impl: IDatagramSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Control() {
                 ::core::result::Result::Ok(ok__) => {
@@ -321,7 +321,7 @@ impl IDatagramSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Information<Impl: IDatagramSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Information<Impl: IDatagramSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Information() {
                 ::core::result::Result::Ok(ok__) => {
@@ -332,7 +332,7 @@ impl IDatagramSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OutputStream<Impl: IDatagramSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OutputStream<Impl: IDatagramSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutputStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -343,7 +343,7 @@ impl IDatagramSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectAsync<Impl: IDatagramSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectAsync<Impl: IDatagramSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectAsync(&*(&remotehostname as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType), &*(&remoteservicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -354,7 +354,7 @@ impl IDatagramSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectWithEndpointPairAsync<Impl: IDatagramSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endpointpair: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectWithEndpointPairAsync<Impl: IDatagramSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endpointpair: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectWithEndpointPairAsync(&*(&endpointpair as *const <super::EndpointPair as ::windows::core::Abi>::Abi as *const <super::EndpointPair as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -365,7 +365,7 @@ impl IDatagramSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BindServiceNameAsync<Impl: IDatagramSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BindServiceNameAsync<Impl: IDatagramSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BindServiceNameAsync(&*(&localservicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -376,7 +376,7 @@ impl IDatagramSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BindEndpointAsync<Impl: IDatagramSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localhostname: ::windows::core::RawPtr, localservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BindEndpointAsync<Impl: IDatagramSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localhostname: ::windows::core::RawPtr, localservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BindEndpointAsync(&*(&localhostname as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType), &*(&localservicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -387,11 +387,11 @@ impl IDatagramSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn JoinMulticastGroup<Impl: IDatagramSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, host: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn JoinMulticastGroup<Impl: IDatagramSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, host: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).JoinMulticastGroup(&*(&host as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetOutputStreamAsync<Impl: IDatagramSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOutputStreamAsync<Impl: IDatagramSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetOutputStreamAsync(&*(&remotehostname as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType), &*(&remoteservicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -402,7 +402,7 @@ impl IDatagramSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetOutputStreamWithEndpointPairAsync<Impl: IDatagramSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endpointpair: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOutputStreamWithEndpointPairAsync<Impl: IDatagramSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endpointpair: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetOutputStreamWithEndpointPairAsync(&*(&endpointpair as *const <super::EndpointPair as ::windows::core::Abi>::Abi as *const <super::EndpointPair as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -413,7 +413,7 @@ impl IDatagramSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MessageReceived<Impl: IDatagramSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MessageReceived<Impl: IDatagramSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageReceived(&*(&eventhandler as *const <super::super::Foundation::TypedEventHandler<DatagramSocket, DatagramSocketMessageReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DatagramSocket, DatagramSocketMessageReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -424,7 +424,7 @@ impl IDatagramSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMessageReceived<Impl: IDatagramSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMessageReceived<Impl: IDatagramSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMessageReceived(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -449,7 +449,7 @@ impl IDatagramSocketVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
-pub trait IDatagramSocket2Impl: Sized + IClosableImpl {
+pub trait IDatagramSocket2_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn BindServiceNameAndAdapterAsync(&mut self, localservicename: &::windows::core::HSTRING, adapter: &::core::option::Option<super::Connectivity::NetworkAdapter>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
@@ -457,9 +457,9 @@ impl ::windows::core::RuntimeName for IDatagramSocket2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IDatagramSocket2";
 }
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
-impl IDatagramSocket2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocket2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocket2Vtbl {
-        unsafe extern "system" fn BindServiceNameAndAdapterAsync<Impl: IDatagramSocket2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, adapter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDatagramSocket2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocket2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocket2_Vtbl {
+        unsafe extern "system" fn BindServiceNameAndAdapterAsync<Impl: IDatagramSocket2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, adapter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BindServiceNameAndAdapterAsync(&*(&localservicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&adapter as *const <super::Connectivity::NetworkAdapter as ::windows::core::Abi>::Abi as *const <super::Connectivity::NetworkAdapter as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -480,7 +480,7 @@ impl IDatagramSocket2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IDatagramSocket3Impl: Sized {
+pub trait IDatagramSocket3_Impl: Sized {
     fn CancelIOAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn EnableTransferOwnership(&mut self, taskid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn EnableTransferOwnershipWithConnectedStandbyAction(&mut self, taskid: &::windows::core::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::core::Result<()>;
@@ -493,9 +493,9 @@ impl ::windows::core::RuntimeName for IDatagramSocket3 {
     const NAME: &'static str = "Windows.Networking.Sockets.IDatagramSocket3";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IDatagramSocket3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocket3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocket3Vtbl {
-        unsafe extern "system" fn CancelIOAsync<Impl: IDatagramSocket3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDatagramSocket3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocket3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocket3_Vtbl {
+        unsafe extern "system" fn CancelIOAsync<Impl: IDatagramSocket3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CancelIOAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -506,23 +506,23 @@ impl IDatagramSocket3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableTransferOwnership<Impl: IDatagramSocket3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskid: ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableTransferOwnership<Impl: IDatagramSocket3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EnableTransferOwnership(&*(&taskid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EnableTransferOwnershipWithConnectedStandbyAction<Impl: IDatagramSocket3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskid: ::windows::core::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableTransferOwnershipWithConnectedStandbyAction<Impl: IDatagramSocket3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskid: ::windows::core::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EnableTransferOwnershipWithConnectedStandbyAction(&*(&taskid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), connectedstandbyaction).into()
         }
-        unsafe extern "system" fn TransferOwnership<Impl: IDatagramSocket3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, socketid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransferOwnership<Impl: IDatagramSocket3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, socketid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TransferOwnership(&*(&socketid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TransferOwnershipWithContext<Impl: IDatagramSocket3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, socketid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransferOwnershipWithContext<Impl: IDatagramSocket3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, socketid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TransferOwnershipWithContext(&*(&socketid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&data as *const <SocketActivityContext as ::windows::core::Abi>::Abi as *const <SocketActivityContext as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TransferOwnershipWithContextAndKeepAliveTime<Impl: IDatagramSocket3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, socketid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr, keepalivetime: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransferOwnershipWithContextAndKeepAliveTime<Impl: IDatagramSocket3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, socketid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr, keepalivetime: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .TransferOwnershipWithContextAndKeepAliveTime(
@@ -547,7 +547,7 @@ impl IDatagramSocket3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDatagramSocketControlImpl: Sized {
+pub trait IDatagramSocketControl_Impl: Sized {
     fn QualityOfService(&mut self) -> ::windows::core::Result<SocketQualityOfService>;
     fn SetQualityOfService(&mut self, value: SocketQualityOfService) -> ::windows::core::Result<()>;
     fn OutboundUnicastHopLimit(&mut self) -> ::windows::core::Result<u8>;
@@ -558,9 +558,9 @@ impl ::windows::core::RuntimeName for IDatagramSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.IDatagramSocketControl";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDatagramSocketControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocketControlVtbl {
-        unsafe extern "system" fn QualityOfService<Impl: IDatagramSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketQualityOfService) -> ::windows::core::HRESULT {
+impl IDatagramSocketControl_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketControl_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocketControl_Vtbl {
+        unsafe extern "system" fn QualityOfService<Impl: IDatagramSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketQualityOfService) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QualityOfService() {
                 ::core::result::Result::Ok(ok__) => {
@@ -571,11 +571,11 @@ impl IDatagramSocketControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetQualityOfService<Impl: IDatagramSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SocketQualityOfService) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetQualityOfService<Impl: IDatagramSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SocketQualityOfService) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetQualityOfService(value).into()
         }
-        unsafe extern "system" fn OutboundUnicastHopLimit<Impl: IDatagramSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OutboundUnicastHopLimit<Impl: IDatagramSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutboundUnicastHopLimit() {
                 ::core::result::Result::Ok(ok__) => {
@@ -586,7 +586,7 @@ impl IDatagramSocketControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOutboundUnicastHopLimit<Impl: IDatagramSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOutboundUnicastHopLimit<Impl: IDatagramSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOutboundUnicastHopLimit(value).into()
         }
@@ -603,7 +603,7 @@ impl IDatagramSocketControlVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDatagramSocketControl2Impl: Sized {
+pub trait IDatagramSocketControl2_Impl: Sized {
     fn InboundBufferSizeInBytes(&mut self) -> ::windows::core::Result<u32>;
     fn SetInboundBufferSizeInBytes(&mut self, value: u32) -> ::windows::core::Result<()>;
     fn DontFragment(&mut self) -> ::windows::core::Result<bool>;
@@ -614,9 +614,9 @@ impl ::windows::core::RuntimeName for IDatagramSocketControl2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IDatagramSocketControl2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDatagramSocketControl2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketControl2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocketControl2Vtbl {
-        unsafe extern "system" fn InboundBufferSizeInBytes<Impl: IDatagramSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IDatagramSocketControl2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketControl2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocketControl2_Vtbl {
+        unsafe extern "system" fn InboundBufferSizeInBytes<Impl: IDatagramSocketControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InboundBufferSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -627,11 +627,11 @@ impl IDatagramSocketControl2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInboundBufferSizeInBytes<Impl: IDatagramSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInboundBufferSizeInBytes<Impl: IDatagramSocketControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInboundBufferSizeInBytes(value).into()
         }
-        unsafe extern "system" fn DontFragment<Impl: IDatagramSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DontFragment<Impl: IDatagramSocketControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DontFragment() {
                 ::core::result::Result::Ok(ok__) => {
@@ -642,7 +642,7 @@ impl IDatagramSocketControl2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDontFragment<Impl: IDatagramSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDontFragment<Impl: IDatagramSocketControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDontFragment(value).into()
         }
@@ -659,7 +659,7 @@ impl IDatagramSocketControl2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDatagramSocketControl3Impl: Sized {
+pub trait IDatagramSocketControl3_Impl: Sized {
     fn MulticastOnly(&mut self) -> ::windows::core::Result<bool>;
     fn SetMulticastOnly(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
@@ -668,9 +668,9 @@ impl ::windows::core::RuntimeName for IDatagramSocketControl3 {
     const NAME: &'static str = "Windows.Networking.Sockets.IDatagramSocketControl3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDatagramSocketControl3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketControl3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocketControl3Vtbl {
-        unsafe extern "system" fn MulticastOnly<Impl: IDatagramSocketControl3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IDatagramSocketControl3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketControl3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocketControl3_Vtbl {
+        unsafe extern "system" fn MulticastOnly<Impl: IDatagramSocketControl3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MulticastOnly() {
                 ::core::result::Result::Ok(ok__) => {
@@ -681,7 +681,7 @@ impl IDatagramSocketControl3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMulticastOnly<Impl: IDatagramSocketControl3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMulticastOnly<Impl: IDatagramSocketControl3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMulticastOnly(value).into()
         }
@@ -696,7 +696,7 @@ impl IDatagramSocketControl3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDatagramSocketInformationImpl: Sized {
+pub trait IDatagramSocketInformation_Impl: Sized {
     fn LocalAddress(&mut self) -> ::windows::core::Result<super::HostName>;
     fn LocalPort(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn RemoteAddress(&mut self) -> ::windows::core::Result<super::HostName>;
@@ -707,9 +707,9 @@ impl ::windows::core::RuntimeName for IDatagramSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.IDatagramSocketInformation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDatagramSocketInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocketInformationVtbl {
-        unsafe extern "system" fn LocalAddress<Impl: IDatagramSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDatagramSocketInformation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketInformation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocketInformation_Vtbl {
+        unsafe extern "system" fn LocalAddress<Impl: IDatagramSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -720,7 +720,7 @@ impl IDatagramSocketInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocalPort<Impl: IDatagramSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LocalPort<Impl: IDatagramSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalPort() {
                 ::core::result::Result::Ok(ok__) => {
@@ -731,7 +731,7 @@ impl IDatagramSocketInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoteAddress<Impl: IDatagramSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoteAddress<Impl: IDatagramSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -742,7 +742,7 @@ impl IDatagramSocketInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemotePort<Impl: IDatagramSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemotePort<Impl: IDatagramSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemotePort() {
                 ::core::result::Result::Ok(ok__) => {
@@ -766,7 +766,7 @@ impl IDatagramSocketInformationVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IDatagramSocketMessageReceivedEventArgsImpl: Sized {
+pub trait IDatagramSocketMessageReceivedEventArgs_Impl: Sized {
     fn RemoteAddress(&mut self) -> ::windows::core::Result<super::HostName>;
     fn RemotePort(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn LocalAddress(&mut self) -> ::windows::core::Result<super::HostName>;
@@ -778,9 +778,9 @@ impl ::windows::core::RuntimeName for IDatagramSocketMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.IDatagramSocketMessageReceivedEventArgs";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IDatagramSocketMessageReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketMessageReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocketMessageReceivedEventArgsVtbl {
-        unsafe extern "system" fn RemoteAddress<Impl: IDatagramSocketMessageReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDatagramSocketMessageReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketMessageReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocketMessageReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn RemoteAddress<Impl: IDatagramSocketMessageReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -791,7 +791,7 @@ impl IDatagramSocketMessageReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemotePort<Impl: IDatagramSocketMessageReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemotePort<Impl: IDatagramSocketMessageReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemotePort() {
                 ::core::result::Result::Ok(ok__) => {
@@ -802,7 +802,7 @@ impl IDatagramSocketMessageReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocalAddress<Impl: IDatagramSocketMessageReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LocalAddress<Impl: IDatagramSocketMessageReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -813,7 +813,7 @@ impl IDatagramSocketMessageReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDataReader<Impl: IDatagramSocketMessageReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDataReader<Impl: IDatagramSocketMessageReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDataReader() {
                 ::core::result::Result::Ok(ok__) => {
@@ -824,7 +824,7 @@ impl IDatagramSocketMessageReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDataStream<Impl: IDatagramSocketMessageReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDataStream<Impl: IDatagramSocketMessageReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDataStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -849,7 +849,7 @@ impl IDatagramSocketMessageReceivedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IDatagramSocketStaticsImpl: Sized {
+pub trait IDatagramSocketStatics_Impl: Sized {
     fn GetEndpointPairsAsync(&mut self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>;
     fn GetEndpointPairsWithSortOptionsAsync(&mut self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING, sortoptions: super::HostNameSortOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>;
 }
@@ -858,9 +858,9 @@ impl ::windows::core::RuntimeName for IDatagramSocketStatics {
     const NAME: &'static str = "Windows.Networking.Sockets.IDatagramSocketStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IDatagramSocketStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocketStaticsVtbl {
-        unsafe extern "system" fn GetEndpointPairsAsync<Impl: IDatagramSocketStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDatagramSocketStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDatagramSocketStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDatagramSocketStatics_Vtbl {
+        unsafe extern "system" fn GetEndpointPairsAsync<Impl: IDatagramSocketStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEndpointPairsAsync(&*(&remotehostname as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType), &*(&remoteservicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -871,7 +871,7 @@ impl IDatagramSocketStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEndpointPairsWithSortOptionsAsync<Impl: IDatagramSocketStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sortoptions: super::HostNameSortOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEndpointPairsWithSortOptionsAsync<Impl: IDatagramSocketStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sortoptions: super::HostNameSortOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEndpointPairsWithSortOptionsAsync(&*(&remotehostname as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType), &*(&remoteservicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), sortoptions) {
                 ::core::result::Result::Ok(ok__) => {
@@ -893,7 +893,7 @@ impl IDatagramSocketStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMessageWebSocketImpl: Sized + IClosableImpl + IWebSocketImpl {
+pub trait IMessageWebSocket_Impl: Sized + super::super::Foundation::IClosable_Impl + IWebSocket_Impl {
     fn Control(&mut self) -> ::windows::core::Result<MessageWebSocketControl>;
     fn Information(&mut self) -> ::windows::core::Result<MessageWebSocketInformation>;
     fn MessageReceived(&mut self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MessageWebSocket, MessageWebSocketMessageReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -904,9 +904,9 @@ impl ::windows::core::RuntimeName for IMessageWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.IMessageWebSocket";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMessageWebSocketVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocketImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageWebSocketVtbl {
-        unsafe extern "system" fn Control<Impl: IMessageWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMessageWebSocket_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocket_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageWebSocket_Vtbl {
+        unsafe extern "system" fn Control<Impl: IMessageWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Control() {
                 ::core::result::Result::Ok(ok__) => {
@@ -917,7 +917,7 @@ impl IMessageWebSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Information<Impl: IMessageWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Information<Impl: IMessageWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Information() {
                 ::core::result::Result::Ok(ok__) => {
@@ -928,7 +928,7 @@ impl IMessageWebSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MessageReceived<Impl: IMessageWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MessageReceived<Impl: IMessageWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageReceived(&*(&eventhandler as *const <super::super::Foundation::TypedEventHandler<MessageWebSocket, MessageWebSocketMessageReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MessageWebSocket, MessageWebSocketMessageReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -939,7 +939,7 @@ impl IMessageWebSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMessageReceived<Impl: IMessageWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMessageReceived<Impl: IMessageWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMessageReceived(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -956,7 +956,7 @@ impl IMessageWebSocketVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMessageWebSocket2Impl: Sized + IClosableImpl + IMessageWebSocketImpl + IWebSocketImpl {
+pub trait IMessageWebSocket2_Impl: Sized + super::super::Foundation::IClosable_Impl + IMessageWebSocket_Impl + IWebSocket_Impl {
     fn ServerCustomValidationRequested(&mut self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MessageWebSocket, WebSocketServerCustomValidationRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveServerCustomValidationRequested(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
@@ -965,9 +965,9 @@ impl ::windows::core::RuntimeName for IMessageWebSocket2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IMessageWebSocket2";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMessageWebSocket2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocket2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageWebSocket2Vtbl {
-        unsafe extern "system" fn ServerCustomValidationRequested<Impl: IMessageWebSocket2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IMessageWebSocket2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocket2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageWebSocket2_Vtbl {
+        unsafe extern "system" fn ServerCustomValidationRequested<Impl: IMessageWebSocket2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCustomValidationRequested(&*(&eventhandler as *const <super::super::Foundation::TypedEventHandler<MessageWebSocket, WebSocketServerCustomValidationRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MessageWebSocket, WebSocketServerCustomValidationRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -978,7 +978,7 @@ impl IMessageWebSocket2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveServerCustomValidationRequested<Impl: IMessageWebSocket2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveServerCustomValidationRequested<Impl: IMessageWebSocket2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveServerCustomValidationRequested(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -993,7 +993,7 @@ impl IMessageWebSocket2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMessageWebSocket3Impl: Sized {
+pub trait IMessageWebSocket3_Impl: Sized {
     fn SendNonfinalFrameAsync(&mut self, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>;
     fn SendFinalFrameAsync(&mut self, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>;
 }
@@ -1002,9 +1002,9 @@ impl ::windows::core::RuntimeName for IMessageWebSocket3 {
     const NAME: &'static str = "Windows.Networking.Sockets.IMessageWebSocket3";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMessageWebSocket3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocket3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageWebSocket3Vtbl {
-        unsafe extern "system" fn SendNonfinalFrameAsync<Impl: IMessageWebSocket3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMessageWebSocket3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocket3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageWebSocket3_Vtbl {
+        unsafe extern "system" fn SendNonfinalFrameAsync<Impl: IMessageWebSocket3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SendNonfinalFrameAsync(&*(&data as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1015,7 +1015,7 @@ impl IMessageWebSocket3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SendFinalFrameAsync<Impl: IMessageWebSocket3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendFinalFrameAsync<Impl: IMessageWebSocket3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SendFinalFrameAsync(&*(&data as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1037,7 +1037,7 @@ impl IMessageWebSocket3Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "implement_exclusive"))]
-pub trait IMessageWebSocketControlImpl: Sized + IWebSocketControlImpl {
+pub trait IMessageWebSocketControl_Impl: Sized + IWebSocketControl_Impl {
     fn MaxMessageSize(&mut self) -> ::windows::core::Result<u32>;
     fn SetMaxMessageSize(&mut self, value: u32) -> ::windows::core::Result<()>;
     fn MessageType(&mut self) -> ::windows::core::Result<SocketMessageType>;
@@ -1048,9 +1048,9 @@ impl ::windows::core::RuntimeName for IMessageWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.IMessageWebSocketControl";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "implement_exclusive"))]
-impl IMessageWebSocketControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocketControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageWebSocketControlVtbl {
-        unsafe extern "system" fn MaxMessageSize<Impl: IMessageWebSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IMessageWebSocketControl_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocketControl_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageWebSocketControl_Vtbl {
+        unsafe extern "system" fn MaxMessageSize<Impl: IMessageWebSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxMessageSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1061,11 +1061,11 @@ impl IMessageWebSocketControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxMessageSize<Impl: IMessageWebSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxMessageSize<Impl: IMessageWebSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxMessageSize(value).into()
         }
-        unsafe extern "system" fn MessageType<Impl: IMessageWebSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketMessageType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MessageType<Impl: IMessageWebSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketMessageType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1076,7 +1076,7 @@ impl IMessageWebSocketControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMessageType<Impl: IMessageWebSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SocketMessageType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMessageType<Impl: IMessageWebSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SocketMessageType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMessageType(value).into()
         }
@@ -1093,7 +1093,7 @@ impl IMessageWebSocketControlVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
-pub trait IMessageWebSocketControl2Impl: Sized {
+pub trait IMessageWebSocketControl2_Impl: Sized {
     fn DesiredUnsolicitedPongInterval(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn SetDesiredUnsolicitedPongInterval(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
     fn ActualUnsolicitedPongInterval(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -1107,9 +1107,9 @@ impl ::windows::core::RuntimeName for IMessageWebSocketControl2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IMessageWebSocketControl2";
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
-impl IMessageWebSocketControl2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocketControl2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageWebSocketControl2Vtbl {
-        unsafe extern "system" fn DesiredUnsolicitedPongInterval<Impl: IMessageWebSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+impl IMessageWebSocketControl2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocketControl2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageWebSocketControl2_Vtbl {
+        unsafe extern "system" fn DesiredUnsolicitedPongInterval<Impl: IMessageWebSocketControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesiredUnsolicitedPongInterval() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1120,11 +1120,11 @@ impl IMessageWebSocketControl2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDesiredUnsolicitedPongInterval<Impl: IMessageWebSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDesiredUnsolicitedPongInterval<Impl: IMessageWebSocketControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDesiredUnsolicitedPongInterval(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ActualUnsolicitedPongInterval<Impl: IMessageWebSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ActualUnsolicitedPongInterval<Impl: IMessageWebSocketControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActualUnsolicitedPongInterval() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1135,7 +1135,7 @@ impl IMessageWebSocketControl2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveMode<Impl: IMessageWebSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MessageWebSocketReceiveMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReceiveMode<Impl: IMessageWebSocketControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MessageWebSocketReceiveMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReceiveMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1146,11 +1146,11 @@ impl IMessageWebSocketControl2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetReceiveMode<Impl: IMessageWebSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MessageWebSocketReceiveMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetReceiveMode<Impl: IMessageWebSocketControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MessageWebSocketReceiveMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetReceiveMode(value).into()
         }
-        unsafe extern "system" fn ClientCertificate<Impl: IMessageWebSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClientCertificate<Impl: IMessageWebSocketControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClientCertificate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1161,7 +1161,7 @@ impl IMessageWebSocketControl2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClientCertificate<Impl: IMessageWebSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClientCertificate<Impl: IMessageWebSocketControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetClientCertificate(&*(&value as *const <super::super::Security::Cryptography::Certificates::Certificate as ::windows::core::Abi>::Abi as *const <super::super::Security::Cryptography::Certificates::Certificate as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1181,7 +1181,7 @@ impl IMessageWebSocketControl2Vtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMessageWebSocketMessageReceivedEventArgsImpl: Sized {
+pub trait IMessageWebSocketMessageReceivedEventArgs_Impl: Sized {
     fn MessageType(&mut self) -> ::windows::core::Result<SocketMessageType>;
     fn GetDataReader(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::DataReader>;
     fn GetDataStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
@@ -1191,9 +1191,9 @@ impl ::windows::core::RuntimeName for IMessageWebSocketMessageReceivedEventArgs 
     const NAME: &'static str = "Windows.Networking.Sockets.IMessageWebSocketMessageReceivedEventArgs";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMessageWebSocketMessageReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocketMessageReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageWebSocketMessageReceivedEventArgsVtbl {
-        unsafe extern "system" fn MessageType<Impl: IMessageWebSocketMessageReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketMessageType) -> ::windows::core::HRESULT {
+impl IMessageWebSocketMessageReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocketMessageReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageWebSocketMessageReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn MessageType<Impl: IMessageWebSocketMessageReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketMessageType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1204,7 +1204,7 @@ impl IMessageWebSocketMessageReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDataReader<Impl: IMessageWebSocketMessageReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDataReader<Impl: IMessageWebSocketMessageReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDataReader() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1215,7 +1215,7 @@ impl IMessageWebSocketMessageReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDataStream<Impl: IMessageWebSocketMessageReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDataStream<Impl: IMessageWebSocketMessageReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDataStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1238,7 +1238,7 @@ impl IMessageWebSocketMessageReceivedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IMessageWebSocketMessageReceivedEventArgs2Impl: Sized + IMessageWebSocketMessageReceivedEventArgsImpl {
+pub trait IMessageWebSocketMessageReceivedEventArgs2_Impl: Sized + IMessageWebSocketMessageReceivedEventArgs_Impl {
     fn IsMessageComplete(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -1246,9 +1246,9 @@ impl ::windows::core::RuntimeName for IMessageWebSocketMessageReceivedEventArgs2
     const NAME: &'static str = "Windows.Networking.Sockets.IMessageWebSocketMessageReceivedEventArgs2";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IMessageWebSocketMessageReceivedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocketMessageReceivedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageWebSocketMessageReceivedEventArgs2Vtbl {
-        unsafe extern "system" fn IsMessageComplete<Impl: IMessageWebSocketMessageReceivedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IMessageWebSocketMessageReceivedEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageWebSocketMessageReceivedEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageWebSocketMessageReceivedEventArgs2_Vtbl {
+        unsafe extern "system" fn IsMessageComplete<Impl: IMessageWebSocketMessageReceivedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsMessageComplete() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1269,7 +1269,7 @@ impl IMessageWebSocketMessageReceivedEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IServerMessageWebSocketImpl: Sized + IClosableImpl {
+pub trait IServerMessageWebSocket_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn MessageReceived(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<ServerMessageWebSocket, MessageWebSocketMessageReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveMessageReceived(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn Control(&mut self) -> ::windows::core::Result<ServerMessageWebSocketControl>;
@@ -1284,9 +1284,9 @@ impl ::windows::core::RuntimeName for IServerMessageWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.IServerMessageWebSocket";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IServerMessageWebSocketVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerMessageWebSocketImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServerMessageWebSocketVtbl {
-        unsafe extern "system" fn MessageReceived<Impl: IServerMessageWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IServerMessageWebSocket_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerMessageWebSocket_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServerMessageWebSocket_Vtbl {
+        unsafe extern "system" fn MessageReceived<Impl: IServerMessageWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageReceived(&*(&value as *const <super::super::Foundation::TypedEventHandler<ServerMessageWebSocket, MessageWebSocketMessageReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ServerMessageWebSocket, MessageWebSocketMessageReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1297,11 +1297,11 @@ impl IServerMessageWebSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMessageReceived<Impl: IServerMessageWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMessageReceived<Impl: IServerMessageWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMessageReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Control<Impl: IServerMessageWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Control<Impl: IServerMessageWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Control() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1312,7 +1312,7 @@ impl IServerMessageWebSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Information<Impl: IServerMessageWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Information<Impl: IServerMessageWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Information() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1323,7 +1323,7 @@ impl IServerMessageWebSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OutputStream<Impl: IServerMessageWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OutputStream<Impl: IServerMessageWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutputStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1334,7 +1334,7 @@ impl IServerMessageWebSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Closed<Impl: IServerMessageWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Closed<Impl: IServerMessageWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Closed(&*(&value as *const <super::super::Foundation::TypedEventHandler<ServerMessageWebSocket, WebSocketClosedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ServerMessageWebSocket, WebSocketClosedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1345,11 +1345,11 @@ impl IServerMessageWebSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveClosed<Impl: IServerMessageWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveClosed<Impl: IServerMessageWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveClosed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CloseWithStatus<Impl: IServerMessageWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, code: u16, reason: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CloseWithStatus<Impl: IServerMessageWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, code: u16, reason: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CloseWithStatus(code, &*(&reason as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1370,7 +1370,7 @@ impl IServerMessageWebSocketVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IServerMessageWebSocketControlImpl: Sized {
+pub trait IServerMessageWebSocketControl_Impl: Sized {
     fn MessageType(&mut self) -> ::windows::core::Result<SocketMessageType>;
     fn SetMessageType(&mut self, value: SocketMessageType) -> ::windows::core::Result<()>;
 }
@@ -1379,9 +1379,9 @@ impl ::windows::core::RuntimeName for IServerMessageWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.IServerMessageWebSocketControl";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IServerMessageWebSocketControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerMessageWebSocketControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServerMessageWebSocketControlVtbl {
-        unsafe extern "system" fn MessageType<Impl: IServerMessageWebSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketMessageType) -> ::windows::core::HRESULT {
+impl IServerMessageWebSocketControl_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerMessageWebSocketControl_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServerMessageWebSocketControl_Vtbl {
+        unsafe extern "system" fn MessageType<Impl: IServerMessageWebSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketMessageType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1392,7 +1392,7 @@ impl IServerMessageWebSocketControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMessageType<Impl: IServerMessageWebSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SocketMessageType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMessageType<Impl: IServerMessageWebSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SocketMessageType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMessageType(value).into()
         }
@@ -1407,7 +1407,7 @@ impl IServerMessageWebSocketControlVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IServerMessageWebSocketInformationImpl: Sized {
+pub trait IServerMessageWebSocketInformation_Impl: Sized {
     fn BandwidthStatistics(&mut self) -> ::windows::core::Result<BandwidthStatistics>;
     fn Protocol(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn LocalAddress(&mut self) -> ::windows::core::Result<super::HostName>;
@@ -1417,9 +1417,9 @@ impl ::windows::core::RuntimeName for IServerMessageWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.IServerMessageWebSocketInformation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IServerMessageWebSocketInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerMessageWebSocketInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServerMessageWebSocketInformationVtbl {
-        unsafe extern "system" fn BandwidthStatistics<Impl: IServerMessageWebSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BandwidthStatistics) -> ::windows::core::HRESULT {
+impl IServerMessageWebSocketInformation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerMessageWebSocketInformation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServerMessageWebSocketInformation_Vtbl {
+        unsafe extern "system" fn BandwidthStatistics<Impl: IServerMessageWebSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BandwidthStatistics) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BandwidthStatistics() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1430,7 +1430,7 @@ impl IServerMessageWebSocketInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Protocol<Impl: IServerMessageWebSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Protocol<Impl: IServerMessageWebSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Protocol() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1441,7 +1441,7 @@ impl IServerMessageWebSocketInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocalAddress<Impl: IServerMessageWebSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LocalAddress<Impl: IServerMessageWebSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1464,7 +1464,7 @@ impl IServerMessageWebSocketInformationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IServerStreamWebSocketImpl: Sized + IClosableImpl {
+pub trait IServerStreamWebSocket_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn Information(&mut self) -> ::windows::core::Result<ServerStreamWebSocketInformation>;
     fn InputStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
     fn OutputStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
@@ -1477,9 +1477,9 @@ impl ::windows::core::RuntimeName for IServerStreamWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.IServerStreamWebSocket";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IServerStreamWebSocketVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerStreamWebSocketImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServerStreamWebSocketVtbl {
-        unsafe extern "system" fn Information<Impl: IServerStreamWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IServerStreamWebSocket_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerStreamWebSocket_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServerStreamWebSocket_Vtbl {
+        unsafe extern "system" fn Information<Impl: IServerStreamWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Information() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1490,7 +1490,7 @@ impl IServerStreamWebSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InputStream<Impl: IServerStreamWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InputStream<Impl: IServerStreamWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InputStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1501,7 +1501,7 @@ impl IServerStreamWebSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OutputStream<Impl: IServerStreamWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OutputStream<Impl: IServerStreamWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutputStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1512,7 +1512,7 @@ impl IServerStreamWebSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Closed<Impl: IServerStreamWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Closed<Impl: IServerStreamWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Closed(&*(&value as *const <super::super::Foundation::TypedEventHandler<ServerStreamWebSocket, WebSocketClosedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ServerStreamWebSocket, WebSocketClosedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1523,11 +1523,11 @@ impl IServerStreamWebSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveClosed<Impl: IServerStreamWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveClosed<Impl: IServerStreamWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveClosed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CloseWithStatus<Impl: IServerStreamWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, code: u16, reason: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CloseWithStatus<Impl: IServerStreamWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, code: u16, reason: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CloseWithStatus(code, &*(&reason as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1546,7 +1546,7 @@ impl IServerStreamWebSocketVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IServerStreamWebSocketInformationImpl: Sized {
+pub trait IServerStreamWebSocketInformation_Impl: Sized {
     fn BandwidthStatistics(&mut self) -> ::windows::core::Result<BandwidthStatistics>;
     fn Protocol(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn LocalAddress(&mut self) -> ::windows::core::Result<super::HostName>;
@@ -1556,9 +1556,9 @@ impl ::windows::core::RuntimeName for IServerStreamWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.IServerStreamWebSocketInformation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IServerStreamWebSocketInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerStreamWebSocketInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServerStreamWebSocketInformationVtbl {
-        unsafe extern "system" fn BandwidthStatistics<Impl: IServerStreamWebSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BandwidthStatistics) -> ::windows::core::HRESULT {
+impl IServerStreamWebSocketInformation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServerStreamWebSocketInformation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServerStreamWebSocketInformation_Vtbl {
+        unsafe extern "system" fn BandwidthStatistics<Impl: IServerStreamWebSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BandwidthStatistics) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BandwidthStatistics() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1569,7 +1569,7 @@ impl IServerStreamWebSocketInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Protocol<Impl: IServerStreamWebSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Protocol<Impl: IServerStreamWebSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Protocol() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1580,7 +1580,7 @@ impl IServerStreamWebSocketInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocalAddress<Impl: IServerStreamWebSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LocalAddress<Impl: IServerStreamWebSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1603,7 +1603,7 @@ impl IServerStreamWebSocketInformationVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISocketActivityContextImpl: Sized {
+pub trait ISocketActivityContext_Impl: Sized {
     fn Data(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -1611,9 +1611,9 @@ impl ::windows::core::RuntimeName for ISocketActivityContext {
     const NAME: &'static str = "Windows.Networking.Sockets.ISocketActivityContext";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISocketActivityContextVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketActivityContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocketActivityContextVtbl {
-        unsafe extern "system" fn Data<Impl: ISocketActivityContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISocketActivityContext_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketActivityContext_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocketActivityContext_Vtbl {
+        unsafe extern "system" fn Data<Impl: ISocketActivityContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1631,7 +1631,7 @@ impl ISocketActivityContextVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISocketActivityContextFactoryImpl: Sized {
+pub trait ISocketActivityContextFactory_Impl: Sized {
     fn Create(&mut self, data: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<SocketActivityContext>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -1639,9 +1639,9 @@ impl ::windows::core::RuntimeName for ISocketActivityContextFactory {
     const NAME: &'static str = "Windows.Networking.Sockets.ISocketActivityContextFactory";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISocketActivityContextFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketActivityContextFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocketActivityContextFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: ISocketActivityContextFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISocketActivityContextFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketActivityContextFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocketActivityContextFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: ISocketActivityContextFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&data as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1659,7 +1659,7 @@ impl ISocketActivityContextFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISocketActivityInformationImpl: Sized {
+pub trait ISocketActivityInformation_Impl: Sized {
     fn TaskId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SocketKind(&mut self) -> ::windows::core::Result<SocketActivityKind>;
@@ -1673,9 +1673,9 @@ impl ::windows::core::RuntimeName for ISocketActivityInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.ISocketActivityInformation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISocketActivityInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketActivityInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocketActivityInformationVtbl {
-        unsafe extern "system" fn TaskId<Impl: ISocketActivityInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl ISocketActivityInformation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketActivityInformation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocketActivityInformation_Vtbl {
+        unsafe extern "system" fn TaskId<Impl: ISocketActivityInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TaskId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1686,7 +1686,7 @@ impl ISocketActivityInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Id<Impl: ISocketActivityInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Id<Impl: ISocketActivityInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1697,7 +1697,7 @@ impl ISocketActivityInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SocketKind<Impl: ISocketActivityInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketActivityKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SocketKind<Impl: ISocketActivityInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketActivityKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SocketKind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1708,7 +1708,7 @@ impl ISocketActivityInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Context<Impl: ISocketActivityInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Context<Impl: ISocketActivityInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Context() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1719,7 +1719,7 @@ impl ISocketActivityInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DatagramSocket<Impl: ISocketActivityInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DatagramSocket<Impl: ISocketActivityInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DatagramSocket() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1730,7 +1730,7 @@ impl ISocketActivityInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StreamSocket<Impl: ISocketActivityInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StreamSocket<Impl: ISocketActivityInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StreamSocket() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1741,7 +1741,7 @@ impl ISocketActivityInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StreamSocketListener<Impl: ISocketActivityInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StreamSocketListener<Impl: ISocketActivityInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StreamSocketListener() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1768,7 +1768,7 @@ impl ISocketActivityInformationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ISocketActivityInformationStaticsImpl: Sized {
+pub trait ISocketActivityInformationStatics_Impl: Sized {
     fn AllSockets(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, SocketActivityInformation>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -1776,9 +1776,9 @@ impl ::windows::core::RuntimeName for ISocketActivityInformationStatics {
     const NAME: &'static str = "Windows.Networking.Sockets.ISocketActivityInformationStatics";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ISocketActivityInformationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketActivityInformationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocketActivityInformationStaticsVtbl {
-        unsafe extern "system" fn AllSockets<Impl: ISocketActivityInformationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISocketActivityInformationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketActivityInformationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocketActivityInformationStatics_Vtbl {
+        unsafe extern "system" fn AllSockets<Impl: ISocketActivityInformationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllSockets() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1799,7 +1799,7 @@ impl ISocketActivityInformationStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISocketActivityTriggerDetailsImpl: Sized {
+pub trait ISocketActivityTriggerDetails_Impl: Sized {
     fn Reason(&mut self) -> ::windows::core::Result<SocketActivityTriggerReason>;
     fn SocketInformation(&mut self) -> ::windows::core::Result<SocketActivityInformation>;
 }
@@ -1808,9 +1808,9 @@ impl ::windows::core::RuntimeName for ISocketActivityTriggerDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.ISocketActivityTriggerDetails";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISocketActivityTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketActivityTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocketActivityTriggerDetailsVtbl {
-        unsafe extern "system" fn Reason<Impl: ISocketActivityTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketActivityTriggerReason) -> ::windows::core::HRESULT {
+impl ISocketActivityTriggerDetails_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketActivityTriggerDetails_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocketActivityTriggerDetails_Vtbl {
+        unsafe extern "system" fn Reason<Impl: ISocketActivityTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketActivityTriggerReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reason() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1821,7 +1821,7 @@ impl ISocketActivityTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SocketInformation<Impl: ISocketActivityTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SocketInformation<Impl: ISocketActivityTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SocketInformation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1843,7 +1843,7 @@ impl ISocketActivityTriggerDetailsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISocketErrorStaticsImpl: Sized {
+pub trait ISocketErrorStatics_Impl: Sized {
     fn GetStatus(&mut self, hresult: i32) -> ::windows::core::Result<SocketErrorStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1851,9 +1851,9 @@ impl ::windows::core::RuntimeName for ISocketErrorStatics {
     const NAME: &'static str = "Windows.Networking.Sockets.ISocketErrorStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISocketErrorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketErrorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocketErrorStaticsVtbl {
-        unsafe extern "system" fn GetStatus<Impl: ISocketErrorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut SocketErrorStatus) -> ::windows::core::HRESULT {
+impl ISocketErrorStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISocketErrorStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISocketErrorStatics_Vtbl {
+        unsafe extern "system" fn GetStatus<Impl: ISocketErrorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut SocketErrorStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStatus(hresult) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1871,7 +1871,7 @@ impl ISocketErrorStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IStreamSocketImpl: Sized + IClosableImpl {
+pub trait IStreamSocket_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn Control(&mut self) -> ::windows::core::Result<StreamSocketControl>;
     fn Information(&mut self) -> ::windows::core::Result<StreamSocketInformation>;
     fn InputStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
@@ -1887,9 +1887,9 @@ impl ::windows::core::RuntimeName for IStreamSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocket";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IStreamSocketVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketVtbl {
-        unsafe extern "system" fn Control<Impl: IStreamSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStreamSocket_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocket_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocket_Vtbl {
+        unsafe extern "system" fn Control<Impl: IStreamSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Control() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1900,7 +1900,7 @@ impl IStreamSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Information<Impl: IStreamSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Information<Impl: IStreamSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Information() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1911,7 +1911,7 @@ impl IStreamSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InputStream<Impl: IStreamSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InputStream<Impl: IStreamSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InputStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1922,7 +1922,7 @@ impl IStreamSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OutputStream<Impl: IStreamSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OutputStream<Impl: IStreamSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutputStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1933,7 +1933,7 @@ impl IStreamSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectWithEndpointPairAsync<Impl: IStreamSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endpointpair: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectWithEndpointPairAsync<Impl: IStreamSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endpointpair: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectWithEndpointPairAsync(&*(&endpointpair as *const <super::EndpointPair as ::windows::core::Abi>::Abi as *const <super::EndpointPair as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1944,7 +1944,7 @@ impl IStreamSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectAsync<Impl: IStreamSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectAsync<Impl: IStreamSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectAsync(&*(&remotehostname as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType), &*(&remoteservicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1955,7 +1955,7 @@ impl IStreamSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectWithEndpointPairAndProtectionLevelAsync<Impl: IStreamSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endpointpair: ::windows::core::RawPtr, protectionlevel: SocketProtectionLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectWithEndpointPairAndProtectionLevelAsync<Impl: IStreamSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endpointpair: ::windows::core::RawPtr, protectionlevel: SocketProtectionLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectWithEndpointPairAndProtectionLevelAsync(&*(&endpointpair as *const <super::EndpointPair as ::windows::core::Abi>::Abi as *const <super::EndpointPair as ::windows::core::DefaultType>::DefaultType), protectionlevel) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1966,7 +1966,7 @@ impl IStreamSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectWithProtectionLevelAsync<Impl: IStreamSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, protectionlevel: SocketProtectionLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectWithProtectionLevelAsync<Impl: IStreamSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, protectionlevel: SocketProtectionLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectWithProtectionLevelAsync(&*(&remotehostname as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType), &*(&remoteservicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), protectionlevel) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1977,7 +1977,7 @@ impl IStreamSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpgradeToSslAsync<Impl: IStreamSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, protectionlevel: SocketProtectionLevel, validationhostname: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpgradeToSslAsync<Impl: IStreamSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, protectionlevel: SocketProtectionLevel, validationhostname: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpgradeToSslAsync(protectionlevel, &*(&validationhostname as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2006,7 +2006,7 @@ impl IStreamSocketVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
-pub trait IStreamSocket2Impl: Sized + IClosableImpl {
+pub trait IStreamSocket2_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn ConnectWithProtectionLevelAndAdapterAsync(&mut self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel, adapter: &::core::option::Option<super::Connectivity::NetworkAdapter>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
@@ -2014,9 +2014,9 @@ impl ::windows::core::RuntimeName for IStreamSocket2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocket2";
 }
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
-impl IStreamSocket2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocket2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocket2Vtbl {
-        unsafe extern "system" fn ConnectWithProtectionLevelAndAdapterAsync<Impl: IStreamSocket2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, protectionlevel: SocketProtectionLevel, adapter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStreamSocket2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocket2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocket2_Vtbl {
+        unsafe extern "system" fn ConnectWithProtectionLevelAndAdapterAsync<Impl: IStreamSocket2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, protectionlevel: SocketProtectionLevel, adapter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectWithProtectionLevelAndAdapterAsync(
                 &*(&remotehostname as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType),
@@ -2042,7 +2042,7 @@ impl IStreamSocket2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IStreamSocket3Impl: Sized {
+pub trait IStreamSocket3_Impl: Sized {
     fn CancelIOAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn EnableTransferOwnership(&mut self, taskid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn EnableTransferOwnershipWithConnectedStandbyAction(&mut self, taskid: &::windows::core::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::core::Result<()>;
@@ -2055,9 +2055,9 @@ impl ::windows::core::RuntimeName for IStreamSocket3 {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocket3";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IStreamSocket3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocket3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocket3Vtbl {
-        unsafe extern "system" fn CancelIOAsync<Impl: IStreamSocket3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStreamSocket3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocket3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocket3_Vtbl {
+        unsafe extern "system" fn CancelIOAsync<Impl: IStreamSocket3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CancelIOAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2068,23 +2068,23 @@ impl IStreamSocket3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableTransferOwnership<Impl: IStreamSocket3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskid: ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableTransferOwnership<Impl: IStreamSocket3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EnableTransferOwnership(&*(&taskid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EnableTransferOwnershipWithConnectedStandbyAction<Impl: IStreamSocket3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskid: ::windows::core::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableTransferOwnershipWithConnectedStandbyAction<Impl: IStreamSocket3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskid: ::windows::core::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EnableTransferOwnershipWithConnectedStandbyAction(&*(&taskid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), connectedstandbyaction).into()
         }
-        unsafe extern "system" fn TransferOwnership<Impl: IStreamSocket3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, socketid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransferOwnership<Impl: IStreamSocket3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, socketid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TransferOwnership(&*(&socketid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TransferOwnershipWithContext<Impl: IStreamSocket3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, socketid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransferOwnershipWithContext<Impl: IStreamSocket3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, socketid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TransferOwnershipWithContext(&*(&socketid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&data as *const <SocketActivityContext as ::windows::core::Abi>::Abi as *const <SocketActivityContext as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TransferOwnershipWithContextAndKeepAliveTime<Impl: IStreamSocket3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, socketid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr, keepalivetime: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransferOwnershipWithContextAndKeepAliveTime<Impl: IStreamSocket3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, socketid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr, keepalivetime: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .TransferOwnershipWithContextAndKeepAliveTime(
@@ -2109,7 +2109,7 @@ impl IStreamSocket3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IStreamSocketControlImpl: Sized {
+pub trait IStreamSocketControl_Impl: Sized {
     fn NoDelay(&mut self) -> ::windows::core::Result<bool>;
     fn SetNoDelay(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn KeepAlive(&mut self) -> ::windows::core::Result<bool>;
@@ -2126,9 +2126,9 @@ impl ::windows::core::RuntimeName for IStreamSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocketControl";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IStreamSocketControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketControlVtbl {
-        unsafe extern "system" fn NoDelay<Impl: IStreamSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IStreamSocketControl_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketControl_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketControl_Vtbl {
+        unsafe extern "system" fn NoDelay<Impl: IStreamSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NoDelay() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2139,11 +2139,11 @@ impl IStreamSocketControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNoDelay<Impl: IStreamSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNoDelay<Impl: IStreamSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNoDelay(value).into()
         }
-        unsafe extern "system" fn KeepAlive<Impl: IStreamSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KeepAlive<Impl: IStreamSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeepAlive() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2154,11 +2154,11 @@ impl IStreamSocketControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetKeepAlive<Impl: IStreamSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetKeepAlive<Impl: IStreamSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKeepAlive(value).into()
         }
-        unsafe extern "system" fn OutboundBufferSizeInBytes<Impl: IStreamSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OutboundBufferSizeInBytes<Impl: IStreamSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutboundBufferSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2169,11 +2169,11 @@ impl IStreamSocketControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOutboundBufferSizeInBytes<Impl: IStreamSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOutboundBufferSizeInBytes<Impl: IStreamSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOutboundBufferSizeInBytes(value).into()
         }
-        unsafe extern "system" fn QualityOfService<Impl: IStreamSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketQualityOfService) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QualityOfService<Impl: IStreamSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketQualityOfService) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QualityOfService() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2184,11 +2184,11 @@ impl IStreamSocketControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetQualityOfService<Impl: IStreamSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SocketQualityOfService) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetQualityOfService<Impl: IStreamSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SocketQualityOfService) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetQualityOfService(value).into()
         }
-        unsafe extern "system" fn OutboundUnicastHopLimit<Impl: IStreamSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OutboundUnicastHopLimit<Impl: IStreamSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutboundUnicastHopLimit() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2199,7 +2199,7 @@ impl IStreamSocketControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOutboundUnicastHopLimit<Impl: IStreamSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOutboundUnicastHopLimit<Impl: IStreamSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOutboundUnicastHopLimit(value).into()
         }
@@ -2222,7 +2222,7 @@ impl IStreamSocketControlVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
-pub trait IStreamSocketControl2Impl: Sized {
+pub trait IStreamSocketControl2_Impl: Sized {
     fn IgnorableServerCertificateErrors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
@@ -2230,9 +2230,9 @@ impl ::windows::core::RuntimeName for IStreamSocketControl2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocketControl2";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
-impl IStreamSocketControl2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketControl2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketControl2Vtbl {
-        unsafe extern "system" fn IgnorableServerCertificateErrors<Impl: IStreamSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStreamSocketControl2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketControl2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketControl2_Vtbl {
+        unsafe extern "system" fn IgnorableServerCertificateErrors<Impl: IStreamSocketControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IgnorableServerCertificateErrors() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2253,7 +2253,7 @@ impl IStreamSocketControl2Vtbl {
     }
 }
 #[cfg(all(feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
-pub trait IStreamSocketControl3Impl: Sized {
+pub trait IStreamSocketControl3_Impl: Sized {
     fn SerializeConnectionAttempts(&mut self) -> ::windows::core::Result<bool>;
     fn SetSerializeConnectionAttempts(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn ClientCertificate(&mut self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
@@ -2264,9 +2264,9 @@ impl ::windows::core::RuntimeName for IStreamSocketControl3 {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocketControl3";
 }
 #[cfg(all(feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
-impl IStreamSocketControl3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketControl3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketControl3Vtbl {
-        unsafe extern "system" fn SerializeConnectionAttempts<Impl: IStreamSocketControl3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IStreamSocketControl3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketControl3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketControl3_Vtbl {
+        unsafe extern "system" fn SerializeConnectionAttempts<Impl: IStreamSocketControl3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SerializeConnectionAttempts() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2277,11 +2277,11 @@ impl IStreamSocketControl3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSerializeConnectionAttempts<Impl: IStreamSocketControl3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSerializeConnectionAttempts<Impl: IStreamSocketControl3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSerializeConnectionAttempts(value).into()
         }
-        unsafe extern "system" fn ClientCertificate<Impl: IStreamSocketControl3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClientCertificate<Impl: IStreamSocketControl3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClientCertificate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2292,7 +2292,7 @@ impl IStreamSocketControl3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClientCertificate<Impl: IStreamSocketControl3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClientCertificate<Impl: IStreamSocketControl3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetClientCertificate(&*(&value as *const <super::super::Security::Cryptography::Certificates::Certificate as ::windows::core::Abi>::Abi as *const <super::super::Security::Cryptography::Certificates::Certificate as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2309,7 +2309,7 @@ impl IStreamSocketControl3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IStreamSocketControl4Impl: Sized {
+pub trait IStreamSocketControl4_Impl: Sized {
     fn MinProtectionLevel(&mut self) -> ::windows::core::Result<SocketProtectionLevel>;
     fn SetMinProtectionLevel(&mut self, value: SocketProtectionLevel) -> ::windows::core::Result<()>;
 }
@@ -2318,9 +2318,9 @@ impl ::windows::core::RuntimeName for IStreamSocketControl4 {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocketControl4";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IStreamSocketControl4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketControl4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketControl4Vtbl {
-        unsafe extern "system" fn MinProtectionLevel<Impl: IStreamSocketControl4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketProtectionLevel) -> ::windows::core::HRESULT {
+impl IStreamSocketControl4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketControl4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketControl4_Vtbl {
+        unsafe extern "system" fn MinProtectionLevel<Impl: IStreamSocketControl4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketProtectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinProtectionLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2331,7 +2331,7 @@ impl IStreamSocketControl4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMinProtectionLevel<Impl: IStreamSocketControl4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SocketProtectionLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMinProtectionLevel<Impl: IStreamSocketControl4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SocketProtectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMinProtectionLevel(value).into()
         }
@@ -2346,7 +2346,7 @@ impl IStreamSocketControl4Vtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IStreamSocketInformationImpl: Sized {
+pub trait IStreamSocketInformation_Impl: Sized {
     fn LocalAddress(&mut self) -> ::windows::core::Result<super::HostName>;
     fn LocalPort(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn RemoteHostName(&mut self) -> ::windows::core::Result<super::HostName>;
@@ -2363,9 +2363,9 @@ impl ::windows::core::RuntimeName for IStreamSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocketInformation";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IStreamSocketInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketInformationVtbl {
-        unsafe extern "system" fn LocalAddress<Impl: IStreamSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStreamSocketInformation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketInformation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketInformation_Vtbl {
+        unsafe extern "system" fn LocalAddress<Impl: IStreamSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2376,7 +2376,7 @@ impl IStreamSocketInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocalPort<Impl: IStreamSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LocalPort<Impl: IStreamSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalPort() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2387,7 +2387,7 @@ impl IStreamSocketInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoteHostName<Impl: IStreamSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoteHostName<Impl: IStreamSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteHostName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2398,7 +2398,7 @@ impl IStreamSocketInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoteAddress<Impl: IStreamSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoteAddress<Impl: IStreamSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2409,7 +2409,7 @@ impl IStreamSocketInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoteServiceName<Impl: IStreamSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoteServiceName<Impl: IStreamSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteServiceName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2420,7 +2420,7 @@ impl IStreamSocketInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemotePort<Impl: IStreamSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemotePort<Impl: IStreamSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemotePort() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2431,7 +2431,7 @@ impl IStreamSocketInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RoundTripTimeStatistics<Impl: IStreamSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RoundTripTimeStatistics) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RoundTripTimeStatistics<Impl: IStreamSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut RoundTripTimeStatistics) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RoundTripTimeStatistics() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2442,7 +2442,7 @@ impl IStreamSocketInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BandwidthStatistics<Impl: IStreamSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BandwidthStatistics) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BandwidthStatistics<Impl: IStreamSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BandwidthStatistics) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BandwidthStatistics() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2453,7 +2453,7 @@ impl IStreamSocketInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProtectionLevel<Impl: IStreamSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketProtectionLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProtectionLevel<Impl: IStreamSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketProtectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtectionLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2464,7 +2464,7 @@ impl IStreamSocketInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SessionKey<Impl: IStreamSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SessionKey<Impl: IStreamSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionKey() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2494,7 +2494,7 @@ impl IStreamSocketInformationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
-pub trait IStreamSocketInformation2Impl: Sized {
+pub trait IStreamSocketInformation2_Impl: Sized {
     fn ServerCertificateErrorSeverity(&mut self) -> ::windows::core::Result<SocketSslErrorSeverity>;
     fn ServerCertificateErrors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
     fn ServerCertificate(&mut self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
@@ -2505,9 +2505,9 @@ impl ::windows::core::RuntimeName for IStreamSocketInformation2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocketInformation2";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
-impl IStreamSocketInformation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketInformation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketInformation2Vtbl {
-        unsafe extern "system" fn ServerCertificateErrorSeverity<Impl: IStreamSocketInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketSslErrorSeverity) -> ::windows::core::HRESULT {
+impl IStreamSocketInformation2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketInformation2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketInformation2_Vtbl {
+        unsafe extern "system" fn ServerCertificateErrorSeverity<Impl: IStreamSocketInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketSslErrorSeverity) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCertificateErrorSeverity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2518,7 +2518,7 @@ impl IStreamSocketInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServerCertificateErrors<Impl: IStreamSocketInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServerCertificateErrors<Impl: IStreamSocketInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCertificateErrors() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2529,7 +2529,7 @@ impl IStreamSocketInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServerCertificate<Impl: IStreamSocketInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServerCertificate<Impl: IStreamSocketInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCertificate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2540,7 +2540,7 @@ impl IStreamSocketInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServerIntermediateCertificates<Impl: IStreamSocketInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServerIntermediateCertificates<Impl: IStreamSocketInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerIntermediateCertificates() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2564,7 +2564,7 @@ impl IStreamSocketInformation2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IStreamSocketListenerImpl: Sized + IClosableImpl {
+pub trait IStreamSocketListener_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn Control(&mut self) -> ::windows::core::Result<StreamSocketListenerControl>;
     fn Information(&mut self) -> ::windows::core::Result<StreamSocketListenerInformation>;
     fn BindServiceNameAsync(&mut self, localservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -2577,9 +2577,9 @@ impl ::windows::core::RuntimeName for IStreamSocketListener {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocketListener";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IStreamSocketListenerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListenerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketListenerVtbl {
-        unsafe extern "system" fn Control<Impl: IStreamSocketListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStreamSocketListener_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListener_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketListener_Vtbl {
+        unsafe extern "system" fn Control<Impl: IStreamSocketListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Control() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2590,7 +2590,7 @@ impl IStreamSocketListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Information<Impl: IStreamSocketListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Information<Impl: IStreamSocketListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Information() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2601,7 +2601,7 @@ impl IStreamSocketListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BindServiceNameAsync<Impl: IStreamSocketListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BindServiceNameAsync<Impl: IStreamSocketListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BindServiceNameAsync(&*(&localservicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2612,7 +2612,7 @@ impl IStreamSocketListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BindEndpointAsync<Impl: IStreamSocketListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localhostname: ::windows::core::RawPtr, localservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BindEndpointAsync<Impl: IStreamSocketListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localhostname: ::windows::core::RawPtr, localservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BindEndpointAsync(&*(&localhostname as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType), &*(&localservicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2623,7 +2623,7 @@ impl IStreamSocketListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectionReceived<Impl: IStreamSocketListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectionReceived<Impl: IStreamSocketListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectionReceived(&*(&eventhandler as *const <super::super::Foundation::TypedEventHandler<StreamSocketListener, StreamSocketListenerConnectionReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<StreamSocketListener, StreamSocketListenerConnectionReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2634,7 +2634,7 @@ impl IStreamSocketListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveConnectionReceived<Impl: IStreamSocketListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveConnectionReceived<Impl: IStreamSocketListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveConnectionReceived(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2653,7 +2653,7 @@ impl IStreamSocketListenerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
-pub trait IStreamSocketListener2Impl: Sized + IClosableImpl {
+pub trait IStreamSocketListener2_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn BindServiceNameWithProtectionLevelAsync(&mut self, localservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn BindServiceNameWithProtectionLevelAndAdapterAsync(&mut self, localservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel, adapter: &::core::option::Option<super::Connectivity::NetworkAdapter>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
@@ -2662,9 +2662,9 @@ impl ::windows::core::RuntimeName for IStreamSocketListener2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocketListener2";
 }
 #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "implement_exclusive"))]
-impl IStreamSocketListener2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListener2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketListener2Vtbl {
-        unsafe extern "system" fn BindServiceNameWithProtectionLevelAsync<Impl: IStreamSocketListener2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, protectionlevel: SocketProtectionLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStreamSocketListener2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListener2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketListener2_Vtbl {
+        unsafe extern "system" fn BindServiceNameWithProtectionLevelAsync<Impl: IStreamSocketListener2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, protectionlevel: SocketProtectionLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BindServiceNameWithProtectionLevelAsync(&*(&localservicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), protectionlevel) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2675,7 +2675,7 @@ impl IStreamSocketListener2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BindServiceNameWithProtectionLevelAndAdapterAsync<Impl: IStreamSocketListener2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, protectionlevel: SocketProtectionLevel, adapter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BindServiceNameWithProtectionLevelAndAdapterAsync<Impl: IStreamSocketListener2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, protectionlevel: SocketProtectionLevel, adapter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BindServiceNameWithProtectionLevelAndAdapterAsync(&*(&localservicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), protectionlevel, &*(&adapter as *const <super::Connectivity::NetworkAdapter as ::windows::core::Abi>::Abi as *const <super::Connectivity::NetworkAdapter as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2697,7 +2697,7 @@ impl IStreamSocketListener2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IStreamSocketListener3Impl: Sized {
+pub trait IStreamSocketListener3_Impl: Sized {
     fn CancelIOAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn EnableTransferOwnership(&mut self, taskid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn EnableTransferOwnershipWithConnectedStandbyAction(&mut self, taskid: &::windows::core::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::core::Result<()>;
@@ -2709,9 +2709,9 @@ impl ::windows::core::RuntimeName for IStreamSocketListener3 {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocketListener3";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IStreamSocketListener3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListener3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketListener3Vtbl {
-        unsafe extern "system" fn CancelIOAsync<Impl: IStreamSocketListener3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStreamSocketListener3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListener3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketListener3_Vtbl {
+        unsafe extern "system" fn CancelIOAsync<Impl: IStreamSocketListener3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CancelIOAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2722,19 +2722,19 @@ impl IStreamSocketListener3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableTransferOwnership<Impl: IStreamSocketListener3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskid: ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableTransferOwnership<Impl: IStreamSocketListener3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EnableTransferOwnership(&*(&taskid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EnableTransferOwnershipWithConnectedStandbyAction<Impl: IStreamSocketListener3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskid: ::windows::core::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableTransferOwnershipWithConnectedStandbyAction<Impl: IStreamSocketListener3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskid: ::windows::core::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).EnableTransferOwnershipWithConnectedStandbyAction(&*(&taskid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType), connectedstandbyaction).into()
         }
-        unsafe extern "system" fn TransferOwnership<Impl: IStreamSocketListener3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, socketid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransferOwnership<Impl: IStreamSocketListener3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, socketid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TransferOwnership(&*(&socketid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TransferOwnershipWithContext<Impl: IStreamSocketListener3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, socketid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransferOwnershipWithContext<Impl: IStreamSocketListener3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, socketid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).TransferOwnershipWithContext(&*(&socketid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&data as *const <SocketActivityContext as ::windows::core::Abi>::Abi as *const <SocketActivityContext as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2752,7 +2752,7 @@ impl IStreamSocketListener3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IStreamSocketListenerConnectionReceivedEventArgsImpl: Sized {
+pub trait IStreamSocketListenerConnectionReceivedEventArgs_Impl: Sized {
     fn Socket(&mut self) -> ::windows::core::Result<StreamSocket>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2760,9 +2760,9 @@ impl ::windows::core::RuntimeName for IStreamSocketListenerConnectionReceivedEve
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocketListenerConnectionReceivedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IStreamSocketListenerConnectionReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListenerConnectionReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketListenerConnectionReceivedEventArgsVtbl {
-        unsafe extern "system" fn Socket<Impl: IStreamSocketListenerConnectionReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStreamSocketListenerConnectionReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListenerConnectionReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketListenerConnectionReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn Socket<Impl: IStreamSocketListenerConnectionReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Socket() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2783,7 +2783,7 @@ impl IStreamSocketListenerConnectionReceivedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IStreamSocketListenerControlImpl: Sized {
+pub trait IStreamSocketListenerControl_Impl: Sized {
     fn QualityOfService(&mut self) -> ::windows::core::Result<SocketQualityOfService>;
     fn SetQualityOfService(&mut self, value: SocketQualityOfService) -> ::windows::core::Result<()>;
 }
@@ -2792,9 +2792,9 @@ impl ::windows::core::RuntimeName for IStreamSocketListenerControl {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocketListenerControl";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IStreamSocketListenerControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListenerControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketListenerControlVtbl {
-        unsafe extern "system" fn QualityOfService<Impl: IStreamSocketListenerControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketQualityOfService) -> ::windows::core::HRESULT {
+impl IStreamSocketListenerControl_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListenerControl_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketListenerControl_Vtbl {
+        unsafe extern "system" fn QualityOfService<Impl: IStreamSocketListenerControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketQualityOfService) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QualityOfService() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2805,7 +2805,7 @@ impl IStreamSocketListenerControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetQualityOfService<Impl: IStreamSocketListenerControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SocketQualityOfService) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetQualityOfService<Impl: IStreamSocketListenerControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SocketQualityOfService) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetQualityOfService(value).into()
         }
@@ -2820,7 +2820,7 @@ impl IStreamSocketListenerControlVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IStreamSocketListenerControl2Impl: Sized {
+pub trait IStreamSocketListenerControl2_Impl: Sized {
     fn NoDelay(&mut self) -> ::windows::core::Result<bool>;
     fn SetNoDelay(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn KeepAlive(&mut self) -> ::windows::core::Result<bool>;
@@ -2835,9 +2835,9 @@ impl ::windows::core::RuntimeName for IStreamSocketListenerControl2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocketListenerControl2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IStreamSocketListenerControl2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListenerControl2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketListenerControl2Vtbl {
-        unsafe extern "system" fn NoDelay<Impl: IStreamSocketListenerControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IStreamSocketListenerControl2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListenerControl2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketListenerControl2_Vtbl {
+        unsafe extern "system" fn NoDelay<Impl: IStreamSocketListenerControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NoDelay() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2848,11 +2848,11 @@ impl IStreamSocketListenerControl2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNoDelay<Impl: IStreamSocketListenerControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNoDelay<Impl: IStreamSocketListenerControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNoDelay(value).into()
         }
-        unsafe extern "system" fn KeepAlive<Impl: IStreamSocketListenerControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KeepAlive<Impl: IStreamSocketListenerControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeepAlive() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2863,11 +2863,11 @@ impl IStreamSocketListenerControl2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetKeepAlive<Impl: IStreamSocketListenerControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetKeepAlive<Impl: IStreamSocketListenerControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKeepAlive(value).into()
         }
-        unsafe extern "system" fn OutboundBufferSizeInBytes<Impl: IStreamSocketListenerControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OutboundBufferSizeInBytes<Impl: IStreamSocketListenerControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutboundBufferSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2878,11 +2878,11 @@ impl IStreamSocketListenerControl2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOutboundBufferSizeInBytes<Impl: IStreamSocketListenerControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOutboundBufferSizeInBytes<Impl: IStreamSocketListenerControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOutboundBufferSizeInBytes(value).into()
         }
-        unsafe extern "system" fn OutboundUnicastHopLimit<Impl: IStreamSocketListenerControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OutboundUnicastHopLimit<Impl: IStreamSocketListenerControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutboundUnicastHopLimit() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2893,7 +2893,7 @@ impl IStreamSocketListenerControl2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOutboundUnicastHopLimit<Impl: IStreamSocketListenerControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOutboundUnicastHopLimit<Impl: IStreamSocketListenerControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOutboundUnicastHopLimit(value).into()
         }
@@ -2914,7 +2914,7 @@ impl IStreamSocketListenerControl2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IStreamSocketListenerInformationImpl: Sized {
+pub trait IStreamSocketListenerInformation_Impl: Sized {
     fn LocalPort(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2922,9 +2922,9 @@ impl ::windows::core::RuntimeName for IStreamSocketListenerInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocketListenerInformation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IStreamSocketListenerInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListenerInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketListenerInformationVtbl {
-        unsafe extern "system" fn LocalPort<Impl: IStreamSocketListenerInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IStreamSocketListenerInformation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketListenerInformation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketListenerInformation_Vtbl {
+        unsafe extern "system" fn LocalPort<Impl: IStreamSocketListenerInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalPort() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2945,7 +2945,7 @@ impl IStreamSocketListenerInformationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IStreamSocketStaticsImpl: Sized {
+pub trait IStreamSocketStatics_Impl: Sized {
     fn GetEndpointPairsAsync(&mut self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>;
     fn GetEndpointPairsWithSortOptionsAsync(&mut self, remotehostname: &::core::option::Option<super::HostName>, remoteservicename: &::windows::core::HSTRING, sortoptions: super::HostNameSortOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>;
 }
@@ -2954,9 +2954,9 @@ impl ::windows::core::RuntimeName for IStreamSocketStatics {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamSocketStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IStreamSocketStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketStaticsVtbl {
-        unsafe extern "system" fn GetEndpointPairsAsync<Impl: IStreamSocketStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStreamSocketStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamSocketStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamSocketStatics_Vtbl {
+        unsafe extern "system" fn GetEndpointPairsAsync<Impl: IStreamSocketStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEndpointPairsAsync(&*(&remotehostname as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType), &*(&remoteservicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2967,7 +2967,7 @@ impl IStreamSocketStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEndpointPairsWithSortOptionsAsync<Impl: IStreamSocketStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sortoptions: super::HostNameSortOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEndpointPairsWithSortOptionsAsync<Impl: IStreamSocketStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remotehostname: ::windows::core::RawPtr, remoteservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sortoptions: super::HostNameSortOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetEndpointPairsWithSortOptionsAsync(&*(&remotehostname as *const <super::HostName as ::windows::core::Abi>::Abi as *const <super::HostName as ::windows::core::DefaultType>::DefaultType), &*(&remoteservicename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), sortoptions) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2989,7 +2989,7 @@ impl IStreamSocketStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IStreamWebSocketImpl: Sized + IClosableImpl + IWebSocketImpl {
+pub trait IStreamWebSocket_Impl: Sized + super::super::Foundation::IClosable_Impl + IWebSocket_Impl {
     fn Control(&mut self) -> ::windows::core::Result<StreamWebSocketControl>;
     fn Information(&mut self) -> ::windows::core::Result<StreamWebSocketInformation>;
     fn InputStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
@@ -2999,9 +2999,9 @@ impl ::windows::core::RuntimeName for IStreamWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamWebSocket";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IStreamWebSocketVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamWebSocketImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamWebSocketVtbl {
-        unsafe extern "system" fn Control<Impl: IStreamWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStreamWebSocket_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamWebSocket_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamWebSocket_Vtbl {
+        unsafe extern "system" fn Control<Impl: IStreamWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Control() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3012,7 +3012,7 @@ impl IStreamWebSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Information<Impl: IStreamWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Information<Impl: IStreamWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Information() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3023,7 +3023,7 @@ impl IStreamWebSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InputStream<Impl: IStreamWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InputStream<Impl: IStreamWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InputStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3046,7 +3046,7 @@ impl IStreamWebSocketVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IStreamWebSocket2Impl: Sized + IClosableImpl + IStreamWebSocketImpl + IWebSocketImpl {
+pub trait IStreamWebSocket2_Impl: Sized + super::super::Foundation::IClosable_Impl + IStreamWebSocket_Impl + IWebSocket_Impl {
     fn ServerCustomValidationRequested(&mut self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<StreamWebSocket, WebSocketServerCustomValidationRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveServerCustomValidationRequested(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
@@ -3055,9 +3055,9 @@ impl ::windows::core::RuntimeName for IStreamWebSocket2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamWebSocket2";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IStreamWebSocket2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamWebSocket2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamWebSocket2Vtbl {
-        unsafe extern "system" fn ServerCustomValidationRequested<Impl: IStreamWebSocket2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IStreamWebSocket2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamWebSocket2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamWebSocket2_Vtbl {
+        unsafe extern "system" fn ServerCustomValidationRequested<Impl: IStreamWebSocket2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCustomValidationRequested(&*(&eventhandler as *const <super::super::Foundation::TypedEventHandler<StreamWebSocket, WebSocketServerCustomValidationRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<StreamWebSocket, WebSocketServerCustomValidationRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3068,7 +3068,7 @@ impl IStreamWebSocket2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveServerCustomValidationRequested<Impl: IStreamWebSocket2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveServerCustomValidationRequested<Impl: IStreamWebSocket2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveServerCustomValidationRequested(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3083,7 +3083,7 @@ impl IStreamWebSocket2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "implement_exclusive"))]
-pub trait IStreamWebSocketControlImpl: Sized + IWebSocketControlImpl {
+pub trait IStreamWebSocketControl_Impl: Sized + IWebSocketControl_Impl {
     fn NoDelay(&mut self) -> ::windows::core::Result<bool>;
     fn SetNoDelay(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
@@ -3092,9 +3092,9 @@ impl ::windows::core::RuntimeName for IStreamWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamWebSocketControl";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "implement_exclusive"))]
-impl IStreamWebSocketControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamWebSocketControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamWebSocketControlVtbl {
-        unsafe extern "system" fn NoDelay<Impl: IStreamWebSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IStreamWebSocketControl_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamWebSocketControl_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamWebSocketControl_Vtbl {
+        unsafe extern "system" fn NoDelay<Impl: IStreamWebSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NoDelay() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3105,7 +3105,7 @@ impl IStreamWebSocketControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNoDelay<Impl: IStreamWebSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNoDelay<Impl: IStreamWebSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNoDelay(value).into()
         }
@@ -3120,7 +3120,7 @@ impl IStreamWebSocketControlVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
-pub trait IStreamWebSocketControl2Impl: Sized {
+pub trait IStreamWebSocketControl2_Impl: Sized {
     fn DesiredUnsolicitedPongInterval(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
     fn SetDesiredUnsolicitedPongInterval(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
     fn ActualUnsolicitedPongInterval(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
@@ -3132,9 +3132,9 @@ impl ::windows::core::RuntimeName for IStreamWebSocketControl2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IStreamWebSocketControl2";
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
-impl IStreamWebSocketControl2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamWebSocketControl2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamWebSocketControl2Vtbl {
-        unsafe extern "system" fn DesiredUnsolicitedPongInterval<Impl: IStreamWebSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+impl IStreamWebSocketControl2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamWebSocketControl2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStreamWebSocketControl2_Vtbl {
+        unsafe extern "system" fn DesiredUnsolicitedPongInterval<Impl: IStreamWebSocketControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesiredUnsolicitedPongInterval() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3145,11 +3145,11 @@ impl IStreamWebSocketControl2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDesiredUnsolicitedPongInterval<Impl: IStreamWebSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDesiredUnsolicitedPongInterval<Impl: IStreamWebSocketControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDesiredUnsolicitedPongInterval(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ActualUnsolicitedPongInterval<Impl: IStreamWebSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ActualUnsolicitedPongInterval<Impl: IStreamWebSocketControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActualUnsolicitedPongInterval() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3160,7 +3160,7 @@ impl IStreamWebSocketControl2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClientCertificate<Impl: IStreamWebSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClientCertificate<Impl: IStreamWebSocketControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClientCertificate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3171,7 +3171,7 @@ impl IStreamWebSocketControl2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClientCertificate<Impl: IStreamWebSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClientCertificate<Impl: IStreamWebSocketControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetClientCertificate(&*(&value as *const <super::super::Security::Cryptography::Certificates::Certificate as ::windows::core::Abi>::Abi as *const <super::super::Security::Cryptography::Certificates::Certificate as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3189,7 +3189,7 @@ impl IStreamWebSocketControl2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-pub trait IWebSocketImpl: Sized + IClosableImpl {
+pub trait IWebSocket_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn OutputStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
     fn ConnectAsync(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn SetRequestHeader(&mut self, headername: &::windows::core::HSTRING, headervalue: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -3202,9 +3202,9 @@ impl ::windows::core::RuntimeName for IWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocket";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-impl IWebSocketVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketVtbl {
-        unsafe extern "system" fn OutputStream<Impl: IWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IWebSocket_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocket_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocket_Vtbl {
+        unsafe extern "system" fn OutputStream<Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutputStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3215,7 +3215,7 @@ impl IWebSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectAsync<Impl: IWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectAsync<Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConnectAsync(&*(&uri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3226,11 +3226,11 @@ impl IWebSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRequestHeader<Impl: IWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, headervalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRequestHeader<Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, headervalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRequestHeader(&*(&headername as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&headervalue as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Closed<Impl: IWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Closed<Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Closed(&*(&eventhandler as *const <super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3241,11 +3241,11 @@ impl IWebSocketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveClosed<Impl: IWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveClosed<Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveClosed(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CloseWithStatus<Impl: IWebSocketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, code: u16, reason: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CloseWithStatus<Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, code: u16, reason: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CloseWithStatus(code, &*(&reason as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -3264,7 +3264,7 @@ impl IWebSocketVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IWebSocketClosedEventArgsImpl: Sized {
+pub trait IWebSocketClosedEventArgs_Impl: Sized {
     fn Code(&mut self) -> ::windows::core::Result<u16>;
     fn Reason(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -3273,9 +3273,9 @@ impl ::windows::core::RuntimeName for IWebSocketClosedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketClosedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IWebSocketClosedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketClosedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketClosedEventArgsVtbl {
-        unsafe extern "system" fn Code<Impl: IWebSocketClosedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+impl IWebSocketClosedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketClosedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketClosedEventArgs_Vtbl {
+        unsafe extern "system" fn Code<Impl: IWebSocketClosedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Code() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3286,7 +3286,7 @@ impl IWebSocketClosedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Reason<Impl: IWebSocketClosedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Reason<Impl: IWebSocketClosedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reason() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3308,7 +3308,7 @@ impl IWebSocketClosedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
-pub trait IWebSocketControlImpl: Sized {
+pub trait IWebSocketControl_Impl: Sized {
     fn OutboundBufferSizeInBytes(&mut self) -> ::windows::core::Result<u32>;
     fn SetOutboundBufferSizeInBytes(&mut self, value: u32) -> ::windows::core::Result<()>;
     fn ServerCredential(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
@@ -3322,9 +3322,9 @@ impl ::windows::core::RuntimeName for IWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketControl";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
-impl IWebSocketControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketControlVtbl {
-        unsafe extern "system" fn OutboundBufferSizeInBytes<Impl: IWebSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IWebSocketControl_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketControl_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketControl_Vtbl {
+        unsafe extern "system" fn OutboundBufferSizeInBytes<Impl: IWebSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutboundBufferSizeInBytes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3335,11 +3335,11 @@ impl IWebSocketControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOutboundBufferSizeInBytes<Impl: IWebSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOutboundBufferSizeInBytes<Impl: IWebSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOutboundBufferSizeInBytes(value).into()
         }
-        unsafe extern "system" fn ServerCredential<Impl: IWebSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServerCredential<Impl: IWebSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCredential() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3350,11 +3350,11 @@ impl IWebSocketControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetServerCredential<Impl: IWebSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetServerCredential<Impl: IWebSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetServerCredential(&*(&value as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::Abi>::Abi as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ProxyCredential<Impl: IWebSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProxyCredential<Impl: IWebSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProxyCredential() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3365,11 +3365,11 @@ impl IWebSocketControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProxyCredential<Impl: IWebSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProxyCredential<Impl: IWebSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProxyCredential(&*(&value as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::Abi>::Abi as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SupportedProtocols<Impl: IWebSocketControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedProtocols<Impl: IWebSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedProtocols() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3396,7 +3396,7 @@ impl IWebSocketControlVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
-pub trait IWebSocketControl2Impl: Sized + IWebSocketControlImpl {
+pub trait IWebSocketControl2_Impl: Sized + IWebSocketControl_Impl {
     fn IgnorableServerCertificateErrors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
@@ -3404,9 +3404,9 @@ impl ::windows::core::RuntimeName for IWebSocketControl2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketControl2";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
-impl IWebSocketControl2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketControl2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketControl2Vtbl {
-        unsafe extern "system" fn IgnorableServerCertificateErrors<Impl: IWebSocketControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IWebSocketControl2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketControl2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketControl2_Vtbl {
+        unsafe extern "system" fn IgnorableServerCertificateErrors<Impl: IWebSocketControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IgnorableServerCertificateErrors() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3427,7 +3427,7 @@ impl IWebSocketControl2Vtbl {
     }
 }
 #[cfg(all(feature = "Web", feature = "implement_exclusive"))]
-pub trait IWebSocketErrorStaticsImpl: Sized {
+pub trait IWebSocketErrorStatics_Impl: Sized {
     fn GetStatus(&mut self, hresult: i32) -> ::windows::core::Result<super::super::Web::WebErrorStatus>;
 }
 #[cfg(all(feature = "Web", feature = "implement_exclusive"))]
@@ -3435,9 +3435,9 @@ impl ::windows::core::RuntimeName for IWebSocketErrorStatics {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketErrorStatics";
 }
 #[cfg(all(feature = "Web", feature = "implement_exclusive"))]
-impl IWebSocketErrorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketErrorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketErrorStaticsVtbl {
-        unsafe extern "system" fn GetStatus<Impl: IWebSocketErrorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut super::super::Web::WebErrorStatus) -> ::windows::core::HRESULT {
+impl IWebSocketErrorStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketErrorStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketErrorStatics_Vtbl {
+        unsafe extern "system" fn GetStatus<Impl: IWebSocketErrorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut super::super::Web::WebErrorStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStatus(hresult) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3454,7 +3454,7 @@ impl IWebSocketErrorStaticsVtbl {
         iid == &<IWebSocketErrorStatics as ::windows::core::Interface>::IID
     }
 }
-pub trait IWebSocketInformationImpl: Sized {
+pub trait IWebSocketInformation_Impl: Sized {
     fn LocalAddress(&mut self) -> ::windows::core::Result<super::HostName>;
     fn BandwidthStatistics(&mut self) -> ::windows::core::Result<BandwidthStatistics>;
     fn Protocol(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -3462,9 +3462,9 @@ pub trait IWebSocketInformationImpl: Sized {
 impl ::windows::core::RuntimeName for IWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketInformation";
 }
-impl IWebSocketInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketInformationVtbl {
-        unsafe extern "system" fn LocalAddress<Impl: IWebSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IWebSocketInformation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketInformation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketInformation_Vtbl {
+        unsafe extern "system" fn LocalAddress<Impl: IWebSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3475,7 +3475,7 @@ impl IWebSocketInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BandwidthStatistics<Impl: IWebSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BandwidthStatistics) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BandwidthStatistics<Impl: IWebSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BandwidthStatistics) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BandwidthStatistics() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3486,7 +3486,7 @@ impl IWebSocketInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Protocol<Impl: IWebSocketInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Protocol<Impl: IWebSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Protocol() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3509,7 +3509,7 @@ impl IWebSocketInformationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-pub trait IWebSocketInformation2Impl: Sized + IWebSocketInformationImpl {
+pub trait IWebSocketInformation2_Impl: Sized + IWebSocketInformation_Impl {
     fn ServerCertificate(&mut self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
     fn ServerCertificateErrorSeverity(&mut self) -> ::windows::core::Result<SocketSslErrorSeverity>;
     fn ServerCertificateErrors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
@@ -3520,9 +3520,9 @@ impl ::windows::core::RuntimeName for IWebSocketInformation2 {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketInformation2";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-impl IWebSocketInformation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketInformation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketInformation2Vtbl {
-        unsafe extern "system" fn ServerCertificate<Impl: IWebSocketInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IWebSocketInformation2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketInformation2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketInformation2_Vtbl {
+        unsafe extern "system" fn ServerCertificate<Impl: IWebSocketInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCertificate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3533,7 +3533,7 @@ impl IWebSocketInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServerCertificateErrorSeverity<Impl: IWebSocketInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketSslErrorSeverity) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServerCertificateErrorSeverity<Impl: IWebSocketInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketSslErrorSeverity) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCertificateErrorSeverity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3544,7 +3544,7 @@ impl IWebSocketInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServerCertificateErrors<Impl: IWebSocketInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServerCertificateErrors<Impl: IWebSocketInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCertificateErrors() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3555,7 +3555,7 @@ impl IWebSocketInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServerIntermediateCertificates<Impl: IWebSocketInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServerIntermediateCertificates<Impl: IWebSocketInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerIntermediateCertificates() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3579,7 +3579,7 @@ impl IWebSocketInformation2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
-pub trait IWebSocketServerCustomValidationRequestedEventArgsImpl: Sized {
+pub trait IWebSocketServerCustomValidationRequestedEventArgs_Impl: Sized {
     fn ServerCertificate(&mut self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
     fn ServerCertificateErrorSeverity(&mut self) -> ::windows::core::Result<SocketSslErrorSeverity>;
     fn ServerCertificateErrors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
@@ -3592,9 +3592,9 @@ impl ::windows::core::RuntimeName for IWebSocketServerCustomValidationRequestedE
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketServerCustomValidationRequestedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates", feature = "implement_exclusive"))]
-impl IWebSocketServerCustomValidationRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketServerCustomValidationRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketServerCustomValidationRequestedEventArgsVtbl {
-        unsafe extern "system" fn ServerCertificate<Impl: IWebSocketServerCustomValidationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IWebSocketServerCustomValidationRequestedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebSocketServerCustomValidationRequestedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWebSocketServerCustomValidationRequestedEventArgs_Vtbl {
+        unsafe extern "system" fn ServerCertificate<Impl: IWebSocketServerCustomValidationRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCertificate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3605,7 +3605,7 @@ impl IWebSocketServerCustomValidationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServerCertificateErrorSeverity<Impl: IWebSocketServerCustomValidationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketSslErrorSeverity) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServerCertificateErrorSeverity<Impl: IWebSocketServerCustomValidationRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SocketSslErrorSeverity) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCertificateErrorSeverity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3616,7 +3616,7 @@ impl IWebSocketServerCustomValidationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServerCertificateErrors<Impl: IWebSocketServerCustomValidationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServerCertificateErrors<Impl: IWebSocketServerCustomValidationRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCertificateErrors() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3627,7 +3627,7 @@ impl IWebSocketServerCustomValidationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServerIntermediateCertificates<Impl: IWebSocketServerCustomValidationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServerIntermediateCertificates<Impl: IWebSocketServerCustomValidationRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerIntermediateCertificates() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3638,11 +3638,11 @@ impl IWebSocketServerCustomValidationRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Reject<Impl: IWebSocketServerCustomValidationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Reject<Impl: IWebSocketServerCustomValidationRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Reject().into()
         }
-        unsafe extern "system" fn GetDeferral<Impl: IWebSocketServerCustomValidationRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IWebSocketServerCustomValidationRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {

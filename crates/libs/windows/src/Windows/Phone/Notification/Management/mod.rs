@@ -535,7 +535,7 @@ unsafe impl ::windows::core::RuntimeType for AlarmNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.AlarmNotificationTriggerDetails;{38f5fa30-c738-4da2-908c-775d83c36abb})");
 }
 unsafe impl ::windows::core::Interface for AlarmNotificationTriggerDetails {
-    type Vtable = IAlarmNotificationTriggerDetailsVtbl;
+    type Vtable = IAlarmNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38f5fa30_c738_4da2_908c_775d83c36abb);
 }
 impl ::windows::core::RuntimeName for AlarmNotificationTriggerDetails {
@@ -644,7 +644,7 @@ unsafe impl ::windows::core::RuntimeType for AppNotificationInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.AppNotificationInfo;{2157bea5-e286-45d3-9bea-f790fc216e0e})");
 }
 unsafe impl ::windows::core::Interface for AppNotificationInfo {
-    type Vtable = IAppNotificationInfoVtbl;
+    type Vtable = IAppNotificationInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2157bea5_e286_45d3_9bea_f790fc216e0e);
 }
 impl ::windows::core::RuntimeName for AppNotificationInfo {
@@ -731,7 +731,7 @@ unsafe impl ::windows::core::RuntimeType for BinaryId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.BinaryId;{4f0da531-5595-44b4-9181-ce4efa3fc168})");
 }
 unsafe impl ::windows::core::Interface for BinaryId {
-    type Vtable = IBinaryIdVtbl;
+    type Vtable = IBinaryId_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f0da531_5595_44b4_9181_ce4efa3fc168);
 }
 impl ::windows::core::RuntimeName for BinaryId {
@@ -902,7 +902,7 @@ unsafe impl ::windows::core::RuntimeType for CalendarChangedNotificationTriggerD
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.CalendarChangedNotificationTriggerDetails;{4b8a3bfc-279d-42ab-9c68-3e87977bf216})");
 }
 unsafe impl ::windows::core::Interface for CalendarChangedNotificationTriggerDetails {
-    type Vtable = ICalendarChangedNotificationTriggerDetailsVtbl;
+    type Vtable = ICalendarChangedNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b8a3bfc_279d_42ab_9c68_3e87977bf216);
 }
 impl ::windows::core::RuntimeName for CalendarChangedNotificationTriggerDetails {
@@ -1121,7 +1121,7 @@ unsafe impl ::windows::core::RuntimeType for CortanaTileNotificationTriggerDetai
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.CortanaTileNotificationTriggerDetails;{dc0f01d5-1489-46bb-b73b-7f90067ecf27})");
 }
 unsafe impl ::windows::core::Interface for CortanaTileNotificationTriggerDetails {
-    type Vtable = ICortanaTileNotificationTriggerDetailsVtbl;
+    type Vtable = ICortanaTileNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc0f01d5_1489_46bb_b73b_7f90067ecf27);
 }
 impl ::windows::core::RuntimeName for CortanaTileNotificationTriggerDetails {
@@ -1230,7 +1230,7 @@ unsafe impl ::windows::core::RuntimeType for EmailAccountInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.EmailAccountInfo;{dfbc02ab-bda0-4568-927e-b2ede35818a1})");
 }
 unsafe impl ::windows::core::Interface for EmailAccountInfo {
-    type Vtable = IEmailAccountInfoVtbl;
+    type Vtable = IEmailAccountInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfbc02ab_bda0_4568_927e_b2ede35818a1);
 }
 impl ::windows::core::RuntimeName for EmailAccountInfo {
@@ -1317,7 +1317,7 @@ unsafe impl ::windows::core::RuntimeType for EmailFolderInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.EmailFolderInfo;{c207150e-e237-46d6-90e6-4f529eeac1e2})");
 }
 unsafe impl ::windows::core::Interface for EmailFolderInfo {
-    type Vtable = IEmailFolderInfoVtbl;
+    type Vtable = IEmailFolderInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc207150e_e237_46d6_90e6_4f529eeac1e2);
 }
 impl ::windows::core::RuntimeName for EmailFolderInfo {
@@ -1492,7 +1492,7 @@ unsafe impl ::windows::core::RuntimeType for EmailNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.EmailNotificationTriggerDetails;{f3b82612-46cf-4e70-8e0d-7b2e04ab492b})");
 }
 unsafe impl ::windows::core::Interface for EmailNotificationTriggerDetails {
-    type Vtable = IEmailNotificationTriggerDetailsVtbl;
+    type Vtable = IEmailNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3b82612_46cf_4e70_8e0d_7b2e04ab492b);
 }
 impl ::windows::core::RuntimeName for EmailNotificationTriggerDetails {
@@ -1663,7 +1663,7 @@ unsafe impl ::windows::core::RuntimeType for EmailReadNotificationTriggerDetails
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.EmailReadNotificationTriggerDetails;{f5b7a087-06f3-4e3e-8c42-325e67010413})");
 }
 unsafe impl ::windows::core::Interface for EmailReadNotificationTriggerDetails {
-    type Vtable = IEmailReadNotificationTriggerDetailsVtbl;
+    type Vtable = IEmailReadNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5b7a087_06f3_4e3e_8c42_325e67010413);
 }
 impl ::windows::core::RuntimeName for EmailReadNotificationTriggerDetails {
@@ -1735,12 +1735,12 @@ impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> fo
 #[repr(transparent)]
 pub struct IAccessoryManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAccessoryManager {
-    type Vtable = IAccessoryManagerVtbl;
+    type Vtable = IAccessoryManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d04a12c_883d_4aa7_bca7_fa4bb8bffee6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAccessoryManagerVtbl {
+pub struct IAccessoryManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RegisterAccessoryApp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub GetNextTriggerDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1806,12 +1806,12 @@ pub struct IAccessoryManagerVtbl {
 #[repr(transparent)]
 pub struct IAccessoryManager2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAccessoryManager2 {
-    type Vtable = IAccessoryManager2Vtbl;
+    type Vtable = IAccessoryManager2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbacad44d_d393_46c6_b80c_15fdf44d5386);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAccessoryManager2Vtbl {
+pub struct IAccessoryManager2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RingDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -1845,12 +1845,12 @@ pub struct IAccessoryManager2Vtbl {
 #[repr(transparent)]
 pub struct IAccessoryManager3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAccessoryManager3 {
-    type Vtable = IAccessoryManager3Vtbl;
+    type Vtable = IAccessoryManager3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81f75137_edc7_47e0_b2f7_7e577c833f7d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAccessoryManager3Vtbl {
+pub struct IAccessoryManager3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SnoozeAlarmByInstanceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instanceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DismissAlarmByInstanceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instanceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1968,12 +1968,12 @@ unsafe impl ::windows::core::RuntimeType for IAccessoryNotificationTriggerDetail
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6968a7d4-e3ca-49cb-8c87-2c11cdff9646}");
 }
 unsafe impl ::windows::core::Interface for IAccessoryNotificationTriggerDetails {
-    type Vtable = IAccessoryNotificationTriggerDetailsVtbl;
+    type Vtable = IAccessoryNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6968a7d4_e3ca_49cb_8c87_2c11cdff9646);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAccessoryNotificationTriggerDetailsVtbl {
+pub struct IAccessoryNotificationTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub TimeCreated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -1989,12 +1989,12 @@ pub struct IAccessoryNotificationTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IAlarmNotificationTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAlarmNotificationTriggerDetails {
-    type Vtable = IAlarmNotificationTriggerDetailsVtbl;
+    type Vtable = IAlarmNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38f5fa30_c738_4da2_908c_775d83c36abb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAlarmNotificationTriggerDetailsVtbl {
+pub struct IAlarmNotificationTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AlarmId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2008,12 +2008,12 @@ pub struct IAlarmNotificationTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IAlarmNotificationTriggerDetails2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAlarmNotificationTriggerDetails2 {
-    type Vtable = IAlarmNotificationTriggerDetails2Vtbl;
+    type Vtable = IAlarmNotificationTriggerDetails2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf16e06a_7155_40fe_a9c2_7bd2127ef853);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAlarmNotificationTriggerDetails2Vtbl {
+pub struct IAlarmNotificationTriggerDetails2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InstanceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -2021,12 +2021,12 @@ pub struct IAlarmNotificationTriggerDetails2Vtbl {
 #[repr(transparent)]
 pub struct IAppNotificationInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppNotificationInfo {
-    type Vtable = IAppNotificationInfoVtbl;
+    type Vtable = IAppNotificationInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2157bea5_e286_45d3_9bea_f790fc216e0e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppNotificationInfoVtbl {
+pub struct IAppNotificationInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2035,12 +2035,12 @@ pub struct IAppNotificationInfoVtbl {
 #[repr(transparent)]
 pub struct IBinaryId(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBinaryId {
-    type Vtable = IBinaryIdVtbl;
+    type Vtable = IBinaryId_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f0da531_5595_44b4_9181_ce4efa3fc168);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBinaryIdVtbl {
+pub struct IBinaryId_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -2049,12 +2049,12 @@ pub struct IBinaryIdVtbl {
 #[repr(transparent)]
 pub struct ICalendarChangedNotificationTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICalendarChangedNotificationTriggerDetails {
-    type Vtable = ICalendarChangedNotificationTriggerDetailsVtbl;
+    type Vtable = ICalendarChangedNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b8a3bfc_279d_42ab_9c68_3e87977bf216);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICalendarChangedNotificationTriggerDetailsVtbl {
+pub struct ICalendarChangedNotificationTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EventType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CalendarChangedEvent) -> ::windows::core::HRESULT,
     pub ItemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2063,12 +2063,12 @@ pub struct ICalendarChangedNotificationTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct ICortanaTileNotificationTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICortanaTileNotificationTriggerDetails {
-    type Vtable = ICortanaTileNotificationTriggerDetailsVtbl;
+    type Vtable = ICortanaTileNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc0f01d5_1489_46bb_b73b_7f90067ecf27);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICortanaTileNotificationTriggerDetailsVtbl {
+pub struct ICortanaTileNotificationTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TileId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2085,12 +2085,12 @@ pub struct ICortanaTileNotificationTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IEmailAccountInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailAccountInfo {
-    type Vtable = IEmailAccountInfoVtbl;
+    type Vtable = IEmailAccountInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfbc02ab_bda0_4568_927e_b2ede35818a1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailAccountInfoVtbl {
+pub struct IEmailAccountInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub IsNotificationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -2099,12 +2099,12 @@ pub struct IEmailAccountInfoVtbl {
 #[repr(transparent)]
 pub struct IEmailFolderInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailFolderInfo {
-    type Vtable = IEmailFolderInfoVtbl;
+    type Vtable = IEmailFolderInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc207150e_e237_46d6_90e6_4f529eeac1e2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailFolderInfoVtbl {
+pub struct IEmailFolderInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub IsNotificationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -2113,12 +2113,12 @@ pub struct IEmailFolderInfoVtbl {
 #[repr(transparent)]
 pub struct IEmailNotificationTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailNotificationTriggerDetails {
-    type Vtable = IEmailNotificationTriggerDetailsVtbl;
+    type Vtable = IEmailNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3b82612_46cf_4e70_8e0d_7b2e04ab492b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailNotificationTriggerDetailsVtbl {
+pub struct IEmailNotificationTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AccountName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ParentFolderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2137,12 +2137,12 @@ pub struct IEmailNotificationTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IEmailNotificationTriggerDetails2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailNotificationTriggerDetails2 {
-    type Vtable = IEmailNotificationTriggerDetails2Vtbl;
+    type Vtable = IEmailNotificationTriggerDetails2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x168067e3_c56f_4ec7_bed1_f734e08de5b2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailNotificationTriggerDetails2Vtbl {
+pub struct IEmailNotificationTriggerDetails2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MessageEntryId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2150,12 +2150,12 @@ pub struct IEmailNotificationTriggerDetails2Vtbl {
 #[repr(transparent)]
 pub struct IEmailReadNotificationTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEmailReadNotificationTriggerDetails {
-    type Vtable = IEmailReadNotificationTriggerDetailsVtbl;
+    type Vtable = IEmailReadNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5b7a087_06f3_4e3e_8c42_325e67010413);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEmailReadNotificationTriggerDetailsVtbl {
+pub struct IEmailReadNotificationTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AccountName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ParentFolderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2166,12 +2166,12 @@ pub struct IEmailReadNotificationTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IMediaControlsTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaControlsTriggerDetails {
-    type Vtable = IMediaControlsTriggerDetailsVtbl;
+    type Vtable = IMediaControlsTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfab4648b_ae45_4548_91ca_4ab0548e33b5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaControlsTriggerDetailsVtbl {
+pub struct IMediaControlsTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PlaybackStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PlaybackStatus) -> ::windows::core::HRESULT,
     pub MediaMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2180,12 +2180,12 @@ pub struct IMediaControlsTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IMediaMetadata(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaMetadata {
-    type Vtable = IMediaMetadataVtbl;
+    type Vtable = IMediaMetadata_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b50ddf7_bb6c_4330_b3cd_0704a54cdb80);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaMetadataVtbl {
+pub struct IMediaMetadata_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Subtitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2205,12 +2205,12 @@ pub struct IMediaMetadataVtbl {
 #[repr(transparent)]
 pub struct IPhoneCallDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallDetails {
-    type Vtable = IPhoneCallDetailsVtbl;
+    type Vtable = IPhoneCallDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c1b6f53_f071_483e_bf33_ebd44b724447);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallDetailsVtbl {
+pub struct IPhoneCallDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PhoneLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub CallId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -2238,12 +2238,12 @@ pub struct IPhoneCallDetailsVtbl {
 #[repr(transparent)]
 pub struct IPhoneLineDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneLineDetails {
-    type Vtable = IPhoneLineDetailsVtbl;
+    type Vtable = IPhoneLineDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47eb32dc_33ed_49b9_995c_a296bac82b77);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneLineDetailsVtbl {
+pub struct IPhoneLineDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LineId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2256,12 +2256,12 @@ pub struct IPhoneLineDetailsVtbl {
 #[repr(transparent)]
 pub struct IPhoneLineDetails2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneLineDetails2 {
-    type Vtable = IPhoneLineDetails2Vtbl;
+    type Vtable = IPhoneLineDetails2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb30cd77d_0147_498c_8241_bf0cabc60a25);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneLineDetails2Vtbl {
+pub struct IPhoneLineDetails2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MissedCallCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -2269,12 +2269,12 @@ pub struct IPhoneLineDetails2Vtbl {
 #[repr(transparent)]
 pub struct IPhoneNotificationTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneNotificationTriggerDetails {
-    type Vtable = IPhoneNotificationTriggerDetailsVtbl;
+    type Vtable = IPhoneNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccc2fdf7_09c3_4118_91bc_ca6323a8d383);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneNotificationTriggerDetailsVtbl {
+pub struct IPhoneNotificationTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PhoneNotificationType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PhoneNotificationType) -> ::windows::core::HRESULT,
     pub CallDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2284,12 +2284,12 @@ pub struct IPhoneNotificationTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IReminderNotificationTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IReminderNotificationTriggerDetails {
-    type Vtable = IReminderNotificationTriggerDetailsVtbl;
+    type Vtable = IReminderNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bddaa5d_9f61_4bf0_9feb_10502bc0b0c2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IReminderNotificationTriggerDetailsVtbl {
+pub struct IReminderNotificationTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ReminderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2309,12 +2309,12 @@ pub struct IReminderNotificationTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IReminderNotificationTriggerDetails2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IReminderNotificationTriggerDetails2 {
-    type Vtable = IReminderNotificationTriggerDetails2Vtbl;
+    type Vtable = IReminderNotificationTriggerDetails2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe715f9c0_504d_4c0f_a6b3_bcb9722c6cdd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IReminderNotificationTriggerDetails2Vtbl {
+pub struct IReminderNotificationTriggerDetails2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InstanceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -2322,12 +2322,12 @@ pub struct IReminderNotificationTriggerDetails2Vtbl {
 #[repr(transparent)]
 pub struct ISpeedDialEntry(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpeedDialEntry {
-    type Vtable = ISpeedDialEntryVtbl;
+    type Vtable = ISpeedDialEntry_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9240b6db_872c_46dc_b62a_be4541b166f8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpeedDialEntryVtbl {
+pub struct ISpeedDialEntry_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PhoneNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub NumberType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2337,12 +2337,12 @@ pub struct ISpeedDialEntryVtbl {
 #[repr(transparent)]
 pub struct ITextResponse(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITextResponse {
-    type Vtable = ITextResponseVtbl;
+    type Vtable = ITextResponse_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9cb74c3_2457_4cdb_8110_72f5e8e883e8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextResponseVtbl {
+pub struct ITextResponse_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2351,12 +2351,12 @@ pub struct ITextResponseVtbl {
 #[repr(transparent)]
 pub struct IToastNotificationTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToastNotificationTriggerDetails {
-    type Vtable = IToastNotificationTriggerDetailsVtbl;
+    type Vtable = IToastNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9314895_4e6d_4e9d_afec_9e921b875ae8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IToastNotificationTriggerDetailsVtbl {
+pub struct IToastNotificationTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Text1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Text2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2368,12 +2368,12 @@ pub struct IToastNotificationTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IToastNotificationTriggerDetails2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IToastNotificationTriggerDetails2 {
-    type Vtable = IToastNotificationTriggerDetails2Vtbl;
+    type Vtable = IToastNotificationTriggerDetails2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e0479dd_cac4_4f60_afa3_b925d9d83c93);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IToastNotificationTriggerDetails2Vtbl {
+pub struct IToastNotificationTriggerDetails2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InstanceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -2381,12 +2381,12 @@ pub struct IToastNotificationTriggerDetails2Vtbl {
 #[repr(transparent)]
 pub struct IVolumeInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVolumeInfo {
-    type Vtable = IVolumeInfoVtbl;
+    type Vtable = IVolumeInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x944dd118_7704_4481_b92e_d3ed3ece6322);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVolumeInfoVtbl {
+pub struct IVolumeInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SystemVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub CallVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -2481,7 +2481,7 @@ unsafe impl ::windows::core::RuntimeType for MediaControlsTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.MediaControlsTriggerDetails;{fab4648b-ae45-4548-91ca-4ab0548e33b5})");
 }
 unsafe impl ::windows::core::Interface for MediaControlsTriggerDetails {
-    type Vtable = IMediaControlsTriggerDetailsVtbl;
+    type Vtable = IMediaControlsTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfab4648b_ae45_4548_91ca_4ab0548e33b5);
 }
 impl ::windows::core::RuntimeName for MediaControlsTriggerDetails {
@@ -2632,7 +2632,7 @@ unsafe impl ::windows::core::RuntimeType for MediaMetadata {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.MediaMetadata;{9b50ddf7-bb6c-4330-b3cd-0704a54cdb80})");
 }
 unsafe impl ::windows::core::Interface for MediaMetadata {
-    type Vtable = IMediaMetadataVtbl;
+    type Vtable = IMediaMetadata_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b50ddf7_bb6c_4330_b3cd_0704a54cdb80);
 }
 impl ::windows::core::RuntimeName for MediaMetadata {
@@ -2836,7 +2836,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.PhoneCallDetails;{0c1b6f53-f071-483e-bf33-ebd44b724447})");
 }
 unsafe impl ::windows::core::Interface for PhoneCallDetails {
-    type Vtable = IPhoneCallDetailsVtbl;
+    type Vtable = IPhoneCallDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c1b6f53_f071_483e_bf33_ebd44b724447);
 }
 impl ::windows::core::RuntimeName for PhoneCallDetails {
@@ -3065,7 +3065,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.PhoneLineDetails;{47eb32dc-33ed-49b9-995c-a296bac82b77})");
 }
 unsafe impl ::windows::core::Interface for PhoneLineDetails {
-    type Vtable = IPhoneLineDetailsVtbl;
+    type Vtable = IPhoneLineDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47eb32dc_33ed_49b9_995c_a296bac82b77);
 }
 impl ::windows::core::RuntimeName for PhoneLineDetails {
@@ -3273,7 +3273,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.PhoneNotificationTriggerDetails;{ccc2fdf7-09c3-4118-91bc-ca6323a8d383})");
 }
 unsafe impl ::windows::core::Interface for PhoneNotificationTriggerDetails {
-    type Vtable = IPhoneNotificationTriggerDetailsVtbl;
+    type Vtable = IPhoneNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccc2fdf7_09c3_4118_91bc_ca6323a8d383);
 }
 impl ::windows::core::RuntimeName for PhoneNotificationTriggerDetails {
@@ -3661,7 +3661,7 @@ unsafe impl ::windows::core::RuntimeType for ReminderNotificationTriggerDetails 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.ReminderNotificationTriggerDetails;{5bddaa5d-9f61-4bf0-9feb-10502bc0b0c2})");
 }
 unsafe impl ::windows::core::Interface for ReminderNotificationTriggerDetails {
-    type Vtable = IReminderNotificationTriggerDetailsVtbl;
+    type Vtable = IReminderNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bddaa5d_9f61_4bf0_9feb_10502bc0b0c2);
 }
 impl ::windows::core::RuntimeName for ReminderNotificationTriggerDetails {
@@ -3812,7 +3812,7 @@ unsafe impl ::windows::core::RuntimeType for SpeedDialEntry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.SpeedDialEntry;{9240b6db-872c-46dc-b62a-be4541b166f8})");
 }
 unsafe impl ::windows::core::Interface for SpeedDialEntry {
-    type Vtable = ISpeedDialEntryVtbl;
+    type Vtable = ISpeedDialEntry_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9240b6db_872c_46dc_b62a_be4541b166f8);
 }
 impl ::windows::core::RuntimeName for SpeedDialEntry {
@@ -3899,7 +3899,7 @@ unsafe impl ::windows::core::RuntimeType for TextResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.TextResponse;{e9cb74c3-2457-4cdb-8110-72f5e8e883e8})");
 }
 unsafe impl ::windows::core::Interface for TextResponse {
-    type Vtable = ITextResponseVtbl;
+    type Vtable = ITextResponse_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9cb74c3_2457_4cdb_8110_72f5e8e883e8);
 }
 impl ::windows::core::RuntimeName for TextResponse {
@@ -4064,7 +4064,7 @@ unsafe impl ::windows::core::RuntimeType for ToastNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.ToastNotificationTriggerDetails;{c9314895-4e6d-4e9d-afec-9e921b875ae8})");
 }
 unsafe impl ::windows::core::Interface for ToastNotificationTriggerDetails {
-    type Vtable = IToastNotificationTriggerDetailsVtbl;
+    type Vtable = IToastNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9314895_4e6d_4e9d_afec_9e921b875ae8);
 }
 impl ::windows::core::RuntimeName for ToastNotificationTriggerDetails {
@@ -4232,7 +4232,7 @@ unsafe impl ::windows::core::RuntimeType for VolumeInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.VolumeInfo;{944dd118-7704-4481-b92e-d3ed3ece6322})");
 }
 unsafe impl ::windows::core::Interface for VolumeInfo {
-    type Vtable = IVolumeInfoVtbl;
+    type Vtable = IVolumeInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x944dd118_7704_4481_b92e_d3ed3ece6322);
 }
 impl ::windows::core::RuntimeName for VolumeInfo {

@@ -292,12 +292,12 @@ impl ::windows::core::DefaultType for GCPressureAmount {
 #[repr(transparent)]
 pub struct IApiInformationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IApiInformationStatics {
-    type Vtable = IApiInformationStaticsVtbl;
+    type Vtable = IApiInformationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x997439fe_f681_4a11_b416_c13a47e8ba36);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IApiInformationStaticsVtbl {
+pub struct IApiInformationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsTypePresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsMethodPresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, methodname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,

@@ -1123,12 +1123,12 @@ impl ::core::fmt::Debug for IITDatabase {
     }
 }
 unsafe impl ::windows::core::Interface for IITDatabase {
-    type Vtable = IITDatabaseVtbl;
+    type Vtable = IITDatabase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5a2_dedf_11d0_9a61_00c04fb68bf7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IITDatabaseVtbl {
+pub struct IITDatabase_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszhost: super::super::Foundation::PWSTR, lpszmoniker: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT,
@@ -1357,14 +1357,14 @@ impl ::core::fmt::Debug for IITPropList {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IITPropList {
-    type Vtable = IITPropListVtbl;
+    type Vtable = IITPropList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f403bb1_9997_11d0_a850_00aa006c7d01);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IITPropListVtbl {
-    pub base: super::super::System::Com::IPersistStreamInitVtbl,
+pub struct IITPropList_Vtbl {
+    pub base: super::super::System::Com::IPersistStreamInit_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Set: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propid: u32, lpszwstring: super::super::Foundation::PWSTR, dwoperation: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1576,12 +1576,12 @@ impl ::core::fmt::Debug for IITResultSet {
     }
 }
 unsafe impl ::windows::core::Interface for IITResultSet {
-    type Vtable = IITResultSetVtbl;
+    type Vtable = IITResultSet_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bb91d41_998b_11d0_a850_00aa006c7d01);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IITResultSetVtbl {
+pub struct IITResultSet_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetColumnPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcolumnindex: i32, columnpriority: PRIORITY) -> ::windows::core::HRESULT,
     pub SetColumnHeap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcolumnindex: i32, lpvheap: *mut ::core::ffi::c_void, pfncolheapfree: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1728,12 +1728,12 @@ impl ::core::fmt::Debug for IITWordWheel {
     }
 }
 unsafe impl ::windows::core::Interface for IITWordWheel {
-    type Vtable = IITWordWheelVtbl;
+    type Vtable = IITWordWheel_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5a4_dedf_11d0_9a61_00c04fb68bf7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IITWordWheelVtbl {
+pub struct IITWordWheel_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpitdb: ::windows::core::RawPtr, lpszmoniker: super::super::Foundation::PWSTR, dwflags: WORD_WHEEL_OPEN_FLAGS) -> ::windows::core::HRESULT,
@@ -1807,12 +1807,12 @@ impl ::core::fmt::Debug for IStemSink {
     }
 }
 unsafe impl ::windows::core::Interface for IStemSink {
-    type Vtable = IStemSinkVtbl;
+    type Vtable = IStemSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe77c330_7f42_11ce_be57_00aa0051fe20);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStemSinkVtbl {
+pub struct IStemSink_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub PutAltWord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcinbuf: super::super::Foundation::PWSTR, cwc: u32) -> ::windows::core::HRESULT,
@@ -1886,12 +1886,12 @@ impl ::core::fmt::Debug for IStemmerConfig {
     }
 }
 unsafe impl ::windows::core::Interface for IStemmerConfig {
-    type Vtable = IStemmerConfigVtbl;
+    type Vtable = IStemmerConfig_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5a7_dedf_11d0_9a61_00c04fb68bf7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStemmerConfigVtbl {
+pub struct IStemmerConfig_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetLocaleInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcodepageid: u32, lcid: u32) -> ::windows::core::HRESULT,
     pub GetLocaleInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::core::HRESULT,
@@ -1994,12 +1994,12 @@ impl ::core::fmt::Debug for IWordBreakerConfig {
     }
 }
 unsafe impl ::windows::core::Interface for IWordBreakerConfig {
-    type Vtable = IWordBreakerConfigVtbl;
+    type Vtable = IWordBreakerConfig_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5a6_dedf_11d0_9a61_00c04fb68bf7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWordBreakerConfigVtbl {
+pub struct IWordBreakerConfig_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetLocaleInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcodepageid: u32, lcid: u32) -> ::windows::core::HRESULT,
     pub GetLocaleInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::core::HRESULT,

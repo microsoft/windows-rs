@@ -253,14 +253,14 @@ impl ::core::fmt::Debug for IAccessibleWinSAT {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 unsafe impl ::windows::core::Interface for IAccessibleWinSAT {
-    type Vtable = IAccessibleWinSATVtbl;
+    type Vtable = IAccessibleWinSAT_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30e6018a_94a8_4ff8_a69a_71b67413f07b);
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAccessibleWinSATVtbl {
-    pub base: super::super::UI::Accessibility::IAccessibleVtbl,
+pub struct IAccessibleWinSAT_Vtbl {
+    pub base: super::super::UI::Accessibility::IAccessible_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetAccessiblityData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wsname: super::super::Foundation::PWSTR, wsvalue: super::super::Foundation::PWSTR, wsdesc: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -322,12 +322,12 @@ impl ::core::fmt::Debug for IInitiateWinSATAssessment {
     }
 }
 unsafe impl ::windows::core::Interface for IInitiateWinSATAssessment {
-    type Vtable = IInitiateWinSATAssessmentVtbl;
+    type Vtable = IInitiateWinSATAssessment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd983fc50_f5bf_49d5_b5ed_cccb18aa7fc1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInitiateWinSATAssessmentVtbl {
+pub struct IInitiateWinSATAssessment_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub InitiateAssessment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cmdline: super::super::Foundation::PWSTR, pcallbacks: ::windows::core::RawPtr, callerhwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
@@ -455,14 +455,14 @@ impl ::core::fmt::Debug for IProvideWinSATAssessmentInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IProvideWinSATAssessmentInfo {
-    type Vtable = IProvideWinSATAssessmentInfoVtbl;
+    type Vtable = IProvideWinSATAssessmentInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cd1c380_52d3_4678_ac6f_e929e480be9e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProvideWinSATAssessmentInfoVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IProvideWinSATAssessmentInfo_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     pub Score: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, score: *mut f32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, title: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -600,14 +600,14 @@ impl ::core::fmt::Debug for IProvideWinSATResultsInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IProvideWinSATResultsInfo {
-    type Vtable = IProvideWinSATResultsInfoVtbl;
+    type Vtable = IProvideWinSATResultsInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8334d5d_568e_4075_875f_9df341506640);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProvideWinSATResultsInfoVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IProvideWinSATResultsInfo_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetAssessmentInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, assessment: WINSAT_ASSESSMENT_TYPE, ppinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -671,12 +671,12 @@ impl ::core::fmt::Debug for IProvideWinSATVisuals {
     }
 }
 unsafe impl ::windows::core::Interface for IProvideWinSATVisuals {
-    type Vtable = IProvideWinSATVisualsVtbl;
+    type Vtable = IProvideWinSATVisuals_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9f4ade0_871a_42a3_b813_3078d25162c9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProvideWinSATVisualsVtbl {
+pub struct IProvideWinSATVisuals_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub Bitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmapsize: WINSAT_BITMAP_SIZE, state: WINSAT_ASSESSMENT_STATE, rating: f32, pbitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::HRESULT,
@@ -788,14 +788,14 @@ impl ::core::fmt::Debug for IQueryAllWinSATAssessments {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IQueryAllWinSATAssessments {
-    type Vtable = IQueryAllWinSATAssessmentsVtbl;
+    type Vtable = IQueryAllWinSATAssessments_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b89ed1d_6398_4fea_87fc_567d8d19176f);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IQueryAllWinSATAssessmentsVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IQueryAllWinSATAssessments_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub AllXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, namespaces: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppdomnodelist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -848,12 +848,12 @@ impl ::core::fmt::Debug for IQueryOEMWinSATCustomization {
     }
 }
 unsafe impl ::windows::core::Interface for IQueryOEMWinSATCustomization {
-    type Vtable = IQueryOEMWinSATCustomizationVtbl;
+    type Vtable = IQueryOEMWinSATCustomization_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc9a6a9f_ad4e_420e_9953_b34671e9df22);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IQueryOEMWinSATCustomizationVtbl {
+pub struct IQueryOEMWinSATCustomization_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetOEMPrePopulationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: *mut WINSAT_OEM_DATA_TYPE) -> ::windows::core::HRESULT,
 }
@@ -968,14 +968,14 @@ impl ::core::fmt::Debug for IQueryRecentWinSATAssessment {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IQueryRecentWinSATAssessment {
-    type Vtable = IQueryRecentWinSATAssessmentVtbl;
+    type Vtable = IQueryRecentWinSATAssessment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8ad5d1f_3b47_4bdc_9375_7c6b1da4eca7);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IQueryRecentWinSATAssessmentVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IQueryRecentWinSATAssessment_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub XML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, namespaces: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppdomnodelist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -1037,12 +1037,12 @@ impl ::core::fmt::Debug for IWinSATInitiateEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IWinSATInitiateEvents {
-    type Vtable = IWinSATInitiateEventsVtbl;
+    type Vtable = IWinSATInitiateEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x262a1918_ba0d_41d5_92c2_fab4633ee74f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWinSATInitiateEventsVtbl {
+pub struct IWinSATInitiateEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub WinSATComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT, strdescription: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,

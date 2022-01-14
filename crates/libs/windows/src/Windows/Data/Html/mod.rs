@@ -22,12 +22,12 @@ impl ::windows::core::RuntimeName for HtmlUtilities {
 #[repr(transparent)]
 pub struct IHtmlUtilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHtmlUtilities {
-    type Vtable = IHtmlUtilitiesVtbl;
+    type Vtable = IHtmlUtilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfec00add_2399_4fac_b5a7_05e9acd7181d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHtmlUtilitiesVtbl {
+pub struct IHtmlUtilities_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ConvertToText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, html: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }

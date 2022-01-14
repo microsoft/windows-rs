@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct ILicenseManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILicenseManagerStatics {
-    type Vtable = ILicenseManagerStaticsVtbl;
+    type Vtable = ILicenseManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5ac3ae0_da47_4f20_9a23_09182c9476ff);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILicenseManagerStaticsVtbl {
+pub struct ILicenseManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub AddLicenseAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, license: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -23,12 +23,12 @@ pub struct ILicenseManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct ILicenseManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILicenseManagerStatics2 {
-    type Vtable = ILicenseManagerStatics2Vtbl;
+    type Vtable = ILicenseManagerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab2ec47b_1f79_4480_b87e_2c499e601ba3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILicenseManagerStatics2Vtbl {
+pub struct ILicenseManagerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RefreshLicensesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, refreshoption: LicenseRefreshOption, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -39,12 +39,12 @@ pub struct ILicenseManagerStatics2Vtbl {
 #[repr(transparent)]
 pub struct ILicenseSatisfactionInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILicenseSatisfactionInfo {
-    type Vtable = ILicenseSatisfactionInfoVtbl;
+    type Vtable = ILicenseSatisfactionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ccbb08f_db31_48d5_8384_fa17c81474e2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILicenseSatisfactionInfoVtbl {
+pub struct ILicenseSatisfactionInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SatisfiedByDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SatisfiedByOpenLicense: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -58,12 +58,12 @@ pub struct ILicenseSatisfactionInfoVtbl {
 #[repr(transparent)]
 pub struct ILicenseSatisfactionResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILicenseSatisfactionResult {
-    type Vtable = ILicenseSatisfactionResultVtbl;
+    type Vtable = ILicenseSatisfactionResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c674f73_3c87_4ee1_8201_f428359bd3af);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILicenseSatisfactionResultVtbl {
+pub struct ILicenseSatisfactionResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub LicenseSatisfactionInfos: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -226,7 +226,7 @@ unsafe impl ::windows::core::RuntimeType for LicenseSatisfactionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionInfo;{3ccbb08f-db31-48d5-8384-fa17c81474e2})");
 }
 unsafe impl ::windows::core::Interface for LicenseSatisfactionInfo {
-    type Vtable = ILicenseSatisfactionInfoVtbl;
+    type Vtable = ILicenseSatisfactionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ccbb08f_db31_48d5_8384_fa17c81474e2);
 }
 impl ::windows::core::RuntimeName for LicenseSatisfactionInfo {
@@ -316,7 +316,7 @@ unsafe impl ::windows::core::RuntimeType for LicenseSatisfactionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionResult;{3c674f73-3c87-4ee1-8201-f428359bd3af})");
 }
 unsafe impl ::windows::core::Interface for LicenseSatisfactionResult {
-    type Vtable = ILicenseSatisfactionResultVtbl;
+    type Vtable = ILicenseSatisfactionResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c674f73_3c87_4ee1_8201_f428359bd3af);
 }
 impl ::windows::core::RuntimeName for LicenseSatisfactionResult {

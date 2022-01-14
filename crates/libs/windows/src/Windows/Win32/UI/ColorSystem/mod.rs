@@ -2252,12 +2252,12 @@ impl ::core::fmt::Debug for IDeviceModelPlugIn {
     }
 }
 unsafe impl ::windows::core::Interface for IDeviceModelPlugIn {
-    type Vtable = IDeviceModelPlugInVtbl;
+    type Vtable = IDeviceModelPlugIn_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cd63475_07c4_46fe_a903_d655316d11fd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceModelPlugInVtbl {
+pub struct IDeviceModelPlugIn_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxml: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, cnummodels: u32, imodelposition: u32) -> ::windows::core::HRESULT,
@@ -2328,12 +2328,12 @@ impl ::core::fmt::Debug for IGamutMapModelPlugIn {
     }
 }
 unsafe impl ::windows::core::Interface for IGamutMapModelPlugIn {
-    type Vtable = IGamutMapModelPlugInVtbl;
+    type Vtable = IGamutMapModelPlugIn_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dd80115_ad1e_41f6_a219_a4f4b583d1f9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGamutMapModelPlugInVtbl {
+pub struct IGamutMapModelPlugIn_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxml: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, psrcplugin: ::windows::core::RawPtr, pdestplugin: ::windows::core::RawPtr, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::HRESULT,

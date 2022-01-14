@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IAudioCaptureEffectsManagerImpl: Sized {
+pub trait IAudioCaptureEffectsManager_Impl: Sized {
     fn AudioCaptureEffectsChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveAudioCaptureEffectsChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn GetAudioCaptureEffects(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioEffect>>;
@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for IAudioCaptureEffectsManager {
     const NAME: &'static str = "Windows.Media.Effects.IAudioCaptureEffectsManager";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IAudioCaptureEffectsManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioCaptureEffectsManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioCaptureEffectsManagerVtbl {
-        unsafe extern "system" fn AudioCaptureEffectsChanged<Impl: IAudioCaptureEffectsManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IAudioCaptureEffectsManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioCaptureEffectsManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioCaptureEffectsManager_Vtbl {
+        unsafe extern "system" fn AudioCaptureEffectsChanged<Impl: IAudioCaptureEffectsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioCaptureEffectsChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -22,11 +22,11 @@ impl IAudioCaptureEffectsManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAudioCaptureEffectsChanged<Impl: IAudioCaptureEffectsManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAudioCaptureEffectsChanged<Impl: IAudioCaptureEffectsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAudioCaptureEffectsChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetAudioCaptureEffects<Impl: IAudioCaptureEffectsManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAudioCaptureEffects<Impl: IAudioCaptureEffectsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAudioCaptureEffects() {
                 ::core::result::Result::Ok(ok__) => {
@@ -49,7 +49,7 @@ impl IAudioCaptureEffectsManagerVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAudioEffectImpl: Sized {
+pub trait IAudioEffect_Impl: Sized {
     fn AudioEffectType(&mut self) -> ::windows::core::Result<AudioEffectType>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -57,9 +57,9 @@ impl ::windows::core::RuntimeName for IAudioEffect {
     const NAME: &'static str = "Windows.Media.Effects.IAudioEffect";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAudioEffectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEffectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEffectVtbl {
-        unsafe extern "system" fn AudioEffectType<Impl: IAudioEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AudioEffectType) -> ::windows::core::HRESULT {
+impl IAudioEffect_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEffect_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEffect_Vtbl {
+        unsafe extern "system" fn AudioEffectType<Impl: IAudioEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AudioEffectType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioEffectType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -77,7 +77,7 @@ impl IAudioEffectVtbl {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IAudioEffectDefinitionImpl: Sized {
+pub trait IAudioEffectDefinition_Impl: Sized {
     fn ActivatableClassId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
 }
@@ -86,9 +86,9 @@ impl ::windows::core::RuntimeName for IAudioEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.IAudioEffectDefinition";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl IAudioEffectDefinitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEffectDefinitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEffectDefinitionVtbl {
-        unsafe extern "system" fn ActivatableClassId<Impl: IAudioEffectDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAudioEffectDefinition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEffectDefinition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEffectDefinition_Vtbl {
+        unsafe extern "system" fn ActivatableClassId<Impl: IAudioEffectDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivatableClassId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -99,7 +99,7 @@ impl IAudioEffectDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Properties<Impl: IAudioEffectDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Properties<Impl: IAudioEffectDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -121,7 +121,7 @@ impl IAudioEffectDefinitionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IAudioEffectDefinitionFactoryImpl: Sized {
+pub trait IAudioEffectDefinitionFactory_Impl: Sized {
     fn Create(&mut self, activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<AudioEffectDefinition>;
     fn CreateWithProperties(&mut self, activatableclassid: &::windows::core::HSTRING, props: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<AudioEffectDefinition>;
 }
@@ -130,9 +130,9 @@ impl ::windows::core::RuntimeName for IAudioEffectDefinitionFactory {
     const NAME: &'static str = "Windows.Media.Effects.IAudioEffectDefinitionFactory";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IAudioEffectDefinitionFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEffectDefinitionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEffectDefinitionFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IAudioEffectDefinitionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAudioEffectDefinitionFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEffectDefinitionFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEffectDefinitionFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IAudioEffectDefinitionFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&activatableclassid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -143,7 +143,7 @@ impl IAudioEffectDefinitionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithProperties<Impl: IAudioEffectDefinitionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, props: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithProperties<Impl: IAudioEffectDefinitionFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, props: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithProperties(&*(&activatableclassid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&props as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -165,7 +165,7 @@ impl IAudioEffectDefinitionFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Media_Capture", feature = "Media_Render", feature = "implement_exclusive"))]
-pub trait IAudioEffectsManagerStaticsImpl: Sized {
+pub trait IAudioEffectsManagerStatics_Impl: Sized {
     fn CreateAudioRenderEffectsManager(&mut self, deviceid: &::windows::core::HSTRING, category: super::Render::AudioRenderCategory) -> ::windows::core::Result<AudioRenderEffectsManager>;
     fn CreateAudioRenderEffectsManagerWithMode(&mut self, deviceid: &::windows::core::HSTRING, category: super::Render::AudioRenderCategory, mode: super::AudioProcessing) -> ::windows::core::Result<AudioRenderEffectsManager>;
     fn CreateAudioCaptureEffectsManager(&mut self, deviceid: &::windows::core::HSTRING, category: super::Capture::MediaCategory) -> ::windows::core::Result<AudioCaptureEffectsManager>;
@@ -176,9 +176,9 @@ impl ::windows::core::RuntimeName for IAudioEffectsManagerStatics {
     const NAME: &'static str = "Windows.Media.Effects.IAudioEffectsManagerStatics";
 }
 #[cfg(all(feature = "Media_Capture", feature = "Media_Render", feature = "implement_exclusive"))]
-impl IAudioEffectsManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEffectsManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEffectsManagerStaticsVtbl {
-        unsafe extern "system" fn CreateAudioRenderEffectsManager<Impl: IAudioEffectsManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, category: super::Render::AudioRenderCategory, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAudioEffectsManagerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEffectsManagerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEffectsManagerStatics_Vtbl {
+        unsafe extern "system" fn CreateAudioRenderEffectsManager<Impl: IAudioEffectsManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, category: super::Render::AudioRenderCategory, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAudioRenderEffectsManager(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), category) {
                 ::core::result::Result::Ok(ok__) => {
@@ -189,7 +189,7 @@ impl IAudioEffectsManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateAudioRenderEffectsManagerWithMode<Impl: IAudioEffectsManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, category: super::Render::AudioRenderCategory, mode: super::AudioProcessing, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateAudioRenderEffectsManagerWithMode<Impl: IAudioEffectsManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, category: super::Render::AudioRenderCategory, mode: super::AudioProcessing, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAudioRenderEffectsManagerWithMode(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), category, mode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -200,7 +200,7 @@ impl IAudioEffectsManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateAudioCaptureEffectsManager<Impl: IAudioEffectsManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, category: super::Capture::MediaCategory, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateAudioCaptureEffectsManager<Impl: IAudioEffectsManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, category: super::Capture::MediaCategory, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAudioCaptureEffectsManager(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), category) {
                 ::core::result::Result::Ok(ok__) => {
@@ -211,7 +211,7 @@ impl IAudioEffectsManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateAudioCaptureEffectsManagerWithMode<Impl: IAudioEffectsManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, category: super::Capture::MediaCategory, mode: super::AudioProcessing, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateAudioCaptureEffectsManagerWithMode<Impl: IAudioEffectsManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, category: super::Capture::MediaCategory, mode: super::AudioProcessing, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAudioCaptureEffectsManagerWithMode(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), category, mode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -235,7 +235,7 @@ impl IAudioEffectsManagerStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IAudioRenderEffectsManagerImpl: Sized {
+pub trait IAudioRenderEffectsManager_Impl: Sized {
     fn AudioRenderEffectsChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveAudioRenderEffectsChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn GetAudioRenderEffects(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioEffect>>;
@@ -245,9 +245,9 @@ impl ::windows::core::RuntimeName for IAudioRenderEffectsManager {
     const NAME: &'static str = "Windows.Media.Effects.IAudioRenderEffectsManager";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IAudioRenderEffectsManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioRenderEffectsManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioRenderEffectsManagerVtbl {
-        unsafe extern "system" fn AudioRenderEffectsChanged<Impl: IAudioRenderEffectsManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IAudioRenderEffectsManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioRenderEffectsManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioRenderEffectsManager_Vtbl {
+        unsafe extern "system" fn AudioRenderEffectsChanged<Impl: IAudioRenderEffectsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioRenderEffectsChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -258,11 +258,11 @@ impl IAudioRenderEffectsManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAudioRenderEffectsChanged<Impl: IAudioRenderEffectsManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAudioRenderEffectsChanged<Impl: IAudioRenderEffectsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAudioRenderEffectsChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetAudioRenderEffects<Impl: IAudioRenderEffectsManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAudioRenderEffects<Impl: IAudioRenderEffectsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAudioRenderEffects() {
                 ::core::result::Result::Ok(ok__) => {
@@ -285,7 +285,7 @@ impl IAudioRenderEffectsManagerVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IAudioRenderEffectsManager2Impl: Sized {
+pub trait IAudioRenderEffectsManager2_Impl: Sized {
     fn EffectsProviderThumbnail(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType>;
     fn EffectsProviderSettingsLabel(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ShowSettingsUI(&mut self) -> ::windows::core::Result<()>;
@@ -295,9 +295,9 @@ impl ::windows::core::RuntimeName for IAudioRenderEffectsManager2 {
     const NAME: &'static str = "Windows.Media.Effects.IAudioRenderEffectsManager2";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "deprecated", feature = "implement_exclusive"))]
-impl IAudioRenderEffectsManager2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioRenderEffectsManager2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioRenderEffectsManager2Vtbl {
-        unsafe extern "system" fn EffectsProviderThumbnail<Impl: IAudioRenderEffectsManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAudioRenderEffectsManager2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioRenderEffectsManager2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioRenderEffectsManager2_Vtbl {
+        unsafe extern "system" fn EffectsProviderThumbnail<Impl: IAudioRenderEffectsManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EffectsProviderThumbnail() {
                 ::core::result::Result::Ok(ok__) => {
@@ -308,7 +308,7 @@ impl IAudioRenderEffectsManager2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EffectsProviderSettingsLabel<Impl: IAudioRenderEffectsManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EffectsProviderSettingsLabel<Impl: IAudioRenderEffectsManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EffectsProviderSettingsLabel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -319,7 +319,7 @@ impl IAudioRenderEffectsManager2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShowSettingsUI<Impl: IAudioRenderEffectsManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowSettingsUI<Impl: IAudioRenderEffectsManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowSettingsUI().into()
         }
@@ -335,7 +335,7 @@ impl IAudioRenderEffectsManager2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
-pub trait IBasicAudioEffectImpl: Sized + IMediaExtensionImpl {
+pub trait IBasicAudioEffect_Impl: Sized + super::IMediaExtension_Impl {
     fn UseInputFrameForOutput(&mut self) -> ::windows::core::Result<bool>;
     fn SupportedEncodingProperties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::AudioEncodingProperties>>;
     fn SetEncodingProperties(&mut self, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>) -> ::windows::core::Result<()>;
@@ -348,9 +348,9 @@ impl ::windows::core::RuntimeName for IBasicAudioEffect {
     const NAME: &'static str = "Windows.Media.Effects.IBasicAudioEffect";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
-impl IBasicAudioEffectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBasicAudioEffectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBasicAudioEffectVtbl {
-        unsafe extern "system" fn UseInputFrameForOutput<Impl: IBasicAudioEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IBasicAudioEffect_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBasicAudioEffect_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBasicAudioEffect_Vtbl {
+        unsafe extern "system" fn UseInputFrameForOutput<Impl: IBasicAudioEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UseInputFrameForOutput() {
                 ::core::result::Result::Ok(ok__) => {
@@ -361,7 +361,7 @@ impl IBasicAudioEffectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedEncodingProperties<Impl: IBasicAudioEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedEncodingProperties<Impl: IBasicAudioEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedEncodingProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -372,19 +372,19 @@ impl IBasicAudioEffectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEncodingProperties<Impl: IBasicAudioEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingproperties: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEncodingProperties<Impl: IBasicAudioEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingproperties: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEncodingProperties(&*(&encodingproperties as *const <super::MediaProperties::AudioEncodingProperties as ::windows::core::Abi>::Abi as *const <super::MediaProperties::AudioEncodingProperties as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ProcessFrame<Impl: IBasicAudioEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProcessFrame<Impl: IBasicAudioEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ProcessFrame(&*(&context as *const <ProcessAudioFrameContext as ::windows::core::Abi>::Abi as *const <ProcessAudioFrameContext as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Close<Impl: IBasicAudioEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: MediaEffectClosedReason) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Close<Impl: IBasicAudioEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: MediaEffectClosedReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Close(reason).into()
         }
-        unsafe extern "system" fn DiscardQueuedFrames<Impl: IBasicAudioEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DiscardQueuedFrames<Impl: IBasicAudioEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DiscardQueuedFrames().into()
         }
@@ -403,7 +403,7 @@ impl IBasicAudioEffectVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
-pub trait IBasicVideoEffectImpl: Sized + IMediaExtensionImpl {
+pub trait IBasicVideoEffect_Impl: Sized + super::IMediaExtension_Impl {
     fn IsReadOnly(&mut self) -> ::windows::core::Result<bool>;
     fn SupportedMemoryTypes(&mut self) -> ::windows::core::Result<MediaMemoryTypes>;
     fn TimeIndependent(&mut self) -> ::windows::core::Result<bool>;
@@ -418,9 +418,9 @@ impl ::windows::core::RuntimeName for IBasicVideoEffect {
     const NAME: &'static str = "Windows.Media.Effects.IBasicVideoEffect";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
-impl IBasicVideoEffectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBasicVideoEffectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBasicVideoEffectVtbl {
-        unsafe extern "system" fn IsReadOnly<Impl: IBasicVideoEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IBasicVideoEffect_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBasicVideoEffect_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBasicVideoEffect_Vtbl {
+        unsafe extern "system" fn IsReadOnly<Impl: IBasicVideoEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReadOnly() {
                 ::core::result::Result::Ok(ok__) => {
@@ -431,7 +431,7 @@ impl IBasicVideoEffectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedMemoryTypes<Impl: IBasicVideoEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaMemoryTypes) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedMemoryTypes<Impl: IBasicVideoEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MediaMemoryTypes) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedMemoryTypes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -442,7 +442,7 @@ impl IBasicVideoEffectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TimeIndependent<Impl: IBasicVideoEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TimeIndependent<Impl: IBasicVideoEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimeIndependent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -453,7 +453,7 @@ impl IBasicVideoEffectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedEncodingProperties<Impl: IBasicVideoEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedEncodingProperties<Impl: IBasicVideoEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedEncodingProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -464,21 +464,21 @@ impl IBasicVideoEffectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEncodingProperties<Impl: IBasicVideoEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingproperties: ::windows::core::RawPtr, device: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEncodingProperties<Impl: IBasicVideoEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingproperties: ::windows::core::RawPtr, device: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetEncodingProperties(&*(&encodingproperties as *const <super::MediaProperties::VideoEncodingProperties as ::windows::core::Abi>::Abi as *const <super::MediaProperties::VideoEncodingProperties as ::windows::core::DefaultType>::DefaultType), &*(&device as *const <super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice as ::windows::core::Abi>::Abi as *const <super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice as ::windows::core::DefaultType>::DefaultType))
                 .into()
         }
-        unsafe extern "system" fn ProcessFrame<Impl: IBasicVideoEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProcessFrame<Impl: IBasicVideoEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ProcessFrame(&*(&context as *const <ProcessVideoFrameContext as ::windows::core::Abi>::Abi as *const <ProcessVideoFrameContext as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Close<Impl: IBasicVideoEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: MediaEffectClosedReason) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Close<Impl: IBasicVideoEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: MediaEffectClosedReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Close(reason).into()
         }
-        unsafe extern "system" fn DiscardQueuedFrames<Impl: IBasicVideoEffectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DiscardQueuedFrames<Impl: IBasicVideoEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DiscardQueuedFrames().into()
         }
@@ -499,7 +499,7 @@ impl IBasicVideoEffectVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_Editing", feature = "implement_exclusive"))]
-pub trait ICompositeVideoFrameContextImpl: Sized {
+pub trait ICompositeVideoFrameContext_Impl: Sized {
     fn SurfacesToOverlay(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>>;
     fn BackgroundFrame(&mut self) -> ::windows::core::Result<super::VideoFrame>;
     fn OutputFrame(&mut self) -> ::windows::core::Result<super::VideoFrame>;
@@ -510,9 +510,9 @@ impl ::windows::core::RuntimeName for ICompositeVideoFrameContext {
     const NAME: &'static str = "Windows.Media.Effects.ICompositeVideoFrameContext";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_Editing", feature = "implement_exclusive"))]
-impl ICompositeVideoFrameContextVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositeVideoFrameContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositeVideoFrameContextVtbl {
-        unsafe extern "system" fn SurfacesToOverlay<Impl: ICompositeVideoFrameContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICompositeVideoFrameContext_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositeVideoFrameContext_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICompositeVideoFrameContext_Vtbl {
+        unsafe extern "system" fn SurfacesToOverlay<Impl: ICompositeVideoFrameContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SurfacesToOverlay() {
                 ::core::result::Result::Ok(ok__) => {
@@ -523,7 +523,7 @@ impl ICompositeVideoFrameContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BackgroundFrame<Impl: ICompositeVideoFrameContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackgroundFrame<Impl: ICompositeVideoFrameContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackgroundFrame() {
                 ::core::result::Result::Ok(ok__) => {
@@ -534,7 +534,7 @@ impl ICompositeVideoFrameContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OutputFrame<Impl: ICompositeVideoFrameContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OutputFrame<Impl: ICompositeVideoFrameContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutputFrame() {
                 ::core::result::Result::Ok(ok__) => {
@@ -545,7 +545,7 @@ impl ICompositeVideoFrameContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetOverlayForSurface<Impl: ICompositeVideoFrameContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, surfacetooverlay: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOverlayForSurface<Impl: ICompositeVideoFrameContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, surfacetooverlay: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetOverlayForSurface(&*(&surfacetooverlay as *const <super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface as ::windows::core::Abi>::Abi as *const <super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -569,7 +569,7 @@ impl ICompositeVideoFrameContextVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IProcessAudioFrameContextImpl: Sized {
+pub trait IProcessAudioFrameContext_Impl: Sized {
     fn InputFrame(&mut self) -> ::windows::core::Result<super::AudioFrame>;
     fn OutputFrame(&mut self) -> ::windows::core::Result<super::AudioFrame>;
 }
@@ -578,9 +578,9 @@ impl ::windows::core::RuntimeName for IProcessAudioFrameContext {
     const NAME: &'static str = "Windows.Media.Effects.IProcessAudioFrameContext";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IProcessAudioFrameContextVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessAudioFrameContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProcessAudioFrameContextVtbl {
-        unsafe extern "system" fn InputFrame<Impl: IProcessAudioFrameContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IProcessAudioFrameContext_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessAudioFrameContext_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProcessAudioFrameContext_Vtbl {
+        unsafe extern "system" fn InputFrame<Impl: IProcessAudioFrameContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InputFrame() {
                 ::core::result::Result::Ok(ok__) => {
@@ -591,7 +591,7 @@ impl IProcessAudioFrameContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OutputFrame<Impl: IProcessAudioFrameContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OutputFrame<Impl: IProcessAudioFrameContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutputFrame() {
                 ::core::result::Result::Ok(ok__) => {
@@ -613,7 +613,7 @@ impl IProcessAudioFrameContextVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IProcessVideoFrameContextImpl: Sized {
+pub trait IProcessVideoFrameContext_Impl: Sized {
     fn InputFrame(&mut self) -> ::windows::core::Result<super::VideoFrame>;
     fn OutputFrame(&mut self) -> ::windows::core::Result<super::VideoFrame>;
 }
@@ -622,9 +622,9 @@ impl ::windows::core::RuntimeName for IProcessVideoFrameContext {
     const NAME: &'static str = "Windows.Media.Effects.IProcessVideoFrameContext";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IProcessVideoFrameContextVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessVideoFrameContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProcessVideoFrameContextVtbl {
-        unsafe extern "system" fn InputFrame<Impl: IProcessVideoFrameContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IProcessVideoFrameContext_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessVideoFrameContext_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProcessVideoFrameContext_Vtbl {
+        unsafe extern "system" fn InputFrame<Impl: IProcessVideoFrameContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InputFrame() {
                 ::core::result::Result::Ok(ok__) => {
@@ -635,7 +635,7 @@ impl IProcessVideoFrameContextVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OutputFrame<Impl: IProcessVideoFrameContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OutputFrame<Impl: IProcessVideoFrameContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutputFrame() {
                 ::core::result::Result::Ok(ok__) => {
@@ -657,7 +657,7 @@ impl IProcessVideoFrameContextVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ISlowMotionEffectDefinitionImpl: Sized + IVideoEffectDefinitionImpl {
+pub trait ISlowMotionEffectDefinition_Impl: Sized + IVideoEffectDefinition_Impl {
     fn TimeStretchRate(&mut self) -> ::windows::core::Result<f64>;
     fn SetTimeStretchRate(&mut self, value: f64) -> ::windows::core::Result<()>;
 }
@@ -666,9 +666,9 @@ impl ::windows::core::RuntimeName for ISlowMotionEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.ISlowMotionEffectDefinition";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ISlowMotionEffectDefinitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlowMotionEffectDefinitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISlowMotionEffectDefinitionVtbl {
-        unsafe extern "system" fn TimeStretchRate<Impl: ISlowMotionEffectDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+impl ISlowMotionEffectDefinition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISlowMotionEffectDefinition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISlowMotionEffectDefinition_Vtbl {
+        unsafe extern "system" fn TimeStretchRate<Impl: ISlowMotionEffectDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimeStretchRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -679,7 +679,7 @@ impl ISlowMotionEffectDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTimeStretchRate<Impl: ISlowMotionEffectDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTimeStretchRate<Impl: ISlowMotionEffectDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTimeStretchRate(value).into()
         }
@@ -694,7 +694,7 @@ impl ISlowMotionEffectDefinitionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
-pub trait IVideoCompositorImpl: Sized + IMediaExtensionImpl {
+pub trait IVideoCompositor_Impl: Sized + super::IMediaExtension_Impl {
     fn TimeIndependent(&mut self) -> ::windows::core::Result<bool>;
     fn SetEncodingProperties(&mut self, backgroundproperties: &::core::option::Option<super::MediaProperties::VideoEncodingProperties>, device: &::core::option::Option<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> ::windows::core::Result<()>;
     fn CompositeFrame(&mut self, context: &::core::option::Option<CompositeVideoFrameContext>) -> ::windows::core::Result<()>;
@@ -706,9 +706,9 @@ impl ::windows::core::RuntimeName for IVideoCompositor {
     const NAME: &'static str = "Windows.Media.Effects.IVideoCompositor";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
-impl IVideoCompositorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoCompositorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoCompositorVtbl {
-        unsafe extern "system" fn TimeIndependent<Impl: IVideoCompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IVideoCompositor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoCompositor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoCompositor_Vtbl {
+        unsafe extern "system" fn TimeIndependent<Impl: IVideoCompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimeIndependent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -719,21 +719,21 @@ impl IVideoCompositorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEncodingProperties<Impl: IVideoCompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, backgroundproperties: ::windows::core::RawPtr, device: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEncodingProperties<Impl: IVideoCompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, backgroundproperties: ::windows::core::RawPtr, device: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetEncodingProperties(&*(&backgroundproperties as *const <super::MediaProperties::VideoEncodingProperties as ::windows::core::Abi>::Abi as *const <super::MediaProperties::VideoEncodingProperties as ::windows::core::DefaultType>::DefaultType), &*(&device as *const <super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice as ::windows::core::Abi>::Abi as *const <super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice as ::windows::core::DefaultType>::DefaultType))
                 .into()
         }
-        unsafe extern "system" fn CompositeFrame<Impl: IVideoCompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CompositeFrame<Impl: IVideoCompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CompositeFrame(&*(&context as *const <CompositeVideoFrameContext as ::windows::core::Abi>::Abi as *const <CompositeVideoFrameContext as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Close<Impl: IVideoCompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: MediaEffectClosedReason) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Close<Impl: IVideoCompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: MediaEffectClosedReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Close(reason).into()
         }
-        unsafe extern "system" fn DiscardQueuedFrames<Impl: IVideoCompositorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DiscardQueuedFrames<Impl: IVideoCompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DiscardQueuedFrames().into()
         }
@@ -751,7 +751,7 @@ impl IVideoCompositorVtbl {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IVideoCompositorDefinitionImpl: Sized {
+pub trait IVideoCompositorDefinition_Impl: Sized {
     fn ActivatableClassId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
 }
@@ -760,9 +760,9 @@ impl ::windows::core::RuntimeName for IVideoCompositorDefinition {
     const NAME: &'static str = "Windows.Media.Effects.IVideoCompositorDefinition";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl IVideoCompositorDefinitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoCompositorDefinitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoCompositorDefinitionVtbl {
-        unsafe extern "system" fn ActivatableClassId<Impl: IVideoCompositorDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IVideoCompositorDefinition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoCompositorDefinition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoCompositorDefinition_Vtbl {
+        unsafe extern "system" fn ActivatableClassId<Impl: IVideoCompositorDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivatableClassId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -773,7 +773,7 @@ impl IVideoCompositorDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Properties<Impl: IVideoCompositorDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Properties<Impl: IVideoCompositorDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -795,7 +795,7 @@ impl IVideoCompositorDefinitionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVideoCompositorDefinitionFactoryImpl: Sized {
+pub trait IVideoCompositorDefinitionFactory_Impl: Sized {
     fn Create(&mut self, activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<VideoCompositorDefinition>;
     fn CreateWithProperties(&mut self, activatableclassid: &::windows::core::HSTRING, props: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<VideoCompositorDefinition>;
 }
@@ -804,9 +804,9 @@ impl ::windows::core::RuntimeName for IVideoCompositorDefinitionFactory {
     const NAME: &'static str = "Windows.Media.Effects.IVideoCompositorDefinitionFactory";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVideoCompositorDefinitionFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoCompositorDefinitionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoCompositorDefinitionFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IVideoCompositorDefinitionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVideoCompositorDefinitionFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoCompositorDefinitionFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoCompositorDefinitionFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IVideoCompositorDefinitionFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&activatableclassid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -817,7 +817,7 @@ impl IVideoCompositorDefinitionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithProperties<Impl: IVideoCompositorDefinitionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, props: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithProperties<Impl: IVideoCompositorDefinitionFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, props: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithProperties(&*(&activatableclassid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&props as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -839,7 +839,7 @@ impl IVideoCompositorDefinitionFactoryVtbl {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IVideoEffectDefinitionImpl: Sized {
+pub trait IVideoEffectDefinition_Impl: Sized {
     fn ActivatableClassId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
 }
@@ -848,9 +848,9 @@ impl ::windows::core::RuntimeName for IVideoEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.IVideoEffectDefinition";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl IVideoEffectDefinitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoEffectDefinitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoEffectDefinitionVtbl {
-        unsafe extern "system" fn ActivatableClassId<Impl: IVideoEffectDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IVideoEffectDefinition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoEffectDefinition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoEffectDefinition_Vtbl {
+        unsafe extern "system" fn ActivatableClassId<Impl: IVideoEffectDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivatableClassId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -861,7 +861,7 @@ impl IVideoEffectDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Properties<Impl: IVideoEffectDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Properties<Impl: IVideoEffectDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -883,7 +883,7 @@ impl IVideoEffectDefinitionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVideoEffectDefinitionFactoryImpl: Sized {
+pub trait IVideoEffectDefinitionFactory_Impl: Sized {
     fn Create(&mut self, activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<VideoEffectDefinition>;
     fn CreateWithProperties(&mut self, activatableclassid: &::windows::core::HSTRING, props: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<VideoEffectDefinition>;
 }
@@ -892,9 +892,9 @@ impl ::windows::core::RuntimeName for IVideoEffectDefinitionFactory {
     const NAME: &'static str = "Windows.Media.Effects.IVideoEffectDefinitionFactory";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVideoEffectDefinitionFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoEffectDefinitionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoEffectDefinitionFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IVideoEffectDefinitionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVideoEffectDefinitionFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoEffectDefinitionFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoEffectDefinitionFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IVideoEffectDefinitionFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&activatableclassid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -905,7 +905,7 @@ impl IVideoEffectDefinitionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithProperties<Impl: IVideoEffectDefinitionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, props: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithProperties<Impl: IVideoEffectDefinitionFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, props: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithProperties(&*(&activatableclassid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&props as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IPropertySet as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -927,7 +927,7 @@ impl IVideoEffectDefinitionFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "UI", feature = "implement_exclusive"))]
-pub trait IVideoTransformEffectDefinitionImpl: Sized + IVideoEffectDefinitionImpl {
+pub trait IVideoTransformEffectDefinition_Impl: Sized + IVideoEffectDefinition_Impl {
     fn PaddingColor(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
     fn SetPaddingColor(&mut self, value: &super::super::UI::Color) -> ::windows::core::Result<()>;
     fn OutputSize(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
@@ -946,9 +946,9 @@ impl ::windows::core::RuntimeName for IVideoTransformEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.IVideoTransformEffectDefinition";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "UI", feature = "implement_exclusive"))]
-impl IVideoTransformEffectDefinitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoTransformEffectDefinitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoTransformEffectDefinitionVtbl {
-        unsafe extern "system" fn PaddingColor<Impl: IVideoTransformEffectDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
+impl IVideoTransformEffectDefinition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoTransformEffectDefinition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoTransformEffectDefinition_Vtbl {
+        unsafe extern "system" fn PaddingColor<Impl: IVideoTransformEffectDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PaddingColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -959,11 +959,11 @@ impl IVideoTransformEffectDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPaddingColor<Impl: IVideoTransformEffectDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPaddingColor<Impl: IVideoTransformEffectDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPaddingColor(&*(&value as *const <super::super::UI::Color as ::windows::core::Abi>::Abi as *const <super::super::UI::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn OutputSize<Impl: IVideoTransformEffectDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OutputSize<Impl: IVideoTransformEffectDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutputSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -974,11 +974,11 @@ impl IVideoTransformEffectDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOutputSize<Impl: IVideoTransformEffectDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOutputSize<Impl: IVideoTransformEffectDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOutputSize(&*(&value as *const <super::super::Foundation::Size as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Size as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CropRectangle<Impl: IVideoTransformEffectDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CropRectangle<Impl: IVideoTransformEffectDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CropRectangle() {
                 ::core::result::Result::Ok(ok__) => {
@@ -989,11 +989,11 @@ impl IVideoTransformEffectDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCropRectangle<Impl: IVideoTransformEffectDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCropRectangle<Impl: IVideoTransformEffectDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCropRectangle(&*(&value as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Rotation<Impl: IVideoTransformEffectDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::MediaProperties::MediaRotation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Rotation<Impl: IVideoTransformEffectDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::MediaProperties::MediaRotation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Rotation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1004,11 +1004,11 @@ impl IVideoTransformEffectDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRotation<Impl: IVideoTransformEffectDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::MediaProperties::MediaRotation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRotation<Impl: IVideoTransformEffectDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::MediaProperties::MediaRotation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRotation(value).into()
         }
-        unsafe extern "system" fn Mirror<Impl: IVideoTransformEffectDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::MediaProperties::MediaMirroringOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Mirror<Impl: IVideoTransformEffectDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::MediaProperties::MediaMirroringOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Mirror() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1019,15 +1019,15 @@ impl IVideoTransformEffectDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMirror<Impl: IVideoTransformEffectDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::MediaProperties::MediaMirroringOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMirror<Impl: IVideoTransformEffectDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::MediaProperties::MediaMirroringOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMirror(value).into()
         }
-        unsafe extern "system" fn SetProcessingAlgorithm<Impl: IVideoTransformEffectDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Transcoding::MediaVideoProcessingAlgorithm) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProcessingAlgorithm<Impl: IVideoTransformEffectDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Transcoding::MediaVideoProcessingAlgorithm) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProcessingAlgorithm(value).into()
         }
-        unsafe extern "system" fn ProcessingAlgorithm<Impl: IVideoTransformEffectDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Transcoding::MediaVideoProcessingAlgorithm) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProcessingAlgorithm<Impl: IVideoTransformEffectDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Transcoding::MediaVideoProcessingAlgorithm) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProcessingAlgorithm() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1059,7 +1059,7 @@ impl IVideoTransformEffectDefinitionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVideoTransformEffectDefinition2Impl: Sized {
+pub trait IVideoTransformEffectDefinition2_Impl: Sized {
     fn SphericalProjection(&mut self) -> ::windows::core::Result<VideoTransformSphericalProjection>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1067,9 +1067,9 @@ impl ::windows::core::RuntimeName for IVideoTransformEffectDefinition2 {
     const NAME: &'static str = "Windows.Media.Effects.IVideoTransformEffectDefinition2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVideoTransformEffectDefinition2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoTransformEffectDefinition2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoTransformEffectDefinition2Vtbl {
-        unsafe extern "system" fn SphericalProjection<Impl: IVideoTransformEffectDefinition2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVideoTransformEffectDefinition2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoTransformEffectDefinition2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoTransformEffectDefinition2_Vtbl {
+        unsafe extern "system" fn SphericalProjection<Impl: IVideoTransformEffectDefinition2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SphericalProjection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1090,7 +1090,7 @@ impl IVideoTransformEffectDefinition2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Media_MediaProperties", feature = "Media_Playback", feature = "implement_exclusive"))]
-pub trait IVideoTransformSphericalProjectionImpl: Sized {
+pub trait IVideoTransformSphericalProjection_Impl: Sized {
     fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn FrameFormat(&mut self) -> ::windows::core::Result<super::MediaProperties::SphericalVideoFrameFormat>;
@@ -1107,9 +1107,9 @@ impl ::windows::core::RuntimeName for IVideoTransformSphericalProjection {
     const NAME: &'static str = "Windows.Media.Effects.IVideoTransformSphericalProjection";
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Media_MediaProperties", feature = "Media_Playback", feature = "implement_exclusive"))]
-impl IVideoTransformSphericalProjectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoTransformSphericalProjectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoTransformSphericalProjectionVtbl {
-        unsafe extern "system" fn IsEnabled<Impl: IVideoTransformSphericalProjectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IVideoTransformSphericalProjection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoTransformSphericalProjection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVideoTransformSphericalProjection_Vtbl {
+        unsafe extern "system" fn IsEnabled<Impl: IVideoTransformSphericalProjection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1120,11 +1120,11 @@ impl IVideoTransformSphericalProjectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsEnabled<Impl: IVideoTransformSphericalProjectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsEnabled<Impl: IVideoTransformSphericalProjection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsEnabled(value).into()
         }
-        unsafe extern "system" fn FrameFormat<Impl: IVideoTransformSphericalProjectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::MediaProperties::SphericalVideoFrameFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FrameFormat<Impl: IVideoTransformSphericalProjection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::MediaProperties::SphericalVideoFrameFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameFormat() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1135,11 +1135,11 @@ impl IVideoTransformSphericalProjectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFrameFormat<Impl: IVideoTransformSphericalProjectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::MediaProperties::SphericalVideoFrameFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFrameFormat<Impl: IVideoTransformSphericalProjection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::MediaProperties::SphericalVideoFrameFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFrameFormat(value).into()
         }
-        unsafe extern "system" fn ProjectionMode<Impl: IVideoTransformSphericalProjectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Playback::SphericalVideoProjectionMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProjectionMode<Impl: IVideoTransformSphericalProjection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Playback::SphericalVideoProjectionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProjectionMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1150,11 +1150,11 @@ impl IVideoTransformSphericalProjectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProjectionMode<Impl: IVideoTransformSphericalProjectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Playback::SphericalVideoProjectionMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProjectionMode<Impl: IVideoTransformSphericalProjection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Playback::SphericalVideoProjectionMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProjectionMode(value).into()
         }
-        unsafe extern "system" fn HorizontalFieldOfViewInDegrees<Impl: IVideoTransformSphericalProjectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HorizontalFieldOfViewInDegrees<Impl: IVideoTransformSphericalProjection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HorizontalFieldOfViewInDegrees() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1165,11 +1165,11 @@ impl IVideoTransformSphericalProjectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHorizontalFieldOfViewInDegrees<Impl: IVideoTransformSphericalProjectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHorizontalFieldOfViewInDegrees<Impl: IVideoTransformSphericalProjection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHorizontalFieldOfViewInDegrees(value).into()
         }
-        unsafe extern "system" fn ViewOrientation<Impl: IVideoTransformSphericalProjectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ViewOrientation<Impl: IVideoTransformSphericalProjection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ViewOrientation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1180,7 +1180,7 @@ impl IVideoTransformSphericalProjectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetViewOrientation<Impl: IVideoTransformSphericalProjectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetViewOrientation<Impl: IVideoTransformSphericalProjection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetViewOrientation(&*(&value as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Numerics::Quaternion as ::windows::core::DefaultType>::DefaultType)).into()
         }

@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Core", feature = "implement_exclusive"))]
-pub trait IAdaptiveMediaSourceImpl: Sized + IMediaSourceImpl {
+pub trait IAdaptiveMediaSource_Impl: Sized + super::super::Core::IMediaSource_Impl {
     fn IsLive(&mut self) -> ::windows::core::Result<bool>;
     fn DesiredLiveOffset(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
     fn SetDesiredLiveOffset(&mut self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
@@ -32,9 +32,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSource {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Core", feature = "implement_exclusive"))]
-impl IAdaptiveMediaSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceVtbl {
-        unsafe extern "system" fn IsLive<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSource_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSource_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSource_Vtbl {
+        unsafe extern "system" fn IsLive<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsLive() {
                 ::core::result::Result::Ok(ok__) => {
@@ -45,7 +45,7 @@ impl IAdaptiveMediaSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DesiredLiveOffset<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DesiredLiveOffset<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesiredLiveOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -56,11 +56,11 @@ impl IAdaptiveMediaSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDesiredLiveOffset<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDesiredLiveOffset<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDesiredLiveOffset(&*(&value as *const <super::super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InitialBitrate<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitialBitrate<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InitialBitrate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -71,11 +71,11 @@ impl IAdaptiveMediaSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInitialBitrate<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInitialBitrate<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInitialBitrate(value).into()
         }
-        unsafe extern "system" fn CurrentDownloadBitrate<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentDownloadBitrate<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentDownloadBitrate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -86,7 +86,7 @@ impl IAdaptiveMediaSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentPlaybackBitrate<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentPlaybackBitrate<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentPlaybackBitrate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -97,7 +97,7 @@ impl IAdaptiveMediaSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AvailableBitrates<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AvailableBitrates<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AvailableBitrates() {
                 ::core::result::Result::Ok(ok__) => {
@@ -108,7 +108,7 @@ impl IAdaptiveMediaSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DesiredMinBitrate<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DesiredMinBitrate<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesiredMinBitrate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -119,11 +119,11 @@ impl IAdaptiveMediaSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDesiredMinBitrate<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDesiredMinBitrate<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDesiredMinBitrate(&*(&value as *const <super::super::super::Foundation::IReference<u32> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<u32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DesiredMaxBitrate<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DesiredMaxBitrate<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesiredMaxBitrate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -134,11 +134,11 @@ impl IAdaptiveMediaSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDesiredMaxBitrate<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDesiredMaxBitrate<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDesiredMaxBitrate(&*(&value as *const <super::super::super::Foundation::IReference<u32> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<u32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AudioOnlyPlayback<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioOnlyPlayback<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioOnlyPlayback() {
                 ::core::result::Result::Ok(ok__) => {
@@ -149,7 +149,7 @@ impl IAdaptiveMediaSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InboundBitsPerSecond<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InboundBitsPerSecond<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InboundBitsPerSecond() {
                 ::core::result::Result::Ok(ok__) => {
@@ -160,7 +160,7 @@ impl IAdaptiveMediaSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InboundBitsPerSecondWindow<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InboundBitsPerSecondWindow<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InboundBitsPerSecondWindow() {
                 ::core::result::Result::Ok(ok__) => {
@@ -171,11 +171,11 @@ impl IAdaptiveMediaSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInboundBitsPerSecondWindow<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInboundBitsPerSecondWindow<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInboundBitsPerSecondWindow(&*(&value as *const <super::super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DownloadBitrateChanged<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DownloadBitrateChanged<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DownloadBitrateChanged(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourceDownloadBitrateChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourceDownloadBitrateChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -186,11 +186,11 @@ impl IAdaptiveMediaSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDownloadBitrateChanged<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDownloadBitrateChanged<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDownloadBitrateChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PlaybackBitrateChanged<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlaybackBitrateChanged<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PlaybackBitrateChanged(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourcePlaybackBitrateChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourcePlaybackBitrateChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -201,11 +201,11 @@ impl IAdaptiveMediaSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePlaybackBitrateChanged<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePlaybackBitrateChanged<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePlaybackBitrateChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DownloadRequested<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DownloadRequested<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DownloadRequested(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourceDownloadRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourceDownloadRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -216,11 +216,11 @@ impl IAdaptiveMediaSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDownloadRequested<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDownloadRequested<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDownloadRequested(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DownloadCompleted<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DownloadCompleted<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DownloadCompleted(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourceDownloadCompletedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourceDownloadCompletedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -231,11 +231,11 @@ impl IAdaptiveMediaSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDownloadCompleted<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDownloadCompleted<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDownloadCompleted(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DownloadFailed<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DownloadFailed<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DownloadFailed(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourceDownloadFailedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourceDownloadFailedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -246,7 +246,7 @@ impl IAdaptiveMediaSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDownloadFailed<Impl: IAdaptiveMediaSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDownloadFailed<Impl: IAdaptiveMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDownloadFailed(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -285,7 +285,7 @@ impl IAdaptiveMediaSourceVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAdaptiveMediaSource2Impl: Sized {
+pub trait IAdaptiveMediaSource2_Impl: Sized {
     fn AdvancedSettings(&mut self) -> ::windows::core::Result<AdaptiveMediaSourceAdvancedSettings>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -293,9 +293,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSource2 {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAdaptiveMediaSource2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSource2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSource2Vtbl {
-        unsafe extern "system" fn AdvancedSettings<Impl: IAdaptiveMediaSource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSource2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSource2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSource2_Vtbl {
+        unsafe extern "system" fn AdvancedSettings<Impl: IAdaptiveMediaSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AdvancedSettings() {
                 ::core::result::Result::Ok(ok__) => {
@@ -316,7 +316,7 @@ impl IAdaptiveMediaSource2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAdaptiveMediaSource3Impl: Sized {
+pub trait IAdaptiveMediaSource3_Impl: Sized {
     fn MinLiveOffset(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
     fn MaxSeekableWindowSize(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
     fn DesiredSeekableWindowSize(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
@@ -329,9 +329,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSource3 {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource3";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAdaptiveMediaSource3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSource3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSource3Vtbl {
-        unsafe extern "system" fn MinLiveOffset<Impl: IAdaptiveMediaSource3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSource3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSource3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSource3_Vtbl {
+        unsafe extern "system" fn MinLiveOffset<Impl: IAdaptiveMediaSource3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinLiveOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -342,7 +342,7 @@ impl IAdaptiveMediaSource3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxSeekableWindowSize<Impl: IAdaptiveMediaSource3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxSeekableWindowSize<Impl: IAdaptiveMediaSource3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxSeekableWindowSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -353,7 +353,7 @@ impl IAdaptiveMediaSource3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DesiredSeekableWindowSize<Impl: IAdaptiveMediaSource3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DesiredSeekableWindowSize<Impl: IAdaptiveMediaSource3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesiredSeekableWindowSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -364,11 +364,11 @@ impl IAdaptiveMediaSource3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDesiredSeekableWindowSize<Impl: IAdaptiveMediaSource3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDesiredSeekableWindowSize<Impl: IAdaptiveMediaSource3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDesiredSeekableWindowSize(&*(&value as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Diagnostics<Impl: IAdaptiveMediaSource3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Diagnostics<Impl: IAdaptiveMediaSource3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Diagnostics() {
                 ::core::result::Result::Ok(ok__) => {
@@ -379,7 +379,7 @@ impl IAdaptiveMediaSource3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCorrelatedTimes<Impl: IAdaptiveMediaSource3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCorrelatedTimes<Impl: IAdaptiveMediaSource3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCorrelatedTimes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -405,7 +405,7 @@ impl IAdaptiveMediaSource3Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAdaptiveMediaSourceAdvancedSettingsImpl: Sized {
+pub trait IAdaptiveMediaSourceAdvancedSettings_Impl: Sized {
     fn AllSegmentsIndependent(&mut self) -> ::windows::core::Result<bool>;
     fn SetAllSegmentsIndependent(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn DesiredBitrateHeadroomRatio(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f64>>;
@@ -418,9 +418,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceAdvancedSettings {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceAdvancedSettings";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAdaptiveMediaSourceAdvancedSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceAdvancedSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceAdvancedSettingsVtbl {
-        unsafe extern "system" fn AllSegmentsIndependent<Impl: IAdaptiveMediaSourceAdvancedSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceAdvancedSettings_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceAdvancedSettings_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceAdvancedSettings_Vtbl {
+        unsafe extern "system" fn AllSegmentsIndependent<Impl: IAdaptiveMediaSourceAdvancedSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllSegmentsIndependent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -431,11 +431,11 @@ impl IAdaptiveMediaSourceAdvancedSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAllSegmentsIndependent<Impl: IAdaptiveMediaSourceAdvancedSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAllSegmentsIndependent<Impl: IAdaptiveMediaSourceAdvancedSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllSegmentsIndependent(value).into()
         }
-        unsafe extern "system" fn DesiredBitrateHeadroomRatio<Impl: IAdaptiveMediaSourceAdvancedSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DesiredBitrateHeadroomRatio<Impl: IAdaptiveMediaSourceAdvancedSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesiredBitrateHeadroomRatio() {
                 ::core::result::Result::Ok(ok__) => {
@@ -446,11 +446,11 @@ impl IAdaptiveMediaSourceAdvancedSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDesiredBitrateHeadroomRatio<Impl: IAdaptiveMediaSourceAdvancedSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDesiredBitrateHeadroomRatio<Impl: IAdaptiveMediaSourceAdvancedSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDesiredBitrateHeadroomRatio(&*(&value as *const <super::super::super::Foundation::IReference<f64> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<f64> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BitrateDowngradeTriggerRatio<Impl: IAdaptiveMediaSourceAdvancedSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BitrateDowngradeTriggerRatio<Impl: IAdaptiveMediaSourceAdvancedSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BitrateDowngradeTriggerRatio() {
                 ::core::result::Result::Ok(ok__) => {
@@ -461,7 +461,7 @@ impl IAdaptiveMediaSourceAdvancedSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBitrateDowngradeTriggerRatio<Impl: IAdaptiveMediaSourceAdvancedSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBitrateDowngradeTriggerRatio<Impl: IAdaptiveMediaSourceAdvancedSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBitrateDowngradeTriggerRatio(&*(&value as *const <super::super::super::Foundation::IReference<f64> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<f64> as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -480,7 +480,7 @@ impl IAdaptiveMediaSourceAdvancedSettingsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAdaptiveMediaSourceCorrelatedTimesImpl: Sized {
+pub trait IAdaptiveMediaSourceCorrelatedTimes_Impl: Sized {
     fn Position(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
     fn PresentationTimeStamp(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
     fn ProgramDateTime(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
@@ -490,9 +490,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceCorrelatedTimes {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceCorrelatedTimes";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAdaptiveMediaSourceCorrelatedTimesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceCorrelatedTimesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceCorrelatedTimesVtbl {
-        unsafe extern "system" fn Position<Impl: IAdaptiveMediaSourceCorrelatedTimesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceCorrelatedTimes_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceCorrelatedTimes_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceCorrelatedTimes_Vtbl {
+        unsafe extern "system" fn Position<Impl: IAdaptiveMediaSourceCorrelatedTimes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -503,7 +503,7 @@ impl IAdaptiveMediaSourceCorrelatedTimesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PresentationTimeStamp<Impl: IAdaptiveMediaSourceCorrelatedTimesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PresentationTimeStamp<Impl: IAdaptiveMediaSourceCorrelatedTimes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PresentationTimeStamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -514,7 +514,7 @@ impl IAdaptiveMediaSourceCorrelatedTimesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProgramDateTime<Impl: IAdaptiveMediaSourceCorrelatedTimesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProgramDateTime<Impl: IAdaptiveMediaSourceCorrelatedTimes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProgramDateTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -537,7 +537,7 @@ impl IAdaptiveMediaSourceCorrelatedTimesVtbl {
     }
 }
 #[cfg(all(feature = "Web_Http", feature = "implement_exclusive"))]
-pub trait IAdaptiveMediaSourceCreationResultImpl: Sized {
+pub trait IAdaptiveMediaSourceCreationResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<AdaptiveMediaSourceCreationStatus>;
     fn MediaSource(&mut self) -> ::windows::core::Result<AdaptiveMediaSource>;
     fn HttpResponseMessage(&mut self) -> ::windows::core::Result<super::super::super::Web::Http::HttpResponseMessage>;
@@ -547,9 +547,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceCreationResult {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceCreationResult";
 }
 #[cfg(all(feature = "Web_Http", feature = "implement_exclusive"))]
-impl IAdaptiveMediaSourceCreationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceCreationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceCreationResultVtbl {
-        unsafe extern "system" fn Status<Impl: IAdaptiveMediaSourceCreationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AdaptiveMediaSourceCreationStatus) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceCreationResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceCreationResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceCreationResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IAdaptiveMediaSourceCreationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AdaptiveMediaSourceCreationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -560,7 +560,7 @@ impl IAdaptiveMediaSourceCreationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MediaSource<Impl: IAdaptiveMediaSourceCreationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaSource<Impl: IAdaptiveMediaSourceCreationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaSource() {
                 ::core::result::Result::Ok(ok__) => {
@@ -571,7 +571,7 @@ impl IAdaptiveMediaSourceCreationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HttpResponseMessage<Impl: IAdaptiveMediaSourceCreationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HttpResponseMessage<Impl: IAdaptiveMediaSourceCreationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HttpResponseMessage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -594,7 +594,7 @@ impl IAdaptiveMediaSourceCreationResultVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAdaptiveMediaSourceCreationResult2Impl: Sized {
+pub trait IAdaptiveMediaSourceCreationResult2_Impl: Sized {
     fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -602,9 +602,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceCreationResult2 {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceCreationResult2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAdaptiveMediaSourceCreationResult2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceCreationResult2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceCreationResult2Vtbl {
-        unsafe extern "system" fn ExtendedError<Impl: IAdaptiveMediaSourceCreationResult2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceCreationResult2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceCreationResult2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceCreationResult2_Vtbl {
+        unsafe extern "system" fn ExtendedError<Impl: IAdaptiveMediaSourceCreationResult2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedError() {
                 ::core::result::Result::Ok(ok__) => {
@@ -625,7 +625,7 @@ impl IAdaptiveMediaSourceCreationResult2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAdaptiveMediaSourceDiagnosticAvailableEventArgsImpl: Sized {
+pub trait IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Impl: Sized {
     fn DiagnosticType(&mut self) -> ::windows::core::Result<AdaptiveMediaSourceDiagnosticType>;
     fn RequestId(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<i32>>;
     fn Position(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
@@ -641,9 +641,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceDiagnosticAvailableEve
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnosticAvailableEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAdaptiveMediaSourceDiagnosticAvailableEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDiagnosticAvailableEventArgsVtbl {
-        unsafe extern "system" fn DiagnosticType<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AdaptiveMediaSourceDiagnosticType) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Vtbl {
+        unsafe extern "system" fn DiagnosticType<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AdaptiveMediaSourceDiagnosticType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DiagnosticType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -654,7 +654,7 @@ impl IAdaptiveMediaSourceDiagnosticAvailableEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestId<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestId<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -665,7 +665,7 @@ impl IAdaptiveMediaSourceDiagnosticAvailableEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -676,7 +676,7 @@ impl IAdaptiveMediaSourceDiagnosticAvailableEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SegmentId<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SegmentId<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SegmentId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -687,7 +687,7 @@ impl IAdaptiveMediaSourceDiagnosticAvailableEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResourceType<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResourceType<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -698,7 +698,7 @@ impl IAdaptiveMediaSourceDiagnosticAvailableEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResourceUri<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResourceUri<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -709,7 +709,7 @@ impl IAdaptiveMediaSourceDiagnosticAvailableEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResourceByteRangeOffset<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResourceByteRangeOffset<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceByteRangeOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -720,7 +720,7 @@ impl IAdaptiveMediaSourceDiagnosticAvailableEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResourceByteRangeLength<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResourceByteRangeLength<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceByteRangeLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -731,7 +731,7 @@ impl IAdaptiveMediaSourceDiagnosticAvailableEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Bitrate<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Bitrate<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bitrate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -760,7 +760,7 @@ impl IAdaptiveMediaSourceDiagnosticAvailableEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAdaptiveMediaSourceDiagnosticAvailableEventArgs2Impl: Sized {
+pub trait IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Impl: Sized {
     fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -768,9 +768,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceDiagnosticAvailableEve
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnosticAvailableEventArgs2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAdaptiveMediaSourceDiagnosticAvailableEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDiagnosticAvailableEventArgs2Vtbl {
-        unsafe extern "system" fn ExtendedError<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Vtbl {
+        unsafe extern "system" fn ExtendedError<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedError() {
                 ::core::result::Result::Ok(ok__) => {
@@ -791,7 +791,7 @@ impl IAdaptiveMediaSourceDiagnosticAvailableEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAdaptiveMediaSourceDiagnosticAvailableEventArgs3Impl: Sized {
+pub trait IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Impl: Sized {
     fn ResourceDuration(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
     fn ResourceContentType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -800,9 +800,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceDiagnosticAvailableEve
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnosticAvailableEventArgs3";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAdaptiveMediaSourceDiagnosticAvailableEventArgs3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgs3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDiagnosticAvailableEventArgs3Vtbl {
-        unsafe extern "system" fn ResourceDuration<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgs3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Vtbl {
+        unsafe extern "system" fn ResourceDuration<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -813,7 +813,7 @@ impl IAdaptiveMediaSourceDiagnosticAvailableEventArgs3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResourceContentType<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgs3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResourceContentType<Impl: IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceContentType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -835,7 +835,7 @@ impl IAdaptiveMediaSourceDiagnosticAvailableEventArgs3Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAdaptiveMediaSourceDiagnosticsImpl: Sized {
+pub trait IAdaptiveMediaSourceDiagnostics_Impl: Sized {
     fn DiagnosticAvailable(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSourceDiagnostics, AdaptiveMediaSourceDiagnosticAvailableEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveDiagnosticAvailable(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
@@ -844,9 +844,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceDiagnostics {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnostics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAdaptiveMediaSourceDiagnosticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDiagnosticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDiagnosticsVtbl {
-        unsafe extern "system" fn DiagnosticAvailable<Impl: IAdaptiveMediaSourceDiagnosticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceDiagnostics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDiagnostics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDiagnostics_Vtbl {
+        unsafe extern "system" fn DiagnosticAvailable<Impl: IAdaptiveMediaSourceDiagnostics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DiagnosticAvailable(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSourceDiagnostics, AdaptiveMediaSourceDiagnosticAvailableEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSourceDiagnostics, AdaptiveMediaSourceDiagnosticAvailableEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -857,7 +857,7 @@ impl IAdaptiveMediaSourceDiagnosticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDiagnosticAvailable<Impl: IAdaptiveMediaSourceDiagnosticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDiagnosticAvailable<Impl: IAdaptiveMediaSourceDiagnostics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDiagnosticAvailable(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -872,7 +872,7 @@ impl IAdaptiveMediaSourceDiagnosticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAdaptiveMediaSourceDownloadBitrateChangedEventArgsImpl: Sized {
+pub trait IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Impl: Sized {
     fn OldValue(&mut self) -> ::windows::core::Result<u32>;
     fn NewValue(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -881,9 +881,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceDownloadBitrateChanged
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadBitrateChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAdaptiveMediaSourceDownloadBitrateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadBitrateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadBitrateChangedEventArgsVtbl {
-        unsafe extern "system" fn OldValue<Impl: IAdaptiveMediaSourceDownloadBitrateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Vtbl {
+        unsafe extern "system" fn OldValue<Impl: IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OldValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -894,7 +894,7 @@ impl IAdaptiveMediaSourceDownloadBitrateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NewValue<Impl: IAdaptiveMediaSourceDownloadBitrateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NewValue<Impl: IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NewValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -916,7 +916,7 @@ impl IAdaptiveMediaSourceDownloadBitrateChangedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2Impl: Sized {
+pub trait IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2_Impl: Sized {
     fn Reason(&mut self) -> ::windows::core::Result<AdaptiveMediaSourceDownloadBitrateChangedReason>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -924,9 +924,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceDownloadBitrateChanged
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2Vtbl {
-        unsafe extern "system" fn Reason<Impl: IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AdaptiveMediaSourceDownloadBitrateChangedReason) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2_Vtbl {
+        unsafe extern "system" fn Reason<Impl: IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AdaptiveMediaSourceDownloadBitrateChangedReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reason() {
                 ::core::result::Result::Ok(ok__) => {
@@ -947,7 +947,7 @@ impl IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Web_Http", feature = "implement_exclusive"))]
-pub trait IAdaptiveMediaSourceDownloadCompletedEventArgsImpl: Sized {
+pub trait IAdaptiveMediaSourceDownloadCompletedEventArgs_Impl: Sized {
     fn ResourceType(&mut self) -> ::windows::core::Result<AdaptiveMediaSourceResourceType>;
     fn ResourceUri(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
     fn ResourceByteRangeOffset(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>>;
@@ -959,9 +959,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceDownloadCompletedEvent
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadCompletedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "Web_Http", feature = "implement_exclusive"))]
-impl IAdaptiveMediaSourceDownloadCompletedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadCompletedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadCompletedEventArgsVtbl {
-        unsafe extern "system" fn ResourceType<Impl: IAdaptiveMediaSourceDownloadCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AdaptiveMediaSourceResourceType) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceDownloadCompletedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadCompletedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadCompletedEventArgs_Vtbl {
+        unsafe extern "system" fn ResourceType<Impl: IAdaptiveMediaSourceDownloadCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AdaptiveMediaSourceResourceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -972,7 +972,7 @@ impl IAdaptiveMediaSourceDownloadCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResourceUri<Impl: IAdaptiveMediaSourceDownloadCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResourceUri<Impl: IAdaptiveMediaSourceDownloadCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -983,7 +983,7 @@ impl IAdaptiveMediaSourceDownloadCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResourceByteRangeOffset<Impl: IAdaptiveMediaSourceDownloadCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResourceByteRangeOffset<Impl: IAdaptiveMediaSourceDownloadCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceByteRangeOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -994,7 +994,7 @@ impl IAdaptiveMediaSourceDownloadCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResourceByteRangeLength<Impl: IAdaptiveMediaSourceDownloadCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResourceByteRangeLength<Impl: IAdaptiveMediaSourceDownloadCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceByteRangeLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1005,7 +1005,7 @@ impl IAdaptiveMediaSourceDownloadCompletedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HttpResponseMessage<Impl: IAdaptiveMediaSourceDownloadCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HttpResponseMessage<Impl: IAdaptiveMediaSourceDownloadCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HttpResponseMessage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1030,7 +1030,7 @@ impl IAdaptiveMediaSourceDownloadCompletedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAdaptiveMediaSourceDownloadCompletedEventArgs2Impl: Sized {
+pub trait IAdaptiveMediaSourceDownloadCompletedEventArgs2_Impl: Sized {
     fn RequestId(&mut self) -> ::windows::core::Result<i32>;
     fn Statistics(&mut self) -> ::windows::core::Result<AdaptiveMediaSourceDownloadStatistics>;
     fn Position(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
@@ -1040,9 +1040,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceDownloadCompletedEvent
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadCompletedEventArgs2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAdaptiveMediaSourceDownloadCompletedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadCompletedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadCompletedEventArgs2Vtbl {
-        unsafe extern "system" fn RequestId<Impl: IAdaptiveMediaSourceDownloadCompletedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceDownloadCompletedEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadCompletedEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadCompletedEventArgs2_Vtbl {
+        unsafe extern "system" fn RequestId<Impl: IAdaptiveMediaSourceDownloadCompletedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1053,7 +1053,7 @@ impl IAdaptiveMediaSourceDownloadCompletedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Statistics<Impl: IAdaptiveMediaSourceDownloadCompletedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Statistics<Impl: IAdaptiveMediaSourceDownloadCompletedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Statistics() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1064,7 +1064,7 @@ impl IAdaptiveMediaSourceDownloadCompletedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: IAdaptiveMediaSourceDownloadCompletedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: IAdaptiveMediaSourceDownloadCompletedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1087,7 +1087,7 @@ impl IAdaptiveMediaSourceDownloadCompletedEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAdaptiveMediaSourceDownloadCompletedEventArgs3Impl: Sized {
+pub trait IAdaptiveMediaSourceDownloadCompletedEventArgs3_Impl: Sized {
     fn ResourceDuration(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
     fn ResourceContentType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -1096,9 +1096,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceDownloadCompletedEvent
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadCompletedEventArgs3";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAdaptiveMediaSourceDownloadCompletedEventArgs3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadCompletedEventArgs3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadCompletedEventArgs3Vtbl {
-        unsafe extern "system" fn ResourceDuration<Impl: IAdaptiveMediaSourceDownloadCompletedEventArgs3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceDownloadCompletedEventArgs3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadCompletedEventArgs3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadCompletedEventArgs3_Vtbl {
+        unsafe extern "system" fn ResourceDuration<Impl: IAdaptiveMediaSourceDownloadCompletedEventArgs3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1109,7 +1109,7 @@ impl IAdaptiveMediaSourceDownloadCompletedEventArgs3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResourceContentType<Impl: IAdaptiveMediaSourceDownloadCompletedEventArgs3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResourceContentType<Impl: IAdaptiveMediaSourceDownloadCompletedEventArgs3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceContentType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1131,7 +1131,7 @@ impl IAdaptiveMediaSourceDownloadCompletedEventArgs3Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Web_Http", feature = "implement_exclusive"))]
-pub trait IAdaptiveMediaSourceDownloadFailedEventArgsImpl: Sized {
+pub trait IAdaptiveMediaSourceDownloadFailedEventArgs_Impl: Sized {
     fn ResourceType(&mut self) -> ::windows::core::Result<AdaptiveMediaSourceResourceType>;
     fn ResourceUri(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
     fn ResourceByteRangeOffset(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>>;
@@ -1143,9 +1143,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceDownloadFailedEventArg
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadFailedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "Web_Http", feature = "implement_exclusive"))]
-impl IAdaptiveMediaSourceDownloadFailedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadFailedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadFailedEventArgsVtbl {
-        unsafe extern "system" fn ResourceType<Impl: IAdaptiveMediaSourceDownloadFailedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AdaptiveMediaSourceResourceType) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceDownloadFailedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadFailedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadFailedEventArgs_Vtbl {
+        unsafe extern "system" fn ResourceType<Impl: IAdaptiveMediaSourceDownloadFailedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AdaptiveMediaSourceResourceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1156,7 +1156,7 @@ impl IAdaptiveMediaSourceDownloadFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResourceUri<Impl: IAdaptiveMediaSourceDownloadFailedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResourceUri<Impl: IAdaptiveMediaSourceDownloadFailedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1167,7 +1167,7 @@ impl IAdaptiveMediaSourceDownloadFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResourceByteRangeOffset<Impl: IAdaptiveMediaSourceDownloadFailedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResourceByteRangeOffset<Impl: IAdaptiveMediaSourceDownloadFailedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceByteRangeOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1178,7 +1178,7 @@ impl IAdaptiveMediaSourceDownloadFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResourceByteRangeLength<Impl: IAdaptiveMediaSourceDownloadFailedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResourceByteRangeLength<Impl: IAdaptiveMediaSourceDownloadFailedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceByteRangeLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1189,7 +1189,7 @@ impl IAdaptiveMediaSourceDownloadFailedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HttpResponseMessage<Impl: IAdaptiveMediaSourceDownloadFailedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HttpResponseMessage<Impl: IAdaptiveMediaSourceDownloadFailedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HttpResponseMessage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1214,7 +1214,7 @@ impl IAdaptiveMediaSourceDownloadFailedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAdaptiveMediaSourceDownloadFailedEventArgs2Impl: Sized {
+pub trait IAdaptiveMediaSourceDownloadFailedEventArgs2_Impl: Sized {
     fn RequestId(&mut self) -> ::windows::core::Result<i32>;
     fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn Statistics(&mut self) -> ::windows::core::Result<AdaptiveMediaSourceDownloadStatistics>;
@@ -1225,9 +1225,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceDownloadFailedEventArg
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadFailedEventArgs2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAdaptiveMediaSourceDownloadFailedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadFailedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadFailedEventArgs2Vtbl {
-        unsafe extern "system" fn RequestId<Impl: IAdaptiveMediaSourceDownloadFailedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceDownloadFailedEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadFailedEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadFailedEventArgs2_Vtbl {
+        unsafe extern "system" fn RequestId<Impl: IAdaptiveMediaSourceDownloadFailedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1238,7 +1238,7 @@ impl IAdaptiveMediaSourceDownloadFailedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedError<Impl: IAdaptiveMediaSourceDownloadFailedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedError<Impl: IAdaptiveMediaSourceDownloadFailedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedError() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1249,7 +1249,7 @@ impl IAdaptiveMediaSourceDownloadFailedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Statistics<Impl: IAdaptiveMediaSourceDownloadFailedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Statistics<Impl: IAdaptiveMediaSourceDownloadFailedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Statistics() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1260,7 +1260,7 @@ impl IAdaptiveMediaSourceDownloadFailedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: IAdaptiveMediaSourceDownloadFailedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: IAdaptiveMediaSourceDownloadFailedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1284,7 +1284,7 @@ impl IAdaptiveMediaSourceDownloadFailedEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAdaptiveMediaSourceDownloadFailedEventArgs3Impl: Sized {
+pub trait IAdaptiveMediaSourceDownloadFailedEventArgs3_Impl: Sized {
     fn ResourceDuration(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
     fn ResourceContentType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -1293,9 +1293,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceDownloadFailedEventArg
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadFailedEventArgs3";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAdaptiveMediaSourceDownloadFailedEventArgs3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadFailedEventArgs3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadFailedEventArgs3Vtbl {
-        unsafe extern "system" fn ResourceDuration<Impl: IAdaptiveMediaSourceDownloadFailedEventArgs3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceDownloadFailedEventArgs3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadFailedEventArgs3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadFailedEventArgs3_Vtbl {
+        unsafe extern "system" fn ResourceDuration<Impl: IAdaptiveMediaSourceDownloadFailedEventArgs3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1306,7 +1306,7 @@ impl IAdaptiveMediaSourceDownloadFailedEventArgs3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResourceContentType<Impl: IAdaptiveMediaSourceDownloadFailedEventArgs3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResourceContentType<Impl: IAdaptiveMediaSourceDownloadFailedEventArgs3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceContentType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1328,7 +1328,7 @@ impl IAdaptiveMediaSourceDownloadFailedEventArgs3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAdaptiveMediaSourceDownloadRequestedDeferralImpl: Sized {
+pub trait IAdaptiveMediaSourceDownloadRequestedDeferral_Impl: Sized {
     fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1336,9 +1336,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceDownloadRequestedDefer
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedDeferral";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAdaptiveMediaSourceDownloadRequestedDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadRequestedDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadRequestedDeferralVtbl {
-        unsafe extern "system" fn Complete<Impl: IAdaptiveMediaSourceDownloadRequestedDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceDownloadRequestedDeferral_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadRequestedDeferral_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadRequestedDeferral_Vtbl {
+        unsafe extern "system" fn Complete<Impl: IAdaptiveMediaSourceDownloadRequestedDeferral_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
@@ -1352,7 +1352,7 @@ impl IAdaptiveMediaSourceDownloadRequestedDeferralVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAdaptiveMediaSourceDownloadRequestedEventArgsImpl: Sized {
+pub trait IAdaptiveMediaSourceDownloadRequestedEventArgs_Impl: Sized {
     fn ResourceType(&mut self) -> ::windows::core::Result<AdaptiveMediaSourceResourceType>;
     fn ResourceUri(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
     fn ResourceByteRangeOffset(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>>;
@@ -1365,9 +1365,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceDownloadRequestedEvent
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAdaptiveMediaSourceDownloadRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadRequestedEventArgsVtbl {
-        unsafe extern "system" fn ResourceType<Impl: IAdaptiveMediaSourceDownloadRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AdaptiveMediaSourceResourceType) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceDownloadRequestedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadRequestedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadRequestedEventArgs_Vtbl {
+        unsafe extern "system" fn ResourceType<Impl: IAdaptiveMediaSourceDownloadRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AdaptiveMediaSourceResourceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1378,7 +1378,7 @@ impl IAdaptiveMediaSourceDownloadRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResourceUri<Impl: IAdaptiveMediaSourceDownloadRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResourceUri<Impl: IAdaptiveMediaSourceDownloadRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1389,7 +1389,7 @@ impl IAdaptiveMediaSourceDownloadRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResourceByteRangeOffset<Impl: IAdaptiveMediaSourceDownloadRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResourceByteRangeOffset<Impl: IAdaptiveMediaSourceDownloadRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceByteRangeOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1400,7 +1400,7 @@ impl IAdaptiveMediaSourceDownloadRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResourceByteRangeLength<Impl: IAdaptiveMediaSourceDownloadRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResourceByteRangeLength<Impl: IAdaptiveMediaSourceDownloadRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceByteRangeLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1411,7 +1411,7 @@ impl IAdaptiveMediaSourceDownloadRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Result<Impl: IAdaptiveMediaSourceDownloadRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Result<Impl: IAdaptiveMediaSourceDownloadRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Result() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1422,7 +1422,7 @@ impl IAdaptiveMediaSourceDownloadRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IAdaptiveMediaSourceDownloadRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IAdaptiveMediaSourceDownloadRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1448,7 +1448,7 @@ impl IAdaptiveMediaSourceDownloadRequestedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAdaptiveMediaSourceDownloadRequestedEventArgs2Impl: Sized {
+pub trait IAdaptiveMediaSourceDownloadRequestedEventArgs2_Impl: Sized {
     fn RequestId(&mut self) -> ::windows::core::Result<i32>;
     fn Position(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
 }
@@ -1457,9 +1457,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceDownloadRequestedEvent
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAdaptiveMediaSourceDownloadRequestedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadRequestedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadRequestedEventArgs2Vtbl {
-        unsafe extern "system" fn RequestId<Impl: IAdaptiveMediaSourceDownloadRequestedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceDownloadRequestedEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadRequestedEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadRequestedEventArgs2_Vtbl {
+        unsafe extern "system" fn RequestId<Impl: IAdaptiveMediaSourceDownloadRequestedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1470,7 +1470,7 @@ impl IAdaptiveMediaSourceDownloadRequestedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: IAdaptiveMediaSourceDownloadRequestedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: IAdaptiveMediaSourceDownloadRequestedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1492,7 +1492,7 @@ impl IAdaptiveMediaSourceDownloadRequestedEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAdaptiveMediaSourceDownloadRequestedEventArgs3Impl: Sized {
+pub trait IAdaptiveMediaSourceDownloadRequestedEventArgs3_Impl: Sized {
     fn ResourceDuration(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
     fn ResourceContentType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -1501,9 +1501,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceDownloadRequestedEvent
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs3";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAdaptiveMediaSourceDownloadRequestedEventArgs3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadRequestedEventArgs3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadRequestedEventArgs3Vtbl {
-        unsafe extern "system" fn ResourceDuration<Impl: IAdaptiveMediaSourceDownloadRequestedEventArgs3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceDownloadRequestedEventArgs3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadRequestedEventArgs3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadRequestedEventArgs3_Vtbl {
+        unsafe extern "system" fn ResourceDuration<Impl: IAdaptiveMediaSourceDownloadRequestedEventArgs3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1514,7 +1514,7 @@ impl IAdaptiveMediaSourceDownloadRequestedEventArgs3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResourceContentType<Impl: IAdaptiveMediaSourceDownloadRequestedEventArgs3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResourceContentType<Impl: IAdaptiveMediaSourceDownloadRequestedEventArgs3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceContentType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1536,7 +1536,7 @@ impl IAdaptiveMediaSourceDownloadRequestedEventArgs3Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IAdaptiveMediaSourceDownloadResultImpl: Sized {
+pub trait IAdaptiveMediaSourceDownloadResult_Impl: Sized {
     fn ResourceUri(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
     fn SetResourceUri(&mut self, value: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn InputStream(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IInputStream>;
@@ -1553,9 +1553,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceDownloadResult {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadResult";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IAdaptiveMediaSourceDownloadResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadResultVtbl {
-        unsafe extern "system" fn ResourceUri<Impl: IAdaptiveMediaSourceDownloadResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceDownloadResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadResult_Vtbl {
+        unsafe extern "system" fn ResourceUri<Impl: IAdaptiveMediaSourceDownloadResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1566,11 +1566,11 @@ impl IAdaptiveMediaSourceDownloadResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetResourceUri<Impl: IAdaptiveMediaSourceDownloadResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetResourceUri<Impl: IAdaptiveMediaSourceDownloadResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetResourceUri(&*(&value as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn InputStream<Impl: IAdaptiveMediaSourceDownloadResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InputStream<Impl: IAdaptiveMediaSourceDownloadResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InputStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1581,11 +1581,11 @@ impl IAdaptiveMediaSourceDownloadResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInputStream<Impl: IAdaptiveMediaSourceDownloadResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInputStream<Impl: IAdaptiveMediaSourceDownloadResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInputStream(&*(&value as *const <super::super::super::Storage::Streams::IInputStream as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IInputStream as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Buffer<Impl: IAdaptiveMediaSourceDownloadResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Buffer<Impl: IAdaptiveMediaSourceDownloadResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Buffer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1596,11 +1596,11 @@ impl IAdaptiveMediaSourceDownloadResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBuffer<Impl: IAdaptiveMediaSourceDownloadResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBuffer<Impl: IAdaptiveMediaSourceDownloadResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBuffer(&*(&value as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ContentType<Impl: IAdaptiveMediaSourceDownloadResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentType<Impl: IAdaptiveMediaSourceDownloadResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1611,11 +1611,11 @@ impl IAdaptiveMediaSourceDownloadResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContentType<Impl: IAdaptiveMediaSourceDownloadResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContentType<Impl: IAdaptiveMediaSourceDownloadResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentType(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ExtendedStatus<Impl: IAdaptiveMediaSourceDownloadResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedStatus<Impl: IAdaptiveMediaSourceDownloadResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1626,7 +1626,7 @@ impl IAdaptiveMediaSourceDownloadResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExtendedStatus<Impl: IAdaptiveMediaSourceDownloadResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetExtendedStatus<Impl: IAdaptiveMediaSourceDownloadResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExtendedStatus(value).into()
         }
@@ -1649,7 +1649,7 @@ impl IAdaptiveMediaSourceDownloadResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAdaptiveMediaSourceDownloadResult2Impl: Sized {
+pub trait IAdaptiveMediaSourceDownloadResult2_Impl: Sized {
     fn ResourceByteRangeOffset(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>>;
     fn SetResourceByteRangeOffset(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<u64>>) -> ::windows::core::Result<()>;
     fn ResourceByteRangeLength(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>>;
@@ -1660,9 +1660,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceDownloadResult2 {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadResult2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAdaptiveMediaSourceDownloadResult2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadResult2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadResult2Vtbl {
-        unsafe extern "system" fn ResourceByteRangeOffset<Impl: IAdaptiveMediaSourceDownloadResult2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceDownloadResult2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadResult2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadResult2_Vtbl {
+        unsafe extern "system" fn ResourceByteRangeOffset<Impl: IAdaptiveMediaSourceDownloadResult2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceByteRangeOffset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1673,11 +1673,11 @@ impl IAdaptiveMediaSourceDownloadResult2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetResourceByteRangeOffset<Impl: IAdaptiveMediaSourceDownloadResult2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetResourceByteRangeOffset<Impl: IAdaptiveMediaSourceDownloadResult2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetResourceByteRangeOffset(&*(&value as *const <super::super::super::Foundation::IReference<u64> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<u64> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ResourceByteRangeLength<Impl: IAdaptiveMediaSourceDownloadResult2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResourceByteRangeLength<Impl: IAdaptiveMediaSourceDownloadResult2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceByteRangeLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1688,7 +1688,7 @@ impl IAdaptiveMediaSourceDownloadResult2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetResourceByteRangeLength<Impl: IAdaptiveMediaSourceDownloadResult2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetResourceByteRangeLength<Impl: IAdaptiveMediaSourceDownloadResult2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetResourceByteRangeLength(&*(&value as *const <super::super::super::Foundation::IReference<u64> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<u64> as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1705,7 +1705,7 @@ impl IAdaptiveMediaSourceDownloadResult2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAdaptiveMediaSourceDownloadStatisticsImpl: Sized {
+pub trait IAdaptiveMediaSourceDownloadStatistics_Impl: Sized {
     fn ContentBytesReceivedCount(&mut self) -> ::windows::core::Result<u64>;
     fn TimeToHeadersReceived(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
     fn TimeToFirstByteReceived(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
@@ -1716,9 +1716,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceDownloadStatistics {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadStatistics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAdaptiveMediaSourceDownloadStatisticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadStatisticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadStatisticsVtbl {
-        unsafe extern "system" fn ContentBytesReceivedCount<Impl: IAdaptiveMediaSourceDownloadStatisticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceDownloadStatistics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceDownloadStatistics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceDownloadStatistics_Vtbl {
+        unsafe extern "system" fn ContentBytesReceivedCount<Impl: IAdaptiveMediaSourceDownloadStatistics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentBytesReceivedCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1729,7 +1729,7 @@ impl IAdaptiveMediaSourceDownloadStatisticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TimeToHeadersReceived<Impl: IAdaptiveMediaSourceDownloadStatisticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TimeToHeadersReceived<Impl: IAdaptiveMediaSourceDownloadStatistics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimeToHeadersReceived() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1740,7 +1740,7 @@ impl IAdaptiveMediaSourceDownloadStatisticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TimeToFirstByteReceived<Impl: IAdaptiveMediaSourceDownloadStatisticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TimeToFirstByteReceived<Impl: IAdaptiveMediaSourceDownloadStatistics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimeToFirstByteReceived() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1751,7 +1751,7 @@ impl IAdaptiveMediaSourceDownloadStatisticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TimeToLastByteReceived<Impl: IAdaptiveMediaSourceDownloadStatisticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TimeToLastByteReceived<Impl: IAdaptiveMediaSourceDownloadStatistics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TimeToLastByteReceived() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1775,7 +1775,7 @@ impl IAdaptiveMediaSourceDownloadStatisticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAdaptiveMediaSourcePlaybackBitrateChangedEventArgsImpl: Sized {
+pub trait IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Impl: Sized {
     fn OldValue(&mut self) -> ::windows::core::Result<u32>;
     fn NewValue(&mut self) -> ::windows::core::Result<u32>;
     fn AudioOnly(&mut self) -> ::windows::core::Result<bool>;
@@ -1785,9 +1785,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourcePlaybackBitrateChanged
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAdaptiveMediaSourcePlaybackBitrateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourcePlaybackBitrateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourcePlaybackBitrateChangedEventArgsVtbl {
-        unsafe extern "system" fn OldValue<Impl: IAdaptiveMediaSourcePlaybackBitrateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Vtbl {
+        unsafe extern "system" fn OldValue<Impl: IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OldValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1798,7 +1798,7 @@ impl IAdaptiveMediaSourcePlaybackBitrateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NewValue<Impl: IAdaptiveMediaSourcePlaybackBitrateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NewValue<Impl: IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NewValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1809,7 +1809,7 @@ impl IAdaptiveMediaSourcePlaybackBitrateChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AudioOnly<Impl: IAdaptiveMediaSourcePlaybackBitrateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AudioOnly<Impl: IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AudioOnly() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1832,7 +1832,7 @@ impl IAdaptiveMediaSourcePlaybackBitrateChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Http", feature = "implement_exclusive"))]
-pub trait IAdaptiveMediaSourceStaticsImpl: Sized {
+pub trait IAdaptiveMediaSourceStatics_Impl: Sized {
     fn IsContentTypeSupported(&mut self, contenttype: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
     fn CreateFromUriAsync(&mut self, uri: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>>;
     fn CreateFromUriWithDownloaderAsync(&mut self, uri: &::core::option::Option<super::super::super::Foundation::Uri>, httpclient: &::core::option::Option<super::super::super::Web::Http::HttpClient>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>>;
@@ -1844,9 +1844,9 @@ impl ::windows::core::RuntimeName for IAdaptiveMediaSourceStatics {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Http", feature = "implement_exclusive"))]
-impl IAdaptiveMediaSourceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceStaticsVtbl {
-        unsafe extern "system" fn IsContentTypeSupported<Impl: IAdaptiveMediaSourceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contenttype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IAdaptiveMediaSourceStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdaptiveMediaSourceStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdaptiveMediaSourceStatics_Vtbl {
+        unsafe extern "system" fn IsContentTypeSupported<Impl: IAdaptiveMediaSourceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contenttype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsContentTypeSupported(&*(&contenttype as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1857,7 +1857,7 @@ impl IAdaptiveMediaSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromUriAsync<Impl: IAdaptiveMediaSourceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromUriAsync<Impl: IAdaptiveMediaSourceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromUriAsync(&*(&uri as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1868,7 +1868,7 @@ impl IAdaptiveMediaSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromUriWithDownloaderAsync<Impl: IAdaptiveMediaSourceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, httpclient: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromUriWithDownloaderAsync<Impl: IAdaptiveMediaSourceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, httpclient: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromUriWithDownloaderAsync(&*(&uri as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType), &*(&httpclient as *const <super::super::super::Web::Http::HttpClient as ::windows::core::Abi>::Abi as *const <super::super::super::Web::Http::HttpClient as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1879,7 +1879,7 @@ impl IAdaptiveMediaSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromStreamAsync<Impl: IAdaptiveMediaSourceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, uri: ::windows::core::RawPtr, contenttype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromStreamAsync<Impl: IAdaptiveMediaSourceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, uri: ::windows::core::RawPtr, contenttype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromStreamAsync(
                 &*(&stream as *const <super::super::super::Storage::Streams::IInputStream as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IInputStream as ::windows::core::DefaultType>::DefaultType),
@@ -1894,7 +1894,7 @@ impl IAdaptiveMediaSourceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromStreamWithDownloaderAsync<Impl: IAdaptiveMediaSourceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, uri: ::windows::core::RawPtr, contenttype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, httpclient: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromStreamWithDownloaderAsync<Impl: IAdaptiveMediaSourceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, uri: ::windows::core::RawPtr, contenttype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, httpclient: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromStreamWithDownloaderAsync(
                 &*(&stream as *const <super::super::super::Storage::Streams::IInputStream as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IInputStream as ::windows::core::DefaultType>::DefaultType),

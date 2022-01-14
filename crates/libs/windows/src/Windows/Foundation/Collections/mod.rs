@@ -123,12 +123,12 @@ impl<T: ::windows::core::RuntimeType> ::core::iter::IntoIterator for &IIterable<
     }
 }
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for IIterable<T> {
-    type Vtable = IIterableVtbl<T>;
+    type Vtable = IIterable_Vtbl<T>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIterableVtbl<T>
+pub struct IIterable_Vtbl<T>
 where
     T: ::windows::core::RuntimeType + 'static,
 {
@@ -245,12 +245,12 @@ impl<T: ::windows::core::RuntimeType> ::core::iter::Iterator for IIterator<T> {
     }
 }
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for IIterator<T> {
-    type Vtable = IIteratorVtbl<T>;
+    type Vtable = IIterator_Vtbl<T>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIteratorVtbl<T>
+pub struct IIterator_Vtbl<T>
 where
     T: ::windows::core::RuntimeType + 'static,
 {
@@ -345,12 +345,12 @@ unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::Runti
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{02b51929-c1c4-4a7e-8940-0312b5c18500}").push_slice(b";").push_other(<K as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
 unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for IKeyValuePair<K, V> {
-    type Vtable = IKeyValuePairVtbl<K, V>;
+    type Vtable = IKeyValuePair_Vtbl<K, V>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKeyValuePairVtbl<K, V>
+pub struct IKeyValuePair_Vtbl<K, V>
 where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static,
@@ -525,12 +525,12 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     }
 }
 unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for IMap<K, V> {
-    type Vtable = IMapVtbl<K, V>;
+    type Vtable = IMap_Vtbl<K, V>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapVtbl<K, V>
+pub struct IMap_Vtbl<K, V>
 where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static,
@@ -629,12 +629,12 @@ unsafe impl<K: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeT
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{9939f4df-050a-4c0f-aa60-77075f9c4777}").push_slice(b";").push_other(<K as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
 unsafe impl<K: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for IMapChangedEventArgs<K> {
-    type Vtable = IMapChangedEventArgsVtbl<K>;
+    type Vtable = IMapChangedEventArgs_Vtbl<K>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapChangedEventArgsVtbl<K>
+pub struct IMapChangedEventArgs_Vtbl<K>
 where
     K: ::windows::core::RuntimeType + 'static,
 {
@@ -786,12 +786,12 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     }
 }
 unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for IMapView<K, V> {
-    type Vtable = IMapViewVtbl<K, V>;
+    type Vtable = IMapView_Vtbl<K, V>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMapViewVtbl<K, V>
+pub struct IMapView_Vtbl<K, V>
 where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static,
@@ -1003,12 +1003,12 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     }
 }
 unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for IObservableMap<K, V> {
-    type Vtable = IObservableMapVtbl<K, V>;
+    type Vtable = IObservableMap_Vtbl<K, V>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IObservableMapVtbl<K, V>
+pub struct IObservableMap_Vtbl<K, V>
 where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static,
@@ -1242,12 +1242,12 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::iter::IntoIterator for &
     }
 }
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for IObservableVector<T> {
-    type Vtable = IObservableVectorVtbl<T>;
+    type Vtable = IObservableVector_Vtbl<T>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IObservableVectorVtbl<T>
+pub struct IObservableVector_Vtbl<T>
 where
     T: ::windows::core::RuntimeType + 'static,
 {
@@ -1474,12 +1474,12 @@ impl ::core::iter::IntoIterator for &IPropertySet {
     }
 }
 unsafe impl ::windows::core::Interface for IPropertySet {
-    type Vtable = IPropertySetVtbl;
+    type Vtable = IPropertySet_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPropertySetVtbl {
+pub struct IPropertySet_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc = "*Required features: 'Foundation_Collections'*"]
@@ -1686,12 +1686,12 @@ impl<T: ::windows::core::RuntimeType> ::core::iter::IntoIterator for &IVector<T>
     }
 }
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for IVector<T> {
-    type Vtable = IVectorVtbl<T>;
+    type Vtable = IVector_Vtbl<T>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVectorVtbl<T>
+pub struct IVector_Vtbl<T>
 where
     T: ::windows::core::RuntimeType + 'static,
 {
@@ -1791,12 +1791,12 @@ unsafe impl ::windows::core::RuntimeType for IVectorChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{575933df-34fe-4480-af15-07691f3d5d9b}");
 }
 unsafe impl ::windows::core::Interface for IVectorChangedEventArgs {
-    type Vtable = IVectorChangedEventArgsVtbl;
+    type Vtable = IVectorChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x575933df_34fe_4480_af15_07691f3d5d9b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVectorChangedEventArgsVtbl {
+pub struct IVectorChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CollectionChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CollectionChange) -> ::windows::core::HRESULT,
     pub Index: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -1962,12 +1962,12 @@ impl<T: ::windows::core::RuntimeType> ::core::iter::IntoIterator for &IVectorVie
     }
 }
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for IVectorView<T> {
-    type Vtable = IVectorViewVtbl<T>;
+    type Vtable = IVectorView_Vtbl<T>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVectorViewVtbl<T>
+pub struct IVectorView_Vtbl<T>
 where
     T: ::windows::core::RuntimeType + 'static,
 {
@@ -2001,12 +2001,12 @@ where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static,
 {
-    vtable: *const MapChangedEventHandlerVtbl<K, V>,
+    vtable: *const MapChangedEventHandler_Vtbl<K, V>,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option<IObservableMap<K, V>>, &::core::option::Option<IMapChangedEventArgs<K>>) -> ::windows::core::Result<()> + 'static> MapChangedEventHandlerBox<K, V, F> {
-    const VTABLE: MapChangedEventHandlerVtbl<K, V> = MapChangedEventHandlerVtbl::<K, V> {
+    const VTABLE: MapChangedEventHandler_Vtbl<K, V> = MapChangedEventHandler_Vtbl::<K, V> {
         base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
         K: ::core::marker::PhantomData::<K>,
@@ -2056,7 +2056,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     }
 }
 unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for MapChangedEventHandler<K, V> {
-    type Vtable = MapChangedEventHandlerVtbl<K, V>;
+    type Vtable = MapChangedEventHandler_Vtbl<K, V>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for MapChangedEventHandler<K, V> {
@@ -2064,7 +2064,7 @@ unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::Runti
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct MapChangedEventHandlerVtbl<K, V>
+pub struct MapChangedEventHandler_Vtbl<K, V>
 where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static,
@@ -2177,7 +2177,7 @@ unsafe impl ::windows::core::RuntimeType for PropertySet {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Collections.PropertySet;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
 }
 unsafe impl ::windows::core::Interface for PropertySet {
-    type Vtable = IPropertySetVtbl;
+    type Vtable = IPropertySet_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
 }
 impl ::windows::core::RuntimeName for PropertySet {
@@ -2432,7 +2432,7 @@ unsafe impl ::windows::core::RuntimeType for StringMap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Collections.StringMap;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};string;string))");
 }
 unsafe impl ::windows::core::Interface for StringMap {
-    type Vtable = IMapVtbl<::windows::core::HSTRING, ::windows::core::HSTRING>;
+    type Vtable = IMap_Vtbl<::windows::core::HSTRING, ::windows::core::HSTRING>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 impl ::windows::core::RuntimeName for StringMap {
@@ -2665,7 +2665,7 @@ unsafe impl ::windows::core::RuntimeType for ValueSet {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Collections.ValueSet;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
 }
 unsafe impl ::windows::core::Interface for ValueSet {
-    type Vtable = IPropertySetVtbl;
+    type Vtable = IPropertySet_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
 }
 impl ::windows::core::RuntimeName for ValueSet {
@@ -2838,12 +2838,12 @@ struct VectorChangedEventHandlerBox<T, F: FnMut(&::core::option::Option<IObserva
 where
     T: ::windows::core::RuntimeType + 'static,
 {
-    vtable: *const VectorChangedEventHandlerVtbl<T>,
+    vtable: *const VectorChangedEventHandler_Vtbl<T>,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<T: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option<IObservableVector<T>>, &::core::option::Option<IVectorChangedEventArgs>) -> ::windows::core::Result<()> + 'static> VectorChangedEventHandlerBox<T, F> {
-    const VTABLE: VectorChangedEventHandlerVtbl<T> = VectorChangedEventHandlerVtbl::<T> {
+    const VTABLE: VectorChangedEventHandler_Vtbl<T> = VectorChangedEventHandler_Vtbl::<T> {
         base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
         T: ::core::marker::PhantomData::<T>,
@@ -2892,7 +2892,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for VectorCha
     }
 }
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for VectorChangedEventHandler<T> {
-    type Vtable = VectorChangedEventHandlerVtbl<T>;
+    type Vtable = VectorChangedEventHandler_Vtbl<T>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for VectorChangedEventHandler<T> {
@@ -2900,7 +2900,7 @@ unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeT
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct VectorChangedEventHandlerVtbl<T>
+pub struct VectorChangedEventHandler_Vtbl<T>
 where
     T: ::windows::core::RuntimeType + 'static,
 {

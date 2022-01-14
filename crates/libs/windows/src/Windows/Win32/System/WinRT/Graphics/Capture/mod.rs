@@ -53,12 +53,12 @@ impl ::core::fmt::Debug for IGraphicsCaptureItemInterop {
     }
 }
 unsafe impl ::windows::core::Interface for IGraphicsCaptureItemInterop {
-    type Vtable = IGraphicsCaptureItemInteropVtbl;
+    type Vtable = IGraphicsCaptureItemInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3628e81b_3cac_4c60_b7f4_23ce0e0c3356);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGraphicsCaptureItemInteropVtbl {
+pub struct IGraphicsCaptureItemInterop_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: super::super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

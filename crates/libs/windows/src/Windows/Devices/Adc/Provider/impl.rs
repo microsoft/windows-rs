@@ -1,4 +1,4 @@
-pub trait IAdcControllerProviderImpl: Sized {
+pub trait IAdcControllerProvider_Impl: Sized {
     fn ChannelCount(&mut self) -> ::windows::core::Result<i32>;
     fn ResolutionInBits(&mut self) -> ::windows::core::Result<i32>;
     fn MinValue(&mut self) -> ::windows::core::Result<i32>;
@@ -13,9 +13,9 @@ pub trait IAdcControllerProviderImpl: Sized {
 impl ::windows::core::RuntimeName for IAdcControllerProvider {
     const NAME: &'static str = "Windows.Devices.Adc.Provider.IAdcControllerProvider";
 }
-impl IAdcControllerProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdcControllerProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdcControllerProviderVtbl {
-        unsafe extern "system" fn ChannelCount<Impl: IAdcControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IAdcControllerProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdcControllerProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdcControllerProvider_Vtbl {
+        unsafe extern "system" fn ChannelCount<Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChannelCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -26,7 +26,7 @@ impl IAdcControllerProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResolutionInBits<Impl: IAdcControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResolutionInBits<Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResolutionInBits() {
                 ::core::result::Result::Ok(ok__) => {
@@ -37,7 +37,7 @@ impl IAdcControllerProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MinValue<Impl: IAdcControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinValue<Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -48,7 +48,7 @@ impl IAdcControllerProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxValue<Impl: IAdcControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxValue<Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -59,7 +59,7 @@ impl IAdcControllerProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ChannelMode<Impl: IAdcControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProviderAdcChannelMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ChannelMode<Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProviderAdcChannelMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChannelMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -70,11 +70,11 @@ impl IAdcControllerProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetChannelMode<Impl: IAdcControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ProviderAdcChannelMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetChannelMode<Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ProviderAdcChannelMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetChannelMode(value).into()
         }
-        unsafe extern "system" fn IsChannelModeSupported<Impl: IAdcControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channelmode: ProviderAdcChannelMode, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsChannelModeSupported<Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channelmode: ProviderAdcChannelMode, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsChannelModeSupported(channelmode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -85,15 +85,15 @@ impl IAdcControllerProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AcquireChannel<Impl: IAdcControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AcquireChannel<Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AcquireChannel(channel).into()
         }
-        unsafe extern "system" fn ReleaseChannel<Impl: IAdcControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReleaseChannel<Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReleaseChannel(channel).into()
         }
-        unsafe extern "system" fn ReadValue<Impl: IAdcControllerProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channelnumber: i32, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadValue<Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channelnumber: i32, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadValue(channelnumber) {
                 ::core::result::Result::Ok(ok__) => {
@@ -123,7 +123,7 @@ impl IAdcControllerProviderVtbl {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IAdcProviderImpl: Sized {
+pub trait IAdcProvider_Impl: Sized {
     fn GetControllers(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IAdcControllerProvider>>;
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -131,9 +131,9 @@ impl ::windows::core::RuntimeName for IAdcProvider {
     const NAME: &'static str = "Windows.Devices.Adc.Provider.IAdcProvider";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl IAdcProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdcProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdcProviderVtbl {
-        unsafe extern "system" fn GetControllers<Impl: IAdcProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAdcProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdcProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAdcProvider_Vtbl {
+        unsafe extern "system" fn GetControllers<Impl: IAdcProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetControllers() {
                 ::core::result::Result::Ok(ok__) => {

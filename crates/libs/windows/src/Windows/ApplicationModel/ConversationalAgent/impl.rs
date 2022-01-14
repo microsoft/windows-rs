@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IActivationSignalDetectionConfigurationImpl: Sized {
+pub trait IActivationSignalDetectionConfiguration_Impl: Sized {
     fn SignalId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ModelId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -30,9 +30,9 @@ impl ::windows::core::RuntimeName for IActivationSignalDetectionConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetectionConfiguration";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IActivationSignalDetectionConfigurationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationSignalDetectionConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivationSignalDetectionConfigurationVtbl {
-        unsafe extern "system" fn SignalId<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IActivationSignalDetectionConfiguration_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationSignalDetectionConfiguration_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivationSignalDetectionConfiguration_Vtbl {
+        unsafe extern "system" fn SignalId<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignalId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -43,7 +43,7 @@ impl IActivationSignalDetectionConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModelId<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ModelId<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ModelId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -54,7 +54,7 @@ impl IActivationSignalDetectionConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayName<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayName<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -65,7 +65,7 @@ impl IActivationSignalDetectionConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsActive<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsActive<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsActive() {
                 ::core::result::Result::Ok(ok__) => {
@@ -76,11 +76,11 @@ impl IActivationSignalDetectionConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEnabled<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnabled<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnabled(value).into()
         }
-        unsafe extern "system" fn SetEnabledAsync<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnabledAsync<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetEnabledAsync(value) {
                 ::core::result::Result::Ok(ok__) => {
@@ -91,7 +91,7 @@ impl IActivationSignalDetectionConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AvailabilityInfo<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AvailabilityInfo<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AvailabilityInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -102,7 +102,7 @@ impl IActivationSignalDetectionConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AvailabilityChanged<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AvailabilityChanged<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AvailabilityChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ActivationSignalDetectionConfiguration, DetectionConfigurationAvailabilityChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ActivationSignalDetectionConfiguration, DetectionConfigurationAvailabilityChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -113,15 +113,15 @@ impl IActivationSignalDetectionConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAvailabilityChanged<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAvailabilityChanged<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAvailabilityChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetModelData<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetModelData<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetModelData(&*(&datatype as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&data as *const <super::super::Storage::Streams::IInputStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IInputStream as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetModelDataAsync<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetModelDataAsync<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetModelDataAsync(&*(&datatype as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&data as *const <super::super::Storage::Streams::IInputStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IInputStream as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -132,7 +132,7 @@ impl IActivationSignalDetectionConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetModelDataType<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetModelDataType<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetModelDataType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -143,7 +143,7 @@ impl IActivationSignalDetectionConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetModelDataTypeAsync<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetModelDataTypeAsync<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetModelDataTypeAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -154,7 +154,7 @@ impl IActivationSignalDetectionConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetModelData<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetModelData<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetModelData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -165,7 +165,7 @@ impl IActivationSignalDetectionConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetModelDataAsync<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetModelDataAsync<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetModelDataAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -176,11 +176,11 @@ impl IActivationSignalDetectionConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClearModelData<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearModelData<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearModelData().into()
         }
-        unsafe extern "system" fn ClearModelDataAsync<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearModelDataAsync<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClearModelDataAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -191,7 +191,7 @@ impl IActivationSignalDetectionConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrainingStepsCompleted<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrainingStepsCompleted<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrainingStepsCompleted() {
                 ::core::result::Result::Ok(ok__) => {
@@ -202,7 +202,7 @@ impl IActivationSignalDetectionConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrainingStepsRemaining<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrainingStepsRemaining<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrainingStepsRemaining() {
                 ::core::result::Result::Ok(ok__) => {
@@ -213,7 +213,7 @@ impl IActivationSignalDetectionConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrainingDataFormat<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ActivationSignalDetectionTrainingDataFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrainingDataFormat<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ActivationSignalDetectionTrainingDataFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrainingDataFormat() {
                 ::core::result::Result::Ok(ok__) => {
@@ -224,7 +224,7 @@ impl IActivationSignalDetectionConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ApplyTrainingData<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: ::windows::core::RawPtr, result__: *mut DetectionConfigurationTrainingStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ApplyTrainingData<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: ::windows::core::RawPtr, result__: *mut DetectionConfigurationTrainingStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ApplyTrainingData(trainingdataformat, &*(&trainingdata as *const <super::super::Storage::Streams::IInputStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IInputStream as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -235,7 +235,7 @@ impl IActivationSignalDetectionConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ApplyTrainingDataAsync<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ApplyTrainingDataAsync<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ApplyTrainingDataAsync(trainingdataformat, &*(&trainingdata as *const <super::super::Storage::Streams::IInputStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IInputStream as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -246,11 +246,11 @@ impl IActivationSignalDetectionConfigurationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClearTrainingData<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearTrainingData<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearTrainingData().into()
         }
-        unsafe extern "system" fn ClearTrainingDataAsync<Impl: IActivationSignalDetectionConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearTrainingDataAsync<Impl: IActivationSignalDetectionConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClearTrainingDataAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -294,7 +294,7 @@ impl IActivationSignalDetectionConfigurationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IActivationSignalDetectionConfiguration2Impl: Sized {
+pub trait IActivationSignalDetectionConfiguration2_Impl: Sized {
     fn SetModelDataWithResult(&mut self, datatype: &::windows::core::HSTRING, data: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<ActivationSignalDetectionConfigurationSetModelDataResult>;
     fn SetModelDataWithResultAsync(&mut self, datatype: &::windows::core::HSTRING, data: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationSetModelDataResult>>;
     fn SetEnabledWithResultAsync(&mut self, value: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationStateChangeResult>>;
@@ -306,9 +306,9 @@ impl ::windows::core::RuntimeName for IActivationSignalDetectionConfiguration2 {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetectionConfiguration2";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IActivationSignalDetectionConfiguration2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationSignalDetectionConfiguration2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivationSignalDetectionConfiguration2Vtbl {
-        unsafe extern "system" fn SetModelDataWithResult<Impl: IActivationSignalDetectionConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr, result__: *mut ActivationSignalDetectionConfigurationSetModelDataResult) -> ::windows::core::HRESULT {
+impl IActivationSignalDetectionConfiguration2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationSignalDetectionConfiguration2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivationSignalDetectionConfiguration2_Vtbl {
+        unsafe extern "system" fn SetModelDataWithResult<Impl: IActivationSignalDetectionConfiguration2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr, result__: *mut ActivationSignalDetectionConfigurationSetModelDataResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetModelDataWithResult(&*(&datatype as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&data as *const <super::super::Storage::Streams::IInputStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IInputStream as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -319,7 +319,7 @@ impl IActivationSignalDetectionConfiguration2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetModelDataWithResultAsync<Impl: IActivationSignalDetectionConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetModelDataWithResultAsync<Impl: IActivationSignalDetectionConfiguration2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetModelDataWithResultAsync(&*(&datatype as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&data as *const <super::super::Storage::Streams::IInputStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IInputStream as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -330,7 +330,7 @@ impl IActivationSignalDetectionConfiguration2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEnabledWithResultAsync<Impl: IActivationSignalDetectionConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnabledWithResultAsync<Impl: IActivationSignalDetectionConfiguration2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetEnabledWithResultAsync(value) {
                 ::core::result::Result::Ok(ok__) => {
@@ -341,7 +341,7 @@ impl IActivationSignalDetectionConfiguration2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEnabledWithResult<Impl: IActivationSignalDetectionConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool, result__: *mut ActivationSignalDetectionConfigurationStateChangeResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnabledWithResult<Impl: IActivationSignalDetectionConfiguration2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool, result__: *mut ActivationSignalDetectionConfigurationStateChangeResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetEnabledWithResult(value) {
                 ::core::result::Result::Ok(ok__) => {
@@ -352,7 +352,7 @@ impl IActivationSignalDetectionConfiguration2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrainingStepCompletionMaxAllowedTime<Impl: IActivationSignalDetectionConfiguration2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TrainingStepCompletionMaxAllowedTime<Impl: IActivationSignalDetectionConfiguration2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TrainingStepCompletionMaxAllowedTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -377,7 +377,7 @@ impl IActivationSignalDetectionConfiguration2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IActivationSignalDetectionConfigurationCreationResultImpl: Sized {
+pub trait IActivationSignalDetectionConfigurationCreationResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<ActivationSignalDetectionConfigurationCreationStatus>;
     fn Configuration(&mut self) -> ::windows::core::Result<ActivationSignalDetectionConfiguration>;
 }
@@ -386,9 +386,9 @@ impl ::windows::core::RuntimeName for IActivationSignalDetectionConfigurationCre
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetectionConfigurationCreationResult";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IActivationSignalDetectionConfigurationCreationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationSignalDetectionConfigurationCreationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivationSignalDetectionConfigurationCreationResultVtbl {
-        unsafe extern "system" fn Status<Impl: IActivationSignalDetectionConfigurationCreationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ActivationSignalDetectionConfigurationCreationStatus) -> ::windows::core::HRESULT {
+impl IActivationSignalDetectionConfigurationCreationResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationSignalDetectionConfigurationCreationResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivationSignalDetectionConfigurationCreationResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IActivationSignalDetectionConfigurationCreationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ActivationSignalDetectionConfigurationCreationStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -399,7 +399,7 @@ impl IActivationSignalDetectionConfigurationCreationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Configuration<Impl: IActivationSignalDetectionConfigurationCreationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Configuration<Impl: IActivationSignalDetectionConfigurationCreationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Configuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -421,7 +421,7 @@ impl IActivationSignalDetectionConfigurationCreationResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IActivationSignalDetectorImpl: Sized {
+pub trait IActivationSignalDetector_Impl: Sized {
     fn ProviderId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Kind(&mut self) -> ::windows::core::Result<ActivationSignalDetectorKind>;
     fn CanCreateConfigurations(&mut self) -> ::windows::core::Result<bool>;
@@ -444,9 +444,9 @@ impl ::windows::core::RuntimeName for IActivationSignalDetector {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetector";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IActivationSignalDetectorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationSignalDetectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivationSignalDetectorVtbl {
-        unsafe extern "system" fn ProviderId<Impl: IActivationSignalDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IActivationSignalDetector_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationSignalDetector_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivationSignalDetector_Vtbl {
+        unsafe extern "system" fn ProviderId<Impl: IActivationSignalDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProviderId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -457,7 +457,7 @@ impl IActivationSignalDetectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Kind<Impl: IActivationSignalDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ActivationSignalDetectorKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Kind<Impl: IActivationSignalDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ActivationSignalDetectorKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -468,7 +468,7 @@ impl IActivationSignalDetectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanCreateConfigurations<Impl: IActivationSignalDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanCreateConfigurations<Impl: IActivationSignalDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanCreateConfigurations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -479,7 +479,7 @@ impl IActivationSignalDetectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedModelDataTypes<Impl: IActivationSignalDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedModelDataTypes<Impl: IActivationSignalDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedModelDataTypes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -490,7 +490,7 @@ impl IActivationSignalDetectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedTrainingDataFormats<Impl: IActivationSignalDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedTrainingDataFormats<Impl: IActivationSignalDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedTrainingDataFormats() {
                 ::core::result::Result::Ok(ok__) => {
@@ -501,7 +501,7 @@ impl IActivationSignalDetectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedPowerStates<Impl: IActivationSignalDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedPowerStates<Impl: IActivationSignalDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedPowerStates() {
                 ::core::result::Result::Ok(ok__) => {
@@ -512,7 +512,7 @@ impl IActivationSignalDetectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSupportedModelIdsForSignalId<Impl: IActivationSignalDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSupportedModelIdsForSignalId<Impl: IActivationSignalDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSupportedModelIdsForSignalId(&*(&signalid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -523,7 +523,7 @@ impl IActivationSignalDetectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSupportedModelIdsForSignalIdAsync<Impl: IActivationSignalDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSupportedModelIdsForSignalIdAsync<Impl: IActivationSignalDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSupportedModelIdsForSignalIdAsync(&*(&signalid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -534,7 +534,7 @@ impl IActivationSignalDetectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateConfiguration<Impl: IActivationSignalDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateConfiguration<Impl: IActivationSignalDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .CreateConfiguration(
@@ -544,7 +544,7 @@ impl IActivationSignalDetectorVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn CreateConfigurationAsync<Impl: IActivationSignalDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateConfigurationAsync<Impl: IActivationSignalDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateConfigurationAsync(
                 &*(&signalid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -559,7 +559,7 @@ impl IActivationSignalDetectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetConfigurations<Impl: IActivationSignalDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetConfigurations<Impl: IActivationSignalDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetConfigurations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -570,7 +570,7 @@ impl IActivationSignalDetectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetConfigurationsAsync<Impl: IActivationSignalDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetConfigurationsAsync<Impl: IActivationSignalDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetConfigurationsAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -581,7 +581,7 @@ impl IActivationSignalDetectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetConfiguration<Impl: IActivationSignalDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetConfiguration<Impl: IActivationSignalDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetConfiguration(&*(&signalid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&modelid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -592,7 +592,7 @@ impl IActivationSignalDetectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetConfigurationAsync<Impl: IActivationSignalDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetConfigurationAsync<Impl: IActivationSignalDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetConfigurationAsync(&*(&signalid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&modelid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -603,11 +603,11 @@ impl IActivationSignalDetectorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveConfiguration<Impl: IActivationSignalDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveConfiguration<Impl: IActivationSignalDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveConfiguration(&*(&signalid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&modelid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RemoveConfigurationAsync<Impl: IActivationSignalDetectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveConfigurationAsync<Impl: IActivationSignalDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoveConfigurationAsync(&*(&signalid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&modelid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -643,7 +643,7 @@ impl IActivationSignalDetectorVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IActivationSignalDetector2Impl: Sized {
+pub trait IActivationSignalDetector2_Impl: Sized {
     fn GetAvailableModelIdsForSignalIdAsync(&mut self, signalid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>>;
     fn GetAvailableModelIdsForSignalId(&mut self, signalid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
     fn CreateConfigurationWithResultAsync(&mut self, signalid: &::windows::core::HSTRING, modelid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationCreationResult>>;
@@ -657,9 +657,9 @@ impl ::windows::core::RuntimeName for IActivationSignalDetector2 {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IActivationSignalDetector2";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IActivationSignalDetector2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationSignalDetector2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivationSignalDetector2Vtbl {
-        unsafe extern "system" fn GetAvailableModelIdsForSignalIdAsync<Impl: IActivationSignalDetector2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IActivationSignalDetector2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationSignalDetector2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivationSignalDetector2_Vtbl {
+        unsafe extern "system" fn GetAvailableModelIdsForSignalIdAsync<Impl: IActivationSignalDetector2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAvailableModelIdsForSignalIdAsync(&*(&signalid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -670,7 +670,7 @@ impl IActivationSignalDetector2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAvailableModelIdsForSignalId<Impl: IActivationSignalDetector2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAvailableModelIdsForSignalId<Impl: IActivationSignalDetector2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAvailableModelIdsForSignalId(&*(&signalid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -681,7 +681,7 @@ impl IActivationSignalDetector2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateConfigurationWithResultAsync<Impl: IActivationSignalDetector2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateConfigurationWithResultAsync<Impl: IActivationSignalDetector2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateConfigurationWithResultAsync(
                 &*(&signalid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -696,7 +696,7 @@ impl IActivationSignalDetector2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateConfigurationWithResult<Impl: IActivationSignalDetector2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateConfigurationWithResult<Impl: IActivationSignalDetector2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateConfigurationWithResult(
                 &*(&signalid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -711,7 +711,7 @@ impl IActivationSignalDetector2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveConfigurationWithResultAsync<Impl: IActivationSignalDetector2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveConfigurationWithResultAsync<Impl: IActivationSignalDetector2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoveConfigurationWithResultAsync(&*(&signalid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&modelid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -722,7 +722,7 @@ impl IActivationSignalDetector2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveConfigurationWithResult<Impl: IActivationSignalDetector2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ActivationSignalDetectionConfigurationRemovalResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveConfigurationWithResult<Impl: IActivationSignalDetector2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, modelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ActivationSignalDetectionConfigurationRemovalResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoveConfigurationWithResult(&*(&signalid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&modelid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -733,7 +733,7 @@ impl IActivationSignalDetector2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DetectorId<Impl: IActivationSignalDetector2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DetectorId<Impl: IActivationSignalDetector2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DetectorId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -760,7 +760,7 @@ impl IActivationSignalDetector2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IConversationalAgentDetectorManagerImpl: Sized {
+pub trait IConversationalAgentDetectorManager_Impl: Sized {
     fn GetAllActivationSignalDetectors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>;
     fn GetAllActivationSignalDetectorsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>>;
     fn GetActivationSignalDetectors(&mut self, kind: ActivationSignalDetectorKind) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>;
@@ -771,9 +771,9 @@ impl ::windows::core::RuntimeName for IConversationalAgentDetectorManager {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IConversationalAgentDetectorManager";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IConversationalAgentDetectorManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentDetectorManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentDetectorManagerVtbl {
-        unsafe extern "system" fn GetAllActivationSignalDetectors<Impl: IConversationalAgentDetectorManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IConversationalAgentDetectorManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentDetectorManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentDetectorManager_Vtbl {
+        unsafe extern "system" fn GetAllActivationSignalDetectors<Impl: IConversationalAgentDetectorManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAllActivationSignalDetectors() {
                 ::core::result::Result::Ok(ok__) => {
@@ -784,7 +784,7 @@ impl IConversationalAgentDetectorManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAllActivationSignalDetectorsAsync<Impl: IConversationalAgentDetectorManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAllActivationSignalDetectorsAsync<Impl: IConversationalAgentDetectorManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAllActivationSignalDetectorsAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -795,7 +795,7 @@ impl IConversationalAgentDetectorManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetActivationSignalDetectors<Impl: IConversationalAgentDetectorManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kind: ActivationSignalDetectorKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetActivationSignalDetectors<Impl: IConversationalAgentDetectorManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kind: ActivationSignalDetectorKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetActivationSignalDetectors(kind) {
                 ::core::result::Result::Ok(ok__) => {
@@ -806,7 +806,7 @@ impl IConversationalAgentDetectorManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetActivationSignalDetectorsAsync<Impl: IConversationalAgentDetectorManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kind: ActivationSignalDetectorKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetActivationSignalDetectorsAsync<Impl: IConversationalAgentDetectorManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kind: ActivationSignalDetectorKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetActivationSignalDetectorsAsync(kind) {
                 ::core::result::Result::Ok(ok__) => {
@@ -830,7 +830,7 @@ impl IConversationalAgentDetectorManagerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IConversationalAgentDetectorManager2Impl: Sized {
+pub trait IConversationalAgentDetectorManager2_Impl: Sized {
     fn GetActivationSignalDetectorFromId(&mut self, detectorid: &::windows::core::HSTRING) -> ::windows::core::Result<ActivationSignalDetector>;
     fn GetActivationSignalDetectorFromIdAsync(&mut self, detectorid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetector>>;
 }
@@ -839,9 +839,9 @@ impl ::windows::core::RuntimeName for IConversationalAgentDetectorManager2 {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IConversationalAgentDetectorManager2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IConversationalAgentDetectorManager2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentDetectorManager2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentDetectorManager2Vtbl {
-        unsafe extern "system" fn GetActivationSignalDetectorFromId<Impl: IConversationalAgentDetectorManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, detectorid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IConversationalAgentDetectorManager2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentDetectorManager2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentDetectorManager2_Vtbl {
+        unsafe extern "system" fn GetActivationSignalDetectorFromId<Impl: IConversationalAgentDetectorManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, detectorid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetActivationSignalDetectorFromId(&*(&detectorid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -852,7 +852,7 @@ impl IConversationalAgentDetectorManager2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetActivationSignalDetectorFromIdAsync<Impl: IConversationalAgentDetectorManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, detectorid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetActivationSignalDetectorFromIdAsync<Impl: IConversationalAgentDetectorManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, detectorid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetActivationSignalDetectorFromIdAsync(&*(&detectorid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -874,7 +874,7 @@ impl IConversationalAgentDetectorManager2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IConversationalAgentDetectorManagerStaticsImpl: Sized {
+pub trait IConversationalAgentDetectorManagerStatics_Impl: Sized {
     fn Default(&mut self) -> ::windows::core::Result<ConversationalAgentDetectorManager>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -882,9 +882,9 @@ impl ::windows::core::RuntimeName for IConversationalAgentDetectorManagerStatics
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IConversationalAgentDetectorManagerStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IConversationalAgentDetectorManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentDetectorManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentDetectorManagerStaticsVtbl {
-        unsafe extern "system" fn Default<Impl: IConversationalAgentDetectorManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IConversationalAgentDetectorManagerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentDetectorManagerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentDetectorManagerStatics_Vtbl {
+        unsafe extern "system" fn Default<Impl: IConversationalAgentDetectorManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Default() {
                 ::core::result::Result::Ok(ok__) => {
@@ -905,7 +905,7 @@ impl IConversationalAgentDetectorManagerStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Audio", feature = "implement_exclusive"))]
-pub trait IConversationalAgentSessionImpl: Sized {
+pub trait IConversationalAgentSession_Impl: Sized {
     fn SessionInterrupted(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSessionInterruptedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSessionInterrupted(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn SignalDetected(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSignalDetectedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -946,9 +946,9 @@ impl ::windows::core::RuntimeName for IConversationalAgentSession {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSession";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Audio", feature = "implement_exclusive"))]
-impl IConversationalAgentSessionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSessionVtbl {
-        unsafe extern "system" fn SessionInterrupted<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IConversationalAgentSession_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSession_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSession_Vtbl {
+        unsafe extern "system" fn SessionInterrupted<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SessionInterrupted(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSessionInterruptedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSessionInterruptedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -959,11 +959,11 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSessionInterrupted<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSessionInterrupted<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSessionInterrupted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SignalDetected<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignalDetected<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignalDetected(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSignalDetectedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSignalDetectedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -974,11 +974,11 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSignalDetected<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSignalDetected<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSignalDetected(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SystemStateChanged<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SystemStateChanged<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemStateChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSystemStateChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSystemStateChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -989,11 +989,11 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSystemStateChanged<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSystemStateChanged<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSystemStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AgentState<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ConversationalAgentState) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AgentState<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ConversationalAgentState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AgentState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1004,7 +1004,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Signal<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Signal<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Signal() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1015,7 +1015,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsIndicatorLightAvailable<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsIndicatorLightAvailable<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsIndicatorLightAvailable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1026,7 +1026,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsScreenAvailable<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsScreenAvailable<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsScreenAvailable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1037,7 +1037,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsUserAuthenticated<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsUserAuthenticated<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsUserAuthenticated() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1048,7 +1048,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsVoiceActivationAvailable<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsVoiceActivationAvailable<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsVoiceActivationAvailable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1059,7 +1059,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsInterruptible<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsInterruptible<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsInterruptible() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1070,7 +1070,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsInterrupted<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsInterrupted<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsInterrupted() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1081,7 +1081,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestInterruptibleAsync<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interruptible: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestInterruptibleAsync<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interruptible: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestInterruptibleAsync(interruptible) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1092,7 +1092,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestInterruptible<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interruptible: bool, result__: *mut ConversationalAgentSessionUpdateResponse) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestInterruptible<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interruptible: bool, result__: *mut ConversationalAgentSessionUpdateResponse) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestInterruptible(interruptible) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1103,7 +1103,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestAgentStateChangeAsync<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: ConversationalAgentState, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestAgentStateChangeAsync<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: ConversationalAgentState, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAgentStateChangeAsync(state) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1114,7 +1114,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestAgentStateChange<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: ConversationalAgentState, result__: *mut ConversationalAgentSessionUpdateResponse) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestAgentStateChange<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: ConversationalAgentState, result__: *mut ConversationalAgentSessionUpdateResponse) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAgentStateChange(state) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1125,7 +1125,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestForegroundActivationAsync<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestForegroundActivationAsync<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestForegroundActivationAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1136,7 +1136,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestForegroundActivation<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ConversationalAgentSessionUpdateResponse) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestForegroundActivation<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ConversationalAgentSessionUpdateResponse) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestForegroundActivation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1147,7 +1147,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAudioClientAsync<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAudioClientAsync<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAudioClientAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1158,7 +1158,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAudioClient<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAudioClient<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAudioClient() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1169,7 +1169,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateAudioDeviceInputNodeAsync<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, graph: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateAudioDeviceInputNodeAsync<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, graph: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAudioDeviceInputNodeAsync(&*(&graph as *const <super::super::Media::Audio::AudioGraph as ::windows::core::Abi>::Abi as *const <super::super::Media::Audio::AudioGraph as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1180,7 +1180,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateAudioDeviceInputNode<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, graph: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateAudioDeviceInputNode<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, graph: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAudioDeviceInputNode(&*(&graph as *const <super::super::Media::Audio::AudioGraph as ::windows::core::Abi>::Abi as *const <super::super::Media::Audio::AudioGraph as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1191,7 +1191,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAudioCaptureDeviceIdAsync<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAudioCaptureDeviceIdAsync<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAudioCaptureDeviceIdAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1202,7 +1202,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAudioCaptureDeviceId<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAudioCaptureDeviceId<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAudioCaptureDeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1213,7 +1213,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAudioRenderDeviceIdAsync<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAudioRenderDeviceIdAsync<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAudioRenderDeviceIdAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1224,7 +1224,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAudioRenderDeviceId<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAudioRenderDeviceId<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAudioRenderDeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1235,7 +1235,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSignalModelIdAsync<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSignalModelIdAsync<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSignalModelIdAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1246,7 +1246,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSignalModelId<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSignalModelId<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSignalModelId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1257,7 +1257,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignalModelIdAsync<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalmodelid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSignalModelIdAsync<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalmodelid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetSignalModelIdAsync(signalmodelid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1268,7 +1268,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignalModelId<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalmodelid: u32, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSignalModelId<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signalmodelid: u32, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetSignalModelId(signalmodelid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1279,7 +1279,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSupportedSignalModelIdsAsync<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSupportedSignalModelIdsAsync<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSupportedSignalModelIdsAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1290,7 +1290,7 @@ impl IConversationalAgentSessionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSupportedSignalModelIds<Impl: IConversationalAgentSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSupportedSignalModelIds<Impl: IConversationalAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSupportedSignalModelIds() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1344,7 +1344,7 @@ impl IConversationalAgentSessionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IConversationalAgentSession2Impl: Sized {
+pub trait IConversationalAgentSession2_Impl: Sized {
     fn RequestActivationAsync(&mut self, activationkind: ConversationalAgentActivationKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentActivationResult>>;
     fn RequestActivation(&mut self, activationkind: ConversationalAgentActivationKind) -> ::windows::core::Result<ConversationalAgentActivationResult>;
     fn SetSupportLockScreenActivationAsync(&mut self, lockscreenactivationsupported: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
@@ -1357,9 +1357,9 @@ impl ::windows::core::RuntimeName for IConversationalAgentSession2 {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSession2";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IConversationalAgentSession2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSession2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSession2Vtbl {
-        unsafe extern "system" fn RequestActivationAsync<Impl: IConversationalAgentSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activationkind: ConversationalAgentActivationKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IConversationalAgentSession2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSession2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSession2_Vtbl {
+        unsafe extern "system" fn RequestActivationAsync<Impl: IConversationalAgentSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activationkind: ConversationalAgentActivationKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestActivationAsync(activationkind) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1370,7 +1370,7 @@ impl IConversationalAgentSession2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestActivation<Impl: IConversationalAgentSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activationkind: ConversationalAgentActivationKind, result__: *mut ConversationalAgentActivationResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestActivation<Impl: IConversationalAgentSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activationkind: ConversationalAgentActivationKind, result__: *mut ConversationalAgentActivationResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestActivation(activationkind) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1381,7 +1381,7 @@ impl IConversationalAgentSession2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSupportLockScreenActivationAsync<Impl: IConversationalAgentSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lockscreenactivationsupported: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSupportLockScreenActivationAsync<Impl: IConversationalAgentSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lockscreenactivationsupported: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetSupportLockScreenActivationAsync(lockscreenactivationsupported) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1392,11 +1392,11 @@ impl IConversationalAgentSession2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSupportLockScreenActivation<Impl: IConversationalAgentSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lockscreenactivationsupported: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSupportLockScreenActivation<Impl: IConversationalAgentSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lockscreenactivationsupported: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSupportLockScreenActivation(lockscreenactivationsupported).into()
         }
-        unsafe extern "system" fn GetMissingPrerequisites<Impl: IConversationalAgentSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMissingPrerequisites<Impl: IConversationalAgentSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMissingPrerequisites() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1407,7 +1407,7 @@ impl IConversationalAgentSession2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMissingPrerequisitesAsync<Impl: IConversationalAgentSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMissingPrerequisitesAsync<Impl: IConversationalAgentSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMissingPrerequisitesAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1433,14 +1433,14 @@ impl IConversationalAgentSession2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IConversationalAgentSessionInterruptedEventArgsImpl: Sized {}
+pub trait IConversationalAgentSessionInterruptedEventArgs_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IConversationalAgentSessionInterruptedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSessionInterruptedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IConversationalAgentSessionInterruptedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSessionInterruptedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSessionInterruptedEventArgsVtbl {
+impl IConversationalAgentSessionInterruptedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSessionInterruptedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSessionInterruptedEventArgs_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IConversationalAgentSessionInterruptedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1448,7 +1448,7 @@ impl IConversationalAgentSessionInterruptedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IConversationalAgentSessionStaticsImpl: Sized {
+pub trait IConversationalAgentSessionStatics_Impl: Sized {
     fn GetCurrentSessionAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSession>>;
     fn GetCurrentSessionSync(&mut self) -> ::windows::core::Result<ConversationalAgentSession>;
 }
@@ -1457,9 +1457,9 @@ impl ::windows::core::RuntimeName for IConversationalAgentSessionStatics {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSessionStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IConversationalAgentSessionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSessionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSessionStaticsVtbl {
-        unsafe extern "system" fn GetCurrentSessionAsync<Impl: IConversationalAgentSessionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IConversationalAgentSessionStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSessionStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSessionStatics_Vtbl {
+        unsafe extern "system" fn GetCurrentSessionAsync<Impl: IConversationalAgentSessionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentSessionAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1470,7 +1470,7 @@ impl IConversationalAgentSessionStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentSessionSync<Impl: IConversationalAgentSessionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentSessionSync<Impl: IConversationalAgentSessionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentSessionSync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1492,7 +1492,7 @@ impl IConversationalAgentSessionStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IConversationalAgentSignalImpl: Sized {
+pub trait IConversationalAgentSignal_Impl: Sized {
     fn IsSignalVerificationRequired(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsSignalVerificationRequired(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn SignalId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1511,9 +1511,9 @@ impl ::windows::core::RuntimeName for IConversationalAgentSignal {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSignal";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IConversationalAgentSignalVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSignalImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSignalVtbl {
-        unsafe extern "system" fn IsSignalVerificationRequired<Impl: IConversationalAgentSignalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IConversationalAgentSignal_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSignal_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSignal_Vtbl {
+        unsafe extern "system" fn IsSignalVerificationRequired<Impl: IConversationalAgentSignal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSignalVerificationRequired() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1524,11 +1524,11 @@ impl IConversationalAgentSignalVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsSignalVerificationRequired<Impl: IConversationalAgentSignalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsSignalVerificationRequired<Impl: IConversationalAgentSignal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsSignalVerificationRequired(value).into()
         }
-        unsafe extern "system" fn SignalId<Impl: IConversationalAgentSignalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignalId<Impl: IConversationalAgentSignal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignalId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1539,11 +1539,11 @@ impl IConversationalAgentSignalVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignalId<Impl: IConversationalAgentSignalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSignalId<Impl: IConversationalAgentSignal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSignalId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SignalName<Impl: IConversationalAgentSignalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignalName<Impl: IConversationalAgentSignal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignalName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1554,11 +1554,11 @@ impl IConversationalAgentSignalVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignalName<Impl: IConversationalAgentSignalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSignalName<Impl: IConversationalAgentSignal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSignalName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SignalContext<Impl: IConversationalAgentSignalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignalContext<Impl: IConversationalAgentSignal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignalContext() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1569,11 +1569,11 @@ impl IConversationalAgentSignalVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignalContext<Impl: IConversationalAgentSignalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSignalContext<Impl: IConversationalAgentSignal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSignalContext(&*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SignalStart<Impl: IConversationalAgentSignalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignalStart<Impl: IConversationalAgentSignal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignalStart() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1584,11 +1584,11 @@ impl IConversationalAgentSignalVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignalStart<Impl: IConversationalAgentSignalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSignalStart<Impl: IConversationalAgentSignal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSignalStart(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SignalEnd<Impl: IConversationalAgentSignalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignalEnd<Impl: IConversationalAgentSignal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignalEnd() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1599,7 +1599,7 @@ impl IConversationalAgentSignalVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignalEnd<Impl: IConversationalAgentSignalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSignalEnd<Impl: IConversationalAgentSignal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSignalEnd(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1624,7 +1624,7 @@ impl IConversationalAgentSignalVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IConversationalAgentSignal2Impl: Sized {
+pub trait IConversationalAgentSignal2_Impl: Sized {
     fn DetectorId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DetectorKind(&mut self) -> ::windows::core::Result<ActivationSignalDetectorKind>;
 }
@@ -1633,9 +1633,9 @@ impl ::windows::core::RuntimeName for IConversationalAgentSignal2 {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSignal2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IConversationalAgentSignal2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSignal2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSignal2Vtbl {
-        unsafe extern "system" fn DetectorId<Impl: IConversationalAgentSignal2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IConversationalAgentSignal2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSignal2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSignal2_Vtbl {
+        unsafe extern "system" fn DetectorId<Impl: IConversationalAgentSignal2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DetectorId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1646,7 +1646,7 @@ impl IConversationalAgentSignal2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DetectorKind<Impl: IConversationalAgentSignal2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ActivationSignalDetectorKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DetectorKind<Impl: IConversationalAgentSignal2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ActivationSignalDetectorKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DetectorKind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1668,14 +1668,14 @@ impl IConversationalAgentSignal2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IConversationalAgentSignalDetectedEventArgsImpl: Sized {}
+pub trait IConversationalAgentSignalDetectedEventArgs_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IConversationalAgentSignalDetectedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSignalDetectedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IConversationalAgentSignalDetectedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSignalDetectedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSignalDetectedEventArgsVtbl {
+impl IConversationalAgentSignalDetectedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSignalDetectedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSignalDetectedEventArgs_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IConversationalAgentSignalDetectedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1683,7 +1683,7 @@ impl IConversationalAgentSignalDetectedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IConversationalAgentSystemStateChangedEventArgsImpl: Sized {
+pub trait IConversationalAgentSystemStateChangedEventArgs_Impl: Sized {
     fn SystemStateChangeType(&mut self) -> ::windows::core::Result<ConversationalAgentSystemStateChangeType>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1691,9 +1691,9 @@ impl ::windows::core::RuntimeName for IConversationalAgentSystemStateChangedEven
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSystemStateChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IConversationalAgentSystemStateChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSystemStateChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSystemStateChangedEventArgsVtbl {
-        unsafe extern "system" fn SystemStateChangeType<Impl: IConversationalAgentSystemStateChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ConversationalAgentSystemStateChangeType) -> ::windows::core::HRESULT {
+impl IConversationalAgentSystemStateChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConversationalAgentSystemStateChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConversationalAgentSystemStateChangedEventArgs_Vtbl {
+        unsafe extern "system" fn SystemStateChangeType<Impl: IConversationalAgentSystemStateChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ConversationalAgentSystemStateChangeType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemStateChangeType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1714,7 +1714,7 @@ impl IConversationalAgentSystemStateChangedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDetectionConfigurationAvailabilityChangedEventArgsImpl: Sized {
+pub trait IDetectionConfigurationAvailabilityChangedEventArgs_Impl: Sized {
     fn Kind(&mut self) -> ::windows::core::Result<DetectionConfigurationAvailabilityChangeKind>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1722,9 +1722,9 @@ impl ::windows::core::RuntimeName for IDetectionConfigurationAvailabilityChanged
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IDetectionConfigurationAvailabilityChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDetectionConfigurationAvailabilityChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDetectionConfigurationAvailabilityChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDetectionConfigurationAvailabilityChangedEventArgsVtbl {
-        unsafe extern "system" fn Kind<Impl: IDetectionConfigurationAvailabilityChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DetectionConfigurationAvailabilityChangeKind) -> ::windows::core::HRESULT {
+impl IDetectionConfigurationAvailabilityChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDetectionConfigurationAvailabilityChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDetectionConfigurationAvailabilityChangedEventArgs_Vtbl {
+        unsafe extern "system" fn Kind<Impl: IDetectionConfigurationAvailabilityChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DetectionConfigurationAvailabilityChangeKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1745,7 +1745,7 @@ impl IDetectionConfigurationAvailabilityChangedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDetectionConfigurationAvailabilityInfoImpl: Sized {
+pub trait IDetectionConfigurationAvailabilityInfo_Impl: Sized {
     fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn HasSystemResourceAccess(&mut self) -> ::windows::core::Result<bool>;
     fn HasPermission(&mut self) -> ::windows::core::Result<bool>;
@@ -1756,9 +1756,9 @@ impl ::windows::core::RuntimeName for IDetectionConfigurationAvailabilityInfo {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IDetectionConfigurationAvailabilityInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDetectionConfigurationAvailabilityInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDetectionConfigurationAvailabilityInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDetectionConfigurationAvailabilityInfoVtbl {
-        unsafe extern "system" fn IsEnabled<Impl: IDetectionConfigurationAvailabilityInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IDetectionConfigurationAvailabilityInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDetectionConfigurationAvailabilityInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDetectionConfigurationAvailabilityInfo_Vtbl {
+        unsafe extern "system" fn IsEnabled<Impl: IDetectionConfigurationAvailabilityInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1769,7 +1769,7 @@ impl IDetectionConfigurationAvailabilityInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasSystemResourceAccess<Impl: IDetectionConfigurationAvailabilityInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasSystemResourceAccess<Impl: IDetectionConfigurationAvailabilityInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasSystemResourceAccess() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1780,7 +1780,7 @@ impl IDetectionConfigurationAvailabilityInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasPermission<Impl: IDetectionConfigurationAvailabilityInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasPermission<Impl: IDetectionConfigurationAvailabilityInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasPermission() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1791,7 +1791,7 @@ impl IDetectionConfigurationAvailabilityInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasLockScreenPermission<Impl: IDetectionConfigurationAvailabilityInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasLockScreenPermission<Impl: IDetectionConfigurationAvailabilityInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasLockScreenPermission() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1815,7 +1815,7 @@ impl IDetectionConfigurationAvailabilityInfoVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IDetectionConfigurationAvailabilityInfo2Impl: Sized {
+pub trait IDetectionConfigurationAvailabilityInfo2_Impl: Sized {
     fn UnavailableSystemResources(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SignalDetectorResourceKind>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -1823,9 +1823,9 @@ impl ::windows::core::RuntimeName for IDetectionConfigurationAvailabilityInfo2 {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.IDetectionConfigurationAvailabilityInfo2";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IDetectionConfigurationAvailabilityInfo2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDetectionConfigurationAvailabilityInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDetectionConfigurationAvailabilityInfo2Vtbl {
-        unsafe extern "system" fn UnavailableSystemResources<Impl: IDetectionConfigurationAvailabilityInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDetectionConfigurationAvailabilityInfo2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDetectionConfigurationAvailabilityInfo2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDetectionConfigurationAvailabilityInfo2_Vtbl {
+        unsafe extern "system" fn UnavailableSystemResources<Impl: IDetectionConfigurationAvailabilityInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnavailableSystemResources() {
                 ::core::result::Result::Ok(ok__) => {

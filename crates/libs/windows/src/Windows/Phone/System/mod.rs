@@ -9,12 +9,12 @@ pub mod UserProfile;
 #[repr(transparent)]
 pub struct ISystemProtectionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemProtectionStatics {
-    type Vtable = ISystemProtectionStaticsVtbl;
+    type Vtable = ISystemProtectionStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49c36560_97e1_4d99_8bfb_befeaa6ace6d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISystemProtectionStaticsVtbl {
+pub struct ISystemProtectionStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ScreenLocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -22,12 +22,12 @@ pub struct ISystemProtectionStaticsVtbl {
 #[repr(transparent)]
 pub struct ISystemProtectionUnlockStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISystemProtectionUnlockStatics {
-    type Vtable = ISystemProtectionUnlockStaticsVtbl;
+    type Vtable = ISystemProtectionUnlockStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0692fa3f_8f11_4c4b_aa0d_87d7af7b1779);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISystemProtectionUnlockStaticsVtbl {
+pub struct ISystemProtectionUnlockStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RequestScreenUnlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }

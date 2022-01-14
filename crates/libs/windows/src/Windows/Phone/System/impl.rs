@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait ISystemProtectionStaticsImpl: Sized {
+pub trait ISystemProtectionStatics_Impl: Sized {
     fn ScreenLocked(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7,9 +7,9 @@ impl ::windows::core::RuntimeName for ISystemProtectionStatics {
     const NAME: &'static str = "Windows.Phone.System.ISystemProtectionStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISystemProtectionStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemProtectionStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemProtectionStaticsVtbl {
-        unsafe extern "system" fn ScreenLocked<Impl: ISystemProtectionStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ISystemProtectionStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemProtectionStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemProtectionStatics_Vtbl {
+        unsafe extern "system" fn ScreenLocked<Impl: ISystemProtectionStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScreenLocked() {
                 ::core::result::Result::Ok(ok__) => {
@@ -30,7 +30,7 @@ impl ISystemProtectionStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISystemProtectionUnlockStaticsImpl: Sized {
+pub trait ISystemProtectionUnlockStatics_Impl: Sized {
     fn RequestScreenUnlock(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -38,9 +38,9 @@ impl ::windows::core::RuntimeName for ISystemProtectionUnlockStatics {
     const NAME: &'static str = "Windows.Phone.System.ISystemProtectionUnlockStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISystemProtectionUnlockStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemProtectionUnlockStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemProtectionUnlockStaticsVtbl {
-        unsafe extern "system" fn RequestScreenUnlock<Impl: ISystemProtectionUnlockStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl ISystemProtectionUnlockStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemProtectionUnlockStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemProtectionUnlockStatics_Vtbl {
+        unsafe extern "system" fn RequestScreenUnlock<Impl: ISystemProtectionUnlockStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RequestScreenUnlock().into()
         }

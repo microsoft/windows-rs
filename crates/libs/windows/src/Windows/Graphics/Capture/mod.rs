@@ -56,7 +56,7 @@ unsafe impl ::windows::core::RuntimeType for Direct3D11CaptureFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.Direct3D11CaptureFrame;{fa50c623-38da-4b32-acf3-fa9734ad800e})");
 }
 unsafe impl ::windows::core::Interface for Direct3D11CaptureFrame {
-    type Vtable = IDirect3D11CaptureFrameVtbl;
+    type Vtable = IDirect3D11CaptureFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa50c623_38da_4b32_acf3_fa9734ad800e);
 }
 impl ::windows::core::RuntimeName for Direct3D11CaptureFrame {
@@ -233,7 +233,7 @@ unsafe impl ::windows::core::RuntimeType for Direct3D11CaptureFramePool {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.Direct3D11CaptureFramePool;{24eb6d22-1975-422e-82e7-780dbd8ddf24})");
 }
 unsafe impl ::windows::core::Interface for Direct3D11CaptureFramePool {
-    type Vtable = IDirect3D11CaptureFramePoolVtbl;
+    type Vtable = IDirect3D11CaptureFramePool_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24eb6d22_1975_422e_82e7_780dbd8ddf24);
 }
 impl ::windows::core::RuntimeName for Direct3D11CaptureFramePool {
@@ -449,7 +449,7 @@ unsafe impl ::windows::core::RuntimeType for GraphicsCaptureItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.GraphicsCaptureItem;{79c3f95b-31f7-4ec2-a464-632ef5d30760})");
 }
 unsafe impl ::windows::core::Interface for GraphicsCaptureItem {
-    type Vtable = IGraphicsCaptureItemVtbl;
+    type Vtable = IGraphicsCaptureItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79c3f95b_31f7_4ec2_a464_632ef5d30760);
 }
 impl ::windows::core::RuntimeName for GraphicsCaptureItem {
@@ -538,7 +538,7 @@ unsafe impl ::windows::core::RuntimeType for GraphicsCapturePicker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.GraphicsCapturePicker;{5a1711b3-ad79-4b4a-9336-1318fdde3539})");
 }
 unsafe impl ::windows::core::Interface for GraphicsCapturePicker {
-    type Vtable = IGraphicsCapturePickerVtbl;
+    type Vtable = IGraphicsCapturePicker_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a1711b3_ad79_4b4a_9336_1318fdde3539);
 }
 impl ::windows::core::RuntimeName for GraphicsCapturePicker {
@@ -660,7 +660,7 @@ unsafe impl ::windows::core::RuntimeType for GraphicsCaptureSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.GraphicsCaptureSession;{814e42a9-f70f-4ad7-939b-fddcc6eb880d})");
 }
 unsafe impl ::windows::core::Interface for GraphicsCaptureSession {
-    type Vtable = IGraphicsCaptureSessionVtbl;
+    type Vtable = IGraphicsCaptureSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x814e42a9_f70f_4ad7_939b_fddcc6eb880d);
 }
 impl ::windows::core::RuntimeName for GraphicsCaptureSession {
@@ -738,12 +738,12 @@ unsafe impl ::core::marker::Sync for GraphicsCaptureSession {}
 #[repr(transparent)]
 pub struct IDirect3D11CaptureFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDirect3D11CaptureFrame {
-    type Vtable = IDirect3D11CaptureFrameVtbl;
+    type Vtable = IDirect3D11CaptureFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa50c623_38da_4b32_acf3_fa9734ad800e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirect3D11CaptureFrameVtbl {
+pub struct IDirect3D11CaptureFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub Surface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -759,12 +759,12 @@ pub struct IDirect3D11CaptureFrameVtbl {
 #[repr(transparent)]
 pub struct IDirect3D11CaptureFramePool(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDirect3D11CaptureFramePool {
-    type Vtable = IDirect3D11CaptureFramePoolVtbl;
+    type Vtable = IDirect3D11CaptureFramePool_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24eb6d22_1975_422e_82e7_780dbd8ddf24);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirect3D11CaptureFramePoolVtbl {
+pub struct IDirect3D11CaptureFramePool_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11"))]
     pub Recreate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, device: ::windows::core::RawPtr, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32) -> ::windows::core::HRESULT,
@@ -789,12 +789,12 @@ pub struct IDirect3D11CaptureFramePoolVtbl {
 #[repr(transparent)]
 pub struct IDirect3D11CaptureFramePoolStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDirect3D11CaptureFramePoolStatics {
-    type Vtable = IDirect3D11CaptureFramePoolStaticsVtbl;
+    type Vtable = IDirect3D11CaptureFramePoolStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7784056a_67aa_4d53_ae54_1088d5a8ca21);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirect3D11CaptureFramePoolStaticsVtbl {
+pub struct IDirect3D11CaptureFramePoolStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11"))]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, device: ::windows::core::RawPtr, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -805,12 +805,12 @@ pub struct IDirect3D11CaptureFramePoolStaticsVtbl {
 #[repr(transparent)]
 pub struct IDirect3D11CaptureFramePoolStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDirect3D11CaptureFramePoolStatics2 {
-    type Vtable = IDirect3D11CaptureFramePoolStatics2Vtbl;
+    type Vtable = IDirect3D11CaptureFramePoolStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x589b103f_6bbc_5df5_a991_02e28b3b66d5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirect3D11CaptureFramePoolStatics2Vtbl {
+pub struct IDirect3D11CaptureFramePoolStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11"))]
     pub CreateFreeThreaded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, device: ::windows::core::RawPtr, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -821,12 +821,12 @@ pub struct IDirect3D11CaptureFramePoolStatics2Vtbl {
 #[repr(transparent)]
 pub struct IGraphicsCaptureAccessStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGraphicsCaptureAccessStatics {
-    type Vtable = IGraphicsCaptureAccessStaticsVtbl;
+    type Vtable = IGraphicsCaptureAccessStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x743ed370_06ec_5040_a58a_901f0f757095);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGraphicsCaptureAccessStaticsVtbl {
+pub struct IGraphicsCaptureAccessStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Security_Authorization_AppCapabilityAccess"))]
     pub RequestAccessAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: GraphicsCaptureAccessKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -837,12 +837,12 @@ pub struct IGraphicsCaptureAccessStaticsVtbl {
 #[repr(transparent)]
 pub struct IGraphicsCaptureItem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGraphicsCaptureItem {
-    type Vtable = IGraphicsCaptureItemVtbl;
+    type Vtable = IGraphicsCaptureItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79c3f95b_31f7_4ec2_a464_632ef5d30760);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGraphicsCaptureItemVtbl {
+pub struct IGraphicsCaptureItem_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::SizeInt32) -> ::windows::core::HRESULT,
@@ -859,12 +859,12 @@ pub struct IGraphicsCaptureItemVtbl {
 #[repr(transparent)]
 pub struct IGraphicsCaptureItemStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGraphicsCaptureItemStatics {
-    type Vtable = IGraphicsCaptureItemStaticsVtbl;
+    type Vtable = IGraphicsCaptureItemStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa87ebea5_457c_5788_ab47_0cf1d3637e74);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGraphicsCaptureItemStaticsVtbl {
+pub struct IGraphicsCaptureItemStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Composition")]
     pub CreateFromVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -875,12 +875,12 @@ pub struct IGraphicsCaptureItemStaticsVtbl {
 #[repr(transparent)]
 pub struct IGraphicsCaptureItemStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGraphicsCaptureItemStatics2 {
-    type Vtable = IGraphicsCaptureItemStatics2Vtbl;
+    type Vtable = IGraphicsCaptureItemStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b92acc9_e584_5862_bf5c_9c316c6d2dbb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGraphicsCaptureItemStatics2Vtbl {
+pub struct IGraphicsCaptureItemStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI")]
     pub TryCreateFromWindowId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windowid: super::super::UI::WindowId, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -892,12 +892,12 @@ pub struct IGraphicsCaptureItemStatics2Vtbl {
 #[repr(transparent)]
 pub struct IGraphicsCapturePicker(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGraphicsCapturePicker {
-    type Vtable = IGraphicsCapturePickerVtbl;
+    type Vtable = IGraphicsCapturePicker_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a1711b3_ad79_4b4a_9336_1318fdde3539);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGraphicsCapturePickerVtbl {
+pub struct IGraphicsCapturePicker_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub PickSingleItemAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -908,12 +908,12 @@ pub struct IGraphicsCapturePickerVtbl {
 #[repr(transparent)]
 pub struct IGraphicsCaptureSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGraphicsCaptureSession {
-    type Vtable = IGraphicsCaptureSessionVtbl;
+    type Vtable = IGraphicsCaptureSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x814e42a9_f70f_4ad7_939b_fddcc6eb880d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGraphicsCaptureSessionVtbl {
+pub struct IGraphicsCaptureSession_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub StartCapture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -921,12 +921,12 @@ pub struct IGraphicsCaptureSessionVtbl {
 #[repr(transparent)]
 pub struct IGraphicsCaptureSession2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGraphicsCaptureSession2 {
-    type Vtable = IGraphicsCaptureSession2Vtbl;
+    type Vtable = IGraphicsCaptureSession2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c39ae40_7d2e_5044_804e_8b6799d4cf9e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGraphicsCaptureSession2Vtbl {
+pub struct IGraphicsCaptureSession2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsCursorCaptureEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsCursorCaptureEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -935,12 +935,12 @@ pub struct IGraphicsCaptureSession2Vtbl {
 #[repr(transparent)]
 pub struct IGraphicsCaptureSession3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGraphicsCaptureSession3 {
-    type Vtable = IGraphicsCaptureSession3Vtbl;
+    type Vtable = IGraphicsCaptureSession3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2cdd966_22ae_5ea1_9596_3a289344c3be);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGraphicsCaptureSession3Vtbl {
+pub struct IGraphicsCaptureSession3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsBorderRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsBorderRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -949,12 +949,12 @@ pub struct IGraphicsCaptureSession3Vtbl {
 #[repr(transparent)]
 pub struct IGraphicsCaptureSessionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGraphicsCaptureSessionStatics {
-    type Vtable = IGraphicsCaptureSessionStaticsVtbl;
+    type Vtable = IGraphicsCaptureSessionStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2224a540_5974_49aa_b232_0882536f4cb5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGraphicsCaptureSessionStaticsVtbl {
+pub struct IGraphicsCaptureSessionStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }

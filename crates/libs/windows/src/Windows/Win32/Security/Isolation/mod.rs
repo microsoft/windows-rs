@@ -156,12 +156,12 @@ impl ::core::fmt::Debug for IIsolatedAppLauncher {
     }
 }
 unsafe impl ::windows::core::Interface for IIsolatedAppLauncher {
-    type Vtable = IIsolatedAppLauncherVtbl;
+    type Vtable = IIsolatedAppLauncher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf686878f_7b42_4cc4_96fb_f4f3b6e3d24d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIsolatedAppLauncherVtbl {
+pub struct IIsolatedAppLauncher_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Launch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appusermodelid: super::super::Foundation::PWSTR, arguments: super::super::Foundation::PWSTR, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> ::windows::core::HRESULT,

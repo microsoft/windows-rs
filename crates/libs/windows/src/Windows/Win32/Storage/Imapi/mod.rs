@@ -140,14 +140,14 @@ impl ::core::fmt::Debug for DDiscFormat2DataEvents {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for DDiscFormat2DataEvents {
-    type Vtable = DDiscFormat2DataEventsVtbl;
+    type Vtable = DDiscFormat2DataEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2735413c_7f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct DDiscFormat2DataEventsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct DDiscFormat2DataEvents_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr, progress: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -257,14 +257,14 @@ impl ::core::fmt::Debug for DDiscFormat2EraseEvents {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for DDiscFormat2EraseEvents {
-    type Vtable = DDiscFormat2EraseEventsVtbl;
+    type Vtable = DDiscFormat2EraseEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2735413a_7f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct DDiscFormat2EraseEventsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct DDiscFormat2EraseEvents_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr, elapsedseconds: i32, estimatedtotalseconds: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -374,14 +374,14 @@ impl ::core::fmt::Debug for DDiscFormat2RawCDEvents {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for DDiscFormat2RawCDEvents {
-    type Vtable = DDiscFormat2RawCDEventsVtbl;
+    type Vtable = DDiscFormat2RawCDEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354142_7f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct DDiscFormat2RawCDEventsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct DDiscFormat2RawCDEvents_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr, progress: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -491,14 +491,14 @@ impl ::core::fmt::Debug for DDiscFormat2TrackAtOnceEvents {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for DDiscFormat2TrackAtOnceEvents {
-    type Vtable = DDiscFormat2TrackAtOnceEventsVtbl;
+    type Vtable = DDiscFormat2TrackAtOnceEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2735413f_7f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct DDiscFormat2TrackAtOnceEventsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct DDiscFormat2TrackAtOnceEvents_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr, progress: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -613,14 +613,14 @@ impl ::core::fmt::Debug for DDiscMaster2Events {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for DDiscMaster2Events {
-    type Vtable = DDiscMaster2EventsVtbl;
+    type Vtable = DDiscMaster2Events_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354131_7f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct DDiscMaster2EventsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct DDiscMaster2Events_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub NotifyDeviceAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr, uniqueid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -734,14 +734,14 @@ impl ::core::fmt::Debug for DFileSystemImageEvents {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for DFileSystemImageEvents {
-    type Vtable = DFileSystemImageEventsVtbl;
+    type Vtable = DFileSystemImageEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fdf_975b_59be_a960_9a2a262853a5);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct DFileSystemImageEventsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct DFileSystemImageEvents_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr, currentfile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, copiedsectors: i32, totalsectors: i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -851,14 +851,14 @@ impl ::core::fmt::Debug for DFileSystemImageImportEvents {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for DFileSystemImageImportEvents {
-    type Vtable = DFileSystemImageImportEventsVtbl;
+    type Vtable = DFileSystemImageImportEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd25c30f9_4087_4366_9e24_e55be286424b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct DFileSystemImageImportEventsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct DFileSystemImageImportEvents_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub UpdateImport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr, filesystem: FsiFileSystems, currentitem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -1320,14 +1320,14 @@ impl ::core::fmt::Debug for DWriteEngine2Events {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for DWriteEngine2Events {
-    type Vtable = DWriteEngine2EventsVtbl;
+    type Vtable = DWriteEngine2Events_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354137_7f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct DWriteEngine2EventsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct DWriteEngine2Events_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr, progress: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1498,14 +1498,14 @@ impl ::core::fmt::Debug for IBlockRange {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IBlockRange {
-    type Vtable = IBlockRangeVtbl;
+    type Vtable = IBlockRange_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb507ca25_2204_11dd_966a_001aa01bbc58);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBlockRangeVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IBlockRange_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub StartLba: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub EndLba: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 }
@@ -1614,14 +1614,14 @@ impl ::core::fmt::Debug for IBlockRangeList {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IBlockRangeList {
-    type Vtable = IBlockRangeListVtbl;
+    type Vtable = IBlockRangeList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb507ca26_2204_11dd_966a_001aa01bbc58);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBlockRangeListVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IBlockRangeList_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub BlockRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1771,14 +1771,14 @@ impl ::core::fmt::Debug for IBootOptions {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IBootOptions {
-    type Vtable = IBootOptionsVtbl;
+    type Vtable = IBootOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fd4_975b_59be_a960_9a2a262853a5);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBootOptionsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IBootOptions_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub BootImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1852,12 +1852,12 @@ impl ::core::fmt::Debug for IBurnVerification {
     }
 }
 unsafe impl ::windows::core::Interface for IBurnVerification {
-    type Vtable = IBurnVerificationVtbl;
+    type Vtable = IBurnVerification_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ffd834_958b_426d_8470_2a13879c6a91);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBurnVerificationVtbl {
+pub struct IBurnVerification_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetBurnVerificationLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: IMAPI_BURN_VERIFICATION_LEVEL) -> ::windows::core::HRESULT,
     pub BurnVerificationLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut IMAPI_BURN_VERIFICATION_LEVEL) -> ::windows::core::HRESULT,
@@ -1989,14 +1989,14 @@ impl ::core::fmt::Debug for IDiscFormat2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IDiscFormat2 {
-    type Vtable = IDiscFormat2Vtbl;
+    type Vtable = IDiscFormat2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354152_8f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiscFormat2Vtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IDiscFormat2_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub IsRecorderSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recorder: ::windows::core::RawPtr, value: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2321,14 +2321,14 @@ impl ::core::fmt::Debug for IDiscFormat2Data {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IDiscFormat2Data {
-    type Vtable = IDiscFormat2DataVtbl;
+    type Vtable = IDiscFormat2Data_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354153_9f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiscFormat2DataVtbl {
-    pub base: IDiscFormat2Vtbl,
+pub struct IDiscFormat2Data_Vtbl {
+    pub base: IDiscFormat2_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub SetRecorder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2564,14 +2564,14 @@ impl ::core::fmt::Debug for IDiscFormat2DataEventArgs {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IDiscFormat2DataEventArgs {
-    type Vtable = IDiscFormat2DataEventArgsVtbl;
+    type Vtable = IDiscFormat2DataEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2735413d_7f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiscFormat2DataEventArgsVtbl {
-    pub base: IWriteEngine2EventArgsVtbl,
+pub struct IDiscFormat2DataEventArgs_Vtbl {
+    pub base: IWriteEngine2EventArgs_Vtbl,
     pub ElapsedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub RemainingTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub TotalTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
@@ -2768,14 +2768,14 @@ impl ::core::fmt::Debug for IDiscFormat2Erase {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IDiscFormat2Erase {
-    type Vtable = IDiscFormat2EraseVtbl;
+    type Vtable = IDiscFormat2Erase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354156_8f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiscFormat2EraseVtbl {
-    pub base: IDiscFormat2Vtbl,
+pub struct IDiscFormat2Erase_Vtbl {
+    pub base: IDiscFormat2_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub SetRecorder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3067,14 +3067,14 @@ impl ::core::fmt::Debug for IDiscFormat2RawCD {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IDiscFormat2RawCD {
-    type Vtable = IDiscFormat2RawCDVtbl;
+    type Vtable = IDiscFormat2RawCD_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354155_8f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiscFormat2RawCDVtbl {
-    pub base: IDiscFormat2Vtbl,
+pub struct IDiscFormat2RawCD_Vtbl {
+    pub base: IDiscFormat2_Vtbl,
     pub PrepareMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub WriteMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3300,14 +3300,14 @@ impl ::core::fmt::Debug for IDiscFormat2RawCDEventArgs {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IDiscFormat2RawCDEventArgs {
-    type Vtable = IDiscFormat2RawCDEventArgsVtbl;
+    type Vtable = IDiscFormat2RawCDEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354143_7f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiscFormat2RawCDEventArgsVtbl {
-    pub base: IWriteEngine2EventArgsVtbl,
+pub struct IDiscFormat2RawCDEventArgs_Vtbl {
+    pub base: IWriteEngine2EventArgs_Vtbl,
     pub CurrentAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut IMAPI_FORMAT2_RAW_CD_WRITE_ACTION) -> ::windows::core::HRESULT,
     pub ElapsedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub RemainingTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
@@ -3587,14 +3587,14 @@ impl ::core::fmt::Debug for IDiscFormat2TrackAtOnce {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IDiscFormat2TrackAtOnce {
-    type Vtable = IDiscFormat2TrackAtOnceVtbl;
+    type Vtable = IDiscFormat2TrackAtOnce_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354154_8f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiscFormat2TrackAtOnceVtbl {
-    pub base: IDiscFormat2Vtbl,
+pub struct IDiscFormat2TrackAtOnce_Vtbl {
+    pub base: IDiscFormat2_Vtbl,
     pub PrepareMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub AddAudioTrack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3823,14 +3823,14 @@ impl ::core::fmt::Debug for IDiscFormat2TrackAtOnceEventArgs {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IDiscFormat2TrackAtOnceEventArgs {
-    type Vtable = IDiscFormat2TrackAtOnceEventArgsVtbl;
+    type Vtable = IDiscFormat2TrackAtOnceEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354140_7f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiscFormat2TrackAtOnceEventArgsVtbl {
-    pub base: IWriteEngine2EventArgsVtbl,
+pub struct IDiscFormat2TrackAtOnceEventArgs_Vtbl {
+    pub base: IWriteEngine2EventArgs_Vtbl,
     pub CurrentTrackNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub CurrentAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut IMAPI_FORMAT2_TAO_WRITE_ACTION) -> ::windows::core::HRESULT,
     pub ElapsedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
@@ -3931,12 +3931,12 @@ impl ::core::fmt::Debug for IDiscMaster {
     }
 }
 unsafe impl ::windows::core::Interface for IDiscMaster {
-    type Vtable = IDiscMasterVtbl;
+    type Vtable = IDiscMaster_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x520cca62_51a5_11d3_9144_00104ba11c5e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiscMasterVtbl {
+pub struct IDiscMaster_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumDiscMasterFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4072,14 +4072,14 @@ impl ::core::fmt::Debug for IDiscMaster2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IDiscMaster2 {
-    type Vtable = IDiscMaster2Vtbl;
+    type Vtable = IDiscMaster2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354130_7f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiscMaster2Vtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IDiscMaster2_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Ole")]
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
@@ -4170,12 +4170,12 @@ impl ::core::fmt::Debug for IDiscMasterProgressEvents {
     }
 }
 unsafe impl ::windows::core::Interface for IDiscMasterProgressEvents {
-    type Vtable = IDiscMasterProgressEventsVtbl;
+    type Vtable = IDiscMasterProgressEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec9e51c1_4e5d_11d3_9144_00104ba11c5e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiscMasterProgressEventsVtbl {
+pub struct IDiscMasterProgressEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub QueryCancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbcancel: *mut u8) -> ::windows::core::HRESULT,
     pub NotifyPnPActivity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4299,12 +4299,12 @@ impl ::core::fmt::Debug for IDiscRecorder {
     }
 }
 unsafe impl ::windows::core::Interface for IDiscRecorder {
-    type Vtable = IDiscRecorderVtbl;
+    type Vtable = IDiscRecorder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85ac9776_ca88_4cf2_894e_09598c078a41);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiscRecorderVtbl {
+pub struct IDiscRecorder_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbyuniqueid: *const u8, nulidsize: u32, nuldrivenumber: u32) -> ::windows::core::HRESULT,
     pub GetRecorderGUID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbyuniqueid: *mut u8, ulbuffersize: u32, pulreturnsizerequired: *mut u32) -> ::windows::core::HRESULT,
@@ -4548,14 +4548,14 @@ impl ::core::fmt::Debug for IDiscRecorder2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IDiscRecorder2 {
-    type Vtable = IDiscRecorder2Vtbl;
+    type Vtable = IDiscRecorder2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354133_7f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiscRecorder2Vtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IDiscRecorder2_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub EjectMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CloseTray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -4740,12 +4740,12 @@ impl ::core::fmt::Debug for IDiscRecorder2Ex {
     }
 }
 unsafe impl ::windows::core::Interface for IDiscRecorder2Ex {
-    type Vtable = IDiscRecorder2ExVtbl;
+    type Vtable = IDiscRecorder2Ex_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354132_7f64_5b0f_8f00_5d77afbe261e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiscRecorder2ExVtbl {
+pub struct IDiscRecorder2Ex_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SendCommandNoData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32) -> ::windows::core::HRESULT,
     pub SendCommandSendDataToDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *const u8, buffersize: u32) -> ::windows::core::HRESULT,
@@ -4834,12 +4834,12 @@ impl ::core::fmt::Debug for IEnumDiscMasterFormats {
     }
 }
 unsafe impl ::windows::core::Interface for IEnumDiscMasterFormats {
-    type Vtable = IEnumDiscMasterFormatsVtbl;
+    type Vtable = IEnumDiscMasterFormats_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddf445e1_54ba_11d3_9144_00104ba11c5e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumDiscMasterFormatsVtbl {
+pub struct IEnumDiscMasterFormats_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cformats: u32, lpiidformatid: *mut ::windows::core::GUID, pcfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cformats: u32) -> ::windows::core::HRESULT,
@@ -4905,12 +4905,12 @@ impl ::core::fmt::Debug for IEnumDiscRecorders {
     }
 }
 unsafe impl ::windows::core::Interface for IEnumDiscRecorders {
-    type Vtable = IEnumDiscRecordersVtbl;
+    type Vtable = IEnumDiscRecorders_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b1921e1_54ac_11d3_9144_00104ba11c5e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumDiscRecordersVtbl {
+pub struct IEnumDiscRecorders_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crecorders: u32, pprecorder: *mut ::windows::core::RawPtr, pcfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crecorders: u32) -> ::windows::core::HRESULT,
@@ -4977,12 +4977,12 @@ impl ::core::fmt::Debug for IEnumFsiItems {
     }
 }
 unsafe impl ::windows::core::Interface for IEnumFsiItems {
-    type Vtable = IEnumFsiItemsVtbl;
+    type Vtable = IEnumFsiItems_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fda_975b_59be_a960_9a2a262853a5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumFsiItemsVtbl {
+pub struct IEnumFsiItems_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
@@ -5052,12 +5052,12 @@ impl ::core::fmt::Debug for IEnumProgressItems {
     }
 }
 unsafe impl ::windows::core::Interface for IEnumProgressItems {
-    type Vtable = IEnumProgressItemsVtbl;
+    type Vtable = IEnumProgressItems_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fd6_975b_59be_a960_9a2a262853a5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumProgressItemsVtbl {
+pub struct IEnumProgressItems_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
@@ -5421,14 +5421,14 @@ impl ::core::fmt::Debug for IFileSystemImage {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFileSystemImage {
-    type Vtable = IFileSystemImageVtbl;
+    type Vtable = IFileSystemImage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fe1_975b_59be_a960_9a2a262853a5);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileSystemImageVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFileSystemImage_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Root: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5938,14 +5938,14 @@ impl ::core::fmt::Debug for IFileSystemImage2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFileSystemImage2 {
-    type Vtable = IFileSystemImage2Vtbl;
+    type Vtable = IFileSystemImage2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7644b2c_1537_4767_b62f_f1387b02ddfd);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileSystemImage2Vtbl {
-    pub base: IFileSystemImageVtbl,
+pub struct IFileSystemImage2_Vtbl {
+    pub base: IFileSystemImage_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub BootImageOptionsArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -6382,14 +6382,14 @@ impl ::core::fmt::Debug for IFileSystemImage3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFileSystemImage3 {
-    type Vtable = IFileSystemImage3Vtbl;
+    type Vtable = IFileSystemImage3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cff842c_7e97_4807_8304_910dd8f7c051);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileSystemImage3Vtbl {
-    pub base: IFileSystemImage2Vtbl,
+pub struct IFileSystemImage3_Vtbl {
+    pub base: IFileSystemImage2_Vtbl,
     pub CreateRedundantUdfMetadataFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT,
     pub SetCreateRedundantUdfMetadataFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: i16) -> ::windows::core::HRESULT,
     pub ProbeSpecificFileSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filesystemtoprobe: FsiFileSystems, isappendable: *mut i16) -> ::windows::core::HRESULT,
@@ -6521,14 +6521,14 @@ impl ::core::fmt::Debug for IFileSystemImageResult {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFileSystemImageResult {
-    type Vtable = IFileSystemImageResultVtbl;
+    type Vtable = IFileSystemImageResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fd8_975b_59be_a960_9a2a262853a5);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileSystemImageResultVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFileSystemImageResult_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub ImageStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -6701,14 +6701,14 @@ impl ::core::fmt::Debug for IFileSystemImageResult2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFileSystemImageResult2 {
-    type Vtable = IFileSystemImageResult2Vtbl;
+    type Vtable = IFileSystemImageResult2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb507ca29_2204_11dd_966a_001aa01bbc58);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileSystemImageResult2Vtbl {
-    pub base: IFileSystemImageResultVtbl,
+pub struct IFileSystemImageResult2_Vtbl {
+    pub base: IFileSystemImageResult_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub ModifiedBlocks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -6949,14 +6949,14 @@ impl ::core::fmt::Debug for IFsiDirectoryItem {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFsiDirectoryItem {
-    type Vtable = IFsiDirectoryItemVtbl;
+    type Vtable = IFsiDirectoryItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fdc_975b_59be_a960_9a2a262853a5);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFsiDirectoryItemVtbl {
-    pub base: IFsiItemVtbl,
+pub struct IFsiDirectoryItem_Vtbl {
+    pub base: IFsiItem_Vtbl,
     #[cfg(feature = "Win32_System_Ole")]
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
@@ -7256,14 +7256,14 @@ impl ::core::fmt::Debug for IFsiDirectoryItem2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFsiDirectoryItem2 {
-    type Vtable = IFsiDirectoryItem2Vtbl;
+    type Vtable = IFsiDirectoryItem2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7fb4b9b_6d96_4d7b_9115_201b144811ef);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFsiDirectoryItem2Vtbl {
-    pub base: IFsiDirectoryItemVtbl,
+pub struct IFsiDirectoryItem2_Vtbl {
+    pub base: IFsiDirectoryItem_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddTreeWithNamedStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcedirectory: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, includebasedirectory: i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7478,14 +7478,14 @@ impl ::core::fmt::Debug for IFsiFileItem {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFsiFileItem {
-    type Vtable = IFsiFileItemVtbl;
+    type Vtable = IFsiFileItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fdb_975b_59be_a960_9a2a262853a5);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFsiFileItemVtbl {
-    pub base: IFsiItemVtbl,
+pub struct IFsiFileItem_Vtbl {
+    pub base: IFsiItem_Vtbl,
     pub DataSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i64) -> ::windows::core::HRESULT,
     pub DataSize32BitLow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     pub DataSize32BitHigh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
@@ -7761,14 +7761,14 @@ impl ::core::fmt::Debug for IFsiFileItem2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFsiFileItem2 {
-    type Vtable = IFsiFileItem2Vtbl;
+    type Vtable = IFsiFileItem2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x199d0c19_11e1_40eb_8ec2_c8c822a07792);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFsiFileItem2Vtbl {
-    pub base: IFsiFileItemVtbl,
+pub struct IFsiFileItem2_Vtbl {
+    pub base: IFsiFileItem_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub FsiNamedStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streams: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7944,14 +7944,14 @@ impl ::core::fmt::Debug for IFsiItem {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFsiItem {
-    type Vtable = IFsiItemVtbl;
+    type Vtable = IFsiItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fd9_975b_59be_a960_9a2a262853a5);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFsiItemVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFsiItem_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8098,14 +8098,14 @@ impl ::core::fmt::Debug for IFsiNamedStreams {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFsiNamedStreams {
-    type Vtable = IFsiNamedStreamsVtbl;
+    type Vtable = IFsiNamedStreams_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed79ba56_5294_4250_8d46_f9aecee23459);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFsiNamedStreamsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IFsiNamedStreams_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Ole")]
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
@@ -8242,14 +8242,14 @@ impl ::core::fmt::Debug for IIsoImageManager {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IIsoImageManager {
-    type Vtable = IIsoImageManagerVtbl;
+    type Vtable = IIsoImageManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ca38be5_fbbb_4800_95a1_a438865eb0d4);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIsoImageManagerVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IIsoImageManager_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8341,12 +8341,12 @@ impl ::core::fmt::Debug for IJolietDiscMaster {
     }
 }
 unsafe impl ::windows::core::Interface for IJolietDiscMaster {
-    type Vtable = IJolietDiscMasterVtbl;
+    type Vtable = IJolietDiscMaster_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3bc42ce_4e5c_11d3_9144_00104ba11c5e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IJolietDiscMasterVtbl {
+pub struct IJolietDiscMaster_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetTotalDataBlocks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnblocks: *mut i32) -> ::windows::core::HRESULT,
     pub GetUsedDataBlocks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnblocks: *mut i32) -> ::windows::core::HRESULT,
@@ -9217,14 +9217,14 @@ impl ::core::fmt::Debug for IMultisession {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMultisession {
-    type Vtable = IMultisessionVtbl;
+    type Vtable = IMultisession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354150_7f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMultisessionVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IMultisession_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub IsSupportedOnCurrentMediaState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i16) -> ::windows::core::HRESULT,
     pub SetInUse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT,
     pub InUse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i16) -> ::windows::core::HRESULT,
@@ -9391,14 +9391,14 @@ impl ::core::fmt::Debug for IMultisessionRandomWrite {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMultisessionRandomWrite {
-    type Vtable = IMultisessionRandomWriteVtbl;
+    type Vtable = IMultisessionRandomWrite_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb507ca23_2204_11dd_966a_001aa01bbc58);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMultisessionRandomWriteVtbl {
-    pub base: IMultisessionVtbl,
+pub struct IMultisessionRandomWrite_Vtbl {
+    pub base: IMultisession_Vtbl,
     pub WriteUnitSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub LastWrittenAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub TotalSectorsOnMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
@@ -9571,14 +9571,14 @@ impl ::core::fmt::Debug for IMultisessionSequential {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMultisessionSequential {
-    type Vtable = IMultisessionSequentialVtbl;
+    type Vtable = IMultisessionSequential_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354151_7f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMultisessionSequentialVtbl {
-    pub base: IMultisessionVtbl,
+pub struct IMultisessionSequential_Vtbl {
+    pub base: IMultisession_Vtbl,
     pub IsFirstDataSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i16) -> ::windows::core::HRESULT,
     pub StartAddressOfPreviousSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub LastWrittenAddressOfPreviousSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
@@ -9782,14 +9782,14 @@ impl ::core::fmt::Debug for IMultisessionSequential2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMultisessionSequential2 {
-    type Vtable = IMultisessionSequential2Vtbl;
+    type Vtable = IMultisessionSequential2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb507ca22_2204_11dd_966a_001aa01bbc58);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMultisessionSequential2Vtbl {
-    pub base: IMultisessionSequentialVtbl,
+pub struct IMultisessionSequential2_Vtbl {
+    pub base: IMultisessionSequential_Vtbl,
     pub WriteUnitSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Storage_Imapi', 'Win32_System_Com'*"]
@@ -9912,14 +9912,14 @@ impl ::core::fmt::Debug for IProgressItem {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IProgressItem {
-    type Vtable = IProgressItemVtbl;
+    type Vtable = IProgressItem_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fd5_975b_59be_a960_9a2a262853a5);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProgressItemVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IProgressItem_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -10061,14 +10061,14 @@ impl ::core::fmt::Debug for IProgressItems {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IProgressItems {
-    type Vtable = IProgressItemsVtbl;
+    type Vtable = IProgressItems_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fd7_975b_59be_a960_9a2a262853a5);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProgressItemsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IProgressItems_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Ole")]
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
@@ -10283,14 +10283,14 @@ impl ::core::fmt::Debug for IRawCDImageCreator {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRawCDImageCreator {
-    type Vtable = IRawCDImageCreatorVtbl;
+    type Vtable = IRawCDImageCreator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25983550_9d65_49ce_b335_40630d901227);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRawCDImageCreatorVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IRawCDImageCreator_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateResultImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resultstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -10497,14 +10497,14 @@ impl ::core::fmt::Debug for IRawCDImageTrackInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IRawCDImageTrackInfo {
-    type Vtable = IRawCDImageTrackInfoVtbl;
+    type Vtable = IRawCDImageTrackInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25983551_9d65_49ce_b335_40630d901227);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRawCDImageTrackInfoVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IRawCDImageTrackInfo_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub StartingLba: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub SectorCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub TrackNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
@@ -10607,12 +10607,12 @@ impl ::core::fmt::Debug for IRedbookDiscMaster {
     }
 }
 unsafe impl ::windows::core::Interface for IRedbookDiscMaster {
-    type Vtable = IRedbookDiscMasterVtbl;
+    type Vtable = IRedbookDiscMaster_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3bc42cd_4e5c_11d3_9144_00104ba11c5e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRedbookDiscMasterVtbl {
+pub struct IRedbookDiscMaster_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetTotalAudioTracks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pntracks: *mut i32) -> ::windows::core::HRESULT,
     pub GetTotalAudioBlocks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnblocks: *mut i32) -> ::windows::core::HRESULT,
@@ -10802,14 +10802,14 @@ impl ::core::fmt::Debug for IStreamConcatenate {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IStreamConcatenate {
-    type Vtable = IStreamConcatenateVtbl;
+    type Vtable = IStreamConcatenate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354146_7f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamConcatenateVtbl {
-    pub base: super::super::System::Com::IStreamVtbl,
+pub struct IStreamConcatenate_Vtbl {
+    pub base: super::super::System::Com::IStream_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream1: ::windows::core::RawPtr, stream2: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -10991,14 +10991,14 @@ impl ::core::fmt::Debug for IStreamInterleave {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IStreamInterleave {
-    type Vtable = IStreamInterleaveVtbl;
+    type Vtable = IStreamInterleave_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354147_7f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamInterleaveVtbl {
-    pub base: super::super::System::Com::IStreamVtbl,
+pub struct IStreamInterleave_Vtbl {
+    pub base: super::super::System::Com::IStream_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streams: *const ::windows::core::RawPtr, interleavesizes: *const u32, streamcount: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -11180,14 +11180,14 @@ impl ::core::fmt::Debug for IStreamPseudoRandomBased {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IStreamPseudoRandomBased {
-    type Vtable = IStreamPseudoRandomBasedVtbl;
+    type Vtable = IStreamPseudoRandomBased_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354145_7f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStreamPseudoRandomBasedVtbl {
-    pub base: super::super::System::Com::IStreamVtbl,
+pub struct IStreamPseudoRandomBased_Vtbl {
+    pub base: super::super::System::Com::IStream_Vtbl,
     pub SetSeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
     pub Seed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut u32) -> ::windows::core::HRESULT,
     pub SetExtendedSeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, values: *const u32, ecount: u32) -> ::windows::core::HRESULT,
@@ -11351,14 +11351,14 @@ impl ::core::fmt::Debug for IWriteEngine2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWriteEngine2 {
-    type Vtable = IWriteEngine2Vtbl;
+    type Vtable = IWriteEngine2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354135_7f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWriteEngine2Vtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IWriteEngine2_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub WriteSection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, startingblockaddress: i32, numberofblocks: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -11510,14 +11510,14 @@ impl ::core::fmt::Debug for IWriteEngine2EventArgs {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWriteEngine2EventArgs {
-    type Vtable = IWriteEngine2EventArgsVtbl;
+    type Vtable = IWriteEngine2EventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354136_7f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWriteEngine2EventArgsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IWriteEngine2EventArgs_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub StartLba: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub SectorCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub LastReadLba: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
@@ -11640,14 +11640,14 @@ impl ::core::fmt::Debug for IWriteSpeedDescriptor {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWriteSpeedDescriptor {
-    type Vtable = IWriteSpeedDescriptorVtbl;
+    type Vtable = IWriteSpeedDescriptor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27354144_7f64_5b0f_8f00_5d77afbe261e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWriteSpeedDescriptorVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IWriteSpeedDescriptor_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub MediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut IMAPI_MEDIA_PHYSICAL_TYPE) -> ::windows::core::HRESULT,
     pub RotationTypeIsPureCAV: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i16) -> ::windows::core::HRESULT,
     pub WriteSpeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,

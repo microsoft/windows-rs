@@ -56,7 +56,7 @@ unsafe impl ::windows::core::RuntimeType for AdcChannel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Adc.AdcChannel;{040bf414-2588-4a56-abef-73a260acc60a})");
 }
 unsafe impl ::windows::core::Interface for AdcChannel {
-    type Vtable = IAdcChannelVtbl;
+    type Vtable = IAdcChannel_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x040bf414_2588_4a56_abef_73a260acc60a);
 }
 impl ::windows::core::RuntimeName for AdcChannel {
@@ -275,7 +275,7 @@ unsafe impl ::windows::core::RuntimeType for AdcController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Adc.AdcController;{2a76e4b0-a896-4219-86b6-ea8cdce98f56})");
 }
 unsafe impl ::windows::core::Interface for AdcController {
-    type Vtable = IAdcControllerVtbl;
+    type Vtable = IAdcController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a76e4b0_a896_4219_86b6_ea8cdce98f56);
 }
 impl ::windows::core::RuntimeName for AdcController {
@@ -327,12 +327,12 @@ unsafe impl ::core::marker::Sync for AdcController {}
 #[repr(transparent)]
 pub struct IAdcChannel(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdcChannel {
-    type Vtable = IAdcChannelVtbl;
+    type Vtable = IAdcChannel_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x040bf414_2588_4a56_abef_73a260acc60a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAdcChannelVtbl {
+pub struct IAdcChannel_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Controller: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ReadValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -342,12 +342,12 @@ pub struct IAdcChannelVtbl {
 #[repr(transparent)]
 pub struct IAdcController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdcController {
-    type Vtable = IAdcControllerVtbl;
+    type Vtable = IAdcController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a76e4b0_a896_4219_86b6_ea8cdce98f56);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAdcControllerVtbl {
+pub struct IAdcController_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ChannelCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub ResolutionInBits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -362,12 +362,12 @@ pub struct IAdcControllerVtbl {
 #[repr(transparent)]
 pub struct IAdcControllerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdcControllerStatics {
-    type Vtable = IAdcControllerStaticsVtbl;
+    type Vtable = IAdcControllerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcce98e0c_01f8_4891_bc3b_be53ef279ca4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAdcControllerStaticsVtbl {
+pub struct IAdcControllerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Devices_Adc_Provider", feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetControllersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -378,12 +378,12 @@ pub struct IAdcControllerStaticsVtbl {
 #[repr(transparent)]
 pub struct IAdcControllerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdcControllerStatics2 {
-    type Vtable = IAdcControllerStatics2Vtbl;
+    type Vtable = IAdcControllerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2b93b1d_977b_4f5a_a5fe_a6abaffe6484);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAdcControllerStatics2Vtbl {
+pub struct IAdcControllerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetDefaultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

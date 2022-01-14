@@ -1498,12 +1498,12 @@ impl ::core::fmt::Debug for ID3DBlob {
     }
 }
 unsafe impl ::windows::core::Interface for ID3DBlob {
-    type Vtable = ID3DBlobVtbl;
+    type Vtable = ID3DBlob_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3DBlobVtbl {
+pub struct ID3DBlob_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetBufferPointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void,
     pub GetBufferSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> usize,
@@ -1559,12 +1559,12 @@ impl ::core::fmt::Debug for ID3DDestructionNotifier {
     }
 }
 unsafe impl ::windows::core::Interface for ID3DDestructionNotifier {
-    type Vtable = ID3DDestructionNotifierVtbl;
+    type Vtable = ID3DDestructionNotifier_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa06eb39a_50da_425b_8c31_4eecd6c270f3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3DDestructionNotifierVtbl {
+pub struct ID3DDestructionNotifier_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub RegisterDestructionCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callbackfn: ::windows::core::RawPtr, pdata: *const ::core::ffi::c_void, pcallbackid: *mut u32) -> ::windows::core::HRESULT,
     pub UnregisterDestructionCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callbackid: u32) -> ::windows::core::HRESULT,
@@ -1600,12 +1600,12 @@ impl ::core::fmt::Debug for ID3DInclude {
     }
 }
 unsafe impl ::windows::core::Interface for ID3DInclude {
-    type Vtable = ID3DIncludeVtbl;
+    type Vtable = ID3DInclude_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3DIncludeVtbl {
+pub struct ID3DInclude_Vtbl {
     #[cfg(feature = "Win32_Foundation")]
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, includetype: D3D_INCLUDE_TYPE, pfilename: super::super::Foundation::PSTR, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]

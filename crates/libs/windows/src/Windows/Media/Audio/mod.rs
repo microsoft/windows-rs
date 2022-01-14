@@ -142,7 +142,7 @@ unsafe impl ::windows::core::RuntimeType for AudioDeviceInputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioDeviceInputNode;{b01b6be1-6f4e-49e2-ac01-559d62beb3a9})");
 }
 unsafe impl ::windows::core::Interface for AudioDeviceInputNode {
-    type Vtable = IAudioDeviceInputNodeVtbl;
+    type Vtable = IAudioDeviceInputNode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb01b6be1_6f4e_49e2_ac01_559d62beb3a9);
 }
 impl ::windows::core::RuntimeName for AudioDeviceInputNode {
@@ -442,7 +442,7 @@ unsafe impl ::windows::core::RuntimeType for AudioDeviceOutputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioDeviceOutputNode;{362edbff-ff1c-4434-9e0f-bd2ef522ac82})");
 }
 unsafe impl ::windows::core::Interface for AudioDeviceOutputNode {
-    type Vtable = IAudioDeviceOutputNodeVtbl;
+    type Vtable = IAudioDeviceOutputNode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x362edbff_ff1c_4434_9e0f_bd2ef522ac82);
 }
 impl ::windows::core::RuntimeName for AudioDeviceOutputNode {
@@ -800,7 +800,7 @@ unsafe impl ::windows::core::RuntimeType for AudioFileInputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFileInputNode;{905b67c8-6f65-4cd4-8890-4694843c276d})");
 }
 unsafe impl ::windows::core::Interface for AudioFileInputNode {
-    type Vtable = IAudioFileInputNodeVtbl;
+    type Vtable = IAudioFileInputNode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905b67c8_6f65_4cd4_8890_4694843c276d);
 }
 impl ::windows::core::RuntimeName for AudioFileInputNode {
@@ -1105,7 +1105,7 @@ unsafe impl ::windows::core::RuntimeType for AudioFileOutputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFileOutputNode;{50e01980-5166-4093-80f8-ada00089e9cf})");
 }
 unsafe impl ::windows::core::Interface for AudioFileOutputNode {
-    type Vtable = IAudioFileOutputNodeVtbl;
+    type Vtable = IAudioFileOutputNode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50e01980_5166_4093_80f8_ada00089e9cf);
 }
 impl ::windows::core::RuntimeName for AudioFileOutputNode {
@@ -1234,7 +1234,7 @@ unsafe impl ::windows::core::RuntimeType for AudioFrameCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFrameCompletedEventArgs;{dc7c829e-0208-4504-a5a8-f0f268920a65})");
 }
 unsafe impl ::windows::core::Interface for AudioFrameCompletedEventArgs {
-    type Vtable = IAudioFrameCompletedEventArgsVtbl;
+    type Vtable = IAudioFrameCompletedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc7c829e_0208_4504_a5a8_f0f268920a65);
 }
 impl ::windows::core::RuntimeName for AudioFrameCompletedEventArgs {
@@ -1477,7 +1477,7 @@ unsafe impl ::windows::core::RuntimeType for AudioFrameInputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFrameInputNode;{01b266c7-fd96-4ff5-a3c5-d27a9bf44237})");
 }
 unsafe impl ::windows::core::Interface for AudioFrameInputNode {
-    type Vtable = IAudioFrameInputNodeVtbl;
+    type Vtable = IAudioFrameInputNode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01b266c7_fd96_4ff5_a3c5_d27a9bf44237);
 }
 impl ::windows::core::RuntimeName for AudioFrameInputNode {
@@ -1727,7 +1727,7 @@ unsafe impl ::windows::core::RuntimeType for AudioFrameOutputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFrameOutputNode;{b847371b-3299-45f5-88b3-c9d12a3f1cc8})");
 }
 unsafe impl ::windows::core::Interface for AudioFrameOutputNode {
-    type Vtable = IAudioFrameOutputNodeVtbl;
+    type Vtable = IAudioFrameOutputNode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb847371b_3299_45f5_88b3_c9d12a3f1cc8);
 }
 impl ::windows::core::RuntimeName for AudioFrameOutputNode {
@@ -2154,7 +2154,7 @@ unsafe impl ::windows::core::RuntimeType for AudioGraph {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraph;{1ad46eed-e48c-4e14-9660-2c4f83e9cdd8})");
 }
 unsafe impl ::windows::core::Interface for AudioGraph {
-    type Vtable = IAudioGraphVtbl;
+    type Vtable = IAudioGraph_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ad46eed_e48c_4e14_9660_2c4f83e9cdd8);
 }
 impl ::windows::core::RuntimeName for AudioGraph {
@@ -2267,7 +2267,7 @@ unsafe impl ::windows::core::RuntimeType for AudioGraphBatchUpdater {
 }
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Interface for AudioGraphBatchUpdater {
-    type Vtable = super::super::Foundation::IClosableVtbl;
+    type Vtable = super::super::Foundation::IClosable_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30d5a829_7fa4_4026_83bb_d75bae4ea99e);
 }
 #[cfg(feature = "Foundation")]
@@ -2398,7 +2398,7 @@ unsafe impl ::windows::core::RuntimeType for AudioGraphConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraphConnection;{763070ed-d04e-4fac-b233-600b42edd469})");
 }
 unsafe impl ::windows::core::Interface for AudioGraphConnection {
-    type Vtable = IAudioGraphConnectionVtbl;
+    type Vtable = IAudioGraphConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x763070ed_d04e_4fac_b233_600b42edd469);
 }
 impl ::windows::core::RuntimeName for AudioGraphConnection {
@@ -2616,7 +2616,7 @@ unsafe impl ::windows::core::RuntimeType for AudioGraphSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraphSettings;{1d59647f-e6fe-4628-84f8-9d8bdba25785})");
 }
 unsafe impl ::windows::core::Interface for AudioGraphSettings {
-    type Vtable = IAudioGraphSettingsVtbl;
+    type Vtable = IAudioGraphSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d59647f_e6fe_4628_84f8_9d8bdba25785);
 }
 impl ::windows::core::RuntimeName for AudioGraphSettings {
@@ -2732,7 +2732,7 @@ unsafe impl ::windows::core::RuntimeType for AudioGraphUnrecoverableErrorOccurre
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraphUnrecoverableErrorOccurredEventArgs;{c3d9cbe0-3ff6-4fb3-b262-50d435c55423})");
 }
 unsafe impl ::windows::core::Interface for AudioGraphUnrecoverableErrorOccurredEventArgs {
-    type Vtable = IAudioGraphUnrecoverableErrorOccurredEventArgsVtbl;
+    type Vtable = IAudioGraphUnrecoverableErrorOccurredEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3d9cbe0_3ff6_4fb3_b262_50d435c55423);
 }
 impl ::windows::core::RuntimeName for AudioGraphUnrecoverableErrorOccurredEventArgs {
@@ -2945,7 +2945,7 @@ unsafe impl ::windows::core::RuntimeType for AudioNodeEmitter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitter;{3676971d-880a-47b8-adf7-1323a9d965be})");
 }
 unsafe impl ::windows::core::Interface for AudioNodeEmitter {
-    type Vtable = IAudioNodeEmitterVtbl;
+    type Vtable = IAudioNodeEmitter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3676971d_880a_47b8_adf7_1323a9d965be);
 }
 impl ::windows::core::RuntimeName for AudioNodeEmitter {
@@ -3042,7 +3042,7 @@ unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterConeProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitterConeProperties;{e99b2cee-02ca-4375-9326-0c6ae4bcdfb5})");
 }
 unsafe impl ::windows::core::Interface for AudioNodeEmitterConeProperties {
-    type Vtable = IAudioNodeEmitterConePropertiesVtbl;
+    type Vtable = IAudioNodeEmitterConeProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe99b2cee_02ca_4375_9326_0c6ae4bcdfb5);
 }
 impl ::windows::core::RuntimeName for AudioNodeEmitterConeProperties {
@@ -3199,7 +3199,7 @@ unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterDecayModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitterDecayModel;{1d1d5af7-0d53-4fa9-bd84-d5816a86f3ff})");
 }
 unsafe impl ::windows::core::Interface for AudioNodeEmitterDecayModel {
-    type Vtable = IAudioNodeEmitterDecayModelVtbl;
+    type Vtable = IAudioNodeEmitterDecayModel_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d1d5af7_0d53_4fa9_bd84_d5816a86f3ff);
 }
 impl ::windows::core::RuntimeName for AudioNodeEmitterDecayModel {
@@ -3288,7 +3288,7 @@ unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterNaturalDecayModelPr
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitterNaturalDecayModelProperties;{48934bcf-cf2c-4efc-9331-75bd22df1f0c})");
 }
 unsafe impl ::windows::core::Interface for AudioNodeEmitterNaturalDecayModelProperties {
-    type Vtable = IAudioNodeEmitterNaturalDecayModelPropertiesVtbl;
+    type Vtable = IAudioNodeEmitterNaturalDecayModelProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48934bcf_cf2c_4efc_9331_75bd22df1f0c);
 }
 impl ::windows::core::RuntimeName for AudioNodeEmitterNaturalDecayModelProperties {
@@ -3457,7 +3457,7 @@ unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterShape {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitterShape;{ea0311c5-e73d-44bc-859c-45553bbc4828})");
 }
 unsafe impl ::windows::core::Interface for AudioNodeEmitterShape {
-    type Vtable = IAudioNodeEmitterShapeVtbl;
+    type Vtable = IAudioNodeEmitterShape_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea0311c5_e73d_44bc_859c_45553bbc4828);
 }
 impl ::windows::core::RuntimeName for AudioNodeEmitterShape {
@@ -3628,7 +3628,7 @@ unsafe impl ::windows::core::RuntimeType for AudioNodeListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeListener;{d9722e16-0c0a-41da-b755-6c77835fb1eb})");
 }
 unsafe impl ::windows::core::Interface for AudioNodeListener {
-    type Vtable = IAudioNodeListenerVtbl;
+    type Vtable = IAudioNodeListener_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9722e16_0c0a_41da_b755_6c77835fb1eb);
 }
 impl ::windows::core::RuntimeName for AudioNodeListener {
@@ -3788,7 +3788,7 @@ unsafe impl ::windows::core::RuntimeType for AudioPlaybackConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioPlaybackConnection;{1a4c1dea-cafc-50e7-8718-ea3f81cbfa51})");
 }
 unsafe impl ::windows::core::Interface for AudioPlaybackConnection {
-    type Vtable = IAudioPlaybackConnectionVtbl;
+    type Vtable = IAudioPlaybackConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a4c1dea_cafc_50e7_8718_ea3f81cbfa51);
 }
 impl ::windows::core::RuntimeName for AudioPlaybackConnection {
@@ -3903,7 +3903,7 @@ unsafe impl ::windows::core::RuntimeType for AudioPlaybackConnectionOpenResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioPlaybackConnectionOpenResult;{4e656aef-39f9-5fc9-a519-a5bbfd9fe921})");
 }
 unsafe impl ::windows::core::Interface for AudioPlaybackConnectionOpenResult {
-    type Vtable = IAudioPlaybackConnectionOpenResultVtbl;
+    type Vtable = IAudioPlaybackConnectionOpenResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e656aef_39f9_5fc9_a519_a5bbfd9fe921);
 }
 impl ::windows::core::RuntimeName for AudioPlaybackConnectionOpenResult {
@@ -4134,7 +4134,7 @@ unsafe impl ::windows::core::RuntimeType for AudioStateMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioStateMonitor;{1d13d136-0199-4cdc-b84e-e72c2b581ece})");
 }
 unsafe impl ::windows::core::Interface for AudioStateMonitor {
-    type Vtable = IAudioStateMonitorVtbl;
+    type Vtable = IAudioStateMonitor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d13d136_0199_4cdc_b84e_e72c2b581ece);
 }
 impl ::windows::core::RuntimeName for AudioStateMonitor {
@@ -4316,7 +4316,7 @@ unsafe impl ::windows::core::RuntimeType for AudioSubmixNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioSubmixNode;{d148005c-8428-4784-b7fd-a99d468c5d20})");
 }
 unsafe impl ::windows::core::Interface for AudioSubmixNode {
-    type Vtable = IAudioInputNodeVtbl;
+    type Vtable = IAudioInputNode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd148005c_8428_4784_b7fd_a99d468c5d20);
 }
 impl ::windows::core::RuntimeName for AudioSubmixNode {
@@ -4505,7 +4505,7 @@ unsafe impl ::windows::core::RuntimeType for CreateAudioDeviceInputNodeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioDeviceInputNodeResult;{16eec7a8-1ca7-40ef-91a4-d346e0aa1bba})");
 }
 unsafe impl ::windows::core::Interface for CreateAudioDeviceInputNodeResult {
-    type Vtable = ICreateAudioDeviceInputNodeResultVtbl;
+    type Vtable = ICreateAudioDeviceInputNodeResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16eec7a8_1ca7_40ef_91a4_d346e0aa1bba);
 }
 impl ::windows::core::RuntimeName for CreateAudioDeviceInputNodeResult {
@@ -4602,7 +4602,7 @@ unsafe impl ::windows::core::RuntimeType for CreateAudioDeviceOutputNodeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioDeviceOutputNodeResult;{f7776d27-1d9a-47f7-9cd4-2859cc1b7bff})");
 }
 unsafe impl ::windows::core::Interface for CreateAudioDeviceOutputNodeResult {
-    type Vtable = ICreateAudioDeviceOutputNodeResultVtbl;
+    type Vtable = ICreateAudioDeviceOutputNodeResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7776d27_1d9a_47f7_9cd4_2859cc1b7bff);
 }
 impl ::windows::core::RuntimeName for CreateAudioDeviceOutputNodeResult {
@@ -4699,7 +4699,7 @@ unsafe impl ::windows::core::RuntimeType for CreateAudioFileInputNodeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioFileInputNodeResult;{ce83d61c-e297-4c50-9ce7-1c7a69d6bd09})");
 }
 unsafe impl ::windows::core::Interface for CreateAudioFileInputNodeResult {
-    type Vtable = ICreateAudioFileInputNodeResultVtbl;
+    type Vtable = ICreateAudioFileInputNodeResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce83d61c_e297_4c50_9ce7_1c7a69d6bd09);
 }
 impl ::windows::core::RuntimeName for CreateAudioFileInputNodeResult {
@@ -4796,7 +4796,7 @@ unsafe impl ::windows::core::RuntimeType for CreateAudioFileOutputNodeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioFileOutputNodeResult;{47d6ba7b-e909-453f-866e-5540cda734ff})");
 }
 unsafe impl ::windows::core::Interface for CreateAudioFileOutputNodeResult {
-    type Vtable = ICreateAudioFileOutputNodeResultVtbl;
+    type Vtable = ICreateAudioFileOutputNodeResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47d6ba7b_e909_453f_866e_5540cda734ff);
 }
 impl ::windows::core::RuntimeName for CreateAudioFileOutputNodeResult {
@@ -4893,7 +4893,7 @@ unsafe impl ::windows::core::RuntimeType for CreateAudioGraphResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioGraphResult;{5453ef7e-7bde-4b76-bb5d-48f79cfc8c0b})");
 }
 unsafe impl ::windows::core::Interface for CreateAudioGraphResult {
-    type Vtable = ICreateAudioGraphResultVtbl;
+    type Vtable = ICreateAudioGraphResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5453ef7e_7bde_4b76_bb5d_48f79cfc8c0b);
 }
 impl ::windows::core::RuntimeName for CreateAudioGraphResult {
@@ -4990,7 +4990,7 @@ unsafe impl ::windows::core::RuntimeType for CreateMediaSourceAudioInputNodeResu
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateMediaSourceAudioInputNodeResult;{46a658a3-53c0-4d59-9e51-cc1d1044a4c4})");
 }
 unsafe impl ::windows::core::Interface for CreateMediaSourceAudioInputNodeResult {
-    type Vtable = ICreateMediaSourceAudioInputNodeResultVtbl;
+    type Vtable = ICreateMediaSourceAudioInputNodeResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46a658a3_53c0_4d59_9e51_cc1d1044a4c4);
 }
 impl ::windows::core::RuntimeName for CreateMediaSourceAudioInputNodeResult {
@@ -5132,7 +5132,7 @@ unsafe impl ::windows::core::RuntimeType for EchoEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.EchoEffectDefinition;{0e4d3faa-36b8-4c91-b9da-11f44a8a6610})");
 }
 unsafe impl ::windows::core::Interface for EchoEffectDefinition {
-    type Vtable = IEchoEffectDefinitionVtbl;
+    type Vtable = IEchoEffectDefinition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e4d3faa_36b8_4c91_b9da_11f44a8a6610);
 }
 impl ::windows::core::RuntimeName for EchoEffectDefinition {
@@ -5270,7 +5270,7 @@ unsafe impl ::windows::core::RuntimeType for EqualizerBand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.EqualizerBand;{c00a5a6a-262d-4b85-9bb7-43280b62ed0c})");
 }
 unsafe impl ::windows::core::Interface for EqualizerBand {
-    type Vtable = IEqualizerBandVtbl;
+    type Vtable = IEqualizerBand_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc00a5a6a_262d_4b85_9bb7_43280b62ed0c);
 }
 impl ::windows::core::RuntimeName for EqualizerBand {
@@ -5382,7 +5382,7 @@ unsafe impl ::windows::core::RuntimeType for EqualizerEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.EqualizerEffectDefinition;{023f6f1f-83fe-449a-a822-c696442d16b0})");
 }
 unsafe impl ::windows::core::Interface for EqualizerEffectDefinition {
-    type Vtable = IEqualizerEffectDefinitionVtbl;
+    type Vtable = IEqualizerEffectDefinition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x023f6f1f_83fe_449a_a822_c696442d16b0);
 }
 impl ::windows::core::RuntimeName for EqualizerEffectDefinition {
@@ -5489,7 +5489,7 @@ unsafe impl ::windows::core::RuntimeType for FrameInputNodeQuantumStartedEventAr
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.FrameInputNodeQuantumStartedEventArgs;{3d9bd498-a306-4f06-bd9f-e9efc8226304})");
 }
 unsafe impl ::windows::core::Interface for FrameInputNodeQuantumStartedEventArgs {
-    type Vtable = IFrameInputNodeQuantumStartedEventArgsVtbl;
+    type Vtable = IFrameInputNodeQuantumStartedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d9bd498_a306_4f06_bd9f_e9efc8226304);
 }
 impl ::windows::core::RuntimeName for FrameInputNodeQuantumStartedEventArgs {
@@ -5541,12 +5541,12 @@ unsafe impl ::core::marker::Sync for FrameInputNodeQuantumStartedEventArgs {}
 #[repr(transparent)]
 pub struct IAudioDeviceInputNode(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioDeviceInputNode {
-    type Vtable = IAudioDeviceInputNodeVtbl;
+    type Vtable = IAudioDeviceInputNode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb01b6be1_6f4e_49e2_ac01_559d62beb3a9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioDeviceInputNodeVtbl {
+pub struct IAudioDeviceInputNode_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Enumeration")]
     pub Device: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5557,12 +5557,12 @@ pub struct IAudioDeviceInputNodeVtbl {
 #[repr(transparent)]
 pub struct IAudioDeviceOutputNode(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioDeviceOutputNode {
-    type Vtable = IAudioDeviceOutputNodeVtbl;
+    type Vtable = IAudioDeviceOutputNode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x362edbff_ff1c_4434_9e0f_bd2ef522ac82);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioDeviceOutputNodeVtbl {
+pub struct IAudioDeviceOutputNode_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Enumeration")]
     pub Device: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5573,12 +5573,12 @@ pub struct IAudioDeviceOutputNodeVtbl {
 #[repr(transparent)]
 pub struct IAudioFileInputNode(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioFileInputNode {
-    type Vtable = IAudioFileInputNodeVtbl;
+    type Vtable = IAudioFileInputNode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905b67c8_6f65_4cd4_8890_4694843c276d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioFileInputNodeVtbl {
+pub struct IAudioFileInputNode_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetPlaybackSpeedFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     pub PlaybackSpeedFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -5635,12 +5635,12 @@ pub struct IAudioFileInputNodeVtbl {
 #[repr(transparent)]
 pub struct IAudioFileOutputNode(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioFileOutputNode {
-    type Vtable = IAudioFileOutputNodeVtbl;
+    type Vtable = IAudioFileOutputNode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50e01980_5166_4093_80f8_ada00089e9cf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioFileOutputNodeVtbl {
+pub struct IAudioFileOutputNode_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage")]
     pub File: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5659,12 +5659,12 @@ pub struct IAudioFileOutputNodeVtbl {
 #[repr(transparent)]
 pub struct IAudioFrameCompletedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioFrameCompletedEventArgs {
-    type Vtable = IAudioFrameCompletedEventArgsVtbl;
+    type Vtable = IAudioFrameCompletedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc7c829e_0208_4504_a5a8_f0f268920a65);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioFrameCompletedEventArgsVtbl {
+pub struct IAudioFrameCompletedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Frame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -5672,12 +5672,12 @@ pub struct IAudioFrameCompletedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAudioFrameInputNode(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioFrameInputNode {
-    type Vtable = IAudioFrameInputNodeVtbl;
+    type Vtable = IAudioFrameInputNode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01b266c7_fd96_4ff5_a3c5_d27a9bf44237);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioFrameInputNodeVtbl {
+pub struct IAudioFrameInputNode_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetPlaybackSpeedFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     pub PlaybackSpeedFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -5705,12 +5705,12 @@ pub struct IAudioFrameInputNodeVtbl {
 #[repr(transparent)]
 pub struct IAudioFrameOutputNode(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioFrameOutputNode {
-    type Vtable = IAudioFrameOutputNodeVtbl;
+    type Vtable = IAudioFrameOutputNode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb847371b_3299_45f5_88b3_c9d12a3f1cc8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioFrameOutputNodeVtbl {
+pub struct IAudioFrameOutputNode_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -5718,12 +5718,12 @@ pub struct IAudioFrameOutputNodeVtbl {
 #[repr(transparent)]
 pub struct IAudioGraph(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioGraph {
-    type Vtable = IAudioGraphVtbl;
+    type Vtable = IAudioGraph_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ad46eed_e48c_4e14_9660_2c4f83e9cdd8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioGraphVtbl {
+pub struct IAudioGraph_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateFrameInputNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Media_MediaProperties")]
@@ -5812,12 +5812,12 @@ pub struct IAudioGraphVtbl {
 #[repr(transparent)]
 pub struct IAudioGraph2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioGraph2 {
-    type Vtable = IAudioGraph2Vtbl;
+    type Vtable = IAudioGraph2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e4c3bd5_4fc1_45f6_a947_3cd38f4fd839);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioGraph2Vtbl {
+pub struct IAudioGraph2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_MediaProperties")]
     pub CreateFrameInputNodeWithFormatAndEmitter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingproperties: ::windows::core::RawPtr, emitter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5844,12 +5844,12 @@ pub struct IAudioGraph2Vtbl {
 #[repr(transparent)]
 pub struct IAudioGraph3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioGraph3 {
-    type Vtable = IAudioGraph3Vtbl;
+    type Vtable = IAudioGraph3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddcd25ae_1185_42a7_831d_6a9b0fc86820);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioGraph3Vtbl {
+pub struct IAudioGraph3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Media_Core"))]
     pub CreateMediaSourceAudioInputNodeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediasource: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5864,12 +5864,12 @@ pub struct IAudioGraph3Vtbl {
 #[repr(transparent)]
 pub struct IAudioGraphConnection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioGraphConnection {
-    type Vtable = IAudioGraphConnectionVtbl;
+    type Vtable = IAudioGraphConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x763070ed_d04e_4fac_b233_600b42edd469);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioGraphConnectionVtbl {
+pub struct IAudioGraphConnection_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Destination: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetGain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
@@ -5879,12 +5879,12 @@ pub struct IAudioGraphConnectionVtbl {
 #[repr(transparent)]
 pub struct IAudioGraphSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioGraphSettings {
-    type Vtable = IAudioGraphSettingsVtbl;
+    type Vtable = IAudioGraphSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d59647f_e6fe_4628_84f8_9d8bdba25785);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioGraphSettingsVtbl {
+pub struct IAudioGraphSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_MediaProperties")]
     pub EncodingProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5921,12 +5921,12 @@ pub struct IAudioGraphSettingsVtbl {
 #[repr(transparent)]
 pub struct IAudioGraphSettings2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioGraphSettings2 {
-    type Vtable = IAudioGraphSettings2Vtbl;
+    type Vtable = IAudioGraphSettings2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72919787_4dab_46e3_b4c9_d8e1a2636062);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioGraphSettings2Vtbl {
+pub struct IAudioGraphSettings2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetMaxPlaybackSpeedFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     pub MaxPlaybackSpeedFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -5935,12 +5935,12 @@ pub struct IAudioGraphSettings2Vtbl {
 #[repr(transparent)]
 pub struct IAudioGraphSettingsFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioGraphSettingsFactory {
-    type Vtable = IAudioGraphSettingsFactoryVtbl;
+    type Vtable = IAudioGraphSettingsFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5d91cc6_c2eb_4a61_a214_1d66d75f83da);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioGraphSettingsFactoryVtbl {
+pub struct IAudioGraphSettingsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_Render")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, audiorendercategory: super::Render::AudioRenderCategory, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5951,12 +5951,12 @@ pub struct IAudioGraphSettingsFactoryVtbl {
 #[repr(transparent)]
 pub struct IAudioGraphStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioGraphStatics {
-    type Vtable = IAudioGraphStaticsVtbl;
+    type Vtable = IAudioGraphStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76ec3132_e159_4ab7_a82a_17beb4b31e94);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioGraphStaticsVtbl {
+pub struct IAudioGraphStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CreateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5967,12 +5967,12 @@ pub struct IAudioGraphStaticsVtbl {
 #[repr(transparent)]
 pub struct IAudioGraphUnrecoverableErrorOccurredEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioGraphUnrecoverableErrorOccurredEventArgs {
-    type Vtable = IAudioGraphUnrecoverableErrorOccurredEventArgsVtbl;
+    type Vtable = IAudioGraphUnrecoverableErrorOccurredEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3d9cbe0_3ff6_4fb3_b262_50d435c55423);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioGraphUnrecoverableErrorOccurredEventArgsVtbl {
+pub struct IAudioGraphUnrecoverableErrorOccurredEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioGraphUnrecoverableError) -> ::windows::core::HRESULT,
 }
@@ -6190,12 +6190,12 @@ unsafe impl ::windows::core::RuntimeType for IAudioInputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d148005c-8428-4784-b7fd-a99d468c5d20}");
 }
 unsafe impl ::windows::core::Interface for IAudioInputNode {
-    type Vtable = IAudioInputNodeVtbl;
+    type Vtable = IAudioInputNode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd148005c_8428_4784_b7fd_a99d468c5d20);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioInputNodeVtbl {
+pub struct IAudioInputNode_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub OutgoingConnections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6449,12 +6449,12 @@ unsafe impl ::windows::core::RuntimeType for IAudioInputNode2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{905156b7-ca68-4c6d-a8bc-e3ee17fe3fd2}");
 }
 unsafe impl ::windows::core::Interface for IAudioInputNode2 {
-    type Vtable = IAudioInputNode2Vtbl;
+    type Vtable = IAudioInputNode2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905156b7_ca68_4c6d_a8bc_e3ee17fe3fd2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioInputNode2Vtbl {
+pub struct IAudioInputNode2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Emitter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -6626,12 +6626,12 @@ unsafe impl ::windows::core::RuntimeType for IAudioNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{15389d7f-dbd8-4819-bf03-668e9357cd6d}");
 }
 unsafe impl ::windows::core::Interface for IAudioNode {
-    type Vtable = IAudioNodeVtbl;
+    type Vtable = IAudioNode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15389d7f_dbd8_4819_bf03_668e9357cd6d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioNodeVtbl {
+pub struct IAudioNode_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
     pub EffectDefinitions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6661,12 +6661,12 @@ pub struct IAudioNodeVtbl {
 #[repr(transparent)]
 pub struct IAudioNodeEmitter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioNodeEmitter {
-    type Vtable = IAudioNodeEmitterVtbl;
+    type Vtable = IAudioNodeEmitter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3676971d_880a_47b8_adf7_1323a9d965be);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioNodeEmitterVtbl {
+pub struct IAudioNodeEmitter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
@@ -6706,12 +6706,12 @@ pub struct IAudioNodeEmitterVtbl {
 #[repr(transparent)]
 pub struct IAudioNodeEmitter2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioNodeEmitter2 {
-    type Vtable = IAudioNodeEmitter2Vtbl;
+    type Vtable = IAudioNodeEmitter2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ab6eecb_ec29_47f8_818c_b6b660a5aeb1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioNodeEmitter2Vtbl {
+pub struct IAudioNodeEmitter2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SpatialAudioModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpatialAudioModel) -> ::windows::core::HRESULT,
     pub SetSpatialAudioModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: SpatialAudioModel) -> ::windows::core::HRESULT,
@@ -6720,12 +6720,12 @@ pub struct IAudioNodeEmitter2Vtbl {
 #[repr(transparent)]
 pub struct IAudioNodeEmitterConeProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioNodeEmitterConeProperties {
-    type Vtable = IAudioNodeEmitterConePropertiesVtbl;
+    type Vtable = IAudioNodeEmitterConeProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe99b2cee_02ca_4375_9326_0c6ae4bcdfb5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioNodeEmitterConePropertiesVtbl {
+pub struct IAudioNodeEmitterConeProperties_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InnerAngle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub OuterAngle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -6735,12 +6735,12 @@ pub struct IAudioNodeEmitterConePropertiesVtbl {
 #[repr(transparent)]
 pub struct IAudioNodeEmitterDecayModel(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioNodeEmitterDecayModel {
-    type Vtable = IAudioNodeEmitterDecayModelVtbl;
+    type Vtable = IAudioNodeEmitterDecayModel_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d1d5af7_0d53_4fa9_bd84_d5816a86f3ff);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioNodeEmitterDecayModelVtbl {
+pub struct IAudioNodeEmitterDecayModel_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioNodeEmitterDecayKind) -> ::windows::core::HRESULT,
     pub MinGain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -6751,12 +6751,12 @@ pub struct IAudioNodeEmitterDecayModelVtbl {
 #[repr(transparent)]
 pub struct IAudioNodeEmitterDecayModelStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioNodeEmitterDecayModelStatics {
-    type Vtable = IAudioNodeEmitterDecayModelStaticsVtbl;
+    type Vtable = IAudioNodeEmitterDecayModelStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7787ca8_f178_462f_bc81_8dd5cbe5dae8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioNodeEmitterDecayModelStaticsVtbl {
+pub struct IAudioNodeEmitterDecayModelStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateNatural: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mingain: f64, maxgain: f64, unitygaindistance: f64, cutoffdistance: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateCustom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mingain: f64, maxgain: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6765,12 +6765,12 @@ pub struct IAudioNodeEmitterDecayModelStaticsVtbl {
 #[repr(transparent)]
 pub struct IAudioNodeEmitterFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioNodeEmitterFactory {
-    type Vtable = IAudioNodeEmitterFactoryVtbl;
+    type Vtable = IAudioNodeEmitterFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdc8489a_6ad6_4ce4_b7f7_a99370df7ee9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioNodeEmitterFactoryVtbl {
+pub struct IAudioNodeEmitterFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateAudioNodeEmitter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: ::windows::core::RawPtr, decaymodel: ::windows::core::RawPtr, settings: AudioNodeEmitterSettings, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -6778,12 +6778,12 @@ pub struct IAudioNodeEmitterFactoryVtbl {
 #[repr(transparent)]
 pub struct IAudioNodeEmitterNaturalDecayModelProperties(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioNodeEmitterNaturalDecayModelProperties {
-    type Vtable = IAudioNodeEmitterNaturalDecayModelPropertiesVtbl;
+    type Vtable = IAudioNodeEmitterNaturalDecayModelProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48934bcf_cf2c_4efc_9331_75bd22df1f0c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioNodeEmitterNaturalDecayModelPropertiesVtbl {
+pub struct IAudioNodeEmitterNaturalDecayModelProperties_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub UnityGainDistance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub CutoffDistance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -6792,12 +6792,12 @@ pub struct IAudioNodeEmitterNaturalDecayModelPropertiesVtbl {
 #[repr(transparent)]
 pub struct IAudioNodeEmitterShape(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioNodeEmitterShape {
-    type Vtable = IAudioNodeEmitterShapeVtbl;
+    type Vtable = IAudioNodeEmitterShape_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea0311c5_e73d_44bc_859c_45553bbc4828);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioNodeEmitterShapeVtbl {
+pub struct IAudioNodeEmitterShape_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioNodeEmitterShapeKind) -> ::windows::core::HRESULT,
     pub ConeProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6806,12 +6806,12 @@ pub struct IAudioNodeEmitterShapeVtbl {
 #[repr(transparent)]
 pub struct IAudioNodeEmitterShapeStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioNodeEmitterShapeStatics {
-    type Vtable = IAudioNodeEmitterShapeStaticsVtbl;
+    type Vtable = IAudioNodeEmitterShapeStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57bb2771_ffa5_4b86_a779_e264aeb9145f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioNodeEmitterShapeStaticsVtbl {
+pub struct IAudioNodeEmitterShapeStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateCone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, innerangle: f64, outerangle: f64, outeranglegain: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateOmnidirectional: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6820,12 +6820,12 @@ pub struct IAudioNodeEmitterShapeStaticsVtbl {
 #[repr(transparent)]
 pub struct IAudioNodeListener(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioNodeListener {
-    type Vtable = IAudioNodeListenerVtbl;
+    type Vtable = IAudioNodeListener_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9722e16_0c0a_41da_b755_6c77835fb1eb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioNodeListenerVtbl {
+pub struct IAudioNodeListener_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
@@ -7057,12 +7057,12 @@ unsafe impl ::windows::core::RuntimeType for IAudioNodeWithListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0e0f907c-79ff-4544-9eeb-01257b15105a}");
 }
 unsafe impl ::windows::core::Interface for IAudioNodeWithListener {
-    type Vtable = IAudioNodeWithListenerVtbl;
+    type Vtable = IAudioNodeWithListener_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e0f907c_79ff_4544_9eeb_01257b15105a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioNodeWithListenerVtbl {
+pub struct IAudioNodeWithListener_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetListener: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Listener: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7071,12 +7071,12 @@ pub struct IAudioNodeWithListenerVtbl {
 #[repr(transparent)]
 pub struct IAudioPlaybackConnection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioPlaybackConnection {
-    type Vtable = IAudioPlaybackConnectionVtbl;
+    type Vtable = IAudioPlaybackConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a4c1dea_cafc_50e7_8718_ea3f81cbfa51);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioPlaybackConnectionVtbl {
+pub struct IAudioPlaybackConnection_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -7103,12 +7103,12 @@ pub struct IAudioPlaybackConnectionVtbl {
 #[repr(transparent)]
 pub struct IAudioPlaybackConnectionOpenResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioPlaybackConnectionOpenResult {
-    type Vtable = IAudioPlaybackConnectionOpenResultVtbl;
+    type Vtable = IAudioPlaybackConnectionOpenResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e656aef_39f9_5fc9_a519_a5bbfd9fe921);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioPlaybackConnectionOpenResultVtbl {
+pub struct IAudioPlaybackConnectionOpenResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioPlaybackConnectionOpenResultStatus) -> ::windows::core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -7117,12 +7117,12 @@ pub struct IAudioPlaybackConnectionOpenResultVtbl {
 #[repr(transparent)]
 pub struct IAudioPlaybackConnectionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioPlaybackConnectionStatics {
-    type Vtable = IAudioPlaybackConnectionStaticsVtbl;
+    type Vtable = IAudioPlaybackConnectionStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe60963a2_69e6_5ffc_9e13_824a85213daf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioPlaybackConnectionStaticsVtbl {
+pub struct IAudioPlaybackConnectionStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub TryCreateFromId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7131,12 +7131,12 @@ pub struct IAudioPlaybackConnectionStaticsVtbl {
 #[repr(transparent)]
 pub struct IAudioStateMonitor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioStateMonitor {
-    type Vtable = IAudioStateMonitorVtbl;
+    type Vtable = IAudioStateMonitor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d13d136_0199_4cdc_b84e_e72c2b581ece);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioStateMonitorVtbl {
+pub struct IAudioStateMonitor_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SoundLevelChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -7152,12 +7152,12 @@ pub struct IAudioStateMonitorVtbl {
 #[repr(transparent)]
 pub struct IAudioStateMonitorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAudioStateMonitorStatics {
-    type Vtable = IAudioStateMonitorStaticsVtbl;
+    type Vtable = IAudioStateMonitorStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6374ea4c_1b3b_4001_94d9_dd225330fa40);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioStateMonitorStaticsVtbl {
+pub struct IAudioStateMonitorStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateForRenderMonitoring: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Media_Render")]
@@ -7190,12 +7190,12 @@ pub struct IAudioStateMonitorStaticsVtbl {
 #[repr(transparent)]
 pub struct ICreateAudioDeviceInputNodeResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICreateAudioDeviceInputNodeResult {
-    type Vtable = ICreateAudioDeviceInputNodeResultVtbl;
+    type Vtable = ICreateAudioDeviceInputNodeResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16eec7a8_1ca7_40ef_91a4_d346e0aa1bba);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICreateAudioDeviceInputNodeResultVtbl {
+pub struct ICreateAudioDeviceInputNodeResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioDeviceNodeCreationStatus) -> ::windows::core::HRESULT,
     pub DeviceInputNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7204,12 +7204,12 @@ pub struct ICreateAudioDeviceInputNodeResultVtbl {
 #[repr(transparent)]
 pub struct ICreateAudioDeviceInputNodeResult2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICreateAudioDeviceInputNodeResult2 {
-    type Vtable = ICreateAudioDeviceInputNodeResult2Vtbl;
+    type Vtable = ICreateAudioDeviceInputNodeResult2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x921c69ce_3f35_41c7_9622_79f608baedc2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICreateAudioDeviceInputNodeResult2Vtbl {
+pub struct ICreateAudioDeviceInputNodeResult2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
@@ -7217,12 +7217,12 @@ pub struct ICreateAudioDeviceInputNodeResult2Vtbl {
 #[repr(transparent)]
 pub struct ICreateAudioDeviceOutputNodeResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICreateAudioDeviceOutputNodeResult {
-    type Vtable = ICreateAudioDeviceOutputNodeResultVtbl;
+    type Vtable = ICreateAudioDeviceOutputNodeResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7776d27_1d9a_47f7_9cd4_2859cc1b7bff);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICreateAudioDeviceOutputNodeResultVtbl {
+pub struct ICreateAudioDeviceOutputNodeResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioDeviceNodeCreationStatus) -> ::windows::core::HRESULT,
     pub DeviceOutputNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7231,12 +7231,12 @@ pub struct ICreateAudioDeviceOutputNodeResultVtbl {
 #[repr(transparent)]
 pub struct ICreateAudioDeviceOutputNodeResult2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICreateAudioDeviceOutputNodeResult2 {
-    type Vtable = ICreateAudioDeviceOutputNodeResult2Vtbl;
+    type Vtable = ICreateAudioDeviceOutputNodeResult2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4864269f_bdce_4ab1_bd38_fbae93aedaca);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICreateAudioDeviceOutputNodeResult2Vtbl {
+pub struct ICreateAudioDeviceOutputNodeResult2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
@@ -7244,12 +7244,12 @@ pub struct ICreateAudioDeviceOutputNodeResult2Vtbl {
 #[repr(transparent)]
 pub struct ICreateAudioFileInputNodeResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICreateAudioFileInputNodeResult {
-    type Vtable = ICreateAudioFileInputNodeResultVtbl;
+    type Vtable = ICreateAudioFileInputNodeResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce83d61c_e297_4c50_9ce7_1c7a69d6bd09);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICreateAudioFileInputNodeResultVtbl {
+pub struct ICreateAudioFileInputNodeResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioFileNodeCreationStatus) -> ::windows::core::HRESULT,
     pub FileInputNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7258,12 +7258,12 @@ pub struct ICreateAudioFileInputNodeResultVtbl {
 #[repr(transparent)]
 pub struct ICreateAudioFileInputNodeResult2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICreateAudioFileInputNodeResult2 {
-    type Vtable = ICreateAudioFileInputNodeResult2Vtbl;
+    type Vtable = ICreateAudioFileInputNodeResult2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9082020_3d80_4fe0_81c1_768fea7ca7e0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICreateAudioFileInputNodeResult2Vtbl {
+pub struct ICreateAudioFileInputNodeResult2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
@@ -7271,12 +7271,12 @@ pub struct ICreateAudioFileInputNodeResult2Vtbl {
 #[repr(transparent)]
 pub struct ICreateAudioFileOutputNodeResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICreateAudioFileOutputNodeResult {
-    type Vtable = ICreateAudioFileOutputNodeResultVtbl;
+    type Vtable = ICreateAudioFileOutputNodeResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47d6ba7b_e909_453f_866e_5540cda734ff);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICreateAudioFileOutputNodeResultVtbl {
+pub struct ICreateAudioFileOutputNodeResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioFileNodeCreationStatus) -> ::windows::core::HRESULT,
     pub FileOutputNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7285,12 +7285,12 @@ pub struct ICreateAudioFileOutputNodeResultVtbl {
 #[repr(transparent)]
 pub struct ICreateAudioFileOutputNodeResult2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICreateAudioFileOutputNodeResult2 {
-    type Vtable = ICreateAudioFileOutputNodeResult2Vtbl;
+    type Vtable = ICreateAudioFileOutputNodeResult2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f01b50d_3318_47b3_a60a_1b492be7fc0d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICreateAudioFileOutputNodeResult2Vtbl {
+pub struct ICreateAudioFileOutputNodeResult2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
@@ -7298,12 +7298,12 @@ pub struct ICreateAudioFileOutputNodeResult2Vtbl {
 #[repr(transparent)]
 pub struct ICreateAudioGraphResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICreateAudioGraphResult {
-    type Vtable = ICreateAudioGraphResultVtbl;
+    type Vtable = ICreateAudioGraphResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5453ef7e_7bde_4b76_bb5d_48f79cfc8c0b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICreateAudioGraphResultVtbl {
+pub struct ICreateAudioGraphResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioGraphCreationStatus) -> ::windows::core::HRESULT,
     pub Graph: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7312,12 +7312,12 @@ pub struct ICreateAudioGraphResultVtbl {
 #[repr(transparent)]
 pub struct ICreateAudioGraphResult2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICreateAudioGraphResult2 {
-    type Vtable = ICreateAudioGraphResult2Vtbl;
+    type Vtable = ICreateAudioGraphResult2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d738dfc_88c6_4fcb_a534_85cedd4050a1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICreateAudioGraphResult2Vtbl {
+pub struct ICreateAudioGraphResult2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
@@ -7325,12 +7325,12 @@ pub struct ICreateAudioGraphResult2Vtbl {
 #[repr(transparent)]
 pub struct ICreateMediaSourceAudioInputNodeResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICreateMediaSourceAudioInputNodeResult {
-    type Vtable = ICreateMediaSourceAudioInputNodeResultVtbl;
+    type Vtable = ICreateMediaSourceAudioInputNodeResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46a658a3_53c0_4d59_9e51_cc1d1044a4c4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICreateMediaSourceAudioInputNodeResultVtbl {
+pub struct ICreateMediaSourceAudioInputNodeResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaSourceAudioInputNodeCreationStatus) -> ::windows::core::HRESULT,
     pub Node: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7339,12 +7339,12 @@ pub struct ICreateMediaSourceAudioInputNodeResultVtbl {
 #[repr(transparent)]
 pub struct ICreateMediaSourceAudioInputNodeResult2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICreateMediaSourceAudioInputNodeResult2 {
-    type Vtable = ICreateMediaSourceAudioInputNodeResult2Vtbl;
+    type Vtable = ICreateMediaSourceAudioInputNodeResult2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63514ce8_6a1a_49e3_97ec_28fd5be114e5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICreateMediaSourceAudioInputNodeResult2Vtbl {
+pub struct ICreateMediaSourceAudioInputNodeResult2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
@@ -7352,12 +7352,12 @@ pub struct ICreateMediaSourceAudioInputNodeResult2Vtbl {
 #[repr(transparent)]
 pub struct IEchoEffectDefinition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEchoEffectDefinition {
-    type Vtable = IEchoEffectDefinitionVtbl;
+    type Vtable = IEchoEffectDefinition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e4d3faa_36b8_4c91_b9da_11f44a8a6610);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEchoEffectDefinitionVtbl {
+pub struct IEchoEffectDefinition_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetWetDryMix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     pub WetDryMix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -7370,12 +7370,12 @@ pub struct IEchoEffectDefinitionVtbl {
 #[repr(transparent)]
 pub struct IEchoEffectDefinitionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEchoEffectDefinitionFactory {
-    type Vtable = IEchoEffectDefinitionFactoryVtbl;
+    type Vtable = IEchoEffectDefinitionFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d4e2257_aaf2_4e86_a54c_fb79db8f6c12);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEchoEffectDefinitionFactoryVtbl {
+pub struct IEchoEffectDefinitionFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, audiograph: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7383,12 +7383,12 @@ pub struct IEchoEffectDefinitionFactoryVtbl {
 #[repr(transparent)]
 pub struct IEqualizerBand(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEqualizerBand {
-    type Vtable = IEqualizerBandVtbl;
+    type Vtable = IEqualizerBand_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc00a5a6a_262d_4b85_9bb7_43280b62ed0c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEqualizerBandVtbl {
+pub struct IEqualizerBand_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Bandwidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetBandwidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
@@ -7401,12 +7401,12 @@ pub struct IEqualizerBandVtbl {
 #[repr(transparent)]
 pub struct IEqualizerEffectDefinition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEqualizerEffectDefinition {
-    type Vtable = IEqualizerEffectDefinitionVtbl;
+    type Vtable = IEqualizerEffectDefinition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x023f6f1f_83fe_449a_a822_c696442d16b0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEqualizerEffectDefinitionVtbl {
+pub struct IEqualizerEffectDefinition_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Bands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7417,12 +7417,12 @@ pub struct IEqualizerEffectDefinitionVtbl {
 #[repr(transparent)]
 pub struct IEqualizerEffectDefinitionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEqualizerEffectDefinitionFactory {
-    type Vtable = IEqualizerEffectDefinitionFactoryVtbl;
+    type Vtable = IEqualizerEffectDefinitionFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2876fc4_d410_4eb5_9e69_c9aa1277eaf0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEqualizerEffectDefinitionFactoryVtbl {
+pub struct IEqualizerEffectDefinitionFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, audiograph: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7430,12 +7430,12 @@ pub struct IEqualizerEffectDefinitionFactoryVtbl {
 #[repr(transparent)]
 pub struct IFrameInputNodeQuantumStartedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFrameInputNodeQuantumStartedEventArgs {
-    type Vtable = IFrameInputNodeQuantumStartedEventArgsVtbl;
+    type Vtable = IFrameInputNodeQuantumStartedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d9bd498_a306_4f06_bd9f_e9efc8226304);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFrameInputNodeQuantumStartedEventArgsVtbl {
+pub struct IFrameInputNodeQuantumStartedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RequiredSamples: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
 }
@@ -7443,12 +7443,12 @@ pub struct IFrameInputNodeQuantumStartedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ILimiterEffectDefinition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILimiterEffectDefinition {
-    type Vtable = ILimiterEffectDefinitionVtbl;
+    type Vtable = ILimiterEffectDefinition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b755d19_2603_47ba_bdeb_39055e3486dc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILimiterEffectDefinitionVtbl {
+pub struct ILimiterEffectDefinition_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetRelease: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
     pub Release: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -7459,12 +7459,12 @@ pub struct ILimiterEffectDefinitionVtbl {
 #[repr(transparent)]
 pub struct ILimiterEffectDefinitionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILimiterEffectDefinitionFactory {
-    type Vtable = ILimiterEffectDefinitionFactoryVtbl;
+    type Vtable = ILimiterEffectDefinitionFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecbae6f1_61ff_45ef_b8f5_48659a57c72d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILimiterEffectDefinitionFactoryVtbl {
+pub struct ILimiterEffectDefinitionFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, audiograph: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7472,12 +7472,12 @@ pub struct ILimiterEffectDefinitionFactoryVtbl {
 #[repr(transparent)]
 pub struct IMediaSourceAudioInputNode(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMediaSourceAudioInputNode {
-    type Vtable = IMediaSourceAudioInputNodeVtbl;
+    type Vtable = IMediaSourceAudioInputNode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99d8983b_a88a_4041_8e4f_ddbac0c91fd3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMediaSourceAudioInputNodeVtbl {
+pub struct IMediaSourceAudioInputNode_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetPlaybackSpeedFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     pub PlaybackSpeedFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -7534,12 +7534,12 @@ pub struct IMediaSourceAudioInputNodeVtbl {
 #[repr(transparent)]
 pub struct IReverbEffectDefinition(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IReverbEffectDefinition {
-    type Vtable = IReverbEffectDefinitionVtbl;
+    type Vtable = IReverbEffectDefinition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4606aa89_f563_4d0a_8f6e_f0cddff35d84);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IReverbEffectDefinitionVtbl {
+pub struct IReverbEffectDefinition_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetWetDryMix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     pub WetDryMix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -7592,12 +7592,12 @@ pub struct IReverbEffectDefinitionVtbl {
 #[repr(transparent)]
 pub struct IReverbEffectDefinitionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IReverbEffectDefinitionFactory {
-    type Vtable = IReverbEffectDefinitionFactoryVtbl;
+    type Vtable = IReverbEffectDefinitionFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7d5cbfe_100b_4ff0_9da6_dc4e05a759f0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IReverbEffectDefinitionFactoryVtbl {
+pub struct IReverbEffectDefinitionFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, audiograph: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7605,12 +7605,12 @@ pub struct IReverbEffectDefinitionFactoryVtbl {
 #[repr(transparent)]
 pub struct ISetDefaultSpatialAudioFormatResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISetDefaultSpatialAudioFormatResult {
-    type Vtable = ISetDefaultSpatialAudioFormatResultVtbl;
+    type Vtable = ISetDefaultSpatialAudioFormatResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c2aa511_1400_5e70_9ea9_ae151241e8ea);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISetDefaultSpatialAudioFormatResultVtbl {
+pub struct ISetDefaultSpatialAudioFormatResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SetDefaultSpatialAudioFormatStatus) -> ::windows::core::HRESULT,
 }
@@ -7618,12 +7618,12 @@ pub struct ISetDefaultSpatialAudioFormatResultVtbl {
 #[repr(transparent)]
 pub struct ISpatialAudioDeviceConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialAudioDeviceConfiguration {
-    type Vtable = ISpatialAudioDeviceConfigurationVtbl;
+    type Vtable = ISpatialAudioDeviceConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee830034_61cf_5749_9da4_10f0fe028199);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialAudioDeviceConfigurationVtbl {
+pub struct ISpatialAudioDeviceConfiguration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub IsSpatialAudioSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -7647,12 +7647,12 @@ pub struct ISpatialAudioDeviceConfigurationVtbl {
 #[repr(transparent)]
 pub struct ISpatialAudioDeviceConfigurationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialAudioDeviceConfigurationStatics {
-    type Vtable = ISpatialAudioDeviceConfigurationStaticsVtbl;
+    type Vtable = ISpatialAudioDeviceConfigurationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ec37f7b_936d_4e04_9728_2827d9f758c4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialAudioDeviceConfigurationStaticsVtbl {
+pub struct ISpatialAudioDeviceConfigurationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7660,12 +7660,12 @@ pub struct ISpatialAudioDeviceConfigurationStaticsVtbl {
 #[repr(transparent)]
 pub struct ISpatialAudioFormatConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialAudioFormatConfiguration {
-    type Vtable = ISpatialAudioFormatConfigurationVtbl;
+    type Vtable = ISpatialAudioFormatConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32df09a8_50f0_5395_9923_7d44ca71ed6d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialAudioFormatConfigurationVtbl {
+pub struct ISpatialAudioFormatConfiguration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ReportLicenseChangedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7682,12 +7682,12 @@ pub struct ISpatialAudioFormatConfigurationVtbl {
 #[repr(transparent)]
 pub struct ISpatialAudioFormatConfigurationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialAudioFormatConfigurationStatics {
-    type Vtable = ISpatialAudioFormatConfigurationStaticsVtbl;
+    type Vtable = ISpatialAudioFormatConfigurationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b5fef71_67c9_4e5f_a35b_41680711f8c7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialAudioFormatConfigurationStaticsVtbl {
+pub struct ISpatialAudioFormatConfigurationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7695,12 +7695,12 @@ pub struct ISpatialAudioFormatConfigurationStaticsVtbl {
 #[repr(transparent)]
 pub struct ISpatialAudioFormatSubtypeStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialAudioFormatSubtypeStatics {
-    type Vtable = ISpatialAudioFormatSubtypeStaticsVtbl;
+    type Vtable = ISpatialAudioFormatSubtypeStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3de8a47_83ee_4266_a945_bedf507afeed);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialAudioFormatSubtypeStaticsVtbl {
+pub struct ISpatialAudioFormatSubtypeStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub WindowsSonic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DolbyAtmosForHeadphones: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -7713,12 +7713,12 @@ pub struct ISpatialAudioFormatSubtypeStaticsVtbl {
 #[repr(transparent)]
 pub struct ISpatialAudioFormatSubtypeStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISpatialAudioFormatSubtypeStatics2 {
-    type Vtable = ISpatialAudioFormatSubtypeStatics2Vtbl;
+    type Vtable = ISpatialAudioFormatSubtypeStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4565e6cb_d95b_5621_b6af_0e8849c57c80);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpatialAudioFormatSubtypeStatics2Vtbl {
+pub struct ISpatialAudioFormatSubtypeStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DTSXForHomeTheater: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -7803,7 +7803,7 @@ unsafe impl ::windows::core::RuntimeType for LimiterEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.LimiterEffectDefinition;{6b755d19-2603-47ba-bdeb-39055e3486dc})");
 }
 unsafe impl ::windows::core::Interface for LimiterEffectDefinition {
-    type Vtable = ILimiterEffectDefinitionVtbl;
+    type Vtable = ILimiterEffectDefinition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b755d19_2603_47ba_bdeb_39055e3486dc);
 }
 impl ::windows::core::RuntimeName for LimiterEffectDefinition {
@@ -8117,7 +8117,7 @@ unsafe impl ::windows::core::RuntimeType for MediaSourceAudioInputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.MediaSourceAudioInputNode;{99d8983b-a88a-4041-8e4f-ddbac0c91fd3})");
 }
 unsafe impl ::windows::core::Interface for MediaSourceAudioInputNode {
-    type Vtable = IMediaSourceAudioInputNodeVtbl;
+    type Vtable = IMediaSourceAudioInputNode_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99d8983b_a88a_4041_8e4f_ddbac0c91fd3);
 }
 impl ::windows::core::RuntimeName for MediaSourceAudioInputNode {
@@ -8713,7 +8713,7 @@ unsafe impl ::windows::core::RuntimeType for ReverbEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.ReverbEffectDefinition;{4606aa89-f563-4d0a-8f6e-f0cddff35d84})");
 }
 unsafe impl ::windows::core::Interface for ReverbEffectDefinition {
-    type Vtable = IReverbEffectDefinitionVtbl;
+    type Vtable = IReverbEffectDefinition_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4606aa89_f563_4d0a_8f6e_f0cddff35d84);
 }
 impl ::windows::core::RuntimeName for ReverbEffectDefinition {
@@ -8820,7 +8820,7 @@ unsafe impl ::windows::core::RuntimeType for SetDefaultSpatialAudioFormatResult 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.SetDefaultSpatialAudioFormatResult;{1c2aa511-1400-5e70-9ea9-ae151241e8ea})");
 }
 unsafe impl ::windows::core::Interface for SetDefaultSpatialAudioFormatResult {
-    type Vtable = ISetDefaultSpatialAudioFormatResultVtbl;
+    type Vtable = ISetDefaultSpatialAudioFormatResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c2aa511_1400_5e70_9ea9_ae151241e8ea);
 }
 impl ::windows::core::RuntimeName for SetDefaultSpatialAudioFormatResult {
@@ -9006,7 +9006,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialAudioDeviceConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.SpatialAudioDeviceConfiguration;{ee830034-61cf-5749-9da4-10f0fe028199})");
 }
 unsafe impl ::windows::core::Interface for SpatialAudioDeviceConfiguration {
-    type Vtable = ISpatialAudioDeviceConfigurationVtbl;
+    type Vtable = ISpatialAudioDeviceConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee830034_61cf_5749_9da4_10f0fe028199);
 }
 impl ::windows::core::RuntimeName for SpatialAudioDeviceConfiguration {
@@ -9122,7 +9122,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialAudioFormatConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.SpatialAudioFormatConfiguration;{32df09a8-50f0-5395-9923-7d44ca71ed6d})");
 }
 unsafe impl ::windows::core::Interface for SpatialAudioFormatConfiguration {
-    type Vtable = ISpatialAudioFormatConfigurationVtbl;
+    type Vtable = ISpatialAudioFormatConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32df09a8_50f0_5395_9923_7d44ca71ed6d);
 }
 impl ::windows::core::RuntimeName for SpatialAudioFormatConfiguration {

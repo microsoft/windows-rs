@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IBluetoothLEAdvertisementImpl: Sized {
+pub trait IBluetoothLEAdvertisement_Impl: Sized {
     fn Flags(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<BluetoothLEAdvertisementFlags>>;
     fn SetFlags(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<BluetoothLEAdvertisementFlags>>) -> ::windows::core::Result<()>;
     fn LocalName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -15,9 +15,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEAdvertisement {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisement";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IBluetoothLEAdvertisementVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementVtbl {
-        unsafe extern "system" fn Flags<Impl: IBluetoothLEAdvertisementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBluetoothLEAdvertisement_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisement_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisement_Vtbl {
+        unsafe extern "system" fn Flags<Impl: IBluetoothLEAdvertisement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Flags() {
                 ::core::result::Result::Ok(ok__) => {
@@ -28,11 +28,11 @@ impl IBluetoothLEAdvertisementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFlags<Impl: IBluetoothLEAdvertisementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFlags<Impl: IBluetoothLEAdvertisement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFlags(&*(&value as *const <super::super::super::Foundation::IReference<BluetoothLEAdvertisementFlags> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<BluetoothLEAdvertisementFlags> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn LocalName<Impl: IBluetoothLEAdvertisementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LocalName<Impl: IBluetoothLEAdvertisement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LocalName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -43,11 +43,11 @@ impl IBluetoothLEAdvertisementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLocalName<Impl: IBluetoothLEAdvertisementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLocalName<Impl: IBluetoothLEAdvertisement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLocalName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ServiceUuids<Impl: IBluetoothLEAdvertisementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServiceUuids<Impl: IBluetoothLEAdvertisement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceUuids() {
                 ::core::result::Result::Ok(ok__) => {
@@ -58,7 +58,7 @@ impl IBluetoothLEAdvertisementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ManufacturerData<Impl: IBluetoothLEAdvertisementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ManufacturerData<Impl: IBluetoothLEAdvertisement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ManufacturerData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -69,7 +69,7 @@ impl IBluetoothLEAdvertisementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DataSections<Impl: IBluetoothLEAdvertisementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DataSections<Impl: IBluetoothLEAdvertisement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataSections() {
                 ::core::result::Result::Ok(ok__) => {
@@ -80,7 +80,7 @@ impl IBluetoothLEAdvertisementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetManufacturerDataByCompanyId<Impl: IBluetoothLEAdvertisementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, companyid: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetManufacturerDataByCompanyId<Impl: IBluetoothLEAdvertisement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, companyid: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetManufacturerDataByCompanyId(companyid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -91,7 +91,7 @@ impl IBluetoothLEAdvertisementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSectionsByType<Impl: IBluetoothLEAdvertisementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSectionsByType<Impl: IBluetoothLEAdvertisement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSectionsByType(r#type) {
                 ::core::result::Result::Ok(ok__) => {
@@ -120,7 +120,7 @@ impl IBluetoothLEAdvertisementVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IBluetoothLEAdvertisementBytePatternImpl: Sized {
+pub trait IBluetoothLEAdvertisementBytePattern_Impl: Sized {
     fn DataType(&mut self) -> ::windows::core::Result<u8>;
     fn SetDataType(&mut self, value: u8) -> ::windows::core::Result<()>;
     fn Offset(&mut self) -> ::windows::core::Result<i16>;
@@ -133,9 +133,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementBytePattern {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementBytePattern";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IBluetoothLEAdvertisementBytePatternVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementBytePatternImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementBytePatternVtbl {
-        unsafe extern "system" fn DataType<Impl: IBluetoothLEAdvertisementBytePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+impl IBluetoothLEAdvertisementBytePattern_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementBytePattern_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementBytePattern_Vtbl {
+        unsafe extern "system" fn DataType<Impl: IBluetoothLEAdvertisementBytePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -146,11 +146,11 @@ impl IBluetoothLEAdvertisementBytePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDataType<Impl: IBluetoothLEAdvertisementBytePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDataType<Impl: IBluetoothLEAdvertisementBytePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDataType(value).into()
         }
-        unsafe extern "system" fn Offset<Impl: IBluetoothLEAdvertisementBytePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Offset<Impl: IBluetoothLEAdvertisementBytePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Offset() {
                 ::core::result::Result::Ok(ok__) => {
@@ -161,11 +161,11 @@ impl IBluetoothLEAdvertisementBytePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOffset<Impl: IBluetoothLEAdvertisementBytePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffset<Impl: IBluetoothLEAdvertisementBytePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOffset(value).into()
         }
-        unsafe extern "system" fn Data<Impl: IBluetoothLEAdvertisementBytePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Data<Impl: IBluetoothLEAdvertisementBytePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
                 ::core::result::Result::Ok(ok__) => {
@@ -176,7 +176,7 @@ impl IBluetoothLEAdvertisementBytePatternVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetData<Impl: IBluetoothLEAdvertisementBytePatternImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetData<Impl: IBluetoothLEAdvertisementBytePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetData(&*(&value as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -195,7 +195,7 @@ impl IBluetoothLEAdvertisementBytePatternVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IBluetoothLEAdvertisementBytePatternFactoryImpl: Sized {
+pub trait IBluetoothLEAdvertisementBytePatternFactory_Impl: Sized {
     fn Create(&mut self, datatype: u8, offset: i16, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<BluetoothLEAdvertisementBytePattern>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -203,9 +203,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementBytePatternFactor
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementBytePatternFactory";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IBluetoothLEAdvertisementBytePatternFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementBytePatternFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementBytePatternFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IBluetoothLEAdvertisementBytePatternFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datatype: u8, offset: i16, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBluetoothLEAdvertisementBytePatternFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementBytePatternFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementBytePatternFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IBluetoothLEAdvertisementBytePatternFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datatype: u8, offset: i16, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(datatype, offset, &*(&data as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -226,7 +226,7 @@ impl IBluetoothLEAdvertisementBytePatternFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IBluetoothLEAdvertisementDataSectionImpl: Sized {
+pub trait IBluetoothLEAdvertisementDataSection_Impl: Sized {
     fn DataType(&mut self) -> ::windows::core::Result<u8>;
     fn SetDataType(&mut self, value: u8) -> ::windows::core::Result<()>;
     fn Data(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
@@ -237,9 +237,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementDataSection {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementDataSection";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IBluetoothLEAdvertisementDataSectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementDataSectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementDataSectionVtbl {
-        unsafe extern "system" fn DataType<Impl: IBluetoothLEAdvertisementDataSectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+impl IBluetoothLEAdvertisementDataSection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementDataSection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementDataSection_Vtbl {
+        unsafe extern "system" fn DataType<Impl: IBluetoothLEAdvertisementDataSection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -250,11 +250,11 @@ impl IBluetoothLEAdvertisementDataSectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDataType<Impl: IBluetoothLEAdvertisementDataSectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDataType<Impl: IBluetoothLEAdvertisementDataSection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDataType(value).into()
         }
-        unsafe extern "system" fn Data<Impl: IBluetoothLEAdvertisementDataSectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Data<Impl: IBluetoothLEAdvertisementDataSection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
                 ::core::result::Result::Ok(ok__) => {
@@ -265,7 +265,7 @@ impl IBluetoothLEAdvertisementDataSectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetData<Impl: IBluetoothLEAdvertisementDataSectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetData<Impl: IBluetoothLEAdvertisementDataSection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetData(&*(&value as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -282,7 +282,7 @@ impl IBluetoothLEAdvertisementDataSectionVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IBluetoothLEAdvertisementDataSectionFactoryImpl: Sized {
+pub trait IBluetoothLEAdvertisementDataSectionFactory_Impl: Sized {
     fn Create(&mut self, datatype: u8, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<BluetoothLEAdvertisementDataSection>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -290,9 +290,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementDataSectionFactor
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementDataSectionFactory";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IBluetoothLEAdvertisementDataSectionFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementDataSectionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementDataSectionFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IBluetoothLEAdvertisementDataSectionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datatype: u8, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBluetoothLEAdvertisementDataSectionFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementDataSectionFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementDataSectionFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IBluetoothLEAdvertisementDataSectionFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datatype: u8, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(datatype, &*(&data as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -313,7 +313,7 @@ impl IBluetoothLEAdvertisementDataSectionFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEAdvertisementDataTypesStaticsImpl: Sized {
+pub trait IBluetoothLEAdvertisementDataTypesStatics_Impl: Sized {
     fn Flags(&mut self) -> ::windows::core::Result<u8>;
     fn IncompleteService16BitUuids(&mut self) -> ::windows::core::Result<u8>;
     fn CompleteService16BitUuids(&mut self) -> ::windows::core::Result<u8>;
@@ -342,9 +342,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementDataTypesStatics 
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementDataTypesStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementDataTypesStaticsVtbl {
-        unsafe extern "system" fn Flags<Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+impl IBluetoothLEAdvertisementDataTypesStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementDataTypesStatics_Vtbl {
+        unsafe extern "system" fn Flags<Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Flags() {
                 ::core::result::Result::Ok(ok__) => {
@@ -355,7 +355,7 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IncompleteService16BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IncompleteService16BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IncompleteService16BitUuids() {
                 ::core::result::Result::Ok(ok__) => {
@@ -366,7 +366,7 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CompleteService16BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CompleteService16BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CompleteService16BitUuids() {
                 ::core::result::Result::Ok(ok__) => {
@@ -377,7 +377,7 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IncompleteService32BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IncompleteService32BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IncompleteService32BitUuids() {
                 ::core::result::Result::Ok(ok__) => {
@@ -388,7 +388,7 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CompleteService32BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CompleteService32BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CompleteService32BitUuids() {
                 ::core::result::Result::Ok(ok__) => {
@@ -399,7 +399,7 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IncompleteService128BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IncompleteService128BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IncompleteService128BitUuids() {
                 ::core::result::Result::Ok(ok__) => {
@@ -410,7 +410,7 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CompleteService128BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CompleteService128BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CompleteService128BitUuids() {
                 ::core::result::Result::Ok(ok__) => {
@@ -421,7 +421,7 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShortenedLocalName<Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShortenedLocalName<Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShortenedLocalName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -432,7 +432,7 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CompleteLocalName<Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CompleteLocalName<Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CompleteLocalName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -443,7 +443,7 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TxPowerLevel<Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TxPowerLevel<Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TxPowerLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -454,7 +454,7 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SlaveConnectionIntervalRange<Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SlaveConnectionIntervalRange<Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SlaveConnectionIntervalRange() {
                 ::core::result::Result::Ok(ok__) => {
@@ -465,7 +465,7 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceSolicitation16BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServiceSolicitation16BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceSolicitation16BitUuids() {
                 ::core::result::Result::Ok(ok__) => {
@@ -476,7 +476,7 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceSolicitation32BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServiceSolicitation32BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceSolicitation32BitUuids() {
                 ::core::result::Result::Ok(ok__) => {
@@ -487,7 +487,7 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceSolicitation128BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServiceSolicitation128BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceSolicitation128BitUuids() {
                 ::core::result::Result::Ok(ok__) => {
@@ -498,7 +498,7 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceData16BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServiceData16BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceData16BitUuids() {
                 ::core::result::Result::Ok(ok__) => {
@@ -509,7 +509,7 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceData32BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServiceData32BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceData32BitUuids() {
                 ::core::result::Result::Ok(ok__) => {
@@ -520,7 +520,7 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceData128BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServiceData128BitUuids<Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceData128BitUuids() {
                 ::core::result::Result::Ok(ok__) => {
@@ -531,7 +531,7 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PublicTargetAddress<Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PublicTargetAddress<Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PublicTargetAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -542,7 +542,7 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RandomTargetAddress<Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RandomTargetAddress<Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RandomTargetAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -553,7 +553,7 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Appearance<Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Appearance<Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Appearance() {
                 ::core::result::Result::Ok(ok__) => {
@@ -564,7 +564,7 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AdvertisingInterval<Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AdvertisingInterval<Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AdvertisingInterval() {
                 ::core::result::Result::Ok(ok__) => {
@@ -575,7 +575,7 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ManufacturerSpecificData<Impl: IBluetoothLEAdvertisementDataTypesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ManufacturerSpecificData<Impl: IBluetoothLEAdvertisementDataTypesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ManufacturerSpecificData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -617,7 +617,7 @@ impl IBluetoothLEAdvertisementDataTypesStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IBluetoothLEAdvertisementFilterImpl: Sized {
+pub trait IBluetoothLEAdvertisementFilter_Impl: Sized {
     fn Advertisement(&mut self) -> ::windows::core::Result<BluetoothLEAdvertisement>;
     fn SetAdvertisement(&mut self, value: &::core::option::Option<BluetoothLEAdvertisement>) -> ::windows::core::Result<()>;
     fn BytePatterns(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<BluetoothLEAdvertisementBytePattern>>;
@@ -627,9 +627,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementFilter {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementFilter";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IBluetoothLEAdvertisementFilterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementFilterVtbl {
-        unsafe extern "system" fn Advertisement<Impl: IBluetoothLEAdvertisementFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBluetoothLEAdvertisementFilter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementFilter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementFilter_Vtbl {
+        unsafe extern "system" fn Advertisement<Impl: IBluetoothLEAdvertisementFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Advertisement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -640,11 +640,11 @@ impl IBluetoothLEAdvertisementFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAdvertisement<Impl: IBluetoothLEAdvertisementFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAdvertisement<Impl: IBluetoothLEAdvertisementFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAdvertisement(&*(&value as *const <BluetoothLEAdvertisement as ::windows::core::Abi>::Abi as *const <BluetoothLEAdvertisement as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BytePatterns<Impl: IBluetoothLEAdvertisementFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BytePatterns<Impl: IBluetoothLEAdvertisementFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BytePatterns() {
                 ::core::result::Result::Ok(ok__) => {
@@ -667,7 +667,7 @@ impl IBluetoothLEAdvertisementFilterVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IBluetoothLEAdvertisementPublisherImpl: Sized {
+pub trait IBluetoothLEAdvertisementPublisher_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<BluetoothLEAdvertisementPublisherStatus>;
     fn Advertisement(&mut self) -> ::windows::core::Result<BluetoothLEAdvertisement>;
     fn Start(&mut self) -> ::windows::core::Result<()>;
@@ -680,9 +680,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementPublisher {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisher";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IBluetoothLEAdvertisementPublisherVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementPublisherImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementPublisherVtbl {
-        unsafe extern "system" fn Status<Impl: IBluetoothLEAdvertisementPublisherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BluetoothLEAdvertisementPublisherStatus) -> ::windows::core::HRESULT {
+impl IBluetoothLEAdvertisementPublisher_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementPublisher_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementPublisher_Vtbl {
+        unsafe extern "system" fn Status<Impl: IBluetoothLEAdvertisementPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BluetoothLEAdvertisementPublisherStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -693,7 +693,7 @@ impl IBluetoothLEAdvertisementPublisherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Advertisement<Impl: IBluetoothLEAdvertisementPublisherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Advertisement<Impl: IBluetoothLEAdvertisementPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Advertisement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -704,15 +704,15 @@ impl IBluetoothLEAdvertisementPublisherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Start<Impl: IBluetoothLEAdvertisementPublisherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Start<Impl: IBluetoothLEAdvertisementPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        unsafe extern "system" fn Stop<Impl: IBluetoothLEAdvertisementPublisherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stop<Impl: IBluetoothLEAdvertisementPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        unsafe extern "system" fn StatusChanged<Impl: IBluetoothLEAdvertisementPublisherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StatusChanged<Impl: IBluetoothLEAdvertisementPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StatusChanged(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<BluetoothLEAdvertisementPublisher, BluetoothLEAdvertisementPublisherStatusChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<BluetoothLEAdvertisementPublisher, BluetoothLEAdvertisementPublisherStatusChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -723,7 +723,7 @@ impl IBluetoothLEAdvertisementPublisherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStatusChanged<Impl: IBluetoothLEAdvertisementPublisherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStatusChanged<Impl: IBluetoothLEAdvertisementPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStatusChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -742,7 +742,7 @@ impl IBluetoothLEAdvertisementPublisherVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IBluetoothLEAdvertisementPublisher2Impl: Sized {
+pub trait IBluetoothLEAdvertisementPublisher2_Impl: Sized {
     fn PreferredTransmitPowerLevelInDBm(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<i16>>;
     fn SetPreferredTransmitPowerLevelInDBm(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<i16>>) -> ::windows::core::Result<()>;
     fn UseExtendedAdvertisement(&mut self) -> ::windows::core::Result<bool>;
@@ -757,9 +757,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementPublisher2 {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisher2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IBluetoothLEAdvertisementPublisher2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementPublisher2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementPublisher2Vtbl {
-        unsafe extern "system" fn PreferredTransmitPowerLevelInDBm<Impl: IBluetoothLEAdvertisementPublisher2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBluetoothLEAdvertisementPublisher2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementPublisher2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementPublisher2_Vtbl {
+        unsafe extern "system" fn PreferredTransmitPowerLevelInDBm<Impl: IBluetoothLEAdvertisementPublisher2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PreferredTransmitPowerLevelInDBm() {
                 ::core::result::Result::Ok(ok__) => {
@@ -770,11 +770,11 @@ impl IBluetoothLEAdvertisementPublisher2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPreferredTransmitPowerLevelInDBm<Impl: IBluetoothLEAdvertisementPublisher2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPreferredTransmitPowerLevelInDBm<Impl: IBluetoothLEAdvertisementPublisher2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPreferredTransmitPowerLevelInDBm(&*(&value as *const <super::super::super::Foundation::IReference<i16> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<i16> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn UseExtendedAdvertisement<Impl: IBluetoothLEAdvertisementPublisher2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UseExtendedAdvertisement<Impl: IBluetoothLEAdvertisementPublisher2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UseExtendedAdvertisement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -785,11 +785,11 @@ impl IBluetoothLEAdvertisementPublisher2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetUseExtendedAdvertisement<Impl: IBluetoothLEAdvertisementPublisher2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUseExtendedAdvertisement<Impl: IBluetoothLEAdvertisementPublisher2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUseExtendedAdvertisement(value).into()
         }
-        unsafe extern "system" fn IsAnonymous<Impl: IBluetoothLEAdvertisementPublisher2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsAnonymous<Impl: IBluetoothLEAdvertisementPublisher2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAnonymous() {
                 ::core::result::Result::Ok(ok__) => {
@@ -800,11 +800,11 @@ impl IBluetoothLEAdvertisementPublisher2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsAnonymous<Impl: IBluetoothLEAdvertisementPublisher2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsAnonymous<Impl: IBluetoothLEAdvertisementPublisher2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsAnonymous(value).into()
         }
-        unsafe extern "system" fn IncludeTransmitPowerLevel<Impl: IBluetoothLEAdvertisementPublisher2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IncludeTransmitPowerLevel<Impl: IBluetoothLEAdvertisementPublisher2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IncludeTransmitPowerLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -815,7 +815,7 @@ impl IBluetoothLEAdvertisementPublisher2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIncludeTransmitPowerLevel<Impl: IBluetoothLEAdvertisementPublisher2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIncludeTransmitPowerLevel<Impl: IBluetoothLEAdvertisementPublisher2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIncludeTransmitPowerLevel(value).into()
         }
@@ -836,7 +836,7 @@ impl IBluetoothLEAdvertisementPublisher2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEAdvertisementPublisherFactoryImpl: Sized {
+pub trait IBluetoothLEAdvertisementPublisherFactory_Impl: Sized {
     fn Create(&mut self, advertisement: &::core::option::Option<BluetoothLEAdvertisement>) -> ::windows::core::Result<BluetoothLEAdvertisementPublisher>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -844,9 +844,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementPublisherFactory 
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisherFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBluetoothLEAdvertisementPublisherFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementPublisherFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementPublisherFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IBluetoothLEAdvertisementPublisherFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, advertisement: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBluetoothLEAdvertisementPublisherFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementPublisherFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementPublisherFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IBluetoothLEAdvertisementPublisherFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, advertisement: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&advertisement as *const <BluetoothLEAdvertisement as ::windows::core::Abi>::Abi as *const <BluetoothLEAdvertisement as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -867,7 +867,7 @@ impl IBluetoothLEAdvertisementPublisherFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEAdvertisementPublisherStatusChangedEventArgsImpl: Sized {
+pub trait IBluetoothLEAdvertisementPublisherStatusChangedEventArgs_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<BluetoothLEAdvertisementPublisherStatus>;
     fn Error(&mut self) -> ::windows::core::Result<super::BluetoothError>;
 }
@@ -876,9 +876,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementPublisherStatusCh
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisherStatusChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBluetoothLEAdvertisementPublisherStatusChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementPublisherStatusChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementPublisherStatusChangedEventArgsVtbl {
-        unsafe extern "system" fn Status<Impl: IBluetoothLEAdvertisementPublisherStatusChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BluetoothLEAdvertisementPublisherStatus) -> ::windows::core::HRESULT {
+impl IBluetoothLEAdvertisementPublisherStatusChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementPublisherStatusChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementPublisherStatusChangedEventArgs_Vtbl {
+        unsafe extern "system" fn Status<Impl: IBluetoothLEAdvertisementPublisherStatusChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BluetoothLEAdvertisementPublisherStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -889,7 +889,7 @@ impl IBluetoothLEAdvertisementPublisherStatusChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Error<Impl: IBluetoothLEAdvertisementPublisherStatusChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Error<Impl: IBluetoothLEAdvertisementPublisherStatusChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Error() {
                 ::core::result::Result::Ok(ok__) => {
@@ -911,7 +911,7 @@ impl IBluetoothLEAdvertisementPublisherStatusChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2Impl: Sized {
+pub trait IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2_Impl: Sized {
     fn SelectedTransmitPowerLevelInDBm(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<i16>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -919,9 +919,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementPublisherStatusCh
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2Vtbl {
-        unsafe extern "system" fn SelectedTransmitPowerLevelInDBm<Impl: IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2_Vtbl {
+        unsafe extern "system" fn SelectedTransmitPowerLevelInDBm<Impl: IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedTransmitPowerLevelInDBm() {
                 ::core::result::Result::Ok(ok__) => {
@@ -942,7 +942,7 @@ impl IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IBluetoothLEAdvertisementReceivedEventArgsImpl: Sized {
+pub trait IBluetoothLEAdvertisementReceivedEventArgs_Impl: Sized {
     fn RawSignalStrengthInDBm(&mut self) -> ::windows::core::Result<i16>;
     fn BluetoothAddress(&mut self) -> ::windows::core::Result<u64>;
     fn AdvertisementType(&mut self) -> ::windows::core::Result<BluetoothLEAdvertisementType>;
@@ -954,9 +954,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementReceivedEventArgs
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementReceivedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IBluetoothLEAdvertisementReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementReceivedEventArgsVtbl {
-        unsafe extern "system" fn RawSignalStrengthInDBm<Impl: IBluetoothLEAdvertisementReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i16) -> ::windows::core::HRESULT {
+impl IBluetoothLEAdvertisementReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn RawSignalStrengthInDBm<Impl: IBluetoothLEAdvertisementReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RawSignalStrengthInDBm() {
                 ::core::result::Result::Ok(ok__) => {
@@ -967,7 +967,7 @@ impl IBluetoothLEAdvertisementReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BluetoothAddress<Impl: IBluetoothLEAdvertisementReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BluetoothAddress<Impl: IBluetoothLEAdvertisementReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BluetoothAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -978,7 +978,7 @@ impl IBluetoothLEAdvertisementReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AdvertisementType<Impl: IBluetoothLEAdvertisementReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BluetoothLEAdvertisementType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AdvertisementType<Impl: IBluetoothLEAdvertisementReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BluetoothLEAdvertisementType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AdvertisementType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -989,7 +989,7 @@ impl IBluetoothLEAdvertisementReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Timestamp<Impl: IBluetoothLEAdvertisementReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Timestamp<Impl: IBluetoothLEAdvertisementReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1000,7 +1000,7 @@ impl IBluetoothLEAdvertisementReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Advertisement<Impl: IBluetoothLEAdvertisementReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Advertisement<Impl: IBluetoothLEAdvertisementReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Advertisement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1025,7 +1025,7 @@ impl IBluetoothLEAdvertisementReceivedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IBluetoothLEAdvertisementReceivedEventArgs2Impl: Sized {
+pub trait IBluetoothLEAdvertisementReceivedEventArgs2_Impl: Sized {
     fn BluetoothAddressType(&mut self) -> ::windows::core::Result<super::BluetoothAddressType>;
     fn TransmitPowerLevelInDBm(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<i16>>;
     fn IsAnonymous(&mut self) -> ::windows::core::Result<bool>;
@@ -1039,9 +1039,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementReceivedEventArgs
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementReceivedEventArgs2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IBluetoothLEAdvertisementReceivedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementReceivedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementReceivedEventArgs2Vtbl {
-        unsafe extern "system" fn BluetoothAddressType<Impl: IBluetoothLEAdvertisementReceivedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothAddressType) -> ::windows::core::HRESULT {
+impl IBluetoothLEAdvertisementReceivedEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementReceivedEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementReceivedEventArgs2_Vtbl {
+        unsafe extern "system" fn BluetoothAddressType<Impl: IBluetoothLEAdvertisementReceivedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothAddressType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BluetoothAddressType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1052,7 +1052,7 @@ impl IBluetoothLEAdvertisementReceivedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TransmitPowerLevelInDBm<Impl: IBluetoothLEAdvertisementReceivedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransmitPowerLevelInDBm<Impl: IBluetoothLEAdvertisementReceivedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransmitPowerLevelInDBm() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1063,7 +1063,7 @@ impl IBluetoothLEAdvertisementReceivedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsAnonymous<Impl: IBluetoothLEAdvertisementReceivedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsAnonymous<Impl: IBluetoothLEAdvertisementReceivedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAnonymous() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1074,7 +1074,7 @@ impl IBluetoothLEAdvertisementReceivedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsConnectable<Impl: IBluetoothLEAdvertisementReceivedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsConnectable<Impl: IBluetoothLEAdvertisementReceivedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsConnectable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1085,7 +1085,7 @@ impl IBluetoothLEAdvertisementReceivedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsScannable<Impl: IBluetoothLEAdvertisementReceivedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsScannable<Impl: IBluetoothLEAdvertisementReceivedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsScannable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1096,7 +1096,7 @@ impl IBluetoothLEAdvertisementReceivedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDirected<Impl: IBluetoothLEAdvertisementReceivedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDirected<Impl: IBluetoothLEAdvertisementReceivedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDirected() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1107,7 +1107,7 @@ impl IBluetoothLEAdvertisementReceivedEventArgs2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsScanResponse<Impl: IBluetoothLEAdvertisementReceivedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsScanResponse<Impl: IBluetoothLEAdvertisementReceivedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsScanResponse() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1134,7 +1134,7 @@ impl IBluetoothLEAdvertisementReceivedEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IBluetoothLEAdvertisementWatcherImpl: Sized {
+pub trait IBluetoothLEAdvertisementWatcher_Impl: Sized {
     fn MinSamplingInterval(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
     fn MaxSamplingInterval(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
     fn MinOutOfRangeTimeout(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
@@ -1158,9 +1158,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementWatcher {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcher";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IBluetoothLEAdvertisementWatcherVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementWatcherImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementWatcherVtbl {
-        unsafe extern "system" fn MinSamplingInterval<Impl: IBluetoothLEAdvertisementWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+impl IBluetoothLEAdvertisementWatcher_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementWatcher_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementWatcher_Vtbl {
+        unsafe extern "system" fn MinSamplingInterval<Impl: IBluetoothLEAdvertisementWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinSamplingInterval() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1171,7 +1171,7 @@ impl IBluetoothLEAdvertisementWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxSamplingInterval<Impl: IBluetoothLEAdvertisementWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxSamplingInterval<Impl: IBluetoothLEAdvertisementWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxSamplingInterval() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1182,7 +1182,7 @@ impl IBluetoothLEAdvertisementWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MinOutOfRangeTimeout<Impl: IBluetoothLEAdvertisementWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinOutOfRangeTimeout<Impl: IBluetoothLEAdvertisementWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinOutOfRangeTimeout() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1193,7 +1193,7 @@ impl IBluetoothLEAdvertisementWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxOutOfRangeTimeout<Impl: IBluetoothLEAdvertisementWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxOutOfRangeTimeout<Impl: IBluetoothLEAdvertisementWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxOutOfRangeTimeout() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1204,7 +1204,7 @@ impl IBluetoothLEAdvertisementWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Status<Impl: IBluetoothLEAdvertisementWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BluetoothLEAdvertisementWatcherStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Status<Impl: IBluetoothLEAdvertisementWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BluetoothLEAdvertisementWatcherStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1215,7 +1215,7 @@ impl IBluetoothLEAdvertisementWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ScanningMode<Impl: IBluetoothLEAdvertisementWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BluetoothLEScanningMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScanningMode<Impl: IBluetoothLEAdvertisementWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BluetoothLEScanningMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScanningMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1226,11 +1226,11 @@ impl IBluetoothLEAdvertisementWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetScanningMode<Impl: IBluetoothLEAdvertisementWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: BluetoothLEScanningMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScanningMode<Impl: IBluetoothLEAdvertisementWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: BluetoothLEScanningMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetScanningMode(value).into()
         }
-        unsafe extern "system" fn SignalStrengthFilter<Impl: IBluetoothLEAdvertisementWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignalStrengthFilter<Impl: IBluetoothLEAdvertisementWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SignalStrengthFilter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1241,11 +1241,11 @@ impl IBluetoothLEAdvertisementWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignalStrengthFilter<Impl: IBluetoothLEAdvertisementWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSignalStrengthFilter<Impl: IBluetoothLEAdvertisementWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSignalStrengthFilter(&*(&value as *const <super::BluetoothSignalStrengthFilter as ::windows::core::Abi>::Abi as *const <super::BluetoothSignalStrengthFilter as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AdvertisementFilter<Impl: IBluetoothLEAdvertisementWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AdvertisementFilter<Impl: IBluetoothLEAdvertisementWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AdvertisementFilter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1256,19 +1256,19 @@ impl IBluetoothLEAdvertisementWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAdvertisementFilter<Impl: IBluetoothLEAdvertisementWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAdvertisementFilter<Impl: IBluetoothLEAdvertisementWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAdvertisementFilter(&*(&value as *const <BluetoothLEAdvertisementFilter as ::windows::core::Abi>::Abi as *const <BluetoothLEAdvertisementFilter as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Start<Impl: IBluetoothLEAdvertisementWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Start<Impl: IBluetoothLEAdvertisementWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        unsafe extern "system" fn Stop<Impl: IBluetoothLEAdvertisementWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stop<Impl: IBluetoothLEAdvertisementWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
-        unsafe extern "system" fn Received<Impl: IBluetoothLEAdvertisementWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Received<Impl: IBluetoothLEAdvertisementWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Received(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<BluetoothLEAdvertisementWatcher, BluetoothLEAdvertisementReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<BluetoothLEAdvertisementWatcher, BluetoothLEAdvertisementReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1279,11 +1279,11 @@ impl IBluetoothLEAdvertisementWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveReceived<Impl: IBluetoothLEAdvertisementWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveReceived<Impl: IBluetoothLEAdvertisementWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveReceived(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Stopped<Impl: IBluetoothLEAdvertisementWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stopped<Impl: IBluetoothLEAdvertisementWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Stopped(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<BluetoothLEAdvertisementWatcher, BluetoothLEAdvertisementWatcherStoppedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<BluetoothLEAdvertisementWatcher, BluetoothLEAdvertisementWatcherStoppedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1294,7 +1294,7 @@ impl IBluetoothLEAdvertisementWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStopped<Impl: IBluetoothLEAdvertisementWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStopped<Impl: IBluetoothLEAdvertisementWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStopped(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1324,7 +1324,7 @@ impl IBluetoothLEAdvertisementWatcherVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEAdvertisementWatcher2Impl: Sized {
+pub trait IBluetoothLEAdvertisementWatcher2_Impl: Sized {
     fn AllowExtendedAdvertisements(&mut self) -> ::windows::core::Result<bool>;
     fn SetAllowExtendedAdvertisements(&mut self, value: bool) -> ::windows::core::Result<()>;
 }
@@ -1333,9 +1333,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementWatcher2 {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcher2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBluetoothLEAdvertisementWatcher2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementWatcher2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementWatcher2Vtbl {
-        unsafe extern "system" fn AllowExtendedAdvertisements<Impl: IBluetoothLEAdvertisementWatcher2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IBluetoothLEAdvertisementWatcher2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementWatcher2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementWatcher2_Vtbl {
+        unsafe extern "system" fn AllowExtendedAdvertisements<Impl: IBluetoothLEAdvertisementWatcher2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowExtendedAdvertisements() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1346,7 +1346,7 @@ impl IBluetoothLEAdvertisementWatcher2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAllowExtendedAdvertisements<Impl: IBluetoothLEAdvertisementWatcher2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAllowExtendedAdvertisements<Impl: IBluetoothLEAdvertisementWatcher2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowExtendedAdvertisements(value).into()
         }
@@ -1361,7 +1361,7 @@ impl IBluetoothLEAdvertisementWatcher2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEAdvertisementWatcherFactoryImpl: Sized {
+pub trait IBluetoothLEAdvertisementWatcherFactory_Impl: Sized {
     fn Create(&mut self, advertisementfilter: &::core::option::Option<BluetoothLEAdvertisementFilter>) -> ::windows::core::Result<BluetoothLEAdvertisementWatcher>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1369,9 +1369,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementWatcherFactory {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcherFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBluetoothLEAdvertisementWatcherFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementWatcherFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementWatcherFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IBluetoothLEAdvertisementWatcherFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, advertisementfilter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBluetoothLEAdvertisementWatcherFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementWatcherFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementWatcherFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IBluetoothLEAdvertisementWatcherFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, advertisementfilter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&advertisementfilter as *const <BluetoothLEAdvertisementFilter as ::windows::core::Abi>::Abi as *const <BluetoothLEAdvertisementFilter as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1392,7 +1392,7 @@ impl IBluetoothLEAdvertisementWatcherFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBluetoothLEAdvertisementWatcherStoppedEventArgsImpl: Sized {
+pub trait IBluetoothLEAdvertisementWatcherStoppedEventArgs_Impl: Sized {
     fn Error(&mut self) -> ::windows::core::Result<super::BluetoothError>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1400,9 +1400,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEAdvertisementWatcherStoppedEve
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcherStoppedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBluetoothLEAdvertisementWatcherStoppedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementWatcherStoppedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementWatcherStoppedEventArgsVtbl {
-        unsafe extern "system" fn Error<Impl: IBluetoothLEAdvertisementWatcherStoppedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT {
+impl IBluetoothLEAdvertisementWatcherStoppedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEAdvertisementWatcherStoppedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEAdvertisementWatcherStoppedEventArgs_Vtbl {
+        unsafe extern "system" fn Error<Impl: IBluetoothLEAdvertisementWatcherStoppedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Error() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1423,7 +1423,7 @@ impl IBluetoothLEAdvertisementWatcherStoppedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IBluetoothLEManufacturerDataImpl: Sized {
+pub trait IBluetoothLEManufacturerData_Impl: Sized {
     fn CompanyId(&mut self) -> ::windows::core::Result<u16>;
     fn SetCompanyId(&mut self, value: u16) -> ::windows::core::Result<()>;
     fn Data(&mut self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>;
@@ -1434,9 +1434,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEManufacturerData {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.IBluetoothLEManufacturerData";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IBluetoothLEManufacturerDataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEManufacturerDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEManufacturerDataVtbl {
-        unsafe extern "system" fn CompanyId<Impl: IBluetoothLEManufacturerDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+impl IBluetoothLEManufacturerData_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEManufacturerData_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEManufacturerData_Vtbl {
+        unsafe extern "system" fn CompanyId<Impl: IBluetoothLEManufacturerData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CompanyId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1447,11 +1447,11 @@ impl IBluetoothLEManufacturerDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCompanyId<Impl: IBluetoothLEManufacturerDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCompanyId<Impl: IBluetoothLEManufacturerData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCompanyId(value).into()
         }
-        unsafe extern "system" fn Data<Impl: IBluetoothLEManufacturerDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Data<Impl: IBluetoothLEManufacturerData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1462,7 +1462,7 @@ impl IBluetoothLEManufacturerDataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetData<Impl: IBluetoothLEManufacturerDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetData<Impl: IBluetoothLEManufacturerData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetData(&*(&value as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1479,7 +1479,7 @@ impl IBluetoothLEManufacturerDataVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IBluetoothLEManufacturerDataFactoryImpl: Sized {
+pub trait IBluetoothLEManufacturerDataFactory_Impl: Sized {
     fn Create(&mut self, companyid: u16, data: &::core::option::Option<super::super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<BluetoothLEManufacturerData>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -1487,9 +1487,9 @@ impl ::windows::core::RuntimeName for IBluetoothLEManufacturerDataFactory {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.IBluetoothLEManufacturerDataFactory";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IBluetoothLEManufacturerDataFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEManufacturerDataFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEManufacturerDataFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IBluetoothLEManufacturerDataFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, companyid: u16, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBluetoothLEManufacturerDataFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBluetoothLEManufacturerDataFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBluetoothLEManufacturerDataFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IBluetoothLEManufacturerDataFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, companyid: u16, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(companyid, &*(&data as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

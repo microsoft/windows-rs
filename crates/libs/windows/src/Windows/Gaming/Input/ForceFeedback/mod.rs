@@ -81,7 +81,7 @@ unsafe impl ::windows::core::RuntimeType for ConditionForceEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ForceFeedback.ConditionForceEffect;{a17fba0c-2ae4-48c2-8063-eabd0777cb89})");
 }
 unsafe impl ::windows::core::Interface for ConditionForceEffect {
-    type Vtable = IForceFeedbackEffectVtbl;
+    type Vtable = IForceFeedbackEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa17fba0c_2ae4_48c2_8063_eabd0777cb89);
 }
 impl ::windows::core::RuntimeName for ConditionForceEffect {
@@ -261,7 +261,7 @@ unsafe impl ::windows::core::RuntimeType for ConstantForceEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ForceFeedback.ConstantForceEffect;{a17fba0c-2ae4-48c2-8063-eabd0777cb89})");
 }
 unsafe impl ::windows::core::Interface for ConstantForceEffect {
-    type Vtable = IForceFeedbackEffectVtbl;
+    type Vtable = IForceFeedbackEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa17fba0c_2ae4_48c2_8063_eabd0777cb89);
 }
 impl ::windows::core::RuntimeName for ConstantForceEffect {
@@ -585,7 +585,7 @@ unsafe impl ::windows::core::RuntimeType for ForceFeedbackMotor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor;{8d3d417c-a5ea-4516-8026-2b00f74ef6e5})");
 }
 unsafe impl ::windows::core::Interface for ForceFeedbackMotor {
-    type Vtable = IForceFeedbackMotorVtbl;
+    type Vtable = IForceFeedbackMotor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d3d417c_a5ea_4516_8026_2b00f74ef6e5);
 }
 impl ::windows::core::RuntimeName for ForceFeedbackMotor {
@@ -637,12 +637,12 @@ unsafe impl ::core::marker::Sync for ForceFeedbackMotor {}
 #[repr(transparent)]
 pub struct IConditionForceEffect(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConditionForceEffect {
-    type Vtable = IConditionForceEffectVtbl;
+    type Vtable = IConditionForceEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32d1ea68_3695_4e69_85c0_cd1944189140);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IConditionForceEffectVtbl {
+pub struct IConditionForceEffect_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ConditionForceEffectKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
@@ -654,12 +654,12 @@ pub struct IConditionForceEffectVtbl {
 #[repr(transparent)]
 pub struct IConditionForceEffectFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConditionForceEffectFactory {
-    type Vtable = IConditionForceEffectFactoryVtbl;
+    type Vtable = IConditionForceEffectFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91a99264_1810_4eb6_a773_bfd3b8cddbab);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IConditionForceEffectFactoryVtbl {
+pub struct IConditionForceEffectFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effectkind: ConditionForceEffectKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -667,12 +667,12 @@ pub struct IConditionForceEffectFactoryVtbl {
 #[repr(transparent)]
 pub struct IConstantForceEffect(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConstantForceEffect {
-    type Vtable = IConstantForceEffectVtbl;
+    type Vtable = IConstantForceEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bfa0140_f3c7_415c_b068_0f068734bce0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IConstantForceEffectVtbl {
+pub struct IConstantForceEffect_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
     pub SetParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vector: super::super::super::Foundation::Numerics::Vector3, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -779,12 +779,12 @@ unsafe impl ::windows::core::RuntimeType for IForceFeedbackEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a17fba0c-2ae4-48c2-8063-eabd0777cb89}");
 }
 unsafe impl ::windows::core::Interface for IForceFeedbackEffect {
-    type Vtable = IForceFeedbackEffectVtbl;
+    type Vtable = IForceFeedbackEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa17fba0c_2ae4_48c2_8063_eabd0777cb89);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IForceFeedbackEffectVtbl {
+pub struct IForceFeedbackEffect_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Gain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetGain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
@@ -796,12 +796,12 @@ pub struct IForceFeedbackEffectVtbl {
 #[repr(transparent)]
 pub struct IForceFeedbackMotor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IForceFeedbackMotor {
-    type Vtable = IForceFeedbackMotorVtbl;
+    type Vtable = IForceFeedbackMotor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d3d417c_a5ea_4516_8026_2b00f74ef6e5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IForceFeedbackMotorVtbl {
+pub struct IForceFeedbackMotor_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AreEffectsPaused: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub MasterGain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -836,12 +836,12 @@ pub struct IForceFeedbackMotorVtbl {
 #[repr(transparent)]
 pub struct IPeriodicForceEffect(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPeriodicForceEffect {
-    type Vtable = IPeriodicForceEffectVtbl;
+    type Vtable = IPeriodicForceEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c5138d7_fc75_4d52_9a0a_efe4cab5fe64);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPeriodicForceEffectVtbl {
+pub struct IPeriodicForceEffect_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PeriodicForceEffectKind) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
@@ -857,12 +857,12 @@ pub struct IPeriodicForceEffectVtbl {
 #[repr(transparent)]
 pub struct IPeriodicForceEffectFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPeriodicForceEffectFactory {
-    type Vtable = IPeriodicForceEffectFactoryVtbl;
+    type Vtable = IPeriodicForceEffectFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f62eb1a_9851_477b_b318_35ecaa15070f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPeriodicForceEffectFactoryVtbl {
+pub struct IPeriodicForceEffectFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effectkind: PeriodicForceEffectKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -870,12 +870,12 @@ pub struct IPeriodicForceEffectFactoryVtbl {
 #[repr(transparent)]
 pub struct IRampForceEffect(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRampForceEffect {
-    type Vtable = IRampForceEffectVtbl;
+    type Vtable = IRampForceEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1f81259_1ca6_4080_b56d_b43f3354d052);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRampForceEffectVtbl {
+pub struct IRampForceEffect_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
     pub SetParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startvector: super::super::super::Foundation::Numerics::Vector3, endvector: super::super::super::Foundation::Numerics::Vector3, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -974,7 +974,7 @@ unsafe impl ::windows::core::RuntimeType for PeriodicForceEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ForceFeedback.PeriodicForceEffect;{a17fba0c-2ae4-48c2-8063-eabd0777cb89})");
 }
 unsafe impl ::windows::core::Interface for PeriodicForceEffect {
-    type Vtable = IForceFeedbackEffectVtbl;
+    type Vtable = IForceFeedbackEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa17fba0c_2ae4_48c2_8063_eabd0777cb89);
 }
 impl ::windows::core::RuntimeName for PeriodicForceEffect {
@@ -1167,7 +1167,7 @@ unsafe impl ::windows::core::RuntimeType for RampForceEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ForceFeedback.RampForceEffect;{a17fba0c-2ae4-48c2-8063-eabd0777cb89})");
 }
 unsafe impl ::windows::core::Interface for RampForceEffect {
-    type Vtable = IForceFeedbackEffectVtbl;
+    type Vtable = IForceFeedbackEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa17fba0c_2ae4_48c2_8063_eabd0777cb89);
 }
 impl ::windows::core::RuntimeName for RampForceEffect {

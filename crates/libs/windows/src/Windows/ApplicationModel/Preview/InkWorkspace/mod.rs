@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IInkWorkspaceHostedAppManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkWorkspaceHostedAppManager {
-    type Vtable = IInkWorkspaceHostedAppManagerVtbl;
+    type Vtable = IInkWorkspaceHostedAppManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe0a7990_5e59_4bb7_8a63_7d218cd96300);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkWorkspaceHostedAppManagerVtbl {
+pub struct IInkWorkspaceHostedAppManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
     pub SetThumbnailAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -19,12 +19,12 @@ pub struct IInkWorkspaceHostedAppManagerVtbl {
 #[repr(transparent)]
 pub struct IInkWorkspaceHostedAppManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInkWorkspaceHostedAppManagerStatics {
-    type Vtable = IInkWorkspaceHostedAppManagerStaticsVtbl;
+    type Vtable = IInkWorkspaceHostedAppManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbfd8cc5_a162_4bc4_84ee_e8716d5233c5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkWorkspaceHostedAppManagerStaticsVtbl {
+pub struct IInkWorkspaceHostedAppManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForCurrentApp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -74,7 +74,7 @@ unsafe impl ::windows::core::RuntimeType for InkWorkspaceHostedAppManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Preview.InkWorkspace.InkWorkspaceHostedAppManager;{fe0a7990-5e59-4bb7-8a63-7d218cd96300})");
 }
 unsafe impl ::windows::core::Interface for InkWorkspaceHostedAppManager {
-    type Vtable = IInkWorkspaceHostedAppManagerVtbl;
+    type Vtable = IInkWorkspaceHostedAppManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe0a7990_5e59_4bb7_8a63_7d218cd96300);
 }
 impl ::windows::core::RuntimeName for InkWorkspaceHostedAppManager {

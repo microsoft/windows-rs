@@ -391,12 +391,12 @@ impl ::core::fmt::Debug for IFhConfigMgr {
     }
 }
 unsafe impl ::windows::core::Interface for IFhConfigMgr {
-    type Vtable = IFhConfigMgrVtbl;
+    type Vtable = IFhConfigMgr_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a5fea5b_bf8f_4ee5_b8c3_44d8a0d7331c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFhConfigMgrVtbl {
+pub struct IFhConfigMgr_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub LoadConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -501,12 +501,12 @@ impl ::core::fmt::Debug for IFhReassociation {
     }
 }
 unsafe impl ::windows::core::Interface for IFhReassociation {
-    type Vtable = IFhReassociationVtbl;
+    type Vtable = IFhReassociation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6544a28a_f68d_47ac_91ef_16b2b36aa3ee);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFhReassociationVtbl {
+pub struct IFhReassociation_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ValidateTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows::core::HRESULT,
@@ -578,12 +578,12 @@ impl ::core::fmt::Debug for IFhScopeIterator {
     }
 }
 unsafe impl ::windows::core::Interface for IFhScopeIterator {
-    type Vtable = IFhScopeIteratorVtbl;
+    type Vtable = IFhScopeIterator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3197abce_532a_44c6_8615_f3666566a720);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFhScopeIteratorVtbl {
+pub struct IFhScopeIterator_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub MoveToNextItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -644,12 +644,12 @@ impl ::core::fmt::Debug for IFhTarget {
     }
 }
 unsafe impl ::windows::core::Interface for IFhTarget {
-    type Vtable = IFhTargetVtbl;
+    type Vtable = IFhTarget_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd87965fd_2bad_4657_bd3b_9567eb300ced);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFhTargetVtbl {
+pub struct IFhTarget_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetStringProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertytype: FH_TARGET_PROPERTY_TYPE, propertyvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,

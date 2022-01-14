@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IClipboardContentOptionsImpl: Sized {
+pub trait IClipboardContentOptions_Impl: Sized {
     fn IsRoamable(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsRoamable(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn IsAllowedInHistory(&mut self) -> ::windows::core::Result<bool>;
@@ -12,9 +12,9 @@ impl ::windows::core::RuntimeName for IClipboardContentOptions {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IClipboardContentOptions";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IClipboardContentOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClipboardContentOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClipboardContentOptionsVtbl {
-        unsafe extern "system" fn IsRoamable<Impl: IClipboardContentOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IClipboardContentOptions_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClipboardContentOptions_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClipboardContentOptions_Vtbl {
+        unsafe extern "system" fn IsRoamable<Impl: IClipboardContentOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsRoamable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -25,11 +25,11 @@ impl IClipboardContentOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsRoamable<Impl: IClipboardContentOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsRoamable<Impl: IClipboardContentOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsRoamable(value).into()
         }
-        unsafe extern "system" fn IsAllowedInHistory<Impl: IClipboardContentOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsAllowedInHistory<Impl: IClipboardContentOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAllowedInHistory() {
                 ::core::result::Result::Ok(ok__) => {
@@ -40,11 +40,11 @@ impl IClipboardContentOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsAllowedInHistory<Impl: IClipboardContentOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsAllowedInHistory<Impl: IClipboardContentOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsAllowedInHistory(value).into()
         }
-        unsafe extern "system" fn RoamingFormats<Impl: IClipboardContentOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RoamingFormats<Impl: IClipboardContentOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RoamingFormats() {
                 ::core::result::Result::Ok(ok__) => {
@@ -55,7 +55,7 @@ impl IClipboardContentOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HistoryFormats<Impl: IClipboardContentOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HistoryFormats<Impl: IClipboardContentOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HistoryFormats() {
                 ::core::result::Result::Ok(ok__) => {
@@ -81,14 +81,14 @@ impl IClipboardContentOptionsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IClipboardHistoryChangedEventArgsImpl: Sized {}
+pub trait IClipboardHistoryChangedEventArgs_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IClipboardHistoryChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IClipboardHistoryChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IClipboardHistoryChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClipboardHistoryChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClipboardHistoryChangedEventArgsVtbl {
+impl IClipboardHistoryChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClipboardHistoryChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClipboardHistoryChangedEventArgs_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IClipboardHistoryChangedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -96,7 +96,7 @@ impl IClipboardHistoryChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IClipboardHistoryItemImpl: Sized {
+pub trait IClipboardHistoryItem_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn Content(&mut self) -> ::windows::core::Result<DataPackageView>;
@@ -106,9 +106,9 @@ impl ::windows::core::RuntimeName for IClipboardHistoryItem {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IClipboardHistoryItem";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IClipboardHistoryItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClipboardHistoryItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClipboardHistoryItemVtbl {
-        unsafe extern "system" fn Id<Impl: IClipboardHistoryItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IClipboardHistoryItem_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClipboardHistoryItem_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClipboardHistoryItem_Vtbl {
+        unsafe extern "system" fn Id<Impl: IClipboardHistoryItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -119,7 +119,7 @@ impl IClipboardHistoryItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Timestamp<Impl: IClipboardHistoryItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Timestamp<Impl: IClipboardHistoryItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -130,7 +130,7 @@ impl IClipboardHistoryItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Content<Impl: IClipboardHistoryItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Content<Impl: IClipboardHistoryItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Content() {
                 ::core::result::Result::Ok(ok__) => {
@@ -153,7 +153,7 @@ impl IClipboardHistoryItemVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IClipboardHistoryItemsResultImpl: Sized {
+pub trait IClipboardHistoryItemsResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<ClipboardHistoryItemsResultStatus>;
     fn Items(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ClipboardHistoryItem>>;
 }
@@ -162,9 +162,9 @@ impl ::windows::core::RuntimeName for IClipboardHistoryItemsResult {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IClipboardHistoryItemsResult";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IClipboardHistoryItemsResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClipboardHistoryItemsResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClipboardHistoryItemsResultVtbl {
-        unsafe extern "system" fn Status<Impl: IClipboardHistoryItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClipboardHistoryItemsResultStatus) -> ::windows::core::HRESULT {
+impl IClipboardHistoryItemsResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClipboardHistoryItemsResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClipboardHistoryItemsResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IClipboardHistoryItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ClipboardHistoryItemsResultStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -175,7 +175,7 @@ impl IClipboardHistoryItemsResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Items<Impl: IClipboardHistoryItemsResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Items<Impl: IClipboardHistoryItemsResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Items() {
                 ::core::result::Result::Ok(ok__) => {
@@ -197,7 +197,7 @@ impl IClipboardHistoryItemsResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IClipboardStaticsImpl: Sized {
+pub trait IClipboardStatics_Impl: Sized {
     fn GetContent(&mut self) -> ::windows::core::Result<DataPackageView>;
     fn SetContent(&mut self, content: &::core::option::Option<DataPackage>) -> ::windows::core::Result<()>;
     fn Flush(&mut self) -> ::windows::core::Result<()>;
@@ -210,9 +210,9 @@ impl ::windows::core::RuntimeName for IClipboardStatics {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IClipboardStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IClipboardStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClipboardStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClipboardStaticsVtbl {
-        unsafe extern "system" fn GetContent<Impl: IClipboardStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IClipboardStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClipboardStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClipboardStatics_Vtbl {
+        unsafe extern "system" fn GetContent<Impl: IClipboardStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetContent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -223,19 +223,19 @@ impl IClipboardStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContent<Impl: IClipboardStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContent<Impl: IClipboardStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContent(&*(&content as *const <DataPackage as ::windows::core::Abi>::Abi as *const <DataPackage as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Flush<Impl: IClipboardStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Flush<Impl: IClipboardStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Flush().into()
         }
-        unsafe extern "system" fn Clear<Impl: IClipboardStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clear<Impl: IClipboardStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Clear().into()
         }
-        unsafe extern "system" fn ContentChanged<Impl: IClipboardStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentChanged<Impl: IClipboardStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentChanged(&*(&handler as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -246,7 +246,7 @@ impl IClipboardStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveContentChanged<Impl: IClipboardStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveContentChanged<Impl: IClipboardStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveContentChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -265,7 +265,7 @@ impl IClipboardStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IClipboardStatics2Impl: Sized {
+pub trait IClipboardStatics2_Impl: Sized {
     fn GetHistoryItemsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClipboardHistoryItemsResult>>;
     fn ClearHistory(&mut self) -> ::windows::core::Result<bool>;
     fn DeleteItemFromHistory(&mut self, item: &::core::option::Option<ClipboardHistoryItem>) -> ::windows::core::Result<bool>;
@@ -285,9 +285,9 @@ impl ::windows::core::RuntimeName for IClipboardStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IClipboardStatics2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IClipboardStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClipboardStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClipboardStatics2Vtbl {
-        unsafe extern "system" fn GetHistoryItemsAsync<Impl: IClipboardStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IClipboardStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClipboardStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IClipboardStatics2_Vtbl {
+        unsafe extern "system" fn GetHistoryItemsAsync<Impl: IClipboardStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetHistoryItemsAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -298,7 +298,7 @@ impl IClipboardStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClearHistory<Impl: IClipboardStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearHistory<Impl: IClipboardStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ClearHistory() {
                 ::core::result::Result::Ok(ok__) => {
@@ -309,7 +309,7 @@ impl IClipboardStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteItemFromHistory<Impl: IClipboardStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteItemFromHistory<Impl: IClipboardStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeleteItemFromHistory(&*(&item as *const <ClipboardHistoryItem as ::windows::core::Abi>::Abi as *const <ClipboardHistoryItem as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -320,7 +320,7 @@ impl IClipboardStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHistoryItemAsContent<Impl: IClipboardStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: ::windows::core::RawPtr, result__: *mut SetHistoryItemAsContentStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHistoryItemAsContent<Impl: IClipboardStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: ::windows::core::RawPtr, result__: *mut SetHistoryItemAsContentStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetHistoryItemAsContent(&*(&item as *const <ClipboardHistoryItem as ::windows::core::Abi>::Abi as *const <ClipboardHistoryItem as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -331,7 +331,7 @@ impl IClipboardStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsHistoryEnabled<Impl: IClipboardStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsHistoryEnabled<Impl: IClipboardStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsHistoryEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -342,7 +342,7 @@ impl IClipboardStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsRoamingEnabled<Impl: IClipboardStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsRoamingEnabled<Impl: IClipboardStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsRoamingEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -353,7 +353,7 @@ impl IClipboardStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContentWithOptions<Impl: IClipboardStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr, options: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContentWithOptions<Impl: IClipboardStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr, options: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetContentWithOptions(&*(&content as *const <DataPackage as ::windows::core::Abi>::Abi as *const <DataPackage as ::windows::core::DefaultType>::DefaultType), &*(&options as *const <ClipboardContentOptions as ::windows::core::Abi>::Abi as *const <ClipboardContentOptions as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -364,7 +364,7 @@ impl IClipboardStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HistoryChanged<Impl: IClipboardStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HistoryChanged<Impl: IClipboardStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HistoryChanged(&*(&handler as *const <super::super::Foundation::EventHandler<ClipboardHistoryChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<ClipboardHistoryChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -375,11 +375,11 @@ impl IClipboardStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveHistoryChanged<Impl: IClipboardStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveHistoryChanged<Impl: IClipboardStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveHistoryChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RoamingEnabledChanged<Impl: IClipboardStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RoamingEnabledChanged<Impl: IClipboardStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RoamingEnabledChanged(&*(&handler as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -390,11 +390,11 @@ impl IClipboardStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRoamingEnabledChanged<Impl: IClipboardStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveRoamingEnabledChanged<Impl: IClipboardStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRoamingEnabledChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn HistoryEnabledChanged<Impl: IClipboardStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HistoryEnabledChanged<Impl: IClipboardStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HistoryEnabledChanged(&*(&handler as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -405,7 +405,7 @@ impl IClipboardStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveHistoryEnabledChanged<Impl: IClipboardStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveHistoryEnabledChanged<Impl: IClipboardStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveHistoryEnabledChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -431,7 +431,7 @@ impl IClipboardStatics2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IDataPackageImpl: Sized {
+pub trait IDataPackage_Impl: Sized {
     fn GetView(&mut self) -> ::windows::core::Result<DataPackageView>;
     fn Properties(&mut self) -> ::windows::core::Result<DataPackagePropertySet>;
     fn RequestedOperation(&mut self) -> ::windows::core::Result<DataPackageOperation>;
@@ -456,9 +456,9 @@ impl ::windows::core::RuntimeName for IDataPackage {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataPackage";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IDataPackageVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackageVtbl {
-        unsafe extern "system" fn GetView<Impl: IDataPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDataPackage_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackage_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackage_Vtbl {
+        unsafe extern "system" fn GetView<Impl: IDataPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -469,7 +469,7 @@ impl IDataPackageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Properties<Impl: IDataPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Properties<Impl: IDataPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -480,7 +480,7 @@ impl IDataPackageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestedOperation<Impl: IDataPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DataPackageOperation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestedOperation<Impl: IDataPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DataPackageOperation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestedOperation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -491,11 +491,11 @@ impl IDataPackageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRequestedOperation<Impl: IDataPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: DataPackageOperation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRequestedOperation<Impl: IDataPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: DataPackageOperation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRequestedOperation(value).into()
         }
-        unsafe extern "system" fn OperationCompleted<Impl: IDataPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OperationCompleted<Impl: IDataPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OperationCompleted(&*(&handler as *const <super::super::Foundation::TypedEventHandler<DataPackage, OperationCompletedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DataPackage, OperationCompletedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -506,11 +506,11 @@ impl IDataPackageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveOperationCompleted<Impl: IDataPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveOperationCompleted<Impl: IDataPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveOperationCompleted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Destroyed<Impl: IDataPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Destroyed<Impl: IDataPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Destroyed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<DataPackage, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DataPackage, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -521,31 +521,31 @@ impl IDataPackageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDestroyed<Impl: IDataPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDestroyed<Impl: IDataPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDestroyed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetData<Impl: IDataPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, formatid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetData<Impl: IDataPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, formatid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetData(&*(&formatid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetDataProvider<Impl: IDataPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, formatid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, delayrenderer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDataProvider<Impl: IDataPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, formatid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, delayrenderer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDataProvider(&*(&formatid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&delayrenderer as *const <DataProviderHandler as ::windows::core::Abi>::Abi as *const <DataProviderHandler as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetText<Impl: IDataPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetText<Impl: IDataPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetUri<Impl: IDataPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUri<Impl: IDataPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetHtmlFormat<Impl: IDataPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHtmlFormat<Impl: IDataPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHtmlFormat(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ResourceMap<Impl: IDataPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResourceMap<Impl: IDataPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResourceMap() {
                 ::core::result::Result::Ok(ok__) => {
@@ -556,19 +556,19 @@ impl IDataPackageVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRtf<Impl: IDataPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRtf<Impl: IDataPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRtf(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetBitmap<Impl: IDataPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBitmap<Impl: IDataPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBitmap(&*(&value as *const <super::super::Storage::Streams::RandomAccessStreamReference as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::RandomAccessStreamReference as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetStorageItemsReadOnly<Impl: IDataPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStorageItemsReadOnly<Impl: IDataPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStorageItemsReadOnly(&*(&value as *const <super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetStorageItems<Impl: IDataPackageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, readonly: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStorageItems<Impl: IDataPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, readonly: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStorageItems(&*(&value as *const <super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem> as ::windows::core::DefaultType>::DefaultType), readonly).into()
         }
@@ -599,7 +599,7 @@ impl IDataPackageVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IDataPackage2Impl: Sized {
+pub trait IDataPackage2_Impl: Sized {
     fn SetApplicationLink(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn SetWebLink(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
 }
@@ -608,13 +608,13 @@ impl ::windows::core::RuntimeName for IDataPackage2 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataPackage2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IDataPackage2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackage2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackage2Vtbl {
-        unsafe extern "system" fn SetApplicationLink<Impl: IDataPackage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDataPackage2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackage2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackage2_Vtbl {
+        unsafe extern "system" fn SetApplicationLink<Impl: IDataPackage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetApplicationLink(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetWebLink<Impl: IDataPackage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetWebLink<Impl: IDataPackage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWebLink(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -629,7 +629,7 @@ impl IDataPackage2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IDataPackage3Impl: Sized {
+pub trait IDataPackage3_Impl: Sized {
     fn ShareCompleted(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DataPackage, ShareCompletedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveShareCompleted(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
@@ -638,9 +638,9 @@ impl ::windows::core::RuntimeName for IDataPackage3 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataPackage3";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IDataPackage3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackage3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackage3Vtbl {
-        unsafe extern "system" fn ShareCompleted<Impl: IDataPackage3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IDataPackage3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackage3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackage3_Vtbl {
+        unsafe extern "system" fn ShareCompleted<Impl: IDataPackage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShareCompleted(&*(&handler as *const <super::super::Foundation::TypedEventHandler<DataPackage, ShareCompletedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DataPackage, ShareCompletedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -651,7 +651,7 @@ impl IDataPackage3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveShareCompleted<Impl: IDataPackage3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveShareCompleted<Impl: IDataPackage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveShareCompleted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -666,7 +666,7 @@ impl IDataPackage3Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IDataPackage4Impl: Sized {
+pub trait IDataPackage4_Impl: Sized {
     fn ShareCanceled(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DataPackage, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveShareCanceled(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
@@ -675,9 +675,9 @@ impl ::windows::core::RuntimeName for IDataPackage4 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataPackage4";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IDataPackage4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackage4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackage4Vtbl {
-        unsafe extern "system" fn ShareCanceled<Impl: IDataPackage4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IDataPackage4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackage4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackage4_Vtbl {
+        unsafe extern "system" fn ShareCanceled<Impl: IDataPackage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShareCanceled(&*(&handler as *const <super::super::Foundation::TypedEventHandler<DataPackage, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DataPackage, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -688,7 +688,7 @@ impl IDataPackage4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveShareCanceled<Impl: IDataPackage4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveShareCanceled<Impl: IDataPackage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveShareCanceled(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -703,7 +703,7 @@ impl IDataPackage4Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IDataPackagePropertySetImpl: Sized + IIterableImpl<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> + IMapImpl<::windows::core::HSTRING, ::windows::core::IInspectable> {
+pub trait IDataPackagePropertySet_Impl: Sized + super::super::Foundation::Collections::IIterable_Impl<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> + super::super::Foundation::Collections::IMap_Impl<::windows::core::HSTRING, ::windows::core::IInspectable> {
     fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -721,9 +721,9 @@ impl ::windows::core::RuntimeName for IDataPackagePropertySet {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IDataPackagePropertySetVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackagePropertySetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackagePropertySetVtbl {
-        unsafe extern "system" fn Title<Impl: IDataPackagePropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDataPackagePropertySet_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackagePropertySet_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackagePropertySet_Vtbl {
+        unsafe extern "system" fn Title<Impl: IDataPackagePropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
                 ::core::result::Result::Ok(ok__) => {
@@ -734,11 +734,11 @@ impl IDataPackagePropertySetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTitle<Impl: IDataPackagePropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTitle<Impl: IDataPackagePropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTitle(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Description<Impl: IDataPackagePropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Impl: IDataPackagePropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -749,11 +749,11 @@ impl IDataPackagePropertySetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDescription<Impl: IDataPackagePropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDescription<Impl: IDataPackagePropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDescription(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Thumbnail<Impl: IDataPackagePropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Thumbnail<Impl: IDataPackagePropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Thumbnail() {
                 ::core::result::Result::Ok(ok__) => {
@@ -764,11 +764,11 @@ impl IDataPackagePropertySetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetThumbnail<Impl: IDataPackagePropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetThumbnail<Impl: IDataPackagePropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetThumbnail(&*(&value as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FileTypes<Impl: IDataPackagePropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FileTypes<Impl: IDataPackagePropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FileTypes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -779,7 +779,7 @@ impl IDataPackagePropertySetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ApplicationName<Impl: IDataPackagePropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ApplicationName<Impl: IDataPackagePropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ApplicationName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -790,11 +790,11 @@ impl IDataPackagePropertySetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetApplicationName<Impl: IDataPackagePropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetApplicationName<Impl: IDataPackagePropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetApplicationName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ApplicationListingUri<Impl: IDataPackagePropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ApplicationListingUri<Impl: IDataPackagePropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ApplicationListingUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -805,7 +805,7 @@ impl IDataPackagePropertySetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetApplicationListingUri<Impl: IDataPackagePropertySetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetApplicationListingUri<Impl: IDataPackagePropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetApplicationListingUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -829,7 +829,7 @@ impl IDataPackagePropertySetVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "UI", feature = "implement_exclusive"))]
-pub trait IDataPackagePropertySet2Impl: Sized {
+pub trait IDataPackagePropertySet2_Impl: Sized {
     fn ContentSourceWebLink(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn SetContentSourceWebLink(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn ContentSourceApplicationLink(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
@@ -846,9 +846,9 @@ impl ::windows::core::RuntimeName for IDataPackagePropertySet2 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet2";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "UI", feature = "implement_exclusive"))]
-impl IDataPackagePropertySet2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackagePropertySet2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackagePropertySet2Vtbl {
-        unsafe extern "system" fn ContentSourceWebLink<Impl: IDataPackagePropertySet2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDataPackagePropertySet2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackagePropertySet2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackagePropertySet2_Vtbl {
+        unsafe extern "system" fn ContentSourceWebLink<Impl: IDataPackagePropertySet2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentSourceWebLink() {
                 ::core::result::Result::Ok(ok__) => {
@@ -859,11 +859,11 @@ impl IDataPackagePropertySet2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContentSourceWebLink<Impl: IDataPackagePropertySet2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContentSourceWebLink<Impl: IDataPackagePropertySet2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentSourceWebLink(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ContentSourceApplicationLink<Impl: IDataPackagePropertySet2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentSourceApplicationLink<Impl: IDataPackagePropertySet2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentSourceApplicationLink() {
                 ::core::result::Result::Ok(ok__) => {
@@ -874,11 +874,11 @@ impl IDataPackagePropertySet2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContentSourceApplicationLink<Impl: IDataPackagePropertySet2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContentSourceApplicationLink<Impl: IDataPackagePropertySet2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentSourceApplicationLink(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PackageFamilyName<Impl: IDataPackagePropertySet2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PackageFamilyName<Impl: IDataPackagePropertySet2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PackageFamilyName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -889,11 +889,11 @@ impl IDataPackagePropertySet2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPackageFamilyName<Impl: IDataPackagePropertySet2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPackageFamilyName<Impl: IDataPackagePropertySet2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPackageFamilyName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Square30x30Logo<Impl: IDataPackagePropertySet2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Square30x30Logo<Impl: IDataPackagePropertySet2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Square30x30Logo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -904,11 +904,11 @@ impl IDataPackagePropertySet2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSquare30x30Logo<Impl: IDataPackagePropertySet2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSquare30x30Logo<Impl: IDataPackagePropertySet2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSquare30x30Logo(&*(&value as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn LogoBackgroundColor<Impl: IDataPackagePropertySet2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LogoBackgroundColor<Impl: IDataPackagePropertySet2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LogoBackgroundColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -919,7 +919,7 @@ impl IDataPackagePropertySet2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLogoBackgroundColor<Impl: IDataPackagePropertySet2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLogoBackgroundColor<Impl: IDataPackagePropertySet2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLogoBackgroundColor(&*(&value as *const <super::super::UI::Color as ::windows::core::Abi>::Abi as *const <super::super::UI::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -942,7 +942,7 @@ impl IDataPackagePropertySet2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDataPackagePropertySet3Impl: Sized {
+pub trait IDataPackagePropertySet3_Impl: Sized {
     fn EnterpriseId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetEnterpriseId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
@@ -951,9 +951,9 @@ impl ::windows::core::RuntimeName for IDataPackagePropertySet3 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDataPackagePropertySet3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackagePropertySet3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackagePropertySet3Vtbl {
-        unsafe extern "system" fn EnterpriseId<Impl: IDataPackagePropertySet3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDataPackagePropertySet3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackagePropertySet3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackagePropertySet3_Vtbl {
+        unsafe extern "system" fn EnterpriseId<Impl: IDataPackagePropertySet3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnterpriseId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -964,7 +964,7 @@ impl IDataPackagePropertySet3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEnterpriseId<Impl: IDataPackagePropertySet3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnterpriseId<Impl: IDataPackagePropertySet3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnterpriseId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -979,7 +979,7 @@ impl IDataPackagePropertySet3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDataPackagePropertySet4Impl: Sized {
+pub trait IDataPackagePropertySet4_Impl: Sized {
     fn ContentSourceUserActivityJson(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetContentSourceUserActivityJson(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
@@ -988,9 +988,9 @@ impl ::windows::core::RuntimeName for IDataPackagePropertySet4 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet4";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDataPackagePropertySet4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackagePropertySet4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackagePropertySet4Vtbl {
-        unsafe extern "system" fn ContentSourceUserActivityJson<Impl: IDataPackagePropertySet4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDataPackagePropertySet4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackagePropertySet4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackagePropertySet4_Vtbl {
+        unsafe extern "system" fn ContentSourceUserActivityJson<Impl: IDataPackagePropertySet4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentSourceUserActivityJson() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1001,7 +1001,7 @@ impl IDataPackagePropertySet4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContentSourceUserActivityJson<Impl: IDataPackagePropertySet4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContentSourceUserActivityJson<Impl: IDataPackagePropertySet4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentSourceUserActivityJson(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1016,7 +1016,7 @@ impl IDataPackagePropertySet4Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IDataPackagePropertySetViewImpl: Sized {
+pub trait IDataPackagePropertySetView_Impl: Sized {
     fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Thumbnail(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::RandomAccessStreamReference>;
@@ -1029,9 +1029,9 @@ impl ::windows::core::RuntimeName for IDataPackagePropertySetView {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IDataPackagePropertySetViewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackagePropertySetViewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackagePropertySetViewVtbl {
-        unsafe extern "system" fn Title<Impl: IDataPackagePropertySetViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDataPackagePropertySetView_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackagePropertySetView_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackagePropertySetView_Vtbl {
+        unsafe extern "system" fn Title<Impl: IDataPackagePropertySetView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1042,7 +1042,7 @@ impl IDataPackagePropertySetViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Impl: IDataPackagePropertySetViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Impl: IDataPackagePropertySetView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1053,7 +1053,7 @@ impl IDataPackagePropertySetViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Thumbnail<Impl: IDataPackagePropertySetViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Thumbnail<Impl: IDataPackagePropertySetView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Thumbnail() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1064,7 +1064,7 @@ impl IDataPackagePropertySetViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FileTypes<Impl: IDataPackagePropertySetViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FileTypes<Impl: IDataPackagePropertySetView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FileTypes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1075,7 +1075,7 @@ impl IDataPackagePropertySetViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ApplicationName<Impl: IDataPackagePropertySetViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ApplicationName<Impl: IDataPackagePropertySetView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ApplicationName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1086,7 +1086,7 @@ impl IDataPackagePropertySetViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ApplicationListingUri<Impl: IDataPackagePropertySetViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ApplicationListingUri<Impl: IDataPackagePropertySetView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ApplicationListingUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1112,7 +1112,7 @@ impl IDataPackagePropertySetViewVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "UI", feature = "implement_exclusive"))]
-pub trait IDataPackagePropertySetView2Impl: Sized {
+pub trait IDataPackagePropertySetView2_Impl: Sized {
     fn PackageFamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ContentSourceWebLink(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn ContentSourceApplicationLink(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
@@ -1124,9 +1124,9 @@ impl ::windows::core::RuntimeName for IDataPackagePropertySetView2 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView2";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "UI", feature = "implement_exclusive"))]
-impl IDataPackagePropertySetView2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackagePropertySetView2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackagePropertySetView2Vtbl {
-        unsafe extern "system" fn PackageFamilyName<Impl: IDataPackagePropertySetView2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDataPackagePropertySetView2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackagePropertySetView2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackagePropertySetView2_Vtbl {
+        unsafe extern "system" fn PackageFamilyName<Impl: IDataPackagePropertySetView2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PackageFamilyName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1137,7 +1137,7 @@ impl IDataPackagePropertySetView2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentSourceWebLink<Impl: IDataPackagePropertySetView2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentSourceWebLink<Impl: IDataPackagePropertySetView2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentSourceWebLink() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1148,7 +1148,7 @@ impl IDataPackagePropertySetView2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentSourceApplicationLink<Impl: IDataPackagePropertySetView2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentSourceApplicationLink<Impl: IDataPackagePropertySetView2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentSourceApplicationLink() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1159,7 +1159,7 @@ impl IDataPackagePropertySetView2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Square30x30Logo<Impl: IDataPackagePropertySetView2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Square30x30Logo<Impl: IDataPackagePropertySetView2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Square30x30Logo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1170,7 +1170,7 @@ impl IDataPackagePropertySetView2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LogoBackgroundColor<Impl: IDataPackagePropertySetView2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LogoBackgroundColor<Impl: IDataPackagePropertySetView2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LogoBackgroundColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1195,7 +1195,7 @@ impl IDataPackagePropertySetView2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDataPackagePropertySetView3Impl: Sized {
+pub trait IDataPackagePropertySetView3_Impl: Sized {
     fn EnterpriseId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1203,9 +1203,9 @@ impl ::windows::core::RuntimeName for IDataPackagePropertySetView3 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDataPackagePropertySetView3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackagePropertySetView3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackagePropertySetView3Vtbl {
-        unsafe extern "system" fn EnterpriseId<Impl: IDataPackagePropertySetView3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDataPackagePropertySetView3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackagePropertySetView3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackagePropertySetView3_Vtbl {
+        unsafe extern "system" fn EnterpriseId<Impl: IDataPackagePropertySetView3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnterpriseId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1226,7 +1226,7 @@ impl IDataPackagePropertySetView3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDataPackagePropertySetView4Impl: Sized {
+pub trait IDataPackagePropertySetView4_Impl: Sized {
     fn ContentSourceUserActivityJson(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1234,9 +1234,9 @@ impl ::windows::core::RuntimeName for IDataPackagePropertySetView4 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView4";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDataPackagePropertySetView4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackagePropertySetView4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackagePropertySetView4Vtbl {
-        unsafe extern "system" fn ContentSourceUserActivityJson<Impl: IDataPackagePropertySetView4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDataPackagePropertySetView4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackagePropertySetView4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackagePropertySetView4_Vtbl {
+        unsafe extern "system" fn ContentSourceUserActivityJson<Impl: IDataPackagePropertySetView4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentSourceUserActivityJson() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1257,7 +1257,7 @@ impl IDataPackagePropertySetView4Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDataPackagePropertySetView5Impl: Sized {
+pub trait IDataPackagePropertySetView5_Impl: Sized {
     fn IsFromRoamingClipboard(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1265,9 +1265,9 @@ impl ::windows::core::RuntimeName for IDataPackagePropertySetView5 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView5";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDataPackagePropertySetView5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackagePropertySetView5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackagePropertySetView5Vtbl {
-        unsafe extern "system" fn IsFromRoamingClipboard<Impl: IDataPackagePropertySetView5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IDataPackagePropertySetView5_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackagePropertySetView5_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackagePropertySetView5_Vtbl {
+        unsafe extern "system" fn IsFromRoamingClipboard<Impl: IDataPackagePropertySetView5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsFromRoamingClipboard() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1288,7 +1288,7 @@ impl IDataPackagePropertySetView5Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IDataPackageViewImpl: Sized {
+pub trait IDataPackageView_Impl: Sized {
     fn Properties(&mut self) -> ::windows::core::Result<DataPackagePropertySetView>;
     fn RequestedOperation(&mut self) -> ::windows::core::Result<DataPackageOperation>;
     fn ReportOperationCompleted(&mut self, value: DataPackageOperation) -> ::windows::core::Result<()>;
@@ -1309,9 +1309,9 @@ impl ::windows::core::RuntimeName for IDataPackageView {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataPackageView";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IDataPackageViewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackageViewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackageViewVtbl {
-        unsafe extern "system" fn Properties<Impl: IDataPackageViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDataPackageView_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackageView_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackageView_Vtbl {
+        unsafe extern "system" fn Properties<Impl: IDataPackageView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1322,7 +1322,7 @@ impl IDataPackageViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestedOperation<Impl: IDataPackageViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DataPackageOperation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestedOperation<Impl: IDataPackageView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DataPackageOperation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestedOperation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1333,11 +1333,11 @@ impl IDataPackageViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportOperationCompleted<Impl: IDataPackageViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: DataPackageOperation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportOperationCompleted<Impl: IDataPackageView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: DataPackageOperation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportOperationCompleted(value).into()
         }
-        unsafe extern "system" fn AvailableFormats<Impl: IDataPackageViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AvailableFormats<Impl: IDataPackageView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AvailableFormats() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1348,7 +1348,7 @@ impl IDataPackageViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Contains<Impl: IDataPackageViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, formatid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Contains<Impl: IDataPackageView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, formatid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contains(&*(&formatid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1359,7 +1359,7 @@ impl IDataPackageViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDataAsync<Impl: IDataPackageViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, formatid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDataAsync<Impl: IDataPackageView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, formatid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDataAsync(&*(&formatid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1370,7 +1370,7 @@ impl IDataPackageViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTextAsync<Impl: IDataPackageViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTextAsync<Impl: IDataPackageView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetTextAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1381,7 +1381,7 @@ impl IDataPackageViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCustomTextAsync<Impl: IDataPackageViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, formatid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCustomTextAsync<Impl: IDataPackageView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, formatid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCustomTextAsync(&*(&formatid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1392,7 +1392,7 @@ impl IDataPackageViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetUriAsync<Impl: IDataPackageViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetUriAsync<Impl: IDataPackageView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetUriAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1403,7 +1403,7 @@ impl IDataPackageViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHtmlFormatAsync<Impl: IDataPackageViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetHtmlFormatAsync<Impl: IDataPackageView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetHtmlFormatAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1414,7 +1414,7 @@ impl IDataPackageViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetResourceMapAsync<Impl: IDataPackageViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetResourceMapAsync<Impl: IDataPackageView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetResourceMapAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1425,7 +1425,7 @@ impl IDataPackageViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRtfAsync<Impl: IDataPackageViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRtfAsync<Impl: IDataPackageView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetRtfAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1436,7 +1436,7 @@ impl IDataPackageViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBitmapAsync<Impl: IDataPackageViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBitmapAsync<Impl: IDataPackageView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetBitmapAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1447,7 +1447,7 @@ impl IDataPackageViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStorageItemsAsync<Impl: IDataPackageViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStorageItemsAsync<Impl: IDataPackageView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStorageItemsAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1481,7 +1481,7 @@ impl IDataPackageViewVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IDataPackageView2Impl: Sized {
+pub trait IDataPackageView2_Impl: Sized {
     fn GetApplicationLinkAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>>;
     fn GetWebLinkAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>>;
 }
@@ -1490,9 +1490,9 @@ impl ::windows::core::RuntimeName for IDataPackageView2 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataPackageView2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IDataPackageView2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackageView2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackageView2Vtbl {
-        unsafe extern "system" fn GetApplicationLinkAsync<Impl: IDataPackageView2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDataPackageView2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackageView2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackageView2_Vtbl {
+        unsafe extern "system" fn GetApplicationLinkAsync<Impl: IDataPackageView2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetApplicationLinkAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1503,7 +1503,7 @@ impl IDataPackageView2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetWebLinkAsync<Impl: IDataPackageView2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetWebLinkAsync<Impl: IDataPackageView2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetWebLinkAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1525,7 +1525,7 @@ impl IDataPackageView2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Security_EnterpriseData", feature = "implement_exclusive"))]
-pub trait IDataPackageView3Impl: Sized {
+pub trait IDataPackageView3_Impl: Sized {
     fn RequestAccessAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>>;
     fn RequestAccessWithEnterpriseIdAsync(&mut self, enterpriseid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>>;
     fn UnlockAndAssumeEnterpriseIdentity(&mut self) -> ::windows::core::Result<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>;
@@ -1535,9 +1535,9 @@ impl ::windows::core::RuntimeName for IDataPackageView3 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataPackageView3";
 }
 #[cfg(all(feature = "Foundation", feature = "Security_EnterpriseData", feature = "implement_exclusive"))]
-impl IDataPackageView3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackageView3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackageView3Vtbl {
-        unsafe extern "system" fn RequestAccessAsync<Impl: IDataPackageView3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDataPackageView3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackageView3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackageView3_Vtbl {
+        unsafe extern "system" fn RequestAccessAsync<Impl: IDataPackageView3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAccessAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1548,7 +1548,7 @@ impl IDataPackageView3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestAccessWithEnterpriseIdAsync<Impl: IDataPackageView3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enterpriseid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestAccessWithEnterpriseIdAsync<Impl: IDataPackageView3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enterpriseid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAccessWithEnterpriseIdAsync(&*(&enterpriseid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1559,7 +1559,7 @@ impl IDataPackageView3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnlockAndAssumeEnterpriseIdentity<Impl: IDataPackageView3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnlockAndAssumeEnterpriseIdentity<Impl: IDataPackageView3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnlockAndAssumeEnterpriseIdentity() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1582,7 +1582,7 @@ impl IDataPackageView3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDataPackageView4Impl: Sized {
+pub trait IDataPackageView4_Impl: Sized {
     fn SetAcceptedFormatId(&mut self, formatid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1590,9 +1590,9 @@ impl ::windows::core::RuntimeName for IDataPackageView4 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataPackageView4";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDataPackageView4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackageView4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackageView4Vtbl {
-        unsafe extern "system" fn SetAcceptedFormatId<Impl: IDataPackageView4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, formatid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDataPackageView4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataPackageView4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataPackageView4_Vtbl {
+        unsafe extern "system" fn SetAcceptedFormatId<Impl: IDataPackageView4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, formatid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAcceptedFormatId(&*(&formatid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1606,7 +1606,7 @@ impl IDataPackageView4Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDataProviderDeferralImpl: Sized {
+pub trait IDataProviderDeferral_Impl: Sized {
     fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1614,9 +1614,9 @@ impl ::windows::core::RuntimeName for IDataProviderDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataProviderDeferral";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDataProviderDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataProviderDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataProviderDeferralVtbl {
-        unsafe extern "system" fn Complete<Impl: IDataProviderDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IDataProviderDeferral_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataProviderDeferral_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataProviderDeferral_Vtbl {
+        unsafe extern "system" fn Complete<Impl: IDataProviderDeferral_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
@@ -1627,7 +1627,7 @@ impl IDataProviderDeferralVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IDataProviderRequestImpl: Sized {
+pub trait IDataProviderRequest_Impl: Sized {
     fn FormatId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Deadline(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<DataProviderDeferral>;
@@ -1638,9 +1638,9 @@ impl ::windows::core::RuntimeName for IDataProviderRequest {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataProviderRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IDataProviderRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataProviderRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataProviderRequestVtbl {
-        unsafe extern "system" fn FormatId<Impl: IDataProviderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDataProviderRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataProviderRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataProviderRequest_Vtbl {
+        unsafe extern "system" fn FormatId<Impl: IDataProviderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FormatId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1651,7 +1651,7 @@ impl IDataProviderRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Deadline<Impl: IDataProviderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Deadline<Impl: IDataProviderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Deadline() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1662,7 +1662,7 @@ impl IDataProviderRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IDataProviderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IDataProviderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1673,7 +1673,7 @@ impl IDataProviderRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetData<Impl: IDataProviderRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetData<Impl: IDataProviderRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetData(&*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1690,7 +1690,7 @@ impl IDataProviderRequestVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IDataRequestImpl: Sized {
+pub trait IDataRequest_Impl: Sized {
     fn Data(&mut self) -> ::windows::core::Result<DataPackage>;
     fn SetData(&mut self, value: &::core::option::Option<DataPackage>) -> ::windows::core::Result<()>;
     fn Deadline(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
@@ -1702,9 +1702,9 @@ impl ::windows::core::RuntimeName for IDataRequest {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IDataRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataRequestVtbl {
-        unsafe extern "system" fn Data<Impl: IDataRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDataRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataRequest_Vtbl {
+        unsafe extern "system" fn Data<Impl: IDataRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1715,11 +1715,11 @@ impl IDataRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetData<Impl: IDataRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetData<Impl: IDataRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetData(&*(&value as *const <DataPackage as ::windows::core::Abi>::Abi as *const <DataPackage as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Deadline<Impl: IDataRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Deadline<Impl: IDataRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Deadline() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1730,11 +1730,11 @@ impl IDataRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FailWithDisplayText<Impl: IDataRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FailWithDisplayText<Impl: IDataRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).FailWithDisplayText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetDeferral<Impl: IDataRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IDataRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1759,7 +1759,7 @@ impl IDataRequestVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDataRequestDeferralImpl: Sized {
+pub trait IDataRequestDeferral_Impl: Sized {
     fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1767,9 +1767,9 @@ impl ::windows::core::RuntimeName for IDataRequestDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataRequestDeferral";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDataRequestDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataRequestDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataRequestDeferralVtbl {
-        unsafe extern "system" fn Complete<Impl: IDataRequestDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IDataRequestDeferral_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataRequestDeferral_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataRequestDeferral_Vtbl {
+        unsafe extern "system" fn Complete<Impl: IDataRequestDeferral_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
@@ -1780,7 +1780,7 @@ impl IDataRequestDeferralVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDataRequestedEventArgsImpl: Sized {
+pub trait IDataRequestedEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<DataRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1788,9 +1788,9 @@ impl ::windows::core::RuntimeName for IDataRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataRequestedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDataRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataRequestedEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: IDataRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDataRequestedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataRequestedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataRequestedEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: IDataRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1808,7 +1808,7 @@ impl IDataRequestedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IDataTransferManagerImpl: Sized {
+pub trait IDataTransferManager_Impl: Sized {
     fn DataRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DataTransferManager, DataRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveDataRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn TargetApplicationChosen(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DataTransferManager, TargetApplicationChosenEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -1819,9 +1819,9 @@ impl ::windows::core::RuntimeName for IDataTransferManager {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataTransferManager";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IDataTransferManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataTransferManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataTransferManagerVtbl {
-        unsafe extern "system" fn DataRequested<Impl: IDataTransferManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IDataTransferManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataTransferManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataTransferManager_Vtbl {
+        unsafe extern "system" fn DataRequested<Impl: IDataTransferManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataRequested(&*(&handler as *const <super::super::Foundation::TypedEventHandler<DataTransferManager, DataRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DataTransferManager, DataRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1832,11 +1832,11 @@ impl IDataTransferManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDataRequested<Impl: IDataTransferManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDataRequested<Impl: IDataTransferManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDataRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TargetApplicationChosen<Impl: IDataTransferManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TargetApplicationChosen<Impl: IDataTransferManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetApplicationChosen(&*(&handler as *const <super::super::Foundation::TypedEventHandler<DataTransferManager, TargetApplicationChosenEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DataTransferManager, TargetApplicationChosenEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1847,7 +1847,7 @@ impl IDataTransferManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveTargetApplicationChosen<Impl: IDataTransferManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveTargetApplicationChosen<Impl: IDataTransferManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTargetApplicationChosen(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1864,7 +1864,7 @@ impl IDataTransferManagerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IDataTransferManager2Impl: Sized {
+pub trait IDataTransferManager2_Impl: Sized {
     fn ShareProvidersRequested(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DataTransferManager, ShareProvidersRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveShareProvidersRequested(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
@@ -1873,9 +1873,9 @@ impl ::windows::core::RuntimeName for IDataTransferManager2 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataTransferManager2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IDataTransferManager2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataTransferManager2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataTransferManager2Vtbl {
-        unsafe extern "system" fn ShareProvidersRequested<Impl: IDataTransferManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IDataTransferManager2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataTransferManager2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataTransferManager2_Vtbl {
+        unsafe extern "system" fn ShareProvidersRequested<Impl: IDataTransferManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShareProvidersRequested(&*(&handler as *const <super::super::Foundation::TypedEventHandler<DataTransferManager, ShareProvidersRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DataTransferManager, ShareProvidersRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1886,7 +1886,7 @@ impl IDataTransferManager2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveShareProvidersRequested<Impl: IDataTransferManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveShareProvidersRequested<Impl: IDataTransferManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveShareProvidersRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1901,7 +1901,7 @@ impl IDataTransferManager2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDataTransferManagerStaticsImpl: Sized {
+pub trait IDataTransferManagerStatics_Impl: Sized {
     fn ShowShareUI(&mut self) -> ::windows::core::Result<()>;
     fn GetForCurrentView(&mut self) -> ::windows::core::Result<DataTransferManager>;
 }
@@ -1910,13 +1910,13 @@ impl ::windows::core::RuntimeName for IDataTransferManagerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataTransferManagerStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDataTransferManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataTransferManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataTransferManagerStaticsVtbl {
-        unsafe extern "system" fn ShowShareUI<Impl: IDataTransferManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IDataTransferManagerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataTransferManagerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataTransferManagerStatics_Vtbl {
+        unsafe extern "system" fn ShowShareUI<Impl: IDataTransferManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowShareUI().into()
         }
-        unsafe extern "system" fn GetForCurrentView<Impl: IDataTransferManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetForCurrentView<Impl: IDataTransferManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1938,7 +1938,7 @@ impl IDataTransferManagerStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDataTransferManagerStatics2Impl: Sized {
+pub trait IDataTransferManagerStatics2_Impl: Sized {
     fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1946,9 +1946,9 @@ impl ::windows::core::RuntimeName for IDataTransferManagerStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataTransferManagerStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDataTransferManagerStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataTransferManagerStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataTransferManagerStatics2Vtbl {
-        unsafe extern "system" fn IsSupported<Impl: IDataTransferManagerStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IDataTransferManagerStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataTransferManagerStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataTransferManagerStatics2_Vtbl {
+        unsafe extern "system" fn IsSupported<Impl: IDataTransferManagerStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1969,7 +1969,7 @@ impl IDataTransferManagerStatics2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDataTransferManagerStatics3Impl: Sized {
+pub trait IDataTransferManagerStatics3_Impl: Sized {
     fn ShowShareUIWithOptions(&mut self, options: &::core::option::Option<ShareUIOptions>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1977,9 +1977,9 @@ impl ::windows::core::RuntimeName for IDataTransferManagerStatics3 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IDataTransferManagerStatics3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDataTransferManagerStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataTransferManagerStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataTransferManagerStatics3Vtbl {
-        unsafe extern "system" fn ShowShareUIWithOptions<Impl: IDataTransferManagerStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDataTransferManagerStatics3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataTransferManagerStatics3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataTransferManagerStatics3_Vtbl {
+        unsafe extern "system" fn ShowShareUIWithOptions<Impl: IDataTransferManagerStatics3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowShareUIWithOptions(&*(&options as *const <ShareUIOptions as ::windows::core::Abi>::Abi as *const <ShareUIOptions as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1993,7 +1993,7 @@ impl IDataTransferManagerStatics3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHtmlFormatHelperStaticsImpl: Sized {
+pub trait IHtmlFormatHelperStatics_Impl: Sized {
     fn GetStaticFragment(&mut self, htmlformat: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn CreateHtmlFormat(&mut self, htmlfragment: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -2002,9 +2002,9 @@ impl ::windows::core::RuntimeName for IHtmlFormatHelperStatics {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IHtmlFormatHelperStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHtmlFormatHelperStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHtmlFormatHelperStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHtmlFormatHelperStaticsVtbl {
-        unsafe extern "system" fn GetStaticFragment<Impl: IHtmlFormatHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlformat: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHtmlFormatHelperStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHtmlFormatHelperStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHtmlFormatHelperStatics_Vtbl {
+        unsafe extern "system" fn GetStaticFragment<Impl: IHtmlFormatHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlformat: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStaticFragment(&*(&htmlformat as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2015,7 +2015,7 @@ impl IHtmlFormatHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateHtmlFormat<Impl: IHtmlFormatHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlfragment: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateHtmlFormat<Impl: IHtmlFormatHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlfragment: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateHtmlFormat(&*(&htmlfragment as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2037,7 +2037,7 @@ impl IHtmlFormatHelperStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IOperationCompletedEventArgsImpl: Sized {
+pub trait IOperationCompletedEventArgs_Impl: Sized {
     fn Operation(&mut self) -> ::windows::core::Result<DataPackageOperation>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2045,9 +2045,9 @@ impl ::windows::core::RuntimeName for IOperationCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IOperationCompletedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IOperationCompletedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOperationCompletedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOperationCompletedEventArgsVtbl {
-        unsafe extern "system" fn Operation<Impl: IOperationCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DataPackageOperation) -> ::windows::core::HRESULT {
+impl IOperationCompletedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOperationCompletedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOperationCompletedEventArgs_Vtbl {
+        unsafe extern "system" fn Operation<Impl: IOperationCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DataPackageOperation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Operation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2065,7 +2065,7 @@ impl IOperationCompletedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IOperationCompletedEventArgs2Impl: Sized {
+pub trait IOperationCompletedEventArgs2_Impl: Sized {
     fn AcceptedFormatId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2073,9 +2073,9 @@ impl ::windows::core::RuntimeName for IOperationCompletedEventArgs2 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IOperationCompletedEventArgs2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IOperationCompletedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOperationCompletedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOperationCompletedEventArgs2Vtbl {
-        unsafe extern "system" fn AcceptedFormatId<Impl: IOperationCompletedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IOperationCompletedEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOperationCompletedEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOperationCompletedEventArgs2_Vtbl {
+        unsafe extern "system" fn AcceptedFormatId<Impl: IOperationCompletedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AcceptedFormatId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2096,7 +2096,7 @@ impl IOperationCompletedEventArgs2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IShareCompletedEventArgsImpl: Sized {
+pub trait IShareCompletedEventArgs_Impl: Sized {
     fn ShareTarget(&mut self) -> ::windows::core::Result<ShareTargetInfo>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2104,9 +2104,9 @@ impl ::windows::core::RuntimeName for IShareCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IShareCompletedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IShareCompletedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareCompletedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareCompletedEventArgsVtbl {
-        unsafe extern "system" fn ShareTarget<Impl: IShareCompletedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IShareCompletedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareCompletedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareCompletedEventArgs_Vtbl {
+        unsafe extern "system" fn ShareTarget<Impl: IShareCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShareTarget() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2124,7 +2124,7 @@ impl IShareCompletedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "UI", feature = "implement_exclusive"))]
-pub trait IShareProviderImpl: Sized {
+pub trait IShareProvider_Impl: Sized {
     fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DisplayIcon(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::RandomAccessStreamReference>;
     fn BackgroundColor(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
@@ -2136,9 +2136,9 @@ impl ::windows::core::RuntimeName for IShareProvider {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IShareProvider";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "UI", feature = "implement_exclusive"))]
-impl IShareProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareProviderVtbl {
-        unsafe extern "system" fn Title<Impl: IShareProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IShareProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareProvider_Vtbl {
+        unsafe extern "system" fn Title<Impl: IShareProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2149,7 +2149,7 @@ impl IShareProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayIcon<Impl: IShareProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayIcon<Impl: IShareProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayIcon() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2160,7 +2160,7 @@ impl IShareProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BackgroundColor<Impl: IShareProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackgroundColor<Impl: IShareProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackgroundColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2171,7 +2171,7 @@ impl IShareProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Tag<Impl: IShareProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Tag<Impl: IShareProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Tag() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2182,7 +2182,7 @@ impl IShareProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTag<Impl: IShareProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTag<Impl: IShareProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTag(&*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2200,7 +2200,7 @@ impl IShareProviderVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "UI", feature = "implement_exclusive"))]
-pub trait IShareProviderFactoryImpl: Sized {
+pub trait IShareProviderFactory_Impl: Sized {
     fn Create(&mut self, title: &::windows::core::HSTRING, displayicon: &::core::option::Option<super::super::Storage::Streams::RandomAccessStreamReference>, backgroundcolor: &super::super::UI::Color, handler: &::core::option::Option<ShareProviderHandler>) -> ::windows::core::Result<ShareProvider>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "UI", feature = "implement_exclusive"))]
@@ -2208,9 +2208,9 @@ impl ::windows::core::RuntimeName for IShareProviderFactory {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IShareProviderFactory";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "UI", feature = "implement_exclusive"))]
-impl IShareProviderFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareProviderFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareProviderFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IShareProviderFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayicon: ::windows::core::RawPtr, backgroundcolor: super::super::UI::Color, handler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IShareProviderFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareProviderFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareProviderFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IShareProviderFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayicon: ::windows::core::RawPtr, backgroundcolor: super::super::UI::Color, handler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(
                 &*(&title as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -2233,7 +2233,7 @@ impl IShareProviderFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IShareProviderOperationImpl: Sized {
+pub trait IShareProviderOperation_Impl: Sized {
     fn Data(&mut self) -> ::windows::core::Result<DataPackageView>;
     fn Provider(&mut self) -> ::windows::core::Result<ShareProvider>;
     fn ReportCompleted(&mut self) -> ::windows::core::Result<()>;
@@ -2243,9 +2243,9 @@ impl ::windows::core::RuntimeName for IShareProviderOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IShareProviderOperation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IShareProviderOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareProviderOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareProviderOperationVtbl {
-        unsafe extern "system" fn Data<Impl: IShareProviderOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IShareProviderOperation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareProviderOperation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareProviderOperation_Vtbl {
+        unsafe extern "system" fn Data<Impl: IShareProviderOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2256,7 +2256,7 @@ impl IShareProviderOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Provider<Impl: IShareProviderOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Provider<Impl: IShareProviderOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Provider() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2267,7 +2267,7 @@ impl IShareProviderOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompleted<Impl: IShareProviderOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCompleted<Impl: IShareProviderOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCompleted().into()
         }
@@ -2283,7 +2283,7 @@ impl IShareProviderOperationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IShareProvidersRequestedEventArgsImpl: Sized {
+pub trait IShareProvidersRequestedEventArgs_Impl: Sized {
     fn Providers(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ShareProvider>>;
     fn Data(&mut self) -> ::windows::core::Result<DataPackageView>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
@@ -2293,9 +2293,9 @@ impl ::windows::core::RuntimeName for IShareProvidersRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IShareProvidersRequestedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IShareProvidersRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareProvidersRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareProvidersRequestedEventArgsVtbl {
-        unsafe extern "system" fn Providers<Impl: IShareProvidersRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IShareProvidersRequestedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareProvidersRequestedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareProvidersRequestedEventArgs_Vtbl {
+        unsafe extern "system" fn Providers<Impl: IShareProvidersRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Providers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2306,7 +2306,7 @@ impl IShareProvidersRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Data<Impl: IShareProvidersRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Data<Impl: IShareProvidersRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2317,7 +2317,7 @@ impl IShareProvidersRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IShareProvidersRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IShareProvidersRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2340,7 +2340,7 @@ impl IShareProvidersRequestedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IShareTargetInfoImpl: Sized {
+pub trait IShareTargetInfo_Impl: Sized {
     fn AppUserModelId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ShareProvider(&mut self) -> ::windows::core::Result<ShareProvider>;
 }
@@ -2349,9 +2349,9 @@ impl ::windows::core::RuntimeName for IShareTargetInfo {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IShareTargetInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IShareTargetInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareTargetInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareTargetInfoVtbl {
-        unsafe extern "system" fn AppUserModelId<Impl: IShareTargetInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IShareTargetInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareTargetInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareTargetInfo_Vtbl {
+        unsafe extern "system" fn AppUserModelId<Impl: IShareTargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppUserModelId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2362,7 +2362,7 @@ impl IShareTargetInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShareProvider<Impl: IShareTargetInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShareProvider<Impl: IShareTargetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShareProvider() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2384,7 +2384,7 @@ impl IShareTargetInfoVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IShareUIOptionsImpl: Sized {
+pub trait IShareUIOptions_Impl: Sized {
     fn Theme(&mut self) -> ::windows::core::Result<ShareUITheme>;
     fn SetTheme(&mut self, value: ShareUITheme) -> ::windows::core::Result<()>;
     fn SelectionRect(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Rect>>;
@@ -2395,9 +2395,9 @@ impl ::windows::core::RuntimeName for IShareUIOptions {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IShareUIOptions";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IShareUIOptionsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareUIOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareUIOptionsVtbl {
-        unsafe extern "system" fn Theme<Impl: IShareUIOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ShareUITheme) -> ::windows::core::HRESULT {
+impl IShareUIOptions_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShareUIOptions_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IShareUIOptions_Vtbl {
+        unsafe extern "system" fn Theme<Impl: IShareUIOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ShareUITheme) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Theme() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2408,11 +2408,11 @@ impl IShareUIOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTheme<Impl: IShareUIOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ShareUITheme) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTheme<Impl: IShareUIOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ShareUITheme) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTheme(value).into()
         }
-        unsafe extern "system" fn SelectionRect<Impl: IShareUIOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectionRect<Impl: IShareUIOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectionRect() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2423,7 +2423,7 @@ impl IShareUIOptionsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSelectionRect<Impl: IShareUIOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSelectionRect<Impl: IShareUIOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSelectionRect(&*(&value as *const <super::super::Foundation::IReference<super::super::Foundation::Rect> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::super::Foundation::Rect> as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2440,7 +2440,7 @@ impl IShareUIOptionsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
-pub trait ISharedStorageAccessManagerStaticsImpl: Sized {
+pub trait ISharedStorageAccessManagerStatics_Impl: Sized {
     fn AddFile(&mut self, file: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn RedeemTokenForFileAsync(&mut self, token: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>;
     fn RemoveFile(&mut self, token: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -2450,9 +2450,9 @@ impl ::windows::core::RuntimeName for ISharedStorageAccessManagerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ISharedStorageAccessManagerStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
-impl ISharedStorageAccessManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISharedStorageAccessManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISharedStorageAccessManagerStaticsVtbl {
-        unsafe extern "system" fn AddFile<Impl: ISharedStorageAccessManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISharedStorageAccessManagerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISharedStorageAccessManagerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISharedStorageAccessManagerStatics_Vtbl {
+        unsafe extern "system" fn AddFile<Impl: ISharedStorageAccessManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddFile(&*(&file as *const <super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2463,7 +2463,7 @@ impl ISharedStorageAccessManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RedeemTokenForFileAsync<Impl: ISharedStorageAccessManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RedeemTokenForFileAsync<Impl: ISharedStorageAccessManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RedeemTokenForFileAsync(&*(&token as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2474,7 +2474,7 @@ impl ISharedStorageAccessManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveFile<Impl: ISharedStorageAccessManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveFile<Impl: ISharedStorageAccessManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveFile(&*(&token as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2490,7 +2490,7 @@ impl ISharedStorageAccessManagerStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IStandardDataFormatsStaticsImpl: Sized {
+pub trait IStandardDataFormatsStatics_Impl: Sized {
     fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Uri(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Html(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -2503,9 +2503,9 @@ impl ::windows::core::RuntimeName for IStandardDataFormatsStatics {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IStandardDataFormatsStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IStandardDataFormatsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStandardDataFormatsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStandardDataFormatsStaticsVtbl {
-        unsafe extern "system" fn Text<Impl: IStandardDataFormatsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IStandardDataFormatsStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStandardDataFormatsStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStandardDataFormatsStatics_Vtbl {
+        unsafe extern "system" fn Text<Impl: IStandardDataFormatsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Text() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2516,7 +2516,7 @@ impl IStandardDataFormatsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Uri<Impl: IStandardDataFormatsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Uri<Impl: IStandardDataFormatsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2527,7 +2527,7 @@ impl IStandardDataFormatsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Html<Impl: IStandardDataFormatsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Html<Impl: IStandardDataFormatsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Html() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2538,7 +2538,7 @@ impl IStandardDataFormatsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Rtf<Impl: IStandardDataFormatsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Rtf<Impl: IStandardDataFormatsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Rtf() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2549,7 +2549,7 @@ impl IStandardDataFormatsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Bitmap<Impl: IStandardDataFormatsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Bitmap<Impl: IStandardDataFormatsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Bitmap() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2560,7 +2560,7 @@ impl IStandardDataFormatsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StorageItems<Impl: IStandardDataFormatsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StorageItems<Impl: IStandardDataFormatsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StorageItems() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2586,7 +2586,7 @@ impl IStandardDataFormatsStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IStandardDataFormatsStatics2Impl: Sized {
+pub trait IStandardDataFormatsStatics2_Impl: Sized {
     fn WebLink(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ApplicationLink(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -2595,9 +2595,9 @@ impl ::windows::core::RuntimeName for IStandardDataFormatsStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IStandardDataFormatsStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IStandardDataFormatsStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStandardDataFormatsStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStandardDataFormatsStatics2Vtbl {
-        unsafe extern "system" fn WebLink<Impl: IStandardDataFormatsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IStandardDataFormatsStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStandardDataFormatsStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStandardDataFormatsStatics2_Vtbl {
+        unsafe extern "system" fn WebLink<Impl: IStandardDataFormatsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WebLink() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2608,7 +2608,7 @@ impl IStandardDataFormatsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ApplicationLink<Impl: IStandardDataFormatsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ApplicationLink<Impl: IStandardDataFormatsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ApplicationLink() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2630,7 +2630,7 @@ impl IStandardDataFormatsStatics2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IStandardDataFormatsStatics3Impl: Sized {
+pub trait IStandardDataFormatsStatics3_Impl: Sized {
     fn UserActivityJsonArray(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2638,9 +2638,9 @@ impl ::windows::core::RuntimeName for IStandardDataFormatsStatics3 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.IStandardDataFormatsStatics3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IStandardDataFormatsStatics3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStandardDataFormatsStatics3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStandardDataFormatsStatics3Vtbl {
-        unsafe extern "system" fn UserActivityJsonArray<Impl: IStandardDataFormatsStatics3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IStandardDataFormatsStatics3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStandardDataFormatsStatics3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStandardDataFormatsStatics3_Vtbl {
+        unsafe extern "system" fn UserActivityJsonArray<Impl: IStandardDataFormatsStatics3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserActivityJsonArray() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2661,7 +2661,7 @@ impl IStandardDataFormatsStatics3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ITargetApplicationChosenEventArgsImpl: Sized {
+pub trait ITargetApplicationChosenEventArgs_Impl: Sized {
     fn ApplicationName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2669,9 +2669,9 @@ impl ::windows::core::RuntimeName for ITargetApplicationChosenEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ITargetApplicationChosenEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ITargetApplicationChosenEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetApplicationChosenEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetApplicationChosenEventArgsVtbl {
-        unsafe extern "system" fn ApplicationName<Impl: ITargetApplicationChosenEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ITargetApplicationChosenEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetApplicationChosenEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITargetApplicationChosenEventArgs_Vtbl {
+        unsafe extern "system" fn ApplicationName<Impl: ITargetApplicationChosenEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ApplicationName() {
                 ::core::result::Result::Ok(ok__) => {

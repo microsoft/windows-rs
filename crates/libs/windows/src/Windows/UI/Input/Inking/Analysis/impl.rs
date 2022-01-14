@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IInkAnalysisInkBulletImpl: Sized + IInkAnalysisNodeImpl {
+pub trait IInkAnalysisInkBullet_Impl: Sized + IInkAnalysisNode_Impl {
     fn RecognizedText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -7,9 +7,9 @@ impl ::windows::core::RuntimeName for IInkAnalysisInkBullet {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.IInkAnalysisInkBullet";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IInkAnalysisInkBulletVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisInkBulletImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalysisInkBulletVtbl {
-        unsafe extern "system" fn RecognizedText<Impl: IInkAnalysisInkBulletImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IInkAnalysisInkBullet_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisInkBullet_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalysisInkBullet_Vtbl {
+        unsafe extern "system" fn RecognizedText<Impl: IInkAnalysisInkBullet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RecognizedText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -30,7 +30,7 @@ impl IInkAnalysisInkBulletVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IInkAnalysisInkDrawingImpl: Sized + IInkAnalysisNodeImpl {
+pub trait IInkAnalysisInkDrawing_Impl: Sized + IInkAnalysisNode_Impl {
     fn DrawingKind(&mut self) -> ::windows::core::Result<InkAnalysisDrawingKind>;
     fn Center(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
     fn Points(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>;
@@ -40,9 +40,9 @@ impl ::windows::core::RuntimeName for IInkAnalysisInkDrawing {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.IInkAnalysisInkDrawing";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IInkAnalysisInkDrawingVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisInkDrawingImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalysisInkDrawingVtbl {
-        unsafe extern "system" fn DrawingKind<Impl: IInkAnalysisInkDrawingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InkAnalysisDrawingKind) -> ::windows::core::HRESULT {
+impl IInkAnalysisInkDrawing_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisInkDrawing_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalysisInkDrawing_Vtbl {
+        unsafe extern "system" fn DrawingKind<Impl: IInkAnalysisInkDrawing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InkAnalysisDrawingKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DrawingKind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -53,7 +53,7 @@ impl IInkAnalysisInkDrawingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Center<Impl: IInkAnalysisInkDrawingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Center<Impl: IInkAnalysisInkDrawing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Center() {
                 ::core::result::Result::Ok(ok__) => {
@@ -64,7 +64,7 @@ impl IInkAnalysisInkDrawingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Points<Impl: IInkAnalysisInkDrawingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Points<Impl: IInkAnalysisInkDrawing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Points() {
                 ::core::result::Result::Ok(ok__) => {
@@ -87,7 +87,7 @@ impl IInkAnalysisInkDrawingVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IInkAnalysisInkWordImpl: Sized + IInkAnalysisNodeImpl {
+pub trait IInkAnalysisInkWord_Impl: Sized + IInkAnalysisNode_Impl {
     fn RecognizedText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn TextAlternates(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
 }
@@ -96,9 +96,9 @@ impl ::windows::core::RuntimeName for IInkAnalysisInkWord {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.IInkAnalysisInkWord";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IInkAnalysisInkWordVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisInkWordImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalysisInkWordVtbl {
-        unsafe extern "system" fn RecognizedText<Impl: IInkAnalysisInkWordImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IInkAnalysisInkWord_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisInkWord_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalysisInkWord_Vtbl {
+        unsafe extern "system" fn RecognizedText<Impl: IInkAnalysisInkWord_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RecognizedText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -109,7 +109,7 @@ impl IInkAnalysisInkWordVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TextAlternates<Impl: IInkAnalysisInkWordImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TextAlternates<Impl: IInkAnalysisInkWord_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TextAlternates() {
                 ::core::result::Result::Ok(ok__) => {
@@ -131,7 +131,7 @@ impl IInkAnalysisInkWordVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IInkAnalysisLineImpl: Sized + IInkAnalysisNodeImpl {
+pub trait IInkAnalysisLine_Impl: Sized + IInkAnalysisNode_Impl {
     fn RecognizedText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IndentLevel(&mut self) -> ::windows::core::Result<i32>;
 }
@@ -140,9 +140,9 @@ impl ::windows::core::RuntimeName for IInkAnalysisLine {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.IInkAnalysisLine";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IInkAnalysisLineVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisLineImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalysisLineVtbl {
-        unsafe extern "system" fn RecognizedText<Impl: IInkAnalysisLineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IInkAnalysisLine_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisLine_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalysisLine_Vtbl {
+        unsafe extern "system" fn RecognizedText<Impl: IInkAnalysisLine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RecognizedText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -153,7 +153,7 @@ impl IInkAnalysisLineVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IndentLevel<Impl: IInkAnalysisLineImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IndentLevel<Impl: IInkAnalysisLine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IndentLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -175,7 +175,7 @@ impl IInkAnalysisLineVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IInkAnalysisListItemImpl: Sized + IInkAnalysisNodeImpl {
+pub trait IInkAnalysisListItem_Impl: Sized + IInkAnalysisNode_Impl {
     fn RecognizedText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -183,9 +183,9 @@ impl ::windows::core::RuntimeName for IInkAnalysisListItem {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.IInkAnalysisListItem";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IInkAnalysisListItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisListItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalysisListItemVtbl {
-        unsafe extern "system" fn RecognizedText<Impl: IInkAnalysisListItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IInkAnalysisListItem_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisListItem_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalysisListItem_Vtbl {
+        unsafe extern "system" fn RecognizedText<Impl: IInkAnalysisListItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RecognizedText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -206,7 +206,7 @@ impl IInkAnalysisListItemVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-pub trait IInkAnalysisNodeImpl: Sized {
+pub trait IInkAnalysisNode_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<u32>;
     fn Kind(&mut self) -> ::windows::core::Result<InkAnalysisNodeKind>;
     fn BoundingRect(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
@@ -220,9 +220,9 @@ impl ::windows::core::RuntimeName for IInkAnalysisNode {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.IInkAnalysisNode";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-impl IInkAnalysisNodeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisNodeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalysisNodeVtbl {
-        unsafe extern "system" fn Id<Impl: IInkAnalysisNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IInkAnalysisNode_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisNode_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalysisNode_Vtbl {
+        unsafe extern "system" fn Id<Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -233,7 +233,7 @@ impl IInkAnalysisNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Kind<Impl: IInkAnalysisNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InkAnalysisNodeKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Kind<Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InkAnalysisNodeKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -244,7 +244,7 @@ impl IInkAnalysisNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BoundingRect<Impl: IInkAnalysisNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BoundingRect<Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BoundingRect() {
                 ::core::result::Result::Ok(ok__) => {
@@ -255,7 +255,7 @@ impl IInkAnalysisNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RotatedBoundingRect<Impl: IInkAnalysisNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RotatedBoundingRect<Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RotatedBoundingRect() {
                 ::core::result::Result::Ok(ok__) => {
@@ -266,7 +266,7 @@ impl IInkAnalysisNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Children<Impl: IInkAnalysisNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Children<Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Children() {
                 ::core::result::Result::Ok(ok__) => {
@@ -277,7 +277,7 @@ impl IInkAnalysisNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Parent<Impl: IInkAnalysisNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Parent<Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -288,7 +288,7 @@ impl IInkAnalysisNodeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStrokeIds<Impl: IInkAnalysisNodeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStrokeIds<Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStrokeIds() {
                 ::core::result::Result::Ok(ok__) => {
@@ -315,7 +315,7 @@ impl IInkAnalysisNodeVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IInkAnalysisParagraphImpl: Sized + IInkAnalysisNodeImpl {
+pub trait IInkAnalysisParagraph_Impl: Sized + IInkAnalysisNode_Impl {
     fn RecognizedText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -323,9 +323,9 @@ impl ::windows::core::RuntimeName for IInkAnalysisParagraph {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.IInkAnalysisParagraph";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IInkAnalysisParagraphVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisParagraphImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalysisParagraphVtbl {
-        unsafe extern "system" fn RecognizedText<Impl: IInkAnalysisParagraphImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IInkAnalysisParagraph_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisParagraph_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalysisParagraph_Vtbl {
+        unsafe extern "system" fn RecognizedText<Impl: IInkAnalysisParagraph_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RecognizedText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -346,7 +346,7 @@ impl IInkAnalysisParagraphVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInkAnalysisResultImpl: Sized {
+pub trait IInkAnalysisResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<InkAnalysisStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -354,9 +354,9 @@ impl ::windows::core::RuntimeName for IInkAnalysisResult {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.IInkAnalysisResult";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInkAnalysisResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalysisResultVtbl {
-        unsafe extern "system" fn Status<Impl: IInkAnalysisResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InkAnalysisStatus) -> ::windows::core::HRESULT {
+impl IInkAnalysisResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalysisResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IInkAnalysisResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut InkAnalysisStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -374,7 +374,7 @@ impl IInkAnalysisResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IInkAnalysisRootImpl: Sized + IInkAnalysisNodeImpl {
+pub trait IInkAnalysisRoot_Impl: Sized + IInkAnalysisNode_Impl {
     fn RecognizedText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FindNodes(&mut self, nodekind: InkAnalysisNodeKind) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>;
 }
@@ -383,9 +383,9 @@ impl ::windows::core::RuntimeName for IInkAnalysisRoot {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.IInkAnalysisRoot";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IInkAnalysisRootVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisRootImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalysisRootVtbl {
-        unsafe extern "system" fn RecognizedText<Impl: IInkAnalysisRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IInkAnalysisRoot_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisRoot_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalysisRoot_Vtbl {
+        unsafe extern "system" fn RecognizedText<Impl: IInkAnalysisRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RecognizedText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -396,7 +396,7 @@ impl IInkAnalysisRootVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindNodes<Impl: IInkAnalysisRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodekind: InkAnalysisNodeKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindNodes<Impl: IInkAnalysisRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodekind: InkAnalysisNodeKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindNodes(nodekind) {
                 ::core::result::Result::Ok(ok__) => {
@@ -418,7 +418,7 @@ impl IInkAnalysisRootVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IInkAnalysisWritingRegionImpl: Sized + IInkAnalysisNodeImpl {
+pub trait IInkAnalysisWritingRegion_Impl: Sized + IInkAnalysisNode_Impl {
     fn RecognizedText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -426,9 +426,9 @@ impl ::windows::core::RuntimeName for IInkAnalysisWritingRegion {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.IInkAnalysisWritingRegion";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IInkAnalysisWritingRegionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisWritingRegionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalysisWritingRegionVtbl {
-        unsafe extern "system" fn RecognizedText<Impl: IInkAnalysisWritingRegionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IInkAnalysisWritingRegion_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisWritingRegion_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalysisWritingRegion_Vtbl {
+        unsafe extern "system" fn RecognizedText<Impl: IInkAnalysisWritingRegion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RecognizedText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -449,7 +449,7 @@ impl IInkAnalysisWritingRegionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IInkAnalyzerImpl: Sized {
+pub trait IInkAnalyzer_Impl: Sized {
     fn AnalysisRoot(&mut self) -> ::windows::core::Result<InkAnalysisRoot>;
     fn IsAnalyzing(&mut self) -> ::windows::core::Result<bool>;
     fn AddDataForStroke(&mut self, stroke: &::core::option::Option<super::InkStroke>) -> ::windows::core::Result<()>;
@@ -466,9 +466,9 @@ impl ::windows::core::RuntimeName for IInkAnalyzer {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.IInkAnalyzer";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IInkAnalyzerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalyzerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalyzerVtbl {
-        unsafe extern "system" fn AnalysisRoot<Impl: IInkAnalyzerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IInkAnalyzer_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalyzer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalyzer_Vtbl {
+        unsafe extern "system" fn AnalysisRoot<Impl: IInkAnalyzer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AnalysisRoot() {
                 ::core::result::Result::Ok(ok__) => {
@@ -479,7 +479,7 @@ impl IInkAnalyzerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsAnalyzing<Impl: IInkAnalyzerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsAnalyzing<Impl: IInkAnalyzer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAnalyzing() {
                 ::core::result::Result::Ok(ok__) => {
@@ -490,35 +490,35 @@ impl IInkAnalyzerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddDataForStroke<Impl: IInkAnalyzerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stroke: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDataForStroke<Impl: IInkAnalyzer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stroke: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddDataForStroke(&*(&stroke as *const <super::InkStroke as ::windows::core::Abi>::Abi as *const <super::InkStroke as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AddDataForStrokes<Impl: IInkAnalyzerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strokes: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDataForStrokes<Impl: IInkAnalyzer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strokes: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddDataForStrokes(&*(&strokes as *const <super::super::super::super::Foundation::Collections::IIterable<super::InkStroke> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Collections::IIterable<super::InkStroke> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ClearDataForAllStrokes<Impl: IInkAnalyzerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClearDataForAllStrokes<Impl: IInkAnalyzer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ClearDataForAllStrokes().into()
         }
-        unsafe extern "system" fn RemoveDataForStroke<Impl: IInkAnalyzerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strokeid: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDataForStroke<Impl: IInkAnalyzer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strokeid: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDataForStroke(strokeid).into()
         }
-        unsafe extern "system" fn RemoveDataForStrokes<Impl: IInkAnalyzerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strokeids: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDataForStrokes<Impl: IInkAnalyzer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strokeids: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDataForStrokes(&*(&strokeids as *const <super::super::super::super::Foundation::Collections::IIterable<u32> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Collections::IIterable<u32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ReplaceDataForStroke<Impl: IInkAnalyzerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stroke: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReplaceDataForStroke<Impl: IInkAnalyzer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stroke: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReplaceDataForStroke(&*(&stroke as *const <super::InkStroke as ::windows::core::Abi>::Abi as *const <super::InkStroke as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetStrokeDataKind<Impl: IInkAnalyzerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strokeid: u32, strokekind: InkAnalysisStrokeKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStrokeDataKind<Impl: IInkAnalyzer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strokeid: u32, strokekind: InkAnalysisStrokeKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetStrokeDataKind(strokeid, strokekind).into()
         }
-        unsafe extern "system" fn AnalyzeAsync<Impl: IInkAnalyzerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AnalyzeAsync<Impl: IInkAnalyzer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AnalyzeAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -547,15 +547,15 @@ impl IInkAnalyzerVtbl {
         iid == &<IInkAnalyzer as ::windows::core::Interface>::IID
     }
 }
-pub trait IInkAnalyzerFactoryImpl: Sized {
+pub trait IInkAnalyzerFactory_Impl: Sized {
     fn CreateAnalyzer(&mut self) -> ::windows::core::Result<InkAnalyzer>;
 }
 impl ::windows::core::RuntimeName for IInkAnalyzerFactory {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.IInkAnalyzerFactory";
 }
-impl IInkAnalyzerFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalyzerFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalyzerFactoryVtbl {
-        unsafe extern "system" fn CreateAnalyzer<Impl: IInkAnalyzerFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IInkAnalyzerFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalyzerFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkAnalyzerFactory_Vtbl {
+        unsafe extern "system" fn CreateAnalyzer<Impl: IInkAnalyzerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateAnalyzer() {
                 ::core::result::Result::Ok(ok__) => {

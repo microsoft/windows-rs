@@ -6679,13 +6679,13 @@ impl ::core::fmt::Debug for IDMLBindingTable {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLBindingTable {
-    type Vtable = IDMLBindingTableVtbl;
+    type Vtable = IDMLBindingTable_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29c687dc_de74_4e3b_ab00_1168f2fc3cfc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLBindingTableVtbl {
-    pub base: IDMLDeviceChildVtbl,
+pub struct IDMLBindingTable_Vtbl {
+    pub base: IDMLDeviceChild_Vtbl,
     pub BindInputs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindingcount: u32, bindings: *const DML_BINDING_DESC),
     pub BindOutputs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindingcount: u32, bindings: *const DML_BINDING_DESC),
     pub BindTemporaryResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binding: *const DML_BINDING_DESC),
@@ -6804,13 +6804,13 @@ impl ::core::fmt::Debug for IDMLCommandRecorder {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLCommandRecorder {
-    type Vtable = IDMLCommandRecorderVtbl;
+    type Vtable = IDMLCommandRecorder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6857a76_2e3e_4fdd_bff4_5d2ba10fb453);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLCommandRecorderVtbl {
-    pub base: IDMLDeviceChildVtbl,
+pub struct IDMLCommandRecorder_Vtbl {
+    pub base: IDMLDeviceChild_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub RecordDispatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, commandlist: ::windows::core::RawPtr, dispatchable: ::windows::core::RawPtr, bindings: ::windows::core::RawPtr),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
@@ -6966,13 +6966,13 @@ impl ::core::fmt::Debug for IDMLCompiledOperator {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLCompiledOperator {
-    type Vtable = IDMLCompiledOperatorVtbl;
+    type Vtable = IDMLCompiledOperator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b15e56a_bf5c_4902_92d8_da3a650afea4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLCompiledOperatorVtbl {
-    pub base: IDMLDispatchableVtbl,
+pub struct IDMLCompiledOperator_Vtbl {
+    pub base: IDMLDispatchable_Vtbl,
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 #[repr(transparent)]
@@ -7021,12 +7021,12 @@ impl ::core::fmt::Debug for IDMLDebugDevice {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLDebugDevice {
-    type Vtable = IDMLDebugDeviceVtbl;
+    type Vtable = IDMLDebugDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d6f3ac9_394a_4ac3_92a7_390cc57a8217);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLDebugDeviceVtbl {
+pub struct IDMLDebugDevice_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetMuteDebugOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mute: super::super::super::Foundation::BOOL),
@@ -7157,13 +7157,13 @@ impl ::core::fmt::Debug for IDMLDevice {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLDevice {
-    type Vtable = IDMLDeviceVtbl;
+    type Vtable = IDMLDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dbd6437_96fd_423f_a98c_ae5e7c2a573f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLDeviceVtbl {
-    pub base: IDMLObjectVtbl,
+pub struct IDMLDevice_Vtbl {
+    pub base: IDMLObject_Vtbl,
     pub CheckFeatureSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateOperator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_OPERATOR_DESC, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CompileOperator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, op: ::windows::core::RawPtr, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7326,13 +7326,13 @@ impl ::core::fmt::Debug for IDMLDevice1 {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLDevice1 {
-    type Vtable = IDMLDevice1Vtbl;
+    type Vtable = IDMLDevice1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0884f9a_d2be_4355_aa5d_5901281ad1d2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLDevice1Vtbl {
-    pub base: IDMLDeviceVtbl,
+pub struct IDMLDevice1_Vtbl {
+    pub base: IDMLDevice_Vtbl,
     pub CompileGraph: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
@@ -7419,13 +7419,13 @@ impl ::core::fmt::Debug for IDMLDeviceChild {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLDeviceChild {
-    type Vtable = IDMLDeviceChildVtbl;
+    type Vtable = IDMLDeviceChild_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27e83142_8165_49e3_974e_2fd66e4cb69d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLDeviceChildVtbl {
-    pub base: IDMLObjectVtbl,
+pub struct IDMLDeviceChild_Vtbl {
+    pub base: IDMLObject_Vtbl,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
@@ -7558,13 +7558,13 @@ impl ::core::fmt::Debug for IDMLDispatchable {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLDispatchable {
-    type Vtable = IDMLDispatchableVtbl;
+    type Vtable = IDMLDispatchable_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb821a8_1039_441e_9f1c_b1759c2f3cec);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLDispatchableVtbl {
-    pub base: IDMLPageableVtbl,
+pub struct IDMLDispatchable_Vtbl {
+    pub base: IDMLPageable_Vtbl,
     pub GetBindingProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DML_BINDING_PROPERTIES),
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
@@ -7626,12 +7626,12 @@ impl ::core::fmt::Debug for IDMLObject {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLObject {
-    type Vtable = IDMLObjectVtbl;
+    type Vtable = IDMLObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8263aac_9e0c_4a2d_9b8e_007521a3317c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLObjectVtbl {
+pub struct IDMLObject_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7745,13 +7745,13 @@ impl ::core::fmt::Debug for IDMLOperator {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLOperator {
-    type Vtable = IDMLOperatorVtbl;
+    type Vtable = IDMLOperator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26caae7a_3081_4633_9581_226fbe57695d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLOperatorVtbl {
-    pub base: IDMLDeviceChildVtbl,
+pub struct IDMLOperator_Vtbl {
+    pub base: IDMLDeviceChild_Vtbl,
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 #[repr(transparent)]
@@ -7907,13 +7907,13 @@ impl ::core::fmt::Debug for IDMLOperatorInitializer {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLOperatorInitializer {
-    type Vtable = IDMLOperatorInitializerVtbl;
+    type Vtable = IDMLOperatorInitializer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x427c1113_435c_469c_8676_4d5dd072f813);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLOperatorInitializerVtbl {
-    pub base: IDMLDispatchableVtbl,
+pub struct IDMLOperatorInitializer_Vtbl {
+    pub base: IDMLDispatchable_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operatorcount: u32, operators: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
@@ -8020,13 +8020,13 @@ impl ::core::fmt::Debug for IDMLPageable {
     }
 }
 unsafe impl ::windows::core::Interface for IDMLPageable {
-    type Vtable = IDMLPageableVtbl;
+    type Vtable = IDMLPageable_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1ab0825_4542_4a4b_8617_6dde6e8f6201);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDMLPageableVtbl {
-    pub base: IDMLDeviceChildVtbl,
+pub struct IDMLPageable_Vtbl {
+    pub base: IDMLDeviceChild_Vtbl,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

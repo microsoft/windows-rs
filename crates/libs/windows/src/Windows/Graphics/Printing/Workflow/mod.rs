@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IPrintWorkflowBackgroundSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowBackgroundSession {
-    type Vtable = IPrintWorkflowBackgroundSessionVtbl;
+    type Vtable = IPrintWorkflowBackgroundSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b7913ba_0c5e_528a_7458_86a46cbddc45);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowBackgroundSessionVtbl {
+pub struct IPrintWorkflowBackgroundSession_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SetupRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, setupeventhandler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -33,12 +33,12 @@ pub struct IPrintWorkflowBackgroundSessionVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowBackgroundSetupRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowBackgroundSetupRequestedEventArgs {
-    type Vtable = IPrintWorkflowBackgroundSetupRequestedEventArgsVtbl;
+    type Vtable = IPrintWorkflowBackgroundSetupRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43e97342_1750_59c9_61fb_383748a20362);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowBackgroundSetupRequestedEventArgsVtbl {
+pub struct IPrintWorkflowBackgroundSetupRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket"))]
     pub GetUserPrintTicketAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -55,12 +55,12 @@ pub struct IPrintWorkflowBackgroundSetupRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowConfiguration {
-    type Vtable = IPrintWorkflowConfigurationVtbl;
+    type Vtable = IPrintWorkflowConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0aac4ed_fd4b_5df5_4bb6_8d0d159ebe3f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowConfigurationVtbl {
+pub struct IPrintWorkflowConfiguration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SourceAppDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub JobTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -70,12 +70,12 @@ pub struct IPrintWorkflowConfigurationVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowConfiguration2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowConfiguration2 {
-    type Vtable = IPrintWorkflowConfiguration2Vtbl;
+    type Vtable = IPrintWorkflowConfiguration2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde350a50_a6d4_5be2_8b9a_09d3d39ea780);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowConfiguration2Vtbl {
+pub struct IPrintWorkflowConfiguration2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AbortPrintFlow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reason: PrintWorkflowJobAbortReason) -> ::windows::core::HRESULT,
 }
@@ -83,12 +83,12 @@ pub struct IPrintWorkflowConfiguration2Vtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowForegroundSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowForegroundSession {
-    type Vtable = IPrintWorkflowForegroundSessionVtbl;
+    type Vtable = IPrintWorkflowForegroundSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc79b63d0_f8ec_4ceb_953a_c8876157dd33);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowForegroundSessionVtbl {
+pub struct IPrintWorkflowForegroundSession_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SetupRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, setupeventhandler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -113,12 +113,12 @@ pub struct IPrintWorkflowForegroundSessionVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowForegroundSetupRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowForegroundSetupRequestedEventArgs {
-    type Vtable = IPrintWorkflowForegroundSetupRequestedEventArgsVtbl;
+    type Vtable = IPrintWorkflowForegroundSetupRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbe38247_9c1b_4dd3_9b2b_c80468d941b3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowForegroundSetupRequestedEventArgsVtbl {
+pub struct IPrintWorkflowForegroundSetupRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket"))]
     pub GetUserPrintTicketAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -134,12 +134,12 @@ pub struct IPrintWorkflowForegroundSetupRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowJobActivatedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowJobActivatedEventArgs {
-    type Vtable = IPrintWorkflowJobActivatedEventArgsVtbl;
+    type Vtable = IPrintWorkflowJobActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4bd5e6d_034e_5e00_a616_f961a033dcc8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowJobActivatedEventArgsVtbl {
+pub struct IPrintWorkflowJobActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -147,12 +147,12 @@ pub struct IPrintWorkflowJobActivatedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowJobBackgroundSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowJobBackgroundSession {
-    type Vtable = IPrintWorkflowJobBackgroundSessionVtbl;
+    type Vtable = IPrintWorkflowJobBackgroundSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5ec6ad8_20c9_5d51_8507_2734b46f96c5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowJobBackgroundSessionVtbl {
+pub struct IPrintWorkflowJobBackgroundSession_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PrintWorkflowSessionStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -177,12 +177,12 @@ pub struct IPrintWorkflowJobBackgroundSessionVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowJobNotificationEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowJobNotificationEventArgs {
-    type Vtable = IPrintWorkflowJobNotificationEventArgsVtbl;
+    type Vtable = IPrintWorkflowJobNotificationEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ae16fba_5398_5eba_b472_978650186a9a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowJobNotificationEventArgsVtbl {
+pub struct IPrintWorkflowJobNotificationEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Configuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub PrinterJob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -195,12 +195,12 @@ pub struct IPrintWorkflowJobNotificationEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowJobStartingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowJobStartingEventArgs {
-    type Vtable = IPrintWorkflowJobStartingEventArgsVtbl;
+    type Vtable = IPrintWorkflowJobStartingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3d99ba8_31ad_5e09_b0d7_601b97f161ad);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowJobStartingEventArgsVtbl {
+pub struct IPrintWorkflowJobStartingEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Configuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Printers")]
@@ -217,12 +217,12 @@ pub struct IPrintWorkflowJobStartingEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowJobTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowJobTriggerDetails {
-    type Vtable = IPrintWorkflowJobTriggerDetailsVtbl;
+    type Vtable = IPrintWorkflowJobTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff296129_60e2_51db_ba8c_e2ccddb516b9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowJobTriggerDetailsVtbl {
+pub struct IPrintWorkflowJobTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PrintWorkflowJobSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -230,12 +230,12 @@ pub struct IPrintWorkflowJobTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowJobUISession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowJobUISession {
-    type Vtable = IPrintWorkflowJobUISessionVtbl;
+    type Vtable = IPrintWorkflowJobUISession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00c8736b_7637_5687_a302_0f664d2aac65);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowJobUISessionVtbl {
+pub struct IPrintWorkflowJobUISession_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PrintWorkflowSessionStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -260,24 +260,24 @@ pub struct IPrintWorkflowJobUISessionVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowObjectModelSourceFileContent(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowObjectModelSourceFileContent {
-    type Vtable = IPrintWorkflowObjectModelSourceFileContentVtbl;
+    type Vtable = IPrintWorkflowObjectModelSourceFileContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc36c8a6a_8a2a_419a_b3c3_2090e6bfab2f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowObjectModelSourceFileContentVtbl {
+pub struct IPrintWorkflowObjectModelSourceFileContent_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPrintWorkflowObjectModelSourceFileContentFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowObjectModelSourceFileContentFactory {
-    type Vtable = IPrintWorkflowObjectModelSourceFileContentFactoryVtbl;
+    type Vtable = IPrintWorkflowObjectModelSourceFileContentFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93b1b903_f013_56d6_b708_99ac2ccb12ee);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowObjectModelSourceFileContentFactoryVtbl {
+pub struct IPrintWorkflowObjectModelSourceFileContentFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpsstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -288,24 +288,24 @@ pub struct IPrintWorkflowObjectModelSourceFileContentFactoryVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowObjectModelTargetPackage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowObjectModelTargetPackage {
-    type Vtable = IPrintWorkflowObjectModelTargetPackageVtbl;
+    type Vtable = IPrintWorkflowObjectModelTargetPackage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d96bc74_9b54_4ca1_ad3a_979c3d44ddac);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowObjectModelTargetPackageVtbl {
+pub struct IPrintWorkflowObjectModelTargetPackage_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPrintWorkflowPdlConverter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowPdlConverter {
-    type Vtable = IPrintWorkflowPdlConverterVtbl;
+    type Vtable = IPrintWorkflowPdlConverter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40604b62_0ae4_51f1_818f_731dc0b005ab);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowPdlConverterVtbl {
+pub struct IPrintWorkflowPdlConverter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams"))]
     pub ConvertPdlAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printticket: ::windows::core::RawPtr, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -316,12 +316,12 @@ pub struct IPrintWorkflowPdlConverterVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowPdlDataAvailableEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowPdlDataAvailableEventArgs {
-    type Vtable = IPrintWorkflowPdlDataAvailableEventArgsVtbl;
+    type Vtable = IPrintWorkflowPdlDataAvailableEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4ad6b50_1547_5991_a0ef_e2ee20211518);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowPdlDataAvailableEventArgsVtbl {
+pub struct IPrintWorkflowPdlDataAvailableEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Configuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub PrinterJob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -335,12 +335,12 @@ pub struct IPrintWorkflowPdlDataAvailableEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowPdlModificationRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowPdlModificationRequestedEventArgs {
-    type Vtable = IPrintWorkflowPdlModificationRequestedEventArgsVtbl;
+    type Vtable = IPrintWorkflowPdlModificationRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a339a61_2e13_5edd_a707_ceec61d7333b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowPdlModificationRequestedEventArgsVtbl {
+pub struct IPrintWorkflowPdlModificationRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Configuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub PrinterJob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -365,12 +365,12 @@ pub struct IPrintWorkflowPdlModificationRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowPdlSourceContent(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowPdlSourceContent {
-    type Vtable = IPrintWorkflowPdlSourceContentVtbl;
+    type Vtable = IPrintWorkflowPdlSourceContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92f7fc41_32b8_56ab_845e_b1e68b3aedd5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowPdlSourceContentVtbl {
+pub struct IPrintWorkflowPdlSourceContent_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ContentType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -386,12 +386,12 @@ pub struct IPrintWorkflowPdlSourceContentVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowPdlTargetStream(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowPdlTargetStream {
-    type Vtable = IPrintWorkflowPdlTargetStreamVtbl;
+    type Vtable = IPrintWorkflowPdlTargetStream_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa742dfe5_1ee3_52a9_9f9f_2e2043180fd1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowPdlTargetStreamVtbl {
+pub struct IPrintWorkflowPdlTargetStream_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub GetOutputStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -403,12 +403,12 @@ pub struct IPrintWorkflowPdlTargetStreamVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowPrinterJob(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowPrinterJob {
-    type Vtable = IPrintWorkflowPrinterJobVtbl;
+    type Vtable = IPrintWorkflowPrinterJob_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12009f94_0d14_5443_bc09_250311ce570b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowPrinterJobVtbl {
+pub struct IPrintWorkflowPrinterJob_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub JobId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Printers")]
@@ -441,12 +441,12 @@ pub struct IPrintWorkflowPrinterJobVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowSourceContent(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowSourceContent {
-    type Vtable = IPrintWorkflowSourceContentVtbl;
+    type Vtable = IPrintWorkflowSourceContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a28c641_ceb1_4533_bb73_fbe63eefdb18);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowSourceContentVtbl {
+pub struct IPrintWorkflowSourceContent_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket"))]
     pub GetJobPrintTicketAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -459,12 +459,12 @@ pub struct IPrintWorkflowSourceContentVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowSpoolStreamContent(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowSpoolStreamContent {
-    type Vtable = IPrintWorkflowSpoolStreamContentVtbl;
+    type Vtable = IPrintWorkflowSpoolStreamContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72e55ece_e406_4b74_84e1_3ff3fdcdaf70);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowSpoolStreamContentVtbl {
+pub struct IPrintWorkflowSpoolStreamContent_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub GetInputStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -475,12 +475,12 @@ pub struct IPrintWorkflowSpoolStreamContentVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowStreamTarget(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowStreamTarget {
-    type Vtable = IPrintWorkflowStreamTargetVtbl;
+    type Vtable = IPrintWorkflowStreamTarget_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb23bba84_8565_488b_9839_1c9e7c7aa916);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowStreamTargetVtbl {
+pub struct IPrintWorkflowStreamTarget_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub GetOutputStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -491,12 +491,12 @@ pub struct IPrintWorkflowStreamTargetVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowSubmittedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowSubmittedEventArgs {
-    type Vtable = IPrintWorkflowSubmittedEventArgsVtbl;
+    type Vtable = IPrintWorkflowSubmittedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3add0a41_3794_5569_5c87_40e8ff720f83);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowSubmittedEventArgsVtbl {
+pub struct IPrintWorkflowSubmittedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Operation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
@@ -512,12 +512,12 @@ pub struct IPrintWorkflowSubmittedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowSubmittedOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowSubmittedOperation {
-    type Vtable = IPrintWorkflowSubmittedOperationVtbl;
+    type Vtable = IPrintWorkflowSubmittedOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e4e6216_3be1_5f0f_5c81_a5a2bd4eab0e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowSubmittedOperationVtbl {
+pub struct IPrintWorkflowSubmittedOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: PrintWorkflowSubmittedStatus) -> ::windows::core::HRESULT,
     pub Configuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -527,12 +527,12 @@ pub struct IPrintWorkflowSubmittedOperationVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowTarget(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowTarget {
-    type Vtable = IPrintWorkflowTargetVtbl;
+    type Vtable = IPrintWorkflowTarget_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29da276c_0a73_5aed_4f3d_970d3251f057);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowTargetVtbl {
+pub struct IPrintWorkflowTarget_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TargetAsStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub TargetAsXpsObjectModelPackage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -541,12 +541,12 @@ pub struct IPrintWorkflowTargetVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowTriggerDetails {
-    type Vtable = IPrintWorkflowTriggerDetailsVtbl;
+    type Vtable = IPrintWorkflowTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5739d868_9d86_4052_b0cb_f310becd59bb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowTriggerDetailsVtbl {
+pub struct IPrintWorkflowTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PrintWorkflowSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -554,12 +554,12 @@ pub struct IPrintWorkflowTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowUIActivatedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowUIActivatedEventArgs {
-    type Vtable = IPrintWorkflowUIActivatedEventArgsVtbl;
+    type Vtable = IPrintWorkflowUIActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc8a844d_09eb_5746_72a6_8dc8b5edbe9b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowUIActivatedEventArgsVtbl {
+pub struct IPrintWorkflowUIActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PrintWorkflowSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -567,12 +567,12 @@ pub struct IPrintWorkflowUIActivatedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowUILauncher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowUILauncher {
-    type Vtable = IPrintWorkflowUILauncherVtbl;
+    type Vtable = IPrintWorkflowUILauncher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64e9e22f_14cc_5828_96fb_39163fb6c378);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowUILauncherVtbl {
+pub struct IPrintWorkflowUILauncher_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsUILaunchEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -584,12 +584,12 @@ pub struct IPrintWorkflowUILauncherVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowXpsDataAvailableEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintWorkflowXpsDataAvailableEventArgs {
-    type Vtable = IPrintWorkflowXpsDataAvailableEventArgsVtbl;
+    type Vtable = IPrintWorkflowXpsDataAvailableEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d11c331_54d1_434e_be0e_82c5fa58e5b2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowXpsDataAvailableEventArgsVtbl {
+pub struct IPrintWorkflowXpsDataAvailableEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Operation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -665,7 +665,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowBackgroundSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSession;{5b7913ba-0c5e-528a-7458-86a46cbddc45})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowBackgroundSession {
-    type Vtable = IPrintWorkflowBackgroundSessionVtbl;
+    type Vtable = IPrintWorkflowBackgroundSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b7913ba_0c5e_528a_7458_86a46cbddc45);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowBackgroundSession {
@@ -769,7 +769,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowBackgroundSetupRequest
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSetupRequestedEventArgs;{43e97342-1750-59c9-61fb-383748a20362})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowBackgroundSetupRequestedEventArgs {
-    type Vtable = IPrintWorkflowBackgroundSetupRequestedEventArgsVtbl;
+    type Vtable = IPrintWorkflowBackgroundSetupRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43e97342_1750_59c9_61fb_383748a20362);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowBackgroundSetupRequestedEventArgs {
@@ -871,7 +871,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowConfiguration;{d0aac4ed-fd4b-5df5-4bb6-8d0d159ebe3f})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowConfiguration {
-    type Vtable = IPrintWorkflowConfigurationVtbl;
+    type Vtable = IPrintWorkflowConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0aac4ed_fd4b_5df5_4bb6_8d0d159ebe3f);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowConfiguration {
@@ -987,7 +987,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowForegroundSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSession;{c79b63d0-f8ec-4ceb-953a-c8876157dd33})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowForegroundSession {
-    type Vtable = IPrintWorkflowForegroundSessionVtbl;
+    type Vtable = IPrintWorkflowForegroundSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc79b63d0_f8ec_4ceb_953a_c8876157dd33);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowForegroundSession {
@@ -1086,7 +1086,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowForegroundSetupRequest
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSetupRequestedEventArgs;{bbe38247-9c1b-4dd3-9b2b-c80468d941b3})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowForegroundSetupRequestedEventArgs {
-    type Vtable = IPrintWorkflowForegroundSetupRequestedEventArgsVtbl;
+    type Vtable = IPrintWorkflowForegroundSetupRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbe38247_9c1b_4dd3_9b2b_c80468d941b3);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowForegroundSetupRequestedEventArgs {
@@ -1236,7 +1236,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobActivatedEventArgs 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobActivatedEventArgs;{d4bd5e6d-034e-5e00-a616-f961a033dcc8})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowJobActivatedEventArgs {
-    type Vtable = IPrintWorkflowJobActivatedEventArgsVtbl;
+    type Vtable = IPrintWorkflowJobActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4bd5e6d_034e_5e00_a616_f961a033dcc8);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowJobActivatedEventArgs {
@@ -1404,7 +1404,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobBackgroundSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobBackgroundSession;{c5ec6ad8-20c9-5d51-8507-2734b46f96c5})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowJobBackgroundSession {
-    type Vtable = IPrintWorkflowJobBackgroundSessionVtbl;
+    type Vtable = IPrintWorkflowJobBackgroundSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5ec6ad8_20c9_5d51_8507_2734b46f96c5);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowJobBackgroundSession {
@@ -1502,7 +1502,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobNotificationEventAr
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobNotificationEventArgs;{0ae16fba-5398-5eba-b472-978650186a9a})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowJobNotificationEventArgs {
-    type Vtable = IPrintWorkflowJobNotificationEventArgsVtbl;
+    type Vtable = IPrintWorkflowJobNotificationEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ae16fba_5398_5eba_b472_978650186a9a);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowJobNotificationEventArgs {
@@ -1606,7 +1606,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobStartingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobStartingEventArgs;{e3d99ba8-31ad-5e09-b0d7-601b97f161ad})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowJobStartingEventArgs {
-    type Vtable = IPrintWorkflowJobStartingEventArgsVtbl;
+    type Vtable = IPrintWorkflowJobStartingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3d99ba8_31ad_5e09_b0d7_601b97f161ad);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowJobStartingEventArgs {
@@ -1687,7 +1687,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobTriggerDetails;{ff296129-60e2-51db-ba8c-e2ccddb516b9})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowJobTriggerDetails {
-    type Vtable = IPrintWorkflowJobTriggerDetailsVtbl;
+    type Vtable = IPrintWorkflowJobTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff296129_60e2_51db_ba8c_e2ccddb516b9);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowJobTriggerDetails {
@@ -1803,7 +1803,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobUISession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobUISession;{00c8736b-7637-5687-a302-0f664d2aac65})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowJobUISession {
-    type Vtable = IPrintWorkflowJobUISessionVtbl;
+    type Vtable = IPrintWorkflowJobUISession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00c8736b_7637_5687_a302_0f664d2aac65);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowJobUISession {
@@ -1889,7 +1889,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowObjectModelSourceFileC
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelSourceFileContent;{c36c8a6a-8a2a-419a-b3c3-2090e6bfab2f})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowObjectModelSourceFileContent {
-    type Vtable = IPrintWorkflowObjectModelSourceFileContentVtbl;
+    type Vtable = IPrintWorkflowObjectModelSourceFileContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc36c8a6a_8a2a_419a_b3c3_2090e6bfab2f);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowObjectModelSourceFileContent {
@@ -1961,7 +1961,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowObjectModelTargetPacka
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelTargetPackage;{7d96bc74-9b54-4ca1-ad3a-979c3d44ddac})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowObjectModelTargetPackage {
-    type Vtable = IPrintWorkflowObjectModelTargetPackageVtbl;
+    type Vtable = IPrintWorkflowObjectModelTargetPackage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d96bc74_9b54_4ca1_ad3a_979c3d44ddac);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowObjectModelTargetPackage {
@@ -2077,7 +2077,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlConverter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlConverter;{40604b62-0ae4-51f1-818f-731dc0b005ab})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowPdlConverter {
-    type Vtable = IPrintWorkflowPdlConverterVtbl;
+    type Vtable = IPrintWorkflowPdlConverter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40604b62_0ae4_51f1_818f_731dc0b005ab);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowPdlConverter {
@@ -2183,7 +2183,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlDataAvailableEventA
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlDataAvailableEventArgs;{d4ad6b50-1547-5991-a0ef-e2ee20211518})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowPdlDataAvailableEventArgs {
-    type Vtable = IPrintWorkflowPdlDataAvailableEventArgsVtbl;
+    type Vtable = IPrintWorkflowPdlDataAvailableEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4ad6b50_1547_5991_a0ef_e2ee20211518);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowPdlDataAvailableEventArgs {
@@ -2331,7 +2331,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlModificationRequest
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlModificationRequestedEventArgs;{1a339a61-2e13-5edd-a707-ceec61d7333b})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowPdlModificationRequestedEventArgs {
-    type Vtable = IPrintWorkflowPdlModificationRequestedEventArgsVtbl;
+    type Vtable = IPrintWorkflowPdlModificationRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a339a61_2e13_5edd_a707_ceec61d7333b);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowPdlModificationRequestedEventArgs {
@@ -2430,7 +2430,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlSourceContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlSourceContent;{92f7fc41-32b8-56ab-845e-b1e68b3aedd5})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowPdlSourceContent {
-    type Vtable = IPrintWorkflowPdlSourceContentVtbl;
+    type Vtable = IPrintWorkflowPdlSourceContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92f7fc41_32b8_56ab_845e_b1e68b3aedd5);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowPdlSourceContent {
@@ -2517,7 +2517,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlTargetStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlTargetStream;{a742dfe5-1ee3-52a9-9f9f-2e2043180fd1})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowPdlTargetStream {
-    type Vtable = IPrintWorkflowPdlTargetStreamVtbl;
+    type Vtable = IPrintWorkflowPdlTargetStream_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa742dfe5_1ee3_52a9_9f9f_2e2043180fd1);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowPdlTargetStream {
@@ -2660,7 +2660,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowPrinterJob {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJob;{12009f94-0d14-5443-bc09-250311ce570b})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowPrinterJob {
-    type Vtable = IPrintWorkflowPrinterJobVtbl;
+    type Vtable = IPrintWorkflowPrinterJob_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12009f94_0d14_5443_bc09_250311ce570b);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowPrinterJob {
@@ -2829,7 +2829,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowSourceContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowSourceContent;{1a28c641-ceb1-4533-bb73-fbe63eefdb18})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowSourceContent {
-    type Vtable = IPrintWorkflowSourceContentVtbl;
+    type Vtable = IPrintWorkflowSourceContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a28c641_ceb1_4533_bb73_fbe63eefdb18);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowSourceContent {
@@ -2911,7 +2911,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowSpoolStreamContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowSpoolStreamContent;{72e55ece-e406-4b74-84e1-3ff3fdcdaf70})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowSpoolStreamContent {
-    type Vtable = IPrintWorkflowSpoolStreamContentVtbl;
+    type Vtable = IPrintWorkflowSpoolStreamContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72e55ece_e406_4b74_84e1_3ff3fdcdaf70);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowSpoolStreamContent {
@@ -2993,7 +2993,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowStreamTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowStreamTarget;{b23bba84-8565-488b-9839-1c9e7c7aa916})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowStreamTarget {
-    type Vtable = IPrintWorkflowStreamTargetVtbl;
+    type Vtable = IPrintWorkflowStreamTarget_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb23bba84_8565_488b_9839_1c9e7c7aa916);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowStreamTarget {
@@ -3092,7 +3092,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowSubmittedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedEventArgs;{3add0a41-3794-5569-5c87-40e8ff720f83})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowSubmittedEventArgs {
-    type Vtable = IPrintWorkflowSubmittedEventArgsVtbl;
+    type Vtable = IPrintWorkflowSubmittedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3add0a41_3794_5569_5c87_40e8ff720f83);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowSubmittedEventArgs {
@@ -3186,7 +3186,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowSubmittedOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedOperation;{2e4e6216-3be1-5f0f-5c81-a5a2bd4eab0e})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowSubmittedOperation {
-    type Vtable = IPrintWorkflowSubmittedOperationVtbl;
+    type Vtable = IPrintWorkflowSubmittedOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e4e6216_3be1_5f0f_5c81_a5a2bd4eab0e);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowSubmittedOperation {
@@ -3309,7 +3309,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowTarget;{29da276c-0a73-5aed-4f3d-970d3251f057})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowTarget {
-    type Vtable = IPrintWorkflowTargetVtbl;
+    type Vtable = IPrintWorkflowTarget_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29da276c_0a73_5aed_4f3d_970d3251f057);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowTarget {
@@ -3390,7 +3390,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowTriggerDetails;{5739d868-9d86-4052-b0cb-f310becd59bb})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowTriggerDetails {
-    type Vtable = IPrintWorkflowTriggerDetailsVtbl;
+    type Vtable = IPrintWorkflowTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5739d868_9d86_4052_b0cb_f310becd59bb);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowTriggerDetails {
@@ -3507,7 +3507,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowUIActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowUIActivatedEventArgs;{bc8a844d-09eb-5746-72a6-8dc8b5edbe9b})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowUIActivatedEventArgs {
-    type Vtable = IPrintWorkflowUIActivatedEventArgsVtbl;
+    type Vtable = IPrintWorkflowUIActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc8a844d_09eb_5746_72a6_8dc8b5edbe9b);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowUIActivatedEventArgs {
@@ -3684,7 +3684,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowUILauncher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowUILauncher;{64e9e22f-14cc-5828-96fb-39163fb6c378})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowUILauncher {
-    type Vtable = IPrintWorkflowUILauncherVtbl;
+    type Vtable = IPrintWorkflowUILauncher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64e9e22f_14cc_5828_96fb_39163fb6c378);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowUILauncher {
@@ -3774,7 +3774,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowXpsDataAvailableEventA
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowXpsDataAvailableEventArgs;{4d11c331-54d1-434e-be0e-82c5fa58e5b2})");
 }
 unsafe impl ::windows::core::Interface for PrintWorkflowXpsDataAvailableEventArgs {
-    type Vtable = IPrintWorkflowXpsDataAvailableEventArgsVtbl;
+    type Vtable = IPrintWorkflowXpsDataAvailableEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d11c331_54d1_434e_be0e_82c5fa58e5b2);
 }
 impl ::windows::core::RuntimeName for PrintWorkflowXpsDataAvailableEventArgs {

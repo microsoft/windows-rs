@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICoreDragDropManagerImpl: Sized {
+pub trait ICoreDragDropManager_Impl: Sized {
     fn TargetRequested(&mut self, value: &::core::option::Option<super::super::super::super::Foundation::TypedEventHandler<CoreDragDropManager, CoreDropOperationTargetRequestedEventArgs>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveTargetRequested(&mut self, value: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn AreConcurrentOperationsEnabled(&mut self) -> ::windows::core::Result<bool>;
@@ -10,9 +10,9 @@ impl ::windows::core::RuntimeName for ICoreDragDropManager {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragDropManager";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICoreDragDropManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragDropManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDragDropManagerVtbl {
-        unsafe extern "system" fn TargetRequested<Impl: ICoreDragDropManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl ICoreDragDropManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragDropManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDragDropManager_Vtbl {
+        unsafe extern "system" fn TargetRequested<Impl: ICoreDragDropManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetRequested(&*(&value as *const <super::super::super::super::Foundation::TypedEventHandler<CoreDragDropManager, CoreDropOperationTargetRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::TypedEventHandler<CoreDragDropManager, CoreDropOperationTargetRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -23,11 +23,11 @@ impl ICoreDragDropManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveTargetRequested<Impl: ICoreDragDropManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveTargetRequested<Impl: ICoreDragDropManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTargetRequested(&*(&value as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AreConcurrentOperationsEnabled<Impl: ICoreDragDropManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AreConcurrentOperationsEnabled<Impl: ICoreDragDropManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AreConcurrentOperationsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -38,7 +38,7 @@ impl ICoreDragDropManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAreConcurrentOperationsEnabled<Impl: ICoreDragDropManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAreConcurrentOperationsEnabled<Impl: ICoreDragDropManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAreConcurrentOperationsEnabled(value).into()
         }
@@ -55,7 +55,7 @@ impl ICoreDragDropManagerVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICoreDragDropManagerStaticsImpl: Sized {
+pub trait ICoreDragDropManagerStatics_Impl: Sized {
     fn GetForCurrentView(&mut self) -> ::windows::core::Result<CoreDragDropManager>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -63,9 +63,9 @@ impl ::windows::core::RuntimeName for ICoreDragDropManagerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragDropManagerStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICoreDragDropManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragDropManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDragDropManagerStaticsVtbl {
-        unsafe extern "system" fn GetForCurrentView<Impl: ICoreDragDropManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICoreDragDropManagerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragDropManagerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDragDropManagerStatics_Vtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: ICoreDragDropManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -86,7 +86,7 @@ impl ICoreDragDropManagerStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICoreDragInfoImpl: Sized {
+pub trait ICoreDragInfo_Impl: Sized {
     fn Data(&mut self) -> ::windows::core::Result<super::super::DataPackageView>;
     fn Modifiers(&mut self) -> ::windows::core::Result<super::DragDropModifiers>;
     fn Position(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
@@ -96,9 +96,9 @@ impl ::windows::core::RuntimeName for ICoreDragInfo {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragInfo";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICoreDragInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDragInfoVtbl {
-        unsafe extern "system" fn Data<Impl: ICoreDragInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICoreDragInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDragInfo_Vtbl {
+        unsafe extern "system" fn Data<Impl: ICoreDragInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
                 ::core::result::Result::Ok(ok__) => {
@@ -109,7 +109,7 @@ impl ICoreDragInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Modifiers<Impl: ICoreDragInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::DragDropModifiers) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Modifiers<Impl: ICoreDragInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::DragDropModifiers) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Modifiers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -120,7 +120,7 @@ impl ICoreDragInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Position<Impl: ICoreDragInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Position<Impl: ICoreDragInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Position() {
                 ::core::result::Result::Ok(ok__) => {
@@ -143,7 +143,7 @@ impl ICoreDragInfoVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICoreDragInfo2Impl: Sized + ICoreDragInfoImpl {
+pub trait ICoreDragInfo2_Impl: Sized + ICoreDragInfo_Impl {
     fn AllowedOperations(&mut self) -> ::windows::core::Result<super::super::DataPackageOperation>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -151,9 +151,9 @@ impl ::windows::core::RuntimeName for ICoreDragInfo2 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragInfo2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICoreDragInfo2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDragInfo2Vtbl {
-        unsafe extern "system" fn AllowedOperations<Impl: ICoreDragInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::DataPackageOperation) -> ::windows::core::HRESULT {
+impl ICoreDragInfo2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragInfo2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDragInfo2_Vtbl {
+        unsafe extern "system" fn AllowedOperations<Impl: ICoreDragInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::DataPackageOperation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowedOperations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -174,7 +174,7 @@ impl ICoreDragInfo2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-pub trait ICoreDragOperationImpl: Sized {
+pub trait ICoreDragOperation_Impl: Sized {
     fn Data(&mut self) -> ::windows::core::Result<super::super::DataPackage>;
     fn SetPointerId(&mut self, pointerid: u32) -> ::windows::core::Result<()>;
     fn SetDragUIContentFromSoftwareBitmap(&mut self, softwarebitmap: &::core::option::Option<super::super::super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<()>;
@@ -188,9 +188,9 @@ impl ::windows::core::RuntimeName for ICoreDragOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragOperation";
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-impl ICoreDragOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDragOperationVtbl {
-        unsafe extern "system" fn Data<Impl: ICoreDragOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICoreDragOperation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragOperation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDragOperation_Vtbl {
+        unsafe extern "system" fn Data<Impl: ICoreDragOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Data() {
                 ::core::result::Result::Ok(ok__) => {
@@ -201,21 +201,21 @@ impl ICoreDragOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPointerId<Impl: ICoreDragOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pointerid: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPointerId<Impl: ICoreDragOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pointerid: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPointerId(pointerid).into()
         }
-        unsafe extern "system" fn SetDragUIContentFromSoftwareBitmap<Impl: ICoreDragOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, softwarebitmap: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDragUIContentFromSoftwareBitmap<Impl: ICoreDragOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, softwarebitmap: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDragUIContentFromSoftwareBitmap(&*(&softwarebitmap as *const <super::super::super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::Abi>::Abi as *const <super::super::super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetDragUIContentFromSoftwareBitmapWithAnchorPoint<Impl: ICoreDragOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, softwarebitmap: ::windows::core::RawPtr, anchorpoint: super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDragUIContentFromSoftwareBitmapWithAnchorPoint<Impl: ICoreDragOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, softwarebitmap: ::windows::core::RawPtr, anchorpoint: super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetDragUIContentFromSoftwareBitmapWithAnchorPoint(&*(&softwarebitmap as *const <super::super::super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::Abi>::Abi as *const <super::super::super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::DefaultType>::DefaultType), &*(&anchorpoint as *const <super::super::super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType))
                 .into()
         }
-        unsafe extern "system" fn DragUIContentMode<Impl: ICoreDragOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreDragUIContentMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DragUIContentMode<Impl: ICoreDragOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreDragUIContentMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DragUIContentMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -226,11 +226,11 @@ impl ICoreDragOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDragUIContentMode<Impl: ICoreDragOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CoreDragUIContentMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDragUIContentMode<Impl: ICoreDragOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: CoreDragUIContentMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDragUIContentMode(value).into()
         }
-        unsafe extern "system" fn StartAsync<Impl: ICoreDragOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartAsync<Impl: ICoreDragOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -257,7 +257,7 @@ impl ICoreDragOperationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-pub trait ICoreDragOperation2Impl: Sized + ICoreDragOperationImpl {
+pub trait ICoreDragOperation2_Impl: Sized + ICoreDragOperation_Impl {
     fn AllowedOperations(&mut self) -> ::windows::core::Result<super::super::DataPackageOperation>;
     fn SetAllowedOperations(&mut self, value: super::super::DataPackageOperation) -> ::windows::core::Result<()>;
 }
@@ -266,9 +266,9 @@ impl ::windows::core::RuntimeName for ICoreDragOperation2 {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragOperation2";
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-impl ICoreDragOperation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragOperation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDragOperation2Vtbl {
-        unsafe extern "system" fn AllowedOperations<Impl: ICoreDragOperation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::DataPackageOperation) -> ::windows::core::HRESULT {
+impl ICoreDragOperation2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragOperation2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDragOperation2_Vtbl {
+        unsafe extern "system" fn AllowedOperations<Impl: ICoreDragOperation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::DataPackageOperation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowedOperations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -279,7 +279,7 @@ impl ICoreDragOperation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAllowedOperations<Impl: ICoreDragOperation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::DataPackageOperation) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAllowedOperations<Impl: ICoreDragOperation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::DataPackageOperation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowedOperations(value).into()
         }
@@ -294,7 +294,7 @@ impl ICoreDragOperation2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-pub trait ICoreDragUIOverrideImpl: Sized {
+pub trait ICoreDragUIOverride_Impl: Sized {
     fn SetContentFromSoftwareBitmap(&mut self, softwarebitmap: &::core::option::Option<super::super::super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<()>;
     fn SetContentFromSoftwareBitmapWithAnchorPoint(&mut self, softwarebitmap: &::core::option::Option<super::super::super::super::Graphics::Imaging::SoftwareBitmap>, anchorpoint: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<()>;
     fn IsContentVisible(&mut self) -> ::windows::core::Result<bool>;
@@ -312,19 +312,19 @@ impl ::windows::core::RuntimeName for ICoreDragUIOverride {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragUIOverride";
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-impl ICoreDragUIOverrideVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragUIOverrideImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDragUIOverrideVtbl {
-        unsafe extern "system" fn SetContentFromSoftwareBitmap<Impl: ICoreDragUIOverrideImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, softwarebitmap: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICoreDragUIOverride_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDragUIOverride_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDragUIOverride_Vtbl {
+        unsafe extern "system" fn SetContentFromSoftwareBitmap<Impl: ICoreDragUIOverride_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, softwarebitmap: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentFromSoftwareBitmap(&*(&softwarebitmap as *const <super::super::super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::Abi>::Abi as *const <super::super::super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetContentFromSoftwareBitmapWithAnchorPoint<Impl: ICoreDragUIOverrideImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, softwarebitmap: ::windows::core::RawPtr, anchorpoint: super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContentFromSoftwareBitmapWithAnchorPoint<Impl: ICoreDragUIOverride_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, softwarebitmap: ::windows::core::RawPtr, anchorpoint: super::super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetContentFromSoftwareBitmapWithAnchorPoint(&*(&softwarebitmap as *const <super::super::super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::Abi>::Abi as *const <super::super::super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::DefaultType>::DefaultType), &*(&anchorpoint as *const <super::super::super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType))
                 .into()
         }
-        unsafe extern "system" fn IsContentVisible<Impl: ICoreDragUIOverrideImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsContentVisible<Impl: ICoreDragUIOverride_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsContentVisible() {
                 ::core::result::Result::Ok(ok__) => {
@@ -335,11 +335,11 @@ impl ICoreDragUIOverrideVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsContentVisible<Impl: ICoreDragUIOverrideImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsContentVisible<Impl: ICoreDragUIOverride_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsContentVisible(value).into()
         }
-        unsafe extern "system" fn Caption<Impl: ICoreDragUIOverrideImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Caption<Impl: ICoreDragUIOverride_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Caption() {
                 ::core::result::Result::Ok(ok__) => {
@@ -350,11 +350,11 @@ impl ICoreDragUIOverrideVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCaption<Impl: ICoreDragUIOverrideImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCaption<Impl: ICoreDragUIOverride_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCaption(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IsCaptionVisible<Impl: ICoreDragUIOverrideImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCaptionVisible<Impl: ICoreDragUIOverride_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCaptionVisible() {
                 ::core::result::Result::Ok(ok__) => {
@@ -365,11 +365,11 @@ impl ICoreDragUIOverrideVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsCaptionVisible<Impl: ICoreDragUIOverrideImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsCaptionVisible<Impl: ICoreDragUIOverride_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsCaptionVisible(value).into()
         }
-        unsafe extern "system" fn IsGlyphVisible<Impl: ICoreDragUIOverrideImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsGlyphVisible<Impl: ICoreDragUIOverride_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsGlyphVisible() {
                 ::core::result::Result::Ok(ok__) => {
@@ -380,11 +380,11 @@ impl ICoreDragUIOverrideVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsGlyphVisible<Impl: ICoreDragUIOverrideImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsGlyphVisible<Impl: ICoreDragUIOverride_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsGlyphVisible(value).into()
         }
-        unsafe extern "system" fn Clear<Impl: ICoreDragUIOverrideImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clear<Impl: ICoreDragUIOverride_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Clear().into()
         }
@@ -408,7 +408,7 @@ impl ICoreDragUIOverrideVtbl {
     }
 }
 #[cfg(feature = "Foundation")]
-pub trait ICoreDropOperationTargetImpl: Sized {
+pub trait ICoreDropOperationTarget_Impl: Sized {
     fn EnterAsync(&mut self, draginfo: &::core::option::Option<CoreDragInfo>, draguioverride: &::core::option::Option<CoreDragUIOverride>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;
     fn OverAsync(&mut self, draginfo: &::core::option::Option<CoreDragInfo>, draguioverride: &::core::option::Option<CoreDragUIOverride>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>;
     fn LeaveAsync(&mut self, draginfo: &::core::option::Option<CoreDragInfo>) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction>;
@@ -419,9 +419,9 @@ impl ::windows::core::RuntimeName for ICoreDropOperationTarget {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDropOperationTarget";
 }
 #[cfg(feature = "Foundation")]
-impl ICoreDropOperationTargetVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDropOperationTargetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDropOperationTargetVtbl {
-        unsafe extern "system" fn EnterAsync<Impl: ICoreDropOperationTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, draginfo: ::windows::core::RawPtr, draguioverride: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICoreDropOperationTarget_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDropOperationTarget_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDropOperationTarget_Vtbl {
+        unsafe extern "system" fn EnterAsync<Impl: ICoreDropOperationTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, draginfo: ::windows::core::RawPtr, draguioverride: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnterAsync(&*(&draginfo as *const <CoreDragInfo as ::windows::core::Abi>::Abi as *const <CoreDragInfo as ::windows::core::DefaultType>::DefaultType), &*(&draguioverride as *const <CoreDragUIOverride as ::windows::core::Abi>::Abi as *const <CoreDragUIOverride as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -432,7 +432,7 @@ impl ICoreDropOperationTargetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OverAsync<Impl: ICoreDropOperationTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, draginfo: ::windows::core::RawPtr, draguioverride: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OverAsync<Impl: ICoreDropOperationTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, draginfo: ::windows::core::RawPtr, draguioverride: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OverAsync(&*(&draginfo as *const <CoreDragInfo as ::windows::core::Abi>::Abi as *const <CoreDragInfo as ::windows::core::DefaultType>::DefaultType), &*(&draguioverride as *const <CoreDragUIOverride as ::windows::core::Abi>::Abi as *const <CoreDragUIOverride as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -443,7 +443,7 @@ impl ICoreDropOperationTargetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LeaveAsync<Impl: ICoreDropOperationTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, draginfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LeaveAsync<Impl: ICoreDropOperationTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, draginfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LeaveAsync(&*(&draginfo as *const <CoreDragInfo as ::windows::core::Abi>::Abi as *const <CoreDragInfo as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -454,7 +454,7 @@ impl ICoreDropOperationTargetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DropAsync<Impl: ICoreDropOperationTargetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, draginfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DropAsync<Impl: ICoreDropOperationTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, draginfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DropAsync(&*(&draginfo as *const <CoreDragInfo as ::windows::core::Abi>::Abi as *const <CoreDragInfo as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -478,7 +478,7 @@ impl ICoreDropOperationTargetVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICoreDropOperationTargetRequestedEventArgsImpl: Sized {
+pub trait ICoreDropOperationTargetRequestedEventArgs_Impl: Sized {
     fn SetTarget(&mut self, target: &::core::option::Option<ICoreDropOperationTarget>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -486,9 +486,9 @@ impl ::windows::core::RuntimeName for ICoreDropOperationTargetRequestedEventArgs
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDropOperationTargetRequestedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICoreDropOperationTargetRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDropOperationTargetRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDropOperationTargetRequestedEventArgsVtbl {
-        unsafe extern "system" fn SetTarget<Impl: ICoreDropOperationTargetRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICoreDropOperationTargetRequestedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreDropOperationTargetRequestedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreDropOperationTargetRequestedEventArgs_Vtbl {
+        unsafe extern "system" fn SetTarget<Impl: ICoreDropOperationTargetRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTarget(&*(&target as *const <ICoreDropOperationTarget as ::windows::core::Abi>::Abi as *const <ICoreDropOperationTarget as ::windows::core::DefaultType>::DefaultType)).into()
         }

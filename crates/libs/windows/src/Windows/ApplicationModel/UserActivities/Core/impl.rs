@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICoreUserActivityManagerStaticsImpl: Sized {
+pub trait ICoreUserActivityManagerStatics_Impl: Sized {
     fn CreateUserActivitySessionInBackground(&mut self, activity: &::core::option::Option<super::UserActivity>) -> ::windows::core::Result<super::UserActivitySession>;
     fn DeleteUserActivitySessionsInTimeRangeAsync(&mut self, channel: &::core::option::Option<super::UserActivityChannel>, starttime: &super::super::super::Foundation::DateTime, endtime: &super::super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
@@ -8,9 +8,9 @@ impl ::windows::core::RuntimeName for ICoreUserActivityManagerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.Core.ICoreUserActivityManagerStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICoreUserActivityManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreUserActivityManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreUserActivityManagerStaticsVtbl {
-        unsafe extern "system" fn CreateUserActivitySessionInBackground<Impl: ICoreUserActivityManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activity: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICoreUserActivityManagerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreUserActivityManagerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreUserActivityManagerStatics_Vtbl {
+        unsafe extern "system" fn CreateUserActivitySessionInBackground<Impl: ICoreUserActivityManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activity: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateUserActivitySessionInBackground(&*(&activity as *const <super::UserActivity as ::windows::core::Abi>::Abi as *const <super::UserActivity as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -21,7 +21,7 @@ impl ICoreUserActivityManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteUserActivitySessionsInTimeRangeAsync<Impl: ICoreUserActivityManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: ::windows::core::RawPtr, starttime: super::super::super::Foundation::DateTime, endtime: super::super::super::Foundation::DateTime, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteUserActivitySessionsInTimeRangeAsync<Impl: ICoreUserActivityManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: ::windows::core::RawPtr, starttime: super::super::super::Foundation::DateTime, endtime: super::super::super::Foundation::DateTime, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeleteUserActivitySessionsInTimeRangeAsync(
                 &*(&channel as *const <super::UserActivityChannel as ::windows::core::Abi>::Abi as *const <super::UserActivityChannel as ::windows::core::DefaultType>::DefaultType),

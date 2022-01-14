@@ -3187,12 +3187,12 @@ impl ::core::fmt::Debug for ICameraUIControl {
     }
 }
 unsafe impl ::windows::core::Interface for ICameraUIControl {
-    type Vtable = ICameraUIControlVtbl;
+    type Vtable = ICameraUIControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8733adf_3d68_4b8f_bb08_e28a0bed0376);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICameraUIControlVtbl {
+pub struct ICameraUIControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwindow: *mut ::core::ffi::c_void, mode: CameraUIControlMode, selectionmode: CameraUIControlLinearSelectionMode, capturemode: CameraUIControlCaptureMode, photoformat: CameraUIControlPhotoFormat, videoformat: CameraUIControlVideoFormat, bhasclosebutton: super::super::Foundation::BOOL, peventcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3282,12 +3282,12 @@ impl ::core::fmt::Debug for ICameraUIControlEventCallback {
     }
 }
 unsafe impl ::windows::core::Interface for ICameraUIControlEventCallback {
-    type Vtable = ICameraUIControlEventCallbackVtbl;
+    type Vtable = ICameraUIControlEventCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bfa0c2c_fbcd_4776_bda4_88bf974e74f4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICameraUIControlEventCallbackVtbl {
+pub struct ICameraUIControlEventCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnStartupComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub OnSuspendComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
@@ -3348,12 +3348,12 @@ impl ::core::fmt::Debug for IClipServiceNotificationHelper {
     }
 }
 unsafe impl ::windows::core::Interface for IClipServiceNotificationHelper {
-    type Vtable = IClipServiceNotificationHelperVtbl;
+    type Vtable = IClipServiceNotificationHelper_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc39948f0_6142_44fd_98ca_e1681a8d68b5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IClipServiceNotificationHelperVtbl {
+pub struct IClipServiceNotificationHelper_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ShowToast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, titletext: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bodytext: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, packagename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, appid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, launchcommand: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -3407,12 +3407,12 @@ impl ::core::fmt::Debug for IContainerActivationHelper {
     }
 }
 unsafe impl ::windows::core::Interface for IContainerActivationHelper {
-    type Vtable = IContainerActivationHelperVtbl;
+    type Vtable = IContainerActivationHelper_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb524f93f_80d5_4ec7_ae9e_d66e93ade1fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContainerActivationHelperVtbl {
+pub struct IContainerActivationHelper_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CanActivateClientVM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isallowed: *mut i16) -> ::windows::core::HRESULT,
 }
@@ -3463,12 +3463,12 @@ impl ::core::fmt::Debug for IDefaultBrowserSyncSettings {
     }
 }
 unsafe impl ::windows::core::Interface for IDefaultBrowserSyncSettings {
-    type Vtable = IDefaultBrowserSyncSettingsVtbl;
+    type Vtable = IDefaultBrowserSyncSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a27faad_5ae6_4255_9030_c530936292e3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDefaultBrowserSyncSettingsVtbl {
+pub struct IDefaultBrowserSyncSettings_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
@@ -3521,12 +3521,12 @@ impl ::core::fmt::Debug for IDeleteBrowsingHistory {
     }
 }
 unsafe impl ::windows::core::Interface for IDeleteBrowsingHistory {
-    type Vtable = IDeleteBrowsingHistoryVtbl;
+    type Vtable = IDeleteBrowsingHistory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf38ed4b_2be7_4461_8b5e_9a466dc82ae3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeleteBrowsingHistoryVtbl {
+pub struct IDeleteBrowsingHistory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub DeleteBrowsingHistory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
 }
@@ -3631,12 +3631,12 @@ impl ::core::fmt::Debug for IEditionUpgradeBroker {
     }
 }
 unsafe impl ::windows::core::Interface for IEditionUpgradeBroker {
-    type Vtable = IEditionUpgradeBrokerVtbl;
+    type Vtable = IEditionUpgradeBroker_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff19cbcf_9455_4937_b872_6b7929a460af);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEditionUpgradeBrokerVtbl {
+pub struct IEditionUpgradeBroker_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub InitializeParentWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parenthandle: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -3715,12 +3715,12 @@ impl ::core::fmt::Debug for IEditionUpgradeHelper {
     }
 }
 unsafe impl ::windows::core::Interface for IEditionUpgradeHelper {
-    type Vtable = IEditionUpgradeHelperVtbl;
+    type Vtable = IEditionUpgradeHelper_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3e9e342_5deb_43b6_849e_6913b85d503a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEditionUpgradeHelperVtbl {
+pub struct IEditionUpgradeHelper_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CanUpgrade: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isallowed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -4403,12 +4403,12 @@ impl ::core::fmt::Debug for IWindowsLockModeHelper {
     }
 }
 unsafe impl ::windows::core::Interface for IWindowsLockModeHelper {
-    type Vtable = IWindowsLockModeHelperVtbl;
+    type Vtable = IWindowsLockModeHelper_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf342d19e_cc22_4648_bb5d_03ccf75b47c5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowsLockModeHelperVtbl {
+pub struct IWindowsLockModeHelper_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetSMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, issmode: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,

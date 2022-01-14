@@ -135,12 +135,12 @@ unsafe impl ::windows::core::RuntimeType for IAdcControllerProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{be545828-816d-4de5-a048-aba06958aaa8}");
 }
 unsafe impl ::windows::core::Interface for IAdcControllerProvider {
-    type Vtable = IAdcControllerProviderVtbl;
+    type Vtable = IAdcControllerProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe545828_816d_4de5_a048_aba06958aaa8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAdcControllerProviderVtbl {
+pub struct IAdcControllerProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ChannelCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub ResolutionInBits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -227,12 +227,12 @@ unsafe impl ::windows::core::RuntimeType for IAdcProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{28953668-9359-4c57-bc88-e275e81638c9}");
 }
 unsafe impl ::windows::core::Interface for IAdcProvider {
-    type Vtable = IAdcProviderVtbl;
+    type Vtable = IAdcProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28953668_9359_4c57_bc88_e275e81638c9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAdcProviderVtbl {
+pub struct IAdcProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetControllers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

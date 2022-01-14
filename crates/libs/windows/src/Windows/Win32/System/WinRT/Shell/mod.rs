@@ -65,12 +65,12 @@ impl ::core::fmt::Debug for IDDEInitializer {
     }
 }
 unsafe impl ::windows::core::Interface for IDDEInitializer {
-    type Vtable = IDDEInitializerVtbl;
+    type Vtable = IDDEInitializer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30dc931f_33fc_4ffd_a168_942258cf3ca4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDDEInitializerVtbl {
+pub struct IDDEInitializer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fileextensionorprotocol: super::super::super::Foundation::PWSTR, method: CreateProcessMethod, currentdirectory: super::super::super::Foundation::PWSTR, exectarget: ::windows::core::RawPtr, site: *mut ::core::ffi::c_void, application: super::super::super::Foundation::PWSTR, targetfile: super::super::super::Foundation::PWSTR, arguments: super::super::super::Foundation::PWSTR, verb: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,

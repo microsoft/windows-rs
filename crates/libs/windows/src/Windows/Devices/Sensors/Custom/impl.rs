@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICustomSensorImpl: Sized {
+pub trait ICustomSensor_Impl: Sized {
     fn GetCurrentReading(&mut self) -> ::windows::core::Result<CustomSensorReading>;
     fn MinimumReportInterval(&mut self) -> ::windows::core::Result<u32>;
     fn SetReportInterval(&mut self, value: u32) -> ::windows::core::Result<()>;
@@ -13,9 +13,9 @@ impl ::windows::core::RuntimeName for ICustomSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.Custom.ICustomSensor";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICustomSensorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomSensorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomSensorVtbl {
-        unsafe extern "system" fn GetCurrentReading<Impl: ICustomSensorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICustomSensor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomSensor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomSensor_Vtbl {
+        unsafe extern "system" fn GetCurrentReading<Impl: ICustomSensor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentReading() {
                 ::core::result::Result::Ok(ok__) => {
@@ -26,7 +26,7 @@ impl ICustomSensorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MinimumReportInterval<Impl: ICustomSensorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinimumReportInterval<Impl: ICustomSensor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinimumReportInterval() {
                 ::core::result::Result::Ok(ok__) => {
@@ -37,11 +37,11 @@ impl ICustomSensorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetReportInterval<Impl: ICustomSensorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetReportInterval<Impl: ICustomSensor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetReportInterval(value).into()
         }
-        unsafe extern "system" fn ReportInterval<Impl: ICustomSensorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportInterval<Impl: ICustomSensor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportInterval() {
                 ::core::result::Result::Ok(ok__) => {
@@ -52,7 +52,7 @@ impl ICustomSensorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceId<Impl: ICustomSensorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceId<Impl: ICustomSensor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -63,7 +63,7 @@ impl ICustomSensorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadingChanged<Impl: ICustomSensorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadingChanged<Impl: ICustomSensor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReadingChanged(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<CustomSensor, CustomSensorReadingChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<CustomSensor, CustomSensorReadingChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -74,7 +74,7 @@ impl ICustomSensorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveReadingChanged<Impl: ICustomSensorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveReadingChanged<Impl: ICustomSensor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveReadingChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -94,7 +94,7 @@ impl ICustomSensorVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICustomSensor2Impl: Sized {
+pub trait ICustomSensor2_Impl: Sized {
     fn SetReportLatency(&mut self, value: u32) -> ::windows::core::Result<()>;
     fn ReportLatency(&mut self) -> ::windows::core::Result<u32>;
     fn MaxBatchSize(&mut self) -> ::windows::core::Result<u32>;
@@ -104,13 +104,13 @@ impl ::windows::core::RuntimeName for ICustomSensor2 {
     const NAME: &'static str = "Windows.Devices.Sensors.Custom.ICustomSensor2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICustomSensor2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomSensor2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomSensor2Vtbl {
-        unsafe extern "system" fn SetReportLatency<Impl: ICustomSensor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+impl ICustomSensor2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomSensor2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomSensor2_Vtbl {
+        unsafe extern "system" fn SetReportLatency<Impl: ICustomSensor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetReportLatency(value).into()
         }
-        unsafe extern "system" fn ReportLatency<Impl: ICustomSensor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportLatency<Impl: ICustomSensor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportLatency() {
                 ::core::result::Result::Ok(ok__) => {
@@ -121,7 +121,7 @@ impl ICustomSensor2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxBatchSize<Impl: ICustomSensor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxBatchSize<Impl: ICustomSensor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxBatchSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -144,7 +144,7 @@ impl ICustomSensor2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ICustomSensorReadingImpl: Sized {
+pub trait ICustomSensorReading_Impl: Sized {
     fn Timestamp(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
     fn Properties(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
@@ -153,9 +153,9 @@ impl ::windows::core::RuntimeName for ICustomSensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.Custom.ICustomSensorReading";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ICustomSensorReadingVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomSensorReadingImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomSensorReadingVtbl {
-        unsafe extern "system" fn Timestamp<Impl: ICustomSensorReadingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+impl ICustomSensorReading_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomSensorReading_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomSensorReading_Vtbl {
+        unsafe extern "system" fn Timestamp<Impl: ICustomSensorReading_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -166,7 +166,7 @@ impl ICustomSensorReadingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Properties<Impl: ICustomSensorReadingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Properties<Impl: ICustomSensorReading_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -188,7 +188,7 @@ impl ICustomSensorReadingVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICustomSensorReading2Impl: Sized {
+pub trait ICustomSensorReading2_Impl: Sized {
     fn PerformanceCount(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -196,9 +196,9 @@ impl ::windows::core::RuntimeName for ICustomSensorReading2 {
     const NAME: &'static str = "Windows.Devices.Sensors.Custom.ICustomSensorReading2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICustomSensorReading2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomSensorReading2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomSensorReading2Vtbl {
-        unsafe extern "system" fn PerformanceCount<Impl: ICustomSensorReading2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICustomSensorReading2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomSensorReading2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomSensorReading2_Vtbl {
+        unsafe extern "system" fn PerformanceCount<Impl: ICustomSensorReading2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PerformanceCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -219,7 +219,7 @@ impl ICustomSensorReading2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICustomSensorReadingChangedEventArgsImpl: Sized {
+pub trait ICustomSensorReadingChangedEventArgs_Impl: Sized {
     fn Reading(&mut self) -> ::windows::core::Result<CustomSensorReading>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -227,9 +227,9 @@ impl ::windows::core::RuntimeName for ICustomSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.Custom.ICustomSensorReadingChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICustomSensorReadingChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomSensorReadingChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomSensorReadingChangedEventArgsVtbl {
-        unsafe extern "system" fn Reading<Impl: ICustomSensorReadingChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICustomSensorReadingChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomSensorReadingChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomSensorReadingChangedEventArgs_Vtbl {
+        unsafe extern "system" fn Reading<Impl: ICustomSensorReadingChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reading() {
                 ::core::result::Result::Ok(ok__) => {
@@ -250,7 +250,7 @@ impl ICustomSensorReadingChangedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICustomSensorStaticsImpl: Sized {
+pub trait ICustomSensorStatics_Impl: Sized {
     fn GetDeviceSelector(&mut self, interfaceid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FromIdAsync(&mut self, sensorid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CustomSensor>>;
 }
@@ -259,9 +259,9 @@ impl ::windows::core::RuntimeName for ICustomSensorStatics {
     const NAME: &'static str = "Windows.Devices.Sensors.Custom.ICustomSensorStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICustomSensorStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomSensorStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomSensorStaticsVtbl {
-        unsafe extern "system" fn GetDeviceSelector<Impl: ICustomSensorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: ::windows::core::GUID, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ICustomSensorStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomSensorStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICustomSensorStatics_Vtbl {
+        unsafe extern "system" fn GetDeviceSelector<Impl: ICustomSensorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: ::windows::core::GUID, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector(&*(&interfaceid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -272,7 +272,7 @@ impl ICustomSensorStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromIdAsync<Impl: ICustomSensorStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sensorid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromIdAsync<Impl: ICustomSensorStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sensorid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&sensorid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

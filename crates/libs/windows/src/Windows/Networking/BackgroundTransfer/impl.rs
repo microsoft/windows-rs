@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IBackgroundDownloaderImpl: Sized + IBackgroundTransferBaseImpl {
+pub trait IBackgroundDownloader_Impl: Sized + IBackgroundTransferBase_Impl {
     fn CreateDownload(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>, resultfile: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<DownloadOperation>;
     fn CreateDownloadFromFile(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>, resultfile: &::core::option::Option<super::super::Storage::IStorageFile>, requestbodyfile: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<DownloadOperation>;
     fn CreateDownloadAsync(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>, resultfile: &::core::option::Option<super::super::Storage::IStorageFile>, requestbodystream: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DownloadOperation>>;
@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for IBackgroundDownloader {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundDownloader";
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IBackgroundDownloaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundDownloaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundDownloaderVtbl {
-        unsafe extern "system" fn CreateDownload<Impl: IBackgroundDownloaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, resultfile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBackgroundDownloader_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundDownloader_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundDownloader_Vtbl {
+        unsafe extern "system" fn CreateDownload<Impl: IBackgroundDownloader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, resultfile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDownload(&*(&uri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType), &*(&resultfile as *const <super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -22,7 +22,7 @@ impl IBackgroundDownloaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateDownloadFromFile<Impl: IBackgroundDownloaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, resultfile: ::windows::core::RawPtr, requestbodyfile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDownloadFromFile<Impl: IBackgroundDownloader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, resultfile: ::windows::core::RawPtr, requestbodyfile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDownloadFromFile(
                 &*(&uri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType),
@@ -37,7 +37,7 @@ impl IBackgroundDownloaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateDownloadAsync<Impl: IBackgroundDownloaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, resultfile: ::windows::core::RawPtr, requestbodystream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDownloadAsync<Impl: IBackgroundDownloader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, resultfile: ::windows::core::RawPtr, requestbodystream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateDownloadAsync(
                 &*(&uri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType),
@@ -64,7 +64,7 @@ impl IBackgroundDownloaderVtbl {
     }
 }
 #[cfg(all(feature = "UI_Notifications", feature = "implement_exclusive"))]
-pub trait IBackgroundDownloader2Impl: Sized {
+pub trait IBackgroundDownloader2_Impl: Sized {
     fn TransferGroup(&mut self) -> ::windows::core::Result<BackgroundTransferGroup>;
     fn SetTransferGroup(&mut self, value: &::core::option::Option<BackgroundTransferGroup>) -> ::windows::core::Result<()>;
     fn SuccessToastNotification(&mut self) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotification>;
@@ -81,9 +81,9 @@ impl ::windows::core::RuntimeName for IBackgroundDownloader2 {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundDownloader2";
 }
 #[cfg(all(feature = "UI_Notifications", feature = "implement_exclusive"))]
-impl IBackgroundDownloader2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundDownloader2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundDownloader2Vtbl {
-        unsafe extern "system" fn TransferGroup<Impl: IBackgroundDownloader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBackgroundDownloader2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundDownloader2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundDownloader2_Vtbl {
+        unsafe extern "system" fn TransferGroup<Impl: IBackgroundDownloader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransferGroup() {
                 ::core::result::Result::Ok(ok__) => {
@@ -94,11 +94,11 @@ impl IBackgroundDownloader2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTransferGroup<Impl: IBackgroundDownloader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTransferGroup<Impl: IBackgroundDownloader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTransferGroup(&*(&value as *const <BackgroundTransferGroup as ::windows::core::Abi>::Abi as *const <BackgroundTransferGroup as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SuccessToastNotification<Impl: IBackgroundDownloader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SuccessToastNotification<Impl: IBackgroundDownloader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SuccessToastNotification() {
                 ::core::result::Result::Ok(ok__) => {
@@ -109,11 +109,11 @@ impl IBackgroundDownloader2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSuccessToastNotification<Impl: IBackgroundDownloader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSuccessToastNotification<Impl: IBackgroundDownloader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSuccessToastNotification(&*(&value as *const <super::super::UI::Notifications::ToastNotification as ::windows::core::Abi>::Abi as *const <super::super::UI::Notifications::ToastNotification as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FailureToastNotification<Impl: IBackgroundDownloader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FailureToastNotification<Impl: IBackgroundDownloader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FailureToastNotification() {
                 ::core::result::Result::Ok(ok__) => {
@@ -124,11 +124,11 @@ impl IBackgroundDownloader2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFailureToastNotification<Impl: IBackgroundDownloader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFailureToastNotification<Impl: IBackgroundDownloader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFailureToastNotification(&*(&value as *const <super::super::UI::Notifications::ToastNotification as ::windows::core::Abi>::Abi as *const <super::super::UI::Notifications::ToastNotification as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SuccessTileNotification<Impl: IBackgroundDownloader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SuccessTileNotification<Impl: IBackgroundDownloader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SuccessTileNotification() {
                 ::core::result::Result::Ok(ok__) => {
@@ -139,11 +139,11 @@ impl IBackgroundDownloader2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSuccessTileNotification<Impl: IBackgroundDownloader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSuccessTileNotification<Impl: IBackgroundDownloader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSuccessTileNotification(&*(&value as *const <super::super::UI::Notifications::TileNotification as ::windows::core::Abi>::Abi as *const <super::super::UI::Notifications::TileNotification as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FailureTileNotification<Impl: IBackgroundDownloader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FailureTileNotification<Impl: IBackgroundDownloader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FailureTileNotification() {
                 ::core::result::Result::Ok(ok__) => {
@@ -154,7 +154,7 @@ impl IBackgroundDownloader2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFailureTileNotification<Impl: IBackgroundDownloader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFailureTileNotification<Impl: IBackgroundDownloader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFailureTileNotification(&*(&value as *const <super::super::UI::Notifications::TileNotification as ::windows::core::Abi>::Abi as *const <super::super::UI::Notifications::TileNotification as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -177,7 +177,7 @@ impl IBackgroundDownloader2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundDownloader3Impl: Sized {
+pub trait IBackgroundDownloader3_Impl: Sized {
     fn CompletionGroup(&mut self) -> ::windows::core::Result<BackgroundTransferCompletionGroup>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -185,9 +185,9 @@ impl ::windows::core::RuntimeName for IBackgroundDownloader3 {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundDownloader3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBackgroundDownloader3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundDownloader3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundDownloader3Vtbl {
-        unsafe extern "system" fn CompletionGroup<Impl: IBackgroundDownloader3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBackgroundDownloader3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundDownloader3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundDownloader3_Vtbl {
+        unsafe extern "system" fn CompletionGroup<Impl: IBackgroundDownloader3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CompletionGroup() {
                 ::core::result::Result::Ok(ok__) => {
@@ -208,7 +208,7 @@ impl IBackgroundDownloader3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundDownloaderFactoryImpl: Sized {
+pub trait IBackgroundDownloaderFactory_Impl: Sized {
     fn CreateWithCompletionGroup(&mut self, completiongroup: &::core::option::Option<BackgroundTransferCompletionGroup>) -> ::windows::core::Result<BackgroundDownloader>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -216,9 +216,9 @@ impl ::windows::core::RuntimeName for IBackgroundDownloaderFactory {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundDownloaderFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBackgroundDownloaderFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundDownloaderFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundDownloaderFactoryVtbl {
-        unsafe extern "system" fn CreateWithCompletionGroup<Impl: IBackgroundDownloaderFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, completiongroup: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBackgroundDownloaderFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundDownloaderFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundDownloaderFactory_Vtbl {
+        unsafe extern "system" fn CreateWithCompletionGroup<Impl: IBackgroundDownloaderFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, completiongroup: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithCompletionGroup(&*(&completiongroup as *const <BackgroundTransferCompletionGroup as ::windows::core::Abi>::Abi as *const <BackgroundTransferCompletionGroup as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -239,7 +239,7 @@ impl IBackgroundDownloaderFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IBackgroundDownloaderStaticMethodsImpl: Sized {
+pub trait IBackgroundDownloaderStaticMethods_Impl: Sized {
     fn GetCurrentDownloadsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>>;
     fn GetCurrentDownloadsForGroupAsync(&mut self, group: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>>;
 }
@@ -248,9 +248,9 @@ impl ::windows::core::RuntimeName for IBackgroundDownloaderStaticMethods {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundDownloaderStaticMethods";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IBackgroundDownloaderStaticMethodsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundDownloaderStaticMethodsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundDownloaderStaticMethodsVtbl {
-        unsafe extern "system" fn GetCurrentDownloadsAsync<Impl: IBackgroundDownloaderStaticMethodsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBackgroundDownloaderStaticMethods_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundDownloaderStaticMethods_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundDownloaderStaticMethods_Vtbl {
+        unsafe extern "system" fn GetCurrentDownloadsAsync<Impl: IBackgroundDownloaderStaticMethods_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentDownloadsAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -261,7 +261,7 @@ impl IBackgroundDownloaderStaticMethodsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentDownloadsForGroupAsync<Impl: IBackgroundDownloaderStaticMethodsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, group: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentDownloadsForGroupAsync<Impl: IBackgroundDownloaderStaticMethods_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, group: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentDownloadsForGroupAsync(&*(&group as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -283,7 +283,7 @@ impl IBackgroundDownloaderStaticMethodsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IBackgroundDownloaderStaticMethods2Impl: Sized {
+pub trait IBackgroundDownloaderStaticMethods2_Impl: Sized {
     fn GetCurrentDownloadsForTransferGroupAsync(&mut self, group: &::core::option::Option<BackgroundTransferGroup>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -291,9 +291,9 @@ impl ::windows::core::RuntimeName for IBackgroundDownloaderStaticMethods2 {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundDownloaderStaticMethods2";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IBackgroundDownloaderStaticMethods2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundDownloaderStaticMethods2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundDownloaderStaticMethods2Vtbl {
-        unsafe extern "system" fn GetCurrentDownloadsForTransferGroupAsync<Impl: IBackgroundDownloaderStaticMethods2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, group: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBackgroundDownloaderStaticMethods2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundDownloaderStaticMethods2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundDownloaderStaticMethods2_Vtbl {
+        unsafe extern "system" fn GetCurrentDownloadsForTransferGroupAsync<Impl: IBackgroundDownloaderStaticMethods2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, group: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentDownloadsForTransferGroupAsync(&*(&group as *const <BackgroundTransferGroup as ::windows::core::Abi>::Abi as *const <BackgroundTransferGroup as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -314,7 +314,7 @@ impl IBackgroundDownloaderStaticMethods2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IBackgroundDownloaderUserConsentImpl: Sized {
+pub trait IBackgroundDownloaderUserConsent_Impl: Sized {
     fn RequestUnconstrainedDownloadsAsync(&mut self, operations: &::core::option::Option<super::super::Foundation::Collections::IIterable<DownloadOperation>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UnconstrainedTransferRequestResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
@@ -322,9 +322,9 @@ impl ::windows::core::RuntimeName for IBackgroundDownloaderUserConsent {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundDownloaderUserConsent";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
-impl IBackgroundDownloaderUserConsentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundDownloaderUserConsentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundDownloaderUserConsentVtbl {
-        unsafe extern "system" fn RequestUnconstrainedDownloadsAsync<Impl: IBackgroundDownloaderUserConsentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operations: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBackgroundDownloaderUserConsent_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundDownloaderUserConsent_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundDownloaderUserConsent_Vtbl {
+        unsafe extern "system" fn RequestUnconstrainedDownloadsAsync<Impl: IBackgroundDownloaderUserConsent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operations: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestUnconstrainedDownloadsAsync(&*(&operations as *const <super::super::Foundation::Collections::IIterable<DownloadOperation> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<DownloadOperation> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -345,7 +345,7 @@ impl IBackgroundDownloaderUserConsentVtbl {
     }
 }
 #[cfg(feature = "Security_Credentials")]
-pub trait IBackgroundTransferBaseImpl: Sized {
+pub trait IBackgroundTransferBase_Impl: Sized {
     fn SetRequestHeader(&mut self, headername: &::windows::core::HSTRING, headervalue: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn ServerCredential(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
     fn SetServerCredential(&mut self, credential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
@@ -363,13 +363,13 @@ impl ::windows::core::RuntimeName for IBackgroundTransferBase {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferBase";
 }
 #[cfg(feature = "Security_Credentials")]
-impl IBackgroundTransferBaseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTransferBaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTransferBaseVtbl {
-        unsafe extern "system" fn SetRequestHeader<Impl: IBackgroundTransferBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, headervalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IBackgroundTransferBase_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTransferBase_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTransferBase_Vtbl {
+        unsafe extern "system" fn SetRequestHeader<Impl: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, headervalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRequestHeader(&*(&headername as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&headervalue as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ServerCredential<Impl: IBackgroundTransferBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServerCredential<Impl: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerCredential() {
                 ::core::result::Result::Ok(ok__) => {
@@ -380,11 +380,11 @@ impl IBackgroundTransferBaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetServerCredential<Impl: IBackgroundTransferBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, credential: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetServerCredential<Impl: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, credential: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetServerCredential(&*(&credential as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::Abi>::Abi as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ProxyCredential<Impl: IBackgroundTransferBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProxyCredential<Impl: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProxyCredential() {
                 ::core::result::Result::Ok(ok__) => {
@@ -395,11 +395,11 @@ impl IBackgroundTransferBaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProxyCredential<Impl: IBackgroundTransferBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, credential: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProxyCredential<Impl: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, credential: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProxyCredential(&*(&credential as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::Abi>::Abi as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Method<Impl: IBackgroundTransferBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Method<Impl: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Method() {
                 ::core::result::Result::Ok(ok__) => {
@@ -410,11 +410,11 @@ impl IBackgroundTransferBaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMethod<Impl: IBackgroundTransferBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMethod<Impl: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMethod(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Group<Impl: IBackgroundTransferBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Group<Impl: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Group() {
                 ::core::result::Result::Ok(ok__) => {
@@ -425,11 +425,11 @@ impl IBackgroundTransferBaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGroup<Impl: IBackgroundTransferBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGroup<Impl: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetGroup(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CostPolicy<Impl: IBackgroundTransferBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BackgroundTransferCostPolicy) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CostPolicy<Impl: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BackgroundTransferCostPolicy) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CostPolicy() {
                 ::core::result::Result::Ok(ok__) => {
@@ -440,7 +440,7 @@ impl IBackgroundTransferBaseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCostPolicy<Impl: IBackgroundTransferBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: BackgroundTransferCostPolicy) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCostPolicy<Impl: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: BackgroundTransferCostPolicy) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCostPolicy(value).into()
         }
@@ -464,7 +464,7 @@ impl IBackgroundTransferBaseVtbl {
     }
 }
 #[cfg(all(feature = "ApplicationModel_Background", feature = "implement_exclusive"))]
-pub trait IBackgroundTransferCompletionGroupImpl: Sized {
+pub trait IBackgroundTransferCompletionGroup_Impl: Sized {
     fn Trigger(&mut self) -> ::windows::core::Result<super::super::ApplicationModel::Background::IBackgroundTrigger>;
     fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn Enable(&mut self) -> ::windows::core::Result<()>;
@@ -474,9 +474,9 @@ impl ::windows::core::RuntimeName for IBackgroundTransferCompletionGroup {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferCompletionGroup";
 }
 #[cfg(all(feature = "ApplicationModel_Background", feature = "implement_exclusive"))]
-impl IBackgroundTransferCompletionGroupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTransferCompletionGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTransferCompletionGroupVtbl {
-        unsafe extern "system" fn Trigger<Impl: IBackgroundTransferCompletionGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBackgroundTransferCompletionGroup_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTransferCompletionGroup_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTransferCompletionGroup_Vtbl {
+        unsafe extern "system" fn Trigger<Impl: IBackgroundTransferCompletionGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Trigger() {
                 ::core::result::Result::Ok(ok__) => {
@@ -487,7 +487,7 @@ impl IBackgroundTransferCompletionGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsEnabled<Impl: IBackgroundTransferCompletionGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEnabled<Impl: IBackgroundTransferCompletionGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -498,7 +498,7 @@ impl IBackgroundTransferCompletionGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Enable<Impl: IBackgroundTransferCompletionGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Enable<Impl: IBackgroundTransferCompletionGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Enable().into()
         }
@@ -514,7 +514,7 @@ impl IBackgroundTransferCompletionGroupVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IBackgroundTransferCompletionGroupTriggerDetailsImpl: Sized {
+pub trait IBackgroundTransferCompletionGroupTriggerDetails_Impl: Sized {
     fn Downloads(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<DownloadOperation>>;
     fn Uploads(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UploadOperation>>;
 }
@@ -523,9 +523,9 @@ impl ::windows::core::RuntimeName for IBackgroundTransferCompletionGroupTriggerD
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferCompletionGroupTriggerDetails";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IBackgroundTransferCompletionGroupTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTransferCompletionGroupTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTransferCompletionGroupTriggerDetailsVtbl {
-        unsafe extern "system" fn Downloads<Impl: IBackgroundTransferCompletionGroupTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBackgroundTransferCompletionGroupTriggerDetails_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTransferCompletionGroupTriggerDetails_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTransferCompletionGroupTriggerDetails_Vtbl {
+        unsafe extern "system" fn Downloads<Impl: IBackgroundTransferCompletionGroupTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Downloads() {
                 ::core::result::Result::Ok(ok__) => {
@@ -536,7 +536,7 @@ impl IBackgroundTransferCompletionGroupTriggerDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Uploads<Impl: IBackgroundTransferCompletionGroupTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Uploads<Impl: IBackgroundTransferCompletionGroupTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uploads() {
                 ::core::result::Result::Ok(ok__) => {
@@ -558,7 +558,7 @@ impl IBackgroundTransferCompletionGroupTriggerDetailsVtbl {
     }
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
-pub trait IBackgroundTransferContentPartImpl: Sized {
+pub trait IBackgroundTransferContentPart_Impl: Sized {
     fn SetHeader(&mut self, headername: &::windows::core::HSTRING, headervalue: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn SetText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn SetFile(&mut self, value: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<()>;
@@ -568,17 +568,17 @@ impl ::windows::core::RuntimeName for IBackgroundTransferContentPart {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPart";
 }
 #[cfg(all(feature = "Storage", feature = "implement_exclusive"))]
-impl IBackgroundTransferContentPartVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTransferContentPartImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTransferContentPartVtbl {
-        unsafe extern "system" fn SetHeader<Impl: IBackgroundTransferContentPartImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, headervalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IBackgroundTransferContentPart_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTransferContentPart_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTransferContentPart_Vtbl {
+        unsafe extern "system" fn SetHeader<Impl: IBackgroundTransferContentPart_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, headervalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHeader(&*(&headername as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&headervalue as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetText<Impl: IBackgroundTransferContentPartImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetText<Impl: IBackgroundTransferContentPart_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetText(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetFile<Impl: IBackgroundTransferContentPartImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFile<Impl: IBackgroundTransferContentPart_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFile(&*(&value as *const <super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -593,16 +593,16 @@ impl IBackgroundTransferContentPartVtbl {
         iid == &<IBackgroundTransferContentPart as ::windows::core::Interface>::IID
     }
 }
-pub trait IBackgroundTransferContentPartFactoryImpl: Sized {
+pub trait IBackgroundTransferContentPartFactory_Impl: Sized {
     fn CreateWithName(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<BackgroundTransferContentPart>;
     fn CreateWithNameAndFileName(&mut self, name: &::windows::core::HSTRING, filename: &::windows::core::HSTRING) -> ::windows::core::Result<BackgroundTransferContentPart>;
 }
 impl ::windows::core::RuntimeName for IBackgroundTransferContentPartFactory {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPartFactory";
 }
-impl IBackgroundTransferContentPartFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTransferContentPartFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTransferContentPartFactoryVtbl {
-        unsafe extern "system" fn CreateWithName<Impl: IBackgroundTransferContentPartFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBackgroundTransferContentPartFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTransferContentPartFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTransferContentPartFactory_Vtbl {
+        unsafe extern "system" fn CreateWithName<Impl: IBackgroundTransferContentPartFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithName(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -613,7 +613,7 @@ impl IBackgroundTransferContentPartFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithNameAndFileName<Impl: IBackgroundTransferContentPartFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, filename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithNameAndFileName<Impl: IBackgroundTransferContentPartFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, filename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithNameAndFileName(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&filename as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -635,7 +635,7 @@ impl IBackgroundTransferContentPartFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Web", feature = "implement_exclusive"))]
-pub trait IBackgroundTransferErrorStaticMethodsImpl: Sized {
+pub trait IBackgroundTransferErrorStaticMethods_Impl: Sized {
     fn GetStatus(&mut self, hresult: i32) -> ::windows::core::Result<super::super::Web::WebErrorStatus>;
 }
 #[cfg(all(feature = "Web", feature = "implement_exclusive"))]
@@ -643,9 +643,9 @@ impl ::windows::core::RuntimeName for IBackgroundTransferErrorStaticMethods {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferErrorStaticMethods";
 }
 #[cfg(all(feature = "Web", feature = "implement_exclusive"))]
-impl IBackgroundTransferErrorStaticMethodsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTransferErrorStaticMethodsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTransferErrorStaticMethodsVtbl {
-        unsafe extern "system" fn GetStatus<Impl: IBackgroundTransferErrorStaticMethodsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut super::super::Web::WebErrorStatus) -> ::windows::core::HRESULT {
+impl IBackgroundTransferErrorStaticMethods_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTransferErrorStaticMethods_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTransferErrorStaticMethods_Vtbl {
+        unsafe extern "system" fn GetStatus<Impl: IBackgroundTransferErrorStaticMethods_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut super::super::Web::WebErrorStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStatus(hresult) {
                 ::core::result::Result::Ok(ok__) => {
@@ -666,7 +666,7 @@ impl IBackgroundTransferErrorStaticMethodsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundTransferGroupImpl: Sized {
+pub trait IBackgroundTransferGroup_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn TransferBehavior(&mut self) -> ::windows::core::Result<BackgroundTransferBehavior>;
     fn SetTransferBehavior(&mut self, value: BackgroundTransferBehavior) -> ::windows::core::Result<()>;
@@ -676,9 +676,9 @@ impl ::windows::core::RuntimeName for IBackgroundTransferGroup {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferGroup";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBackgroundTransferGroupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTransferGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTransferGroupVtbl {
-        unsafe extern "system" fn Name<Impl: IBackgroundTransferGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IBackgroundTransferGroup_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTransferGroup_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTransferGroup_Vtbl {
+        unsafe extern "system" fn Name<Impl: IBackgroundTransferGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -689,7 +689,7 @@ impl IBackgroundTransferGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TransferBehavior<Impl: IBackgroundTransferGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BackgroundTransferBehavior) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransferBehavior<Impl: IBackgroundTransferGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BackgroundTransferBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransferBehavior() {
                 ::core::result::Result::Ok(ok__) => {
@@ -700,7 +700,7 @@ impl IBackgroundTransferGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTransferBehavior<Impl: IBackgroundTransferGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: BackgroundTransferBehavior) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTransferBehavior<Impl: IBackgroundTransferGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: BackgroundTransferBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTransferBehavior(value).into()
         }
@@ -716,7 +716,7 @@ impl IBackgroundTransferGroupVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundTransferGroupStaticsImpl: Sized {
+pub trait IBackgroundTransferGroupStatics_Impl: Sized {
     fn CreateGroup(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<BackgroundTransferGroup>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -724,9 +724,9 @@ impl ::windows::core::RuntimeName for IBackgroundTransferGroupStatics {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferGroupStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBackgroundTransferGroupStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTransferGroupStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTransferGroupStaticsVtbl {
-        unsafe extern "system" fn CreateGroup<Impl: IBackgroundTransferGroupStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBackgroundTransferGroupStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTransferGroupStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTransferGroupStatics_Vtbl {
+        unsafe extern "system" fn CreateGroup<Impl: IBackgroundTransferGroupStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateGroup(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -747,7 +747,7 @@ impl IBackgroundTransferGroupStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-pub trait IBackgroundTransferOperationImpl: Sized {
+pub trait IBackgroundTransferOperation_Impl: Sized {
     fn Guid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn RequestedUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn Method(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -762,9 +762,9 @@ impl ::windows::core::RuntimeName for IBackgroundTransferOperation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferOperation";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-impl IBackgroundTransferOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTransferOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTransferOperationVtbl {
-        unsafe extern "system" fn Guid<Impl: IBackgroundTransferOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl IBackgroundTransferOperation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTransferOperation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTransferOperation_Vtbl {
+        unsafe extern "system" fn Guid<Impl: IBackgroundTransferOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Guid() {
                 ::core::result::Result::Ok(ok__) => {
@@ -775,7 +775,7 @@ impl IBackgroundTransferOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestedUri<Impl: IBackgroundTransferOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestedUri<Impl: IBackgroundTransferOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestedUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -786,7 +786,7 @@ impl IBackgroundTransferOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Method<Impl: IBackgroundTransferOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Method<Impl: IBackgroundTransferOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Method() {
                 ::core::result::Result::Ok(ok__) => {
@@ -797,7 +797,7 @@ impl IBackgroundTransferOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Group<Impl: IBackgroundTransferOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Group<Impl: IBackgroundTransferOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Group() {
                 ::core::result::Result::Ok(ok__) => {
@@ -808,7 +808,7 @@ impl IBackgroundTransferOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CostPolicy<Impl: IBackgroundTransferOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BackgroundTransferCostPolicy) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CostPolicy<Impl: IBackgroundTransferOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BackgroundTransferCostPolicy) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CostPolicy() {
                 ::core::result::Result::Ok(ok__) => {
@@ -819,11 +819,11 @@ impl IBackgroundTransferOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCostPolicy<Impl: IBackgroundTransferOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: BackgroundTransferCostPolicy) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCostPolicy<Impl: IBackgroundTransferOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: BackgroundTransferCostPolicy) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCostPolicy(value).into()
         }
-        unsafe extern "system" fn GetResultStreamAt<Impl: IBackgroundTransferOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: u64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetResultStreamAt<Impl: IBackgroundTransferOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: u64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetResultStreamAt(position) {
                 ::core::result::Result::Ok(ok__) => {
@@ -834,7 +834,7 @@ impl IBackgroundTransferOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetResponseInformation<Impl: IBackgroundTransferOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetResponseInformation<Impl: IBackgroundTransferOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetResponseInformation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -861,16 +861,16 @@ impl IBackgroundTransferOperationVtbl {
         iid == &<IBackgroundTransferOperation as ::windows::core::Interface>::IID
     }
 }
-pub trait IBackgroundTransferOperationPriorityImpl: Sized {
+pub trait IBackgroundTransferOperationPriority_Impl: Sized {
     fn Priority(&mut self) -> ::windows::core::Result<BackgroundTransferPriority>;
     fn SetPriority(&mut self, value: BackgroundTransferPriority) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IBackgroundTransferOperationPriority {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferOperationPriority";
 }
-impl IBackgroundTransferOperationPriorityVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTransferOperationPriorityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTransferOperationPriorityVtbl {
-        unsafe extern "system" fn Priority<Impl: IBackgroundTransferOperationPriorityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BackgroundTransferPriority) -> ::windows::core::HRESULT {
+impl IBackgroundTransferOperationPriority_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTransferOperationPriority_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTransferOperationPriority_Vtbl {
+        unsafe extern "system" fn Priority<Impl: IBackgroundTransferOperationPriority_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BackgroundTransferPriority) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Priority() {
                 ::core::result::Result::Ok(ok__) => {
@@ -881,7 +881,7 @@ impl IBackgroundTransferOperationPriorityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPriority<Impl: IBackgroundTransferOperationPriorityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: BackgroundTransferPriority) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPriority<Impl: IBackgroundTransferOperationPriority_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: BackgroundTransferPriority) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPriority(value).into()
         }
@@ -896,7 +896,7 @@ impl IBackgroundTransferOperationPriorityVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IBackgroundTransferRangesDownloadedEventArgsImpl: Sized {
+pub trait IBackgroundTransferRangesDownloadedEventArgs_Impl: Sized {
     fn WasDownloadRestarted(&mut self) -> ::windows::core::Result<bool>;
     fn AddedRanges(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<BackgroundTransferFileRange>>;
     fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
@@ -906,9 +906,9 @@ impl ::windows::core::RuntimeName for IBackgroundTransferRangesDownloadedEventAr
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferRangesDownloadedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IBackgroundTransferRangesDownloadedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTransferRangesDownloadedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTransferRangesDownloadedEventArgsVtbl {
-        unsafe extern "system" fn WasDownloadRestarted<Impl: IBackgroundTransferRangesDownloadedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IBackgroundTransferRangesDownloadedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundTransferRangesDownloadedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundTransferRangesDownloadedEventArgs_Vtbl {
+        unsafe extern "system" fn WasDownloadRestarted<Impl: IBackgroundTransferRangesDownloadedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WasDownloadRestarted() {
                 ::core::result::Result::Ok(ok__) => {
@@ -919,7 +919,7 @@ impl IBackgroundTransferRangesDownloadedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddedRanges<Impl: IBackgroundTransferRangesDownloadedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddedRanges<Impl: IBackgroundTransferRangesDownloadedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AddedRanges() {
                 ::core::result::Result::Ok(ok__) => {
@@ -930,7 +930,7 @@ impl IBackgroundTransferRangesDownloadedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IBackgroundTransferRangesDownloadedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IBackgroundTransferRangesDownloadedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -953,7 +953,7 @@ impl IBackgroundTransferRangesDownloadedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IBackgroundUploaderImpl: Sized + IBackgroundTransferBaseImpl {
+pub trait IBackgroundUploader_Impl: Sized + IBackgroundTransferBase_Impl {
     fn CreateUpload(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>, sourcefile: &::core::option::Option<super::super::Storage::IStorageFile>) -> ::windows::core::Result<UploadOperation>;
     fn CreateUploadFromStreamAsync(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>, sourcestream: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>;
     fn CreateUploadWithFormDataAndAutoBoundaryAsync(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>, parts: &::core::option::Option<super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>;
@@ -965,9 +965,9 @@ impl ::windows::core::RuntimeName for IBackgroundUploader {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundUploader";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IBackgroundUploaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundUploaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundUploaderVtbl {
-        unsafe extern "system" fn CreateUpload<Impl: IBackgroundUploaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, sourcefile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBackgroundUploader_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundUploader_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundUploader_Vtbl {
+        unsafe extern "system" fn CreateUpload<Impl: IBackgroundUploader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, sourcefile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateUpload(&*(&uri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType), &*(&sourcefile as *const <super::super::Storage::IStorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::IStorageFile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -978,7 +978,7 @@ impl IBackgroundUploaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateUploadFromStreamAsync<Impl: IBackgroundUploaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, sourcestream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateUploadFromStreamAsync<Impl: IBackgroundUploader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, sourcestream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateUploadFromStreamAsync(&*(&uri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType), &*(&sourcestream as *const <super::super::Storage::Streams::IInputStream as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IInputStream as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -989,7 +989,7 @@ impl IBackgroundUploaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateUploadWithFormDataAndAutoBoundaryAsync<Impl: IBackgroundUploaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, parts: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateUploadWithFormDataAndAutoBoundaryAsync<Impl: IBackgroundUploader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, parts: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateUploadWithFormDataAndAutoBoundaryAsync(&*(&uri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType), &*(&parts as *const <super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1000,7 +1000,7 @@ impl IBackgroundUploaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateUploadWithSubTypeAsync<Impl: IBackgroundUploaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, parts: ::windows::core::RawPtr, subtype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateUploadWithSubTypeAsync<Impl: IBackgroundUploader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, parts: ::windows::core::RawPtr, subtype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateUploadWithSubTypeAsync(
                 &*(&uri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType),
@@ -1015,7 +1015,7 @@ impl IBackgroundUploaderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateUploadWithSubTypeAndBoundaryAsync<Impl: IBackgroundUploaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, parts: ::windows::core::RawPtr, subtype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, boundary: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateUploadWithSubTypeAndBoundaryAsync<Impl: IBackgroundUploader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, parts: ::windows::core::RawPtr, subtype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, boundary: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateUploadWithSubTypeAndBoundaryAsync(
                 &*(&uri as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType),
@@ -1045,7 +1045,7 @@ impl IBackgroundUploaderVtbl {
     }
 }
 #[cfg(all(feature = "UI_Notifications", feature = "implement_exclusive"))]
-pub trait IBackgroundUploader2Impl: Sized {
+pub trait IBackgroundUploader2_Impl: Sized {
     fn TransferGroup(&mut self) -> ::windows::core::Result<BackgroundTransferGroup>;
     fn SetTransferGroup(&mut self, value: &::core::option::Option<BackgroundTransferGroup>) -> ::windows::core::Result<()>;
     fn SuccessToastNotification(&mut self) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotification>;
@@ -1062,9 +1062,9 @@ impl ::windows::core::RuntimeName for IBackgroundUploader2 {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundUploader2";
 }
 #[cfg(all(feature = "UI_Notifications", feature = "implement_exclusive"))]
-impl IBackgroundUploader2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundUploader2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundUploader2Vtbl {
-        unsafe extern "system" fn TransferGroup<Impl: IBackgroundUploader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBackgroundUploader2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundUploader2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundUploader2_Vtbl {
+        unsafe extern "system" fn TransferGroup<Impl: IBackgroundUploader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransferGroup() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1075,11 +1075,11 @@ impl IBackgroundUploader2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTransferGroup<Impl: IBackgroundUploader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTransferGroup<Impl: IBackgroundUploader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTransferGroup(&*(&value as *const <BackgroundTransferGroup as ::windows::core::Abi>::Abi as *const <BackgroundTransferGroup as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SuccessToastNotification<Impl: IBackgroundUploader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SuccessToastNotification<Impl: IBackgroundUploader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SuccessToastNotification() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1090,11 +1090,11 @@ impl IBackgroundUploader2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSuccessToastNotification<Impl: IBackgroundUploader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSuccessToastNotification<Impl: IBackgroundUploader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSuccessToastNotification(&*(&value as *const <super::super::UI::Notifications::ToastNotification as ::windows::core::Abi>::Abi as *const <super::super::UI::Notifications::ToastNotification as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FailureToastNotification<Impl: IBackgroundUploader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FailureToastNotification<Impl: IBackgroundUploader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FailureToastNotification() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1105,11 +1105,11 @@ impl IBackgroundUploader2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFailureToastNotification<Impl: IBackgroundUploader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFailureToastNotification<Impl: IBackgroundUploader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFailureToastNotification(&*(&value as *const <super::super::UI::Notifications::ToastNotification as ::windows::core::Abi>::Abi as *const <super::super::UI::Notifications::ToastNotification as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SuccessTileNotification<Impl: IBackgroundUploader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SuccessTileNotification<Impl: IBackgroundUploader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SuccessTileNotification() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1120,11 +1120,11 @@ impl IBackgroundUploader2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSuccessTileNotification<Impl: IBackgroundUploader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSuccessTileNotification<Impl: IBackgroundUploader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSuccessTileNotification(&*(&value as *const <super::super::UI::Notifications::TileNotification as ::windows::core::Abi>::Abi as *const <super::super::UI::Notifications::TileNotification as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FailureTileNotification<Impl: IBackgroundUploader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FailureTileNotification<Impl: IBackgroundUploader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FailureTileNotification() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1135,7 +1135,7 @@ impl IBackgroundUploader2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFailureTileNotification<Impl: IBackgroundUploader2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFailureTileNotification<Impl: IBackgroundUploader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFailureTileNotification(&*(&value as *const <super::super::UI::Notifications::TileNotification as ::windows::core::Abi>::Abi as *const <super::super::UI::Notifications::TileNotification as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1158,7 +1158,7 @@ impl IBackgroundUploader2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundUploader3Impl: Sized {
+pub trait IBackgroundUploader3_Impl: Sized {
     fn CompletionGroup(&mut self) -> ::windows::core::Result<BackgroundTransferCompletionGroup>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1166,9 +1166,9 @@ impl ::windows::core::RuntimeName for IBackgroundUploader3 {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundUploader3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBackgroundUploader3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundUploader3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundUploader3Vtbl {
-        unsafe extern "system" fn CompletionGroup<Impl: IBackgroundUploader3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBackgroundUploader3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundUploader3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundUploader3_Vtbl {
+        unsafe extern "system" fn CompletionGroup<Impl: IBackgroundUploader3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CompletionGroup() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1189,7 +1189,7 @@ impl IBackgroundUploader3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IBackgroundUploaderFactoryImpl: Sized {
+pub trait IBackgroundUploaderFactory_Impl: Sized {
     fn CreateWithCompletionGroup(&mut self, completiongroup: &::core::option::Option<BackgroundTransferCompletionGroup>) -> ::windows::core::Result<BackgroundUploader>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1197,9 +1197,9 @@ impl ::windows::core::RuntimeName for IBackgroundUploaderFactory {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundUploaderFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IBackgroundUploaderFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundUploaderFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundUploaderFactoryVtbl {
-        unsafe extern "system" fn CreateWithCompletionGroup<Impl: IBackgroundUploaderFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, completiongroup: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBackgroundUploaderFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundUploaderFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundUploaderFactory_Vtbl {
+        unsafe extern "system" fn CreateWithCompletionGroup<Impl: IBackgroundUploaderFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, completiongroup: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithCompletionGroup(&*(&completiongroup as *const <BackgroundTransferCompletionGroup as ::windows::core::Abi>::Abi as *const <BackgroundTransferCompletionGroup as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1220,7 +1220,7 @@ impl IBackgroundUploaderFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IBackgroundUploaderStaticMethodsImpl: Sized {
+pub trait IBackgroundUploaderStaticMethods_Impl: Sized {
     fn GetCurrentUploadsAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>>;
     fn GetCurrentUploadsForGroupAsync(&mut self, group: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>>;
 }
@@ -1229,9 +1229,9 @@ impl ::windows::core::RuntimeName for IBackgroundUploaderStaticMethods {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundUploaderStaticMethods";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IBackgroundUploaderStaticMethodsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundUploaderStaticMethodsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundUploaderStaticMethodsVtbl {
-        unsafe extern "system" fn GetCurrentUploadsAsync<Impl: IBackgroundUploaderStaticMethodsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBackgroundUploaderStaticMethods_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundUploaderStaticMethods_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundUploaderStaticMethods_Vtbl {
+        unsafe extern "system" fn GetCurrentUploadsAsync<Impl: IBackgroundUploaderStaticMethods_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentUploadsAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1242,7 +1242,7 @@ impl IBackgroundUploaderStaticMethodsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentUploadsForGroupAsync<Impl: IBackgroundUploaderStaticMethodsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, group: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentUploadsForGroupAsync<Impl: IBackgroundUploaderStaticMethods_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, group: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentUploadsForGroupAsync(&*(&group as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1264,7 +1264,7 @@ impl IBackgroundUploaderStaticMethodsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IBackgroundUploaderStaticMethods2Impl: Sized {
+pub trait IBackgroundUploaderStaticMethods2_Impl: Sized {
     fn GetCurrentUploadsForTransferGroupAsync(&mut self, group: &::core::option::Option<BackgroundTransferGroup>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -1272,9 +1272,9 @@ impl ::windows::core::RuntimeName for IBackgroundUploaderStaticMethods2 {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundUploaderStaticMethods2";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IBackgroundUploaderStaticMethods2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundUploaderStaticMethods2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundUploaderStaticMethods2Vtbl {
-        unsafe extern "system" fn GetCurrentUploadsForTransferGroupAsync<Impl: IBackgroundUploaderStaticMethods2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, group: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBackgroundUploaderStaticMethods2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundUploaderStaticMethods2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundUploaderStaticMethods2_Vtbl {
+        unsafe extern "system" fn GetCurrentUploadsForTransferGroupAsync<Impl: IBackgroundUploaderStaticMethods2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, group: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentUploadsForTransferGroupAsync(&*(&group as *const <BackgroundTransferGroup as ::windows::core::Abi>::Abi as *const <BackgroundTransferGroup as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1295,7 +1295,7 @@ impl IBackgroundUploaderStaticMethods2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IBackgroundUploaderUserConsentImpl: Sized {
+pub trait IBackgroundUploaderUserConsent_Impl: Sized {
     fn RequestUnconstrainedUploadsAsync(&mut self, operations: &::core::option::Option<super::super::Foundation::Collections::IIterable<UploadOperation>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UnconstrainedTransferRequestResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
@@ -1303,9 +1303,9 @@ impl ::windows::core::RuntimeName for IBackgroundUploaderUserConsent {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundUploaderUserConsent";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated", feature = "implement_exclusive"))]
-impl IBackgroundUploaderUserConsentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundUploaderUserConsentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundUploaderUserConsentVtbl {
-        unsafe extern "system" fn RequestUnconstrainedUploadsAsync<Impl: IBackgroundUploaderUserConsentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operations: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IBackgroundUploaderUserConsent_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundUploaderUserConsent_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBackgroundUploaderUserConsent_Vtbl {
+        unsafe extern "system" fn RequestUnconstrainedUploadsAsync<Impl: IBackgroundUploaderUserConsent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operations: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestUnconstrainedUploadsAsync(&*(&operations as *const <super::super::Foundation::Collections::IIterable<UploadOperation> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<UploadOperation> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1326,7 +1326,7 @@ impl IBackgroundUploaderUserConsentVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IContentPrefetcherImpl: Sized {
+pub trait IContentPrefetcher_Impl: Sized {
     fn ContentUris(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>;
     fn SetIndirectContentUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn IndirectContentUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
@@ -1336,9 +1336,9 @@ impl ::windows::core::RuntimeName for IContentPrefetcher {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IContentPrefetcher";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IContentPrefetcherVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentPrefetcherImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentPrefetcherVtbl {
-        unsafe extern "system" fn ContentUris<Impl: IContentPrefetcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IContentPrefetcher_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentPrefetcher_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentPrefetcher_Vtbl {
+        unsafe extern "system" fn ContentUris<Impl: IContentPrefetcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentUris() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1349,11 +1349,11 @@ impl IContentPrefetcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIndirectContentUri<Impl: IContentPrefetcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIndirectContentUri<Impl: IContentPrefetcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIndirectContentUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IndirectContentUri<Impl: IContentPrefetcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IndirectContentUri<Impl: IContentPrefetcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IndirectContentUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1376,7 +1376,7 @@ impl IContentPrefetcherVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IContentPrefetcherTimeImpl: Sized {
+pub trait IContentPrefetcherTime_Impl: Sized {
     fn LastSuccessfulPrefetchTime(&mut self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -1384,9 +1384,9 @@ impl ::windows::core::RuntimeName for IContentPrefetcherTime {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IContentPrefetcherTime";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IContentPrefetcherTimeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentPrefetcherTimeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentPrefetcherTimeVtbl {
-        unsafe extern "system" fn LastSuccessfulPrefetchTime<Impl: IContentPrefetcherTimeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IContentPrefetcherTime_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContentPrefetcherTime_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContentPrefetcherTime_Vtbl {
+        unsafe extern "system" fn LastSuccessfulPrefetchTime<Impl: IContentPrefetcherTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LastSuccessfulPrefetchTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1407,7 +1407,7 @@ impl IContentPrefetcherTimeVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IDownloadOperationImpl: Sized + IBackgroundTransferOperationImpl {
+pub trait IDownloadOperation_Impl: Sized + IBackgroundTransferOperation_Impl {
     fn ResultFile(&mut self) -> ::windows::core::Result<super::super::Storage::IStorageFile>;
     fn Progress(&mut self) -> ::windows::core::Result<BackgroundDownloadProgress>;
     fn StartAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DownloadOperation, DownloadOperation>>;
@@ -1420,9 +1420,9 @@ impl ::windows::core::RuntimeName for IDownloadOperation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IDownloadOperation";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IDownloadOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDownloadOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDownloadOperationVtbl {
-        unsafe extern "system" fn ResultFile<Impl: IDownloadOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDownloadOperation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDownloadOperation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDownloadOperation_Vtbl {
+        unsafe extern "system" fn ResultFile<Impl: IDownloadOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ResultFile() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1433,7 +1433,7 @@ impl IDownloadOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Progress<Impl: IDownloadOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BackgroundDownloadProgress) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Progress<Impl: IDownloadOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BackgroundDownloadProgress) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Progress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1444,7 +1444,7 @@ impl IDownloadOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartAsync<Impl: IDownloadOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartAsync<Impl: IDownloadOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1455,7 +1455,7 @@ impl IDownloadOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AttachAsync<Impl: IDownloadOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AttachAsync<Impl: IDownloadOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AttachAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1466,11 +1466,11 @@ impl IDownloadOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Pause<Impl: IDownloadOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pause<Impl: IDownloadOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Pause().into()
         }
-        unsafe extern "system" fn Resume<Impl: IDownloadOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Resume<Impl: IDownloadOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Resume().into()
         }
@@ -1489,7 +1489,7 @@ impl IDownloadOperationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDownloadOperation2Impl: Sized {
+pub trait IDownloadOperation2_Impl: Sized {
     fn TransferGroup(&mut self) -> ::windows::core::Result<BackgroundTransferGroup>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1497,9 +1497,9 @@ impl ::windows::core::RuntimeName for IDownloadOperation2 {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IDownloadOperation2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDownloadOperation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDownloadOperation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDownloadOperation2Vtbl {
-        unsafe extern "system" fn TransferGroup<Impl: IDownloadOperation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDownloadOperation2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDownloadOperation2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDownloadOperation2_Vtbl {
+        unsafe extern "system" fn TransferGroup<Impl: IDownloadOperation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransferGroup() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1517,7 +1517,7 @@ impl IDownloadOperation2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "Web", feature = "implement_exclusive"))]
-pub trait IDownloadOperation3Impl: Sized {
+pub trait IDownloadOperation3_Impl: Sized {
     fn IsRandomAccessRequired(&mut self) -> ::windows::core::Result<bool>;
     fn SetIsRandomAccessRequired(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn GetResultRandomAccessStreamReference(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
@@ -1533,9 +1533,9 @@ impl ::windows::core::RuntimeName for IDownloadOperation3 {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IDownloadOperation3";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "Web", feature = "implement_exclusive"))]
-impl IDownloadOperation3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDownloadOperation3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDownloadOperation3Vtbl {
-        unsafe extern "system" fn IsRandomAccessRequired<Impl: IDownloadOperation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IDownloadOperation3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDownloadOperation3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDownloadOperation3_Vtbl {
+        unsafe extern "system" fn IsRandomAccessRequired<Impl: IDownloadOperation3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsRandomAccessRequired() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1546,11 +1546,11 @@ impl IDownloadOperation3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsRandomAccessRequired<Impl: IDownloadOperation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsRandomAccessRequired<Impl: IDownloadOperation3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsRandomAccessRequired(value).into()
         }
-        unsafe extern "system" fn GetResultRandomAccessStreamReference<Impl: IDownloadOperation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetResultRandomAccessStreamReference<Impl: IDownloadOperation3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetResultRandomAccessStreamReference() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1561,7 +1561,7 @@ impl IDownloadOperation3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDownloadedRanges<Impl: IDownloadOperation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDownloadedRanges<Impl: IDownloadOperation3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDownloadedRanges() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1572,7 +1572,7 @@ impl IDownloadOperation3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RangesDownloaded<Impl: IDownloadOperation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RangesDownloaded<Impl: IDownloadOperation3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RangesDownloaded(&*(&eventhandler as *const <super::super::Foundation::TypedEventHandler<DownloadOperation, BackgroundTransferRangesDownloadedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DownloadOperation, BackgroundTransferRangesDownloadedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1583,15 +1583,15 @@ impl IDownloadOperation3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRangesDownloaded<Impl: IDownloadOperation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveRangesDownloaded<Impl: IDownloadOperation3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRangesDownloaded(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetRequestedUri<Impl: IDownloadOperation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRequestedUri<Impl: IDownloadOperation3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRequestedUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RecoverableWebErrorStatuses<Impl: IDownloadOperation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RecoverableWebErrorStatuses<Impl: IDownloadOperation3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RecoverableWebErrorStatuses() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1602,7 +1602,7 @@ impl IDownloadOperation3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentWebErrorStatus<Impl: IDownloadOperation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentWebErrorStatus<Impl: IDownloadOperation3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentWebErrorStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1631,7 +1631,7 @@ impl IDownloadOperation3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDownloadOperation4Impl: Sized {
+pub trait IDownloadOperation4_Impl: Sized {
     fn MakeCurrentInTransferGroup(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1639,9 +1639,9 @@ impl ::windows::core::RuntimeName for IDownloadOperation4 {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IDownloadOperation4";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDownloadOperation4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDownloadOperation4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDownloadOperation4Vtbl {
-        unsafe extern "system" fn MakeCurrentInTransferGroup<Impl: IDownloadOperation4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IDownloadOperation4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDownloadOperation4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDownloadOperation4_Vtbl {
+        unsafe extern "system" fn MakeCurrentInTransferGroup<Impl: IDownloadOperation4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).MakeCurrentInTransferGroup().into()
         }
@@ -1655,7 +1655,7 @@ impl IDownloadOperation4Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDownloadOperation5Impl: Sized {
+pub trait IDownloadOperation5_Impl: Sized {
     fn SetRequestHeader(&mut self, headername: &::windows::core::HSTRING, headervalue: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn RemoveRequestHeader(&mut self, headername: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
@@ -1664,13 +1664,13 @@ impl ::windows::core::RuntimeName for IDownloadOperation5 {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IDownloadOperation5";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDownloadOperation5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDownloadOperation5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDownloadOperation5Vtbl {
-        unsafe extern "system" fn SetRequestHeader<Impl: IDownloadOperation5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, headervalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDownloadOperation5_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDownloadOperation5_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDownloadOperation5_Vtbl {
+        unsafe extern "system" fn SetRequestHeader<Impl: IDownloadOperation5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, headervalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRequestHeader(&*(&headername as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&headervalue as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RemoveRequestHeader<Impl: IDownloadOperation5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveRequestHeader<Impl: IDownloadOperation5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRequestHeader(&*(&headername as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1685,7 +1685,7 @@ impl IDownloadOperation5Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IResponseInformationImpl: Sized {
+pub trait IResponseInformation_Impl: Sized {
     fn IsResumable(&mut self) -> ::windows::core::Result<bool>;
     fn ActualUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn StatusCode(&mut self) -> ::windows::core::Result<u32>;
@@ -1696,9 +1696,9 @@ impl ::windows::core::RuntimeName for IResponseInformation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IResponseInformation";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IResponseInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResponseInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResponseInformationVtbl {
-        unsafe extern "system" fn IsResumable<Impl: IResponseInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IResponseInformation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResponseInformation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IResponseInformation_Vtbl {
+        unsafe extern "system" fn IsResumable<Impl: IResponseInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsResumable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1709,7 +1709,7 @@ impl IResponseInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ActualUri<Impl: IResponseInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ActualUri<Impl: IResponseInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActualUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1720,7 +1720,7 @@ impl IResponseInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StatusCode<Impl: IResponseInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StatusCode<Impl: IResponseInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StatusCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1731,7 +1731,7 @@ impl IResponseInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Headers<Impl: IResponseInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Headers<Impl: IResponseInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Headers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1755,7 +1755,7 @@ impl IResponseInformationVtbl {
     }
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-pub trait IUnconstrainedTransferRequestResultImpl: Sized {
+pub trait IUnconstrainedTransferRequestResult_Impl: Sized {
     fn IsUnconstrained(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
@@ -1763,9 +1763,9 @@ impl ::windows::core::RuntimeName for IUnconstrainedTransferRequestResult {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IUnconstrainedTransferRequestResult";
 }
 #[cfg(all(feature = "deprecated", feature = "implement_exclusive"))]
-impl IUnconstrainedTransferRequestResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnconstrainedTransferRequestResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUnconstrainedTransferRequestResultVtbl {
-        unsafe extern "system" fn IsUnconstrained<Impl: IUnconstrainedTransferRequestResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IUnconstrainedTransferRequestResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnconstrainedTransferRequestResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUnconstrainedTransferRequestResult_Vtbl {
+        unsafe extern "system" fn IsUnconstrained<Impl: IUnconstrainedTransferRequestResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsUnconstrained() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1786,7 +1786,7 @@ impl IUnconstrainedTransferRequestResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IUploadOperationImpl: Sized + IBackgroundTransferOperationImpl {
+pub trait IUploadOperation_Impl: Sized + IBackgroundTransferOperation_Impl {
     fn SourceFile(&mut self) -> ::windows::core::Result<super::super::Storage::IStorageFile>;
     fn Progress(&mut self) -> ::windows::core::Result<BackgroundUploadProgress>;
     fn StartAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<UploadOperation, UploadOperation>>;
@@ -1797,9 +1797,9 @@ impl ::windows::core::RuntimeName for IUploadOperation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IUploadOperation";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IUploadOperationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUploadOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUploadOperationVtbl {
-        unsafe extern "system" fn SourceFile<Impl: IUploadOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUploadOperation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUploadOperation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUploadOperation_Vtbl {
+        unsafe extern "system" fn SourceFile<Impl: IUploadOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SourceFile() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1810,7 +1810,7 @@ impl IUploadOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Progress<Impl: IUploadOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BackgroundUploadProgress) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Progress<Impl: IUploadOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut BackgroundUploadProgress) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Progress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1821,7 +1821,7 @@ impl IUploadOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartAsync<Impl: IUploadOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartAsync<Impl: IUploadOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StartAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1832,7 +1832,7 @@ impl IUploadOperationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AttachAsync<Impl: IUploadOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AttachAsync<Impl: IUploadOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AttachAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1856,7 +1856,7 @@ impl IUploadOperationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUploadOperation2Impl: Sized {
+pub trait IUploadOperation2_Impl: Sized {
     fn TransferGroup(&mut self) -> ::windows::core::Result<BackgroundTransferGroup>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1864,9 +1864,9 @@ impl ::windows::core::RuntimeName for IUploadOperation2 {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IUploadOperation2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUploadOperation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUploadOperation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUploadOperation2Vtbl {
-        unsafe extern "system" fn TransferGroup<Impl: IUploadOperation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUploadOperation2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUploadOperation2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUploadOperation2_Vtbl {
+        unsafe extern "system" fn TransferGroup<Impl: IUploadOperation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransferGroup() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1884,7 +1884,7 @@ impl IUploadOperation2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUploadOperation3Impl: Sized {
+pub trait IUploadOperation3_Impl: Sized {
     fn MakeCurrentInTransferGroup(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1892,9 +1892,9 @@ impl ::windows::core::RuntimeName for IUploadOperation3 {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IUploadOperation3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUploadOperation3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUploadOperation3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUploadOperation3Vtbl {
-        unsafe extern "system" fn MakeCurrentInTransferGroup<Impl: IUploadOperation3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IUploadOperation3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUploadOperation3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUploadOperation3_Vtbl {
+        unsafe extern "system" fn MakeCurrentInTransferGroup<Impl: IUploadOperation3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).MakeCurrentInTransferGroup().into()
         }
@@ -1908,7 +1908,7 @@ impl IUploadOperation3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUploadOperation4Impl: Sized {
+pub trait IUploadOperation4_Impl: Sized {
     fn SetRequestHeader(&mut self, headername: &::windows::core::HSTRING, headervalue: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn RemoveRequestHeader(&mut self, headername: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
@@ -1917,13 +1917,13 @@ impl ::windows::core::RuntimeName for IUploadOperation4 {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IUploadOperation4";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUploadOperation4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUploadOperation4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUploadOperation4Vtbl {
-        unsafe extern "system" fn SetRequestHeader<Impl: IUploadOperation4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, headervalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IUploadOperation4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUploadOperation4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUploadOperation4_Vtbl {
+        unsafe extern "system" fn SetRequestHeader<Impl: IUploadOperation4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, headervalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRequestHeader(&*(&headername as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&headervalue as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn RemoveRequestHeader<Impl: IUploadOperation4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveRequestHeader<Impl: IUploadOperation4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRequestHeader(&*(&headername as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }

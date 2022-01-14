@@ -315,7 +315,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundDownloader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundDownloader;{c1c79333-6649-4b1d-a826-a4b3dd234d0b})");
 }
 unsafe impl ::windows::core::Interface for BackgroundDownloader {
-    type Vtable = IBackgroundDownloaderVtbl;
+    type Vtable = IBackgroundDownloader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1c79333_6649_4b1d_a826_a4b3dd234d0b);
 }
 impl ::windows::core::RuntimeName for BackgroundDownloader {
@@ -472,7 +472,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTransferCompletionGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroup;{2d930225-986b-574d-7950-0add47f5d706})");
 }
 unsafe impl ::windows::core::Interface for BackgroundTransferCompletionGroup {
-    type Vtable = IBackgroundTransferCompletionGroupVtbl;
+    type Vtable = IBackgroundTransferCompletionGroup_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d930225_986b_574d_7950_0add47f5d706);
 }
 impl ::windows::core::RuntimeName for BackgroundTransferCompletionGroup {
@@ -563,7 +563,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTransferCompletionGroupTr
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroupTriggerDetails;{7b6be286-6e47-5136-7fcb-fa4389f46f5b})");
 }
 unsafe impl ::windows::core::Interface for BackgroundTransferCompletionGroupTriggerDetails {
-    type Vtable = IBackgroundTransferCompletionGroupTriggerDetailsVtbl;
+    type Vtable = IBackgroundTransferCompletionGroupTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b6be286_6e47_5136_7fcb_fa4389f46f5b);
 }
 impl ::windows::core::RuntimeName for BackgroundTransferCompletionGroupTriggerDetails {
@@ -678,7 +678,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTransferContentPart {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart;{e8e15657-d7d1-4ed8-838e-674ac217ace6})");
 }
 unsafe impl ::windows::core::Interface for BackgroundTransferContentPart {
-    type Vtable = IBackgroundTransferContentPartVtbl;
+    type Vtable = IBackgroundTransferContentPart_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8e15657_d7d1_4ed8_838e_674ac217ace6);
 }
 impl ::windows::core::RuntimeName for BackgroundTransferContentPart {
@@ -875,7 +875,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTransferGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferGroup;{d8c3e3e4-6459-4540-85eb-aaa1c8903677})");
 }
 unsafe impl ::windows::core::Interface for BackgroundTransferGroup {
-    type Vtable = IBackgroundTransferGroupVtbl;
+    type Vtable = IBackgroundTransferGroup_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8c3e3e4_6459_4540_85eb_aaa1c8903677);
 }
 impl ::windows::core::RuntimeName for BackgroundTransferGroup {
@@ -1008,7 +1008,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTransferRangesDownloadedE
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferRangesDownloadedEventArgs;{3ebc7453-bf48-4a88-9248-b0c165184f5c})");
 }
 unsafe impl ::windows::core::Interface for BackgroundTransferRangesDownloadedEventArgs {
-    type Vtable = IBackgroundTransferRangesDownloadedEventArgsVtbl;
+    type Vtable = IBackgroundTransferRangesDownloadedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ebc7453_bf48_4a88_9248_b0c165184f5c);
 }
 impl ::windows::core::RuntimeName for BackgroundTransferRangesDownloadedEventArgs {
@@ -1433,7 +1433,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundUploader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundUploader;{c595c9ae-cead-465b-8801-c55ac90a01ce})");
 }
 unsafe impl ::windows::core::Interface for BackgroundUploader {
-    type Vtable = IBackgroundUploaderVtbl;
+    type Vtable = IBackgroundUploader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc595c9ae_cead_465b_8801_c55ac90a01ce);
 }
 impl ::windows::core::RuntimeName for BackgroundUploader {
@@ -1789,7 +1789,7 @@ unsafe impl ::windows::core::RuntimeType for DownloadOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.DownloadOperation;{bd87ebb0-5714-4e09-ba68-bef73903b0d7})");
 }
 unsafe impl ::windows::core::Interface for DownloadOperation {
-    type Vtable = IDownloadOperationVtbl;
+    type Vtable = IDownloadOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd87ebb0_5714_4e09_ba68_bef73903b0d7);
 }
 impl ::windows::core::RuntimeName for DownloadOperation {
@@ -1885,12 +1885,12 @@ unsafe impl ::core::marker::Sync for DownloadOperation {}
 #[repr(transparent)]
 pub struct IBackgroundDownloader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundDownloader {
-    type Vtable = IBackgroundDownloaderVtbl;
+    type Vtable = IBackgroundDownloader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1c79333_6649_4b1d_a826_a4b3dd234d0b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundDownloaderVtbl {
+pub struct IBackgroundDownloader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub CreateDownload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, resultfile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1909,12 +1909,12 @@ pub struct IBackgroundDownloaderVtbl {
 #[repr(transparent)]
 pub struct IBackgroundDownloader2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundDownloader2 {
-    type Vtable = IBackgroundDownloader2Vtbl;
+    type Vtable = IBackgroundDownloader2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa94a5847_348d_4a35_890e_8a1ef3798479);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundDownloader2Vtbl {
+pub struct IBackgroundDownloader2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TransferGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetTransferGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1955,12 +1955,12 @@ pub struct IBackgroundDownloader2Vtbl {
 #[repr(transparent)]
 pub struct IBackgroundDownloader3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundDownloader3 {
-    type Vtable = IBackgroundDownloader3Vtbl;
+    type Vtable = IBackgroundDownloader3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd11a8c48_86e8_48e2_b615_6976aabf861d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundDownloader3Vtbl {
+pub struct IBackgroundDownloader3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CompletionGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1968,12 +1968,12 @@ pub struct IBackgroundDownloader3Vtbl {
 #[repr(transparent)]
 pub struct IBackgroundDownloaderFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundDownloaderFactory {
-    type Vtable = IBackgroundDownloaderFactoryVtbl;
+    type Vtable = IBackgroundDownloaderFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26836c24_d89e_46f4_a29a_4f4d4f144155);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundDownloaderFactoryVtbl {
+pub struct IBackgroundDownloaderFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateWithCompletionGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, completiongroup: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1981,12 +1981,12 @@ pub struct IBackgroundDownloaderFactoryVtbl {
 #[repr(transparent)]
 pub struct IBackgroundDownloaderStaticMethods(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundDownloaderStaticMethods {
-    type Vtable = IBackgroundDownloaderStaticMethodsVtbl;
+    type Vtable = IBackgroundDownloaderStaticMethods_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52a65a35_c64e_426c_9919_540d0d21a650);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundDownloaderStaticMethodsVtbl {
+pub struct IBackgroundDownloaderStaticMethods_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetCurrentDownloadsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2001,12 +2001,12 @@ pub struct IBackgroundDownloaderStaticMethodsVtbl {
 #[repr(transparent)]
 pub struct IBackgroundDownloaderStaticMethods2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundDownloaderStaticMethods2 {
-    type Vtable = IBackgroundDownloaderStaticMethods2Vtbl;
+    type Vtable = IBackgroundDownloaderStaticMethods2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2faa1327_1ad4_4ca5_b2cd_08dbf0746afe);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundDownloaderStaticMethods2Vtbl {
+pub struct IBackgroundDownloaderStaticMethods2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetCurrentDownloadsForTransferGroupAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, group: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2019,13 +2019,13 @@ pub struct IBackgroundDownloaderStaticMethods2Vtbl {
 pub struct IBackgroundDownloaderUserConsent(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IBackgroundDownloaderUserConsent {
-    type Vtable = IBackgroundDownloaderUserConsentVtbl;
+    type Vtable = IBackgroundDownloaderUserConsent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d14e906_9266_4808_bd71_5925f2a3130a);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundDownloaderUserConsentVtbl {
+pub struct IBackgroundDownloaderUserConsent_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
     pub RequestUnconstrainedDownloadsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operations: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2173,12 +2173,12 @@ unsafe impl ::windows::core::RuntimeType for IBackgroundTransferBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2a9da250-c769-458c-afe8-feb8d4d3b2ef}");
 }
 unsafe impl ::windows::core::Interface for IBackgroundTransferBase {
-    type Vtable = IBackgroundTransferBaseVtbl;
+    type Vtable = IBackgroundTransferBase_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a9da250_c769_458c_afe8_feb8d4d3b2ef);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTransferBaseVtbl {
+pub struct IBackgroundTransferBase_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetRequestHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, headervalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Security_Credentials")]
@@ -2214,12 +2214,12 @@ pub struct IBackgroundTransferBaseVtbl {
 #[repr(transparent)]
 pub struct IBackgroundTransferCompletionGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTransferCompletionGroup {
-    type Vtable = IBackgroundTransferCompletionGroupVtbl;
+    type Vtable = IBackgroundTransferCompletionGroup_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d930225_986b_574d_7950_0add47f5d706);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTransferCompletionGroupVtbl {
+pub struct IBackgroundTransferCompletionGroup_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "ApplicationModel_Background")]
     pub Trigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2232,12 +2232,12 @@ pub struct IBackgroundTransferCompletionGroupVtbl {
 #[repr(transparent)]
 pub struct IBackgroundTransferCompletionGroupTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTransferCompletionGroupTriggerDetails {
-    type Vtable = IBackgroundTransferCompletionGroupTriggerDetailsVtbl;
+    type Vtable = IBackgroundTransferCompletionGroupTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b6be286_6e47_5136_7fcb_fa4389f46f5b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTransferCompletionGroupTriggerDetailsVtbl {
+pub struct IBackgroundTransferCompletionGroupTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Downloads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2252,12 +2252,12 @@ pub struct IBackgroundTransferCompletionGroupTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IBackgroundTransferContentPart(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTransferContentPart {
-    type Vtable = IBackgroundTransferContentPartVtbl;
+    type Vtable = IBackgroundTransferContentPart_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8e15657_d7d1_4ed8_838e_674ac217ace6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTransferContentPartVtbl {
+pub struct IBackgroundTransferContentPart_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, headervalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2347,12 +2347,12 @@ unsafe impl ::windows::core::RuntimeType for IBackgroundTransferContentPartFacto
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{90ef98a9-7a01-4a0b-9f80-a0b0bb370f8d}");
 }
 unsafe impl ::windows::core::Interface for IBackgroundTransferContentPartFactory {
-    type Vtable = IBackgroundTransferContentPartFactoryVtbl;
+    type Vtable = IBackgroundTransferContentPartFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90ef98a9_7a01_4a0b_9f80_a0b0bb370f8d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTransferContentPartFactoryVtbl {
+pub struct IBackgroundTransferContentPartFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateWithName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateWithNameAndFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, filename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2361,12 +2361,12 @@ pub struct IBackgroundTransferContentPartFactoryVtbl {
 #[repr(transparent)]
 pub struct IBackgroundTransferErrorStaticMethods(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTransferErrorStaticMethods {
-    type Vtable = IBackgroundTransferErrorStaticMethodsVtbl;
+    type Vtable = IBackgroundTransferErrorStaticMethods_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaad33b04_1192_4bf4_8b68_39c5add244e2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTransferErrorStaticMethodsVtbl {
+pub struct IBackgroundTransferErrorStaticMethods_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Web")]
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut super::super::Web::WebErrorStatus) -> ::windows::core::HRESULT,
@@ -2377,12 +2377,12 @@ pub struct IBackgroundTransferErrorStaticMethodsVtbl {
 #[repr(transparent)]
 pub struct IBackgroundTransferGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTransferGroup {
-    type Vtable = IBackgroundTransferGroupVtbl;
+    type Vtable = IBackgroundTransferGroup_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8c3e3e4_6459_4540_85eb_aaa1c8903677);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTransferGroupVtbl {
+pub struct IBackgroundTransferGroup_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub TransferBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BackgroundTransferBehavior) -> ::windows::core::HRESULT,
@@ -2392,12 +2392,12 @@ pub struct IBackgroundTransferGroupVtbl {
 #[repr(transparent)]
 pub struct IBackgroundTransferGroupStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTransferGroupStatics {
-    type Vtable = IBackgroundTransferGroupStaticsVtbl;
+    type Vtable = IBackgroundTransferGroupStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02ec50b2_7d18_495b_aa22_32a97d45d3e2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTransferGroupStaticsVtbl {
+pub struct IBackgroundTransferGroupStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2530,12 +2530,12 @@ unsafe impl ::windows::core::RuntimeType for IBackgroundTransferOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ded06846-90ca-44fb-8fb1-124154c0d539}");
 }
 unsafe impl ::windows::core::Interface for IBackgroundTransferOperation {
-    type Vtable = IBackgroundTransferOperationVtbl;
+    type Vtable = IBackgroundTransferOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xded06846_90ca_44fb_8fb1_124154c0d539);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTransferOperationVtbl {
+pub struct IBackgroundTransferOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Guid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -2633,12 +2633,12 @@ unsafe impl ::windows::core::RuntimeType for IBackgroundTransferOperationPriorit
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{04854327-5254-4b3a-915e-0aa49275c0f9}");
 }
 unsafe impl ::windows::core::Interface for IBackgroundTransferOperationPriority {
-    type Vtable = IBackgroundTransferOperationPriorityVtbl;
+    type Vtable = IBackgroundTransferOperationPriority_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04854327_5254_4b3a_915e_0aa49275c0f9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTransferOperationPriorityVtbl {
+pub struct IBackgroundTransferOperationPriority_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Priority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BackgroundTransferPriority) -> ::windows::core::HRESULT,
     pub SetPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: BackgroundTransferPriority) -> ::windows::core::HRESULT,
@@ -2647,12 +2647,12 @@ pub struct IBackgroundTransferOperationPriorityVtbl {
 #[repr(transparent)]
 pub struct IBackgroundTransferRangesDownloadedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundTransferRangesDownloadedEventArgs {
-    type Vtable = IBackgroundTransferRangesDownloadedEventArgsVtbl;
+    type Vtable = IBackgroundTransferRangesDownloadedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ebc7453_bf48_4a88_9248_b0c165184f5c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundTransferRangesDownloadedEventArgsVtbl {
+pub struct IBackgroundTransferRangesDownloadedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub WasDownloadRestarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -2668,12 +2668,12 @@ pub struct IBackgroundTransferRangesDownloadedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IBackgroundUploader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundUploader {
-    type Vtable = IBackgroundUploaderVtbl;
+    type Vtable = IBackgroundUploader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc595c9ae_cead_465b_8801_c55ac90a01ce);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundUploaderVtbl {
+pub struct IBackgroundUploader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub CreateUpload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, sourcefile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2700,12 +2700,12 @@ pub struct IBackgroundUploaderVtbl {
 #[repr(transparent)]
 pub struct IBackgroundUploader2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundUploader2 {
-    type Vtable = IBackgroundUploader2Vtbl;
+    type Vtable = IBackgroundUploader2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e0612ce_0c34_4463_807f_198a1b8bd4ad);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundUploader2Vtbl {
+pub struct IBackgroundUploader2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TransferGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetTransferGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2746,12 +2746,12 @@ pub struct IBackgroundUploader2Vtbl {
 #[repr(transparent)]
 pub struct IBackgroundUploader3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundUploader3 {
-    type Vtable = IBackgroundUploader3Vtbl;
+    type Vtable = IBackgroundUploader3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb95e9439_5bf0_4b3a_8c47_2c6199a854b9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundUploader3Vtbl {
+pub struct IBackgroundUploader3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CompletionGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2759,12 +2759,12 @@ pub struct IBackgroundUploader3Vtbl {
 #[repr(transparent)]
 pub struct IBackgroundUploaderFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundUploaderFactory {
-    type Vtable = IBackgroundUploaderFactoryVtbl;
+    type Vtable = IBackgroundUploaderFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x736203c7_10e7_48a0_ac3c_1ac71095ec57);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundUploaderFactoryVtbl {
+pub struct IBackgroundUploaderFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateWithCompletionGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, completiongroup: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2772,12 +2772,12 @@ pub struct IBackgroundUploaderFactoryVtbl {
 #[repr(transparent)]
 pub struct IBackgroundUploaderStaticMethods(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundUploaderStaticMethods {
-    type Vtable = IBackgroundUploaderStaticMethodsVtbl;
+    type Vtable = IBackgroundUploaderStaticMethods_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2875cfb_9b05_4741_9121_740a83e247df);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundUploaderStaticMethodsVtbl {
+pub struct IBackgroundUploaderStaticMethods_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetCurrentUploadsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2792,12 +2792,12 @@ pub struct IBackgroundUploaderStaticMethodsVtbl {
 #[repr(transparent)]
 pub struct IBackgroundUploaderStaticMethods2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBackgroundUploaderStaticMethods2 {
-    type Vtable = IBackgroundUploaderStaticMethods2Vtbl;
+    type Vtable = IBackgroundUploaderStaticMethods2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe919ac62_ea08_42f0_a2ac_07e467549080);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundUploaderStaticMethods2Vtbl {
+pub struct IBackgroundUploaderStaticMethods2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetCurrentUploadsForTransferGroupAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, group: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2810,13 +2810,13 @@ pub struct IBackgroundUploaderStaticMethods2Vtbl {
 pub struct IBackgroundUploaderUserConsent(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IBackgroundUploaderUserConsent {
-    type Vtable = IBackgroundUploaderUserConsentVtbl;
+    type Vtable = IBackgroundUploaderUserConsent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bb384cb_0760_461d_907f_5138f84d44c1);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundUploaderUserConsentVtbl {
+pub struct IBackgroundUploaderUserConsent_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
     pub RequestUnconstrainedUploadsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operations: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2827,12 +2827,12 @@ pub struct IBackgroundUploaderUserConsentVtbl {
 #[repr(transparent)]
 pub struct IContentPrefetcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContentPrefetcher {
-    type Vtable = IContentPrefetcherVtbl;
+    type Vtable = IContentPrefetcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8d6f754_7dc1_4cd9_8810_2a6aa9417e11);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContentPrefetcherVtbl {
+pub struct IContentPrefetcher_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub ContentUris: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2851,12 +2851,12 @@ pub struct IContentPrefetcherVtbl {
 #[repr(transparent)]
 pub struct IContentPrefetcherTime(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContentPrefetcherTime {
-    type Vtable = IContentPrefetcherTimeVtbl;
+    type Vtable = IContentPrefetcherTime_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe361fd08_132a_4fde_a7cc_fcb0e66523af);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContentPrefetcherTimeVtbl {
+pub struct IContentPrefetcherTime_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub LastSuccessfulPrefetchTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2867,12 +2867,12 @@ pub struct IContentPrefetcherTimeVtbl {
 #[repr(transparent)]
 pub struct IDownloadOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDownloadOperation {
-    type Vtable = IDownloadOperationVtbl;
+    type Vtable = IDownloadOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd87ebb0_5714_4e09_ba68_bef73903b0d7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDownloadOperationVtbl {
+pub struct IDownloadOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage")]
     pub ResultFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2894,12 +2894,12 @@ pub struct IDownloadOperationVtbl {
 #[repr(transparent)]
 pub struct IDownloadOperation2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDownloadOperation2 {
-    type Vtable = IDownloadOperation2Vtbl;
+    type Vtable = IDownloadOperation2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3cced40_8f9c_4353_9cd4_290dee387c38);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDownloadOperation2Vtbl {
+pub struct IDownloadOperation2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TransferGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2907,12 +2907,12 @@ pub struct IDownloadOperation2Vtbl {
 #[repr(transparent)]
 pub struct IDownloadOperation3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDownloadOperation3 {
-    type Vtable = IDownloadOperation3Vtbl;
+    type Vtable = IDownloadOperation3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5027351c_7d5e_4adc_b8d3_df5c6031b9cc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDownloadOperation3Vtbl {
+pub struct IDownloadOperation3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsRandomAccessRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsRandomAccessRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -2949,12 +2949,12 @@ pub struct IDownloadOperation3Vtbl {
 #[repr(transparent)]
 pub struct IDownloadOperation4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDownloadOperation4 {
-    type Vtable = IDownloadOperation4Vtbl;
+    type Vtable = IDownloadOperation4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cdaaef4_8cef_404a_966d_f058400bed80);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDownloadOperation4Vtbl {
+pub struct IDownloadOperation4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MakeCurrentInTransferGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -2962,12 +2962,12 @@ pub struct IDownloadOperation4Vtbl {
 #[repr(transparent)]
 pub struct IDownloadOperation5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDownloadOperation5 {
-    type Vtable = IDownloadOperation5Vtbl;
+    type Vtable = IDownloadOperation5_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa699a86f_5590_463a_b8d6_1e491a2760a5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDownloadOperation5Vtbl {
+pub struct IDownloadOperation5_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetRequestHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, headervalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub RemoveRequestHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2976,12 +2976,12 @@ pub struct IDownloadOperation5Vtbl {
 #[repr(transparent)]
 pub struct IResponseInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResponseInformation {
-    type Vtable = IResponseInformationVtbl;
+    type Vtable = IResponseInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8bb9a12_f713_4792_8b68_d9d297f91d2e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResponseInformationVtbl {
+pub struct IResponseInformation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsResumable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -3000,13 +3000,13 @@ pub struct IResponseInformationVtbl {
 pub struct IUnconstrainedTransferRequestResult(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IUnconstrainedTransferRequestResult {
-    type Vtable = IUnconstrainedTransferRequestResultVtbl;
+    type Vtable = IUnconstrainedTransferRequestResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c24b81f_d944_4112_a98e_6a69522b7ebb);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUnconstrainedTransferRequestResultVtbl {
+pub struct IUnconstrainedTransferRequestResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub IsUnconstrained: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -3017,12 +3017,12 @@ pub struct IUnconstrainedTransferRequestResultVtbl {
 #[repr(transparent)]
 pub struct IUploadOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUploadOperation {
-    type Vtable = IUploadOperationVtbl;
+    type Vtable = IUploadOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e5624e0_7389_434c_8b35_427fd36bbdae);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUploadOperationVtbl {
+pub struct IUploadOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage")]
     pub SourceFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3042,12 +3042,12 @@ pub struct IUploadOperationVtbl {
 #[repr(transparent)]
 pub struct IUploadOperation2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUploadOperation2 {
-    type Vtable = IUploadOperation2Vtbl;
+    type Vtable = IUploadOperation2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x556189f2_2774_4df6_9fa5_209f2bfb12f7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUploadOperation2Vtbl {
+pub struct IUploadOperation2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TransferGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -3055,12 +3055,12 @@ pub struct IUploadOperation2Vtbl {
 #[repr(transparent)]
 pub struct IUploadOperation3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUploadOperation3 {
-    type Vtable = IUploadOperation3Vtbl;
+    type Vtable = IUploadOperation3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42c92ca3_de39_4546_bc62_3774b4294de3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUploadOperation3Vtbl {
+pub struct IUploadOperation3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MakeCurrentInTransferGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -3068,12 +3068,12 @@ pub struct IUploadOperation3Vtbl {
 #[repr(transparent)]
 pub struct IUploadOperation4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUploadOperation4 {
-    type Vtable = IUploadOperation4Vtbl;
+    type Vtable = IUploadOperation4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50edef31_fac5_41ee_b030_dc77caee9faa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUploadOperation4Vtbl {
+pub struct IUploadOperation4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetRequestHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, headervalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub RemoveRequestHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -3137,7 +3137,7 @@ unsafe impl ::windows::core::RuntimeType for ResponseInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.ResponseInformation;{f8bb9a12-f713-4792-8b68-d9d297f91d2e})");
 }
 unsafe impl ::windows::core::Interface for ResponseInformation {
-    type Vtable = IResponseInformationVtbl;
+    type Vtable = IResponseInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8bb9a12_f713_4792_8b68_d9d297f91d2e);
 }
 impl ::windows::core::RuntimeName for ResponseInformation {
@@ -3227,7 +3227,7 @@ unsafe impl ::windows::core::RuntimeType for UnconstrainedTransferRequestResult 
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for UnconstrainedTransferRequestResult {
-    type Vtable = IUnconstrainedTransferRequestResultVtbl;
+    type Vtable = IUnconstrainedTransferRequestResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c24b81f_d944_4112_a98e_6a69522b7ebb);
 }
 #[cfg(feature = "deprecated")]
@@ -3446,7 +3446,7 @@ unsafe impl ::windows::core::RuntimeType for UploadOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.UploadOperation;{3e5624e0-7389-434c-8b35-427fd36bbdae})");
 }
 unsafe impl ::windows::core::Interface for UploadOperation {
-    type Vtable = IUploadOperationVtbl;
+    type Vtable = IUploadOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e5624e0_7389_434c_8b35_427fd36bbdae);
 }
 impl ::windows::core::RuntimeName for UploadOperation {

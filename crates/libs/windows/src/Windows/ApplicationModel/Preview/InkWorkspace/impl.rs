@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-pub trait IInkWorkspaceHostedAppManagerImpl: Sized {
+pub trait IInkWorkspaceHostedAppManager_Impl: Sized {
     fn SetThumbnailAsync(&mut self, bitmap: &::core::option::Option<super::super::super::Graphics::Imaging::SoftwareBitmap>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
@@ -7,9 +7,9 @@ impl ::windows::core::RuntimeName for IInkWorkspaceHostedAppManager {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.InkWorkspace.IInkWorkspaceHostedAppManager";
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "implement_exclusive"))]
-impl IInkWorkspaceHostedAppManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkWorkspaceHostedAppManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkWorkspaceHostedAppManagerVtbl {
-        unsafe extern "system" fn SetThumbnailAsync<Impl: IInkWorkspaceHostedAppManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IInkWorkspaceHostedAppManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkWorkspaceHostedAppManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkWorkspaceHostedAppManager_Vtbl {
+        unsafe extern "system" fn SetThumbnailAsync<Impl: IInkWorkspaceHostedAppManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetThumbnailAsync(&*(&bitmap as *const <super::super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::Abi>::Abi as *const <super::super::super::Graphics::Imaging::SoftwareBitmap as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -30,7 +30,7 @@ impl IInkWorkspaceHostedAppManagerVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IInkWorkspaceHostedAppManagerStaticsImpl: Sized {
+pub trait IInkWorkspaceHostedAppManagerStatics_Impl: Sized {
     fn GetForCurrentApp(&mut self) -> ::windows::core::Result<InkWorkspaceHostedAppManager>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -38,9 +38,9 @@ impl ::windows::core::RuntimeName for IInkWorkspaceHostedAppManagerStatics {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.InkWorkspace.IInkWorkspaceHostedAppManagerStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IInkWorkspaceHostedAppManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkWorkspaceHostedAppManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkWorkspaceHostedAppManagerStaticsVtbl {
-        unsafe extern "system" fn GetForCurrentApp<Impl: IInkWorkspaceHostedAppManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IInkWorkspaceHostedAppManagerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkWorkspaceHostedAppManagerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInkWorkspaceHostedAppManagerStatics_Vtbl {
+        unsafe extern "system" fn GetForCurrentApp<Impl: IInkWorkspaceHostedAppManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentApp() {
                 ::core::result::Result::Ok(ok__) => {

@@ -32,7 +32,7 @@ unsafe impl ::windows::core::RuntimeType for ConnectionRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.ConnectionRequestedEventArgs;{eb6891ae-4f1e-4c66-bd0d-46924a942e08})");
 }
 unsafe impl ::windows::core::Interface for ConnectionRequestedEventArgs {
-    type Vtable = IConnectionRequestedEventArgsVtbl;
+    type Vtable = IConnectionRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb6891ae_4f1e_4c66_bd0d_46924a942e08);
 }
 impl ::windows::core::RuntimeName for ConnectionRequestedEventArgs {
@@ -96,12 +96,12 @@ impl DeviceArrivedEventHandler {
 }
 #[repr(C)]
 struct DeviceArrivedEventHandlerBox<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const DeviceArrivedEventHandlerVtbl,
+    vtable: *const DeviceArrivedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::core::Result<()> + 'static> DeviceArrivedEventHandlerBox<F> {
-    const VTABLE: DeviceArrivedEventHandlerVtbl = DeviceArrivedEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: DeviceArrivedEventHandler_Vtbl = DeviceArrivedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<DeviceArrivedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -146,7 +146,7 @@ impl ::core::fmt::Debug for DeviceArrivedEventHandler {
     }
 }
 unsafe impl ::windows::core::Interface for DeviceArrivedEventHandler {
-    type Vtable = DeviceArrivedEventHandlerVtbl;
+    type Vtable = DeviceArrivedEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa9da69_f6e1_49c9_a49e_8e0fc58fb911);
 }
 unsafe impl ::windows::core::RuntimeType for DeviceArrivedEventHandler {
@@ -154,7 +154,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceArrivedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct DeviceArrivedEventHandlerVtbl {
+pub struct DeviceArrivedEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -174,12 +174,12 @@ impl DeviceDepartedEventHandler {
 }
 #[repr(C)]
 struct DeviceDepartedEventHandlerBox<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const DeviceDepartedEventHandlerVtbl,
+    vtable: *const DeviceDepartedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::core::Result<()> + 'static> DeviceDepartedEventHandlerBox<F> {
-    const VTABLE: DeviceDepartedEventHandlerVtbl = DeviceDepartedEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: DeviceDepartedEventHandler_Vtbl = DeviceDepartedEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<DeviceDepartedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -224,7 +224,7 @@ impl ::core::fmt::Debug for DeviceDepartedEventHandler {
     }
 }
 unsafe impl ::windows::core::Interface for DeviceDepartedEventHandler {
-    type Vtable = DeviceDepartedEventHandlerVtbl;
+    type Vtable = DeviceDepartedEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa9da69_f6e2_49c9_a49e_8e0fc58fb911);
 }
 unsafe impl ::windows::core::RuntimeType for DeviceDepartedEventHandler {
@@ -232,7 +232,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceDepartedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct DeviceDepartedEventHandlerVtbl {
+pub struct DeviceDepartedEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -240,12 +240,12 @@ pub struct DeviceDepartedEventHandlerVtbl {
 #[repr(transparent)]
 pub struct IConnectionRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IConnectionRequestedEventArgs {
-    type Vtable = IConnectionRequestedEventArgsVtbl;
+    type Vtable = IConnectionRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb6891ae_4f1e_4c66_bd0d_46924a942e08);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IConnectionRequestedEventArgsVtbl {
+pub struct IConnectionRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PeerInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -253,12 +253,12 @@ pub struct IConnectionRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPeerFinderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPeerFinderStatics {
-    type Vtable = IPeerFinderStaticsVtbl;
+    type Vtable = IPeerFinderStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x914b3b61_f6e1_47c4_a14c_148a1903d0c6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPeerFinderStaticsVtbl {
+pub struct IPeerFinderStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AllowBluetooth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAllowBluetooth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -305,12 +305,12 @@ pub struct IPeerFinderStaticsVtbl {
 #[repr(transparent)]
 pub struct IPeerFinderStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPeerFinderStatics2 {
-    type Vtable = IPeerFinderStatics2Vtbl;
+    type Vtable = IPeerFinderStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6e73c65_fdd0_4b0b_9312_866408935d82);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPeerFinderStatics2Vtbl {
+pub struct IPeerFinderStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Role: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PeerRole) -> ::windows::core::HRESULT,
     pub SetRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: PeerRole) -> ::windows::core::HRESULT,
@@ -328,12 +328,12 @@ pub struct IPeerFinderStatics2Vtbl {
 #[repr(transparent)]
 pub struct IPeerInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPeerInformation {
-    type Vtable = IPeerInformationVtbl;
+    type Vtable = IPeerInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20024f08_9fff_45f4_b6e9_408b2ebef373);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPeerInformationVtbl {
+pub struct IPeerInformation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -341,12 +341,12 @@ pub struct IPeerInformationVtbl {
 #[repr(transparent)]
 pub struct IPeerInformation3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPeerInformation3 {
-    type Vtable = IPeerInformation3Vtbl;
+    type Vtable = IPeerInformation3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb20f612a_dbd0_40f8_95bd_2d4209c7836f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPeerInformation3Vtbl {
+pub struct IPeerInformation3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -358,12 +358,12 @@ pub struct IPeerInformation3Vtbl {
 #[repr(transparent)]
 pub struct IPeerInformationWithHostAndService(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPeerInformationWithHostAndService {
-    type Vtable = IPeerInformationWithHostAndServiceVtbl;
+    type Vtable = IPeerInformationWithHostAndService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecc7ccad_1b70_4e8b_92db_bbe781419308);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPeerInformationWithHostAndServiceVtbl {
+pub struct IPeerInformationWithHostAndService_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub HostName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ServiceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -372,12 +372,12 @@ pub struct IPeerInformationWithHostAndServiceVtbl {
 #[repr(transparent)]
 pub struct IPeerWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPeerWatcher {
-    type Vtable = IPeerWatcherVtbl;
+    type Vtable = IPeerWatcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cee21f8_2fa6_4679_9691_03c94a420f34);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPeerWatcherVtbl {
+pub struct IPeerWatcher_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Added: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -427,12 +427,12 @@ pub struct IPeerWatcherVtbl {
 #[repr(transparent)]
 pub struct IProximityDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProximityDevice {
-    type Vtable = IProximityDeviceVtbl;
+    type Vtable = IProximityDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa8a552_f6e1_4329_a0fc_ab6b0fd28262);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProximityDeviceVtbl {
+pub struct IProximityDevice_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SubscribeForMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, messagetype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, messagereceivedhandler: ::windows::core::RawPtr, result__: *mut i64) -> ::windows::core::HRESULT,
     pub PublishMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, messagetype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut i64) -> ::windows::core::HRESULT,
@@ -479,12 +479,12 @@ pub struct IProximityDeviceVtbl {
 #[repr(transparent)]
 pub struct IProximityDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProximityDeviceStatics {
-    type Vtable = IProximityDeviceStaticsVtbl;
+    type Vtable = IProximityDeviceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x914ba01d_f6e1_47c4_a14c_148a1903d0c6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProximityDeviceStaticsVtbl {
+pub struct IProximityDeviceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -494,12 +494,12 @@ pub struct IProximityDeviceStaticsVtbl {
 #[repr(transparent)]
 pub struct IProximityMessage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProximityMessage {
-    type Vtable = IProximityMessageVtbl;
+    type Vtable = IProximityMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefab0782_f6e1_4675_a045_d8e320c24808);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProximityMessageVtbl {
+pub struct IProximityMessage_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MessageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SubscriptionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT,
@@ -513,12 +513,12 @@ pub struct IProximityMessageVtbl {
 #[repr(transparent)]
 pub struct ITriggeredConnectionStateChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITriggeredConnectionStateChangedEventArgs {
-    type Vtable = ITriggeredConnectionStateChangedEventArgsVtbl;
+    type Vtable = ITriggeredConnectionStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6a780ad_f6e1_4d54_96e2_33f620bca88a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITriggeredConnectionStateChangedEventArgsVtbl {
+pub struct ITriggeredConnectionStateChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TriggeredConnectState) -> ::windows::core::HRESULT,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -543,12 +543,12 @@ impl MessageReceivedHandler {
 }
 #[repr(C)]
 struct MessageReceivedHandlerBox<F: FnMut(&::core::option::Option<ProximityDevice>, &::core::option::Option<ProximityMessage>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const MessageReceivedHandlerVtbl,
+    vtable: *const MessageReceivedHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<ProximityDevice>, &::core::option::Option<ProximityMessage>) -> ::windows::core::Result<()> + 'static> MessageReceivedHandlerBox<F> {
-    const VTABLE: MessageReceivedHandlerVtbl = MessageReceivedHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: MessageReceivedHandler_Vtbl = MessageReceivedHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<MessageReceivedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -593,7 +593,7 @@ impl ::core::fmt::Debug for MessageReceivedHandler {
     }
 }
 unsafe impl ::windows::core::Interface for MessageReceivedHandler {
-    type Vtable = MessageReceivedHandlerVtbl;
+    type Vtable = MessageReceivedHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefab0782_f6e2_4675_a045_d8e320c24808);
 }
 unsafe impl ::windows::core::RuntimeType for MessageReceivedHandler {
@@ -601,7 +601,7 @@ unsafe impl ::windows::core::RuntimeType for MessageReceivedHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct MessageReceivedHandlerVtbl {
+pub struct MessageReceivedHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, message: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -621,12 +621,12 @@ impl MessageTransmittedHandler {
 }
 #[repr(C)]
 struct MessageTransmittedHandlerBox<F: FnMut(&::core::option::Option<ProximityDevice>, i64) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const MessageTransmittedHandlerVtbl,
+    vtable: *const MessageTransmittedHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<ProximityDevice>, i64) -> ::windows::core::Result<()> + 'static> MessageTransmittedHandlerBox<F> {
-    const VTABLE: MessageTransmittedHandlerVtbl = MessageTransmittedHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: MessageTransmittedHandler_Vtbl = MessageTransmittedHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<MessageTransmittedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -671,7 +671,7 @@ impl ::core::fmt::Debug for MessageTransmittedHandler {
     }
 }
 unsafe impl ::windows::core::Interface for MessageTransmittedHandler {
-    type Vtable = MessageTransmittedHandlerVtbl;
+    type Vtable = MessageTransmittedHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefaa0b4a_f6e2_4d7d_856c_78fc8efc021e);
 }
 unsafe impl ::windows::core::RuntimeType for MessageTransmittedHandler {
@@ -679,7 +679,7 @@ unsafe impl ::windows::core::RuntimeType for MessageTransmittedHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct MessageTransmittedHandlerVtbl {
+pub struct MessageTransmittedHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, messageid: i64) -> ::windows::core::HRESULT,
 }
@@ -972,7 +972,7 @@ unsafe impl ::windows::core::RuntimeType for PeerInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.PeerInformation;{20024f08-9fff-45f4-b6e9-408b2ebef373})");
 }
 unsafe impl ::windows::core::Interface for PeerInformation {
-    type Vtable = IPeerInformationVtbl;
+    type Vtable = IPeerInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20024f08_9fff_45f4_b6e9_408b2ebef373);
 }
 impl ::windows::core::RuntimeName for PeerInformation {
@@ -1172,7 +1172,7 @@ unsafe impl ::windows::core::RuntimeType for PeerWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.PeerWatcher;{3cee21f8-2fa6-4679-9691-03c94a420f34})");
 }
 unsafe impl ::windows::core::Interface for PeerWatcher {
-    type Vtable = IPeerWatcherVtbl;
+    type Vtable = IPeerWatcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cee21f8_2fa6_4679_9691_03c94a420f34);
 }
 impl ::windows::core::RuntimeName for PeerWatcher {
@@ -1432,7 +1432,7 @@ unsafe impl ::windows::core::RuntimeType for ProximityDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.ProximityDevice;{efa8a552-f6e1-4329-a0fc-ab6b0fd28262})");
 }
 unsafe impl ::windows::core::Interface for ProximityDevice {
-    type Vtable = IProximityDeviceVtbl;
+    type Vtable = IProximityDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa8a552_f6e1_4329_a0fc_ab6b0fd28262);
 }
 impl ::windows::core::RuntimeName for ProximityDevice {
@@ -1538,7 +1538,7 @@ unsafe impl ::windows::core::RuntimeType for ProximityMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.ProximityMessage;{efab0782-f6e1-4675-a045-d8e320c24808})");
 }
 unsafe impl ::windows::core::Interface for ProximityMessage {
-    type Vtable = IProximityMessageVtbl;
+    type Vtable = IProximityMessage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefab0782_f6e1_4675_a045_d8e320c24808);
 }
 impl ::windows::core::RuntimeName for ProximityMessage {
@@ -1673,7 +1673,7 @@ unsafe impl ::windows::core::RuntimeType for TriggeredConnectionStateChangedEven
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.TriggeredConnectionStateChangedEventArgs;{c6a780ad-f6e1-4d54-96e2-33f620bca88a})");
 }
 unsafe impl ::windows::core::Interface for TriggeredConnectionStateChangedEventArgs {
-    type Vtable = ITriggeredConnectionStateChangedEventArgsVtbl;
+    type Vtable = ITriggeredConnectionStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6a780ad_f6e1_4d54_96e2_33f620bca88a);
 }
 impl ::windows::core::RuntimeName for TriggeredConnectionStateChangedEventArgs {

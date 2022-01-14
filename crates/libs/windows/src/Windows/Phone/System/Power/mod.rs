@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IPowerManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPowerManagerStatics {
-    type Vtable = IPowerManagerStaticsVtbl;
+    type Vtable = IPowerManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25de8fd0_1c5b_11e1_bddb_0800200c9a66);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPowerManagerStaticsVtbl {
+pub struct IPowerManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PowerSavingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PowerSavingMode) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -24,12 +24,12 @@ pub struct IPowerManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IPowerManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPowerManagerStatics2 {
-    type Vtable = IPowerManagerStatics2Vtbl;
+    type Vtable = IPowerManagerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x596236cf_1918_4551_a466_c51aae373bf8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPowerManagerStatics2Vtbl {
+pub struct IPowerManagerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PowerSavingModeEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }

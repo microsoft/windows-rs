@@ -176,7 +176,7 @@ unsafe impl ::windows::core::RuntimeType for ArcadeStick {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ArcadeStick;{b14a539d-befb-4c81-8051-15ecf3b13036})");
 }
 unsafe impl ::windows::core::Interface for ArcadeStick {
-    type Vtable = IArcadeStickVtbl;
+    type Vtable = IArcadeStick_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb14a539d_befb_4c81_8051_15ecf3b13036);
 }
 impl ::windows::core::RuntimeName for ArcadeStick {
@@ -551,7 +551,7 @@ unsafe impl ::windows::core::RuntimeType for FlightStick {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.FlightStick;{b4a2c01c-b83b-4459-a1a9-97b03c33da7c})");
 }
 unsafe impl ::windows::core::Interface for FlightStick {
-    type Vtable = IFlightStickVtbl;
+    type Vtable = IFlightStick_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4a2c01c_b83b_4459_a1a9_97b03c33da7c);
 }
 impl ::windows::core::RuntimeName for FlightStick {
@@ -1105,7 +1105,7 @@ unsafe impl ::windows::core::RuntimeType for Gamepad {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Gamepad;{bc7bb43c-0a69-3903-9e9d-a50f86a45de5})");
 }
 unsafe impl ::windows::core::Interface for Gamepad {
-    type Vtable = IGamepadVtbl;
+    type Vtable = IGamepad_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc7bb43c_0a69_3903_9e9d_a50f86a45de5);
 }
 impl ::windows::core::RuntimeName for Gamepad {
@@ -1407,7 +1407,7 @@ unsafe impl ::windows::core::RuntimeType for Headset {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Headset;{3fd156ef-6925-3fa8-9181-029c5223ae3b})");
 }
 unsafe impl ::windows::core::Interface for Headset {
-    type Vtable = IHeadsetVtbl;
+    type Vtable = IHeadset_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fd156ef_6925_3fa8_9181_029c5223ae3b);
 }
 impl ::windows::core::RuntimeName for Headset {
@@ -1481,12 +1481,12 @@ unsafe impl ::core::marker::Sync for Headset {}
 #[repr(transparent)]
 pub struct IArcadeStick(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IArcadeStick {
-    type Vtable = IArcadeStickVtbl;
+    type Vtable = IArcadeStick_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb14a539d_befb_4c81_8051_15ecf3b13036);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IArcadeStickVtbl {
+pub struct IArcadeStick_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetButtonLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, button: ArcadeStickButtons, result__: *mut GameControllerButtonLabel) -> ::windows::core::HRESULT,
     pub GetCurrentReading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ArcadeStickReading) -> ::windows::core::HRESULT,
@@ -1495,12 +1495,12 @@ pub struct IArcadeStickVtbl {
 #[repr(transparent)]
 pub struct IArcadeStickStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IArcadeStickStatics {
-    type Vtable = IArcadeStickStaticsVtbl;
+    type Vtable = IArcadeStickStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c37b8c8_37b1_4ad8_9458_200f1a30018e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IArcadeStickStaticsVtbl {
+pub struct IArcadeStickStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ArcadeStickAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -1527,12 +1527,12 @@ pub struct IArcadeStickStaticsVtbl {
 #[repr(transparent)]
 pub struct IArcadeStickStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IArcadeStickStatics2 {
-    type Vtable = IArcadeStickStatics2Vtbl;
+    type Vtable = IArcadeStickStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52b5d744_bb86_445a_b59c_596f0e2a49df);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IArcadeStickStatics2Vtbl {
+pub struct IArcadeStickStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FromGameController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1540,12 +1540,12 @@ pub struct IArcadeStickStatics2Vtbl {
 #[repr(transparent)]
 pub struct IFlightStick(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFlightStick {
-    type Vtable = IFlightStickVtbl;
+    type Vtable = IFlightStick_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4a2c01c_b83b_4459_a1a9_97b03c33da7c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFlightStickVtbl {
+pub struct IFlightStick_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub HatSwitchKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GameControllerSwitchKind) -> ::windows::core::HRESULT,
     pub GetButtonLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, button: FlightStickButtons, result__: *mut GameControllerButtonLabel) -> ::windows::core::HRESULT,
@@ -1555,12 +1555,12 @@ pub struct IFlightStickVtbl {
 #[repr(transparent)]
 pub struct IFlightStickStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFlightStickStatics {
-    type Vtable = IFlightStickStaticsVtbl;
+    type Vtable = IFlightStickStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5514924a_fecc_435e_83dc_5cec8a18a520);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFlightStickStaticsVtbl {
+pub struct IFlightStickStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FlightStickAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -1719,12 +1719,12 @@ unsafe impl ::windows::core::RuntimeType for IGameController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1baf6522-5f64-42c5-8267-b9fe2215bfbd}");
 }
 unsafe impl ::windows::core::Interface for IGameController {
-    type Vtable = IGameControllerVtbl;
+    type Vtable = IGameController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1baf6522_5f64_42c5_8267_b9fe2215bfbd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameControllerVtbl {
+pub struct IGameController_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub HeadsetConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -1831,12 +1831,12 @@ unsafe impl ::windows::core::RuntimeType for IGameControllerBatteryInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{dcecc681-3963-4da6-955d-553f3b6f6161}");
 }
 unsafe impl ::windows::core::Interface for IGameControllerBatteryInfo {
-    type Vtable = IGameControllerBatteryInfoVtbl;
+    type Vtable = IGameControllerBatteryInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcecc681_3963_4da6_955d_553f3b6f6161);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGameControllerBatteryInfoVtbl {
+pub struct IGameControllerBatteryInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Power")]
     pub TryGetBatteryReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1847,12 +1847,12 @@ pub struct IGameControllerBatteryInfoVtbl {
 #[repr(transparent)]
 pub struct IGamepad(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGamepad {
-    type Vtable = IGamepadVtbl;
+    type Vtable = IGamepad_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc7bb43c_0a69_3903_9e9d_a50f86a45de5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGamepadVtbl {
+pub struct IGamepad_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Vibration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GamepadVibration) -> ::windows::core::HRESULT,
     pub SetVibration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: GamepadVibration) -> ::windows::core::HRESULT,
@@ -1862,12 +1862,12 @@ pub struct IGamepadVtbl {
 #[repr(transparent)]
 pub struct IGamepad2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGamepad2 {
-    type Vtable = IGamepad2Vtbl;
+    type Vtable = IGamepad2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c1689bd_5915_4245_b0c0_c89fae0308ff);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGamepad2Vtbl {
+pub struct IGamepad2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetButtonLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, button: GamepadButtons, result__: *mut GameControllerButtonLabel) -> ::windows::core::HRESULT,
 }
@@ -1875,12 +1875,12 @@ pub struct IGamepad2Vtbl {
 #[repr(transparent)]
 pub struct IGamepadStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGamepadStatics {
-    type Vtable = IGamepadStaticsVtbl;
+    type Vtable = IGamepadStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bbce529_d49c_39e9_9560_e47dde96b7c8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGamepadStaticsVtbl {
+pub struct IGamepadStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GamepadAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -1907,12 +1907,12 @@ pub struct IGamepadStaticsVtbl {
 #[repr(transparent)]
 pub struct IGamepadStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGamepadStatics2 {
-    type Vtable = IGamepadStatics2Vtbl;
+    type Vtable = IGamepadStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42676dc5_0856_47c4_9213_b395504c3a3c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGamepadStatics2Vtbl {
+pub struct IGamepadStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FromGameController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1920,12 +1920,12 @@ pub struct IGamepadStatics2Vtbl {
 #[repr(transparent)]
 pub struct IHeadset(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHeadset {
-    type Vtable = IHeadsetVtbl;
+    type Vtable = IHeadset_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fd156ef_6925_3fa8_9181_029c5223ae3b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHeadsetVtbl {
+pub struct IHeadset_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CaptureDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub RenderDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1934,12 +1934,12 @@ pub struct IHeadsetVtbl {
 #[repr(transparent)]
 pub struct IRacingWheel(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRacingWheel {
-    type Vtable = IRacingWheelVtbl;
+    type Vtable = IRacingWheel_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf546656f_e106_4c82_a90f_554012904b85);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRacingWheelVtbl {
+pub struct IRacingWheel_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub HasClutch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub HasHandbrake: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1957,12 +1957,12 @@ pub struct IRacingWheelVtbl {
 #[repr(transparent)]
 pub struct IRacingWheelStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRacingWheelStatics {
-    type Vtable = IRacingWheelStaticsVtbl;
+    type Vtable = IRacingWheelStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ac12cd5_581b_4936_9f94_69f1e6514c7d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRacingWheelStaticsVtbl {
+pub struct IRacingWheelStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RacingWheelAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -1989,12 +1989,12 @@ pub struct IRacingWheelStaticsVtbl {
 #[repr(transparent)]
 pub struct IRacingWheelStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRacingWheelStatics2 {
-    type Vtable = IRacingWheelStatics2Vtbl;
+    type Vtable = IRacingWheelStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe666bcaa_edfd_4323_a9f6_3c384048d1ed);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRacingWheelStatics2Vtbl {
+pub struct IRacingWheelStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FromGameController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2002,12 +2002,12 @@ pub struct IRacingWheelStatics2Vtbl {
 #[repr(transparent)]
 pub struct IRawGameController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRawGameController {
-    type Vtable = IRawGameControllerVtbl;
+    type Vtable = IRawGameController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cad6d91_a7e1_4f71_9a78_33e9c5dfea62);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRawGameControllerVtbl {
+pub struct IRawGameController_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AxisCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub ButtonCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -2026,12 +2026,12 @@ pub struct IRawGameControllerVtbl {
 #[repr(transparent)]
 pub struct IRawGameController2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRawGameController2 {
-    type Vtable = IRawGameController2Vtbl;
+    type Vtable = IRawGameController2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43c0c035_bb73_4756_a787_3ed6bea617bd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRawGameController2Vtbl {
+pub struct IRawGameController2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Devices_Haptics", feature = "Foundation_Collections"))]
     pub SimpleHapticsControllers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2044,12 +2044,12 @@ pub struct IRawGameController2Vtbl {
 #[repr(transparent)]
 pub struct IRawGameControllerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRawGameControllerStatics {
-    type Vtable = IRawGameControllerStaticsVtbl;
+    type Vtable = IRawGameControllerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb8d0792_e95a_4b19_afc7_0a59f8bf759e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRawGameControllerStaticsVtbl {
+pub struct IRawGameControllerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RawGameControllerAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -2077,12 +2077,12 @@ pub struct IRawGameControllerStaticsVtbl {
 #[repr(transparent)]
 pub struct IUINavigationController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUINavigationController {
-    type Vtable = IUINavigationControllerVtbl;
+    type Vtable = IUINavigationController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5aeefdd_f50e_4a55_8cdc_d33229548175);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUINavigationControllerVtbl {
+pub struct IUINavigationController_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetCurrentReading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UINavigationReading) -> ::windows::core::HRESULT,
     pub GetOptionalButtonLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, button: OptionalUINavigationButtons, result__: *mut GameControllerButtonLabel) -> ::windows::core::HRESULT,
@@ -2092,12 +2092,12 @@ pub struct IUINavigationControllerVtbl {
 #[repr(transparent)]
 pub struct IUINavigationControllerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUINavigationControllerStatics {
-    type Vtable = IUINavigationControllerStaticsVtbl;
+    type Vtable = IUINavigationControllerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f14930a_f6f8_4a48_8d89_94786cca0c2e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUINavigationControllerStaticsVtbl {
+pub struct IUINavigationControllerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub UINavigationControllerAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -2124,12 +2124,12 @@ pub struct IUINavigationControllerStaticsVtbl {
 #[repr(transparent)]
 pub struct IUINavigationControllerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUINavigationControllerStatics2 {
-    type Vtable = IUINavigationControllerStatics2Vtbl;
+    type Vtable = IUINavigationControllerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0cb28e3_b20b_4b0b_9ed4_f3d53cec0de4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUINavigationControllerStatics2Vtbl {
+pub struct IUINavigationControllerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FromGameController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2425,7 +2425,7 @@ unsafe impl ::windows::core::RuntimeType for RacingWheel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.RacingWheel;{f546656f-e106-4c82-a90f-554012904b85})");
 }
 unsafe impl ::windows::core::Interface for RacingWheel {
-    type Vtable = IRacingWheelVtbl;
+    type Vtable = IRacingWheel_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf546656f_e106_4c82_a90f_554012904b85);
 }
 impl ::windows::core::RuntimeName for RacingWheel {
@@ -2890,7 +2890,7 @@ unsafe impl ::windows::core::RuntimeType for RawGameController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.RawGameController;{7cad6d91-a7e1-4f71-9a78-33e9c5dfea62})");
 }
 unsafe impl ::windows::core::Interface for RawGameController {
-    type Vtable = IRawGameControllerVtbl;
+    type Vtable = IRawGameController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cad6d91_a7e1_4f71_9a78_33e9c5dfea62);
 }
 impl ::windows::core::RuntimeName for RawGameController {
@@ -3229,7 +3229,7 @@ unsafe impl ::windows::core::RuntimeType for UINavigationController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.UINavigationController;{e5aeefdd-f50e-4a55-8cdc-d33229548175})");
 }
 unsafe impl ::windows::core::Interface for UINavigationController {
-    type Vtable = IUINavigationControllerVtbl;
+    type Vtable = IUINavigationController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5aeefdd_f50e_4a55_8cdc_d33229548175);
 }
 impl ::windows::core::RuntimeName for UINavigationController {

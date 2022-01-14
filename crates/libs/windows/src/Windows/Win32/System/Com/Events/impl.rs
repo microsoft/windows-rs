@@ -1,21 +1,21 @@
-pub trait IDontSupportEventSubscriptionImpl: Sized {}
-impl IDontSupportEventSubscriptionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDontSupportEventSubscriptionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDontSupportEventSubscriptionVtbl {
+pub trait IDontSupportEventSubscription_Impl: Sized {}
+impl IDontSupportEventSubscription_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDontSupportEventSubscription_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDontSupportEventSubscription_Vtbl {
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDontSupportEventSubscription as ::windows::core::Interface>::IID
     }
 }
-pub trait IEnumEventObjectImpl: Sized {
+pub trait IEnumEventObject_Impl: Sized {
     fn Clone(&mut self) -> ::windows::core::Result<IEnumEventObject>;
     fn Next(&mut self, creqelem: u32, ppinterface: *mut ::core::option::Option<::windows::core::IUnknown>, cretelem: *mut u32) -> ::windows::core::Result<()>;
     fn Reset(&mut self) -> ::windows::core::Result<()>;
     fn Skip(&mut self, cskipelem: u32) -> ::windows::core::Result<()>;
 }
-impl IEnumEventObjectVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumEventObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnumEventObjectVtbl {
-        unsafe extern "system" fn Clone<Impl: IEnumEventObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppinterface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEnumEventObject_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumEventObject_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnumEventObject_Vtbl {
+        unsafe extern "system" fn Clone<Impl: IEnumEventObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppinterface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -25,15 +25,15 @@ impl IEnumEventObjectVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Next<Impl: IEnumEventObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, creqelem: u32, ppinterface: *mut *mut ::core::ffi::c_void, cretelem: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Next<Impl: IEnumEventObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, creqelem: u32, ppinterface: *mut *mut ::core::ffi::c_void, cretelem: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Next(::core::mem::transmute_copy(&creqelem), ::core::mem::transmute_copy(&ppinterface), ::core::mem::transmute_copy(&cretelem)).into()
         }
-        unsafe extern "system" fn Reset<Impl: IEnumEventObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Reset<Impl: IEnumEventObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Reset().into()
         }
-        unsafe extern "system" fn Skip<Impl: IEnumEventObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cskipelem: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Skip<Impl: IEnumEventObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cskipelem: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Skip(::core::mem::transmute_copy(&cskipelem)).into()
         }
@@ -50,7 +50,7 @@ impl IEnumEventObjectVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub trait IEventClassImpl: Sized + IDispatchImpl {
+pub trait IEventClass_Impl: Sized + super::IDispatch_Impl {
     fn EventClassID(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn SetEventClassID(&mut self, bstreventclassid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn EventClassName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
@@ -67,9 +67,9 @@ pub trait IEventClassImpl: Sized + IDispatchImpl {
     fn SetTypeLib(&mut self, bstrtypelib: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl IEventClassVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEventClassImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEventClassVtbl {
-        unsafe extern "system" fn EventClassID<Impl: IEventClassImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstreventclassid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IEventClass_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEventClass_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEventClass_Vtbl {
+        unsafe extern "system" fn EventClassID<Impl: IEventClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstreventclassid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EventClassID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -79,11 +79,11 @@ impl IEventClassVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEventClassID<Impl: IEventClassImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstreventclassid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEventClassID<Impl: IEventClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstreventclassid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEventClassID(::core::mem::transmute_copy(&bstreventclassid)).into()
         }
-        unsafe extern "system" fn EventClassName<Impl: IEventClassImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstreventclassname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EventClassName<Impl: IEventClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstreventclassname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EventClassName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -93,11 +93,11 @@ impl IEventClassVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEventClassName<Impl: IEventClassImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstreventclassname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEventClassName<Impl: IEventClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstreventclassname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEventClassName(::core::mem::transmute_copy(&bstreventclassname)).into()
         }
-        unsafe extern "system" fn OwnerSID<Impl: IEventClassImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrownersid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OwnerSID<Impl: IEventClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrownersid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OwnerSID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -107,11 +107,11 @@ impl IEventClassVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOwnerSID<Impl: IEventClassImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrownersid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOwnerSID<Impl: IEventClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrownersid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOwnerSID(::core::mem::transmute_copy(&bstrownersid)).into()
         }
-        unsafe extern "system" fn FiringInterfaceID<Impl: IEventClassImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfiringinterfaceid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FiringInterfaceID<Impl: IEventClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfiringinterfaceid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FiringInterfaceID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -121,11 +121,11 @@ impl IEventClassVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFiringInterfaceID<Impl: IEventClassImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfiringinterfaceid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFiringInterfaceID<Impl: IEventClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfiringinterfaceid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFiringInterfaceID(::core::mem::transmute_copy(&bstrfiringinterfaceid)).into()
         }
-        unsafe extern "system" fn Description<Impl: IEventClassImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdescription: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Impl: IEventClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdescription: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -135,11 +135,11 @@ impl IEventClassVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDescription<Impl: IEventClassImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdescription: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDescription<Impl: IEventClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdescription: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDescription(::core::mem::transmute_copy(&bstrdescription)).into()
         }
-        unsafe extern "system" fn CustomConfigCLSID<Impl: IEventClassImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcustomconfigclsid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CustomConfigCLSID<Impl: IEventClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcustomconfigclsid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CustomConfigCLSID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -149,11 +149,11 @@ impl IEventClassVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCustomConfigCLSID<Impl: IEventClassImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcustomconfigclsid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCustomConfigCLSID<Impl: IEventClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcustomconfigclsid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCustomConfigCLSID(::core::mem::transmute_copy(&bstrcustomconfigclsid)).into()
         }
-        unsafe extern "system" fn TypeLib<Impl: IEventClassImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtypelib: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TypeLib<Impl: IEventClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtypelib: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TypeLib() {
                 ::core::result::Result::Ok(ok__) => {
@@ -163,12 +163,12 @@ impl IEventClassVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTypeLib<Impl: IEventClassImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtypelib: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTypeLib<Impl: IEventClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtypelib: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTypeLib(::core::mem::transmute_copy(&bstrtypelib)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             EventClassID: EventClassID::<Impl, IMPL_OFFSET>,
             SetEventClassID: SetEventClassID::<Impl, IMPL_OFFSET>,
             EventClassName: EventClassName::<Impl, IMPL_OFFSET>,
@@ -190,7 +190,7 @@ impl IEventClassVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub trait IEventClass2Impl: Sized + IDispatchImpl + IEventClassImpl {
+pub trait IEventClass2_Impl: Sized + super::IDispatch_Impl + IEventClass_Impl {
     fn PublisherID(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn SetPublisherID(&mut self, bstrpublisherid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn MultiInterfacePublisherFilterCLSID(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
@@ -201,9 +201,9 @@ pub trait IEventClass2Impl: Sized + IDispatchImpl + IEventClassImpl {
     fn SetFireInParallel(&mut self, ffireinparallel: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl IEventClass2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEventClass2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEventClass2Vtbl {
-        unsafe extern "system" fn PublisherID<Impl: IEventClass2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpublisherid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IEventClass2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEventClass2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEventClass2_Vtbl {
+        unsafe extern "system" fn PublisherID<Impl: IEventClass2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpublisherid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PublisherID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -213,11 +213,11 @@ impl IEventClass2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPublisherID<Impl: IEventClass2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpublisherid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPublisherID<Impl: IEventClass2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpublisherid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPublisherID(::core::mem::transmute_copy(&bstrpublisherid)).into()
         }
-        unsafe extern "system" fn MultiInterfacePublisherFilterCLSID<Impl: IEventClass2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpubfilclsid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MultiInterfacePublisherFilterCLSID<Impl: IEventClass2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpubfilclsid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MultiInterfacePublisherFilterCLSID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -227,11 +227,11 @@ impl IEventClass2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMultiInterfacePublisherFilterCLSID<Impl: IEventClass2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpubfilclsid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMultiInterfacePublisherFilterCLSID<Impl: IEventClass2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpubfilclsid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMultiInterfacePublisherFilterCLSID(::core::mem::transmute_copy(&bstrpubfilclsid)).into()
         }
-        unsafe extern "system" fn AllowInprocActivation<Impl: IEventClass2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfallowinprocactivation: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllowInprocActivation<Impl: IEventClass2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfallowinprocactivation: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowInprocActivation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -241,11 +241,11 @@ impl IEventClass2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAllowInprocActivation<Impl: IEventClass2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fallowinprocactivation: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAllowInprocActivation<Impl: IEventClass2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fallowinprocactivation: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowInprocActivation(::core::mem::transmute_copy(&fallowinprocactivation)).into()
         }
-        unsafe extern "system" fn FireInParallel<Impl: IEventClass2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pffireinparallel: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FireInParallel<Impl: IEventClass2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pffireinparallel: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FireInParallel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -255,12 +255,12 @@ impl IEventClass2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFireInParallel<Impl: IEventClass2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ffireinparallel: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFireInParallel<Impl: IEventClass2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ffireinparallel: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFireInParallel(::core::mem::transmute_copy(&ffireinparallel)).into()
         }
         Self {
-            base: IEventClassVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: IEventClass_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             PublisherID: PublisherID::<Impl, IMPL_OFFSET>,
             SetPublisherID: SetPublisherID::<Impl, IMPL_OFFSET>,
             MultiInterfacePublisherFilterCLSID: MultiInterfacePublisherFilterCLSID::<Impl, IMPL_OFFSET>,
@@ -276,7 +276,7 @@ impl IEventClass2Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub trait IEventControlImpl: Sized + IDispatchImpl {
+pub trait IEventControl_Impl: Sized + super::IDispatch_Impl {
     fn SetPublisherFilter(&mut self, methodname: super::super::super::Foundation::BSTR, ppublisherfilter: ::core::option::Option<IPublisherFilter>) -> ::windows::core::Result<()>;
     fn AllowInprocActivation(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
     fn SetAllowInprocActivation(&mut self, fallowinprocactivation: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -284,13 +284,13 @@ pub trait IEventControlImpl: Sized + IDispatchImpl {
     fn SetDefaultQuery(&mut self, methodname: super::super::super::Foundation::BSTR, criteria: super::super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl IEventControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEventControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEventControlVtbl {
-        unsafe extern "system" fn SetPublisherFilter<Impl: IEventControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, methodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppublisherfilter: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IEventControl_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEventControl_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEventControl_Vtbl {
+        unsafe extern "system" fn SetPublisherFilter<Impl: IEventControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, methodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppublisherfilter: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPublisherFilter(::core::mem::transmute_copy(&methodname), ::core::mem::transmute(&ppublisherfilter)).into()
         }
-        unsafe extern "system" fn AllowInprocActivation<Impl: IEventControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfallowinprocactivation: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllowInprocActivation<Impl: IEventControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfallowinprocactivation: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowInprocActivation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -300,11 +300,11 @@ impl IEventControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAllowInprocActivation<Impl: IEventControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fallowinprocactivation: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAllowInprocActivation<Impl: IEventControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fallowinprocactivation: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowInprocActivation(::core::mem::transmute_copy(&fallowinprocactivation)).into()
         }
-        unsafe extern "system" fn GetSubscriptions<Impl: IEventControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, methodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, optionalcriteria: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, optionalerrorindex: *const i32, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSubscriptions<Impl: IEventControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, methodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, optionalcriteria: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, optionalerrorindex: *const i32, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSubscriptions(::core::mem::transmute_copy(&methodname), ::core::mem::transmute_copy(&optionalcriteria), ::core::mem::transmute_copy(&optionalerrorindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -314,7 +314,7 @@ impl IEventControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDefaultQuery<Impl: IEventControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, methodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, criteria: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, errorindex: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDefaultQuery<Impl: IEventControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, methodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, criteria: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, errorindex: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetDefaultQuery(::core::mem::transmute_copy(&methodname), ::core::mem::transmute_copy(&criteria)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -325,7 +325,7 @@ impl IEventControlVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             SetPublisherFilter: SetPublisherFilter::<Impl, IMPL_OFFSET>,
             AllowInprocActivation: AllowInprocActivation::<Impl, IMPL_OFFSET>,
             SetAllowInprocActivation: SetAllowInprocActivation::<Impl, IMPL_OFFSET>,
@@ -338,23 +338,23 @@ impl IEventControlVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IEventObjectChangeImpl: Sized {
+pub trait IEventObjectChange_Impl: Sized {
     fn ChangedSubscription(&mut self, changetype: EOC_ChangeType, bstrsubscriptionid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ChangedEventClass(&mut self, changetype: EOC_ChangeType, bstreventclassid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ChangedPublisher(&mut self, changetype: EOC_ChangeType, bstrpublisherid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IEventObjectChangeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEventObjectChangeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEventObjectChangeVtbl {
-        unsafe extern "system" fn ChangedSubscription<Impl: IEventObjectChangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changetype: EOC_ChangeType, bstrsubscriptionid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+impl IEventObjectChange_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEventObjectChange_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEventObjectChange_Vtbl {
+        unsafe extern "system" fn ChangedSubscription<Impl: IEventObjectChange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changetype: EOC_ChangeType, bstrsubscriptionid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ChangedSubscription(::core::mem::transmute_copy(&changetype), ::core::mem::transmute_copy(&bstrsubscriptionid)).into()
         }
-        unsafe extern "system" fn ChangedEventClass<Impl: IEventObjectChangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changetype: EOC_ChangeType, bstreventclassid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ChangedEventClass<Impl: IEventObjectChange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changetype: EOC_ChangeType, bstreventclassid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ChangedEventClass(::core::mem::transmute_copy(&changetype), ::core::mem::transmute_copy(&bstreventclassid)).into()
         }
-        unsafe extern "system" fn ChangedPublisher<Impl: IEventObjectChangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changetype: EOC_ChangeType, bstrpublisherid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ChangedPublisher<Impl: IEventObjectChange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changetype: EOC_ChangeType, bstrpublisherid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ChangedPublisher(::core::mem::transmute_copy(&changetype), ::core::mem::transmute_copy(&bstrpublisherid)).into()
         }
@@ -370,18 +370,18 @@ impl IEventObjectChangeVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IEventObjectChange2Impl: Sized {
+pub trait IEventObjectChange2_Impl: Sized {
     fn ChangedSubscription(&mut self, pinfo: *const COMEVENTSYSCHANGEINFO) -> ::windows::core::Result<()>;
     fn ChangedEventClass(&mut self, pinfo: *const COMEVENTSYSCHANGEINFO) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IEventObjectChange2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEventObjectChange2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEventObjectChange2Vtbl {
-        unsafe extern "system" fn ChangedSubscription<Impl: IEventObjectChange2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMEVENTSYSCHANGEINFO) -> ::windows::core::HRESULT {
+impl IEventObjectChange2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEventObjectChange2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEventObjectChange2_Vtbl {
+        unsafe extern "system" fn ChangedSubscription<Impl: IEventObjectChange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMEVENTSYSCHANGEINFO) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ChangedSubscription(::core::mem::transmute_copy(&pinfo)).into()
         }
-        unsafe extern "system" fn ChangedEventClass<Impl: IEventObjectChange2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMEVENTSYSCHANGEINFO) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ChangedEventClass<Impl: IEventObjectChange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const COMEVENTSYSCHANGEINFO) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ChangedEventClass(::core::mem::transmute_copy(&pinfo)).into()
         }
@@ -396,7 +396,7 @@ impl IEventObjectChange2Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub trait IEventObjectCollectionImpl: Sized + IDispatchImpl {
+pub trait IEventObjectCollection_Impl: Sized + super::IDispatch_Impl {
     fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Item(&mut self, objectid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::VARIANT>;
     fn NewEnum(&mut self) -> ::windows::core::Result<IEnumEventObject>;
@@ -405,9 +405,9 @@ pub trait IEventObjectCollectionImpl: Sized + IDispatchImpl {
     fn Remove(&mut self, objectid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl IEventObjectCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEventObjectCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEventObjectCollectionVtbl {
-        unsafe extern "system" fn _NewEnum<Impl: IEventObjectCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunkenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IEventObjectCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEventObjectCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEventObjectCollection_Vtbl {
+        unsafe extern "system" fn _NewEnum<Impl: IEventObjectCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunkenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this)._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -417,7 +417,7 @@ impl IEventObjectCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Impl: IEventObjectCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objectid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pitem: *mut super::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Item<Impl: IEventObjectCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objectid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pitem: *mut super::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Item(::core::mem::transmute_copy(&objectid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -427,7 +427,7 @@ impl IEventObjectCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NewEnum<Impl: IEventObjectCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NewEnum<Impl: IEventObjectCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -437,7 +437,7 @@ impl IEventObjectCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Count<Impl: IEventObjectCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Count<Impl: IEventObjectCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -447,16 +447,16 @@ impl IEventObjectCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Impl: IEventObjectCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: *const super::VARIANT, objectid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Impl: IEventObjectCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: *const super::VARIANT, objectid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Add(::core::mem::transmute_copy(&item), ::core::mem::transmute_copy(&objectid)).into()
         }
-        unsafe extern "system" fn Remove<Impl: IEventObjectCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objectid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Remove<Impl: IEventObjectCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objectid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Remove(::core::mem::transmute_copy(&objectid)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
             Item: Item::<Impl, IMPL_OFFSET>,
             NewEnum: NewEnum::<Impl, IMPL_OFFSET>,
@@ -470,16 +470,16 @@ impl IEventObjectCollectionVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub trait IEventPropertyImpl: Sized + IDispatchImpl {
+pub trait IEventProperty_Impl: Sized + super::IDispatch_Impl {
     fn Name(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn SetName(&mut self, propertyname: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Value(&mut self) -> ::windows::core::Result<super::VARIANT>;
     fn SetValue(&mut self, propertyvalue: *const super::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl IEventPropertyVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEventPropertyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEventPropertyVtbl {
-        unsafe extern "system" fn Name<Impl: IEventPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IEventProperty_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEventProperty_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEventProperty_Vtbl {
+        unsafe extern "system" fn Name<Impl: IEventProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -489,11 +489,11 @@ impl IEventPropertyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetName<Impl: IEventPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetName<Impl: IEventProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetName(::core::mem::transmute_copy(&propertyname)).into()
         }
-        unsafe extern "system" fn Value<Impl: IEventPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyvalue: *mut super::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: IEventProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyvalue: *mut super::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -503,12 +503,12 @@ impl IEventPropertyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Impl: IEventPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyvalue: *const super::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Impl: IEventProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyvalue: *const super::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(::core::mem::transmute_copy(&propertyvalue)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Name: Name::<Impl, IMPL_OFFSET>,
             SetName: SetName::<Impl, IMPL_OFFSET>,
             Value: Value::<Impl, IMPL_OFFSET>,
@@ -520,7 +520,7 @@ impl IEventPropertyVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub trait IEventPublisherImpl: Sized + IDispatchImpl {
+pub trait IEventPublisher_Impl: Sized + super::IDispatch_Impl {
     fn PublisherID(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn SetPublisherID(&mut self, bstrpublisherid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn PublisherName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
@@ -537,9 +537,9 @@ pub trait IEventPublisherImpl: Sized + IDispatchImpl {
     fn GetDefaultPropertyCollection(&mut self) -> ::windows::core::Result<IEventObjectCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl IEventPublisherVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEventPublisherImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEventPublisherVtbl {
-        unsafe extern "system" fn PublisherID<Impl: IEventPublisherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpublisherid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IEventPublisher_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEventPublisher_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEventPublisher_Vtbl {
+        unsafe extern "system" fn PublisherID<Impl: IEventPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpublisherid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PublisherID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -549,11 +549,11 @@ impl IEventPublisherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPublisherID<Impl: IEventPublisherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpublisherid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPublisherID<Impl: IEventPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpublisherid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPublisherID(::core::mem::transmute_copy(&bstrpublisherid)).into()
         }
-        unsafe extern "system" fn PublisherName<Impl: IEventPublisherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpublishername: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PublisherName<Impl: IEventPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpublishername: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PublisherName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -563,11 +563,11 @@ impl IEventPublisherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPublisherName<Impl: IEventPublisherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpublishername: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPublisherName<Impl: IEventPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpublishername: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPublisherName(::core::mem::transmute_copy(&bstrpublishername)).into()
         }
-        unsafe extern "system" fn PublisherType<Impl: IEventPublisherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpublishertype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PublisherType<Impl: IEventPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpublishertype: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PublisherType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -577,11 +577,11 @@ impl IEventPublisherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPublisherType<Impl: IEventPublisherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpublishertype: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPublisherType<Impl: IEventPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpublishertype: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPublisherType(::core::mem::transmute_copy(&bstrpublishertype)).into()
         }
-        unsafe extern "system" fn OwnerSID<Impl: IEventPublisherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrownersid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OwnerSID<Impl: IEventPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrownersid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OwnerSID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -591,11 +591,11 @@ impl IEventPublisherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOwnerSID<Impl: IEventPublisherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrownersid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOwnerSID<Impl: IEventPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrownersid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOwnerSID(::core::mem::transmute_copy(&bstrownersid)).into()
         }
-        unsafe extern "system" fn Description<Impl: IEventPublisherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdescription: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Impl: IEventPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdescription: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -605,11 +605,11 @@ impl IEventPublisherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDescription<Impl: IEventPublisherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdescription: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDescription<Impl: IEventPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdescription: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDescription(::core::mem::transmute_copy(&bstrdescription)).into()
         }
-        unsafe extern "system" fn GetDefaultProperty<Impl: IEventPublisherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, propertyvalue: *mut super::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDefaultProperty<Impl: IEventPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, propertyvalue: *mut super::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultProperty(::core::mem::transmute_copy(&bstrpropertyname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -619,15 +619,15 @@ impl IEventPublisherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PutDefaultProperty<Impl: IEventPublisherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, propertyvalue: *const super::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PutDefaultProperty<Impl: IEventPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, propertyvalue: *const super::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PutDefaultProperty(::core::mem::transmute_copy(&bstrpropertyname), ::core::mem::transmute_copy(&propertyvalue)).into()
         }
-        unsafe extern "system" fn RemoveDefaultProperty<Impl: IEventPublisherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDefaultProperty<Impl: IEventPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDefaultProperty(::core::mem::transmute_copy(&bstrpropertyname)).into()
         }
-        unsafe extern "system" fn GetDefaultPropertyCollection<Impl: IEventPublisherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, collection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDefaultPropertyCollection<Impl: IEventPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, collection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultPropertyCollection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -638,7 +638,7 @@ impl IEventPublisherVtbl {
             }
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             PublisherID: PublisherID::<Impl, IMPL_OFFSET>,
             SetPublisherID: SetPublisherID::<Impl, IMPL_OFFSET>,
             PublisherName: PublisherName::<Impl, IMPL_OFFSET>,
@@ -660,7 +660,7 @@ impl IEventPublisherVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub trait IEventSubscriptionImpl: Sized + IDispatchImpl {
+pub trait IEventSubscription_Impl: Sized + super::IDispatch_Impl {
     fn SubscriptionID(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn SetSubscriptionID(&mut self, bstrsubscriptionid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SubscriptionName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
@@ -697,9 +697,9 @@ pub trait IEventSubscriptionImpl: Sized + IDispatchImpl {
     fn SetInterfaceID(&mut self, bstrinterfaceid: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl IEventSubscriptionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEventSubscriptionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEventSubscriptionVtbl {
-        unsafe extern "system" fn SubscriptionID<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubscriptionid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+impl IEventSubscription_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEventSubscription_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEventSubscription_Vtbl {
+        unsafe extern "system" fn SubscriptionID<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubscriptionid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SubscriptionID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -709,11 +709,11 @@ impl IEventSubscriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSubscriptionID<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsubscriptionid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSubscriptionID<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsubscriptionid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSubscriptionID(::core::mem::transmute_copy(&bstrsubscriptionid)).into()
         }
-        unsafe extern "system" fn SubscriptionName<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubscriptionname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SubscriptionName<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubscriptionname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SubscriptionName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -723,11 +723,11 @@ impl IEventSubscriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSubscriptionName<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsubscriptionname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSubscriptionName<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsubscriptionname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSubscriptionName(::core::mem::transmute_copy(&bstrsubscriptionname)).into()
         }
-        unsafe extern "system" fn PublisherID<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpublisherid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PublisherID<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpublisherid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PublisherID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -737,11 +737,11 @@ impl IEventSubscriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPublisherID<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpublisherid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPublisherID<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpublisherid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPublisherID(::core::mem::transmute_copy(&bstrpublisherid)).into()
         }
-        unsafe extern "system" fn EventClassID<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstreventclassid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EventClassID<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstreventclassid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EventClassID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -751,11 +751,11 @@ impl IEventSubscriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEventClassID<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstreventclassid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEventClassID<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstreventclassid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEventClassID(::core::mem::transmute_copy(&bstreventclassid)).into()
         }
-        unsafe extern "system" fn MethodName<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrmethodname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MethodName<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrmethodname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MethodName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -765,11 +765,11 @@ impl IEventSubscriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMethodName<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmethodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMethodName<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmethodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMethodName(::core::mem::transmute_copy(&bstrmethodname)).into()
         }
-        unsafe extern "system" fn SubscriberCLSID<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubscriberclsid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SubscriberCLSID<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubscriberclsid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SubscriberCLSID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -779,11 +779,11 @@ impl IEventSubscriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSubscriberCLSID<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsubscriberclsid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSubscriberCLSID<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsubscriberclsid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSubscriberCLSID(::core::mem::transmute_copy(&bstrsubscriberclsid)).into()
         }
-        unsafe extern "system" fn SubscriberInterface<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsubscriberinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SubscriberInterface<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsubscriberinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SubscriberInterface() {
                 ::core::result::Result::Ok(ok__) => {
@@ -793,11 +793,11 @@ impl IEventSubscriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSubscriberInterface<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psubscriberinterface: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSubscriberInterface<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psubscriberinterface: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSubscriberInterface(::core::mem::transmute(&psubscriberinterface)).into()
         }
-        unsafe extern "system" fn PerUser<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfperuser: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PerUser<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfperuser: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PerUser() {
                 ::core::result::Result::Ok(ok__) => {
@@ -807,11 +807,11 @@ impl IEventSubscriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPerUser<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fperuser: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPerUser<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fperuser: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPerUser(::core::mem::transmute_copy(&fperuser)).into()
         }
-        unsafe extern "system" fn OwnerSID<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrownersid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OwnerSID<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrownersid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OwnerSID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -821,11 +821,11 @@ impl IEventSubscriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOwnerSID<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrownersid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOwnerSID<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrownersid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetOwnerSID(::core::mem::transmute_copy(&bstrownersid)).into()
         }
-        unsafe extern "system" fn Enabled<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Enabled<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Enabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -835,11 +835,11 @@ impl IEventSubscriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEnabled<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnabled<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetEnabled(::core::mem::transmute_copy(&fenabled)).into()
         }
-        unsafe extern "system" fn Description<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdescription: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdescription: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -849,11 +849,11 @@ impl IEventSubscriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDescription<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdescription: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDescription<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdescription: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDescription(::core::mem::transmute_copy(&bstrdescription)).into()
         }
-        unsafe extern "system" fn MachineName<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrmachinename: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MachineName<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrmachinename: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MachineName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -863,11 +863,11 @@ impl IEventSubscriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMachineName<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmachinename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMachineName<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmachinename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMachineName(::core::mem::transmute_copy(&bstrmachinename)).into()
         }
-        unsafe extern "system" fn GetPublisherProperty<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, propertyvalue: *mut super::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPublisherProperty<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, propertyvalue: *mut super::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPublisherProperty(::core::mem::transmute_copy(&bstrpropertyname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -877,15 +877,15 @@ impl IEventSubscriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PutPublisherProperty<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, propertyvalue: *const super::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PutPublisherProperty<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, propertyvalue: *const super::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PutPublisherProperty(::core::mem::transmute_copy(&bstrpropertyname), ::core::mem::transmute_copy(&propertyvalue)).into()
         }
-        unsafe extern "system" fn RemovePublisherProperty<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePublisherProperty<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePublisherProperty(::core::mem::transmute_copy(&bstrpropertyname)).into()
         }
-        unsafe extern "system" fn GetPublisherPropertyCollection<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, collection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPublisherPropertyCollection<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, collection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPublisherPropertyCollection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -895,7 +895,7 @@ impl IEventSubscriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSubscriberProperty<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, propertyvalue: *mut super::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSubscriberProperty<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, propertyvalue: *mut super::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSubscriberProperty(::core::mem::transmute_copy(&bstrpropertyname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -905,15 +905,15 @@ impl IEventSubscriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PutSubscriberProperty<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, propertyvalue: *const super::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PutSubscriberProperty<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, propertyvalue: *const super::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PutSubscriberProperty(::core::mem::transmute_copy(&bstrpropertyname), ::core::mem::transmute_copy(&propertyvalue)).into()
         }
-        unsafe extern "system" fn RemoveSubscriberProperty<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSubscriberProperty<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSubscriberProperty(::core::mem::transmute_copy(&bstrpropertyname)).into()
         }
-        unsafe extern "system" fn GetSubscriberPropertyCollection<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, collection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSubscriberPropertyCollection<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, collection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSubscriberPropertyCollection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -923,7 +923,7 @@ impl IEventSubscriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InterfaceID<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrinterfaceid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InterfaceID<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrinterfaceid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InterfaceID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -933,12 +933,12 @@ impl IEventSubscriptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInterfaceID<Impl: IEventSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinterfaceid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInterfaceID<Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinterfaceid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetInterfaceID(::core::mem::transmute_copy(&bstrinterfaceid)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             SubscriptionID: SubscriptionID::<Impl, IMPL_OFFSET>,
             SetSubscriptionID: SetSubscriptionID::<Impl, IMPL_OFFSET>,
             SubscriptionName: SubscriptionName::<Impl, IMPL_OFFSET>,
@@ -980,7 +980,7 @@ impl IEventSubscriptionVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub trait IEventSystemImpl: Sized + IDispatchImpl {
+pub trait IEventSystem_Impl: Sized + super::IDispatch_Impl {
     fn Query(&mut self, progid: super::super::super::Foundation::BSTR, querycriteria: super::super::super::Foundation::BSTR, errorindex: *mut i32, ppinterface: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn Store(&mut self, progid: super::super::super::Foundation::BSTR, pinterface: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn Remove(&mut self, progid: super::super::super::Foundation::BSTR, querycriteria: super::super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
@@ -989,17 +989,17 @@ pub trait IEventSystemImpl: Sized + IDispatchImpl {
     fn RemoveS(&mut self, progid: super::super::super::Foundation::BSTR, querycriteria: super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl IEventSystemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEventSystemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEventSystemVtbl {
-        unsafe extern "system" fn Query<Impl: IEventSystemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, progid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, querycriteria: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, errorindex: *mut i32, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IEventSystem_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEventSystem_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEventSystem_Vtbl {
+        unsafe extern "system" fn Query<Impl: IEventSystem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, progid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, querycriteria: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, errorindex: *mut i32, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Query(::core::mem::transmute_copy(&progid), ::core::mem::transmute_copy(&querycriteria), ::core::mem::transmute_copy(&errorindex), ::core::mem::transmute_copy(&ppinterface)).into()
         }
-        unsafe extern "system" fn Store<Impl: IEventSystemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, progid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pinterface: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Store<Impl: IEventSystem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, progid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pinterface: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Store(::core::mem::transmute_copy(&progid), ::core::mem::transmute(&pinterface)).into()
         }
-        unsafe extern "system" fn Remove<Impl: IEventSystemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, progid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, querycriteria: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, errorindex: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Remove<Impl: IEventSystem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, progid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, querycriteria: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, errorindex: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Remove(::core::mem::transmute_copy(&progid), ::core::mem::transmute_copy(&querycriteria)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1009,7 +1009,7 @@ impl IEventSystemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EventObjectChangeEventClassID<Impl: IEventSystemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstreventclassid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EventObjectChangeEventClassID<Impl: IEventSystem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstreventclassid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EventObjectChangeEventClassID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1019,7 +1019,7 @@ impl IEventSystemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QueryS<Impl: IEventSystemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, progid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, querycriteria: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryS<Impl: IEventSystem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, progid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, querycriteria: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).QueryS(::core::mem::transmute_copy(&progid), ::core::mem::transmute_copy(&querycriteria)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1029,12 +1029,12 @@ impl IEventSystemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveS<Impl: IEventSystemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, progid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, querycriteria: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveS<Impl: IEventSystem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, progid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, querycriteria: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveS(::core::mem::transmute_copy(&progid), ::core::mem::transmute_copy(&querycriteria)).into()
         }
         Self {
-            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            base: super::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
             Query: Query::<Impl, IMPL_OFFSET>,
             Store: Store::<Impl, IMPL_OFFSET>,
             Remove: Remove::<Impl, IMPL_OFFSET>,
@@ -1048,24 +1048,24 @@ impl IEventSystemVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub trait IFiringControlImpl: Sized + IDispatchImpl {
+pub trait IFiringControl_Impl: Sized + super::IDispatch_Impl {
     fn FireSubscription(&mut self, subscription: ::core::option::Option<IEventSubscription>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl IFiringControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFiringControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFiringControlVtbl {
-        unsafe extern "system" fn FireSubscription<Impl: IFiringControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subscription: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IFiringControl_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFiringControl_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFiringControl_Vtbl {
+        unsafe extern "system" fn FireSubscription<Impl: IFiringControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subscription: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).FireSubscription(::core::mem::transmute(&subscription)).into()
         }
-        Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), FireSubscription: FireSubscription::<Impl, IMPL_OFFSET> }
+        Self { base: super::IDispatch_Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), FireSubscription: FireSubscription::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFiringControl as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IMultiInterfaceEventControlImpl: Sized {
+pub trait IMultiInterfaceEventControl_Impl: Sized {
     fn SetMultiInterfacePublisherFilter(&mut self, classfilter: ::core::option::Option<IMultiInterfacePublisherFilter>) -> ::windows::core::Result<()>;
     fn GetSubscriptions(&mut self, eventiid: *const ::windows::core::GUID, bstrmethodname: super::super::super::Foundation::BSTR, optionalcriteria: super::super::super::Foundation::BSTR, optionalerrorindex: *const i32) -> ::windows::core::Result<IEventObjectCollection>;
     fn SetDefaultQuery(&mut self, eventiid: *const ::windows::core::GUID, bstrmethodname: super::super::super::Foundation::BSTR, bstrcriteria: super::super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
@@ -1075,13 +1075,13 @@ pub trait IMultiInterfaceEventControlImpl: Sized {
     fn SetFireInParallel(&mut self, ffireinparallel: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IMultiInterfaceEventControlVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMultiInterfaceEventControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMultiInterfaceEventControlVtbl {
-        unsafe extern "system" fn SetMultiInterfacePublisherFilter<Impl: IMultiInterfaceEventControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classfilter: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMultiInterfaceEventControl_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMultiInterfaceEventControl_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMultiInterfaceEventControl_Vtbl {
+        unsafe extern "system" fn SetMultiInterfacePublisherFilter<Impl: IMultiInterfaceEventControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classfilter: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMultiInterfacePublisherFilter(::core::mem::transmute(&classfilter)).into()
         }
-        unsafe extern "system" fn GetSubscriptions<Impl: IMultiInterfaceEventControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventiid: *const ::windows::core::GUID, bstrmethodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, optionalcriteria: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, optionalerrorindex: *const i32, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSubscriptions<Impl: IMultiInterfaceEventControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventiid: *const ::windows::core::GUID, bstrmethodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, optionalcriteria: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, optionalerrorindex: *const i32, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSubscriptions(::core::mem::transmute_copy(&eventiid), ::core::mem::transmute_copy(&bstrmethodname), ::core::mem::transmute_copy(&optionalcriteria), ::core::mem::transmute_copy(&optionalerrorindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1091,7 +1091,7 @@ impl IMultiInterfaceEventControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDefaultQuery<Impl: IMultiInterfaceEventControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventiid: *const ::windows::core::GUID, bstrmethodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrcriteria: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, errorindex: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDefaultQuery<Impl: IMultiInterfaceEventControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventiid: *const ::windows::core::GUID, bstrmethodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrcriteria: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, errorindex: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetDefaultQuery(::core::mem::transmute_copy(&eventiid), ::core::mem::transmute_copy(&bstrmethodname), ::core::mem::transmute_copy(&bstrcriteria)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1101,7 +1101,7 @@ impl IMultiInterfaceEventControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AllowInprocActivation<Impl: IMultiInterfaceEventControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfallowinprocactivation: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllowInprocActivation<Impl: IMultiInterfaceEventControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfallowinprocactivation: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AllowInprocActivation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1111,11 +1111,11 @@ impl IMultiInterfaceEventControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAllowInprocActivation<Impl: IMultiInterfaceEventControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fallowinprocactivation: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAllowInprocActivation<Impl: IMultiInterfaceEventControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fallowinprocactivation: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAllowInprocActivation(::core::mem::transmute_copy(&fallowinprocactivation)).into()
         }
-        unsafe extern "system" fn FireInParallel<Impl: IMultiInterfaceEventControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pffireinparallel: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FireInParallel<Impl: IMultiInterfaceEventControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pffireinparallel: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FireInParallel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1125,7 +1125,7 @@ impl IMultiInterfaceEventControlVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFireInParallel<Impl: IMultiInterfaceEventControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ffireinparallel: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFireInParallel<Impl: IMultiInterfaceEventControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ffireinparallel: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFireInParallel(::core::mem::transmute_copy(&ffireinparallel)).into()
         }
@@ -1145,18 +1145,18 @@ impl IMultiInterfaceEventControlVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IMultiInterfacePublisherFilterImpl: Sized {
+pub trait IMultiInterfacePublisherFilter_Impl: Sized {
     fn Initialize(&mut self, peic: ::core::option::Option<IMultiInterfaceEventControl>) -> ::windows::core::Result<()>;
     fn PrepareToFire(&mut self, iid: *const ::windows::core::GUID, methodname: super::super::super::Foundation::BSTR, firingcontrol: ::core::option::Option<IFiringControl>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IMultiInterfacePublisherFilterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMultiInterfacePublisherFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMultiInterfacePublisherFilterVtbl {
-        unsafe extern "system" fn Initialize<Impl: IMultiInterfacePublisherFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peic: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMultiInterfacePublisherFilter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMultiInterfacePublisherFilter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMultiInterfacePublisherFilter_Vtbl {
+        unsafe extern "system" fn Initialize<Impl: IMultiInterfacePublisherFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peic: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Initialize(::core::mem::transmute(&peic)).into()
         }
-        unsafe extern "system" fn PrepareToFire<Impl: IMultiInterfacePublisherFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, methodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, firingcontrol: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrepareToFire<Impl: IMultiInterfacePublisherFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, methodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, firingcontrol: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PrepareToFire(::core::mem::transmute_copy(&iid), ::core::mem::transmute_copy(&methodname), ::core::mem::transmute(&firingcontrol)).into()
         }
@@ -1171,18 +1171,18 @@ impl IMultiInterfacePublisherFilterVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IPublisherFilterImpl: Sized {
+pub trait IPublisherFilter_Impl: Sized {
     fn Initialize(&mut self, methodname: super::super::super::Foundation::BSTR, dispuserdefined: ::core::option::Option<super::IDispatch>) -> ::windows::core::Result<()>;
     fn PrepareToFire(&mut self, methodname: super::super::super::Foundation::BSTR, firingcontrol: ::core::option::Option<IFiringControl>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IPublisherFilterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPublisherFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPublisherFilterVtbl {
-        unsafe extern "system" fn Initialize<Impl: IPublisherFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, methodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, dispuserdefined: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPublisherFilter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPublisherFilter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPublisherFilter_Vtbl {
+        unsafe extern "system" fn Initialize<Impl: IPublisherFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, methodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, dispuserdefined: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Initialize(::core::mem::transmute_copy(&methodname), ::core::mem::transmute(&dispuserdefined)).into()
         }
-        unsafe extern "system" fn PrepareToFire<Impl: IPublisherFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, methodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, firingcontrol: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrepareToFire<Impl: IPublisherFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, methodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, firingcontrol: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PrepareToFire(::core::mem::transmute_copy(&methodname), ::core::mem::transmute(&firingcontrol)).into()
         }

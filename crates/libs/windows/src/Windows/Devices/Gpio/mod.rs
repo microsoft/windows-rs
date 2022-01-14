@@ -140,7 +140,7 @@ unsafe impl ::windows::core::RuntimeType for GpioChangeCounter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioChangeCounter;{cb5ec0de-6801-43ff-803d-4576628a8b26})");
 }
 unsafe impl ::windows::core::Interface for GpioChangeCounter {
-    type Vtable = IGpioChangeCounterVtbl;
+    type Vtable = IGpioChangeCounter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb5ec0de_6801_43ff_803d_4576628a8b26);
 }
 impl ::windows::core::RuntimeName for GpioChangeCounter {
@@ -402,7 +402,7 @@ unsafe impl ::windows::core::RuntimeType for GpioChangeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioChangeReader;{0abc885f-e031-48e8-8590-70de78363c6d})");
 }
 unsafe impl ::windows::core::Interface for GpioChangeReader {
-    type Vtable = IGpioChangeReaderVtbl;
+    type Vtable = IGpioChangeReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0abc885f_e031_48e8_8590_70de78363c6d);
 }
 impl ::windows::core::RuntimeName for GpioChangeReader {
@@ -613,7 +613,7 @@ unsafe impl ::windows::core::RuntimeType for GpioController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioController;{284012e3-7461-469c-a8bc-61d69d08a53c})");
 }
 unsafe impl ::windows::core::Interface for GpioController {
-    type Vtable = IGpioControllerVtbl;
+    type Vtable = IGpioController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x284012e3_7461_469c_a8bc_61d69d08a53c);
 }
 impl ::windows::core::RuntimeName for GpioController {
@@ -808,7 +808,7 @@ unsafe impl ::windows::core::RuntimeType for GpioPin {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioPin;{11d9b087-afae-4790-9ee9-e0eac942d201})");
 }
 unsafe impl ::windows::core::Interface for GpioPin {
-    type Vtable = IGpioPinVtbl;
+    type Vtable = IGpioPin_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11d9b087_afae_4790_9ee9_e0eac942d201);
 }
 impl ::windows::core::RuntimeName for GpioPin {
@@ -1020,7 +1020,7 @@ unsafe impl ::windows::core::RuntimeType for GpioPinValueChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioPinValueChangedEventArgs;{3137aae1-703d-4059-bd24-b5b25dffb84e})");
 }
 unsafe impl ::windows::core::Interface for GpioPinValueChangedEventArgs {
-    type Vtable = IGpioPinValueChangedEventArgsVtbl;
+    type Vtable = IGpioPinValueChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3137aae1_703d_4059_bd24_b5b25dffb84e);
 }
 impl ::windows::core::RuntimeName for GpioPinValueChangedEventArgs {
@@ -1105,12 +1105,12 @@ impl ::windows::core::DefaultType for GpioSharingMode {
 #[repr(transparent)]
 pub struct IGpioChangeCounter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGpioChangeCounter {
-    type Vtable = IGpioChangeCounterVtbl;
+    type Vtable = IGpioChangeCounter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb5ec0de_6801_43ff_803d_4576628a8b26);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGpioChangeCounterVtbl {
+pub struct IGpioChangeCounter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetPolarity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: GpioChangePolarity) -> ::windows::core::HRESULT,
     pub Polarity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GpioChangePolarity) -> ::windows::core::HRESULT,
@@ -1130,12 +1130,12 @@ pub struct IGpioChangeCounterVtbl {
 #[repr(transparent)]
 pub struct IGpioChangeCounterFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGpioChangeCounterFactory {
-    type Vtable = IGpioChangeCounterFactoryVtbl;
+    type Vtable = IGpioChangeCounterFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x147d94b6_0a9e_410c_b4fa_f89f4052084d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGpioChangeCounterFactoryVtbl {
+pub struct IGpioChangeCounterFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1143,12 +1143,12 @@ pub struct IGpioChangeCounterFactoryVtbl {
 #[repr(transparent)]
 pub struct IGpioChangeReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGpioChangeReader {
-    type Vtable = IGpioChangeReaderVtbl;
+    type Vtable = IGpioChangeReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0abc885f_e031_48e8_8590_70de78363c6d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGpioChangeReaderVtbl {
+pub struct IGpioChangeReader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Capacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -1181,12 +1181,12 @@ pub struct IGpioChangeReaderVtbl {
 #[repr(transparent)]
 pub struct IGpioChangeReaderFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGpioChangeReaderFactory {
-    type Vtable = IGpioChangeReaderFactoryVtbl;
+    type Vtable = IGpioChangeReaderFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9598ef3_390e_441a_9d1c_e8de0b2df0df);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGpioChangeReaderFactoryVtbl {
+pub struct IGpioChangeReaderFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateWithCapacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: ::windows::core::RawPtr, mincapacity: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1195,12 +1195,12 @@ pub struct IGpioChangeReaderFactoryVtbl {
 #[repr(transparent)]
 pub struct IGpioController(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGpioController {
-    type Vtable = IGpioControllerVtbl;
+    type Vtable = IGpioController_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x284012e3_7461_469c_a8bc_61d69d08a53c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGpioControllerVtbl {
+pub struct IGpioController_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PinCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub OpenPin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinnumber: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1211,12 +1211,12 @@ pub struct IGpioControllerVtbl {
 #[repr(transparent)]
 pub struct IGpioControllerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGpioControllerStatics {
-    type Vtable = IGpioControllerStaticsVtbl;
+    type Vtable = IGpioControllerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ed6f42e_7af7_4116_9533_c43d99a1fb64);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGpioControllerStaticsVtbl {
+pub struct IGpioControllerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1224,12 +1224,12 @@ pub struct IGpioControllerStaticsVtbl {
 #[repr(transparent)]
 pub struct IGpioControllerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGpioControllerStatics2 {
-    type Vtable = IGpioControllerStatics2Vtbl;
+    type Vtable = IGpioControllerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x912b7d20_6ca4_4106_a373_fffd346b0e5b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGpioControllerStatics2Vtbl {
+pub struct IGpioControllerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Devices_Gpio_Provider", feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetControllersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1244,12 +1244,12 @@ pub struct IGpioControllerStatics2Vtbl {
 #[repr(transparent)]
 pub struct IGpioPin(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGpioPin {
-    type Vtable = IGpioPinVtbl;
+    type Vtable = IGpioPin_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11d9b087_afae_4790_9ee9_e0eac942d201);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGpioPinVtbl {
+pub struct IGpioPin_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ValueChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -1279,12 +1279,12 @@ pub struct IGpioPinVtbl {
 #[repr(transparent)]
 pub struct IGpioPinValueChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGpioPinValueChangedEventArgs {
-    type Vtable = IGpioPinValueChangedEventArgsVtbl;
+    type Vtable = IGpioPinValueChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3137aae1_703d_4059_bd24_b5b25dffb84e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGpioPinValueChangedEventArgsVtbl {
+pub struct IGpioPinValueChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Edge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GpioPinEdge) -> ::windows::core::HRESULT,
 }

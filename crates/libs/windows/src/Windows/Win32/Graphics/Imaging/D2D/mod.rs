@@ -56,12 +56,12 @@ impl ::core::fmt::Debug for IWICImageEncoder {
     }
 }
 unsafe impl ::windows::core::Interface for IWICImageEncoder {
-    type Vtable = IWICImageEncoderVtbl;
+    type Vtable = IWICImageEncoder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04c75bf8_3ce1_473b_acc5_3cc4f5e94999);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWICImageEncoderVtbl {
+pub struct IWICImageEncoder_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub WriteFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimage: ::windows::core::RawPtr, pframeencode: ::windows::core::RawPtr, pimageparameters: *const super::WICImageParameters) -> ::windows::core::HRESULT,
@@ -275,13 +275,13 @@ impl ::core::fmt::Debug for IWICImagingFactory2 {
     }
 }
 unsafe impl ::windows::core::Interface for IWICImagingFactory2 {
-    type Vtable = IWICImagingFactory2Vtbl;
+    type Vtable = IWICImagingFactory2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b816b45_1996_4476_b132_de9e247c8af0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWICImagingFactory2Vtbl {
-    pub base: super::IWICImagingFactoryVtbl,
+pub struct IWICImagingFactory2_Vtbl {
+    pub base: super::IWICImagingFactory_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D")]
     pub CreateImageEncoder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pd2ddevice: ::windows::core::RawPtr, ppwicimageencoder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D"))]

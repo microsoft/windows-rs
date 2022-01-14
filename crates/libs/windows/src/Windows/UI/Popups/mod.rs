@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IMessageDialog(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMessageDialog {
-    type Vtable = IMessageDialogVtbl;
+    type Vtable = IMessageDialog_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33f59b01_5325_43ab_9ab3_bdae440e4121);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMessageDialogVtbl {
+pub struct IMessageDialog_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -33,12 +33,12 @@ pub struct IMessageDialogVtbl {
 #[repr(transparent)]
 pub struct IMessageDialogFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMessageDialogFactory {
-    type Vtable = IMessageDialogFactoryVtbl;
+    type Vtable = IMessageDialogFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d161777_a66f_4ea5_bb87_793ffa4941f2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMessageDialogFactoryVtbl {
+pub struct IMessageDialogFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateWithTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -47,12 +47,12 @@ pub struct IMessageDialogFactoryVtbl {
 #[repr(transparent)]
 pub struct IPopupMenu(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPopupMenu {
-    type Vtable = IPopupMenuVtbl;
+    type Vtable = IPopupMenu_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e9bc6dc_880d_47fc_a0a1_72b639e62559);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPopupMenuVtbl {
+pub struct IPopupMenu_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Commands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -175,12 +175,12 @@ unsafe impl ::windows::core::RuntimeType for IUICommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f}");
 }
 unsafe impl ::windows::core::Interface for IUICommand {
-    type Vtable = IUICommandVtbl;
+    type Vtable = IUICommand_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ff93a75_4145_47ff_ac7f_dff1c1fa5b0f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUICommandVtbl {
+pub struct IUICommand_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -193,12 +193,12 @@ pub struct IUICommandVtbl {
 #[repr(transparent)]
 pub struct IUICommandFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUICommandFactory {
-    type Vtable = IUICommandFactoryVtbl;
+    type Vtable = IUICommandFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa21a8189_26b0_4676_ae94_54041bc125e8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUICommandFactoryVtbl {
+pub struct IUICommandFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateWithHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, action: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -331,7 +331,7 @@ unsafe impl ::windows::core::RuntimeType for MessageDialog {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.MessageDialog;{33f59b01-5325-43ab-9ab3-bdae440e4121})");
 }
 unsafe impl ::windows::core::Interface for MessageDialog {
-    type Vtable = IMessageDialogVtbl;
+    type Vtable = IMessageDialog_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33f59b01_5325_43ab_9ab3_bdae440e4121);
 }
 impl ::windows::core::RuntimeName for MessageDialog {
@@ -542,7 +542,7 @@ unsafe impl ::windows::core::RuntimeType for PopupMenu {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.PopupMenu;{4e9bc6dc-880d-47fc-a0a1-72b639e62559})");
 }
 unsafe impl ::windows::core::Interface for PopupMenu {
-    type Vtable = IPopupMenuVtbl;
+    type Vtable = IPopupMenu_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e9bc6dc_880d_47fc_a0a1_72b639e62559);
 }
 impl ::windows::core::RuntimeName for PopupMenu {
@@ -685,7 +685,7 @@ unsafe impl ::windows::core::RuntimeType for UICommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.UICommand;{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f})");
 }
 unsafe impl ::windows::core::Interface for UICommand {
-    type Vtable = IUICommandVtbl;
+    type Vtable = IUICommand_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ff93a75_4145_47ff_ac7f_dff1c1fa5b0f);
 }
 impl ::windows::core::RuntimeName for UICommand {
@@ -771,12 +771,12 @@ impl UICommandInvokedHandler {
 }
 #[repr(C)]
 struct UICommandInvokedHandlerBox<F: FnMut(&::core::option::Option<IUICommand>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const UICommandInvokedHandlerVtbl,
+    vtable: *const UICommandInvokedHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<IUICommand>) -> ::windows::core::Result<()> + 'static> UICommandInvokedHandlerBox<F> {
-    const VTABLE: UICommandInvokedHandlerVtbl = UICommandInvokedHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: UICommandInvokedHandler_Vtbl = UICommandInvokedHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<UICommandInvokedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -821,7 +821,7 @@ impl ::core::fmt::Debug for UICommandInvokedHandler {
     }
 }
 unsafe impl ::windows::core::Interface for UICommandInvokedHandler {
-    type Vtable = UICommandInvokedHandlerVtbl;
+    type Vtable = UICommandInvokedHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaf77a4f_c27a_4298_9ac6_2922c45e7da6);
 }
 unsafe impl ::windows::core::RuntimeType for UICommandInvokedHandler {
@@ -829,7 +829,7 @@ unsafe impl ::windows::core::RuntimeType for UICommandInvokedHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct UICommandInvokedHandlerVtbl {
+pub struct UICommandInvokedHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, command: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -904,7 +904,7 @@ unsafe impl ::windows::core::RuntimeType for UICommandSeparator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.UICommandSeparator;{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f})");
 }
 unsafe impl ::windows::core::Interface for UICommandSeparator {
-    type Vtable = IUICommandVtbl;
+    type Vtable = IUICommand_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ff93a75_4145_47ff_ac7f_dff1c1fa5b0f);
 }
 impl ::windows::core::RuntimeName for UICommandSeparator {

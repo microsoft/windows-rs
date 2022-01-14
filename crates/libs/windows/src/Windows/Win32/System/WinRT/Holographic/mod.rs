@@ -88,12 +88,12 @@ impl ::core::fmt::Debug for IHolographicCameraInterop {
     }
 }
 unsafe impl ::windows::core::Interface for IHolographicCameraInterop {
-    type Vtable = IHolographicCameraInteropVtbl;
+    type Vtable = IHolographicCameraInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cc1f9c5_6d02_41fa_9500_e1809eb48eec);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHolographicCameraInteropVtbl {
+pub struct IHolographicCameraInterop_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub CreateDirect3D12BackBufferResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, ppcreatedtexture2dresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -188,12 +188,12 @@ impl ::core::fmt::Debug for IHolographicCameraRenderingParametersInterop {
     }
 }
 unsafe impl ::windows::core::Interface for IHolographicCameraRenderingParametersInterop {
-    type Vtable = IHolographicCameraRenderingParametersInteropVtbl;
+    type Vtable = IHolographicCameraRenderingParametersInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf75b68d6_d1fd_4707_aafd_fa6f4c0e3bf4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHolographicCameraRenderingParametersInteropVtbl {
+pub struct IHolographicCameraRenderingParametersInterop_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub CommitDirect3D12Resource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcolorresourcetocommit: ::windows::core::RawPtr, pcolorresourcefence: ::windows::core::RawPtr, colorresourcefencesignalvalue: u64) -> ::windows::core::HRESULT,
@@ -293,12 +293,12 @@ impl ::core::fmt::Debug for IHolographicQuadLayerInterop {
     }
 }
 unsafe impl ::windows::core::Interface for IHolographicQuadLayerInterop {
-    type Vtable = IHolographicQuadLayerInteropVtbl;
+    type Vtable = IHolographicQuadLayerInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfa688f0_639e_4a47_83d7_6b7f5ebf7fed);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHolographicQuadLayerInteropVtbl {
+pub struct IHolographicQuadLayerInterop_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub CreateDirect3D12ContentBufferResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, pptexture2dresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -388,12 +388,12 @@ impl ::core::fmt::Debug for IHolographicQuadLayerUpdateParametersInterop {
     }
 }
 unsafe impl ::windows::core::Interface for IHolographicQuadLayerUpdateParametersInterop {
-    type Vtable = IHolographicQuadLayerUpdateParametersInteropVtbl;
+    type Vtable = IHolographicQuadLayerUpdateParametersInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5f549cd_c909_444f_8809_7cc18a9c8920);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHolographicQuadLayerUpdateParametersInteropVtbl {
+pub struct IHolographicQuadLayerUpdateParametersInterop_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub CommitDirect3D12Resource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcolorresourcetocommit: ::windows::core::RawPtr, pcolorresourcefence: ::windows::core::RawPtr, colorresourcefencesignalvalue: u64) -> ::windows::core::HRESULT,

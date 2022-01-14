@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPreviewBuildsManagerImpl: Sized {
+pub trait IPreviewBuildsManager_Impl: Sized {
     fn ArePreviewBuildsAllowed(&mut self) -> ::windows::core::Result<bool>;
     fn SetArePreviewBuildsAllowed(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn GetCurrentState(&mut self) -> ::windows::core::Result<PreviewBuildsState>;
@@ -10,9 +10,9 @@ impl ::windows::core::RuntimeName for IPreviewBuildsManager {
     const NAME: &'static str = "Windows.Management.Update.IPreviewBuildsManager";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPreviewBuildsManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPreviewBuildsManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPreviewBuildsManagerVtbl {
-        unsafe extern "system" fn ArePreviewBuildsAllowed<Impl: IPreviewBuildsManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IPreviewBuildsManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPreviewBuildsManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPreviewBuildsManager_Vtbl {
+        unsafe extern "system" fn ArePreviewBuildsAllowed<Impl: IPreviewBuildsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ArePreviewBuildsAllowed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -23,11 +23,11 @@ impl IPreviewBuildsManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetArePreviewBuildsAllowed<Impl: IPreviewBuildsManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetArePreviewBuildsAllowed<Impl: IPreviewBuildsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetArePreviewBuildsAllowed(value).into()
         }
-        unsafe extern "system" fn GetCurrentState<Impl: IPreviewBuildsManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentState<Impl: IPreviewBuildsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrentState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -38,7 +38,7 @@ impl IPreviewBuildsManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SyncAsync<Impl: IPreviewBuildsManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SyncAsync<Impl: IPreviewBuildsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SyncAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -62,7 +62,7 @@ impl IPreviewBuildsManagerVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPreviewBuildsManagerStaticsImpl: Sized {
+pub trait IPreviewBuildsManagerStatics_Impl: Sized {
     fn GetDefault(&mut self) -> ::windows::core::Result<PreviewBuildsManager>;
     fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
 }
@@ -71,9 +71,9 @@ impl ::windows::core::RuntimeName for IPreviewBuildsManagerStatics {
     const NAME: &'static str = "Windows.Management.Update.IPreviewBuildsManagerStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPreviewBuildsManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPreviewBuildsManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPreviewBuildsManagerStaticsVtbl {
-        unsafe extern "system" fn GetDefault<Impl: IPreviewBuildsManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPreviewBuildsManagerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPreviewBuildsManagerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPreviewBuildsManagerStatics_Vtbl {
+        unsafe extern "system" fn GetDefault<Impl: IPreviewBuildsManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
                 ::core::result::Result::Ok(ok__) => {
@@ -84,7 +84,7 @@ impl IPreviewBuildsManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSupported<Impl: IPreviewBuildsManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSupported<Impl: IPreviewBuildsManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -106,7 +106,7 @@ impl IPreviewBuildsManagerStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPreviewBuildsStateImpl: Sized {
+pub trait IPreviewBuildsState_Impl: Sized {
     fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -114,9 +114,9 @@ impl ::windows::core::RuntimeName for IPreviewBuildsState {
     const NAME: &'static str = "Windows.Management.Update.IPreviewBuildsState";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPreviewBuildsStateVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPreviewBuildsStateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPreviewBuildsStateVtbl {
-        unsafe extern "system" fn Properties<Impl: IPreviewBuildsStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPreviewBuildsState_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPreviewBuildsState_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPreviewBuildsState_Vtbl {
+        unsafe extern "system" fn Properties<Impl: IPreviewBuildsState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {

@@ -1,21 +1,21 @@
 #[cfg(feature = "Win32_Foundation")]
-pub trait IContactImpl: Sized {
+pub trait IContact_Impl: Sized {
     fn GetContactID(&mut self, pszcontactid: super::super::Foundation::PWSTR, cchcontactid: u32, pdwcchcontactidrequired: *mut u32) -> ::windows::core::Result<()>;
     fn GetPath(&mut self, pszpath: super::super::Foundation::PWSTR, cchpath: u32, pdwcchpathrequired: *mut u32) -> ::windows::core::Result<()>;
     fn CommitChanges(&mut self, dwcommitflags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IContactVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactVtbl {
-        unsafe extern "system" fn GetContactID<Impl: IContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcontactid: super::super::Foundation::PWSTR, cchcontactid: u32, pdwcchcontactidrequired: *mut u32) -> ::windows::core::HRESULT {
+impl IContact_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContact_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContact_Vtbl {
+        unsafe extern "system" fn GetContactID<Impl: IContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcontactid: super::super::Foundation::PWSTR, cchcontactid: u32, pdwcchcontactidrequired: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetContactID(::core::mem::transmute_copy(&pszcontactid), ::core::mem::transmute_copy(&cchcontactid), ::core::mem::transmute_copy(&pdwcchcontactidrequired)).into()
         }
-        unsafe extern "system" fn GetPath<Impl: IContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, cchpath: u32, pdwcchpathrequired: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPath<Impl: IContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, cchpath: u32, pdwcchpathrequired: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetPath(::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&cchpath), ::core::mem::transmute_copy(&pdwcchpathrequired)).into()
         }
-        unsafe extern "system" fn CommitChanges<Impl: IContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwcommitflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CommitChanges<Impl: IContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwcommitflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CommitChanges(::core::mem::transmute_copy(&dwcommitflags)).into()
         }
@@ -31,7 +31,7 @@ impl IContactVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IContactAggregationAggregateImpl: Sized {
+pub trait IContactAggregationAggregate_Impl: Sized {
     fn Save(&mut self) -> ::windows::core::Result<()>;
     fn GetComponentItems(&mut self) -> ::windows::core::Result<IContactAggregationContactCollection>;
     fn Link(&mut self, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
@@ -43,13 +43,13 @@ pub trait IContactAggregationAggregateImpl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IContactAggregationAggregateVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationAggregateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAggregationAggregateVtbl {
-        unsafe extern "system" fn Save<Impl: IContactAggregationAggregateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IContactAggregationAggregate_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationAggregate_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAggregationAggregate_Vtbl {
+        unsafe extern "system" fn Save<Impl: IContactAggregationAggregate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Save().into()
         }
-        unsafe extern "system" fn GetComponentItems<Impl: IContactAggregationAggregateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcomponentitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetComponentItems<Impl: IContactAggregationAggregate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcomponentitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetComponentItems() {
                 ::core::result::Result::Ok(ok__) => {
@@ -59,11 +59,11 @@ impl IContactAggregationAggregateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Link<Impl: IContactAggregationAggregateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Link<Impl: IContactAggregationAggregate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Link(::core::mem::transmute_copy(&paggregateid)).into()
         }
-        unsafe extern "system" fn Groups<Impl: IContactAggregationAggregateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppgroups: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Groups<Impl: IContactAggregationAggregate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppgroups: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Groups(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -73,7 +73,7 @@ impl IContactAggregationAggregateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AntiLink<Impl: IContactAggregationAggregateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppantilink: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AntiLink<Impl: IContactAggregationAggregate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppantilink: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AntiLink() {
                 ::core::result::Result::Ok(ok__) => {
@@ -83,11 +83,11 @@ impl IContactAggregationAggregateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAntiLink<Impl: IContactAggregationAggregateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pantilink: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAntiLink<Impl: IContactAggregationAggregate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pantilink: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAntiLink(::core::mem::transmute_copy(&pantilink)).into()
         }
-        unsafe extern "system" fn FavoriteOrder<Impl: IContactAggregationAggregateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfavoriteorder: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FavoriteOrder<Impl: IContactAggregationAggregate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfavoriteorder: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FavoriteOrder() {
                 ::core::result::Result::Ok(ok__) => {
@@ -97,11 +97,11 @@ impl IContactAggregationAggregateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFavoriteOrder<Impl: IContactAggregationAggregateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, favoriteorder: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFavoriteOrder<Impl: IContactAggregationAggregate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, favoriteorder: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFavoriteOrder(::core::mem::transmute_copy(&favoriteorder)).into()
         }
-        unsafe extern "system" fn Id<Impl: IContactAggregationAggregateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppitemid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Id<Impl: IContactAggregationAggregate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppitemid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -129,16 +129,16 @@ impl IContactAggregationAggregateVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IContactAggregationAggregateCollectionImpl: Sized {
+pub trait IContactAggregationAggregateCollection_Impl: Sized {
     fn FindFirst(&mut self) -> ::windows::core::Result<IContactAggregationAggregate>;
     fn FindFirstByAntiLinkId(&mut self, pantilinkid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContactAggregationAggregate>;
     fn FindNext(&mut self) -> ::windows::core::Result<IContactAggregationAggregate>;
     fn Count(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IContactAggregationAggregateCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationAggregateCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAggregationAggregateCollectionVtbl {
-        unsafe extern "system" fn FindFirst<Impl: IContactAggregationAggregateCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaggregate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IContactAggregationAggregateCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationAggregateCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAggregationAggregateCollection_Vtbl {
+        unsafe extern "system" fn FindFirst<Impl: IContactAggregationAggregateCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaggregate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindFirst() {
                 ::core::result::Result::Ok(ok__) => {
@@ -148,7 +148,7 @@ impl IContactAggregationAggregateCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindFirstByAntiLinkId<Impl: IContactAggregationAggregateCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pantilinkid: super::super::Foundation::PWSTR, ppaggregate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindFirstByAntiLinkId<Impl: IContactAggregationAggregateCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pantilinkid: super::super::Foundation::PWSTR, ppaggregate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindFirstByAntiLinkId(::core::mem::transmute_copy(&pantilinkid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -158,7 +158,7 @@ impl IContactAggregationAggregateCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindNext<Impl: IContactAggregationAggregateCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaggregate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindNext<Impl: IContactAggregationAggregateCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaggregate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindNext() {
                 ::core::result::Result::Ok(ok__) => {
@@ -168,7 +168,7 @@ impl IContactAggregationAggregateCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Count<Impl: IContactAggregationAggregateCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Count<Impl: IContactAggregationAggregateCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -191,7 +191,7 @@ impl IContactAggregationAggregateCollectionVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IContactAggregationContactImpl: Sized {
+pub trait IContactAggregationContact_Impl: Sized {
     fn Delete(&mut self) -> ::windows::core::Result<()>;
     fn Save(&mut self) -> ::windows::core::Result<()>;
     fn MoveToAggregate(&mut self, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
@@ -212,25 +212,25 @@ pub trait IContactAggregationContactImpl: Sized {
     fn SetSyncIdentityHash(&mut self, psyncidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IContactAggregationContactVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationContactImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAggregationContactVtbl {
-        unsafe extern "system" fn Delete<Impl: IContactAggregationContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IContactAggregationContact_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationContact_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAggregationContact_Vtbl {
+        unsafe extern "system" fn Delete<Impl: IContactAggregationContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Delete().into()
         }
-        unsafe extern "system" fn Save<Impl: IContactAggregationContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Save<Impl: IContactAggregationContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Save().into()
         }
-        unsafe extern "system" fn MoveToAggregate<Impl: IContactAggregationContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MoveToAggregate<Impl: IContactAggregationContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).MoveToAggregate(::core::mem::transmute_copy(&paggregateid)).into()
         }
-        unsafe extern "system" fn Unlink<Impl: IContactAggregationContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Unlink<Impl: IContactAggregationContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Unlink().into()
         }
-        unsafe extern "system" fn AccountId<Impl: IContactAggregationContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaccountid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AccountId<Impl: IContactAggregationContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaccountid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AccountId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -240,11 +240,11 @@ impl IContactAggregationContactVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAccountId<Impl: IContactAggregationContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paccountid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAccountId<Impl: IContactAggregationContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paccountid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAccountId(::core::mem::transmute_copy(&paccountid)).into()
         }
-        unsafe extern "system" fn AggregateId<Impl: IContactAggregationContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaggregateid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AggregateId<Impl: IContactAggregationContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaggregateid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AggregateId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -254,7 +254,7 @@ impl IContactAggregationContactVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Id<Impl: IContactAggregationContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppitemid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Id<Impl: IContactAggregationContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppitemid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -264,7 +264,7 @@ impl IContactAggregationContactVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsMe<Impl: IContactAggregationContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisme: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsMe<Impl: IContactAggregationContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisme: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsMe() {
                 ::core::result::Result::Ok(ok__) => {
@@ -274,7 +274,7 @@ impl IContactAggregationContactVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsExternal<Impl: IContactAggregationContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisexternal: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsExternal<Impl: IContactAggregationContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisexternal: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsExternal() {
                 ::core::result::Result::Ok(ok__) => {
@@ -284,7 +284,7 @@ impl IContactAggregationContactVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NetworkSourceId<Impl: IContactAggregationContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnetworksourceid: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NetworkSourceId<Impl: IContactAggregationContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnetworksourceid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkSourceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -294,11 +294,11 @@ impl IContactAggregationContactVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNetworkSourceId<Impl: IContactAggregationContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, networksourceid: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNetworkSourceId<Impl: IContactAggregationContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, networksourceid: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNetworkSourceId(::core::mem::transmute_copy(&networksourceid)).into()
         }
-        unsafe extern "system" fn NetworkSourceIdString<Impl: IContactAggregationContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnetworksourceid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NetworkSourceIdString<Impl: IContactAggregationContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnetworksourceid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkSourceIdString() {
                 ::core::result::Result::Ok(ok__) => {
@@ -308,11 +308,11 @@ impl IContactAggregationContactVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNetworkSourceIdString<Impl: IContactAggregationContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnetworksourceid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNetworkSourceIdString<Impl: IContactAggregationContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnetworksourceid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNetworkSourceIdString(::core::mem::transmute_copy(&pnetworksourceid)).into()
         }
-        unsafe extern "system" fn RemoteObjectId<Impl: IContactAggregationContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppremoteobjectid: *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoteObjectId<Impl: IContactAggregationContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppremoteobjectid: *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteObjectId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -322,11 +322,11 @@ impl IContactAggregationContactVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRemoteObjectId<Impl: IContactAggregationContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, premoteobjectid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRemoteObjectId<Impl: IContactAggregationContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, premoteobjectid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRemoteObjectId(::core::mem::transmute_copy(&premoteobjectid)).into()
         }
-        unsafe extern "system" fn SyncIdentityHash<Impl: IContactAggregationContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsyncidentityhash: *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SyncIdentityHash<Impl: IContactAggregationContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsyncidentityhash: *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SyncIdentityHash() {
                 ::core::result::Result::Ok(ok__) => {
@@ -336,7 +336,7 @@ impl IContactAggregationContactVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSyncIdentityHash<Impl: IContactAggregationContactImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psyncidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSyncIdentityHash<Impl: IContactAggregationContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psyncidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSyncIdentityHash(::core::mem::transmute_copy(&psyncidentityhash)).into()
         }
@@ -367,7 +367,7 @@ impl IContactAggregationContactVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IContactAggregationContactCollectionImpl: Sized {
+pub trait IContactAggregationContactCollection_Impl: Sized {
     fn FindFirst(&mut self) -> ::windows::core::Result<IContactAggregationContact>;
     fn FindNext(&mut self) -> ::windows::core::Result<IContactAggregationContact>;
     fn FindFirstByIdentityHash(&mut self, psourcetype: super::super::Foundation::PWSTR, paccountid: super::super::Foundation::PWSTR, pidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationContact>;
@@ -375,9 +375,9 @@ pub trait IContactAggregationContactCollectionImpl: Sized {
     fn FindFirstByRemoteId(&mut self, psourcetype: super::super::Foundation::PWSTR, paccountid: super::super::Foundation::PWSTR, premoteobjectid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationContact>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IContactAggregationContactCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationContactCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAggregationContactCollectionVtbl {
-        unsafe extern "system" fn FindFirst<Impl: IContactAggregationContactCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IContactAggregationContactCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationContactCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAggregationContactCollection_Vtbl {
+        unsafe extern "system" fn FindFirst<Impl: IContactAggregationContactCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindFirst() {
                 ::core::result::Result::Ok(ok__) => {
@@ -387,7 +387,7 @@ impl IContactAggregationContactCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindNext<Impl: IContactAggregationContactCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindNext<Impl: IContactAggregationContactCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindNext() {
                 ::core::result::Result::Ok(ok__) => {
@@ -397,7 +397,7 @@ impl IContactAggregationContactCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindFirstByIdentityHash<Impl: IContactAggregationContactCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psourcetype: super::super::Foundation::PWSTR, paccountid: super::super::Foundation::PWSTR, pidentityhash: *const CONTACT_AGGREGATION_BLOB, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindFirstByIdentityHash<Impl: IContactAggregationContactCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psourcetype: super::super::Foundation::PWSTR, paccountid: super::super::Foundation::PWSTR, pidentityhash: *const CONTACT_AGGREGATION_BLOB, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindFirstByIdentityHash(::core::mem::transmute_copy(&psourcetype), ::core::mem::transmute_copy(&paccountid), ::core::mem::transmute_copy(&pidentityhash)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -407,7 +407,7 @@ impl IContactAggregationContactCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Count<Impl: IContactAggregationContactCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Count<Impl: IContactAggregationContactCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -417,7 +417,7 @@ impl IContactAggregationContactCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindFirstByRemoteId<Impl: IContactAggregationContactCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psourcetype: super::super::Foundation::PWSTR, paccountid: super::super::Foundation::PWSTR, premoteobjectid: *const CONTACT_AGGREGATION_BLOB, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindFirstByRemoteId<Impl: IContactAggregationContactCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psourcetype: super::super::Foundation::PWSTR, paccountid: super::super::Foundation::PWSTR, premoteobjectid: *const CONTACT_AGGREGATION_BLOB, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindFirstByRemoteId(::core::mem::transmute_copy(&psourcetype), ::core::mem::transmute_copy(&paccountid), ::core::mem::transmute_copy(&premoteobjectid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -441,7 +441,7 @@ impl IContactAggregationContactCollectionVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IContactAggregationGroupImpl: Sized {
+pub trait IContactAggregationGroup_Impl: Sized {
     fn Delete(&mut self) -> ::windows::core::Result<()>;
     fn Save(&mut self) -> ::windows::core::Result<()>;
     fn Add(&mut self, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
@@ -454,25 +454,25 @@ pub trait IContactAggregationGroupImpl: Sized {
     fn SetName(&mut self, pname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IContactAggregationGroupVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAggregationGroupVtbl {
-        unsafe extern "system" fn Delete<Impl: IContactAggregationGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IContactAggregationGroup_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationGroup_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAggregationGroup_Vtbl {
+        unsafe extern "system" fn Delete<Impl: IContactAggregationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Delete().into()
         }
-        unsafe extern "system" fn Save<Impl: IContactAggregationGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Save<Impl: IContactAggregationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Save().into()
         }
-        unsafe extern "system" fn Add<Impl: IContactAggregationGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Impl: IContactAggregationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Add(::core::mem::transmute_copy(&paggregateid)).into()
         }
-        unsafe extern "system" fn Remove<Impl: IContactAggregationGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Remove<Impl: IContactAggregationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Remove(::core::mem::transmute_copy(&paggregateid)).into()
         }
-        unsafe extern "system" fn Members<Impl: IContactAggregationGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaggregatecontactcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Members<Impl: IContactAggregationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaggregatecontactcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Members() {
                 ::core::result::Result::Ok(ok__) => {
@@ -482,7 +482,7 @@ impl IContactAggregationGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GlobalObjectId<Impl: IContactAggregationGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pglobalobjectid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GlobalObjectId<Impl: IContactAggregationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pglobalobjectid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GlobalObjectId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -492,11 +492,11 @@ impl IContactAggregationGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGlobalObjectId<Impl: IContactAggregationGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pglobalobjectid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGlobalObjectId<Impl: IContactAggregationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pglobalobjectid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetGlobalObjectId(::core::mem::transmute_copy(&pglobalobjectid)).into()
         }
-        unsafe extern "system" fn Id<Impl: IContactAggregationGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppitemid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Id<Impl: IContactAggregationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppitemid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -506,7 +506,7 @@ impl IContactAggregationGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Impl: IContactAggregationGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Impl: IContactAggregationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -516,7 +516,7 @@ impl IContactAggregationGroupVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetName<Impl: IContactAggregationGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetName<Impl: IContactAggregationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetName(::core::mem::transmute_copy(&pname)).into()
         }
@@ -538,15 +538,15 @@ impl IContactAggregationGroupVtbl {
         iid == &<IContactAggregationGroup as ::windows::core::Interface>::IID
     }
 }
-pub trait IContactAggregationGroupCollectionImpl: Sized {
+pub trait IContactAggregationGroupCollection_Impl: Sized {
     fn FindFirst(&mut self) -> ::windows::core::Result<IContactAggregationGroup>;
     fn FindFirstByGlobalObjectId(&mut self, pglobalobjectid: *const ::windows::core::GUID) -> ::windows::core::Result<IContactAggregationGroup>;
     fn FindNext(&mut self) -> ::windows::core::Result<IContactAggregationGroup>;
     fn Count(&mut self) -> ::windows::core::Result<u32>;
 }
-impl IContactAggregationGroupCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationGroupCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAggregationGroupCollectionVtbl {
-        unsafe extern "system" fn FindFirst<Impl: IContactAggregationGroupCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IContactAggregationGroupCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationGroupCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAggregationGroupCollection_Vtbl {
+        unsafe extern "system" fn FindFirst<Impl: IContactAggregationGroupCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindFirst() {
                 ::core::result::Result::Ok(ok__) => {
@@ -556,7 +556,7 @@ impl IContactAggregationGroupCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindFirstByGlobalObjectId<Impl: IContactAggregationGroupCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pglobalobjectid: *const ::windows::core::GUID, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindFirstByGlobalObjectId<Impl: IContactAggregationGroupCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pglobalobjectid: *const ::windows::core::GUID, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindFirstByGlobalObjectId(::core::mem::transmute_copy(&pglobalobjectid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -566,7 +566,7 @@ impl IContactAggregationGroupCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindNext<Impl: IContactAggregationGroupCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindNext<Impl: IContactAggregationGroupCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindNext() {
                 ::core::result::Result::Ok(ok__) => {
@@ -576,7 +576,7 @@ impl IContactAggregationGroupCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Count<Impl: IContactAggregationGroupCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Count<Impl: IContactAggregationGroupCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -599,7 +599,7 @@ impl IContactAggregationGroupCollectionVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IContactAggregationLinkImpl: Sized {
+pub trait IContactAggregationLink_Impl: Sized {
     fn Delete(&mut self) -> ::windows::core::Result<()>;
     fn Save(&mut self) -> ::windows::core::Result<()>;
     fn AccountId(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
@@ -619,17 +619,17 @@ pub trait IContactAggregationLinkImpl: Sized {
     fn SetSyncIdentityHash(&mut self, psyncidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IContactAggregationLinkVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationLinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAggregationLinkVtbl {
-        unsafe extern "system" fn Delete<Impl: IContactAggregationLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IContactAggregationLink_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationLink_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAggregationLink_Vtbl {
+        unsafe extern "system" fn Delete<Impl: IContactAggregationLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Delete().into()
         }
-        unsafe extern "system" fn Save<Impl: IContactAggregationLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Save<Impl: IContactAggregationLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Save().into()
         }
-        unsafe extern "system" fn AccountId<Impl: IContactAggregationLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaccountid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AccountId<Impl: IContactAggregationLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaccountid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AccountId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -639,11 +639,11 @@ impl IContactAggregationLinkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAccountId<Impl: IContactAggregationLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paccountid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAccountId<Impl: IContactAggregationLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paccountid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAccountId(::core::mem::transmute_copy(&paccountid)).into()
         }
-        unsafe extern "system" fn Id<Impl: IContactAggregationLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppitemid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Id<Impl: IContactAggregationLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppitemid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -653,7 +653,7 @@ impl IContactAggregationLinkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsLinkResolved<Impl: IContactAggregationLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pislinkresolved: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsLinkResolved<Impl: IContactAggregationLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pislinkresolved: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsLinkResolved() {
                 ::core::result::Result::Ok(ok__) => {
@@ -663,11 +663,11 @@ impl IContactAggregationLinkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsLinkResolved<Impl: IContactAggregationLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, islinkresolved: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsLinkResolved<Impl: IContactAggregationLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, islinkresolved: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsLinkResolved(::core::mem::transmute_copy(&islinkresolved)).into()
         }
-        unsafe extern "system" fn NetworkSourceIdString<Impl: IContactAggregationLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnetworksourceid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NetworkSourceIdString<Impl: IContactAggregationLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnetworksourceid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NetworkSourceIdString() {
                 ::core::result::Result::Ok(ok__) => {
@@ -677,11 +677,11 @@ impl IContactAggregationLinkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNetworkSourceIdString<Impl: IContactAggregationLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnetworksourceid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNetworkSourceIdString<Impl: IContactAggregationLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnetworksourceid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetNetworkSourceIdString(::core::mem::transmute_copy(&pnetworksourceid)).into()
         }
-        unsafe extern "system" fn RemoteObjectId<Impl: IContactAggregationLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppremoteobjectid: *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoteObjectId<Impl: IContactAggregationLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppremoteobjectid: *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemoteObjectId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -691,11 +691,11 @@ impl IContactAggregationLinkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRemoteObjectId<Impl: IContactAggregationLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, premoteobjectid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRemoteObjectId<Impl: IContactAggregationLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, premoteobjectid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRemoteObjectId(::core::mem::transmute_copy(&premoteobjectid)).into()
         }
-        unsafe extern "system" fn ServerPerson<Impl: IContactAggregationLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppserverpersonid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServerPerson<Impl: IContactAggregationLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppserverpersonid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerPerson() {
                 ::core::result::Result::Ok(ok__) => {
@@ -705,11 +705,11 @@ impl IContactAggregationLinkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetServerPerson<Impl: IContactAggregationLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pserverpersonid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetServerPerson<Impl: IContactAggregationLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pserverpersonid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetServerPerson(::core::mem::transmute_copy(&pserverpersonid)).into()
         }
-        unsafe extern "system" fn ServerPersonBaseline<Impl: IContactAggregationLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppserverpersonid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServerPersonBaseline<Impl: IContactAggregationLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppserverpersonid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerPersonBaseline() {
                 ::core::result::Result::Ok(ok__) => {
@@ -719,11 +719,11 @@ impl IContactAggregationLinkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetServerPersonBaseline<Impl: IContactAggregationLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pserverpersonid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetServerPersonBaseline<Impl: IContactAggregationLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pserverpersonid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetServerPersonBaseline(::core::mem::transmute_copy(&pserverpersonid)).into()
         }
-        unsafe extern "system" fn SyncIdentityHash<Impl: IContactAggregationLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsyncidentityhash: *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SyncIdentityHash<Impl: IContactAggregationLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsyncidentityhash: *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SyncIdentityHash() {
                 ::core::result::Result::Ok(ok__) => {
@@ -733,7 +733,7 @@ impl IContactAggregationLinkVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSyncIdentityHash<Impl: IContactAggregationLinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psyncidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSyncIdentityHash<Impl: IContactAggregationLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psyncidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSyncIdentityHash(::core::mem::transmute_copy(&psyncidentityhash)).into()
         }
@@ -763,16 +763,16 @@ impl IContactAggregationLinkVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IContactAggregationLinkCollectionImpl: Sized {
+pub trait IContactAggregationLinkCollection_Impl: Sized {
     fn FindFirst(&mut self) -> ::windows::core::Result<IContactAggregationLink>;
     fn FindFirstByRemoteId(&mut self, psourcetype: super::super::Foundation::PWSTR, paccountid: super::super::Foundation::PWSTR, premoteid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationLink>;
     fn FindNext(&mut self) -> ::windows::core::Result<IContactAggregationLink>;
     fn Count(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IContactAggregationLinkCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationLinkCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAggregationLinkCollectionVtbl {
-        unsafe extern "system" fn FindFirst<Impl: IContactAggregationLinkCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppservercontactlink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IContactAggregationLinkCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationLinkCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAggregationLinkCollection_Vtbl {
+        unsafe extern "system" fn FindFirst<Impl: IContactAggregationLinkCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppservercontactlink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindFirst() {
                 ::core::result::Result::Ok(ok__) => {
@@ -782,7 +782,7 @@ impl IContactAggregationLinkCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindFirstByRemoteId<Impl: IContactAggregationLinkCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psourcetype: super::super::Foundation::PWSTR, paccountid: super::super::Foundation::PWSTR, premoteid: *const CONTACT_AGGREGATION_BLOB, ppservercontactlink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindFirstByRemoteId<Impl: IContactAggregationLinkCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psourcetype: super::super::Foundation::PWSTR, paccountid: super::super::Foundation::PWSTR, premoteid: *const CONTACT_AGGREGATION_BLOB, ppservercontactlink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindFirstByRemoteId(::core::mem::transmute_copy(&psourcetype), ::core::mem::transmute_copy(&paccountid), ::core::mem::transmute_copy(&premoteid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -792,7 +792,7 @@ impl IContactAggregationLinkCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindNext<Impl: IContactAggregationLinkCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppservercontactlink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindNext<Impl: IContactAggregationLinkCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppservercontactlink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindNext() {
                 ::core::result::Result::Ok(ok__) => {
@@ -802,7 +802,7 @@ impl IContactAggregationLinkCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Count<Impl: IContactAggregationLinkCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Count<Impl: IContactAggregationLinkCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -825,7 +825,7 @@ impl IContactAggregationLinkCollectionVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IContactAggregationManagerImpl: Sized {
+pub trait IContactAggregationManager_Impl: Sized {
     fn GetVersionInfo(&mut self, plmajorversion: *mut i32, plminorversion: *mut i32) -> ::windows::core::Result<()>;
     fn CreateOrOpenGroup(&mut self, pgroupname: super::super::Foundation::PWSTR, options: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS, pcreatedgroup: *mut super::super::Foundation::BOOL, ppgroup: *mut ::core::option::Option<IContactAggregationGroup>) -> ::windows::core::Result<()>;
     fn CreateExternalContact(&mut self) -> ::windows::core::Result<IContactAggregationContact>;
@@ -843,17 +843,17 @@ pub trait IContactAggregationManagerImpl: Sized {
     fn ServerContactLinks(&mut self, ppersonitemid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContactAggregationLinkCollection>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IContactAggregationManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAggregationManagerVtbl {
-        unsafe extern "system" fn GetVersionInfo<Impl: IContactAggregationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plmajorversion: *mut i32, plminorversion: *mut i32) -> ::windows::core::HRESULT {
+impl IContactAggregationManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAggregationManager_Vtbl {
+        unsafe extern "system" fn GetVersionInfo<Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plmajorversion: *mut i32, plminorversion: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetVersionInfo(::core::mem::transmute_copy(&plmajorversion), ::core::mem::transmute_copy(&plminorversion)).into()
         }
-        unsafe extern "system" fn CreateOrOpenGroup<Impl: IContactAggregationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgroupname: super::super::Foundation::PWSTR, options: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS, pcreatedgroup: *mut super::super::Foundation::BOOL, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateOrOpenGroup<Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgroupname: super::super::Foundation::PWSTR, options: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS, pcreatedgroup: *mut super::super::Foundation::BOOL, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CreateOrOpenGroup(::core::mem::transmute_copy(&pgroupname), ::core::mem::transmute_copy(&options), ::core::mem::transmute_copy(&pcreatedgroup), ::core::mem::transmute_copy(&ppgroup)).into()
         }
-        unsafe extern "system" fn CreateExternalContact<Impl: IContactAggregationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateExternalContact<Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateExternalContact() {
                 ::core::result::Result::Ok(ok__) => {
@@ -863,7 +863,7 @@ impl IContactAggregationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateServerPerson<Impl: IContactAggregationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppserverperson: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateServerPerson<Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppserverperson: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateServerPerson() {
                 ::core::result::Result::Ok(ok__) => {
@@ -873,7 +873,7 @@ impl IContactAggregationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateServerContactLink<Impl: IContactAggregationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppservercontactlink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateServerContactLink<Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppservercontactlink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateServerContactLink() {
                 ::core::result::Result::Ok(ok__) => {
@@ -883,11 +883,11 @@ impl IContactAggregationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Flush<Impl: IContactAggregationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Flush<Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Flush().into()
         }
-        unsafe extern "system" fn OpenAggregateContact<Impl: IContactAggregationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitemid: super::super::Foundation::PWSTR, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenAggregateContact<Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitemid: super::super::Foundation::PWSTR, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenAggregateContact(::core::mem::transmute_copy(&pitemid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -897,7 +897,7 @@ impl IContactAggregationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OpenContact<Impl: IContactAggregationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitemid: super::super::Foundation::PWSTR, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenContact<Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitemid: super::super::Foundation::PWSTR, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenContact(::core::mem::transmute_copy(&pitemid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -907,7 +907,7 @@ impl IContactAggregationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OpenServerContactLink<Impl: IContactAggregationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitemid: super::super::Foundation::PWSTR, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenServerContactLink<Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitemid: super::super::Foundation::PWSTR, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenServerContactLink(::core::mem::transmute_copy(&pitemid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -917,7 +917,7 @@ impl IContactAggregationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OpenServerPerson<Impl: IContactAggregationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitemid: super::super::Foundation::PWSTR, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenServerPerson<Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitemid: super::super::Foundation::PWSTR, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OpenServerPerson(::core::mem::transmute_copy(&pitemid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -927,7 +927,7 @@ impl IContactAggregationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Contacts<Impl: IContactAggregationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Contacts<Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contacts(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -937,7 +937,7 @@ impl IContactAggregationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AggregateContacts<Impl: IContactAggregationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppaggregates: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AggregateContacts<Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppaggregates: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AggregateContacts(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -947,7 +947,7 @@ impl IContactAggregationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Groups<Impl: IContactAggregationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppgroups: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Groups<Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppgroups: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Groups(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -957,7 +957,7 @@ impl IContactAggregationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServerPersons<Impl: IContactAggregationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppserverpersoncollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServerPersons<Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppserverpersoncollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerPersons() {
                 ::core::result::Result::Ok(ok__) => {
@@ -967,7 +967,7 @@ impl IContactAggregationManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServerContactLinks<Impl: IContactAggregationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppersonitemid: super::super::Foundation::PWSTR, ppservercontactlinkcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServerContactLinks<Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppersonitemid: super::super::Foundation::PWSTR, ppservercontactlinkcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServerContactLinks(::core::mem::transmute_copy(&ppersonitemid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1001,7 +1001,7 @@ impl IContactAggregationManagerVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IContactAggregationServerPersonImpl: Sized {
+pub trait IContactAggregationServerPerson_Impl: Sized {
     fn Delete(&mut self) -> ::windows::core::Result<()>;
     fn Save(&mut self) -> ::windows::core::Result<()>;
     fn AggregateId(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
@@ -1027,17 +1027,17 @@ pub trait IContactAggregationServerPersonImpl: Sized {
     fn SetObjectId(&mut self, pobjectid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IContactAggregationServerPersonVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationServerPersonImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAggregationServerPersonVtbl {
-        unsafe extern "system" fn Delete<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IContactAggregationServerPerson_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationServerPerson_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAggregationServerPerson_Vtbl {
+        unsafe extern "system" fn Delete<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Delete().into()
         }
-        unsafe extern "system" fn Save<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Save<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Save().into()
         }
-        unsafe extern "system" fn AggregateId<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaggregateid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AggregateId<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaggregateid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AggregateId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1047,11 +1047,11 @@ impl IContactAggregationServerPersonVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAggregateId<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAggregateId<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAggregateId(::core::mem::transmute_copy(&paggregateid)).into()
         }
-        unsafe extern "system" fn AntiLink<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppantilink: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AntiLink<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppantilink: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AntiLink() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1061,11 +1061,11 @@ impl IContactAggregationServerPersonVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAntiLink<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pantilink: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAntiLink<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pantilink: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAntiLink(::core::mem::transmute_copy(&pantilink)).into()
         }
-        unsafe extern "system" fn AntiLinkBaseline<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppantilink: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AntiLinkBaseline<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppantilink: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AntiLinkBaseline() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1075,11 +1075,11 @@ impl IContactAggregationServerPersonVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAntiLinkBaseline<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pantilink: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAntiLinkBaseline<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pantilink: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAntiLinkBaseline(::core::mem::transmute_copy(&pantilink)).into()
         }
-        unsafe extern "system" fn FavoriteOrder<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfavoriteorder: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FavoriteOrder<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfavoriteorder: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FavoriteOrder() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1089,11 +1089,11 @@ impl IContactAggregationServerPersonVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFavoriteOrder<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, favoriteorder: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFavoriteOrder<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, favoriteorder: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFavoriteOrder(::core::mem::transmute_copy(&favoriteorder)).into()
         }
-        unsafe extern "system" fn FavoriteOrderBaseline<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfavoriteorder: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FavoriteOrderBaseline<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfavoriteorder: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FavoriteOrderBaseline() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1103,11 +1103,11 @@ impl IContactAggregationServerPersonVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFavoriteOrderBaseline<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, favoriteorder: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFavoriteOrderBaseline<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, favoriteorder: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFavoriteOrderBaseline(::core::mem::transmute_copy(&favoriteorder)).into()
         }
-        unsafe extern "system" fn Groups<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgroups: *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Groups<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgroups: *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Groups() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1117,11 +1117,11 @@ impl IContactAggregationServerPersonVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGroups<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgroups: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGroups<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgroups: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetGroups(::core::mem::transmute_copy(&pgroups)).into()
         }
-        unsafe extern "system" fn GroupsBaseline<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppgroups: *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GroupsBaseline<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppgroups: *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GroupsBaseline() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1131,11 +1131,11 @@ impl IContactAggregationServerPersonVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGroupsBaseline<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgroups: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGroupsBaseline<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgroups: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetGroupsBaseline(::core::mem::transmute_copy(&pgroups)).into()
         }
-        unsafe extern "system" fn Id<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Id<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1145,7 +1145,7 @@ impl IContactAggregationServerPersonVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsTombstone<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pistombstone: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsTombstone<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pistombstone: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTombstone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1155,11 +1155,11 @@ impl IContactAggregationServerPersonVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsTombstone<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, istombstone: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsTombstone<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, istombstone: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIsTombstone(::core::mem::transmute_copy(&istombstone)).into()
         }
-        unsafe extern "system" fn LinkedAggregateId<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pplinkedaggregateid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LinkedAggregateId<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pplinkedaggregateid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LinkedAggregateId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1169,11 +1169,11 @@ impl IContactAggregationServerPersonVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLinkedAggregateId<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plinkedaggregateid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLinkedAggregateId<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plinkedaggregateid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLinkedAggregateId(::core::mem::transmute_copy(&plinkedaggregateid)).into()
         }
-        unsafe extern "system" fn ObjectId<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppobjectid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ObjectId<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppobjectid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ObjectId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1183,7 +1183,7 @@ impl IContactAggregationServerPersonVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetObjectId<Impl: IContactAggregationServerPersonImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetObjectId<Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetObjectId(::core::mem::transmute_copy(&pobjectid)).into()
         }
@@ -1219,7 +1219,7 @@ impl IContactAggregationServerPersonVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IContactAggregationServerPersonCollectionImpl: Sized {
+pub trait IContactAggregationServerPersonCollection_Impl: Sized {
     fn FindFirst(&mut self) -> ::windows::core::Result<IContactAggregationServerPerson>;
     fn FindFirstByServerId(&mut self, pserverid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContactAggregationServerPerson>;
     fn FindFirstByAggregateId(&mut self, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContactAggregationServerPerson>;
@@ -1228,9 +1228,9 @@ pub trait IContactAggregationServerPersonCollectionImpl: Sized {
     fn Count(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IContactAggregationServerPersonCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationServerPersonCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAggregationServerPersonCollectionVtbl {
-        unsafe extern "system" fn FindFirst<Impl: IContactAggregationServerPersonCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppserverperson: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IContactAggregationServerPersonCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationServerPersonCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactAggregationServerPersonCollection_Vtbl {
+        unsafe extern "system" fn FindFirst<Impl: IContactAggregationServerPersonCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppserverperson: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindFirst() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1240,7 +1240,7 @@ impl IContactAggregationServerPersonCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindFirstByServerId<Impl: IContactAggregationServerPersonCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pserverid: super::super::Foundation::PWSTR, ppserverperson: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindFirstByServerId<Impl: IContactAggregationServerPersonCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pserverid: super::super::Foundation::PWSTR, ppserverperson: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindFirstByServerId(::core::mem::transmute_copy(&pserverid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1250,7 +1250,7 @@ impl IContactAggregationServerPersonCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindFirstByAggregateId<Impl: IContactAggregationServerPersonCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paggregateid: super::super::Foundation::PWSTR, ppserverperson: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindFirstByAggregateId<Impl: IContactAggregationServerPersonCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paggregateid: super::super::Foundation::PWSTR, ppserverperson: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindFirstByAggregateId(::core::mem::transmute_copy(&paggregateid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1260,7 +1260,7 @@ impl IContactAggregationServerPersonCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindFirstByLinkedAggregateId<Impl: IContactAggregationServerPersonCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paggregateid: super::super::Foundation::PWSTR, ppserverperson: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindFirstByLinkedAggregateId<Impl: IContactAggregationServerPersonCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paggregateid: super::super::Foundation::PWSTR, ppserverperson: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindFirstByLinkedAggregateId(::core::mem::transmute_copy(&paggregateid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1270,7 +1270,7 @@ impl IContactAggregationServerPersonCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindNext<Impl: IContactAggregationServerPersonCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppserverperson: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindNext<Impl: IContactAggregationServerPersonCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppserverperson: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindNext() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1280,7 +1280,7 @@ impl IContactAggregationServerPersonCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Count<Impl: IContactAggregationServerPersonCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Count<Impl: IContactAggregationServerPersonCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1304,22 +1304,22 @@ impl IContactAggregationServerPersonCollectionVtbl {
         iid == &<IContactAggregationServerPersonCollection as ::windows::core::Interface>::IID
     }
 }
-pub trait IContactCollectionImpl: Sized {
+pub trait IContactCollection_Impl: Sized {
     fn Reset(&mut self) -> ::windows::core::Result<()>;
     fn Next(&mut self) -> ::windows::core::Result<()>;
     fn GetCurrent(&mut self) -> ::windows::core::Result<IContact>;
 }
-impl IContactCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactCollectionVtbl {
-        unsafe extern "system" fn Reset<Impl: IContactCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IContactCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactCollection_Vtbl {
+        unsafe extern "system" fn Reset<Impl: IContactCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Reset().into()
         }
-        unsafe extern "system" fn Next<Impl: IContactCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Next<Impl: IContactCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Next().into()
         }
-        unsafe extern "system" fn GetCurrent<Impl: IContactCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcontact: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrent<Impl: IContactCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcontact: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1341,7 +1341,7 @@ impl IContactCollectionVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IContactManagerImpl: Sized {
+pub trait IContactManager_Impl: Sized {
     fn Initialize(&mut self, pszappname: super::super::Foundation::PWSTR, pszappversion: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn Load(&mut self, pszcontactid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContact>;
     fn MergeContactIDs(&mut self, psznewcontactid: super::super::Foundation::PWSTR, pszoldcontactid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
@@ -1350,13 +1350,13 @@ pub trait IContactManagerImpl: Sized {
     fn GetContactCollection(&mut self) -> ::windows::core::Result<IContactCollection>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IContactManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactManagerVtbl {
-        unsafe extern "system" fn Initialize<Impl: IContactManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszappname: super::super::Foundation::PWSTR, pszappversion: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+impl IContactManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactManager_Vtbl {
+        unsafe extern "system" fn Initialize<Impl: IContactManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszappname: super::super::Foundation::PWSTR, pszappversion: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Initialize(::core::mem::transmute_copy(&pszappname), ::core::mem::transmute_copy(&pszappversion)).into()
         }
-        unsafe extern "system" fn Load<Impl: IContactManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcontactid: super::super::Foundation::PWSTR, ppcontact: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Load<Impl: IContactManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcontactid: super::super::Foundation::PWSTR, ppcontact: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Load(::core::mem::transmute_copy(&pszcontactid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1366,11 +1366,11 @@ impl IContactManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MergeContactIDs<Impl: IContactManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psznewcontactid: super::super::Foundation::PWSTR, pszoldcontactid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MergeContactIDs<Impl: IContactManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psznewcontactid: super::super::Foundation::PWSTR, pszoldcontactid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).MergeContactIDs(::core::mem::transmute_copy(&psznewcontactid), ::core::mem::transmute_copy(&pszoldcontactid)).into()
         }
-        unsafe extern "system" fn GetMeContact<Impl: IContactManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmecontact: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMeContact<Impl: IContactManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmecontact: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMeContact() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1380,11 +1380,11 @@ impl IContactManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMeContact<Impl: IContactManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmecontact: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMeContact<Impl: IContactManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmecontact: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMeContact(::core::mem::transmute(&pmecontact)).into()
         }
-        unsafe extern "system" fn GetContactCollection<Impl: IContactManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcontactcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetContactCollection<Impl: IContactManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcontactcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetContactCollection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1409,7 +1409,7 @@ impl IContactManagerVtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IContactPropertiesImpl: Sized {
+pub trait IContactProperties_Impl: Sized {
     fn GetString(&mut self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszvalue: super::super::Foundation::PWSTR, cchvalue: u32, pdwcchpropertyvaluerequired: *mut u32) -> ::windows::core::Result<()>;
     fn GetDate(&mut self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pftdatetime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
     fn GetBinary(&mut self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszcontenttype: super::super::Foundation::PWSTR, cchcontenttype: u32, pdwcchcontenttyperequired: *mut u32, ppstream: *mut ::core::option::Option<super::Com::IStream>) -> ::windows::core::Result<()>;
@@ -1425,57 +1425,57 @@ pub trait IContactPropertiesImpl: Sized {
     fn GetPropertyCollection(&mut self, pppropertycollection: *mut ::core::option::Option<IContactPropertyCollection>, dwflags: u32, pszmultivaluename: super::super::Foundation::PWSTR, dwlabelcount: u32, ppszlabels: *const super::super::Foundation::PWSTR, fanylabelmatches: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl IContactPropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactPropertiesVtbl {
-        unsafe extern "system" fn GetString<Impl: IContactPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszvalue: super::super::Foundation::PWSTR, cchvalue: u32, pdwcchpropertyvaluerequired: *mut u32) -> ::windows::core::HRESULT {
+impl IContactProperties_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactProperties_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactProperties_Vtbl {
+        unsafe extern "system" fn GetString<Impl: IContactProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszvalue: super::super::Foundation::PWSTR, cchvalue: u32, pdwcchpropertyvaluerequired: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetString(::core::mem::transmute_copy(&pszpropertyname), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pszvalue), ::core::mem::transmute_copy(&cchvalue), ::core::mem::transmute_copy(&pdwcchpropertyvaluerequired)).into()
         }
-        unsafe extern "system" fn GetDate<Impl: IContactPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pftdatetime: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDate<Impl: IContactProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pftdatetime: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetDate(::core::mem::transmute_copy(&pszpropertyname), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pftdatetime)).into()
         }
-        unsafe extern "system" fn GetBinary<Impl: IContactPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszcontenttype: super::super::Foundation::PWSTR, cchcontenttype: u32, pdwcchcontenttyperequired: *mut u32, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBinary<Impl: IContactProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszcontenttype: super::super::Foundation::PWSTR, cchcontenttype: u32, pdwcchcontenttyperequired: *mut u32, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetBinary(::core::mem::transmute_copy(&pszpropertyname), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pszcontenttype), ::core::mem::transmute_copy(&cchcontenttype), ::core::mem::transmute_copy(&pdwcchcontenttyperequired), ::core::mem::transmute_copy(&ppstream)).into()
         }
-        unsafe extern "system" fn GetLabels<Impl: IContactPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszarrayelementname: super::super::Foundation::PWSTR, dwflags: u32, pszlabels: super::super::Foundation::PWSTR, cchlabels: u32, pdwcchlabelsrequired: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLabels<Impl: IContactProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszarrayelementname: super::super::Foundation::PWSTR, dwflags: u32, pszlabels: super::super::Foundation::PWSTR, cchlabels: u32, pdwcchlabelsrequired: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetLabels(::core::mem::transmute_copy(&pszarrayelementname), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pszlabels), ::core::mem::transmute_copy(&cchlabels), ::core::mem::transmute_copy(&pdwcchlabelsrequired)).into()
         }
-        unsafe extern "system" fn SetString<Impl: IContactPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetString<Impl: IContactProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetString(::core::mem::transmute_copy(&pszpropertyname), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pszvalue)).into()
         }
-        unsafe extern "system" fn SetDate<Impl: IContactPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, ftdatetime: super::super::Foundation::FILETIME) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDate<Impl: IContactProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, ftdatetime: super::super::Foundation::FILETIME) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDate(::core::mem::transmute_copy(&pszpropertyname), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&ftdatetime)).into()
         }
-        unsafe extern "system" fn SetBinary<Impl: IContactPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszcontenttype: super::super::Foundation::PWSTR, pstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBinary<Impl: IContactProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszcontenttype: super::super::Foundation::PWSTR, pstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBinary(::core::mem::transmute_copy(&pszpropertyname), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pszcontenttype), ::core::mem::transmute(&pstream)).into()
         }
-        unsafe extern "system" fn SetLabels<Impl: IContactPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszarrayelementname: super::super::Foundation::PWSTR, dwflags: u32, dwlabelcount: u32, ppszlabels: *const super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLabels<Impl: IContactProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszarrayelementname: super::super::Foundation::PWSTR, dwflags: u32, dwlabelcount: u32, ppszlabels: *const super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLabels(::core::mem::transmute_copy(&pszarrayelementname), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&dwlabelcount), ::core::mem::transmute_copy(&ppszlabels)).into()
         }
-        unsafe extern "system" fn CreateArrayNode<Impl: IContactPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszarrayname: super::super::Foundation::PWSTR, dwflags: u32, fappend: super::super::Foundation::BOOL, psznewarrayelementname: super::super::Foundation::PWSTR, cchnewarrayelementname: u32, pdwcchnewarrayelementnamerequired: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateArrayNode<Impl: IContactProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszarrayname: super::super::Foundation::PWSTR, dwflags: u32, fappend: super::super::Foundation::BOOL, psznewarrayelementname: super::super::Foundation::PWSTR, cchnewarrayelementname: u32, pdwcchnewarrayelementnamerequired: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CreateArrayNode(::core::mem::transmute_copy(&pszarrayname), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&fappend), ::core::mem::transmute_copy(&psznewarrayelementname), ::core::mem::transmute_copy(&cchnewarrayelementname), ::core::mem::transmute_copy(&pdwcchnewarrayelementnamerequired)).into()
         }
-        unsafe extern "system" fn DeleteProperty<Impl: IContactPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteProperty<Impl: IContactProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DeleteProperty(::core::mem::transmute_copy(&pszpropertyname), ::core::mem::transmute_copy(&dwflags)).into()
         }
-        unsafe extern "system" fn DeleteArrayNode<Impl: IContactPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszarrayelementname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteArrayNode<Impl: IContactProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszarrayelementname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DeleteArrayNode(::core::mem::transmute_copy(&pszarrayelementname), ::core::mem::transmute_copy(&dwflags)).into()
         }
-        unsafe extern "system" fn DeleteLabels<Impl: IContactPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszarrayelementname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteLabels<Impl: IContactProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszarrayelementname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).DeleteLabels(::core::mem::transmute_copy(&pszarrayelementname), ::core::mem::transmute_copy(&dwflags)).into()
         }
-        unsafe extern "system" fn GetPropertyCollection<Impl: IContactPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppropertycollection: *mut ::windows::core::RawPtr, dwflags: u32, pszmultivaluename: super::super::Foundation::PWSTR, dwlabelcount: u32, ppszlabels: *const super::super::Foundation::PWSTR, fanylabelmatches: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyCollection<Impl: IContactProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppropertycollection: *mut ::windows::core::RawPtr, dwflags: u32, pszmultivaluename: super::super::Foundation::PWSTR, dwlabelcount: u32, ppszlabels: *const super::super::Foundation::PWSTR, fanylabelmatches: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetPropertyCollection(::core::mem::transmute_copy(&pppropertycollection), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pszmultivaluename), ::core::mem::transmute_copy(&dwlabelcount), ::core::mem::transmute_copy(&ppszlabels), ::core::mem::transmute_copy(&fanylabelmatches)).into()
         }
@@ -1501,7 +1501,7 @@ impl IContactPropertiesVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IContactPropertyCollectionImpl: Sized {
+pub trait IContactPropertyCollection_Impl: Sized {
     fn Reset(&mut self) -> ::windows::core::Result<()>;
     fn Next(&mut self) -> ::windows::core::Result<()>;
     fn GetPropertyName(&mut self, pszpropertyname: super::super::Foundation::PWSTR, cchpropertyname: u32, pdwcchpropertynamerequired: *mut u32) -> ::windows::core::Result<()>;
@@ -1511,33 +1511,33 @@ pub trait IContactPropertyCollectionImpl: Sized {
     fn GetPropertyArrayElementID(&mut self, pszarrayelementid: super::super::Foundation::PWSTR, ccharrayelementid: u32, pdwccharrayelementidrequired: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IContactPropertyCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPropertyCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactPropertyCollectionVtbl {
-        unsafe extern "system" fn Reset<Impl: IContactPropertyCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IContactPropertyCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPropertyCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IContactPropertyCollection_Vtbl {
+        unsafe extern "system" fn Reset<Impl: IContactPropertyCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Reset().into()
         }
-        unsafe extern "system" fn Next<Impl: IContactPropertyCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Next<Impl: IContactPropertyCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Next().into()
         }
-        unsafe extern "system" fn GetPropertyName<Impl: IContactPropertyCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, cchpropertyname: u32, pdwcchpropertynamerequired: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyName<Impl: IContactPropertyCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, cchpropertyname: u32, pdwcchpropertynamerequired: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetPropertyName(::core::mem::transmute_copy(&pszpropertyname), ::core::mem::transmute_copy(&cchpropertyname), ::core::mem::transmute_copy(&pdwcchpropertynamerequired)).into()
         }
-        unsafe extern "system" fn GetPropertyType<Impl: IContactPropertyCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwtype: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyType<Impl: IContactPropertyCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwtype: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetPropertyType(::core::mem::transmute_copy(&pdwtype)).into()
         }
-        unsafe extern "system" fn GetPropertyVersion<Impl: IContactPropertyCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwversion: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyVersion<Impl: IContactPropertyCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwversion: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetPropertyVersion(::core::mem::transmute_copy(&pdwversion)).into()
         }
-        unsafe extern "system" fn GetPropertyModificationDate<Impl: IContactPropertyCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pftmodificationdate: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyModificationDate<Impl: IContactPropertyCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pftmodificationdate: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetPropertyModificationDate(::core::mem::transmute_copy(&pftmodificationdate)).into()
         }
-        unsafe extern "system" fn GetPropertyArrayElementID<Impl: IContactPropertyCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszarrayelementid: super::super::Foundation::PWSTR, ccharrayelementid: u32, pdwccharrayelementidrequired: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyArrayElementID<Impl: IContactPropertyCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszarrayelementid: super::super::Foundation::PWSTR, ccharrayelementid: u32, pdwccharrayelementidrequired: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetPropertyArrayElementID(::core::mem::transmute_copy(&pszarrayelementid), ::core::mem::transmute_copy(&ccharrayelementid), ::core::mem::transmute_copy(&pdwccharrayelementidrequired)).into()
         }

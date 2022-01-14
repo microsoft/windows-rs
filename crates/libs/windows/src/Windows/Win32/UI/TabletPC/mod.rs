@@ -2107,12 +2107,12 @@ impl ::core::fmt::Debug for IDynamicRenderer {
     }
 }
 unsafe impl ::windows::core::Interface for IDynamicRenderer {
-    type Vtable = IDynamicRendererVtbl;
+    type Vtable = IDynamicRenderer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa079468e_7165_46f9_b7af_98ad01a93009);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDynamicRendererVtbl {
+pub struct IDynamicRenderer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, benabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -2357,12 +2357,12 @@ impl ::core::fmt::Debug for IGestureRecognizer {
     }
 }
 unsafe impl ::windows::core::Interface for IGestureRecognizer {
-    type Vtable = IGestureRecognizerVtbl;
+    type Vtable = IGestureRecognizer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae9ef86b_7054_45e3_ae22_3174dc8811b7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGestureRecognizerVtbl {
+pub struct IGestureRecognizer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -2429,12 +2429,12 @@ impl ::core::fmt::Debug for IHandwrittenTextInsertion {
     }
 }
 unsafe impl ::windows::core::Interface for IHandwrittenTextInsertion {
-    type Vtable = IHandwrittenTextInsertionVtbl;
+    type Vtable = IHandwrittenTextInsertion_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56fdea97_ecd6_43e7_aa3a_816be7785860);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHandwrittenTextInsertionVtbl {
+pub struct IHandwrittenTextInsertion_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub InsertRecognitionResultsArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psaalternates: *const super::super::System::Com::SAFEARRAY, locale: u32, falternatecontainsautospacinginformation: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -2544,14 +2544,14 @@ impl ::core::fmt::Debug for IInk {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInk {
-    type Vtable = IInkVtbl;
+    type Vtable = IInk_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03f8e511_43a1_11d3_8bb6_0080c7d6bad5);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInk_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_UI_TabletPC', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -2847,14 +2847,14 @@ impl ::core::fmt::Debug for IInkCollector {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkCollector {
-    type Vtable = IInkCollectorVtbl;
+    type Vtable = IInkCollector_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0f060b5_8b1f_4a7c_89ec_880692588a4f);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkCollectorVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkCollector_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub hWnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentwindow: *mut isize) -> ::windows::core::HRESULT,
     pub SethWnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newwindow: isize) -> ::windows::core::HRESULT,
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, collecting: *mut i16) -> ::windows::core::HRESULT,
@@ -3082,14 +3082,14 @@ impl ::core::fmt::Debug for IInkCursor {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkCursor {
-    type Vtable = IInkCursorVtbl;
+    type Vtable = IInkCursor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad30c630_40c5_4350_8405_9c71012fc558);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkCursorVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkCursor_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3229,14 +3229,14 @@ impl ::core::fmt::Debug for IInkCursorButton {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkCursorButton {
-    type Vtable = IInkCursorButtonVtbl;
+    type Vtable = IInkCursorButton_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85ef9417_1d59_49b2_a13c_702c85430894);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkCursorButtonVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkCursorButton_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3362,14 +3362,14 @@ impl ::core::fmt::Debug for IInkCursorButtons {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkCursorButtons {
-    type Vtable = IInkCursorButtonsVtbl;
+    type Vtable = IInkCursorButtons_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3671cc40_b624_4671_9fa0_db119d952d54);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkCursorButtonsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkCursorButtons_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3492,14 +3492,14 @@ impl ::core::fmt::Debug for IInkCursors {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkCursors {
-    type Vtable = IInkCursorsVtbl;
+    type Vtable = IInkCursors_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa248c1ac_c698_4e06_9e5c_d57f77c7e647);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkCursorsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkCursors_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -3636,14 +3636,14 @@ impl ::core::fmt::Debug for IInkCustomStrokes {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkCustomStrokes {
-    type Vtable = IInkCustomStrokesVtbl;
+    type Vtable = IInkCustomStrokes_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e23a88f_c30e_420f_9bdb_28902543f0c1);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkCustomStrokesVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkCustomStrokes_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3899,14 +3899,14 @@ impl ::core::fmt::Debug for IInkDisp {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkDisp {
-    type Vtable = IInkDispVtbl;
+    type Vtable = IInkDisp_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d398fa0_c4e2_4fcd_9973_975caaf47ea6);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkDispVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkDisp_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Strokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4138,14 +4138,14 @@ impl ::core::fmt::Debug for IInkDivider {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkDivider {
-    type Vtable = IInkDividerVtbl;
+    type Vtable = IInkDivider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5de00405_f9a4_4651_b0c5_c317defd58b9);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkDividerVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkDivider_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Strokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4280,14 +4280,14 @@ impl ::core::fmt::Debug for IInkDivisionResult {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkDivisionResult {
-    type Vtable = IInkDivisionResultVtbl;
+    type Vtable = IInkDivisionResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dbec0a7_74c7_4b38_81eb_aa8ef0c24900);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkDivisionResultVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkDivisionResult_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Strokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4419,14 +4419,14 @@ impl ::core::fmt::Debug for IInkDivisionUnit {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkDivisionUnit {
-    type Vtable = IInkDivisionUnitVtbl;
+    type Vtable = IInkDivisionUnit_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85aee342_48b0_4244_9dd5_1ed435410fab);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkDivisionUnitVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkDivisionUnit_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Strokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4556,14 +4556,14 @@ impl ::core::fmt::Debug for IInkDivisionUnits {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkDivisionUnits {
-    type Vtable = IInkDivisionUnitsVtbl;
+    type Vtable = IInkDivisionUnits_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bb5ddc2_31cc_4135_ab82_2c66c9f00c41);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkDivisionUnitsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkDivisionUnits_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -4763,14 +4763,14 @@ impl ::core::fmt::Debug for IInkDrawingAttributes {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkDrawingAttributes {
-    type Vtable = IInkDrawingAttributesVtbl;
+    type Vtable = IInkDrawingAttributes_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf519b75_0a15_4623_adc9_c00d436a8092);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkDrawingAttributesVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkDrawingAttributes_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentcolor: *mut i32) -> ::windows::core::HRESULT,
     pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcolor: i32) -> ::windows::core::HRESULT,
     pub Width: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentwidth: *mut f32) -> ::windows::core::HRESULT,
@@ -5280,14 +5280,14 @@ impl ::core::fmt::Debug for IInkEdit {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkEdit {
-    type Vtable = IInkEditVtbl;
+    type Vtable = IInkEdit_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2127a19_fbfb_4aed_8464_3f36d78cfefb);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkEditVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkEdit_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatus: *mut InkEditStatus) -> ::windows::core::HRESULT,
     pub UseMouseForInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT,
     pub SetUseMouseForInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: i16) -> ::windows::core::HRESULT,
@@ -5613,14 +5613,14 @@ impl ::core::fmt::Debug for IInkExtendedProperties {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkExtendedProperties {
-    type Vtable = IInkExtendedPropertiesVtbl;
+    type Vtable = IInkExtendedProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89f2a8be_95a9_4530_8b8f_88e971e3e25f);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkExtendedPropertiesVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkExtendedProperties_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5757,14 +5757,14 @@ impl ::core::fmt::Debug for IInkExtendedProperty {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkExtendedProperty {
-    type Vtable = IInkExtendedPropertyVtbl;
+    type Vtable = IInkExtendedProperty_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb489209_b7c3_411d_90f6_1548cfff271e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkExtendedPropertyVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkExtendedProperty_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Guid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5891,14 +5891,14 @@ impl ::core::fmt::Debug for IInkGesture {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkGesture {
-    type Vtable = IInkGestureVtbl;
+    type Vtable = IInkGesture_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bdc0a97_04e5_4e26_b813_18f052d41def);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkGestureVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkGesture_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Confidence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, confidence: *mut InkRecognitionConfidence) -> ::windows::core::HRESULT,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut InkApplicationGesture) -> ::windows::core::HRESULT,
     pub GetHotPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: *mut i32, y: *mut i32) -> ::windows::core::HRESULT,
@@ -5971,12 +5971,12 @@ impl ::core::fmt::Debug for IInkLineInfo {
     }
 }
 unsafe impl ::windows::core::Interface for IInkLineInfo {
-    type Vtable = IInkLineInfoVtbl;
+    type Vtable = IInkLineInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c1c5ad6_f22f_4de4_b453_a2cc482e7c33);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkLineInfoVtbl {
+pub struct IInkLineInfo_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pim: *const INKMETRIC) -> ::windows::core::HRESULT,
     pub GetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pim: *const INKMETRIC) -> ::windows::core::HRESULT,
@@ -6351,14 +6351,14 @@ impl ::core::fmt::Debug for IInkOverlay {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkOverlay {
-    type Vtable = IInkOverlayVtbl;
+    type Vtable = IInkOverlay_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb82a463b_c1c5_45a3_997c_deab5651b67a);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkOverlayVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkOverlay_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub hWnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentwindow: *mut isize) -> ::windows::core::HRESULT,
     pub SethWnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newwindow: isize) -> ::windows::core::HRESULT,
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, collecting: *mut i16) -> ::windows::core::HRESULT,
@@ -6856,14 +6856,14 @@ impl ::core::fmt::Debug for IInkPicture {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkPicture {
-    type Vtable = IInkPictureVtbl;
+    type Vtable = IInkPicture_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe85662e0_379a_40d7_9b5c_757d233f9923);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkPictureVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkPicture_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub hWnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentwindow: *mut isize) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub DefaultDrawingAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentattributes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7172,14 +7172,14 @@ impl ::core::fmt::Debug for IInkRecognitionAlternate {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkRecognitionAlternate {
-    type Vtable = IInkRecognitionAlternateVtbl;
+    type Vtable = IInkRecognitionAlternate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7e660ad_77e4_429b_adda_873780d1fc4a);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkRecognitionAlternateVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkRecognitionAlternate_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub String: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recostring: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7356,14 +7356,14 @@ impl ::core::fmt::Debug for IInkRecognitionAlternates {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkRecognitionAlternates {
-    type Vtable = IInkRecognitionAlternatesVtbl;
+    type Vtable = IInkRecognitionAlternates_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x286a167f_9f19_4c61_9d53_4f07be622b84);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkRecognitionAlternatesVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkRecognitionAlternates_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -7512,14 +7512,14 @@ impl ::core::fmt::Debug for IInkRecognitionResult {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkRecognitionResult {
-    type Vtable = IInkRecognitionResultVtbl;
+    type Vtable = IInkRecognitionResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bc129a8_86cd_45ad_bde8_e0d32d61c16d);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkRecognitionResultVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkRecognitionResult_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub TopString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, topstring: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7683,14 +7683,14 @@ impl ::core::fmt::Debug for IInkRecognizer {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkRecognizer {
-    type Vtable = IInkRecognizerVtbl;
+    type Vtable = IInkRecognizer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x782bf7cf_034b_4396_8a32_3a1833cf6b56);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkRecognizerVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkRecognizer_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7828,14 +7828,14 @@ impl ::core::fmt::Debug for IInkRecognizer2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkRecognizer2 {
-    type Vtable = IInkRecognizer2Vtbl;
+    type Vtable = IInkRecognizer2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6110118a_3a75_4ad6_b2aa_04b2b72bbe65);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkRecognizer2Vtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkRecognizer2_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8069,14 +8069,14 @@ impl ::core::fmt::Debug for IInkRecognizerContext {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkRecognizerContext {
-    type Vtable = IInkRecognizerContextVtbl;
+    type Vtable = IInkRecognizerContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc68f52f9_32a3_4625_906c_44fc23b40958);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkRecognizerContextVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkRecognizerContext_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Strokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -8266,14 +8266,14 @@ impl ::core::fmt::Debug for IInkRecognizerContext2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkRecognizerContext2 {
-    type Vtable = IInkRecognizerContext2Vtbl;
+    type Vtable = IInkRecognizerContext2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6f0e32f_73d8_408e_8e9f_5fea592c363f);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkRecognizerContext2Vtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkRecognizerContext2_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub EnabledUnicodeRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unicoderanges: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -8442,14 +8442,14 @@ impl ::core::fmt::Debug for IInkRecognizerGuide {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkRecognizerGuide {
-    type Vtable = IInkRecognizerGuideVtbl;
+    type Vtable = IInkRecognizerGuide_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd934be07_7b84_4208_9136_83c20994e905);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkRecognizerGuideVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkRecognizerGuide_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub WritingBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rectangle: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -8602,14 +8602,14 @@ impl ::core::fmt::Debug for IInkRecognizers {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkRecognizers {
-    type Vtable = IInkRecognizersVtbl;
+    type Vtable = IInkRecognizers_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ccc4f12_b0b7_4a8b_bf58_4aeca4e8cefd);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkRecognizersVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkRecognizers_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -8775,14 +8775,14 @@ impl ::core::fmt::Debug for IInkRectangle {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkRectangle {
-    type Vtable = IInkRectangleVtbl;
+    type Vtable = IInkRectangle_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9794ff82_6071_4717_8a8b_6ac7c64a686e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkRectangleVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkRectangle_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Top: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, units: *mut i32) -> ::windows::core::HRESULT,
     pub SetTop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, units: i32) -> ::windows::core::HRESULT,
     pub Left: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, units: *mut i32) -> ::windows::core::HRESULT,
@@ -8973,14 +8973,14 @@ impl ::core::fmt::Debug for IInkRenderer {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkRenderer {
-    type Vtable = IInkRendererVtbl;
+    type Vtable = IInkRenderer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6257a9c_b511_4f4c_a8b0_a7dbc9506b83);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkRendererVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkRenderer_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetViewTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewtransform: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -9304,14 +9304,14 @@ impl ::core::fmt::Debug for IInkStrokeDisp {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkStrokeDisp {
-    type Vtable = IInkStrokeDispVtbl;
+    type Vtable = IInkStrokeDisp_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43242fea_91d1_4a72_963e_fbb91829cfa2);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkStrokeDispVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkStrokeDisp_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub ID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub BezierPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, points: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -9614,14 +9614,14 @@ impl ::core::fmt::Debug for IInkStrokes {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkStrokes {
-    type Vtable = IInkStrokesVtbl;
+    type Vtable = IInkStrokes_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1f4c9d8_590a_4963_b3ae_1935671bb6f3);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkStrokesVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkStrokes_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -9815,14 +9815,14 @@ impl ::core::fmt::Debug for IInkTablet {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkTablet {
-    type Vtable = IInkTabletVtbl;
+    type Vtable = IInkTablet_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2de25eaa_6ef8_42d5_aee9_185bc81b912d);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkTabletVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkTablet_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9949,14 +9949,14 @@ impl ::core::fmt::Debug for IInkTablet2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkTablet2 {
-    type Vtable = IInkTablet2Vtbl;
+    type Vtable = IInkTablet2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90c91ad2_fa36_49d6_9516_ce8d570f6f85);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkTablet2Vtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkTablet2_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub DeviceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: *mut TabletDeviceKind) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_UI_TabletPC', 'Win32_System_Com'*"]
@@ -10068,14 +10068,14 @@ impl ::core::fmt::Debug for IInkTablet3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkTablet3 {
-    type Vtable = IInkTablet3Vtbl;
+    type Vtable = IInkTablet3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e313997_1327_41dd_8ca9_79f24be17250);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkTablet3Vtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkTablet3_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub IsMultiTouch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pismultitouch: *mut i16) -> ::windows::core::HRESULT,
     pub MaximumCursors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmaximumcursors: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -10206,14 +10206,14 @@ impl ::core::fmt::Debug for IInkTablets {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkTablets {
-    type Vtable = IInkTabletsVtbl;
+    type Vtable = IInkTablets_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x112086d9_7779_4535_a699_862b43ac1863);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkTabletsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkTablets_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -10425,14 +10425,14 @@ impl ::core::fmt::Debug for IInkTransform {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkTransform {
-    type Vtable = IInkTransformVtbl;
+    type Vtable = IInkTransform_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x615f1d43_8703_4565_88e2_8201d2ecd7b7);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkTransformVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkTransform_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Translate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalcomponent: f32, verticalcomponent: f32) -> ::windows::core::HRESULT,
     pub Rotate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, degrees: f32, x: f32, y: f32) -> ::windows::core::HRESULT,
@@ -10576,14 +10576,14 @@ impl ::core::fmt::Debug for IInkWordList {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkWordList {
-    type Vtable = IInkWordListVtbl;
+    type Vtable = IInkWordList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76ba3491_cb2f_406b_9961_0e0c4cdaaef2);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkWordListVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkWordList_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddWord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -10701,14 +10701,14 @@ impl ::core::fmt::Debug for IInkWordList2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IInkWordList2 {
-    type Vtable = IInkWordList2Vtbl;
+    type Vtable = IInkWordList2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14542586_11bf_4f5f_b6e7_49d0744aab6e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInkWordList2Vtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IInkWordList2_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddWords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newwords: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -10774,12 +10774,12 @@ impl ::core::fmt::Debug for IInputPanelWindowHandle {
     }
 }
 unsafe impl ::windows::core::Interface for IInputPanelWindowHandle {
-    type Vtable = IInputPanelWindowHandleVtbl;
+    type Vtable = IInputPanelWindowHandle_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4af81847_fdc4_4fc3_ad0b_422479c1b935);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInputPanelWindowHandleVtbl {
+pub struct IInputPanelWindowHandle_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub AttachedEditWindow32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachededitwindow: *mut i32) -> ::windows::core::HRESULT,
     pub SetAttachedEditWindow32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachededitwindow: i32) -> ::windows::core::HRESULT,
@@ -10961,14 +10961,14 @@ impl ::core::fmt::Debug for IMathInputControl {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMathInputControl {
-    type Vtable = IMathInputControlVtbl;
+    type Vtable = IMathInputControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba615aa_fac6_4738_ba5f_ff09e9fe473e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMathInputControlVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IMathInputControl_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Hide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub IsVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbshown: *mut i16) -> ::windows::core::HRESULT,
@@ -11256,14 +11256,14 @@ impl ::core::fmt::Debug for IPenInputPanel {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPenInputPanel {
-    type Vtable = IPenInputPanelVtbl;
+    type Vtable = IPenInputPanel_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa7a4083_5747_4040_a182_0b0e9fd4fac7);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPenInputPanelVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct IPenInputPanel_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
     pub Busy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, busy: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Factoid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factoid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -11488,12 +11488,12 @@ impl ::core::fmt::Debug for IRealTimeStylus {
     }
 }
 unsafe impl ::windows::core::Interface for IRealTimeStylus {
-    type Vtable = IRealTimeStylusVtbl;
+    type Vtable = IRealTimeStylus_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8bb5d22_3144_4a7b_93cd_f34a16be513a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRealTimeStylusVtbl {
+pub struct IRealTimeStylus_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenable: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -11619,12 +11619,12 @@ impl ::core::fmt::Debug for IRealTimeStylus2 {
     }
 }
 unsafe impl ::windows::core::Interface for IRealTimeStylus2 {
-    type Vtable = IRealTimeStylus2Vtbl;
+    type Vtable = IRealTimeStylus2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5f2a6cd_3179_4a3e_b9c4_bb5865962be2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRealTimeStylus2Vtbl {
+pub struct IRealTimeStylus2_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub FlicksEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenable: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -11688,12 +11688,12 @@ impl ::core::fmt::Debug for IRealTimeStylus3 {
     }
 }
 unsafe impl ::windows::core::Interface for IRealTimeStylus3 {
-    type Vtable = IRealTimeStylus3Vtbl;
+    type Vtable = IRealTimeStylus3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd70230a3_6986_4051_b57a_1cf69f4d9db5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRealTimeStylus3Vtbl {
+pub struct IRealTimeStylus3_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub MultiTouchEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenable: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -11754,12 +11754,12 @@ impl ::core::fmt::Debug for IRealTimeStylusSynchronization {
     }
 }
 unsafe impl ::windows::core::Interface for IRealTimeStylusSynchronization {
-    type Vtable = IRealTimeStylusSynchronizationVtbl;
+    type Vtable = IRealTimeStylusSynchronization_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa87eab8_ab4a_4cea_b5cb_46d84c6a2509);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRealTimeStylusSynchronizationVtbl {
+pub struct IRealTimeStylusSynchronization_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub AcquireLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lock: RealTimeStylusLockType) -> ::windows::core::HRESULT,
     pub ReleaseLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lock: RealTimeStylusLockType) -> ::windows::core::HRESULT,
@@ -11863,14 +11863,14 @@ impl ::core::fmt::Debug for ISketchInk {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISketchInk {
-    type Vtable = ISketchInkVtbl;
+    type Vtable = ISketchInk_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4563688_98eb_4646_b279_44da14d45748);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISketchInkVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct ISketchInk_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_UI_TabletPC'*"]
 #[repr(transparent)]
@@ -11944,12 +11944,12 @@ impl ::core::fmt::Debug for IStrokeBuilder {
     }
 }
 unsafe impl ::windows::core::Interface for IStrokeBuilder {
-    type Vtable = IStrokeBuilderVtbl;
+    type Vtable = IStrokeBuilder_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5fd4e2d_c44b_4092_9177_260905eb672b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStrokeBuilderVtbl {
+pub struct IStrokeBuilder_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateStroke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpktbufflength: u32, ppackets: *const i32, cpacketproperties: u32, ppacketproperties: *const PACKET_PROPERTY, finktodevicescalex: f32, finktodevicescaley: f32, ppiinkstroke: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -12111,13 +12111,13 @@ impl ::core::fmt::Debug for IStylusAsyncPlugin {
     }
 }
 unsafe impl ::windows::core::Interface for IStylusAsyncPlugin {
-    type Vtable = IStylusAsyncPluginVtbl;
+    type Vtable = IStylusAsyncPlugin_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7cca85a_31bc_4cd2_aadc_3289a3af11c8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStylusAsyncPluginVtbl {
-    pub base: IStylusPluginVtbl,
+pub struct IStylusAsyncPlugin_Vtbl {
+    pub base: IStylusPlugin_Vtbl,
 }
 #[doc = "*Required features: 'Win32_UI_TabletPC'*"]
 #[repr(transparent)]
@@ -12237,12 +12237,12 @@ impl ::core::fmt::Debug for IStylusPlugin {
     }
 }
 unsafe impl ::windows::core::Interface for IStylusPlugin {
-    type Vtable = IStylusPluginVtbl;
+    type Vtable = IStylusPlugin_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa81436d8_4757_4fd1_a185_133f97c6c545);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStylusPluginVtbl {
+pub struct IStylusPlugin_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub RealTimeStylusEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirtssrc: ::windows::core::RawPtr, ctcidcount: u32, ptcids: *const u32) -> ::windows::core::HRESULT,
     pub RealTimeStylusDisabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirtssrc: ::windows::core::RawPtr, ctcidcount: u32, ptcids: *const u32) -> ::windows::core::HRESULT,
@@ -12421,13 +12421,13 @@ impl ::core::fmt::Debug for IStylusSyncPlugin {
     }
 }
 unsafe impl ::windows::core::Interface for IStylusSyncPlugin {
-    type Vtable = IStylusSyncPluginVtbl;
+    type Vtable = IStylusSyncPlugin_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa157b174_482f_4d71_a3f6_3a41ddd11be9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStylusSyncPluginVtbl {
-    pub base: IStylusPluginVtbl,
+pub struct IStylusSyncPlugin_Vtbl {
+    pub base: IStylusPlugin_Vtbl,
 }
 #[doc = "*Required features: 'Win32_UI_TabletPC'*"]
 #[repr(transparent)]
@@ -12592,12 +12592,12 @@ impl ::core::fmt::Debug for ITextInputPanel {
     }
 }
 unsafe impl ::windows::core::Interface for ITextInputPanel {
-    type Vtable = ITextInputPanelVtbl;
+    type Vtable = ITextInputPanel_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b6a65a5_6af3_46c2_b6ea_56cd1f80df71);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextInputPanelVtbl {
+pub struct ITextInputPanel_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AttachedEditWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachededitwindow: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
@@ -12745,12 +12745,12 @@ impl ::core::fmt::Debug for ITextInputPanelEventSink {
     }
 }
 unsafe impl ::windows::core::Interface for ITextInputPanelEventSink {
-    type Vtable = ITextInputPanelEventSinkVtbl;
+    type Vtable = ITextInputPanelEventSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27560408_8e64_4fe1_804e_421201584b31);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextInputPanelEventSinkVtbl {
+pub struct ITextInputPanelEventSink_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub InPlaceStateChanging: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> ::windows::core::HRESULT,
     pub InPlaceStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> ::windows::core::HRESULT,
@@ -12831,12 +12831,12 @@ impl ::core::fmt::Debug for ITextInputPanelRunInfo {
     }
 }
 unsafe impl ::windows::core::Interface for ITextInputPanelRunInfo {
-    type Vtable = ITextInputPanelRunInfoVtbl;
+    type Vtable = ITextInputPanelRunInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f424568_1920_48cc_9811_a993cbf5adba);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITextInputPanelRunInfoVtbl {
+pub struct ITextInputPanelRunInfo_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsTipRunning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfrunning: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -12910,12 +12910,12 @@ impl ::core::fmt::Debug for ITipAutoCompleteClient {
     }
 }
 unsafe impl ::windows::core::Interface for ITipAutoCompleteClient {
-    type Vtable = ITipAutoCompleteClientVtbl;
+    type Vtable = ITipAutoCompleteClient_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e078e03_8265_4bbe_9487_d242edbef910);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITipAutoCompleteClientVtbl {
+pub struct ITipAutoCompleteClient_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AdviseProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndfield: super::super::Foundation::HWND, piprovider: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -12987,12 +12987,12 @@ impl ::core::fmt::Debug for ITipAutoCompleteProvider {
     }
 }
 unsafe impl ::windows::core::Interface for ITipAutoCompleteProvider {
-    type Vtable = ITipAutoCompleteProviderVtbl;
+    type Vtable = ITipAutoCompleteProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c6cf46d_8404_46b9_ad33_f5b6036d4007);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITipAutoCompleteProviderVtbl {
+pub struct ITipAutoCompleteProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub UpdatePendingText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpendingtext: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -14813,14 +14813,14 @@ impl ::core::fmt::Debug for _IInkCollectorEvents {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for _IInkCollectorEvents {
-    type Vtable = _IInkCollectorEventsVtbl;
+    type Vtable = _IInkCollectorEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11a583f2_712d_4fea_abcf_ab4af38ea06b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct _IInkCollectorEventsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct _IInkCollectorEvents_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_UI_TabletPC', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -14921,14 +14921,14 @@ impl ::core::fmt::Debug for _IInkEditEvents {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for _IInkEditEvents {
-    type Vtable = _IInkEditEventsVtbl;
+    type Vtable = _IInkEditEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3b0b797_a72e_46db_a0d7_6c9eba8e9bbc);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct _IInkEditEventsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct _IInkEditEvents_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_UI_TabletPC', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -15029,14 +15029,14 @@ impl ::core::fmt::Debug for _IInkEvents {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for _IInkEvents {
-    type Vtable = _IInkEventsVtbl;
+    type Vtable = _IInkEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x427b1865_ca3f_479a_83a9_0f420f2a0073);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct _IInkEventsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct _IInkEvents_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_UI_TabletPC', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -15137,14 +15137,14 @@ impl ::core::fmt::Debug for _IInkOverlayEvents {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for _IInkOverlayEvents {
-    type Vtable = _IInkOverlayEventsVtbl;
+    type Vtable = _IInkOverlayEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31179b69_e563_489e_b16f_712f1e8a0651);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct _IInkOverlayEventsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct _IInkOverlayEvents_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_UI_TabletPC', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -15245,14 +15245,14 @@ impl ::core::fmt::Debug for _IInkPictureEvents {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for _IInkPictureEvents {
-    type Vtable = _IInkPictureEventsVtbl;
+    type Vtable = _IInkPictureEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60ff4fee_22ff_4484_acc1_d308d9cd7ea3);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct _IInkPictureEventsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct _IInkPictureEvents_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_UI_TabletPC', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -15353,14 +15353,14 @@ impl ::core::fmt::Debug for _IInkRecognitionEvents {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for _IInkRecognitionEvents {
-    type Vtable = _IInkRecognitionEventsVtbl;
+    type Vtable = _IInkRecognitionEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17bce92f_2e21_47fd_9d33_3c6afbfd8c59);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct _IInkRecognitionEventsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct _IInkRecognitionEvents_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_UI_TabletPC', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -15461,14 +15461,14 @@ impl ::core::fmt::Debug for _IInkStrokesEvents {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for _IInkStrokesEvents {
-    type Vtable = _IInkStrokesEventsVtbl;
+    type Vtable = _IInkStrokesEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf33053ec_5d25_430a_928f_76a6491dde15);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct _IInkStrokesEventsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct _IInkStrokesEvents_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_UI_TabletPC', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -15569,14 +15569,14 @@ impl ::core::fmt::Debug for _IMathInputControlEvents {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for _IMathInputControlEvents {
-    type Vtable = _IMathInputControlEventsVtbl;
+    type Vtable = _IMathInputControlEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x683336b5_a47d_4358_96f9_875a472ae70a);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct _IMathInputControlEventsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct _IMathInputControlEvents_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_UI_TabletPC', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -15677,14 +15677,14 @@ impl ::core::fmt::Debug for _IPenInputPanelEvents {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for _IPenInputPanelEvents {
-    type Vtable = _IPenInputPanelEventsVtbl;
+    type Vtable = _IPenInputPanelEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7e489da_3719_439f_848f_e7acbd820f17);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct _IPenInputPanelEventsVtbl {
-    pub base: super::super::System::Com::IDispatchVtbl,
+pub struct _IPenInputPanelEvents_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_UI_TabletPC'*"]
 pub type enumGetCandidateFlags = i32;

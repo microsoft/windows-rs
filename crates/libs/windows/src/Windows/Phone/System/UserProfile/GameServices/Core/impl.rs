@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IGameServiceImpl: Sized {
+pub trait IGameService_Impl: Sized {
     fn ServiceUri(&mut self) -> ::windows::core::Result<super::super::super::super::super::Foundation::Uri>;
     fn GetGamerProfileAsync(&mut self) -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<GameServicePropertyCollection>>;
     fn GetInstalledGameItemsAsync(&mut self) -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<GameServicePropertyCollection>>;
@@ -14,9 +14,9 @@ impl ::windows::core::RuntimeName for IGameService {
     const NAME: &'static str = "Windows.Phone.System.UserProfile.GameServices.Core.IGameService";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IGameServiceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameServiceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameServiceVtbl {
-        unsafe extern "system" fn ServiceUri<Impl: IGameServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGameService_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameService_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameService_Vtbl {
+        unsafe extern "system" fn ServiceUri<Impl: IGameService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ServiceUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -27,7 +27,7 @@ impl IGameServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetGamerProfileAsync<Impl: IGameServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGamerProfileAsync<Impl: IGameService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetGamerProfileAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -38,7 +38,7 @@ impl IGameServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetInstalledGameItemsAsync<Impl: IGameServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetInstalledGameItemsAsync<Impl: IGameService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetInstalledGameItemsAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -49,7 +49,7 @@ impl IGameServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPartnerTokenAsync<Impl: IGameServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audienceuri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPartnerTokenAsync<Impl: IGameService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audienceuri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPartnerTokenAsync(&*(&audienceuri as *const <super::super::super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -60,7 +60,7 @@ impl IGameServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPrivilegesAsync<Impl: IGameServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPrivilegesAsync<Impl: IGameService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPrivilegesAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -71,15 +71,15 @@ impl IGameServiceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GrantAchievement<Impl: IGameServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, achievementid: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GrantAchievement<Impl: IGameService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, achievementid: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GrantAchievement(achievementid).into()
         }
-        unsafe extern "system" fn GrantAvatarAward<Impl: IGameServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, avatarawardid: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GrantAvatarAward<Impl: IGameService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, avatarawardid: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GrantAvatarAward(avatarawardid).into()
         }
-        unsafe extern "system" fn PostResult<Impl: IGameServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gamevariant: u32, scorekind: GameServiceScoreKind, scorevalue: i64, gameoutcome: GameServiceGameOutcome, buffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PostResult<Impl: IGameService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gamevariant: u32, scorekind: GameServiceScoreKind, scorevalue: i64, gameoutcome: GameServiceGameOutcome, buffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).PostResult(gamevariant, scorekind, scorevalue, gameoutcome, &*(&buffer as *const <super::super::super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -100,7 +100,7 @@ impl IGameServiceVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGameService2Impl: Sized {
+pub trait IGameService2_Impl: Sized {
     fn NotifyPartnerTokenExpired(&mut self, audienceuri: &::core::option::Option<super::super::super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn GetAuthenticationStatus(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -109,13 +109,13 @@ impl ::windows::core::RuntimeName for IGameService2 {
     const NAME: &'static str = "Windows.Phone.System.UserProfile.GameServices.Core.IGameService2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGameService2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameService2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameService2Vtbl {
-        unsafe extern "system" fn NotifyPartnerTokenExpired<Impl: IGameService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audienceuri: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGameService2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameService2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameService2_Vtbl {
+        unsafe extern "system" fn NotifyPartnerTokenExpired<Impl: IGameService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audienceuri: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).NotifyPartnerTokenExpired(&*(&audienceuri as *const <super::super::super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetAuthenticationStatus<Impl: IGameService2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAuthenticationStatus<Impl: IGameService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAuthenticationStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -137,7 +137,7 @@ impl IGameService2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGameServicePropertyCollectionImpl: Sized {
+pub trait IGameServicePropertyCollection_Impl: Sized {
     fn GetPropertyAsync(&mut self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<::windows::core::IInspectable>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -145,9 +145,9 @@ impl ::windows::core::RuntimeName for IGameServicePropertyCollection {
     const NAME: &'static str = "Windows.Phone.System.UserProfile.GameServices.Core.IGameServicePropertyCollection";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGameServicePropertyCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameServicePropertyCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameServicePropertyCollectionVtbl {
-        unsafe extern "system" fn GetPropertyAsync<Impl: IGameServicePropertyCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGameServicePropertyCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameServicePropertyCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameServicePropertyCollection_Vtbl {
+        unsafe extern "system" fn GetPropertyAsync<Impl: IGameServicePropertyCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPropertyAsync(&*(&propertyname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

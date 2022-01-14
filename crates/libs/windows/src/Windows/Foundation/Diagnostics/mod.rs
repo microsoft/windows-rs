@@ -241,7 +241,7 @@ unsafe impl ::windows::core::RuntimeType for ErrorDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.ErrorDetails;{378cbb01-2cc9-428f-8c55-2c990d463e8f})");
 }
 unsafe impl ::windows::core::Interface for ErrorDetails {
-    type Vtable = IErrorDetailsVtbl;
+    type Vtable = IErrorDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x378cbb01_2cc9_428f_8c55_2c990d463e8f);
 }
 impl ::windows::core::RuntimeName for ErrorDetails {
@@ -440,7 +440,7 @@ unsafe impl ::windows::core::RuntimeType for FileLoggingSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.FileLoggingSession;{24c74216-fed2-404c-895f-1f9699cb02f7})");
 }
 unsafe impl ::windows::core::Interface for FileLoggingSession {
-    type Vtable = IFileLoggingSessionVtbl;
+    type Vtable = IFileLoggingSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24c74216_fed2_404c_895f_1f9699cb02f7);
 }
 impl ::windows::core::RuntimeName for FileLoggingSession {
@@ -536,12 +536,12 @@ unsafe impl ::core::marker::Sync for FileLoggingSession {}
 #[repr(transparent)]
 pub struct IAsyncCausalityTracerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAsyncCausalityTracerStatics {
-    type Vtable = IAsyncCausalityTracerStaticsVtbl;
+    type Vtable = IAsyncCausalityTracerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50850b26_267e_451b_a890_ab6a370245ee);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAsyncCausalityTracerStaticsVtbl {
+pub struct IAsyncCausalityTracerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TraceOperationCreation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: ::windows::core::GUID, operationid: u64, operationname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, relatedcontext: u64) -> ::windows::core::HRESULT,
     pub TraceOperationCompletion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: ::windows::core::GUID, operationid: u64, status: super::AsyncStatus) -> ::windows::core::HRESULT,
@@ -555,12 +555,12 @@ pub struct IAsyncCausalityTracerStaticsVtbl {
 #[repr(transparent)]
 pub struct IErrorDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IErrorDetails {
-    type Vtable = IErrorDetailsVtbl;
+    type Vtable = IErrorDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x378cbb01_2cc9_428f_8c55_2c990d463e8f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IErrorDetailsVtbl {
+pub struct IErrorDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub LongDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -570,12 +570,12 @@ pub struct IErrorDetailsVtbl {
 #[repr(transparent)]
 pub struct IErrorDetailsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IErrorDetailsStatics {
-    type Vtable = IErrorDetailsStaticsVtbl;
+    type Vtable = IErrorDetailsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7703750_0b1d_46c8_aa0e_4b8178e4fce9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IErrorDetailsStaticsVtbl {
+pub struct IErrorDetailsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateFromHResultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errorcode: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -657,12 +657,12 @@ unsafe impl ::windows::core::RuntimeType for IErrorReportingSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{16369792-b03e-4ba1-8bb8-d28f4ab4d2c0}");
 }
 unsafe impl ::windows::core::Interface for IErrorReportingSettings {
-    type Vtable = IErrorReportingSettingsVtbl;
+    type Vtable = IErrorReportingSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16369792_b03e_4ba1_8bb8_d28f4ab4d2c0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IErrorReportingSettingsVtbl {
+pub struct IErrorReportingSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetErrorOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ErrorOptions) -> ::windows::core::HRESULT,
     pub GetErrorOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ErrorOptions) -> ::windows::core::HRESULT,
@@ -804,12 +804,12 @@ unsafe impl ::windows::core::RuntimeType for IFileLoggingSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{24c74216-fed2-404c-895f-1f9699cb02f7}");
 }
 unsafe impl ::windows::core::Interface for IFileLoggingSession {
-    type Vtable = IFileLoggingSessionVtbl;
+    type Vtable = IFileLoggingSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24c74216_fed2_404c_895f_1f9699cb02f7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileLoggingSessionVtbl {
+pub struct IFileLoggingSession_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub AddLoggingChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -826,12 +826,12 @@ pub struct IFileLoggingSessionVtbl {
 #[repr(transparent)]
 pub struct IFileLoggingSessionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFileLoggingSessionFactory {
-    type Vtable = IFileLoggingSessionFactoryVtbl;
+    type Vtable = IFileLoggingSessionFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeea08dce_8447_4daa_9133_12eb46f697d4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileLoggingSessionFactoryVtbl {
+pub struct IFileLoggingSessionFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -839,12 +839,12 @@ pub struct IFileLoggingSessionFactoryVtbl {
 #[repr(transparent)]
 pub struct ILogFileGeneratedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILogFileGeneratedEventArgs {
-    type Vtable = ILogFileGeneratedEventArgsVtbl;
+    type Vtable = ILogFileGeneratedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x269e976f_0d38_4c1a_b53f_b395d881df84);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILogFileGeneratedEventArgsVtbl {
+pub struct ILogFileGeneratedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage")]
     pub File: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -855,12 +855,12 @@ pub struct ILogFileGeneratedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ILoggingActivity(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILoggingActivity {
-    type Vtable = ILoggingActivityVtbl;
+    type Vtable = ILoggingActivity_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc032941_b766_4cb5_9848_97ac6ba6d60c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILoggingActivityVtbl {
+pub struct ILoggingActivity_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -869,12 +869,12 @@ pub struct ILoggingActivityVtbl {
 #[repr(transparent)]
 pub struct ILoggingActivity2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILoggingActivity2 {
-    type Vtable = ILoggingActivity2Vtbl;
+    type Vtable = ILoggingActivity2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26c29808_6322_456a_af82_80c8642f178b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILoggingActivity2Vtbl {
+pub struct ILoggingActivity2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Channel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub StopActivity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stopeventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -885,12 +885,12 @@ pub struct ILoggingActivity2Vtbl {
 #[repr(transparent)]
 pub struct ILoggingActivityFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILoggingActivityFactory {
-    type Vtable = ILoggingActivityFactoryVtbl;
+    type Vtable = ILoggingActivityFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b33b483_e10a_4c58_97d5_10fb451074fb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILoggingActivityFactoryVtbl {
+pub struct ILoggingActivityFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateLoggingActivity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activityname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, loggingchannel: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateLoggingActivityWithLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activityname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, loggingchannel: ::windows::core::RawPtr, level: LoggingLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1044,12 +1044,12 @@ unsafe impl ::windows::core::RuntimeType for ILoggingChannel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e9a50343-11d7-4f01-b5ca-cf495278c0a8}");
 }
 unsafe impl ::windows::core::Interface for ILoggingChannel {
-    type Vtable = ILoggingChannelVtbl;
+    type Vtable = ILoggingChannel_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9a50343_11d7_4f01_b5ca_cf495278c0a8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILoggingChannelVtbl {
+pub struct ILoggingChannel_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1065,12 +1065,12 @@ pub struct ILoggingChannelVtbl {
 #[repr(transparent)]
 pub struct ILoggingChannel2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILoggingChannel2 {
-    type Vtable = ILoggingChannel2Vtbl;
+    type Vtable = ILoggingChannel2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f4c3cf3_0bac_45a5_9e33_baf3f3a246a5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILoggingChannel2Vtbl {
+pub struct ILoggingChannel2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
@@ -1078,12 +1078,12 @@ pub struct ILoggingChannel2Vtbl {
 #[repr(transparent)]
 pub struct ILoggingChannelFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILoggingChannelFactory {
-    type Vtable = ILoggingChannelFactoryVtbl;
+    type Vtable = ILoggingChannelFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4edc5b9c_af80_4a9b_b0dc_398f9ae5207b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILoggingChannelFactoryVtbl {
+pub struct ILoggingChannelFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1094,12 +1094,12 @@ pub struct ILoggingChannelFactoryVtbl {
 #[repr(transparent)]
 pub struct ILoggingChannelFactory2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILoggingChannelFactory2 {
-    type Vtable = ILoggingChannelFactory2Vtbl;
+    type Vtable = ILoggingChannelFactory2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c6ef5dd_3b27_4dc9_99f0_299c6e4603a1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILoggingChannelFactory2Vtbl {
+pub struct ILoggingChannelFactory2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateWithOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateWithOptionsAndId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: ::windows::core::RawPtr, id: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1108,12 +1108,12 @@ pub struct ILoggingChannelFactory2Vtbl {
 #[repr(transparent)]
 pub struct ILoggingChannelOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILoggingChannelOptions {
-    type Vtable = ILoggingChannelOptionsVtbl;
+    type Vtable = ILoggingChannelOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3e847ff_0ebb_4a53_8c54_dec24926cb2c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILoggingChannelOptionsVtbl {
+pub struct ILoggingChannelOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Group: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub SetGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -1122,12 +1122,12 @@ pub struct ILoggingChannelOptionsVtbl {
 #[repr(transparent)]
 pub struct ILoggingChannelOptionsFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILoggingChannelOptionsFactory {
-    type Vtable = ILoggingChannelOptionsFactoryVtbl;
+    type Vtable = ILoggingChannelOptionsFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa93151da_7faf_4191_8755_5e86dc65d896);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILoggingChannelOptionsFactoryVtbl {
+pub struct ILoggingChannelOptionsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, group: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1135,12 +1135,12 @@ pub struct ILoggingChannelOptionsFactoryVtbl {
 #[repr(transparent)]
 pub struct ILoggingFields(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILoggingFields {
-    type Vtable = ILoggingFieldsVtbl;
+    type Vtable = ILoggingFields_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7f6b7af_762d_4579_83bd_52c23bc333bc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILoggingFieldsVtbl {
+pub struct ILoggingFields_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub BeginStruct: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1262,12 +1262,12 @@ pub struct ILoggingFieldsVtbl {
 #[repr(transparent)]
 pub struct ILoggingOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILoggingOptions {
-    type Vtable = ILoggingOptionsVtbl;
+    type Vtable = ILoggingOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90bc7850_0192_4f5d_ac26_006adaca12d8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILoggingOptionsVtbl {
+pub struct ILoggingOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Keywords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT,
     pub SetKeywords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i64) -> ::windows::core::HRESULT,
@@ -1286,12 +1286,12 @@ pub struct ILoggingOptionsVtbl {
 #[repr(transparent)]
 pub struct ILoggingOptionsFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILoggingOptionsFactory {
-    type Vtable = ILoggingOptionsFactoryVtbl;
+    type Vtable = ILoggingOptionsFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd713c6cb_98ab_464b_9f22_a3268478368a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILoggingOptionsFactoryVtbl {
+pub struct ILoggingOptionsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateWithKeywords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keywords: i64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1419,12 +1419,12 @@ unsafe impl ::windows::core::RuntimeType for ILoggingSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6221f306-9380-4ad7-baf5-41ea9310d768}");
 }
 unsafe impl ::windows::core::Interface for ILoggingSession {
-    type Vtable = ILoggingSessionVtbl;
+    type Vtable = ILoggingSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6221f306_9380_4ad7_baf5_41ea9310d768);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILoggingSessionVtbl {
+pub struct ILoggingSession_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage")]
@@ -1439,12 +1439,12 @@ pub struct ILoggingSessionVtbl {
 #[repr(transparent)]
 pub struct ILoggingSessionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILoggingSessionFactory {
-    type Vtable = ILoggingSessionFactoryVtbl;
+    type Vtable = ILoggingSessionFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e937ee5_58fd_45e0_8c2f_a132eff95c1e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILoggingSessionFactoryVtbl {
+pub struct ILoggingSessionFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1589,12 +1589,12 @@ unsafe impl ::windows::core::RuntimeType for ILoggingTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{65f16c35-e388-4e26-b17a-f51cd3a83916}");
 }
 unsafe impl ::windows::core::Interface for ILoggingTarget {
-    type Vtable = ILoggingTargetVtbl;
+    type Vtable = ILoggingTarget_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65f16c35_e388_4e26_b17a_f51cd3a83916);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILoggingTargetVtbl {
+pub struct ILoggingTarget_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsEnabledWithLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: LoggingLevel, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1612,12 +1612,12 @@ pub struct ILoggingTargetVtbl {
 #[repr(transparent)]
 pub struct ITracingStatusChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITracingStatusChangedEventArgs {
-    type Vtable = ITracingStatusChangedEventArgsVtbl;
+    type Vtable = ITracingStatusChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x410b7711_ff3b_477f_9c9a_d2efda302dc3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITracingStatusChangedEventArgsVtbl {
+pub struct ITracingStatusChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub TraceLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CausalityTraceLevel) -> ::windows::core::HRESULT,
@@ -1656,7 +1656,7 @@ unsafe impl ::windows::core::RuntimeType for LogFileGeneratedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LogFileGeneratedEventArgs;{269e976f-0d38-4c1a-b53f-b395d881df84})");
 }
 unsafe impl ::windows::core::Interface for LogFileGeneratedEventArgs {
-    type Vtable = ILogFileGeneratedEventArgsVtbl;
+    type Vtable = ILogFileGeneratedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x269e976f_0d38_4c1a_b53f_b395d881df84);
 }
 impl ::windows::core::RuntimeName for LogFileGeneratedEventArgs {
@@ -1868,7 +1868,7 @@ unsafe impl ::windows::core::RuntimeType for LoggingActivity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingActivity;{bc032941-b766-4cb5-9848-97ac6ba6d60c})");
 }
 unsafe impl ::windows::core::Interface for LoggingActivity {
-    type Vtable = ILoggingActivityVtbl;
+    type Vtable = ILoggingActivity_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc032941_b766_4cb5_9848_97ac6ba6d60c);
 }
 impl ::windows::core::RuntimeName for LoggingActivity {
@@ -2163,7 +2163,7 @@ unsafe impl ::windows::core::RuntimeType for LoggingChannel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingChannel;{e9a50343-11d7-4f01-b5ca-cf495278c0a8})");
 }
 unsafe impl ::windows::core::Interface for LoggingChannel {
-    type Vtable = ILoggingChannelVtbl;
+    type Vtable = ILoggingChannel_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9a50343_11d7_4f01_b5ca_cf495278c0a8);
 }
 impl ::windows::core::RuntimeName for LoggingChannel {
@@ -2334,7 +2334,7 @@ unsafe impl ::windows::core::RuntimeType for LoggingChannelOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingChannelOptions;{c3e847ff-0ebb-4a53-8c54-dec24926cb2c})");
 }
 unsafe impl ::windows::core::Interface for LoggingChannelOptions {
-    type Vtable = ILoggingChannelOptionsVtbl;
+    type Vtable = ILoggingChannelOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3e847ff_0ebb_4a53_8c54_dec24926cb2c);
 }
 impl ::windows::core::RuntimeName for LoggingChannelOptions {
@@ -3039,7 +3039,7 @@ unsafe impl ::windows::core::RuntimeType for LoggingFields {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingFields;{d7f6b7af-762d-4579-83bd-52c23bc333bc})");
 }
 unsafe impl ::windows::core::Interface for LoggingFields {
-    type Vtable = ILoggingFieldsVtbl;
+    type Vtable = ILoggingFields_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7f6b7af_762d_4579_83bd_52c23bc333bc);
 }
 impl ::windows::core::RuntimeName for LoggingFields {
@@ -3283,7 +3283,7 @@ unsafe impl ::windows::core::RuntimeType for LoggingOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingOptions;{90bc7850-0192-4f5d-ac26-006adaca12d8})");
 }
 unsafe impl ::windows::core::Interface for LoggingOptions {
-    type Vtable = ILoggingOptionsVtbl;
+    type Vtable = ILoggingOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90bc7850_0192_4f5d_ac26_006adaca12d8);
 }
 impl ::windows::core::RuntimeName for LoggingOptions {
@@ -3405,7 +3405,7 @@ unsafe impl ::windows::core::RuntimeType for LoggingSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingSession;{6221f306-9380-4ad7-baf5-41ea9310d768})");
 }
 unsafe impl ::windows::core::Interface for LoggingSession {
-    type Vtable = ILoggingSessionVtbl;
+    type Vtable = ILoggingSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6221f306_9380_4ad7_baf5_41ea9310d768);
 }
 impl ::windows::core::RuntimeName for LoggingSession {
@@ -3542,7 +3542,7 @@ unsafe impl ::windows::core::RuntimeType for RuntimeBrokerErrorSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.RuntimeBrokerErrorSettings;{16369792-b03e-4ba1-8bb8-d28f4ab4d2c0})");
 }
 unsafe impl ::windows::core::Interface for RuntimeBrokerErrorSettings {
-    type Vtable = IErrorReportingSettingsVtbl;
+    type Vtable = IErrorReportingSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16369792_b03e_4ba1_8bb8_d28f4ab4d2c0);
 }
 impl ::windows::core::RuntimeName for RuntimeBrokerErrorSettings {
@@ -3653,7 +3653,7 @@ unsafe impl ::windows::core::RuntimeType for TracingStatusChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.TracingStatusChangedEventArgs;{410b7711-ff3b-477f-9c9a-d2efda302dc3})");
 }
 unsafe impl ::windows::core::Interface for TracingStatusChangedEventArgs {
-    type Vtable = ITracingStatusChangedEventArgsVtbl;
+    type Vtable = ITracingStatusChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x410b7711_ff3b_477f_9c9a_d2efda302dc3);
 }
 impl ::windows::core::RuntimeName for TracingStatusChangedEventArgs {

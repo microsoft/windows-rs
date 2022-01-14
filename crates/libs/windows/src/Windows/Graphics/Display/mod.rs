@@ -118,7 +118,7 @@ unsafe impl ::windows::core::RuntimeType for AdvancedColorInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.AdvancedColorInfo;{8797dcfb-b229-4081-ae9a-2cc85e34ad6a})");
 }
 unsafe impl ::windows::core::Interface for AdvancedColorInfo {
-    type Vtable = IAdvancedColorInfoVtbl;
+    type Vtable = IAdvancedColorInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8797dcfb_b229_4081_ae9a_2cc85e34ad6a);
 }
 impl ::windows::core::RuntimeName for AdvancedColorInfo {
@@ -349,7 +349,7 @@ unsafe impl ::windows::core::RuntimeType for BrightnessOverride {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.BrightnessOverride;{96c9621a-c143-4392-bedd-4a7e9574c8fd})");
 }
 unsafe impl ::windows::core::Interface for BrightnessOverride {
-    type Vtable = IBrightnessOverrideVtbl;
+    type Vtable = IBrightnessOverride_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96c9621a_c143_4392_bedd_4a7e9574c8fd);
 }
 impl ::windows::core::RuntimeName for BrightnessOverride {
@@ -464,7 +464,7 @@ unsafe impl ::windows::core::RuntimeType for BrightnessOverrideSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.BrightnessOverrideSettings;{d112ab2a-7604-4dba-bcf8-4b6f49502cb0})");
 }
 unsafe impl ::windows::core::Interface for BrightnessOverrideSettings {
-    type Vtable = IBrightnessOverrideSettingsVtbl;
+    type Vtable = IBrightnessOverrideSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd112ab2a_7604_4dba_bcf8_4b6f49502cb0);
 }
 impl ::windows::core::RuntimeName for BrightnessOverrideSettings {
@@ -557,7 +557,7 @@ unsafe impl ::windows::core::RuntimeType for ColorOverrideSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.ColorOverrideSettings;{fbefa134-4a81-4c4d-a5b6-7d1b5c4bd00b})");
 }
 unsafe impl ::windows::core::Interface for ColorOverrideSettings {
-    type Vtable = IColorOverrideSettingsVtbl;
+    type Vtable = IColorOverrideSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbefa134_4a81_4c4d_a5b6_7d1b5c4bd00b);
 }
 impl ::windows::core::RuntimeName for ColorOverrideSettings {
@@ -909,7 +909,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayEnhancementOverride {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayEnhancementOverride;{429594cf-d97a-4b02-a428-5c4292f7f522})");
 }
 unsafe impl ::windows::core::Interface for DisplayEnhancementOverride {
-    type Vtable = IDisplayEnhancementOverrideVtbl;
+    type Vtable = IDisplayEnhancementOverride_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x429594cf_d97a_4b02_a428_5c4292f7f522);
 }
 impl ::windows::core::RuntimeName for DisplayEnhancementOverride {
@@ -1007,7 +1007,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayEnhancementOverrideCapabilit
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayEnhancementOverrideCapabilities;{457060de-ee5a-47b7-9918-1e51e812ccc8})");
 }
 unsafe impl ::windows::core::Interface for DisplayEnhancementOverrideCapabilities {
-    type Vtable = IDisplayEnhancementOverrideCapabilitiesVtbl;
+    type Vtable = IDisplayEnhancementOverrideCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x457060de_ee5a_47b7_9918_1e51e812ccc8);
 }
 impl ::windows::core::RuntimeName for DisplayEnhancementOverrideCapabilities {
@@ -1088,7 +1088,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayEnhancementOverrideCapabilit
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayEnhancementOverrideCapabilitiesChangedEventArgs;{db61e664-15fa-49da-8b77-07dbd2af585d})");
 }
 unsafe impl ::windows::core::Interface for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
-    type Vtable = IDisplayEnhancementOverrideCapabilitiesChangedEventArgsVtbl;
+    type Vtable = IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb61e664_15fa_49da_8b77_07dbd2af585d);
 }
 impl ::windows::core::RuntimeName for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
@@ -1378,7 +1378,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayInformation;{bed112ae-adc3-4dc9-ae65-851f4d7d4799})");
 }
 unsafe impl ::windows::core::Interface for DisplayInformation {
-    type Vtable = IDisplayInformationVtbl;
+    type Vtable = IDisplayInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbed112ae_adc3_4dc9_ae65_851f4d7d4799);
 }
 impl ::windows::core::RuntimeName for DisplayInformation {
@@ -1652,13 +1652,13 @@ impl DisplayPropertiesEventHandler {
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 struct DisplayPropertiesEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const DisplayPropertiesEventHandlerVtbl,
+    vtable: *const DisplayPropertiesEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 #[cfg(feature = "deprecated")]
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> + 'static> DisplayPropertiesEventHandlerBox<F> {
-    const VTABLE: DisplayPropertiesEventHandlerVtbl = DisplayPropertiesEventHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: DisplayPropertiesEventHandler_Vtbl = DisplayPropertiesEventHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<DisplayPropertiesEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -1708,7 +1708,7 @@ impl ::core::fmt::Debug for DisplayPropertiesEventHandler {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for DisplayPropertiesEventHandler {
-    type Vtable = DisplayPropertiesEventHandlerVtbl;
+    type Vtable = DisplayPropertiesEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbdd8b01_f1a1_46d1_9ee3_543bcc995980);
 }
 #[cfg(feature = "deprecated")]
@@ -1718,7 +1718,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayPropertiesEventHandler {
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct DisplayPropertiesEventHandlerVtbl {
+pub struct DisplayPropertiesEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "deprecated")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1762,7 +1762,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayServices {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayServices;{1b54f32b-890d-5747-bd26-fdbdeb0c8a71})");
 }
 unsafe impl ::windows::core::Interface for DisplayServices {
-    type Vtable = IDisplayServicesVtbl;
+    type Vtable = IDisplayServices_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b54f32b_890d_5747_bd26_fdbdeb0c8a71);
 }
 impl ::windows::core::RuntimeName for DisplayServices {
@@ -1847,12 +1847,12 @@ impl ::windows::core::DefaultType for HdrMetadataFormat {
 #[repr(transparent)]
 pub struct IAdvancedColorInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAdvancedColorInfo {
-    type Vtable = IAdvancedColorInfoVtbl;
+    type Vtable = IAdvancedColorInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8797dcfb_b229_4081_ae9a_2cc85e34ad6a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAdvancedColorInfoVtbl {
+pub struct IAdvancedColorInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CurrentAdvancedColorKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AdvancedColorKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1882,12 +1882,12 @@ pub struct IAdvancedColorInfoVtbl {
 #[repr(transparent)]
 pub struct IBrightnessOverride(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBrightnessOverride {
-    type Vtable = IBrightnessOverrideVtbl;
+    type Vtable = IBrightnessOverride_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96c9621a_c143_4392_bedd_4a7e9574c8fd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBrightnessOverrideVtbl {
+pub struct IBrightnessOverride_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsOverrideActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1926,12 +1926,12 @@ pub struct IBrightnessOverrideVtbl {
 #[repr(transparent)]
 pub struct IBrightnessOverrideSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBrightnessOverrideSettings {
-    type Vtable = IBrightnessOverrideSettingsVtbl;
+    type Vtable = IBrightnessOverrideSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd112ab2a_7604_4dba_bcf8_4b6f49502cb0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBrightnessOverrideSettingsVtbl {
+pub struct IBrightnessOverrideSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DesiredLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub DesiredNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -1940,12 +1940,12 @@ pub struct IBrightnessOverrideSettingsVtbl {
 #[repr(transparent)]
 pub struct IBrightnessOverrideSettingsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBrightnessOverrideSettingsStatics {
-    type Vtable = IBrightnessOverrideSettingsStaticsVtbl;
+    type Vtable = IBrightnessOverrideSettingsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd487dc90_6f74_440b_b383_5fe96cf00b0f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBrightnessOverrideSettingsStaticsVtbl {
+pub struct IBrightnessOverrideSettingsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateFromLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateFromNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nits: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1955,12 +1955,12 @@ pub struct IBrightnessOverrideSettingsStaticsVtbl {
 #[repr(transparent)]
 pub struct IBrightnessOverrideStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBrightnessOverrideStatics {
-    type Vtable = IBrightnessOverrideStaticsVtbl;
+    type Vtable = IBrightnessOverrideStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03a7b9ed_e1f1_4a68_a11f_946ad8ce5393);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBrightnessOverrideStaticsVtbl {
+pub struct IBrightnessOverrideStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefaultForSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1973,12 +1973,12 @@ pub struct IBrightnessOverrideStaticsVtbl {
 #[repr(transparent)]
 pub struct IColorOverrideSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorOverrideSettings {
-    type Vtable = IColorOverrideSettingsVtbl;
+    type Vtable = IColorOverrideSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbefa134_4a81_4c4d_a5b6_7d1b5c4bd00b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IColorOverrideSettingsVtbl {
+pub struct IColorOverrideSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DesiredDisplayColorOverrideScenario: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayColorOverrideScenario) -> ::windows::core::HRESULT,
 }
@@ -1986,12 +1986,12 @@ pub struct IColorOverrideSettingsVtbl {
 #[repr(transparent)]
 pub struct IColorOverrideSettingsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IColorOverrideSettingsStatics {
-    type Vtable = IColorOverrideSettingsStaticsVtbl;
+    type Vtable = IColorOverrideSettingsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb068e05f_c41f_4ac9_afab_827ab6248f9a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IColorOverrideSettingsStaticsVtbl {
+pub struct IColorOverrideSettingsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateFromDisplayColorOverrideScenario: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overridescenario: DisplayColorOverrideScenario, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1999,12 +1999,12 @@ pub struct IColorOverrideSettingsStaticsVtbl {
 #[repr(transparent)]
 pub struct IDisplayEnhancementOverride(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayEnhancementOverride {
-    type Vtable = IDisplayEnhancementOverrideVtbl;
+    type Vtable = IDisplayEnhancementOverride_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x429594cf_d97a_4b02_a428_5c4292f7f522);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayEnhancementOverrideVtbl {
+pub struct IDisplayEnhancementOverride_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ColorOverrideSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetColorOverrideSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2044,12 +2044,12 @@ pub struct IDisplayEnhancementOverrideVtbl {
 #[repr(transparent)]
 pub struct IDisplayEnhancementOverrideCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayEnhancementOverrideCapabilities {
-    type Vtable = IDisplayEnhancementOverrideCapabilitiesVtbl;
+    type Vtable = IDisplayEnhancementOverrideCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x457060de_ee5a_47b7_9918_1e51e812ccc8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayEnhancementOverrideCapabilitiesVtbl {
+pub struct IDisplayEnhancementOverrideCapabilities_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsBrightnessControlSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsBrightnessNitsControlSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -2062,12 +2062,12 @@ pub struct IDisplayEnhancementOverrideCapabilitiesVtbl {
 #[repr(transparent)]
 pub struct IDisplayEnhancementOverrideCapabilitiesChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayEnhancementOverrideCapabilitiesChangedEventArgs {
-    type Vtable = IDisplayEnhancementOverrideCapabilitiesChangedEventArgsVtbl;
+    type Vtable = IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb61e664_15fa_49da_8b77_07dbd2af585d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayEnhancementOverrideCapabilitiesChangedEventArgsVtbl {
+pub struct IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Capabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2075,12 +2075,12 @@ pub struct IDisplayEnhancementOverrideCapabilitiesChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IDisplayEnhancementOverrideStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayEnhancementOverrideStatics {
-    type Vtable = IDisplayEnhancementOverrideStaticsVtbl;
+    type Vtable = IDisplayEnhancementOverrideStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf5b7ec1_9791_4453_b013_29b6f778e519);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayEnhancementOverrideStaticsVtbl {
+pub struct IDisplayEnhancementOverrideStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2088,12 +2088,12 @@ pub struct IDisplayEnhancementOverrideStaticsVtbl {
 #[repr(transparent)]
 pub struct IDisplayInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayInformation {
-    type Vtable = IDisplayInformationVtbl;
+    type Vtable = IDisplayInformation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbed112ae_adc3_4dc9_ae65_851f4d7d4799);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayInformationVtbl {
+pub struct IDisplayInformation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CurrentOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayOrientations) -> ::windows::core::HRESULT,
     pub NativeOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayOrientations) -> ::windows::core::HRESULT,
@@ -2143,12 +2143,12 @@ pub struct IDisplayInformationVtbl {
 #[repr(transparent)]
 pub struct IDisplayInformation2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayInformation2 {
-    type Vtable = IDisplayInformation2Vtbl;
+    type Vtable = IDisplayInformation2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4dcd0021_fad1_4b8e_8edf_775887b8bf19);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayInformation2Vtbl {
+pub struct IDisplayInformation2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RawPixelsPerViewPixel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 }
@@ -2156,12 +2156,12 @@ pub struct IDisplayInformation2Vtbl {
 #[repr(transparent)]
 pub struct IDisplayInformation3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayInformation3 {
-    type Vtable = IDisplayInformation3Vtbl;
+    type Vtable = IDisplayInformation3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb15011d_0f09_4466_8ff3_11de9a3c929a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayInformation3Vtbl {
+pub struct IDisplayInformation3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub DiagonalSizeInInches: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2172,12 +2172,12 @@ pub struct IDisplayInformation3Vtbl {
 #[repr(transparent)]
 pub struct IDisplayInformation4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayInformation4 {
-    type Vtable = IDisplayInformation4Vtbl;
+    type Vtable = IDisplayInformation4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc972ce2f_1242_46be_b536_e1aafe9e7acf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayInformation4Vtbl {
+pub struct IDisplayInformation4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ScreenWidthInRawPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub ScreenHeightInRawPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -2186,12 +2186,12 @@ pub struct IDisplayInformation4Vtbl {
 #[repr(transparent)]
 pub struct IDisplayInformation5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayInformation5 {
-    type Vtable = IDisplayInformation5Vtbl;
+    type Vtable = IDisplayInformation5_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a5442dc_2cde_4a8d_80d1_21dc5adcc1aa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayInformation5Vtbl {
+pub struct IDisplayInformation5_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetAdvancedColorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -2207,12 +2207,12 @@ pub struct IDisplayInformation5Vtbl {
 #[repr(transparent)]
 pub struct IDisplayInformationStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayInformationStatics {
-    type Vtable = IDisplayInformationStaticsVtbl;
+    type Vtable = IDisplayInformationStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6a02a6c_d452_44dc_ba07_96f3c6adf9d1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayInformationStaticsVtbl {
+pub struct IDisplayInformationStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AutoRotationPreferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayOrientations) -> ::windows::core::HRESULT,
@@ -2232,13 +2232,13 @@ pub struct IDisplayInformationStaticsVtbl {
 pub struct IDisplayPropertiesStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IDisplayPropertiesStatics {
-    type Vtable = IDisplayPropertiesStaticsVtbl;
+    type Vtable = IDisplayPropertiesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6937ed8d_30ea_4ded_8271_4553ff02f68a);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayPropertiesStaticsVtbl {
+pub struct IDisplayPropertiesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub CurrentOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayOrientations) -> ::windows::core::HRESULT,
@@ -2317,24 +2317,24 @@ pub struct IDisplayPropertiesStaticsVtbl {
 #[repr(transparent)]
 pub struct IDisplayServices(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayServices {
-    type Vtable = IDisplayServicesVtbl;
+    type Vtable = IDisplayServices_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b54f32b_890d_5747_bd26_fdbdeb0c8a71);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayServicesVtbl {
+pub struct IDisplayServices_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDisplayServicesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayServicesStatics {
-    type Vtable = IDisplayServicesStaticsVtbl;
+    type Vtable = IDisplayServicesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc2096bf_730a_5560_b461_91c13d692e0c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayServicesStaticsVtbl {
+pub struct IDisplayServicesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FindAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut super::DisplayId) -> ::windows::core::HRESULT,
 }

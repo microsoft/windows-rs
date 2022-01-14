@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICurrentAppImpl: Sized {
+pub trait ICurrentApp_Impl: Sized {
     fn LicenseInformation(&mut self) -> ::windows::core::Result<LicenseInformation>;
     fn LinkUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn AppId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -14,9 +14,9 @@ impl ::windows::core::RuntimeName for ICurrentApp {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ICurrentApp";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICurrentAppVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentAppImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentAppVtbl {
-        unsafe extern "system" fn LicenseInformation<Impl: ICurrentAppImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICurrentApp_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentApp_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentApp_Vtbl {
+        unsafe extern "system" fn LicenseInformation<Impl: ICurrentApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LicenseInformation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -27,7 +27,7 @@ impl ICurrentAppVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LinkUri<Impl: ICurrentAppImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LinkUri<Impl: ICurrentApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LinkUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -38,7 +38,7 @@ impl ICurrentAppVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppId<Impl: ICurrentAppImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppId<Impl: ICurrentApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -49,7 +49,7 @@ impl ICurrentAppVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestAppPurchaseAsync<Impl: ICurrentAppImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, includereceipt: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestAppPurchaseAsync<Impl: ICurrentApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, includereceipt: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAppPurchaseAsync(includereceipt) {
                 ::core::result::Result::Ok(ok__) => {
@@ -60,7 +60,7 @@ impl ICurrentAppVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestProductPurchaseAsync<Impl: ICurrentAppImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, includereceipt: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestProductPurchaseAsync<Impl: ICurrentApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, includereceipt: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestProductPurchaseAsync(&*(&productid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), includereceipt) {
                 ::core::result::Result::Ok(ok__) => {
@@ -71,7 +71,7 @@ impl ICurrentAppVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadListingInformationAsync<Impl: ICurrentAppImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadListingInformationAsync<Impl: ICurrentApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadListingInformationAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -82,7 +82,7 @@ impl ICurrentAppVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAppReceiptAsync<Impl: ICurrentAppImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAppReceiptAsync<Impl: ICurrentApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAppReceiptAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -93,7 +93,7 @@ impl ICurrentAppVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProductReceiptAsync<Impl: ICurrentAppImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProductReceiptAsync<Impl: ICurrentApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetProductReceiptAsync(&*(&productid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -121,7 +121,7 @@ impl ICurrentAppVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICurrentApp2StaticsImpl: Sized {
+pub trait ICurrentApp2Statics_Impl: Sized {
     fn GetCustomerPurchaseIdAsync(&mut self, serviceticket: &::windows::core::HSTRING, publisheruserid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
     fn GetCustomerCollectionsIdAsync(&mut self, serviceticket: &::windows::core::HSTRING, publisheruserid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
 }
@@ -130,9 +130,9 @@ impl ::windows::core::RuntimeName for ICurrentApp2Statics {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ICurrentApp2Statics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICurrentApp2StaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentApp2StaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentApp2StaticsVtbl {
-        unsafe extern "system" fn GetCustomerPurchaseIdAsync<Impl: ICurrentApp2StaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceticket: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, publisheruserid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICurrentApp2Statics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentApp2Statics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentApp2Statics_Vtbl {
+        unsafe extern "system" fn GetCustomerPurchaseIdAsync<Impl: ICurrentApp2Statics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceticket: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, publisheruserid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCustomerPurchaseIdAsync(&*(&serviceticket as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&publisheruserid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -143,7 +143,7 @@ impl ICurrentApp2StaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCustomerCollectionsIdAsync<Impl: ICurrentApp2StaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceticket: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, publisheruserid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCustomerCollectionsIdAsync<Impl: ICurrentApp2Statics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceticket: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, publisheruserid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCustomerCollectionsIdAsync(&*(&serviceticket as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&publisheruserid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -165,7 +165,7 @@ impl ICurrentApp2StaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
-pub trait ICurrentAppSimulatorImpl: Sized {
+pub trait ICurrentAppSimulator_Impl: Sized {
     fn LicenseInformation(&mut self) -> ::windows::core::Result<LicenseInformation>;
     fn LinkUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn AppId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -181,9 +181,9 @@ impl ::windows::core::RuntimeName for ICurrentAppSimulator {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ICurrentAppSimulator";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage", feature = "implement_exclusive"))]
-impl ICurrentAppSimulatorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentAppSimulatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentAppSimulatorVtbl {
-        unsafe extern "system" fn LicenseInformation<Impl: ICurrentAppSimulatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICurrentAppSimulator_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentAppSimulator_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentAppSimulator_Vtbl {
+        unsafe extern "system" fn LicenseInformation<Impl: ICurrentAppSimulator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LicenseInformation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -194,7 +194,7 @@ impl ICurrentAppSimulatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LinkUri<Impl: ICurrentAppSimulatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LinkUri<Impl: ICurrentAppSimulator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LinkUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -205,7 +205,7 @@ impl ICurrentAppSimulatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppId<Impl: ICurrentAppSimulatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppId<Impl: ICurrentAppSimulator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -216,7 +216,7 @@ impl ICurrentAppSimulatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestAppPurchaseAsync<Impl: ICurrentAppSimulatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, includereceipt: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestAppPurchaseAsync<Impl: ICurrentAppSimulator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, includereceipt: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAppPurchaseAsync(includereceipt) {
                 ::core::result::Result::Ok(ok__) => {
@@ -227,7 +227,7 @@ impl ICurrentAppSimulatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestProductPurchaseAsync<Impl: ICurrentAppSimulatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, includereceipt: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestProductPurchaseAsync<Impl: ICurrentAppSimulator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, includereceipt: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestProductPurchaseAsync(&*(&productid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), includereceipt) {
                 ::core::result::Result::Ok(ok__) => {
@@ -238,7 +238,7 @@ impl ICurrentAppSimulatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadListingInformationAsync<Impl: ICurrentAppSimulatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadListingInformationAsync<Impl: ICurrentAppSimulator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadListingInformationAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -249,7 +249,7 @@ impl ICurrentAppSimulatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAppReceiptAsync<Impl: ICurrentAppSimulatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAppReceiptAsync<Impl: ICurrentAppSimulator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAppReceiptAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -260,7 +260,7 @@ impl ICurrentAppSimulatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProductReceiptAsync<Impl: ICurrentAppSimulatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProductReceiptAsync<Impl: ICurrentAppSimulator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetProductReceiptAsync(&*(&productid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -271,7 +271,7 @@ impl ICurrentAppSimulatorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReloadSimulatorAsync<Impl: ICurrentAppSimulatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, simulatorsettingsfile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReloadSimulatorAsync<Impl: ICurrentAppSimulator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, simulatorsettingsfile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReloadSimulatorAsync(&*(&simulatorsettingsfile as *const <super::super::Storage::StorageFile as ::windows::core::Abi>::Abi as *const <super::super::Storage::StorageFile as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -300,7 +300,7 @@ impl ICurrentAppSimulatorVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ICurrentAppSimulatorStaticsWithFilteringImpl: Sized {
+pub trait ICurrentAppSimulatorStaticsWithFiltering_Impl: Sized {
     fn LoadListingInformationByProductIdsAsync(&mut self, productids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>;
     fn LoadListingInformationByKeywordsAsync(&mut self, keywords: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>;
 }
@@ -309,9 +309,9 @@ impl ::windows::core::RuntimeName for ICurrentAppSimulatorStaticsWithFiltering {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ICurrentAppSimulatorStaticsWithFiltering";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ICurrentAppSimulatorStaticsWithFilteringVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentAppSimulatorStaticsWithFilteringImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentAppSimulatorStaticsWithFilteringVtbl {
-        unsafe extern "system" fn LoadListingInformationByProductIdsAsync<Impl: ICurrentAppSimulatorStaticsWithFilteringImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productids: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICurrentAppSimulatorStaticsWithFiltering_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentAppSimulatorStaticsWithFiltering_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentAppSimulatorStaticsWithFiltering_Vtbl {
+        unsafe extern "system" fn LoadListingInformationByProductIdsAsync<Impl: ICurrentAppSimulatorStaticsWithFiltering_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productids: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadListingInformationByProductIdsAsync(&*(&productids as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -322,7 +322,7 @@ impl ICurrentAppSimulatorStaticsWithFilteringVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadListingInformationByKeywordsAsync<Impl: ICurrentAppSimulatorStaticsWithFilteringImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keywords: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadListingInformationByKeywordsAsync<Impl: ICurrentAppSimulatorStaticsWithFiltering_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keywords: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadListingInformationByKeywordsAsync(&*(&keywords as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -344,7 +344,7 @@ impl ICurrentAppSimulatorStaticsWithFilteringVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICurrentAppSimulatorWithCampaignIdImpl: Sized {
+pub trait ICurrentAppSimulatorWithCampaignId_Impl: Sized {
     fn GetAppPurchaseCampaignIdAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -352,9 +352,9 @@ impl ::windows::core::RuntimeName for ICurrentAppSimulatorWithCampaignId {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ICurrentAppSimulatorWithCampaignId";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICurrentAppSimulatorWithCampaignIdVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentAppSimulatorWithCampaignIdImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentAppSimulatorWithCampaignIdVtbl {
-        unsafe extern "system" fn GetAppPurchaseCampaignIdAsync<Impl: ICurrentAppSimulatorWithCampaignIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICurrentAppSimulatorWithCampaignId_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentAppSimulatorWithCampaignId_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentAppSimulatorWithCampaignId_Vtbl {
+        unsafe extern "system" fn GetAppPurchaseCampaignIdAsync<Impl: ICurrentAppSimulatorWithCampaignId_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAppPurchaseCampaignIdAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -375,7 +375,7 @@ impl ICurrentAppSimulatorWithCampaignIdVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICurrentAppSimulatorWithConsumablesImpl: Sized {
+pub trait ICurrentAppSimulatorWithConsumables_Impl: Sized {
     fn ReportConsumableFulfillmentAsync(&mut self, productid: &::windows::core::HSTRING, transactionid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FulfillmentResult>>;
     fn RequestProductPurchaseWithResultsAsync(&mut self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>>;
     fn RequestProductPurchaseWithDisplayPropertiesAsync(&mut self, productid: &::windows::core::HSTRING, offerid: &::windows::core::HSTRING, displayproperties: &::core::option::Option<ProductPurchaseDisplayProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>>;
@@ -386,9 +386,9 @@ impl ::windows::core::RuntimeName for ICurrentAppSimulatorWithConsumables {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ICurrentAppSimulatorWithConsumables";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICurrentAppSimulatorWithConsumablesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentAppSimulatorWithConsumablesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentAppSimulatorWithConsumablesVtbl {
-        unsafe extern "system" fn ReportConsumableFulfillmentAsync<Impl: ICurrentAppSimulatorWithConsumablesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, transactionid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICurrentAppSimulatorWithConsumables_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentAppSimulatorWithConsumables_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentAppSimulatorWithConsumables_Vtbl {
+        unsafe extern "system" fn ReportConsumableFulfillmentAsync<Impl: ICurrentAppSimulatorWithConsumables_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, transactionid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportConsumableFulfillmentAsync(&*(&productid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&transactionid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -399,7 +399,7 @@ impl ICurrentAppSimulatorWithConsumablesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestProductPurchaseWithResultsAsync<Impl: ICurrentAppSimulatorWithConsumablesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestProductPurchaseWithResultsAsync<Impl: ICurrentAppSimulatorWithConsumables_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestProductPurchaseWithResultsAsync(&*(&productid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -410,7 +410,7 @@ impl ICurrentAppSimulatorWithConsumablesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestProductPurchaseWithDisplayPropertiesAsync<Impl: ICurrentAppSimulatorWithConsumablesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, offerid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestProductPurchaseWithDisplayPropertiesAsync<Impl: ICurrentAppSimulatorWithConsumables_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, offerid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestProductPurchaseWithDisplayPropertiesAsync(
                 &*(&productid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -425,7 +425,7 @@ impl ICurrentAppSimulatorWithConsumablesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetUnfulfilledConsumablesAsync<Impl: ICurrentAppSimulatorWithConsumablesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetUnfulfilledConsumablesAsync<Impl: ICurrentAppSimulatorWithConsumables_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetUnfulfilledConsumablesAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -449,7 +449,7 @@ impl ICurrentAppSimulatorWithConsumablesVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ICurrentAppStaticsWithFilteringImpl: Sized {
+pub trait ICurrentAppStaticsWithFiltering_Impl: Sized {
     fn LoadListingInformationByProductIdsAsync(&mut self, productids: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>;
     fn LoadListingInformationByKeywordsAsync(&mut self, keywords: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>;
     fn ReportProductFulfillment(&mut self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -459,9 +459,9 @@ impl ::windows::core::RuntimeName for ICurrentAppStaticsWithFiltering {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ICurrentAppStaticsWithFiltering";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ICurrentAppStaticsWithFilteringVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentAppStaticsWithFilteringImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentAppStaticsWithFilteringVtbl {
-        unsafe extern "system" fn LoadListingInformationByProductIdsAsync<Impl: ICurrentAppStaticsWithFilteringImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productids: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICurrentAppStaticsWithFiltering_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentAppStaticsWithFiltering_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentAppStaticsWithFiltering_Vtbl {
+        unsafe extern "system" fn LoadListingInformationByProductIdsAsync<Impl: ICurrentAppStaticsWithFiltering_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productids: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadListingInformationByProductIdsAsync(&*(&productids as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -472,7 +472,7 @@ impl ICurrentAppStaticsWithFilteringVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadListingInformationByKeywordsAsync<Impl: ICurrentAppStaticsWithFilteringImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keywords: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadListingInformationByKeywordsAsync<Impl: ICurrentAppStaticsWithFiltering_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keywords: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadListingInformationByKeywordsAsync(&*(&keywords as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -483,7 +483,7 @@ impl ICurrentAppStaticsWithFilteringVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportProductFulfillment<Impl: ICurrentAppStaticsWithFilteringImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportProductFulfillment<Impl: ICurrentAppStaticsWithFiltering_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportProductFulfillment(&*(&productid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -499,7 +499,7 @@ impl ICurrentAppStaticsWithFilteringVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICurrentAppWithCampaignIdImpl: Sized {
+pub trait ICurrentAppWithCampaignId_Impl: Sized {
     fn GetAppPurchaseCampaignIdAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -507,9 +507,9 @@ impl ::windows::core::RuntimeName for ICurrentAppWithCampaignId {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ICurrentAppWithCampaignId";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICurrentAppWithCampaignIdVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentAppWithCampaignIdImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentAppWithCampaignIdVtbl {
-        unsafe extern "system" fn GetAppPurchaseCampaignIdAsync<Impl: ICurrentAppWithCampaignIdImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICurrentAppWithCampaignId_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentAppWithCampaignId_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentAppWithCampaignId_Vtbl {
+        unsafe extern "system" fn GetAppPurchaseCampaignIdAsync<Impl: ICurrentAppWithCampaignId_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAppPurchaseCampaignIdAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -530,7 +530,7 @@ impl ICurrentAppWithCampaignIdVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICurrentAppWithConsumablesImpl: Sized {
+pub trait ICurrentAppWithConsumables_Impl: Sized {
     fn ReportConsumableFulfillmentAsync(&mut self, productid: &::windows::core::HSTRING, transactionid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FulfillmentResult>>;
     fn RequestProductPurchaseWithResultsAsync(&mut self, productid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>>;
     fn RequestProductPurchaseWithDisplayPropertiesAsync(&mut self, productid: &::windows::core::HSTRING, offerid: &::windows::core::HSTRING, displayproperties: &::core::option::Option<ProductPurchaseDisplayProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>>;
@@ -541,9 +541,9 @@ impl ::windows::core::RuntimeName for ICurrentAppWithConsumables {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ICurrentAppWithConsumables";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICurrentAppWithConsumablesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentAppWithConsumablesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentAppWithConsumablesVtbl {
-        unsafe extern "system" fn ReportConsumableFulfillmentAsync<Impl: ICurrentAppWithConsumablesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, transactionid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICurrentAppWithConsumables_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICurrentAppWithConsumables_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICurrentAppWithConsumables_Vtbl {
+        unsafe extern "system" fn ReportConsumableFulfillmentAsync<Impl: ICurrentAppWithConsumables_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, transactionid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReportConsumableFulfillmentAsync(&*(&productid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&transactionid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -554,7 +554,7 @@ impl ICurrentAppWithConsumablesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestProductPurchaseWithResultsAsync<Impl: ICurrentAppWithConsumablesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestProductPurchaseWithResultsAsync<Impl: ICurrentAppWithConsumables_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestProductPurchaseWithResultsAsync(&*(&productid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -565,7 +565,7 @@ impl ICurrentAppWithConsumablesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestProductPurchaseWithDisplayPropertiesAsync<Impl: ICurrentAppWithConsumablesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, offerid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestProductPurchaseWithDisplayPropertiesAsync<Impl: ICurrentAppWithConsumables_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, offerid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestProductPurchaseWithDisplayPropertiesAsync(
                 &*(&productid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -580,7 +580,7 @@ impl ICurrentAppWithConsumablesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetUnfulfilledConsumablesAsync<Impl: ICurrentAppWithConsumablesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetUnfulfilledConsumablesAsync<Impl: ICurrentAppWithConsumables_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetUnfulfilledConsumablesAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -604,7 +604,7 @@ impl ICurrentAppWithConsumablesVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ILicenseInformationImpl: Sized {
+pub trait ILicenseInformation_Impl: Sized {
     fn ProductLicenses(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ProductLicense>>;
     fn IsActive(&mut self) -> ::windows::core::Result<bool>;
     fn IsTrial(&mut self) -> ::windows::core::Result<bool>;
@@ -617,9 +617,9 @@ impl ::windows::core::RuntimeName for ILicenseInformation {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ILicenseInformation";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ILicenseInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILicenseInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILicenseInformationVtbl {
-        unsafe extern "system" fn ProductLicenses<Impl: ILicenseInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ILicenseInformation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILicenseInformation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILicenseInformation_Vtbl {
+        unsafe extern "system" fn ProductLicenses<Impl: ILicenseInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProductLicenses() {
                 ::core::result::Result::Ok(ok__) => {
@@ -630,7 +630,7 @@ impl ILicenseInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsActive<Impl: ILicenseInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsActive<Impl: ILicenseInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsActive() {
                 ::core::result::Result::Ok(ok__) => {
@@ -641,7 +641,7 @@ impl ILicenseInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsTrial<Impl: ILicenseInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsTrial<Impl: ILicenseInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsTrial() {
                 ::core::result::Result::Ok(ok__) => {
@@ -652,7 +652,7 @@ impl ILicenseInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExpirationDate<Impl: ILicenseInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExpirationDate<Impl: ILicenseInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExpirationDate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -663,7 +663,7 @@ impl ILicenseInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LicenseChanged<Impl: ILicenseInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LicenseChanged<Impl: ILicenseInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LicenseChanged(&*(&handler as *const <LicenseChangedEventHandler as ::windows::core::Abi>::Abi as *const <LicenseChangedEventHandler as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -674,7 +674,7 @@ impl ILicenseInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveLicenseChanged<Impl: ILicenseInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveLicenseChanged<Impl: ILicenseInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveLicenseChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -693,7 +693,7 @@ impl ILicenseInformationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IListingInformationImpl: Sized {
+pub trait IListingInformation_Impl: Sized {
     fn CurrentMarket(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ProductListings(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ProductListing>>;
@@ -706,9 +706,9 @@ impl ::windows::core::RuntimeName for IListingInformation {
     const NAME: &'static str = "Windows.ApplicationModel.Store.IListingInformation";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IListingInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IListingInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IListingInformationVtbl {
-        unsafe extern "system" fn CurrentMarket<Impl: IListingInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IListingInformation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IListingInformation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IListingInformation_Vtbl {
+        unsafe extern "system" fn CurrentMarket<Impl: IListingInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentMarket() {
                 ::core::result::Result::Ok(ok__) => {
@@ -719,7 +719,7 @@ impl IListingInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Impl: IListingInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Impl: IListingInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -730,7 +730,7 @@ impl IListingInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProductListings<Impl: IListingInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProductListings<Impl: IListingInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProductListings() {
                 ::core::result::Result::Ok(ok__) => {
@@ -741,7 +741,7 @@ impl IListingInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FormattedPrice<Impl: IListingInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FormattedPrice<Impl: IListingInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FormattedPrice() {
                 ::core::result::Result::Ok(ok__) => {
@@ -752,7 +752,7 @@ impl IListingInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Impl: IListingInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Impl: IListingInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -763,7 +763,7 @@ impl IListingInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AgeRating<Impl: IListingInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AgeRating<Impl: IListingInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AgeRating() {
                 ::core::result::Result::Ok(ok__) => {
@@ -789,7 +789,7 @@ impl IListingInformationVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IListingInformation2Impl: Sized {
+pub trait IListingInformation2_Impl: Sized {
     fn FormattedBasePrice(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SaleEndDate(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn IsOnSale(&mut self) -> ::windows::core::Result<bool>;
@@ -800,9 +800,9 @@ impl ::windows::core::RuntimeName for IListingInformation2 {
     const NAME: &'static str = "Windows.ApplicationModel.Store.IListingInformation2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IListingInformation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IListingInformation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IListingInformation2Vtbl {
-        unsafe extern "system" fn FormattedBasePrice<Impl: IListingInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IListingInformation2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IListingInformation2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IListingInformation2_Vtbl {
+        unsafe extern "system" fn FormattedBasePrice<Impl: IListingInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FormattedBasePrice() {
                 ::core::result::Result::Ok(ok__) => {
@@ -813,7 +813,7 @@ impl IListingInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SaleEndDate<Impl: IListingInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaleEndDate<Impl: IListingInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SaleEndDate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -824,7 +824,7 @@ impl IListingInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsOnSale<Impl: IListingInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsOnSale<Impl: IListingInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsOnSale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -835,7 +835,7 @@ impl IListingInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrencyCode<Impl: IListingInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrencyCode<Impl: IListingInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrencyCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -859,7 +859,7 @@ impl IListingInformation2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IProductLicenseImpl: Sized {
+pub trait IProductLicense_Impl: Sized {
     fn ProductId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IsActive(&mut self) -> ::windows::core::Result<bool>;
     fn ExpirationDate(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
@@ -869,9 +869,9 @@ impl ::windows::core::RuntimeName for IProductLicense {
     const NAME: &'static str = "Windows.ApplicationModel.Store.IProductLicense";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IProductLicenseVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProductLicenseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProductLicenseVtbl {
-        unsafe extern "system" fn ProductId<Impl: IProductLicenseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IProductLicense_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProductLicense_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProductLicense_Vtbl {
+        unsafe extern "system" fn ProductId<Impl: IProductLicense_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProductId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -882,7 +882,7 @@ impl IProductLicenseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsActive<Impl: IProductLicenseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsActive<Impl: IProductLicense_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsActive() {
                 ::core::result::Result::Ok(ok__) => {
@@ -893,7 +893,7 @@ impl IProductLicenseVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExpirationDate<Impl: IProductLicenseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExpirationDate<Impl: IProductLicense_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExpirationDate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -916,7 +916,7 @@ impl IProductLicenseVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IProductLicenseWithFulfillmentImpl: Sized + IProductLicenseImpl {
+pub trait IProductLicenseWithFulfillment_Impl: Sized + IProductLicense_Impl {
     fn IsConsumable(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -924,9 +924,9 @@ impl ::windows::core::RuntimeName for IProductLicenseWithFulfillment {
     const NAME: &'static str = "Windows.ApplicationModel.Store.IProductLicenseWithFulfillment";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IProductLicenseWithFulfillmentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProductLicenseWithFulfillmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProductLicenseWithFulfillmentVtbl {
-        unsafe extern "system" fn IsConsumable<Impl: IProductLicenseWithFulfillmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IProductLicenseWithFulfillment_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProductLicenseWithFulfillment_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProductLicenseWithFulfillment_Vtbl {
+        unsafe extern "system" fn IsConsumable<Impl: IProductLicenseWithFulfillment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsConsumable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -947,7 +947,7 @@ impl IProductLicenseWithFulfillmentVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IProductListingImpl: Sized {
+pub trait IProductListing_Impl: Sized {
     fn ProductId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FormattedPrice(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -957,9 +957,9 @@ impl ::windows::core::RuntimeName for IProductListing {
     const NAME: &'static str = "Windows.ApplicationModel.Store.IProductListing";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IProductListingVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProductListingImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProductListingVtbl {
-        unsafe extern "system" fn ProductId<Impl: IProductListingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IProductListing_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProductListing_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProductListing_Vtbl {
+        unsafe extern "system" fn ProductId<Impl: IProductListing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProductId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -970,7 +970,7 @@ impl IProductListingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FormattedPrice<Impl: IProductListingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FormattedPrice<Impl: IProductListing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FormattedPrice() {
                 ::core::result::Result::Ok(ok__) => {
@@ -981,7 +981,7 @@ impl IProductListingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Impl: IProductListingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Impl: IProductListing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1004,7 +1004,7 @@ impl IProductListingVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IProductListing2Impl: Sized {
+pub trait IProductListing2_Impl: Sized {
     fn FormattedBasePrice(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SaleEndDate(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn IsOnSale(&mut self) -> ::windows::core::Result<bool>;
@@ -1015,9 +1015,9 @@ impl ::windows::core::RuntimeName for IProductListing2 {
     const NAME: &'static str = "Windows.ApplicationModel.Store.IProductListing2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IProductListing2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProductListing2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProductListing2Vtbl {
-        unsafe extern "system" fn FormattedBasePrice<Impl: IProductListing2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IProductListing2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProductListing2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProductListing2_Vtbl {
+        unsafe extern "system" fn FormattedBasePrice<Impl: IProductListing2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FormattedBasePrice() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1028,7 +1028,7 @@ impl IProductListing2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SaleEndDate<Impl: IProductListing2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaleEndDate<Impl: IProductListing2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SaleEndDate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1039,7 +1039,7 @@ impl IProductListing2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsOnSale<Impl: IProductListing2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsOnSale<Impl: IProductListing2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsOnSale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1050,7 +1050,7 @@ impl IProductListing2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrencyCode<Impl: IProductListing2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrencyCode<Impl: IProductListing2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrencyCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1074,7 +1074,7 @@ impl IProductListing2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IProductListingWithConsumablesImpl: Sized {
+pub trait IProductListingWithConsumables_Impl: Sized {
     fn ProductType(&mut self) -> ::windows::core::Result<ProductType>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1082,9 +1082,9 @@ impl ::windows::core::RuntimeName for IProductListingWithConsumables {
     const NAME: &'static str = "Windows.ApplicationModel.Store.IProductListingWithConsumables";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IProductListingWithConsumablesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProductListingWithConsumablesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProductListingWithConsumablesVtbl {
-        unsafe extern "system" fn ProductType<Impl: IProductListingWithConsumablesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProductType) -> ::windows::core::HRESULT {
+impl IProductListingWithConsumables_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProductListingWithConsumables_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProductListingWithConsumables_Vtbl {
+        unsafe extern "system" fn ProductType<Impl: IProductListingWithConsumables_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProductType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProductType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1105,7 +1105,7 @@ impl IProductListingWithConsumablesVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IProductListingWithMetadataImpl: Sized + IProductListingImpl {
+pub trait IProductListingWithMetadata_Impl: Sized + IProductListing_Impl {
     fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Keywords(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>;
     fn ProductType(&mut self) -> ::windows::core::Result<ProductType>;
@@ -1117,9 +1117,9 @@ impl ::windows::core::RuntimeName for IProductListingWithMetadata {
     const NAME: &'static str = "Windows.ApplicationModel.Store.IProductListingWithMetadata";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IProductListingWithMetadataVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProductListingWithMetadataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProductListingWithMetadataVtbl {
-        unsafe extern "system" fn Description<Impl: IProductListingWithMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IProductListingWithMetadata_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProductListingWithMetadata_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProductListingWithMetadata_Vtbl {
+        unsafe extern "system" fn Description<Impl: IProductListingWithMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1130,7 +1130,7 @@ impl IProductListingWithMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Keywords<Impl: IProductListingWithMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Keywords<Impl: IProductListingWithMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Keywords() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1141,7 +1141,7 @@ impl IProductListingWithMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProductType<Impl: IProductListingWithMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProductType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProductType<Impl: IProductListingWithMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProductType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProductType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1152,7 +1152,7 @@ impl IProductListingWithMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Tag<Impl: IProductListingWithMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Tag<Impl: IProductListingWithMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Tag() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1163,7 +1163,7 @@ impl IProductListingWithMetadataVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImageUri<Impl: IProductListingWithMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImageUri<Impl: IProductListingWithMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImageUri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1188,7 +1188,7 @@ impl IProductListingWithMetadataVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IProductPurchaseDisplayPropertiesImpl: Sized {
+pub trait IProductPurchaseDisplayProperties_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1201,9 +1201,9 @@ impl ::windows::core::RuntimeName for IProductPurchaseDisplayProperties {
     const NAME: &'static str = "Windows.ApplicationModel.Store.IProductPurchaseDisplayProperties";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IProductPurchaseDisplayPropertiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProductPurchaseDisplayPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProductPurchaseDisplayPropertiesVtbl {
-        unsafe extern "system" fn Name<Impl: IProductPurchaseDisplayPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IProductPurchaseDisplayProperties_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProductPurchaseDisplayProperties_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProductPurchaseDisplayProperties_Vtbl {
+        unsafe extern "system" fn Name<Impl: IProductPurchaseDisplayProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1214,11 +1214,11 @@ impl IProductPurchaseDisplayPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetName<Impl: IProductPurchaseDisplayPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetName<Impl: IProductPurchaseDisplayProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Description<Impl: IProductPurchaseDisplayPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Impl: IProductPurchaseDisplayProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1229,11 +1229,11 @@ impl IProductPurchaseDisplayPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDescription<Impl: IProductPurchaseDisplayPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDescription<Impl: IProductPurchaseDisplayProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDescription(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Image<Impl: IProductPurchaseDisplayPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Image<Impl: IProductPurchaseDisplayProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Image() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1244,7 +1244,7 @@ impl IProductPurchaseDisplayPropertiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetImage<Impl: IProductPurchaseDisplayPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetImage<Impl: IProductPurchaseDisplayProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetImage(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1263,7 +1263,7 @@ impl IProductPurchaseDisplayPropertiesVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IProductPurchaseDisplayPropertiesFactoryImpl: Sized {
+pub trait IProductPurchaseDisplayPropertiesFactory_Impl: Sized {
     fn CreateProductPurchaseDisplayProperties(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<ProductPurchaseDisplayProperties>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1271,9 +1271,9 @@ impl ::windows::core::RuntimeName for IProductPurchaseDisplayPropertiesFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Store.IProductPurchaseDisplayPropertiesFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IProductPurchaseDisplayPropertiesFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProductPurchaseDisplayPropertiesFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProductPurchaseDisplayPropertiesFactoryVtbl {
-        unsafe extern "system" fn CreateProductPurchaseDisplayProperties<Impl: IProductPurchaseDisplayPropertiesFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IProductPurchaseDisplayPropertiesFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProductPurchaseDisplayPropertiesFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProductPurchaseDisplayPropertiesFactory_Vtbl {
+        unsafe extern "system" fn CreateProductPurchaseDisplayProperties<Impl: IProductPurchaseDisplayPropertiesFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateProductPurchaseDisplayProperties(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1294,7 +1294,7 @@ impl IProductPurchaseDisplayPropertiesFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPurchaseResultsImpl: Sized {
+pub trait IPurchaseResults_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<ProductPurchaseStatus>;
     fn TransactionId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn ReceiptXml(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1305,9 +1305,9 @@ impl ::windows::core::RuntimeName for IPurchaseResults {
     const NAME: &'static str = "Windows.ApplicationModel.Store.IPurchaseResults";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPurchaseResultsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPurchaseResultsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPurchaseResultsVtbl {
-        unsafe extern "system" fn Status<Impl: IPurchaseResultsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProductPurchaseStatus) -> ::windows::core::HRESULT {
+impl IPurchaseResults_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPurchaseResults_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPurchaseResults_Vtbl {
+        unsafe extern "system" fn Status<Impl: IPurchaseResults_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProductPurchaseStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1318,7 +1318,7 @@ impl IPurchaseResultsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TransactionId<Impl: IPurchaseResultsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransactionId<Impl: IPurchaseResults_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransactionId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1329,7 +1329,7 @@ impl IPurchaseResultsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiptXml<Impl: IPurchaseResultsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReceiptXml<Impl: IPurchaseResults_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ReceiptXml() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1340,7 +1340,7 @@ impl IPurchaseResultsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OfferId<Impl: IPurchaseResultsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OfferId<Impl: IPurchaseResults_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OfferId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1364,7 +1364,7 @@ impl IPurchaseResultsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUnfulfilledConsumableImpl: Sized {
+pub trait IUnfulfilledConsumable_Impl: Sized {
     fn ProductId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn TransactionId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn OfferId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1374,9 +1374,9 @@ impl ::windows::core::RuntimeName for IUnfulfilledConsumable {
     const NAME: &'static str = "Windows.ApplicationModel.Store.IUnfulfilledConsumable";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUnfulfilledConsumableVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnfulfilledConsumableImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUnfulfilledConsumableVtbl {
-        unsafe extern "system" fn ProductId<Impl: IUnfulfilledConsumableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IUnfulfilledConsumable_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnfulfilledConsumable_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUnfulfilledConsumable_Vtbl {
+        unsafe extern "system" fn ProductId<Impl: IUnfulfilledConsumable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProductId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1387,7 +1387,7 @@ impl IUnfulfilledConsumableVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TransactionId<Impl: IUnfulfilledConsumableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransactionId<Impl: IUnfulfilledConsumable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransactionId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1398,7 +1398,7 @@ impl IUnfulfilledConsumableVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OfferId<Impl: IUnfulfilledConsumableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OfferId<Impl: IUnfulfilledConsumable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OfferId() {
                 ::core::result::Result::Ok(ok__) => {

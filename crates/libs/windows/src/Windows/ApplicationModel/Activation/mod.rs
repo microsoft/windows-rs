@@ -185,7 +185,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentsProviderAddAppointmentA
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderAddAppointmentActivatedEventArgs;{a2861367-cee5-4e4d-9ed7-41c34ec18b02})");
 }
 unsafe impl ::windows::core::Interface for AppointmentsProviderAddAppointmentActivatedEventArgs {
-    type Vtable = IAppointmentsProviderAddAppointmentActivatedEventArgsVtbl;
+    type Vtable = IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2861367_cee5_4e4d_9ed7_41c34ec18b02);
 }
 impl ::windows::core::RuntimeName for AppointmentsProviderAddAppointmentActivatedEventArgs {
@@ -396,7 +396,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentsProviderRemoveAppointme
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderRemoveAppointmentActivatedEventArgs;{751f3ab8-0b8e-451c-9f15-966e699bac25})");
 }
 unsafe impl ::windows::core::Interface for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    type Vtable = IAppointmentsProviderRemoveAppointmentActivatedEventArgsVtbl;
+    type Vtable = IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x751f3ab8_0b8e_451c_9f15_966e699bac25);
 }
 impl ::windows::core::RuntimeName for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
@@ -607,7 +607,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentsProviderReplaceAppointm
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderReplaceAppointmentActivatedEventArgs;{1551b7d4-a981-4067-8a62-0524e4ade121})");
 }
 unsafe impl ::windows::core::Interface for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    type Vtable = IAppointmentsProviderReplaceAppointmentActivatedEventArgsVtbl;
+    type Vtable = IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1551b7d4_a981_4067_8a62_0524e4ade121);
 }
 impl ::windows::core::RuntimeName for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
@@ -834,7 +834,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentsProviderShowAppointment
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderShowAppointmentDetailsActivatedEventArgs;{3958f065-9841-4ca5-999b-885198b9ef2a})");
 }
 unsafe impl ::windows::core::Interface for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    type Vtable = IAppointmentsProviderShowAppointmentDetailsActivatedEventArgsVtbl;
+    type Vtable = IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3958f065_9841_4ca5_999b_885198b9ef2a);
 }
 impl ::windows::core::RuntimeName for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
@@ -1054,7 +1054,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentsProviderShowTimeFrameAc
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderShowTimeFrameActivatedEventArgs;{9baeaba6-0e0b-49aa-babc-12b1dc774986})");
 }
 unsafe impl ::windows::core::Interface for AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    type Vtable = IAppointmentsProviderShowTimeFrameActivatedEventArgsVtbl;
+    type Vtable = IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9baeaba6_0e0b_49aa_babc_12b1dc774986);
 }
 impl ::windows::core::RuntimeName for AppointmentsProviderShowTimeFrameActivatedEventArgs {
@@ -1224,7 +1224,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.BackgroundActivatedEventArgs;{ab14bee0-e760-440e-a91c-44796de3a92d})");
 }
 unsafe impl ::windows::core::Interface for BackgroundActivatedEventArgs {
-    type Vtable = IBackgroundActivatedEventArgsVtbl;
+    type Vtable = IBackgroundActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab14bee0_e760_440e_a91c_44796de3a92d);
 }
 impl ::windows::core::RuntimeName for BackgroundActivatedEventArgs {
@@ -1360,7 +1360,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerPreviewActivatedEvent
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.BarcodeScannerPreviewActivatedEventArgs;{6772797c-99bf-4349-af22-e4123560371c})");
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerPreviewActivatedEventArgs {
-    type Vtable = IBarcodeScannerPreviewActivatedEventArgsVtbl;
+    type Vtable = IBarcodeScannerPreviewActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6772797c_99bf_4349_af22_e4123560371c);
 }
 impl ::windows::core::RuntimeName for BarcodeScannerPreviewActivatedEventArgs {
@@ -1541,7 +1541,7 @@ unsafe impl ::windows::core::RuntimeType for CachedFileUpdaterActivatedEventArgs
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CachedFileUpdaterActivatedEventArgs;{d06eb1c7-3805-4ecb-b757-6cf15e26fef3})");
 }
 unsafe impl ::windows::core::Interface for CachedFileUpdaterActivatedEventArgs {
-    type Vtable = ICachedFileUpdaterActivatedEventArgsVtbl;
+    type Vtable = ICachedFileUpdaterActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd06eb1c7_3805_4ecb_b757_6cf15e26fef3);
 }
 impl ::windows::core::RuntimeName for CachedFileUpdaterActivatedEventArgs {
@@ -1720,7 +1720,7 @@ unsafe impl ::windows::core::RuntimeType for CameraSettingsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CameraSettingsActivatedEventArgs;{fb67a508-2dad-490a-9170-dca036eb114b})");
 }
 unsafe impl ::windows::core::Interface for CameraSettingsActivatedEventArgs {
-    type Vtable = ICameraSettingsActivatedEventArgsVtbl;
+    type Vtable = ICameraSettingsActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb67a508_2dad_490a_9170_dca036eb114b);
 }
 impl ::windows::core::RuntimeName for CameraSettingsActivatedEventArgs {
@@ -1878,7 +1878,7 @@ unsafe impl ::windows::core::RuntimeType for CommandLineActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CommandLineActivatedEventArgs;{4506472c-006a-48eb-8afb-d07ab25e3366})");
 }
 unsafe impl ::windows::core::Interface for CommandLineActivatedEventArgs {
-    type Vtable = ICommandLineActivatedEventArgsVtbl;
+    type Vtable = ICommandLineActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4506472c_006a_48eb_8afb_d07ab25e3366);
 }
 impl ::windows::core::RuntimeName for CommandLineActivatedEventArgs {
@@ -2055,7 +2055,7 @@ unsafe impl ::windows::core::RuntimeType for CommandLineActivationOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CommandLineActivationOperation;{994b2841-c59e-4f69-bcfd-b61ed4e622eb})");
 }
 unsafe impl ::windows::core::Interface for CommandLineActivationOperation {
-    type Vtable = ICommandLineActivationOperationVtbl;
+    type Vtable = ICommandLineActivationOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x994b2841_c59e_4f69_bcfd_b61ed4e622eb);
 }
 impl ::windows::core::RuntimeName for CommandLineActivationOperation {
@@ -2185,7 +2185,7 @@ unsafe impl ::windows::core::RuntimeType for ContactCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactCallActivatedEventArgs;{c2df14c7-30eb-41c6-b3bc-5b1694f9dab3})");
 }
 unsafe impl ::windows::core::Interface for ContactCallActivatedEventArgs {
-    type Vtable = IContactCallActivatedEventArgsVtbl;
+    type Vtable = IContactCallActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2df14c7_30eb_41c6_b3bc_5b1694f9dab3);
 }
 impl ::windows::core::RuntimeName for ContactCallActivatedEventArgs {
@@ -2374,7 +2374,7 @@ unsafe impl ::windows::core::RuntimeType for ContactMapActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactMapActivatedEventArgs;{b32bf870-eee7-4ad2-aaf1-a87effcf00a4})");
 }
 unsafe impl ::windows::core::Interface for ContactMapActivatedEventArgs {
-    type Vtable = IContactMapActivatedEventArgsVtbl;
+    type Vtable = IContactMapActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb32bf870_eee7_4ad2_aaf1_a87effcf00a4);
 }
 impl ::windows::core::RuntimeName for ContactMapActivatedEventArgs {
@@ -2570,7 +2570,7 @@ unsafe impl ::windows::core::RuntimeType for ContactMessageActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactMessageActivatedEventArgs;{de598db2-0e03-43b0-bf56-bcc40b3162df})");
 }
 unsafe impl ::windows::core::Interface for ContactMessageActivatedEventArgs {
-    type Vtable = IContactMessageActivatedEventArgsVtbl;
+    type Vtable = IContactMessageActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde598db2_0e03_43b0_bf56_bcc40b3162df);
 }
 impl ::windows::core::RuntimeName for ContactMessageActivatedEventArgs {
@@ -2760,7 +2760,7 @@ unsafe impl ::windows::core::RuntimeType for ContactPanelActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactPanelActivatedEventArgs;{52bb63e4-d3d4-4b63-8051-4af2082cab80})");
 }
 unsafe impl ::windows::core::Interface for ContactPanelActivatedEventArgs {
-    type Vtable = IContactPanelActivatedEventArgsVtbl;
+    type Vtable = IContactPanelActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52bb63e4_d3d4_4b63_8051_4af2082cab80);
 }
 impl ::windows::core::RuntimeName for ContactPanelActivatedEventArgs {
@@ -2932,7 +2932,7 @@ unsafe impl ::windows::core::RuntimeType for ContactPickerActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactPickerActivatedEventArgs;{ce57aae7-6449-45a7-971f-d113be7a8936})");
 }
 unsafe impl ::windows::core::Interface for ContactPickerActivatedEventArgs {
-    type Vtable = IContactPickerActivatedEventArgsVtbl;
+    type Vtable = IContactPickerActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce57aae7_6449_45a7_971f_d113be7a8936);
 }
 impl ::windows::core::RuntimeName for ContactPickerActivatedEventArgs {
@@ -3106,7 +3106,7 @@ unsafe impl ::windows::core::RuntimeType for ContactPostActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactPostActivatedEventArgs;{b35a3c67-f1e7-4655-ad6e-4857588f552f})");
 }
 unsafe impl ::windows::core::Interface for ContactPostActivatedEventArgs {
-    type Vtable = IContactPostActivatedEventArgsVtbl;
+    type Vtable = IContactPostActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb35a3c67_f1e7_4655_ad6e_4857588f552f);
 }
 impl ::windows::core::RuntimeName for ContactPostActivatedEventArgs {
@@ -3302,7 +3302,7 @@ unsafe impl ::windows::core::RuntimeType for ContactVideoCallActivatedEventArgs 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactVideoCallActivatedEventArgs;{61079db8-e3e7-4b4f-858d-5c63a96ef684})");
 }
 unsafe impl ::windows::core::Interface for ContactVideoCallActivatedEventArgs {
-    type Vtable = IContactVideoCallActivatedEventArgsVtbl;
+    type Vtable = IContactVideoCallActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61079db8_e3e7_4b4f_858d_5c63a96ef684);
 }
 impl ::windows::core::RuntimeName for ContactVideoCallActivatedEventArgs {
@@ -3507,7 +3507,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.DeviceActivatedEventArgs;{cd50b9a9-ce10-44d2-8234-c355a073ef33})");
 }
 unsafe impl ::windows::core::Interface for DeviceActivatedEventArgs {
-    type Vtable = IDeviceActivatedEventArgsVtbl;
+    type Vtable = IDeviceActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd50b9a9_ce10_44d2_8234_c355a073ef33);
 }
 impl ::windows::core::RuntimeName for DeviceActivatedEventArgs {
@@ -3732,7 +3732,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePairingActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.DevicePairingActivatedEventArgs;{eba0d1e4-ecc6-4148-94ed-f4b37ec05b3e})");
 }
 unsafe impl ::windows::core::Interface for DevicePairingActivatedEventArgs {
-    type Vtable = IDevicePairingActivatedEventArgsVtbl;
+    type Vtable = IDevicePairingActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba0d1e4_ecc6_4148_94ed_f4b37ec05b3e);
 }
 impl ::windows::core::RuntimeName for DevicePairingActivatedEventArgs {
@@ -3945,7 +3945,7 @@ unsafe impl ::windows::core::RuntimeType for DialReceiverActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.DialReceiverActivatedEventArgs;{fb777ed7-85ee-456e-a44d-85d730e70aed})");
 }
 unsafe impl ::windows::core::Interface for DialReceiverActivatedEventArgs {
-    type Vtable = IDialReceiverActivatedEventArgsVtbl;
+    type Vtable = IDialReceiverActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb777ed7_85ee_456e_a44d_85d730e70aed);
 }
 impl ::windows::core::RuntimeName for DialReceiverActivatedEventArgs {
@@ -4234,7 +4234,7 @@ unsafe impl ::windows::core::RuntimeType for FileActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileActivatedEventArgs;{bb2afc33-93b1-42ed-8b26-236dd9c78496})");
 }
 unsafe impl ::windows::core::Interface for FileActivatedEventArgs {
-    type Vtable = IFileActivatedEventArgsVtbl;
+    type Vtable = IFileActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb2afc33_93b1_42ed_8b26_236dd9c78496);
 }
 impl ::windows::core::RuntimeName for FileActivatedEventArgs {
@@ -4511,7 +4511,7 @@ unsafe impl ::windows::core::RuntimeType for FileOpenPickerActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileOpenPickerActivatedEventArgs;{72827082-5525-4bf2-bc09-1f5095d4964d})");
 }
 unsafe impl ::windows::core::Interface for FileOpenPickerActivatedEventArgs {
-    type Vtable = IFileOpenPickerActivatedEventArgsVtbl;
+    type Vtable = IFileOpenPickerActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72827082_5525_4bf2_bc09_1f5095d4964d);
 }
 impl ::windows::core::RuntimeName for FileOpenPickerActivatedEventArgs {
@@ -4731,7 +4731,7 @@ unsafe impl ::windows::core::RuntimeType for FileOpenPickerContinuationEventArgs
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for FileOpenPickerContinuationEventArgs {
-    type Vtable = IFileOpenPickerContinuationEventArgsVtbl;
+    type Vtable = IFileOpenPickerContinuationEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0fa3f3a_d4e8_4ad3_9c34_2308f32fcec9);
 }
 #[cfg(feature = "deprecated")]
@@ -4977,7 +4977,7 @@ unsafe impl ::windows::core::RuntimeType for FileSavePickerActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileSavePickerActivatedEventArgs;{81c19cf1-74e6-4387-82eb-bb8fd64b4346})");
 }
 unsafe impl ::windows::core::Interface for FileSavePickerActivatedEventArgs {
-    type Vtable = IFileSavePickerActivatedEventArgsVtbl;
+    type Vtable = IFileSavePickerActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81c19cf1_74e6_4387_82eb_bb8fd64b4346);
 }
 impl ::windows::core::RuntimeName for FileSavePickerActivatedEventArgs {
@@ -5197,7 +5197,7 @@ unsafe impl ::windows::core::RuntimeType for FileSavePickerContinuationEventArgs
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for FileSavePickerContinuationEventArgs {
-    type Vtable = IFileSavePickerContinuationEventArgsVtbl;
+    type Vtable = IFileSavePickerContinuationEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c846fe1_3bad_4f33_8c8b_e46fae824b4b);
 }
 #[cfg(feature = "deprecated")]
@@ -5444,7 +5444,7 @@ unsafe impl ::windows::core::RuntimeType for FolderPickerContinuationEventArgs {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for FolderPickerContinuationEventArgs {
-    type Vtable = IFolderPickerContinuationEventArgsVtbl;
+    type Vtable = IFolderPickerContinuationEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51882366_9f4b_498f_beb0_42684f6e1c29);
 }
 #[cfg(feature = "deprecated")]
@@ -5696,12 +5696,12 @@ unsafe impl ::windows::core::RuntimeType for IActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cf651713-cd08-4fd8-b697-a281b6544e2e}");
 }
 unsafe impl ::windows::core::Interface for IActivatedEventArgs {
-    type Vtable = IActivatedEventArgsVtbl;
+    type Vtable = IActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf651713_cd08_4fd8_b697_a281b6544e2e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActivatedEventArgsVtbl {
+pub struct IActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ActivationKind) -> ::windows::core::HRESULT,
     pub PreviousExecutionState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ApplicationExecutionState) -> ::windows::core::HRESULT,
@@ -5827,12 +5827,12 @@ unsafe impl ::windows::core::RuntimeType for IActivatedEventArgsWithUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1cf09b9e-9962-4936-80ff-afc8e8ae5c8c}");
 }
 unsafe impl ::windows::core::Interface for IActivatedEventArgsWithUser {
-    type Vtable = IActivatedEventArgsWithUserVtbl;
+    type Vtable = IActivatedEventArgsWithUser_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cf09b9e_9962_4936_80ff_afc8e8ae5c8c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActivatedEventArgsWithUserVtbl {
+pub struct IActivatedEventArgsWithUser_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5958,12 +5958,12 @@ unsafe impl ::windows::core::RuntimeType for IApplicationViewActivatedEventArgs 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{930cef4b-b829-40fc-88f4-8513e8a64738}");
 }
 unsafe impl ::windows::core::Interface for IApplicationViewActivatedEventArgs {
-    type Vtable = IApplicationViewActivatedEventArgsVtbl;
+    type Vtable = IApplicationViewActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x930cef4b_b829_40fc_88f4_8513e8a64738);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IApplicationViewActivatedEventArgsVtbl {
+pub struct IApplicationViewActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CurrentlyShownApplicationViewId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
 }
@@ -6086,12 +6086,12 @@ unsafe impl ::windows::core::RuntimeType for IAppointmentsProviderActivatedEvent
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3364c405-933c-4e7d-a034-500fb8dcd9f3}");
 }
 unsafe impl ::windows::core::Interface for IAppointmentsProviderActivatedEventArgs {
-    type Vtable = IAppointmentsProviderActivatedEventArgsVtbl;
+    type Vtable = IAppointmentsProviderActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3364c405_933c_4e7d_a034_500fb8dcd9f3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentsProviderActivatedEventArgsVtbl {
+pub struct IAppointmentsProviderActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Verb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -6245,12 +6245,12 @@ unsafe impl ::windows::core::RuntimeType for IAppointmentsProviderAddAppointment
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a2861367-cee5-4e4d-9ed7-41c34ec18b02}");
 }
 unsafe impl ::windows::core::Interface for IAppointmentsProviderAddAppointmentActivatedEventArgs {
-    type Vtable = IAppointmentsProviderAddAppointmentActivatedEventArgsVtbl;
+    type Vtable = IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2861367_cee5_4e4d_9ed7_41c34ec18b02);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentsProviderAddAppointmentActivatedEventArgsVtbl {
+pub struct IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
     pub AddAppointmentOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6407,12 +6407,12 @@ unsafe impl ::windows::core::RuntimeType for IAppointmentsProviderRemoveAppointm
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{751f3ab8-0b8e-451c-9f15-966e699bac25}");
 }
 unsafe impl ::windows::core::Interface for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    type Vtable = IAppointmentsProviderRemoveAppointmentActivatedEventArgsVtbl;
+    type Vtable = IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x751f3ab8_0b8e_451c_9f15_966e699bac25);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentsProviderRemoveAppointmentActivatedEventArgsVtbl {
+pub struct IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
     pub RemoveAppointmentOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6569,12 +6569,12 @@ unsafe impl ::windows::core::RuntimeType for IAppointmentsProviderReplaceAppoint
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1551b7d4-a981-4067-8a62-0524e4ade121}");
 }
 unsafe impl ::windows::core::Interface for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    type Vtable = IAppointmentsProviderReplaceAppointmentActivatedEventArgsVtbl;
+    type Vtable = IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1551b7d4_a981_4067_8a62_0524e4ade121);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentsProviderReplaceAppointmentActivatedEventArgsVtbl {
+pub struct IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
     pub ReplaceAppointmentOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6747,12 +6747,12 @@ unsafe impl ::windows::core::RuntimeType for IAppointmentsProviderShowAppointmen
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3958f065-9841-4ca5-999b-885198b9ef2a}");
 }
 unsafe impl ::windows::core::Interface for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    type Vtable = IAppointmentsProviderShowAppointmentDetailsActivatedEventArgsVtbl;
+    type Vtable = IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3958f065_9841_4ca5_999b_885198b9ef2a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentsProviderShowAppointmentDetailsActivatedEventArgsVtbl {
+pub struct IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub InstanceStartDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6920,12 +6920,12 @@ unsafe impl ::windows::core::RuntimeType for IAppointmentsProviderShowTimeFrameA
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9baeaba6-0e0b-49aa-babc-12b1dc774986}");
 }
 unsafe impl ::windows::core::Interface for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    type Vtable = IAppointmentsProviderShowTimeFrameActivatedEventArgsVtbl;
+    type Vtable = IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9baeaba6_0e0b_49aa_babc_12b1dc774986);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppointmentsProviderShowTimeFrameActivatedEventArgsVtbl {
+pub struct IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub TimeToShow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -7010,12 +7010,12 @@ unsafe impl ::windows::core::RuntimeType for IBackgroundActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ab14bee0-e760-440e-a91c-44796de3a92d}");
 }
 unsafe impl ::windows::core::Interface for IBackgroundActivatedEventArgs {
-    type Vtable = IBackgroundActivatedEventArgsVtbl;
+    type Vtable = IBackgroundActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab14bee0_e760_440e_a91c_44796de3a92d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBackgroundActivatedEventArgsVtbl {
+pub struct IBackgroundActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "ApplicationModel_Background")]
     pub TaskInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7141,12 +7141,12 @@ unsafe impl ::windows::core::RuntimeType for IBarcodeScannerPreviewActivatedEven
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6772797c-99bf-4349-af22-e4123560371c}");
 }
 unsafe impl ::windows::core::Interface for IBarcodeScannerPreviewActivatedEventArgs {
-    type Vtable = IBarcodeScannerPreviewActivatedEventArgsVtbl;
+    type Vtable = IBarcodeScannerPreviewActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6772797c_99bf_4349_af22_e4123560371c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBarcodeScannerPreviewActivatedEventArgsVtbl {
+pub struct IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ConnectionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -7270,12 +7270,12 @@ unsafe impl ::windows::core::RuntimeType for ICachedFileUpdaterActivatedEventArg
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d06eb1c7-3805-4ecb-b757-6cf15e26fef3}");
 }
 unsafe impl ::windows::core::Interface for ICachedFileUpdaterActivatedEventArgs {
-    type Vtable = ICachedFileUpdaterActivatedEventArgsVtbl;
+    type Vtable = ICachedFileUpdaterActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd06eb1c7_3805_4ecb_b757_6cf15e26fef3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICachedFileUpdaterActivatedEventArgsVtbl {
+pub struct ICachedFileUpdaterActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Provider")]
     pub CachedFileUpdaterUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -7409,12 +7409,12 @@ unsafe impl ::windows::core::RuntimeType for ICameraSettingsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fb67a508-2dad-490a-9170-dca036eb114b}");
 }
 unsafe impl ::windows::core::Interface for ICameraSettingsActivatedEventArgs {
-    type Vtable = ICameraSettingsActivatedEventArgsVtbl;
+    type Vtable = ICameraSettingsActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb67a508_2dad_490a_9170_dca036eb114b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICameraSettingsActivatedEventArgsVtbl {
+pub struct ICameraSettingsActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub VideoDeviceController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub VideoDeviceExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7538,12 +7538,12 @@ unsafe impl ::windows::core::RuntimeType for ICommandLineActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4506472c-006a-48eb-8afb-d07ab25e3366}");
 }
 unsafe impl ::windows::core::Interface for ICommandLineActivatedEventArgs {
-    type Vtable = ICommandLineActivatedEventArgsVtbl;
+    type Vtable = ICommandLineActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4506472c_006a_48eb_8afb_d07ab25e3366);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICommandLineActivatedEventArgsVtbl {
+pub struct ICommandLineActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Operation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -7551,12 +7551,12 @@ pub struct ICommandLineActivatedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICommandLineActivationOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICommandLineActivationOperation {
-    type Vtable = ICommandLineActivationOperationVtbl;
+    type Vtable = ICommandLineActivationOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x994b2841_c59e_4f69_bcfd_b61ed4e622eb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICommandLineActivationOperationVtbl {
+pub struct ICommandLineActivationOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Arguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub CurrentDirectoryPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -7686,12 +7686,12 @@ unsafe impl ::windows::core::RuntimeType for IContactActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d627a1c4-c025-4c41-9def-f1eafad075e7}");
 }
 unsafe impl ::windows::core::Interface for IContactActivatedEventArgs {
-    type Vtable = IContactActivatedEventArgsVtbl;
+    type Vtable = IContactActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd627a1c4_c025_4c41_9def_f1eafad075e7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactActivatedEventArgsVtbl {
+pub struct IContactActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Verb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -7861,12 +7861,12 @@ unsafe impl ::windows::core::RuntimeType for IContactCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c2df14c7-30eb-41c6-b3bc-5b1694f9dab3}");
 }
 unsafe impl ::windows::core::Interface for IContactCallActivatedEventArgs {
-    type Vtable = IContactCallActivatedEventArgsVtbl;
+    type Vtable = IContactCallActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2df14c7_30eb_41c6_b3bc_5b1694f9dab3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactCallActivatedEventArgsVtbl {
+pub struct IContactCallActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ServiceUserId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8034,12 +8034,12 @@ unsafe impl ::windows::core::RuntimeType for IContactMapActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b32bf870-eee7-4ad2-aaf1-a87effcf00a4}");
 }
 unsafe impl ::windows::core::Interface for IContactMapActivatedEventArgs {
-    type Vtable = IContactMapActivatedEventArgsVtbl;
+    type Vtable = IContactMapActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb32bf870_eee7_4ad2_aaf1_a87effcf00a4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactMapActivatedEventArgsVtbl {
+pub struct IContactMapActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub Address: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8216,12 +8216,12 @@ unsafe impl ::windows::core::RuntimeType for IContactMessageActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{de598db2-0e03-43b0-bf56-bcc40b3162df}");
 }
 unsafe impl ::windows::core::Interface for IContactMessageActivatedEventArgs {
-    type Vtable = IContactMessageActivatedEventArgsVtbl;
+    type Vtable = IContactMessageActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde598db2_0e03_43b0_bf56_bcc40b3162df);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactMessageActivatedEventArgsVtbl {
+pub struct IContactMessageActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ServiceUserId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8313,12 +8313,12 @@ unsafe impl ::windows::core::RuntimeType for IContactPanelActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{52bb63e4-d3d4-4b63-8051-4af2082cab80}");
 }
 unsafe impl ::windows::core::Interface for IContactPanelActivatedEventArgs {
-    type Vtable = IContactPanelActivatedEventArgsVtbl;
+    type Vtable = IContactPanelActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52bb63e4_d3d4_4b63_8051_4af2082cab80);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactPanelActivatedEventArgsVtbl {
+pub struct IContactPanelActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub ContactPanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8449,12 +8449,12 @@ unsafe impl ::windows::core::RuntimeType for IContactPickerActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ce57aae7-6449-45a7-971f-d113be7a8936}");
 }
 unsafe impl ::windows::core::Interface for IContactPickerActivatedEventArgs {
-    type Vtable = IContactPickerActivatedEventArgsVtbl;
+    type Vtable = IContactPickerActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce57aae7_6449_45a7_971f_d113be7a8936);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactPickerActivatedEventArgsVtbl {
+pub struct IContactPickerActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "ApplicationModel_Contacts_Provider")]
     pub ContactPickerUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8627,12 +8627,12 @@ unsafe impl ::windows::core::RuntimeType for IContactPostActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b35a3c67-f1e7-4655-ad6e-4857588f552f}");
 }
 unsafe impl ::windows::core::Interface for IContactPostActivatedEventArgs {
-    type Vtable = IContactPostActivatedEventArgsVtbl;
+    type Vtable = IContactPostActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb35a3c67_f1e7_4655_ad6e_4857588f552f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactPostActivatedEventArgsVtbl {
+pub struct IContactPostActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ServiceUserId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8807,12 +8807,12 @@ unsafe impl ::windows::core::RuntimeType for IContactVideoCallActivatedEventArgs
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{61079db8-e3e7-4b4f-858d-5c63a96ef684}");
 }
 unsafe impl ::windows::core::Interface for IContactVideoCallActivatedEventArgs {
-    type Vtable = IContactVideoCallActivatedEventArgsVtbl;
+    type Vtable = IContactVideoCallActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61079db8_e3e7_4b4f_858d_5c63a96ef684);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactVideoCallActivatedEventArgsVtbl {
+pub struct IContactVideoCallActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ServiceUserId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -8940,12 +8940,12 @@ unsafe impl ::windows::core::RuntimeType for IContactsProviderActivatedEventArgs
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4580dca8-5750-4916-aa52-c0829521eb94}");
 }
 unsafe impl ::windows::core::Interface for IContactsProviderActivatedEventArgs {
-    type Vtable = IContactsProviderActivatedEventArgsVtbl;
+    type Vtable = IContactsProviderActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4580dca8_5750_4916_aa52_c0829521eb94);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactsProviderActivatedEventArgsVtbl {
+pub struct IContactsProviderActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Verb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -9069,12 +9069,12 @@ unsafe impl ::windows::core::RuntimeType for IContinuationActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e58106b5-155f-4a94-a742-c7e08f4e188c}");
 }
 unsafe impl ::windows::core::Interface for IContinuationActivatedEventArgs {
-    type Vtable = IContinuationActivatedEventArgsVtbl;
+    type Vtable = IContinuationActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe58106b5_155f_4a94_a742_c7e08f4e188c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContinuationActivatedEventArgsVtbl {
+pub struct IContinuationActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub ContinuationData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9208,12 +9208,12 @@ unsafe impl ::windows::core::RuntimeType for IDeviceActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cd50b9a9-ce10-44d2-8234-c355a073ef33}");
 }
 unsafe impl ::windows::core::Interface for IDeviceActivatedEventArgs {
-    type Vtable = IDeviceActivatedEventArgsVtbl;
+    type Vtable = IDeviceActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd50b9a9_ce10_44d2_8234_c355a073ef33);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDeviceActivatedEventArgsVtbl {
+pub struct IDeviceActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceInformationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Verb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -9338,12 +9338,12 @@ unsafe impl ::windows::core::RuntimeType for IDevicePairingActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{eba0d1e4-ecc6-4148-94ed-f4b37ec05b3e}");
 }
 unsafe impl ::windows::core::Interface for IDevicePairingActivatedEventArgs {
-    type Vtable = IDevicePairingActivatedEventArgsVtbl;
+    type Vtable = IDevicePairingActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba0d1e4_ecc6_4148_94ed_f4b37ec05b3e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDevicePairingActivatedEventArgsVtbl {
+pub struct IDevicePairingActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Enumeration")]
     pub DeviceInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9507,12 +9507,12 @@ unsafe impl ::windows::core::RuntimeType for IDialReceiverActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fb777ed7-85ee-456e-a44d-85d730e70aed}");
 }
 unsafe impl ::windows::core::Interface for IDialReceiverActivatedEventArgs {
-    type Vtable = IDialReceiverActivatedEventArgsVtbl;
+    type Vtable = IDialReceiverActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb777ed7_85ee_456e_a44d_85d730e70aed);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDialReceiverActivatedEventArgsVtbl {
+pub struct IDialReceiverActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AppName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -9644,12 +9644,12 @@ unsafe impl ::windows::core::RuntimeType for IFileActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{bb2afc33-93b1-42ed-8b26-236dd9c78496}");
 }
 unsafe impl ::windows::core::Interface for IFileActivatedEventArgs {
-    type Vtable = IFileActivatedEventArgsVtbl;
+    type Vtable = IFileActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb2afc33_93b1_42ed_8b26_236dd9c78496);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileActivatedEventArgsVtbl {
+pub struct IFileActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub Files: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9776,12 +9776,12 @@ unsafe impl ::windows::core::RuntimeType for IFileActivatedEventArgsWithCallerPa
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2d60f06b-d25f-4d25-8653-e1c5e1108309}");
 }
 unsafe impl ::windows::core::Interface for IFileActivatedEventArgsWithCallerPackageFamilyName {
-    type Vtable = IFileActivatedEventArgsWithCallerPackageFamilyNameVtbl;
+    type Vtable = IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d60f06b_d25f_4d25_8653_e1c5e1108309);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileActivatedEventArgsWithCallerPackageFamilyNameVtbl {
+pub struct IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CallerPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -9944,12 +9944,12 @@ unsafe impl ::windows::core::RuntimeType for IFileActivatedEventArgsWithNeighbor
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{433ba1a4-e1e2-48fd-b7fc-b5d6eee65033}");
 }
 unsafe impl ::windows::core::Interface for IFileActivatedEventArgsWithNeighboringFiles {
-    type Vtable = IFileActivatedEventArgsWithNeighboringFilesVtbl;
+    type Vtable = IFileActivatedEventArgsWithNeighboringFiles_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x433ba1a4_e1e2_48fd_b7fc_b5d6eee65033);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileActivatedEventArgsWithNeighboringFilesVtbl {
+pub struct IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Search")]
     pub NeighboringFilesQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10076,12 +10076,12 @@ unsafe impl ::windows::core::RuntimeType for IFileOpenPickerActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{72827082-5525-4bf2-bc09-1f5095d4964d}");
 }
 unsafe impl ::windows::core::Interface for IFileOpenPickerActivatedEventArgs {
-    type Vtable = IFileOpenPickerActivatedEventArgsVtbl;
+    type Vtable = IFileOpenPickerActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72827082_5525_4bf2_bc09_1f5095d4964d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileOpenPickerActivatedEventArgsVtbl {
+pub struct IFileOpenPickerActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Pickers_Provider")]
     pub FileOpenPickerUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10161,12 +10161,12 @@ unsafe impl ::windows::core::RuntimeType for IFileOpenPickerActivatedEventArgs2 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5e731f66-8d1f-45fb-af1d-73205c8fc7a1}");
 }
 unsafe impl ::windows::core::Interface for IFileOpenPickerActivatedEventArgs2 {
-    type Vtable = IFileOpenPickerActivatedEventArgs2Vtbl;
+    type Vtable = IFileOpenPickerActivatedEventArgs2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e731f66_8d1f_45fb_af1d_73205c8fc7a1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileOpenPickerActivatedEventArgs2Vtbl {
+pub struct IFileOpenPickerActivatedEventArgs2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CallerPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -10345,13 +10345,13 @@ unsafe impl ::windows::core::RuntimeType for IFileOpenPickerContinuationEventArg
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IFileOpenPickerContinuationEventArgs {
-    type Vtable = IFileOpenPickerContinuationEventArgsVtbl;
+    type Vtable = IFileOpenPickerContinuationEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0fa3f3a_d4e8_4ad3_9c34_2308f32fcec9);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileOpenPickerContinuationEventArgsVtbl {
+pub struct IFileOpenPickerContinuationEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
     pub Files: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10478,12 +10478,12 @@ unsafe impl ::windows::core::RuntimeType for IFileSavePickerActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{81c19cf1-74e6-4387-82eb-bb8fd64b4346}");
 }
 unsafe impl ::windows::core::Interface for IFileSavePickerActivatedEventArgs {
-    type Vtable = IFileSavePickerActivatedEventArgsVtbl;
+    type Vtable = IFileSavePickerActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81c19cf1_74e6_4387_82eb_bb8fd64b4346);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileSavePickerActivatedEventArgsVtbl {
+pub struct IFileSavePickerActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Pickers_Provider")]
     pub FileSavePickerUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10571,12 +10571,12 @@ unsafe impl ::windows::core::RuntimeType for IFileSavePickerActivatedEventArgs2 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6b73fe13-2cf2-4d48-8cbc-af67d23f1ce7}");
 }
 unsafe impl ::windows::core::Interface for IFileSavePickerActivatedEventArgs2 {
-    type Vtable = IFileSavePickerActivatedEventArgs2Vtbl;
+    type Vtable = IFileSavePickerActivatedEventArgs2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b73fe13_2cf2_4d48_8cbc_af67d23f1ce7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileSavePickerActivatedEventArgs2Vtbl {
+pub struct IFileSavePickerActivatedEventArgs2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CallerPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub EnterpriseId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -10756,13 +10756,13 @@ unsafe impl ::windows::core::RuntimeType for IFileSavePickerContinuationEventArg
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IFileSavePickerContinuationEventArgs {
-    type Vtable = IFileSavePickerContinuationEventArgsVtbl;
+    type Vtable = IFileSavePickerContinuationEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c846fe1_3bad_4f33_8c8b_e46fae824b4b);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFileSavePickerContinuationEventArgsVtbl {
+pub struct IFileSavePickerContinuationEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Storage", feature = "deprecated"))]
     pub File: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10944,13 +10944,13 @@ unsafe impl ::windows::core::RuntimeType for IFolderPickerContinuationEventArgs 
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IFolderPickerContinuationEventArgs {
-    type Vtable = IFolderPickerContinuationEventArgsVtbl;
+    type Vtable = IFolderPickerContinuationEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51882366_9f4b_498f_beb0_42684f6e1c29);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFolderPickerContinuationEventArgsVtbl {
+pub struct IFolderPickerContinuationEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Storage", feature = "deprecated"))]
     pub Folder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -11084,12 +11084,12 @@ unsafe impl ::windows::core::RuntimeType for ILaunchActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fbc93e26-a14a-4b4f-82b0-33bed920af52}");
 }
 unsafe impl ::windows::core::Interface for ILaunchActivatedEventArgs {
-    type Vtable = ILaunchActivatedEventArgsVtbl;
+    type Vtable = ILaunchActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc93e26_a14a_4b4f_82b0_33bed920af52);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILaunchActivatedEventArgsVtbl {
+pub struct ILaunchActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Arguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub TileId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -11251,12 +11251,12 @@ unsafe impl ::windows::core::RuntimeType for ILaunchActivatedEventArgs2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0fd37ebc-9dc9-46b5-9ace-bd95d4565345}");
 }
 unsafe impl ::windows::core::Interface for ILaunchActivatedEventArgs2 {
-    type Vtable = ILaunchActivatedEventArgs2Vtbl;
+    type Vtable = ILaunchActivatedEventArgs2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fd37ebc_9dc9_46b5_9ace_bd95d4565345);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILaunchActivatedEventArgs2Vtbl {
+pub struct ILaunchActivatedEventArgs2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TileActivatedInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -11379,12 +11379,12 @@ unsafe impl ::windows::core::RuntimeType for ILockScreenActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3ca77966-6108-4a41-8220-ee7d133c8532}");
 }
 unsafe impl ::windows::core::Interface for ILockScreenActivatedEventArgs {
-    type Vtable = ILockScreenActivatedEventArgsVtbl;
+    type Vtable = ILockScreenActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ca77966_6108_4a41_8220_ee7d133c8532);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILockScreenActivatedEventArgsVtbl {
+pub struct ILockScreenActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Info: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -11546,12 +11546,12 @@ unsafe impl ::windows::core::RuntimeType for ILockScreenCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{06f37fbe-b5f2-448b-b13e-e328ac1c516a}");
 }
 unsafe impl ::windows::core::Interface for ILockScreenCallActivatedEventArgs {
-    type Vtable = ILockScreenCallActivatedEventArgsVtbl;
+    type Vtable = ILockScreenCallActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06f37fbe_b5f2_448b_b13e_e328ac1c516a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILockScreenCallActivatedEventArgsVtbl {
+pub struct ILockScreenCallActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "ApplicationModel_Calls")]
     pub CallUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -11677,12 +11677,12 @@ unsafe impl ::windows::core::RuntimeType for IPhoneCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{54615221-a3c1-4ced-b62f-8c60523619ad}");
 }
 unsafe impl ::windows::core::Interface for IPhoneCallActivatedEventArgs {
-    type Vtable = IPhoneCallActivatedEventArgsVtbl;
+    type Vtable = IPhoneCallActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54615221_a3c1_4ced_b62f_8c60523619ad);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallActivatedEventArgsVtbl {
+pub struct IPhoneCallActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LineId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
@@ -11805,12 +11805,12 @@ unsafe impl ::windows::core::RuntimeType for IPickerReturnedActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{360defb9-a9d3-4984-a4ed-9ec734604921}");
 }
 unsafe impl ::windows::core::Interface for IPickerReturnedActivatedEventArgs {
-    type Vtable = IPickerReturnedActivatedEventArgsVtbl;
+    type Vtable = IPickerReturnedActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x360defb9_a9d3_4984_a4ed_9ec734604921);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPickerReturnedActivatedEventArgsVtbl {
+pub struct IPickerReturnedActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PickerOperationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -11933,12 +11933,12 @@ unsafe impl ::windows::core::RuntimeType for IPrelaunchActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0c44717b-19f7-48d6-b046-cf22826eaa74}");
 }
 unsafe impl ::windows::core::Interface for IPrelaunchActivatedEventArgs {
-    type Vtable = IPrelaunchActivatedEventArgsVtbl;
+    type Vtable = IPrelaunchActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c44717b_19f7_48d6_b046_cf22826eaa74);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrelaunchActivatedEventArgsVtbl {
+pub struct IPrelaunchActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PrelaunchActivated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -12062,12 +12062,12 @@ unsafe impl ::windows::core::RuntimeType for IPrint3DWorkflowActivatedEventArgs 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3f57e78b-f2ac-4619-8302-ef855e1c9b90}");
 }
 unsafe impl ::windows::core::Interface for IPrint3DWorkflowActivatedEventArgs {
-    type Vtable = IPrint3DWorkflowActivatedEventArgsVtbl;
+    type Vtable = IPrint3DWorkflowActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f57e78b_f2ac_4619_8302_ef855e1c9b90);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrint3DWorkflowActivatedEventArgsVtbl {
+pub struct IPrint3DWorkflowActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Printers_Extensions")]
     pub Workflow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -12194,12 +12194,12 @@ unsafe impl ::windows::core::RuntimeType for IPrintTaskSettingsActivatedEventArg
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ee30a0c9-ce56-4865-ba8e-8954ac271107}");
 }
 unsafe impl ::windows::core::Interface for IPrintTaskSettingsActivatedEventArgs {
-    type Vtable = IPrintTaskSettingsActivatedEventArgsVtbl;
+    type Vtable = IPrintTaskSettingsActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee30a0c9_ce56_4865_ba8e_8954ac271107);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintTaskSettingsActivatedEventArgsVtbl {
+pub struct IPrintTaskSettingsActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Printers_Extensions")]
     pub Configuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -12326,12 +12326,12 @@ unsafe impl ::windows::core::RuntimeType for IProtocolActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6095f4dd-b7c0-46ab-81fe-d90f36d00d24}");
 }
 unsafe impl ::windows::core::Interface for IProtocolActivatedEventArgs {
-    type Vtable = IProtocolActivatedEventArgsVtbl;
+    type Vtable = IProtocolActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6095f4dd_b7c0_46ab_81fe_d90f36d00d24);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProtocolActivatedEventArgsVtbl {
+pub struct IProtocolActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Uri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -12466,12 +12466,12 @@ unsafe impl ::windows::core::RuntimeType for IProtocolActivatedEventArgsWithCall
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d84a0c12-5c8f-438c-83cb-c28fcc0b2fdb}");
 }
 unsafe impl ::windows::core::Interface for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
-    type Vtable = IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataVtbl;
+    type Vtable = IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd84a0c12_5c8f_438c_83cb_c28fcc0b2fdb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndDataVtbl {
+pub struct IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CallerPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -12599,12 +12599,12 @@ unsafe impl ::windows::core::RuntimeType for IProtocolForResultsActivatedEventAr
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e75132c2-7ae7-4517-80ac-dbe8d7cc5b9c}");
 }
 unsafe impl ::windows::core::Interface for IProtocolForResultsActivatedEventArgs {
-    type Vtable = IProtocolForResultsActivatedEventArgsVtbl;
+    type Vtable = IProtocolForResultsActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe75132c2_7ae7_4517_80ac_dbe8d7cc5b9c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProtocolForResultsActivatedEventArgsVtbl {
+pub struct IProtocolForResultsActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub ProtocolForResultsOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -12730,12 +12730,12 @@ unsafe impl ::windows::core::RuntimeType for IRestrictedLaunchActivatedEventArgs
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e0b7ac81-bfc3-4344-a5da-19fd5a27baae}");
 }
 unsafe impl ::windows::core::Interface for IRestrictedLaunchActivatedEventArgs {
-    type Vtable = IRestrictedLaunchActivatedEventArgsVtbl;
+    type Vtable = IRestrictedLaunchActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0b7ac81_bfc3_4344_a5da_19fd5a27baae);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRestrictedLaunchActivatedEventArgsVtbl {
+pub struct IRestrictedLaunchActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SharedContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -12866,12 +12866,12 @@ unsafe impl ::windows::core::RuntimeType for ISearchActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8cb36951-58c8-43e3-94bc-41d33f8b630e}");
 }
 unsafe impl ::windows::core::Interface for ISearchActivatedEventArgs {
-    type Vtable = ISearchActivatedEventArgsVtbl;
+    type Vtable = ISearchActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cb36951_58c8_43e3_94bc_41d33f8b630e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchActivatedEventArgsVtbl {
+pub struct ISearchActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub QueryText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Language: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -12950,12 +12950,12 @@ unsafe impl ::windows::core::RuntimeType for ISearchActivatedEventArgsWithLingui
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c09f33da-08ab-4931-9b7c-451025f21f81}");
 }
 unsafe impl ::windows::core::Interface for ISearchActivatedEventArgsWithLinguisticDetails {
-    type Vtable = ISearchActivatedEventArgsWithLinguisticDetailsVtbl;
+    type Vtable = ISearchActivatedEventArgsWithLinguisticDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc09f33da_08ab_4931_9b7c_451025f21f81);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISearchActivatedEventArgsWithLinguisticDetailsVtbl {
+pub struct ISearchActivatedEventArgsWithLinguisticDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "ApplicationModel_Search")]
     pub LinguisticDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -13082,12 +13082,12 @@ unsafe impl ::windows::core::RuntimeType for IShareTargetActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4bdaf9c8-cdb2-4acb-bfc3-6648563378ec}");
 }
 unsafe impl ::windows::core::Interface for IShareTargetActivatedEventArgs {
-    type Vtable = IShareTargetActivatedEventArgsVtbl;
+    type Vtable = IShareTargetActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bdaf9c8_cdb2_4acb_bfc3_6648563378ec);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IShareTargetActivatedEventArgsVtbl {
+pub struct IShareTargetActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
     pub ShareOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -13098,12 +13098,12 @@ pub struct IShareTargetActivatedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ISplashScreen(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISplashScreen {
-    type Vtable = ISplashScreenVtbl;
+    type Vtable = ISplashScreen_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca4d975c_d4d6_43f0_97c0_0833c6391c24);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISplashScreenVtbl {
+pub struct ISplashScreen_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ImageLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT,
@@ -13237,12 +13237,12 @@ unsafe impl ::windows::core::RuntimeType for IStartupTaskActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{03b11a58-5276-4d91-8621-54611864d5fa}");
 }
 unsafe impl ::windows::core::Interface for IStartupTaskActivatedEventArgs {
-    type Vtable = IStartupTaskActivatedEventArgsVtbl;
+    type Vtable = IStartupTaskActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03b11a58_5276_4d91_8621_54611864d5fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStartupTaskActivatedEventArgsVtbl {
+pub struct IStartupTaskActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TaskId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -13250,12 +13250,12 @@ pub struct IStartupTaskActivatedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ITileActivatedInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITileActivatedInfo {
-    type Vtable = ITileActivatedInfoVtbl;
+    type Vtable = ITileActivatedInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80e4a3b1_3980_4f17_b738_89194e0b8f65);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITileActivatedInfoVtbl {
+pub struct ITileActivatedInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Notifications"))]
     pub RecentlyShownNotifications: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -13390,12 +13390,12 @@ unsafe impl ::windows::core::RuntimeType for IToastNotificationActivatedEventArg
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{92a86f82-5290-431d-be85-c4aaeeb8685f}");
 }
 unsafe impl ::windows::core::Interface for IToastNotificationActivatedEventArgs {
-    type Vtable = IToastNotificationActivatedEventArgsVtbl;
+    type Vtable = IToastNotificationActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92a86f82_5290_431d_be85_c4aaeeb8685f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IToastNotificationActivatedEventArgsVtbl {
+pub struct IToastNotificationActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Argument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -13523,12 +13523,12 @@ unsafe impl ::windows::core::RuntimeType for IUserDataAccountProviderActivatedEv
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1bc9f723-8ef1-4a51-a63a-fe711eeab607}");
 }
 unsafe impl ::windows::core::Interface for IUserDataAccountProviderActivatedEventArgs {
-    type Vtable = IUserDataAccountProviderActivatedEventArgsVtbl;
+    type Vtable = IUserDataAccountProviderActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bc9f723_8ef1_4a51_a63a_fe711eeab607);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataAccountProviderActivatedEventArgsVtbl {
+pub struct IUserDataAccountProviderActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "ApplicationModel_UserDataAccounts_Provider")]
     pub Operation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -13655,12 +13655,12 @@ unsafe impl ::windows::core::RuntimeType for IViewSwitcherProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{33f288a6-5c2c-4d27-bac7-7536088f1219}");
 }
 unsafe impl ::windows::core::Interface for IViewSwitcherProvider {
-    type Vtable = IViewSwitcherProviderVtbl;
+    type Vtable = IViewSwitcherProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33f288a6_5c2c_4d27_bac7_7536088f1219);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IViewSwitcherProviderVtbl {
+pub struct IViewSwitcherProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_ViewManagement")]
     pub ViewSwitcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -13787,12 +13787,12 @@ unsafe impl ::windows::core::RuntimeType for IVoiceCommandActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ab92dcfd-8d43-4de6-9775-20704b581b00}");
 }
 unsafe impl ::windows::core::Interface for IVoiceCommandActivatedEventArgs {
-    type Vtable = IVoiceCommandActivatedEventArgsVtbl;
+    type Vtable = IVoiceCommandActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab92dcfd_8d43_4de6_9775_20704b581b00);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVoiceCommandActivatedEventArgsVtbl {
+pub struct IVoiceCommandActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Media_SpeechRecognition")]
     pub Result: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -13935,12 +13935,12 @@ unsafe impl ::windows::core::RuntimeType for IWalletActionActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fcfc027b-1a1a-4d22-923f-ae6f45fa52d9}");
 }
 unsafe impl ::windows::core::Interface for IWalletActionActivatedEventArgs {
-    type Vtable = IWalletActionActivatedEventArgsVtbl;
+    type Vtable = IWalletActionActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcfc027b_1a1a_4d22_923f_ae6f45fa52d9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWalletActionActivatedEventArgsVtbl {
+pub struct IWalletActionActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ItemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "ApplicationModel_Wallet")]
@@ -14069,12 +14069,12 @@ unsafe impl ::windows::core::RuntimeType for IWebAccountProviderActivatedEventAr
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{72b71774-98ea-4ccf-9752-46d9051004f1}");
 }
 unsafe impl ::windows::core::Interface for IWebAccountProviderActivatedEventArgs {
-    type Vtable = IWebAccountProviderActivatedEventArgsVtbl;
+    type Vtable = IWebAccountProviderActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72b71774_98ea_4ccf_9752_46d9051004f1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAccountProviderActivatedEventArgsVtbl {
+pub struct IWebAccountProviderActivatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Security_Authentication_Web_Provider")]
     pub Operation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -14232,12 +14232,12 @@ unsafe impl ::windows::core::RuntimeType for IWebAuthenticationBrokerContinuatio
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{75dda3d4-7714-453d-b7ff-b95e3a1709da}");
 }
 unsafe impl ::windows::core::Interface for IWebAuthenticationBrokerContinuationEventArgs {
-    type Vtable = IWebAuthenticationBrokerContinuationEventArgsVtbl;
+    type Vtable = IWebAuthenticationBrokerContinuationEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75dda3d4_7714_453d_b7ff_b95e3a1709da);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWebAuthenticationBrokerContinuationEventArgsVtbl {
+pub struct IWebAuthenticationBrokerContinuationEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Security_Authentication_Web")]
     pub WebAuthenticationResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -14351,7 +14351,7 @@ unsafe impl ::windows::core::RuntimeType for LaunchActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.LaunchActivatedEventArgs;{fbc93e26-a14a-4b4f-82b0-33bed920af52})");
 }
 unsafe impl ::windows::core::Interface for LaunchActivatedEventArgs {
-    type Vtable = ILaunchActivatedEventArgsVtbl;
+    type Vtable = ILaunchActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc93e26_a14a_4b4f_82b0_33bed920af52);
 }
 impl ::windows::core::RuntimeName for LaunchActivatedEventArgs {
@@ -14619,7 +14619,7 @@ unsafe impl ::windows::core::RuntimeType for LockScreenActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.LockScreenActivatedEventArgs;{3ca77966-6108-4a41-8220-ee7d133c8532})");
 }
 unsafe impl ::windows::core::Interface for LockScreenActivatedEventArgs {
-    type Vtable = ILockScreenActivatedEventArgsVtbl;
+    type Vtable = ILockScreenActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ca77966_6108_4a41_8220_ee7d133c8532);
 }
 impl ::windows::core::RuntimeName for LockScreenActivatedEventArgs {
@@ -14824,7 +14824,7 @@ unsafe impl ::windows::core::RuntimeType for LockScreenCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.LockScreenCallActivatedEventArgs;{06f37fbe-b5f2-448b-b13e-e328ac1c516a})");
 }
 unsafe impl ::windows::core::Interface for LockScreenCallActivatedEventArgs {
-    type Vtable = ILockScreenCallActivatedEventArgsVtbl;
+    type Vtable = ILockScreenCallActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06f37fbe_b5f2_448b_b13e_e328ac1c516a);
 }
 impl ::windows::core::RuntimeName for LockScreenCallActivatedEventArgs {
@@ -15031,7 +15031,7 @@ unsafe impl ::windows::core::RuntimeType for LockScreenComponentActivatedEventAr
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.LockScreenComponentActivatedEventArgs;{cf651713-cd08-4fd8-b697-a281b6544e2e})");
 }
 unsafe impl ::windows::core::Interface for LockScreenComponentActivatedEventArgs {
-    type Vtable = IActivatedEventArgsVtbl;
+    type Vtable = IActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf651713_cd08_4fd8_b697_a281b6544e2e);
 }
 impl ::windows::core::RuntimeName for LockScreenComponentActivatedEventArgs {
@@ -15167,7 +15167,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs;{54615221-a3c1-4ced-b62f-8c60523619ad})");
 }
 unsafe impl ::windows::core::Interface for PhoneCallActivatedEventArgs {
-    type Vtable = IPhoneCallActivatedEventArgsVtbl;
+    type Vtable = IPhoneCallActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54615221_a3c1_4ced_b62f_8c60523619ad);
 }
 impl ::windows::core::RuntimeName for PhoneCallActivatedEventArgs {
@@ -15338,7 +15338,7 @@ unsafe impl ::windows::core::RuntimeType for PickerReturnedActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.PickerReturnedActivatedEventArgs;{360defb9-a9d3-4984-a4ed-9ec734604921})");
 }
 unsafe impl ::windows::core::Interface for PickerReturnedActivatedEventArgs {
-    type Vtable = IPickerReturnedActivatedEventArgsVtbl;
+    type Vtable = IPickerReturnedActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x360defb9_a9d3_4984_a4ed_9ec734604921);
 }
 impl ::windows::core::RuntimeName for PickerReturnedActivatedEventArgs {
@@ -15488,7 +15488,7 @@ unsafe impl ::windows::core::RuntimeType for Print3DWorkflowActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.Print3DWorkflowActivatedEventArgs;{3f57e78b-f2ac-4619-8302-ef855e1c9b90})");
 }
 unsafe impl ::windows::core::Interface for Print3DWorkflowActivatedEventArgs {
-    type Vtable = IPrint3DWorkflowActivatedEventArgsVtbl;
+    type Vtable = IPrint3DWorkflowActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f57e78b_f2ac_4619_8302_ef855e1c9b90);
 }
 impl ::windows::core::RuntimeName for Print3DWorkflowActivatedEventArgs {
@@ -15638,7 +15638,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskSettingsActivatedEventArgs
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.PrintTaskSettingsActivatedEventArgs;{ee30a0c9-ce56-4865-ba8e-8954ac271107})");
 }
 unsafe impl ::windows::core::Interface for PrintTaskSettingsActivatedEventArgs {
-    type Vtable = IPrintTaskSettingsActivatedEventArgsVtbl;
+    type Vtable = IPrintTaskSettingsActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee30a0c9_ce56_4865_ba8e_8954ac271107);
 }
 impl ::windows::core::RuntimeName for PrintTaskSettingsActivatedEventArgs {
@@ -15831,7 +15831,7 @@ unsafe impl ::windows::core::RuntimeType for ProtocolActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs;{6095f4dd-b7c0-46ab-81fe-d90f36d00d24})");
 }
 unsafe impl ::windows::core::Interface for ProtocolActivatedEventArgs {
-    type Vtable = IProtocolActivatedEventArgsVtbl;
+    type Vtable = IProtocolActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6095f4dd_b7c0_46ab_81fe_d90f36d00d24);
 }
 impl ::windows::core::RuntimeName for ProtocolActivatedEventArgs {
@@ -16121,7 +16121,7 @@ unsafe impl ::windows::core::RuntimeType for ProtocolForResultsActivatedEventArg
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ProtocolForResultsActivatedEventArgs;{e75132c2-7ae7-4517-80ac-dbe8d7cc5b9c})");
 }
 unsafe impl ::windows::core::Interface for ProtocolForResultsActivatedEventArgs {
-    type Vtable = IProtocolForResultsActivatedEventArgsVtbl;
+    type Vtable = IProtocolForResultsActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe75132c2_7ae7_4517_80ac_dbe8d7cc5b9c);
 }
 impl ::windows::core::RuntimeName for ProtocolForResultsActivatedEventArgs {
@@ -16389,7 +16389,7 @@ unsafe impl ::windows::core::RuntimeType for RestrictedLaunchActivatedEventArgs 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.RestrictedLaunchActivatedEventArgs;{e0b7ac81-bfc3-4344-a5da-19fd5a27baae})");
 }
 unsafe impl ::windows::core::Interface for RestrictedLaunchActivatedEventArgs {
-    type Vtable = IRestrictedLaunchActivatedEventArgsVtbl;
+    type Vtable = IRestrictedLaunchActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0b7ac81_bfc3_4344_a5da_19fd5a27baae);
 }
 impl ::windows::core::RuntimeName for RestrictedLaunchActivatedEventArgs {
@@ -16603,7 +16603,7 @@ unsafe impl ::windows::core::RuntimeType for SearchActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.SearchActivatedEventArgs;{8cb36951-58c8-43e3-94bc-41d33f8b630e})");
 }
 unsafe impl ::windows::core::Interface for SearchActivatedEventArgs {
-    type Vtable = ISearchActivatedEventArgsVtbl;
+    type Vtable = ISearchActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cb36951_58c8_43e3_94bc_41d33f8b630e);
 }
 impl ::windows::core::RuntimeName for SearchActivatedEventArgs {
@@ -16850,7 +16850,7 @@ unsafe impl ::windows::core::RuntimeType for ShareTargetActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ShareTargetActivatedEventArgs;{4bdaf9c8-cdb2-4acb-bfc3-6648563378ec})");
 }
 unsafe impl ::windows::core::Interface for ShareTargetActivatedEventArgs {
-    type Vtable = IShareTargetActivatedEventArgsVtbl;
+    type Vtable = IShareTargetActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bdaf9c8_cdb2_4acb_bfc3_6648563378ec);
 }
 impl ::windows::core::RuntimeName for ShareTargetActivatedEventArgs {
@@ -17013,7 +17013,7 @@ unsafe impl ::windows::core::RuntimeType for SplashScreen {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.SplashScreen;{ca4d975c-d4d6-43f0-97c0-0833c6391c24})");
 }
 unsafe impl ::windows::core::Interface for SplashScreen {
-    type Vtable = ISplashScreenVtbl;
+    type Vtable = ISplashScreen_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca4d975c_d4d6_43f0_97c0_0833c6391c24);
 }
 impl ::windows::core::RuntimeName for SplashScreen {
@@ -17125,7 +17125,7 @@ unsafe impl ::windows::core::RuntimeType for StartupTaskActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.StartupTaskActivatedEventArgs;{03b11a58-5276-4d91-8621-54611864d5fa})");
 }
 unsafe impl ::windows::core::Interface for StartupTaskActivatedEventArgs {
-    type Vtable = IStartupTaskActivatedEventArgsVtbl;
+    type Vtable = IStartupTaskActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03b11a58_5276_4d91_8621_54611864d5fa);
 }
 impl ::windows::core::RuntimeName for StartupTaskActivatedEventArgs {
@@ -17273,7 +17273,7 @@ unsafe impl ::windows::core::RuntimeType for TileActivatedInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.TileActivatedInfo;{80e4a3b1-3980-4f17-b738-89194e0b8f65})");
 }
 unsafe impl ::windows::core::Interface for TileActivatedInfo {
-    type Vtable = ITileActivatedInfoVtbl;
+    type Vtable = ITileActivatedInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80e4a3b1_3980_4f17_b738_89194e0b8f65);
 }
 impl ::windows::core::RuntimeName for TileActivatedInfo {
@@ -17404,7 +17404,7 @@ unsafe impl ::windows::core::RuntimeType for ToastNotificationActivatedEventArgs
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ToastNotificationActivatedEventArgs;{92a86f82-5290-431d-be85-c4aaeeb8685f})");
 }
 unsafe impl ::windows::core::Interface for ToastNotificationActivatedEventArgs {
-    type Vtable = IToastNotificationActivatedEventArgsVtbl;
+    type Vtable = IToastNotificationActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92a86f82_5290_431d_be85_c4aaeeb8685f);
 }
 impl ::windows::core::RuntimeName for ToastNotificationActivatedEventArgs {
@@ -17598,7 +17598,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAccountProviderActivatedEve
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.UserDataAccountProviderActivatedEventArgs;{1bc9f723-8ef1-4a51-a63a-fe711eeab607})");
 }
 unsafe impl ::windows::core::Interface for UserDataAccountProviderActivatedEventArgs {
-    type Vtable = IUserDataAccountProviderActivatedEventArgsVtbl;
+    type Vtable = IUserDataAccountProviderActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bc9f723_8ef1_4a51_a63a_fe711eeab607);
 }
 impl ::windows::core::RuntimeName for UserDataAccountProviderActivatedEventArgs {
@@ -17757,7 +17757,7 @@ unsafe impl ::windows::core::RuntimeType for VoiceCommandActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.VoiceCommandActivatedEventArgs;{ab92dcfd-8d43-4de6-9775-20704b581b00})");
 }
 unsafe impl ::windows::core::Interface for VoiceCommandActivatedEventArgs {
-    type Vtable = IVoiceCommandActivatedEventArgsVtbl;
+    type Vtable = IVoiceCommandActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab92dcfd_8d43_4de6_9775_20704b581b00);
 }
 impl ::windows::core::RuntimeName for VoiceCommandActivatedEventArgs {
@@ -17945,7 +17945,7 @@ unsafe impl ::windows::core::RuntimeType for WalletActionActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.WalletActionActivatedEventArgs;{fcfc027b-1a1a-4d22-923f-ae6f45fa52d9})");
 }
 unsafe impl ::windows::core::Interface for WalletActionActivatedEventArgs {
-    type Vtable = IWalletActionActivatedEventArgsVtbl;
+    type Vtable = IWalletActionActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcfc027b_1a1a_4d22_923f_ae6f45fa52d9);
 }
 impl ::windows::core::RuntimeName for WalletActionActivatedEventArgs {
@@ -18104,7 +18104,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountProviderActivatedEventArg
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.WebAccountProviderActivatedEventArgs;{72b71774-98ea-4ccf-9752-46d9051004f1})");
 }
 unsafe impl ::windows::core::Interface for WebAccountProviderActivatedEventArgs {
-    type Vtable = IWebAccountProviderActivatedEventArgsVtbl;
+    type Vtable = IWebAccountProviderActivatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72b71774_98ea_4ccf_9752_46d9051004f1);
 }
 impl ::windows::core::RuntimeName for WebAccountProviderActivatedEventArgs {
@@ -18285,7 +18285,7 @@ unsafe impl ::windows::core::RuntimeType for WebAuthenticationBrokerContinuation
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.WebAuthenticationBrokerContinuationEventArgs;{75dda3d4-7714-453d-b7ff-b95e3a1709da})");
 }
 unsafe impl ::windows::core::Interface for WebAuthenticationBrokerContinuationEventArgs {
-    type Vtable = IWebAuthenticationBrokerContinuationEventArgsVtbl;
+    type Vtable = IWebAuthenticationBrokerContinuationEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75dda3d4_7714_453d_b7ff_b95e3a1709da);
 }
 impl ::windows::core::RuntimeName for WebAuthenticationBrokerContinuationEventArgs {

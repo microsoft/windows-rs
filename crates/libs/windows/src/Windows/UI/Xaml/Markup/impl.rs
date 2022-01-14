@@ -1,12 +1,12 @@
-pub trait IComponentConnectorImpl: Sized {
+pub trait IComponentConnector_Impl: Sized {
     fn Connect(&mut self, connectionid: i32, target: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IComponentConnector {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IComponentConnector";
 }
-impl IComponentConnectorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComponentConnectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComponentConnectorVtbl {
-        unsafe extern "system" fn Connect<Impl: IComponentConnectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionid: i32, target: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IComponentConnector_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComponentConnector_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComponentConnector_Vtbl {
+        unsafe extern "system" fn Connect<Impl: IComponentConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionid: i32, target: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Connect(connectionid, &*(&target as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -16,15 +16,15 @@ impl IComponentConnectorVtbl {
         iid == &<IComponentConnector as ::windows::core::Interface>::IID
     }
 }
-pub trait IComponentConnector2Impl: Sized {
+pub trait IComponentConnector2_Impl: Sized {
     fn GetBindingConnector(&mut self, connectionid: i32, target: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<IComponentConnector>;
 }
 impl ::windows::core::RuntimeName for IComponentConnector2 {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IComponentConnector2";
 }
-impl IComponentConnector2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComponentConnector2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComponentConnector2Vtbl {
-        unsafe extern "system" fn GetBindingConnector<Impl: IComponentConnector2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionid: i32, target: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IComponentConnector2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComponentConnector2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IComponentConnector2_Vtbl {
+        unsafe extern "system" fn GetBindingConnector<Impl: IComponentConnector2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionid: i32, target: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetBindingConnector(connectionid, &*(&target as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -44,20 +44,20 @@ impl IComponentConnector2Vtbl {
         iid == &<IComponentConnector2 as ::windows::core::Interface>::IID
     }
 }
-pub trait IDataTemplateComponentImpl: Sized {
+pub trait IDataTemplateComponent_Impl: Sized {
     fn Recycle(&mut self) -> ::windows::core::Result<()>;
     fn ProcessBindings(&mut self, item: &::core::option::Option<::windows::core::IInspectable>, itemindex: i32, phase: i32, nextphase: &mut i32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IDataTemplateComponent {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IDataTemplateComponent";
 }
-impl IDataTemplateComponentVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataTemplateComponentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataTemplateComponentVtbl {
-        unsafe extern "system" fn Recycle<Impl: IDataTemplateComponentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IDataTemplateComponent_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataTemplateComponent_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataTemplateComponent_Vtbl {
+        unsafe extern "system" fn Recycle<Impl: IDataTemplateComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Recycle().into()
         }
-        unsafe extern "system" fn ProcessBindings<Impl: IDataTemplateComponentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, itemindex: i32, phase: i32, nextphase: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProcessBindings<Impl: IDataTemplateComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, itemindex: i32, phase: i32, nextphase: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ProcessBindings(&*(&item as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), itemindex, phase, ::core::mem::transmute_copy(&nextphase)).into()
         }
@@ -72,14 +72,14 @@ impl IDataTemplateComponentVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMarkupExtensionImpl: Sized {}
+pub trait IMarkupExtension_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IMarkupExtension {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IMarkupExtension";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMarkupExtensionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMarkupExtensionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMarkupExtensionVtbl {
+impl IMarkupExtension_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMarkupExtension_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMarkupExtension_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMarkupExtension, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -87,7 +87,7 @@ impl IMarkupExtensionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMarkupExtensionFactoryImpl: Sized {
+pub trait IMarkupExtensionFactory_Impl: Sized {
     fn CreateInstance(&mut self, baseinterface: &::core::option::Option<::windows::core::IInspectable>, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MarkupExtension>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -95,9 +95,9 @@ impl ::windows::core::RuntimeName for IMarkupExtensionFactory {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IMarkupExtensionFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMarkupExtensionFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMarkupExtensionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMarkupExtensionFactoryVtbl {
-        unsafe extern "system" fn CreateInstance<Impl: IMarkupExtensionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMarkupExtensionFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMarkupExtensionFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMarkupExtensionFactory_Vtbl {
+        unsafe extern "system" fn CreateInstance<Impl: IMarkupExtensionFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateInstance(&*(&baseinterface as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&innerinterface)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -118,7 +118,7 @@ impl IMarkupExtensionFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMarkupExtensionOverridesImpl: Sized {
+pub trait IMarkupExtensionOverrides_Impl: Sized {
     fn ProvideValue(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -126,9 +126,9 @@ impl ::windows::core::RuntimeName for IMarkupExtensionOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IMarkupExtensionOverrides";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMarkupExtensionOverridesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMarkupExtensionOverridesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMarkupExtensionOverridesVtbl {
-        unsafe extern "system" fn ProvideValue<Impl: IMarkupExtensionOverridesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IMarkupExtensionOverrides_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMarkupExtensionOverrides_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMarkupExtensionOverrides_Vtbl {
+        unsafe extern "system" fn ProvideValue<Impl: IMarkupExtensionOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProvideValue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -149,14 +149,14 @@ impl IMarkupExtensionOverridesVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IXamlBinaryWriterImpl: Sized {}
+pub trait IXamlBinaryWriter_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IXamlBinaryWriter {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IXamlBinaryWriter";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IXamlBinaryWriterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlBinaryWriterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlBinaryWriterVtbl {
+impl IXamlBinaryWriter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlBinaryWriter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlBinaryWriter_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlBinaryWriter, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -164,7 +164,7 @@ impl IXamlBinaryWriterVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IXamlBinaryWriterStaticsImpl: Sized {
+pub trait IXamlBinaryWriterStatics_Impl: Sized {
     fn Write(&mut self, inputstreams: &::core::option::Option<super::super::super::Foundation::Collections::IVector<super::super::super::Storage::Streams::IRandomAccessStream>>, outputstreams: &::core::option::Option<super::super::super::Foundation::Collections::IVector<super::super::super::Storage::Streams::IRandomAccessStream>>, xamlmetadataprovider: &::core::option::Option<IXamlMetadataProvider>) -> ::windows::core::Result<XamlBinaryWriterErrorInformation>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -172,9 +172,9 @@ impl ::windows::core::RuntimeName for IXamlBinaryWriterStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IXamlBinaryWriterStatics";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IXamlBinaryWriterStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlBinaryWriterStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlBinaryWriterStaticsVtbl {
-        unsafe extern "system" fn Write<Impl: IXamlBinaryWriterStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstreams: ::windows::core::RawPtr, outputstreams: ::windows::core::RawPtr, xamlmetadataprovider: ::windows::core::RawPtr, result__: *mut XamlBinaryWriterErrorInformation) -> ::windows::core::HRESULT {
+impl IXamlBinaryWriterStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlBinaryWriterStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlBinaryWriterStatics_Vtbl {
+        unsafe extern "system" fn Write<Impl: IXamlBinaryWriterStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputstreams: ::windows::core::RawPtr, outputstreams: ::windows::core::RawPtr, xamlmetadataprovider: ::windows::core::RawPtr, result__: *mut XamlBinaryWriterErrorInformation) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Write(
                 &*(&inputstreams as *const <super::super::super::Foundation::Collections::IVector<super::super::super::Storage::Streams::IRandomAccessStream> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Collections::IVector<super::super::super::Storage::Streams::IRandomAccessStream> as ::windows::core::DefaultType>::DefaultType),
@@ -195,15 +195,15 @@ impl IXamlBinaryWriterStaticsVtbl {
         iid == &<IXamlBinaryWriterStatics as ::windows::core::Interface>::IID
     }
 }
-pub trait IXamlBindScopeDiagnosticsImpl: Sized {
+pub trait IXamlBindScopeDiagnostics_Impl: Sized {
     fn Disable(&mut self, linenumber: i32, columnnumber: i32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IXamlBindScopeDiagnostics {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IXamlBindScopeDiagnostics";
 }
-impl IXamlBindScopeDiagnosticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlBindScopeDiagnosticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlBindScopeDiagnosticsVtbl {
-        unsafe extern "system" fn Disable<Impl: IXamlBindScopeDiagnosticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, linenumber: i32, columnnumber: i32) -> ::windows::core::HRESULT {
+impl IXamlBindScopeDiagnostics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlBindScopeDiagnostics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlBindScopeDiagnostics_Vtbl {
+        unsafe extern "system" fn Disable<Impl: IXamlBindScopeDiagnostics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, linenumber: i32, columnnumber: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Disable(linenumber, columnnumber).into()
         }
@@ -214,14 +214,14 @@ impl IXamlBindScopeDiagnosticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IXamlBindingHelperImpl: Sized {}
+pub trait IXamlBindingHelper_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IXamlBindingHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IXamlBindingHelper";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IXamlBindingHelperVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlBindingHelperImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlBindingHelperVtbl {
+impl IXamlBindingHelper_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlBindingHelper_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlBindingHelper_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlBindingHelper, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -229,7 +229,7 @@ impl IXamlBindingHelperVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Interop", feature = "implement_exclusive"))]
-pub trait IXamlBindingHelperStaticsImpl: Sized {
+pub trait IXamlBindingHelperStatics_Impl: Sized {
     fn DataTemplateComponentProperty(&mut self) -> ::windows::core::Result<super::DependencyProperty>;
     fn GetDataTemplateComponent(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<IDataTemplateComponent>;
     fn SetDataTemplateComponent(&mut self, element: &::core::option::Option<super::DependencyObject>, value: &::core::option::Option<IDataTemplateComponent>) -> ::windows::core::Result<()>;
@@ -259,9 +259,9 @@ impl ::windows::core::RuntimeName for IXamlBindingHelperStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IXamlBindingHelperStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Interop", feature = "implement_exclusive"))]
-impl IXamlBindingHelperStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlBindingHelperStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlBindingHelperStaticsVtbl {
-        unsafe extern "system" fn DataTemplateComponentProperty<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXamlBindingHelperStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlBindingHelperStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlBindingHelperStatics_Vtbl {
+        unsafe extern "system" fn DataTemplateComponentProperty<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataTemplateComponentProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -272,7 +272,7 @@ impl IXamlBindingHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDataTemplateComponent<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDataTemplateComponent<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDataTemplateComponent(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -283,19 +283,19 @@ impl IXamlBindingHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDataTemplateComponent<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDataTemplateComponent<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDataTemplateComponent(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <IDataTemplateComponent as ::windows::core::Abi>::Abi as *const <IDataTemplateComponent as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SuspendRendering<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SuspendRendering<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SuspendRendering(&*(&target as *const <super::UIElement as ::windows::core::Abi>::Abi as *const <super::UIElement as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ResumeRendering<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResumeRendering<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ResumeRendering(&*(&target as *const <super::UIElement as ::windows::core::Abi>::Abi as *const <super::UIElement as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ConvertValue<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<super::Interop::TypeName>, value: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConvertValue<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<super::Interop::TypeName>, value: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ConvertValue(&*(&r#type as *const <super::Interop::TypeName as ::windows::core::Abi>::Abi as *const <super::Interop::TypeName as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -306,7 +306,7 @@ impl IXamlBindingHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPropertyFromString<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPropertyFromString<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetPropertyFromString(
@@ -316,15 +316,15 @@ impl IXamlBindingHelperStaticsVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn SetPropertyFromBoolean<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPropertyFromBoolean<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPropertyFromBoolean(&*(&dependencyobject as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&propertytoset as *const <super::DependencyProperty as ::windows::core::Abi>::Abi as *const <super::DependencyProperty as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn SetPropertyFromChar16<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPropertyFromChar16<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPropertyFromChar16(&*(&dependencyobject as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&propertytoset as *const <super::DependencyProperty as ::windows::core::Abi>::Abi as *const <super::DependencyProperty as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn SetPropertyFromDateTime<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPropertyFromDateTime<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetPropertyFromDateTime(
@@ -334,31 +334,31 @@ impl IXamlBindingHelperStaticsVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn SetPropertyFromDouble<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPropertyFromDouble<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPropertyFromDouble(&*(&dependencyobject as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&propertytoset as *const <super::DependencyProperty as ::windows::core::Abi>::Abi as *const <super::DependencyProperty as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn SetPropertyFromInt32<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPropertyFromInt32<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPropertyFromInt32(&*(&dependencyobject as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&propertytoset as *const <super::DependencyProperty as ::windows::core::Abi>::Abi as *const <super::DependencyProperty as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn SetPropertyFromUInt32<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPropertyFromUInt32<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPropertyFromUInt32(&*(&dependencyobject as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&propertytoset as *const <super::DependencyProperty as ::windows::core::Abi>::Abi as *const <super::DependencyProperty as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn SetPropertyFromInt64<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: i64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPropertyFromInt64<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: i64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPropertyFromInt64(&*(&dependencyobject as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&propertytoset as *const <super::DependencyProperty as ::windows::core::Abi>::Abi as *const <super::DependencyProperty as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn SetPropertyFromUInt64<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPropertyFromUInt64<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPropertyFromUInt64(&*(&dependencyobject as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&propertytoset as *const <super::DependencyProperty as ::windows::core::Abi>::Abi as *const <super::DependencyProperty as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn SetPropertyFromSingle<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: f32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPropertyFromSingle<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: f32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPropertyFromSingle(&*(&dependencyobject as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&propertytoset as *const <super::DependencyProperty as ::windows::core::Abi>::Abi as *const <super::DependencyProperty as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn SetPropertyFromPoint<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPropertyFromPoint<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: super::super::super::Foundation::Point) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetPropertyFromPoint(
@@ -368,7 +368,7 @@ impl IXamlBindingHelperStaticsVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn SetPropertyFromRect<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPropertyFromRect<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetPropertyFromRect(
@@ -378,7 +378,7 @@ impl IXamlBindingHelperStaticsVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn SetPropertyFromSize<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: super::super::super::Foundation::Size) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPropertyFromSize<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: super::super::super::Foundation::Size) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetPropertyFromSize(
@@ -388,7 +388,7 @@ impl IXamlBindingHelperStaticsVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn SetPropertyFromTimeSpan<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPropertyFromTimeSpan<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetPropertyFromTimeSpan(
@@ -398,11 +398,11 @@ impl IXamlBindingHelperStaticsVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn SetPropertyFromByte<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPropertyFromByte<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPropertyFromByte(&*(&dependencyobject as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&propertytoset as *const <super::DependencyProperty as ::windows::core::Abi>::Abi as *const <super::DependencyProperty as ::windows::core::DefaultType>::DefaultType), value).into()
         }
-        unsafe extern "system" fn SetPropertyFromUri<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPropertyFromUri<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetPropertyFromUri(
@@ -412,7 +412,7 @@ impl IXamlBindingHelperStaticsVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn SetPropertyFromObject<Impl: IXamlBindingHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPropertyFromObject<Impl: IXamlBindingHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dependencyobject: *mut ::core::ffi::c_void, propertytoset: ::windows::core::RawPtr, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .SetPropertyFromObject(
@@ -454,14 +454,14 @@ impl IXamlBindingHelperStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IXamlMarkupHelperImpl: Sized {}
+pub trait IXamlMarkupHelper_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IXamlMarkupHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IXamlMarkupHelper";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IXamlMarkupHelperVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlMarkupHelperImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlMarkupHelperVtbl {
+impl IXamlMarkupHelper_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlMarkupHelper_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlMarkupHelper_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlMarkupHelper, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -469,7 +469,7 @@ impl IXamlMarkupHelperVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IXamlMarkupHelperStaticsImpl: Sized {
+pub trait IXamlMarkupHelperStatics_Impl: Sized {
     fn UnloadObject(&mut self, element: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -477,9 +477,9 @@ impl ::windows::core::RuntimeName for IXamlMarkupHelperStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IXamlMarkupHelperStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IXamlMarkupHelperStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlMarkupHelperStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlMarkupHelperStaticsVtbl {
-        unsafe extern "system" fn UnloadObject<Impl: IXamlMarkupHelperStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXamlMarkupHelperStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlMarkupHelperStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlMarkupHelperStatics_Vtbl {
+        unsafe extern "system" fn UnloadObject<Impl: IXamlMarkupHelperStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).UnloadObject(&*(&element as *const <super::DependencyObject as ::windows::core::Abi>::Abi as *const <super::DependencyObject as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -492,7 +492,7 @@ impl IXamlMarkupHelperStaticsVtbl {
         iid == &<IXamlMarkupHelperStatics as ::windows::core::Interface>::IID
     }
 }
-pub trait IXamlMemberImpl: Sized {
+pub trait IXamlMember_Impl: Sized {
     fn IsAttachable(&mut self) -> ::windows::core::Result<bool>;
     fn IsDependencyProperty(&mut self) -> ::windows::core::Result<bool>;
     fn IsReadOnly(&mut self) -> ::windows::core::Result<bool>;
@@ -505,9 +505,9 @@ pub trait IXamlMemberImpl: Sized {
 impl ::windows::core::RuntimeName for IXamlMember {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IXamlMember";
 }
-impl IXamlMemberVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlMemberImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlMemberVtbl {
-        unsafe extern "system" fn IsAttachable<Impl: IXamlMemberImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IXamlMember_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlMember_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlMember_Vtbl {
+        unsafe extern "system" fn IsAttachable<Impl: IXamlMember_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAttachable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -518,7 +518,7 @@ impl IXamlMemberVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDependencyProperty<Impl: IXamlMemberImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDependencyProperty<Impl: IXamlMember_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDependencyProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -529,7 +529,7 @@ impl IXamlMemberVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsReadOnly<Impl: IXamlMemberImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsReadOnly<Impl: IXamlMember_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReadOnly() {
                 ::core::result::Result::Ok(ok__) => {
@@ -540,7 +540,7 @@ impl IXamlMemberVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Impl: IXamlMemberImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Impl: IXamlMember_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -551,7 +551,7 @@ impl IXamlMemberVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TargetType<Impl: IXamlMemberImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TargetType<Impl: IXamlMember_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TargetType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -562,7 +562,7 @@ impl IXamlMemberVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Type<Impl: IXamlMemberImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Type<Impl: IXamlMember_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
                 ::core::result::Result::Ok(ok__) => {
@@ -573,7 +573,7 @@ impl IXamlMemberVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValue<Impl: IXamlMemberImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instance: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetValue<Impl: IXamlMember_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instance: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetValue(&*(&instance as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -584,7 +584,7 @@ impl IXamlMemberVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Impl: IXamlMemberImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instance: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Impl: IXamlMember_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instance: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&instance as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -605,7 +605,7 @@ impl IXamlMemberVtbl {
     }
 }
 #[cfg(feature = "UI_Xaml_Interop")]
-pub trait IXamlMetadataProviderImpl: Sized {
+pub trait IXamlMetadataProvider_Impl: Sized {
     fn GetXamlType(&mut self, r#type: &super::Interop::TypeName) -> ::windows::core::Result<IXamlType>;
     fn GetXamlTypeByFullName(&mut self, fullname: &::windows::core::HSTRING) -> ::windows::core::Result<IXamlType>;
     fn GetXmlnsDefinitions(&mut self) -> ::windows::core::Result<::windows::core::Array<XmlnsDefinition>>;
@@ -615,9 +615,9 @@ impl ::windows::core::RuntimeName for IXamlMetadataProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IXamlMetadataProvider";
 }
 #[cfg(feature = "UI_Xaml_Interop")]
-impl IXamlMetadataProviderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlMetadataProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlMetadataProviderVtbl {
-        unsafe extern "system" fn GetXamlType<Impl: IXamlMetadataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<super::Interop::TypeName>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXamlMetadataProvider_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlMetadataProvider_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlMetadataProvider_Vtbl {
+        unsafe extern "system" fn GetXamlType<Impl: IXamlMetadataProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<super::Interop::TypeName>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetXamlType(&*(&r#type as *const <super::Interop::TypeName as ::windows::core::Abi>::Abi as *const <super::Interop::TypeName as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -628,7 +628,7 @@ impl IXamlMetadataProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetXamlTypeByFullName<Impl: IXamlMetadataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetXamlTypeByFullName<Impl: IXamlMetadataProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetXamlTypeByFullName(&*(&fullname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -639,7 +639,7 @@ impl IXamlMetadataProviderVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetXmlnsDefinitions<Impl: IXamlMetadataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut ::core::mem::ManuallyDrop<XmlnsDefinition>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetXmlnsDefinitions<Impl: IXamlMetadataProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut ::core::mem::ManuallyDrop<XmlnsDefinition>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetXmlnsDefinitions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -663,14 +663,14 @@ impl IXamlMetadataProviderVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IXamlReaderImpl: Sized {}
+pub trait IXamlReader_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IXamlReader {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IXamlReader";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IXamlReaderVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlReaderVtbl {
+impl IXamlReader_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlReader_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlReader_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IXamlReader, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -678,7 +678,7 @@ impl IXamlReaderVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IXamlReaderStaticsImpl: Sized {
+pub trait IXamlReaderStatics_Impl: Sized {
     fn Load(&mut self, xaml: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn LoadWithInitialTemplateValidation(&mut self, xaml: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
@@ -687,9 +687,9 @@ impl ::windows::core::RuntimeName for IXamlReaderStatics {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IXamlReaderStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IXamlReaderStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlReaderStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlReaderStaticsVtbl {
-        unsafe extern "system" fn Load<Impl: IXamlReaderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xaml: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IXamlReaderStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlReaderStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlReaderStatics_Vtbl {
+        unsafe extern "system" fn Load<Impl: IXamlReaderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xaml: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Load(&*(&xaml as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -700,7 +700,7 @@ impl IXamlReaderStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadWithInitialTemplateValidation<Impl: IXamlReaderStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xaml: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadWithInitialTemplateValidation<Impl: IXamlReaderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xaml: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadWithInitialTemplateValidation(&*(&xaml as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -722,7 +722,7 @@ impl IXamlReaderStaticsVtbl {
     }
 }
 #[cfg(feature = "UI_Xaml_Interop")]
-pub trait IXamlTypeImpl: Sized {
+pub trait IXamlType_Impl: Sized {
     fn BaseType(&mut self) -> ::windows::core::Result<IXamlType>;
     fn ContentProperty(&mut self) -> ::windows::core::Result<IXamlMember>;
     fn FullName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -747,9 +747,9 @@ impl ::windows::core::RuntimeName for IXamlType {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IXamlType";
 }
 #[cfg(feature = "UI_Xaml_Interop")]
-impl IXamlTypeVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlTypeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlTypeVtbl {
-        unsafe extern "system" fn BaseType<Impl: IXamlTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXamlType_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlType_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlType_Vtbl {
+        unsafe extern "system" fn BaseType<Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BaseType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -760,7 +760,7 @@ impl IXamlTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentProperty<Impl: IXamlTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentProperty<Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentProperty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -771,7 +771,7 @@ impl IXamlTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FullName<Impl: IXamlTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FullName<Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FullName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -782,7 +782,7 @@ impl IXamlTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsArray<Impl: IXamlTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsArray<Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsArray() {
                 ::core::result::Result::Ok(ok__) => {
@@ -793,7 +793,7 @@ impl IXamlTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsCollection<Impl: IXamlTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCollection<Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCollection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -804,7 +804,7 @@ impl IXamlTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsConstructible<Impl: IXamlTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsConstructible<Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsConstructible() {
                 ::core::result::Result::Ok(ok__) => {
@@ -815,7 +815,7 @@ impl IXamlTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDictionary<Impl: IXamlTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDictionary<Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDictionary() {
                 ::core::result::Result::Ok(ok__) => {
@@ -826,7 +826,7 @@ impl IXamlTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsMarkupExtension<Impl: IXamlTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsMarkupExtension<Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsMarkupExtension() {
                 ::core::result::Result::Ok(ok__) => {
@@ -837,7 +837,7 @@ impl IXamlTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsBindable<Impl: IXamlTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsBindable<Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBindable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -848,7 +848,7 @@ impl IXamlTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ItemType<Impl: IXamlTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ItemType<Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ItemType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -859,7 +859,7 @@ impl IXamlTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn KeyType<Impl: IXamlTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KeyType<Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -870,7 +870,7 @@ impl IXamlTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnderlyingType<Impl: IXamlTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<super::Interop::TypeName>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnderlyingType<Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<super::Interop::TypeName>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnderlyingType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -881,7 +881,7 @@ impl IXamlTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ActivateInstance<Impl: IXamlTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ActivateInstance<Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivateInstance() {
                 ::core::result::Result::Ok(ok__) => {
@@ -892,7 +892,7 @@ impl IXamlTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromString<Impl: IXamlTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromString<Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromString(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -903,7 +903,7 @@ impl IXamlTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMember<Impl: IXamlTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMember<Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetMember(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -914,11 +914,11 @@ impl IXamlTypeVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddToVector<Impl: IXamlTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instance: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddToVector<Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instance: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddToVector(&*(&instance as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::IInspectable as ::windows::core::Abi>::Abi as *const <::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AddToMap<Impl: IXamlTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instance: *mut ::core::ffi::c_void, key: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddToMap<Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instance: *mut ::core::ffi::c_void, key: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this)
                 .AddToMap(
@@ -928,7 +928,7 @@ impl IXamlTypeVtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn RunInitializer<Impl: IXamlTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RunInitializer<Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RunInitializer().into()
         }
@@ -959,7 +959,7 @@ impl IXamlTypeVtbl {
     }
 }
 #[cfg(feature = "UI_Xaml_Interop")]
-pub trait IXamlType2Impl: Sized + IXamlTypeImpl {
+pub trait IXamlType2_Impl: Sized + IXamlType_Impl {
     fn BoxedType(&mut self) -> ::windows::core::Result<IXamlType>;
 }
 #[cfg(feature = "UI_Xaml_Interop")]
@@ -967,9 +967,9 @@ impl ::windows::core::RuntimeName for IXamlType2 {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IXamlType2";
 }
 #[cfg(feature = "UI_Xaml_Interop")]
-impl IXamlType2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlType2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlType2Vtbl {
-        unsafe extern "system" fn BoxedType<Impl: IXamlType2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IXamlType2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlType2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IXamlType2_Vtbl {
+        unsafe extern "system" fn BoxedType<Impl: IXamlType2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BoxedType() {
                 ::core::result::Result::Ok(ok__) => {

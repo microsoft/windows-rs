@@ -57,12 +57,12 @@ impl ::core::fmt::Debug for ISceSvcAttachmentData {
     }
 }
 unsafe impl ::windows::core::Interface for ISceSvcAttachmentData {
-    type Vtable = ISceSvcAttachmentDataVtbl;
+    type Vtable = ISceSvcAttachmentData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17c35fde_200d_11d1_affb_00c04fb984f9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISceSvcAttachmentDataVtbl {
+pub struct ISceSvcAttachmentData_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scesvchandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut ::core::ffi::c_void, psceenumhandle: *mut u32) -> ::windows::core::HRESULT,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: ::windows::core::RawPtr, pscesvchandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -124,12 +124,12 @@ impl ::core::fmt::Debug for ISceSvcAttachmentPersistInfo {
     }
 }
 unsafe impl ::windows::core::Interface for ISceSvcAttachmentPersistInfo {
-    type Vtable = ISceSvcAttachmentPersistInfoVtbl;
+    type Vtable = ISceSvcAttachmentPersistInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d90e0d0_200d_11d1_affb_00c04fb984f9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISceSvcAttachmentPersistInfoVtbl {
+pub struct ISceSvcAttachmentPersistInfo_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lptemplatename: *mut i8, scesvchandle: *mut *mut ::core::ffi::c_void, ppvdata: *mut *mut ::core::ffi::c_void, pboverwriteall: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,

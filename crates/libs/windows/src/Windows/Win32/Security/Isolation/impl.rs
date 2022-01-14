@@ -1,11 +1,11 @@
 #[cfg(feature = "Win32_Foundation")]
-pub trait IIsolatedAppLauncherImpl: Sized {
+pub trait IIsolatedAppLauncher_Impl: Sized {
     fn Launch(&mut self, appusermodelid: super::super::Foundation::PWSTR, arguments: super::super::Foundation::PWSTR, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IIsolatedAppLauncherVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedAppLauncherImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedAppLauncherVtbl {
-        unsafe extern "system" fn Launch<Impl: IIsolatedAppLauncherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appusermodelid: super::super::Foundation::PWSTR, arguments: super::super::Foundation::PWSTR, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> ::windows::core::HRESULT {
+impl IIsolatedAppLauncher_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedAppLauncher_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIsolatedAppLauncher_Vtbl {
+        unsafe extern "system" fn Launch<Impl: IIsolatedAppLauncher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appusermodelid: super::super::Foundation::PWSTR, arguments: super::super::Foundation::PWSTR, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Launch(::core::mem::transmute_copy(&appusermodelid), ::core::mem::transmute_copy(&arguments), ::core::mem::transmute_copy(&telemetryparameters)).into()
         }

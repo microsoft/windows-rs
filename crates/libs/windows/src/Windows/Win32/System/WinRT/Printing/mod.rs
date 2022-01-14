@@ -73,12 +73,12 @@ impl ::core::fmt::Debug for IPrintManagerInterop {
     }
 }
 unsafe impl ::windows::core::Interface for IPrintManagerInterop {
-    type Vtable = IPrintManagerInteropVtbl;
+    type Vtable = IPrintManagerInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5435a42_8d43_4e7b_a68a_ef311e392087);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintManagerInteropVtbl {
+pub struct IPrintManagerInterop_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, printmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -149,12 +149,12 @@ impl ::core::fmt::Debug for IPrintWorkflowConfigurationNative {
     }
 }
 unsafe impl ::windows::core::Interface for IPrintWorkflowConfigurationNative {
-    type Vtable = IPrintWorkflowConfigurationNativeVtbl;
+    type Vtable = IPrintWorkflowConfigurationNative_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc056be0a_9ee2_450a_9823_964f0006f2bb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowConfigurationNativeVtbl {
+pub struct IPrintWorkflowConfigurationNative_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
     pub PrinterQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -221,12 +221,12 @@ impl ::core::fmt::Debug for IPrintWorkflowObjectModelSourceFileContentNative {
     }
 }
 unsafe impl ::windows::core::Interface for IPrintWorkflowObjectModelSourceFileContentNative {
-    type Vtable = IPrintWorkflowObjectModelSourceFileContentNativeVtbl;
+    type Vtable = IPrintWorkflowObjectModelSourceFileContentNative_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68c9e477_993e_4052_8ac6_454eff58db9d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowObjectModelSourceFileContentNativeVtbl {
+pub struct IPrintWorkflowObjectModelSourceFileContentNative_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub StartXpsOMGeneration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiver: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Storage_Xps")]
@@ -282,12 +282,12 @@ impl ::core::fmt::Debug for IPrintWorkflowXpsObjectModelTargetPackageNative {
     }
 }
 unsafe impl ::windows::core::Interface for IPrintWorkflowXpsObjectModelTargetPackageNative {
-    type Vtable = IPrintWorkflowXpsObjectModelTargetPackageNativeVtbl;
+    type Vtable = IPrintWorkflowXpsObjectModelTargetPackageNative_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d96bc74_9b54_4ca1_ad3a_979c3d44ddac);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowXpsObjectModelTargetPackageNativeVtbl {
+pub struct IPrintWorkflowXpsObjectModelTargetPackageNative_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Storage_Xps")]
     pub DocumentPackageTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -360,12 +360,12 @@ impl ::core::fmt::Debug for IPrintWorkflowXpsReceiver {
     }
 }
 unsafe impl ::windows::core::Interface for IPrintWorkflowXpsReceiver {
-    type Vtable = IPrintWorkflowXpsReceiverVtbl;
+    type Vtable = IPrintWorkflowXpsReceiver_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04097374_77b8_47f6_8167_aae29d4cf84b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowXpsReceiverVtbl {
+pub struct IPrintWorkflowXpsReceiver_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub SetDocumentSequencePrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentsequenceprintticket: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -475,13 +475,13 @@ impl ::core::fmt::Debug for IPrintWorkflowXpsReceiver2 {
     }
 }
 unsafe impl ::windows::core::Interface for IPrintWorkflowXpsReceiver2 {
-    type Vtable = IPrintWorkflowXpsReceiver2Vtbl;
+    type Vtable = IPrintWorkflowXpsReceiver2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x023bcc0c_dfab_4a61_b074_490c6995580d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintWorkflowXpsReceiver2Vtbl {
-    pub base: IPrintWorkflowXpsReceiverVtbl,
+pub struct IPrintWorkflowXpsReceiver2_Vtbl {
+    pub base: IPrintWorkflowXpsReceiver_Vtbl,
     pub Failed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpserror: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
@@ -558,12 +558,12 @@ impl ::core::fmt::Debug for IPrinting3DManagerInterop {
     }
 }
 unsafe impl ::windows::core::Interface for IPrinting3DManagerInterop {
-    type Vtable = IPrinting3DManagerInteropVtbl;
+    type Vtable = IPrinting3DManagerInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ca31010_1484_4587_b26b_dddf9f9caecd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrinting3DManagerInteropVtbl {
+pub struct IPrinting3DManagerInterop_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, printmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IInjectedInputGamepadInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInjectedInputGamepadInfo {
-    type Vtable = IInjectedInputGamepadInfoVtbl;
+    type Vtable = IInjectedInputGamepadInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20ae9a3f_df11_4572_a9ab_d75b8a5e48ad);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInjectedInputGamepadInfoVtbl {
+pub struct IInjectedInputGamepadInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Gaming_Input")]
     pub Buttons: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Gaming::Input::GamepadButtons) -> ::windows::core::HRESULT,
@@ -35,12 +35,12 @@ pub struct IInjectedInputGamepadInfoVtbl {
 #[repr(transparent)]
 pub struct IInjectedInputGamepadInfoFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInjectedInputGamepadInfoFactory {
-    type Vtable = IInjectedInputGamepadInfoFactoryVtbl;
+    type Vtable = IInjectedInputGamepadInfoFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59596876_6c39_4ec4_8b2a_29ef7de18aca);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInjectedInputGamepadInfoFactoryVtbl {
+pub struct IInjectedInputGamepadInfoFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Gaming_Input")]
     pub CreateInstanceFromGamepadReading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reading: super::super::super::super::Gaming::Input::GamepadReading, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -51,12 +51,12 @@ pub struct IInjectedInputGamepadInfoFactoryVtbl {
 #[repr(transparent)]
 pub struct IInjectedInputKeyboardInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInjectedInputKeyboardInfo {
-    type Vtable = IInjectedInputKeyboardInfoVtbl;
+    type Vtable = IInjectedInputKeyboardInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b46d140_2b6a_5ffa_7eae_bd077b052acd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInjectedInputKeyboardInfoVtbl {
+pub struct IInjectedInputKeyboardInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub KeyOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputKeyOptions) -> ::windows::core::HRESULT,
     pub SetKeyOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InjectedInputKeyOptions) -> ::windows::core::HRESULT,
@@ -69,12 +69,12 @@ pub struct IInjectedInputKeyboardInfoVtbl {
 #[repr(transparent)]
 pub struct IInjectedInputMouseInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInjectedInputMouseInfo {
-    type Vtable = IInjectedInputMouseInfoVtbl;
+    type Vtable = IInjectedInputMouseInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96f56e6b_e47a_5cf4_418d_8a5fb9670c7d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInjectedInputMouseInfoVtbl {
+pub struct IInjectedInputMouseInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MouseOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputMouseOptions) -> ::windows::core::HRESULT,
     pub SetMouseOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InjectedInputMouseOptions) -> ::windows::core::HRESULT,
@@ -91,12 +91,12 @@ pub struct IInjectedInputMouseInfoVtbl {
 #[repr(transparent)]
 pub struct IInjectedInputPenInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInjectedInputPenInfo {
-    type Vtable = IInjectedInputPenInfoVtbl;
+    type Vtable = IInjectedInputPenInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b40ad03_ca1e_5527_7e02_2828540bb1d4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInjectedInputPenInfoVtbl {
+pub struct IInjectedInputPenInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PointerInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputPointerInfo) -> ::windows::core::HRESULT,
     pub SetPointerInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InjectedInputPointerInfo) -> ::windows::core::HRESULT,
@@ -117,12 +117,12 @@ pub struct IInjectedInputPenInfoVtbl {
 #[repr(transparent)]
 pub struct IInjectedInputTouchInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInjectedInputTouchInfo {
-    type Vtable = IInjectedInputTouchInfoVtbl;
+    type Vtable = IInjectedInputTouchInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x224fd1df_43e8_5ef5_510a_69ca8c9b4c28);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInjectedInputTouchInfoVtbl {
+pub struct IInjectedInputTouchInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Contact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputRectangle) -> ::windows::core::HRESULT,
     pub SetContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InjectedInputRectangle) -> ::windows::core::HRESULT,
@@ -139,12 +139,12 @@ pub struct IInjectedInputTouchInfoVtbl {
 #[repr(transparent)]
 pub struct IInputInjector(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInputInjector {
-    type Vtable = IInputInjectorVtbl;
+    type Vtable = IInputInjector_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ec26f84_0b02_4bd2_ad7a_3d4658be3e18);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInputInjectorVtbl {
+pub struct IInputInjector_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub InjectKeyboardInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -169,12 +169,12 @@ pub struct IInputInjectorVtbl {
 #[repr(transparent)]
 pub struct IInputInjector2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInputInjector2 {
-    type Vtable = IInputInjector2Vtbl;
+    type Vtable = IInputInjector2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e7a905d_1453_43a7_9bcb_06d6d7b305f7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInputInjector2Vtbl {
+pub struct IInputInjector2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InitializeGamepadInjection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub InjectGamepadInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -184,12 +184,12 @@ pub struct IInputInjector2Vtbl {
 #[repr(transparent)]
 pub struct IInputInjectorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInputInjectorStatics {
-    type Vtable = IInputInjectorStaticsVtbl;
+    type Vtable = IInputInjectorStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdeae6943_7402_4141_a5c6_0c01aa57b16a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInputInjectorStaticsVtbl {
+pub struct IInputInjectorStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TryCreate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -197,12 +197,12 @@ pub struct IInputInjectorStaticsVtbl {
 #[repr(transparent)]
 pub struct IInputInjectorStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInputInjectorStatics2 {
-    type Vtable = IInputInjectorStatics2Vtbl;
+    type Vtable = IInputInjectorStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4db38fb_dd8c_414f_95ea_f87ef4c0ae6c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInputInjectorStatics2Vtbl {
+pub struct IInputInjectorStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TryCreateForAppBroadcastOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -386,7 +386,7 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputGamepadInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputGamepadInfo;{20ae9a3f-df11-4572-a9ab-d75b8a5e48ad})");
 }
 unsafe impl ::windows::core::Interface for InjectedInputGamepadInfo {
-    type Vtable = IInjectedInputGamepadInfoVtbl;
+    type Vtable = IInjectedInputGamepadInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20ae9a3f_df11_4572_a9ab_d75b8a5e48ad);
 }
 impl ::windows::core::RuntimeName for InjectedInputGamepadInfo {
@@ -567,7 +567,7 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputKeyboardInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputKeyboardInfo;{4b46d140-2b6a-5ffa-7eae-bd077b052acd})");
 }
 unsafe impl ::windows::core::Interface for InjectedInputKeyboardInfo {
-    type Vtable = IInjectedInputKeyboardInfoVtbl;
+    type Vtable = IInjectedInputKeyboardInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b46d140_2b6a_5ffa_7eae_bd077b052acd);
 }
 impl ::windows::core::RuntimeName for InjectedInputKeyboardInfo {
@@ -710,7 +710,7 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputMouseInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputMouseInfo;{96f56e6b-e47a-5cf4-418d-8a5fb9670c7d})");
 }
 unsafe impl ::windows::core::Interface for InjectedInputMouseInfo {
-    type Vtable = IInjectedInputMouseInfoVtbl;
+    type Vtable = IInjectedInputMouseInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96f56e6b_e47a_5cf4_418d_8a5fb9670c7d);
 }
 impl ::windows::core::RuntimeName for InjectedInputMouseInfo {
@@ -1016,7 +1016,7 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputPenInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputPenInfo;{6b40ad03-ca1e-5527-7e02-2828540bb1d4})");
 }
 unsafe impl ::windows::core::Interface for InjectedInputPenInfo {
-    type Vtable = IInjectedInputPenInfoVtbl;
+    type Vtable = IInjectedInputPenInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b40ad03_ca1e_5527_7e02_2828540bb1d4);
 }
 impl ::windows::core::RuntimeName for InjectedInputPenInfo {
@@ -1445,7 +1445,7 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputTouchInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InjectedInputTouchInfo;{224fd1df-43e8-5ef5-510a-69ca8c9b4c28})");
 }
 unsafe impl ::windows::core::Interface for InjectedInputTouchInfo {
-    type Vtable = IInjectedInputTouchInfoVtbl;
+    type Vtable = IInjectedInputTouchInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x224fd1df_43e8_5ef5_510a_69ca8c9b4c28);
 }
 impl ::windows::core::RuntimeName for InjectedInputTouchInfo {
@@ -1700,7 +1700,7 @@ unsafe impl ::windows::core::RuntimeType for InputInjector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Preview.Injection.InputInjector;{8ec26f84-0b02-4bd2-ad7a-3d4658be3e18})");
 }
 unsafe impl ::windows::core::Interface for InputInjector {
-    type Vtable = IInputInjectorVtbl;
+    type Vtable = IInputInjector_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ec26f84_0b02_4bd2_ad7a_3d4658be3e18);
 }
 impl ::windows::core::RuntimeName for InputInjector {

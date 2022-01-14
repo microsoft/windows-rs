@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IPhoneCallBlockedTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallBlockedTriggerDetails {
-    type Vtable = IPhoneCallBlockedTriggerDetailsVtbl;
+    type Vtable = IPhoneCallBlockedTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4a690a2_e4c1_427f_864e_e470477ddb67);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallBlockedTriggerDetailsVtbl {
+pub struct IPhoneCallBlockedTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PhoneNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub LineId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -18,12 +18,12 @@ pub struct IPhoneCallBlockedTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IPhoneCallOriginDataRequestTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallOriginDataRequestTriggerDetails {
-    type Vtable = IPhoneCallOriginDataRequestTriggerDetailsVtbl;
+    type Vtable = IPhoneCallOriginDataRequestTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e9b5b3f_c54b_4e82_4cc9_e329a4184592);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallOriginDataRequestTriggerDetailsVtbl {
+pub struct IPhoneCallOriginDataRequestTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RequestId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub PhoneNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -32,12 +32,12 @@ pub struct IPhoneCallOriginDataRequestTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IPhoneIncomingCallDismissedTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneIncomingCallDismissedTriggerDetails {
-    type Vtable = IPhoneIncomingCallDismissedTriggerDetailsVtbl;
+    type Vtable = IPhoneIncomingCallDismissedTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad30276_83b6_5732_9c38_0c206546196a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneIncomingCallDismissedTriggerDetailsVtbl {
+pub struct IPhoneIncomingCallDismissedTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LineId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub PhoneNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -53,12 +53,12 @@ pub struct IPhoneIncomingCallDismissedTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IPhoneIncomingCallNotificationTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneIncomingCallNotificationTriggerDetails {
-    type Vtable = IPhoneIncomingCallNotificationTriggerDetailsVtbl;
+    type Vtable = IPhoneIncomingCallNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b0e6044_9b32_5d42_8222_d2812e39fb21);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneIncomingCallNotificationTriggerDetailsVtbl {
+pub struct IPhoneIncomingCallNotificationTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LineId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub CallId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -67,12 +67,12 @@ pub struct IPhoneIncomingCallNotificationTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IPhoneLineChangedTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneLineChangedTriggerDetails {
-    type Vtable = IPhoneLineChangedTriggerDetailsVtbl;
+    type Vtable = IPhoneLineChangedTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6d321e7_d11d_40d8_b2b7_e40a01d66249);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneLineChangedTriggerDetailsVtbl {
+pub struct IPhoneLineChangedTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LineId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub ChangeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PhoneLineChangeKind) -> ::windows::core::HRESULT,
@@ -82,12 +82,12 @@ pub struct IPhoneLineChangedTriggerDetailsVtbl {
 #[repr(transparent)]
 pub struct IPhoneNewVoicemailMessageTriggerDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneNewVoicemailMessageTriggerDetails {
-    type Vtable = IPhoneNewVoicemailMessageTriggerDetailsVtbl;
+    type Vtable = IPhoneNewVoicemailMessageTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13a8c01b_b831_48d3_8ba9_8d22a6580dcf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneNewVoicemailMessageTriggerDetailsVtbl {
+pub struct IPhoneNewVoicemailMessageTriggerDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LineId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub VoicemailCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -176,7 +176,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallBlockedTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneCallBlockedTriggerDetails;{a4a690a2-e4c1-427f-864e-e470477ddb67})");
 }
 unsafe impl ::windows::core::Interface for PhoneCallBlockedTriggerDetails {
-    type Vtable = IPhoneCallBlockedTriggerDetailsVtbl;
+    type Vtable = IPhoneCallBlockedTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4a690a2_e4c1_427f_864e_e470477ddb67);
 }
 impl ::windows::core::RuntimeName for PhoneCallBlockedTriggerDetails {
@@ -265,7 +265,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallOriginDataRequestTriggerDe
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneCallOriginDataRequestTriggerDetails;{6e9b5b3f-c54b-4e82-4cc9-e329a4184592})");
 }
 unsafe impl ::windows::core::Interface for PhoneCallOriginDataRequestTriggerDetails {
-    type Vtable = IPhoneCallOriginDataRequestTriggerDetailsVtbl;
+    type Vtable = IPhoneCallOriginDataRequestTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e9b5b3f_c54b_4e82_4cc9_e329a4184592);
 }
 impl ::windows::core::RuntimeName for PhoneCallOriginDataRequestTriggerDetails {
@@ -422,7 +422,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneIncomingCallDismissedTriggerDe
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedTriggerDetails;{bad30276-83b6-5732-9c38-0c206546196a})");
 }
 unsafe impl ::windows::core::Interface for PhoneIncomingCallDismissedTriggerDetails {
-    type Vtable = IPhoneIncomingCallDismissedTriggerDetailsVtbl;
+    type Vtable = IPhoneIncomingCallDismissedTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad30276_83b6_5732_9c38_0c206546196a);
 }
 impl ::windows::core::RuntimeName for PhoneIncomingCallDismissedTriggerDetails {
@@ -511,7 +511,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneIncomingCallNotificationTrigge
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneIncomingCallNotificationTriggerDetails;{2b0e6044-9b32-5d42-8222-d2812e39fb21})");
 }
 unsafe impl ::windows::core::Interface for PhoneIncomingCallNotificationTriggerDetails {
-    type Vtable = IPhoneIncomingCallNotificationTriggerDetailsVtbl;
+    type Vtable = IPhoneIncomingCallNotificationTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b0e6044_9b32_5d42_8222_d2812e39fb21);
 }
 impl ::windows::core::RuntimeName for PhoneIncomingCallNotificationTriggerDetails {
@@ -642,7 +642,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineChangedTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneLineChangedTriggerDetails;{c6d321e7-d11d-40d8-b2b7-e40a01d66249})");
 }
 unsafe impl ::windows::core::Interface for PhoneLineChangedTriggerDetails {
-    type Vtable = IPhoneLineChangedTriggerDetailsVtbl;
+    type Vtable = IPhoneLineChangedTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6d321e7_d11d_40d8_b2b7_e40a01d66249);
 }
 impl ::windows::core::RuntimeName for PhoneLineChangedTriggerDetails {
@@ -808,7 +808,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneNewVoicemailMessageTriggerDeta
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Background.PhoneNewVoicemailMessageTriggerDetails;{13a8c01b-b831-48d3-8ba9-8d22a6580dcf})");
 }
 unsafe impl ::windows::core::Interface for PhoneNewVoicemailMessageTriggerDetails {
-    type Vtable = IPhoneNewVoicemailMessageTriggerDetailsVtbl;
+    type Vtable = IPhoneNewVoicemailMessageTriggerDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13a8c01b_b831_48d3_8ba9_8d22a6580dcf);
 }
 impl ::windows::core::RuntimeName for PhoneNewVoicemailMessageTriggerDetails {

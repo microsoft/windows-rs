@@ -91,12 +91,12 @@ unsafe impl ::windows::core::RuntimeType for IAdaptiveCard {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{72d0568c-a274-41cd-82a8-989d40b9b05e}");
 }
 unsafe impl ::windows::core::Interface for IAdaptiveCard {
-    type Vtable = IAdaptiveCardVtbl;
+    type Vtable = IAdaptiveCard_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72d0568c_a274_41cd_82a8_989d40b9b05e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAdaptiveCardVtbl {
+pub struct IAdaptiveCard_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ToJson: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -173,12 +173,12 @@ unsafe impl ::windows::core::RuntimeType for IAdaptiveCardBuilderStatics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{766d8f08-d3fe-4347-a0bc-b9ea9a6dc28e}");
 }
 unsafe impl ::windows::core::Interface for IAdaptiveCardBuilderStatics {
-    type Vtable = IAdaptiveCardBuilderStaticsVtbl;
+    type Vtable = IAdaptiveCardBuilderStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x766d8f08_d3fe_4347_a0bc_b9ea9a6dc28e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAdaptiveCardBuilderStaticsVtbl {
+pub struct IAdaptiveCardBuilderStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateAdaptiveCardFromJson: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -186,12 +186,12 @@ pub struct IAdaptiveCardBuilderStaticsVtbl {
 #[repr(transparent)]
 pub struct ISecurityAppManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ISecurityAppManager {
-    type Vtable = ISecurityAppManagerVtbl;
+    type Vtable = ISecurityAppManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96ac500c_aed4_561d_bde8_953520343a2d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISecurityAppManagerVtbl {
+pub struct ISecurityAppManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Register: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: SecurityAppKind, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, detailsuri: ::windows::core::RawPtr, registerperuser: bool, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -207,12 +207,12 @@ pub struct ISecurityAppManagerVtbl {
 #[repr(transparent)]
 pub struct IShareWindowCommandEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShareWindowCommandEventArgs {
-    type Vtable = IShareWindowCommandEventArgsVtbl;
+    type Vtable = IShareWindowCommandEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4578dc09_a523_5756_a995_e4feb991fff0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IShareWindowCommandEventArgsVtbl {
+pub struct IShareWindowCommandEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub WindowId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::WindowId) -> ::windows::core::HRESULT,
     pub Command: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ShareWindowCommand) -> ::windows::core::HRESULT,
@@ -222,12 +222,12 @@ pub struct IShareWindowCommandEventArgsVtbl {
 #[repr(transparent)]
 pub struct IShareWindowCommandSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShareWindowCommandSource {
-    type Vtable = IShareWindowCommandSourceVtbl;
+    type Vtable = IShareWindowCommandSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb3b7ae3_6b9c_561e_bccc_61e68e0abfef);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IShareWindowCommandSourceVtbl {
+pub struct IShareWindowCommandSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -253,12 +253,12 @@ pub struct IShareWindowCommandSourceVtbl {
 #[repr(transparent)]
 pub struct IShareWindowCommandSourceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShareWindowCommandSourceStatics {
-    type Vtable = IShareWindowCommandSourceStaticsVtbl;
+    type Vtable = IShareWindowCommandSourceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0eb6656_9cac_517c_b6c7_8ef715084295);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IShareWindowCommandSourceStaticsVtbl {
+pub struct IShareWindowCommandSourceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -266,12 +266,12 @@ pub struct IShareWindowCommandSourceStaticsVtbl {
 #[repr(transparent)]
 pub struct ITaskbarManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITaskbarManager {
-    type Vtable = ITaskbarManagerVtbl;
+    type Vtable = ITaskbarManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87490a19_1ad9_49f4_b2e8_86738dc5ac40);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITaskbarManagerVtbl {
+pub struct ITaskbarManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsPinningAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -296,12 +296,12 @@ pub struct ITaskbarManagerVtbl {
 #[repr(transparent)]
 pub struct ITaskbarManager2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITaskbarManager2 {
-    type Vtable = ITaskbarManager2Vtbl;
+    type Vtable = ITaskbarManager2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79f0a06e_7b02_4911_918c_dee0bbd20ba4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITaskbarManager2Vtbl {
+pub struct ITaskbarManager2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub IsSecondaryTilePinnedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -320,12 +320,12 @@ pub struct ITaskbarManager2Vtbl {
 #[repr(transparent)]
 pub struct ITaskbarManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ITaskbarManagerStatics {
-    type Vtable = ITaskbarManagerStaticsVtbl;
+    type Vtable = ITaskbarManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb32ab74_de52_4fe6_b7b6_95ff9f8395df);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITaskbarManagerStaticsVtbl {
+pub struct ITaskbarManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -413,7 +413,7 @@ unsafe impl ::windows::core::RuntimeType for SecurityAppManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.SecurityAppManager;{96ac500c-aed4-561d-bde8-953520343a2d})");
 }
 unsafe impl ::windows::core::Interface for SecurityAppManager {
-    type Vtable = ISecurityAppManagerVtbl;
+    type Vtable = ISecurityAppManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96ac500c_aed4_561d_bde8_953520343a2d);
 }
 impl ::windows::core::RuntimeName for SecurityAppManager {
@@ -609,7 +609,7 @@ unsafe impl ::windows::core::RuntimeType for ShareWindowCommandEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.ShareWindowCommandEventArgs;{4578dc09-a523-5756-a995-e4feb991fff0})");
 }
 unsafe impl ::windows::core::Interface for ShareWindowCommandEventArgs {
-    type Vtable = IShareWindowCommandEventArgsVtbl;
+    type Vtable = IShareWindowCommandEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4578dc09_a523_5756_a995_e4feb991fff0);
 }
 impl ::windows::core::RuntimeName for ShareWindowCommandEventArgs {
@@ -739,7 +739,7 @@ unsafe impl ::windows::core::RuntimeType for ShareWindowCommandSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.ShareWindowCommandSource;{cb3b7ae3-6b9c-561e-bccc-61e68e0abfef})");
 }
 unsafe impl ::windows::core::Interface for ShareWindowCommandSource {
-    type Vtable = IShareWindowCommandSourceVtbl;
+    type Vtable = IShareWindowCommandSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb3b7ae3_6b9c_561e_bccc_61e68e0abfef);
 }
 impl ::windows::core::RuntimeName for ShareWindowCommandSource {
@@ -903,7 +903,7 @@ unsafe impl ::windows::core::RuntimeType for TaskbarManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.TaskbarManager;{87490a19-1ad9-49f4-b2e8-86738dc5ac40})");
 }
 unsafe impl ::windows::core::Interface for TaskbarManager {
-    type Vtable = ITaskbarManagerVtbl;
+    type Vtable = ITaskbarManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87490a19_1ad9_49f4_b2e8_86738dc5ac40);
 }
 impl ::windows::core::RuntimeName for TaskbarManager {

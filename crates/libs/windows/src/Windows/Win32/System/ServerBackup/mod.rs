@@ -50,12 +50,12 @@ impl ::core::fmt::Debug for IWsbApplicationAsync {
     }
 }
 unsafe impl ::windows::core::Interface for IWsbApplicationAsync {
-    type Vtable = IWsbApplicationAsyncVtbl;
+    type Vtable = IWsbApplicationAsync_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0843f6f7_895c_44a6_b0c2_05a5022aa3a1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWsbApplicationAsyncVtbl {
+pub struct IWsbApplicationAsync_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub QueryStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -108,12 +108,12 @@ impl ::core::fmt::Debug for IWsbApplicationBackupSupport {
     }
 }
 unsafe impl ::windows::core::Interface for IWsbApplicationBackupSupport {
-    type Vtable = IWsbApplicationBackupSupportVtbl;
+    type Vtable = IWsbApplicationBackupSupport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1eff3510_4a27_46ad_b9e0_08332f0f4f6d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWsbApplicationBackupSupportVtbl {
+pub struct IWsbApplicationBackupSupport_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CheckConsistency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszwritermetadata: super::super::Foundation::PWSTR, wszcomponentname: super::super::Foundation::PWSTR, wszcomponentlogicalpath: super::super::Foundation::PWSTR, cvolumes: u32, rgwszsourcevolumepath: *const super::super::Foundation::PWSTR, rgwszsnapshotvolumepath: *const super::super::Foundation::PWSTR, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -182,12 +182,12 @@ impl ::core::fmt::Debug for IWsbApplicationRestoreSupport {
     }
 }
 unsafe impl ::windows::core::Interface for IWsbApplicationRestoreSupport {
-    type Vtable = IWsbApplicationRestoreSupportVtbl;
+    type Vtable = IWsbApplicationRestoreSupport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d3bdb38_4ee8_4718_85f9_c7dbc4ab77aa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWsbApplicationRestoreSupportVtbl {
+pub struct IWsbApplicationRestoreSupport_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub PreRestore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszwritermetadata: super::super::Foundation::PWSTR, wszcomponentname: super::super::Foundation::PWSTR, wszcomponentlogicalpath: super::super::Foundation::PWSTR, bnorollforward: super::super::Foundation::BOOLEAN) -> ::windows::core::HRESULT,

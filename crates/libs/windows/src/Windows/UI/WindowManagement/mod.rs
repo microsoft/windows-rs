@@ -257,7 +257,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindow;{663014a6-b75e-5dbd-995c-f0117fa3fb61})");
 }
 unsafe impl ::windows::core::Interface for AppWindow {
-    type Vtable = IAppWindowVtbl;
+    type Vtable = IAppWindow_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x663014a6_b75e_5dbd_995c_f0117fa3fb61);
 }
 impl ::windows::core::RuntimeName for AppWindow {
@@ -394,7 +394,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowChangedEventArgs;{1de1f3be-a655-55ad-b2b6-eb240f880356})");
 }
 unsafe impl ::windows::core::Interface for AppWindowChangedEventArgs {
-    type Vtable = IAppWindowChangedEventArgsVtbl;
+    type Vtable = IAppWindowChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1de1f3be_a655_55ad_b2b6_eb240f880356);
 }
 impl ::windows::core::RuntimeName for AppWindowChangedEventArgs {
@@ -489,7 +489,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowCloseRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowCloseRequestedEventArgs;{e9ff01da-e7a2-57a8-8b5e-39c4003afdbb})");
 }
 unsafe impl ::windows::core::Interface for AppWindowCloseRequestedEventArgs {
-    type Vtable = IAppWindowCloseRequestedEventArgsVtbl;
+    type Vtable = IAppWindowCloseRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9ff01da_e7a2_57a8_8b5e_39c4003afdbb);
 }
 impl ::windows::core::RuntimeName for AppWindowCloseRequestedEventArgs {
@@ -570,7 +570,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowClosedEventArgs;{cc7df816-9520-5a06-821e-456ad8b358aa})");
 }
 unsafe impl ::windows::core::Interface for AppWindowClosedEventArgs {
-    type Vtable = IAppWindowClosedEventArgsVtbl;
+    type Vtable = IAppWindowClosedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc7df816_9520_5a06_821e_456ad8b358aa);
 }
 impl ::windows::core::RuntimeName for AppWindowClosedEventArgs {
@@ -699,7 +699,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowFrame;{9ee22601-7e5d-52af-846b-01dc6c296567})");
 }
 unsafe impl ::windows::core::Interface for AppWindowFrame {
-    type Vtable = IAppWindowFrameVtbl;
+    type Vtable = IAppWindowFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ee22601_7e5d_52af_846b_01dc6c296567);
 }
 impl ::windows::core::RuntimeName for AppWindowFrame {
@@ -831,7 +831,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowPlacement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowPlacement;{03dc815e-e7a9-5857-9c03-7d670594410e})");
 }
 unsafe impl ::windows::core::Interface for AppWindowPlacement {
-    type Vtable = IAppWindowPlacementVtbl;
+    type Vtable = IAppWindowPlacement_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03dc815e_e7a9_5857_9c03_7d670594410e);
 }
 impl ::windows::core::RuntimeName for AppWindowPlacement {
@@ -912,7 +912,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowPresentationConfiguration 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowPresentationConfiguration;{b5a43ee3-df33-5e67-bd31-1072457300df})");
 }
 unsafe impl ::windows::core::Interface for AppWindowPresentationConfiguration {
-    type Vtable = IAppWindowPresentationConfigurationVtbl;
+    type Vtable = IAppWindowPresentationConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5a43ee3_df33_5e67_bd31_1072457300df);
 }
 impl ::windows::core::RuntimeName for AppWindowPresentationConfiguration {
@@ -1051,7 +1051,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowPresenter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowPresenter;{5ae9ed73-e1fd-5317-ad78-5a3ed271bbde})");
 }
 unsafe impl ::windows::core::Interface for AppWindowPresenter {
-    type Vtable = IAppWindowPresenterVtbl;
+    type Vtable = IAppWindowPresenter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ae9ed73_e1fd_5317_ad78_5a3ed271bbde);
 }
 impl ::windows::core::RuntimeName for AppWindowPresenter {
@@ -1347,7 +1347,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowTitleBar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowTitleBar;{6e932c84-f644-541d-a2d7-0c262437842d})");
 }
 unsafe impl ::windows::core::Interface for AppWindowTitleBar {
-    type Vtable = IAppWindowTitleBarVtbl;
+    type Vtable = IAppWindowTitleBar_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e932c84_f644_541d_a2d7_0c262437842d);
 }
 impl ::windows::core::RuntimeName for AppWindowTitleBar {
@@ -1429,7 +1429,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowTitleBarOcclusion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowTitleBarOcclusion;{fea3cffd-2ccf-5fc3-aeae-f843876bf37e})");
 }
 unsafe impl ::windows::core::Interface for AppWindowTitleBarOcclusion {
-    type Vtable = IAppWindowTitleBarOcclusionVtbl;
+    type Vtable = IAppWindowTitleBarOcclusion_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfea3cffd_2ccf_5fc3_aeae_f843876bf37e);
 }
 impl ::windows::core::RuntimeName for AppWindowTitleBarOcclusion {
@@ -1550,7 +1550,7 @@ unsafe impl ::windows::core::RuntimeType for CompactOverlayPresentationConfigura
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.CompactOverlayPresentationConfiguration;{a7e5750f-5730-56c6-8e1f-d63ff4d7980d})");
 }
 unsafe impl ::windows::core::Interface for CompactOverlayPresentationConfiguration {
-    type Vtable = ICompactOverlayPresentationConfigurationVtbl;
+    type Vtable = ICompactOverlayPresentationConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7e5750f_5730_56c6_8e1f_d63ff4d7980d);
 }
 impl ::windows::core::RuntimeName for CompactOverlayPresentationConfiguration {
@@ -1658,7 +1658,7 @@ unsafe impl ::windows::core::RuntimeType for DefaultPresentationConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.DefaultPresentationConfiguration;{d8c2b53b-2168-5703-a853-d525589fe2b9})");
 }
 unsafe impl ::windows::core::Interface for DefaultPresentationConfiguration {
-    type Vtable = IDefaultPresentationConfigurationVtbl;
+    type Vtable = IDefaultPresentationConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8c2b53b_2168_5703_a853_d525589fe2b9);
 }
 impl ::windows::core::RuntimeName for DefaultPresentationConfiguration {
@@ -1808,7 +1808,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayRegion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.DisplayRegion;{db50c3a2-4094-5f47-8cb1-ea01ddafaa94})");
 }
 unsafe impl ::windows::core::Interface for DisplayRegion {
-    type Vtable = IDisplayRegionVtbl;
+    type Vtable = IDisplayRegion_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb50c3a2_4094_5f47_8cb1_ea01ddafaa94);
 }
 impl ::windows::core::RuntimeName for DisplayRegion {
@@ -1909,7 +1909,7 @@ unsafe impl ::windows::core::RuntimeType for FullScreenPresentationConfiguration
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.FullScreenPresentationConfiguration;{43d3dcd8-d2a8-503d-a626-15533d6d5f62})");
 }
 unsafe impl ::windows::core::Interface for FullScreenPresentationConfiguration {
-    type Vtable = IFullScreenPresentationConfigurationVtbl;
+    type Vtable = IFullScreenPresentationConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43d3dcd8_d2a8_503d_a626_15533d6d5f62);
 }
 impl ::windows::core::RuntimeName for FullScreenPresentationConfiguration {
@@ -1981,12 +1981,12 @@ unsafe impl ::core::marker::Sync for FullScreenPresentationConfiguration {}
 #[repr(transparent)]
 pub struct IAppWindow(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppWindow {
-    type Vtable = IAppWindowVtbl;
+    type Vtable = IAppWindow_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x663014a6_b75e_5dbd_995c_f0117fa3fb61);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppWindowVtbl {
+pub struct IAppWindow_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "System")]
@@ -2064,12 +2064,12 @@ pub struct IAppWindowVtbl {
 #[repr(transparent)]
 pub struct IAppWindowChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppWindowChangedEventArgs {
-    type Vtable = IAppWindowChangedEventArgsVtbl;
+    type Vtable = IAppWindowChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1de1f3be_a655_55ad_b2b6_eb240f880356);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppWindowChangedEventArgsVtbl {
+pub struct IAppWindowChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DidAvailableWindowPresentationsChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub DidDisplayRegionsChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -2084,12 +2084,12 @@ pub struct IAppWindowChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAppWindowCloseRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppWindowCloseRequestedEventArgs {
-    type Vtable = IAppWindowCloseRequestedEventArgsVtbl;
+    type Vtable = IAppWindowCloseRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9ff01da_e7a2_57a8_8b5e_39c4003afdbb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppWindowCloseRequestedEventArgsVtbl {
+pub struct IAppWindowCloseRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetCancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -2102,12 +2102,12 @@ pub struct IAppWindowCloseRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAppWindowClosedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppWindowClosedEventArgs {
-    type Vtable = IAppWindowClosedEventArgsVtbl;
+    type Vtable = IAppWindowClosedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc7df816_9520_5a06_821e_456ad8b358aa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppWindowClosedEventArgsVtbl {
+pub struct IAppWindowClosedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppWindowClosedReason) -> ::windows::core::HRESULT,
 }
@@ -2115,12 +2115,12 @@ pub struct IAppWindowClosedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IAppWindowFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppWindowFrame {
-    type Vtable = IAppWindowFrameVtbl;
+    type Vtable = IAppWindowFrame_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ee22601_7e5d_52af_846b_01dc6c296567);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppWindowFrameVtbl {
+pub struct IAppWindowFrame_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Composition"))]
     pub DragRegionVisuals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2131,12 +2131,12 @@ pub struct IAppWindowFrameVtbl {
 #[repr(transparent)]
 pub struct IAppWindowFrameStyle(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppWindowFrameStyle {
-    type Vtable = IAppWindowFrameStyleVtbl;
+    type Vtable = IAppWindowFrameStyle_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac412946_e1ac_5230_944a_c60873dcf4a9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppWindowFrameStyleVtbl {
+pub struct IAppWindowFrameStyle_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetFrameStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppWindowFrameStyle) -> ::windows::core::HRESULT,
     pub SetFrameStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, framestyle: AppWindowFrameStyle) -> ::windows::core::HRESULT,
@@ -2145,12 +2145,12 @@ pub struct IAppWindowFrameStyleVtbl {
 #[repr(transparent)]
 pub struct IAppWindowPlacement(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppWindowPlacement {
-    type Vtable = IAppWindowPlacementVtbl;
+    type Vtable = IAppWindowPlacement_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03dc815e_e7a9_5857_9c03_7d670594410e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppWindowPlacementVtbl {
+pub struct IAppWindowPlacement_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DisplayRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -2166,12 +2166,12 @@ pub struct IAppWindowPlacementVtbl {
 #[repr(transparent)]
 pub struct IAppWindowPresentationConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppWindowPresentationConfiguration {
-    type Vtable = IAppWindowPresentationConfigurationVtbl;
+    type Vtable = IAppWindowPresentationConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5a43ee3_df33_5e67_bd31_1072457300df);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppWindowPresentationConfigurationVtbl {
+pub struct IAppWindowPresentationConfiguration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppWindowPresentationKind) -> ::windows::core::HRESULT,
 }
@@ -2179,24 +2179,24 @@ pub struct IAppWindowPresentationConfigurationVtbl {
 #[repr(transparent)]
 pub struct IAppWindowPresentationConfigurationFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppWindowPresentationConfigurationFactory {
-    type Vtable = IAppWindowPresentationConfigurationFactoryVtbl;
+    type Vtable = IAppWindowPresentationConfigurationFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd3606a6_7875_5de8_84ff_6351ee13dd0d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppWindowPresentationConfigurationFactoryVtbl {
+pub struct IAppWindowPresentationConfigurationFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppWindowPresenter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppWindowPresenter {
-    type Vtable = IAppWindowPresenterVtbl;
+    type Vtable = IAppWindowPresenter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ae9ed73_e1fd_5317_ad78_5a3ed271bbde);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppWindowPresenterVtbl {
+pub struct IAppWindowPresenter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsPresentationSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presentationkind: AppWindowPresentationKind, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -2207,12 +2207,12 @@ pub struct IAppWindowPresenterVtbl {
 #[repr(transparent)]
 pub struct IAppWindowStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppWindowStatics {
-    type Vtable = IAppWindowStaticsVtbl;
+    type Vtable = IAppWindowStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff1f3ea3_b769_50ef_9873_108cd0e89746);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppWindowStaticsVtbl {
+pub struct IAppWindowStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub TryCreateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2225,12 +2225,12 @@ pub struct IAppWindowStaticsVtbl {
 #[repr(transparent)]
 pub struct IAppWindowTitleBar(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppWindowTitleBar {
-    type Vtable = IAppWindowTitleBarVtbl;
+    type Vtable = IAppWindowTitleBar_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e932c84_f644_541d_a2d7_0c262437842d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppWindowTitleBarVtbl {
+pub struct IAppWindowTitleBar_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub BackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2340,12 +2340,12 @@ pub struct IAppWindowTitleBarVtbl {
 #[repr(transparent)]
 pub struct IAppWindowTitleBarOcclusion(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppWindowTitleBarOcclusion {
-    type Vtable = IAppWindowTitleBarOcclusionVtbl;
+    type Vtable = IAppWindowTitleBarOcclusion_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfea3cffd_2ccf_5fc3_aeae_f843876bf37e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppWindowTitleBarOcclusionVtbl {
+pub struct IAppWindowTitleBarOcclusion_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub OccludingRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT,
@@ -2356,12 +2356,12 @@ pub struct IAppWindowTitleBarOcclusionVtbl {
 #[repr(transparent)]
 pub struct IAppWindowTitleBarVisibility(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppWindowTitleBarVisibility {
-    type Vtable = IAppWindowTitleBarVisibilityVtbl;
+    type Vtable = IAppWindowTitleBarVisibility_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa215a4e3_6e7e_5651_8c3b_624819528154);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppWindowTitleBarVisibilityVtbl {
+pub struct IAppWindowTitleBarVisibility_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetPreferredVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppWindowTitleBarVisibility) -> ::windows::core::HRESULT,
     pub SetPreferredVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visibilitymode: AppWindowTitleBarVisibility) -> ::windows::core::HRESULT,
@@ -2370,36 +2370,36 @@ pub struct IAppWindowTitleBarVisibilityVtbl {
 #[repr(transparent)]
 pub struct ICompactOverlayPresentationConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICompactOverlayPresentationConfiguration {
-    type Vtable = ICompactOverlayPresentationConfigurationVtbl;
+    type Vtable = ICompactOverlayPresentationConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7e5750f_5730_56c6_8e1f_d63ff4d7980d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICompactOverlayPresentationConfigurationVtbl {
+pub struct ICompactOverlayPresentationConfiguration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDefaultPresentationConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDefaultPresentationConfiguration {
-    type Vtable = IDefaultPresentationConfigurationVtbl;
+    type Vtable = IDefaultPresentationConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8c2b53b_2168_5703_a853_d525589fe2b9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDefaultPresentationConfigurationVtbl {
+pub struct IDefaultPresentationConfiguration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDisplayRegion(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayRegion {
-    type Vtable = IDisplayRegionVtbl;
+    type Vtable = IDisplayRegion_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb50c3a2_4094_5f47_8cb1_ea01ddafaa94);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayRegionVtbl {
+pub struct IDisplayRegion_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DisplayMonitorDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub IsVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -2425,12 +2425,12 @@ pub struct IDisplayRegionVtbl {
 #[repr(transparent)]
 pub struct IFullScreenPresentationConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IFullScreenPresentationConfiguration {
-    type Vtable = IFullScreenPresentationConfigurationVtbl;
+    type Vtable = IFullScreenPresentationConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43d3dcd8_d2a8_503d_a626_15533d6d5f62);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFullScreenPresentationConfigurationVtbl {
+pub struct IFullScreenPresentationConfiguration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsExclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsExclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -2439,12 +2439,12 @@ pub struct IFullScreenPresentationConfigurationVtbl {
 #[repr(transparent)]
 pub struct IWindowServicesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWindowServicesStatics {
-    type Vtable = IWindowServicesStaticsVtbl;
+    type Vtable = IWindowServicesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcff4d519_50a6_5c64_97f6_c2d96add7f42);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowServicesStaticsVtbl {
+pub struct IWindowServicesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub FindAllTopLevelWindowIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2455,12 +2455,12 @@ pub struct IWindowServicesStaticsVtbl {
 #[repr(transparent)]
 pub struct IWindowingEnvironment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWindowingEnvironment {
-    type Vtable = IWindowingEnvironmentVtbl;
+    type Vtable = IWindowingEnvironment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x264363c0_2a49_5417_b3ae_48a71c63a3bd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowingEnvironmentVtbl {
+pub struct IWindowingEnvironment_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WindowingEnvironmentKind) -> ::windows::core::HRESULT,
@@ -2481,12 +2481,12 @@ pub struct IWindowingEnvironmentVtbl {
 #[repr(transparent)]
 pub struct IWindowingEnvironmentAddedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWindowingEnvironmentAddedEventArgs {
-    type Vtable = IWindowingEnvironmentAddedEventArgsVtbl;
+    type Vtable = IWindowingEnvironmentAddedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff2a5b7f_f183_5c66_99b2_429082069299);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowingEnvironmentAddedEventArgsVtbl {
+pub struct IWindowingEnvironmentAddedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub WindowingEnvironment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2494,24 +2494,24 @@ pub struct IWindowingEnvironmentAddedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IWindowingEnvironmentChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWindowingEnvironmentChangedEventArgs {
-    type Vtable = IWindowingEnvironmentChangedEventArgsVtbl;
+    type Vtable = IWindowingEnvironmentChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4160cfc6_023d_5e9a_b431_350e67dc978a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowingEnvironmentChangedEventArgsVtbl {
+pub struct IWindowingEnvironmentChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowingEnvironmentRemovedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWindowingEnvironmentRemovedEventArgs {
-    type Vtable = IWindowingEnvironmentRemovedEventArgsVtbl;
+    type Vtable = IWindowingEnvironmentRemovedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e5b5473_beff_5e53_9316_7e775fe568b3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowingEnvironmentRemovedEventArgsVtbl {
+pub struct IWindowingEnvironmentRemovedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub WindowingEnvironment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2519,12 +2519,12 @@ pub struct IWindowingEnvironmentRemovedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IWindowingEnvironmentStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWindowingEnvironmentStatics {
-    type Vtable = IWindowingEnvironmentStaticsVtbl;
+    type Vtable = IWindowingEnvironmentStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x874e9fb7_c642_55ab_8aa2_162f734a9a72);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowingEnvironmentStaticsVtbl {
+pub struct IWindowingEnvironmentStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub FindAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2641,7 +2641,7 @@ unsafe impl ::windows::core::RuntimeType for WindowingEnvironment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.WindowingEnvironment;{264363c0-2a49-5417-b3ae-48a71c63a3bd})");
 }
 unsafe impl ::windows::core::Interface for WindowingEnvironment {
-    type Vtable = IWindowingEnvironmentVtbl;
+    type Vtable = IWindowingEnvironment_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x264363c0_2a49_5417_b3ae_48a71c63a3bd);
 }
 impl ::windows::core::RuntimeName for WindowingEnvironment {
@@ -2722,7 +2722,7 @@ unsafe impl ::windows::core::RuntimeType for WindowingEnvironmentAddedEventArgs 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.WindowingEnvironmentAddedEventArgs;{ff2a5b7f-f183-5c66-99b2-429082069299})");
 }
 unsafe impl ::windows::core::Interface for WindowingEnvironmentAddedEventArgs {
-    type Vtable = IWindowingEnvironmentAddedEventArgsVtbl;
+    type Vtable = IWindowingEnvironmentAddedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff2a5b7f_f183_5c66_99b2_429082069299);
 }
 impl ::windows::core::RuntimeName for WindowingEnvironmentAddedEventArgs {
@@ -2794,7 +2794,7 @@ unsafe impl ::windows::core::RuntimeType for WindowingEnvironmentChangedEventArg
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.WindowingEnvironmentChangedEventArgs;{4160cfc6-023d-5e9a-b431-350e67dc978a})");
 }
 unsafe impl ::windows::core::Interface for WindowingEnvironmentChangedEventArgs {
-    type Vtable = IWindowingEnvironmentChangedEventArgsVtbl;
+    type Vtable = IWindowingEnvironmentChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4160cfc6_023d_5e9a_b431_350e67dc978a);
 }
 impl ::windows::core::RuntimeName for WindowingEnvironmentChangedEventArgs {
@@ -2909,7 +2909,7 @@ unsafe impl ::windows::core::RuntimeType for WindowingEnvironmentRemovedEventArg
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.WindowingEnvironmentRemovedEventArgs;{2e5b5473-beff-5e53-9316-7e775fe568b3})");
 }
 unsafe impl ::windows::core::Interface for WindowingEnvironmentRemovedEventArgs {
-    type Vtable = IWindowingEnvironmentRemovedEventArgsVtbl;
+    type Vtable = IWindowingEnvironmentRemovedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e5b5473_beff_5e53_9316_7e775fe568b3);
 }
 impl ::windows::core::RuntimeName for WindowingEnvironmentRemovedEventArgs {

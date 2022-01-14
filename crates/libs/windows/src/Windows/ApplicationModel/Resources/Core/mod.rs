@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct INamedResource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for INamedResource {
-    type Vtable = INamedResourceVtbl;
+    type Vtable = INamedResource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c98c219_0b13_4240_89a5_d495dc189a00);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INamedResourceVtbl {
+pub struct INamedResource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Uri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -33,12 +33,12 @@ pub struct INamedResourceVtbl {
 #[repr(transparent)]
 pub struct IResourceCandidate(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceCandidate {
-    type Vtable = IResourceCandidateVtbl;
+    type Vtable = IResourceCandidate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf5207d9_c433_4764_b3fd_8fa6bfbcbadc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceCandidateVtbl {
+pub struct IResourceCandidate_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Qualifiers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -58,12 +58,12 @@ pub struct IResourceCandidateVtbl {
 #[repr(transparent)]
 pub struct IResourceCandidate2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceCandidate2 {
-    type Vtable = IResourceCandidate2Vtbl;
+    type Vtable = IResourceCandidate2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69e5b468_f6fc_4013_aaa2_d53f1757d3b5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceCandidate2Vtbl {
+pub struct IResourceCandidate2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub GetValueAsStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -74,12 +74,12 @@ pub struct IResourceCandidate2Vtbl {
 #[repr(transparent)]
 pub struct IResourceCandidate3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceCandidate3 {
-    type Vtable = IResourceCandidate3Vtbl;
+    type Vtable = IResourceCandidate3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08ae97f8_517a_4674_958c_4a3c7cd2cc6b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceCandidate3Vtbl {
+pub struct IResourceCandidate3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ResourceCandidateKind) -> ::windows::core::HRESULT,
 }
@@ -87,12 +87,12 @@ pub struct IResourceCandidate3Vtbl {
 #[repr(transparent)]
 pub struct IResourceContext(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceContext {
-    type Vtable = IResourceContextVtbl;
+    type Vtable = IResourceContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fa22f4b_707e_4b27_ad0d_d0d8cd468fd2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceContextVtbl {
+pub struct IResourceContext_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub QualifierValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -121,12 +121,12 @@ pub struct IResourceContextVtbl {
 #[repr(transparent)]
 pub struct IResourceContextStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceContextStatics {
-    type Vtable = IResourceContextStaticsVtbl;
+    type Vtable = IResourceContextStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98be9d6c_6338_4b31_99df_b2b442f17149);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceContextStaticsVtbl {
+pub struct IResourceContextStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateMatchingContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -137,12 +137,12 @@ pub struct IResourceContextStaticsVtbl {
 #[repr(transparent)]
 pub struct IResourceContextStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceContextStatics2 {
-    type Vtable = IResourceContextStatics2Vtbl;
+    type Vtable = IResourceContextStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41f752ef_12af_41b9_ab36_b1eb4b512460);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceContextStatics2Vtbl {
+pub struct IResourceContextStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetGlobalQualifierValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -157,12 +157,12 @@ pub struct IResourceContextStatics2Vtbl {
 #[repr(transparent)]
 pub struct IResourceContextStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceContextStatics3 {
-    type Vtable = IResourceContextStatics3Vtbl;
+    type Vtable = IResourceContextStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20cf492c_af0f_450b_9da6_106dd0c29a39);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceContextStatics3Vtbl {
+pub struct IResourceContextStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetGlobalQualifierValueWithPersistence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, persistence: ResourceQualifierPersistence) -> ::windows::core::HRESULT,
 }
@@ -170,12 +170,12 @@ pub struct IResourceContextStatics3Vtbl {
 #[repr(transparent)]
 pub struct IResourceContextStatics4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceContextStatics4 {
-    type Vtable = IResourceContextStatics4Vtbl;
+    type Vtable = IResourceContextStatics4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22eb9ccd_fb31_4bfa_b86b_df9d9d7bdc39);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceContextStatics4Vtbl {
+pub struct IResourceContextStatics4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI")]
     pub GetForUIContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -186,12 +186,12 @@ pub struct IResourceContextStatics4Vtbl {
 #[repr(transparent)]
 pub struct IResourceManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceManager {
-    type Vtable = IResourceManagerVtbl;
+    type Vtable = IResourceManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf744d97b_9988_44fb_abd6_5378844cfa8b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceManagerVtbl {
+pub struct IResourceManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MainResourceMap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -212,12 +212,12 @@ pub struct IResourceManagerVtbl {
 #[repr(transparent)]
 pub struct IResourceManager2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceManager2 {
-    type Vtable = IResourceManager2Vtbl;
+    type Vtable = IResourceManager2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d66fe6c_a4d7_4c23_9e85_675f304c252d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceManager2Vtbl {
+pub struct IResourceManager2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetAllNamedResourcesForPackage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, resourcelayoutinfo: ResourceLayoutInfo, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -232,12 +232,12 @@ pub struct IResourceManager2Vtbl {
 #[repr(transparent)]
 pub struct IResourceManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceManagerStatics {
-    type Vtable = IResourceManagerStaticsVtbl;
+    type Vtable = IResourceManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cc0fdfc_69ee_4e43_9901_47f12687baf7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceManagerStaticsVtbl {
+pub struct IResourceManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub IsResourceReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourcereference: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -246,12 +246,12 @@ pub struct IResourceManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IResourceMap(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceMap {
-    type Vtable = IResourceMapVtbl;
+    type Vtable = IResourceMap_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72284824_db8c_42f8_b08c_53ff357dad82);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceMapVtbl {
+pub struct IResourceMap_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Uri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -265,12 +265,12 @@ pub struct IResourceMapVtbl {
 #[repr(transparent)]
 pub struct IResourceQualifier(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceQualifier {
-    type Vtable = IResourceQualifierVtbl;
+    type Vtable = IResourceQualifier_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x785da5b2_4afd_4376_a888_c5f9a6b7a05c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceQualifierVtbl {
+pub struct IResourceQualifier_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub QualifierName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub QualifierValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -355,7 +355,7 @@ unsafe impl ::windows::core::RuntimeType for NamedResource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Core.NamedResource;{1c98c219-0b13-4240-89a5-d495dc189a00})");
 }
 unsafe impl ::windows::core::Interface for NamedResource {
-    type Vtable = INamedResourceVtbl;
+    type Vtable = INamedResource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c98c219_0b13_4240_89a5_d495dc189a00);
 }
 impl ::windows::core::RuntimeName for NamedResource {
@@ -503,7 +503,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceCandidate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Core.ResourceCandidate;{af5207d9-c433-4764-b3fd-8fa6bfbcbadc})");
 }
 unsafe impl ::windows::core::Interface for ResourceCandidate {
-    type Vtable = IResourceCandidateVtbl;
+    type Vtable = IResourceCandidate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf5207d9_c433_4764_b3fd_8fa6bfbcbadc);
 }
 impl ::windows::core::RuntimeName for ResourceCandidate {
@@ -663,7 +663,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceCandidateVectorView {
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ResourceCandidateVectorView {
-    type Vtable = super::super::super::Foundation::Collections::IVectorViewVtbl<ResourceCandidate>;
+    type Vtable = super::super::super::Foundation::Collections::IVectorView_Vtbl<ResourceCandidate>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -938,7 +938,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Core.ResourceContext;{2fa22f4b-707e-4b27-ad0d-d0d8cd468fd2})");
 }
 unsafe impl ::windows::core::Interface for ResourceContext {
-    type Vtable = IResourceContextVtbl;
+    type Vtable = IResourceContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fa22f4b_707e_4b27_ad0d_d0d8cd468fd2);
 }
 impl ::windows::core::RuntimeName for ResourceContext {
@@ -1064,7 +1064,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceContextLanguagesVectorView 
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ResourceContextLanguagesVectorView {
-    type Vtable = super::super::super::Foundation::Collections::IVectorViewVtbl<::windows::core::HSTRING>;
+    type Vtable = super::super::super::Foundation::Collections::IVectorView_Vtbl<::windows::core::HSTRING>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1330,7 +1330,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Core.ResourceManager;{f744d97b-9988-44fb-abd6-5378844cfa8b})");
 }
 unsafe impl ::windows::core::Interface for ResourceManager {
-    type Vtable = IResourceManagerVtbl;
+    type Vtable = IResourceManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf744d97b_9988_44fb_abd6_5378844cfa8b);
 }
 impl ::windows::core::RuntimeName for ResourceManager {
@@ -1478,7 +1478,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceMap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Core.ResourceMap;{72284824-db8c-42f8-b08c-53ff357dad82})");
 }
 unsafe impl ::windows::core::Interface for ResourceMap {
-    type Vtable = IResourceMapVtbl;
+    type Vtable = IResourceMap_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72284824_db8c_42f8_b08c_53ff357dad82);
 }
 impl ::windows::core::RuntimeName for ResourceMap {
@@ -1663,7 +1663,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceMapIterator {
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ResourceMapIterator {
-    type Vtable = super::super::super::Foundation::Collections::IIteratorVtbl<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, NamedResource>>;
+    type Vtable = super::super::super::Foundation::Collections::IIterator_Vtbl<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, NamedResource>>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1823,7 +1823,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceMapMapView {
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ResourceMapMapView {
-    type Vtable = super::super::super::Foundation::Collections::IMapViewVtbl<::windows::core::HSTRING, ResourceMap>;
+    type Vtable = super::super::super::Foundation::Collections::IMapView_Vtbl<::windows::core::HSTRING, ResourceMap>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2019,7 +2019,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceMapMapViewIterator {
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ResourceMapMapViewIterator {
-    type Vtable = super::super::super::Foundation::Collections::IIteratorVtbl<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ResourceMap>>;
+    type Vtable = super::super::super::Foundation::Collections::IIterator_Vtbl<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ResourceMap>>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2169,7 +2169,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceQualifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Core.ResourceQualifier;{785da5b2-4afd-4376-a888-c5f9a6b7a05c})");
 }
 unsafe impl ::windows::core::Interface for ResourceQualifier {
-    type Vtable = IResourceQualifierVtbl;
+    type Vtable = IResourceQualifier_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x785da5b2_4afd_4376_a888_c5f9a6b7a05c);
 }
 impl ::windows::core::RuntimeName for ResourceQualifier {
@@ -2292,7 +2292,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceQualifierMapView {
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ResourceQualifierMapView {
-    type Vtable = super::super::super::Foundation::Collections::IMapViewVtbl<::windows::core::HSTRING, ::windows::core::HSTRING>;
+    type Vtable = super::super::super::Foundation::Collections::IMapView_Vtbl<::windows::core::HSTRING, ::windows::core::HSTRING>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2533,7 +2533,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceQualifierObservableMap {
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ResourceQualifierObservableMap {
-    type Vtable = super::super::super::Foundation::Collections::IObservableMapVtbl<::windows::core::HSTRING, ::windows::core::HSTRING>;
+    type Vtable = super::super::super::Foundation::Collections::IObservableMap_Vtbl<::windows::core::HSTRING, ::windows::core::HSTRING>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2797,7 +2797,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceQualifierVectorView {
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ResourceQualifierVectorView {
-    type Vtable = super::super::super::Foundation::Collections::IVectorViewVtbl<ResourceQualifier>;
+    type Vtable = super::super::super::Foundation::Collections::IVectorView_Vtbl<ResourceQualifier>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
 }
 #[cfg(feature = "Foundation_Collections")]

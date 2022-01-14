@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IUserNotificationListener(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserNotificationListener {
-    type Vtable = IUserNotificationListenerVtbl;
+    type Vtable = IUserNotificationListener_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62553e41_8a06_4cef_8215_6033a5be4b03);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserNotificationListenerVtbl {
+pub struct IUserNotificationListener_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestAccessAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -35,12 +35,12 @@ pub struct IUserNotificationListenerVtbl {
 #[repr(transparent)]
 pub struct IUserNotificationListenerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserNotificationListenerStatics {
-    type Vtable = IUserNotificationListenerStaticsVtbl;
+    type Vtable = IUserNotificationListenerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff6123cf_4386_4aa3_b73d_b804e5b63b23);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserNotificationListenerStaticsVtbl {
+pub struct IUserNotificationListenerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -140,7 +140,7 @@ unsafe impl ::windows::core::RuntimeType for UserNotificationListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.Management.UserNotificationListener;{62553e41-8a06-4cef-8215-6033a5be4b03})");
 }
 unsafe impl ::windows::core::Interface for UserNotificationListener {
-    type Vtable = IUserNotificationListenerVtbl;
+    type Vtable = IUserNotificationListener_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62553e41_8a06_4cef_8215_6033a5be4b03);
 }
 impl ::windows::core::RuntimeName for UserNotificationListener {

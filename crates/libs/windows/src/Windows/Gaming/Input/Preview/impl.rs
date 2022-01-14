@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Gaming_Input_Custom", feature = "implement_exclusive"))]
-pub trait IGameControllerProviderInfoStaticsImpl: Sized {
+pub trait IGameControllerProviderInfoStatics_Impl: Sized {
     fn GetParentProviderId(&mut self, provider: &::core::option::Option<super::Custom::IGameControllerProvider>) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn GetProviderId(&mut self, provider: &::core::option::Option<super::Custom::IGameControllerProvider>) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -8,9 +8,9 @@ impl ::windows::core::RuntimeName for IGameControllerProviderInfoStatics {
     const NAME: &'static str = "Windows.Gaming.Input.Preview.IGameControllerProviderInfoStatics";
 }
 #[cfg(all(feature = "Gaming_Input_Custom", feature = "implement_exclusive"))]
-impl IGameControllerProviderInfoStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameControllerProviderInfoStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameControllerProviderInfoStaticsVtbl {
-        unsafe extern "system" fn GetParentProviderId<Impl: IGameControllerProviderInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IGameControllerProviderInfoStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameControllerProviderInfoStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameControllerProviderInfoStatics_Vtbl {
+        unsafe extern "system" fn GetParentProviderId<Impl: IGameControllerProviderInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetParentProviderId(&*(&provider as *const <super::Custom::IGameControllerProvider as ::windows::core::Abi>::Abi as *const <super::Custom::IGameControllerProvider as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -21,7 +21,7 @@ impl IGameControllerProviderInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProviderId<Impl: IGameControllerProviderInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProviderId<Impl: IGameControllerProviderInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provider: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetProviderId(&*(&provider as *const <super::Custom::IGameControllerProvider as ::windows::core::Abi>::Abi as *const <super::Custom::IGameControllerProvider as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

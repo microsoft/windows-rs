@@ -50,7 +50,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.AutomationConnection;{aad262ed-0ef4-5d43-97be-a834e27b65b9})");
 }
 unsafe impl ::windows::core::Interface for AutomationConnection {
-    type Vtable = IAutomationConnectionVtbl;
+    type Vtable = IAutomationConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaad262ed_0ef4_5d43_97be_a834e27b65b9);
 }
 impl ::windows::core::RuntimeName for AutomationConnection {
@@ -131,7 +131,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationConnectionBoundObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.AutomationConnectionBoundObject;{5e8558fb-ca52-5b65-9830-dd2905816093})");
 }
 unsafe impl ::windows::core::Interface for AutomationConnectionBoundObject {
-    type Vtable = IAutomationConnectionBoundObjectVtbl;
+    type Vtable = IAutomationConnectionBoundObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e8558fb_ca52_5b65_9830_dd2905816093);
 }
 impl ::windows::core::RuntimeName for AutomationConnectionBoundObject {
@@ -228,7 +228,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationElement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.AutomationElement;{a1898370-2c07-56fd-993f-61a72a08058c})");
 }
 unsafe impl ::windows::core::Interface for AutomationElement {
-    type Vtable = IAutomationElementVtbl;
+    type Vtable = IAutomationElement_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1898370_2c07_56fd_993f_61a72a08058c);
 }
 impl ::windows::core::RuntimeName for AutomationElement {
@@ -300,7 +300,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationTextRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.AutomationTextRange;{7e101b65-40d3-5994-85a9-0a0cb9a4ec98})");
 }
 unsafe impl ::windows::core::Interface for AutomationTextRange {
-    type Vtable = IAutomationTextRangeVtbl;
+    type Vtable = IAutomationTextRange_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e101b65_40d3_5994_85a9_0a0cb9a4ec98);
 }
 impl ::windows::core::RuntimeName for AutomationTextRange {
@@ -352,12 +352,12 @@ unsafe impl ::core::marker::Sync for AutomationTextRange {}
 #[repr(transparent)]
 pub struct IAutomationConnection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationConnection {
-    type Vtable = IAutomationConnectionVtbl;
+    type Vtable = IAutomationConnection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaad262ed_0ef4_5d43_97be_a834e27b65b9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationConnectionVtbl {
+pub struct IAutomationConnection_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsRemoteSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub AppUserModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -367,12 +367,12 @@ pub struct IAutomationConnectionVtbl {
 #[repr(transparent)]
 pub struct IAutomationConnectionBoundObject(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationConnectionBoundObject {
-    type Vtable = IAutomationConnectionBoundObjectVtbl;
+    type Vtable = IAutomationConnectionBoundObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e8558fb_ca52_5b65_9830_dd2905816093);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationConnectionBoundObjectVtbl {
+pub struct IAutomationConnectionBoundObject_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Connection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -380,12 +380,12 @@ pub struct IAutomationConnectionBoundObjectVtbl {
 #[repr(transparent)]
 pub struct IAutomationElement(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationElement {
-    type Vtable = IAutomationElementVtbl;
+    type Vtable = IAutomationElement_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1898370_2c07_56fd_993f_61a72a08058c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationElementVtbl {
+pub struct IAutomationElement_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsRemoteSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub AppUserModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -395,12 +395,12 @@ pub struct IAutomationElementVtbl {
 #[repr(transparent)]
 pub struct IAutomationTextRange(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationTextRange {
-    type Vtable = IAutomationTextRangeVtbl;
+    type Vtable = IAutomationTextRange_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e101b65_40d3_5994_85a9_0a0cb9a4ec98);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationTextRangeVtbl {
+pub struct IAutomationTextRange_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[cfg(feature = "implement")]

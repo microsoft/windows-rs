@@ -1,5 +1,5 @@
 #[cfg(feature = "Win32_Foundation")]
-pub trait IRadialControllerConfigurationInteropImpl: Sized {
+pub trait IRadialControllerConfigurationInterop_Impl: Sized {
     fn GetForWindow(&mut self, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7,9 +7,9 @@ impl ::windows::core::RuntimeName for IRadialControllerConfigurationInterop {
     const NAME: &'static str = "";
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IRadialControllerConfigurationInteropVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerConfigurationInteropImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerConfigurationInteropVtbl {
-        unsafe extern "system" fn GetForWindow<Impl: IRadialControllerConfigurationInteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IRadialControllerConfigurationInterop_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerConfigurationInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerConfigurationInterop_Vtbl {
+        unsafe extern "system" fn GetForWindow<Impl: IRadialControllerConfigurationInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetForWindow(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
@@ -23,7 +23,7 @@ impl IRadialControllerConfigurationInteropVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IRadialControllerIndependentInputSourceInteropImpl: Sized {
+pub trait IRadialControllerIndependentInputSourceInterop_Impl: Sized {
     fn CreateForWindow(&mut self, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -31,9 +31,9 @@ impl ::windows::core::RuntimeName for IRadialControllerIndependentInputSourceInt
     const NAME: &'static str = "";
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IRadialControllerIndependentInputSourceInteropVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerIndependentInputSourceInteropImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerIndependentInputSourceInteropVtbl {
-        unsafe extern "system" fn CreateForWindow<Impl: IRadialControllerIndependentInputSourceInteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IRadialControllerIndependentInputSourceInterop_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerIndependentInputSourceInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerIndependentInputSourceInterop_Vtbl {
+        unsafe extern "system" fn CreateForWindow<Impl: IRadialControllerIndependentInputSourceInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CreateForWindow(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
@@ -47,7 +47,7 @@ impl IRadialControllerIndependentInputSourceInteropVtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IRadialControllerInteropImpl: Sized {
+pub trait IRadialControllerInterop_Impl: Sized {
     fn CreateForWindow(&mut self, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -55,9 +55,9 @@ impl ::windows::core::RuntimeName for IRadialControllerInterop {
     const NAME: &'static str = "";
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IRadialControllerInteropVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerInteropImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerInteropVtbl {
-        unsafe extern "system" fn CreateForWindow<Impl: IRadialControllerInteropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IRadialControllerInterop_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerInterop_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRadialControllerInterop_Vtbl {
+        unsafe extern "system" fn CreateForWindow<Impl: IRadialControllerInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).CreateForWindow(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }

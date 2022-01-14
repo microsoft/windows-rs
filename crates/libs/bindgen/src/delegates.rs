@@ -14,7 +14,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
 
 fn gen_win_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = gen_ident(def.name());
-    let vtbl = name.join("Vtbl");
+    let vtbl = name.join("_Vtbl");
     let boxed = name.join("Box");
 
     let phantoms = gen_phantoms(def, gen);

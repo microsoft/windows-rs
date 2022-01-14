@@ -719,12 +719,12 @@ impl ::core::fmt::Debug for IActiveIME {
     }
 }
 unsafe impl ::windows::core::Interface for IActiveIME {
-    type Vtable = IActiveIMEVtbl;
+    type Vtable = IActiveIME_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fe20962_d077_11d0_8fe7_00aa006bcc59);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActiveIMEVtbl {
+pub struct IActiveIME_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Inquire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: super::super::super::Foundation::PWSTR, pdwprivate: *mut u32) -> ::windows::core::HRESULT,
@@ -938,13 +938,13 @@ impl ::core::fmt::Debug for IActiveIME2 {
     }
 }
 unsafe impl ::windows::core::Interface for IActiveIME2 {
-    type Vtable = IActiveIME2Vtbl;
+    type Vtable = IActiveIME2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1c4bf0e_2d53_11d2_93e1_0060b067b86e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActiveIME2Vtbl {
-    pub base: IActiveIMEVtbl,
+pub struct IActiveIME2_Vtbl {
+    pub base: IActiveIME_Vtbl,
     pub Sleep: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Unsleep: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fdead: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -1348,12 +1348,12 @@ impl ::core::fmt::Debug for IActiveIMMApp {
     }
 }
 unsafe impl ::windows::core::Interface for IActiveIMMApp {
-    type Vtable = IActiveIMMAppVtbl;
+    type Vtable = IActiveIMMApp_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c0e040_62d1_11d1_9326_0060b067b86e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActiveIMMAppVtbl {
+pub struct IActiveIMMApp_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub AssociateContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, hime: super::super::super::Globalization::HIMC, phprev: *mut super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
@@ -2121,12 +2121,12 @@ impl ::core::fmt::Debug for IActiveIMMIME {
     }
 }
 unsafe impl ::windows::core::Interface for IActiveIMMIME {
-    type Vtable = IActiveIMMIMEVtbl;
+    type Vtable = IActiveIMMIME_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c03411_f96b_11d0_a475_00aa006bcc59);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActiveIMMIMEVtbl {
+pub struct IActiveIMMIME_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub AssociateContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, hime: super::super::super::Globalization::HIMC, phprev: *mut super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT,
@@ -2527,12 +2527,12 @@ impl ::core::fmt::Debug for IActiveIMMMessagePumpOwner {
     }
 }
 unsafe impl ::windows::core::Interface for IActiveIMMMessagePumpOwner {
-    type Vtable = IActiveIMMMessagePumpOwnerVtbl;
+    type Vtable = IActiveIMMMessagePumpOwner_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5cf2cfa_8aeb_11d1_9364_0060b067b86e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActiveIMMMessagePumpOwnerVtbl {
+pub struct IActiveIMMMessagePumpOwner_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub End: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2594,12 +2594,12 @@ impl ::core::fmt::Debug for IActiveIMMRegistrar {
     }
 }
 unsafe impl ::windows::core::Interface for IActiveIMMRegistrar {
-    type Vtable = IActiveIMMRegistrarVtbl;
+    type Vtable = IActiveIMMRegistrar_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3458082_bd00_11d1_939b_0060b067b86e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IActiveIMMRegistrarVtbl {
+pub struct IActiveIMMRegistrar_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RegisterIME: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, lgid: u16, psziconfile: super::super::super::Foundation::PWSTR, pszdesc: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -2667,12 +2667,12 @@ impl ::core::fmt::Debug for IEnumInputContext {
     }
 }
 unsafe impl ::windows::core::Interface for IEnumInputContext {
-    type Vtable = IEnumInputContextVtbl;
+    type Vtable = IEnumInputContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09b5eab0_f997_11d1_93d4_0060b067b86e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumInputContextVtbl {
+pub struct IEnumInputContext_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Globalization")]
@@ -2742,12 +2742,12 @@ impl ::core::fmt::Debug for IEnumRegisterWordA {
     }
 }
 unsafe impl ::windows::core::Interface for IEnumRegisterWordA {
-    type Vtable = IEnumRegisterWordAVtbl;
+    type Vtable = IEnumRegisterWordA_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c03412_f96b_11d0_a475_00aa006bcc59);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumRegisterWordAVtbl {
+pub struct IEnumRegisterWordA_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -2817,12 +2817,12 @@ impl ::core::fmt::Debug for IEnumRegisterWordW {
     }
 }
 unsafe impl ::windows::core::Interface for IEnumRegisterWordW {
-    type Vtable = IEnumRegisterWordWVtbl;
+    type Vtable = IEnumRegisterWordW_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4955dd31_b159_11d0_8fcf_00aa006bcc59);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEnumRegisterWordWVtbl {
+pub struct IEnumRegisterWordW_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -2922,14 +2922,14 @@ impl ::core::fmt::Debug for IFEClassFactory {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFEClassFactory {
-    type Vtable = IFEClassFactoryVtbl;
+    type Vtable = IFEClassFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFEClassFactoryVtbl {
-    pub base: super::super::super::System::Com::IClassFactoryVtbl,
+pub struct IFEClassFactory_Vtbl {
+    pub base: super::super::super::System::Com::IClassFactory_Vtbl,
 }
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
@@ -2992,12 +2992,12 @@ impl ::core::fmt::Debug for IFECommon {
     }
 }
 unsafe impl ::windows::core::Interface for IFECommon {
-    type Vtable = IFECommonVtbl;
+    type Vtable = IFECommon_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x019f7151_e6db_11d0_83c3_00c04fddb82e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFECommonVtbl {
+pub struct IFECommon_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsDefaultIME: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: super::super::super::Foundation::PSTR, cszname: i32) -> ::windows::core::HRESULT,
@@ -3247,12 +3247,12 @@ impl ::core::fmt::Debug for IFEDictionary {
     }
 }
 unsafe impl ::windows::core::Interface for IFEDictionary {
-    type Vtable = IFEDictionaryVtbl;
+    type Vtable = IFEDictionary_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x019f7153_e6db_11d0_83c3_00c04fddb82e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFEDictionaryVtbl {
+pub struct IFEDictionary_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchdictpath: super::super::super::Foundation::PSTR, pshf: *mut IMESHF) -> ::windows::core::HRESULT,
@@ -3377,12 +3377,12 @@ impl ::core::fmt::Debug for IFELanguage {
     }
 }
 unsafe impl ::windows::core::Interface for IFELanguage {
-    type Vtable = IFELanguageVtbl;
+    type Vtable = IFELanguage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x019f7152_e6db_11d0_83c3_00c04fddb82e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFELanguageVtbl {
+pub struct IFELanguage_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3463,12 +3463,12 @@ impl ::core::fmt::Debug for IImePad {
     }
 }
 unsafe impl ::windows::core::Interface for IImePad {
-    type Vtable = IImePadVtbl;
+    type Vtable = IImePad_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d8e643a_c3a9_11d1_afef_00805f0c8b6d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IImePadVtbl {
+pub struct IImePad_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piimepadapplet: ::windows::core::RawPtr, reqid: IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
@@ -3540,12 +3540,12 @@ impl ::core::fmt::Debug for IImePadApplet {
     }
 }
 unsafe impl ::windows::core::Interface for IImePadApplet {
-    type Vtable = IImePadAppletVtbl;
+    type Vtable = IImePadApplet_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d8e643b_c3a9_11d1_afef_00805f0c8b6d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IImePadAppletVtbl {
+pub struct IImePadApplet_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpiimepad: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Terminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3614,12 +3614,12 @@ impl ::core::fmt::Debug for IImePlugInDictDictionaryList {
     }
 }
 unsafe impl ::windows::core::Interface for IImePlugInDictDictionaryList {
-    type Vtable = IImePlugInDictDictionaryListVtbl;
+    type Vtable = IImePlugInDictDictionaryList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98752974_b0a6_489b_8f6f_bff3769c8eeb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IImePlugInDictDictionaryListVtbl {
+pub struct IImePlugInDictDictionaryList_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetDictionariesInUse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prgdictionaryguid: *mut *mut super::super::super::System::Com::SAFEARRAY, prgdatecreated: *mut *mut super::super::super::System::Com::SAFEARRAY, prgfencrypted: *mut *mut super::super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
@@ -3676,12 +3676,12 @@ impl ::core::fmt::Debug for IImeSpecifyApplets {
     }
 }
 unsafe impl ::windows::core::Interface for IImeSpecifyApplets {
-    type Vtable = IImeSpecifyAppletsVtbl;
+    type Vtable = IImeSpecifyApplets_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d8e643c_c3a9_11d1_afef_00805f0c8b6d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IImeSpecifyAppletsVtbl {
+pub struct IImeSpecifyApplets_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetAppletIIDList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, refiid: *const ::windows::core::GUID, lpiidlist: *mut APPLETIDLIST) -> ::windows::core::HRESULT,
 }

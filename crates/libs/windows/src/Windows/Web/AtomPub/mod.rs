@@ -229,7 +229,7 @@ unsafe impl ::windows::core::RuntimeType for AtomPubClient {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.AtomPubClient;{35392c38-cded-4d4c-9637-05f15c1c9406})");
 }
 unsafe impl ::windows::core::Interface for AtomPubClient {
-    type Vtable = IAtomPubClientVtbl;
+    type Vtable = IAtomPubClient_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35392c38_cded_4d4c_9637_05f15c1c9406);
 }
 impl ::windows::core::RuntimeName for AtomPubClient {
@@ -307,12 +307,12 @@ unsafe impl ::core::marker::Sync for AtomPubClient {}
 #[repr(transparent)]
 pub struct IAtomPubClient(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAtomPubClient {
-    type Vtable = IAtomPubClientVtbl;
+    type Vtable = IAtomPubClient_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35392c38_cded_4d4c_9637_05f15c1c9406);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAtomPubClientVtbl {
+pub struct IAtomPubClient_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
     pub RetrieveServiceDocumentAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -360,12 +360,12 @@ pub struct IAtomPubClientVtbl {
 #[repr(transparent)]
 pub struct IAtomPubClientFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAtomPubClientFactory {
-    type Vtable = IAtomPubClientFactoryVtbl;
+    type Vtable = IAtomPubClientFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49d55012_57cb_4bde_ab9f_2610b172777b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAtomPubClientFactoryVtbl {
+pub struct IAtomPubClientFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Security_Credentials")]
     pub CreateAtomPubClientWithCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servercredential: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -376,12 +376,12 @@ pub struct IAtomPubClientFactoryVtbl {
 #[repr(transparent)]
 pub struct IResourceCollection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IResourceCollection {
-    type Vtable = IResourceCollectionVtbl;
+    type Vtable = IResourceCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f5fd609_bc88_41d4_88fa_3de6704d428e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IResourceCollectionVtbl {
+pub struct IResourceCollection_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Web_Syndication")]
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -404,12 +404,12 @@ pub struct IResourceCollectionVtbl {
 #[repr(transparent)]
 pub struct IServiceDocument(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IServiceDocument {
-    type Vtable = IServiceDocumentVtbl;
+    type Vtable = IServiceDocument_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b7ec771_2ab3_4dbe_8bcc_778f92b75e51);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IServiceDocumentVtbl {
+pub struct IServiceDocument_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Workspaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -420,12 +420,12 @@ pub struct IServiceDocumentVtbl {
 #[repr(transparent)]
 pub struct IWorkspace(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IWorkspace {
-    type Vtable = IWorkspaceVtbl;
+    type Vtable = IWorkspace_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb41da63b_a4b8_4036_89c5_83c31266ba49);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWorkspaceVtbl {
+pub struct IWorkspace_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Web_Syndication")]
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -599,7 +599,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.ResourceCollection;{7f5fd609-bc88-41d4-88fa-3de6704d428e})");
 }
 unsafe impl ::windows::core::Interface for ResourceCollection {
-    type Vtable = IResourceCollectionVtbl;
+    type Vtable = IResourceCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f5fd609_bc88_41d4_88fa_3de6704d428e);
 }
 impl ::windows::core::RuntimeName for ResourceCollection {
@@ -809,7 +809,7 @@ unsafe impl ::windows::core::RuntimeType for ServiceDocument {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.ServiceDocument;{8b7ec771-2ab3-4dbe-8bcc-778f92b75e51})");
 }
 unsafe impl ::windows::core::Interface for ServiceDocument {
-    type Vtable = IServiceDocumentVtbl;
+    type Vtable = IServiceDocument_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b7ec771_2ab3_4dbe_8bcc_778f92b75e51);
 }
 impl ::windows::core::RuntimeName for ServiceDocument {
@@ -1028,7 +1028,7 @@ unsafe impl ::windows::core::RuntimeType for Workspace {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.Workspace;{b41da63b-a4b8-4036-89c5-83c31266ba49})");
 }
 unsafe impl ::windows::core::Interface for Workspace {
-    type Vtable = IWorkspaceVtbl;
+    type Vtable = IWorkspace_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb41da63b_a4b8_4036_89c5_83c31266ba49);
 }
 impl ::windows::core::RuntimeName for Workspace {

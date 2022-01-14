@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IKnownSimpleHapticsControllerWaveformsStaticsImpl: Sized {
+pub trait IKnownSimpleHapticsControllerWaveformsStatics_Impl: Sized {
     fn Click(&mut self) -> ::windows::core::Result<u16>;
     fn BuzzContinuous(&mut self) -> ::windows::core::Result<u16>;
     fn RumbleContinuous(&mut self) -> ::windows::core::Result<u16>;
@@ -11,9 +11,9 @@ impl ::windows::core::RuntimeName for IKnownSimpleHapticsControllerWaveformsStat
     const NAME: &'static str = "Windows.Devices.Haptics.IKnownSimpleHapticsControllerWaveformsStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IKnownSimpleHapticsControllerWaveformsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownSimpleHapticsControllerWaveformsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownSimpleHapticsControllerWaveformsStaticsVtbl {
-        unsafe extern "system" fn Click<Impl: IKnownSimpleHapticsControllerWaveformsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+impl IKnownSimpleHapticsControllerWaveformsStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownSimpleHapticsControllerWaveformsStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownSimpleHapticsControllerWaveformsStatics_Vtbl {
+        unsafe extern "system" fn Click<Impl: IKnownSimpleHapticsControllerWaveformsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Click() {
                 ::core::result::Result::Ok(ok__) => {
@@ -24,7 +24,7 @@ impl IKnownSimpleHapticsControllerWaveformsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BuzzContinuous<Impl: IKnownSimpleHapticsControllerWaveformsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BuzzContinuous<Impl: IKnownSimpleHapticsControllerWaveformsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BuzzContinuous() {
                 ::core::result::Result::Ok(ok__) => {
@@ -35,7 +35,7 @@ impl IKnownSimpleHapticsControllerWaveformsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RumbleContinuous<Impl: IKnownSimpleHapticsControllerWaveformsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RumbleContinuous<Impl: IKnownSimpleHapticsControllerWaveformsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RumbleContinuous() {
                 ::core::result::Result::Ok(ok__) => {
@@ -46,7 +46,7 @@ impl IKnownSimpleHapticsControllerWaveformsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Press<Impl: IKnownSimpleHapticsControllerWaveformsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Press<Impl: IKnownSimpleHapticsControllerWaveformsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Press() {
                 ::core::result::Result::Ok(ok__) => {
@@ -57,7 +57,7 @@ impl IKnownSimpleHapticsControllerWaveformsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Release<Impl: IKnownSimpleHapticsControllerWaveformsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Release<Impl: IKnownSimpleHapticsControllerWaveformsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Release() {
                 ::core::result::Result::Ok(ok__) => {
@@ -82,7 +82,7 @@ impl IKnownSimpleHapticsControllerWaveformsStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IKnownSimpleHapticsControllerWaveformsStatics2Impl: Sized {
+pub trait IKnownSimpleHapticsControllerWaveformsStatics2_Impl: Sized {
     fn BrushContinuous(&mut self) -> ::windows::core::Result<u16>;
     fn ChiselMarkerContinuous(&mut self) -> ::windows::core::Result<u16>;
     fn EraserContinuous(&mut self) -> ::windows::core::Result<u16>;
@@ -99,9 +99,9 @@ impl ::windows::core::RuntimeName for IKnownSimpleHapticsControllerWaveformsStat
     const NAME: &'static str = "Windows.Devices.Haptics.IKnownSimpleHapticsControllerWaveformsStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IKnownSimpleHapticsControllerWaveformsStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownSimpleHapticsControllerWaveformsStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownSimpleHapticsControllerWaveformsStatics2Vtbl {
-        unsafe extern "system" fn BrushContinuous<Impl: IKnownSimpleHapticsControllerWaveformsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+impl IKnownSimpleHapticsControllerWaveformsStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownSimpleHapticsControllerWaveformsStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownSimpleHapticsControllerWaveformsStatics2_Vtbl {
+        unsafe extern "system" fn BrushContinuous<Impl: IKnownSimpleHapticsControllerWaveformsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BrushContinuous() {
                 ::core::result::Result::Ok(ok__) => {
@@ -112,7 +112,7 @@ impl IKnownSimpleHapticsControllerWaveformsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ChiselMarkerContinuous<Impl: IKnownSimpleHapticsControllerWaveformsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ChiselMarkerContinuous<Impl: IKnownSimpleHapticsControllerWaveformsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ChiselMarkerContinuous() {
                 ::core::result::Result::Ok(ok__) => {
@@ -123,7 +123,7 @@ impl IKnownSimpleHapticsControllerWaveformsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EraserContinuous<Impl: IKnownSimpleHapticsControllerWaveformsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EraserContinuous<Impl: IKnownSimpleHapticsControllerWaveformsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EraserContinuous() {
                 ::core::result::Result::Ok(ok__) => {
@@ -134,7 +134,7 @@ impl IKnownSimpleHapticsControllerWaveformsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Error<Impl: IKnownSimpleHapticsControllerWaveformsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Error<Impl: IKnownSimpleHapticsControllerWaveformsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Error() {
                 ::core::result::Result::Ok(ok__) => {
@@ -145,7 +145,7 @@ impl IKnownSimpleHapticsControllerWaveformsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GalaxyPenContinuous<Impl: IKnownSimpleHapticsControllerWaveformsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GalaxyPenContinuous<Impl: IKnownSimpleHapticsControllerWaveformsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GalaxyPenContinuous() {
                 ::core::result::Result::Ok(ok__) => {
@@ -156,7 +156,7 @@ impl IKnownSimpleHapticsControllerWaveformsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Hover<Impl: IKnownSimpleHapticsControllerWaveformsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Hover<Impl: IKnownSimpleHapticsControllerWaveformsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Hover() {
                 ::core::result::Result::Ok(ok__) => {
@@ -167,7 +167,7 @@ impl IKnownSimpleHapticsControllerWaveformsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InkContinuous<Impl: IKnownSimpleHapticsControllerWaveformsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InkContinuous<Impl: IKnownSimpleHapticsControllerWaveformsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InkContinuous() {
                 ::core::result::Result::Ok(ok__) => {
@@ -178,7 +178,7 @@ impl IKnownSimpleHapticsControllerWaveformsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MarkerContinuous<Impl: IKnownSimpleHapticsControllerWaveformsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MarkerContinuous<Impl: IKnownSimpleHapticsControllerWaveformsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MarkerContinuous() {
                 ::core::result::Result::Ok(ok__) => {
@@ -189,7 +189,7 @@ impl IKnownSimpleHapticsControllerWaveformsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PencilContinuous<Impl: IKnownSimpleHapticsControllerWaveformsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PencilContinuous<Impl: IKnownSimpleHapticsControllerWaveformsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PencilContinuous() {
                 ::core::result::Result::Ok(ok__) => {
@@ -200,7 +200,7 @@ impl IKnownSimpleHapticsControllerWaveformsStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Success<Impl: IKnownSimpleHapticsControllerWaveformsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Success<Impl: IKnownSimpleHapticsControllerWaveformsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Success() {
                 ::core::result::Result::Ok(ok__) => {
@@ -230,7 +230,7 @@ impl IKnownSimpleHapticsControllerWaveformsStatics2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ISimpleHapticsControllerImpl: Sized {
+pub trait ISimpleHapticsController_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SupportedFeedback(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SimpleHapticsControllerFeedback>>;
     fn IsIntensitySupported(&mut self) -> ::windows::core::Result<bool>;
@@ -248,9 +248,9 @@ impl ::windows::core::RuntimeName for ISimpleHapticsController {
     const NAME: &'static str = "Windows.Devices.Haptics.ISimpleHapticsController";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ISimpleHapticsControllerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISimpleHapticsControllerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISimpleHapticsControllerVtbl {
-        unsafe extern "system" fn Id<Impl: ISimpleHapticsControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISimpleHapticsController_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISimpleHapticsController_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISimpleHapticsController_Vtbl {
+        unsafe extern "system" fn Id<Impl: ISimpleHapticsController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -261,7 +261,7 @@ impl ISimpleHapticsControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedFeedback<Impl: ISimpleHapticsControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedFeedback<Impl: ISimpleHapticsController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedFeedback() {
                 ::core::result::Result::Ok(ok__) => {
@@ -272,7 +272,7 @@ impl ISimpleHapticsControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsIntensitySupported<Impl: ISimpleHapticsControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsIntensitySupported<Impl: ISimpleHapticsController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsIntensitySupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -283,7 +283,7 @@ impl ISimpleHapticsControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsPlayCountSupported<Impl: ISimpleHapticsControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPlayCountSupported<Impl: ISimpleHapticsController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPlayCountSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -294,7 +294,7 @@ impl ISimpleHapticsControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsPlayDurationSupported<Impl: ISimpleHapticsControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPlayDurationSupported<Impl: ISimpleHapticsController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPlayDurationSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -305,7 +305,7 @@ impl ISimpleHapticsControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsReplayPauseIntervalSupported<Impl: ISimpleHapticsControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsReplayPauseIntervalSupported<Impl: ISimpleHapticsController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsReplayPauseIntervalSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -316,23 +316,23 @@ impl ISimpleHapticsControllerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StopFeedback<Impl: ISimpleHapticsControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopFeedback<Impl: ISimpleHapticsController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).StopFeedback().into()
         }
-        unsafe extern "system" fn SendHapticFeedback<Impl: ISimpleHapticsControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, feedback: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendHapticFeedback<Impl: ISimpleHapticsController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, feedback: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SendHapticFeedback(&*(&feedback as *const <SimpleHapticsControllerFeedback as ::windows::core::Abi>::Abi as *const <SimpleHapticsControllerFeedback as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SendHapticFeedbackWithIntensity<Impl: ISimpleHapticsControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, feedback: ::windows::core::RawPtr, intensity: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendHapticFeedbackWithIntensity<Impl: ISimpleHapticsController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, feedback: ::windows::core::RawPtr, intensity: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SendHapticFeedbackWithIntensity(&*(&feedback as *const <SimpleHapticsControllerFeedback as ::windows::core::Abi>::Abi as *const <SimpleHapticsControllerFeedback as ::windows::core::DefaultType>::DefaultType), intensity).into()
         }
-        unsafe extern "system" fn SendHapticFeedbackForDuration<Impl: ISimpleHapticsControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, feedback: ::windows::core::RawPtr, intensity: f64, playduration: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendHapticFeedbackForDuration<Impl: ISimpleHapticsController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, feedback: ::windows::core::RawPtr, intensity: f64, playduration: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SendHapticFeedbackForDuration(&*(&feedback as *const <SimpleHapticsControllerFeedback as ::windows::core::Abi>::Abi as *const <SimpleHapticsControllerFeedback as ::windows::core::DefaultType>::DefaultType), intensity, &*(&playduration as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SendHapticFeedbackForPlayCount<Impl: ISimpleHapticsControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, feedback: ::windows::core::RawPtr, intensity: f64, playcount: i32, replaypauseinterval: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendHapticFeedbackForPlayCount<Impl: ISimpleHapticsController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, feedback: ::windows::core::RawPtr, intensity: f64, playcount: i32, replaypauseinterval: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SendHapticFeedbackForPlayCount(&*(&feedback as *const <SimpleHapticsControllerFeedback as ::windows::core::Abi>::Abi as *const <SimpleHapticsControllerFeedback as ::windows::core::DefaultType>::DefaultType), intensity, playcount, &*(&replaypauseinterval as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -356,7 +356,7 @@ impl ISimpleHapticsControllerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISimpleHapticsControllerFeedbackImpl: Sized {
+pub trait ISimpleHapticsControllerFeedback_Impl: Sized {
     fn Waveform(&mut self) -> ::windows::core::Result<u16>;
     fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
 }
@@ -365,9 +365,9 @@ impl ::windows::core::RuntimeName for ISimpleHapticsControllerFeedback {
     const NAME: &'static str = "Windows.Devices.Haptics.ISimpleHapticsControllerFeedback";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISimpleHapticsControllerFeedbackVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISimpleHapticsControllerFeedbackImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISimpleHapticsControllerFeedbackVtbl {
-        unsafe extern "system" fn Waveform<Impl: ISimpleHapticsControllerFeedbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
+impl ISimpleHapticsControllerFeedback_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISimpleHapticsControllerFeedback_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISimpleHapticsControllerFeedback_Vtbl {
+        unsafe extern "system" fn Waveform<Impl: ISimpleHapticsControllerFeedback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Waveform() {
                 ::core::result::Result::Ok(ok__) => {
@@ -378,7 +378,7 @@ impl ISimpleHapticsControllerFeedbackVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Duration<Impl: ISimpleHapticsControllerFeedbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Duration<Impl: ISimpleHapticsControllerFeedback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Duration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -400,7 +400,7 @@ impl ISimpleHapticsControllerFeedbackVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVibrationDeviceImpl: Sized {
+pub trait IVibrationDevice_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SimpleHapticsController(&mut self) -> ::windows::core::Result<SimpleHapticsController>;
 }
@@ -409,9 +409,9 @@ impl ::windows::core::RuntimeName for IVibrationDevice {
     const NAME: &'static str = "Windows.Devices.Haptics.IVibrationDevice";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVibrationDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVibrationDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVibrationDeviceVtbl {
-        unsafe extern "system" fn Id<Impl: IVibrationDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IVibrationDevice_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVibrationDevice_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVibrationDevice_Vtbl {
+        unsafe extern "system" fn Id<Impl: IVibrationDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -422,7 +422,7 @@ impl IVibrationDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SimpleHapticsController<Impl: IVibrationDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SimpleHapticsController<Impl: IVibrationDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SimpleHapticsController() {
                 ::core::result::Result::Ok(ok__) => {
@@ -444,7 +444,7 @@ impl IVibrationDeviceVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IVibrationDeviceStaticsImpl: Sized {
+pub trait IVibrationDeviceStatics_Impl: Sized {
     fn RequestAccessAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VibrationAccessStatus>>;
     fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VibrationDevice>>;
@@ -456,9 +456,9 @@ impl ::windows::core::RuntimeName for IVibrationDeviceStatics {
     const NAME: &'static str = "Windows.Devices.Haptics.IVibrationDeviceStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IVibrationDeviceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVibrationDeviceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVibrationDeviceStaticsVtbl {
-        unsafe extern "system" fn RequestAccessAsync<Impl: IVibrationDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVibrationDeviceStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVibrationDeviceStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVibrationDeviceStatics_Vtbl {
+        unsafe extern "system" fn RequestAccessAsync<Impl: IVibrationDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAccessAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -469,7 +469,7 @@ impl IVibrationDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceSelector<Impl: IVibrationDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelector<Impl: IVibrationDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeviceSelector() {
                 ::core::result::Result::Ok(ok__) => {
@@ -480,7 +480,7 @@ impl IVibrationDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FromIdAsync<Impl: IVibrationDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FromIdAsync<Impl: IVibrationDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -491,7 +491,7 @@ impl IVibrationDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDefaultAsync<Impl: IVibrationDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDefaultAsync<Impl: IVibrationDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefaultAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -502,7 +502,7 @@ impl IVibrationDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindAllAsync<Impl: IVibrationDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindAllAsync<Impl: IVibrationDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAllAsync() {
                 ::core::result::Result::Ok(ok__) => {

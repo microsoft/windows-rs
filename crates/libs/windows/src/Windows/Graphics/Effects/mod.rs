@@ -99,12 +99,12 @@ unsafe impl ::windows::core::RuntimeType for IGraphicsEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cb51c0ce-8fe6-4636-b202-861faa07d8f3}");
 }
 unsafe impl ::windows::core::Interface for IGraphicsEffect {
-    type Vtable = IGraphicsEffectVtbl;
+    type Vtable = IGraphicsEffect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb51c0ce_8fe6_4636_b202_861faa07d8f3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGraphicsEffectVtbl {
+pub struct IGraphicsEffect_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -173,12 +173,12 @@ unsafe impl ::windows::core::RuntimeType for IGraphicsEffectSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2d8f9ddc-4339-4eb9-9216-f9deb75658a2}");
 }
 unsafe impl ::windows::core::Interface for IGraphicsEffectSource {
-    type Vtable = IGraphicsEffectSourceVtbl;
+    type Vtable = IGraphicsEffectSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d8f9ddc_4339_4eb9_9216_f9deb75658a2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGraphicsEffectSourceVtbl {
+pub struct IGraphicsEffectSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[cfg(feature = "implement")]

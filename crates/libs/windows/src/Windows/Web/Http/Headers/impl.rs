@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IHttpCacheDirectiveHeaderValueCollectionImpl: Sized {
+pub trait IHttpCacheDirectiveHeaderValueCollection_Impl: Sized {
     fn MaxAge(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
     fn SetMaxAge(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
     fn MaxStale(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
@@ -16,9 +16,9 @@ impl ::windows::core::RuntimeName for IHttpCacheDirectiveHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpCacheDirectiveHeaderValueCollection";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IHttpCacheDirectiveHeaderValueCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCacheDirectiveHeaderValueCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpCacheDirectiveHeaderValueCollectionVtbl {
-        unsafe extern "system" fn MaxAge<Impl: IHttpCacheDirectiveHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpCacheDirectiveHeaderValueCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCacheDirectiveHeaderValueCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpCacheDirectiveHeaderValueCollection_Vtbl {
+        unsafe extern "system" fn MaxAge<Impl: IHttpCacheDirectiveHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxAge() {
                 ::core::result::Result::Ok(ok__) => {
@@ -29,11 +29,11 @@ impl IHttpCacheDirectiveHeaderValueCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxAge<Impl: IHttpCacheDirectiveHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxAge<Impl: IHttpCacheDirectiveHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxAge(&*(&value as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MaxStale<Impl: IHttpCacheDirectiveHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxStale<Impl: IHttpCacheDirectiveHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxStale() {
                 ::core::result::Result::Ok(ok__) => {
@@ -44,11 +44,11 @@ impl IHttpCacheDirectiveHeaderValueCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxStale<Impl: IHttpCacheDirectiveHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxStale<Impl: IHttpCacheDirectiveHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxStale(&*(&value as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MinFresh<Impl: IHttpCacheDirectiveHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinFresh<Impl: IHttpCacheDirectiveHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinFresh() {
                 ::core::result::Result::Ok(ok__) => {
@@ -59,11 +59,11 @@ impl IHttpCacheDirectiveHeaderValueCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMinFresh<Impl: IHttpCacheDirectiveHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMinFresh<Impl: IHttpCacheDirectiveHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMinFresh(&*(&value as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SharedMaxAge<Impl: IHttpCacheDirectiveHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SharedMaxAge<Impl: IHttpCacheDirectiveHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SharedMaxAge() {
                 ::core::result::Result::Ok(ok__) => {
@@ -74,15 +74,15 @@ impl IHttpCacheDirectiveHeaderValueCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSharedMaxAge<Impl: IHttpCacheDirectiveHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSharedMaxAge<Impl: IHttpCacheDirectiveHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSharedMaxAge(&*(&value as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ParseAdd<Impl: IHttpCacheDirectiveHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ParseAdd<Impl: IHttpCacheDirectiveHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryParseAdd<Impl: IHttpCacheDirectiveHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParseAdd<Impl: IHttpCacheDirectiveHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -112,7 +112,7 @@ impl IHttpCacheDirectiveHeaderValueCollectionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IHttpChallengeHeaderValueImpl: Sized {
+pub trait IHttpChallengeHeaderValue_Impl: Sized {
     fn Parameters(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>;
     fn Scheme(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Token(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -122,9 +122,9 @@ impl ::windows::core::RuntimeName for IHttpChallengeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpChallengeHeaderValue";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IHttpChallengeHeaderValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpChallengeHeaderValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpChallengeHeaderValueVtbl {
-        unsafe extern "system" fn Parameters<Impl: IHttpChallengeHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpChallengeHeaderValue_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpChallengeHeaderValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpChallengeHeaderValue_Vtbl {
+        unsafe extern "system" fn Parameters<Impl: IHttpChallengeHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parameters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -135,7 +135,7 @@ impl IHttpChallengeHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Scheme<Impl: IHttpChallengeHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Scheme<Impl: IHttpChallengeHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Scheme() {
                 ::core::result::Result::Ok(ok__) => {
@@ -146,7 +146,7 @@ impl IHttpChallengeHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Token<Impl: IHttpChallengeHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Token<Impl: IHttpChallengeHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Token() {
                 ::core::result::Result::Ok(ok__) => {
@@ -169,7 +169,7 @@ impl IHttpChallengeHeaderValueVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpChallengeHeaderValueCollectionImpl: Sized {
+pub trait IHttpChallengeHeaderValueCollection_Impl: Sized {
     fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
@@ -178,13 +178,13 @@ impl ::windows::core::RuntimeName for IHttpChallengeHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpChallengeHeaderValueCollection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpChallengeHeaderValueCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpChallengeHeaderValueCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpChallengeHeaderValueCollectionVtbl {
-        unsafe extern "system" fn ParseAdd<Impl: IHttpChallengeHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpChallengeHeaderValueCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpChallengeHeaderValueCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpChallengeHeaderValueCollection_Vtbl {
+        unsafe extern "system" fn ParseAdd<Impl: IHttpChallengeHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryParseAdd<Impl: IHttpChallengeHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParseAdd<Impl: IHttpChallengeHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -206,7 +206,7 @@ impl IHttpChallengeHeaderValueCollectionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpChallengeHeaderValueFactoryImpl: Sized {
+pub trait IHttpChallengeHeaderValueFactory_Impl: Sized {
     fn CreateFromScheme(&mut self, scheme: &::windows::core::HSTRING) -> ::windows::core::Result<HttpChallengeHeaderValue>;
     fn CreateFromSchemeWithToken(&mut self, scheme: &::windows::core::HSTRING, token: &::windows::core::HSTRING) -> ::windows::core::Result<HttpChallengeHeaderValue>;
 }
@@ -215,9 +215,9 @@ impl ::windows::core::RuntimeName for IHttpChallengeHeaderValueFactory {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpChallengeHeaderValueFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpChallengeHeaderValueFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpChallengeHeaderValueFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpChallengeHeaderValueFactoryVtbl {
-        unsafe extern "system" fn CreateFromScheme<Impl: IHttpChallengeHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scheme: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpChallengeHeaderValueFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpChallengeHeaderValueFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpChallengeHeaderValueFactory_Vtbl {
+        unsafe extern "system" fn CreateFromScheme<Impl: IHttpChallengeHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scheme: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromScheme(&*(&scheme as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -228,7 +228,7 @@ impl IHttpChallengeHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromSchemeWithToken<Impl: IHttpChallengeHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scheme: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromSchemeWithToken<Impl: IHttpChallengeHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scheme: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromSchemeWithToken(&*(&scheme as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&token as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -250,7 +250,7 @@ impl IHttpChallengeHeaderValueFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpChallengeHeaderValueStaticsImpl: Sized {
+pub trait IHttpChallengeHeaderValueStatics_Impl: Sized {
     fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpChallengeHeaderValue>;
     fn TryParse(&mut self, input: &::windows::core::HSTRING, challengeheadervalue: &mut ::core::option::Option<HttpChallengeHeaderValue>) -> ::windows::core::Result<bool>;
 }
@@ -259,9 +259,9 @@ impl ::windows::core::RuntimeName for IHttpChallengeHeaderValueStatics {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpChallengeHeaderValueStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpChallengeHeaderValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpChallengeHeaderValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpChallengeHeaderValueStaticsVtbl {
-        unsafe extern "system" fn Parse<Impl: IHttpChallengeHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpChallengeHeaderValueStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpChallengeHeaderValueStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpChallengeHeaderValueStatics_Vtbl {
+        unsafe extern "system" fn Parse<Impl: IHttpChallengeHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -272,7 +272,7 @@ impl IHttpChallengeHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryParse<Impl: IHttpChallengeHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, challengeheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParse<Impl: IHttpChallengeHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, challengeheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&challengeheadervalue)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -294,7 +294,7 @@ impl IHttpChallengeHeaderValueStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpConnectionOptionHeaderValueImpl: Sized {
+pub trait IHttpConnectionOptionHeaderValue_Impl: Sized {
     fn Token(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -302,9 +302,9 @@ impl ::windows::core::RuntimeName for IHttpConnectionOptionHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpConnectionOptionHeaderValue";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpConnectionOptionHeaderValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpConnectionOptionHeaderValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpConnectionOptionHeaderValueVtbl {
-        unsafe extern "system" fn Token<Impl: IHttpConnectionOptionHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpConnectionOptionHeaderValue_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpConnectionOptionHeaderValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpConnectionOptionHeaderValue_Vtbl {
+        unsafe extern "system" fn Token<Impl: IHttpConnectionOptionHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Token() {
                 ::core::result::Result::Ok(ok__) => {
@@ -322,7 +322,7 @@ impl IHttpConnectionOptionHeaderValueVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpConnectionOptionHeaderValueCollectionImpl: Sized {
+pub trait IHttpConnectionOptionHeaderValueCollection_Impl: Sized {
     fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
@@ -331,13 +331,13 @@ impl ::windows::core::RuntimeName for IHttpConnectionOptionHeaderValueCollection
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpConnectionOptionHeaderValueCollection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpConnectionOptionHeaderValueCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpConnectionOptionHeaderValueCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpConnectionOptionHeaderValueCollectionVtbl {
-        unsafe extern "system" fn ParseAdd<Impl: IHttpConnectionOptionHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpConnectionOptionHeaderValueCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpConnectionOptionHeaderValueCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpConnectionOptionHeaderValueCollection_Vtbl {
+        unsafe extern "system" fn ParseAdd<Impl: IHttpConnectionOptionHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryParseAdd<Impl: IHttpConnectionOptionHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParseAdd<Impl: IHttpConnectionOptionHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -359,7 +359,7 @@ impl IHttpConnectionOptionHeaderValueCollectionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpConnectionOptionHeaderValueFactoryImpl: Sized {
+pub trait IHttpConnectionOptionHeaderValueFactory_Impl: Sized {
     fn Create(&mut self, token: &::windows::core::HSTRING) -> ::windows::core::Result<HttpConnectionOptionHeaderValue>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -367,9 +367,9 @@ impl ::windows::core::RuntimeName for IHttpConnectionOptionHeaderValueFactory {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpConnectionOptionHeaderValueFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpConnectionOptionHeaderValueFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpConnectionOptionHeaderValueFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpConnectionOptionHeaderValueFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IHttpConnectionOptionHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpConnectionOptionHeaderValueFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpConnectionOptionHeaderValueFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpConnectionOptionHeaderValueFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IHttpConnectionOptionHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&token as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -390,7 +390,7 @@ impl IHttpConnectionOptionHeaderValueFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpConnectionOptionHeaderValueStaticsImpl: Sized {
+pub trait IHttpConnectionOptionHeaderValueStatics_Impl: Sized {
     fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpConnectionOptionHeaderValue>;
     fn TryParse(&mut self, input: &::windows::core::HSTRING, connectionoptionheadervalue: &mut ::core::option::Option<HttpConnectionOptionHeaderValue>) -> ::windows::core::Result<bool>;
 }
@@ -399,9 +399,9 @@ impl ::windows::core::RuntimeName for IHttpConnectionOptionHeaderValueStatics {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpConnectionOptionHeaderValueStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpConnectionOptionHeaderValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpConnectionOptionHeaderValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpConnectionOptionHeaderValueStaticsVtbl {
-        unsafe extern "system" fn Parse<Impl: IHttpConnectionOptionHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpConnectionOptionHeaderValueStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpConnectionOptionHeaderValueStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpConnectionOptionHeaderValueStatics_Vtbl {
+        unsafe extern "system" fn Parse<Impl: IHttpConnectionOptionHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -412,7 +412,7 @@ impl IHttpConnectionOptionHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryParse<Impl: IHttpConnectionOptionHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, connectionoptionheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParse<Impl: IHttpConnectionOptionHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, connectionoptionheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&connectionoptionheadervalue)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -434,7 +434,7 @@ impl IHttpConnectionOptionHeaderValueStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpContentCodingHeaderValueImpl: Sized {
+pub trait IHttpContentCodingHeaderValue_Impl: Sized {
     fn ContentCoding(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -442,9 +442,9 @@ impl ::windows::core::RuntimeName for IHttpContentCodingHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpContentCodingHeaderValue";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpContentCodingHeaderValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentCodingHeaderValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentCodingHeaderValueVtbl {
-        unsafe extern "system" fn ContentCoding<Impl: IHttpContentCodingHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpContentCodingHeaderValue_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentCodingHeaderValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentCodingHeaderValue_Vtbl {
+        unsafe extern "system" fn ContentCoding<Impl: IHttpContentCodingHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentCoding() {
                 ::core::result::Result::Ok(ok__) => {
@@ -465,7 +465,7 @@ impl IHttpContentCodingHeaderValueVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpContentCodingHeaderValueCollectionImpl: Sized {
+pub trait IHttpContentCodingHeaderValueCollection_Impl: Sized {
     fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
@@ -474,13 +474,13 @@ impl ::windows::core::RuntimeName for IHttpContentCodingHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpContentCodingHeaderValueCollection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpContentCodingHeaderValueCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentCodingHeaderValueCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentCodingHeaderValueCollectionVtbl {
-        unsafe extern "system" fn ParseAdd<Impl: IHttpContentCodingHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpContentCodingHeaderValueCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentCodingHeaderValueCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentCodingHeaderValueCollection_Vtbl {
+        unsafe extern "system" fn ParseAdd<Impl: IHttpContentCodingHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryParseAdd<Impl: IHttpContentCodingHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParseAdd<Impl: IHttpContentCodingHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -502,7 +502,7 @@ impl IHttpContentCodingHeaderValueCollectionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpContentCodingHeaderValueFactoryImpl: Sized {
+pub trait IHttpContentCodingHeaderValueFactory_Impl: Sized {
     fn Create(&mut self, contentcoding: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentCodingHeaderValue>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -510,9 +510,9 @@ impl ::windows::core::RuntimeName for IHttpContentCodingHeaderValueFactory {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpContentCodingHeaderValueFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpContentCodingHeaderValueFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentCodingHeaderValueFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentCodingHeaderValueFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IHttpContentCodingHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentcoding: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpContentCodingHeaderValueFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentCodingHeaderValueFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentCodingHeaderValueFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IHttpContentCodingHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentcoding: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&contentcoding as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -533,7 +533,7 @@ impl IHttpContentCodingHeaderValueFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpContentCodingHeaderValueStaticsImpl: Sized {
+pub trait IHttpContentCodingHeaderValueStatics_Impl: Sized {
     fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentCodingHeaderValue>;
     fn TryParse(&mut self, input: &::windows::core::HSTRING, contentcodingheadervalue: &mut ::core::option::Option<HttpContentCodingHeaderValue>) -> ::windows::core::Result<bool>;
 }
@@ -542,9 +542,9 @@ impl ::windows::core::RuntimeName for IHttpContentCodingHeaderValueStatics {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpContentCodingHeaderValueStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpContentCodingHeaderValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentCodingHeaderValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentCodingHeaderValueStaticsVtbl {
-        unsafe extern "system" fn Parse<Impl: IHttpContentCodingHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpContentCodingHeaderValueStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentCodingHeaderValueStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentCodingHeaderValueStatics_Vtbl {
+        unsafe extern "system" fn Parse<Impl: IHttpContentCodingHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -555,7 +555,7 @@ impl IHttpContentCodingHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryParse<Impl: IHttpContentCodingHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contentcodingheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParse<Impl: IHttpContentCodingHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contentcodingheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&contentcodingheadervalue)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -577,7 +577,7 @@ impl IHttpContentCodingHeaderValueStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IHttpContentCodingWithQualityHeaderValueImpl: Sized {
+pub trait IHttpContentCodingWithQualityHeaderValue_Impl: Sized {
     fn ContentCoding(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Quality(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f64>>;
 }
@@ -586,9 +586,9 @@ impl ::windows::core::RuntimeName for IHttpContentCodingWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpContentCodingWithQualityHeaderValue";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IHttpContentCodingWithQualityHeaderValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentCodingWithQualityHeaderValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentCodingWithQualityHeaderValueVtbl {
-        unsafe extern "system" fn ContentCoding<Impl: IHttpContentCodingWithQualityHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpContentCodingWithQualityHeaderValue_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentCodingWithQualityHeaderValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentCodingWithQualityHeaderValue_Vtbl {
+        unsafe extern "system" fn ContentCoding<Impl: IHttpContentCodingWithQualityHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentCoding() {
                 ::core::result::Result::Ok(ok__) => {
@@ -599,7 +599,7 @@ impl IHttpContentCodingWithQualityHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Quality<Impl: IHttpContentCodingWithQualityHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Quality<Impl: IHttpContentCodingWithQualityHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Quality() {
                 ::core::result::Result::Ok(ok__) => {
@@ -621,7 +621,7 @@ impl IHttpContentCodingWithQualityHeaderValueVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpContentCodingWithQualityHeaderValueCollectionImpl: Sized {
+pub trait IHttpContentCodingWithQualityHeaderValueCollection_Impl: Sized {
     fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
@@ -630,13 +630,13 @@ impl ::windows::core::RuntimeName for IHttpContentCodingWithQualityHeaderValueCo
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpContentCodingWithQualityHeaderValueCollection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpContentCodingWithQualityHeaderValueCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentCodingWithQualityHeaderValueCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentCodingWithQualityHeaderValueCollectionVtbl {
-        unsafe extern "system" fn ParseAdd<Impl: IHttpContentCodingWithQualityHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpContentCodingWithQualityHeaderValueCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentCodingWithQualityHeaderValueCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentCodingWithQualityHeaderValueCollection_Vtbl {
+        unsafe extern "system" fn ParseAdd<Impl: IHttpContentCodingWithQualityHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryParseAdd<Impl: IHttpContentCodingWithQualityHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParseAdd<Impl: IHttpContentCodingWithQualityHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -658,7 +658,7 @@ impl IHttpContentCodingWithQualityHeaderValueCollectionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpContentCodingWithQualityHeaderValueFactoryImpl: Sized {
+pub trait IHttpContentCodingWithQualityHeaderValueFactory_Impl: Sized {
     fn CreateFromValue(&mut self, contentcoding: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValue>;
     fn CreateFromValueWithQuality(&mut self, contentcoding: &::windows::core::HSTRING, quality: f64) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValue>;
 }
@@ -667,9 +667,9 @@ impl ::windows::core::RuntimeName for IHttpContentCodingWithQualityHeaderValueFa
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpContentCodingWithQualityHeaderValueFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpContentCodingWithQualityHeaderValueFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentCodingWithQualityHeaderValueFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentCodingWithQualityHeaderValueFactoryVtbl {
-        unsafe extern "system" fn CreateFromValue<Impl: IHttpContentCodingWithQualityHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentcoding: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpContentCodingWithQualityHeaderValueFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentCodingWithQualityHeaderValueFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentCodingWithQualityHeaderValueFactory_Vtbl {
+        unsafe extern "system" fn CreateFromValue<Impl: IHttpContentCodingWithQualityHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentcoding: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromValue(&*(&contentcoding as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -680,7 +680,7 @@ impl IHttpContentCodingWithQualityHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromValueWithQuality<Impl: IHttpContentCodingWithQualityHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentcoding: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, quality: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromValueWithQuality<Impl: IHttpContentCodingWithQualityHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentcoding: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, quality: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromValueWithQuality(&*(&contentcoding as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), quality) {
                 ::core::result::Result::Ok(ok__) => {
@@ -702,7 +702,7 @@ impl IHttpContentCodingWithQualityHeaderValueFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpContentCodingWithQualityHeaderValueStaticsImpl: Sized {
+pub trait IHttpContentCodingWithQualityHeaderValueStatics_Impl: Sized {
     fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValue>;
     fn TryParse(&mut self, input: &::windows::core::HSTRING, contentcodingwithqualityheadervalue: &mut ::core::option::Option<HttpContentCodingWithQualityHeaderValue>) -> ::windows::core::Result<bool>;
 }
@@ -711,9 +711,9 @@ impl ::windows::core::RuntimeName for IHttpContentCodingWithQualityHeaderValueSt
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpContentCodingWithQualityHeaderValueStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpContentCodingWithQualityHeaderValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentCodingWithQualityHeaderValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentCodingWithQualityHeaderValueStaticsVtbl {
-        unsafe extern "system" fn Parse<Impl: IHttpContentCodingWithQualityHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpContentCodingWithQualityHeaderValueStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentCodingWithQualityHeaderValueStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentCodingWithQualityHeaderValueStatics_Vtbl {
+        unsafe extern "system" fn Parse<Impl: IHttpContentCodingWithQualityHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -724,7 +724,7 @@ impl IHttpContentCodingWithQualityHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryParse<Impl: IHttpContentCodingWithQualityHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contentcodingwithqualityheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParse<Impl: IHttpContentCodingWithQualityHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contentcodingwithqualityheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&contentcodingwithqualityheadervalue)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -746,7 +746,7 @@ impl IHttpContentCodingWithQualityHeaderValueStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IHttpContentDispositionHeaderValueImpl: Sized {
+pub trait IHttpContentDispositionHeaderValue_Impl: Sized {
     fn DispositionType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetDispositionType(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn FileName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -764,9 +764,9 @@ impl ::windows::core::RuntimeName for IHttpContentDispositionHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpContentDispositionHeaderValue";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IHttpContentDispositionHeaderValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentDispositionHeaderValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentDispositionHeaderValueVtbl {
-        unsafe extern "system" fn DispositionType<Impl: IHttpContentDispositionHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpContentDispositionHeaderValue_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentDispositionHeaderValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentDispositionHeaderValue_Vtbl {
+        unsafe extern "system" fn DispositionType<Impl: IHttpContentDispositionHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DispositionType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -777,11 +777,11 @@ impl IHttpContentDispositionHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDispositionType<Impl: IHttpContentDispositionHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDispositionType<Impl: IHttpContentDispositionHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDispositionType(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FileName<Impl: IHttpContentDispositionHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FileName<Impl: IHttpContentDispositionHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FileName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -792,11 +792,11 @@ impl IHttpContentDispositionHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFileName<Impl: IHttpContentDispositionHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFileName<Impl: IHttpContentDispositionHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFileName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn FileNameStar<Impl: IHttpContentDispositionHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FileNameStar<Impl: IHttpContentDispositionHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FileNameStar() {
                 ::core::result::Result::Ok(ok__) => {
@@ -807,11 +807,11 @@ impl IHttpContentDispositionHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFileNameStar<Impl: IHttpContentDispositionHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFileNameStar<Impl: IHttpContentDispositionHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFileNameStar(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Name<Impl: IHttpContentDispositionHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Impl: IHttpContentDispositionHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -822,11 +822,11 @@ impl IHttpContentDispositionHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetName<Impl: IHttpContentDispositionHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetName<Impl: IHttpContentDispositionHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Parameters<Impl: IHttpContentDispositionHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Parameters<Impl: IHttpContentDispositionHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parameters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -837,7 +837,7 @@ impl IHttpContentDispositionHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Size<Impl: IHttpContentDispositionHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Size<Impl: IHttpContentDispositionHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Size() {
                 ::core::result::Result::Ok(ok__) => {
@@ -848,7 +848,7 @@ impl IHttpContentDispositionHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSize<Impl: IHttpContentDispositionHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSize<Impl: IHttpContentDispositionHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSize(&*(&value as *const <super::super::super::Foundation::IReference<u64> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<u64> as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -872,7 +872,7 @@ impl IHttpContentDispositionHeaderValueVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpContentDispositionHeaderValueFactoryImpl: Sized {
+pub trait IHttpContentDispositionHeaderValueFactory_Impl: Sized {
     fn Create(&mut self, dispositiontype: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentDispositionHeaderValue>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -880,9 +880,9 @@ impl ::windows::core::RuntimeName for IHttpContentDispositionHeaderValueFactory 
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpContentDispositionHeaderValueFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpContentDispositionHeaderValueFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentDispositionHeaderValueFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentDispositionHeaderValueFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IHttpContentDispositionHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dispositiontype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpContentDispositionHeaderValueFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentDispositionHeaderValueFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentDispositionHeaderValueFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IHttpContentDispositionHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dispositiontype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&dispositiontype as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -903,7 +903,7 @@ impl IHttpContentDispositionHeaderValueFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpContentDispositionHeaderValueStaticsImpl: Sized {
+pub trait IHttpContentDispositionHeaderValueStatics_Impl: Sized {
     fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentDispositionHeaderValue>;
     fn TryParse(&mut self, input: &::windows::core::HSTRING, contentdispositionheadervalue: &mut ::core::option::Option<HttpContentDispositionHeaderValue>) -> ::windows::core::Result<bool>;
 }
@@ -912,9 +912,9 @@ impl ::windows::core::RuntimeName for IHttpContentDispositionHeaderValueStatics 
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpContentDispositionHeaderValueStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpContentDispositionHeaderValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentDispositionHeaderValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentDispositionHeaderValueStaticsVtbl {
-        unsafe extern "system" fn Parse<Impl: IHttpContentDispositionHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpContentDispositionHeaderValueStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentDispositionHeaderValueStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentDispositionHeaderValueStatics_Vtbl {
+        unsafe extern "system" fn Parse<Impl: IHttpContentDispositionHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -925,7 +925,7 @@ impl IHttpContentDispositionHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryParse<Impl: IHttpContentDispositionHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contentdispositionheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParse<Impl: IHttpContentDispositionHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contentdispositionheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&contentdispositionheadervalue)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -947,7 +947,7 @@ impl IHttpContentDispositionHeaderValueStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IHttpContentHeaderCollectionImpl: Sized {
+pub trait IHttpContentHeaderCollection_Impl: Sized {
     fn ContentDisposition(&mut self) -> ::windows::core::Result<HttpContentDispositionHeaderValue>;
     fn SetContentDisposition(&mut self, value: &::core::option::Option<HttpContentDispositionHeaderValue>) -> ::windows::core::Result<()>;
     fn ContentEncoding(&mut self) -> ::windows::core::Result<HttpContentCodingHeaderValueCollection>;
@@ -974,9 +974,9 @@ impl ::windows::core::RuntimeName for IHttpContentHeaderCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpContentHeaderCollection";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IHttpContentHeaderCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentHeaderCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentHeaderCollectionVtbl {
-        unsafe extern "system" fn ContentDisposition<Impl: IHttpContentHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpContentHeaderCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentHeaderCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentHeaderCollection_Vtbl {
+        unsafe extern "system" fn ContentDisposition<Impl: IHttpContentHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentDisposition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -987,11 +987,11 @@ impl IHttpContentHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContentDisposition<Impl: IHttpContentHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContentDisposition<Impl: IHttpContentHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentDisposition(&*(&value as *const <HttpContentDispositionHeaderValue as ::windows::core::Abi>::Abi as *const <HttpContentDispositionHeaderValue as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ContentEncoding<Impl: IHttpContentHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentEncoding<Impl: IHttpContentHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentEncoding() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1002,7 +1002,7 @@ impl IHttpContentHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentLanguage<Impl: IHttpContentHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentLanguage<Impl: IHttpContentHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentLanguage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1013,7 +1013,7 @@ impl IHttpContentHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentLength<Impl: IHttpContentHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentLength<Impl: IHttpContentHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1024,11 +1024,11 @@ impl IHttpContentHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContentLength<Impl: IHttpContentHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContentLength<Impl: IHttpContentHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentLength(&*(&value as *const <super::super::super::Foundation::IReference<u64> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<u64> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ContentLocation<Impl: IHttpContentHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentLocation<Impl: IHttpContentHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentLocation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1039,11 +1039,11 @@ impl IHttpContentHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContentLocation<Impl: IHttpContentHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContentLocation<Impl: IHttpContentHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentLocation(&*(&value as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ContentMD5<Impl: IHttpContentHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentMD5<Impl: IHttpContentHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentMD5() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1054,11 +1054,11 @@ impl IHttpContentHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContentMD5<Impl: IHttpContentHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContentMD5<Impl: IHttpContentHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentMD5(&*(&value as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ContentRange<Impl: IHttpContentHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentRange<Impl: IHttpContentHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentRange() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1069,11 +1069,11 @@ impl IHttpContentHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContentRange<Impl: IHttpContentHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContentRange<Impl: IHttpContentHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentRange(&*(&value as *const <HttpContentRangeHeaderValue as ::windows::core::Abi>::Abi as *const <HttpContentRangeHeaderValue as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ContentType<Impl: IHttpContentHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentType<Impl: IHttpContentHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContentType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1084,11 +1084,11 @@ impl IHttpContentHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContentType<Impl: IHttpContentHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContentType<Impl: IHttpContentHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetContentType(&*(&value as *const <HttpMediaTypeHeaderValue as ::windows::core::Abi>::Abi as *const <HttpMediaTypeHeaderValue as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Expires<Impl: IHttpContentHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Expires<Impl: IHttpContentHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Expires() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1099,11 +1099,11 @@ impl IHttpContentHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExpires<Impl: IHttpContentHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetExpires<Impl: IHttpContentHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetExpires(&*(&value as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn LastModified<Impl: IHttpContentHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LastModified<Impl: IHttpContentHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LastModified() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1114,15 +1114,15 @@ impl IHttpContentHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLastModified<Impl: IHttpContentHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLastModified<Impl: IHttpContentHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLastModified(&*(&value as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Append<Impl: IHttpContentHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Append<Impl: IHttpContentHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Append(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryAppendWithoutValidation<Impl: IHttpContentHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryAppendWithoutValidation<Impl: IHttpContentHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryAppendWithoutValidation(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1162,7 +1162,7 @@ impl IHttpContentHeaderCollectionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IHttpContentRangeHeaderValueImpl: Sized {
+pub trait IHttpContentRangeHeaderValue_Impl: Sized {
     fn FirstBytePosition(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>>;
     fn LastBytePosition(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>>;
     fn Length(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>>;
@@ -1174,9 +1174,9 @@ impl ::windows::core::RuntimeName for IHttpContentRangeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpContentRangeHeaderValue";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IHttpContentRangeHeaderValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentRangeHeaderValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentRangeHeaderValueVtbl {
-        unsafe extern "system" fn FirstBytePosition<Impl: IHttpContentRangeHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpContentRangeHeaderValue_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentRangeHeaderValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentRangeHeaderValue_Vtbl {
+        unsafe extern "system" fn FirstBytePosition<Impl: IHttpContentRangeHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FirstBytePosition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1187,7 +1187,7 @@ impl IHttpContentRangeHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LastBytePosition<Impl: IHttpContentRangeHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LastBytePosition<Impl: IHttpContentRangeHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LastBytePosition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1198,7 +1198,7 @@ impl IHttpContentRangeHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Length<Impl: IHttpContentRangeHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Length<Impl: IHttpContentRangeHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Length() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1209,7 +1209,7 @@ impl IHttpContentRangeHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Unit<Impl: IHttpContentRangeHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Unit<Impl: IHttpContentRangeHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Unit() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1220,7 +1220,7 @@ impl IHttpContentRangeHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetUnit<Impl: IHttpContentRangeHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUnit<Impl: IHttpContentRangeHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUnit(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1238,7 +1238,7 @@ impl IHttpContentRangeHeaderValueVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpContentRangeHeaderValueFactoryImpl: Sized {
+pub trait IHttpContentRangeHeaderValueFactory_Impl: Sized {
     fn CreateFromLength(&mut self, length: u64) -> ::windows::core::Result<HttpContentRangeHeaderValue>;
     fn CreateFromRange(&mut self, from: u64, to: u64) -> ::windows::core::Result<HttpContentRangeHeaderValue>;
     fn CreateFromRangeWithLength(&mut self, from: u64, to: u64, length: u64) -> ::windows::core::Result<HttpContentRangeHeaderValue>;
@@ -1248,9 +1248,9 @@ impl ::windows::core::RuntimeName for IHttpContentRangeHeaderValueFactory {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpContentRangeHeaderValueFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpContentRangeHeaderValueFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentRangeHeaderValueFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentRangeHeaderValueFactoryVtbl {
-        unsafe extern "system" fn CreateFromLength<Impl: IHttpContentRangeHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: u64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpContentRangeHeaderValueFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentRangeHeaderValueFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentRangeHeaderValueFactory_Vtbl {
+        unsafe extern "system" fn CreateFromLength<Impl: IHttpContentRangeHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: u64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromLength(length) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1261,7 +1261,7 @@ impl IHttpContentRangeHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromRange<Impl: IHttpContentRangeHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, from: u64, to: u64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromRange<Impl: IHttpContentRangeHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, from: u64, to: u64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromRange(from, to) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1272,7 +1272,7 @@ impl IHttpContentRangeHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromRangeWithLength<Impl: IHttpContentRangeHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, from: u64, to: u64, length: u64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromRangeWithLength<Impl: IHttpContentRangeHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, from: u64, to: u64, length: u64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromRangeWithLength(from, to, length) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1295,7 +1295,7 @@ impl IHttpContentRangeHeaderValueFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpContentRangeHeaderValueStaticsImpl: Sized {
+pub trait IHttpContentRangeHeaderValueStatics_Impl: Sized {
     fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpContentRangeHeaderValue>;
     fn TryParse(&mut self, input: &::windows::core::HSTRING, contentrangeheadervalue: &mut ::core::option::Option<HttpContentRangeHeaderValue>) -> ::windows::core::Result<bool>;
 }
@@ -1304,9 +1304,9 @@ impl ::windows::core::RuntimeName for IHttpContentRangeHeaderValueStatics {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpContentRangeHeaderValueStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpContentRangeHeaderValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentRangeHeaderValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentRangeHeaderValueStaticsVtbl {
-        unsafe extern "system" fn Parse<Impl: IHttpContentRangeHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpContentRangeHeaderValueStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpContentRangeHeaderValueStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpContentRangeHeaderValueStatics_Vtbl {
+        unsafe extern "system" fn Parse<Impl: IHttpContentRangeHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1317,7 +1317,7 @@ impl IHttpContentRangeHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryParse<Impl: IHttpContentRangeHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contentrangeheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParse<Impl: IHttpContentRangeHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contentrangeheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&contentrangeheadervalue)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1339,7 +1339,7 @@ impl IHttpContentRangeHeaderValueStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpCookiePairHeaderValueImpl: Sized {
+pub trait IHttpCookiePairHeaderValue_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Value(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetValue(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -1349,9 +1349,9 @@ impl ::windows::core::RuntimeName for IHttpCookiePairHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpCookiePairHeaderValue";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpCookiePairHeaderValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCookiePairHeaderValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpCookiePairHeaderValueVtbl {
-        unsafe extern "system" fn Name<Impl: IHttpCookiePairHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpCookiePairHeaderValue_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCookiePairHeaderValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpCookiePairHeaderValue_Vtbl {
+        unsafe extern "system" fn Name<Impl: IHttpCookiePairHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1362,7 +1362,7 @@ impl IHttpCookiePairHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Impl: IHttpCookiePairHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: IHttpCookiePairHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1373,7 +1373,7 @@ impl IHttpCookiePairHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Impl: IHttpCookiePairHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Impl: IHttpCookiePairHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1389,7 +1389,7 @@ impl IHttpCookiePairHeaderValueVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpCookiePairHeaderValueCollectionImpl: Sized {
+pub trait IHttpCookiePairHeaderValueCollection_Impl: Sized {
     fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
@@ -1398,13 +1398,13 @@ impl ::windows::core::RuntimeName for IHttpCookiePairHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpCookiePairHeaderValueCollection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpCookiePairHeaderValueCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCookiePairHeaderValueCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpCookiePairHeaderValueCollectionVtbl {
-        unsafe extern "system" fn ParseAdd<Impl: IHttpCookiePairHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpCookiePairHeaderValueCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCookiePairHeaderValueCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpCookiePairHeaderValueCollection_Vtbl {
+        unsafe extern "system" fn ParseAdd<Impl: IHttpCookiePairHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryParseAdd<Impl: IHttpCookiePairHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParseAdd<Impl: IHttpCookiePairHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1426,7 +1426,7 @@ impl IHttpCookiePairHeaderValueCollectionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpCookiePairHeaderValueFactoryImpl: Sized {
+pub trait IHttpCookiePairHeaderValueFactory_Impl: Sized {
     fn CreateFromName(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCookiePairHeaderValue>;
     fn CreateFromNameWithValue(&mut self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCookiePairHeaderValue>;
 }
@@ -1435,9 +1435,9 @@ impl ::windows::core::RuntimeName for IHttpCookiePairHeaderValueFactory {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpCookiePairHeaderValueFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpCookiePairHeaderValueFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCookiePairHeaderValueFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpCookiePairHeaderValueFactoryVtbl {
-        unsafe extern "system" fn CreateFromName<Impl: IHttpCookiePairHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpCookiePairHeaderValueFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCookiePairHeaderValueFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpCookiePairHeaderValueFactory_Vtbl {
+        unsafe extern "system" fn CreateFromName<Impl: IHttpCookiePairHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromName(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1448,7 +1448,7 @@ impl IHttpCookiePairHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromNameWithValue<Impl: IHttpCookiePairHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromNameWithValue<Impl: IHttpCookiePairHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromNameWithValue(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1470,7 +1470,7 @@ impl IHttpCookiePairHeaderValueFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpCookiePairHeaderValueStaticsImpl: Sized {
+pub trait IHttpCookiePairHeaderValueStatics_Impl: Sized {
     fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCookiePairHeaderValue>;
     fn TryParse(&mut self, input: &::windows::core::HSTRING, cookiepairheadervalue: &mut ::core::option::Option<HttpCookiePairHeaderValue>) -> ::windows::core::Result<bool>;
 }
@@ -1479,9 +1479,9 @@ impl ::windows::core::RuntimeName for IHttpCookiePairHeaderValueStatics {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpCookiePairHeaderValueStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpCookiePairHeaderValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCookiePairHeaderValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpCookiePairHeaderValueStaticsVtbl {
-        unsafe extern "system" fn Parse<Impl: IHttpCookiePairHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpCookiePairHeaderValueStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCookiePairHeaderValueStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpCookiePairHeaderValueStatics_Vtbl {
+        unsafe extern "system" fn Parse<Impl: IHttpCookiePairHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1492,7 +1492,7 @@ impl IHttpCookiePairHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryParse<Impl: IHttpCookiePairHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, cookiepairheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParse<Impl: IHttpCookiePairHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, cookiepairheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&cookiepairheadervalue)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1514,7 +1514,7 @@ impl IHttpCookiePairHeaderValueStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IHttpCredentialsHeaderValueImpl: Sized {
+pub trait IHttpCredentialsHeaderValue_Impl: Sized {
     fn Parameters(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>;
     fn Scheme(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Token(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -1524,9 +1524,9 @@ impl ::windows::core::RuntimeName for IHttpCredentialsHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpCredentialsHeaderValue";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IHttpCredentialsHeaderValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCredentialsHeaderValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpCredentialsHeaderValueVtbl {
-        unsafe extern "system" fn Parameters<Impl: IHttpCredentialsHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpCredentialsHeaderValue_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCredentialsHeaderValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpCredentialsHeaderValue_Vtbl {
+        unsafe extern "system" fn Parameters<Impl: IHttpCredentialsHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parameters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1537,7 +1537,7 @@ impl IHttpCredentialsHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Scheme<Impl: IHttpCredentialsHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Scheme<Impl: IHttpCredentialsHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Scheme() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1548,7 +1548,7 @@ impl IHttpCredentialsHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Token<Impl: IHttpCredentialsHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Token<Impl: IHttpCredentialsHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Token() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1571,7 +1571,7 @@ impl IHttpCredentialsHeaderValueVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpCredentialsHeaderValueFactoryImpl: Sized {
+pub trait IHttpCredentialsHeaderValueFactory_Impl: Sized {
     fn CreateFromScheme(&mut self, scheme: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCredentialsHeaderValue>;
     fn CreateFromSchemeWithToken(&mut self, scheme: &::windows::core::HSTRING, token: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCredentialsHeaderValue>;
 }
@@ -1580,9 +1580,9 @@ impl ::windows::core::RuntimeName for IHttpCredentialsHeaderValueFactory {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpCredentialsHeaderValueFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpCredentialsHeaderValueFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCredentialsHeaderValueFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpCredentialsHeaderValueFactoryVtbl {
-        unsafe extern "system" fn CreateFromScheme<Impl: IHttpCredentialsHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scheme: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpCredentialsHeaderValueFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCredentialsHeaderValueFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpCredentialsHeaderValueFactory_Vtbl {
+        unsafe extern "system" fn CreateFromScheme<Impl: IHttpCredentialsHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scheme: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromScheme(&*(&scheme as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1593,7 +1593,7 @@ impl IHttpCredentialsHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromSchemeWithToken<Impl: IHttpCredentialsHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scheme: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromSchemeWithToken<Impl: IHttpCredentialsHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scheme: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromSchemeWithToken(&*(&scheme as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&token as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1615,7 +1615,7 @@ impl IHttpCredentialsHeaderValueFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpCredentialsHeaderValueStaticsImpl: Sized {
+pub trait IHttpCredentialsHeaderValueStatics_Impl: Sized {
     fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpCredentialsHeaderValue>;
     fn TryParse(&mut self, input: &::windows::core::HSTRING, credentialsheadervalue: &mut ::core::option::Option<HttpCredentialsHeaderValue>) -> ::windows::core::Result<bool>;
 }
@@ -1624,9 +1624,9 @@ impl ::windows::core::RuntimeName for IHttpCredentialsHeaderValueStatics {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpCredentialsHeaderValueStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpCredentialsHeaderValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCredentialsHeaderValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpCredentialsHeaderValueStaticsVtbl {
-        unsafe extern "system" fn Parse<Impl: IHttpCredentialsHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpCredentialsHeaderValueStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpCredentialsHeaderValueStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpCredentialsHeaderValueStatics_Vtbl {
+        unsafe extern "system" fn Parse<Impl: IHttpCredentialsHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1637,7 +1637,7 @@ impl IHttpCredentialsHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryParse<Impl: IHttpCredentialsHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, credentialsheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParse<Impl: IHttpCredentialsHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, credentialsheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&credentialsheadervalue)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1659,7 +1659,7 @@ impl IHttpCredentialsHeaderValueStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IHttpDateOrDeltaHeaderValueImpl: Sized {
+pub trait IHttpDateOrDeltaHeaderValue_Impl: Sized {
     fn Date(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
     fn Delta(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
 }
@@ -1668,9 +1668,9 @@ impl ::windows::core::RuntimeName for IHttpDateOrDeltaHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpDateOrDeltaHeaderValue";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IHttpDateOrDeltaHeaderValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpDateOrDeltaHeaderValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpDateOrDeltaHeaderValueVtbl {
-        unsafe extern "system" fn Date<Impl: IHttpDateOrDeltaHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpDateOrDeltaHeaderValue_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpDateOrDeltaHeaderValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpDateOrDeltaHeaderValue_Vtbl {
+        unsafe extern "system" fn Date<Impl: IHttpDateOrDeltaHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Date() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1681,7 +1681,7 @@ impl IHttpDateOrDeltaHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Delta<Impl: IHttpDateOrDeltaHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Delta<Impl: IHttpDateOrDeltaHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Delta() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1703,7 +1703,7 @@ impl IHttpDateOrDeltaHeaderValueVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpDateOrDeltaHeaderValueStaticsImpl: Sized {
+pub trait IHttpDateOrDeltaHeaderValueStatics_Impl: Sized {
     fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpDateOrDeltaHeaderValue>;
     fn TryParse(&mut self, input: &::windows::core::HSTRING, dateordeltaheadervalue: &mut ::core::option::Option<HttpDateOrDeltaHeaderValue>) -> ::windows::core::Result<bool>;
 }
@@ -1712,9 +1712,9 @@ impl ::windows::core::RuntimeName for IHttpDateOrDeltaHeaderValueStatics {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpDateOrDeltaHeaderValueStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpDateOrDeltaHeaderValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpDateOrDeltaHeaderValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpDateOrDeltaHeaderValueStaticsVtbl {
-        unsafe extern "system" fn Parse<Impl: IHttpDateOrDeltaHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpDateOrDeltaHeaderValueStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpDateOrDeltaHeaderValueStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpDateOrDeltaHeaderValueStatics_Vtbl {
+        unsafe extern "system" fn Parse<Impl: IHttpDateOrDeltaHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1725,7 +1725,7 @@ impl IHttpDateOrDeltaHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryParse<Impl: IHttpDateOrDeltaHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, dateordeltaheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParse<Impl: IHttpDateOrDeltaHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, dateordeltaheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&dateordeltaheadervalue)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1747,7 +1747,7 @@ impl IHttpDateOrDeltaHeaderValueStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IHttpExpectationHeaderValueImpl: Sized {
+pub trait IHttpExpectationHeaderValue_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Value(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetValue(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -1758,9 +1758,9 @@ impl ::windows::core::RuntimeName for IHttpExpectationHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpExpectationHeaderValue";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IHttpExpectationHeaderValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpExpectationHeaderValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpExpectationHeaderValueVtbl {
-        unsafe extern "system" fn Name<Impl: IHttpExpectationHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpExpectationHeaderValue_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpExpectationHeaderValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpExpectationHeaderValue_Vtbl {
+        unsafe extern "system" fn Name<Impl: IHttpExpectationHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1771,7 +1771,7 @@ impl IHttpExpectationHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Impl: IHttpExpectationHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: IHttpExpectationHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1782,11 +1782,11 @@ impl IHttpExpectationHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Impl: IHttpExpectationHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Impl: IHttpExpectationHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Parameters<Impl: IHttpExpectationHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Parameters<Impl: IHttpExpectationHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parameters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1810,7 +1810,7 @@ impl IHttpExpectationHeaderValueVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpExpectationHeaderValueCollectionImpl: Sized {
+pub trait IHttpExpectationHeaderValueCollection_Impl: Sized {
     fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
@@ -1819,13 +1819,13 @@ impl ::windows::core::RuntimeName for IHttpExpectationHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpExpectationHeaderValueCollection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpExpectationHeaderValueCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpExpectationHeaderValueCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpExpectationHeaderValueCollectionVtbl {
-        unsafe extern "system" fn ParseAdd<Impl: IHttpExpectationHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpExpectationHeaderValueCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpExpectationHeaderValueCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpExpectationHeaderValueCollection_Vtbl {
+        unsafe extern "system" fn ParseAdd<Impl: IHttpExpectationHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryParseAdd<Impl: IHttpExpectationHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParseAdd<Impl: IHttpExpectationHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1847,7 +1847,7 @@ impl IHttpExpectationHeaderValueCollectionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpExpectationHeaderValueFactoryImpl: Sized {
+pub trait IHttpExpectationHeaderValueFactory_Impl: Sized {
     fn CreateFromName(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<HttpExpectationHeaderValue>;
     fn CreateFromNameWithValue(&mut self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<HttpExpectationHeaderValue>;
 }
@@ -1856,9 +1856,9 @@ impl ::windows::core::RuntimeName for IHttpExpectationHeaderValueFactory {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpExpectationHeaderValueFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpExpectationHeaderValueFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpExpectationHeaderValueFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpExpectationHeaderValueFactoryVtbl {
-        unsafe extern "system" fn CreateFromName<Impl: IHttpExpectationHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpExpectationHeaderValueFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpExpectationHeaderValueFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpExpectationHeaderValueFactory_Vtbl {
+        unsafe extern "system" fn CreateFromName<Impl: IHttpExpectationHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromName(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1869,7 +1869,7 @@ impl IHttpExpectationHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromNameWithValue<Impl: IHttpExpectationHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromNameWithValue<Impl: IHttpExpectationHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromNameWithValue(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1891,7 +1891,7 @@ impl IHttpExpectationHeaderValueFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpExpectationHeaderValueStaticsImpl: Sized {
+pub trait IHttpExpectationHeaderValueStatics_Impl: Sized {
     fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpExpectationHeaderValue>;
     fn TryParse(&mut self, input: &::windows::core::HSTRING, expectationheadervalue: &mut ::core::option::Option<HttpExpectationHeaderValue>) -> ::windows::core::Result<bool>;
 }
@@ -1900,9 +1900,9 @@ impl ::windows::core::RuntimeName for IHttpExpectationHeaderValueStatics {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpExpectationHeaderValueStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpExpectationHeaderValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpExpectationHeaderValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpExpectationHeaderValueStaticsVtbl {
-        unsafe extern "system" fn Parse<Impl: IHttpExpectationHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpExpectationHeaderValueStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpExpectationHeaderValueStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpExpectationHeaderValueStatics_Vtbl {
+        unsafe extern "system" fn Parse<Impl: IHttpExpectationHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1913,7 +1913,7 @@ impl IHttpExpectationHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryParse<Impl: IHttpExpectationHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, expectationheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParse<Impl: IHttpExpectationHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, expectationheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&expectationheadervalue)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1935,7 +1935,7 @@ impl IHttpExpectationHeaderValueStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpLanguageHeaderValueCollectionImpl: Sized {
+pub trait IHttpLanguageHeaderValueCollection_Impl: Sized {
     fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
@@ -1944,13 +1944,13 @@ impl ::windows::core::RuntimeName for IHttpLanguageHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpLanguageHeaderValueCollection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpLanguageHeaderValueCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpLanguageHeaderValueCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpLanguageHeaderValueCollectionVtbl {
-        unsafe extern "system" fn ParseAdd<Impl: IHttpLanguageHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpLanguageHeaderValueCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpLanguageHeaderValueCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpLanguageHeaderValueCollection_Vtbl {
+        unsafe extern "system" fn ParseAdd<Impl: IHttpLanguageHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryParseAdd<Impl: IHttpLanguageHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParseAdd<Impl: IHttpLanguageHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1972,7 +1972,7 @@ impl IHttpLanguageHeaderValueCollectionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IHttpLanguageRangeWithQualityHeaderValueImpl: Sized {
+pub trait IHttpLanguageRangeWithQualityHeaderValue_Impl: Sized {
     fn LanguageRange(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Quality(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f64>>;
 }
@@ -1981,9 +1981,9 @@ impl ::windows::core::RuntimeName for IHttpLanguageRangeWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpLanguageRangeWithQualityHeaderValue";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IHttpLanguageRangeWithQualityHeaderValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpLanguageRangeWithQualityHeaderValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpLanguageRangeWithQualityHeaderValueVtbl {
-        unsafe extern "system" fn LanguageRange<Impl: IHttpLanguageRangeWithQualityHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpLanguageRangeWithQualityHeaderValue_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpLanguageRangeWithQualityHeaderValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpLanguageRangeWithQualityHeaderValue_Vtbl {
+        unsafe extern "system" fn LanguageRange<Impl: IHttpLanguageRangeWithQualityHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LanguageRange() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1994,7 +1994,7 @@ impl IHttpLanguageRangeWithQualityHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Quality<Impl: IHttpLanguageRangeWithQualityHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Quality<Impl: IHttpLanguageRangeWithQualityHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Quality() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2016,7 +2016,7 @@ impl IHttpLanguageRangeWithQualityHeaderValueVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpLanguageRangeWithQualityHeaderValueCollectionImpl: Sized {
+pub trait IHttpLanguageRangeWithQualityHeaderValueCollection_Impl: Sized {
     fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
@@ -2025,13 +2025,13 @@ impl ::windows::core::RuntimeName for IHttpLanguageRangeWithQualityHeaderValueCo
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpLanguageRangeWithQualityHeaderValueCollection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpLanguageRangeWithQualityHeaderValueCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpLanguageRangeWithQualityHeaderValueCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpLanguageRangeWithQualityHeaderValueCollectionVtbl {
-        unsafe extern "system" fn ParseAdd<Impl: IHttpLanguageRangeWithQualityHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpLanguageRangeWithQualityHeaderValueCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpLanguageRangeWithQualityHeaderValueCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpLanguageRangeWithQualityHeaderValueCollection_Vtbl {
+        unsafe extern "system" fn ParseAdd<Impl: IHttpLanguageRangeWithQualityHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryParseAdd<Impl: IHttpLanguageRangeWithQualityHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParseAdd<Impl: IHttpLanguageRangeWithQualityHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2053,7 +2053,7 @@ impl IHttpLanguageRangeWithQualityHeaderValueCollectionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpLanguageRangeWithQualityHeaderValueFactoryImpl: Sized {
+pub trait IHttpLanguageRangeWithQualityHeaderValueFactory_Impl: Sized {
     fn CreateFromLanguageRange(&mut self, languagerange: &::windows::core::HSTRING) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValue>;
     fn CreateFromLanguageRangeWithQuality(&mut self, languagerange: &::windows::core::HSTRING, quality: f64) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValue>;
 }
@@ -2062,9 +2062,9 @@ impl ::windows::core::RuntimeName for IHttpLanguageRangeWithQualityHeaderValueFa
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpLanguageRangeWithQualityHeaderValueFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpLanguageRangeWithQualityHeaderValueFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpLanguageRangeWithQualityHeaderValueFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpLanguageRangeWithQualityHeaderValueFactoryVtbl {
-        unsafe extern "system" fn CreateFromLanguageRange<Impl: IHttpLanguageRangeWithQualityHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languagerange: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpLanguageRangeWithQualityHeaderValueFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpLanguageRangeWithQualityHeaderValueFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpLanguageRangeWithQualityHeaderValueFactory_Vtbl {
+        unsafe extern "system" fn CreateFromLanguageRange<Impl: IHttpLanguageRangeWithQualityHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languagerange: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromLanguageRange(&*(&languagerange as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2075,7 +2075,7 @@ impl IHttpLanguageRangeWithQualityHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromLanguageRangeWithQuality<Impl: IHttpLanguageRangeWithQualityHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languagerange: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, quality: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromLanguageRangeWithQuality<Impl: IHttpLanguageRangeWithQualityHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languagerange: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, quality: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromLanguageRangeWithQuality(&*(&languagerange as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), quality) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2097,7 +2097,7 @@ impl IHttpLanguageRangeWithQualityHeaderValueFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpLanguageRangeWithQualityHeaderValueStaticsImpl: Sized {
+pub trait IHttpLanguageRangeWithQualityHeaderValueStatics_Impl: Sized {
     fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValue>;
     fn TryParse(&mut self, input: &::windows::core::HSTRING, languagerangewithqualityheadervalue: &mut ::core::option::Option<HttpLanguageRangeWithQualityHeaderValue>) -> ::windows::core::Result<bool>;
 }
@@ -2106,9 +2106,9 @@ impl ::windows::core::RuntimeName for IHttpLanguageRangeWithQualityHeaderValueSt
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpLanguageRangeWithQualityHeaderValueStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpLanguageRangeWithQualityHeaderValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpLanguageRangeWithQualityHeaderValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpLanguageRangeWithQualityHeaderValueStaticsVtbl {
-        unsafe extern "system" fn Parse<Impl: IHttpLanguageRangeWithQualityHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpLanguageRangeWithQualityHeaderValueStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpLanguageRangeWithQualityHeaderValueStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpLanguageRangeWithQualityHeaderValueStatics_Vtbl {
+        unsafe extern "system" fn Parse<Impl: IHttpLanguageRangeWithQualityHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2119,7 +2119,7 @@ impl IHttpLanguageRangeWithQualityHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryParse<Impl: IHttpLanguageRangeWithQualityHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, languagerangewithqualityheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParse<Impl: IHttpLanguageRangeWithQualityHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, languagerangewithqualityheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&languagerangewithqualityheadervalue)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2141,7 +2141,7 @@ impl IHttpLanguageRangeWithQualityHeaderValueStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IHttpMediaTypeHeaderValueImpl: Sized {
+pub trait IHttpMediaTypeHeaderValue_Impl: Sized {
     fn CharSet(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetCharSet(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn MediaType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -2153,9 +2153,9 @@ impl ::windows::core::RuntimeName for IHttpMediaTypeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpMediaTypeHeaderValue";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IHttpMediaTypeHeaderValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMediaTypeHeaderValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMediaTypeHeaderValueVtbl {
-        unsafe extern "system" fn CharSet<Impl: IHttpMediaTypeHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpMediaTypeHeaderValue_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMediaTypeHeaderValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMediaTypeHeaderValue_Vtbl {
+        unsafe extern "system" fn CharSet<Impl: IHttpMediaTypeHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CharSet() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2166,11 +2166,11 @@ impl IHttpMediaTypeHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCharSet<Impl: IHttpMediaTypeHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCharSet<Impl: IHttpMediaTypeHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCharSet(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MediaType<Impl: IHttpMediaTypeHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaType<Impl: IHttpMediaTypeHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2181,11 +2181,11 @@ impl IHttpMediaTypeHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMediaType<Impl: IHttpMediaTypeHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMediaType<Impl: IHttpMediaTypeHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMediaType(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Parameters<Impl: IHttpMediaTypeHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Parameters<Impl: IHttpMediaTypeHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parameters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2210,7 +2210,7 @@ impl IHttpMediaTypeHeaderValueVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpMediaTypeHeaderValueFactoryImpl: Sized {
+pub trait IHttpMediaTypeHeaderValueFactory_Impl: Sized {
     fn Create(&mut self, mediatype: &::windows::core::HSTRING) -> ::windows::core::Result<HttpMediaTypeHeaderValue>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -2218,9 +2218,9 @@ impl ::windows::core::RuntimeName for IHttpMediaTypeHeaderValueFactory {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpMediaTypeHeaderValueFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpMediaTypeHeaderValueFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMediaTypeHeaderValueFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMediaTypeHeaderValueFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IHttpMediaTypeHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpMediaTypeHeaderValueFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMediaTypeHeaderValueFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMediaTypeHeaderValueFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IHttpMediaTypeHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&mediatype as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2238,7 +2238,7 @@ impl IHttpMediaTypeHeaderValueFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpMediaTypeHeaderValueStaticsImpl: Sized {
+pub trait IHttpMediaTypeHeaderValueStatics_Impl: Sized {
     fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpMediaTypeHeaderValue>;
     fn TryParse(&mut self, input: &::windows::core::HSTRING, mediatypeheadervalue: &mut ::core::option::Option<HttpMediaTypeHeaderValue>) -> ::windows::core::Result<bool>;
 }
@@ -2247,9 +2247,9 @@ impl ::windows::core::RuntimeName for IHttpMediaTypeHeaderValueStatics {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpMediaTypeHeaderValueStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpMediaTypeHeaderValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMediaTypeHeaderValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMediaTypeHeaderValueStaticsVtbl {
-        unsafe extern "system" fn Parse<Impl: IHttpMediaTypeHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpMediaTypeHeaderValueStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMediaTypeHeaderValueStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMediaTypeHeaderValueStatics_Vtbl {
+        unsafe extern "system" fn Parse<Impl: IHttpMediaTypeHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2260,7 +2260,7 @@ impl IHttpMediaTypeHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryParse<Impl: IHttpMediaTypeHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, mediatypeheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParse<Impl: IHttpMediaTypeHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, mediatypeheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&mediatypeheadervalue)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2282,7 +2282,7 @@ impl IHttpMediaTypeHeaderValueStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IHttpMediaTypeWithQualityHeaderValueImpl: Sized {
+pub trait IHttpMediaTypeWithQualityHeaderValue_Impl: Sized {
     fn CharSet(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetCharSet(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn MediaType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -2296,9 +2296,9 @@ impl ::windows::core::RuntimeName for IHttpMediaTypeWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpMediaTypeWithQualityHeaderValue";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IHttpMediaTypeWithQualityHeaderValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMediaTypeWithQualityHeaderValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMediaTypeWithQualityHeaderValueVtbl {
-        unsafe extern "system" fn CharSet<Impl: IHttpMediaTypeWithQualityHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpMediaTypeWithQualityHeaderValue_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMediaTypeWithQualityHeaderValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMediaTypeWithQualityHeaderValue_Vtbl {
+        unsafe extern "system" fn CharSet<Impl: IHttpMediaTypeWithQualityHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CharSet() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2309,11 +2309,11 @@ impl IHttpMediaTypeWithQualityHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCharSet<Impl: IHttpMediaTypeWithQualityHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCharSet<Impl: IHttpMediaTypeWithQualityHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetCharSet(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MediaType<Impl: IHttpMediaTypeWithQualityHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaType<Impl: IHttpMediaTypeWithQualityHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MediaType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2324,11 +2324,11 @@ impl IHttpMediaTypeWithQualityHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMediaType<Impl: IHttpMediaTypeWithQualityHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMediaType<Impl: IHttpMediaTypeWithQualityHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMediaType(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Parameters<Impl: IHttpMediaTypeWithQualityHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Parameters<Impl: IHttpMediaTypeWithQualityHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parameters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2339,7 +2339,7 @@ impl IHttpMediaTypeWithQualityHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Quality<Impl: IHttpMediaTypeWithQualityHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Quality<Impl: IHttpMediaTypeWithQualityHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Quality() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2350,7 +2350,7 @@ impl IHttpMediaTypeWithQualityHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetQuality<Impl: IHttpMediaTypeWithQualityHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetQuality<Impl: IHttpMediaTypeWithQualityHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetQuality(&*(&value as *const <super::super::super::Foundation::IReference<f64> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<f64> as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2370,7 +2370,7 @@ impl IHttpMediaTypeWithQualityHeaderValueVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpMediaTypeWithQualityHeaderValueCollectionImpl: Sized {
+pub trait IHttpMediaTypeWithQualityHeaderValueCollection_Impl: Sized {
     fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
@@ -2379,13 +2379,13 @@ impl ::windows::core::RuntimeName for IHttpMediaTypeWithQualityHeaderValueCollec
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpMediaTypeWithQualityHeaderValueCollection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpMediaTypeWithQualityHeaderValueCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMediaTypeWithQualityHeaderValueCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMediaTypeWithQualityHeaderValueCollectionVtbl {
-        unsafe extern "system" fn ParseAdd<Impl: IHttpMediaTypeWithQualityHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpMediaTypeWithQualityHeaderValueCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMediaTypeWithQualityHeaderValueCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMediaTypeWithQualityHeaderValueCollection_Vtbl {
+        unsafe extern "system" fn ParseAdd<Impl: IHttpMediaTypeWithQualityHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryParseAdd<Impl: IHttpMediaTypeWithQualityHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParseAdd<Impl: IHttpMediaTypeWithQualityHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2407,7 +2407,7 @@ impl IHttpMediaTypeWithQualityHeaderValueCollectionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpMediaTypeWithQualityHeaderValueFactoryImpl: Sized {
+pub trait IHttpMediaTypeWithQualityHeaderValueFactory_Impl: Sized {
     fn CreateFromMediaType(&mut self, mediatype: &::windows::core::HSTRING) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValue>;
     fn CreateFromMediaTypeWithQuality(&mut self, mediatype: &::windows::core::HSTRING, quality: f64) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValue>;
 }
@@ -2416,9 +2416,9 @@ impl ::windows::core::RuntimeName for IHttpMediaTypeWithQualityHeaderValueFactor
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpMediaTypeWithQualityHeaderValueFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpMediaTypeWithQualityHeaderValueFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMediaTypeWithQualityHeaderValueFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMediaTypeWithQualityHeaderValueFactoryVtbl {
-        unsafe extern "system" fn CreateFromMediaType<Impl: IHttpMediaTypeWithQualityHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpMediaTypeWithQualityHeaderValueFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMediaTypeWithQualityHeaderValueFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMediaTypeWithQualityHeaderValueFactory_Vtbl {
+        unsafe extern "system" fn CreateFromMediaType<Impl: IHttpMediaTypeWithQualityHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromMediaType(&*(&mediatype as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2429,7 +2429,7 @@ impl IHttpMediaTypeWithQualityHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromMediaTypeWithQuality<Impl: IHttpMediaTypeWithQualityHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, quality: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromMediaTypeWithQuality<Impl: IHttpMediaTypeWithQualityHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, quality: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromMediaTypeWithQuality(&*(&mediatype as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), quality) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2451,7 +2451,7 @@ impl IHttpMediaTypeWithQualityHeaderValueFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpMediaTypeWithQualityHeaderValueStaticsImpl: Sized {
+pub trait IHttpMediaTypeWithQualityHeaderValueStatics_Impl: Sized {
     fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValue>;
     fn TryParse(&mut self, input: &::windows::core::HSTRING, mediatypewithqualityheadervalue: &mut ::core::option::Option<HttpMediaTypeWithQualityHeaderValue>) -> ::windows::core::Result<bool>;
 }
@@ -2460,9 +2460,9 @@ impl ::windows::core::RuntimeName for IHttpMediaTypeWithQualityHeaderValueStatic
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpMediaTypeWithQualityHeaderValueStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpMediaTypeWithQualityHeaderValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMediaTypeWithQualityHeaderValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMediaTypeWithQualityHeaderValueStaticsVtbl {
-        unsafe extern "system" fn Parse<Impl: IHttpMediaTypeWithQualityHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpMediaTypeWithQualityHeaderValueStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMediaTypeWithQualityHeaderValueStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMediaTypeWithQualityHeaderValueStatics_Vtbl {
+        unsafe extern "system" fn Parse<Impl: IHttpMediaTypeWithQualityHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2473,7 +2473,7 @@ impl IHttpMediaTypeWithQualityHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryParse<Impl: IHttpMediaTypeWithQualityHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, mediatypewithqualityheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParse<Impl: IHttpMediaTypeWithQualityHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, mediatypewithqualityheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&mediatypewithqualityheadervalue)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2495,7 +2495,7 @@ impl IHttpMediaTypeWithQualityHeaderValueStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpMethodHeaderValueCollectionImpl: Sized {
+pub trait IHttpMethodHeaderValueCollection_Impl: Sized {
     fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
@@ -2504,13 +2504,13 @@ impl ::windows::core::RuntimeName for IHttpMethodHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpMethodHeaderValueCollection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpMethodHeaderValueCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMethodHeaderValueCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMethodHeaderValueCollectionVtbl {
-        unsafe extern "system" fn ParseAdd<Impl: IHttpMethodHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpMethodHeaderValueCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpMethodHeaderValueCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpMethodHeaderValueCollection_Vtbl {
+        unsafe extern "system" fn ParseAdd<Impl: IHttpMethodHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryParseAdd<Impl: IHttpMethodHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParseAdd<Impl: IHttpMethodHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2532,7 +2532,7 @@ impl IHttpMethodHeaderValueCollectionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpNameValueHeaderValueImpl: Sized {
+pub trait IHttpNameValueHeaderValue_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Value(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetValue(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -2542,9 +2542,9 @@ impl ::windows::core::RuntimeName for IHttpNameValueHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpNameValueHeaderValue";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpNameValueHeaderValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpNameValueHeaderValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpNameValueHeaderValueVtbl {
-        unsafe extern "system" fn Name<Impl: IHttpNameValueHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpNameValueHeaderValue_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpNameValueHeaderValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpNameValueHeaderValue_Vtbl {
+        unsafe extern "system" fn Name<Impl: IHttpNameValueHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2555,7 +2555,7 @@ impl IHttpNameValueHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Impl: IHttpNameValueHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: IHttpNameValueHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2566,7 +2566,7 @@ impl IHttpNameValueHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Impl: IHttpNameValueHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Impl: IHttpNameValueHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -2582,7 +2582,7 @@ impl IHttpNameValueHeaderValueVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpNameValueHeaderValueFactoryImpl: Sized {
+pub trait IHttpNameValueHeaderValueFactory_Impl: Sized {
     fn CreateFromName(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<HttpNameValueHeaderValue>;
     fn CreateFromNameWithValue(&mut self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<HttpNameValueHeaderValue>;
 }
@@ -2591,9 +2591,9 @@ impl ::windows::core::RuntimeName for IHttpNameValueHeaderValueFactory {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpNameValueHeaderValueFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpNameValueHeaderValueFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpNameValueHeaderValueFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpNameValueHeaderValueFactoryVtbl {
-        unsafe extern "system" fn CreateFromName<Impl: IHttpNameValueHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpNameValueHeaderValueFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpNameValueHeaderValueFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpNameValueHeaderValueFactory_Vtbl {
+        unsafe extern "system" fn CreateFromName<Impl: IHttpNameValueHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromName(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2604,7 +2604,7 @@ impl IHttpNameValueHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromNameWithValue<Impl: IHttpNameValueHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromNameWithValue<Impl: IHttpNameValueHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromNameWithValue(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2626,7 +2626,7 @@ impl IHttpNameValueHeaderValueFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpNameValueHeaderValueStaticsImpl: Sized {
+pub trait IHttpNameValueHeaderValueStatics_Impl: Sized {
     fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpNameValueHeaderValue>;
     fn TryParse(&mut self, input: &::windows::core::HSTRING, namevalueheadervalue: &mut ::core::option::Option<HttpNameValueHeaderValue>) -> ::windows::core::Result<bool>;
 }
@@ -2635,9 +2635,9 @@ impl ::windows::core::RuntimeName for IHttpNameValueHeaderValueStatics {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpNameValueHeaderValueStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpNameValueHeaderValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpNameValueHeaderValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpNameValueHeaderValueStaticsVtbl {
-        unsafe extern "system" fn Parse<Impl: IHttpNameValueHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpNameValueHeaderValueStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpNameValueHeaderValueStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpNameValueHeaderValueStatics_Vtbl {
+        unsafe extern "system" fn Parse<Impl: IHttpNameValueHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2648,7 +2648,7 @@ impl IHttpNameValueHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryParse<Impl: IHttpNameValueHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, namevalueheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParse<Impl: IHttpNameValueHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, namevalueheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&namevalueheadervalue)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2670,7 +2670,7 @@ impl IHttpNameValueHeaderValueStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpProductHeaderValueImpl: Sized {
+pub trait IHttpProductHeaderValue_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Version(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -2679,9 +2679,9 @@ impl ::windows::core::RuntimeName for IHttpProductHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpProductHeaderValue";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpProductHeaderValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpProductHeaderValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpProductHeaderValueVtbl {
-        unsafe extern "system" fn Name<Impl: IHttpProductHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpProductHeaderValue_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpProductHeaderValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpProductHeaderValue_Vtbl {
+        unsafe extern "system" fn Name<Impl: IHttpProductHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2692,7 +2692,7 @@ impl IHttpProductHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Version<Impl: IHttpProductHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Version<Impl: IHttpProductHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Version() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2714,7 +2714,7 @@ impl IHttpProductHeaderValueVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpProductHeaderValueFactoryImpl: Sized {
+pub trait IHttpProductHeaderValueFactory_Impl: Sized {
     fn CreateFromName(&mut self, productname: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductHeaderValue>;
     fn CreateFromNameWithVersion(&mut self, productname: &::windows::core::HSTRING, productversion: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductHeaderValue>;
 }
@@ -2723,9 +2723,9 @@ impl ::windows::core::RuntimeName for IHttpProductHeaderValueFactory {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpProductHeaderValueFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpProductHeaderValueFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpProductHeaderValueFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpProductHeaderValueFactoryVtbl {
-        unsafe extern "system" fn CreateFromName<Impl: IHttpProductHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpProductHeaderValueFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpProductHeaderValueFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpProductHeaderValueFactory_Vtbl {
+        unsafe extern "system" fn CreateFromName<Impl: IHttpProductHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromName(&*(&productname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2736,7 +2736,7 @@ impl IHttpProductHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromNameWithVersion<Impl: IHttpProductHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, productversion: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromNameWithVersion<Impl: IHttpProductHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, productversion: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromNameWithVersion(&*(&productname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&productversion as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2758,7 +2758,7 @@ impl IHttpProductHeaderValueFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpProductHeaderValueStaticsImpl: Sized {
+pub trait IHttpProductHeaderValueStatics_Impl: Sized {
     fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductHeaderValue>;
     fn TryParse(&mut self, input: &::windows::core::HSTRING, productheadervalue: &mut ::core::option::Option<HttpProductHeaderValue>) -> ::windows::core::Result<bool>;
 }
@@ -2767,9 +2767,9 @@ impl ::windows::core::RuntimeName for IHttpProductHeaderValueStatics {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpProductHeaderValueStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpProductHeaderValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpProductHeaderValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpProductHeaderValueStaticsVtbl {
-        unsafe extern "system" fn Parse<Impl: IHttpProductHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpProductHeaderValueStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpProductHeaderValueStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpProductHeaderValueStatics_Vtbl {
+        unsafe extern "system" fn Parse<Impl: IHttpProductHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2780,7 +2780,7 @@ impl IHttpProductHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryParse<Impl: IHttpProductHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, productheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParse<Impl: IHttpProductHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, productheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&productheadervalue)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2802,7 +2802,7 @@ impl IHttpProductHeaderValueStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpProductInfoHeaderValueImpl: Sized {
+pub trait IHttpProductInfoHeaderValue_Impl: Sized {
     fn Product(&mut self) -> ::windows::core::Result<HttpProductHeaderValue>;
     fn Comment(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -2811,9 +2811,9 @@ impl ::windows::core::RuntimeName for IHttpProductInfoHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpProductInfoHeaderValue";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpProductInfoHeaderValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpProductInfoHeaderValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpProductInfoHeaderValueVtbl {
-        unsafe extern "system" fn Product<Impl: IHttpProductInfoHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpProductInfoHeaderValue_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpProductInfoHeaderValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpProductInfoHeaderValue_Vtbl {
+        unsafe extern "system" fn Product<Impl: IHttpProductInfoHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Product() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2824,7 +2824,7 @@ impl IHttpProductInfoHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Comment<Impl: IHttpProductInfoHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Comment<Impl: IHttpProductInfoHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Comment() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2846,7 +2846,7 @@ impl IHttpProductInfoHeaderValueVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpProductInfoHeaderValueCollectionImpl: Sized {
+pub trait IHttpProductInfoHeaderValueCollection_Impl: Sized {
     fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
@@ -2855,13 +2855,13 @@ impl ::windows::core::RuntimeName for IHttpProductInfoHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpProductInfoHeaderValueCollection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpProductInfoHeaderValueCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpProductInfoHeaderValueCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpProductInfoHeaderValueCollectionVtbl {
-        unsafe extern "system" fn ParseAdd<Impl: IHttpProductInfoHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpProductInfoHeaderValueCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpProductInfoHeaderValueCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpProductInfoHeaderValueCollection_Vtbl {
+        unsafe extern "system" fn ParseAdd<Impl: IHttpProductInfoHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryParseAdd<Impl: IHttpProductInfoHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParseAdd<Impl: IHttpProductInfoHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2883,7 +2883,7 @@ impl IHttpProductInfoHeaderValueCollectionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpProductInfoHeaderValueFactoryImpl: Sized {
+pub trait IHttpProductInfoHeaderValueFactory_Impl: Sized {
     fn CreateFromComment(&mut self, productcomment: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductInfoHeaderValue>;
     fn CreateFromNameWithVersion(&mut self, productname: &::windows::core::HSTRING, productversion: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductInfoHeaderValue>;
 }
@@ -2892,9 +2892,9 @@ impl ::windows::core::RuntimeName for IHttpProductInfoHeaderValueFactory {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpProductInfoHeaderValueFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpProductInfoHeaderValueFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpProductInfoHeaderValueFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpProductInfoHeaderValueFactoryVtbl {
-        unsafe extern "system" fn CreateFromComment<Impl: IHttpProductInfoHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productcomment: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpProductInfoHeaderValueFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpProductInfoHeaderValueFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpProductInfoHeaderValueFactory_Vtbl {
+        unsafe extern "system" fn CreateFromComment<Impl: IHttpProductInfoHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productcomment: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromComment(&*(&productcomment as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2905,7 +2905,7 @@ impl IHttpProductInfoHeaderValueFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromNameWithVersion<Impl: IHttpProductInfoHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, productversion: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromNameWithVersion<Impl: IHttpProductInfoHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, productversion: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromNameWithVersion(&*(&productname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&productversion as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2927,7 +2927,7 @@ impl IHttpProductInfoHeaderValueFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpProductInfoHeaderValueStaticsImpl: Sized {
+pub trait IHttpProductInfoHeaderValueStatics_Impl: Sized {
     fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpProductInfoHeaderValue>;
     fn TryParse(&mut self, input: &::windows::core::HSTRING, productinfoheadervalue: &mut ::core::option::Option<HttpProductInfoHeaderValue>) -> ::windows::core::Result<bool>;
 }
@@ -2936,9 +2936,9 @@ impl ::windows::core::RuntimeName for IHttpProductInfoHeaderValueStatics {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpProductInfoHeaderValueStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpProductInfoHeaderValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpProductInfoHeaderValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpProductInfoHeaderValueStaticsVtbl {
-        unsafe extern "system" fn Parse<Impl: IHttpProductInfoHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpProductInfoHeaderValueStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpProductInfoHeaderValueStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpProductInfoHeaderValueStatics_Vtbl {
+        unsafe extern "system" fn Parse<Impl: IHttpProductInfoHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2949,7 +2949,7 @@ impl IHttpProductInfoHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryParse<Impl: IHttpProductInfoHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, productinfoheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParse<Impl: IHttpProductInfoHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, productinfoheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&productinfoheadervalue)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2971,7 +2971,7 @@ impl IHttpProductInfoHeaderValueStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Networking", feature = "implement_exclusive"))]
-pub trait IHttpRequestHeaderCollectionImpl: Sized {
+pub trait IHttpRequestHeaderCollection_Impl: Sized {
     fn Accept(&mut self) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValueCollection>;
     fn AcceptEncoding(&mut self) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValueCollection>;
     fn AcceptLanguage(&mut self) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValueCollection>;
@@ -3007,9 +3007,9 @@ impl ::windows::core::RuntimeName for IHttpRequestHeaderCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpRequestHeaderCollection";
 }
 #[cfg(all(feature = "Foundation", feature = "Networking", feature = "implement_exclusive"))]
-impl IHttpRequestHeaderCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpRequestHeaderCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpRequestHeaderCollectionVtbl {
-        unsafe extern "system" fn Accept<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpRequestHeaderCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpRequestHeaderCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpRequestHeaderCollection_Vtbl {
+        unsafe extern "system" fn Accept<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Accept() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3020,7 +3020,7 @@ impl IHttpRequestHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AcceptEncoding<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AcceptEncoding<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AcceptEncoding() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3031,7 +3031,7 @@ impl IHttpRequestHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AcceptLanguage<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AcceptLanguage<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AcceptLanguage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3042,7 +3042,7 @@ impl IHttpRequestHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Authorization<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Authorization<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Authorization() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3053,11 +3053,11 @@ impl IHttpRequestHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAuthorization<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAuthorization<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAuthorization(&*(&value as *const <HttpCredentialsHeaderValue as ::windows::core::Abi>::Abi as *const <HttpCredentialsHeaderValue as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CacheControl<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CacheControl<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CacheControl() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3068,7 +3068,7 @@ impl IHttpRequestHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Connection<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Connection<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Connection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3079,7 +3079,7 @@ impl IHttpRequestHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Cookie<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Cookie<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Cookie() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3090,7 +3090,7 @@ impl IHttpRequestHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Date<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Date<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Date() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3101,11 +3101,11 @@ impl IHttpRequestHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDate<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDate<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDate(&*(&value as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Expect<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Expect<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Expect() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3116,7 +3116,7 @@ impl IHttpRequestHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn From<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn From<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).From() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3127,11 +3127,11 @@ impl IHttpRequestHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFrom<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFrom<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetFrom(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Host<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Host<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Host() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3142,11 +3142,11 @@ impl IHttpRequestHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHost<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHost<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHost(&*(&value as *const <super::super::super::Networking::HostName as ::windows::core::Abi>::Abi as *const <super::super::super::Networking::HostName as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IfModifiedSince<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IfModifiedSince<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IfModifiedSince() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3157,11 +3157,11 @@ impl IHttpRequestHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIfModifiedSince<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIfModifiedSince<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIfModifiedSince(&*(&value as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IfUnmodifiedSince<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IfUnmodifiedSince<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IfUnmodifiedSince() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3172,11 +3172,11 @@ impl IHttpRequestHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIfUnmodifiedSince<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIfUnmodifiedSince<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetIfUnmodifiedSince(&*(&value as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn MaxForwards<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxForwards<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxForwards() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3187,11 +3187,11 @@ impl IHttpRequestHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxForwards<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxForwards<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxForwards(&*(&value as *const <super::super::super::Foundation::IReference<u32> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<u32> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ProxyAuthorization<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProxyAuthorization<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProxyAuthorization() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3202,11 +3202,11 @@ impl IHttpRequestHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProxyAuthorization<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProxyAuthorization<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetProxyAuthorization(&*(&value as *const <HttpCredentialsHeaderValue as ::windows::core::Abi>::Abi as *const <HttpCredentialsHeaderValue as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Referer<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Referer<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Referer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3217,11 +3217,11 @@ impl IHttpRequestHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetReferer<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetReferer<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetReferer(&*(&value as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TransferEncoding<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransferEncoding<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransferEncoding() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3232,7 +3232,7 @@ impl IHttpRequestHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UserAgent<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UserAgent<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UserAgent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3243,11 +3243,11 @@ impl IHttpRequestHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Append<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Append<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Append(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryAppendWithoutValidation<Impl: IHttpRequestHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryAppendWithoutValidation<Impl: IHttpRequestHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryAppendWithoutValidation(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3296,7 +3296,7 @@ impl IHttpRequestHeaderCollectionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IHttpResponseHeaderCollectionImpl: Sized {
+pub trait IHttpResponseHeaderCollection_Impl: Sized {
     fn Age(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>;
     fn SetAge(&mut self, value: &::core::option::Option<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
     fn Allow(&mut self) -> ::windows::core::Result<HttpMethodHeaderValueCollection>;
@@ -3319,9 +3319,9 @@ impl ::windows::core::RuntimeName for IHttpResponseHeaderCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpResponseHeaderCollection";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IHttpResponseHeaderCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpResponseHeaderCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpResponseHeaderCollectionVtbl {
-        unsafe extern "system" fn Age<Impl: IHttpResponseHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpResponseHeaderCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpResponseHeaderCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpResponseHeaderCollection_Vtbl {
+        unsafe extern "system" fn Age<Impl: IHttpResponseHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Age() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3332,11 +3332,11 @@ impl IHttpResponseHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAge<Impl: IHttpResponseHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAge<Impl: IHttpResponseHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAge(&*(&value as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Allow<Impl: IHttpResponseHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Allow<Impl: IHttpResponseHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Allow() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3347,7 +3347,7 @@ impl IHttpResponseHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CacheControl<Impl: IHttpResponseHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CacheControl<Impl: IHttpResponseHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CacheControl() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3358,7 +3358,7 @@ impl IHttpResponseHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Connection<Impl: IHttpResponseHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Connection<Impl: IHttpResponseHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Connection() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3369,7 +3369,7 @@ impl IHttpResponseHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Date<Impl: IHttpResponseHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Date<Impl: IHttpResponseHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Date() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3380,11 +3380,11 @@ impl IHttpResponseHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDate<Impl: IHttpResponseHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDate<Impl: IHttpResponseHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDate(&*(&value as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Location<Impl: IHttpResponseHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Location<Impl: IHttpResponseHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Location() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3395,11 +3395,11 @@ impl IHttpResponseHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLocation<Impl: IHttpResponseHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLocation<Impl: IHttpResponseHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLocation(&*(&value as *const <super::super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ProxyAuthenticate<Impl: IHttpResponseHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProxyAuthenticate<Impl: IHttpResponseHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProxyAuthenticate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3410,7 +3410,7 @@ impl IHttpResponseHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RetryAfter<Impl: IHttpResponseHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RetryAfter<Impl: IHttpResponseHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RetryAfter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3421,11 +3421,11 @@ impl IHttpResponseHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRetryAfter<Impl: IHttpResponseHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRetryAfter<Impl: IHttpResponseHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRetryAfter(&*(&value as *const <HttpDateOrDeltaHeaderValue as ::windows::core::Abi>::Abi as *const <HttpDateOrDeltaHeaderValue as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TransferEncoding<Impl: IHttpResponseHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransferEncoding<Impl: IHttpResponseHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransferEncoding() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3436,7 +3436,7 @@ impl IHttpResponseHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WwwAuthenticate<Impl: IHttpResponseHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WwwAuthenticate<Impl: IHttpResponseHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WwwAuthenticate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3447,11 +3447,11 @@ impl IHttpResponseHeaderCollectionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Append<Impl: IHttpResponseHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Append<Impl: IHttpResponseHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Append(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryAppendWithoutValidation<Impl: IHttpResponseHeaderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryAppendWithoutValidation<Impl: IHttpResponseHeaderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryAppendWithoutValidation(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3487,7 +3487,7 @@ impl IHttpResponseHeaderCollectionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IHttpTransferCodingHeaderValueImpl: Sized {
+pub trait IHttpTransferCodingHeaderValue_Impl: Sized {
     fn Parameters(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>;
     fn Value(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -3496,9 +3496,9 @@ impl ::windows::core::RuntimeName for IHttpTransferCodingHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpTransferCodingHeaderValue";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IHttpTransferCodingHeaderValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpTransferCodingHeaderValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpTransferCodingHeaderValueVtbl {
-        unsafe extern "system" fn Parameters<Impl: IHttpTransferCodingHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpTransferCodingHeaderValue_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpTransferCodingHeaderValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpTransferCodingHeaderValue_Vtbl {
+        unsafe extern "system" fn Parameters<Impl: IHttpTransferCodingHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parameters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3509,7 +3509,7 @@ impl IHttpTransferCodingHeaderValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Impl: IHttpTransferCodingHeaderValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: IHttpTransferCodingHeaderValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3531,7 +3531,7 @@ impl IHttpTransferCodingHeaderValueVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpTransferCodingHeaderValueCollectionImpl: Sized {
+pub trait IHttpTransferCodingHeaderValueCollection_Impl: Sized {
     fn ParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn TryParseAdd(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
@@ -3540,13 +3540,13 @@ impl ::windows::core::RuntimeName for IHttpTransferCodingHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpTransferCodingHeaderValueCollection";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpTransferCodingHeaderValueCollectionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpTransferCodingHeaderValueCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpTransferCodingHeaderValueCollectionVtbl {
-        unsafe extern "system" fn ParseAdd<Impl: IHttpTransferCodingHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IHttpTransferCodingHeaderValueCollection_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpTransferCodingHeaderValueCollection_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpTransferCodingHeaderValueCollection_Vtbl {
+        unsafe extern "system" fn ParseAdd<Impl: IHttpTransferCodingHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryParseAdd<Impl: IHttpTransferCodingHeaderValueCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParseAdd<Impl: IHttpTransferCodingHeaderValueCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParseAdd(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3568,7 +3568,7 @@ impl IHttpTransferCodingHeaderValueCollectionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpTransferCodingHeaderValueFactoryImpl: Sized {
+pub trait IHttpTransferCodingHeaderValueFactory_Impl: Sized {
     fn Create(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpTransferCodingHeaderValue>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -3576,9 +3576,9 @@ impl ::windows::core::RuntimeName for IHttpTransferCodingHeaderValueFactory {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpTransferCodingHeaderValueFactory";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpTransferCodingHeaderValueFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpTransferCodingHeaderValueFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpTransferCodingHeaderValueFactoryVtbl {
-        unsafe extern "system" fn Create<Impl: IHttpTransferCodingHeaderValueFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpTransferCodingHeaderValueFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpTransferCodingHeaderValueFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpTransferCodingHeaderValueFactory_Vtbl {
+        unsafe extern "system" fn Create<Impl: IHttpTransferCodingHeaderValueFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Create(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3599,7 +3599,7 @@ impl IHttpTransferCodingHeaderValueFactoryVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IHttpTransferCodingHeaderValueStaticsImpl: Sized {
+pub trait IHttpTransferCodingHeaderValueStatics_Impl: Sized {
     fn Parse(&mut self, input: &::windows::core::HSTRING) -> ::windows::core::Result<HttpTransferCodingHeaderValue>;
     fn TryParse(&mut self, input: &::windows::core::HSTRING, transfercodingheadervalue: &mut ::core::option::Option<HttpTransferCodingHeaderValue>) -> ::windows::core::Result<bool>;
 }
@@ -3608,9 +3608,9 @@ impl ::windows::core::RuntimeName for IHttpTransferCodingHeaderValueStatics {
     const NAME: &'static str = "Windows.Web.Http.Headers.IHttpTransferCodingHeaderValueStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IHttpTransferCodingHeaderValueStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpTransferCodingHeaderValueStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpTransferCodingHeaderValueStaticsVtbl {
-        unsafe extern "system" fn Parse<Impl: IHttpTransferCodingHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHttpTransferCodingHeaderValueStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpTransferCodingHeaderValueStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpTransferCodingHeaderValueStatics_Vtbl {
+        unsafe extern "system" fn Parse<Impl: IHttpTransferCodingHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Parse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3621,7 +3621,7 @@ impl IHttpTransferCodingHeaderValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryParse<Impl: IHttpTransferCodingHeaderValueStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, transfercodingheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryParse<Impl: IHttpTransferCodingHeaderValueStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, transfercodingheadervalue: *mut ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryParse(&*(&input as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::mem::transmute_copy(&transfercodingheadervalue)) {
                 ::core::result::Result::Ok(ok__) => {

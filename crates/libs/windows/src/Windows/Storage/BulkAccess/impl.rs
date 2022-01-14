@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IFileInformationFactoryImpl: Sized {
+pub trait IFileInformationFactory_Impl: Sized {
     fn GetItemsAsync(&mut self, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IStorageItemInformation>>>;
     fn GetItemsAsyncDefaultStartAndCount(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IStorageItemInformation>>>;
     fn GetFilesAsync(&mut self, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FileInformation>>>;
@@ -15,9 +15,9 @@ impl ::windows::core::RuntimeName for IFileInformationFactory {
     const NAME: &'static str = "Windows.Storage.BulkAccess.IFileInformationFactory";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IFileInformationFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileInformationFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileInformationFactoryVtbl {
-        unsafe extern "system" fn GetItemsAsync<Impl: IFileInformationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IFileInformationFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileInformationFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileInformationFactory_Vtbl {
+        unsafe extern "system" fn GetItemsAsync<Impl: IFileInformationFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItemsAsync(startindex, maxitemstoretrieve) {
                 ::core::result::Result::Ok(ok__) => {
@@ -28,7 +28,7 @@ impl IFileInformationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetItemsAsyncDefaultStartAndCount<Impl: IFileInformationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetItemsAsyncDefaultStartAndCount<Impl: IFileInformationFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetItemsAsyncDefaultStartAndCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -39,7 +39,7 @@ impl IFileInformationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFilesAsync<Impl: IFileInformationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFilesAsync<Impl: IFileInformationFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFilesAsync(startindex, maxitemstoretrieve) {
                 ::core::result::Result::Ok(ok__) => {
@@ -50,7 +50,7 @@ impl IFileInformationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFilesAsyncDefaultStartAndCount<Impl: IFileInformationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFilesAsyncDefaultStartAndCount<Impl: IFileInformationFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFilesAsyncDefaultStartAndCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -61,7 +61,7 @@ impl IFileInformationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFoldersAsync<Impl: IFileInformationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFoldersAsync<Impl: IFileInformationFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFoldersAsync(startindex, maxitemstoretrieve) {
                 ::core::result::Result::Ok(ok__) => {
@@ -72,7 +72,7 @@ impl IFileInformationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFoldersAsyncDefaultStartAndCount<Impl: IFileInformationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFoldersAsyncDefaultStartAndCount<Impl: IFileInformationFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFoldersAsyncDefaultStartAndCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -83,7 +83,7 @@ impl IFileInformationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVirtualizedItemsVector<Impl: IFileInformationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetVirtualizedItemsVector<Impl: IFileInformationFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetVirtualizedItemsVector() {
                 ::core::result::Result::Ok(ok__) => {
@@ -94,7 +94,7 @@ impl IFileInformationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVirtualizedFilesVector<Impl: IFileInformationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetVirtualizedFilesVector<Impl: IFileInformationFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetVirtualizedFilesVector() {
                 ::core::result::Result::Ok(ok__) => {
@@ -105,7 +105,7 @@ impl IFileInformationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVirtualizedFoldersVector<Impl: IFileInformationFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetVirtualizedFoldersVector<Impl: IFileInformationFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetVirtualizedFoldersVector() {
                 ::core::result::Result::Ok(ok__) => {
@@ -134,7 +134,7 @@ impl IFileInformationFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search", feature = "implement_exclusive"))]
-pub trait IFileInformationFactoryFactoryImpl: Sized {
+pub trait IFileInformationFactoryFactory_Impl: Sized {
     fn CreateWithMode(&mut self, queryresult: &::core::option::Option<super::Search::IStorageQueryResultBase>, mode: super::FileProperties::ThumbnailMode) -> ::windows::core::Result<FileInformationFactory>;
     fn CreateWithModeAndSize(&mut self, queryresult: &::core::option::Option<super::Search::IStorageQueryResultBase>, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32) -> ::windows::core::Result<FileInformationFactory>;
     fn CreateWithModeAndSizeAndOptions(&mut self, queryresult: &::core::option::Option<super::Search::IStorageQueryResultBase>, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions) -> ::windows::core::Result<FileInformationFactory>;
@@ -145,9 +145,9 @@ impl ::windows::core::RuntimeName for IFileInformationFactoryFactory {
     const NAME: &'static str = "Windows.Storage.BulkAccess.IFileInformationFactoryFactory";
 }
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search", feature = "implement_exclusive"))]
-impl IFileInformationFactoryFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileInformationFactoryFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileInformationFactoryFactoryVtbl {
-        unsafe extern "system" fn CreateWithMode<Impl: IFileInformationFactoryFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queryresult: ::windows::core::RawPtr, mode: super::FileProperties::ThumbnailMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IFileInformationFactoryFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileInformationFactoryFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFileInformationFactoryFactory_Vtbl {
+        unsafe extern "system" fn CreateWithMode<Impl: IFileInformationFactoryFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queryresult: ::windows::core::RawPtr, mode: super::FileProperties::ThumbnailMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithMode(&*(&queryresult as *const <super::Search::IStorageQueryResultBase as ::windows::core::Abi>::Abi as *const <super::Search::IStorageQueryResultBase as ::windows::core::DefaultType>::DefaultType), mode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -158,7 +158,7 @@ impl IFileInformationFactoryFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithModeAndSize<Impl: IFileInformationFactoryFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queryresult: ::windows::core::RawPtr, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithModeAndSize<Impl: IFileInformationFactoryFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queryresult: ::windows::core::RawPtr, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithModeAndSize(&*(&queryresult as *const <super::Search::IStorageQueryResultBase as ::windows::core::Abi>::Abi as *const <super::Search::IStorageQueryResultBase as ::windows::core::DefaultType>::DefaultType), mode, requestedthumbnailsize) {
                 ::core::result::Result::Ok(ok__) => {
@@ -169,7 +169,7 @@ impl IFileInformationFactoryFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithModeAndSizeAndOptions<Impl: IFileInformationFactoryFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queryresult: ::windows::core::RawPtr, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithModeAndSizeAndOptions<Impl: IFileInformationFactoryFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queryresult: ::windows::core::RawPtr, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithModeAndSizeAndOptions(&*(&queryresult as *const <super::Search::IStorageQueryResultBase as ::windows::core::Abi>::Abi as *const <super::Search::IStorageQueryResultBase as ::windows::core::DefaultType>::DefaultType), mode, requestedthumbnailsize, thumbnailoptions) {
                 ::core::result::Result::Ok(ok__) => {
@@ -180,7 +180,7 @@ impl IFileInformationFactoryFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithModeAndSizeAndOptionsAndFlags<Impl: IFileInformationFactoryFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queryresult: ::windows::core::RawPtr, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions, delayload: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithModeAndSizeAndOptionsAndFlags<Impl: IFileInformationFactoryFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queryresult: ::windows::core::RawPtr, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions, delayload: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithModeAndSizeAndOptionsAndFlags(&*(&queryresult as *const <super::Search::IStorageQueryResultBase as ::windows::core::Abi>::Abi as *const <super::Search::IStorageQueryResultBase as ::windows::core::DefaultType>::DefaultType), mode, requestedthumbnailsize, thumbnailoptions, delayload) {
                 ::core::result::Result::Ok(ok__) => {
@@ -204,7 +204,7 @@ impl IFileInformationFactoryFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-pub trait IStorageItemInformationImpl: Sized {
+pub trait IStorageItemInformation_Impl: Sized {
     fn MusicProperties(&mut self) -> ::windows::core::Result<super::FileProperties::MusicProperties>;
     fn VideoProperties(&mut self) -> ::windows::core::Result<super::FileProperties::VideoProperties>;
     fn ImageProperties(&mut self) -> ::windows::core::Result<super::FileProperties::ImageProperties>;
@@ -221,9 +221,9 @@ impl ::windows::core::RuntimeName for IStorageItemInformation {
     const NAME: &'static str = "Windows.Storage.BulkAccess.IStorageItemInformation";
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-impl IStorageItemInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageItemInformationVtbl {
-        unsafe extern "system" fn MusicProperties<Impl: IStorageItemInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStorageItemInformation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItemInformation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageItemInformation_Vtbl {
+        unsafe extern "system" fn MusicProperties<Impl: IStorageItemInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MusicProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -234,7 +234,7 @@ impl IStorageItemInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideoProperties<Impl: IStorageItemInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoProperties<Impl: IStorageItemInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VideoProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -245,7 +245,7 @@ impl IStorageItemInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImageProperties<Impl: IStorageItemInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImageProperties<Impl: IStorageItemInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ImageProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -256,7 +256,7 @@ impl IStorageItemInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentProperties<Impl: IStorageItemInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentProperties<Impl: IStorageItemInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -267,7 +267,7 @@ impl IStorageItemInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BasicProperties<Impl: IStorageItemInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BasicProperties<Impl: IStorageItemInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BasicProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -278,7 +278,7 @@ impl IStorageItemInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Thumbnail<Impl: IStorageItemInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Thumbnail<Impl: IStorageItemInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Thumbnail() {
                 ::core::result::Result::Ok(ok__) => {
@@ -289,7 +289,7 @@ impl IStorageItemInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ThumbnailUpdated<Impl: IStorageItemInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changedhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ThumbnailUpdated<Impl: IStorageItemInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changedhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ThumbnailUpdated(&*(&changedhandler as *const <super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -300,11 +300,11 @@ impl IStorageItemInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveThumbnailUpdated<Impl: IStorageItemInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveThumbnailUpdated<Impl: IStorageItemInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveThumbnailUpdated(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PropertiesUpdated<Impl: IStorageItemInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changedhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PropertiesUpdated<Impl: IStorageItemInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changedhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PropertiesUpdated(&*(&changedhandler as *const <super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -315,7 +315,7 @@ impl IStorageItemInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePropertiesUpdated<Impl: IStorageItemInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePropertiesUpdated<Impl: IStorageItemInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePropertiesUpdated(&*(&eventcookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }

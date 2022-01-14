@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IPlatformTelemetryClientStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlatformTelemetryClientStatics {
-    type Vtable = IPlatformTelemetryClientStaticsVtbl;
+    type Vtable = IPlatformTelemetryClientStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bf3f25d_d5c3_4eea_8dbe_9c8dbb0d9d8f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlatformTelemetryClientStaticsVtbl {
+pub struct IPlatformTelemetryClientStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Register: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RegisterWithSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -17,12 +17,12 @@ pub struct IPlatformTelemetryClientStaticsVtbl {
 #[repr(transparent)]
 pub struct IPlatformTelemetryRegistrationResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlatformTelemetryRegistrationResult {
-    type Vtable = IPlatformTelemetryRegistrationResultVtbl;
+    type Vtable = IPlatformTelemetryRegistrationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d8518ab_2292_49bd_a15a_3d71d2145112);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlatformTelemetryRegistrationResultVtbl {
+pub struct IPlatformTelemetryRegistrationResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PlatformTelemetryRegistrationStatus) -> ::windows::core::HRESULT,
 }
@@ -30,12 +30,12 @@ pub struct IPlatformTelemetryRegistrationResultVtbl {
 #[repr(transparent)]
 pub struct IPlatformTelemetryRegistrationSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPlatformTelemetryRegistrationSettings {
-    type Vtable = IPlatformTelemetryRegistrationSettingsVtbl;
+    type Vtable = IPlatformTelemetryRegistrationSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x819a8582_ca19_415e_bb79_9c224bfa3a73);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlatformTelemetryRegistrationSettingsVtbl {
+pub struct IPlatformTelemetryRegistrationSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub StorageSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub SetStorageSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
@@ -101,7 +101,7 @@ unsafe impl ::windows::core::RuntimeType for PlatformTelemetryRegistrationResult
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationResult;{4d8518ab-2292-49bd-a15a-3d71d2145112})");
 }
 unsafe impl ::windows::core::Interface for PlatformTelemetryRegistrationResult {
-    type Vtable = IPlatformTelemetryRegistrationResultVtbl;
+    type Vtable = IPlatformTelemetryRegistrationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d8518ab_2292_49bd_a15a_3d71d2145112);
 }
 impl ::windows::core::RuntimeName for PlatformTelemetryRegistrationResult {
@@ -207,7 +207,7 @@ unsafe impl ::windows::core::RuntimeType for PlatformTelemetryRegistrationSettin
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationSettings;{819a8582-ca19-415e-bb79-9c224bfa3a73})");
 }
 unsafe impl ::windows::core::Interface for PlatformTelemetryRegistrationSettings {
-    type Vtable = IPlatformTelemetryRegistrationSettingsVtbl;
+    type Vtable = IPlatformTelemetryRegistrationSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x819a8582_ca19_415e_bb79_9c224bfa3a73);
 }
 impl ::windows::core::RuntimeName for PlatformTelemetryRegistrationSettings {

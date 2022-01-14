@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IKeyboardCapabilitiesImpl: Sized {
+pub trait IKeyboardCapabilities_Impl: Sized {
     fn KeyboardPresent(&mut self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7,9 +7,9 @@ impl ::windows::core::RuntimeName for IKeyboardCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.IKeyboardCapabilities";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IKeyboardCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyboardCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyboardCapabilitiesVtbl {
-        unsafe extern "system" fn KeyboardPresent<Impl: IKeyboardCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IKeyboardCapabilities_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKeyboardCapabilities_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKeyboardCapabilities_Vtbl {
+        unsafe extern "system" fn KeyboardPresent<Impl: IKeyboardCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeyboardPresent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -30,7 +30,7 @@ impl IKeyboardCapabilitiesVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMouseCapabilitiesImpl: Sized {
+pub trait IMouseCapabilities_Impl: Sized {
     fn MousePresent(&mut self) -> ::windows::core::Result<i32>;
     fn VerticalWheelPresent(&mut self) -> ::windows::core::Result<i32>;
     fn HorizontalWheelPresent(&mut self) -> ::windows::core::Result<i32>;
@@ -42,9 +42,9 @@ impl ::windows::core::RuntimeName for IMouseCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.IMouseCapabilities";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMouseCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMouseCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMouseCapabilitiesVtbl {
-        unsafe extern "system" fn MousePresent<Impl: IMouseCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl IMouseCapabilities_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMouseCapabilities_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMouseCapabilities_Vtbl {
+        unsafe extern "system" fn MousePresent<Impl: IMouseCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MousePresent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -55,7 +55,7 @@ impl IMouseCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VerticalWheelPresent<Impl: IMouseCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VerticalWheelPresent<Impl: IMouseCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VerticalWheelPresent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -66,7 +66,7 @@ impl IMouseCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HorizontalWheelPresent<Impl: IMouseCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HorizontalWheelPresent<Impl: IMouseCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HorizontalWheelPresent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -77,7 +77,7 @@ impl IMouseCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SwapButtons<Impl: IMouseCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SwapButtons<Impl: IMouseCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SwapButtons() {
                 ::core::result::Result::Ok(ok__) => {
@@ -88,7 +88,7 @@ impl IMouseCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NumberOfButtons<Impl: IMouseCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NumberOfButtons<Impl: IMouseCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NumberOfButtons() {
                 ::core::result::Result::Ok(ok__) => {
@@ -113,7 +113,7 @@ impl IMouseCapabilitiesVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IMouseDeviceImpl: Sized {
+pub trait IMouseDevice_Impl: Sized {
     fn MouseMoved(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<MouseDevice, MouseEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveMouseMoved(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
@@ -122,9 +122,9 @@ impl ::windows::core::RuntimeName for IMouseDevice {
     const NAME: &'static str = "Windows.Devices.Input.IMouseDevice";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IMouseDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMouseDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMouseDeviceVtbl {
-        unsafe extern "system" fn MouseMoved<Impl: IMouseDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IMouseDevice_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMouseDevice_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMouseDevice_Vtbl {
+        unsafe extern "system" fn MouseMoved<Impl: IMouseDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MouseMoved(&*(&handler as *const <super::super::Foundation::TypedEventHandler<MouseDevice, MouseEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<MouseDevice, MouseEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -135,7 +135,7 @@ impl IMouseDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMouseMoved<Impl: IMouseDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMouseMoved<Impl: IMouseDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMouseMoved(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -150,7 +150,7 @@ impl IMouseDeviceVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMouseDeviceStaticsImpl: Sized {
+pub trait IMouseDeviceStatics_Impl: Sized {
     fn GetForCurrentView(&mut self) -> ::windows::core::Result<MouseDevice>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -158,9 +158,9 @@ impl ::windows::core::RuntimeName for IMouseDeviceStatics {
     const NAME: &'static str = "Windows.Devices.Input.IMouseDeviceStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMouseDeviceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMouseDeviceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMouseDeviceStaticsVtbl {
-        unsafe extern "system" fn GetForCurrentView<Impl: IMouseDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IMouseDeviceStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMouseDeviceStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMouseDeviceStatics_Vtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: IMouseDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -181,7 +181,7 @@ impl IMouseDeviceStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IMouseEventArgsImpl: Sized {
+pub trait IMouseEventArgs_Impl: Sized {
     fn MouseDelta(&mut self) -> ::windows::core::Result<MouseDelta>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -189,9 +189,9 @@ impl ::windows::core::RuntimeName for IMouseEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.IMouseEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IMouseEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMouseEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMouseEventArgsVtbl {
-        unsafe extern "system" fn MouseDelta<Impl: IMouseEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MouseDelta) -> ::windows::core::HRESULT {
+impl IMouseEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMouseEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMouseEventArgs_Vtbl {
+        unsafe extern "system" fn MouseDelta<Impl: IMouseEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut MouseDelta) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MouseDelta() {
                 ::core::result::Result::Ok(ok__) => {
@@ -209,7 +209,7 @@ impl IMouseEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPenButtonListenerImpl: Sized {
+pub trait IPenButtonListener_Impl: Sized {
     fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
     fn IsSupportedChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PenButtonListener, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveIsSupportedChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -225,9 +225,9 @@ impl ::windows::core::RuntimeName for IPenButtonListener {
     const NAME: &'static str = "Windows.Devices.Input.IPenButtonListener";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPenButtonListenerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenButtonListenerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenButtonListenerVtbl {
-        unsafe extern "system" fn IsSupported<Impl: IPenButtonListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IPenButtonListener_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenButtonListener_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenButtonListener_Vtbl {
+        unsafe extern "system" fn IsSupported<Impl: IPenButtonListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -238,7 +238,7 @@ impl IPenButtonListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSupportedChanged<Impl: IPenButtonListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSupportedChanged<Impl: IPenButtonListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupportedChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PenButtonListener, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PenButtonListener, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -249,11 +249,11 @@ impl IPenButtonListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveIsSupportedChanged<Impl: IPenButtonListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveIsSupportedChanged<Impl: IPenButtonListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveIsSupportedChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TailButtonClicked<Impl: IPenButtonListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TailButtonClicked<Impl: IPenButtonListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TailButtonClicked(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonClickedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonClickedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -264,11 +264,11 @@ impl IPenButtonListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveTailButtonClicked<Impl: IPenButtonListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveTailButtonClicked<Impl: IPenButtonListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTailButtonClicked(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TailButtonDoubleClicked<Impl: IPenButtonListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TailButtonDoubleClicked<Impl: IPenButtonListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TailButtonDoubleClicked(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonDoubleClickedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonDoubleClickedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -279,11 +279,11 @@ impl IPenButtonListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveTailButtonDoubleClicked<Impl: IPenButtonListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveTailButtonDoubleClicked<Impl: IPenButtonListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTailButtonDoubleClicked(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TailButtonLongPressed<Impl: IPenButtonListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TailButtonLongPressed<Impl: IPenButtonListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TailButtonLongPressed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonLongPressedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonLongPressedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -294,7 +294,7 @@ impl IPenButtonListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveTailButtonLongPressed<Impl: IPenButtonListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveTailButtonLongPressed<Impl: IPenButtonListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTailButtonLongPressed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -316,7 +316,7 @@ impl IPenButtonListenerVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPenButtonListenerStaticsImpl: Sized {
+pub trait IPenButtonListenerStatics_Impl: Sized {
     fn GetDefault(&mut self) -> ::windows::core::Result<PenButtonListener>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -324,9 +324,9 @@ impl ::windows::core::RuntimeName for IPenButtonListenerStatics {
     const NAME: &'static str = "Windows.Devices.Input.IPenButtonListenerStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPenButtonListenerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenButtonListenerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenButtonListenerStaticsVtbl {
-        unsafe extern "system" fn GetDefault<Impl: IPenButtonListenerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPenButtonListenerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenButtonListenerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenButtonListenerStatics_Vtbl {
+        unsafe extern "system" fn GetDefault<Impl: IPenButtonListenerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
                 ::core::result::Result::Ok(ok__) => {
@@ -344,7 +344,7 @@ impl IPenButtonListenerStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPenDeviceImpl: Sized {
+pub trait IPenDevice_Impl: Sized {
     fn PenId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -352,9 +352,9 @@ impl ::windows::core::RuntimeName for IPenDevice {
     const NAME: &'static str = "Windows.Devices.Input.IPenDevice";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPenDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenDeviceVtbl {
-        unsafe extern "system" fn PenId<Impl: IPenDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl IPenDevice_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenDevice_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenDevice_Vtbl {
+        unsafe extern "system" fn PenId<Impl: IPenDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PenId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -372,7 +372,7 @@ impl IPenDeviceVtbl {
     }
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
-pub trait IPenDevice2Impl: Sized {
+pub trait IPenDevice2_Impl: Sized {
     fn SimpleHapticsController(&mut self) -> ::windows::core::Result<super::Haptics::SimpleHapticsController>;
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
@@ -380,9 +380,9 @@ impl ::windows::core::RuntimeName for IPenDevice2 {
     const NAME: &'static str = "Windows.Devices.Input.IPenDevice2";
 }
 #[cfg(all(feature = "Devices_Haptics", feature = "implement_exclusive"))]
-impl IPenDevice2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenDevice2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenDevice2Vtbl {
-        unsafe extern "system" fn SimpleHapticsController<Impl: IPenDevice2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPenDevice2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenDevice2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenDevice2_Vtbl {
+        unsafe extern "system" fn SimpleHapticsController<Impl: IPenDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SimpleHapticsController() {
                 ::core::result::Result::Ok(ok__) => {
@@ -403,7 +403,7 @@ impl IPenDevice2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPenDeviceStaticsImpl: Sized {
+pub trait IPenDeviceStatics_Impl: Sized {
     fn GetFromPointerId(&mut self, pointerid: u32) -> ::windows::core::Result<PenDevice>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -411,9 +411,9 @@ impl ::windows::core::RuntimeName for IPenDeviceStatics {
     const NAME: &'static str = "Windows.Devices.Input.IPenDeviceStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPenDeviceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenDeviceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenDeviceStaticsVtbl {
-        unsafe extern "system" fn GetFromPointerId<Impl: IPenDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pointerid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPenDeviceStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenDeviceStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenDeviceStatics_Vtbl {
+        unsafe extern "system" fn GetFromPointerId<Impl: IPenDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pointerid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFromPointerId(pointerid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -434,7 +434,7 @@ impl IPenDeviceStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPenDockListenerImpl: Sized {
+pub trait IPenDockListener_Impl: Sized {
     fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
     fn IsSupportedChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<PenDockListener, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveIsSupportedChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -448,9 +448,9 @@ impl ::windows::core::RuntimeName for IPenDockListener {
     const NAME: &'static str = "Windows.Devices.Input.IPenDockListener";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPenDockListenerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenDockListenerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenDockListenerVtbl {
-        unsafe extern "system" fn IsSupported<Impl: IPenDockListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IPenDockListener_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenDockListener_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenDockListener_Vtbl {
+        unsafe extern "system" fn IsSupported<Impl: IPenDockListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -461,7 +461,7 @@ impl IPenDockListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSupportedChanged<Impl: IPenDockListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSupportedChanged<Impl: IPenDockListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupportedChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PenDockListener, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PenDockListener, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -472,11 +472,11 @@ impl IPenDockListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveIsSupportedChanged<Impl: IPenDockListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveIsSupportedChanged<Impl: IPenDockListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveIsSupportedChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Docked<Impl: IPenDockListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Docked<Impl: IPenDockListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Docked(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PenDockListener, PenDockedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PenDockListener, PenDockedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -487,11 +487,11 @@ impl IPenDockListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDocked<Impl: IPenDockListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDocked<Impl: IPenDockListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDocked(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Undocked<Impl: IPenDockListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Undocked<Impl: IPenDockListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Undocked(&*(&handler as *const <super::super::Foundation::TypedEventHandler<PenDockListener, PenUndockedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<PenDockListener, PenUndockedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -502,7 +502,7 @@ impl IPenDockListenerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveUndocked<Impl: IPenDockListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveUndocked<Impl: IPenDockListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveUndocked(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -522,7 +522,7 @@ impl IPenDockListenerVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPenDockListenerStaticsImpl: Sized {
+pub trait IPenDockListenerStatics_Impl: Sized {
     fn GetDefault(&mut self) -> ::windows::core::Result<PenDockListener>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -530,9 +530,9 @@ impl ::windows::core::RuntimeName for IPenDockListenerStatics {
     const NAME: &'static str = "Windows.Devices.Input.IPenDockListenerStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPenDockListenerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenDockListenerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenDockListenerStaticsVtbl {
-        unsafe extern "system" fn GetDefault<Impl: IPenDockListenerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPenDockListenerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenDockListenerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenDockListenerStatics_Vtbl {
+        unsafe extern "system" fn GetDefault<Impl: IPenDockListenerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
                 ::core::result::Result::Ok(ok__) => {
@@ -550,14 +550,14 @@ impl IPenDockListenerStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPenDockedEventArgsImpl: Sized {}
+pub trait IPenDockedEventArgs_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPenDockedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.IPenDockedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPenDockedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenDockedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenDockedEventArgsVtbl {
+impl IPenDockedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenDockedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenDockedEventArgs_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPenDockedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -565,14 +565,14 @@ impl IPenDockedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPenTailButtonClickedEventArgsImpl: Sized {}
+pub trait IPenTailButtonClickedEventArgs_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPenTailButtonClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.IPenTailButtonClickedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPenTailButtonClickedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenTailButtonClickedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenTailButtonClickedEventArgsVtbl {
+impl IPenTailButtonClickedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenTailButtonClickedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenTailButtonClickedEventArgs_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPenTailButtonClickedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -580,14 +580,14 @@ impl IPenTailButtonClickedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPenTailButtonDoubleClickedEventArgsImpl: Sized {}
+pub trait IPenTailButtonDoubleClickedEventArgs_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPenTailButtonDoubleClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.IPenTailButtonDoubleClickedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPenTailButtonDoubleClickedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenTailButtonDoubleClickedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenTailButtonDoubleClickedEventArgsVtbl {
+impl IPenTailButtonDoubleClickedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenTailButtonDoubleClickedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenTailButtonDoubleClickedEventArgs_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPenTailButtonDoubleClickedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -595,14 +595,14 @@ impl IPenTailButtonDoubleClickedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPenTailButtonLongPressedEventArgsImpl: Sized {}
+pub trait IPenTailButtonLongPressedEventArgs_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPenTailButtonLongPressedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.IPenTailButtonLongPressedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPenTailButtonLongPressedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenTailButtonLongPressedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenTailButtonLongPressedEventArgsVtbl {
+impl IPenTailButtonLongPressedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenTailButtonLongPressedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenTailButtonLongPressedEventArgs_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPenTailButtonLongPressedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -610,14 +610,14 @@ impl IPenTailButtonLongPressedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPenUndockedEventArgsImpl: Sized {}
+pub trait IPenUndockedEventArgs_Impl: Sized {}
 #[cfg(feature = "implement_exclusive")]
 impl ::windows::core::RuntimeName for IPenUndockedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.IPenUndockedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPenUndockedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenUndockedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenUndockedEventArgsVtbl {
+impl IPenUndockedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPenUndockedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPenUndockedEventArgs_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPenUndockedEventArgs, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -625,7 +625,7 @@ impl IPenUndockedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPointerDeviceImpl: Sized {
+pub trait IPointerDevice_Impl: Sized {
     fn PointerDeviceType(&mut self) -> ::windows::core::Result<PointerDeviceType>;
     fn IsIntegrated(&mut self) -> ::windows::core::Result<bool>;
     fn MaxContacts(&mut self) -> ::windows::core::Result<u32>;
@@ -638,9 +638,9 @@ impl ::windows::core::RuntimeName for IPointerDevice {
     const NAME: &'static str = "Windows.Devices.Input.IPointerDevice";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPointerDeviceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerDeviceVtbl {
-        unsafe extern "system" fn PointerDeviceType<Impl: IPointerDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PointerDeviceType) -> ::windows::core::HRESULT {
+impl IPointerDevice_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerDevice_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerDevice_Vtbl {
+        unsafe extern "system" fn PointerDeviceType<Impl: IPointerDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PointerDeviceType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PointerDeviceType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -651,7 +651,7 @@ impl IPointerDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsIntegrated<Impl: IPointerDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsIntegrated<Impl: IPointerDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsIntegrated() {
                 ::core::result::Result::Ok(ok__) => {
@@ -662,7 +662,7 @@ impl IPointerDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxContacts<Impl: IPointerDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxContacts<Impl: IPointerDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxContacts() {
                 ::core::result::Result::Ok(ok__) => {
@@ -673,7 +673,7 @@ impl IPointerDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhysicalDeviceRect<Impl: IPointerDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhysicalDeviceRect<Impl: IPointerDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhysicalDeviceRect() {
                 ::core::result::Result::Ok(ok__) => {
@@ -684,7 +684,7 @@ impl IPointerDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ScreenRect<Impl: IPointerDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScreenRect<Impl: IPointerDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScreenRect() {
                 ::core::result::Result::Ok(ok__) => {
@@ -695,7 +695,7 @@ impl IPointerDeviceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedUsages<Impl: IPointerDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedUsages<Impl: IPointerDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedUsages() {
                 ::core::result::Result::Ok(ok__) => {
@@ -721,7 +721,7 @@ impl IPointerDeviceVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPointerDevice2Impl: Sized {
+pub trait IPointerDevice2_Impl: Sized {
     fn MaxPointersWithZDistance(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -729,9 +729,9 @@ impl ::windows::core::RuntimeName for IPointerDevice2 {
     const NAME: &'static str = "Windows.Devices.Input.IPointerDevice2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPointerDevice2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerDevice2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerDevice2Vtbl {
-        unsafe extern "system" fn MaxPointersWithZDistance<Impl: IPointerDevice2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IPointerDevice2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerDevice2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerDevice2_Vtbl {
+        unsafe extern "system" fn MaxPointersWithZDistance<Impl: IPointerDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxPointersWithZDistance() {
                 ::core::result::Result::Ok(ok__) => {
@@ -752,7 +752,7 @@ impl IPointerDevice2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPointerDeviceStaticsImpl: Sized {
+pub trait IPointerDeviceStatics_Impl: Sized {
     fn GetPointerDevice(&mut self, pointerid: u32) -> ::windows::core::Result<PointerDevice>;
     fn GetPointerDevices(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PointerDevice>>;
 }
@@ -761,9 +761,9 @@ impl ::windows::core::RuntimeName for IPointerDeviceStatics {
     const NAME: &'static str = "Windows.Devices.Input.IPointerDeviceStatics";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPointerDeviceStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerDeviceStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerDeviceStaticsVtbl {
-        unsafe extern "system" fn GetPointerDevice<Impl: IPointerDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pointerid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IPointerDeviceStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPointerDeviceStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPointerDeviceStatics_Vtbl {
+        unsafe extern "system" fn GetPointerDevice<Impl: IPointerDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pointerid: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPointerDevice(pointerid) {
                 ::core::result::Result::Ok(ok__) => {
@@ -774,7 +774,7 @@ impl IPointerDeviceStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPointerDevices<Impl: IPointerDeviceStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPointerDevices<Impl: IPointerDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPointerDevices() {
                 ::core::result::Result::Ok(ok__) => {
@@ -796,7 +796,7 @@ impl IPointerDeviceStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ITouchCapabilitiesImpl: Sized {
+pub trait ITouchCapabilities_Impl: Sized {
     fn TouchPresent(&mut self) -> ::windows::core::Result<i32>;
     fn Contacts(&mut self) -> ::windows::core::Result<u32>;
 }
@@ -805,9 +805,9 @@ impl ::windows::core::RuntimeName for ITouchCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.ITouchCapabilities";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ITouchCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITouchCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITouchCapabilitiesVtbl {
-        unsafe extern "system" fn TouchPresent<Impl: ITouchCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+impl ITouchCapabilities_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITouchCapabilities_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITouchCapabilities_Vtbl {
+        unsafe extern "system" fn TouchPresent<Impl: ITouchCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TouchPresent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -818,7 +818,7 @@ impl ITouchCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Contacts<Impl: ITouchCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Contacts<Impl: ITouchCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Contacts() {
                 ::core::result::Result::Ok(ok__) => {

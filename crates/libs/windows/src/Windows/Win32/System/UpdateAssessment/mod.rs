@@ -47,12 +47,12 @@ impl ::core::fmt::Debug for IWaaSAssessor {
     }
 }
 unsafe impl ::windows::core::Interface for IWaaSAssessor {
-    type Vtable = IWaaSAssessorVtbl;
+    type Vtable = IWaaSAssessor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2347bbef_1a3b_45a4_902d_3e09c269b45e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWaaSAssessorVtbl {
+pub struct IWaaSAssessor_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetOSUpdateAssessment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result: *mut OSUpdateAssessment) -> ::windows::core::HRESULT,

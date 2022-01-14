@@ -71,12 +71,12 @@ impl ::core::fmt::Debug for AsyncIFtpAuthenticationProvider {
     }
 }
 unsafe impl ::windows::core::Interface for AsyncIFtpAuthenticationProvider {
-    type Vtable = AsyncIFtpAuthenticationProviderVtbl;
+    type Vtable = AsyncIFtpAuthenticationProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc24efb65_9f3e_4996_8fb1_ce166916bab5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AsyncIFtpAuthenticationProviderVtbl {
+pub struct AsyncIFtpAuthenticationProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Begin_AuthenticateUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pszpassword: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -139,12 +139,12 @@ impl ::core::fmt::Debug for AsyncIFtpAuthorizationProvider {
     }
 }
 unsafe impl ::windows::core::Interface for AsyncIFtpAuthorizationProvider {
-    type Vtable = AsyncIFtpAuthorizationProviderVtbl;
+    type Vtable = AsyncIFtpAuthorizationProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x860dc339_07e5_4a5c_9c61_8820cea012bc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AsyncIFtpAuthorizationProviderVtbl {
+pub struct AsyncIFtpAuthorizationProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Begin_GetUserAccessPermission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszvirtualpath: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -205,12 +205,12 @@ impl ::core::fmt::Debug for AsyncIFtpHomeDirectoryProvider {
     }
 }
 unsafe impl ::windows::core::Interface for AsyncIFtpHomeDirectoryProvider {
-    type Vtable = AsyncIFtpHomeDirectoryProviderVtbl;
+    type Vtable = AsyncIFtpHomeDirectoryProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73f81638_6295_42bd_a2be_4a657f7c479c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AsyncIFtpHomeDirectoryProviderVtbl {
+pub struct AsyncIFtpHomeDirectoryProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Begin_GetUserHomeDirectoryData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -272,12 +272,12 @@ impl ::core::fmt::Debug for AsyncIFtpLogProvider {
     }
 }
 unsafe impl ::windows::core::Interface for AsyncIFtpLogProvider {
-    type Vtable = AsyncIFtpLogProviderVtbl;
+    type Vtable = AsyncIFtpLogProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00a0ae46_2498_48b2_95e6_df678ed7d49f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AsyncIFtpLogProviderVtbl {
+pub struct AsyncIFtpLogProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Begin_Log: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ploggingparameters: *const LOGGING_PARAMETERS) -> ::windows::core::HRESULT,
@@ -337,12 +337,12 @@ impl ::core::fmt::Debug for AsyncIFtpPostprocessProvider {
     }
 }
 unsafe impl ::windows::core::Interface for AsyncIFtpPostprocessProvider {
-    type Vtable = AsyncIFtpPostprocessProviderVtbl;
+    type Vtable = AsyncIFtpPostprocessProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa16b2542_9694_4eb1_a564_6c2e91fdc133);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AsyncIFtpPostprocessProviderVtbl {
+pub struct AsyncIFtpPostprocessProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Begin_HandlePostprocess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> ::windows::core::HRESULT,
@@ -402,12 +402,12 @@ impl ::core::fmt::Debug for AsyncIFtpPreprocessProvider {
     }
 }
 unsafe impl ::windows::core::Interface for AsyncIFtpPreprocessProvider {
-    type Vtable = AsyncIFtpPreprocessProviderVtbl;
+    type Vtable = AsyncIFtpPreprocessProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ff5fd8f_fd8e_48b1_a3e0_bf7073db4db5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AsyncIFtpPreprocessProviderVtbl {
+pub struct AsyncIFtpPreprocessProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Begin_HandlePreprocess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS) -> ::windows::core::HRESULT,
@@ -468,12 +468,12 @@ impl ::core::fmt::Debug for AsyncIFtpRoleProvider {
     }
 }
 unsafe impl ::windows::core::Interface for AsyncIFtpRoleProvider {
-    type Vtable = AsyncIFtpRoleProviderVtbl;
+    type Vtable = AsyncIFtpRoleProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e83bf99_70ec_41ca_84b6_aca7c7a62caf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AsyncIFtpRoleProviderVtbl {
+pub struct AsyncIFtpRoleProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Begin_IsUserInRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pszrole: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -543,12 +543,12 @@ impl ::core::fmt::Debug for AsyncIMSAdminBaseSinkW {
     }
 }
 unsafe impl ::windows::core::Interface for AsyncIMSAdminBaseSinkW {
-    type Vtable = AsyncIMSAdminBaseSinkWVtbl;
+    type Vtable = AsyncIMSAdminBaseSinkW_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9e69613_b80d_11d0_b9b9_00a0c922e750);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AsyncIMSAdminBaseSinkWVtbl {
+pub struct AsyncIMSAdminBaseSinkW_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Begin_SinkNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmdnumelements: u32, pcochangelist: *const MD_CHANGE_OBJECT_W) -> ::windows::core::HRESULT,
@@ -2282,12 +2282,12 @@ impl ::core::fmt::Debug for IADMEXT {
     }
 }
 unsafe impl ::windows::core::Interface for IADMEXT {
-    type Vtable = IADMEXTVtbl;
+    type Vtable = IADMEXT_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51dfe970_f6f2_11d0_b9bd_00a0c922e750);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IADMEXTVtbl {
+pub struct IADMEXT_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumDcomCLSIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsiddcom: *mut ::windows::core::GUID, dwenumindex: u32) -> ::windows::core::HRESULT,
@@ -2340,12 +2340,12 @@ impl ::core::fmt::Debug for IFtpAuthenticationProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IFtpAuthenticationProvider {
-    type Vtable = IFtpAuthenticationProviderVtbl;
+    type Vtable = IFtpAuthenticationProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4659f95c_d5a8_4707_b2fc_6fd5794246cf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFtpAuthenticationProviderVtbl {
+pub struct IFtpAuthenticationProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AuthenticateUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pszpassword: super::super::Foundation::PWSTR, ppszcanonicalusername: *mut super::super::Foundation::PWSTR, pfauthenticated: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -2400,12 +2400,12 @@ impl ::core::fmt::Debug for IFtpAuthorizationProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IFtpAuthorizationProvider {
-    type Vtable = IFtpAuthorizationProviderVtbl;
+    type Vtable = IFtpAuthorizationProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa50ae7a1_a35a_42b4_a4f3_f4f7057a05d1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFtpAuthorizationProviderVtbl {
+pub struct IFtpAuthorizationProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetUserAccessPermission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszvirtualpath: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pftpaccess: *mut FTP_ACCESS) -> ::windows::core::HRESULT,
@@ -2460,12 +2460,12 @@ impl ::core::fmt::Debug for IFtpHomeDirectoryProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IFtpHomeDirectoryProvider {
-    type Vtable = IFtpHomeDirectoryProviderVtbl;
+    type Vtable = IFtpHomeDirectoryProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0933b392_18dd_4097_8b9c_83325c35d9a6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFtpHomeDirectoryProviderVtbl {
+pub struct IFtpHomeDirectoryProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetUserHomeDirectoryData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, ppszhomedirectorydata: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -2519,12 +2519,12 @@ impl ::core::fmt::Debug for IFtpLogProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IFtpLogProvider {
-    type Vtable = IFtpLogProviderVtbl;
+    type Vtable = IFtpLogProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa18a94cc_8299_4408_816c_7c3baca1a40e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFtpLogProviderVtbl {
+pub struct IFtpLogProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Log: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ploggingparameters: *const LOGGING_PARAMETERS) -> ::windows::core::HRESULT,
@@ -2579,12 +2579,12 @@ impl ::core::fmt::Debug for IFtpPostprocessProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IFtpPostprocessProvider {
-    type Vtable = IFtpPostprocessProviderVtbl;
+    type Vtable = IFtpPostprocessProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4522cbc6_16cd_49ad_8653_9a2c579e4280);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFtpPostprocessProviderVtbl {
+pub struct IFtpPostprocessProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub HandlePostprocess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppostprocessparameters: *const POST_PROCESS_PARAMETERS, pftpprocessstatus: *mut FTP_PROCESS_STATUS) -> ::windows::core::HRESULT,
@@ -2639,12 +2639,12 @@ impl ::core::fmt::Debug for IFtpPreprocessProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IFtpPreprocessProvider {
-    type Vtable = IFtpPreprocessProviderVtbl;
+    type Vtable = IFtpPreprocessProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3c19b60_5a28_471a_8f93_ab30411cee82);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFtpPreprocessProviderVtbl {
+pub struct IFtpPreprocessProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub HandlePreprocess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS, pftpprocessstatus: *mut FTP_PROCESS_STATUS) -> ::windows::core::HRESULT,
@@ -2698,12 +2698,12 @@ impl ::core::fmt::Debug for IFtpProviderConstruct {
     }
 }
 unsafe impl ::windows::core::Interface for IFtpProviderConstruct {
-    type Vtable = IFtpProviderConstructVtbl;
+    type Vtable = IFtpProviderConstruct_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d1a3f7b_412d_447c_b199_64f967e9a2da);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFtpProviderConstructVtbl {
+pub struct IFtpProviderConstruct_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Construct: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, configurationentries: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT,
@@ -2758,12 +2758,12 @@ impl ::core::fmt::Debug for IFtpRoleProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IFtpRoleProvider {
-    type Vtable = IFtpRoleProviderVtbl;
+    type Vtable = IFtpRoleProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x909c850d_8ca0_4674_96b8_cc2941535725);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IFtpRoleProviderVtbl {
+pub struct IFtpRoleProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsUserInRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pszrole: super::super::Foundation::PWSTR, pfisinrole: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -3095,13 +3095,13 @@ impl ::core::fmt::Debug for IMSAdminBase2W {
     }
 }
 unsafe impl ::windows::core::Interface for IMSAdminBase2W {
-    type Vtable = IMSAdminBase2WVtbl;
+    type Vtable = IMSAdminBase2W_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8298d101_f992_43b7_8eca_5052d885b995);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSAdminBase2WVtbl {
-    pub base: IMSAdminBaseWVtbl,
+pub struct IMSAdminBase2W_Vtbl {
+    pub base: IMSAdminBaseW_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub BackupWithPasswd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmdbackuplocation: super::super::Foundation::PWSTR, dwmdversion: u32, dwmdflags: u32, pszpasswd: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3395,13 +3395,13 @@ impl ::core::fmt::Debug for IMSAdminBase3W {
     }
 }
 unsafe impl ::windows::core::Interface for IMSAdminBase3W {
-    type Vtable = IMSAdminBase3WVtbl;
+    type Vtable = IMSAdminBase3W_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf612954d_3b0b_4c56_9563_227b7be624b4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSAdminBase3WVtbl {
-    pub base: IMSAdminBase2WVtbl,
+pub struct IMSAdminBase3W_Vtbl {
+    pub base: IMSAdminBase2W_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetChildPaths: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, cchmdbuffersize: u32, pszbuffer: super::super::Foundation::PWSTR, pcchmdrequiredbuffersize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3458,12 +3458,12 @@ impl ::core::fmt::Debug for IMSAdminBaseSinkW {
     }
 }
 unsafe impl ::windows::core::Interface for IMSAdminBaseSinkW {
-    type Vtable = IMSAdminBaseSinkWVtbl;
+    type Vtable = IMSAdminBaseSinkW_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9e69612_b80d_11d0_b9b9_00a0c922e750);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSAdminBaseSinkWVtbl {
+pub struct IMSAdminBaseSinkW_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SinkNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmdnumelements: u32, pcochangelist: *const MD_CHANGE_OBJECT_W) -> ::windows::core::HRESULT,
@@ -3664,12 +3664,12 @@ impl ::core::fmt::Debug for IMSAdminBaseW {
     }
 }
 unsafe impl ::windows::core::Interface for IMSAdminBaseW {
-    type Vtable = IMSAdminBaseWVtbl;
+    type Vtable = IMSAdminBaseW_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70b51430_b6ca_11d0_b9b9_00a0c922e750);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSAdminBaseWVtbl {
+pub struct IMSAdminBaseW_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -3816,12 +3816,12 @@ impl ::core::fmt::Debug for IMSImpExpHelpW {
     }
 }
 unsafe impl ::windows::core::Interface for IMSImpExpHelpW {
-    type Vtable = IMSImpExpHelpWVtbl;
+    type Vtable = IMSImpExpHelpW_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29ff67ff_8050_480f_9f30_cc41635f2f9d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMSImpExpHelpWVtbl {
+pub struct IMSImpExpHelpW_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub EnumeratePathsInFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfilename: super::super::Foundation::PWSTR, pszkeytype: super::super::Foundation::PWSTR, dwmdbuffersize: u32, pszbuffer: super::super::Foundation::PWSTR, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::HRESULT,

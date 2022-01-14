@@ -36,7 +36,7 @@ unsafe impl ::windows::core::RuntimeType for CallAnswerEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.CallAnswerEventArgs;{fd789617-2dd7-4c8c-b2bd-95d17a5bb733})");
 }
 unsafe impl ::windows::core::Interface for CallAnswerEventArgs {
-    type Vtable = ICallAnswerEventArgsVtbl;
+    type Vtable = ICallAnswerEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd789617_2dd7_4c8c_b2bd_95d17a5bb733);
 }
 impl ::windows::core::RuntimeName for CallAnswerEventArgs {
@@ -117,7 +117,7 @@ unsafe impl ::windows::core::RuntimeType for CallRejectEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.CallRejectEventArgs;{da47fad7-13d4-4d92-a1c2-b77811ee37ec})");
 }
 unsafe impl ::windows::core::Interface for CallRejectEventArgs {
-    type Vtable = ICallRejectEventArgsVtbl;
+    type Vtable = ICallRejectEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda47fad7_13d4_4d92_a1c2_b77811ee37ec);
 }
 impl ::windows::core::RuntimeName for CallRejectEventArgs {
@@ -198,7 +198,7 @@ unsafe impl ::windows::core::RuntimeType for CallStateChangeEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.CallStateChangeEventArgs;{eab2349e-66f5-47f9-9fb5-459c5198c720})");
 }
 unsafe impl ::windows::core::Interface for CallStateChangeEventArgs {
-    type Vtable = ICallStateChangeEventArgsVtbl;
+    type Vtable = ICallStateChangeEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeab2349e_66f5_47f9_9fb5_459c5198c720);
 }
 impl ::windows::core::RuntimeName for CallStateChangeEventArgs {
@@ -359,12 +359,12 @@ impl ::windows::core::DefaultType for DtmfToneAudioPlayback {
 #[repr(transparent)]
 pub struct ICallAnswerEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICallAnswerEventArgs {
-    type Vtable = ICallAnswerEventArgsVtbl;
+    type Vtable = ICallAnswerEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd789617_2dd7_4c8c_b2bd_95d17a5bb733);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICallAnswerEventArgsVtbl {
+pub struct ICallAnswerEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AcceptedMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut VoipPhoneCallMedia) -> ::windows::core::HRESULT,
 }
@@ -372,12 +372,12 @@ pub struct ICallAnswerEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICallRejectEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICallRejectEventArgs {
-    type Vtable = ICallRejectEventArgsVtbl;
+    type Vtable = ICallRejectEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda47fad7_13d4_4d92_a1c2_b77811ee37ec);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICallRejectEventArgsVtbl {
+pub struct ICallRejectEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RejectReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut VoipPhoneCallRejectReason) -> ::windows::core::HRESULT,
 }
@@ -385,12 +385,12 @@ pub struct ICallRejectEventArgsVtbl {
 #[repr(transparent)]
 pub struct ICallStateChangeEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICallStateChangeEventArgs {
-    type Vtable = ICallStateChangeEventArgsVtbl;
+    type Vtable = ICallStateChangeEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeab2349e_66f5_47f9_9fb5_459c5198c720);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICallStateChangeEventArgsVtbl {
+pub struct ICallStateChangeEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut VoipPhoneCallState) -> ::windows::core::HRESULT,
 }
@@ -398,12 +398,12 @@ pub struct ICallStateChangeEventArgsVtbl {
 #[repr(transparent)]
 pub struct ILockScreenCallEndCallDeferral(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILockScreenCallEndCallDeferral {
-    type Vtable = ILockScreenCallEndCallDeferralVtbl;
+    type Vtable = ILockScreenCallEndCallDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dd7ed0d_98ed_4041_9632_50ff812b773f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILockScreenCallEndCallDeferralVtbl {
+pub struct ILockScreenCallEndCallDeferral_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -411,12 +411,12 @@ pub struct ILockScreenCallEndCallDeferralVtbl {
 #[repr(transparent)]
 pub struct ILockScreenCallEndRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILockScreenCallEndRequestedEventArgs {
-    type Vtable = ILockScreenCallEndRequestedEventArgsVtbl;
+    type Vtable = ILockScreenCallEndRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8190a363_6f27_46e9_aeb6_c0ae83e47dc7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILockScreenCallEndRequestedEventArgsVtbl {
+pub struct ILockScreenCallEndRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -428,12 +428,12 @@ pub struct ILockScreenCallEndRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct ILockScreenCallUI(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILockScreenCallUI {
-    type Vtable = ILockScreenCallUIVtbl;
+    type Vtable = ILockScreenCallUI_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc596fd8d_73c9_4a14_b021_ec1c50a3b727);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILockScreenCallUIVtbl {
+pub struct ILockScreenCallUI_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Dismiss: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -459,12 +459,12 @@ pub struct ILockScreenCallUIVtbl {
 #[repr(transparent)]
 pub struct IMuteChangeEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IMuteChangeEventArgs {
-    type Vtable = IMuteChangeEventArgsVtbl;
+    type Vtable = IMuteChangeEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8585e159_0c41_432c_814d_c5f1fdf530be);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMuteChangeEventArgsVtbl {
+pub struct IMuteChangeEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Muted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -472,12 +472,12 @@ pub struct IMuteChangeEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPhoneCall(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCall {
-    type Vtable = IPhoneCallVtbl;
+    type Vtable = IPhoneCall_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc14ed0f8_c17d_59d2_9628_66e545b6cd21);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallVtbl {
+pub struct IPhoneCall_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub StatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -562,12 +562,12 @@ pub struct IPhoneCallVtbl {
 #[repr(transparent)]
 pub struct IPhoneCallBlockingStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallBlockingStatics {
-    type Vtable = IPhoneCallBlockingStaticsVtbl;
+    type Vtable = IPhoneCallBlockingStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19646f84_2b79_26f1_a46f_694be043f313);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallBlockingStaticsVtbl {
+pub struct IPhoneCallBlockingStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub BlockUnknownNumbers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetBlockUnknownNumbers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -582,12 +582,12 @@ pub struct IPhoneCallBlockingStaticsVtbl {
 #[repr(transparent)]
 pub struct IPhoneCallHistoryEntry(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallHistoryEntry {
-    type Vtable = IPhoneCallHistoryEntryVtbl;
+    type Vtable = IPhoneCallHistoryEntry_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfab0e129_32a4_4b85_83d1_f90d8c23a857);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallHistoryEntryVtbl {
+pub struct IPhoneCallHistoryEntry_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Address: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -640,12 +640,12 @@ pub struct IPhoneCallHistoryEntryVtbl {
 #[repr(transparent)]
 pub struct IPhoneCallHistoryEntryAddress(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallHistoryEntryAddress {
-    type Vtable = IPhoneCallHistoryEntryAddressVtbl;
+    type Vtable = IPhoneCallHistoryEntryAddress_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30f159da_3955_4042_84e6_66eebf82e67f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallHistoryEntryAddressVtbl {
+pub struct IPhoneCallHistoryEntryAddress_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ContactId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetContactId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -660,12 +660,12 @@ pub struct IPhoneCallHistoryEntryAddressVtbl {
 #[repr(transparent)]
 pub struct IPhoneCallHistoryEntryAddressFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallHistoryEntryAddressFactory {
-    type Vtable = IPhoneCallHistoryEntryAddressFactoryVtbl;
+    type Vtable = IPhoneCallHistoryEntryAddressFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb0fadba_c7f0_4bb6_9f6b_ba5d73209aca);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallHistoryEntryAddressFactoryVtbl {
+pub struct IPhoneCallHistoryEntryAddressFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rawaddress: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, rawaddresskind: PhoneCallHistoryEntryRawAddressKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -673,12 +673,12 @@ pub struct IPhoneCallHistoryEntryAddressFactoryVtbl {
 #[repr(transparent)]
 pub struct IPhoneCallHistoryEntryQueryOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallHistoryEntryQueryOptions {
-    type Vtable = IPhoneCallHistoryEntryQueryOptionsVtbl;
+    type Vtable = IPhoneCallHistoryEntryQueryOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c5fe15c_8bed_40ca_b06e_c4ca8eae5c87);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallHistoryEntryQueryOptionsVtbl {
+pub struct IPhoneCallHistoryEntryQueryOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DesiredMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PhoneCallHistoryEntryQueryDesiredMedia) -> ::windows::core::HRESULT,
     pub SetDesiredMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: PhoneCallHistoryEntryQueryDesiredMedia) -> ::windows::core::HRESULT,
@@ -691,12 +691,12 @@ pub struct IPhoneCallHistoryEntryQueryOptionsVtbl {
 #[repr(transparent)]
 pub struct IPhoneCallHistoryEntryReader(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallHistoryEntryReader {
-    type Vtable = IPhoneCallHistoryEntryReaderVtbl;
+    type Vtable = IPhoneCallHistoryEntryReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61ece4be_8d86_479f_8404_a9846920fee6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallHistoryEntryReaderVtbl {
+pub struct IPhoneCallHistoryEntryReader_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub ReadBatchAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -707,12 +707,12 @@ pub struct IPhoneCallHistoryEntryReaderVtbl {
 #[repr(transparent)]
 pub struct IPhoneCallHistoryManagerForUser(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallHistoryManagerForUser {
-    type Vtable = IPhoneCallHistoryManagerForUserVtbl;
+    type Vtable = IPhoneCallHistoryManagerForUser_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd925c523_f55f_4353_9db4_0205a5265a55);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallHistoryManagerForUserVtbl {
+pub struct IPhoneCallHistoryManagerForUser_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestStoreAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, accesstype: PhoneCallHistoryStoreAccessType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -727,12 +727,12 @@ pub struct IPhoneCallHistoryManagerForUserVtbl {
 #[repr(transparent)]
 pub struct IPhoneCallHistoryManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallHistoryManagerStatics {
-    type Vtable = IPhoneCallHistoryManagerStaticsVtbl;
+    type Vtable = IPhoneCallHistoryManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5a6da39_b31f_4f45_ac8e_1b08893c1b50);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallHistoryManagerStaticsVtbl {
+pub struct IPhoneCallHistoryManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestStoreAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, accesstype: PhoneCallHistoryStoreAccessType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -743,12 +743,12 @@ pub struct IPhoneCallHistoryManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IPhoneCallHistoryManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallHistoryManagerStatics2 {
-    type Vtable = IPhoneCallHistoryManagerStatics2Vtbl;
+    type Vtable = IPhoneCallHistoryManagerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefd474f0_a2db_4188_9e92_bc3cfa6813cf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallHistoryManagerStatics2Vtbl {
+pub struct IPhoneCallHistoryManagerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -759,12 +759,12 @@ pub struct IPhoneCallHistoryManagerStatics2Vtbl {
 #[repr(transparent)]
 pub struct IPhoneCallHistoryStore(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallHistoryStore {
-    type Vtable = IPhoneCallHistoryStoreVtbl;
+    type Vtable = IPhoneCallHistoryStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f907db8_b40e_422b_8545_cb1910a61c52);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallHistoryStoreVtbl {
+pub struct IPhoneCallHistoryStore_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetEntryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callhistoryentryid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -813,12 +813,12 @@ pub struct IPhoneCallHistoryStoreVtbl {
 #[repr(transparent)]
 pub struct IPhoneCallInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallInfo {
-    type Vtable = IPhoneCallInfoVtbl;
+    type Vtable = IPhoneCallInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22b42577_3e4d_5dc6_89c2_469fe5ffc189);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallInfoVtbl {
+pub struct IPhoneCallInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LineId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub IsHoldSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -834,12 +834,12 @@ pub struct IPhoneCallInfoVtbl {
 #[repr(transparent)]
 pub struct IPhoneCallManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallManagerStatics {
-    type Vtable = IPhoneCallManagerStaticsVtbl;
+    type Vtable = IPhoneCallManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60edac78_78a6_4872_a3ef_98325ec8b843);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallManagerStaticsVtbl {
+pub struct IPhoneCallManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ShowPhoneCallUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phonenumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -847,12 +847,12 @@ pub struct IPhoneCallManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IPhoneCallManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallManagerStatics2 {
-    type Vtable = IPhoneCallManagerStatics2Vtbl;
+    type Vtable = IPhoneCallManagerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7e3c8bc_2370_431c_98fd_43be5f03086d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallManagerStatics2Vtbl {
+pub struct IPhoneCallManagerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CallStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -874,12 +874,12 @@ pub struct IPhoneCallManagerStatics2Vtbl {
 #[repr(transparent)]
 pub struct IPhoneCallStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallStatics {
-    type Vtable = IPhoneCallStaticsVtbl;
+    type Vtable = IPhoneCallStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2218eeab_f60b_53e7_ba13_5aeafbc22957);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallStaticsVtbl {
+pub struct IPhoneCallStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetFromId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -887,12 +887,12 @@ pub struct IPhoneCallStaticsVtbl {
 #[repr(transparent)]
 pub struct IPhoneCallStore(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallStore {
-    type Vtable = IPhoneCallStoreVtbl;
+    type Vtable = IPhoneCallStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f610748_18a6_4173_86d1_28be9dc62dba);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallStoreVtbl {
+pub struct IPhoneCallStore_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub IsEmergencyPhoneNumberAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, number: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -908,12 +908,12 @@ pub struct IPhoneCallStoreVtbl {
 #[repr(transparent)]
 pub struct IPhoneCallVideoCapabilities(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallVideoCapabilities {
-    type Vtable = IPhoneCallVideoCapabilitiesVtbl;
+    type Vtable = IPhoneCallVideoCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02382786_b16a_4fdb_be3b_c4240e13ad0d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallVideoCapabilitiesVtbl {
+pub struct IPhoneCallVideoCapabilities_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsVideoCallingCapable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -921,12 +921,12 @@ pub struct IPhoneCallVideoCapabilitiesVtbl {
 #[repr(transparent)]
 pub struct IPhoneCallVideoCapabilitiesManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallVideoCapabilitiesManagerStatics {
-    type Vtable = IPhoneCallVideoCapabilitiesManagerStaticsVtbl;
+    type Vtable = IPhoneCallVideoCapabilitiesManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3c64b56_f00b_4a1c_a0c6_ee1910749ce7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallVideoCapabilitiesManagerStaticsVtbl {
+pub struct IPhoneCallVideoCapabilitiesManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetCapabilitiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phonenumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -937,12 +937,12 @@ pub struct IPhoneCallVideoCapabilitiesManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IPhoneCallsResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallsResult {
-    type Vtable = IPhoneCallsResultVtbl;
+    type Vtable = IPhoneCallsResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bfad365_57cf_57dd_986d_b057c91eac33);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallsResultVtbl {
+pub struct IPhoneCallsResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub OperationStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PhoneLineOperationStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -954,12 +954,12 @@ pub struct IPhoneCallsResultVtbl {
 #[repr(transparent)]
 pub struct IPhoneDialOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneDialOptions {
-    type Vtable = IPhoneDialOptionsVtbl;
+    type Vtable = IPhoneDialOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb639c4b8_f06f_36cb_a863_823742b5f2d4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneDialOptionsVtbl {
+pub struct IPhoneDialOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Number: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -990,12 +990,12 @@ pub struct IPhoneDialOptionsVtbl {
 #[repr(transparent)]
 pub struct IPhoneLine(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneLine {
-    type Vtable = IPhoneLineVtbl;
+    type Vtable = IPhoneLine_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27c66f30_6a69_34ca_a2ba_65302530c311);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneLineVtbl {
+pub struct IPhoneLine_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub LineChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -1031,12 +1031,12 @@ pub struct IPhoneLineVtbl {
 #[repr(transparent)]
 pub struct IPhoneLine2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneLine2 {
-    type Vtable = IPhoneLine2Vtbl;
+    type Vtable = IPhoneLine2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0167f56a_5344_5d64_8af3_a31a950e916a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneLine2Vtbl {
+pub struct IPhoneLine2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub EnableTextReply: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub TransportDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1045,12 +1045,12 @@ pub struct IPhoneLine2Vtbl {
 #[repr(transparent)]
 pub struct IPhoneLine3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneLine3 {
-    type Vtable = IPhoneLine3Vtbl;
+    type Vtable = IPhoneLine3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2e33cf7_2406_57f3_826a_e5a5f40d6fb5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneLine3Vtbl {
+pub struct IPhoneLine3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DialWithResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, number: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1067,12 +1067,12 @@ pub struct IPhoneLine3Vtbl {
 #[repr(transparent)]
 pub struct IPhoneLineCellularDetails(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneLineCellularDetails {
-    type Vtable = IPhoneLineCellularDetailsVtbl;
+    type Vtable = IPhoneLineCellularDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x192601d5_147c_4769_b673_98a5ec8426cb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneLineCellularDetailsVtbl {
+pub struct IPhoneLineCellularDetails_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SimState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PhoneSimState) -> ::windows::core::HRESULT,
     pub SimSlotIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -1084,12 +1084,12 @@ pub struct IPhoneLineCellularDetailsVtbl {
 #[repr(transparent)]
 pub struct IPhoneLineConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneLineConfiguration {
-    type Vtable = IPhoneLineConfigurationVtbl;
+    type Vtable = IPhoneLineConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe265862_f64f_4312_b2a8_4e257721aa95);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneLineConfigurationVtbl {
+pub struct IPhoneLineConfiguration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsVideoCallingEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -1101,12 +1101,12 @@ pub struct IPhoneLineConfigurationVtbl {
 #[repr(transparent)]
 pub struct IPhoneLineDialResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneLineDialResult {
-    type Vtable = IPhoneLineDialResultVtbl;
+    type Vtable = IPhoneLineDialResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe825a30a_5c7f_546f_b918_3ad2fe70fb34);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneLineDialResultVtbl {
+pub struct IPhoneLineDialResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DialCallStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PhoneCallOperationStatus) -> ::windows::core::HRESULT,
     pub DialedCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1115,12 +1115,12 @@ pub struct IPhoneLineDialResultVtbl {
 #[repr(transparent)]
 pub struct IPhoneLineStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneLineStatics {
-    type Vtable = IPhoneLineStaticsVtbl;
+    type Vtable = IPhoneLineStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf38b5f23_ceb0_404f_bcf2_ba9f697d8adf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneLineStaticsVtbl {
+pub struct IPhoneLineStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lineid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1131,12 +1131,12 @@ pub struct IPhoneLineStaticsVtbl {
 #[repr(transparent)]
 pub struct IPhoneLineTransportDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneLineTransportDevice {
-    type Vtable = IPhoneLineTransportDeviceVtbl;
+    type Vtable = IPhoneLineTransportDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa8f889_cffa_59f4_97e4_74705b7dc490);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneLineTransportDeviceVtbl {
+pub struct IPhoneLineTransportDevice_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Transport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PhoneLineTransport) -> ::windows::core::HRESULT,
@@ -1165,12 +1165,12 @@ pub struct IPhoneLineTransportDeviceVtbl {
 #[repr(transparent)]
 pub struct IPhoneLineTransportDevice2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneLineTransportDevice2 {
-    type Vtable = IPhoneLineTransportDevice2Vtbl;
+    type Vtable = IPhoneLineTransportDevice2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64c885f2_ecf4_5761_8c04_3c248ce61690);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneLineTransportDevice2Vtbl {
+pub struct IPhoneLineTransportDevice2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AudioRoutingStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TransportDeviceAudioRoutingStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1195,12 +1195,12 @@ pub struct IPhoneLineTransportDevice2Vtbl {
 #[repr(transparent)]
 pub struct IPhoneLineTransportDeviceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneLineTransportDeviceStatics {
-    type Vtable = IPhoneLineTransportDeviceStaticsVtbl;
+    type Vtable = IPhoneLineTransportDeviceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f3121ac_d609_51a1_96f3_fb00d1819252);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneLineTransportDeviceStaticsVtbl {
+pub struct IPhoneLineTransportDeviceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FromId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1210,12 +1210,12 @@ pub struct IPhoneLineTransportDeviceStaticsVtbl {
 #[repr(transparent)]
 pub struct IPhoneLineWatcher(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneLineWatcher {
-    type Vtable = IPhoneLineWatcherVtbl;
+    type Vtable = IPhoneLineWatcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a45cd0a_6323_44e0_a6f6_9f21f64dc90a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneLineWatcherVtbl {
+pub struct IPhoneLineWatcher_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1265,12 +1265,12 @@ pub struct IPhoneLineWatcherVtbl {
 #[repr(transparent)]
 pub struct IPhoneLineWatcherEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneLineWatcherEventArgs {
-    type Vtable = IPhoneLineWatcherEventArgsVtbl;
+    type Vtable = IPhoneLineWatcherEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07c753e_9e12_4a37_82b7_ad535dad6a67);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneLineWatcherEventArgsVtbl {
+pub struct IPhoneLineWatcherEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LineId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
@@ -1278,12 +1278,12 @@ pub struct IPhoneLineWatcherEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPhoneVoicemail(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneVoicemail {
-    type Vtable = IPhoneVoicemailVtbl;
+    type Vtable = IPhoneVoicemail_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9ce77f6_6e9f_3a8b_b727_6e0cf6998224);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneVoicemailVtbl {
+pub struct IPhoneVoicemail_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Number: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub MessageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -1297,12 +1297,12 @@ pub struct IPhoneVoicemailVtbl {
 #[repr(transparent)]
 pub struct IVoipCallCoordinator(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVoipCallCoordinator {
-    type Vtable = IVoipCallCoordinatorVtbl;
+    type Vtable = IVoipCallCoordinator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f118bcf_e8ef_4434_9c5f_a8d893fafe79);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVoipCallCoordinatorVtbl {
+pub struct IVoipCallCoordinator_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ReserveCallResourcesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, taskentrypoint: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1335,12 +1335,12 @@ pub struct IVoipCallCoordinatorVtbl {
 #[repr(transparent)]
 pub struct IVoipCallCoordinator2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVoipCallCoordinator2 {
-    type Vtable = IVoipCallCoordinator2Vtbl;
+    type Vtable = IVoipCallCoordinator2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbeb4a9f3_c704_4234_89ce_e88cc0d28fbe);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVoipCallCoordinator2Vtbl {
+pub struct IVoipCallCoordinator2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetupNewAcceptedCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contactname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contactnumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, servicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, media: VoipPhoneCallMedia, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1348,12 +1348,12 @@ pub struct IVoipCallCoordinator2Vtbl {
 #[repr(transparent)]
 pub struct IVoipCallCoordinator3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVoipCallCoordinator3 {
-    type Vtable = IVoipCallCoordinator3Vtbl;
+    type Vtable = IVoipCallCoordinator3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x338d0cbf_9b55_4021_87ca_e64b9bd666c7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVoipCallCoordinator3Vtbl {
+pub struct IVoipCallCoordinator3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RequestNewAppInitiatedCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contactname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contactnumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, servicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, media: VoipPhoneCallMedia, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1365,12 +1365,12 @@ pub struct IVoipCallCoordinator3Vtbl {
 #[repr(transparent)]
 pub struct IVoipCallCoordinator4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVoipCallCoordinator4 {
-    type Vtable = IVoipCallCoordinator4Vtbl;
+    type Vtable = IVoipCallCoordinator4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83737239_9311_468f_bb49_47e0dfb5d93e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVoipCallCoordinator4Vtbl {
+pub struct IVoipCallCoordinator4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ReserveOneProcessCallResourcesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1381,12 +1381,12 @@ pub struct IVoipCallCoordinator4Vtbl {
 #[repr(transparent)]
 pub struct IVoipCallCoordinatorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVoipCallCoordinatorStatics {
-    type Vtable = IVoipCallCoordinatorStaticsVtbl;
+    type Vtable = IVoipCallCoordinatorStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f5d1f2b_e04a_4d10_b31a_a55c922cc2fb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVoipCallCoordinatorStaticsVtbl {
+pub struct IVoipCallCoordinatorStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1394,12 +1394,12 @@ pub struct IVoipCallCoordinatorStaticsVtbl {
 #[repr(transparent)]
 pub struct IVoipPhoneCall(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVoipPhoneCall {
-    type Vtable = IVoipPhoneCallVtbl;
+    type Vtable = IVoipPhoneCall_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cf1f19a_7794_4a5a_8c68_ae87947a6990);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVoipPhoneCallVtbl {
+pub struct IVoipPhoneCall_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub EndRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -1462,12 +1462,12 @@ pub struct IVoipPhoneCallVtbl {
 #[repr(transparent)]
 pub struct IVoipPhoneCall2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVoipPhoneCall2 {
-    type Vtable = IVoipPhoneCall2Vtbl;
+    type Vtable = IVoipPhoneCall2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x741b46e1_245f_41f3_9399_3141d25b52e3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVoipPhoneCall2Vtbl {
+pub struct IVoipPhoneCall2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TryShowAppUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -1475,12 +1475,12 @@ pub struct IVoipPhoneCall2Vtbl {
 #[repr(transparent)]
 pub struct IVoipPhoneCall3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IVoipPhoneCall3 {
-    type Vtable = IVoipPhoneCall3Vtbl;
+    type Vtable = IVoipPhoneCall3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d891522_e258_4aa9_907a_1aa413c25523);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVoipPhoneCall3Vtbl {
+pub struct IVoipPhoneCall3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub NotifyCallAccepted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, media: VoipPhoneCallMedia) -> ::windows::core::HRESULT,
 }
@@ -1514,7 +1514,7 @@ unsafe impl ::windows::core::RuntimeType for LockScreenCallEndCallDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.LockScreenCallEndCallDeferral;{2dd7ed0d-98ed-4041-9632-50ff812b773f})");
 }
 unsafe impl ::windows::core::Interface for LockScreenCallEndCallDeferral {
-    type Vtable = ILockScreenCallEndCallDeferralVtbl;
+    type Vtable = ILockScreenCallEndCallDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dd7ed0d_98ed_4041_9632_50ff812b773f);
 }
 impl ::windows::core::RuntimeName for LockScreenCallEndCallDeferral {
@@ -1604,7 +1604,7 @@ unsafe impl ::windows::core::RuntimeType for LockScreenCallEndRequestedEventArgs
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.LockScreenCallEndRequestedEventArgs;{8190a363-6f27-46e9-aeb6-c0ae83e47dc7})");
 }
 unsafe impl ::windows::core::Interface for LockScreenCallEndRequestedEventArgs {
-    type Vtable = ILockScreenCallEndRequestedEventArgsVtbl;
+    type Vtable = ILockScreenCallEndRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8190a363_6f27_46e9_aeb6_c0ae83e47dc7);
 }
 impl ::windows::core::RuntimeName for LockScreenCallEndRequestedEventArgs {
@@ -1725,7 +1725,7 @@ unsafe impl ::windows::core::RuntimeType for LockScreenCallUI {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.LockScreenCallUI;{c596fd8d-73c9-4a14-b021-ec1c50a3b727})");
 }
 unsafe impl ::windows::core::Interface for LockScreenCallUI {
-    type Vtable = ILockScreenCallUIVtbl;
+    type Vtable = ILockScreenCallUI_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc596fd8d_73c9_4a14_b021_ec1c50a3b727);
 }
 impl ::windows::core::RuntimeName for LockScreenCallUI {
@@ -1806,7 +1806,7 @@ unsafe impl ::windows::core::RuntimeType for MuteChangeEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.MuteChangeEventArgs;{8585e159-0c41-432c-814d-c5f1fdf530be})");
 }
 unsafe impl ::windows::core::Interface for MuteChangeEventArgs {
-    type Vtable = IMuteChangeEventArgsVtbl;
+    type Vtable = IMuteChangeEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8585e159_0c41_432c_814d_c5f1fdf530be);
 }
 impl ::windows::core::RuntimeName for MuteChangeEventArgs {
@@ -2172,7 +2172,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCall {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCall;{c14ed0f8-c17d-59d2-9628-66e545b6cd21})");
 }
 unsafe impl ::windows::core::Interface for PhoneCall {
-    type Vtable = IPhoneCallVtbl;
+    type Vtable = IPhoneCall_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc14ed0f8_c17d_59d2_9628_66e545b6cd21);
 }
 impl ::windows::core::RuntimeName for PhoneCall {
@@ -2590,7 +2590,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryEntry;{fab0e129-32a4-4b85-83d1-f90d8c23a857})");
 }
 unsafe impl ::windows::core::Interface for PhoneCallHistoryEntry {
-    type Vtable = IPhoneCallHistoryEntryVtbl;
+    type Vtable = IPhoneCallHistoryEntry_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfab0e129_32a4_4b85_83d1_f90d8c23a857);
 }
 impl ::windows::core::RuntimeName for PhoneCallHistoryEntry {
@@ -2734,7 +2734,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryAddress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryAddress;{30f159da-3955-4042-84e6-66eebf82e67f})");
 }
 unsafe impl ::windows::core::Interface for PhoneCallHistoryEntryAddress {
-    type Vtable = IPhoneCallHistoryEntryAddressVtbl;
+    type Vtable = IPhoneCallHistoryEntryAddress_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30f159da_3955_4042_84e6_66eebf82e67f);
 }
 impl ::windows::core::RuntimeName for PhoneCallHistoryEntryAddress {
@@ -2965,7 +2965,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryQueryOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryOptions;{9c5fe15c-8bed-40ca-b06e-c4ca8eae5c87})");
 }
 unsafe impl ::windows::core::Interface for PhoneCallHistoryEntryQueryOptions {
-    type Vtable = IPhoneCallHistoryEntryQueryOptionsVtbl;
+    type Vtable = IPhoneCallHistoryEntryQueryOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c5fe15c_8bed_40ca_b06e_c4ca8eae5c87);
 }
 impl ::windows::core::RuntimeName for PhoneCallHistoryEntryQueryOptions {
@@ -3080,7 +3080,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryReader;{61ece4be-8d86-479f-8404-a9846920fee6})");
 }
 unsafe impl ::windows::core::Interface for PhoneCallHistoryEntryReader {
-    type Vtable = IPhoneCallHistoryEntryReaderVtbl;
+    type Vtable = IPhoneCallHistoryEntryReader_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61ece4be_8d86_479f_8404_a9846920fee6);
 }
 impl ::windows::core::RuntimeName for PhoneCallHistoryEntryReader {
@@ -3204,7 +3204,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryManagerForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryManagerForUser;{d925c523-f55f-4353-9db4-0205a5265a55})");
 }
 unsafe impl ::windows::core::Interface for PhoneCallHistoryManagerForUser {
-    type Vtable = IPhoneCallHistoryManagerForUserVtbl;
+    type Vtable = IPhoneCallHistoryManagerForUser_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd925c523_f55f_4353_9db4_0205a5265a55);
 }
 impl ::windows::core::RuntimeName for PhoneCallHistoryManagerForUser {
@@ -3416,7 +3416,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryStore;{2f907db8-b40e-422b-8545-cb1910a61c52})");
 }
 unsafe impl ::windows::core::Interface for PhoneCallHistoryStore {
-    type Vtable = IPhoneCallHistoryStoreVtbl;
+    type Vtable = IPhoneCallHistoryStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f907db8_b40e_422b_8545_cb1910a61c52);
 }
 impl ::windows::core::RuntimeName for PhoneCallHistoryStore {
@@ -3572,7 +3572,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallInfo;{22b42577-3e4d-5dc6-89c2-469fe5ffc189})");
 }
 unsafe impl ::windows::core::Interface for PhoneCallInfo {
-    type Vtable = IPhoneCallInfoVtbl;
+    type Vtable = IPhoneCallInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22b42577_3e4d_5dc6_89c2_469fe5ffc189);
 }
 impl ::windows::core::RuntimeName for PhoneCallInfo {
@@ -3838,7 +3838,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallStore;{5f610748-18a6-4173-86d1-28be9dc62dba})");
 }
 unsafe impl ::windows::core::Interface for PhoneCallStore {
-    type Vtable = IPhoneCallStoreVtbl;
+    type Vtable = IPhoneCallStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f610748_18a6_4173_86d1_28be9dc62dba);
 }
 impl ::windows::core::RuntimeName for PhoneCallStore {
@@ -3919,7 +3919,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallVideoCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallVideoCapabilities;{02382786-b16a-4fdb-be3b-c4240e13ad0d})");
 }
 unsafe impl ::windows::core::Interface for PhoneCallVideoCapabilities {
-    type Vtable = IPhoneCallVideoCapabilitiesVtbl;
+    type Vtable = IPhoneCallVideoCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02382786_b16a_4fdb_be3b_c4240e13ad0d);
 }
 impl ::windows::core::RuntimeName for PhoneCallVideoCapabilities {
@@ -4029,7 +4029,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallsResult;{1bfad365-57cf-57dd-986d-b057c91eac33})");
 }
 unsafe impl ::windows::core::Interface for PhoneCallsResult {
-    type Vtable = IPhoneCallsResultVtbl;
+    type Vtable = IPhoneCallsResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bfad365_57cf_57dd_986d_b057c91eac33);
 }
 impl ::windows::core::RuntimeName for PhoneCallsResult {
@@ -4191,7 +4191,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneDialOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneDialOptions;{b639c4b8-f06f-36cb-a863-823742b5f2d4})");
 }
 unsafe impl ::windows::core::Interface for PhoneDialOptions {
-    type Vtable = IPhoneDialOptionsVtbl;
+    type Vtable = IPhoneDialOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb639c4b8_f06f_36cb_a863_823742b5f2d4);
 }
 impl ::windows::core::RuntimeName for PhoneDialOptions {
@@ -4455,7 +4455,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLine {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLine;{27c66f30-6a69-34ca-a2ba-65302530c311})");
 }
 unsafe impl ::windows::core::Interface for PhoneLine {
-    type Vtable = IPhoneLineVtbl;
+    type Vtable = IPhoneLine_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27c66f30_6a69_34ca_a2ba_65302530c311);
 }
 impl ::windows::core::RuntimeName for PhoneLine {
@@ -4568,7 +4568,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineCellularDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineCellularDetails;{192601d5-147c-4769-b673-98a5ec8426cb})");
 }
 unsafe impl ::windows::core::Interface for PhoneLineCellularDetails {
-    type Vtable = IPhoneLineCellularDetailsVtbl;
+    type Vtable = IPhoneLineCellularDetails_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x192601d5_147c_4769_b673_98a5ec8426cb);
 }
 impl ::windows::core::RuntimeName for PhoneLineCellularDetails {
@@ -4658,7 +4658,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineConfiguration;{fe265862-f64f-4312-b2a8-4e257721aa95})");
 }
 unsafe impl ::windows::core::Interface for PhoneLineConfiguration {
-    type Vtable = IPhoneLineConfigurationVtbl;
+    type Vtable = IPhoneLineConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe265862_f64f_4312_b2a8_4e257721aa95);
 }
 impl ::windows::core::RuntimeName for PhoneLineConfiguration {
@@ -4747,7 +4747,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineDialResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineDialResult;{e825a30a-5c7f-546f-b918-3ad2fe70fb34})");
 }
 unsafe impl ::windows::core::Interface for PhoneLineDialResult {
-    type Vtable = IPhoneLineDialResultVtbl;
+    type Vtable = IPhoneLineDialResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe825a30a_5c7f_546f_b918_3ad2fe70fb34);
 }
 impl ::windows::core::RuntimeName for PhoneLineDialResult {
@@ -5069,7 +5069,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineTransportDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineTransportDevice;{efa8f889-cffa-59f4-97e4-74705b7dc490})");
 }
 unsafe impl ::windows::core::Interface for PhoneLineTransportDevice {
-    type Vtable = IPhoneLineTransportDeviceVtbl;
+    type Vtable = IPhoneLineTransportDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa8f889_cffa_59f4_97e4_74705b7dc490);
 }
 impl ::windows::core::RuntimeName for PhoneLineTransportDevice {
@@ -5235,7 +5235,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineWatcher;{8a45cd0a-6323-44e0-a6f6-9f21f64dc90a})");
 }
 unsafe impl ::windows::core::Interface for PhoneLineWatcher {
-    type Vtable = IPhoneLineWatcherVtbl;
+    type Vtable = IPhoneLineWatcher_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a45cd0a_6323_44e0_a6f6_9f21f64dc90a);
 }
 impl ::windows::core::RuntimeName for PhoneLineWatcher {
@@ -5316,7 +5316,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineWatcherEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineWatcherEventArgs;{d07c753e-9e12-4a37-82b7-ad535dad6a67})");
 }
 unsafe impl ::windows::core::Interface for PhoneLineWatcherEventArgs {
-    type Vtable = IPhoneLineWatcherEventArgsVtbl;
+    type Vtable = IPhoneLineWatcherEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07c753e_9e12_4a37_82b7_ad535dad6a67);
 }
 impl ::windows::core::RuntimeName for PhoneLineWatcherEventArgs {
@@ -5535,7 +5535,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneVoicemail {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneVoicemail;{c9ce77f6-6e9f-3a8b-b727-6e0cf6998224})");
 }
 unsafe impl ::windows::core::Interface for PhoneVoicemail {
-    type Vtable = IPhoneVoicemailVtbl;
+    type Vtable = IPhoneVoicemail_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9ce77f6_6e9f_3a8b_b727_6e0cf6998224);
 }
 impl ::windows::core::RuntimeName for PhoneVoicemail {
@@ -5836,7 +5836,7 @@ unsafe impl ::windows::core::RuntimeType for VoipCallCoordinator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.VoipCallCoordinator;{4f118bcf-e8ef-4434-9c5f-a8d893fafe79})");
 }
 unsafe impl ::windows::core::Interface for VoipCallCoordinator {
-    type Vtable = IVoipCallCoordinatorVtbl;
+    type Vtable = IVoipCallCoordinator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f118bcf_e8ef_4434_9c5f_a8d893fafe79);
 }
 impl ::windows::core::RuntimeName for VoipCallCoordinator {
@@ -6055,7 +6055,7 @@ unsafe impl ::windows::core::RuntimeType for VoipPhoneCall {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.VoipPhoneCall;{6cf1f19a-7794-4a5a-8c68-ae87947a6990})");
 }
 unsafe impl ::windows::core::Interface for VoipPhoneCall {
-    type Vtable = IVoipPhoneCallVtbl;
+    type Vtable = IVoipPhoneCall_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cf1f19a_7794_4a5a_8c68_ae87947a6990);
 }
 impl ::windows::core::RuntimeName for VoipPhoneCall {

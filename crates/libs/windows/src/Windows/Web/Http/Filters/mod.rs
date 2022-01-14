@@ -249,7 +249,7 @@ unsafe impl ::windows::core::RuntimeType for HttpBaseProtocolFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Filters.HttpBaseProtocolFilter;{71c89b09-e131-4b54-a53c-eb43ff37e9bb})");
 }
 unsafe impl ::windows::core::Interface for HttpBaseProtocolFilter {
-    type Vtable = IHttpBaseProtocolFilterVtbl;
+    type Vtable = IHttpBaseProtocolFilter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71c89b09_e131_4b54_a53c_eb43ff37e9bb);
 }
 impl ::windows::core::RuntimeName for HttpBaseProtocolFilter {
@@ -396,7 +396,7 @@ unsafe impl ::windows::core::RuntimeType for HttpCacheControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Filters.HttpCacheControl;{c77e1cb4-3cea-4eb5-ac85-04e186e63ab7})");
 }
 unsafe impl ::windows::core::Interface for HttpCacheControl {
-    type Vtable = IHttpCacheControlVtbl;
+    type Vtable = IHttpCacheControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc77e1cb4_3cea_4eb5_ac85_04e186e63ab7);
 }
 impl ::windows::core::RuntimeName for HttpCacheControl {
@@ -628,7 +628,7 @@ unsafe impl ::windows::core::RuntimeType for HttpServerCustomValidationRequested
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Filters.HttpServerCustomValidationRequestedEventArgs;{3165fe32-e7dd-48b7-a361-939c750e63cc})");
 }
 unsafe impl ::windows::core::Interface for HttpServerCustomValidationRequestedEventArgs {
-    type Vtable = IHttpServerCustomValidationRequestedEventArgsVtbl;
+    type Vtable = IHttpServerCustomValidationRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3165fe32_e7dd_48b7_a361_939c750e63cc);
 }
 impl ::windows::core::RuntimeName for HttpServerCustomValidationRequestedEventArgs {
@@ -680,12 +680,12 @@ unsafe impl ::core::marker::Sync for HttpServerCustomValidationRequestedEventArg
 #[repr(transparent)]
 pub struct IHttpBaseProtocolFilter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpBaseProtocolFilter {
-    type Vtable = IHttpBaseProtocolFilterVtbl;
+    type Vtable = IHttpBaseProtocolFilter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71c89b09_e131_4b54_a53c_eb43ff37e9bb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpBaseProtocolFilterVtbl {
+pub struct IHttpBaseProtocolFilter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AllowAutoRedirect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAllowAutoRedirect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -732,12 +732,12 @@ pub struct IHttpBaseProtocolFilterVtbl {
 #[repr(transparent)]
 pub struct IHttpBaseProtocolFilter2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpBaseProtocolFilter2 {
-    type Vtable = IHttpBaseProtocolFilter2Vtbl;
+    type Vtable = IHttpBaseProtocolFilter2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ec30013_9427_4900_a017_fa7da3b5c9ae);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpBaseProtocolFilter2Vtbl {
+pub struct IHttpBaseProtocolFilter2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MaxVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::HttpVersion) -> ::windows::core::HRESULT,
     pub SetMaxVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::HttpVersion) -> ::windows::core::HRESULT,
@@ -746,12 +746,12 @@ pub struct IHttpBaseProtocolFilter2Vtbl {
 #[repr(transparent)]
 pub struct IHttpBaseProtocolFilter3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpBaseProtocolFilter3 {
-    type Vtable = IHttpBaseProtocolFilter3Vtbl;
+    type Vtable = IHttpBaseProtocolFilter3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd43f4d4c_bd42_43ae_8717_ad2c8f4b2937);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpBaseProtocolFilter3Vtbl {
+pub struct IHttpBaseProtocolFilter3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CookieUsageBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut HttpCookieUsageBehavior) -> ::windows::core::HRESULT,
     pub SetCookieUsageBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: HttpCookieUsageBehavior) -> ::windows::core::HRESULT,
@@ -760,12 +760,12 @@ pub struct IHttpBaseProtocolFilter3Vtbl {
 #[repr(transparent)]
 pub struct IHttpBaseProtocolFilter4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpBaseProtocolFilter4 {
-    type Vtable = IHttpBaseProtocolFilter4Vtbl;
+    type Vtable = IHttpBaseProtocolFilter4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fe36ccf_2983_4893_941f_eb518ca8cef9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpBaseProtocolFilter4Vtbl {
+pub struct IHttpBaseProtocolFilter4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ServerCustomValidationRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -781,12 +781,12 @@ pub struct IHttpBaseProtocolFilter4Vtbl {
 #[repr(transparent)]
 pub struct IHttpBaseProtocolFilter5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpBaseProtocolFilter5 {
-    type Vtable = IHttpBaseProtocolFilter5Vtbl;
+    type Vtable = IHttpBaseProtocolFilter5_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x416e4993_31e3_4816_bf09_e018ee8dc1f5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpBaseProtocolFilter5Vtbl {
+pub struct IHttpBaseProtocolFilter5_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -797,12 +797,12 @@ pub struct IHttpBaseProtocolFilter5Vtbl {
 #[repr(transparent)]
 pub struct IHttpBaseProtocolFilterStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpBaseProtocolFilterStatics {
-    type Vtable = IHttpBaseProtocolFilterStaticsVtbl;
+    type Vtable = IHttpBaseProtocolFilterStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d4dee0c_e908_494e_b5a3_1263c9b8242a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpBaseProtocolFilterStaticsVtbl {
+pub struct IHttpBaseProtocolFilterStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
     pub CreateForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -813,12 +813,12 @@ pub struct IHttpBaseProtocolFilterStaticsVtbl {
 #[repr(transparent)]
 pub struct IHttpCacheControl(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpCacheControl {
-    type Vtable = IHttpCacheControlVtbl;
+    type Vtable = IHttpCacheControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc77e1cb4_3cea_4eb5_ac85_04e186e63ab7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpCacheControlVtbl {
+pub struct IHttpCacheControl_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ReadBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut HttpCacheReadBehavior) -> ::windows::core::HRESULT,
     pub SetReadBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: HttpCacheReadBehavior) -> ::windows::core::HRESULT,
@@ -931,12 +931,12 @@ unsafe impl ::windows::core::RuntimeType for IHttpFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a4cb6dd5-0902-439e-bfd7-e12552b165ce}");
 }
 unsafe impl ::windows::core::Interface for IHttpFilter {
-    type Vtable = IHttpFilterVtbl;
+    type Vtable = IHttpFilter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4cb6dd5_0902_439e_bfd7_e12552b165ce);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpFilterVtbl {
+pub struct IHttpFilter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub SendRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -947,12 +947,12 @@ pub struct IHttpFilterVtbl {
 #[repr(transparent)]
 pub struct IHttpServerCustomValidationRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IHttpServerCustomValidationRequestedEventArgs {
-    type Vtable = IHttpServerCustomValidationRequestedEventArgsVtbl;
+    type Vtable = IHttpServerCustomValidationRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3165fe32_e7dd_48b7_a361_939c750e63cc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpServerCustomValidationRequestedEventArgsVtbl {
+pub struct IHttpServerCustomValidationRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RequestMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Security_Cryptography_Certificates")]

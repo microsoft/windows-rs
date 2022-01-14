@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IEasClientDeviceInformationImpl: Sized {
+pub trait IEasClientDeviceInformation_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
     fn OperatingSystem(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn FriendlyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -12,9 +12,9 @@ impl ::windows::core::RuntimeName for IEasClientDeviceInformation {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.IEasClientDeviceInformation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEasClientDeviceInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasClientDeviceInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasClientDeviceInformationVtbl {
-        unsafe extern "system" fn Id<Impl: IEasClientDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+impl IEasClientDeviceInformation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasClientDeviceInformation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasClientDeviceInformation_Vtbl {
+        unsafe extern "system" fn Id<Impl: IEasClientDeviceInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -25,7 +25,7 @@ impl IEasClientDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OperatingSystem<Impl: IEasClientDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OperatingSystem<Impl: IEasClientDeviceInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OperatingSystem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -36,7 +36,7 @@ impl IEasClientDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FriendlyName<Impl: IEasClientDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FriendlyName<Impl: IEasClientDeviceInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FriendlyName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -47,7 +47,7 @@ impl IEasClientDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SystemManufacturer<Impl: IEasClientDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SystemManufacturer<Impl: IEasClientDeviceInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemManufacturer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -58,7 +58,7 @@ impl IEasClientDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SystemProductName<Impl: IEasClientDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SystemProductName<Impl: IEasClientDeviceInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemProductName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -69,7 +69,7 @@ impl IEasClientDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SystemSku<Impl: IEasClientDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SystemSku<Impl: IEasClientDeviceInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemSku() {
                 ::core::result::Result::Ok(ok__) => {
@@ -95,7 +95,7 @@ impl IEasClientDeviceInformationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEasClientDeviceInformation2Impl: Sized + IEasClientDeviceInformationImpl {
+pub trait IEasClientDeviceInformation2_Impl: Sized + IEasClientDeviceInformation_Impl {
     fn SystemHardwareVersion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SystemFirmwareVersion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -104,9 +104,9 @@ impl ::windows::core::RuntimeName for IEasClientDeviceInformation2 {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.IEasClientDeviceInformation2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEasClientDeviceInformation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasClientDeviceInformation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasClientDeviceInformation2Vtbl {
-        unsafe extern "system" fn SystemHardwareVersion<Impl: IEasClientDeviceInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IEasClientDeviceInformation2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasClientDeviceInformation2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasClientDeviceInformation2_Vtbl {
+        unsafe extern "system" fn SystemHardwareVersion<Impl: IEasClientDeviceInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemHardwareVersion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -117,7 +117,7 @@ impl IEasClientDeviceInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SystemFirmwareVersion<Impl: IEasClientDeviceInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SystemFirmwareVersion<Impl: IEasClientDeviceInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemFirmwareVersion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -139,7 +139,7 @@ impl IEasClientDeviceInformation2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IEasClientSecurityPolicyImpl: Sized {
+pub trait IEasClientSecurityPolicy_Impl: Sized {
     fn RequireEncryption(&mut self) -> ::windows::core::Result<bool>;
     fn SetRequireEncryption(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn MinPasswordLength(&mut self) -> ::windows::core::Result<u8>;
@@ -164,9 +164,9 @@ impl ::windows::core::RuntimeName for IEasClientSecurityPolicy {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.IEasClientSecurityPolicy";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IEasClientSecurityPolicyVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasClientSecurityPolicyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasClientSecurityPolicyVtbl {
-        unsafe extern "system" fn RequireEncryption<Impl: IEasClientSecurityPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IEasClientSecurityPolicy_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasClientSecurityPolicy_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasClientSecurityPolicy_Vtbl {
+        unsafe extern "system" fn RequireEncryption<Impl: IEasClientSecurityPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequireEncryption() {
                 ::core::result::Result::Ok(ok__) => {
@@ -177,11 +177,11 @@ impl IEasClientSecurityPolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRequireEncryption<Impl: IEasClientSecurityPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRequireEncryption<Impl: IEasClientSecurityPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRequireEncryption(value).into()
         }
-        unsafe extern "system" fn MinPasswordLength<Impl: IEasClientSecurityPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinPasswordLength<Impl: IEasClientSecurityPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinPasswordLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -192,11 +192,11 @@ impl IEasClientSecurityPolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMinPasswordLength<Impl: IEasClientSecurityPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMinPasswordLength<Impl: IEasClientSecurityPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMinPasswordLength(value).into()
         }
-        unsafe extern "system" fn DisallowConvenienceLogon<Impl: IEasClientSecurityPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisallowConvenienceLogon<Impl: IEasClientSecurityPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisallowConvenienceLogon() {
                 ::core::result::Result::Ok(ok__) => {
@@ -207,11 +207,11 @@ impl IEasClientSecurityPolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDisallowConvenienceLogon<Impl: IEasClientSecurityPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDisallowConvenienceLogon<Impl: IEasClientSecurityPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisallowConvenienceLogon(value).into()
         }
-        unsafe extern "system" fn MinPasswordComplexCharacters<Impl: IEasClientSecurityPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinPasswordComplexCharacters<Impl: IEasClientSecurityPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinPasswordComplexCharacters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -222,11 +222,11 @@ impl IEasClientSecurityPolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMinPasswordComplexCharacters<Impl: IEasClientSecurityPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMinPasswordComplexCharacters<Impl: IEasClientSecurityPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMinPasswordComplexCharacters(value).into()
         }
-        unsafe extern "system" fn PasswordExpiration<Impl: IEasClientSecurityPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PasswordExpiration<Impl: IEasClientSecurityPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PasswordExpiration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -237,11 +237,11 @@ impl IEasClientSecurityPolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPasswordExpiration<Impl: IEasClientSecurityPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPasswordExpiration<Impl: IEasClientSecurityPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPasswordExpiration(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PasswordHistory<Impl: IEasClientSecurityPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PasswordHistory<Impl: IEasClientSecurityPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PasswordHistory() {
                 ::core::result::Result::Ok(ok__) => {
@@ -252,11 +252,11 @@ impl IEasClientSecurityPolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPasswordHistory<Impl: IEasClientSecurityPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPasswordHistory<Impl: IEasClientSecurityPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPasswordHistory(value).into()
         }
-        unsafe extern "system" fn MaxPasswordFailedAttempts<Impl: IEasClientSecurityPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxPasswordFailedAttempts<Impl: IEasClientSecurityPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxPasswordFailedAttempts() {
                 ::core::result::Result::Ok(ok__) => {
@@ -267,11 +267,11 @@ impl IEasClientSecurityPolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxPasswordFailedAttempts<Impl: IEasClientSecurityPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxPasswordFailedAttempts<Impl: IEasClientSecurityPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxPasswordFailedAttempts(value).into()
         }
-        unsafe extern "system" fn MaxInactivityTimeLock<Impl: IEasClientSecurityPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxInactivityTimeLock<Impl: IEasClientSecurityPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxInactivityTimeLock() {
                 ::core::result::Result::Ok(ok__) => {
@@ -282,11 +282,11 @@ impl IEasClientSecurityPolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxInactivityTimeLock<Impl: IEasClientSecurityPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxInactivityTimeLock<Impl: IEasClientSecurityPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMaxInactivityTimeLock(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CheckCompliance<Impl: IEasClientSecurityPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CheckCompliance<Impl: IEasClientSecurityPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CheckCompliance() {
                 ::core::result::Result::Ok(ok__) => {
@@ -297,7 +297,7 @@ impl IEasClientSecurityPolicyVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ApplyAsync<Impl: IEasClientSecurityPolicyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ApplyAsync<Impl: IEasClientSecurityPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ApplyAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -335,7 +335,7 @@ impl IEasClientSecurityPolicyVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEasComplianceResultsImpl: Sized {
+pub trait IEasComplianceResults_Impl: Sized {
     fn Compliant(&mut self) -> ::windows::core::Result<bool>;
     fn RequireEncryptionResult(&mut self) -> ::windows::core::Result<EasRequireEncryptionResult>;
     fn MinPasswordLengthResult(&mut self) -> ::windows::core::Result<EasMinPasswordLengthResult>;
@@ -351,9 +351,9 @@ impl ::windows::core::RuntimeName for IEasComplianceResults {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.IEasComplianceResults";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEasComplianceResultsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasComplianceResultsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasComplianceResultsVtbl {
-        unsafe extern "system" fn Compliant<Impl: IEasComplianceResultsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IEasComplianceResults_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasComplianceResults_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasComplianceResults_Vtbl {
+        unsafe extern "system" fn Compliant<Impl: IEasComplianceResults_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Compliant() {
                 ::core::result::Result::Ok(ok__) => {
@@ -364,7 +364,7 @@ impl IEasComplianceResultsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequireEncryptionResult<Impl: IEasComplianceResultsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EasRequireEncryptionResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequireEncryptionResult<Impl: IEasComplianceResults_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EasRequireEncryptionResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequireEncryptionResult() {
                 ::core::result::Result::Ok(ok__) => {
@@ -375,7 +375,7 @@ impl IEasComplianceResultsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MinPasswordLengthResult<Impl: IEasComplianceResultsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EasMinPasswordLengthResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinPasswordLengthResult<Impl: IEasComplianceResults_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EasMinPasswordLengthResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinPasswordLengthResult() {
                 ::core::result::Result::Ok(ok__) => {
@@ -386,7 +386,7 @@ impl IEasComplianceResultsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisallowConvenienceLogonResult<Impl: IEasComplianceResultsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EasDisallowConvenienceLogonResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisallowConvenienceLogonResult<Impl: IEasComplianceResults_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EasDisallowConvenienceLogonResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisallowConvenienceLogonResult() {
                 ::core::result::Result::Ok(ok__) => {
@@ -397,7 +397,7 @@ impl IEasComplianceResultsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MinPasswordComplexCharactersResult<Impl: IEasComplianceResultsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EasMinPasswordComplexCharactersResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinPasswordComplexCharactersResult<Impl: IEasComplianceResults_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EasMinPasswordComplexCharactersResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MinPasswordComplexCharactersResult() {
                 ::core::result::Result::Ok(ok__) => {
@@ -408,7 +408,7 @@ impl IEasComplianceResultsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PasswordExpirationResult<Impl: IEasComplianceResultsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EasPasswordExpirationResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PasswordExpirationResult<Impl: IEasComplianceResults_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EasPasswordExpirationResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PasswordExpirationResult() {
                 ::core::result::Result::Ok(ok__) => {
@@ -419,7 +419,7 @@ impl IEasComplianceResultsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PasswordHistoryResult<Impl: IEasComplianceResultsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EasPasswordHistoryResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PasswordHistoryResult<Impl: IEasComplianceResults_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EasPasswordHistoryResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PasswordHistoryResult() {
                 ::core::result::Result::Ok(ok__) => {
@@ -430,7 +430,7 @@ impl IEasComplianceResultsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxPasswordFailedAttemptsResult<Impl: IEasComplianceResultsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EasMaxPasswordFailedAttemptsResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxPasswordFailedAttemptsResult<Impl: IEasComplianceResults_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EasMaxPasswordFailedAttemptsResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxPasswordFailedAttemptsResult() {
                 ::core::result::Result::Ok(ok__) => {
@@ -441,7 +441,7 @@ impl IEasComplianceResultsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxInactivityTimeLockResult<Impl: IEasComplianceResultsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EasMaxInactivityTimeLockResult) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxInactivityTimeLockResult<Impl: IEasComplianceResults_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EasMaxInactivityTimeLockResult) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MaxInactivityTimeLockResult() {
                 ::core::result::Result::Ok(ok__) => {
@@ -470,7 +470,7 @@ impl IEasComplianceResultsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEasComplianceResults2Impl: Sized + IEasComplianceResultsImpl {
+pub trait IEasComplianceResults2_Impl: Sized + IEasComplianceResults_Impl {
     fn EncryptionProviderType(&mut self) -> ::windows::core::Result<EasEncryptionProviderType>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -478,9 +478,9 @@ impl ::windows::core::RuntimeName for IEasComplianceResults2 {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.IEasComplianceResults2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEasComplianceResults2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasComplianceResults2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasComplianceResults2Vtbl {
-        unsafe extern "system" fn EncryptionProviderType<Impl: IEasComplianceResults2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EasEncryptionProviderType) -> ::windows::core::HRESULT {
+impl IEasComplianceResults2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEasComplianceResults2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEasComplianceResults2_Vtbl {
+        unsafe extern "system" fn EncryptionProviderType<Impl: IEasComplianceResults2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut EasEncryptionProviderType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EncryptionProviderType() {
                 ::core::result::Result::Ok(ok__) => {

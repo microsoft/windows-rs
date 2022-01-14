@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IUserDataAvailabilityStateChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataAvailabilityStateChangedEventArgs {
-    type Vtable = IUserDataAvailabilityStateChangedEventArgsVtbl;
+    type Vtable = IUserDataAvailabilityStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa76582c9_06a2_4273_a803_834c9f87fbeb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataAvailabilityStateChangedEventArgsVtbl {
+pub struct IUserDataAvailabilityStateChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -19,12 +19,12 @@ pub struct IUserDataAvailabilityStateChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IUserDataBufferUnprotectResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataBufferUnprotectResult {
-    type Vtable = IUserDataBufferUnprotectResultVtbl;
+    type Vtable = IUserDataBufferUnprotectResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8efd0e90_fa9a_46a4_a377_01cebf1e74d8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataBufferUnprotectResultVtbl {
+pub struct IUserDataBufferUnprotectResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataBufferUnprotectStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -36,12 +36,12 @@ pub struct IUserDataBufferUnprotectResultVtbl {
 #[repr(transparent)]
 pub struct IUserDataProtectionManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataProtectionManager {
-    type Vtable = IUserDataProtectionManagerVtbl;
+    type Vtable = IUserDataProtectionManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f13237d_b42e_4a88_9480_0f240924c876);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataProtectionManagerVtbl {
+pub struct IUserDataProtectionManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub ProtectStorageItemAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storageitem: ::windows::core::RawPtr, availability: UserDataAvailability, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -73,12 +73,12 @@ pub struct IUserDataProtectionManagerVtbl {
 #[repr(transparent)]
 pub struct IUserDataProtectionManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataProtectionManagerStatics {
-    type Vtable = IUserDataProtectionManagerStaticsVtbl;
+    type Vtable = IUserDataProtectionManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x977780e8_6dce_4fae_af85_782ac2cf4572);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataProtectionManagerStaticsVtbl {
+pub struct IUserDataProtectionManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TryGetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "System")]
@@ -90,12 +90,12 @@ pub struct IUserDataProtectionManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IUserDataStorageItemProtectionInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IUserDataStorageItemProtectionInfo {
-    type Vtable = IUserDataStorageItemProtectionInfoVtbl;
+    type Vtable = IUserDataStorageItemProtectionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b6680f6_e87f_40a1_b19d_a6187a0c662f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUserDataStorageItemProtectionInfoVtbl {
+pub struct IUserDataStorageItemProtectionInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Availability: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataAvailability) -> ::windows::core::HRESULT,
 }
@@ -167,7 +167,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAvailabilityStateChangedEve
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataAvailabilityStateChangedEventArgs;{a76582c9-06a2-4273-a803-834c9f87fbeb})");
 }
 unsafe impl ::windows::core::Interface for UserDataAvailabilityStateChangedEventArgs {
-    type Vtable = IUserDataAvailabilityStateChangedEventArgsVtbl;
+    type Vtable = IUserDataAvailabilityStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa76582c9_06a2_4273_a803_834c9f87fbeb);
 }
 impl ::windows::core::RuntimeName for UserDataAvailabilityStateChangedEventArgs {
@@ -257,7 +257,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataBufferUnprotectResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataBufferUnprotectResult;{8efd0e90-fa9a-46a4-a377-01cebf1e74d8})");
 }
 unsafe impl ::windows::core::Interface for UserDataBufferUnprotectResult {
-    type Vtable = IUserDataBufferUnprotectResultVtbl;
+    type Vtable = IUserDataBufferUnprotectResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8efd0e90_fa9a_46a4_a377_01cebf1e74d8);
 }
 impl ::windows::core::RuntimeName for UserDataBufferUnprotectResult {
@@ -442,7 +442,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataProtectionManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataProtectionManager;{1f13237d-b42e-4a88-9480-0f240924c876})");
 }
 unsafe impl ::windows::core::Interface for UserDataProtectionManager {
-    type Vtable = IUserDataProtectionManagerVtbl;
+    type Vtable = IUserDataProtectionManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f13237d_b42e_4a88_9480_0f240924c876);
 }
 impl ::windows::core::RuntimeName for UserDataProtectionManager {
@@ -523,7 +523,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataStorageItemProtectionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataStorageItemProtectionInfo;{5b6680f6-e87f-40a1-b19d-a6187a0c662f})");
 }
 unsafe impl ::windows::core::Interface for UserDataStorageItemProtectionInfo {
-    type Vtable = IUserDataStorageItemProtectionInfoVtbl;
+    type Vtable = IUserDataStorageItemProtectionInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b6680f6_e87f_40a1_b19d_a6187a0c662f);
 }
 impl ::windows::core::RuntimeName for UserDataStorageItemProtectionInfo {

@@ -126,12 +126,12 @@ impl ::core::fmt::Debug for IObjectArray {
     }
 }
 unsafe impl ::windows::core::Interface for IObjectArray {
-    type Vtable = IObjectArrayVtbl;
+    type Vtable = IObjectArray_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92ca9dcd_5622_4bba_a805_5e9f541bd8c9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IObjectArrayVtbl {
+pub struct IObjectArray_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcobjects: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -224,13 +224,13 @@ impl ::core::fmt::Debug for IObjectCollection {
     }
 }
 unsafe impl ::windows::core::Interface for IObjectCollection {
-    type Vtable = IObjectCollectionVtbl;
+    type Vtable = IObjectCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5632b1a4_e38a_400a_928a_d4cd63230295);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IObjectCollectionVtbl {
-    pub base: IObjectArrayVtbl,
+pub struct IObjectCollection_Vtbl {
+    pub base: IObjectArray_Vtbl,
     pub AddObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AddFromArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poasource: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RemoveObjectAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32) -> ::windows::core::HRESULT,

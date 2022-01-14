@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGameBarStaticsImpl: Sized {
+pub trait IGameBarStatics_Impl: Sized {
     fn VisibilityChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveVisibilityChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn IsInputRedirectedChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -12,9 +12,9 @@ impl ::windows::core::RuntimeName for IGameBarStatics {
     const NAME: &'static str = "Windows.Gaming.UI.IGameBarStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGameBarStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameBarStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameBarStaticsVtbl {
-        unsafe extern "system" fn VisibilityChanged<Impl: IGameBarStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IGameBarStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameBarStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameBarStatics_Vtbl {
+        unsafe extern "system" fn VisibilityChanged<Impl: IGameBarStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VisibilityChanged(&*(&handler as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -25,11 +25,11 @@ impl IGameBarStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveVisibilityChanged<Impl: IGameBarStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveVisibilityChanged<Impl: IGameBarStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveVisibilityChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn IsInputRedirectedChanged<Impl: IGameBarStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsInputRedirectedChanged<Impl: IGameBarStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsInputRedirectedChanged(&*(&handler as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -40,11 +40,11 @@ impl IGameBarStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveIsInputRedirectedChanged<Impl: IGameBarStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveIsInputRedirectedChanged<Impl: IGameBarStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveIsInputRedirectedChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Visible<Impl: IGameBarStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Visible<Impl: IGameBarStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Visible() {
                 ::core::result::Result::Ok(ok__) => {
@@ -55,7 +55,7 @@ impl IGameBarStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsInputRedirected<Impl: IGameBarStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsInputRedirected<Impl: IGameBarStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsInputRedirected() {
                 ::core::result::Result::Ok(ok__) => {
@@ -81,7 +81,7 @@ impl IGameBarStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGameChatMessageReceivedEventArgsImpl: Sized {
+pub trait IGameChatMessageReceivedEventArgs_Impl: Sized {
     fn AppId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn AppDisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SenderName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -93,9 +93,9 @@ impl ::windows::core::RuntimeName for IGameChatMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Gaming.UI.IGameChatMessageReceivedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGameChatMessageReceivedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameChatMessageReceivedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameChatMessageReceivedEventArgsVtbl {
-        unsafe extern "system" fn AppId<Impl: IGameChatMessageReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IGameChatMessageReceivedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameChatMessageReceivedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameChatMessageReceivedEventArgs_Vtbl {
+        unsafe extern "system" fn AppId<Impl: IGameChatMessageReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -106,7 +106,7 @@ impl IGameChatMessageReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppDisplayName<Impl: IGameChatMessageReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppDisplayName<Impl: IGameChatMessageReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppDisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -117,7 +117,7 @@ impl IGameChatMessageReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SenderName<Impl: IGameChatMessageReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SenderName<Impl: IGameChatMessageReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SenderName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -128,7 +128,7 @@ impl IGameChatMessageReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Message<Impl: IGameChatMessageReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Message<Impl: IGameChatMessageReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Message() {
                 ::core::result::Result::Ok(ok__) => {
@@ -139,7 +139,7 @@ impl IGameChatMessageReceivedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Origin<Impl: IGameChatMessageReceivedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameChatMessageOrigin) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Origin<Impl: IGameChatMessageReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameChatMessageOrigin) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Origin() {
                 ::core::result::Result::Ok(ok__) => {
@@ -164,7 +164,7 @@ impl IGameChatMessageReceivedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGameChatOverlayImpl: Sized {
+pub trait IGameChatOverlay_Impl: Sized {
     fn DesiredPosition(&mut self) -> ::windows::core::Result<GameChatOverlayPosition>;
     fn SetDesiredPosition(&mut self, value: GameChatOverlayPosition) -> ::windows::core::Result<()>;
     fn AddMessage(&mut self, sender: &::windows::core::HSTRING, message: &::windows::core::HSTRING, origin: GameChatMessageOrigin) -> ::windows::core::Result<()>;
@@ -174,9 +174,9 @@ impl ::windows::core::RuntimeName for IGameChatOverlay {
     const NAME: &'static str = "Windows.Gaming.UI.IGameChatOverlay";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGameChatOverlayVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameChatOverlayImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameChatOverlayVtbl {
-        unsafe extern "system" fn DesiredPosition<Impl: IGameChatOverlayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameChatOverlayPosition) -> ::windows::core::HRESULT {
+impl IGameChatOverlay_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameChatOverlay_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameChatOverlay_Vtbl {
+        unsafe extern "system" fn DesiredPosition<Impl: IGameChatOverlay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameChatOverlayPosition) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DesiredPosition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -187,11 +187,11 @@ impl IGameChatOverlayVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDesiredPosition<Impl: IGameChatOverlayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: GameChatOverlayPosition) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDesiredPosition<Impl: IGameChatOverlay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: GameChatOverlayPosition) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDesiredPosition(value).into()
         }
-        unsafe extern "system" fn AddMessage<Impl: IGameChatOverlayImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, origin: GameChatMessageOrigin) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddMessage<Impl: IGameChatOverlay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, origin: GameChatMessageOrigin) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddMessage(&*(&sender as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&message as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), origin).into()
         }
@@ -207,7 +207,7 @@ impl IGameChatOverlayVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IGameChatOverlayMessageSourceImpl: Sized {
+pub trait IGameChatOverlayMessageSource_Impl: Sized {
     fn MessageReceived(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<GameChatOverlayMessageSource, GameChatMessageReceivedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveMessageReceived(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn SetDelayBeforeClosingAfterMessageReceived(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
@@ -217,9 +217,9 @@ impl ::windows::core::RuntimeName for IGameChatOverlayMessageSource {
     const NAME: &'static str = "Windows.Gaming.UI.IGameChatOverlayMessageSource";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IGameChatOverlayMessageSourceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameChatOverlayMessageSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameChatOverlayMessageSourceVtbl {
-        unsafe extern "system" fn MessageReceived<Impl: IGameChatOverlayMessageSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IGameChatOverlayMessageSource_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameChatOverlayMessageSource_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameChatOverlayMessageSource_Vtbl {
+        unsafe extern "system" fn MessageReceived<Impl: IGameChatOverlayMessageSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MessageReceived(&*(&handler as *const <super::super::Foundation::TypedEventHandler<GameChatOverlayMessageSource, GameChatMessageReceivedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<GameChatOverlayMessageSource, GameChatMessageReceivedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -230,11 +230,11 @@ impl IGameChatOverlayMessageSourceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveMessageReceived<Impl: IGameChatOverlayMessageSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMessageReceived<Impl: IGameChatOverlayMessageSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMessageReceived(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SetDelayBeforeClosingAfterMessageReceived<Impl: IGameChatOverlayMessageSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDelayBeforeClosingAfterMessageReceived<Impl: IGameChatOverlayMessageSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDelayBeforeClosingAfterMessageReceived(&*(&value as *const <super::super::Foundation::TimeSpan as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TimeSpan as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -250,7 +250,7 @@ impl IGameChatOverlayMessageSourceVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IGameChatOverlayStaticsImpl: Sized {
+pub trait IGameChatOverlayStatics_Impl: Sized {
     fn GetDefault(&mut self) -> ::windows::core::Result<GameChatOverlay>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -258,9 +258,9 @@ impl ::windows::core::RuntimeName for IGameChatOverlayStatics {
     const NAME: &'static str = "Windows.Gaming.UI.IGameChatOverlayStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IGameChatOverlayStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameChatOverlayStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameChatOverlayStaticsVtbl {
-        unsafe extern "system" fn GetDefault<Impl: IGameChatOverlayStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGameChatOverlayStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameChatOverlayStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameChatOverlayStatics_Vtbl {
+        unsafe extern "system" fn GetDefault<Impl: IGameChatOverlayStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
                 ::core::result::Result::Ok(ok__) => {
@@ -278,7 +278,7 @@ impl IGameChatOverlayStaticsVtbl {
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IGameUIProviderActivatedEventArgsImpl: Sized + IActivatedEventArgsImpl {
+pub trait IGameUIProviderActivatedEventArgs_Impl: Sized + super::super::ApplicationModel::Activation::IActivatedEventArgs_Impl {
     fn GameUIArgs(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet>;
     fn ReportCompleted(&mut self, results: &::core::option::Option<super::super::Foundation::Collections::ValueSet>) -> ::windows::core::Result<()>;
 }
@@ -287,9 +287,9 @@ impl ::windows::core::RuntimeName for IGameUIProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.Gaming.UI.IGameUIProviderActivatedEventArgs";
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IGameUIProviderActivatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameUIProviderActivatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameUIProviderActivatedEventArgsVtbl {
-        unsafe extern "system" fn GameUIArgs<Impl: IGameUIProviderActivatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IGameUIProviderActivatedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameUIProviderActivatedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGameUIProviderActivatedEventArgs_Vtbl {
+        unsafe extern "system" fn GameUIArgs<Impl: IGameUIProviderActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GameUIArgs() {
                 ::core::result::Result::Ok(ok__) => {
@@ -300,7 +300,7 @@ impl IGameUIProviderActivatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportCompleted<Impl: IGameUIProviderActivatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, results: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReportCompleted<Impl: IGameUIProviderActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, results: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReportCompleted(&*(&results as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::ValueSet as ::windows::core::DefaultType>::DefaultType)).into()
         }

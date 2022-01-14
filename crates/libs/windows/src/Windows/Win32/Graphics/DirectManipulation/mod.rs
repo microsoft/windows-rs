@@ -245,12 +245,12 @@ impl ::core::fmt::Debug for IDirectManipulationAutoScrollBehavior {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectManipulationAutoScrollBehavior {
-    type Vtable = IDirectManipulationAutoScrollBehaviorVtbl;
+    type Vtable = IDirectManipulationAutoScrollBehavior_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d5954d4_2003_4356_9b31_d051c9ff0af7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectManipulationAutoScrollBehaviorVtbl {
+pub struct IDirectManipulationAutoScrollBehavior_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, motiontypes: DIRECTMANIPULATION_MOTION_TYPES, scrollmotion: DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION) -> ::windows::core::HRESULT,
 }
@@ -312,12 +312,12 @@ impl ::core::fmt::Debug for IDirectManipulationCompositor {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectManipulationCompositor {
-    type Vtable = IDirectManipulationCompositorVtbl;
+    type Vtable = IDirectManipulationCompositor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x537a0825_0387_4efa_b62f_71eb1f085a7e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectManipulationCompositorVtbl {
+pub struct IDirectManipulationCompositor_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub AddContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr, device: *mut ::core::ffi::c_void, parentvisual: *mut ::core::ffi::c_void, childvisual: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoveContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -406,13 +406,13 @@ impl ::core::fmt::Debug for IDirectManipulationCompositor2 {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectManipulationCompositor2 {
-    type Vtable = IDirectManipulationCompositor2Vtbl;
+    type Vtable = IDirectManipulationCompositor2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd38c7822_f1cb_43cb_b4b9_ac0c767a412e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectManipulationCompositor2Vtbl {
-    pub base: IDirectManipulationCompositorVtbl,
+pub struct IDirectManipulationCompositor2_Vtbl {
+    pub base: IDirectManipulationCompositor_Vtbl,
     pub AddContentWithCrossProcessChaining: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr, device: *mut ::core::ffi::c_void, parentvisual: *mut ::core::ffi::c_void, childvisual: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
@@ -493,12 +493,12 @@ impl ::core::fmt::Debug for IDirectManipulationContent {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectManipulationContent {
-    type Vtable = IDirectManipulationContentVtbl;
+    type Vtable = IDirectManipulationContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb89962cb_3d89_442b_bb58_5098fa0f9f16);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectManipulationContentVtbl {
+pub struct IDirectManipulationContent_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetContentRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentsize: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
@@ -569,12 +569,12 @@ impl ::core::fmt::Debug for IDirectManipulationDeferContactService {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectManipulationDeferContactService {
-    type Vtable = IDirectManipulationDeferContactServiceVtbl;
+    type Vtable = IDirectManipulationDeferContactService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x652d5c71_fe60_4a98_be70_e5f21291e7f1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectManipulationDeferContactServiceVtbl {
+pub struct IDirectManipulationDeferContactService_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub DeferContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointerid: u32, timeout: u32) -> ::windows::core::HRESULT,
     pub CancelContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointerid: u32) -> ::windows::core::HRESULT,
@@ -631,12 +631,12 @@ impl ::core::fmt::Debug for IDirectManipulationDragDropBehavior {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectManipulationDragDropBehavior {
-    type Vtable = IDirectManipulationDragDropBehaviorVtbl;
+    type Vtable = IDirectManipulationDragDropBehavior_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x814b5af5_c2c8_4270_a9b7_a198ce8d02fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectManipulationDragDropBehaviorVtbl {
+pub struct IDirectManipulationDragDropBehavior_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, configuration: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION) -> ::windows::core::HRESULT,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut DIRECTMANIPULATION_DRAG_DROP_STATUS) -> ::windows::core::HRESULT,
@@ -687,12 +687,12 @@ impl ::core::fmt::Debug for IDirectManipulationDragDropEventHandler {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectManipulationDragDropEventHandler {
-    type Vtable = IDirectManipulationDragDropEventHandlerVtbl;
+    type Vtable = IDirectManipulationDragDropEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fa11b10_701b_41ae_b5f2_49e36bd595aa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectManipulationDragDropEventHandlerVtbl {
+pub struct IDirectManipulationDragDropEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnDragDropStatusChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewport: ::windows::core::RawPtr, current: DIRECTMANIPULATION_DRAG_DROP_STATUS, previous: DIRECTMANIPULATION_DRAG_DROP_STATUS) -> ::windows::core::HRESULT,
 }
@@ -742,12 +742,12 @@ impl ::core::fmt::Debug for IDirectManipulationFrameInfoProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectManipulationFrameInfoProvider {
-    type Vtable = IDirectManipulationFrameInfoProviderVtbl;
+    type Vtable = IDirectManipulationFrameInfoProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb759dba_6f4c_4c01_874e_19c8a05907f9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectManipulationFrameInfoProviderVtbl {
+pub struct IDirectManipulationFrameInfoProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetNextFrameInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, time: *mut u64, processtime: *mut u64, compositiontime: *mut u64) -> ::windows::core::HRESULT,
 }
@@ -797,12 +797,12 @@ impl ::core::fmt::Debug for IDirectManipulationInteractionEventHandler {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectManipulationInteractionEventHandler {
-    type Vtable = IDirectManipulationInteractionEventHandlerVtbl;
+    type Vtable = IDirectManipulationInteractionEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe43f45b8_42b4_403e_b1f2_273b8f510830);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectManipulationInteractionEventHandlerVtbl {
+pub struct IDirectManipulationInteractionEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnInteraction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewport: ::windows::core::RawPtr, interaction: DIRECTMANIPULATION_INTERACTION_TYPE) -> ::windows::core::HRESULT,
 }
@@ -885,12 +885,12 @@ impl ::core::fmt::Debug for IDirectManipulationManager {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectManipulationManager {
-    type Vtable = IDirectManipulationManagerVtbl;
+    type Vtable = IDirectManipulationManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbf5d3b4_70c7_4163_9322_5a6f660d6fbc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectManipulationManagerVtbl {
+pub struct IDirectManipulationManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
@@ -1019,13 +1019,13 @@ impl ::core::fmt::Debug for IDirectManipulationManager2 {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectManipulationManager2 {
-    type Vtable = IDirectManipulationManager2Vtbl;
+    type Vtable = IDirectManipulationManager2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa1005e9_3d16_484c_bfc9_62b61e56ec4e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectManipulationManager2Vtbl {
-    pub base: IDirectManipulationManagerVtbl,
+pub struct IDirectManipulationManager2_Vtbl {
+    pub base: IDirectManipulationManager_Vtbl,
     pub CreateBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
@@ -1157,13 +1157,13 @@ impl ::core::fmt::Debug for IDirectManipulationManager3 {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectManipulationManager3 {
-    type Vtable = IDirectManipulationManager3Vtbl;
+    type Vtable = IDirectManipulationManager3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cb6b33d_ffe8_488c_b750_fbdfe88dca8c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectManipulationManager3Vtbl {
-    pub base: IDirectManipulationManager2Vtbl,
+pub struct IDirectManipulationManager3_Vtbl {
+    pub base: IDirectManipulationManager2_Vtbl,
     pub GetService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
@@ -1244,12 +1244,12 @@ impl ::core::fmt::Debug for IDirectManipulationPrimaryContent {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectManipulationPrimaryContent {
-    type Vtable = IDirectManipulationPrimaryContentVtbl;
+    type Vtable = IDirectManipulationPrimaryContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc12851e4_1698_4625_b9b1_7ca3ec18630b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectManipulationPrimaryContentVtbl {
+pub struct IDirectManipulationPrimaryContent_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetSnapInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, motion: DIRECTMANIPULATION_MOTION_TYPES, interval: f32, offset: f32) -> ::windows::core::HRESULT,
     pub SetSnapPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, motion: DIRECTMANIPULATION_MOTION_TYPES, points: *const f32, pointcount: u32) -> ::windows::core::HRESULT,
@@ -1307,12 +1307,12 @@ impl ::core::fmt::Debug for IDirectManipulationUpdateHandler {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectManipulationUpdateHandler {
-    type Vtable = IDirectManipulationUpdateHandlerVtbl;
+    type Vtable = IDirectManipulationUpdateHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x790b6337_64f8_4ff5_a269_b32bc2af27a7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectManipulationUpdateHandlerVtbl {
+pub struct IDirectManipulationUpdateHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -1372,12 +1372,12 @@ impl ::core::fmt::Debug for IDirectManipulationUpdateManager {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectManipulationUpdateManager {
-    type Vtable = IDirectManipulationUpdateManagerVtbl;
+    type Vtable = IDirectManipulationUpdateManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0ae62fd_be34_46e7_9caa_d361facbb9cc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectManipulationUpdateManagerVtbl {
+pub struct IDirectManipulationUpdateManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RegisterWaitHandleCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: super::super::Foundation::HANDLE, eventhandler: ::windows::core::RawPtr, cookie: *mut u32) -> ::windows::core::HRESULT,
@@ -1548,12 +1548,12 @@ impl ::core::fmt::Debug for IDirectManipulationViewport {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectManipulationViewport {
-    type Vtable = IDirectManipulationViewportVtbl;
+    type Vtable = IDirectManipulationViewport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28b85a3d_60a0_48bd_9ba1_5ce8d9ea3a6d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectManipulationViewportVtbl {
+pub struct IDirectManipulationViewport_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Enable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Disable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1791,13 +1791,13 @@ impl ::core::fmt::Debug for IDirectManipulationViewport2 {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectManipulationViewport2 {
-    type Vtable = IDirectManipulationViewport2Vtbl;
+    type Vtable = IDirectManipulationViewport2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x923ccaac_61e1_4385_b726_017af189882a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectManipulationViewport2Vtbl {
-    pub base: IDirectManipulationViewportVtbl,
+pub struct IDirectManipulationViewport2_Vtbl {
+    pub base: IDirectManipulationViewport_Vtbl,
     pub AddBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, behavior: *mut ::core::ffi::c_void, cookie: *mut u32) -> ::windows::core::HRESULT,
     pub RemoveBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: u32) -> ::windows::core::HRESULT,
     pub RemoveAllBehaviors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1856,12 +1856,12 @@ impl ::core::fmt::Debug for IDirectManipulationViewportEventHandler {
     }
 }
 unsafe impl ::windows::core::Interface for IDirectManipulationViewportEventHandler {
-    type Vtable = IDirectManipulationViewportEventHandlerVtbl;
+    type Vtable = IDirectManipulationViewportEventHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x952121da_d69f_45f9_b0f9_f23944321a6d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirectManipulationViewportEventHandlerVtbl {
+pub struct IDirectManipulationViewportEventHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub OnViewportStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewport: ::windows::core::RawPtr, current: DIRECTMANIPULATION_STATUS, previous: DIRECTMANIPULATION_STATUS) -> ::windows::core::HRESULT,
     pub OnViewportUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewport: ::windows::core::RawPtr) -> ::windows::core::HRESULT,

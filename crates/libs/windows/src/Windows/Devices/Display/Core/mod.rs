@@ -103,7 +103,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayAdapter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayAdapter;{a56f5287-f000-5f2e-b5ac-3783a2b69af5})");
 }
 unsafe impl ::windows::core::Interface for DisplayAdapter {
-    type Vtable = IDisplayAdapterVtbl;
+    type Vtable = IDisplayAdapter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa56f5287_f000_5f2e_b5ac_3783a2b69af5);
 }
 impl ::windows::core::RuntimeName for DisplayAdapter {
@@ -305,7 +305,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayDevice;{a4c9b62c-335f-5731-8cb4-c1ccd4731070})");
 }
 unsafe impl ::windows::core::Interface for DisplayDevice {
-    type Vtable = IDisplayDeviceVtbl;
+    type Vtable = IDisplayDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4c9b62c_335f_5731_8cb4_c1ccd4731070);
 }
 impl ::windows::core::RuntimeName for DisplayDevice {
@@ -409,7 +409,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayFence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayFence;{04dcf9ef-3406-5700-8fec-77eba4c5a74b})");
 }
 unsafe impl ::windows::core::Interface for DisplayFence {
-    type Vtable = IDisplayFenceVtbl;
+    type Vtable = IDisplayFence_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04dcf9ef_3406_5700_8fec_77eba4c5a74b);
 }
 impl ::windows::core::RuntimeName for DisplayFence {
@@ -644,7 +644,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManager;{4ed9245b-15ec-56e2-9072-7fe5084a31a7})");
 }
 unsafe impl ::windows::core::Interface for DisplayManager {
-    type Vtable = IDisplayManagerVtbl;
+    type Vtable = IDisplayManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ed9245b_15ec_56e2_9072_7fe5084a31a7);
 }
 impl ::windows::core::RuntimeName for DisplayManager {
@@ -765,7 +765,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayManagerChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManagerChangedEventArgs;{6abfa285-6cca-5731-bcdc-42e5d2f5c50f})");
 }
 unsafe impl ::windows::core::Interface for DisplayManagerChangedEventArgs {
-    type Vtable = IDisplayManagerChangedEventArgsVtbl;
+    type Vtable = IDisplayManagerChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6abfa285_6cca_5731_bcdc_42e5d2f5c50f);
 }
 impl ::windows::core::RuntimeName for DisplayManagerChangedEventArgs {
@@ -860,7 +860,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayManagerDisabledEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManagerDisabledEventArgs;{8726dde4-6793-5973-a11f-5ffbc93fdb90})");
 }
 unsafe impl ::windows::core::Interface for DisplayManagerDisabledEventArgs {
-    type Vtable = IDisplayManagerDisabledEventArgsVtbl;
+    type Vtable = IDisplayManagerDisabledEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8726dde4_6793_5973_a11f_5ffbc93fdb90);
 }
 impl ::windows::core::RuntimeName for DisplayManagerDisabledEventArgs {
@@ -955,7 +955,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayManagerEnabledEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManagerEnabledEventArgs;{f0cf3f6f-42fa-59a2-b297-26e1713de848})");
 }
 unsafe impl ::windows::core::Interface for DisplayManagerEnabledEventArgs {
-    type Vtable = IDisplayManagerEnabledEventArgsVtbl;
+    type Vtable = IDisplayManagerEnabledEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0cf3f6f_42fa_59a2_b297_26e1713de848);
 }
 impl ::windows::core::RuntimeName for DisplayManagerEnabledEventArgs {
@@ -1112,7 +1112,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayManagerPathsFailedOrInvalida
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManagerPathsFailedOrInvalidatedEventArgs;{03a65659-1dec-5c15-b2a2-8fe9129869fe})");
 }
 unsafe impl ::windows::core::Interface for DisplayManagerPathsFailedOrInvalidatedEventArgs {
-    type Vtable = IDisplayManagerPathsFailedOrInvalidatedEventArgsVtbl;
+    type Vtable = IDisplayManagerPathsFailedOrInvalidatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03a65659_1dec_5c15_b2a2_8fe9129869fe);
 }
 impl ::windows::core::RuntimeName for DisplayManagerPathsFailedOrInvalidatedEventArgs {
@@ -1245,7 +1245,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayManagerResultWithState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManagerResultWithState;{8e656aa6-6614-54be-bfef-4994547f7be1})");
 }
 unsafe impl ::windows::core::Interface for DisplayManagerResultWithState {
-    type Vtable = IDisplayManagerResultWithStateVtbl;
+    type Vtable = IDisplayManagerResultWithState_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e656aa6_6614_54be_bfef_4994547f7be1);
 }
 impl ::windows::core::RuntimeName for DisplayManagerResultWithState {
@@ -1404,7 +1404,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayModeInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayModeInfo;{48d513a0-f79b-5a74-a05e-da821f470868})");
 }
 unsafe impl ::windows::core::Interface for DisplayModeInfo {
-    type Vtable = IDisplayModeInfoVtbl;
+    type Vtable = IDisplayModeInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48d513a0_f79b_5a74_a05e_da821f470868);
 }
 impl ::windows::core::RuntimeName for DisplayModeInfo {
@@ -1727,7 +1727,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayPath {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayPath;{b3dfd64a-7460-5cde-811b-d5ae9f3d9f84})");
 }
 unsafe impl ::windows::core::Interface for DisplayPath {
-    type Vtable = IDisplayPathVtbl;
+    type Vtable = IDisplayPath_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3dfd64a_7460_5cde_811b_d5ae9f3d9f84);
 }
 impl ::windows::core::RuntimeName for DisplayPath {
@@ -2044,7 +2044,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayPrimaryDescription {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayPrimaryDescription;{872591d2-d533-50ff-a85e-06696194b77c})");
 }
 unsafe impl ::windows::core::Interface for DisplayPrimaryDescription {
-    type Vtable = IDisplayPrimaryDescriptionVtbl;
+    type Vtable = IDisplayPrimaryDescription_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x872591d2_d533_50ff_a85e_06696194b77c);
 }
 impl ::windows::core::RuntimeName for DisplayPrimaryDescription {
@@ -2151,7 +2151,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayScanout {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayScanout;{e3051828-1ba5-50e7-8a39-bb1fd2f4f8b9})");
 }
 unsafe impl ::windows::core::Interface for DisplayScanout {
-    type Vtable = IDisplayScanoutVtbl;
+    type Vtable = IDisplayScanout_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3051828_1ba5_50e7_8a39_bb1fd2f4f8b9);
 }
 impl ::windows::core::RuntimeName for DisplayScanout {
@@ -2334,7 +2334,7 @@ unsafe impl ::windows::core::RuntimeType for DisplaySource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplaySource;{ecd15fc1-eadc-51bc-971d-3bc628db2dd4})");
 }
 unsafe impl ::windows::core::Interface for DisplaySource {
-    type Vtable = IDisplaySourceVtbl;
+    type Vtable = IDisplaySource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecd15fc1_eadc_51bc_971d_3bc628db2dd4);
 }
 impl ::windows::core::RuntimeName for DisplaySource {
@@ -2555,7 +2555,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayState;{08129321-11b5-5cb2-99f8-e90b479a8a1d})");
 }
 unsafe impl ::windows::core::Interface for DisplayState {
-    type Vtable = IDisplayStateVtbl;
+    type Vtable = IDisplayState_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08129321_11b5_5cb2_99f8_e90b479a8a1d);
 }
 impl ::windows::core::RuntimeName for DisplayState {
@@ -2769,7 +2769,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayStateOperationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayStateOperationResult;{fcadbfdf-dc27-5638-b7f2-ebdfa4f7ea93})");
 }
 unsafe impl ::windows::core::Interface for DisplayStateOperationResult {
-    type Vtable = IDisplayStateOperationResultVtbl;
+    type Vtable = IDisplayStateOperationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcadbfdf_dc27_5638_b7f2_ebdfa4f7ea93);
 }
 impl ::windows::core::RuntimeName for DisplayStateOperationResult {
@@ -2880,7 +2880,7 @@ unsafe impl ::windows::core::RuntimeType for DisplaySurface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplaySurface;{594f6cc6-139a-56d6-a4b1-15fe2cb76adb})");
 }
 unsafe impl ::windows::core::Interface for DisplaySurface {
-    type Vtable = IDisplaySurfaceVtbl;
+    type Vtable = IDisplaySurface_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x594f6cc6_139a_56d6_a4b1_15fe2cb76adb);
 }
 impl ::windows::core::RuntimeName for DisplaySurface {
@@ -3066,7 +3066,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayTarget;{aec57c6f-47b4-546b-987c-e73fa791fe3a})");
 }
 unsafe impl ::windows::core::Interface for DisplayTarget {
-    type Vtable = IDisplayTargetVtbl;
+    type Vtable = IDisplayTarget_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaec57c6f_47b4_546b_987c_e73fa791fe3a);
 }
 impl ::windows::core::RuntimeName for DisplayTarget {
@@ -3189,7 +3189,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayTask {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayTask;{5e087448-135b-5bb0-bf63-637f84227c7a})");
 }
 unsafe impl ::windows::core::Interface for DisplayTask {
-    type Vtable = IDisplayTaskVtbl;
+    type Vtable = IDisplayTask_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e087448_135b_5bb0_bf63_637f84227c7a);
 }
 impl ::windows::core::RuntimeName for DisplayTask {
@@ -3284,7 +3284,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayTaskPool {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayTaskPool;{c676253d-237d-5548-aafa-3e517fefef1c})");
 }
 unsafe impl ::windows::core::Interface for DisplayTaskPool {
-    type Vtable = IDisplayTaskPoolVtbl;
+    type Vtable = IDisplayTaskPool_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc676253d_237d_5548_aafa_3e517fefef1c);
 }
 impl ::windows::core::RuntimeName for DisplayTaskPool {
@@ -3381,7 +3381,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayTaskResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayTaskResult;{6fbc7d67-f9b1-55e0-9d88-d3a5197a3f59})");
 }
 unsafe impl ::windows::core::Interface for DisplayTaskResult {
-    type Vtable = IDisplayTaskResultVtbl;
+    type Vtable = IDisplayTaskResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fbc7d67_f9b1_55e0_9d88_d3a5197a3f59);
 }
 impl ::windows::core::RuntimeName for DisplayTaskResult {
@@ -3525,7 +3525,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayView;{b0c98ca1-b759-5b59-b1ad-f0786aa9e53d})");
 }
 unsafe impl ::windows::core::Interface for DisplayView {
-    type Vtable = IDisplayViewVtbl;
+    type Vtable = IDisplayView_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0c98ca1_b759_5b59_b1ad_f0786aa9e53d);
 }
 impl ::windows::core::RuntimeName for DisplayView {
@@ -3672,7 +3672,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayWireFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayWireFormat;{1acc967d-872c-5a38-bbb9-1d4872b76255})");
 }
 unsafe impl ::windows::core::Interface for DisplayWireFormat {
-    type Vtable = IDisplayWireFormatVtbl;
+    type Vtable = IDisplayWireFormat_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1acc967d_872c_5a38_bbb9_1d4872b76255);
 }
 impl ::windows::core::RuntimeName for DisplayWireFormat {
@@ -3862,12 +3862,12 @@ impl ::windows::core::DefaultType for DisplayWireFormatPixelEncoding {
 #[repr(transparent)]
 pub struct IDisplayAdapter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayAdapter {
-    type Vtable = IDisplayAdapterVtbl;
+    type Vtable = IDisplayAdapter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa56f5287_f000_5f2e_b5ac_3783a2b69af5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayAdapterVtbl {
+pub struct IDisplayAdapter_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics")]
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::DisplayAdapterId) -> ::windows::core::HRESULT,
@@ -3888,12 +3888,12 @@ pub struct IDisplayAdapterVtbl {
 #[repr(transparent)]
 pub struct IDisplayAdapterStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayAdapterStatics {
-    type Vtable = IDisplayAdapterStaticsVtbl;
+    type Vtable = IDisplayAdapterStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dac3cda_481f_5469_8470_82c4ba680a28);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayAdapterStaticsVtbl {
+pub struct IDisplayAdapterStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics")]
     pub FromId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: super::super::super::Graphics::DisplayAdapterId, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3904,12 +3904,12 @@ pub struct IDisplayAdapterStaticsVtbl {
 #[repr(transparent)]
 pub struct IDisplayDevice(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayDevice {
-    type Vtable = IDisplayDeviceVtbl;
+    type Vtable = IDisplayDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4c9b62c_335f_5731_8cb4_c1ccd4731070);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayDeviceVtbl {
+pub struct IDisplayDevice_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateScanoutSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreatePrimary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr, desc: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3926,12 +3926,12 @@ pub struct IDisplayDeviceVtbl {
 #[repr(transparent)]
 pub struct IDisplayDevice2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayDevice2 {
-    type Vtable = IDisplayDevice2Vtbl;
+    type Vtable = IDisplayDevice2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fefe50c_0940_54bd_a02f_f9c7a536ad60);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayDevice2Vtbl {
+pub struct IDisplayDevice2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics"))]
     pub CreateSimpleScanoutWithDirtyRectsAndOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, surface: ::windows::core::RawPtr, subresourceindex: u32, syncinterval: u32, dirtyrects: ::windows::core::RawPtr, options: DisplayScanoutOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3942,24 +3942,24 @@ pub struct IDisplayDevice2Vtbl {
 #[repr(transparent)]
 pub struct IDisplayFence(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayFence {
-    type Vtable = IDisplayFenceVtbl;
+    type Vtable = IDisplayFence_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04dcf9ef_3406_5700_8fec_77eba4c5a74b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayFenceVtbl {
+pub struct IDisplayFence_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDisplayManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayManager {
-    type Vtable = IDisplayManagerVtbl;
+    type Vtable = IDisplayManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ed9245b_15ec_56e2_9072_7fe5084a31a7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayManagerVtbl {
+pub struct IDisplayManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetCurrentTargets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4024,12 +4024,12 @@ pub struct IDisplayManagerVtbl {
 #[repr(transparent)]
 pub struct IDisplayManagerChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayManagerChangedEventArgs {
-    type Vtable = IDisplayManagerChangedEventArgsVtbl;
+    type Vtable = IDisplayManagerChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6abfa285_6cca_5731_bcdc_42e5d2f5c50f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayManagerChangedEventArgsVtbl {
+pub struct IDisplayManagerChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -4042,12 +4042,12 @@ pub struct IDisplayManagerChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IDisplayManagerDisabledEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayManagerDisabledEventArgs {
-    type Vtable = IDisplayManagerDisabledEventArgsVtbl;
+    type Vtable = IDisplayManagerDisabledEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8726dde4_6793_5973_a11f_5ffbc93fdb90);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayManagerDisabledEventArgsVtbl {
+pub struct IDisplayManagerDisabledEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -4060,12 +4060,12 @@ pub struct IDisplayManagerDisabledEventArgsVtbl {
 #[repr(transparent)]
 pub struct IDisplayManagerEnabledEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayManagerEnabledEventArgs {
-    type Vtable = IDisplayManagerEnabledEventArgsVtbl;
+    type Vtable = IDisplayManagerEnabledEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0cf3f6f_42fa_59a2_b297_26e1713de848);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayManagerEnabledEventArgsVtbl {
+pub struct IDisplayManagerEnabledEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -4078,12 +4078,12 @@ pub struct IDisplayManagerEnabledEventArgsVtbl {
 #[repr(transparent)]
 pub struct IDisplayManagerPathsFailedOrInvalidatedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayManagerPathsFailedOrInvalidatedEventArgs {
-    type Vtable = IDisplayManagerPathsFailedOrInvalidatedEventArgsVtbl;
+    type Vtable = IDisplayManagerPathsFailedOrInvalidatedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03a65659_1dec_5c15_b2a2_8fe9129869fe);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayManagerPathsFailedOrInvalidatedEventArgsVtbl {
+pub struct IDisplayManagerPathsFailedOrInvalidatedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -4096,12 +4096,12 @@ pub struct IDisplayManagerPathsFailedOrInvalidatedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IDisplayManagerResultWithState(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayManagerResultWithState {
-    type Vtable = IDisplayManagerResultWithStateVtbl;
+    type Vtable = IDisplayManagerResultWithState_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e656aa6_6614_54be_bfef_4994547f7be1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayManagerResultWithStateVtbl {
+pub struct IDisplayManagerResultWithState_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayManagerResult) -> ::windows::core::HRESULT,
     pub ExtendedErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -4111,12 +4111,12 @@ pub struct IDisplayManagerResultWithStateVtbl {
 #[repr(transparent)]
 pub struct IDisplayManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayManagerStatics {
-    type Vtable = IDisplayManagerStaticsVtbl;
+    type Vtable = IDisplayManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b6b9446_b999_5535_9d69_53f092c780a1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayManagerStaticsVtbl {
+pub struct IDisplayManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: DisplayManagerOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -4124,12 +4124,12 @@ pub struct IDisplayManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IDisplayModeInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayModeInfo {
-    type Vtable = IDisplayModeInfoVtbl;
+    type Vtable = IDisplayModeInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48d513a0_f79b_5a74_a05e_da821f470868);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayModeInfoVtbl {
+pub struct IDisplayModeInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics")]
     pub SourceResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT,
@@ -4160,12 +4160,12 @@ pub struct IDisplayModeInfoVtbl {
 #[repr(transparent)]
 pub struct IDisplayModeInfo2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayModeInfo2 {
-    type Vtable = IDisplayModeInfo2Vtbl;
+    type Vtable = IDisplayModeInfo2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc86fa386_0ddb_5473_bfb0_4b7807b5f909);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayModeInfo2Vtbl {
+pub struct IDisplayModeInfo2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub PhysicalPresentationRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayPresentationRate) -> ::windows::core::HRESULT,
@@ -4176,12 +4176,12 @@ pub struct IDisplayModeInfo2Vtbl {
 #[repr(transparent)]
 pub struct IDisplayPath(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayPath {
-    type Vtable = IDisplayPathVtbl;
+    type Vtable = IDisplayPath_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3dfd64a_7460_5cde_811b_d5ae9f3d9f84);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayPathVtbl {
+pub struct IDisplayPath_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub View: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Target: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4248,12 +4248,12 @@ pub struct IDisplayPathVtbl {
 #[repr(transparent)]
 pub struct IDisplayPath2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayPath2 {
-    type Vtable = IDisplayPath2Vtbl;
+    type Vtable = IDisplayPath2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf32459c5_e994_570b_9ec8_ef42c35a8547);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayPath2Vtbl {
+pub struct IDisplayPath2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
     pub PhysicalPresentationRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4268,12 +4268,12 @@ pub struct IDisplayPath2Vtbl {
 #[repr(transparent)]
 pub struct IDisplayPrimaryDescription(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayPrimaryDescription {
-    type Vtable = IDisplayPrimaryDescriptionVtbl;
+    type Vtable = IDisplayPrimaryDescription_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x872591d2_d533_50ff_a85e_06696194b77c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayPrimaryDescriptionVtbl {
+pub struct IDisplayPrimaryDescription_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Width: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub Height: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -4299,12 +4299,12 @@ pub struct IDisplayPrimaryDescriptionVtbl {
 #[repr(transparent)]
 pub struct IDisplayPrimaryDescriptionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayPrimaryDescriptionFactory {
-    type Vtable = IDisplayPrimaryDescriptionFactoryVtbl;
+    type Vtable = IDisplayPrimaryDescriptionFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a6aff7b_3637_5c46_b479_76d576216e65);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayPrimaryDescriptionFactoryVtbl {
+pub struct IDisplayPrimaryDescriptionFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11"))]
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4315,12 +4315,12 @@ pub struct IDisplayPrimaryDescriptionFactoryVtbl {
 #[repr(transparent)]
 pub struct IDisplayPrimaryDescriptionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayPrimaryDescriptionStatics {
-    type Vtable = IDisplayPrimaryDescriptionStaticsVtbl;
+    type Vtable = IDisplayPrimaryDescriptionStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe60e4cfb_36c9_56dd_8fa1_6ff8c4e0ff07);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayPrimaryDescriptionStaticsVtbl {
+pub struct IDisplayPrimaryDescriptionStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11"))]
     pub CreateWithProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extraproperties: ::windows::core::RawPtr, width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4331,24 +4331,24 @@ pub struct IDisplayPrimaryDescriptionStaticsVtbl {
 #[repr(transparent)]
 pub struct IDisplayScanout(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayScanout {
-    type Vtable = IDisplayScanoutVtbl;
+    type Vtable = IDisplayScanout_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3051828_1ba5_50e7_8a39_bb1fd2f4f8b9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayScanoutVtbl {
+pub struct IDisplayScanout_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDisplaySource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplaySource {
-    type Vtable = IDisplaySourceVtbl;
+    type Vtable = IDisplaySource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecd15fc1_eadc_51bc_971d_3bc628db2dd4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplaySourceVtbl {
+pub struct IDisplaySource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics")]
     pub AdapterId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::DisplayAdapterId) -> ::windows::core::HRESULT,
@@ -4364,12 +4364,12 @@ pub struct IDisplaySourceVtbl {
 #[repr(transparent)]
 pub struct IDisplaySource2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplaySource2 {
-    type Vtable = IDisplaySource2Vtbl;
+    type Vtable = IDisplaySource2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71e18952_b321_5af4_bfe8_03fbea31e40d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplaySource2Vtbl {
+pub struct IDisplaySource2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplaySourceStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -4385,12 +4385,12 @@ pub struct IDisplaySource2Vtbl {
 #[repr(transparent)]
 pub struct IDisplayState(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayState {
-    type Vtable = IDisplayStateVtbl;
+    type Vtable = IDisplayState_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08129321_11b5_5cb2_99f8_e90b479a8a1d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayStateVtbl {
+pub struct IDisplayState_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsReadOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsStale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -4420,12 +4420,12 @@ pub struct IDisplayStateVtbl {
 #[repr(transparent)]
 pub struct IDisplayStateOperationResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayStateOperationResult {
-    type Vtable = IDisplayStateOperationResultVtbl;
+    type Vtable = IDisplayStateOperationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcadbfdf_dc27_5638_b7f2_ebdfa4f7ea93);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayStateOperationResultVtbl {
+pub struct IDisplayStateOperationResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayStateOperationStatus) -> ::windows::core::HRESULT,
     pub ExtendedErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -4434,24 +4434,24 @@ pub struct IDisplayStateOperationResultVtbl {
 #[repr(transparent)]
 pub struct IDisplaySurface(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplaySurface {
-    type Vtable = IDisplaySurfaceVtbl;
+    type Vtable = IDisplaySurface_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x594f6cc6_139a_56d6_a4b1_15fe2cb76adb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplaySurfaceVtbl {
+pub struct IDisplaySurface_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDisplayTarget(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayTarget {
-    type Vtable = IDisplayTargetVtbl;
+    type Vtable = IDisplayTarget_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaec57c6f_47b4_546b_987c_e73fa791fe3a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayTargetVtbl {
+pub struct IDisplayTarget_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Adapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub DeviceInterfacePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -4475,12 +4475,12 @@ pub struct IDisplayTargetVtbl {
 #[repr(transparent)]
 pub struct IDisplayTask(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayTask {
-    type Vtable = IDisplayTaskVtbl;
+    type Vtable = IDisplayTask_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e087448_135b_5bb0_bf63_637f84227c7a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayTaskVtbl {
+pub struct IDisplayTask_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetScanout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scanout: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetWait: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, readyfence: ::windows::core::RawPtr, readyfencevalue: u64) -> ::windows::core::HRESULT,
@@ -4489,12 +4489,12 @@ pub struct IDisplayTaskVtbl {
 #[repr(transparent)]
 pub struct IDisplayTask2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayTask2 {
-    type Vtable = IDisplayTask2Vtbl;
+    type Vtable = IDisplayTask2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0957ea19_bd55_55de_9267_c97b61e71c37);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayTask2Vtbl {
+pub struct IDisplayTask2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetSignal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalkind: DisplayTaskSignalKind, fence: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -4502,12 +4502,12 @@ pub struct IDisplayTask2Vtbl {
 #[repr(transparent)]
 pub struct IDisplayTaskPool(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayTaskPool {
-    type Vtable = IDisplayTaskPoolVtbl;
+    type Vtable = IDisplayTaskPool_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc676253d_237d_5548_aafa_3e517fefef1c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayTaskPoolVtbl {
+pub struct IDisplayTaskPool_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "deprecated")]
@@ -4519,12 +4519,12 @@ pub struct IDisplayTaskPoolVtbl {
 #[repr(transparent)]
 pub struct IDisplayTaskPool2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayTaskPool2 {
-    type Vtable = IDisplayTaskPool2Vtbl;
+    type Vtable = IDisplayTaskPool2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46b879b6_5d17_5955_a872_eb38003db586);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayTaskPool2Vtbl {
+pub struct IDisplayTaskPool2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub TryExecuteTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, task: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -4532,12 +4532,12 @@ pub struct IDisplayTaskPool2Vtbl {
 #[repr(transparent)]
 pub struct IDisplayTaskResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayTaskResult {
-    type Vtable = IDisplayTaskResultVtbl;
+    type Vtable = IDisplayTaskResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fbc7d67_f9b1_55e0_9d88_d3a5197a3f59);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayTaskResultVtbl {
+pub struct IDisplayTaskResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PresentStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayPresentStatus) -> ::windows::core::HRESULT,
     pub PresentId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
@@ -4547,12 +4547,12 @@ pub struct IDisplayTaskResultVtbl {
 #[repr(transparent)]
 pub struct IDisplayView(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayView {
-    type Vtable = IDisplayViewVtbl;
+    type Vtable = IDisplayView_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0c98ca1_b759_5b59_b1ad_f0786aa9e53d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayViewVtbl {
+pub struct IDisplayView_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Paths: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4576,12 +4576,12 @@ pub struct IDisplayViewVtbl {
 #[repr(transparent)]
 pub struct IDisplayWireFormat(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayWireFormat {
-    type Vtable = IDisplayWireFormatVtbl;
+    type Vtable = IDisplayWireFormat_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1acc967d_872c_5a38_bbb9_1d4872b76255);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayWireFormatVtbl {
+pub struct IDisplayWireFormat_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PixelEncoding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayWireFormatPixelEncoding) -> ::windows::core::HRESULT,
     pub BitsPerChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -4597,12 +4597,12 @@ pub struct IDisplayWireFormatVtbl {
 #[repr(transparent)]
 pub struct IDisplayWireFormatFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayWireFormatFactory {
-    type Vtable = IDisplayWireFormatFactoryVtbl;
+    type Vtable = IDisplayWireFormatFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2efc8d5_09d6_55e6_ad22_9014b3d25229);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayWireFormatFactoryVtbl {
+pub struct IDisplayWireFormatFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -4610,12 +4610,12 @@ pub struct IDisplayWireFormatFactoryVtbl {
 #[repr(transparent)]
 pub struct IDisplayWireFormatStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayWireFormatStatics {
-    type Vtable = IDisplayWireFormatStaticsVtbl;
+    type Vtable = IDisplayWireFormatStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc575a22d_c3e6_5f7a_bdfb_87c6ab8661d5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayWireFormatStaticsVtbl {
+pub struct IDisplayWireFormatStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateWithProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extraproperties: ::windows::core::RawPtr, pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

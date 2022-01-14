@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IProviderSpiConnectionSettings(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProviderSpiConnectionSettings {
-    type Vtable = IProviderSpiConnectionSettingsVtbl;
+    type Vtable = IProviderSpiConnectionSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6034550_a542_4ec0_9601_a4dd68f8697b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProviderSpiConnectionSettingsVtbl {
+pub struct IProviderSpiConnectionSettings_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ChipSelectLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetChipSelectLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
@@ -25,12 +25,12 @@ pub struct IProviderSpiConnectionSettingsVtbl {
 #[repr(transparent)]
 pub struct IProviderSpiConnectionSettingsFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IProviderSpiConnectionSettingsFactory {
-    type Vtable = IProviderSpiConnectionSettingsFactoryVtbl;
+    type Vtable = IProviderSpiConnectionSettingsFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66456b5a_0c79_43e3_9f3c_e59780ac18fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IProviderSpiConnectionSettingsFactoryVtbl {
+pub struct IProviderSpiConnectionSettingsFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, chipselectline: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -107,12 +107,12 @@ unsafe impl ::windows::core::RuntimeType for ISpiControllerProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c1686504-02ce-4226-a385-4f11fb04b41b}");
 }
 unsafe impl ::windows::core::Interface for ISpiControllerProvider {
-    type Vtable = ISpiControllerProviderVtbl;
+    type Vtable = ISpiControllerProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1686504_02ce_4226_a385_4f11fb04b41b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpiControllerProviderVtbl {
+pub struct ISpiControllerProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -249,12 +249,12 @@ unsafe impl ::windows::core::RuntimeType for ISpiDeviceProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0d1c3443-304b-405c-b4f7-f5ab1074461e}");
 }
 unsafe impl ::windows::core::Interface for ISpiDeviceProvider {
-    type Vtable = ISpiDeviceProviderVtbl;
+    type Vtable = ISpiDeviceProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d1c3443_304b_405c_b4f7_f5ab1074461e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpiDeviceProviderVtbl {
+pub struct ISpiDeviceProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ConnectionSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -337,12 +337,12 @@ unsafe impl ::windows::core::RuntimeType for ISpiProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{96b461e2-77d4-48ce-aaa0-75715a8362cf}");
 }
 unsafe impl ::windows::core::Interface for ISpiProvider {
-    type Vtable = ISpiProviderVtbl;
+    type Vtable = ISpiProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96b461e2_77d4_48ce_aaa0_75715a8362cf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISpiProviderVtbl {
+pub struct ISpiProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub GetControllersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -451,7 +451,7 @@ unsafe impl ::windows::core::RuntimeType for ProviderSpiConnectionSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.Provider.ProviderSpiConnectionSettings;{f6034550-a542-4ec0-9601-a4dd68f8697b})");
 }
 unsafe impl ::windows::core::Interface for ProviderSpiConnectionSettings {
-    type Vtable = IProviderSpiConnectionSettingsVtbl;
+    type Vtable = IProviderSpiConnectionSettings_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6034550_a542_4ec0_9601_a4dd68f8697b);
 }
 impl ::windows::core::RuntimeName for ProviderSpiConnectionSettings {

@@ -52,13 +52,13 @@ impl ::windows::core::DefaultType for HingeState {
 pub struct ITwoPanelHingedDevicePosturePreview(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ITwoPanelHingedDevicePosturePreview {
-    type Vtable = ITwoPanelHingedDevicePosturePreviewVtbl;
+    type Vtable = ITwoPanelHingedDevicePosturePreview_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72245c31_4b39_42a6_8e73_7235ade16853);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITwoPanelHingedDevicePosturePreviewVtbl {
+pub struct ITwoPanelHingedDevicePosturePreview_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub GetCurrentPostureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -79,13 +79,13 @@ pub struct ITwoPanelHingedDevicePosturePreviewVtbl {
 pub struct ITwoPanelHingedDevicePosturePreviewReading(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ITwoPanelHingedDevicePosturePreviewReading {
-    type Vtable = ITwoPanelHingedDevicePosturePreviewReadingVtbl;
+    type Vtable = ITwoPanelHingedDevicePosturePreviewReading_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0251452_4ad6_4b38_8426_c59a15493a7d);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITwoPanelHingedDevicePosturePreviewReadingVtbl {
+pub struct ITwoPanelHingedDevicePosturePreviewReading_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -118,13 +118,13 @@ pub struct ITwoPanelHingedDevicePosturePreviewReadingVtbl {
 pub struct ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {
-    type Vtable = ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgsVtbl;
+    type Vtable = ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d2d1bc6_02ce_474a_a556_a75b1cf93a03);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgsVtbl {
+pub struct ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Reading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -137,13 +137,13 @@ pub struct ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgsVtbl {
 pub struct ITwoPanelHingedDevicePosturePreviewStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ITwoPanelHingedDevicePosturePreviewStatics {
-    type Vtable = ITwoPanelHingedDevicePosturePreviewStaticsVtbl;
+    type Vtable = ITwoPanelHingedDevicePosturePreviewStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c4733d2_57e0_4180_bd5e_f31a2138423e);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct ITwoPanelHingedDevicePosturePreviewStaticsVtbl {
+pub struct ITwoPanelHingedDevicePosturePreviewStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub GetDefaultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -221,7 +221,7 @@ unsafe impl ::windows::core::RuntimeType for TwoPanelHingedDevicePosturePreview 
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for TwoPanelHingedDevicePosturePreview {
-    type Vtable = ITwoPanelHingedDevicePosturePreviewVtbl;
+    type Vtable = ITwoPanelHingedDevicePosturePreview_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72245c31_4b39_42a6_8e73_7235ade16853);
 }
 #[cfg(feature = "deprecated")]
@@ -367,7 +367,7 @@ unsafe impl ::windows::core::RuntimeType for TwoPanelHingedDevicePosturePreviewR
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for TwoPanelHingedDevicePosturePreviewReading {
-    type Vtable = ITwoPanelHingedDevicePosturePreviewReadingVtbl;
+    type Vtable = ITwoPanelHingedDevicePosturePreviewReading_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0251452_4ad6_4b38_8426_c59a15493a7d);
 }
 #[cfg(feature = "deprecated")]
@@ -468,7 +468,7 @@ unsafe impl ::windows::core::RuntimeType for TwoPanelHingedDevicePosturePreviewR
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {
-    type Vtable = ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgsVtbl;
+    type Vtable = ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d2d1bc6_02ce_474a_a556_a75b1cf93a03);
 }
 #[cfg(feature = "deprecated")]

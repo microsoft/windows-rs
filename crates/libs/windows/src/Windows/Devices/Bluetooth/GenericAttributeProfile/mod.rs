@@ -249,7 +249,7 @@ unsafe impl ::windows::core::RuntimeType for GattCharacteristic {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristic;{59cb50c1-5934-4f68-a198-eb864fa44e6b})");
 }
 unsafe impl ::windows::core::Interface for GattCharacteristic {
-    type Vtable = IGattCharacteristicVtbl;
+    type Vtable = IGattCharacteristic_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59cb50c1_5934_4f68_a198_eb864fa44e6b);
 }
 impl ::windows::core::RuntimeName for GattCharacteristic {
@@ -1002,7 +1002,7 @@ unsafe impl ::windows::core::RuntimeType for GattCharacteristicsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicsResult;{1194945c-b257-4f3e-9db7-f68bc9a9aef2})");
 }
 unsafe impl ::windows::core::Interface for GattCharacteristicsResult {
-    type Vtable = IGattCharacteristicsResultVtbl;
+    type Vtable = IGattCharacteristicsResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1194945c_b257_4f3e_9db7_f68bc9a9aef2);
 }
 impl ::windows::core::RuntimeName for GattCharacteristicsResult {
@@ -1142,7 +1142,7 @@ unsafe impl ::windows::core::RuntimeType for GattClientNotificationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientNotificationResult;{506d5599-0112-419a-8e3b-ae21afabd2c2})");
 }
 unsafe impl ::windows::core::Interface for GattClientNotificationResult {
-    type Vtable = IGattClientNotificationResultVtbl;
+    type Vtable = IGattClientNotificationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x506d5599_0112_419a_8e3b_ae21afabd2c2);
 }
 impl ::windows::core::RuntimeName for GattClientNotificationResult {
@@ -1328,7 +1328,7 @@ unsafe impl ::windows::core::RuntimeType for GattDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor;{92055f2b-8084-4344-b4c2-284de19a8506})");
 }
 unsafe impl ::windows::core::Interface for GattDescriptor {
-    type Vtable = IGattDescriptorVtbl;
+    type Vtable = IGattDescriptor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92055f2b_8084_4344_b4c2_284de19a8506);
 }
 impl ::windows::core::RuntimeName for GattDescriptor {
@@ -1481,7 +1481,7 @@ unsafe impl ::windows::core::RuntimeType for GattDescriptorsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptorsResult;{9bc091f3-95e7-4489-8d25-ff81955a57b9})");
 }
 unsafe impl ::windows::core::Interface for GattDescriptorsResult {
-    type Vtable = IGattDescriptorsResultVtbl;
+    type Vtable = IGattDescriptorsResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bc091f3_95e7_4489_8d25_ff81955a57b9);
 }
 impl ::windows::core::RuntimeName for GattDescriptorsResult {
@@ -1830,7 +1830,7 @@ unsafe impl ::windows::core::RuntimeType for GattDeviceService {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService;{ac7b7c05-b33c-47cf-990f-6b8f5577df71})");
 }
 unsafe impl ::windows::core::Interface for GattDeviceService {
-    type Vtable = IGattDeviceServiceVtbl;
+    type Vtable = IGattDeviceService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac7b7c05_b33c_47cf_990f_6b8f5577df71);
 }
 impl ::windows::core::RuntimeName for GattDeviceService {
@@ -1955,7 +1955,7 @@ unsafe impl ::windows::core::RuntimeType for GattDeviceServicesResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceServicesResult;{171dd3ee-016d-419d-838a-576cf475a3d8})");
 }
 unsafe impl ::windows::core::Interface for GattDeviceServicesResult {
-    type Vtable = IGattDeviceServicesResultVtbl;
+    type Vtable = IGattDeviceServicesResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x171dd3ee_016d_419d_838a_576cf475a3d8);
 }
 impl ::windows::core::RuntimeName for GattDeviceServicesResult {
@@ -2176,7 +2176,7 @@ unsafe impl ::windows::core::RuntimeType for GattLocalCharacteristic {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic;{aede376d-5412-4d74-92a8-8deb8526829c})");
 }
 unsafe impl ::windows::core::Interface for GattLocalCharacteristic {
-    type Vtable = IGattLocalCharacteristicVtbl;
+    type Vtable = IGattLocalCharacteristic_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaede376d_5412_4d74_92a8_8deb8526829c);
 }
 impl ::windows::core::RuntimeName for GattLocalCharacteristic {
@@ -2332,7 +2332,7 @@ unsafe impl ::windows::core::RuntimeType for GattLocalCharacteristicParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters;{faf73db4-4cff-44c7-8445-040e6ead0063})");
 }
 unsafe impl ::windows::core::Interface for GattLocalCharacteristicParameters {
-    type Vtable = IGattLocalCharacteristicParametersVtbl;
+    type Vtable = IGattLocalCharacteristicParameters_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaf73db4_4cff_44c7_8445_040e6ead0063);
 }
 impl ::windows::core::RuntimeName for GattLocalCharacteristicParameters {
@@ -2421,7 +2421,7 @@ unsafe impl ::windows::core::RuntimeType for GattLocalCharacteristicResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicResult;{7975de9b-0170-4397-9666-92f863f12ee6})");
 }
 unsafe impl ::windows::core::Interface for GattLocalCharacteristicResult {
-    type Vtable = IGattLocalCharacteristicResultVtbl;
+    type Vtable = IGattLocalCharacteristicResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7975de9b_0170_4397_9666_92f863f12ee6);
 }
 impl ::windows::core::RuntimeName for GattLocalCharacteristicResult {
@@ -2557,7 +2557,7 @@ unsafe impl ::windows::core::RuntimeType for GattLocalDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptor;{f48ebe06-789d-4a4b-8652-bd017b5d2fc6})");
 }
 unsafe impl ::windows::core::Interface for GattLocalDescriptor {
-    type Vtable = IGattLocalDescriptorVtbl;
+    type Vtable = IGattLocalDescriptor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf48ebe06_789d_4a4b_8652_bd017b5d2fc6);
 }
 impl ::windows::core::RuntimeName for GattLocalDescriptor {
@@ -2678,7 +2678,7 @@ unsafe impl ::windows::core::RuntimeType for GattLocalDescriptorParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorParameters;{5fdede6a-f3c1-4b66-8c4b-e3d2293b40e9})");
 }
 unsafe impl ::windows::core::Interface for GattLocalDescriptorParameters {
-    type Vtable = IGattLocalDescriptorParametersVtbl;
+    type Vtable = IGattLocalDescriptorParameters_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fdede6a_f3c1_4b66_8c4b_e3d2293b40e9);
 }
 impl ::windows::core::RuntimeName for GattLocalDescriptorParameters {
@@ -2767,7 +2767,7 @@ unsafe impl ::windows::core::RuntimeType for GattLocalDescriptorResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorResult;{375791be-321f-4366-bfc1-3bc6b82c79f8})");
 }
 unsafe impl ::windows::core::Interface for GattLocalDescriptorResult {
-    type Vtable = IGattLocalDescriptorResultVtbl;
+    type Vtable = IGattLocalDescriptorResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x375791be_321f_4366_bfc1_3bc6b82c79f8);
 }
 impl ::windows::core::RuntimeName for GattLocalDescriptorResult {
@@ -2866,7 +2866,7 @@ unsafe impl ::windows::core::RuntimeType for GattLocalService {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalService;{f513e258-f7f7-4902-b803-57fcc7d6fe83})");
 }
 unsafe impl ::windows::core::Interface for GattLocalService {
-    type Vtable = IGattLocalServiceVtbl;
+    type Vtable = IGattLocalService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf513e258_f7f7_4902_b803_57fcc7d6fe83);
 }
 impl ::windows::core::RuntimeName for GattLocalService {
@@ -3040,7 +3040,7 @@ unsafe impl ::windows::core::RuntimeType for GattPresentationFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat;{196d0021-faad-45dc-ae5b-2ac3184e84db})");
 }
 unsafe impl ::windows::core::Interface for GattPresentationFormat {
-    type Vtable = IGattPresentationFormatVtbl;
+    type Vtable = IGattPresentationFormat_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x196d0021_faad_45dc_ae5b_2ac3184e84db);
 }
 impl ::windows::core::RuntimeName for GattPresentationFormat {
@@ -3505,7 +3505,7 @@ unsafe impl ::windows::core::RuntimeType for GattReadClientCharacteristicConfigu
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadClientCharacteristicConfigurationDescriptorResult;{63a66f09-1aea-4c4c-a50f-97bae474b348})");
 }
 unsafe impl ::windows::core::Interface for GattReadClientCharacteristicConfigurationDescriptorResult {
-    type Vtable = IGattReadClientCharacteristicConfigurationDescriptorResultVtbl;
+    type Vtable = IGattReadClientCharacteristicConfigurationDescriptorResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63a66f09_1aea_4c4c_a50f_97bae474b348);
 }
 impl ::windows::core::RuntimeName for GattReadClientCharacteristicConfigurationDescriptorResult {
@@ -3628,7 +3628,7 @@ unsafe impl ::windows::core::RuntimeType for GattReadRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequest;{f1dd6535-6acd-42a6-a4bb-d789dae0043e})");
 }
 unsafe impl ::windows::core::Interface for GattReadRequest {
-    type Vtable = IGattReadRequestVtbl;
+    type Vtable = IGattReadRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1dd6535_6acd_42a6_a4bb_d789dae0043e);
 }
 impl ::windows::core::RuntimeName for GattReadRequest {
@@ -3727,7 +3727,7 @@ unsafe impl ::windows::core::RuntimeType for GattReadRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequestedEventArgs;{93497243-f39c-484b-8ab6-996ba486cfa3})");
 }
 unsafe impl ::windows::core::Interface for GattReadRequestedEventArgs {
-    type Vtable = IGattReadRequestedEventArgsVtbl;
+    type Vtable = IGattReadRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93497243_f39c_484b_8ab6_996ba486cfa3);
 }
 impl ::windows::core::RuntimeName for GattReadRequestedEventArgs {
@@ -3826,7 +3826,7 @@ unsafe impl ::windows::core::RuntimeType for GattReadResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadResult;{63a66f08-1aea-4c4c-a50f-97bae474b348})");
 }
 unsafe impl ::windows::core::Interface for GattReadResult {
-    type Vtable = IGattReadResultVtbl;
+    type Vtable = IGattReadResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63a66f08_1aea_4c4c_a50f_97bae474b348);
 }
 impl ::windows::core::RuntimeName for GattReadResult {
@@ -3930,7 +3930,7 @@ unsafe impl ::windows::core::RuntimeType for GattReliableWriteTransaction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReliableWriteTransaction;{63a66f07-1aea-4c4c-a50f-97bae474b348})");
 }
 unsafe impl ::windows::core::Interface for GattReliableWriteTransaction {
-    type Vtable = IGattReliableWriteTransactionVtbl;
+    type Vtable = IGattReliableWriteTransaction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63a66f07_1aea_4c4c_a50f_97bae474b348);
 }
 impl ::windows::core::RuntimeName for GattReliableWriteTransaction {
@@ -4053,7 +4053,7 @@ unsafe impl ::windows::core::RuntimeType for GattRequestStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattRequestStateChangedEventArgs;{e834d92c-27be-44b3-9d0d-4fc6e808dd3f})");
 }
 unsafe impl ::windows::core::Interface for GattRequestStateChangedEventArgs {
-    type Vtable = IGattRequestStateChangedEventArgsVtbl;
+    type Vtable = IGattRequestStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe834d92c_27be_44b3_9d0d_4fc6e808dd3f);
 }
 impl ::windows::core::RuntimeName for GattRequestStateChangedEventArgs {
@@ -4185,7 +4185,7 @@ unsafe impl ::windows::core::RuntimeType for GattServiceProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProvider;{7822b3cd-2889-4f86-a051-3f0aed1c2760})");
 }
 unsafe impl ::windows::core::Interface for GattServiceProvider {
-    type Vtable = IGattServiceProviderVtbl;
+    type Vtable = IGattServiceProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7822b3cd_2889_4f86_a051_3f0aed1c2760);
 }
 impl ::windows::core::RuntimeName for GattServiceProvider {
@@ -4310,7 +4310,7 @@ unsafe impl ::windows::core::RuntimeType for GattServiceProviderAdvertisementSta
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatusChangedEventArgs;{59a5aa65-fa21-4ffc-b155-04d928012686})");
 }
 unsafe impl ::windows::core::Interface for GattServiceProviderAdvertisementStatusChangedEventArgs {
-    type Vtable = IGattServiceProviderAdvertisementStatusChangedEventArgsVtbl;
+    type Vtable = IGattServiceProviderAdvertisementStatusChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59a5aa65_fa21_4ffc_b155_04d928012686);
 }
 impl ::windows::core::RuntimeName for GattServiceProviderAdvertisementStatusChangedEventArgs {
@@ -4431,7 +4431,7 @@ unsafe impl ::windows::core::RuntimeType for GattServiceProviderAdvertisingParam
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters;{e2ce31ab-6315-4c22-9bd7-781dbc3d8d82})");
 }
 unsafe impl ::windows::core::Interface for GattServiceProviderAdvertisingParameters {
-    type Vtable = IGattServiceProviderAdvertisingParametersVtbl;
+    type Vtable = IGattServiceProviderAdvertisingParameters_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2ce31ab_6315_4c22_9bd7_781dbc3d8d82);
 }
 impl ::windows::core::RuntimeName for GattServiceProviderAdvertisingParameters {
@@ -4520,7 +4520,7 @@ unsafe impl ::windows::core::RuntimeType for GattServiceProviderResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderResult;{764696d8-c53e-428c-8a48-67afe02c3ae6})");
 }
 unsafe impl ::windows::core::Interface for GattServiceProviderResult {
-    type Vtable = IGattServiceProviderResultVtbl;
+    type Vtable = IGattServiceProviderResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x764696d8_c53e_428c_8a48_67afe02c3ae6);
 }
 impl ::windows::core::RuntimeName for GattServiceProviderResult {
@@ -4858,7 +4858,7 @@ unsafe impl ::windows::core::RuntimeType for GattSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSession;{d23b5143-e04e-4c24-999c-9c256f9856b1})");
 }
 unsafe impl ::windows::core::Interface for GattSession {
-    type Vtable = IGattSessionVtbl;
+    type Vtable = IGattSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd23b5143_e04e_4c24_999c_9c256f9856b1);
 }
 impl ::windows::core::RuntimeName for GattSession {
@@ -5006,7 +5006,7 @@ unsafe impl ::windows::core::RuntimeType for GattSessionStatusChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatusChangedEventArgs;{7605b72e-837f-404c-ab34-3163f39ddf32})");
 }
 unsafe impl ::windows::core::Interface for GattSessionStatusChangedEventArgs {
-    type Vtable = IGattSessionStatusChangedEventArgsVtbl;
+    type Vtable = IGattSessionStatusChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7605b72e_837f_404c_ab34_3163f39ddf32);
 }
 impl ::windows::core::RuntimeName for GattSessionStatusChangedEventArgs {
@@ -5145,7 +5145,7 @@ unsafe impl ::windows::core::RuntimeType for GattSubscribedClient {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSubscribedClient;{736e9001-15a4-4ec2-9248-e3f20d463be9})");
 }
 unsafe impl ::windows::core::Interface for GattSubscribedClient {
-    type Vtable = IGattSubscribedClientVtbl;
+    type Vtable = IGattSubscribedClient_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x736e9001_15a4_4ec2_9248_e3f20d463be9);
 }
 impl ::windows::core::RuntimeName for GattSubscribedClient {
@@ -5236,7 +5236,7 @@ unsafe impl ::windows::core::RuntimeType for GattValueChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattValueChangedEventArgs;{d21bdb54-06e3-4ed8-a263-acfac8ba7313})");
 }
 unsafe impl ::windows::core::Interface for GattValueChangedEventArgs {
-    type Vtable = IGattValueChangedEventArgsVtbl;
+    type Vtable = IGattValueChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd21bdb54_06e3_4ed8_a263_acfac8ba7313);
 }
 impl ::windows::core::RuntimeName for GattValueChangedEventArgs {
@@ -5400,7 +5400,7 @@ unsafe impl ::windows::core::RuntimeType for GattWriteRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequest;{aeb6a9ed-de2f-4fc2-a9a8-94ea7844f13d})");
 }
 unsafe impl ::windows::core::Interface for GattWriteRequest {
-    type Vtable = IGattWriteRequestVtbl;
+    type Vtable = IGattWriteRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaeb6a9ed_de2f_4fc2_a9a8_94ea7844f13d);
 }
 impl ::windows::core::RuntimeName for GattWriteRequest {
@@ -5499,7 +5499,7 @@ unsafe impl ::windows::core::RuntimeType for GattWriteRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequestedEventArgs;{2dec8bbe-a73a-471a-94d5-037deadd0806})");
 }
 unsafe impl ::windows::core::Interface for GattWriteRequestedEventArgs {
-    type Vtable = IGattWriteRequestedEventArgsVtbl;
+    type Vtable = IGattWriteRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dec8bbe_a73a_471a_94d5_037deadd0806);
 }
 impl ::windows::core::RuntimeName for GattWriteRequestedEventArgs {
@@ -5589,7 +5589,7 @@ unsafe impl ::windows::core::RuntimeType for GattWriteResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteResult;{4991ddb1-cb2b-44f7-99fc-d29a2871dc9b})");
 }
 unsafe impl ::windows::core::Interface for GattWriteResult {
-    type Vtable = IGattWriteResultVtbl;
+    type Vtable = IGattWriteResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4991ddb1_cb2b_44f7_99fc_d29a2871dc9b);
 }
 impl ::windows::core::RuntimeName for GattWriteResult {
@@ -5641,12 +5641,12 @@ unsafe impl ::core::marker::Sync for GattWriteResult {}
 #[repr(transparent)]
 pub struct IGattCharacteristic(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattCharacteristic {
-    type Vtable = IGattCharacteristicVtbl;
+    type Vtable = IGattCharacteristic_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59cb50c1_5934_4f68_a198_eb864fa44e6b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattCharacteristicVtbl {
+pub struct IGattCharacteristic_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub GetDescriptors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, descriptoruuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5699,12 +5699,12 @@ pub struct IGattCharacteristicVtbl {
 #[repr(transparent)]
 pub struct IGattCharacteristic2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattCharacteristic2 {
-    type Vtable = IGattCharacteristic2Vtbl;
+    type Vtable = IGattCharacteristic2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae1ab578_ec06_4764_b780_9835a1d35d6e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattCharacteristic2Vtbl {
+pub struct IGattCharacteristic2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Service: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
@@ -5716,12 +5716,12 @@ pub struct IGattCharacteristic2Vtbl {
 #[repr(transparent)]
 pub struct IGattCharacteristic3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattCharacteristic3 {
-    type Vtable = IGattCharacteristic3Vtbl;
+    type Vtable = IGattCharacteristic3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f3c663e_93d4_406b_b817_db81f8ed53b3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattCharacteristic3Vtbl {
+pub struct IGattCharacteristic3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetDescriptorsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5756,12 +5756,12 @@ pub struct IGattCharacteristic3Vtbl {
 #[repr(transparent)]
 pub struct IGattCharacteristicStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattCharacteristicStatics {
-    type Vtable = IGattCharacteristicStaticsVtbl;
+    type Vtable = IGattCharacteristicStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59cb50c3_5934_4f68_a198_eb864fa44e6b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattCharacteristicStaticsVtbl {
+pub struct IGattCharacteristicStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub ConvertShortIdToUuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shortid: u16, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -5772,12 +5772,12 @@ pub struct IGattCharacteristicStaticsVtbl {
 #[repr(transparent)]
 pub struct IGattCharacteristicUuidsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattCharacteristicUuidsStatics {
-    type Vtable = IGattCharacteristicUuidsStaticsVtbl;
+    type Vtable = IGattCharacteristicUuidsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58fa4586_b1de_470c_b7de_0d11ff44f4b7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattCharacteristicUuidsStaticsVtbl {
+pub struct IGattCharacteristicUuidsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub BatteryLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub BloodPressureFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -5805,12 +5805,12 @@ pub struct IGattCharacteristicUuidsStaticsVtbl {
 #[repr(transparent)]
 pub struct IGattCharacteristicUuidsStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattCharacteristicUuidsStatics2 {
-    type Vtable = IGattCharacteristicUuidsStatics2Vtbl;
+    type Vtable = IGattCharacteristicUuidsStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1855b425_d46e_4a2c_9c3f_ed6dea29e7be);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattCharacteristicUuidsStatics2Vtbl {
+pub struct IGattCharacteristicUuidsStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AlertCategoryId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub AlertCategoryIdBitMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -5877,12 +5877,12 @@ pub struct IGattCharacteristicUuidsStatics2Vtbl {
 #[repr(transparent)]
 pub struct IGattCharacteristicsResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattCharacteristicsResult {
-    type Vtable = IGattCharacteristicsResultVtbl;
+    type Vtable = IGattCharacteristicsResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1194945c_b257_4f3e_9db7_f68bc9a9aef2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattCharacteristicsResultVtbl {
+pub struct IGattCharacteristicsResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -5898,12 +5898,12 @@ pub struct IGattCharacteristicsResultVtbl {
 #[repr(transparent)]
 pub struct IGattClientNotificationResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattClientNotificationResult {
-    type Vtable = IGattClientNotificationResultVtbl;
+    type Vtable = IGattClientNotificationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x506d5599_0112_419a_8e3b_ae21afabd2c2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattClientNotificationResultVtbl {
+pub struct IGattClientNotificationResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SubscribedClient: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows::core::HRESULT,
@@ -5916,12 +5916,12 @@ pub struct IGattClientNotificationResultVtbl {
 #[repr(transparent)]
 pub struct IGattClientNotificationResult2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattClientNotificationResult2 {
-    type Vtable = IGattClientNotificationResult2Vtbl;
+    type Vtable = IGattClientNotificationResult2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8faec497_45e0_497e_9582_29a1fe281ad5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattClientNotificationResult2Vtbl {
+pub struct IGattClientNotificationResult2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub BytesSent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
 }
@@ -5929,12 +5929,12 @@ pub struct IGattClientNotificationResult2Vtbl {
 #[repr(transparent)]
 pub struct IGattDescriptor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattDescriptor {
-    type Vtable = IGattDescriptorVtbl;
+    type Vtable = IGattDescriptor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92055f2b_8084_4344_b4c2_284de19a8506);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattDescriptorVtbl {
+pub struct IGattDescriptor_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ProtectionLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GattProtectionLevel) -> ::windows::core::HRESULT,
     pub SetProtectionLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: GattProtectionLevel) -> ::windows::core::HRESULT,
@@ -5957,12 +5957,12 @@ pub struct IGattDescriptorVtbl {
 #[repr(transparent)]
 pub struct IGattDescriptor2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattDescriptor2 {
-    type Vtable = IGattDescriptor2Vtbl;
+    type Vtable = IGattDescriptor2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f563d39_d630_406c_ba11_10cdd16b0e5e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattDescriptor2Vtbl {
+pub struct IGattDescriptor2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub WriteValueWithResultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5973,12 +5973,12 @@ pub struct IGattDescriptor2Vtbl {
 #[repr(transparent)]
 pub struct IGattDescriptorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattDescriptorStatics {
-    type Vtable = IGattDescriptorStaticsVtbl;
+    type Vtable = IGattDescriptorStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92055f2d_8084_4344_b4c2_284de19a8506);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattDescriptorStaticsVtbl {
+pub struct IGattDescriptorStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub ConvertShortIdToUuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shortid: u16, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -5989,12 +5989,12 @@ pub struct IGattDescriptorStaticsVtbl {
 #[repr(transparent)]
 pub struct IGattDescriptorUuidsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattDescriptorUuidsStatics {
-    type Vtable = IGattDescriptorUuidsStaticsVtbl;
+    type Vtable = IGattDescriptorUuidsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6f862ce_9cfc_42f1_9185_ff37b75181d3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattDescriptorUuidsStaticsVtbl {
+pub struct IGattDescriptorUuidsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CharacteristicAggregateFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub CharacteristicExtendedProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -6007,12 +6007,12 @@ pub struct IGattDescriptorUuidsStaticsVtbl {
 #[repr(transparent)]
 pub struct IGattDescriptorsResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattDescriptorsResult {
-    type Vtable = IGattDescriptorsResultVtbl;
+    type Vtable = IGattDescriptorsResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bc091f3_95e7_4489_8d25_ff81955a57b9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattDescriptorsResultVtbl {
+pub struct IGattDescriptorsResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -6028,12 +6028,12 @@ pub struct IGattDescriptorsResultVtbl {
 #[repr(transparent)]
 pub struct IGattDeviceService(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattDeviceService {
-    type Vtable = IGattDeviceServiceVtbl;
+    type Vtable = IGattDeviceService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac7b7c05_b33c_47cf_990f_6b8f5577df71);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattDeviceServiceVtbl {
+pub struct IGattDeviceService_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub GetCharacteristics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, characteristicuuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6051,12 +6051,12 @@ pub struct IGattDeviceServiceVtbl {
 #[repr(transparent)]
 pub struct IGattDeviceService2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattDeviceService2 {
-    type Vtable = IGattDeviceService2Vtbl;
+    type Vtable = IGattDeviceService2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc54520b_0b0d_4708_bae0_9ffd9489bc59);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattDeviceService2Vtbl {
+pub struct IGattDeviceService2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub Device: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6079,12 +6079,12 @@ pub struct IGattDeviceService2Vtbl {
 #[repr(transparent)]
 pub struct IGattDeviceService3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattDeviceService3 {
-    type Vtable = IGattDeviceService3Vtbl;
+    type Vtable = IGattDeviceService3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb293a950_0c53_437c_a9b3_5c3210c6e569);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattDeviceService3Vtbl {
+pub struct IGattDeviceService3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Devices_Enumeration")]
     pub DeviceAccessInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6137,12 +6137,12 @@ pub struct IGattDeviceService3Vtbl {
 #[repr(transparent)]
 pub struct IGattDeviceServiceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattDeviceServiceStatics {
-    type Vtable = IGattDeviceServiceStaticsVtbl;
+    type Vtable = IGattDeviceServiceStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x196d0022_faad_45dc_ae5b_2ac3184e84db);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattDeviceServiceStaticsVtbl {
+pub struct IGattDeviceServiceStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6162,12 +6162,12 @@ pub struct IGattDeviceServiceStaticsVtbl {
 #[repr(transparent)]
 pub struct IGattDeviceServiceStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattDeviceServiceStatics2 {
-    type Vtable = IGattDeviceServiceStatics2Vtbl;
+    type Vtable = IGattDeviceServiceStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0604186e_24a6_4b0d_a2f2_30cc01545d25);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattDeviceServiceStatics2Vtbl {
+pub struct IGattDeviceServiceStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FromIdWithSharingModeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sharingmode: GattSharingMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6182,12 +6182,12 @@ pub struct IGattDeviceServiceStatics2Vtbl {
 #[repr(transparent)]
 pub struct IGattDeviceServicesResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattDeviceServicesResult {
-    type Vtable = IGattDeviceServicesResultVtbl;
+    type Vtable = IGattDeviceServicesResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x171dd3ee_016d_419d_838a_576cf475a3d8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattDeviceServicesResultVtbl {
+pub struct IGattDeviceServicesResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -6203,12 +6203,12 @@ pub struct IGattDeviceServicesResultVtbl {
 #[repr(transparent)]
 pub struct IGattLocalCharacteristic(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattLocalCharacteristic {
-    type Vtable = IGattLocalCharacteristicVtbl;
+    type Vtable = IGattLocalCharacteristic_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaede376d_5412_4d74_92a8_8deb8526829c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattLocalCharacteristicVtbl {
+pub struct IGattLocalCharacteristic_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Uuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -6272,12 +6272,12 @@ pub struct IGattLocalCharacteristicVtbl {
 #[repr(transparent)]
 pub struct IGattLocalCharacteristicParameters(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattLocalCharacteristicParameters {
-    type Vtable = IGattLocalCharacteristicParametersVtbl;
+    type Vtable = IGattLocalCharacteristicParameters_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaf73db4_4cff_44c7_8445_040e6ead0063);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattLocalCharacteristicParametersVtbl {
+pub struct IGattLocalCharacteristicParameters_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub SetStaticValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6304,12 +6304,12 @@ pub struct IGattLocalCharacteristicParametersVtbl {
 #[repr(transparent)]
 pub struct IGattLocalCharacteristicResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattLocalCharacteristicResult {
-    type Vtable = IGattLocalCharacteristicResultVtbl;
+    type Vtable = IGattLocalCharacteristicResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7975de9b_0170_4397_9666_92f863f12ee6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattLocalCharacteristicResultVtbl {
+pub struct IGattLocalCharacteristicResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Characteristic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT,
@@ -6318,12 +6318,12 @@ pub struct IGattLocalCharacteristicResultVtbl {
 #[repr(transparent)]
 pub struct IGattLocalDescriptor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattLocalDescriptor {
-    type Vtable = IGattLocalDescriptorVtbl;
+    type Vtable = IGattLocalDescriptor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf48ebe06_789d_4a4b_8652_bd017b5d2fc6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattLocalDescriptorVtbl {
+pub struct IGattLocalDescriptor_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Uuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -6353,12 +6353,12 @@ pub struct IGattLocalDescriptorVtbl {
 #[repr(transparent)]
 pub struct IGattLocalDescriptorParameters(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattLocalDescriptorParameters {
-    type Vtable = IGattLocalDescriptorParametersVtbl;
+    type Vtable = IGattLocalDescriptorParameters_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fdede6a_f3c1_4b66_8c4b_e3d2293b40e9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattLocalDescriptorParametersVtbl {
+pub struct IGattLocalDescriptorParameters_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub SetStaticValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6377,12 +6377,12 @@ pub struct IGattLocalDescriptorParametersVtbl {
 #[repr(transparent)]
 pub struct IGattLocalDescriptorResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattLocalDescriptorResult {
-    type Vtable = IGattLocalDescriptorResultVtbl;
+    type Vtable = IGattLocalDescriptorResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x375791be_321f_4366_bfc1_3bc6b82c79f8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattLocalDescriptorResultVtbl {
+pub struct IGattLocalDescriptorResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Descriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT,
@@ -6391,12 +6391,12 @@ pub struct IGattLocalDescriptorResultVtbl {
 #[repr(transparent)]
 pub struct IGattLocalService(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattLocalService {
-    type Vtable = IGattLocalServiceVtbl;
+    type Vtable = IGattLocalService_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf513e258_f7f7_4902_b803_57fcc7d6fe83);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattLocalServiceVtbl {
+pub struct IGattLocalService_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Uuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -6412,12 +6412,12 @@ pub struct IGattLocalServiceVtbl {
 #[repr(transparent)]
 pub struct IGattPresentationFormat(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattPresentationFormat {
-    type Vtable = IGattPresentationFormatVtbl;
+    type Vtable = IGattPresentationFormat_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x196d0021_faad_45dc_ae5b_2ac3184e84db);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattPresentationFormatVtbl {
+pub struct IGattPresentationFormat_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FormatType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
     pub Exponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -6429,12 +6429,12 @@ pub struct IGattPresentationFormatVtbl {
 #[repr(transparent)]
 pub struct IGattPresentationFormatStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattPresentationFormatStatics {
-    type Vtable = IGattPresentationFormatStaticsVtbl;
+    type Vtable = IGattPresentationFormatStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x196d0020_faad_45dc_ae5b_2ac3184e84db);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattPresentationFormatStaticsVtbl {
+pub struct IGattPresentationFormatStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub BluetoothSigAssignedNumbers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
 }
@@ -6442,12 +6442,12 @@ pub struct IGattPresentationFormatStaticsVtbl {
 #[repr(transparent)]
 pub struct IGattPresentationFormatStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattPresentationFormatStatics2 {
-    type Vtable = IGattPresentationFormatStatics2Vtbl;
+    type Vtable = IGattPresentationFormatStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9c21713_b82f_435e_b634_21fd85a43c07);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattPresentationFormatStatics2Vtbl {
+pub struct IGattPresentationFormatStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FromParts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, formattype: u8, exponent: i32, unit: u16, namespaceid: u8, description: u16, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -6455,12 +6455,12 @@ pub struct IGattPresentationFormatStatics2Vtbl {
 #[repr(transparent)]
 pub struct IGattPresentationFormatTypesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattPresentationFormatTypesStatics {
-    type Vtable = IGattPresentationFormatTypesStaticsVtbl;
+    type Vtable = IGattPresentationFormatTypesStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaf1ba0a_30ba_409c_bef7_cffb6d03b8fb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattPresentationFormatTypesStaticsVtbl {
+pub struct IGattPresentationFormatTypesStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Boolean: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
     pub Bit2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
@@ -6494,12 +6494,12 @@ pub struct IGattPresentationFormatTypesStaticsVtbl {
 #[repr(transparent)]
 pub struct IGattProtocolErrorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattProtocolErrorStatics {
-    type Vtable = IGattProtocolErrorStaticsVtbl;
+    type Vtable = IGattProtocolErrorStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca46c5c5_0ecc_4809_bea3_cf79bc991e37);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattProtocolErrorStaticsVtbl {
+pub struct IGattProtocolErrorStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub InvalidHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
     pub ReadNotPermitted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
@@ -6523,12 +6523,12 @@ pub struct IGattProtocolErrorStaticsVtbl {
 #[repr(transparent)]
 pub struct IGattReadClientCharacteristicConfigurationDescriptorResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattReadClientCharacteristicConfigurationDescriptorResult {
-    type Vtable = IGattReadClientCharacteristicConfigurationDescriptorResultVtbl;
+    type Vtable = IGattReadClientCharacteristicConfigurationDescriptorResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63a66f09_1aea_4c4c_a50f_97bae474b348);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattReadClientCharacteristicConfigurationDescriptorResultVtbl {
+pub struct IGattReadClientCharacteristicConfigurationDescriptorResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows::core::HRESULT,
     pub ClientCharacteristicConfigurationDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GattClientCharacteristicConfigurationDescriptorValue) -> ::windows::core::HRESULT,
@@ -6537,12 +6537,12 @@ pub struct IGattReadClientCharacteristicConfigurationDescriptorResultVtbl {
 #[repr(transparent)]
 pub struct IGattReadClientCharacteristicConfigurationDescriptorResult2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattReadClientCharacteristicConfigurationDescriptorResult2 {
-    type Vtable = IGattReadClientCharacteristicConfigurationDescriptorResult2Vtbl;
+    type Vtable = IGattReadClientCharacteristicConfigurationDescriptorResult2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bf1a59d_ba4d_4622_8651_f4ee150d0a5d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattReadClientCharacteristicConfigurationDescriptorResult2Vtbl {
+pub struct IGattReadClientCharacteristicConfigurationDescriptorResult2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ProtocolError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6553,12 +6553,12 @@ pub struct IGattReadClientCharacteristicConfigurationDescriptorResult2Vtbl {
 #[repr(transparent)]
 pub struct IGattReadRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattReadRequest {
-    type Vtable = IGattReadRequestVtbl;
+    type Vtable = IGattReadRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1dd6535_6acd_42a6_a4bb_d789dae0043e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattReadRequestVtbl {
+pub struct IGattReadRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Offset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -6581,12 +6581,12 @@ pub struct IGattReadRequestVtbl {
 #[repr(transparent)]
 pub struct IGattReadRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattReadRequestedEventArgs {
-    type Vtable = IGattReadRequestedEventArgsVtbl;
+    type Vtable = IGattReadRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93497243_f39c_484b_8ab6_996ba486cfa3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattReadRequestedEventArgsVtbl {
+pub struct IGattReadRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -6602,12 +6602,12 @@ pub struct IGattReadRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IGattReadResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattReadResult {
-    type Vtable = IGattReadResultVtbl;
+    type Vtable = IGattReadResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63a66f08_1aea_4c4c_a50f_97bae474b348);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattReadResultVtbl {
+pub struct IGattReadResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -6619,12 +6619,12 @@ pub struct IGattReadResultVtbl {
 #[repr(transparent)]
 pub struct IGattReadResult2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattReadResult2 {
-    type Vtable = IGattReadResult2Vtbl;
+    type Vtable = IGattReadResult2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa10f50a0_fb43_48af_baaa_638a5c6329fe);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattReadResult2Vtbl {
+pub struct IGattReadResult2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub ProtocolError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6635,12 +6635,12 @@ pub struct IGattReadResult2Vtbl {
 #[repr(transparent)]
 pub struct IGattReliableWriteTransaction(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattReliableWriteTransaction {
-    type Vtable = IGattReliableWriteTransactionVtbl;
+    type Vtable = IGattReliableWriteTransaction_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63a66f07_1aea_4c4c_a50f_97bae474b348);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattReliableWriteTransactionVtbl {
+pub struct IGattReliableWriteTransaction_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub WriteValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, characteristic: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6655,12 +6655,12 @@ pub struct IGattReliableWriteTransactionVtbl {
 #[repr(transparent)]
 pub struct IGattReliableWriteTransaction2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattReliableWriteTransaction2 {
-    type Vtable = IGattReliableWriteTransaction2Vtbl;
+    type Vtable = IGattReliableWriteTransaction2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51113987_ef12_462f_9fb2_a1a43a679416);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattReliableWriteTransaction2Vtbl {
+pub struct IGattReliableWriteTransaction2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CommitWithResultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6671,12 +6671,12 @@ pub struct IGattReliableWriteTransaction2Vtbl {
 #[repr(transparent)]
 pub struct IGattRequestStateChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattRequestStateChangedEventArgs {
-    type Vtable = IGattRequestStateChangedEventArgsVtbl;
+    type Vtable = IGattRequestStateChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe834d92c_27be_44b3_9d0d_4fc6e808dd3f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattRequestStateChangedEventArgsVtbl {
+pub struct IGattRequestStateChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GattRequestState) -> ::windows::core::HRESULT,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT,
@@ -6685,12 +6685,12 @@ pub struct IGattRequestStateChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IGattServiceProvider(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattServiceProvider {
-    type Vtable = IGattServiceProviderVtbl;
+    type Vtable = IGattServiceProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7822b3cd_2889_4f86_a051_3f0aed1c2760);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattServiceProviderVtbl {
+pub struct IGattServiceProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Service: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AdvertisementStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GattServiceProviderAdvertisementStatus) -> ::windows::core::HRESULT,
@@ -6710,12 +6710,12 @@ pub struct IGattServiceProviderVtbl {
 #[repr(transparent)]
 pub struct IGattServiceProviderAdvertisementStatusChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattServiceProviderAdvertisementStatusChangedEventArgs {
-    type Vtable = IGattServiceProviderAdvertisementStatusChangedEventArgsVtbl;
+    type Vtable = IGattServiceProviderAdvertisementStatusChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59a5aa65_fa21_4ffc_b155_04d928012686);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattServiceProviderAdvertisementStatusChangedEventArgsVtbl {
+pub struct IGattServiceProviderAdvertisementStatusChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GattServiceProviderAdvertisementStatus) -> ::windows::core::HRESULT,
@@ -6724,12 +6724,12 @@ pub struct IGattServiceProviderAdvertisementStatusChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IGattServiceProviderAdvertisingParameters(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattServiceProviderAdvertisingParameters {
-    type Vtable = IGattServiceProviderAdvertisingParametersVtbl;
+    type Vtable = IGattServiceProviderAdvertisingParameters_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2ce31ab_6315_4c22_9bd7_781dbc3d8d82);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattServiceProviderAdvertisingParametersVtbl {
+pub struct IGattServiceProviderAdvertisingParameters_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetIsConnectable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub IsConnectable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -6740,12 +6740,12 @@ pub struct IGattServiceProviderAdvertisingParametersVtbl {
 #[repr(transparent)]
 pub struct IGattServiceProviderAdvertisingParameters2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattServiceProviderAdvertisingParameters2 {
-    type Vtable = IGattServiceProviderAdvertisingParameters2Vtbl;
+    type Vtable = IGattServiceProviderAdvertisingParameters2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff68468d_ca92_4434_9743_0e90988ad879);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattServiceProviderAdvertisingParameters2Vtbl {
+pub struct IGattServiceProviderAdvertisingParameters2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub SetServiceData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6760,12 +6760,12 @@ pub struct IGattServiceProviderAdvertisingParameters2Vtbl {
 #[repr(transparent)]
 pub struct IGattServiceProviderResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattServiceProviderResult {
-    type Vtable = IGattServiceProviderResultVtbl;
+    type Vtable = IGattServiceProviderResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x764696d8_c53e_428c_8a48_67afe02c3ae6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattServiceProviderResultVtbl {
+pub struct IGattServiceProviderResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT,
     pub ServiceProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6774,12 +6774,12 @@ pub struct IGattServiceProviderResultVtbl {
 #[repr(transparent)]
 pub struct IGattServiceProviderStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattServiceProviderStatics {
-    type Vtable = IGattServiceProviderStaticsVtbl;
+    type Vtable = IGattServiceProviderStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31794063_5256_4054_a4f4_7bbe7755a57e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattServiceProviderStaticsVtbl {
+pub struct IGattServiceProviderStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub CreateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, serviceuuid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6790,12 +6790,12 @@ pub struct IGattServiceProviderStaticsVtbl {
 #[repr(transparent)]
 pub struct IGattServiceUuidsStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattServiceUuidsStatics {
-    type Vtable = IGattServiceUuidsStaticsVtbl;
+    type Vtable = IGattServiceUuidsStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dc57058_9aba_4417_b8f2_dce016d34ee2);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattServiceUuidsStaticsVtbl {
+pub struct IGattServiceUuidsStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Battery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub BloodPressure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -6811,12 +6811,12 @@ pub struct IGattServiceUuidsStaticsVtbl {
 #[repr(transparent)]
 pub struct IGattServiceUuidsStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattServiceUuidsStatics2 {
-    type Vtable = IGattServiceUuidsStatics2Vtbl;
+    type Vtable = IGattServiceUuidsStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ae94f5_3d15_4f79_9c0c_eaafa675155c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattServiceUuidsStatics2Vtbl {
+pub struct IGattServiceUuidsStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AlertNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub CurrentTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -6836,12 +6836,12 @@ pub struct IGattServiceUuidsStatics2Vtbl {
 #[repr(transparent)]
 pub struct IGattSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattSession {
-    type Vtable = IGattSessionVtbl;
+    type Vtable = IGattSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd23b5143_e04e_4c24_999c_9c256f9856b1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattSessionVtbl {
+pub struct IGattSession_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CanMaintainConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -6870,12 +6870,12 @@ pub struct IGattSessionVtbl {
 #[repr(transparent)]
 pub struct IGattSessionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattSessionStatics {
-    type Vtable = IGattSessionStaticsVtbl;
+    type Vtable = IGattSessionStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e65b95c_539f_4db7_82a8_73bdbbf73ebf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattSessionStaticsVtbl {
+pub struct IGattSessionStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub FromDeviceIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6886,12 +6886,12 @@ pub struct IGattSessionStaticsVtbl {
 #[repr(transparent)]
 pub struct IGattSessionStatusChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattSessionStatusChangedEventArgs {
-    type Vtable = IGattSessionStatusChangedEventArgsVtbl;
+    type Vtable = IGattSessionStatusChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7605b72e_837f_404c_ab34_3163f39ddf32);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattSessionStatusChangedEventArgsVtbl {
+pub struct IGattSessionStatusChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GattSessionStatus) -> ::windows::core::HRESULT,
@@ -6900,12 +6900,12 @@ pub struct IGattSessionStatusChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IGattSubscribedClient(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattSubscribedClient {
-    type Vtable = IGattSubscribedClientVtbl;
+    type Vtable = IGattSubscribedClient_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x736e9001_15a4_4ec2_9248_e3f20d463be9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattSubscribedClientVtbl {
+pub struct IGattSubscribedClient_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub MaxNotificationSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
@@ -6922,12 +6922,12 @@ pub struct IGattSubscribedClientVtbl {
 #[repr(transparent)]
 pub struct IGattValueChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattValueChangedEventArgs {
-    type Vtable = IGattValueChangedEventArgsVtbl;
+    type Vtable = IGattValueChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd21bdb54_06e3_4ed8_a263_acfac8ba7313);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattValueChangedEventArgsVtbl {
+pub struct IGattValueChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub CharacteristicValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6942,12 +6942,12 @@ pub struct IGattValueChangedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IGattWriteRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattWriteRequest {
-    type Vtable = IGattWriteRequestVtbl;
+    type Vtable = IGattWriteRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaeb6a9ed_de2f_4fc2_a9a8_94ea7844f13d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattWriteRequestVtbl {
+pub struct IGattWriteRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage_Streams")]
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6971,12 +6971,12 @@ pub struct IGattWriteRequestVtbl {
 #[repr(transparent)]
 pub struct IGattWriteRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattWriteRequestedEventArgs {
-    type Vtable = IGattWriteRequestedEventArgsVtbl;
+    type Vtable = IGattWriteRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dec8bbe_a73a_471a_94d5_037deadd0806);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattWriteRequestedEventArgsVtbl {
+pub struct IGattWriteRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -6992,12 +6992,12 @@ pub struct IGattWriteRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IGattWriteResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IGattWriteResult {
-    type Vtable = IGattWriteResultVtbl;
+    type Vtable = IGattWriteResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4991ddb1_cb2b_44f7_99fc_d29a2871dc9b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGattWriteResultVtbl {
+pub struct IGattWriteResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]

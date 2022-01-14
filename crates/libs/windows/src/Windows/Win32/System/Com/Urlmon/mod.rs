@@ -1323,12 +1323,12 @@ impl ::core::fmt::Debug for IBindCallbackRedirect {
     }
 }
 unsafe impl ::windows::core::Interface for IBindCallbackRedirect {
-    type Vtable = IBindCallbackRedirectVtbl;
+    type Vtable = IBindCallbackRedirect_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11c81bc2_121e_4ed5_b9c4_b430bd54f2c0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBindCallbackRedirectVtbl {
+pub struct IBindCallbackRedirect_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Redirect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpcurl: super::super::super::Foundation::PWSTR, vbcancel: *mut i16) -> ::windows::core::HRESULT,
@@ -1382,12 +1382,12 @@ impl ::core::fmt::Debug for IBindHttpSecurity {
     }
 }
 unsafe impl ::windows::core::Interface for IBindHttpSecurity {
-    type Vtable = IBindHttpSecurityVtbl;
+    type Vtable = IBindHttpSecurity_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9eda967_f50e_4a33_b358_206f6ef3086d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBindHttpSecurityVtbl {
+pub struct IBindHttpSecurity_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetIgnoreCertMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwignorecertmask: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -1439,12 +1439,12 @@ impl ::core::fmt::Debug for IBindProtocol {
     }
 }
 unsafe impl ::windows::core::Interface for IBindProtocol {
-    type Vtable = IBindProtocolVtbl;
+    type Vtable = IBindProtocol_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9cd_baf9_11ce_8c82_00aa004ba90b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBindProtocolVtbl {
+pub struct IBindProtocol_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateBinding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szurl: super::super::super::Foundation::PWSTR, pbc: ::windows::core::RawPtr, ppb: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1503,12 +1503,12 @@ impl ::core::fmt::Debug for ICatalogFileInfo {
     }
 }
 unsafe impl ::windows::core::Interface for ICatalogFileInfo {
-    type Vtable = ICatalogFileInfoVtbl;
+    type Vtable = ICatalogFileInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x711c7600_6b48_11d1_b403_00aa00b92af1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICatalogFileInfoVtbl {
+pub struct ICatalogFileInfo_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetCatalogFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszcatalogfile: *mut super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT,
@@ -1589,13 +1589,13 @@ impl ::core::fmt::Debug for ICodeInstall {
     }
 }
 unsafe impl ::windows::core::Interface for ICodeInstall {
-    type Vtable = ICodeInstallVtbl;
+    type Vtable = ICodeInstall_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9d1_baf9_11ce_8c82_00aa004ba90b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICodeInstallVtbl {
-    pub base: IWindowForBindingUIVtbl,
+pub struct ICodeInstall_Vtbl {
+    pub base: IWindowForBindingUI_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub OnCodeInstallProblem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulstatuscode: u32, szdestination: super::super::super::Foundation::PWSTR, szsource: super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1655,12 +1655,12 @@ impl ::core::fmt::Debug for IDataFilter {
     }
 }
 unsafe impl ::windows::core::Interface for IDataFilter {
-    type Vtable = IDataFilterVtbl;
+    type Vtable = IDataFilter_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69d14c80_c18e_11d0_a9ce_006097942311);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDataFilterVtbl {
+pub struct IDataFilter_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub DoEncode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::core::HRESULT,
     pub DoDecode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::core::HRESULT,
@@ -1768,12 +1768,12 @@ impl ::core::fmt::Debug for IEncodingFilterFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IEncodingFilterFactory {
-    type Vtable = IEncodingFilterFactoryVtbl;
+    type Vtable = IEncodingFilterFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70bdde00_c18e_11d0_a9ce_006097942311);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEncodingFilterFactoryVtbl {
+pub struct IEncodingFilterFactory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub FindBestFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzcodein: super::super::super::Foundation::PWSTR, pwzcodeout: super::super::super::Foundation::PWSTR, info: DATAINFO, ppdf: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1832,12 +1832,12 @@ impl ::core::fmt::Debug for IGetBindHandle {
     }
 }
 unsafe impl ::windows::core::Interface for IGetBindHandle {
-    type Vtable = IGetBindHandleVtbl;
+    type Vtable = IGetBindHandle_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf0ff408_129d_4b20_91f0_02bd23d88352);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IGetBindHandleVtbl {
+pub struct IGetBindHandle_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetBindHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumrequestedhandle: BINDHANDLETYPES, prethandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
@@ -1898,12 +1898,12 @@ impl ::core::fmt::Debug for IHttpNegotiate {
     }
 }
 unsafe impl ::windows::core::Interface for IHttpNegotiate {
-    type Vtable = IHttpNegotiateVtbl;
+    type Vtable = IHttpNegotiate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9d2_baf9_11ce_8c82_00aa004ba90b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpNegotiateVtbl {
+pub struct IHttpNegotiate_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub BeginningTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szurl: super::super::super::Foundation::PWSTR, szheaders: super::super::super::Foundation::PWSTR, dwreserved: u32, pszadditionalheaders: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -1992,13 +1992,13 @@ impl ::core::fmt::Debug for IHttpNegotiate2 {
     }
 }
 unsafe impl ::windows::core::Interface for IHttpNegotiate2 {
-    type Vtable = IHttpNegotiate2Vtbl;
+    type Vtable = IHttpNegotiate2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f9f9fcb_e0f4_48eb_b7ab_fa2ea9365cb4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpNegotiate2Vtbl {
-    pub base: IHttpNegotiateVtbl,
+pub struct IHttpNegotiate2_Vtbl {
+    pub base: IHttpNegotiate_Vtbl,
     pub GetRootSecurityId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
@@ -2103,13 +2103,13 @@ impl ::core::fmt::Debug for IHttpNegotiate3 {
     }
 }
 unsafe impl ::windows::core::Interface for IHttpNegotiate3 {
-    type Vtable = IHttpNegotiate3Vtbl;
+    type Vtable = IHttpNegotiate3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57b6c80a_34c2_4602_bc26_66a02fc57153);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpNegotiate3Vtbl {
-    pub base: IHttpNegotiate2Vtbl,
+pub struct IHttpNegotiate3_Vtbl {
+    pub base: IHttpNegotiate2_Vtbl,
     pub GetSerializedClientCertContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbcert: *mut *mut u8, pcbcert: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
@@ -2184,13 +2184,13 @@ impl ::core::fmt::Debug for IHttpSecurity {
     }
 }
 unsafe impl ::windows::core::Interface for IHttpSecurity {
-    type Vtable = IHttpSecurityVtbl;
+    type Vtable = IHttpSecurity_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9d7_bafa_11ce_8c82_00aa004ba90b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IHttpSecurityVtbl {
-    pub base: IWindowForBindingUIVtbl,
+pub struct IHttpSecurity_Vtbl {
+    pub base: IWindowForBindingUI_Vtbl,
     pub OnSecurityProblem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwproblem: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
@@ -2234,12 +2234,12 @@ impl ::core::fmt::Debug for IInternet {
     }
 }
 unsafe impl ::windows::core::Interface for IInternet {
-    type Vtable = IInternetVtbl;
+    type Vtable = IInternet_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9e0_baf9_11ce_8c82_00aa004ba90b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInternetVtbl {
+pub struct IInternet_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
 }
 #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
@@ -2294,12 +2294,12 @@ impl ::core::fmt::Debug for IInternetBindInfo {
     }
 }
 unsafe impl ::windows::core::Interface for IInternetBindInfo {
-    type Vtable = IInternetBindInfoVtbl;
+    type Vtable = IInternetBindInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9e1_baf9_11ce_8c82_00aa004ba90b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInternetBindInfoVtbl {
+pub struct IInternetBindInfo_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     pub GetBindInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO) -> ::windows::core::HRESULT,
@@ -2387,13 +2387,13 @@ impl ::core::fmt::Debug for IInternetBindInfoEx {
     }
 }
 unsafe impl ::windows::core::Interface for IInternetBindInfoEx {
-    type Vtable = IInternetBindInfoExVtbl;
+    type Vtable = IInternetBindInfoEx_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3e015b7_a82c_4dcd_a150_569aeeed36ab);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInternetBindInfoExVtbl {
-    pub base: IInternetBindInfoVtbl,
+pub struct IInternetBindInfoEx_Vtbl {
+    pub base: IInternetBindInfo_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     pub GetBindInfoEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage")))]
@@ -2453,12 +2453,12 @@ impl ::core::fmt::Debug for IInternetHostSecurityManager {
     }
 }
 unsafe impl ::windows::core::Interface for IInternetHostSecurityManager {
-    type Vtable = IInternetHostSecurityManagerVtbl;
+    type Vtable = IInternetHostSecurityManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3af280b6_cb3f_11d0_891e_00c04fb6bfc4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInternetHostSecurityManagerVtbl {
+pub struct IInternetHostSecurityManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetSecurityId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::HRESULT,
     pub ProcessUrlAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::HRESULT,
@@ -2515,12 +2515,12 @@ impl ::core::fmt::Debug for IInternetPriority {
     }
 }
 unsafe impl ::windows::core::Interface for IInternetPriority {
-    type Vtable = IInternetPriorityVtbl;
+    type Vtable = IInternetPriority_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9eb_baf9_11ce_8c82_00aa004ba90b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInternetPriorityVtbl {
+pub struct IInternetPriority_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, npriority: i32) -> ::windows::core::HRESULT,
     pub GetPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnpriority: *mut i32) -> ::windows::core::HRESULT,
@@ -2629,13 +2629,13 @@ impl ::core::fmt::Debug for IInternetProtocol {
     }
 }
 unsafe impl ::windows::core::Interface for IInternetProtocol {
-    type Vtable = IInternetProtocolVtbl;
+    type Vtable = IInternetProtocol_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9e4_baf9_11ce_8c82_00aa004ba90b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInternetProtocolVtbl {
-    pub base: IInternetProtocolRootVtbl,
+pub struct IInternetProtocol_Vtbl {
+    pub base: IInternetProtocolRoot_Vtbl,
     pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::HRESULT,
     pub Seek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dlibmove: i64, dworigin: u32, plibnewposition: *mut u64) -> ::windows::core::HRESULT,
     pub LockRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoptions: u32) -> ::windows::core::HRESULT,
@@ -2770,13 +2770,13 @@ impl ::core::fmt::Debug for IInternetProtocolEx {
     }
 }
 unsafe impl ::windows::core::Interface for IInternetProtocolEx {
-    type Vtable = IInternetProtocolExVtbl;
+    type Vtable = IInternetProtocolEx_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7a98e66_1010_492c_a1c8_c809e1f75905);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInternetProtocolExVtbl {
-    pub base: IInternetProtocolVtbl,
+pub struct IInternetProtocolEx_Vtbl {
+    pub base: IInternetProtocol_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub StartEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puri: ::windows::core::RawPtr, poiprotsink: ::windows::core::RawPtr, poibindinfo: ::windows::core::RawPtr, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2844,12 +2844,12 @@ impl ::core::fmt::Debug for IInternetProtocolInfo {
     }
 }
 unsafe impl ::windows::core::Interface for IInternetProtocolInfo {
-    type Vtable = IInternetProtocolInfoVtbl;
+    type Vtable = IInternetProtocolInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9ec_baf9_11ce_8c82_00aa004ba90b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInternetProtocolInfoVtbl {
+pub struct IInternetProtocolInfo_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ParseUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzurl: super::super::super::Foundation::PWSTR, parseaction: PARSEACTION, dwparseflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT,
@@ -2935,12 +2935,12 @@ impl ::core::fmt::Debug for IInternetProtocolRoot {
     }
 }
 unsafe impl ::windows::core::Interface for IInternetProtocolRoot {
-    type Vtable = IInternetProtocolRootVtbl;
+    type Vtable = IInternetProtocolRoot_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9e3_baf9_11ce_8c82_00aa004ba90b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInternetProtocolRootVtbl {
+pub struct IInternetProtocolRoot_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szurl: super::super::super::Foundation::PWSTR, poiprotsink: ::windows::core::RawPtr, poibindinfo: ::windows::core::RawPtr, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::core::HRESULT,
@@ -3012,12 +3012,12 @@ impl ::core::fmt::Debug for IInternetProtocolSink {
     }
 }
 unsafe impl ::windows::core::Interface for IInternetProtocolSink {
-    type Vtable = IInternetProtocolSinkVtbl;
+    type Vtable = IInternetProtocolSink_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9e5_baf9_11ce_8c82_00aa004ba90b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInternetProtocolSinkVtbl {
+pub struct IInternetProtocolSink_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Switch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -3084,12 +3084,12 @@ impl ::core::fmt::Debug for IInternetProtocolSinkStackable {
     }
 }
 unsafe impl ::windows::core::Interface for IInternetProtocolSinkStackable {
-    type Vtable = IInternetProtocolSinkStackableVtbl;
+    type Vtable = IInternetProtocolSinkStackable_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9f0_baf9_11ce_8c82_00aa004ba90b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInternetProtocolSinkStackableVtbl {
+pub struct IInternetProtocolSinkStackable_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SwitchSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poiprotsink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CommitSwitch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3175,12 +3175,12 @@ impl ::core::fmt::Debug for IInternetSecurityManager {
     }
 }
 unsafe impl ::windows::core::Interface for IInternetSecurityManager {
-    type Vtable = IInternetSecurityManagerVtbl;
+    type Vtable = IInternetSecurityManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9ee_baf9_11ce_8c82_00aa004ba90b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInternetSecurityManagerVtbl {
+pub struct IInternetSecurityManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetSecuritySite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psite: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetSecuritySite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsite: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3311,13 +3311,13 @@ impl ::core::fmt::Debug for IInternetSecurityManagerEx {
     }
 }
 unsafe impl ::windows::core::Interface for IInternetSecurityManagerEx {
-    type Vtable = IInternetSecurityManagerExVtbl;
+    type Vtable = IInternetSecurityManagerEx_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf164edf1_cc7c_4f0d_9a94_34222625c393);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInternetSecurityManagerExVtbl {
-    pub base: IInternetSecurityManagerVtbl,
+pub struct IInternetSecurityManagerEx_Vtbl {
+    pub base: IInternetSecurityManager_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ProcessUrlActionEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszurl: super::super::super::Foundation::PWSTR, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3465,13 +3465,13 @@ impl ::core::fmt::Debug for IInternetSecurityManagerEx2 {
     }
 }
 unsafe impl ::windows::core::Interface for IInternetSecurityManagerEx2 {
-    type Vtable = IInternetSecurityManagerEx2Vtbl;
+    type Vtable = IInternetSecurityManagerEx2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1e50292_a795_4117_8e09_2b560a72ac60);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInternetSecurityManagerEx2Vtbl {
-    pub base: IInternetSecurityManagerExVtbl,
+pub struct IInternetSecurityManagerEx2_Vtbl {
+    pub base: IInternetSecurityManagerEx_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub MapUrlToZoneEx2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puri: ::windows::core::RawPtr, pdwzone: *mut u32, dwflags: u32, ppwszmappedurl: *mut super::super::super::Foundation::PWSTR, pdwoutflags: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3533,12 +3533,12 @@ impl ::core::fmt::Debug for IInternetSecurityMgrSite {
     }
 }
 unsafe impl ::windows::core::Interface for IInternetSecurityMgrSite {
-    type Vtable = IInternetSecurityMgrSiteVtbl;
+    type Vtable = IInternetSecurityMgrSite_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9ed_baf9_11ce_8c82_00aa004ba90b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInternetSecurityMgrSiteVtbl {
+pub struct IInternetSecurityMgrSite_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
@@ -3624,12 +3624,12 @@ impl ::core::fmt::Debug for IInternetSession {
     }
 }
 unsafe impl ::windows::core::Interface for IInternetSession {
-    type Vtable = IInternetSessionVtbl;
+    type Vtable = IInternetSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9e7_baf9_11ce_8c82_00aa004ba90b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInternetSessionVtbl {
+pub struct IInternetSession_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RegisterNameSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcf: ::windows::core::RawPtr, rclsid: *const ::windows::core::GUID, pwzprotocol: super::super::super::Foundation::PWSTR, cpatterns: u32, ppwzpatterns: *const super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::HRESULT,
@@ -3704,12 +3704,12 @@ impl ::core::fmt::Debug for IInternetThreadSwitch {
     }
 }
 unsafe impl ::windows::core::Interface for IInternetThreadSwitch {
-    type Vtable = IInternetThreadSwitchVtbl;
+    type Vtable = IInternetThreadSwitch_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9e8_baf9_11ce_8c82_00aa004ba90b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInternetThreadSwitchVtbl {
+pub struct IInternetThreadSwitch_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Prepare: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Continue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3807,12 +3807,12 @@ impl ::core::fmt::Debug for IInternetZoneManager {
     }
 }
 unsafe impl ::windows::core::Interface for IInternetZoneManager {
-    type Vtable = IInternetZoneManagerVtbl;
+    type Vtable = IInternetZoneManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9ef_baf9_11ce_8c82_00aa004ba90b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInternetZoneManagerVtbl {
+pub struct IInternetZoneManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetZoneAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::core::HRESULT,
     pub SetZoneAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::core::HRESULT,
@@ -3954,13 +3954,13 @@ impl ::core::fmt::Debug for IInternetZoneManagerEx {
     }
 }
 unsafe impl ::windows::core::Interface for IInternetZoneManagerEx {
-    type Vtable = IInternetZoneManagerExVtbl;
+    type Vtable = IInternetZoneManagerEx_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4c23339_8e06_431e_9bf4_7e711c085648);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInternetZoneManagerExVtbl {
-    pub base: IInternetZoneManagerVtbl,
+pub struct IInternetZoneManagerEx_Vtbl {
+    pub base: IInternetZoneManager_Vtbl,
     pub GetZoneActionPolicyEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::HRESULT,
     pub SetZoneActionPolicyEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::HRESULT,
 }
@@ -4123,13 +4123,13 @@ impl ::core::fmt::Debug for IInternetZoneManagerEx2 {
     }
 }
 unsafe impl ::windows::core::Interface for IInternetZoneManagerEx2 {
-    type Vtable = IInternetZoneManagerEx2Vtbl;
+    type Vtable = IInternetZoneManagerEx2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedc17559_dd5d_4846_8eef_8becba5a4abf);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInternetZoneManagerEx2Vtbl {
-    pub base: IInternetZoneManagerExVtbl,
+pub struct IInternetZoneManagerEx2_Vtbl {
+    pub base: IInternetZoneManagerEx_Vtbl,
     pub GetZoneAttributesEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES, dwflags: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetZoneSecurityState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwzoneindex: u32, frespectpolicy: super::super::super::Foundation::BOOL, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -4188,12 +4188,12 @@ impl ::core::fmt::Debug for IMonikerProp {
     }
 }
 unsafe impl ::windows::core::Interface for IMonikerProp {
-    type Vtable = IMonikerPropVtbl;
+    type Vtable = IMonikerProp_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5ca5f7f_1847_4d87_9c5b_918509f7511d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMonikerPropVtbl {
+pub struct IMonikerProp_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub PutProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mkp: MONIKERPROPERTY, val: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -4436,12 +4436,12 @@ impl ::core::fmt::Debug for IPersistMoniker {
     }
 }
 unsafe impl ::windows::core::Interface for IPersistMoniker {
-    type Vtable = IPersistMonikerVtbl;
+    type Vtable = IPersistMoniker_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9c9_baf9_11ce_8c82_00aa004ba90b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPersistMonikerVtbl {
+pub struct IPersistMoniker_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetClassID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclassid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub IsDirty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4518,12 +4518,12 @@ impl ::core::fmt::Debug for ISoftDistExt {
     }
 }
 unsafe impl ::windows::core::Interface for ISoftDistExt {
-    type Vtable = ISoftDistExtVtbl;
+    type Vtable = ISoftDistExt_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb15b8dc1_c7e1_11d0_8680_00aa00bdcb71);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISoftDistExtVtbl {
+pub struct ISoftDistExt_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
     pub ProcessSoftDist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szcdfurl: super::super::super::Foundation::PWSTR, psoftdistelement: ::windows::core::RawPtr, lpsdi: *mut SOFTDISTINFO) -> ::windows::core::HRESULT,
@@ -4594,12 +4594,12 @@ impl ::core::fmt::Debug for IUriBuilderFactory {
     }
 }
 unsafe impl ::windows::core::Interface for IUriBuilderFactory {
-    type Vtable = IUriBuilderFactoryVtbl;
+    type Vtable = IUriBuilderFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe982ce48_0b96_440c_bc37_0c869b27a29e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUriBuilderFactoryVtbl {
+pub struct IUriBuilderFactory_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub CreateIUriBuilder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, dwreserved: usize, ppiuribuilder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateInitializedIUriBuilder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, dwreserved: usize, ppiuribuilder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4651,12 +4651,12 @@ impl ::core::fmt::Debug for IUriContainer {
     }
 }
 unsafe impl ::windows::core::Interface for IUriContainer {
-    type Vtable = IUriContainerVtbl;
+    type Vtable = IUriContainer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa158a630_ed6f_45fb_b987_f68676f57752);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUriContainerVtbl {
+pub struct IUriContainer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetIUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiuri: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -4707,12 +4707,12 @@ impl ::core::fmt::Debug for IWinInetCacheHints {
     }
 }
 unsafe impl ::windows::core::Interface for IWinInetCacheHints {
-    type Vtable = IWinInetCacheHintsVtbl;
+    type Vtable = IWinInetCacheHints_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd1ec3b3_8391_4fdb_a9e6_347c3caaa7dd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWinInetCacheHintsVtbl {
+pub struct IWinInetCacheHints_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetCacheExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzext: super::super::super::Foundation::PWSTR, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::HRESULT,
@@ -4791,13 +4791,13 @@ impl ::core::fmt::Debug for IWinInetCacheHints2 {
     }
 }
 unsafe impl ::windows::core::Interface for IWinInetCacheHints2 {
-    type Vtable = IWinInetCacheHints2Vtbl;
+    type Vtable = IWinInetCacheHints2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7857aeac_d31f_49bf_884e_dd46df36780a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWinInetCacheHints2Vtbl {
-    pub base: IWinInetCacheHintsVtbl,
+pub struct IWinInetCacheHints2_Vtbl {
+    pub base: IWinInetCacheHints_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetCacheExtension2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzext: super::super::super::Foundation::PWSTR, pwzcachefile: super::super::super::Foundation::PWSTR, pcchcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4853,12 +4853,12 @@ impl ::core::fmt::Debug for IWinInetFileStream {
     }
 }
 unsafe impl ::windows::core::Interface for IWinInetFileStream {
-    type Vtable = IWinInetFileStreamVtbl;
+    type Vtable = IWinInetFileStream_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf134c4b7_b1f8_4e75_b886_74b90943becb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWinInetFileStreamVtbl {
+pub struct IWinInetFileStream_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetHandleForUnlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwininetlockhandle: usize, dwreserved: usize) -> ::windows::core::HRESULT,
     pub SetDeleteFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwreserved: usize) -> ::windows::core::HRESULT,
@@ -4933,13 +4933,13 @@ impl ::core::fmt::Debug for IWinInetHttpInfo {
     }
 }
 unsafe impl ::windows::core::Interface for IWinInetHttpInfo {
-    type Vtable = IWinInetHttpInfoVtbl;
+    type Vtable = IWinInetHttpInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9d8_bafa_11ce_8c82_00aa004ba90b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWinInetHttpInfoVtbl {
-    pub base: IWinInetInfoVtbl,
+pub struct IWinInetHttpInfo_Vtbl {
+    pub base: IWinInetInfo_Vtbl,
     pub QueryInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32, pdwflags: *mut u32, pdwreserved: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
@@ -4988,12 +4988,12 @@ impl ::core::fmt::Debug for IWinInetHttpTimeouts {
     }
 }
 unsafe impl ::windows::core::Interface for IWinInetHttpTimeouts {
-    type Vtable = IWinInetHttpTimeoutsVtbl;
+    type Vtable = IWinInetHttpTimeouts_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf286fa56_c1fd_4270_8e67_b3eb790a81e8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWinInetHttpTimeoutsVtbl {
+pub struct IWinInetHttpTimeouts_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetRequestTimeouts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwconnecttimeout: *mut u32, pdwsendtimeout: *mut u32, pdwreceivetimeout: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -5043,12 +5043,12 @@ impl ::core::fmt::Debug for IWinInetInfo {
     }
 }
 unsafe impl ::windows::core::Interface for IWinInetInfo {
-    type Vtable = IWinInetInfoVtbl;
+    type Vtable = IWinInetInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9d6_bafa_11ce_8c82_00aa004ba90b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWinInetInfoVtbl {
+pub struct IWinInetInfo_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub QueryOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -5100,12 +5100,12 @@ impl ::core::fmt::Debug for IWindowForBindingUI {
     }
 }
 unsafe impl ::windows::core::Interface for IWindowForBindingUI {
-    type Vtable = IWindowForBindingUIVtbl;
+    type Vtable = IWindowForBindingUI_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eac9d5_bafa_11ce_8c82_00aa004ba90b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWindowForBindingUIVtbl {
+pub struct IWindowForBindingUI_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguidreason: *const ::windows::core::GUID, phwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
@@ -5158,12 +5158,12 @@ impl ::core::fmt::Debug for IWrappedProtocol {
     }
 }
 unsafe impl ::windows::core::Interface for IWrappedProtocol {
-    type Vtable = IWrappedProtocolVtbl;
+    type Vtable = IWrappedProtocol_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53c84785_8425_4dc5_971b_e58d9c19f9b6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWrappedProtocolVtbl {
+pub struct IWrappedProtocol_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetWrapperCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pncode: *mut i32, dwreserved: usize) -> ::windows::core::HRESULT,
 }
@@ -5222,12 +5222,12 @@ impl ::core::fmt::Debug for IZoneIdentifier {
     }
 }
 unsafe impl ::windows::core::Interface for IZoneIdentifier {
-    type Vtable = IZoneIdentifierVtbl;
+    type Vtable = IZoneIdentifier_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd45f185_1b21_48e2_967b_ead743a8914e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IZoneIdentifierVtbl {
+pub struct IZoneIdentifier_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwzone: *mut u32) -> ::windows::core::HRESULT,
     pub SetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwzone: u32) -> ::windows::core::HRESULT,
@@ -5336,13 +5336,13 @@ impl ::core::fmt::Debug for IZoneIdentifier2 {
     }
 }
 unsafe impl ::windows::core::Interface for IZoneIdentifier2 {
-    type Vtable = IZoneIdentifier2Vtbl;
+    type Vtable = IZoneIdentifier2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb5e760c_09ef_45c0_b510_70830ce31e6a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IZoneIdentifier2Vtbl {
-    pub base: IZoneIdentifierVtbl,
+pub struct IZoneIdentifier2_Vtbl {
+    pub base: IZoneIdentifier_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetLastWriterPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefamilyname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]

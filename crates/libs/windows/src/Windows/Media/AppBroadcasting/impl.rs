@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IAppBroadcastingMonitorImpl: Sized {
+pub trait IAppBroadcastingMonitor_Impl: Sized {
     fn IsCurrentAppBroadcasting(&mut self) -> ::windows::core::Result<bool>;
     fn IsCurrentAppBroadcastingChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppBroadcastingMonitor, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveIsCurrentAppBroadcastingChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -9,9 +9,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastingMonitor {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.IAppBroadcastingMonitor";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IAppBroadcastingMonitorVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastingMonitorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastingMonitorVtbl {
-        unsafe extern "system" fn IsCurrentAppBroadcasting<Impl: IAppBroadcastingMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IAppBroadcastingMonitor_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastingMonitor_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastingMonitor_Vtbl {
+        unsafe extern "system" fn IsCurrentAppBroadcasting<Impl: IAppBroadcastingMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCurrentAppBroadcasting() {
                 ::core::result::Result::Ok(ok__) => {
@@ -22,7 +22,7 @@ impl IAppBroadcastingMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsCurrentAppBroadcastingChanged<Impl: IAppBroadcastingMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCurrentAppBroadcastingChanged<Impl: IAppBroadcastingMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCurrentAppBroadcastingChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AppBroadcastingMonitor, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppBroadcastingMonitor, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -33,7 +33,7 @@ impl IAppBroadcastingMonitorVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveIsCurrentAppBroadcastingChanged<Impl: IAppBroadcastingMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveIsCurrentAppBroadcastingChanged<Impl: IAppBroadcastingMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveIsCurrentAppBroadcastingChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -49,7 +49,7 @@ impl IAppBroadcastingMonitorVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastingStatusImpl: Sized {
+pub trait IAppBroadcastingStatus_Impl: Sized {
     fn CanStartBroadcast(&mut self) -> ::windows::core::Result<bool>;
     fn Details(&mut self) -> ::windows::core::Result<AppBroadcastingStatusDetails>;
 }
@@ -58,9 +58,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastingStatus {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.IAppBroadcastingStatus";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppBroadcastingStatusVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastingStatusImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastingStatusVtbl {
-        unsafe extern "system" fn CanStartBroadcast<Impl: IAppBroadcastingStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IAppBroadcastingStatus_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastingStatus_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastingStatus_Vtbl {
+        unsafe extern "system" fn CanStartBroadcast<Impl: IAppBroadcastingStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanStartBroadcast() {
                 ::core::result::Result::Ok(ok__) => {
@@ -71,7 +71,7 @@ impl IAppBroadcastingStatusVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Details<Impl: IAppBroadcastingStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Details<Impl: IAppBroadcastingStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Details() {
                 ::core::result::Result::Ok(ok__) => {
@@ -93,7 +93,7 @@ impl IAppBroadcastingStatusVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastingStatusDetailsImpl: Sized {
+pub trait IAppBroadcastingStatusDetails_Impl: Sized {
     fn IsAnyAppBroadcasting(&mut self) -> ::windows::core::Result<bool>;
     fn IsCaptureResourceUnavailable(&mut self) -> ::windows::core::Result<bool>;
     fn IsGameStreamInProgress(&mut self) -> ::windows::core::Result<bool>;
@@ -108,9 +108,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastingStatusDetails {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.IAppBroadcastingStatusDetails";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppBroadcastingStatusDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastingStatusDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastingStatusDetailsVtbl {
-        unsafe extern "system" fn IsAnyAppBroadcasting<Impl: IAppBroadcastingStatusDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IAppBroadcastingStatusDetails_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastingStatusDetails_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastingStatusDetails_Vtbl {
+        unsafe extern "system" fn IsAnyAppBroadcasting<Impl: IAppBroadcastingStatusDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAnyAppBroadcasting() {
                 ::core::result::Result::Ok(ok__) => {
@@ -121,7 +121,7 @@ impl IAppBroadcastingStatusDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsCaptureResourceUnavailable<Impl: IAppBroadcastingStatusDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsCaptureResourceUnavailable<Impl: IAppBroadcastingStatusDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsCaptureResourceUnavailable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -132,7 +132,7 @@ impl IAppBroadcastingStatusDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsGameStreamInProgress<Impl: IAppBroadcastingStatusDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsGameStreamInProgress<Impl: IAppBroadcastingStatusDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsGameStreamInProgress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -143,7 +143,7 @@ impl IAppBroadcastingStatusDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsGpuConstrained<Impl: IAppBroadcastingStatusDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsGpuConstrained<Impl: IAppBroadcastingStatusDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsGpuConstrained() {
                 ::core::result::Result::Ok(ok__) => {
@@ -154,7 +154,7 @@ impl IAppBroadcastingStatusDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsAppInactive<Impl: IAppBroadcastingStatusDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsAppInactive<Impl: IAppBroadcastingStatusDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsAppInactive() {
                 ::core::result::Result::Ok(ok__) => {
@@ -165,7 +165,7 @@ impl IAppBroadcastingStatusDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsBlockedForApp<Impl: IAppBroadcastingStatusDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsBlockedForApp<Impl: IAppBroadcastingStatusDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsBlockedForApp() {
                 ::core::result::Result::Ok(ok__) => {
@@ -176,7 +176,7 @@ impl IAppBroadcastingStatusDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDisabledByUser<Impl: IAppBroadcastingStatusDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDisabledByUser<Impl: IAppBroadcastingStatusDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDisabledByUser() {
                 ::core::result::Result::Ok(ok__) => {
@@ -187,7 +187,7 @@ impl IAppBroadcastingStatusDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDisabledBySystem<Impl: IAppBroadcastingStatusDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDisabledBySystem<Impl: IAppBroadcastingStatusDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDisabledBySystem() {
                 ::core::result::Result::Ok(ok__) => {
@@ -215,7 +215,7 @@ impl IAppBroadcastingStatusDetailsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppBroadcastingUIImpl: Sized {
+pub trait IAppBroadcastingUI_Impl: Sized {
     fn GetStatus(&mut self) -> ::windows::core::Result<AppBroadcastingStatus>;
     fn ShowBroadcastUI(&mut self) -> ::windows::core::Result<()>;
 }
@@ -224,9 +224,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastingUI {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.IAppBroadcastingUI";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppBroadcastingUIVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastingUIImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastingUIVtbl {
-        unsafe extern "system" fn GetStatus<Impl: IAppBroadcastingUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAppBroadcastingUI_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastingUI_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastingUI_Vtbl {
+        unsafe extern "system" fn GetStatus<Impl: IAppBroadcastingUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -237,7 +237,7 @@ impl IAppBroadcastingUIVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShowBroadcastUI<Impl: IAppBroadcastingUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowBroadcastUI<Impl: IAppBroadcastingUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowBroadcastUI().into()
         }
@@ -252,7 +252,7 @@ impl IAppBroadcastingUIVtbl {
     }
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-pub trait IAppBroadcastingUIStaticsImpl: Sized {
+pub trait IAppBroadcastingUIStatics_Impl: Sized {
     fn GetDefault(&mut self) -> ::windows::core::Result<AppBroadcastingUI>;
     fn GetForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<AppBroadcastingUI>;
 }
@@ -261,9 +261,9 @@ impl ::windows::core::RuntimeName for IAppBroadcastingUIStatics {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.IAppBroadcastingUIStatics";
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-impl IAppBroadcastingUIStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastingUIStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastingUIStaticsVtbl {
-        unsafe extern "system" fn GetDefault<Impl: IAppBroadcastingUIStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAppBroadcastingUIStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppBroadcastingUIStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppBroadcastingUIStatics_Vtbl {
+        unsafe extern "system" fn GetDefault<Impl: IAppBroadcastingUIStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
                 ::core::result::Result::Ok(ok__) => {
@@ -274,7 +274,7 @@ impl IAppBroadcastingUIStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetForUser<Impl: IAppBroadcastingUIStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetForUser<Impl: IAppBroadcastingUIStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForUser(&*(&user as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {

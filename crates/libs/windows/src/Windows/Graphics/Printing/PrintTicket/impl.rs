@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
-pub trait IPrintTicketCapabilitiesImpl: Sized {
+pub trait IPrintTicketCapabilities_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn XmlNamespace(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn XmlNode(&mut self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>;
@@ -26,9 +26,9 @@ impl ::windows::core::RuntimeName for IPrintTicketCapabilities {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.IPrintTicketCapabilities";
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
-impl IPrintTicketCapabilitiesVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketCapabilitiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTicketCapabilitiesVtbl {
-        unsafe extern "system" fn Name<Impl: IPrintTicketCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPrintTicketCapabilities_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketCapabilities_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTicketCapabilities_Vtbl {
+        unsafe extern "system" fn Name<Impl: IPrintTicketCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -39,7 +39,7 @@ impl IPrintTicketCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn XmlNamespace<Impl: IPrintTicketCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn XmlNamespace<Impl: IPrintTicketCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).XmlNamespace() {
                 ::core::result::Result::Ok(ok__) => {
@@ -50,7 +50,7 @@ impl IPrintTicketCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn XmlNode<Impl: IPrintTicketCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn XmlNode<Impl: IPrintTicketCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).XmlNode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -61,7 +61,7 @@ impl IPrintTicketCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentBindingFeature<Impl: IPrintTicketCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentBindingFeature<Impl: IPrintTicketCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentBindingFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -72,7 +72,7 @@ impl IPrintTicketCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentCollateFeature<Impl: IPrintTicketCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentCollateFeature<Impl: IPrintTicketCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentCollateFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -83,7 +83,7 @@ impl IPrintTicketCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentDuplexFeature<Impl: IPrintTicketCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentDuplexFeature<Impl: IPrintTicketCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentDuplexFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -94,7 +94,7 @@ impl IPrintTicketCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentHolePunchFeature<Impl: IPrintTicketCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentHolePunchFeature<Impl: IPrintTicketCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentHolePunchFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -105,7 +105,7 @@ impl IPrintTicketCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentInputBinFeature<Impl: IPrintTicketCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentInputBinFeature<Impl: IPrintTicketCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentInputBinFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -116,7 +116,7 @@ impl IPrintTicketCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentNUpFeature<Impl: IPrintTicketCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentNUpFeature<Impl: IPrintTicketCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentNUpFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -127,7 +127,7 @@ impl IPrintTicketCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentStapleFeature<Impl: IPrintTicketCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentStapleFeature<Impl: IPrintTicketCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentStapleFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -138,7 +138,7 @@ impl IPrintTicketCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn JobPasscodeFeature<Impl: IPrintTicketCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn JobPasscodeFeature<Impl: IPrintTicketCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).JobPasscodeFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -149,7 +149,7 @@ impl IPrintTicketCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PageBorderlessFeature<Impl: IPrintTicketCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PageBorderlessFeature<Impl: IPrintTicketCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageBorderlessFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -160,7 +160,7 @@ impl IPrintTicketCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PageMediaSizeFeature<Impl: IPrintTicketCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PageMediaSizeFeature<Impl: IPrintTicketCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageMediaSizeFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -171,7 +171,7 @@ impl IPrintTicketCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PageMediaTypeFeature<Impl: IPrintTicketCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PageMediaTypeFeature<Impl: IPrintTicketCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageMediaTypeFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -182,7 +182,7 @@ impl IPrintTicketCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PageOrientationFeature<Impl: IPrintTicketCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PageOrientationFeature<Impl: IPrintTicketCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageOrientationFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -193,7 +193,7 @@ impl IPrintTicketCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PageOutputColorFeature<Impl: IPrintTicketCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PageOutputColorFeature<Impl: IPrintTicketCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageOutputColorFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -204,7 +204,7 @@ impl IPrintTicketCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PageOutputQualityFeature<Impl: IPrintTicketCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PageOutputQualityFeature<Impl: IPrintTicketCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageOutputQualityFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -215,7 +215,7 @@ impl IPrintTicketCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PageResolutionFeature<Impl: IPrintTicketCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PageResolutionFeature<Impl: IPrintTicketCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageResolutionFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -226,7 +226,7 @@ impl IPrintTicketCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFeature<Impl: IPrintTicketCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xmlnamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFeature<Impl: IPrintTicketCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xmlnamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFeature(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&xmlnamespace as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -237,7 +237,7 @@ impl IPrintTicketCapabilitiesVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetParameterDefinition<Impl: IPrintTicketCapabilitiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xmlnamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetParameterDefinition<Impl: IPrintTicketCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xmlnamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetParameterDefinition(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&xmlnamespace as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -277,7 +277,7 @@ impl IPrintTicketCapabilitiesVtbl {
     }
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IPrintTicketFeatureImpl: Sized {
+pub trait IPrintTicketFeature_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn XmlNamespace(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn XmlNode(&mut self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>;
@@ -293,9 +293,9 @@ impl ::windows::core::RuntimeName for IPrintTicketFeature {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.IPrintTicketFeature";
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IPrintTicketFeatureVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketFeatureImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTicketFeatureVtbl {
-        unsafe extern "system" fn Name<Impl: IPrintTicketFeatureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPrintTicketFeature_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketFeature_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTicketFeature_Vtbl {
+        unsafe extern "system" fn Name<Impl: IPrintTicketFeature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -306,7 +306,7 @@ impl IPrintTicketFeatureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn XmlNamespace<Impl: IPrintTicketFeatureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn XmlNamespace<Impl: IPrintTicketFeature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).XmlNamespace() {
                 ::core::result::Result::Ok(ok__) => {
@@ -317,7 +317,7 @@ impl IPrintTicketFeatureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn XmlNode<Impl: IPrintTicketFeatureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn XmlNode<Impl: IPrintTicketFeature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).XmlNode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -328,7 +328,7 @@ impl IPrintTicketFeatureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayName<Impl: IPrintTicketFeatureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayName<Impl: IPrintTicketFeature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -339,7 +339,7 @@ impl IPrintTicketFeatureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetOption<Impl: IPrintTicketFeatureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xmlnamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOption<Impl: IPrintTicketFeature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xmlnamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetOption(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&xmlnamespace as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -350,7 +350,7 @@ impl IPrintTicketFeatureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Options<Impl: IPrintTicketFeatureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Options<Impl: IPrintTicketFeature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Options() {
                 ::core::result::Result::Ok(ok__) => {
@@ -361,7 +361,7 @@ impl IPrintTicketFeatureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSelectedOption<Impl: IPrintTicketFeatureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSelectedOption<Impl: IPrintTicketFeature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSelectedOption() {
                 ::core::result::Result::Ok(ok__) => {
@@ -372,11 +372,11 @@ impl IPrintTicketFeatureVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSelectedOption<Impl: IPrintTicketFeatureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSelectedOption<Impl: IPrintTicketFeature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSelectedOption(&*(&value as *const <PrintTicketOption as ::windows::core::Abi>::Abi as *const <PrintTicketOption as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SelectionType<Impl: IPrintTicketFeatureImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintTicketFeatureSelectionType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectionType<Impl: IPrintTicketFeature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintTicketFeatureSelectionType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectionType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -405,7 +405,7 @@ impl IPrintTicketFeatureVtbl {
     }
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
-pub trait IPrintTicketOptionImpl: Sized {
+pub trait IPrintTicketOption_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn XmlNamespace(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn XmlNode(&mut self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>;
@@ -420,9 +420,9 @@ impl ::windows::core::RuntimeName for IPrintTicketOption {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.IPrintTicketOption";
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
-impl IPrintTicketOptionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketOptionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTicketOptionVtbl {
-        unsafe extern "system" fn Name<Impl: IPrintTicketOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPrintTicketOption_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketOption_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTicketOption_Vtbl {
+        unsafe extern "system" fn Name<Impl: IPrintTicketOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -433,7 +433,7 @@ impl IPrintTicketOptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn XmlNamespace<Impl: IPrintTicketOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn XmlNamespace<Impl: IPrintTicketOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).XmlNamespace() {
                 ::core::result::Result::Ok(ok__) => {
@@ -444,7 +444,7 @@ impl IPrintTicketOptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn XmlNode<Impl: IPrintTicketOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn XmlNode<Impl: IPrintTicketOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).XmlNode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -455,7 +455,7 @@ impl IPrintTicketOptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayName<Impl: IPrintTicketOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayName<Impl: IPrintTicketOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -466,7 +466,7 @@ impl IPrintTicketOptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPropertyNode<Impl: IPrintTicketOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xmlnamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyNode<Impl: IPrintTicketOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xmlnamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPropertyNode(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&xmlnamespace as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -477,7 +477,7 @@ impl IPrintTicketOptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetScoredPropertyNode<Impl: IPrintTicketOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xmlnamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetScoredPropertyNode<Impl: IPrintTicketOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xmlnamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetScoredPropertyNode(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&xmlnamespace as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -488,7 +488,7 @@ impl IPrintTicketOptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPropertyValue<Impl: IPrintTicketOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xmlnamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyValue<Impl: IPrintTicketOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xmlnamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPropertyValue(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&xmlnamespace as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -499,7 +499,7 @@ impl IPrintTicketOptionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetScoredPropertyValue<Impl: IPrintTicketOptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xmlnamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetScoredPropertyValue<Impl: IPrintTicketOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xmlnamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetScoredPropertyValue(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&xmlnamespace as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -527,7 +527,7 @@ impl IPrintTicketOptionVtbl {
     }
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
-pub trait IPrintTicketParameterDefinitionImpl: Sized {
+pub trait IPrintTicketParameterDefinition_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn XmlNamespace(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn XmlNode(&mut self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>;
@@ -541,9 +541,9 @@ impl ::windows::core::RuntimeName for IPrintTicketParameterDefinition {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.IPrintTicketParameterDefinition";
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
-impl IPrintTicketParameterDefinitionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketParameterDefinitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTicketParameterDefinitionVtbl {
-        unsafe extern "system" fn Name<Impl: IPrintTicketParameterDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPrintTicketParameterDefinition_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketParameterDefinition_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTicketParameterDefinition_Vtbl {
+        unsafe extern "system" fn Name<Impl: IPrintTicketParameterDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -554,7 +554,7 @@ impl IPrintTicketParameterDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn XmlNamespace<Impl: IPrintTicketParameterDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn XmlNamespace<Impl: IPrintTicketParameterDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).XmlNamespace() {
                 ::core::result::Result::Ok(ok__) => {
@@ -565,7 +565,7 @@ impl IPrintTicketParameterDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn XmlNode<Impl: IPrintTicketParameterDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn XmlNode<Impl: IPrintTicketParameterDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).XmlNode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -576,7 +576,7 @@ impl IPrintTicketParameterDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DataType<Impl: IPrintTicketParameterDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintTicketParameterDataType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DataType<Impl: IPrintTicketParameterDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintTicketParameterDataType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DataType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -587,7 +587,7 @@ impl IPrintTicketParameterDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnitType<Impl: IPrintTicketParameterDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnitType<Impl: IPrintTicketParameterDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnitType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -598,7 +598,7 @@ impl IPrintTicketParameterDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RangeMin<Impl: IPrintTicketParameterDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RangeMin<Impl: IPrintTicketParameterDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RangeMin() {
                 ::core::result::Result::Ok(ok__) => {
@@ -609,7 +609,7 @@ impl IPrintTicketParameterDefinitionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RangeMax<Impl: IPrintTicketParameterDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RangeMax<Impl: IPrintTicketParameterDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RangeMax() {
                 ::core::result::Result::Ok(ok__) => {
@@ -636,7 +636,7 @@ impl IPrintTicketParameterDefinitionVtbl {
     }
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
-pub trait IPrintTicketParameterInitializerImpl: Sized {
+pub trait IPrintTicketParameterInitializer_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn XmlNamespace(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn XmlNode(&mut self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>;
@@ -648,9 +648,9 @@ impl ::windows::core::RuntimeName for IPrintTicketParameterInitializer {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.IPrintTicketParameterInitializer";
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "implement_exclusive"))]
-impl IPrintTicketParameterInitializerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketParameterInitializerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTicketParameterInitializerVtbl {
-        unsafe extern "system" fn Name<Impl: IPrintTicketParameterInitializerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IPrintTicketParameterInitializer_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketParameterInitializer_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTicketParameterInitializer_Vtbl {
+        unsafe extern "system" fn Name<Impl: IPrintTicketParameterInitializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -661,7 +661,7 @@ impl IPrintTicketParameterInitializerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn XmlNamespace<Impl: IPrintTicketParameterInitializerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn XmlNamespace<Impl: IPrintTicketParameterInitializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).XmlNamespace() {
                 ::core::result::Result::Ok(ok__) => {
@@ -672,7 +672,7 @@ impl IPrintTicketParameterInitializerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn XmlNode<Impl: IPrintTicketParameterInitializerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn XmlNode<Impl: IPrintTicketParameterInitializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).XmlNode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -683,11 +683,11 @@ impl IPrintTicketParameterInitializerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Impl: IPrintTicketParameterInitializerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Impl: IPrintTicketParameterInitializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetValue(&*(&value as *const <PrintTicketValue as ::windows::core::Abi>::Abi as *const <PrintTicketValue as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Value<Impl: IPrintTicketParameterInitializerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Impl: IPrintTicketParameterInitializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Value() {
                 ::core::result::Result::Ok(ok__) => {
@@ -712,7 +712,7 @@ impl IPrintTicketParameterInitializerVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IPrintTicketValueImpl: Sized {
+pub trait IPrintTicketValue_Impl: Sized {
     fn Type(&mut self) -> ::windows::core::Result<PrintTicketValueType>;
     fn GetValueAsInteger(&mut self) -> ::windows::core::Result<i32>;
     fn GetValueAsString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -722,9 +722,9 @@ impl ::windows::core::RuntimeName for IPrintTicketValue {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.IPrintTicketValue";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IPrintTicketValueVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketValueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTicketValueVtbl {
-        unsafe extern "system" fn Type<Impl: IPrintTicketValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintTicketValueType) -> ::windows::core::HRESULT {
+impl IPrintTicketValue_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintTicketValue_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPrintTicketValue_Vtbl {
+        unsafe extern "system" fn Type<Impl: IPrintTicketValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintTicketValueType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Type() {
                 ::core::result::Result::Ok(ok__) => {
@@ -735,7 +735,7 @@ impl IPrintTicketValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValueAsInteger<Impl: IPrintTicketValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetValueAsInteger<Impl: IPrintTicketValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetValueAsInteger() {
                 ::core::result::Result::Ok(ok__) => {
@@ -746,7 +746,7 @@ impl IPrintTicketValueVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValueAsString<Impl: IPrintTicketValueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetValueAsString<Impl: IPrintTicketValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetValueAsString() {
                 ::core::result::Result::Ok(ok__) => {
@@ -769,7 +769,7 @@ impl IPrintTicketValueVtbl {
     }
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IWorkflowPrintTicketImpl: Sized {
+pub trait IWorkflowPrintTicket_Impl: Sized {
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn XmlNamespace(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn XmlNode(&mut self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>;
@@ -802,9 +802,9 @@ impl ::windows::core::RuntimeName for IWorkflowPrintTicket {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.IWorkflowPrintTicket";
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "implement_exclusive"))]
-impl IWorkflowPrintTicketVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkflowPrintTicketImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWorkflowPrintTicketVtbl {
-        unsafe extern "system" fn Name<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IWorkflowPrintTicket_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkflowPrintTicket_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWorkflowPrintTicket_Vtbl {
+        unsafe extern "system" fn Name<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -815,7 +815,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn XmlNamespace<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn XmlNamespace<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).XmlNamespace() {
                 ::core::result::Result::Ok(ok__) => {
@@ -826,7 +826,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn XmlNode<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn XmlNode<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).XmlNode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -837,7 +837,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCapabilities<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCapabilities<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
@@ -848,7 +848,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentBindingFeature<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentBindingFeature<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentBindingFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -859,7 +859,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentCollateFeature<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentCollateFeature<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentCollateFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -870,7 +870,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentDuplexFeature<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentDuplexFeature<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentDuplexFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -881,7 +881,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentHolePunchFeature<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentHolePunchFeature<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentHolePunchFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -892,7 +892,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentInputBinFeature<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentInputBinFeature<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentInputBinFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -903,7 +903,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentNUpFeature<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentNUpFeature<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentNUpFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -914,7 +914,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DocumentStapleFeature<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentStapleFeature<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DocumentStapleFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -925,7 +925,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn JobPasscodeFeature<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn JobPasscodeFeature<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).JobPasscodeFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -936,7 +936,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PageBorderlessFeature<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PageBorderlessFeature<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageBorderlessFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -947,7 +947,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PageMediaSizeFeature<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PageMediaSizeFeature<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageMediaSizeFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -958,7 +958,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PageMediaTypeFeature<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PageMediaTypeFeature<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageMediaTypeFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -969,7 +969,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PageOrientationFeature<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PageOrientationFeature<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageOrientationFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -980,7 +980,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PageOutputColorFeature<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PageOutputColorFeature<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageOutputColorFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -991,7 +991,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PageOutputQualityFeature<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PageOutputQualityFeature<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageOutputQualityFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1002,7 +1002,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PageResolutionFeature<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PageResolutionFeature<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PageResolutionFeature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1013,7 +1013,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFeature<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xmlnamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFeature<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xmlnamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetFeature(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&xmlnamespace as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1024,7 +1024,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NotifyXmlChangedAsync<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NotifyXmlChangedAsync<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).NotifyXmlChangedAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1035,7 +1035,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ValidateAsync<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ValidateAsync<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ValidateAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1046,7 +1046,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetParameterInitializer<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xmlnamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetParameterInitializer<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xmlnamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetParameterInitializer(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&xmlnamespace as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1057,7 +1057,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetParameterInitializerAsInteger<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xmlnamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, integervalue: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetParameterInitializerAsInteger<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xmlnamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, integervalue: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetParameterInitializerAsInteger(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&xmlnamespace as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), integervalue) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1068,7 +1068,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetParameterInitializerAsString<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xmlnamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, stringvalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetParameterInitializerAsString<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xmlnamespace: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, stringvalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SetParameterInitializerAsString(
                 &*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -1083,7 +1083,7 @@ impl IWorkflowPrintTicketVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MergeAndValidateTicket<Impl: IWorkflowPrintTicketImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deltashematicket: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MergeAndValidateTicket<Impl: IWorkflowPrintTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deltashematicket: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MergeAndValidateTicket(&*(&deltashematicket as *const <WorkflowPrintTicket as ::windows::core::Abi>::Abi as *const <WorkflowPrintTicket as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1129,7 +1129,7 @@ impl IWorkflowPrintTicketVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IWorkflowPrintTicketValidationResultImpl: Sized {
+pub trait IWorkflowPrintTicketValidationResult_Impl: Sized {
     fn Validated(&mut self) -> ::windows::core::Result<bool>;
     fn ExtendedError(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
@@ -1138,9 +1138,9 @@ impl ::windows::core::RuntimeName for IWorkflowPrintTicketValidationResult {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.IWorkflowPrintTicketValidationResult";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IWorkflowPrintTicketValidationResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkflowPrintTicketValidationResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWorkflowPrintTicketValidationResultVtbl {
-        unsafe extern "system" fn Validated<Impl: IWorkflowPrintTicketValidationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IWorkflowPrintTicketValidationResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkflowPrintTicketValidationResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWorkflowPrintTicketValidationResult_Vtbl {
+        unsafe extern "system" fn Validated<Impl: IWorkflowPrintTicketValidationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Validated() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1151,7 +1151,7 @@ impl IWorkflowPrintTicketValidationResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedError<Impl: IWorkflowPrintTicketValidationResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExtendedError<Impl: IWorkflowPrintTicketValidationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ExtendedError() {
                 ::core::result::Result::Ok(ok__) => {

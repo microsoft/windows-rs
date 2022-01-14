@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IAnalyticsInfoStaticsImpl: Sized {
+pub trait IAnalyticsInfoStatics_Impl: Sized {
     fn VersionInfo(&mut self) -> ::windows::core::Result<AnalyticsVersionInfo>;
     fn DeviceForm(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -8,9 +8,9 @@ impl ::windows::core::RuntimeName for IAnalyticsInfoStatics {
     const NAME: &'static str = "Windows.System.Profile.IAnalyticsInfoStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAnalyticsInfoStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnalyticsInfoStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnalyticsInfoStaticsVtbl {
-        unsafe extern "system" fn VersionInfo<Impl: IAnalyticsInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAnalyticsInfoStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnalyticsInfoStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnalyticsInfoStatics_Vtbl {
+        unsafe extern "system" fn VersionInfo<Impl: IAnalyticsInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VersionInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -21,7 +21,7 @@ impl IAnalyticsInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceForm<Impl: IAnalyticsInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceForm<Impl: IAnalyticsInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceForm() {
                 ::core::result::Result::Ok(ok__) => {
@@ -43,7 +43,7 @@ impl IAnalyticsInfoStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IAnalyticsInfoStatics2Impl: Sized {
+pub trait IAnalyticsInfoStatics2_Impl: Sized {
     fn GetSystemPropertiesAsync(&mut self, attributenames: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -51,9 +51,9 @@ impl ::windows::core::RuntimeName for IAnalyticsInfoStatics2 {
     const NAME: &'static str = "Windows.System.Profile.IAnalyticsInfoStatics2";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IAnalyticsInfoStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnalyticsInfoStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnalyticsInfoStatics2Vtbl {
-        unsafe extern "system" fn GetSystemPropertiesAsync<Impl: IAnalyticsInfoStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributenames: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAnalyticsInfoStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnalyticsInfoStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnalyticsInfoStatics2_Vtbl {
+        unsafe extern "system" fn GetSystemPropertiesAsync<Impl: IAnalyticsInfoStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributenames: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSystemPropertiesAsync(&*(&attributenames as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -74,7 +74,7 @@ impl IAnalyticsInfoStatics2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAnalyticsVersionInfoImpl: Sized {
+pub trait IAnalyticsVersionInfo_Impl: Sized {
     fn DeviceFamily(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DeviceFamilyVersion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -83,9 +83,9 @@ impl ::windows::core::RuntimeName for IAnalyticsVersionInfo {
     const NAME: &'static str = "Windows.System.Profile.IAnalyticsVersionInfo";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAnalyticsVersionInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnalyticsVersionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnalyticsVersionInfoVtbl {
-        unsafe extern "system" fn DeviceFamily<Impl: IAnalyticsVersionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAnalyticsVersionInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnalyticsVersionInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnalyticsVersionInfo_Vtbl {
+        unsafe extern "system" fn DeviceFamily<Impl: IAnalyticsVersionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceFamily() {
                 ::core::result::Result::Ok(ok__) => {
@@ -96,7 +96,7 @@ impl IAnalyticsVersionInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceFamilyVersion<Impl: IAnalyticsVersionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceFamilyVersion<Impl: IAnalyticsVersionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceFamilyVersion() {
                 ::core::result::Result::Ok(ok__) => {
@@ -118,7 +118,7 @@ impl IAnalyticsVersionInfoVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAnalyticsVersionInfo2Impl: Sized {
+pub trait IAnalyticsVersionInfo2_Impl: Sized {
     fn ProductName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -126,9 +126,9 @@ impl ::windows::core::RuntimeName for IAnalyticsVersionInfo2 {
     const NAME: &'static str = "Windows.System.Profile.IAnalyticsVersionInfo2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAnalyticsVersionInfo2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnalyticsVersionInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnalyticsVersionInfo2Vtbl {
-        unsafe extern "system" fn ProductName<Impl: IAnalyticsVersionInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAnalyticsVersionInfo2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnalyticsVersionInfo2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAnalyticsVersionInfo2_Vtbl {
+        unsafe extern "system" fn ProductName<Impl: IAnalyticsVersionInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProductName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -146,7 +146,7 @@ impl IAnalyticsVersionInfo2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IAppApplicabilityStaticsImpl: Sized {
+pub trait IAppApplicabilityStatics_Impl: Sized {
     fn GetUnsupportedAppRequirements(&mut self, capabilities: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -154,9 +154,9 @@ impl ::windows::core::RuntimeName for IAppApplicabilityStatics {
     const NAME: &'static str = "Windows.System.Profile.IAppApplicabilityStatics";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IAppApplicabilityStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppApplicabilityStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppApplicabilityStaticsVtbl {
-        unsafe extern "system" fn GetUnsupportedAppRequirements<Impl: IAppApplicabilityStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, capabilities: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAppApplicabilityStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppApplicabilityStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppApplicabilityStatics_Vtbl {
+        unsafe extern "system" fn GetUnsupportedAppRequirements<Impl: IAppApplicabilityStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, capabilities: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetUnsupportedAppRequirements(&*(&capabilities as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -177,7 +177,7 @@ impl IAppApplicabilityStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEducationSettingsStaticsImpl: Sized {
+pub trait IEducationSettingsStatics_Impl: Sized {
     fn IsEducationEnvironment(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -185,9 +185,9 @@ impl ::windows::core::RuntimeName for IEducationSettingsStatics {
     const NAME: &'static str = "Windows.System.Profile.IEducationSettingsStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEducationSettingsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEducationSettingsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEducationSettingsStaticsVtbl {
-        unsafe extern "system" fn IsEducationEnvironment<Impl: IEducationSettingsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IEducationSettingsStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEducationSettingsStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEducationSettingsStatics_Vtbl {
+        unsafe extern "system" fn IsEducationEnvironment<Impl: IEducationSettingsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEducationEnvironment() {
                 ::core::result::Result::Ok(ok__) => {
@@ -208,7 +208,7 @@ impl IEducationSettingsStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IHardwareIdentificationStaticsImpl: Sized {
+pub trait IHardwareIdentificationStatics_Impl: Sized {
     fn GetPackageSpecificToken(&mut self, nonce: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<HardwareToken>;
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
@@ -216,9 +216,9 @@ impl ::windows::core::RuntimeName for IHardwareIdentificationStatics {
     const NAME: &'static str = "Windows.System.Profile.IHardwareIdentificationStatics";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IHardwareIdentificationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHardwareIdentificationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHardwareIdentificationStaticsVtbl {
-        unsafe extern "system" fn GetPackageSpecificToken<Impl: IHardwareIdentificationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nonce: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHardwareIdentificationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHardwareIdentificationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHardwareIdentificationStatics_Vtbl {
+        unsafe extern "system" fn GetPackageSpecificToken<Impl: IHardwareIdentificationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nonce: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPackageSpecificToken(&*(&nonce as *const <super::super::Storage::Streams::IBuffer as ::windows::core::Abi>::Abi as *const <super::super::Storage::Streams::IBuffer as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -239,7 +239,7 @@ impl IHardwareIdentificationStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IHardwareTokenImpl: Sized {
+pub trait IHardwareToken_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn Signature(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn Certificate(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
@@ -249,9 +249,9 @@ impl ::windows::core::RuntimeName for IHardwareToken {
     const NAME: &'static str = "Windows.System.Profile.IHardwareToken";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IHardwareTokenVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHardwareTokenImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHardwareTokenVtbl {
-        unsafe extern "system" fn Id<Impl: IHardwareTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IHardwareToken_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHardwareToken_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHardwareToken_Vtbl {
+        unsafe extern "system" fn Id<Impl: IHardwareToken_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -262,7 +262,7 @@ impl IHardwareTokenVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Signature<Impl: IHardwareTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Signature<Impl: IHardwareToken_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Signature() {
                 ::core::result::Result::Ok(ok__) => {
@@ -273,7 +273,7 @@ impl IHardwareTokenVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Certificate<Impl: IHardwareTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Certificate<Impl: IHardwareToken_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Certificate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -296,7 +296,7 @@ impl IHardwareTokenVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IKnownRetailInfoPropertiesStaticsImpl: Sized {
+pub trait IKnownRetailInfoPropertiesStatics_Impl: Sized {
     fn RetailAccessCode(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ManufacturerName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ModelName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -325,9 +325,9 @@ impl ::windows::core::RuntimeName for IKnownRetailInfoPropertiesStatics {
     const NAME: &'static str = "Windows.System.Profile.IKnownRetailInfoPropertiesStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IKnownRetailInfoPropertiesStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownRetailInfoPropertiesStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownRetailInfoPropertiesStaticsVtbl {
-        unsafe extern "system" fn RetailAccessCode<Impl: IKnownRetailInfoPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IKnownRetailInfoPropertiesStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKnownRetailInfoPropertiesStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IKnownRetailInfoPropertiesStatics_Vtbl {
+        unsafe extern "system" fn RetailAccessCode<Impl: IKnownRetailInfoPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RetailAccessCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -338,7 +338,7 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ManufacturerName<Impl: IKnownRetailInfoPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ManufacturerName<Impl: IKnownRetailInfoPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ManufacturerName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -349,7 +349,7 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModelName<Impl: IKnownRetailInfoPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ModelName<Impl: IKnownRetailInfoPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ModelName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -360,7 +360,7 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayModelName<Impl: IKnownRetailInfoPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayModelName<Impl: IKnownRetailInfoPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayModelName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -371,7 +371,7 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Price<Impl: IKnownRetailInfoPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Price<Impl: IKnownRetailInfoPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Price() {
                 ::core::result::Result::Ok(ok__) => {
@@ -382,7 +382,7 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsFeatured<Impl: IKnownRetailInfoPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsFeatured<Impl: IKnownRetailInfoPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsFeatured() {
                 ::core::result::Result::Ok(ok__) => {
@@ -393,7 +393,7 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FormFactor<Impl: IKnownRetailInfoPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FormFactor<Impl: IKnownRetailInfoPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FormFactor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -404,7 +404,7 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ScreenSize<Impl: IKnownRetailInfoPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScreenSize<Impl: IKnownRetailInfoPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ScreenSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -415,7 +415,7 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Weight<Impl: IKnownRetailInfoPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Weight<Impl: IKnownRetailInfoPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Weight() {
                 ::core::result::Result::Ok(ok__) => {
@@ -426,7 +426,7 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayDescription<Impl: IKnownRetailInfoPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayDescription<Impl: IKnownRetailInfoPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -437,7 +437,7 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BatteryLifeDescription<Impl: IKnownRetailInfoPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BatteryLifeDescription<Impl: IKnownRetailInfoPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BatteryLifeDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -448,7 +448,7 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProcessorDescription<Impl: IKnownRetailInfoPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProcessorDescription<Impl: IKnownRetailInfoPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProcessorDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -459,7 +459,7 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Memory<Impl: IKnownRetailInfoPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Memory<Impl: IKnownRetailInfoPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Memory() {
                 ::core::result::Result::Ok(ok__) => {
@@ -470,7 +470,7 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StorageDescription<Impl: IKnownRetailInfoPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StorageDescription<Impl: IKnownRetailInfoPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).StorageDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -481,7 +481,7 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GraphicsDescription<Impl: IKnownRetailInfoPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GraphicsDescription<Impl: IKnownRetailInfoPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GraphicsDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -492,7 +492,7 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FrontCameraDescription<Impl: IKnownRetailInfoPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FrontCameraDescription<Impl: IKnownRetailInfoPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrontCameraDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -503,7 +503,7 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RearCameraDescription<Impl: IKnownRetailInfoPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RearCameraDescription<Impl: IKnownRetailInfoPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RearCameraDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -514,7 +514,7 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasNfc<Impl: IKnownRetailInfoPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasNfc<Impl: IKnownRetailInfoPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasNfc() {
                 ::core::result::Result::Ok(ok__) => {
@@ -525,7 +525,7 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasSdSlot<Impl: IKnownRetailInfoPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasSdSlot<Impl: IKnownRetailInfoPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasSdSlot() {
                 ::core::result::Result::Ok(ok__) => {
@@ -536,7 +536,7 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasOpticalDrive<Impl: IKnownRetailInfoPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasOpticalDrive<Impl: IKnownRetailInfoPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).HasOpticalDrive() {
                 ::core::result::Result::Ok(ok__) => {
@@ -547,7 +547,7 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsOfficeInstalled<Impl: IKnownRetailInfoPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsOfficeInstalled<Impl: IKnownRetailInfoPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsOfficeInstalled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -558,7 +558,7 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WindowsEdition<Impl: IKnownRetailInfoPropertiesStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WindowsEdition<Impl: IKnownRetailInfoPropertiesStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WindowsEdition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -600,7 +600,7 @@ impl IKnownRetailInfoPropertiesStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IPlatformDiagnosticsAndUsageDataSettingsStaticsImpl: Sized {
+pub trait IPlatformDiagnosticsAndUsageDataSettingsStatics_Impl: Sized {
     fn CollectionLevel(&mut self) -> ::windows::core::Result<PlatformDataCollectionLevel>;
     fn CollectionLevelChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveCollectionLevelChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -611,9 +611,9 @@ impl ::windows::core::RuntimeName for IPlatformDiagnosticsAndUsageDataSettingsSt
     const NAME: &'static str = "Windows.System.Profile.IPlatformDiagnosticsAndUsageDataSettingsStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IPlatformDiagnosticsAndUsageDataSettingsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlatformDiagnosticsAndUsageDataSettingsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlatformDiagnosticsAndUsageDataSettingsStaticsVtbl {
-        unsafe extern "system" fn CollectionLevel<Impl: IPlatformDiagnosticsAndUsageDataSettingsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PlatformDataCollectionLevel) -> ::windows::core::HRESULT {
+impl IPlatformDiagnosticsAndUsageDataSettingsStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlatformDiagnosticsAndUsageDataSettingsStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPlatformDiagnosticsAndUsageDataSettingsStatics_Vtbl {
+        unsafe extern "system" fn CollectionLevel<Impl: IPlatformDiagnosticsAndUsageDataSettingsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PlatformDataCollectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CollectionLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -624,7 +624,7 @@ impl IPlatformDiagnosticsAndUsageDataSettingsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CollectionLevelChanged<Impl: IPlatformDiagnosticsAndUsageDataSettingsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CollectionLevelChanged<Impl: IPlatformDiagnosticsAndUsageDataSettingsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CollectionLevelChanged(&*(&handler as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -635,11 +635,11 @@ impl IPlatformDiagnosticsAndUsageDataSettingsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCollectionLevelChanged<Impl: IPlatformDiagnosticsAndUsageDataSettingsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCollectionLevelChanged<Impl: IPlatformDiagnosticsAndUsageDataSettingsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveCollectionLevelChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CanCollectDiagnostics<Impl: IPlatformDiagnosticsAndUsageDataSettingsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: PlatformDataCollectionLevel, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanCollectDiagnostics<Impl: IPlatformDiagnosticsAndUsageDataSettingsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: PlatformDataCollectionLevel, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanCollectDiagnostics(level) {
                 ::core::result::Result::Ok(ok__) => {
@@ -663,7 +663,7 @@ impl IPlatformDiagnosticsAndUsageDataSettingsStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IRetailInfoStaticsImpl: Sized {
+pub trait IRetailInfoStatics_Impl: Sized {
     fn IsDemoModeEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
@@ -672,9 +672,9 @@ impl ::windows::core::RuntimeName for IRetailInfoStatics {
     const NAME: &'static str = "Windows.System.Profile.IRetailInfoStatics";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IRetailInfoStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRetailInfoStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRetailInfoStaticsVtbl {
-        unsafe extern "system" fn IsDemoModeEnabled<Impl: IRetailInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IRetailInfoStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRetailInfoStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRetailInfoStatics_Vtbl {
+        unsafe extern "system" fn IsDemoModeEnabled<Impl: IRetailInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDemoModeEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -685,7 +685,7 @@ impl IRetailInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Properties<Impl: IRetailInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Properties<Impl: IRetailInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -707,7 +707,7 @@ impl IRetailInfoStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISharedModeSettingsStaticsImpl: Sized {
+pub trait ISharedModeSettingsStatics_Impl: Sized {
     fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -715,9 +715,9 @@ impl ::windows::core::RuntimeName for ISharedModeSettingsStatics {
     const NAME: &'static str = "Windows.System.Profile.ISharedModeSettingsStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISharedModeSettingsStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISharedModeSettingsStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISharedModeSettingsStaticsVtbl {
-        unsafe extern "system" fn IsEnabled<Impl: ISharedModeSettingsStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ISharedModeSettingsStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISharedModeSettingsStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISharedModeSettingsStatics_Vtbl {
+        unsafe extern "system" fn IsEnabled<Impl: ISharedModeSettingsStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -735,7 +735,7 @@ impl ISharedModeSettingsStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISharedModeSettingsStatics2Impl: Sized {
+pub trait ISharedModeSettingsStatics2_Impl: Sized {
     fn ShouldAvoidLocalStorage(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -743,9 +743,9 @@ impl ::windows::core::RuntimeName for ISharedModeSettingsStatics2 {
     const NAME: &'static str = "Windows.System.Profile.ISharedModeSettingsStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISharedModeSettingsStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISharedModeSettingsStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISharedModeSettingsStatics2Vtbl {
-        unsafe extern "system" fn ShouldAvoidLocalStorage<Impl: ISharedModeSettingsStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ISharedModeSettingsStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISharedModeSettingsStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISharedModeSettingsStatics2_Vtbl {
+        unsafe extern "system" fn ShouldAvoidLocalStorage<Impl: ISharedModeSettingsStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShouldAvoidLocalStorage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -766,7 +766,7 @@ impl ISharedModeSettingsStatics2Vtbl {
     }
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait ISystemIdentificationInfoImpl: Sized {
+pub trait ISystemIdentificationInfo_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
     fn Source(&mut self) -> ::windows::core::Result<SystemIdentificationSource>;
 }
@@ -775,9 +775,9 @@ impl ::windows::core::RuntimeName for ISystemIdentificationInfo {
     const NAME: &'static str = "Windows.System.Profile.ISystemIdentificationInfo";
 }
 #[cfg(all(feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl ISystemIdentificationInfoVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemIdentificationInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemIdentificationInfoVtbl {
-        unsafe extern "system" fn Id<Impl: ISystemIdentificationInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISystemIdentificationInfo_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemIdentificationInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemIdentificationInfo_Vtbl {
+        unsafe extern "system" fn Id<Impl: ISystemIdentificationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -788,7 +788,7 @@ impl ISystemIdentificationInfoVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Source<Impl: ISystemIdentificationInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SystemIdentificationSource) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Source<Impl: ISystemIdentificationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SystemIdentificationSource) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Source() {
                 ::core::result::Result::Ok(ok__) => {
@@ -810,7 +810,7 @@ impl ISystemIdentificationInfoVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISystemIdentificationStaticsImpl: Sized {
+pub trait ISystemIdentificationStatics_Impl: Sized {
     fn GetSystemIdForPublisher(&mut self) -> ::windows::core::Result<SystemIdentificationInfo>;
     fn GetSystemIdForUser(&mut self, user: &::core::option::Option<super::User>) -> ::windows::core::Result<SystemIdentificationInfo>;
 }
@@ -819,9 +819,9 @@ impl ::windows::core::RuntimeName for ISystemIdentificationStatics {
     const NAME: &'static str = "Windows.System.Profile.ISystemIdentificationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISystemIdentificationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemIdentificationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemIdentificationStaticsVtbl {
-        unsafe extern "system" fn GetSystemIdForPublisher<Impl: ISystemIdentificationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISystemIdentificationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemIdentificationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemIdentificationStatics_Vtbl {
+        unsafe extern "system" fn GetSystemIdForPublisher<Impl: ISystemIdentificationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSystemIdForPublisher() {
                 ::core::result::Result::Ok(ok__) => {
@@ -832,7 +832,7 @@ impl ISystemIdentificationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSystemIdForUser<Impl: ISystemIdentificationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSystemIdForUser<Impl: ISystemIdentificationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetSystemIdForUser(&*(&user as *const <super::User as ::windows::core::Abi>::Abi as *const <super::User as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -854,7 +854,7 @@ impl ISystemIdentificationStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISystemSetupInfoStaticsImpl: Sized {
+pub trait ISystemSetupInfoStatics_Impl: Sized {
     fn OutOfBoxExperienceState(&mut self) -> ::windows::core::Result<SystemOutOfBoxExperienceState>;
     fn OutOfBoxExperienceStateChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveOutOfBoxExperienceStateChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -864,9 +864,9 @@ impl ::windows::core::RuntimeName for ISystemSetupInfoStatics {
     const NAME: &'static str = "Windows.System.Profile.ISystemSetupInfoStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISystemSetupInfoStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemSetupInfoStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemSetupInfoStaticsVtbl {
-        unsafe extern "system" fn OutOfBoxExperienceState<Impl: ISystemSetupInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SystemOutOfBoxExperienceState) -> ::windows::core::HRESULT {
+impl ISystemSetupInfoStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemSetupInfoStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemSetupInfoStatics_Vtbl {
+        unsafe extern "system" fn OutOfBoxExperienceState<Impl: ISystemSetupInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SystemOutOfBoxExperienceState) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutOfBoxExperienceState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -877,7 +877,7 @@ impl ISystemSetupInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OutOfBoxExperienceStateChanged<Impl: ISystemSetupInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OutOfBoxExperienceStateChanged<Impl: ISystemSetupInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OutOfBoxExperienceStateChanged(&*(&handler as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -888,7 +888,7 @@ impl ISystemSetupInfoStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveOutOfBoxExperienceStateChanged<Impl: ISystemSetupInfoStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveOutOfBoxExperienceStateChanged<Impl: ISystemSetupInfoStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveOutOfBoxExperienceStateChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -904,7 +904,7 @@ impl ISystemSetupInfoStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUnsupportedAppRequirementImpl: Sized {
+pub trait IUnsupportedAppRequirement_Impl: Sized {
     fn Requirement(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Reasons(&mut self) -> ::windows::core::Result<UnsupportedAppRequirementReasons>;
 }
@@ -913,9 +913,9 @@ impl ::windows::core::RuntimeName for IUnsupportedAppRequirement {
     const NAME: &'static str = "Windows.System.Profile.IUnsupportedAppRequirement";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUnsupportedAppRequirementVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnsupportedAppRequirementImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUnsupportedAppRequirementVtbl {
-        unsafe extern "system" fn Requirement<Impl: IUnsupportedAppRequirementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IUnsupportedAppRequirement_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnsupportedAppRequirement_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUnsupportedAppRequirement_Vtbl {
+        unsafe extern "system" fn Requirement<Impl: IUnsupportedAppRequirement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Requirement() {
                 ::core::result::Result::Ok(ok__) => {
@@ -926,7 +926,7 @@ impl IUnsupportedAppRequirementVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Reasons<Impl: IUnsupportedAppRequirementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnsupportedAppRequirementReasons) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Reasons<Impl: IUnsupportedAppRequirement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut UnsupportedAppRequirementReasons) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Reasons() {
                 ::core::result::Result::Ok(ok__) => {
@@ -948,7 +948,7 @@ impl IUnsupportedAppRequirementVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IWindowsIntegrityPolicyStaticsImpl: Sized {
+pub trait IWindowsIntegrityPolicyStatics_Impl: Sized {
     fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
     fn IsEnabledForTrial(&mut self) -> ::windows::core::Result<bool>;
     fn CanDisable(&mut self) -> ::windows::core::Result<bool>;
@@ -961,9 +961,9 @@ impl ::windows::core::RuntimeName for IWindowsIntegrityPolicyStatics {
     const NAME: &'static str = "Windows.System.Profile.IWindowsIntegrityPolicyStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IWindowsIntegrityPolicyStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsIntegrityPolicyStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWindowsIntegrityPolicyStaticsVtbl {
-        unsafe extern "system" fn IsEnabled<Impl: IWindowsIntegrityPolicyStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IWindowsIntegrityPolicyStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsIntegrityPolicyStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWindowsIntegrityPolicyStatics_Vtbl {
+        unsafe extern "system" fn IsEnabled<Impl: IWindowsIntegrityPolicyStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -974,7 +974,7 @@ impl IWindowsIntegrityPolicyStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsEnabledForTrial<Impl: IWindowsIntegrityPolicyStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEnabledForTrial<Impl: IWindowsIntegrityPolicyStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabledForTrial() {
                 ::core::result::Result::Ok(ok__) => {
@@ -985,7 +985,7 @@ impl IWindowsIntegrityPolicyStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanDisable<Impl: IWindowsIntegrityPolicyStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanDisable<Impl: IWindowsIntegrityPolicyStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanDisable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -996,7 +996,7 @@ impl IWindowsIntegrityPolicyStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDisableSupported<Impl: IWindowsIntegrityPolicyStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDisableSupported<Impl: IWindowsIntegrityPolicyStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDisableSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1007,7 +1007,7 @@ impl IWindowsIntegrityPolicyStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PolicyChanged<Impl: IWindowsIntegrityPolicyStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PolicyChanged<Impl: IWindowsIntegrityPolicyStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PolicyChanged(&*(&handler as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventHandler<::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1018,7 +1018,7 @@ impl IWindowsIntegrityPolicyStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePolicyChanged<Impl: IWindowsIntegrityPolicyStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePolicyChanged<Impl: IWindowsIntegrityPolicyStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePolicyChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }

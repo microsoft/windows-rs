@@ -281,12 +281,12 @@ unsafe impl ::windows::core::RuntimeType for IDirect3DDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a37624ab-8d5f-4650-9d3e-9eae3d9bc670}");
 }
 unsafe impl ::windows::core::Interface for IDirect3DDevice {
-    type Vtable = IDirect3DDeviceVtbl;
+    type Vtable = IDirect3DDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa37624ab_8d5f_4650_9d3e_9eae3d9bc670);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirect3DDeviceVtbl {
+pub struct IDirect3DDevice_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Trim: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -395,12 +395,12 @@ unsafe impl ::windows::core::RuntimeType for IDirect3DSurface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0bf4a146-13c1-4694-bee3-7abf15eaf586}");
 }
 unsafe impl ::windows::core::Interface for IDirect3DSurface {
-    type Vtable = IDirect3DSurfaceVtbl;
+    type Vtable = IDirect3DSurface_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bf4a146_13c1_4694_bee3_7abf15eaf586);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDirect3DSurfaceVtbl {
+pub struct IDirect3DSurface_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Direct3DSurfaceDescription) -> ::windows::core::HRESULT,
 }

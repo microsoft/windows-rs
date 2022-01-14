@@ -54,12 +54,12 @@ impl ::core::fmt::Debug for IComponentAuthenticate {
     }
 }
 unsafe impl ::windows::core::Interface for IComponentAuthenticate {
-    type Vtable = IComponentAuthenticateVtbl;
+    type Vtable = IComponentAuthenticate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9889c00_6d2b_11d3_8496_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IComponentAuthenticateVtbl {
+pub struct IComponentAuthenticate_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SACAuth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwprotocolid: u32, dwpass: u32, pbdatain: *const u8, dwdatainlen: u32, ppbdataout: *mut *mut u8, pdwdataoutlen: *mut u32) -> ::windows::core::HRESULT,
     pub SACGetProtocols: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdwprotocols: *mut *mut u32, pdwprotocolcount: *mut u32) -> ::windows::core::HRESULT,
@@ -158,12 +158,12 @@ impl ::core::fmt::Debug for IMDSPDevice {
     }
 }
 unsafe impl ::windows::core::Interface for IMDSPDevice {
-    type Vtable = IMDSPDeviceVtbl;
+    type Vtable = IMDSPDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a12_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMDSPDeviceVtbl {
+pub struct IMDSPDevice_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::HRESULT,
@@ -321,13 +321,13 @@ impl ::core::fmt::Debug for IMDSPDevice2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMDSPDevice2 {
-    type Vtable = IMDSPDevice2Vtbl;
+    type Vtable = IMDSPDevice2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x420d16ad_c97d_4e00_82aa_00e9f4335ddd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMDSPDevice2Vtbl {
-    pub base: IMDSPDeviceVtbl,
+pub struct IMDSPDevice2_Vtbl {
+    pub base: IMDSPDevice_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstoragename: super::super::Foundation::PWSTR, ppstorage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -527,13 +527,13 @@ impl ::core::fmt::Debug for IMDSPDevice3 {
     }
 }
 unsafe impl ::windows::core::Interface for IMDSPDevice3 {
-    type Vtable = IMDSPDevice3Vtbl;
+    type Vtable = IMDSPDevice3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a839845_fc55_487c_976f_ee38ac0e8c4e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMDSPDevice3Vtbl {
-    pub base: IMDSPDevice2Vtbl,
+pub struct IMDSPDevice3_Vtbl {
+    pub base: IMDSPDevice2_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszpropname: super::super::Foundation::PWSTR, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))]
@@ -628,12 +628,12 @@ impl ::core::fmt::Debug for IMDSPDeviceControl {
     }
 }
 unsafe impl ::windows::core::Interface for IMDSPDeviceControl {
-    type Vtable = IMDSPDeviceControlVtbl;
+    type Vtable = IMDSPDeviceControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a14_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMDSPDeviceControlVtbl {
+pub struct IMDSPDeviceControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetDCStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
     pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcapabilitiesmask: *mut u32) -> ::windows::core::HRESULT,
@@ -692,12 +692,12 @@ impl ::core::fmt::Debug for IMDSPDirectTransfer {
     }
 }
 unsafe impl ::windows::core::Interface for IMDSPDirectTransfer {
-    type Vtable = IMDSPDirectTransferVtbl;
+    type Vtable = IMDSPDirectTransfer_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2fe57a8_9304_478c_9ee4_47e397b912d7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMDSPDirectTransferVtbl {
+pub struct IMDSPDirectTransfer_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub TransferToDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszsourcefilepath: super::super::Foundation::PWSTR, psourceoperation: ::windows::core::RawPtr, fuflags: u32, pwszdestinationname: super::super::Foundation::PWSTR, psourcemetadata: ::windows::core::RawPtr, ptransferprogress: ::windows::core::RawPtr, ppnewobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -764,12 +764,12 @@ impl ::core::fmt::Debug for IMDSPEnumDevice {
     }
 }
 unsafe impl ::windows::core::Interface for IMDSPEnumDevice {
-    type Vtable = IMDSPEnumDeviceVtbl;
+    type Vtable = IMDSPEnumDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a11_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMDSPEnumDeviceVtbl {
+pub struct IMDSPEnumDevice_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppdevice: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
@@ -836,12 +836,12 @@ impl ::core::fmt::Debug for IMDSPEnumStorage {
     }
 }
 unsafe impl ::windows::core::Interface for IMDSPEnumStorage {
-    type Vtable = IMDSPEnumStorageVtbl;
+    type Vtable = IMDSPEnumStorage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a15_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMDSPEnumStorageVtbl {
+pub struct IMDSPEnumStorage_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppstorage: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
@@ -923,12 +923,12 @@ impl ::core::fmt::Debug for IMDSPObject {
     }
 }
 unsafe impl ::windows::core::Interface for IMDSPObject {
-    type Vtable = IMDSPObjectVtbl;
+    type Vtable = IMDSPObject_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a18_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMDSPObjectVtbl {
+pub struct IMDSPObject_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32) -> ::windows::core::HRESULT,
     pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::HRESULT,
@@ -1045,13 +1045,13 @@ impl ::core::fmt::Debug for IMDSPObject2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMDSPObject2 {
-    type Vtable = IMDSPObject2Vtbl;
+    type Vtable = IMDSPObject2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f34cd3e_5907_4341_9af9_97f4187c3aa5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMDSPObject2Vtbl {
-    pub base: IMDSPObjectVtbl,
+pub struct IMDSPObject2_Vtbl {
+    pub base: IMDSPObject_Vtbl,
     pub ReadOnClearChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT,
     pub WriteOnClearChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const u8, pdwsize: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -1130,12 +1130,12 @@ impl ::core::fmt::Debug for IMDSPObjectInfo {
     }
 }
 unsafe impl ::windows::core::Interface for IMDSPObjectInfo {
-    type Vtable = IMDSPObjectInfoVtbl;
+    type Vtable = IMDSPObjectInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a19_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMDSPObjectInfoVtbl {
+pub struct IMDSPObjectInfo_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetPlayLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwlength: *mut u32) -> ::windows::core::HRESULT,
     pub SetPlayLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlength: u32) -> ::windows::core::HRESULT,
@@ -1192,12 +1192,12 @@ impl ::core::fmt::Debug for IMDSPRevoked {
     }
 }
 unsafe impl ::windows::core::Interface for IMDSPRevoked {
-    type Vtable = IMDSPRevokedVtbl;
+    type Vtable = IMDSPRevoked_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4e8f2d4_3f31_464d_b53d_4fc335998184);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMDSPRevokedVtbl {
+pub struct IMDSPRevoked_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetRevocationURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszrevocationurl: *mut super::super::Foundation::PWSTR, pdwbufferlen: *mut u32) -> ::windows::core::HRESULT,
@@ -1292,12 +1292,12 @@ impl ::core::fmt::Debug for IMDSPStorage {
     }
 }
 unsafe impl ::windows::core::Interface for IMDSPStorage {
-    type Vtable = IMDSPStorageVtbl;
+    type Vtable = IMDSPStorage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a16_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMDSPStorageVtbl {
+pub struct IMDSPStorage_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::HRESULT,
     pub GetStorageGlobals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstorageglobals: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1446,13 +1446,13 @@ impl ::core::fmt::Debug for IMDSPStorage2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMDSPStorage2 {
-    type Vtable = IMDSPStorage2Vtbl;
+    type Vtable = IMDSPStorage2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a5e07a5_6454_4451_9c36_1c6ae7e2b1d6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMDSPStorage2Vtbl {
-    pub base: IMDSPStorageVtbl,
+pub struct IMDSPStorage2_Vtbl {
+    pub base: IMDSPStorage_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstoragename: super::super::Foundation::PWSTR, ppstorage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1628,13 +1628,13 @@ impl ::core::fmt::Debug for IMDSPStorage3 {
     }
 }
 unsafe impl ::windows::core::Interface for IMDSPStorage3 {
-    type Vtable = IMDSPStorage3Vtbl;
+    type Vtable = IMDSPStorage3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c669867_97ed_4a67_9706_1c5529d2a414);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMDSPStorage3Vtbl {
-    pub base: IMDSPStorage2Vtbl,
+pub struct IMDSPStorage3_Vtbl {
+    pub base: IMDSPStorage2_Vtbl,
     pub GetMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmetadata: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmetadata: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -1846,13 +1846,13 @@ impl ::core::fmt::Debug for IMDSPStorage4 {
     }
 }
 unsafe impl ::windows::core::Interface for IMDSPStorage4 {
-    type Vtable = IMDSPStorage4Vtbl;
+    type Vtable = IMDSPStorage4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3133b2c4_515c_481b_b1ce_39327ecb4f74);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMDSPStorage4Vtbl {
-    pub base: IMDSPStorage3Vtbl,
+pub struct IMDSPStorage4_Vtbl {
+    pub base: IMDSPStorage3_Vtbl,
     pub SetReferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrefs: u32, ppispstorage: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetReferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwrefs: *mut u32, pppispstorage: *mut *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -1951,12 +1951,12 @@ impl ::core::fmt::Debug for IMDSPStorageGlobals {
     }
 }
 unsafe impl ::windows::core::Interface for IMDSPStorageGlobals {
-    type Vtable = IMDSPStorageGlobalsVtbl;
+    type Vtable = IMDSPStorageGlobals_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a17_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMDSPStorageGlobalsVtbl {
+pub struct IMDSPStorageGlobals_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcapabilities: *mut u32) -> ::windows::core::HRESULT,
     pub GetSerialNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pserialnum: *mut WMDMID, abmac: *mut u8) -> ::windows::core::HRESULT,
@@ -2020,12 +2020,12 @@ impl ::core::fmt::Debug for IMDServiceProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IMDServiceProvider {
-    type Vtable = IMDServiceProviderVtbl;
+    type Vtable = IMDServiceProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a10_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMDServiceProviderVtbl {
+pub struct IMDServiceProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetDeviceCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
     pub EnumDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2107,13 +2107,13 @@ impl ::core::fmt::Debug for IMDServiceProvider2 {
     }
 }
 unsafe impl ::windows::core::Interface for IMDServiceProvider2 {
-    type Vtable = IMDServiceProvider2Vtbl;
+    type Vtable = IMDServiceProvider2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2fa24b7_cda3_4694_9862_413ae1a34819);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMDServiceProvider2Vtbl {
-    pub base: IMDServiceProviderVtbl,
+pub struct IMDServiceProvider2_Vtbl {
+    pub base: IMDServiceProvider_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszdevicepath: super::super::Foundation::PWSTR, pdwcount: *mut u32, pppdevicearray: *mut *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2220,13 +2220,13 @@ impl ::core::fmt::Debug for IMDServiceProvider3 {
     }
 }
 unsafe impl ::windows::core::Interface for IMDServiceProvider3 {
-    type Vtable = IMDServiceProvider3Vtbl;
+    type Vtable = IMDServiceProvider3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ed13ef3_a971_4d19_9f51_0e1826b2da57);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMDServiceProvider3Vtbl {
-    pub base: IMDServiceProvider2Vtbl,
+pub struct IMDServiceProvider3_Vtbl {
+    pub base: IMDServiceProvider2_Vtbl,
     pub SetDeviceEnumPreference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwenumpref: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
@@ -2278,12 +2278,12 @@ impl ::core::fmt::Debug for ISCPSecureAuthenticate {
     }
 }
 unsafe impl ::windows::core::Interface for ISCPSecureAuthenticate {
-    type Vtable = ISCPSecureAuthenticateVtbl;
+    type Vtable = ISCPSecureAuthenticate_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a0f_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISCPSecureAuthenticateVtbl {
+pub struct ISCPSecureAuthenticate_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetSecureQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsecurequery: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -2359,13 +2359,13 @@ impl ::core::fmt::Debug for ISCPSecureAuthenticate2 {
     }
 }
 unsafe impl ::windows::core::Interface for ISCPSecureAuthenticate2 {
-    type Vtable = ISCPSecureAuthenticate2Vtbl;
+    type Vtable = ISCPSecureAuthenticate2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb580cfae_1672_47e2_acaa_44bbecbcae5b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISCPSecureAuthenticate2Vtbl {
-    pub base: ISCPSecureAuthenticateVtbl,
+pub struct ISCPSecureAuthenticate2_Vtbl {
+    pub base: ISCPSecureAuthenticate_Vtbl,
     pub GetSCPSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppscpsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
@@ -2422,12 +2422,12 @@ impl ::core::fmt::Debug for ISCPSecureExchange {
     }
 }
 unsafe impl ::windows::core::Interface for ISCPSecureExchange {
-    type Vtable = ISCPSecureExchangeVtbl;
+    type Vtable = ISCPSecureExchange_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a0e_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISCPSecureExchangeVtbl {
+pub struct ISCPSecureExchange_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub TransferContainerData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const u8, dwsize: u32, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::HRESULT,
     pub ObjectData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::HRESULT,
@@ -2511,13 +2511,13 @@ impl ::core::fmt::Debug for ISCPSecureExchange2 {
     }
 }
 unsafe impl ::windows::core::Interface for ISCPSecureExchange2 {
-    type Vtable = ISCPSecureExchange2Vtbl;
+    type Vtable = ISCPSecureExchange2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c62fc7b_2690_483f_9d44_0a20cb35577c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISCPSecureExchange2Vtbl {
-    pub base: ISCPSecureExchangeVtbl,
+pub struct ISCPSecureExchange2_Vtbl {
+    pub base: ISCPSecureExchange_Vtbl,
     pub TransferContainerData2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const u8, dwsize: u32, pprogresscallback: ::windows::core::RawPtr, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
@@ -2631,13 +2631,13 @@ impl ::core::fmt::Debug for ISCPSecureExchange3 {
     }
 }
 unsafe impl ::windows::core::Interface for ISCPSecureExchange3 {
-    type Vtable = ISCPSecureExchange3Vtbl;
+    type Vtable = ISCPSecureExchange3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab4e77e4_8908_4b17_bd2a_b1dbe6dd69e1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISCPSecureExchange3Vtbl {
-    pub base: ISCPSecureExchange2Vtbl,
+pub struct ISCPSecureExchange3_Vtbl {
+    pub base: ISCPSecureExchange2_Vtbl,
     pub TransferContainerDataOnClearChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, pdata: *const u8, dwsize: u32, pprogresscallback: ::windows::core::RawPtr, pfureadyflags: *mut u32) -> ::windows::core::HRESULT,
     pub GetObjectDataOnClearChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT,
     pub TransferCompleteForDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2701,12 +2701,12 @@ impl ::core::fmt::Debug for ISCPSecureQuery {
     }
 }
 unsafe impl ::windows::core::Interface for ISCPSecureQuery {
-    type Vtable = ISCPSecureQueryVtbl;
+    type Vtable = ISCPSecureQuery_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a0d_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISCPSecureQueryVtbl {
+pub struct ISCPSecureQuery_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetDataDemands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: *mut u8) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -2821,13 +2821,13 @@ impl ::core::fmt::Debug for ISCPSecureQuery2 {
     }
 }
 unsafe impl ::windows::core::Interface for ISCPSecureQuery2 {
-    type Vtable = ISCPSecureQuery2Vtbl;
+    type Vtable = ISCPSecureQuery2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebe17e25_4fd7_4632_af46_6d93d4fcc72e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISCPSecureQuery2Vtbl {
-    pub base: ISCPSecureQueryVtbl,
+pub struct ISCPSecureQuery2_Vtbl {
+    pub base: ISCPSecureQuery_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub MakeDecision2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: ::windows::core::RawPtr, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut super::super::Foundation::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: *mut ::core::ffi::c_void, ppexchange: *mut ::windows::core::RawPtr, abmac: *mut u8) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2988,13 +2988,13 @@ impl ::core::fmt::Debug for ISCPSecureQuery3 {
     }
 }
 unsafe impl ::windows::core::Interface for ISCPSecureQuery3 {
-    type Vtable = ISCPSecureQuery3Vtbl;
+    type Vtable = ISCPSecureQuery3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7edd1a2_4dab_484b_b3c5_ad39b8b4c0b1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISCPSecureQuery3Vtbl {
-    pub base: ISCPSecureQuery2Vtbl,
+pub struct ISCPSecureQuery3_Vtbl {
+    pub base: ISCPSecureQuery2_Vtbl,
     pub GetRightsOnClearChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: ::windows::core::RawPtr, pprogresscallback: ::windows::core::RawPtr, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub MakeDecisionOnClearChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: ::windows::core::RawPtr, pprogresscallback: ::windows::core::RawPtr, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut super::super::Foundation::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: *mut ::core::ffi::c_void, ppexchange: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3056,12 +3056,12 @@ impl ::core::fmt::Debug for ISCPSession {
     }
 }
 unsafe impl ::windows::core::Interface for ISCPSession {
-    type Vtable = ISCPSessionVtbl;
+    type Vtable = ISCPSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88a3e6ed_eee4_4619_bbb3_fd4fb62715d1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISCPSessionVtbl {
+pub struct ISCPSession_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub BeginSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidevice: ::windows::core::RawPtr, pctx: *const u8, dwsizectx: u32) -> ::windows::core::HRESULT,
     pub EndSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pctx: *const u8, dwsizectx: u32) -> ::windows::core::HRESULT,
@@ -3161,12 +3161,12 @@ impl ::core::fmt::Debug for IWMDMDevice {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMDevice {
-    type Vtable = IWMDMDeviceVtbl;
+    type Vtable = IWMDMDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a02_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMDeviceVtbl {
+pub struct IWMDMDevice_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::HRESULT,
@@ -3324,13 +3324,13 @@ impl ::core::fmt::Debug for IWMDMDevice2 {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMDevice2 {
-    type Vtable = IWMDMDevice2Vtbl;
+    type Vtable = IWMDMDevice2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe34f3d37_9d67_4fc1_9252_62d28b2f8b55);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMDevice2Vtbl {
-    pub base: IWMDMDeviceVtbl,
+pub struct IWMDMDevice2_Vtbl {
+    pub base: IWMDMDevice_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstoragename: super::super::Foundation::PWSTR, ppstorage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3530,13 +3530,13 @@ impl ::core::fmt::Debug for IWMDMDevice3 {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMDevice3 {
-    type Vtable = IWMDMDevice3Vtbl;
+    type Vtable = IWMDMDevice3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c03e4fe_05db_4dda_9e3c_06233a6d5d65);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMDevice3Vtbl {
-    pub base: IWMDMDevice2Vtbl,
+pub struct IWMDMDevice3_Vtbl {
+    pub base: IWMDMDevice2_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszpropname: super::super::Foundation::PWSTR, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))]
@@ -3631,12 +3631,12 @@ impl ::core::fmt::Debug for IWMDMDeviceControl {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMDeviceControl {
-    type Vtable = IWMDMDeviceControlVtbl;
+    type Vtable = IWMDMDeviceControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a04_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMDeviceControlVtbl {
+pub struct IWMDMDeviceControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
     pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcapabilitiesmask: *mut u32) -> ::windows::core::HRESULT,
@@ -3697,12 +3697,12 @@ impl ::core::fmt::Debug for IWMDMDeviceSession {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMDeviceSession {
-    type Vtable = IWMDMDeviceSessionVtbl;
+    type Vtable = IWMDMDeviceSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82af0a65_9d96_412c_83e5_3c43e4b06cc7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMDeviceSessionVtbl {
+pub struct IWMDMDeviceSession_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub BeginSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> ::windows::core::HRESULT,
     pub EndSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> ::windows::core::HRESULT,
@@ -3767,12 +3767,12 @@ impl ::core::fmt::Debug for IWMDMEnumDevice {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMEnumDevice {
-    type Vtable = IWMDMEnumDeviceVtbl;
+    type Vtable = IWMDMEnumDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a01_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMEnumDeviceVtbl {
+pub struct IWMDMEnumDevice_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppdevice: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
@@ -3839,12 +3839,12 @@ impl ::core::fmt::Debug for IWMDMEnumStorage {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMEnumStorage {
-    type Vtable = IWMDMEnumStorageVtbl;
+    type Vtable = IWMDMEnumStorage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a05_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMEnumStorageVtbl {
+pub struct IWMDMEnumStorage_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppstorage: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
@@ -3936,12 +3936,12 @@ impl ::core::fmt::Debug for IWMDMLogger {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMLogger {
-    type Vtable = IWMDMLoggerVtbl;
+    type Vtable = IWMDMLogger_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x110a3200_5a79_11d3_8d78_444553540000);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMLoggerVtbl {
+pub struct IWMDMLogger_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -4032,12 +4032,12 @@ impl ::core::fmt::Debug for IWMDMMetaData {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMMetaData {
-    type Vtable = IWMDMMetaDataVtbl;
+    type Vtable = IWMDMMetaData_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec3b0663_0951_460a_9a80_0dceed3c043c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMMetaDataVtbl {
+pub struct IWMDMMetaData_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: WMDM_TAG_DATATYPE, pwsztagname: super::super::Foundation::PWSTR, pvalue: *const u8, ilength: u32) -> ::windows::core::HRESULT,
@@ -4097,12 +4097,12 @@ impl ::core::fmt::Debug for IWMDMNotification {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMNotification {
-    type Vtable = IWMDMNotificationVtbl;
+    type Vtable = IWMDMNotification_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f5e95c0_0f43_4ed4_93d2_c89a45d59b81);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMNotificationVtbl {
+pub struct IWMDMNotification_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub WMDMMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmessagetype: u32, pwszcanonicalname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -4184,12 +4184,12 @@ impl ::core::fmt::Debug for IWMDMObjectInfo {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMObjectInfo {
-    type Vtable = IWMDMObjectInfoVtbl;
+    type Vtable = IWMDMObjectInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a09_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMObjectInfoVtbl {
+pub struct IWMDMObjectInfo_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetPlayLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwlength: *mut u32) -> ::windows::core::HRESULT,
     pub SetPlayLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlength: u32) -> ::windows::core::HRESULT,
@@ -4283,12 +4283,12 @@ impl ::core::fmt::Debug for IWMDMOperation {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMOperation {
-    type Vtable = IWMDMOperationVtbl;
+    type Vtable = IWMDMOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a0b_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMOperationVtbl {
+pub struct IWMDMOperation_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub BeginRead: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub BeginWrite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4421,13 +4421,13 @@ impl ::core::fmt::Debug for IWMDMOperation2 {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMOperation2 {
-    type Vtable = IWMDMOperation2Vtbl;
+    type Vtable = IWMDMOperation2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33445b48_7df7_425c_ad8f_0fc6d82f9f75);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMOperation2Vtbl {
-    pub base: IWMDMOperationVtbl,
+pub struct IWMDMOperation2_Vtbl {
+    pub base: IWMDMOperation_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetObjectAttributes2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4545,13 +4545,13 @@ impl ::core::fmt::Debug for IWMDMOperation3 {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMOperation3 {
-    type Vtable = IWMDMOperation3Vtbl;
+    type Vtable = IWMDMOperation3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1f9b46a_9ca8_46d8_9d0f_1ec9bae54919);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMOperation3Vtbl {
-    pub base: IWMDMOperationVtbl,
+pub struct IWMDMOperation3_Vtbl {
+    pub base: IWMDMOperation_Vtbl,
     pub TransferObjectDataOnClearChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
@@ -4608,12 +4608,12 @@ impl ::core::fmt::Debug for IWMDMProgress {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMProgress {
-    type Vtable = IWMDMProgressVtbl;
+    type Vtable = IWMDMProgress_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a0c_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMProgressVtbl {
+pub struct IWMDMProgress_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Begin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwestimatedticks: u32) -> ::windows::core::HRESULT,
     pub Progress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtranspiredticks: u32) -> ::windows::core::HRESULT,
@@ -4697,13 +4697,13 @@ impl ::core::fmt::Debug for IWMDMProgress2 {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMProgress2 {
-    type Vtable = IWMDMProgress2Vtbl;
+    type Vtable = IWMDMProgress2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a43f550_b383_4e92_b04a_e6bbc660fefc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMProgress2Vtbl {
-    pub base: IWMDMProgressVtbl,
+pub struct IWMDMProgress2_Vtbl {
+    pub base: IWMDMProgress_Vtbl,
     pub End2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrcompletioncode: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
@@ -4816,13 +4816,13 @@ impl ::core::fmt::Debug for IWMDMProgress3 {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMProgress3 {
-    type Vtable = IWMDMProgress3Vtbl;
+    type Vtable = IWMDMProgress3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21de01cb_3bb4_4929_b21a_17af3f80f658);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMProgress3Vtbl {
-    pub base: IWMDMProgress2Vtbl,
+pub struct IWMDMProgress3_Vtbl {
+    pub base: IWMDMProgress2_Vtbl,
     pub Begin3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: ::windows::core::GUID, dwestimatedticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::HRESULT,
     pub Progress3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: ::windows::core::GUID, dwtranspiredticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::HRESULT,
     pub End3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: ::windows::core::GUID, hrcompletioncode: ::windows::core::HRESULT, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::HRESULT,
@@ -4874,12 +4874,12 @@ impl ::core::fmt::Debug for IWMDMRevoked {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMRevoked {
-    type Vtable = IWMDMRevokedVtbl;
+    type Vtable = IWMDMRevoked_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebeccedb_88ee_4e55_b6a4_8d9f07d696aa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMRevokedVtbl {
+pub struct IWMDMRevoked_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetRevocationURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszrevocationurl: *mut super::super::Foundation::PWSTR, pdwbufferlen: *mut u32, pdwrevokedbitflag: *mut u32) -> ::windows::core::HRESULT,
@@ -4968,12 +4968,12 @@ impl ::core::fmt::Debug for IWMDMStorage {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMStorage {
-    type Vtable = IWMDMStorageVtbl;
+    type Vtable = IWMDMStorage_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a06_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMStorageVtbl {
+pub struct IWMDMStorage_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::HRESULT,
     pub GetStorageGlobals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstorageglobals: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5106,13 +5106,13 @@ impl ::core::fmt::Debug for IWMDMStorage2 {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMStorage2 {
-    type Vtable = IWMDMStorage2Vtbl;
+    type Vtable = IWMDMStorage2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ed5a144_5cd5_4683_9eff_72cbdb2d9533);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMStorage2Vtbl {
-    pub base: IWMDMStorageVtbl,
+pub struct IWMDMStorage2_Vtbl {
+    pub base: IWMDMStorage_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstoragename: super::super::Foundation::PWSTR, ppstorage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5283,13 +5283,13 @@ impl ::core::fmt::Debug for IWMDMStorage3 {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMStorage3 {
-    type Vtable = IWMDMStorage3Vtbl;
+    type Vtable = IWMDMStorage3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97717eea_926a_464e_96a4_247b0216026e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMStorage3Vtbl {
-    pub base: IWMDMStorage2Vtbl,
+pub struct IWMDMStorage3_Vtbl {
+    pub base: IWMDMStorage2_Vtbl,
     pub GetMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmetadata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmetadata: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateEmptyMetadataObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmetadata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5504,13 +5504,13 @@ impl ::core::fmt::Debug for IWMDMStorage4 {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMStorage4 {
-    type Vtable = IWMDMStorage4Vtbl;
+    type Vtable = IWMDMStorage4_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc225bac5_a03a_40b8_9a23_91cf478c64a6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMStorage4Vtbl {
-    pub base: IWMDMStorage3Vtbl,
+pub struct IWMDMStorage4_Vtbl {
+    pub base: IWMDMStorage3_Vtbl,
     pub SetReferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrefs: u32, ppiwmdmstorage: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetReferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwrefs: *mut u32, pppiwmdmstorage: *mut *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetRightsWithProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piprogresscallback: ::windows::core::RawPtr, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::HRESULT,
@@ -5590,12 +5590,12 @@ impl ::core::fmt::Debug for IWMDMStorageControl {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMStorageControl {
-    type Vtable = IWMDMStorageControlVtbl;
+    type Vtable = IWMDMStorageControl_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a08_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMStorageControlVtbl {
+pub struct IWMDMStorageControl_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Insert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32, pwszfile: super::super::Foundation::PWSTR, poperation: ::windows::core::RawPtr, pprogress: ::windows::core::RawPtr, ppnewobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5703,13 +5703,13 @@ impl ::core::fmt::Debug for IWMDMStorageControl2 {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMStorageControl2 {
-    type Vtable = IWMDMStorageControl2Vtbl;
+    type Vtable = IWMDMStorageControl2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x972c2e88_bd6c_4125_8e09_84f837e637b6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMStorageControl2Vtbl {
-    pub base: IWMDMStorageControlVtbl,
+pub struct IWMDMStorageControl2_Vtbl {
+    pub base: IWMDMStorageControl_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Insert2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32, pwszfilesource: super::super::Foundation::PWSTR, pwszfiledest: super::super::Foundation::PWSTR, poperation: ::windows::core::RawPtr, pprogress: ::windows::core::RawPtr, punknown: *mut ::core::ffi::c_void, ppnewobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5831,13 +5831,13 @@ impl ::core::fmt::Debug for IWMDMStorageControl3 {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMStorageControl3 {
-    type Vtable = IWMDMStorageControl3Vtbl;
+    type Vtable = IWMDMStorageControl3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3266365_d4f3_4696_8d53_bd27ec60993a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMStorageControl3Vtbl {
-    pub base: IWMDMStorageControl2Vtbl,
+pub struct IWMDMStorageControl3_Vtbl {
+    pub base: IWMDMStorageControl2_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Insert3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32, futype: u32, pwszfilesource: super::super::Foundation::PWSTR, pwszfiledest: super::super::Foundation::PWSTR, poperation: ::windows::core::RawPtr, pprogress: ::windows::core::RawPtr, pmetadata: ::windows::core::RawPtr, punknown: *mut ::core::ffi::c_void, ppnewobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5915,12 +5915,12 @@ impl ::core::fmt::Debug for IWMDMStorageGlobals {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDMStorageGlobals {
-    type Vtable = IWMDMStorageGlobalsVtbl;
+    type Vtable = IWMDMStorageGlobals_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a07_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDMStorageGlobalsVtbl {
+pub struct IWMDMStorageGlobals_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcapabilities: *mut u32) -> ::windows::core::HRESULT,
     pub GetSerialNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pserialnum: *mut WMDMID, abmac: *mut u8) -> ::windows::core::HRESULT,
@@ -5987,12 +5987,12 @@ impl ::core::fmt::Debug for IWMDeviceManager {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDeviceManager {
-    type Vtable = IWMDeviceManagerVtbl;
+    type Vtable = IWMDeviceManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a00_33ed_11d3_8470_00c04f79dbc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDeviceManagerVtbl {
+pub struct IWMDeviceManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetRevision: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwrevision: *mut u32) -> ::windows::core::HRESULT,
     pub GetDeviceCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
@@ -6090,13 +6090,13 @@ impl ::core::fmt::Debug for IWMDeviceManager2 {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDeviceManager2 {
-    type Vtable = IWMDeviceManager2Vtbl;
+    type Vtable = IWMDeviceManager2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x923e5249_8731_4c5b_9b1c_b8b60b6e46af);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDeviceManager2Vtbl {
-    pub base: IWMDeviceManagerVtbl,
+pub struct IWMDeviceManager2_Vtbl {
+    pub base: IWMDeviceManager_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetDeviceFromCanonicalName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszcanonicalname: super::super::Foundation::PWSTR, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6220,13 +6220,13 @@ impl ::core::fmt::Debug for IWMDeviceManager3 {
     }
 }
 unsafe impl ::windows::core::Interface for IWMDeviceManager3 {
-    type Vtable = IWMDeviceManager3Vtbl;
+    type Vtable = IWMDeviceManager3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf185c41_100d_46ed_be2e_9ce8c44594ef);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMDeviceManager3Vtbl {
-    pub base: IWMDeviceManager2Vtbl,
+pub struct IWMDeviceManager3_Vtbl {
+    pub base: IWMDeviceManager2_Vtbl,
     pub SetDeviceEnumPreference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwenumpref: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]

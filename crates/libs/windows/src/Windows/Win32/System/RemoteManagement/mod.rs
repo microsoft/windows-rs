@@ -1144,14 +1144,14 @@ impl ::core::fmt::Debug for IWSMan {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWSMan {
-    type Vtable = IWSManVtbl;
+    type Vtable = IWSMan_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x190d8637_5cd3_496d_ad24_69636bb5a3b5);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSManVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IWSMan_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub CreateSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connection: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, connectionoptions: ::windows::core::RawPtr, session: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -1284,14 +1284,14 @@ impl ::core::fmt::Debug for IWSManConnectionOptions {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWSManConnectionOptions {
-    type Vtable = IWSManConnectionOptionsVtbl;
+    type Vtable = IWSManConnectionOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf704e861_9e52_464f_b786_da5eb2320fdd);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSManConnectionOptionsVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IWSManConnectionOptions_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub UserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1455,14 +1455,14 @@ impl ::core::fmt::Debug for IWSManConnectionOptionsEx {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWSManConnectionOptionsEx {
-    type Vtable = IWSManConnectionOptionsExVtbl;
+    type Vtable = IWSManConnectionOptionsEx_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef43edf7_2a48_4d93_9526_8bd6ab6d4a6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSManConnectionOptionsExVtbl {
-    pub base: IWSManConnectionOptionsVtbl,
+pub struct IWSManConnectionOptionsEx_Vtbl {
+    pub base: IWSManConnectionOptions_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CertificateThumbprint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, thumbprint: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1686,14 +1686,14 @@ impl ::core::fmt::Debug for IWSManConnectionOptionsEx2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWSManConnectionOptionsEx2 {
-    type Vtable = IWSManConnectionOptionsEx2Vtbl;
+    type Vtable = IWSManConnectionOptionsEx2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf500c9ec_24ee_48ab_b38d_fc9a164c658e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSManConnectionOptionsEx2Vtbl {
-    pub base: IWSManConnectionOptionsExVtbl,
+pub struct IWSManConnectionOptionsEx2_Vtbl {
+    pub base: IWSManConnectionOptionsEx_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetProxy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, accesstype: i32, authenticationmechanism: i32, username: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, password: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1822,14 +1822,14 @@ impl ::core::fmt::Debug for IWSManEnumerator {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWSManEnumerator {
-    type Vtable = IWSManEnumeratorVtbl;
+    type Vtable = IWSManEnumerator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3457ca9_abb9_4fa5_b850_90e8ca300e7f);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSManEnumeratorVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IWSManEnumerator_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ReadItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resource: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2089,14 +2089,14 @@ impl ::core::fmt::Debug for IWSManEx {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWSManEx {
-    type Vtable = IWSManExVtbl;
+    type Vtable = IWSManEx_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d53bdaa_798e_49e6_a1aa_74d01256f411);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSManExVtbl {
-    pub base: IWSManVtbl,
+pub struct IWSManEx_Vtbl {
+    pub base: IWSMan_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub CreateResourceLocator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strresourcelocator: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, newresourcelocator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -2402,14 +2402,14 @@ impl ::core::fmt::Debug for IWSManEx2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWSManEx2 {
-    type Vtable = IWSManEx2Vtbl;
+    type Vtable = IWSManEx2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d1b5ae0_42d9_4021_8261_3987619512e9);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSManEx2Vtbl {
-    pub base: IWSManExVtbl,
+pub struct IWSManEx2_Vtbl {
+    pub base: IWSManEx_Vtbl,
     pub SessionFlagUseClientCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_RemoteManagement', 'Win32_System_Com'*"]
@@ -2749,14 +2749,14 @@ impl ::core::fmt::Debug for IWSManEx3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWSManEx3 {
-    type Vtable = IWSManEx3Vtbl;
+    type Vtable = IWSManEx3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6400e966_011d_4eac_8474_049e0848afad);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSManEx3Vtbl {
-    pub base: IWSManEx2Vtbl,
+pub struct IWSManEx3_Vtbl {
+    pub base: IWSManEx2_Vtbl,
     pub SessionFlagUTF16: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT,
     pub SessionFlagUseCredSsp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT,
     pub EnumerationFlagAssociationInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT,
@@ -2870,14 +2870,14 @@ impl ::core::fmt::Debug for IWSManInternal {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWSManInternal {
-    type Vtable = IWSManInternalVtbl;
+    type Vtable = IWSManInternal_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04ae2b1d_9954_4d99_94a9_a961e72c3a13);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSManInternalVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IWSManInternal_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub ConfigSDDL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, session: ::windows::core::RawPtr, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, flags: i32, resource: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -3050,14 +3050,14 @@ impl ::core::fmt::Debug for IWSManResourceLocator {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWSManResourceLocator {
-    type Vtable = IWSManResourceLocatorVtbl;
+    type Vtable = IWSManResourceLocator_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7a1ba28_de41_466a_ad0a_c4059ead7428);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSManResourceLocatorVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IWSManResourceLocator_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetResourceURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3146,12 +3146,12 @@ impl ::core::fmt::Debug for IWSManResourceLocatorInternal {
     }
 }
 unsafe impl ::windows::core::Interface for IWSManResourceLocatorInternal {
-    type Vtable = IWSManResourceLocatorInternalVtbl;
+    type Vtable = IWSManResourceLocatorInternal_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeffaead7_7ec8_4716_b9be_f2e7e9fb4adb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSManResourceLocatorInternalVtbl {
+pub struct IWSManResourceLocatorInternal_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
 }
 #[doc = "*Required features: 'Win32_System_RemoteManagement', 'Win32_System_Com'*"]
@@ -3318,14 +3318,14 @@ impl ::core::fmt::Debug for IWSManSession {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IWSManSession {
-    type Vtable = IWSManSessionVtbl;
+    type Vtable = IWSManSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc84fc58_1286_40c4_9da0_c8ef6ec241e0);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWSManSessionVtbl {
-    pub base: super::Com::IDispatchVtbl,
+pub struct IWSManSession_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, flags: i32, resource: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]

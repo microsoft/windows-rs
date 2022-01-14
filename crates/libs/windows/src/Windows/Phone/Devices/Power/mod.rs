@@ -68,7 +68,7 @@ unsafe impl ::windows::core::RuntimeType for Battery {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Devices.Power.Battery;{972adbdd-6720-4702-a476-b9d38a0070e3})");
 }
 unsafe impl ::windows::core::Interface for Battery {
-    type Vtable = IBatteryVtbl;
+    type Vtable = IBattery_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x972adbdd_6720_4702_a476_b9d38a0070e3);
 }
 impl ::windows::core::RuntimeName for Battery {
@@ -120,12 +120,12 @@ unsafe impl ::core::marker::Sync for Battery {}
 #[repr(transparent)]
 pub struct IBattery(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBattery {
-    type Vtable = IBatteryVtbl;
+    type Vtable = IBattery_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x972adbdd_6720_4702_a476_b9d38a0070e3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBatteryVtbl {
+pub struct IBattery_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RemainingChargePercent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -145,12 +145,12 @@ pub struct IBatteryVtbl {
 #[repr(transparent)]
 pub struct IBatteryStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IBatteryStatics {
-    type Vtable = IBatteryStaticsVtbl;
+    type Vtable = IBatteryStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaf5bc70_6369_11e1_b86c_0800200c9a66);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IBatteryStaticsVtbl {
+pub struct IBatteryStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }

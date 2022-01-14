@@ -187,13 +187,13 @@ impl ::core::fmt::Debug for ISideShowBulkCapabilities {
     }
 }
 unsafe impl ::windows::core::Interface for ISideShowBulkCapabilities {
-    type Vtable = ISideShowBulkCapabilitiesVtbl;
+    type Vtable = ISideShowBulkCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a2b7fbc_3ad5_48bd_bbf1_0e6cfbd10807);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISideShowBulkCapabilitiesVtbl {
-    pub base: ISideShowCapabilitiesVtbl,
+pub struct ISideShowBulkCapabilities_Vtbl {
+    pub base: ISideShowCapabilities_Vtbl,
     pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_keycollection: ::windows::core::RawPtr, inout_pvalues: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_SideShow'*"]
@@ -243,12 +243,12 @@ impl ::core::fmt::Debug for ISideShowCapabilities {
     }
 }
 unsafe impl ::windows::core::Interface for ISideShowCapabilities {
-    type Vtable = ISideShowCapabilitiesVtbl;
+    type Vtable = ISideShowCapabilities_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x535e1379_c09e_4a54_a511_597bab3a72b8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISideShowCapabilitiesVtbl {
+pub struct ISideShowCapabilities_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub GetCapability: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
@@ -307,12 +307,12 @@ impl ::core::fmt::Debug for ISideShowCapabilitiesCollection {
     }
 }
 unsafe impl ::windows::core::Interface for ISideShowCapabilitiesCollection {
-    type Vtable = ISideShowCapabilitiesCollectionVtbl;
+    type Vtable = ISideShowCapabilitiesCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50305597_5e0d_4ff7_b3af_33d0d9bd52dd);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISideShowCapabilitiesCollectionVtbl {
+pub struct ISideShowCapabilitiesCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, out_pdwcount: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_dwindex: u32, out_ppcapabilities: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -374,12 +374,12 @@ impl ::core::fmt::Debug for ISideShowContent {
     }
 }
 unsafe impl ::windows::core::Interface for ISideShowContent {
-    type Vtable = ISideShowContentVtbl;
+    type Vtable = ISideShowContent_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc18552ed_74ff_4fec_be07_4cfed29d4887);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISideShowContentVtbl {
+pub struct ISideShowContent_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_picapabilities: ::windows::core::RawPtr, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows::core::HRESULT,
     pub ContentId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, out_pcontentid: *mut u32) -> ::windows::core::HRESULT,
@@ -451,12 +451,12 @@ impl ::core::fmt::Debug for ISideShowContentManager {
     }
 }
 unsafe impl ::windows::core::Interface for ISideShowContentManager {
-    type Vtable = ISideShowContentManagerVtbl;
+    type Vtable = ISideShowContentManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5d5b66b_eef9_41db_8d7e_e17c33ab10b0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISideShowContentManagerVtbl {
+pub struct ISideShowContentManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_picontent: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_contentid: u32) -> ::windows::core::HRESULT,
@@ -523,12 +523,12 @@ impl ::core::fmt::Debug for ISideShowEvents {
     }
 }
 unsafe impl ::windows::core::Interface for ISideShowEvents {
-    type Vtable = ISideShowEventsVtbl;
+    type Vtable = ISideShowEvents_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61feca4c_deb4_4a7e_8d75_51f1132d615b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISideShowEventsVtbl {
+pub struct ISideShowEvents_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub ContentMissing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_contentid: u32, out_ppicontent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ApplicationEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_picapabilities: ::windows::core::RawPtr, in_dweventid: u32, in_dweventsize: u32, in_pbeventdata: *const u8) -> ::windows::core::HRESULT,
@@ -599,12 +599,12 @@ impl ::core::fmt::Debug for ISideShowKeyCollection {
     }
 }
 unsafe impl ::windows::core::Interface for ISideShowKeyCollection {
-    type Vtable = ISideShowKeyCollectionVtbl;
+    type Vtable = ISideShowKeyCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x045473bc_a37b_4957_b144_68105411ed8e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISideShowKeyCollectionVtbl {
+pub struct ISideShowKeyCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::HRESULT,
@@ -713,12 +713,12 @@ impl ::core::fmt::Debug for ISideShowNotification {
     }
 }
 unsafe impl ::windows::core::Interface for ISideShowNotification {
-    type Vtable = ISideShowNotificationVtbl;
+    type Vtable = ISideShowNotification_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03c93300_8ab2_41c5_9b79_46127a30e148);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISideShowNotificationVtbl {
+pub struct ISideShowNotification_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub NotificationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, out_pnotificationid: *mut u32) -> ::windows::core::HRESULT,
     pub SetNotificationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_notificationid: u32) -> ::windows::core::HRESULT,
@@ -809,12 +809,12 @@ impl ::core::fmt::Debug for ISideShowNotificationManager {
     }
 }
 unsafe impl ::windows::core::Interface for ISideShowNotificationManager {
-    type Vtable = ISideShowNotificationManagerVtbl;
+    type Vtable = ISideShowNotificationManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63cea909_f2b9_4302_b5e1_c68e6d9ab833);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISideShowNotificationManagerVtbl {
+pub struct ISideShowNotificationManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_pinotification: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Revoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_notificationid: u32) -> ::windows::core::HRESULT,
@@ -884,12 +884,12 @@ impl ::core::fmt::Debug for ISideShowPropVariantCollection {
     }
 }
 unsafe impl ::windows::core::Interface for ISideShowPropVariantCollection {
-    type Vtable = ISideShowPropVariantCollectionVtbl;
+    type Vtable = ISideShowPropVariantCollection_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ea7a549_7bff_4aae_bab0_22d43111de49);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISideShowPropVariantCollectionVtbl {
+pub struct ISideShowPropVariantCollection_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
@@ -955,12 +955,12 @@ impl ::core::fmt::Debug for ISideShowSession {
     }
 }
 unsafe impl ::windows::core::Interface for ISideShowSession {
-    type Vtable = ISideShowSessionVtbl;
+    type Vtable = ISideShowSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe22331ee_9e7d_4922_9fc2_ab7aa41ce491);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ISideShowSessionVtbl {
+pub struct ISideShowSession_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub RegisterContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_applicationid: *const ::windows::core::GUID, in_endpointid: *const ::windows::core::GUID, out_ppicontent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RegisterNotifications: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_applicationid: *const ::windows::core::GUID, out_ppinotification: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

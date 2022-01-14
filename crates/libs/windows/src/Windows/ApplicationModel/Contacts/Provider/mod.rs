@@ -129,7 +129,7 @@ unsafe impl ::windows::core::RuntimeType for ContactPickerUI {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.Provider.ContactPickerUI;{e2cc1366-cf66-43c4-a96a-a5a112db4746})");
 }
 unsafe impl ::windows::core::Interface for ContactPickerUI {
-    type Vtable = IContactPickerUIVtbl;
+    type Vtable = IContactPickerUI_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2cc1366_cf66_43c4_a96a_a5a112db4746);
 }
 impl ::windows::core::RuntimeName for ContactPickerUI {
@@ -208,7 +208,7 @@ unsafe impl ::windows::core::RuntimeType for ContactRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.Provider.ContactRemovedEventArgs;{6f354338-3302-4d13-ad8d-adcc0ff9e47c})");
 }
 unsafe impl ::windows::core::Interface for ContactRemovedEventArgs {
-    type Vtable = IContactRemovedEventArgsVtbl;
+    type Vtable = IContactRemovedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f354338_3302_4d13_ad8d_adcc0ff9e47c);
 }
 impl ::windows::core::RuntimeName for ContactRemovedEventArgs {
@@ -258,12 +258,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 #[repr(transparent)]
 pub struct IContactPickerUI(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactPickerUI {
-    type Vtable = IContactPickerUIVtbl;
+    type Vtable = IContactPickerUI_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2cc1366_cf66_43c4_a96a_a5a112db4746);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactPickerUIVtbl {
+pub struct IContactPickerUI_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "deprecated")]
     pub AddContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contact: ::windows::core::RawPtr, result__: *mut AddContactResult) -> ::windows::core::HRESULT,
@@ -289,12 +289,12 @@ pub struct IContactPickerUIVtbl {
 #[repr(transparent)]
 pub struct IContactPickerUI2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactPickerUI2 {
-    type Vtable = IContactPickerUI2Vtbl;
+    type Vtable = IContactPickerUI2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e449e28_7b25_4999_9b0b_875400a1e8c8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactPickerUI2Vtbl {
+pub struct IContactPickerUI2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AddContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contact: ::windows::core::RawPtr, result__: *mut AddContactResult) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -306,12 +306,12 @@ pub struct IContactPickerUI2Vtbl {
 #[repr(transparent)]
 pub struct IContactRemovedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IContactRemovedEventArgs {
-    type Vtable = IContactRemovedEventArgsVtbl;
+    type Vtable = IContactRemovedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f354338_3302_4d13_ad8d_adcc0ff9e47c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IContactRemovedEventArgsVtbl {
+pub struct IContactRemovedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }

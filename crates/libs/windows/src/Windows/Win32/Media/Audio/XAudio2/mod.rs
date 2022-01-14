@@ -621,12 +621,12 @@ impl ::core::fmt::Debug for IXAPO {
     }
 }
 unsafe impl ::windows::core::Interface for IXAPO {
-    type Vtable = IXAPOVtbl;
+    type Vtable = IXAPO_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa410b984_9839_4819_a0be_2856ae6b3adb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXAPOVtbl {
+pub struct IXAPO_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetRegistrationProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppregistrationproperties: *mut *mut XAPO_REGISTRATION_PROPERTIES) -> ::windows::core::HRESULT,
     pub IsInputFormatSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX, ppsupportedinputformat: *mut *mut super::WAVEFORMATEX) -> ::windows::core::HRESULT,
@@ -700,12 +700,12 @@ impl ::core::fmt::Debug for IXAPOHrtfParameters {
     }
 }
 unsafe impl ::windows::core::Interface for IXAPOHrtfParameters {
-    type Vtable = IXAPOHrtfParametersVtbl;
+    type Vtable = IXAPOHrtfParameters_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15b3cd66_e9de_4464_b6e6_2bc3cf63d455);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXAPOHrtfParametersVtbl {
+pub struct IXAPOHrtfParameters_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetSourcePosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: *const HrtfPosition) -> ::windows::core::HRESULT,
     pub SetSourceOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, orientation: *const HrtfOrientation) -> ::windows::core::HRESULT,
@@ -762,12 +762,12 @@ impl ::core::fmt::Debug for IXAPOParameters {
     }
 }
 unsafe impl ::windows::core::Interface for IXAPOParameters {
-    type Vtable = IXAPOParametersVtbl;
+    type Vtable = IXAPOParameters_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26d95c66_80f2_499a_ad54_5ae7f01c6d98);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXAPOParametersVtbl {
+pub struct IXAPOParameters_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparameters: *const ::core::ffi::c_void, parameterbytesize: u32),
     pub GetParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparameters: *mut ::core::ffi::c_void, parameterbytesize: u32),
@@ -858,12 +858,12 @@ impl ::core::fmt::Debug for IXAudio2 {
     }
 }
 unsafe impl ::windows::core::Interface for IXAudio2 {
-    type Vtable = IXAudio2Vtbl;
+    type Vtable = IXAudio2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b02e3cf_2e0b_4ec3_be45_1b2a3fe7210d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXAudio2Vtbl {
+pub struct IXAudio2_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub RegisterForCallbacks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub UnregisterForCallbacks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr),
@@ -922,12 +922,12 @@ impl ::core::fmt::Debug for IXAudio2EngineCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IXAudio2EngineCallback {
-    type Vtable = IXAudio2EngineCallbackVtbl;
+    type Vtable = IXAudio2EngineCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXAudio2EngineCallbackVtbl {
+pub struct IXAudio2EngineCallback_Vtbl {
     pub OnProcessingPassStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub OnProcessingPassEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub OnCriticalError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, error: ::windows::core::HRESULT),
@@ -982,12 +982,12 @@ impl ::core::fmt::Debug for IXAudio2Extension {
     }
 }
 unsafe impl ::windows::core::Interface for IXAudio2Extension {
-    type Vtable = IXAudio2ExtensionVtbl;
+    type Vtable = IXAudio2Extension_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84ac29bb_d619_44d2_b197_e4acf7df3ed6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXAudio2ExtensionVtbl {
+pub struct IXAudio2Extension_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetProcessingQuantum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, quantumnumerator: *mut u32, quantumdenominator: *mut u32),
     pub GetProcessor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, processor: *mut u32),
@@ -1117,13 +1117,13 @@ impl ::core::fmt::Debug for IXAudio2MasteringVoice {
     }
 }
 unsafe impl ::windows::core::Interface for IXAudio2MasteringVoice {
-    type Vtable = IXAudio2MasteringVoiceVtbl;
+    type Vtable = IXAudio2MasteringVoice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXAudio2MasteringVoiceVtbl {
-    pub base: IXAudio2VoiceVtbl,
+pub struct IXAudio2MasteringVoice_Vtbl {
+    pub base: IXAudio2Voice_Vtbl,
     pub GetChannelMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchannelmask: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
@@ -1286,13 +1286,13 @@ impl ::core::fmt::Debug for IXAudio2SourceVoice {
     }
 }
 unsafe impl ::windows::core::Interface for IXAudio2SourceVoice {
-    type Vtable = IXAudio2SourceVoiceVtbl;
+    type Vtable = IXAudio2SourceVoice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXAudio2SourceVoiceVtbl {
-    pub base: IXAudio2VoiceVtbl,
+pub struct IXAudio2SourceVoice_Vtbl {
+    pub base: IXAudio2Voice_Vtbl,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, operationset: u32) -> ::windows::core::HRESULT,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, operationset: u32) -> ::windows::core::HRESULT,
     pub SubmitSourceBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *const XAUDIO2_BUFFER, pbufferwma: *const XAUDIO2_BUFFER_WMA) -> ::windows::core::HRESULT,
@@ -1424,13 +1424,13 @@ impl ::core::fmt::Debug for IXAudio2SubmixVoice {
     }
 }
 unsafe impl ::windows::core::Interface for IXAudio2SubmixVoice {
-    type Vtable = IXAudio2SubmixVoiceVtbl;
+    type Vtable = IXAudio2SubmixVoice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXAudio2SubmixVoiceVtbl {
-    pub base: IXAudio2VoiceVtbl,
+pub struct IXAudio2SubmixVoice_Vtbl {
+    pub base: IXAudio2Voice_Vtbl,
 }
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
 #[repr(transparent)]
@@ -1532,12 +1532,12 @@ impl ::core::fmt::Debug for IXAudio2Voice {
     }
 }
 unsafe impl ::windows::core::Interface for IXAudio2Voice {
-    type Vtable = IXAudio2VoiceVtbl;
+    type Vtable = IXAudio2Voice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXAudio2VoiceVtbl {
+pub struct IXAudio2Voice_Vtbl {
     pub GetVoiceDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvoicedetails: *mut XAUDIO2_VOICE_DETAILS),
     pub SetOutputVoices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psendlist: *const XAUDIO2_VOICE_SENDS) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -1614,12 +1614,12 @@ impl ::core::fmt::Debug for IXAudio2VoiceCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IXAudio2VoiceCallback {
-    type Vtable = IXAudio2VoiceCallbackVtbl;
+    type Vtable = IXAudio2VoiceCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXAudio2VoiceCallbackVtbl {
+pub struct IXAudio2VoiceCallback_Vtbl {
     pub OnVoiceProcessingPassStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bytesrequired: u32),
     pub OnVoiceProcessingPassEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub OnStreamEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),

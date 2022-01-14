@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct ILanguageFont(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILanguageFont {
-    type Vtable = ILanguageFontVtbl;
+    type Vtable = ILanguageFont_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb12e5c3a_b76d_459b_beeb_901151cd77d1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILanguageFontVtbl {
+pub struct ILanguageFont_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FontFamily: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Text")]
@@ -29,12 +29,12 @@ pub struct ILanguageFontVtbl {
 #[repr(transparent)]
 pub struct ILanguageFontGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILanguageFontGroup {
-    type Vtable = ILanguageFontGroupVtbl;
+    type Vtable = ILanguageFontGroup_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf33a7fc3_3a5c_4aea_b9ff_b39fb242f7f6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILanguageFontGroupVtbl {
+pub struct ILanguageFontGroup_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub UITextFont: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub UIHeadingFont: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -52,12 +52,12 @@ pub struct ILanguageFontGroupVtbl {
 #[repr(transparent)]
 pub struct ILanguageFontGroupFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILanguageFontGroupFactory {
-    type Vtable = ILanguageFontGroupFactoryVtbl;
+    type Vtable = ILanguageFontGroupFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcaeac67_4e77_49c7_b856_dde934fc735b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILanguageFontGroupFactoryVtbl {
+pub struct ILanguageFontGroupFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateLanguageFontGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -129,7 +129,7 @@ unsafe impl ::windows::core::RuntimeType for LanguageFont {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.Fonts.LanguageFont;{b12e5c3a-b76d-459b-beeb-901151cd77d1})");
 }
 unsafe impl ::windows::core::Interface for LanguageFont {
-    type Vtable = ILanguageFontVtbl;
+    type Vtable = ILanguageFont_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb12e5c3a_b76d_459b_beeb_901151cd77d1);
 }
 impl ::windows::core::RuntimeName for LanguageFont {
@@ -302,7 +302,7 @@ unsafe impl ::windows::core::RuntimeType for LanguageFontGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.Fonts.LanguageFontGroup;{f33a7fc3-3a5c-4aea-b9ff-b39fb242f7f6})");
 }
 unsafe impl ::windows::core::Interface for LanguageFontGroup {
-    type Vtable = ILanguageFontGroupVtbl;
+    type Vtable = ILanguageFontGroup_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf33a7fc3_3a5c_4aea_b9ff_b39fb242f7f6);
 }
 impl ::windows::core::RuntimeName for LanguageFontGroup {

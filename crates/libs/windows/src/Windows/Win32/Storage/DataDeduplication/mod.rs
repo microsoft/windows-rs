@@ -360,12 +360,12 @@ impl ::core::fmt::Debug for IDedupBackupSupport {
     }
 }
 unsafe impl ::windows::core::Interface for IDedupBackupSupport {
-    type Vtable = IDedupBackupSupportVtbl;
+    type Vtable = IDedupBackupSupport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc719d963_2b2d_415e_acf7_7eb7ca596ff4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDedupBackupSupportVtbl {
+pub struct IDedupBackupSupport_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RestoreFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numberoffiles: u32, filefullpaths: *const super::super::Foundation::BSTR, store: ::windows::core::RawPtr, flags: u32, fileresults: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -432,12 +432,12 @@ impl ::core::fmt::Debug for IDedupChunkLibrary {
     }
 }
 unsafe impl ::windows::core::Interface for IDedupChunkLibrary {
-    type Vtable = IDedupChunkLibraryVtbl;
+    type Vtable = IDedupChunkLibrary_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb5144d7_2720_4dcc_8777_78597416ec23);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDedupChunkLibraryVtbl {
+pub struct IDedupChunkLibrary_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub InitializeForPushBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Uninitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -550,12 +550,12 @@ impl ::core::fmt::Debug for IDedupDataPort {
     }
 }
 unsafe impl ::windows::core::Interface for IDedupDataPort {
-    type Vtable = IDedupDataPortVtbl;
+    type Vtable = IDedupDataPort_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7963d734_40a9_4ea3_bbf6_5a89d26f7ae8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDedupDataPortVtbl {
+pub struct IDedupDataPort_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatus: *mut DedupDataPortVolumeStatus, pdataheadroommb: *mut u32) -> ::windows::core::HRESULT,
     pub LookupChunks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, phashes: *const DedupHash, prequestid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -643,12 +643,12 @@ impl ::core::fmt::Debug for IDedupDataPortManager {
     }
 }
 unsafe impl ::windows::core::Interface for IDedupDataPortManager {
-    type Vtable = IDedupDataPortManagerVtbl;
+    type Vtable = IDedupDataPortManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44677452_b90a_445e_8192_cdcfe81511fb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDedupDataPortManagerVtbl {
+pub struct IDedupDataPortManager_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pminchunksize: *mut u32, pmaxchunksize: *mut u32, pchunkingalgorithm: *mut DedupChunkingAlgorithm, phashingalgorithm: *mut DedupHashingAlgorithm, pcompressionalgorithm: *mut DedupCompressionAlgorithm) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -718,12 +718,12 @@ impl ::core::fmt::Debug for IDedupIterateChunksHash32 {
     }
 }
 unsafe impl ::windows::core::Interface for IDedupIterateChunksHash32 {
-    type Vtable = IDedupIterateChunksHash32Vtbl;
+    type Vtable = IDedupIterateChunksHash32_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90b584d3_72aa_400f_9767_cad866a5a2d8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDedupIterateChunksHash32Vtbl {
+pub struct IDedupIterateChunksHash32_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub PushBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *const u8, ulbufferlength: u32) -> ::windows::core::HRESULT,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulmaxchunks: u32, parrchunks: *mut DEDUP_CHUNK_INFO_HASH32, pulfetched: *mut u32) -> ::windows::core::HRESULT,
@@ -787,12 +787,12 @@ impl ::core::fmt::Debug for IDedupReadFileCallback {
     }
 }
 unsafe impl ::windows::core::Interface for IDedupReadFileCallback {
-    type Vtable = IDedupReadFileCallbackVtbl;
+    type Vtable = IDedupReadFileCallback_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bacc67a_2f1d_42d0_897e_6ff62dd533bb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDedupReadFileCallbackVtbl {
+pub struct IDedupReadFileCallback_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub ReadBackupFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filefullpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fileoffset: i64, sizetoread: u32, filebuffer: *mut u8, returnedsize: *mut u32, flags: u32) -> ::windows::core::HRESULT,

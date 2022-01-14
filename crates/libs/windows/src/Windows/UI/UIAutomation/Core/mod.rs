@@ -136,7 +136,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationRemoteOperationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.AutomationRemoteOperationResult;{e0f80c42-4a67-5534-bf5a-09e8a99b36b1})");
 }
 unsafe impl ::windows::core::Interface for AutomationRemoteOperationResult {
-    type Vtable = IAutomationRemoteOperationResultVtbl;
+    type Vtable = IAutomationRemoteOperationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0f80c42_4a67_5534_bf5a_09e8a99b36b1);
 }
 impl ::windows::core::RuntimeName for AutomationRemoteOperationResult {
@@ -311,7 +311,7 @@ unsafe impl ::windows::core::RuntimeType for CoreAutomationRemoteOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperation;{3ac656f4-e2bc-5c6e-b8e7-b224fb74b060})");
 }
 unsafe impl ::windows::core::Interface for CoreAutomationRemoteOperation {
-    type Vtable = ICoreAutomationRemoteOperationVtbl;
+    type Vtable = ICoreAutomationRemoteOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ac656f4_e2bc_5c6e_b8e7_b224fb74b060);
 }
 impl ::windows::core::RuntimeName for CoreAutomationRemoteOperation {
@@ -402,7 +402,7 @@ unsafe impl ::windows::core::RuntimeType for CoreAutomationRemoteOperationContex
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperationContext;{b9af9cbb-3d3e-5918-a16b-7861626a3aeb})");
 }
 unsafe impl ::windows::core::Interface for CoreAutomationRemoteOperationContext {
-    type Vtable = ICoreAutomationRemoteOperationContextVtbl;
+    type Vtable = ICoreAutomationRemoteOperationContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9af9cbb_3d3e_5918_a16b_7861626a3aeb);
 }
 impl ::windows::core::RuntimeName for CoreAutomationRemoteOperationContext {
@@ -454,12 +454,12 @@ unsafe impl ::core::marker::Sync for CoreAutomationRemoteOperationContext {}
 #[repr(transparent)]
 pub struct IAutomationRemoteOperationResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAutomationRemoteOperationResult {
-    type Vtable = IAutomationRemoteOperationResultVtbl;
+    type Vtable = IAutomationRemoteOperationResult_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0f80c42_4a67_5534_bf5a_09e8a99b36b1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAutomationRemoteOperationResultVtbl {
+pub struct IAutomationRemoteOperationResult_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AutomationRemoteOperationStatus) -> ::windows::core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -540,12 +540,12 @@ unsafe impl ::windows::core::RuntimeType for ICoreAutomationConnectionBoundObjec
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0620bb64-9616-5593-be3a-eb8e6daeb3fa}");
 }
 unsafe impl ::windows::core::Interface for ICoreAutomationConnectionBoundObjectProvider {
-    type Vtable = ICoreAutomationConnectionBoundObjectProviderVtbl;
+    type Vtable = ICoreAutomationConnectionBoundObjectProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0620bb64_9616_5593_be3a_eb8e6daeb3fa);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreAutomationConnectionBoundObjectProviderVtbl {
+pub struct ICoreAutomationConnectionBoundObjectProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsComThreadingRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -553,12 +553,12 @@ pub struct ICoreAutomationConnectionBoundObjectProviderVtbl {
 #[repr(transparent)]
 pub struct ICoreAutomationRegistrarStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreAutomationRegistrarStatics {
-    type Vtable = ICoreAutomationRegistrarStaticsVtbl;
+    type Vtable = ICoreAutomationRegistrarStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e50129b_d6dc_5680_b580_ffff78300304);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreAutomationRegistrarStaticsVtbl {
+pub struct ICoreAutomationRegistrarStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RegisterAnnotationType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: ::windows::core::GUID, result__: *mut AutomationAnnotationTypeRegistration) -> ::windows::core::HRESULT,
     pub UnregisterAnnotationType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, registration: AutomationAnnotationTypeRegistration) -> ::windows::core::HRESULT,
@@ -567,12 +567,12 @@ pub struct ICoreAutomationRegistrarStaticsVtbl {
 #[repr(transparent)]
 pub struct ICoreAutomationRemoteOperation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreAutomationRemoteOperation {
-    type Vtable = ICoreAutomationRemoteOperationVtbl;
+    type Vtable = ICoreAutomationRemoteOperation_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ac656f4_e2bc_5c6e_b8e7_b224fb74b060);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreAutomationRemoteOperationVtbl {
+pub struct ICoreAutomationRemoteOperation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsOpcodeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, opcode: u32, result__: *mut bool) -> ::windows::core::HRESULT,
     pub ImportElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operandid: AutomationRemoteOperationOperandId, element: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -584,12 +584,12 @@ pub struct ICoreAutomationRemoteOperationVtbl {
 #[repr(transparent)]
 pub struct ICoreAutomationRemoteOperation2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreAutomationRemoteOperation2 {
-    type Vtable = ICoreAutomationRemoteOperation2Vtbl;
+    type Vtable = ICoreAutomationRemoteOperation2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeefaf86f_e953_5099_8ce9_dca813482ba0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreAutomationRemoteOperation2Vtbl {
+pub struct ICoreAutomationRemoteOperation2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ImportConnectionBoundObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operandid: AutomationRemoteOperationOperandId, connectionboundobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -597,12 +597,12 @@ pub struct ICoreAutomationRemoteOperation2Vtbl {
 #[repr(transparent)]
 pub struct ICoreAutomationRemoteOperationContext(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ICoreAutomationRemoteOperationContext {
-    type Vtable = ICoreAutomationRemoteOperationContextVtbl;
+    type Vtable = ICoreAutomationRemoteOperationContext_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9af9cbb_3d3e_5918_a16b_7861626a3aeb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreAutomationRemoteOperationContextVtbl {
+pub struct ICoreAutomationRemoteOperationContext_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetOperand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: AutomationRemoteOperationOperandId, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetOperand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: AutomationRemoteOperationOperandId, operand: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -686,12 +686,12 @@ unsafe impl ::windows::core::RuntimeType for ICoreAutomationRemoteOperationExten
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{88f53e67-dc69-553b-a0aa-70477e724da8}");
 }
 unsafe impl ::windows::core::Interface for ICoreAutomationRemoteOperationExtensionProvider {
-    type Vtable = ICoreAutomationRemoteOperationExtensionProviderVtbl;
+    type Vtable = ICoreAutomationRemoteOperationExtensionProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88f53e67_dc69_553b_a0aa_70477e724da8);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreAutomationRemoteOperationExtensionProviderVtbl {
+pub struct ICoreAutomationRemoteOperationExtensionProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CallExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extensionid: ::windows::core::GUID, context: ::windows::core::RawPtr, operandIds_array_size: u32, operandids: *const AutomationRemoteOperationOperandId) -> ::windows::core::HRESULT,
     pub IsExtensionSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extensionid: ::windows::core::GUID, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -700,12 +700,12 @@ pub struct ICoreAutomationRemoteOperationExtensionProviderVtbl {
 #[repr(transparent)]
 pub struct IRemoteAutomationClientSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteAutomationClientSession {
-    type Vtable = IRemoteAutomationClientSessionVtbl;
+    type Vtable = IRemoteAutomationClientSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c8a091d_94cc_5b33_afdb_678cded2bd54);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRemoteAutomationClientSessionVtbl {
+pub struct IRemoteAutomationClientSession_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -735,12 +735,12 @@ pub struct IRemoteAutomationClientSessionVtbl {
 #[repr(transparent)]
 pub struct IRemoteAutomationClientSessionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteAutomationClientSessionFactory {
-    type Vtable = IRemoteAutomationClientSessionFactoryVtbl;
+    type Vtable = IRemoteAutomationClientSessionFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf250263d_6057_5373_a5a5_ed7265fe0376);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRemoteAutomationClientSessionFactoryVtbl {
+pub struct IRemoteAutomationClientSessionFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateInstance2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -749,12 +749,12 @@ pub struct IRemoteAutomationClientSessionFactoryVtbl {
 #[repr(transparent)]
 pub struct IRemoteAutomationConnectionRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteAutomationConnectionRequestedEventArgs {
-    type Vtable = IRemoteAutomationConnectionRequestedEventArgsVtbl;
+    type Vtable = IRemoteAutomationConnectionRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea3319a8_e3a8_5dc6_adf8_044e46b14af5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRemoteAutomationConnectionRequestedEventArgsVtbl {
+pub struct IRemoteAutomationConnectionRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LocalPipeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub RemoteProcessId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -763,12 +763,12 @@ pub struct IRemoteAutomationConnectionRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IRemoteAutomationDisconnectedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteAutomationDisconnectedEventArgs {
-    type Vtable = IRemoteAutomationDisconnectedEventArgsVtbl;
+    type Vtable = IRemoteAutomationDisconnectedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbb33a3d_5d90_5c38_9eb2_dd9dcc1b2e3f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRemoteAutomationDisconnectedEventArgsVtbl {
+pub struct IRemoteAutomationDisconnectedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub LocalPipeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -776,12 +776,12 @@ pub struct IRemoteAutomationDisconnectedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IRemoteAutomationServerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteAutomationServerStatics {
-    type Vtable = IRemoteAutomationServerStaticsVtbl;
+    type Vtable = IRemoteAutomationServerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6e8945e_0c11_5028_9ae3_c2771288b6b7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRemoteAutomationServerStaticsVtbl {
+pub struct IRemoteAutomationServerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub ReportSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessionid: ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
@@ -789,12 +789,12 @@ pub struct IRemoteAutomationServerStaticsVtbl {
 #[repr(transparent)]
 pub struct IRemoteAutomationWindow(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRemoteAutomationWindow {
-    type Vtable = IRemoteAutomationWindowVtbl;
+    type Vtable = IRemoteAutomationWindow_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c607689_496d_512a_9bd5_c050cfaf1428);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRemoteAutomationWindowVtbl {
+pub struct IRemoteAutomationWindow_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub AutomationProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -903,7 +903,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteAutomationClientSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.RemoteAutomationClientSession;{5c8a091d-94cc-5b33-afdb-678cded2bd54})");
 }
 unsafe impl ::windows::core::Interface for RemoteAutomationClientSession {
-    type Vtable = IRemoteAutomationClientSessionVtbl;
+    type Vtable = IRemoteAutomationClientSession_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c8a091d_94cc_5b33_afdb_678cded2bd54);
 }
 impl ::windows::core::RuntimeName for RemoteAutomationClientSession {
@@ -992,7 +992,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteAutomationConnectionRequested
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.RemoteAutomationConnectionRequestedEventArgs;{ea3319a8-e3a8-5dc6-adf8-044e46b14af5})");
 }
 unsafe impl ::windows::core::Interface for RemoteAutomationConnectionRequestedEventArgs {
-    type Vtable = IRemoteAutomationConnectionRequestedEventArgsVtbl;
+    type Vtable = IRemoteAutomationConnectionRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea3319a8_e3a8_5dc6_adf8_044e46b14af5);
 }
 impl ::windows::core::RuntimeName for RemoteAutomationConnectionRequestedEventArgs {
@@ -1073,7 +1073,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteAutomationDisconnectedEventAr
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.RemoteAutomationDisconnectedEventArgs;{bbb33a3d-5d90-5c38-9eb2-dd9dcc1b2e3f})");
 }
 unsafe impl ::windows::core::Interface for RemoteAutomationDisconnectedEventArgs {
-    type Vtable = IRemoteAutomationDisconnectedEventArgsVtbl;
+    type Vtable = IRemoteAutomationDisconnectedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbb33a3d_5d90_5c38_9eb2_dd9dcc1b2e3f);
 }
 impl ::windows::core::RuntimeName for RemoteAutomationDisconnectedEventArgs {
@@ -1179,7 +1179,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteAutomationWindow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.RemoteAutomationWindow;{7c607689-496d-512a-9bd5-c050cfaf1428})");
 }
 unsafe impl ::windows::core::Interface for RemoteAutomationWindow {
-    type Vtable = IRemoteAutomationWindowVtbl;
+    type Vtable = IRemoteAutomationWindow_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c607689_496d_512a_9bd5_c050cfaf1428);
 }
 impl ::windows::core::RuntimeName for RemoteAutomationWindow {

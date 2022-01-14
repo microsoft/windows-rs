@@ -109,7 +109,7 @@ unsafe impl ::windows::core::RuntimeType for AppCapability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authorization.AppCapabilityAccess.AppCapability;{4c49d915-8a2a-4295-9437-2df7c396aff4})");
 }
 unsafe impl ::windows::core::Interface for AppCapability {
-    type Vtable = IAppCapabilityVtbl;
+    type Vtable = IAppCapability_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c49d915_8a2a_4295_9437_2df7c396aff4);
 }
 impl ::windows::core::RuntimeName for AppCapability {
@@ -181,7 +181,7 @@ unsafe impl ::windows::core::RuntimeType for AppCapabilityAccessChangedEventArgs
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessChangedEventArgs;{0a578d15-bdd7-457e-8cca-6f53bd2e5944})");
 }
 unsafe impl ::windows::core::Interface for AppCapabilityAccessChangedEventArgs {
-    type Vtable = IAppCapabilityAccessChangedEventArgsVtbl;
+    type Vtable = IAppCapabilityAccessChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a578d15_bdd7_457e_8cca_6f53bd2e5944);
 }
 impl ::windows::core::RuntimeName for AppCapabilityAccessChangedEventArgs {
@@ -269,12 +269,12 @@ impl ::windows::core::DefaultType for AppCapabilityAccessStatus {
 #[repr(transparent)]
 pub struct IAppCapability(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCapability {
-    type Vtable = IAppCapabilityVtbl;
+    type Vtable = IAppCapability_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c49d915_8a2a_4295_9437_2df7c396aff4);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCapabilityVtbl {
+pub struct IAppCapability_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CapabilityName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "System")]
@@ -299,24 +299,24 @@ pub struct IAppCapabilityVtbl {
 #[repr(transparent)]
 pub struct IAppCapabilityAccessChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCapabilityAccessChangedEventArgs {
-    type Vtable = IAppCapabilityAccessChangedEventArgsVtbl;
+    type Vtable = IAppCapabilityAccessChangedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a578d15_bdd7_457e_8cca_6f53bd2e5944);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCapabilityAccessChangedEventArgsVtbl {
+pub struct IAppCapabilityAccessChangedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppCapabilityStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IAppCapabilityStatics {
-    type Vtable = IAppCapabilityStaticsVtbl;
+    type Vtable = IAppCapabilityStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c353e2a_46ee_44e5_af3d_6ad3fc49bd22);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAppCapabilityStaticsVtbl {
+pub struct IAppCapabilityStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub RequestAccessForCapabilitiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capabilitynames: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

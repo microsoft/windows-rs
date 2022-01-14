@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICoreFrameworkInputViewImpl: Sized {
+pub trait ICoreFrameworkInputView_Impl: Sized {
     fn PrimaryViewAnimationStarting(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<CoreFrameworkInputView, CoreFrameworkInputViewAnimationStartingEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemovePrimaryViewAnimationStarting(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn OcclusionsChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<CoreFrameworkInputView, CoreFrameworkInputViewOcclusionsChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
@@ -10,9 +10,9 @@ impl ::windows::core::RuntimeName for ICoreFrameworkInputView {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.ICoreFrameworkInputView";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICoreFrameworkInputViewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreFrameworkInputViewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreFrameworkInputViewVtbl {
-        unsafe extern "system" fn PrimaryViewAnimationStarting<Impl: ICoreFrameworkInputViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl ICoreFrameworkInputView_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreFrameworkInputView_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreFrameworkInputView_Vtbl {
+        unsafe extern "system" fn PrimaryViewAnimationStarting<Impl: ICoreFrameworkInputView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrimaryViewAnimationStarting(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<CoreFrameworkInputView, CoreFrameworkInputViewAnimationStartingEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<CoreFrameworkInputView, CoreFrameworkInputViewAnimationStartingEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -23,11 +23,11 @@ impl ICoreFrameworkInputViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePrimaryViewAnimationStarting<Impl: ICoreFrameworkInputViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePrimaryViewAnimationStarting<Impl: ICoreFrameworkInputView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePrimaryViewAnimationStarting(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn OcclusionsChanged<Impl: ICoreFrameworkInputViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OcclusionsChanged<Impl: ICoreFrameworkInputView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OcclusionsChanged(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<CoreFrameworkInputView, CoreFrameworkInputViewOcclusionsChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<CoreFrameworkInputView, CoreFrameworkInputViewOcclusionsChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -38,7 +38,7 @@ impl ICoreFrameworkInputViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveOcclusionsChanged<Impl: ICoreFrameworkInputViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveOcclusionsChanged<Impl: ICoreFrameworkInputView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveOcclusionsChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -55,7 +55,7 @@ impl ICoreFrameworkInputViewVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ICoreFrameworkInputViewAnimationStartingEventArgsImpl: Sized {
+pub trait ICoreFrameworkInputViewAnimationStartingEventArgs_Impl: Sized {
     fn Occlusions(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>>;
     fn FrameworkAnimationRecommended(&mut self) -> ::windows::core::Result<bool>;
     fn AnimationDuration(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
@@ -65,9 +65,9 @@ impl ::windows::core::RuntimeName for ICoreFrameworkInputViewAnimationStartingEv
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.ICoreFrameworkInputViewAnimationStartingEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ICoreFrameworkInputViewAnimationStartingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreFrameworkInputViewAnimationStartingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreFrameworkInputViewAnimationStartingEventArgsVtbl {
-        unsafe extern "system" fn Occlusions<Impl: ICoreFrameworkInputViewAnimationStartingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICoreFrameworkInputViewAnimationStartingEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreFrameworkInputViewAnimationStartingEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreFrameworkInputViewAnimationStartingEventArgs_Vtbl {
+        unsafe extern "system" fn Occlusions<Impl: ICoreFrameworkInputViewAnimationStartingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Occlusions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -78,7 +78,7 @@ impl ICoreFrameworkInputViewAnimationStartingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FrameworkAnimationRecommended<Impl: ICoreFrameworkInputViewAnimationStartingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FrameworkAnimationRecommended<Impl: ICoreFrameworkInputViewAnimationStartingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FrameworkAnimationRecommended() {
                 ::core::result::Result::Ok(ok__) => {
@@ -89,7 +89,7 @@ impl ICoreFrameworkInputViewAnimationStartingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AnimationDuration<Impl: ICoreFrameworkInputViewAnimationStartingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AnimationDuration<Impl: ICoreFrameworkInputViewAnimationStartingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AnimationDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -112,7 +112,7 @@ impl ICoreFrameworkInputViewAnimationStartingEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ICoreFrameworkInputViewOcclusionsChangedEventArgsImpl: Sized {
+pub trait ICoreFrameworkInputViewOcclusionsChangedEventArgs_Impl: Sized {
     fn Occlusions(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>>;
     fn Handled(&mut self) -> ::windows::core::Result<bool>;
 }
@@ -121,9 +121,9 @@ impl ::windows::core::RuntimeName for ICoreFrameworkInputViewOcclusionsChangedEv
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.ICoreFrameworkInputViewOcclusionsChangedEventArgs";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ICoreFrameworkInputViewOcclusionsChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreFrameworkInputViewOcclusionsChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreFrameworkInputViewOcclusionsChangedEventArgsVtbl {
-        unsafe extern "system" fn Occlusions<Impl: ICoreFrameworkInputViewOcclusionsChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICoreFrameworkInputViewOcclusionsChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreFrameworkInputViewOcclusionsChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreFrameworkInputViewOcclusionsChangedEventArgs_Vtbl {
+        unsafe extern "system" fn Occlusions<Impl: ICoreFrameworkInputViewOcclusionsChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Occlusions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -134,7 +134,7 @@ impl ICoreFrameworkInputViewOcclusionsChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Handled<Impl: ICoreFrameworkInputViewOcclusionsChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Handled<Impl: ICoreFrameworkInputViewOcclusionsChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -156,7 +156,7 @@ impl ICoreFrameworkInputViewOcclusionsChangedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICoreFrameworkInputViewStaticsImpl: Sized {
+pub trait ICoreFrameworkInputViewStatics_Impl: Sized {
     fn GetForUIContext(&mut self, context: &::core::option::Option<super::super::UIContext>) -> ::windows::core::Result<CoreFrameworkInputView>;
     fn GetForCurrentView(&mut self) -> ::windows::core::Result<CoreFrameworkInputView>;
 }
@@ -165,9 +165,9 @@ impl ::windows::core::RuntimeName for ICoreFrameworkInputViewStatics {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.ICoreFrameworkInputViewStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICoreFrameworkInputViewStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreFrameworkInputViewStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreFrameworkInputViewStaticsVtbl {
-        unsafe extern "system" fn GetForUIContext<Impl: ICoreFrameworkInputViewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICoreFrameworkInputViewStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreFrameworkInputViewStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreFrameworkInputViewStatics_Vtbl {
+        unsafe extern "system" fn GetForUIContext<Impl: ICoreFrameworkInputViewStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForUIContext(&*(&context as *const <super::super::UIContext as ::windows::core::Abi>::Abi as *const <super::super::UIContext as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -178,7 +178,7 @@ impl ICoreFrameworkInputViewStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetForCurrentView<Impl: ICoreFrameworkInputViewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetForCurrentView<Impl: ICoreFrameworkInputViewStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -200,7 +200,7 @@ impl ICoreFrameworkInputViewStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ICoreInputViewImpl: Sized {
+pub trait ICoreInputView_Impl: Sized {
     fn OcclusionsChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewOcclusionsChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveOcclusionsChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn GetCoreInputViewOcclusions(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>>;
@@ -212,9 +212,9 @@ impl ::windows::core::RuntimeName for ICoreInputView {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.ICoreInputView";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ICoreInputViewVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputViewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputViewVtbl {
-        unsafe extern "system" fn OcclusionsChanged<Impl: ICoreInputViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl ICoreInputView_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputView_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputView_Vtbl {
+        unsafe extern "system" fn OcclusionsChanged<Impl: ICoreInputView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OcclusionsChanged(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewOcclusionsChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewOcclusionsChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -225,11 +225,11 @@ impl ICoreInputViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveOcclusionsChanged<Impl: ICoreInputViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveOcclusionsChanged<Impl: ICoreInputView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveOcclusionsChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetCoreInputViewOcclusions<Impl: ICoreInputViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCoreInputViewOcclusions<Impl: ICoreInputView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetCoreInputViewOcclusions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -240,7 +240,7 @@ impl ICoreInputViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryShowPrimaryView<Impl: ICoreInputViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryShowPrimaryView<Impl: ICoreInputView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryShowPrimaryView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -251,7 +251,7 @@ impl ICoreInputViewVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryHidePrimaryView<Impl: ICoreInputViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryHidePrimaryView<Impl: ICoreInputView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryHidePrimaryView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -276,7 +276,7 @@ impl ICoreInputViewVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICoreInputView2Impl: Sized {
+pub trait ICoreInputView2_Impl: Sized {
     fn XYFocusTransferringFromPrimaryView(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewTransferringXYFocusEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveXYFocusTransferringFromPrimaryView(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn XYFocusTransferredToPrimaryView(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<CoreInputView, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
@@ -288,9 +288,9 @@ impl ::windows::core::RuntimeName for ICoreInputView2 {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.ICoreInputView2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICoreInputView2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputView2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputView2Vtbl {
-        unsafe extern "system" fn XYFocusTransferringFromPrimaryView<Impl: ICoreInputView2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl ICoreInputView2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputView2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputView2_Vtbl {
+        unsafe extern "system" fn XYFocusTransferringFromPrimaryView<Impl: ICoreInputView2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).XYFocusTransferringFromPrimaryView(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewTransferringXYFocusEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewTransferringXYFocusEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -301,11 +301,11 @@ impl ICoreInputView2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveXYFocusTransferringFromPrimaryView<Impl: ICoreInputView2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveXYFocusTransferringFromPrimaryView<Impl: ICoreInputView2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveXYFocusTransferringFromPrimaryView(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn XYFocusTransferredToPrimaryView<Impl: ICoreInputView2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn XYFocusTransferredToPrimaryView<Impl: ICoreInputView2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).XYFocusTransferredToPrimaryView(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<CoreInputView, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<CoreInputView, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -316,11 +316,11 @@ impl ICoreInputView2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveXYFocusTransferredToPrimaryView<Impl: ICoreInputView2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveXYFocusTransferredToPrimaryView<Impl: ICoreInputView2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveXYFocusTransferredToPrimaryView(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TryTransferXYFocusToPrimaryView<Impl: ICoreInputView2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, origin: super::super::super::Foundation::Rect, direction: CoreInputViewXYFocusTransferDirection, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryTransferXYFocusToPrimaryView<Impl: ICoreInputView2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, origin: super::super::super::Foundation::Rect, direction: CoreInputViewXYFocusTransferDirection, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryTransferXYFocusToPrimaryView(&*(&origin as *const <super::super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType), direction) {
                 ::core::result::Result::Ok(ok__) => {
@@ -345,7 +345,7 @@ impl ICoreInputView2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICoreInputView3Impl: Sized {
+pub trait ICoreInputView3_Impl: Sized {
     fn TryShow(&mut self) -> ::windows::core::Result<bool>;
     fn TryShowWithKind(&mut self, r#type: CoreInputViewKind) -> ::windows::core::Result<bool>;
     fn TryHide(&mut self) -> ::windows::core::Result<bool>;
@@ -355,9 +355,9 @@ impl ::windows::core::RuntimeName for ICoreInputView3 {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.ICoreInputView3";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICoreInputView3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputView3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputView3Vtbl {
-        unsafe extern "system" fn TryShow<Impl: ICoreInputView3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ICoreInputView3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputView3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputView3_Vtbl {
+        unsafe extern "system" fn TryShow<Impl: ICoreInputView3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryShow() {
                 ::core::result::Result::Ok(ok__) => {
@@ -368,7 +368,7 @@ impl ICoreInputView3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryShowWithKind<Impl: ICoreInputView3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: CoreInputViewKind, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryShowWithKind<Impl: ICoreInputView3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: CoreInputViewKind, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryShowWithKind(r#type) {
                 ::core::result::Result::Ok(ok__) => {
@@ -379,7 +379,7 @@ impl ICoreInputView3Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryHide<Impl: ICoreInputView3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryHide<Impl: ICoreInputView3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryHide() {
                 ::core::result::Result::Ok(ok__) => {
@@ -402,7 +402,7 @@ impl ICoreInputView3Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICoreInputView4Impl: Sized {
+pub trait ICoreInputView4_Impl: Sized {
     fn PrimaryViewShowing(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewShowingEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemovePrimaryViewShowing(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn PrimaryViewHiding(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewHidingEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
@@ -413,9 +413,9 @@ impl ::windows::core::RuntimeName for ICoreInputView4 {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.ICoreInputView4";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICoreInputView4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputView4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputView4Vtbl {
-        unsafe extern "system" fn PrimaryViewShowing<Impl: ICoreInputView4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl ICoreInputView4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputView4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputView4_Vtbl {
+        unsafe extern "system" fn PrimaryViewShowing<Impl: ICoreInputView4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrimaryViewShowing(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewShowingEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewShowingEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -426,11 +426,11 @@ impl ICoreInputView4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePrimaryViewShowing<Impl: ICoreInputView4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePrimaryViewShowing<Impl: ICoreInputView4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePrimaryViewShowing(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PrimaryViewHiding<Impl: ICoreInputView4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrimaryViewHiding<Impl: ICoreInputView4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrimaryViewHiding(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewHidingEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewHidingEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -441,7 +441,7 @@ impl ICoreInputView4Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePrimaryViewHiding<Impl: ICoreInputView4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePrimaryViewHiding<Impl: ICoreInputView4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePrimaryViewHiding(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -458,7 +458,7 @@ impl ICoreInputView4Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICoreInputView5Impl: Sized {
+pub trait ICoreInputView5_Impl: Sized {
     fn IsKindSupported(&mut self, r#type: CoreInputViewKind) -> ::windows::core::Result<bool>;
     fn SupportedKindsChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<CoreInputView, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveSupportedKindsChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
@@ -470,9 +470,9 @@ impl ::windows::core::RuntimeName for ICoreInputView5 {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.ICoreInputView5";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICoreInputView5Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputView5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputView5Vtbl {
-        unsafe extern "system" fn IsKindSupported<Impl: ICoreInputView5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: CoreInputViewKind, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ICoreInputView5_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputView5_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputView5_Vtbl {
+        unsafe extern "system" fn IsKindSupported<Impl: ICoreInputView5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: CoreInputViewKind, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsKindSupported(r#type) {
                 ::core::result::Result::Ok(ok__) => {
@@ -483,7 +483,7 @@ impl ICoreInputView5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedKindsChanged<Impl: ICoreInputView5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedKindsChanged<Impl: ICoreInputView5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedKindsChanged(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<CoreInputView, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<CoreInputView, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -494,11 +494,11 @@ impl ICoreInputView5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSupportedKindsChanged<Impl: ICoreInputView5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSupportedKindsChanged<Impl: ICoreInputView5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveSupportedKindsChanged(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PrimaryViewAnimationStarting<Impl: ICoreInputView5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrimaryViewAnimationStarting<Impl: ICoreInputView5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PrimaryViewAnimationStarting(&*(&handler as *const <super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewAnimationStartingEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewAnimationStartingEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -509,7 +509,7 @@ impl ICoreInputView5Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePrimaryViewAnimationStarting<Impl: ICoreInputView5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePrimaryViewAnimationStarting<Impl: ICoreInputView5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePrimaryViewAnimationStarting(&*(&token as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -527,7 +527,7 @@ impl ICoreInputView5Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ICoreInputViewAnimationStartingEventArgsImpl: Sized {
+pub trait ICoreInputViewAnimationStartingEventArgs_Impl: Sized {
     fn Occlusions(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>>;
     fn Handled(&mut self) -> ::windows::core::Result<bool>;
     fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -538,9 +538,9 @@ impl ::windows::core::RuntimeName for ICoreInputViewAnimationStartingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.ICoreInputViewAnimationStartingEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ICoreInputViewAnimationStartingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputViewAnimationStartingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputViewAnimationStartingEventArgsVtbl {
-        unsafe extern "system" fn Occlusions<Impl: ICoreInputViewAnimationStartingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICoreInputViewAnimationStartingEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputViewAnimationStartingEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputViewAnimationStartingEventArgs_Vtbl {
+        unsafe extern "system" fn Occlusions<Impl: ICoreInputViewAnimationStartingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Occlusions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -551,7 +551,7 @@ impl ICoreInputViewAnimationStartingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Handled<Impl: ICoreInputViewAnimationStartingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Handled<Impl: ICoreInputViewAnimationStartingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -562,11 +562,11 @@ impl ICoreInputViewAnimationStartingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandled<Impl: ICoreInputViewAnimationStartingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHandled<Impl: ICoreInputViewAnimationStartingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
-        unsafe extern "system" fn AnimationDuration<Impl: ICoreInputViewAnimationStartingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AnimationDuration<Impl: ICoreInputViewAnimationStartingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AnimationDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -590,7 +590,7 @@ impl ICoreInputViewAnimationStartingEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICoreInputViewHidingEventArgsImpl: Sized {
+pub trait ICoreInputViewHidingEventArgs_Impl: Sized {
     fn TryCancel(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -598,9 +598,9 @@ impl ::windows::core::RuntimeName for ICoreInputViewHidingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.ICoreInputViewHidingEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICoreInputViewHidingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputViewHidingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputViewHidingEventArgsVtbl {
-        unsafe extern "system" fn TryCancel<Impl: ICoreInputViewHidingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ICoreInputViewHidingEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputViewHidingEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputViewHidingEventArgs_Vtbl {
+        unsafe extern "system" fn TryCancel<Impl: ICoreInputViewHidingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCancel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -621,7 +621,7 @@ impl ICoreInputViewHidingEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICoreInputViewOcclusionImpl: Sized {
+pub trait ICoreInputViewOcclusion_Impl: Sized {
     fn OccludingRect(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
     fn OcclusionKind(&mut self) -> ::windows::core::Result<CoreInputViewOcclusionKind>;
 }
@@ -630,9 +630,9 @@ impl ::windows::core::RuntimeName for ICoreInputViewOcclusion {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.ICoreInputViewOcclusion";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICoreInputViewOcclusionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputViewOcclusionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputViewOcclusionVtbl {
-        unsafe extern "system" fn OccludingRect<Impl: ICoreInputViewOcclusionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+impl ICoreInputViewOcclusion_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputViewOcclusion_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputViewOcclusion_Vtbl {
+        unsafe extern "system" fn OccludingRect<Impl: ICoreInputViewOcclusion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OccludingRect() {
                 ::core::result::Result::Ok(ok__) => {
@@ -643,7 +643,7 @@ impl ICoreInputViewOcclusionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OcclusionKind<Impl: ICoreInputViewOcclusionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreInputViewOcclusionKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OcclusionKind<Impl: ICoreInputViewOcclusion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreInputViewOcclusionKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).OcclusionKind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -665,7 +665,7 @@ impl ICoreInputViewOcclusionVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ICoreInputViewOcclusionsChangedEventArgsImpl: Sized {
+pub trait ICoreInputViewOcclusionsChangedEventArgs_Impl: Sized {
     fn Occlusions(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>>;
     fn Handled(&mut self) -> ::windows::core::Result<bool>;
     fn SetHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -675,9 +675,9 @@ impl ::windows::core::RuntimeName for ICoreInputViewOcclusionsChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.ICoreInputViewOcclusionsChangedEventArgs";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ICoreInputViewOcclusionsChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputViewOcclusionsChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputViewOcclusionsChangedEventArgsVtbl {
-        unsafe extern "system" fn Occlusions<Impl: ICoreInputViewOcclusionsChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICoreInputViewOcclusionsChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputViewOcclusionsChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputViewOcclusionsChangedEventArgs_Vtbl {
+        unsafe extern "system" fn Occlusions<Impl: ICoreInputViewOcclusionsChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Occlusions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -688,7 +688,7 @@ impl ICoreInputViewOcclusionsChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Handled<Impl: ICoreInputViewOcclusionsChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Handled<Impl: ICoreInputViewOcclusionsChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Handled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -699,7 +699,7 @@ impl ICoreInputViewOcclusionsChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandled<Impl: ICoreInputViewOcclusionsChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHandled<Impl: ICoreInputViewOcclusionsChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetHandled(value).into()
         }
@@ -715,7 +715,7 @@ impl ICoreInputViewOcclusionsChangedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICoreInputViewShowingEventArgsImpl: Sized {
+pub trait ICoreInputViewShowingEventArgs_Impl: Sized {
     fn TryCancel(&mut self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -723,9 +723,9 @@ impl ::windows::core::RuntimeName for ICoreInputViewShowingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.ICoreInputViewShowingEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICoreInputViewShowingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputViewShowingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputViewShowingEventArgsVtbl {
-        unsafe extern "system" fn TryCancel<Impl: ICoreInputViewShowingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ICoreInputViewShowingEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputViewShowingEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputViewShowingEventArgs_Vtbl {
+        unsafe extern "system" fn TryCancel<Impl: ICoreInputViewShowingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryCancel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -746,7 +746,7 @@ impl ICoreInputViewShowingEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICoreInputViewStaticsImpl: Sized {
+pub trait ICoreInputViewStatics_Impl: Sized {
     fn GetForCurrentView(&mut self) -> ::windows::core::Result<CoreInputView>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -754,9 +754,9 @@ impl ::windows::core::RuntimeName for ICoreInputViewStatics {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.ICoreInputViewStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICoreInputViewStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputViewStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputViewStaticsVtbl {
-        unsafe extern "system" fn GetForCurrentView<Impl: ICoreInputViewStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICoreInputViewStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputViewStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputViewStatics_Vtbl {
+        unsafe extern "system" fn GetForCurrentView<Impl: ICoreInputViewStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -777,7 +777,7 @@ impl ICoreInputViewStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ICoreInputViewStatics2Impl: Sized {
+pub trait ICoreInputViewStatics2_Impl: Sized {
     fn GetForUIContext(&mut self, context: &::core::option::Option<super::super::UIContext>) -> ::windows::core::Result<CoreInputView>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -785,9 +785,9 @@ impl ::windows::core::RuntimeName for ICoreInputViewStatics2 {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.ICoreInputViewStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ICoreInputViewStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputViewStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputViewStatics2Vtbl {
-        unsafe extern "system" fn GetForUIContext<Impl: ICoreInputViewStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ICoreInputViewStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputViewStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputViewStatics2_Vtbl {
+        unsafe extern "system" fn GetForUIContext<Impl: ICoreInputViewStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForUIContext(&*(&context as *const <super::super::UIContext as ::windows::core::Abi>::Abi as *const <super::super::UIContext as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -808,7 +808,7 @@ impl ICoreInputViewStatics2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICoreInputViewTransferringXYFocusEventArgsImpl: Sized {
+pub trait ICoreInputViewTransferringXYFocusEventArgs_Impl: Sized {
     fn Origin(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
     fn Direction(&mut self) -> ::windows::core::Result<CoreInputViewXYFocusTransferDirection>;
     fn SetTransferHandled(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -821,9 +821,9 @@ impl ::windows::core::RuntimeName for ICoreInputViewTransferringXYFocusEventArgs
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.ICoreInputViewTransferringXYFocusEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICoreInputViewTransferringXYFocusEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputViewTransferringXYFocusEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputViewTransferringXYFocusEventArgsVtbl {
-        unsafe extern "system" fn Origin<Impl: ICoreInputViewTransferringXYFocusEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+impl ICoreInputViewTransferringXYFocusEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreInputViewTransferringXYFocusEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICoreInputViewTransferringXYFocusEventArgs_Vtbl {
+        unsafe extern "system" fn Origin<Impl: ICoreInputViewTransferringXYFocusEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Origin() {
                 ::core::result::Result::Ok(ok__) => {
@@ -834,7 +834,7 @@ impl ICoreInputViewTransferringXYFocusEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Direction<Impl: ICoreInputViewTransferringXYFocusEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreInputViewXYFocusTransferDirection) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Direction<Impl: ICoreInputViewTransferringXYFocusEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CoreInputViewXYFocusTransferDirection) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Direction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -845,11 +845,11 @@ impl ICoreInputViewTransferringXYFocusEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTransferHandled<Impl: ICoreInputViewTransferringXYFocusEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTransferHandled<Impl: ICoreInputViewTransferringXYFocusEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTransferHandled(value).into()
         }
-        unsafe extern "system" fn TransferHandled<Impl: ICoreInputViewTransferringXYFocusEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransferHandled<Impl: ICoreInputViewTransferringXYFocusEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TransferHandled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -860,11 +860,11 @@ impl ICoreInputViewTransferringXYFocusEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetKeepPrimaryViewVisible<Impl: ICoreInputViewTransferringXYFocusEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetKeepPrimaryViewVisible<Impl: ICoreInputViewTransferringXYFocusEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetKeepPrimaryViewVisible(value).into()
         }
-        unsafe extern "system" fn KeepPrimaryViewVisible<Impl: ICoreInputViewTransferringXYFocusEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KeepPrimaryViewVisible<Impl: ICoreInputViewTransferringXYFocusEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).KeepPrimaryViewVisible() {
                 ::core::result::Result::Ok(ok__) => {
@@ -890,7 +890,7 @@ impl ICoreInputViewTransferringXYFocusEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IUISettingsControllerImpl: Sized {
+pub trait IUISettingsController_Impl: Sized {
     fn SetAdvancedEffectsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn SetAnimationsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
     fn SetAutoHideScrollBars(&mut self, value: bool) -> ::windows::core::Result<()>;
@@ -902,25 +902,25 @@ impl ::windows::core::RuntimeName for IUISettingsController {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.IUISettingsController";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IUISettingsControllerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUISettingsControllerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUISettingsControllerVtbl {
-        unsafe extern "system" fn SetAdvancedEffectsEnabled<Impl: IUISettingsControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+impl IUISettingsController_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUISettingsController_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUISettingsController_Vtbl {
+        unsafe extern "system" fn SetAdvancedEffectsEnabled<Impl: IUISettingsController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAdvancedEffectsEnabled(value).into()
         }
-        unsafe extern "system" fn SetAnimationsEnabled<Impl: IUISettingsControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAnimationsEnabled<Impl: IUISettingsController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAnimationsEnabled(value).into()
         }
-        unsafe extern "system" fn SetAutoHideScrollBars<Impl: IUISettingsControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAutoHideScrollBars<Impl: IUISettingsController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAutoHideScrollBars(value).into()
         }
-        unsafe extern "system" fn SetMessageDuration<Impl: IUISettingsControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMessageDuration<Impl: IUISettingsController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetMessageDuration(value).into()
         }
-        unsafe extern "system" fn SetTextScaleFactor<Impl: IUISettingsControllerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTextScaleFactor<Impl: IUISettingsController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTextScaleFactor(value).into()
         }
@@ -938,7 +938,7 @@ impl IUISettingsControllerVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IUISettingsControllerStaticsImpl: Sized {
+pub trait IUISettingsControllerStatics_Impl: Sized {
     fn RequestDefaultAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<UISettingsController>>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -946,9 +946,9 @@ impl ::windows::core::RuntimeName for IUISettingsControllerStatics {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.IUISettingsControllerStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IUISettingsControllerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUISettingsControllerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUISettingsControllerStaticsVtbl {
-        unsafe extern "system" fn RequestDefaultAsync<Impl: IUISettingsControllerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IUISettingsControllerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUISettingsControllerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUISettingsControllerStatics_Vtbl {
+        unsafe extern "system" fn RequestDefaultAsync<Impl: IUISettingsControllerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestDefaultAsync() {
                 ::core::result::Result::Ok(ok__) => {

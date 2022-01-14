@@ -5,12 +5,12 @@ pub mod Injection;
 #[repr(transparent)]
 pub struct IInputActivationListenerPreviewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IInputActivationListenerPreviewStatics {
-    type Vtable = IInputActivationListenerPreviewStaticsVtbl;
+    type Vtable = IInputActivationListenerPreviewStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0551ce5_0de6_5be0_a589_f737201a4582);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInputActivationListenerPreviewStaticsVtbl {
+pub struct IInputActivationListenerPreviewStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_WindowManagement")]
     pub CreateForApplicationWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

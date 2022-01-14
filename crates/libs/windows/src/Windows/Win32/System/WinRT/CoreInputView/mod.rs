@@ -67,12 +67,12 @@ impl ::core::fmt::Debug for ICoreFrameworkInputViewInterop {
     }
 }
 unsafe impl ::windows::core::Interface for ICoreFrameworkInputViewInterop {
-    type Vtable = ICoreFrameworkInputViewInteropVtbl;
+    type Vtable = ICoreFrameworkInputViewInterop_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e3da342_b11c_484b_9c1c_be0d61c2f6c5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICoreFrameworkInputViewInteropVtbl {
+pub struct ICoreFrameworkInputViewInterop_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, coreframeworkinputview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

@@ -229,7 +229,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.DisplayMonitor;{1f6b15d4-1d01-4c51-87e2-6f954a772b59})");
 }
 unsafe impl ::windows::core::Interface for DisplayMonitor {
-    type Vtable = IDisplayMonitorVtbl;
+    type Vtable = IDisplayMonitor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f6b15d4_1d01_4c51_87e2_6f954a772b59);
 }
 impl ::windows::core::RuntimeName for DisplayMonitor {
@@ -422,12 +422,12 @@ impl ::windows::core::DefaultType for DisplayMonitorUsageKind {
 #[repr(transparent)]
 pub struct IDisplayMonitor(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayMonitor {
-    type Vtable = IDisplayMonitorVtbl;
+    type Vtable = IDisplayMonitor_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f6b15d4_1d01_4c51_87e2_6f954a772b59);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayMonitorVtbl {
+pub struct IDisplayMonitor_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -475,12 +475,12 @@ pub struct IDisplayMonitorVtbl {
 #[repr(transparent)]
 pub struct IDisplayMonitor2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayMonitor2 {
-    type Vtable = IDisplayMonitor2Vtbl;
+    type Vtable = IDisplayMonitor2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x023018e6_cb23_5830_96df_a7bf6e602577);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayMonitor2Vtbl {
+pub struct IDisplayMonitor2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsDolbyVisionSupportedInHdrMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -488,12 +488,12 @@ pub struct IDisplayMonitor2Vtbl {
 #[repr(transparent)]
 pub struct IDisplayMonitorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IDisplayMonitorStatics {
-    type Vtable = IDisplayMonitorStaticsVtbl;
+    type Vtable = IDisplayMonitorStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eae698f_a228_4c05_821d_b695d667de8e);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDisplayMonitorStaticsVtbl {
+pub struct IDisplayMonitorStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]

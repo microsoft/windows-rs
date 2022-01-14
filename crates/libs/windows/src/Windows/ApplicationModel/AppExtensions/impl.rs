@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IAppExtensionImpl: Sized {
+pub trait IAppExtension_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -13,9 +13,9 @@ impl ::windows::core::RuntimeName for IAppExtension {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.IAppExtension";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IAppExtensionVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionVtbl {
-        unsafe extern "system" fn Id<Impl: IAppExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAppExtension_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtension_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtension_Vtbl {
+        unsafe extern "system" fn Id<Impl: IAppExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -26,7 +26,7 @@ impl IAppExtensionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayName<Impl: IAppExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayName<Impl: IAppExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -37,7 +37,7 @@ impl IAppExtensionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Impl: IAppExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Impl: IAppExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -48,7 +48,7 @@ impl IAppExtensionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Package<Impl: IAppExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Package<Impl: IAppExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Package() {
                 ::core::result::Result::Ok(ok__) => {
@@ -59,7 +59,7 @@ impl IAppExtensionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppInfo<Impl: IAppExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AppInfo<Impl: IAppExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -70,7 +70,7 @@ impl IAppExtensionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetExtensionPropertiesAsync<Impl: IAppExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetExtensionPropertiesAsync<Impl: IAppExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetExtensionPropertiesAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -81,7 +81,7 @@ impl IAppExtensionVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPublicFolderAsync<Impl: IAppExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPublicFolderAsync<Impl: IAppExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetPublicFolderAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -108,7 +108,7 @@ impl IAppExtensionVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppExtension2Impl: Sized {
+pub trait IAppExtension2_Impl: Sized {
     fn AppUserModelId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -116,9 +116,9 @@ impl ::windows::core::RuntimeName for IAppExtension2 {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.IAppExtension2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppExtension2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtension2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtension2Vtbl {
-        unsafe extern "system" fn AppUserModelId<Impl: IAppExtension2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAppExtension2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtension2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtension2_Vtbl {
+        unsafe extern "system" fn AppUserModelId<Impl: IAppExtension2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppUserModelId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -136,7 +136,7 @@ impl IAppExtension2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IAppExtensionCatalogImpl: Sized {
+pub trait IAppExtensionCatalog_Impl: Sized {
     fn FindAllAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppExtension>>>;
     fn RequestRemovePackageAsync(&mut self, packagefullname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn PackageInstalled(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageInstalledEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -155,9 +155,9 @@ impl ::windows::core::RuntimeName for IAppExtensionCatalog {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.IAppExtensionCatalog";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IAppExtensionCatalogVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionCatalogImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionCatalogVtbl {
-        unsafe extern "system" fn FindAllAsync<Impl: IAppExtensionCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAppExtensionCatalog_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionCatalog_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionCatalog_Vtbl {
+        unsafe extern "system" fn FindAllAsync<Impl: IAppExtensionCatalog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAllAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -168,7 +168,7 @@ impl IAppExtensionCatalogVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestRemovePackageAsync<Impl: IAppExtensionCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestRemovePackageAsync<Impl: IAppExtensionCatalog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestRemovePackageAsync(&*(&packagefullname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -179,7 +179,7 @@ impl IAppExtensionCatalogVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PackageInstalled<Impl: IAppExtensionCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PackageInstalled<Impl: IAppExtensionCatalog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PackageInstalled(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageInstalledEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageInstalledEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -190,11 +190,11 @@ impl IAppExtensionCatalogVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePackageInstalled<Impl: IAppExtensionCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePackageInstalled<Impl: IAppExtensionCatalog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePackageInstalled(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PackageUpdating<Impl: IAppExtensionCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PackageUpdating<Impl: IAppExtensionCatalog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PackageUpdating(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageUpdatingEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageUpdatingEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -205,11 +205,11 @@ impl IAppExtensionCatalogVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePackageUpdating<Impl: IAppExtensionCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePackageUpdating<Impl: IAppExtensionCatalog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePackageUpdating(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PackageUpdated<Impl: IAppExtensionCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PackageUpdated<Impl: IAppExtensionCatalog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PackageUpdated(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageUpdatedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageUpdatedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -220,11 +220,11 @@ impl IAppExtensionCatalogVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePackageUpdated<Impl: IAppExtensionCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePackageUpdated<Impl: IAppExtensionCatalog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePackageUpdated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PackageUninstalling<Impl: IAppExtensionCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PackageUninstalling<Impl: IAppExtensionCatalog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PackageUninstalling(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageUninstallingEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageUninstallingEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -235,11 +235,11 @@ impl IAppExtensionCatalogVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePackageUninstalling<Impl: IAppExtensionCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePackageUninstalling<Impl: IAppExtensionCatalog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePackageUninstalling(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PackageStatusChanged<Impl: IAppExtensionCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PackageStatusChanged<Impl: IAppExtensionCatalog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PackageStatusChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageStatusChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageStatusChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -250,7 +250,7 @@ impl IAppExtensionCatalogVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePackageStatusChanged<Impl: IAppExtensionCatalogImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePackageStatusChanged<Impl: IAppExtensionCatalog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePackageStatusChanged(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -275,7 +275,7 @@ impl IAppExtensionCatalogVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppExtensionCatalogStaticsImpl: Sized {
+pub trait IAppExtensionCatalogStatics_Impl: Sized {
     fn Open(&mut self, appextensionname: &::windows::core::HSTRING) -> ::windows::core::Result<AppExtensionCatalog>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -283,9 +283,9 @@ impl ::windows::core::RuntimeName for IAppExtensionCatalogStatics {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.IAppExtensionCatalogStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppExtensionCatalogStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionCatalogStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionCatalogStaticsVtbl {
-        unsafe extern "system" fn Open<Impl: IAppExtensionCatalogStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appextensionname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IAppExtensionCatalogStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionCatalogStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionCatalogStatics_Vtbl {
+        unsafe extern "system" fn Open<Impl: IAppExtensionCatalogStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appextensionname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Open(&*(&appextensionname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -303,7 +303,7 @@ impl IAppExtensionCatalogStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IAppExtensionPackageInstalledEventArgsImpl: Sized {
+pub trait IAppExtensionPackageInstalledEventArgs_Impl: Sized {
     fn AppExtensionName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Package(&mut self) -> ::windows::core::Result<super::Package>;
     fn Extensions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AppExtension>>;
@@ -313,9 +313,9 @@ impl ::windows::core::RuntimeName for IAppExtensionPackageInstalledEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.IAppExtensionPackageInstalledEventArgs";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IAppExtensionPackageInstalledEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionPackageInstalledEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionPackageInstalledEventArgsVtbl {
-        unsafe extern "system" fn AppExtensionName<Impl: IAppExtensionPackageInstalledEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAppExtensionPackageInstalledEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionPackageInstalledEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionPackageInstalledEventArgs_Vtbl {
+        unsafe extern "system" fn AppExtensionName<Impl: IAppExtensionPackageInstalledEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppExtensionName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -326,7 +326,7 @@ impl IAppExtensionPackageInstalledEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Package<Impl: IAppExtensionPackageInstalledEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Package<Impl: IAppExtensionPackageInstalledEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Package() {
                 ::core::result::Result::Ok(ok__) => {
@@ -337,7 +337,7 @@ impl IAppExtensionPackageInstalledEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Extensions<Impl: IAppExtensionPackageInstalledEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Extensions<Impl: IAppExtensionPackageInstalledEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Extensions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -360,7 +360,7 @@ impl IAppExtensionPackageInstalledEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppExtensionPackageStatusChangedEventArgsImpl: Sized {
+pub trait IAppExtensionPackageStatusChangedEventArgs_Impl: Sized {
     fn AppExtensionName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Package(&mut self) -> ::windows::core::Result<super::Package>;
 }
@@ -369,9 +369,9 @@ impl ::windows::core::RuntimeName for IAppExtensionPackageStatusChangedEventArgs
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.IAppExtensionPackageStatusChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppExtensionPackageStatusChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionPackageStatusChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionPackageStatusChangedEventArgsVtbl {
-        unsafe extern "system" fn AppExtensionName<Impl: IAppExtensionPackageStatusChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAppExtensionPackageStatusChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionPackageStatusChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionPackageStatusChangedEventArgs_Vtbl {
+        unsafe extern "system" fn AppExtensionName<Impl: IAppExtensionPackageStatusChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppExtensionName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -382,7 +382,7 @@ impl IAppExtensionPackageStatusChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Package<Impl: IAppExtensionPackageStatusChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Package<Impl: IAppExtensionPackageStatusChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Package() {
                 ::core::result::Result::Ok(ok__) => {
@@ -404,7 +404,7 @@ impl IAppExtensionPackageStatusChangedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppExtensionPackageUninstallingEventArgsImpl: Sized {
+pub trait IAppExtensionPackageUninstallingEventArgs_Impl: Sized {
     fn AppExtensionName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Package(&mut self) -> ::windows::core::Result<super::Package>;
 }
@@ -413,9 +413,9 @@ impl ::windows::core::RuntimeName for IAppExtensionPackageUninstallingEventArgs 
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUninstallingEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppExtensionPackageUninstallingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionPackageUninstallingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionPackageUninstallingEventArgsVtbl {
-        unsafe extern "system" fn AppExtensionName<Impl: IAppExtensionPackageUninstallingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAppExtensionPackageUninstallingEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionPackageUninstallingEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionPackageUninstallingEventArgs_Vtbl {
+        unsafe extern "system" fn AppExtensionName<Impl: IAppExtensionPackageUninstallingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppExtensionName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -426,7 +426,7 @@ impl IAppExtensionPackageUninstallingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Package<Impl: IAppExtensionPackageUninstallingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Package<Impl: IAppExtensionPackageUninstallingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Package() {
                 ::core::result::Result::Ok(ok__) => {
@@ -448,7 +448,7 @@ impl IAppExtensionPackageUninstallingEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IAppExtensionPackageUpdatedEventArgsImpl: Sized {
+pub trait IAppExtensionPackageUpdatedEventArgs_Impl: Sized {
     fn AppExtensionName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Package(&mut self) -> ::windows::core::Result<super::Package>;
     fn Extensions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AppExtension>>;
@@ -458,9 +458,9 @@ impl ::windows::core::RuntimeName for IAppExtensionPackageUpdatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatedEventArgs";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IAppExtensionPackageUpdatedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionPackageUpdatedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionPackageUpdatedEventArgsVtbl {
-        unsafe extern "system" fn AppExtensionName<Impl: IAppExtensionPackageUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAppExtensionPackageUpdatedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionPackageUpdatedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionPackageUpdatedEventArgs_Vtbl {
+        unsafe extern "system" fn AppExtensionName<Impl: IAppExtensionPackageUpdatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppExtensionName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -471,7 +471,7 @@ impl IAppExtensionPackageUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Package<Impl: IAppExtensionPackageUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Package<Impl: IAppExtensionPackageUpdatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Package() {
                 ::core::result::Result::Ok(ok__) => {
@@ -482,7 +482,7 @@ impl IAppExtensionPackageUpdatedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Extensions<Impl: IAppExtensionPackageUpdatedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Extensions<Impl: IAppExtensionPackageUpdatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Extensions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -505,7 +505,7 @@ impl IAppExtensionPackageUpdatedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IAppExtensionPackageUpdatingEventArgsImpl: Sized {
+pub trait IAppExtensionPackageUpdatingEventArgs_Impl: Sized {
     fn AppExtensionName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Package(&mut self) -> ::windows::core::Result<super::Package>;
 }
@@ -514,9 +514,9 @@ impl ::windows::core::RuntimeName for IAppExtensionPackageUpdatingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.IAppExtensionPackageUpdatingEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IAppExtensionPackageUpdatingEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionPackageUpdatingEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionPackageUpdatingEventArgsVtbl {
-        unsafe extern "system" fn AppExtensionName<Impl: IAppExtensionPackageUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IAppExtensionPackageUpdatingEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppExtensionPackageUpdatingEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAppExtensionPackageUpdatingEventArgs_Vtbl {
+        unsafe extern "system" fn AppExtensionName<Impl: IAppExtensionPackageUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AppExtensionName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -527,7 +527,7 @@ impl IAppExtensionPackageUpdatingEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Package<Impl: IAppExtensionPackageUpdatingEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Package<Impl: IAppExtensionPackageUpdatingEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Package() {
                 ::core::result::Result::Ok(ok__) => {

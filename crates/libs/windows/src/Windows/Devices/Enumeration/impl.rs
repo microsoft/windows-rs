@@ -1,5 +1,5 @@
 #[cfg(feature = "implement_exclusive")]
-pub trait IDeviceAccessChangedEventArgsImpl: Sized {
+pub trait IDeviceAccessChangedEventArgs_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<DeviceAccessStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -7,9 +7,9 @@ impl ::windows::core::RuntimeName for IDeviceAccessChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceAccessChangedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDeviceAccessChangedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceAccessChangedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceAccessChangedEventArgsVtbl {
-        unsafe extern "system" fn Status<Impl: IDeviceAccessChangedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DeviceAccessStatus) -> ::windows::core::HRESULT {
+impl IDeviceAccessChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceAccessChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceAccessChangedEventArgs_Vtbl {
+        unsafe extern "system" fn Status<Impl: IDeviceAccessChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DeviceAccessStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -27,7 +27,7 @@ impl IDeviceAccessChangedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDeviceAccessChangedEventArgs2Impl: Sized + IDeviceAccessChangedEventArgsImpl {
+pub trait IDeviceAccessChangedEventArgs2_Impl: Sized + IDeviceAccessChangedEventArgs_Impl {
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -35,9 +35,9 @@ impl ::windows::core::RuntimeName for IDeviceAccessChangedEventArgs2 {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceAccessChangedEventArgs2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDeviceAccessChangedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceAccessChangedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceAccessChangedEventArgs2Vtbl {
-        unsafe extern "system" fn Id<Impl: IDeviceAccessChangedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDeviceAccessChangedEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceAccessChangedEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceAccessChangedEventArgs2_Vtbl {
+        unsafe extern "system" fn Id<Impl: IDeviceAccessChangedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -55,7 +55,7 @@ impl IDeviceAccessChangedEventArgs2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IDeviceAccessInformationImpl: Sized {
+pub trait IDeviceAccessInformation_Impl: Sized {
     fn AccessChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DeviceAccessInformation, DeviceAccessChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveAccessChanged(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn CurrentStatus(&mut self) -> ::windows::core::Result<DeviceAccessStatus>;
@@ -65,9 +65,9 @@ impl ::windows::core::RuntimeName for IDeviceAccessInformation {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceAccessInformation";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IDeviceAccessInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceAccessInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceAccessInformationVtbl {
-        unsafe extern "system" fn AccessChanged<Impl: IDeviceAccessInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IDeviceAccessInformation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceAccessInformation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceAccessInformation_Vtbl {
+        unsafe extern "system" fn AccessChanged<Impl: IDeviceAccessInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AccessChanged(&*(&handler as *const <super::super::Foundation::TypedEventHandler<DeviceAccessInformation, DeviceAccessChangedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DeviceAccessInformation, DeviceAccessChangedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -78,11 +78,11 @@ impl IDeviceAccessInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAccessChanged<Impl: IDeviceAccessInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAccessChanged<Impl: IDeviceAccessInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAccessChanged(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn CurrentStatus<Impl: IDeviceAccessInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DeviceAccessStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentStatus<Impl: IDeviceAccessInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DeviceAccessStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CurrentStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -105,7 +105,7 @@ impl IDeviceAccessInformationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDeviceAccessInformationStaticsImpl: Sized {
+pub trait IDeviceAccessInformationStatics_Impl: Sized {
     fn CreateFromId(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<DeviceAccessInformation>;
     fn CreateFromDeviceClassId(&mut self, deviceclassid: &::windows::core::GUID) -> ::windows::core::Result<DeviceAccessInformation>;
     fn CreateFromDeviceClass(&mut self, deviceclass: DeviceClass) -> ::windows::core::Result<DeviceAccessInformation>;
@@ -115,9 +115,9 @@ impl ::windows::core::RuntimeName for IDeviceAccessInformationStatics {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceAccessInformationStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDeviceAccessInformationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceAccessInformationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceAccessInformationStaticsVtbl {
-        unsafe extern "system" fn CreateFromId<Impl: IDeviceAccessInformationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDeviceAccessInformationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceAccessInformationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceAccessInformationStatics_Vtbl {
+        unsafe extern "system" fn CreateFromId<Impl: IDeviceAccessInformationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromId(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -128,7 +128,7 @@ impl IDeviceAccessInformationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromDeviceClassId<Impl: IDeviceAccessInformationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceclassid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromDeviceClassId<Impl: IDeviceAccessInformationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceclassid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromDeviceClassId(&*(&deviceclassid as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -139,7 +139,7 @@ impl IDeviceAccessInformationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromDeviceClass<Impl: IDeviceAccessInformationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceclass: DeviceClass, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromDeviceClass<Impl: IDeviceAccessInformationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceclass: DeviceClass, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromDeviceClass(deviceclass) {
                 ::core::result::Result::Ok(ok__) => {
@@ -162,7 +162,7 @@ impl IDeviceAccessInformationStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDeviceConnectionChangeTriggerDetailsImpl: Sized {
+pub trait IDeviceConnectionChangeTriggerDetails_Impl: Sized {
     fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -170,9 +170,9 @@ impl ::windows::core::RuntimeName for IDeviceConnectionChangeTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceConnectionChangeTriggerDetails";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDeviceConnectionChangeTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceConnectionChangeTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceConnectionChangeTriggerDetailsVtbl {
-        unsafe extern "system" fn DeviceId<Impl: IDeviceConnectionChangeTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDeviceConnectionChangeTriggerDetails_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceConnectionChangeTriggerDetails_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceConnectionChangeTriggerDetails_Vtbl {
+        unsafe extern "system" fn DeviceId<Impl: IDeviceConnectionChangeTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -193,7 +193,7 @@ impl IDeviceConnectionChangeTriggerDetailsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDeviceDisconnectButtonClickedEventArgsImpl: Sized {
+pub trait IDeviceDisconnectButtonClickedEventArgs_Impl: Sized {
     fn Device(&mut self) -> ::windows::core::Result<DeviceInformation>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -201,9 +201,9 @@ impl ::windows::core::RuntimeName for IDeviceDisconnectButtonClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceDisconnectButtonClickedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDeviceDisconnectButtonClickedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceDisconnectButtonClickedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceDisconnectButtonClickedEventArgsVtbl {
-        unsafe extern "system" fn Device<Impl: IDeviceDisconnectButtonClickedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDeviceDisconnectButtonClickedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceDisconnectButtonClickedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceDisconnectButtonClickedEventArgs_Vtbl {
+        unsafe extern "system" fn Device<Impl: IDeviceDisconnectButtonClickedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Device() {
                 ::core::result::Result::Ok(ok__) => {
@@ -224,7 +224,7 @@ impl IDeviceDisconnectButtonClickedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-pub trait IDeviceInformationImpl: Sized {
+pub trait IDeviceInformation_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
@@ -240,9 +240,9 @@ impl ::windows::core::RuntimeName for IDeviceInformation {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceInformation";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "implement_exclusive"))]
-impl IDeviceInformationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceInformationVtbl {
-        unsafe extern "system" fn Id<Impl: IDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDeviceInformation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceInformation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceInformation_Vtbl {
+        unsafe extern "system" fn Id<Impl: IDeviceInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -253,7 +253,7 @@ impl IDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Impl: IDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Impl: IDeviceInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -264,7 +264,7 @@ impl IDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsEnabled<Impl: IDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEnabled<Impl: IDeviceInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -275,7 +275,7 @@ impl IDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDefault<Impl: IDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDefault<Impl: IDeviceInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsDefault() {
                 ::core::result::Result::Ok(ok__) => {
@@ -286,7 +286,7 @@ impl IDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnclosureLocation<Impl: IDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnclosureLocation<Impl: IDeviceInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnclosureLocation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -297,7 +297,7 @@ impl IDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Properties<Impl: IDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Properties<Impl: IDeviceInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -308,11 +308,11 @@ impl IDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Update<Impl: IDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, updateinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Update<Impl: IDeviceInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, updateinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Update(&*(&updateinfo as *const <DeviceInformationUpdate as ::windows::core::Abi>::Abi as *const <DeviceInformationUpdate as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetThumbnailAsync<Impl: IDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetThumbnailAsync<Impl: IDeviceInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetThumbnailAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -323,7 +323,7 @@ impl IDeviceInformationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetGlyphThumbnailAsync<Impl: IDeviceInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGlyphThumbnailAsync<Impl: IDeviceInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetGlyphThumbnailAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -352,7 +352,7 @@ impl IDeviceInformationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDeviceInformation2Impl: Sized {
+pub trait IDeviceInformation2_Impl: Sized {
     fn Kind(&mut self) -> ::windows::core::Result<DeviceInformationKind>;
     fn Pairing(&mut self) -> ::windows::core::Result<DeviceInformationPairing>;
 }
@@ -361,9 +361,9 @@ impl ::windows::core::RuntimeName for IDeviceInformation2 {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceInformation2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDeviceInformation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceInformation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceInformation2Vtbl {
-        unsafe extern "system" fn Kind<Impl: IDeviceInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DeviceInformationKind) -> ::windows::core::HRESULT {
+impl IDeviceInformation2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceInformation2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceInformation2_Vtbl {
+        unsafe extern "system" fn Kind<Impl: IDeviceInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DeviceInformationKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -374,7 +374,7 @@ impl IDeviceInformation2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Pairing<Impl: IDeviceInformation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pairing<Impl: IDeviceInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pairing() {
                 ::core::result::Result::Ok(ok__) => {
@@ -396,7 +396,7 @@ impl IDeviceInformation2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IDeviceInformationCustomPairingImpl: Sized {
+pub trait IDeviceInformationCustomPairing_Impl: Sized {
     fn PairAsync(&mut self, pairingkindssupported: DevicePairingKinds) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>;
     fn PairWithProtectionLevelAsync(&mut self, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>;
     fn PairWithProtectionLevelAndSettingsAsync(&mut self, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel, devicepairingsettings: &::core::option::Option<IDevicePairingSettings>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>;
@@ -408,9 +408,9 @@ impl ::windows::core::RuntimeName for IDeviceInformationCustomPairing {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceInformationCustomPairing";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IDeviceInformationCustomPairingVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceInformationCustomPairingImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceInformationCustomPairingVtbl {
-        unsafe extern "system" fn PairAsync<Impl: IDeviceInformationCustomPairingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pairingkindssupported: DevicePairingKinds, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDeviceInformationCustomPairing_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceInformationCustomPairing_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceInformationCustomPairing_Vtbl {
+        unsafe extern "system" fn PairAsync<Impl: IDeviceInformationCustomPairing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pairingkindssupported: DevicePairingKinds, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PairAsync(pairingkindssupported) {
                 ::core::result::Result::Ok(ok__) => {
@@ -421,7 +421,7 @@ impl IDeviceInformationCustomPairingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PairWithProtectionLevelAsync<Impl: IDeviceInformationCustomPairingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PairWithProtectionLevelAsync<Impl: IDeviceInformationCustomPairing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PairWithProtectionLevelAsync(pairingkindssupported, minprotectionlevel) {
                 ::core::result::Result::Ok(ok__) => {
@@ -432,7 +432,7 @@ impl IDeviceInformationCustomPairingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PairWithProtectionLevelAndSettingsAsync<Impl: IDeviceInformationCustomPairingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel, devicepairingsettings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PairWithProtectionLevelAndSettingsAsync<Impl: IDeviceInformationCustomPairing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel, devicepairingsettings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PairWithProtectionLevelAndSettingsAsync(pairingkindssupported, minprotectionlevel, &*(&devicepairingsettings as *const <IDevicePairingSettings as ::windows::core::Abi>::Abi as *const <IDevicePairingSettings as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -443,7 +443,7 @@ impl IDeviceInformationCustomPairingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PairingRequested<Impl: IDeviceInformationCustomPairingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PairingRequested<Impl: IDeviceInformationCustomPairing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PairingRequested(&*(&handler as *const <super::super::Foundation::TypedEventHandler<DeviceInformationCustomPairing, DevicePairingRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DeviceInformationCustomPairing, DevicePairingRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -454,7 +454,7 @@ impl IDeviceInformationCustomPairingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovePairingRequested<Impl: IDeviceInformationCustomPairingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovePairingRequested<Impl: IDeviceInformationCustomPairing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemovePairingRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -472,7 +472,7 @@ impl IDeviceInformationCustomPairingVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IDeviceInformationPairingImpl: Sized {
+pub trait IDeviceInformationPairing_Impl: Sized {
     fn IsPaired(&mut self) -> ::windows::core::Result<bool>;
     fn CanPair(&mut self) -> ::windows::core::Result<bool>;
     fn PairAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>;
@@ -483,9 +483,9 @@ impl ::windows::core::RuntimeName for IDeviceInformationPairing {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceInformationPairing";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IDeviceInformationPairingVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceInformationPairingImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceInformationPairingVtbl {
-        unsafe extern "system" fn IsPaired<Impl: IDeviceInformationPairingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IDeviceInformationPairing_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceInformationPairing_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceInformationPairing_Vtbl {
+        unsafe extern "system" fn IsPaired<Impl: IDeviceInformationPairing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsPaired() {
                 ::core::result::Result::Ok(ok__) => {
@@ -496,7 +496,7 @@ impl IDeviceInformationPairingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanPair<Impl: IDeviceInformationPairingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanPair<Impl: IDeviceInformationPairing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CanPair() {
                 ::core::result::Result::Ok(ok__) => {
@@ -507,7 +507,7 @@ impl IDeviceInformationPairingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PairAsync<Impl: IDeviceInformationPairingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PairAsync<Impl: IDeviceInformationPairing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PairAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -518,7 +518,7 @@ impl IDeviceInformationPairingVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PairWithProtectionLevelAsync<Impl: IDeviceInformationPairingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minprotectionlevel: DevicePairingProtectionLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PairWithProtectionLevelAsync<Impl: IDeviceInformationPairing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minprotectionlevel: DevicePairingProtectionLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PairWithProtectionLevelAsync(minprotectionlevel) {
                 ::core::result::Result::Ok(ok__) => {
@@ -542,7 +542,7 @@ impl IDeviceInformationPairingVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IDeviceInformationPairing2Impl: Sized {
+pub trait IDeviceInformationPairing2_Impl: Sized {
     fn ProtectionLevel(&mut self) -> ::windows::core::Result<DevicePairingProtectionLevel>;
     fn Custom(&mut self) -> ::windows::core::Result<DeviceInformationCustomPairing>;
     fn PairWithProtectionLevelAndSettingsAsync(&mut self, minprotectionlevel: DevicePairingProtectionLevel, devicepairingsettings: &::core::option::Option<IDevicePairingSettings>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>;
@@ -553,9 +553,9 @@ impl ::windows::core::RuntimeName for IDeviceInformationPairing2 {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceInformationPairing2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IDeviceInformationPairing2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceInformationPairing2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceInformationPairing2Vtbl {
-        unsafe extern "system" fn ProtectionLevel<Impl: IDeviceInformationPairing2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DevicePairingProtectionLevel) -> ::windows::core::HRESULT {
+impl IDeviceInformationPairing2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceInformationPairing2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceInformationPairing2_Vtbl {
+        unsafe extern "system" fn ProtectionLevel<Impl: IDeviceInformationPairing2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DevicePairingProtectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtectionLevel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -566,7 +566,7 @@ impl IDeviceInformationPairing2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Custom<Impl: IDeviceInformationPairing2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Custom<Impl: IDeviceInformationPairing2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Custom() {
                 ::core::result::Result::Ok(ok__) => {
@@ -577,7 +577,7 @@ impl IDeviceInformationPairing2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PairWithProtectionLevelAndSettingsAsync<Impl: IDeviceInformationPairing2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minprotectionlevel: DevicePairingProtectionLevel, devicepairingsettings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PairWithProtectionLevelAndSettingsAsync<Impl: IDeviceInformationPairing2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minprotectionlevel: DevicePairingProtectionLevel, devicepairingsettings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PairWithProtectionLevelAndSettingsAsync(minprotectionlevel, &*(&devicepairingsettings as *const <IDevicePairingSettings as ::windows::core::Abi>::Abi as *const <IDevicePairingSettings as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -588,7 +588,7 @@ impl IDeviceInformationPairing2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnpairAsync<Impl: IDeviceInformationPairing2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnpairAsync<Impl: IDeviceInformationPairing2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UnpairAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -612,7 +612,7 @@ impl IDeviceInformationPairing2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDeviceInformationPairingStaticsImpl: Sized {
+pub trait IDeviceInformationPairingStatics_Impl: Sized {
     fn TryRegisterForAllInboundPairingRequests(&mut self, pairingkindssupported: DevicePairingKinds) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -620,9 +620,9 @@ impl ::windows::core::RuntimeName for IDeviceInformationPairingStatics {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceInformationPairingStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDeviceInformationPairingStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceInformationPairingStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceInformationPairingStaticsVtbl {
-        unsafe extern "system" fn TryRegisterForAllInboundPairingRequests<Impl: IDeviceInformationPairingStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pairingkindssupported: DevicePairingKinds, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IDeviceInformationPairingStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceInformationPairingStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceInformationPairingStatics_Vtbl {
+        unsafe extern "system" fn TryRegisterForAllInboundPairingRequests<Impl: IDeviceInformationPairingStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pairingkindssupported: DevicePairingKinds, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryRegisterForAllInboundPairingRequests(pairingkindssupported) {
                 ::core::result::Result::Ok(ok__) => {
@@ -643,7 +643,7 @@ impl IDeviceInformationPairingStaticsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDeviceInformationPairingStatics2Impl: Sized {
+pub trait IDeviceInformationPairingStatics2_Impl: Sized {
     fn TryRegisterForAllInboundPairingRequestsWithProtectionLevel(&mut self, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -651,9 +651,9 @@ impl ::windows::core::RuntimeName for IDeviceInformationPairingStatics2 {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceInformationPairingStatics2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDeviceInformationPairingStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceInformationPairingStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceInformationPairingStatics2Vtbl {
-        unsafe extern "system" fn TryRegisterForAllInboundPairingRequestsWithProtectionLevel<Impl: IDeviceInformationPairingStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IDeviceInformationPairingStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceInformationPairingStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceInformationPairingStatics2_Vtbl {
+        unsafe extern "system" fn TryRegisterForAllInboundPairingRequestsWithProtectionLevel<Impl: IDeviceInformationPairingStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryRegisterForAllInboundPairingRequestsWithProtectionLevel(pairingkindssupported, minprotectionlevel) {
                 ::core::result::Result::Ok(ok__) => {
@@ -674,7 +674,7 @@ impl IDeviceInformationPairingStatics2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IDeviceInformationStaticsImpl: Sized {
+pub trait IDeviceInformationStatics_Impl: Sized {
     fn CreateFromIdAsync(&mut self, deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>>;
     fn CreateFromIdAsyncAdditionalProperties(&mut self, deviceid: &::windows::core::HSTRING, additionalproperties: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>>;
     fn FindAllAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>;
@@ -691,9 +691,9 @@ impl ::windows::core::RuntimeName for IDeviceInformationStatics {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceInformationStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IDeviceInformationStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceInformationStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceInformationStaticsVtbl {
-        unsafe extern "system" fn CreateFromIdAsync<Impl: IDeviceInformationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDeviceInformationStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceInformationStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceInformationStatics_Vtbl {
+        unsafe extern "system" fn CreateFromIdAsync<Impl: IDeviceInformationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromIdAsync(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -704,7 +704,7 @@ impl IDeviceInformationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromIdAsyncAdditionalProperties<Impl: IDeviceInformationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, additionalproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromIdAsyncAdditionalProperties<Impl: IDeviceInformationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, additionalproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromIdAsyncAdditionalProperties(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&additionalproperties as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -715,7 +715,7 @@ impl IDeviceInformationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindAllAsync<Impl: IDeviceInformationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindAllAsync<Impl: IDeviceInformationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAllAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -726,7 +726,7 @@ impl IDeviceInformationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindAllAsyncDeviceClass<Impl: IDeviceInformationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceclass: DeviceClass, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindAllAsyncDeviceClass<Impl: IDeviceInformationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceclass: DeviceClass, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAllAsyncDeviceClass(deviceclass) {
                 ::core::result::Result::Ok(ok__) => {
@@ -737,7 +737,7 @@ impl IDeviceInformationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindAllAsyncAqsFilter<Impl: IDeviceInformationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindAllAsyncAqsFilter<Impl: IDeviceInformationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAllAsyncAqsFilter(&*(&aqsfilter as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -748,7 +748,7 @@ impl IDeviceInformationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindAllAsyncAqsFilterAndAdditionalProperties<Impl: IDeviceInformationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, additionalproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindAllAsyncAqsFilterAndAdditionalProperties<Impl: IDeviceInformationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, additionalproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAllAsyncAqsFilterAndAdditionalProperties(&*(&aqsfilter as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&additionalproperties as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -759,7 +759,7 @@ impl IDeviceInformationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWatcher<Impl: IDeviceInformationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWatcher<Impl: IDeviceInformationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWatcher() {
                 ::core::result::Result::Ok(ok__) => {
@@ -770,7 +770,7 @@ impl IDeviceInformationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWatcherDeviceClass<Impl: IDeviceInformationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceclass: DeviceClass, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWatcherDeviceClass<Impl: IDeviceInformationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceclass: DeviceClass, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWatcherDeviceClass(deviceclass) {
                 ::core::result::Result::Ok(ok__) => {
@@ -781,7 +781,7 @@ impl IDeviceInformationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWatcherAqsFilter<Impl: IDeviceInformationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWatcherAqsFilter<Impl: IDeviceInformationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWatcherAqsFilter(&*(&aqsfilter as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -792,7 +792,7 @@ impl IDeviceInformationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWatcherAqsFilterAndAdditionalProperties<Impl: IDeviceInformationStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, additionalproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWatcherAqsFilterAndAdditionalProperties<Impl: IDeviceInformationStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, additionalproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWatcherAqsFilterAndAdditionalProperties(&*(&aqsfilter as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&additionalproperties as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -822,7 +822,7 @@ impl IDeviceInformationStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IDeviceInformationStatics2Impl: Sized {
+pub trait IDeviceInformationStatics2_Impl: Sized {
     fn GetAqsFilterFromDeviceClass(&mut self, deviceclass: DeviceClass) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn CreateFromIdAsyncWithKindAndAdditionalProperties(&mut self, deviceid: &::windows::core::HSTRING, additionalproperties: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, kind: DeviceInformationKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>>;
     fn FindAllAsyncWithKindAqsFilterAndAdditionalProperties(&mut self, aqsfilter: &::windows::core::HSTRING, additionalproperties: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, kind: DeviceInformationKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>;
@@ -833,9 +833,9 @@ impl ::windows::core::RuntimeName for IDeviceInformationStatics2 {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceInformationStatics2";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IDeviceInformationStatics2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceInformationStatics2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceInformationStatics2Vtbl {
-        unsafe extern "system" fn GetAqsFilterFromDeviceClass<Impl: IDeviceInformationStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceclass: DeviceClass, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDeviceInformationStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceInformationStatics2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceInformationStatics2_Vtbl {
+        unsafe extern "system" fn GetAqsFilterFromDeviceClass<Impl: IDeviceInformationStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceclass: DeviceClass, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetAqsFilterFromDeviceClass(deviceclass) {
                 ::core::result::Result::Ok(ok__) => {
@@ -846,7 +846,7 @@ impl IDeviceInformationStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFromIdAsyncWithKindAndAdditionalProperties<Impl: IDeviceInformationStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, additionalproperties: ::windows::core::RawPtr, kind: DeviceInformationKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromIdAsyncWithKindAndAdditionalProperties<Impl: IDeviceInformationStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, additionalproperties: ::windows::core::RawPtr, kind: DeviceInformationKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateFromIdAsyncWithKindAndAdditionalProperties(&*(&deviceid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&additionalproperties as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType), kind) {
                 ::core::result::Result::Ok(ok__) => {
@@ -857,7 +857,7 @@ impl IDeviceInformationStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindAllAsyncWithKindAqsFilterAndAdditionalProperties<Impl: IDeviceInformationStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, additionalproperties: ::windows::core::RawPtr, kind: DeviceInformationKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindAllAsyncWithKindAqsFilterAndAdditionalProperties<Impl: IDeviceInformationStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, additionalproperties: ::windows::core::RawPtr, kind: DeviceInformationKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAllAsyncWithKindAqsFilterAndAdditionalProperties(&*(&aqsfilter as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&additionalproperties as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType), kind) {
                 ::core::result::Result::Ok(ok__) => {
@@ -868,7 +868,7 @@ impl IDeviceInformationStatics2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWatcherWithKindAqsFilterAndAdditionalProperties<Impl: IDeviceInformationStatics2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, additionalproperties: ::windows::core::RawPtr, kind: DeviceInformationKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWatcherWithKindAqsFilterAndAdditionalProperties<Impl: IDeviceInformationStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, additionalproperties: ::windows::core::RawPtr, kind: DeviceInformationKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWatcherWithKindAqsFilterAndAdditionalProperties(&*(&aqsfilter as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&additionalproperties as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> as ::windows::core::DefaultType>::DefaultType), kind) {
                 ::core::result::Result::Ok(ok__) => {
@@ -892,7 +892,7 @@ impl IDeviceInformationStatics2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IDeviceInformationUpdateImpl: Sized {
+pub trait IDeviceInformationUpdate_Impl: Sized {
     fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
 }
@@ -901,9 +901,9 @@ impl ::windows::core::RuntimeName for IDeviceInformationUpdate {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceInformationUpdate";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IDeviceInformationUpdateVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceInformationUpdateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceInformationUpdateVtbl {
-        unsafe extern "system" fn Id<Impl: IDeviceInformationUpdateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDeviceInformationUpdate_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceInformationUpdate_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceInformationUpdate_Vtbl {
+        unsafe extern "system" fn Id<Impl: IDeviceInformationUpdate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Id() {
                 ::core::result::Result::Ok(ok__) => {
@@ -914,7 +914,7 @@ impl IDeviceInformationUpdateVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Properties<Impl: IDeviceInformationUpdateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Properties<Impl: IDeviceInformationUpdate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -936,7 +936,7 @@ impl IDeviceInformationUpdateVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDeviceInformationUpdate2Impl: Sized {
+pub trait IDeviceInformationUpdate2_Impl: Sized {
     fn Kind(&mut self) -> ::windows::core::Result<DeviceInformationKind>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -944,9 +944,9 @@ impl ::windows::core::RuntimeName for IDeviceInformationUpdate2 {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceInformationUpdate2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDeviceInformationUpdate2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceInformationUpdate2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceInformationUpdate2Vtbl {
-        unsafe extern "system" fn Kind<Impl: IDeviceInformationUpdate2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DeviceInformationKind) -> ::windows::core::HRESULT {
+impl IDeviceInformationUpdate2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceInformationUpdate2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceInformationUpdate2_Vtbl {
+        unsafe extern "system" fn Kind<Impl: IDeviceInformationUpdate2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DeviceInformationKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -964,7 +964,7 @@ impl IDeviceInformationUpdate2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IDevicePairingRequestedEventArgsImpl: Sized {
+pub trait IDevicePairingRequestedEventArgs_Impl: Sized {
     fn DeviceInformation(&mut self) -> ::windows::core::Result<DeviceInformation>;
     fn PairingKind(&mut self) -> ::windows::core::Result<DevicePairingKinds>;
     fn Pin(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -977,9 +977,9 @@ impl ::windows::core::RuntimeName for IDevicePairingRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDevicePairingRequestedEventArgs";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IDevicePairingRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePairingRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDevicePairingRequestedEventArgsVtbl {
-        unsafe extern "system" fn DeviceInformation<Impl: IDevicePairingRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDevicePairingRequestedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePairingRequestedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDevicePairingRequestedEventArgs_Vtbl {
+        unsafe extern "system" fn DeviceInformation<Impl: IDevicePairingRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceInformation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -990,7 +990,7 @@ impl IDevicePairingRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PairingKind<Impl: IDevicePairingRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DevicePairingKinds) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PairingKind<Impl: IDevicePairingRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DevicePairingKinds) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PairingKind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1001,7 +1001,7 @@ impl IDevicePairingRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Pin<Impl: IDevicePairingRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Pin<Impl: IDevicePairingRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Pin() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1012,15 +1012,15 @@ impl IDevicePairingRequestedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Accept<Impl: IDevicePairingRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Accept<Impl: IDevicePairingRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Accept().into()
         }
-        unsafe extern "system" fn AcceptWithPin<Impl: IDevicePairingRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pin: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AcceptWithPin<Impl: IDevicePairingRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pin: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AcceptWithPin(&*(&pin as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GetDeferral<Impl: IDevicePairingRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IDevicePairingRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1046,7 +1046,7 @@ impl IDevicePairingRequestedEventArgsVtbl {
     }
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
-pub trait IDevicePairingRequestedEventArgs2Impl: Sized {
+pub trait IDevicePairingRequestedEventArgs2_Impl: Sized {
     fn AcceptWithPasswordCredential(&mut self, passwordcredential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
@@ -1054,9 +1054,9 @@ impl ::windows::core::RuntimeName for IDevicePairingRequestedEventArgs2 {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDevicePairingRequestedEventArgs2";
 }
 #[cfg(all(feature = "Security_Credentials", feature = "implement_exclusive"))]
-impl IDevicePairingRequestedEventArgs2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePairingRequestedEventArgs2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDevicePairingRequestedEventArgs2Vtbl {
-        unsafe extern "system" fn AcceptWithPasswordCredential<Impl: IDevicePairingRequestedEventArgs2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, passwordcredential: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDevicePairingRequestedEventArgs2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePairingRequestedEventArgs2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDevicePairingRequestedEventArgs2_Vtbl {
+        unsafe extern "system" fn AcceptWithPasswordCredential<Impl: IDevicePairingRequestedEventArgs2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, passwordcredential: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AcceptWithPasswordCredential(&*(&passwordcredential as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::Abi>::Abi as *const <super::super::Security::Credentials::PasswordCredential as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1070,7 +1070,7 @@ impl IDevicePairingRequestedEventArgs2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDevicePairingResultImpl: Sized {
+pub trait IDevicePairingResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<DevicePairingResultStatus>;
     fn ProtectionLevelUsed(&mut self) -> ::windows::core::Result<DevicePairingProtectionLevel>;
 }
@@ -1079,9 +1079,9 @@ impl ::windows::core::RuntimeName for IDevicePairingResult {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDevicePairingResult";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDevicePairingResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePairingResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDevicePairingResultVtbl {
-        unsafe extern "system" fn Status<Impl: IDevicePairingResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DevicePairingResultStatus) -> ::windows::core::HRESULT {
+impl IDevicePairingResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePairingResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDevicePairingResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IDevicePairingResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DevicePairingResultStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1092,7 +1092,7 @@ impl IDevicePairingResultVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProtectionLevelUsed<Impl: IDevicePairingResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DevicePairingProtectionLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProtectionLevelUsed<Impl: IDevicePairingResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DevicePairingProtectionLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ProtectionLevelUsed() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1113,12 +1113,12 @@ impl IDevicePairingResultVtbl {
         iid == &<IDevicePairingResult as ::windows::core::Interface>::IID
     }
 }
-pub trait IDevicePairingSettingsImpl: Sized {}
+pub trait IDevicePairingSettings_Impl: Sized {}
 impl ::windows::core::RuntimeName for IDevicePairingSettings {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDevicePairingSettings";
 }
-impl IDevicePairingSettingsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePairingSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDevicePairingSettingsVtbl {
+impl IDevicePairingSettings_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePairingSettings_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDevicePairingSettings_Vtbl {
         Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDevicePairingSettings, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1126,7 +1126,7 @@ impl IDevicePairingSettingsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI_Popups", feature = "implement_exclusive"))]
-pub trait IDevicePickerImpl: Sized {
+pub trait IDevicePicker_Impl: Sized {
     fn Filter(&mut self) -> ::windows::core::Result<DevicePickerFilter>;
     fn Appearance(&mut self) -> ::windows::core::Result<DevicePickerAppearance>;
     fn RequestedProperties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
@@ -1148,9 +1148,9 @@ impl ::windows::core::RuntimeName for IDevicePicker {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDevicePicker";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI_Popups", feature = "implement_exclusive"))]
-impl IDevicePickerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePickerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDevicePickerVtbl {
-        unsafe extern "system" fn Filter<Impl: IDevicePickerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDevicePicker_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePicker_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDevicePicker_Vtbl {
+        unsafe extern "system" fn Filter<Impl: IDevicePicker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Filter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1161,7 +1161,7 @@ impl IDevicePickerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Appearance<Impl: IDevicePickerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Appearance<Impl: IDevicePicker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Appearance() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1172,7 +1172,7 @@ impl IDevicePickerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestedProperties<Impl: IDevicePickerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestedProperties<Impl: IDevicePicker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestedProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1183,7 +1183,7 @@ impl IDevicePickerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceSelected<Impl: IDevicePickerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceSelected<Impl: IDevicePicker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceSelected(&*(&handler as *const <super::super::Foundation::TypedEventHandler<DevicePicker, DeviceSelectedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DevicePicker, DeviceSelectedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1194,11 +1194,11 @@ impl IDevicePickerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDeviceSelected<Impl: IDevicePickerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDeviceSelected<Impl: IDevicePicker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDeviceSelected(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DisconnectButtonClicked<Impl: IDevicePickerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisconnectButtonClicked<Impl: IDevicePicker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisconnectButtonClicked(&*(&handler as *const <super::super::Foundation::TypedEventHandler<DevicePicker, DeviceDisconnectButtonClickedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DevicePicker, DeviceDisconnectButtonClickedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1209,11 +1209,11 @@ impl IDevicePickerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDisconnectButtonClicked<Impl: IDevicePickerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDisconnectButtonClicked<Impl: IDevicePicker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDisconnectButtonClicked(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DevicePickerDismissed<Impl: IDevicePickerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DevicePickerDismissed<Impl: IDevicePicker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DevicePickerDismissed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<DevicePicker, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DevicePicker, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1224,19 +1224,19 @@ impl IDevicePickerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDevicePickerDismissed<Impl: IDevicePickerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDevicePickerDismissed<Impl: IDevicePicker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveDevicePickerDismissed(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Show<Impl: IDevicePickerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Show<Impl: IDevicePicker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Show(&*(&selection as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ShowWithPlacement<Impl: IDevicePickerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, placement: super::super::UI::Popups::Placement) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowWithPlacement<Impl: IDevicePicker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, placement: super::super::UI::Popups::Placement) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ShowWithPlacement(&*(&selection as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType), placement).into()
         }
-        unsafe extern "system" fn PickSingleDeviceAsync<Impl: IDevicePickerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PickSingleDeviceAsync<Impl: IDevicePicker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PickSingleDeviceAsync(&*(&selection as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1247,7 +1247,7 @@ impl IDevicePickerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PickSingleDeviceAsyncWithPlacement<Impl: IDevicePickerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, placement: super::super::UI::Popups::Placement, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PickSingleDeviceAsyncWithPlacement<Impl: IDevicePicker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, placement: super::super::UI::Popups::Placement, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PickSingleDeviceAsyncWithPlacement(&*(&selection as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType), placement) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1258,11 +1258,11 @@ impl IDevicePickerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Hide<Impl: IDevicePickerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Hide<Impl: IDevicePicker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Hide().into()
         }
-        unsafe extern "system" fn SetDisplayStatus<Impl: IDevicePickerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, device: ::windows::core::RawPtr, status: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: DevicePickerDisplayStatusOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDisplayStatus<Impl: IDevicePicker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, device: ::windows::core::RawPtr, status: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: DevicePickerDisplayStatusOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayStatus(&*(&device as *const <DeviceInformation as ::windows::core::Abi>::Abi as *const <DeviceInformation as ::windows::core::DefaultType>::DefaultType), &*(&status as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), options).into()
         }
@@ -1290,7 +1290,7 @@ impl IDevicePickerVtbl {
     }
 }
 #[cfg(all(feature = "UI", feature = "implement_exclusive"))]
-pub trait IDevicePickerAppearanceImpl: Sized {
+pub trait IDevicePickerAppearance_Impl: Sized {
     fn Title(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetTitle(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn ForegroundColor(&mut self) -> ::windows::core::Result<super::super::UI::Color>;
@@ -1311,9 +1311,9 @@ impl ::windows::core::RuntimeName for IDevicePickerAppearance {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDevicePickerAppearance";
 }
 #[cfg(all(feature = "UI", feature = "implement_exclusive"))]
-impl IDevicePickerAppearanceVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePickerAppearanceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDevicePickerAppearanceVtbl {
-        unsafe extern "system" fn Title<Impl: IDevicePickerAppearanceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl IDevicePickerAppearance_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePickerAppearance_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDevicePickerAppearance_Vtbl {
+        unsafe extern "system" fn Title<Impl: IDevicePickerAppearance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Title() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1324,11 +1324,11 @@ impl IDevicePickerAppearanceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTitle<Impl: IDevicePickerAppearanceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTitle<Impl: IDevicePickerAppearance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTitle(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ForegroundColor<Impl: IDevicePickerAppearanceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ForegroundColor<Impl: IDevicePickerAppearance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ForegroundColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1339,11 +1339,11 @@ impl IDevicePickerAppearanceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetForegroundColor<Impl: IDevicePickerAppearanceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetForegroundColor<Impl: IDevicePickerAppearance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetForegroundColor(&*(&value as *const <super::super::UI::Color as ::windows::core::Abi>::Abi as *const <super::super::UI::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BackgroundColor<Impl: IDevicePickerAppearanceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackgroundColor<Impl: IDevicePickerAppearance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackgroundColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1354,11 +1354,11 @@ impl IDevicePickerAppearanceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBackgroundColor<Impl: IDevicePickerAppearanceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBackgroundColor<Impl: IDevicePickerAppearance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBackgroundColor(&*(&value as *const <super::super::UI::Color as ::windows::core::Abi>::Abi as *const <super::super::UI::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn AccentColor<Impl: IDevicePickerAppearanceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AccentColor<Impl: IDevicePickerAppearance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AccentColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1369,11 +1369,11 @@ impl IDevicePickerAppearanceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAccentColor<Impl: IDevicePickerAppearanceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAccentColor<Impl: IDevicePickerAppearance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetAccentColor(&*(&value as *const <super::super::UI::Color as ::windows::core::Abi>::Abi as *const <super::super::UI::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SelectedForegroundColor<Impl: IDevicePickerAppearanceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectedForegroundColor<Impl: IDevicePickerAppearance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedForegroundColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1384,11 +1384,11 @@ impl IDevicePickerAppearanceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSelectedForegroundColor<Impl: IDevicePickerAppearanceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSelectedForegroundColor<Impl: IDevicePickerAppearance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSelectedForegroundColor(&*(&value as *const <super::super::UI::Color as ::windows::core::Abi>::Abi as *const <super::super::UI::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SelectedBackgroundColor<Impl: IDevicePickerAppearanceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectedBackgroundColor<Impl: IDevicePickerAppearance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedBackgroundColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1399,11 +1399,11 @@ impl IDevicePickerAppearanceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSelectedBackgroundColor<Impl: IDevicePickerAppearanceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSelectedBackgroundColor<Impl: IDevicePickerAppearance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSelectedBackgroundColor(&*(&value as *const <super::super::UI::Color as ::windows::core::Abi>::Abi as *const <super::super::UI::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SelectedAccentColor<Impl: IDevicePickerAppearanceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectedAccentColor<Impl: IDevicePickerAppearance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedAccentColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1414,7 +1414,7 @@ impl IDevicePickerAppearanceVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSelectedAccentColor<Impl: IDevicePickerAppearanceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSelectedAccentColor<Impl: IDevicePickerAppearance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSelectedAccentColor(&*(&value as *const <super::super::UI::Color as ::windows::core::Abi>::Abi as *const <super::super::UI::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -1441,7 +1441,7 @@ impl IDevicePickerAppearanceVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IDevicePickerFilterImpl: Sized {
+pub trait IDevicePickerFilter_Impl: Sized {
     fn SupportedDeviceClasses(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<DeviceClass>>;
     fn SupportedDeviceSelectors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
@@ -1450,9 +1450,9 @@ impl ::windows::core::RuntimeName for IDevicePickerFilter {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDevicePickerFilter";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IDevicePickerFilterVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePickerFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDevicePickerFilterVtbl {
-        unsafe extern "system" fn SupportedDeviceClasses<Impl: IDevicePickerFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDevicePickerFilter_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDevicePickerFilter_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDevicePickerFilter_Vtbl {
+        unsafe extern "system" fn SupportedDeviceClasses<Impl: IDevicePickerFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedDeviceClasses() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1463,7 +1463,7 @@ impl IDevicePickerFilterVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedDeviceSelectors<Impl: IDevicePickerFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedDeviceSelectors<Impl: IDevicePickerFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportedDeviceSelectors() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1485,7 +1485,7 @@ impl IDevicePickerFilterVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDeviceSelectedEventArgsImpl: Sized {
+pub trait IDeviceSelectedEventArgs_Impl: Sized {
     fn SelectedDevice(&mut self) -> ::windows::core::Result<DeviceInformation>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1493,9 +1493,9 @@ impl ::windows::core::RuntimeName for IDeviceSelectedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceSelectedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDeviceSelectedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceSelectedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceSelectedEventArgsVtbl {
-        unsafe extern "system" fn SelectedDevice<Impl: IDeviceSelectedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDeviceSelectedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceSelectedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceSelectedEventArgs_Vtbl {
+        unsafe extern "system" fn SelectedDevice<Impl: IDeviceSelectedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SelectedDevice() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1516,7 +1516,7 @@ impl IDeviceSelectedEventArgsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDeviceUnpairingResultImpl: Sized {
+pub trait IDeviceUnpairingResult_Impl: Sized {
     fn Status(&mut self) -> ::windows::core::Result<DeviceUnpairingResultStatus>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1524,9 +1524,9 @@ impl ::windows::core::RuntimeName for IDeviceUnpairingResult {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceUnpairingResult";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDeviceUnpairingResultVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceUnpairingResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceUnpairingResultVtbl {
-        unsafe extern "system" fn Status<Impl: IDeviceUnpairingResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DeviceUnpairingResultStatus) -> ::windows::core::HRESULT {
+impl IDeviceUnpairingResult_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceUnpairingResult_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceUnpairingResult_Vtbl {
+        unsafe extern "system" fn Status<Impl: IDeviceUnpairingResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DeviceUnpairingResultStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1544,7 +1544,7 @@ impl IDeviceUnpairingResultVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IDeviceWatcherImpl: Sized {
+pub trait IDeviceWatcher_Impl: Sized {
     fn Added(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformation>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveAdded(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn Updated(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformationUpdate>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -1564,9 +1564,9 @@ impl ::windows::core::RuntimeName for IDeviceWatcher {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceWatcher";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IDeviceWatcherVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceWatcherImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceWatcherVtbl {
-        unsafe extern "system" fn Added<Impl: IDeviceWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+impl IDeviceWatcher_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceWatcher_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceWatcher_Vtbl {
+        unsafe extern "system" fn Added<Impl: IDeviceWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Added(&*(&handler as *const <super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformation> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformation> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1577,11 +1577,11 @@ impl IDeviceWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveAdded<Impl: IDeviceWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAdded<Impl: IDeviceWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveAdded(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Updated<Impl: IDeviceWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Updated<Impl: IDeviceWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Updated(&*(&handler as *const <super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformationUpdate> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformationUpdate> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1592,11 +1592,11 @@ impl IDeviceWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveUpdated<Impl: IDeviceWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveUpdated<Impl: IDeviceWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveUpdated(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Removed<Impl: IDeviceWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Removed<Impl: IDeviceWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Removed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformationUpdate> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformationUpdate> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1607,11 +1607,11 @@ impl IDeviceWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveRemoved<Impl: IDeviceWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveRemoved<Impl: IDeviceWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveRemoved(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn EnumerationCompleted<Impl: IDeviceWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumerationCompleted<Impl: IDeviceWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).EnumerationCompleted(&*(&handler as *const <super::super::Foundation::TypedEventHandler<DeviceWatcher, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DeviceWatcher, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1622,11 +1622,11 @@ impl IDeviceWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveEnumerationCompleted<Impl: IDeviceWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveEnumerationCompleted<Impl: IDeviceWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveEnumerationCompleted(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Stopped<Impl: IDeviceWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stopped<Impl: IDeviceWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Stopped(&*(&handler as *const <super::super::Foundation::TypedEventHandler<DeviceWatcher, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<DeviceWatcher, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1637,11 +1637,11 @@ impl IDeviceWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStopped<Impl: IDeviceWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStopped<Impl: IDeviceWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveStopped(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Status<Impl: IDeviceWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DeviceWatcherStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Status<Impl: IDeviceWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DeviceWatcherStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Status() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1652,11 +1652,11 @@ impl IDeviceWatcherVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Start<Impl: IDeviceWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Start<Impl: IDeviceWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Start().into()
         }
-        unsafe extern "system" fn Stop<Impl: IDeviceWatcherImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Stop<Impl: IDeviceWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Stop().into()
         }
@@ -1682,7 +1682,7 @@ impl IDeviceWatcherVtbl {
     }
 }
 #[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IDeviceWatcher2Impl: Sized {
+pub trait IDeviceWatcher2_Impl: Sized {
     fn GetBackgroundTrigger(&mut self, requestedeventkinds: &::core::option::Option<super::super::Foundation::Collections::IIterable<DeviceWatcherEventKind>>) -> ::windows::core::Result<super::super::ApplicationModel::Background::DeviceWatcherTrigger>;
 }
 #[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -1690,9 +1690,9 @@ impl ::windows::core::RuntimeName for IDeviceWatcher2 {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceWatcher2";
 }
 #[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IDeviceWatcher2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceWatcher2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceWatcher2Vtbl {
-        unsafe extern "system" fn GetBackgroundTrigger<Impl: IDeviceWatcher2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestedeventkinds: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDeviceWatcher2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceWatcher2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceWatcher2_Vtbl {
+        unsafe extern "system" fn GetBackgroundTrigger<Impl: IDeviceWatcher2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestedeventkinds: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetBackgroundTrigger(&*(&requestedeventkinds as *const <super::super::Foundation::Collections::IIterable<DeviceWatcherEventKind> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Collections::IIterable<DeviceWatcherEventKind> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1713,7 +1713,7 @@ impl IDeviceWatcher2Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IDeviceWatcherEventImpl: Sized {
+pub trait IDeviceWatcherEvent_Impl: Sized {
     fn Kind(&mut self) -> ::windows::core::Result<DeviceWatcherEventKind>;
     fn DeviceInformation(&mut self) -> ::windows::core::Result<DeviceInformation>;
     fn DeviceInformationUpdate(&mut self) -> ::windows::core::Result<DeviceInformationUpdate>;
@@ -1723,9 +1723,9 @@ impl ::windows::core::RuntimeName for IDeviceWatcherEvent {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceWatcherEvent";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IDeviceWatcherEventVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceWatcherEventImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceWatcherEventVtbl {
-        unsafe extern "system" fn Kind<Impl: IDeviceWatcherEventImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DeviceWatcherEventKind) -> ::windows::core::HRESULT {
+impl IDeviceWatcherEvent_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceWatcherEvent_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceWatcherEvent_Vtbl {
+        unsafe extern "system" fn Kind<Impl: IDeviceWatcherEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DeviceWatcherEventKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1736,7 +1736,7 @@ impl IDeviceWatcherEventVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceInformation<Impl: IDeviceWatcherEventImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceInformation<Impl: IDeviceWatcherEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceInformation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1747,7 +1747,7 @@ impl IDeviceWatcherEventVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceInformationUpdate<Impl: IDeviceWatcherEventImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceInformationUpdate<Impl: IDeviceWatcherEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceInformationUpdate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1770,7 +1770,7 @@ impl IDeviceWatcherEventVtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IDeviceWatcherTriggerDetailsImpl: Sized {
+pub trait IDeviceWatcherTriggerDetails_Impl: Sized {
     fn DeviceWatcherEvents(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<DeviceWatcherEvent>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
@@ -1778,9 +1778,9 @@ impl ::windows::core::RuntimeName for IDeviceWatcherTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceWatcherTriggerDetails";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IDeviceWatcherTriggerDetailsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceWatcherTriggerDetailsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceWatcherTriggerDetailsVtbl {
-        unsafe extern "system" fn DeviceWatcherEvents<Impl: IDeviceWatcherTriggerDetailsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IDeviceWatcherTriggerDetails_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceWatcherTriggerDetails_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceWatcherTriggerDetails_Vtbl {
+        unsafe extern "system" fn DeviceWatcherEvents<Impl: IDeviceWatcherTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DeviceWatcherEvents() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1801,7 +1801,7 @@ impl IDeviceWatcherTriggerDetailsVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEnclosureLocationImpl: Sized {
+pub trait IEnclosureLocation_Impl: Sized {
     fn InDock(&mut self) -> ::windows::core::Result<bool>;
     fn InLid(&mut self) -> ::windows::core::Result<bool>;
     fn Panel(&mut self) -> ::windows::core::Result<Panel>;
@@ -1811,9 +1811,9 @@ impl ::windows::core::RuntimeName for IEnclosureLocation {
     const NAME: &'static str = "Windows.Devices.Enumeration.IEnclosureLocation";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEnclosureLocationVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnclosureLocationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnclosureLocationVtbl {
-        unsafe extern "system" fn InDock<Impl: IEnclosureLocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+impl IEnclosureLocation_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnclosureLocation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnclosureLocation_Vtbl {
+        unsafe extern "system" fn InDock<Impl: IEnclosureLocation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InDock() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1824,7 +1824,7 @@ impl IEnclosureLocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InLid<Impl: IEnclosureLocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InLid<Impl: IEnclosureLocation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).InLid() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1835,7 +1835,7 @@ impl IEnclosureLocationVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Panel<Impl: IEnclosureLocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Panel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Panel<Impl: IEnclosureLocation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut Panel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Panel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1858,7 +1858,7 @@ impl IEnclosureLocationVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IEnclosureLocation2Impl: Sized + IEnclosureLocationImpl {
+pub trait IEnclosureLocation2_Impl: Sized + IEnclosureLocation_Impl {
     fn RotationAngleInDegreesClockwise(&mut self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1866,9 +1866,9 @@ impl ::windows::core::RuntimeName for IEnclosureLocation2 {
     const NAME: &'static str = "Windows.Devices.Enumeration.IEnclosureLocation2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IEnclosureLocation2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnclosureLocation2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnclosureLocation2Vtbl {
-        unsafe extern "system" fn RotationAngleInDegreesClockwise<Impl: IEnclosureLocation2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+impl IEnclosureLocation2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnclosureLocation2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnclosureLocation2_Vtbl {
+        unsafe extern "system" fn RotationAngleInDegreesClockwise<Impl: IEnclosureLocation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RotationAngleInDegreesClockwise() {
                 ::core::result::Result::Ok(ok__) => {

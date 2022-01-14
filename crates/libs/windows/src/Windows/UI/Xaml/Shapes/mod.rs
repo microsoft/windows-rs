@@ -31,7 +31,7 @@ unsafe impl ::windows::core::RuntimeType for Ellipse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Shapes.Ellipse;{70e05ac4-d38d-4bab-831f-4a22ef52ac86})");
 }
 unsafe impl ::windows::core::Interface for Ellipse {
-    type Vtable = IEllipseVtbl;
+    type Vtable = IEllipse_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70e05ac4_d38d_4bab_831f_4a22ef52ac86);
 }
 impl ::windows::core::RuntimeName for Ellipse {
@@ -215,24 +215,24 @@ unsafe impl ::core::marker::Sync for Ellipse {}
 #[repr(transparent)]
 pub struct IEllipse(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEllipse {
-    type Vtable = IEllipseVtbl;
+    type Vtable = IEllipse_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70e05ac4_d38d_4bab_831f_4a22ef52ac86);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEllipseVtbl {
+pub struct IEllipse_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILine(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILine {
-    type Vtable = ILineVtbl;
+    type Vtable = ILine_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46a5433d_4ffb_48df_8732_4e15c834816b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILineVtbl {
+pub struct ILine_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub X1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetX1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
@@ -247,12 +247,12 @@ pub struct ILineVtbl {
 #[repr(transparent)]
 pub struct ILineStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineStatics {
-    type Vtable = ILineStaticsVtbl;
+    type Vtable = ILineStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x267c123d_6ea4_4c50_8b1d_50207aff1e8a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILineStaticsVtbl {
+pub struct ILineStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub X1Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Y1Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -263,12 +263,12 @@ pub struct ILineStaticsVtbl {
 #[repr(transparent)]
 pub struct IPath(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPath {
-    type Vtable = IPathVtbl;
+    type Vtable = IPath_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78883609_3d57_4f3c_b8a5_6cabcac9711f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPathVtbl {
+pub struct IPath_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Media")]
     pub Data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -283,12 +283,12 @@ pub struct IPathVtbl {
 #[repr(transparent)]
 pub struct IPathFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPathFactory {
-    type Vtable = IPathFactoryVtbl;
+    type Vtable = IPathFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2340a4e3_5a86_4fc6_9a50_cbb93b828766);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPathFactoryVtbl {
+pub struct IPathFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -296,12 +296,12 @@ pub struct IPathFactoryVtbl {
 #[repr(transparent)]
 pub struct IPathStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPathStatics {
-    type Vtable = IPathStaticsVtbl;
+    type Vtable = IPathStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf627e59d_87dc_4142_81f1_97fc7ff8641c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPathStaticsVtbl {
+pub struct IPathStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DataProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -309,12 +309,12 @@ pub struct IPathStaticsVtbl {
 #[repr(transparent)]
 pub struct IPolygon(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPolygon {
-    type Vtable = IPolygonVtbl;
+    type Vtable = IPolygon_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3755c19_2e4d_4bcc_8d34_86871957fa01);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPolygonVtbl {
+pub struct IPolygon_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Media")]
     pub FillRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Media::FillRule) -> ::windows::core::HRESULT,
@@ -337,12 +337,12 @@ pub struct IPolygonVtbl {
 #[repr(transparent)]
 pub struct IPolygonStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPolygonStatics {
-    type Vtable = IPolygonStaticsVtbl;
+    type Vtable = IPolygonStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x362a8aab_d463_4366_9e1a_beba72810fb7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPolygonStaticsVtbl {
+pub struct IPolygonStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FillRuleProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub PointsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -351,12 +351,12 @@ pub struct IPolygonStaticsVtbl {
 #[repr(transparent)]
 pub struct IPolyline(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPolyline {
-    type Vtable = IPolylineVtbl;
+    type Vtable = IPolyline_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91dc62f8_42b3_47f3_8476_c55124a7c4c6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPolylineVtbl {
+pub struct IPolyline_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Media")]
     pub FillRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Media::FillRule) -> ::windows::core::HRESULT,
@@ -379,12 +379,12 @@ pub struct IPolylineVtbl {
 #[repr(transparent)]
 pub struct IPolylineStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPolylineStatics {
-    type Vtable = IPolylineStaticsVtbl;
+    type Vtable = IPolylineStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7aa2cd1_a26c_43b0_aaa5_822fa64a11b9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPolylineStaticsVtbl {
+pub struct IPolylineStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FillRuleProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub PointsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -393,12 +393,12 @@ pub struct IPolylineStaticsVtbl {
 #[repr(transparent)]
 pub struct IRectangle(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRectangle {
-    type Vtable = IRectangleVtbl;
+    type Vtable = IRectangle_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x855bc230_8a11_4e18_a136_4bc21c7827b0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRectangleVtbl {
+pub struct IRectangle_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RadiusX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetRadiusX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
@@ -409,12 +409,12 @@ pub struct IRectangleVtbl {
 #[repr(transparent)]
 pub struct IRectangleStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRectangleStatics {
-    type Vtable = IRectangleStaticsVtbl;
+    type Vtable = IRectangleStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f25aa53_bb3a_4c3c_89db_6fbc0d1fa0cc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRectangleStaticsVtbl {
+pub struct IRectangleStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub RadiusXProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub RadiusYProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -423,12 +423,12 @@ pub struct IRectangleStaticsVtbl {
 #[repr(transparent)]
 pub struct IShape(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShape {
-    type Vtable = IShapeVtbl;
+    type Vtable = IShape_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x786f2b75_9aa0_454d_ae06_a2466e37c832);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IShapeVtbl {
+pub struct IShape_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Media")]
     pub Fill: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -509,12 +509,12 @@ pub struct IShapeVtbl {
 #[repr(transparent)]
 pub struct IShape2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShape2 {
-    type Vtable = IShape2Vtbl;
+    type Vtable = IShape2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97248dba_49f2_49a4_a5dd_164df824db14);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IShape2Vtbl {
+pub struct IShape2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Composition")]
     pub GetAlphaMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -525,12 +525,12 @@ pub struct IShape2Vtbl {
 #[repr(transparent)]
 pub struct IShapeFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShapeFactory {
-    type Vtable = IShapeFactoryVtbl;
+    type Vtable = IShapeFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b717613_f6aa_48d5_9588_e1d188eacbc9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IShapeFactoryVtbl {
+pub struct IShapeFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -538,12 +538,12 @@ pub struct IShapeFactoryVtbl {
 #[repr(transparent)]
 pub struct IShapeStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShapeStatics {
-    type Vtable = IShapeStaticsVtbl;
+    type Vtable = IShapeStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d7b4c55_9df3_48dc_9194_9d306faa6089);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IShapeStaticsVtbl {
+pub struct IShapeStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FillProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub StrokeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -674,7 +674,7 @@ unsafe impl ::windows::core::RuntimeType for Line {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Shapes.Line;{46a5433d-4ffb-48df-8732-4e15c834816b})");
 }
 unsafe impl ::windows::core::Interface for Line {
-    type Vtable = ILineVtbl;
+    type Vtable = ILine_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46a5433d_4ffb_48df_8732_4e15c834816b);
 }
 impl ::windows::core::RuntimeName for Line {
@@ -918,7 +918,7 @@ unsafe impl ::windows::core::RuntimeType for Path {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Shapes.Path;{78883609-3d57-4f3c-b8a5-6cabcac9711f})");
 }
 unsafe impl ::windows::core::Interface for Path {
-    type Vtable = IPathVtbl;
+    type Vtable = IPath_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78883609_3d57_4f3c_b8a5_6cabcac9711f);
 }
 impl ::windows::core::RuntimeName for Path {
@@ -1179,7 +1179,7 @@ unsafe impl ::windows::core::RuntimeType for Polygon {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Shapes.Polygon;{e3755c19-2e4d-4bcc-8d34-86871957fa01})");
 }
 unsafe impl ::windows::core::Interface for Polygon {
-    type Vtable = IPolygonVtbl;
+    type Vtable = IPolygon_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3755c19_2e4d_4bcc_8d34_86871957fa01);
 }
 impl ::windows::core::RuntimeName for Polygon {
@@ -1440,7 +1440,7 @@ unsafe impl ::windows::core::RuntimeType for Polyline {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Shapes.Polyline;{91dc62f8-42b3-47f3-8476-c55124a7c4c6})");
 }
 unsafe impl ::windows::core::Interface for Polyline {
-    type Vtable = IPolylineVtbl;
+    type Vtable = IPolyline_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91dc62f8_42b3_47f3_8476_c55124a7c4c6);
 }
 impl ::windows::core::RuntimeName for Polyline {
@@ -1697,7 +1697,7 @@ unsafe impl ::windows::core::RuntimeType for Rectangle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Shapes.Rectangle;{855bc230-8a11-4e18-a136-4bc21c7827b0})");
 }
 unsafe impl ::windows::core::Interface for Rectangle {
-    type Vtable = IRectangleVtbl;
+    type Vtable = IRectangle_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x855bc230_8a11_4e18_a136_4bc21c7827b0);
 }
 impl ::windows::core::RuntimeName for Rectangle {
@@ -2161,7 +2161,7 @@ unsafe impl ::windows::core::RuntimeType for Shape {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Shapes.Shape;{786f2b75-9aa0-454d-ae06-a2466e37c832})");
 }
 unsafe impl ::windows::core::Interface for Shape {
-    type Vtable = IShapeVtbl;
+    type Vtable = IShape_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x786f2b75_9aa0_454d_ae06_a2466e37c832);
 }
 impl ::windows::core::RuntimeName for Shape {

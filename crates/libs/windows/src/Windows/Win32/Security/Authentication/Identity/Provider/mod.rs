@@ -78,12 +78,12 @@ impl ::core::fmt::Debug for AsyncIAssociatedIdentityProvider {
     }
 }
 unsafe impl ::windows::core::Interface for AsyncIAssociatedIdentityProvider {
-    type Vtable = AsyncIAssociatedIdentityProviderVtbl;
+    type Vtable = AsyncIAssociatedIdentityProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2834d6ed_297e_4e72_8a51_961e86f05152);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AsyncIAssociatedIdentityProviderVtbl {
+pub struct AsyncIAssociatedIdentityProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Begin_AssociateIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
@@ -191,12 +191,12 @@ impl ::core::fmt::Debug for AsyncIConnectedIdentityProvider {
     }
 }
 unsafe impl ::windows::core::Interface for AsyncIConnectedIdentityProvider {
-    type Vtable = AsyncIConnectedIdentityProviderVtbl;
+    type Vtable = AsyncIConnectedIdentityProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ce55141_bce9_4e15_824d_43d79f512f93);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AsyncIConnectedIdentityProviderVtbl {
+pub struct AsyncIConnectedIdentityProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Begin_ConnectIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, authbuffer: *const u8, authbuffersize: u32) -> ::windows::core::HRESULT,
     pub Finish_ConnectIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -269,12 +269,12 @@ impl ::core::fmt::Debug for AsyncIIdentityAdvise {
     }
 }
 unsafe impl ::windows::core::Interface for AsyncIIdentityAdvise {
-    type Vtable = AsyncIIdentityAdviseVtbl;
+    type Vtable = AsyncIIdentityAdvise_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ab4c8da_d038_4830_8dd9_3253c55a127f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AsyncIIdentityAdviseVtbl {
+pub struct AsyncIIdentityAdvise_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Begin_IdentityUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwidentityupdateevents: u32, lpszuniqueid: super::super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -342,12 +342,12 @@ impl ::core::fmt::Debug for AsyncIIdentityAuthentication {
     }
 }
 unsafe impl ::windows::core::Interface for AsyncIIdentityAuthentication {
-    type Vtable = AsyncIIdentityAuthenticationVtbl;
+    type Vtable = AsyncIIdentityAuthentication_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9a2f918_feca_4e9c_9633_61cbf13ed34d);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AsyncIIdentityAuthenticationVtbl {
+pub struct AsyncIIdentityAuthentication_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Begin_SetIdentityCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, credbuffer: *const u8, credbufferlength: u32) -> ::windows::core::HRESULT,
     pub Finish_SetIdentityCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -480,12 +480,12 @@ impl ::core::fmt::Debug for AsyncIIdentityProvider {
     }
 }
 unsafe impl ::windows::core::Interface for AsyncIIdentityProvider {
-    type Vtable = AsyncIIdentityProviderVtbl;
+    type Vtable = AsyncIIdentityProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6fc9901_c433_4646_8f48_4e4687aae2a0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AsyncIIdentityProviderVtbl {
+pub struct AsyncIIdentityProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub Begin_GetIdentityEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
@@ -627,12 +627,12 @@ impl ::core::fmt::Debug for AsyncIIdentityStore {
     }
 }
 unsafe impl ::windows::core::Interface for AsyncIIdentityStore {
-    type Vtable = AsyncIIdentityStoreVtbl;
+    type Vtable = AsyncIIdentityStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeefa1616_48de_4872_aa64_6e6206535a51);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AsyncIIdentityStoreVtbl {
+pub struct AsyncIIdentityStore_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Begin_GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Finish_GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwproviders: *mut u32) -> ::windows::core::HRESULT,
@@ -719,12 +719,12 @@ impl ::core::fmt::Debug for AsyncIIdentityStoreEx {
     }
 }
 unsafe impl ::windows::core::Interface for AsyncIIdentityStoreEx {
-    type Vtable = AsyncIIdentityStoreExVtbl;
+    type Vtable = AsyncIIdentityStoreEx_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfca3af9a_8a07_4eae_8632_ec3de658a36a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct AsyncIIdentityStoreExVtbl {
+pub struct AsyncIIdentityStoreEx_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Begin_CreateConnectedIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localname: super::super::super::super::Foundation::PWSTR, connectedname: super::super::super::super::Foundation::PWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -797,12 +797,12 @@ impl ::core::fmt::Debug for IAssociatedIdentityProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IAssociatedIdentityProvider {
-    type Vtable = IAssociatedIdentityProviderVtbl;
+    type Vtable = IAssociatedIdentityProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2af066b3_4cbb_4cba_a798_204b6af68cc0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAssociatedIdentityProviderVtbl {
+pub struct IAssociatedIdentityProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub AssociateIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::super::super::Foundation::HWND, pppropertystore: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -883,12 +883,12 @@ impl ::core::fmt::Debug for IConnectedIdentityProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IConnectedIdentityProvider {
-    type Vtable = IConnectedIdentityProviderVtbl;
+    type Vtable = IConnectedIdentityProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7417b54_e08c_429b_96c8_678d1369ecb1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IConnectedIdentityProviderVtbl {
+pub struct IConnectedIdentityProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub ConnectIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, authbuffer: *const u8, authbuffersize: u32) -> ::windows::core::HRESULT,
     pub DisconnectIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -971,12 +971,12 @@ impl ::core::fmt::Debug for IIdentityAdvise {
     }
 }
 unsafe impl ::windows::core::Interface for IIdentityAdvise {
-    type Vtable = IIdentityAdviseVtbl;
+    type Vtable = IIdentityAdvise_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e982fed_d14b_440c_b8d6_bb386453d386);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIdentityAdviseVtbl {
+pub struct IIdentityAdvise_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IdentityUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwidentityupdateevents: IdentityUpdateEvent, lpszuniqueid: super::super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -1034,12 +1034,12 @@ impl ::core::fmt::Debug for IIdentityAuthentication {
     }
 }
 unsafe impl ::windows::core::Interface for IIdentityAuthentication {
-    type Vtable = IIdentityAuthenticationVtbl;
+    type Vtable = IIdentityAuthentication_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e7ef254_979f_43b5_b74e_06e4eb7df0f9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIdentityAuthenticationVtbl {
+pub struct IIdentityAuthentication_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetIdentityCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, credbuffer: *const u8, credbufferlength: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -1131,12 +1131,12 @@ impl ::core::fmt::Debug for IIdentityProvider {
     }
 }
 unsafe impl ::windows::core::Interface for IIdentityProvider {
-    type Vtable = IIdentityProviderVtbl;
+    type Vtable = IIdentityProvider_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d1b9e0c_e8ba_4f55_a81b_bce934b948f5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIdentityProviderVtbl {
+pub struct IIdentityProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub GetIdentityEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppidentityenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1236,12 +1236,12 @@ impl ::core::fmt::Debug for IIdentityStore {
     }
 }
 unsafe impl ::windows::core::Interface for IIdentityStore {
-    type Vtable = IIdentityStoreVtbl;
+    type Vtable = IIdentityStore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf586fa5_6f35_44f1_b209_b38e169772eb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIdentityStoreVtbl {
+pub struct IIdentityStore_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwproviders: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwprovider: u32, pprovguid: *mut ::windows::core::GUID, ppidentityprovider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1311,12 +1311,12 @@ impl ::core::fmt::Debug for IIdentityStoreEx {
     }
 }
 unsafe impl ::windows::core::Interface for IIdentityStoreEx {
-    type Vtable = IIdentityStoreExVtbl;
+    type Vtable = IIdentityStoreEx_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9f9eb98_8f7f_4e38_9577_6980114ce32b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IIdentityStoreExVtbl {
+pub struct IIdentityStoreEx_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateConnectedIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localname: super::super::super::super::Foundation::PWSTR, connectedname: super::super::super::super::Foundation::PWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,

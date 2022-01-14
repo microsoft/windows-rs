@@ -3,12 +3,12 @@
 #[repr(transparent)]
 pub struct IPhoneCallOrigin(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallOrigin {
-    type Vtable = IPhoneCallOriginVtbl;
+    type Vtable = IPhoneCallOrigin_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20613479_0ef9_4454_871c_afb66a14b6a5);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallOriginVtbl {
+pub struct IPhoneCallOrigin_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Category: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -21,12 +21,12 @@ pub struct IPhoneCallOriginVtbl {
 #[repr(transparent)]
 pub struct IPhoneCallOrigin2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallOrigin2 {
-    type Vtable = IPhoneCallOrigin2Vtbl;
+    type Vtable = IPhoneCallOrigin2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04c7e980_9ac2_4768_b536_b68da4957d02);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallOrigin2Vtbl {
+pub struct IPhoneCallOrigin2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -35,12 +35,12 @@ pub struct IPhoneCallOrigin2Vtbl {
 #[repr(transparent)]
 pub struct IPhoneCallOrigin3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallOrigin3 {
-    type Vtable = IPhoneCallOrigin3Vtbl;
+    type Vtable = IPhoneCallOrigin3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49330fb4_d1a7_43a2_aeee_c07b6dbaf068);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallOrigin3Vtbl {
+pub struct IPhoneCallOrigin3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Storage")]
     pub DisplayPicture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -55,12 +55,12 @@ pub struct IPhoneCallOrigin3Vtbl {
 #[repr(transparent)]
 pub struct IPhoneCallOriginManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallOriginManagerStatics {
-    type Vtable = IPhoneCallOriginManagerStaticsVtbl;
+    type Vtable = IPhoneCallOriginManagerStatics_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccfc5a0a_9af7_6149_39d0_e076fcce1395);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallOriginManagerStaticsVtbl {
+pub struct IPhoneCallOriginManagerStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsCurrentAppActiveCallOriginApp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub ShowPhoneCallOriginSettingsUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -70,12 +70,12 @@ pub struct IPhoneCallOriginManagerStaticsVtbl {
 #[repr(transparent)]
 pub struct IPhoneCallOriginManagerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallOriginManagerStatics2 {
-    type Vtable = IPhoneCallOriginManagerStatics2Vtbl;
+    type Vtable = IPhoneCallOriginManagerStatics2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bf3ee3f_40f4_4380_8c7c_aea2c9b8dd7a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallOriginManagerStatics2Vtbl {
+pub struct IPhoneCallOriginManagerStatics2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub RequestSetAsActiveCallOriginAppAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -86,12 +86,12 @@ pub struct IPhoneCallOriginManagerStatics2Vtbl {
 #[repr(transparent)]
 pub struct IPhoneCallOriginManagerStatics3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPhoneCallOriginManagerStatics3 {
-    type Vtable = IPhoneCallOriginManagerStatics3Vtbl;
+    type Vtable = IPhoneCallOriginManagerStatics3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ed69764_a6e3_50f0_b76a_d67cb39bdfde);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPhoneCallOriginManagerStatics3Vtbl {
+pub struct IPhoneCallOriginManagerStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -194,7 +194,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallOrigin {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Provider.PhoneCallOrigin;{20613479-0ef9-4454-871c-afb66a14b6a5})");
 }
 unsafe impl ::windows::core::Interface for PhoneCallOrigin {
-    type Vtable = IPhoneCallOriginVtbl;
+    type Vtable = IPhoneCallOrigin_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20613479_0ef9_4454_871c_afb66a14b6a5);
 }
 impl ::windows::core::RuntimeName for PhoneCallOrigin {

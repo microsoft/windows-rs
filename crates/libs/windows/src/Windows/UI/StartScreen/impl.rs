@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IJumpListImpl: Sized {
+pub trait IJumpList_Impl: Sized {
     fn Items(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<JumpListItem>>;
     fn SystemGroupKind(&mut self) -> ::windows::core::Result<JumpListSystemGroupKind>;
     fn SetSystemGroupKind(&mut self, value: JumpListSystemGroupKind) -> ::windows::core::Result<()>;
@@ -10,9 +10,9 @@ impl ::windows::core::RuntimeName for IJumpList {
     const NAME: &'static str = "Windows.UI.StartScreen.IJumpList";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IJumpListVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJumpListImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJumpListVtbl {
-        unsafe extern "system" fn Items<Impl: IJumpListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IJumpList_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJumpList_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJumpList_Vtbl {
+        unsafe extern "system" fn Items<Impl: IJumpList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Items() {
                 ::core::result::Result::Ok(ok__) => {
@@ -23,7 +23,7 @@ impl IJumpListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SystemGroupKind<Impl: IJumpListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut JumpListSystemGroupKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SystemGroupKind<Impl: IJumpList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut JumpListSystemGroupKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SystemGroupKind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -34,11 +34,11 @@ impl IJumpListVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSystemGroupKind<Impl: IJumpListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: JumpListSystemGroupKind) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSystemGroupKind<Impl: IJumpList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: JumpListSystemGroupKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSystemGroupKind(value).into()
         }
-        unsafe extern "system" fn SaveAsync<Impl: IJumpListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaveAsync<Impl: IJumpList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SaveAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -62,7 +62,7 @@ impl IJumpListVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IJumpListItemImpl: Sized {
+pub trait IJumpListItem_Impl: Sized {
     fn Kind(&mut self) -> ::windows::core::Result<JumpListItemKind>;
     fn Arguments(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn RemovedByUser(&mut self) -> ::windows::core::Result<bool>;
@@ -80,9 +80,9 @@ impl ::windows::core::RuntimeName for IJumpListItem {
     const NAME: &'static str = "Windows.UI.StartScreen.IJumpListItem";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IJumpListItemVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJumpListItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJumpListItemVtbl {
-        unsafe extern "system" fn Kind<Impl: IJumpListItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut JumpListItemKind) -> ::windows::core::HRESULT {
+impl IJumpListItem_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJumpListItem_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJumpListItem_Vtbl {
+        unsafe extern "system" fn Kind<Impl: IJumpListItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut JumpListItemKind) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Kind() {
                 ::core::result::Result::Ok(ok__) => {
@@ -93,7 +93,7 @@ impl IJumpListItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Arguments<Impl: IJumpListItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Arguments<Impl: IJumpListItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Arguments() {
                 ::core::result::Result::Ok(ok__) => {
@@ -104,7 +104,7 @@ impl IJumpListItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemovedByUser<Impl: IJumpListItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemovedByUser<Impl: IJumpListItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RemovedByUser() {
                 ::core::result::Result::Ok(ok__) => {
@@ -115,7 +115,7 @@ impl IJumpListItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Impl: IJumpListItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Impl: IJumpListItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -126,11 +126,11 @@ impl IJumpListItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDescription<Impl: IJumpListItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDescription<Impl: IJumpListItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDescription(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DisplayName<Impl: IJumpListItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayName<Impl: IJumpListItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -141,11 +141,11 @@ impl IJumpListItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDisplayName<Impl: IJumpListItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDisplayName<Impl: IJumpListItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn GroupName<Impl: IJumpListItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GroupName<Impl: IJumpListItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GroupName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -156,11 +156,11 @@ impl IJumpListItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGroupName<Impl: IJumpListItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGroupName<Impl: IJumpListItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetGroupName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Logo<Impl: IJumpListItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Logo<Impl: IJumpListItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Logo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -171,7 +171,7 @@ impl IJumpListItemVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLogo<Impl: IJumpListItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLogo<Impl: IJumpListItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLogo(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -195,7 +195,7 @@ impl IJumpListItemVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IJumpListItemStaticsImpl: Sized {
+pub trait IJumpListItemStatics_Impl: Sized {
     fn CreateWithArguments(&mut self, arguments: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<JumpListItem>;
     fn CreateSeparator(&mut self) -> ::windows::core::Result<JumpListItem>;
 }
@@ -204,9 +204,9 @@ impl ::windows::core::RuntimeName for IJumpListItemStatics {
     const NAME: &'static str = "Windows.UI.StartScreen.IJumpListItemStatics";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IJumpListItemStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJumpListItemStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJumpListItemStaticsVtbl {
-        unsafe extern "system" fn CreateWithArguments<Impl: IJumpListItemStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, arguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IJumpListItemStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJumpListItemStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJumpListItemStatics_Vtbl {
+        unsafe extern "system" fn CreateWithArguments<Impl: IJumpListItemStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, arguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithArguments(&*(&arguments as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&displayname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -217,7 +217,7 @@ impl IJumpListItemStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSeparator<Impl: IJumpListItemStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSeparator<Impl: IJumpListItemStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateSeparator() {
                 ::core::result::Result::Ok(ok__) => {
@@ -239,7 +239,7 @@ impl IJumpListItemStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait IJumpListStaticsImpl: Sized {
+pub trait IJumpListStatics_Impl: Sized {
     fn LoadCurrentAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<JumpList>>;
     fn IsSupported(&mut self) -> ::windows::core::Result<bool>;
 }
@@ -248,9 +248,9 @@ impl ::windows::core::RuntimeName for IJumpListStatics {
     const NAME: &'static str = "Windows.UI.StartScreen.IJumpListStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl IJumpListStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJumpListStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJumpListStaticsVtbl {
-        unsafe extern "system" fn LoadCurrentAsync<Impl: IJumpListStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IJumpListStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJumpListStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IJumpListStatics_Vtbl {
+        unsafe extern "system" fn LoadCurrentAsync<Impl: IJumpListStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LoadCurrentAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -261,7 +261,7 @@ impl IJumpListStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSupported<Impl: IJumpListStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSupported<Impl: IJumpListStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).IsSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -283,7 +283,7 @@ impl IJumpListStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
-pub trait ISecondaryTileImpl: Sized {
+pub trait ISecondaryTile_Impl: Sized {
     fn SetTileId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn TileId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetArguments(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -323,13 +323,13 @@ impl ::windows::core::RuntimeName for ISecondaryTile {
     const NAME: &'static str = "Windows.UI.StartScreen.ISecondaryTile";
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
-impl ISecondaryTileVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileVtbl {
-        unsafe extern "system" fn SetTileId<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISecondaryTile_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTile_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTile_Vtbl {
+        unsafe extern "system" fn SetTileId<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTileId(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn TileId<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TileId<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TileId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -340,11 +340,11 @@ impl ISecondaryTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetArguments<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetArguments<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetArguments(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Arguments<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Arguments<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Arguments() {
                 ::core::result::Result::Ok(ok__) => {
@@ -355,11 +355,11 @@ impl ISecondaryTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetShortName<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetShortName<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetShortName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn ShortName<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShortName<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShortName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -370,11 +370,11 @@ impl ISecondaryTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDisplayName<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDisplayName<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetDisplayName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn DisplayName<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayName<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -385,11 +385,11 @@ impl ISecondaryTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLogo<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLogo<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLogo(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Logo<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Logo<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Logo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -400,11 +400,11 @@ impl ISecondaryTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSmallLogo<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSmallLogo<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSmallLogo(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn SmallLogo<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SmallLogo<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SmallLogo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -415,11 +415,11 @@ impl ISecondaryTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetWideLogo<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetWideLogo<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWideLogo(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn WideLogo<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WideLogo<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).WideLogo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -430,11 +430,11 @@ impl ISecondaryTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLockScreenBadgeLogo<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLockScreenBadgeLogo<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLockScreenBadgeLogo(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn LockScreenBadgeLogo<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LockScreenBadgeLogo<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LockScreenBadgeLogo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -445,11 +445,11 @@ impl ISecondaryTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLockScreenDisplayBadgeAndTileText<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLockScreenDisplayBadgeAndTileText<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetLockScreenDisplayBadgeAndTileText(value).into()
         }
-        unsafe extern "system" fn LockScreenDisplayBadgeAndTileText<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LockScreenDisplayBadgeAndTileText<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).LockScreenDisplayBadgeAndTileText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -460,11 +460,11 @@ impl ISecondaryTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTileOptions<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: TileOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTileOptions<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: TileOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetTileOptions(value).into()
         }
-        unsafe extern "system" fn TileOptions<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TileOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TileOptions<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TileOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TileOptions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -475,11 +475,11 @@ impl ISecondaryTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetForegroundText<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ForegroundText) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetForegroundText<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ForegroundText) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetForegroundText(value).into()
         }
-        unsafe extern "system" fn ForegroundText<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ForegroundText) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ForegroundText<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ForegroundText) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ForegroundText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -490,11 +490,11 @@ impl ISecondaryTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBackgroundColor<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBackgroundColor<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBackgroundColor(&*(&value as *const <super::Color as ::windows::core::Abi>::Abi as *const <super::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BackgroundColor<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackgroundColor<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackgroundColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -505,7 +505,7 @@ impl ISecondaryTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestCreateAsync<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestCreateAsync<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestCreateAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -516,7 +516,7 @@ impl ISecondaryTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestCreateAsyncWithPoint<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, invocationpoint: super::super::Foundation::Point, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestCreateAsyncWithPoint<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, invocationpoint: super::super::Foundation::Point, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestCreateAsyncWithPoint(&*(&invocationpoint as *const <super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -527,7 +527,7 @@ impl ISecondaryTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestCreateAsyncWithRect<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestCreateAsyncWithRect<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestCreateAsyncWithRect(&*(&selection as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -538,7 +538,7 @@ impl ISecondaryTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestCreateAsyncWithRectAndPlacement<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, preferredplacement: super::Popups::Placement, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestCreateAsyncWithRectAndPlacement<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, preferredplacement: super::Popups::Placement, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestCreateAsyncWithRectAndPlacement(&*(&selection as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType), preferredplacement) {
                 ::core::result::Result::Ok(ok__) => {
@@ -549,7 +549,7 @@ impl ISecondaryTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestDeleteAsync<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestDeleteAsync<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestDeleteAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -560,7 +560,7 @@ impl ISecondaryTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestDeleteAsyncWithPoint<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, invocationpoint: super::super::Foundation::Point, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestDeleteAsyncWithPoint<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, invocationpoint: super::super::Foundation::Point, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestDeleteAsyncWithPoint(&*(&invocationpoint as *const <super::super::Foundation::Point as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Point as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -571,7 +571,7 @@ impl ISecondaryTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestDeleteAsyncWithRect<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestDeleteAsyncWithRect<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestDeleteAsyncWithRect(&*(&selection as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -582,7 +582,7 @@ impl ISecondaryTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestDeleteAsyncWithRectAndPlacement<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, preferredplacement: super::Popups::Placement, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestDeleteAsyncWithRectAndPlacement<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, preferredplacement: super::Popups::Placement, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestDeleteAsyncWithRectAndPlacement(&*(&selection as *const <super::super::Foundation::Rect as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Rect as ::windows::core::DefaultType>::DefaultType), preferredplacement) {
                 ::core::result::Result::Ok(ok__) => {
@@ -593,7 +593,7 @@ impl ISecondaryTileVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpdateAsync<Impl: ISecondaryTileImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateAsync<Impl: ISecondaryTile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).UpdateAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -646,7 +646,7 @@ impl ISecondaryTileVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
-pub trait ISecondaryTile2Impl: Sized + ISecondaryTileImpl {
+pub trait ISecondaryTile2_Impl: Sized + ISecondaryTile_Impl {
     fn SetPhoneticName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn PhoneticName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn VisualElements(&mut self) -> ::windows::core::Result<SecondaryTileVisualElements>;
@@ -660,13 +660,13 @@ impl ::windows::core::RuntimeName for ISecondaryTile2 {
     const NAME: &'static str = "Windows.UI.StartScreen.ISecondaryTile2";
 }
 #[cfg(all(feature = "Foundation", feature = "UI_Popups", feature = "implement_exclusive"))]
-impl ISecondaryTile2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTile2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTile2Vtbl {
-        unsafe extern "system" fn SetPhoneticName<Impl: ISecondaryTile2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+impl ISecondaryTile2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTile2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTile2_Vtbl {
+        unsafe extern "system" fn SetPhoneticName<Impl: ISecondaryTile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetPhoneticName(&*(&value as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn PhoneticName<Impl: ISecondaryTile2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhoneticName<Impl: ISecondaryTile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).PhoneticName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -677,7 +677,7 @@ impl ISecondaryTile2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VisualElements<Impl: ISecondaryTile2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VisualElements<Impl: ISecondaryTile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VisualElements() {
                 ::core::result::Result::Ok(ok__) => {
@@ -688,11 +688,11 @@ impl ISecondaryTile2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRoamingEnabled<Impl: ISecondaryTile2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRoamingEnabled<Impl: ISecondaryTile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRoamingEnabled(value).into()
         }
-        unsafe extern "system" fn RoamingEnabled<Impl: ISecondaryTile2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RoamingEnabled<Impl: ISecondaryTile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RoamingEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -703,7 +703,7 @@ impl ISecondaryTile2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VisualElementsRequested<Impl: ISecondaryTile2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VisualElementsRequested<Impl: ISecondaryTile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VisualElementsRequested(&*(&handler as *const <super::super::Foundation::TypedEventHandler<SecondaryTile, VisualElementsRequestedEventArgs> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SecondaryTile, VisualElementsRequestedEventArgs> as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -714,7 +714,7 @@ impl ISecondaryTile2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveVisualElementsRequested<Impl: ISecondaryTile2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveVisualElementsRequested<Impl: ISecondaryTile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveVisualElementsRequested(&*(&token as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
@@ -734,7 +734,7 @@ impl ISecondaryTile2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISecondaryTileFactoryImpl: Sized {
+pub trait ISecondaryTileFactory_Impl: Sized {
     fn CreateTile(&mut self, tileid: &::windows::core::HSTRING, shortname: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, arguments: &::windows::core::HSTRING, tileoptions: TileOptions, logoreference: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SecondaryTile>;
     fn CreateWideTile(&mut self, tileid: &::windows::core::HSTRING, shortname: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, arguments: &::windows::core::HSTRING, tileoptions: TileOptions, logoreference: &::core::option::Option<super::super::Foundation::Uri>, widelogoreference: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<SecondaryTile>;
     fn CreateWithId(&mut self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<SecondaryTile>;
@@ -744,9 +744,9 @@ impl ::windows::core::RuntimeName for ISecondaryTileFactory {
     const NAME: &'static str = "Windows.UI.StartScreen.ISecondaryTileFactory";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISecondaryTileFactoryVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileFactoryVtbl {
-        unsafe extern "system" fn CreateTile<Impl: ISecondaryTileFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, shortname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, arguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, tileoptions: TileOptions, logoreference: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISecondaryTileFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileFactory_Vtbl {
+        unsafe extern "system" fn CreateTile<Impl: ISecondaryTileFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, shortname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, arguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, tileoptions: TileOptions, logoreference: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateTile(
                 &*(&tileid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -764,7 +764,7 @@ impl ISecondaryTileFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWideTile<Impl: ISecondaryTileFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, shortname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, arguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, tileoptions: TileOptions, logoreference: ::windows::core::RawPtr, widelogoreference: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWideTile<Impl: ISecondaryTileFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, shortname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, arguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, tileoptions: TileOptions, logoreference: ::windows::core::RawPtr, widelogoreference: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWideTile(
                 &*(&tileid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -783,7 +783,7 @@ impl ISecondaryTileFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithId<Impl: ISecondaryTileFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateWithId<Impl: ISecondaryTileFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateWithId(&*(&tileid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -806,7 +806,7 @@ impl ISecondaryTileFactoryVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISecondaryTileFactory2Impl: Sized + ISecondaryTileFactoryImpl {
+pub trait ISecondaryTileFactory2_Impl: Sized + ISecondaryTileFactory_Impl {
     fn CreateMinimalTile(&mut self, tileid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, arguments: &::windows::core::HSTRING, square150x150logo: &::core::option::Option<super::super::Foundation::Uri>, desiredsize: TileSize) -> ::windows::core::Result<SecondaryTile>;
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
@@ -814,9 +814,9 @@ impl ::windows::core::RuntimeName for ISecondaryTileFactory2 {
     const NAME: &'static str = "Windows.UI.StartScreen.ISecondaryTileFactory2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISecondaryTileFactory2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileFactory2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileFactory2Vtbl {
-        unsafe extern "system" fn CreateMinimalTile<Impl: ISecondaryTileFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, arguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, square150x150logo: ::windows::core::RawPtr, desiredsize: TileSize, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISecondaryTileFactory2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileFactory2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileFactory2_Vtbl {
+        unsafe extern "system" fn CreateMinimalTile<Impl: ISecondaryTileFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, arguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, square150x150logo: ::windows::core::RawPtr, desiredsize: TileSize, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).CreateMinimalTile(
                 &*(&tileid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType),
@@ -843,7 +843,7 @@ impl ISecondaryTileFactory2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait ISecondaryTileStaticsImpl: Sized {
+pub trait ISecondaryTileStatics_Impl: Sized {
     fn Exists(&mut self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
     fn FindAllAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>>;
     fn FindAllForApplicationAsync(&mut self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>>;
@@ -854,9 +854,9 @@ impl ::windows::core::RuntimeName for ISecondaryTileStatics {
     const NAME: &'static str = "Windows.UI.StartScreen.ISecondaryTileStatics";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl ISecondaryTileStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileStaticsVtbl {
-        unsafe extern "system" fn Exists<Impl: ISecondaryTileStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
+impl ISecondaryTileStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileStatics_Vtbl {
+        unsafe extern "system" fn Exists<Impl: ISecondaryTileStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Exists(&*(&tileid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -867,7 +867,7 @@ impl ISecondaryTileStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindAllAsync<Impl: ISecondaryTileStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindAllAsync<Impl: ISecondaryTileStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAllAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -878,7 +878,7 @@ impl ISecondaryTileStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindAllForApplicationAsync<Impl: ISecondaryTileStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindAllForApplicationAsync<Impl: ISecondaryTileStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applicationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAllForApplicationAsync(&*(&applicationid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -889,7 +889,7 @@ impl ISecondaryTileStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindAllForPackageAsync<Impl: ISecondaryTileStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindAllForPackageAsync<Impl: ISecondaryTileStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).FindAllForPackageAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -913,7 +913,7 @@ impl ISecondaryTileStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISecondaryTileVisualElementsImpl: Sized {
+pub trait ISecondaryTileVisualElements_Impl: Sized {
     fn SetSquare30x30Logo(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn Square30x30Logo(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn SetSquare70x70Logo(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
@@ -940,13 +940,13 @@ impl ::windows::core::RuntimeName for ISecondaryTileVisualElements {
     const NAME: &'static str = "Windows.UI.StartScreen.ISecondaryTileVisualElements";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISecondaryTileVisualElementsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileVisualElementsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileVisualElementsVtbl {
-        unsafe extern "system" fn SetSquare30x30Logo<Impl: ISecondaryTileVisualElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISecondaryTileVisualElements_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileVisualElements_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileVisualElements_Vtbl {
+        unsafe extern "system" fn SetSquare30x30Logo<Impl: ISecondaryTileVisualElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSquare30x30Logo(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Square30x30Logo<Impl: ISecondaryTileVisualElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Square30x30Logo<Impl: ISecondaryTileVisualElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Square30x30Logo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -957,11 +957,11 @@ impl ISecondaryTileVisualElementsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSquare70x70Logo<Impl: ISecondaryTileVisualElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSquare70x70Logo<Impl: ISecondaryTileVisualElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSquare70x70Logo(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Square70x70Logo<Impl: ISecondaryTileVisualElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Square70x70Logo<Impl: ISecondaryTileVisualElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Square70x70Logo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -972,11 +972,11 @@ impl ISecondaryTileVisualElementsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSquare150x150Logo<Impl: ISecondaryTileVisualElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSquare150x150Logo<Impl: ISecondaryTileVisualElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSquare150x150Logo(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Square150x150Logo<Impl: ISecondaryTileVisualElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Square150x150Logo<Impl: ISecondaryTileVisualElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Square150x150Logo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -987,11 +987,11 @@ impl ISecondaryTileVisualElementsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetWide310x150Logo<Impl: ISecondaryTileVisualElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetWide310x150Logo<Impl: ISecondaryTileVisualElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetWide310x150Logo(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Wide310x150Logo<Impl: ISecondaryTileVisualElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Wide310x150Logo<Impl: ISecondaryTileVisualElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Wide310x150Logo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1002,11 +1002,11 @@ impl ISecondaryTileVisualElementsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSquare310x310Logo<Impl: ISecondaryTileVisualElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSquare310x310Logo<Impl: ISecondaryTileVisualElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSquare310x310Logo(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Square310x310Logo<Impl: ISecondaryTileVisualElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Square310x310Logo<Impl: ISecondaryTileVisualElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Square310x310Logo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1017,11 +1017,11 @@ impl ISecondaryTileVisualElementsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetForegroundText<Impl: ISecondaryTileVisualElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ForegroundText) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetForegroundText<Impl: ISecondaryTileVisualElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ForegroundText) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetForegroundText(value).into()
         }
-        unsafe extern "system" fn ForegroundText<Impl: ISecondaryTileVisualElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ForegroundText) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ForegroundText<Impl: ISecondaryTileVisualElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ForegroundText) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ForegroundText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1032,11 +1032,11 @@ impl ISecondaryTileVisualElementsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBackgroundColor<Impl: ISecondaryTileVisualElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBackgroundColor<Impl: ISecondaryTileVisualElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBackgroundColor(&*(&value as *const <super::Color as ::windows::core::Abi>::Abi as *const <super::Color as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BackgroundColor<Impl: ISecondaryTileVisualElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BackgroundColor<Impl: ISecondaryTileVisualElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BackgroundColor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1047,11 +1047,11 @@ impl ISecondaryTileVisualElementsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetShowNameOnSquare150x150Logo<Impl: ISecondaryTileVisualElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetShowNameOnSquare150x150Logo<Impl: ISecondaryTileVisualElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetShowNameOnSquare150x150Logo(value).into()
         }
-        unsafe extern "system" fn ShowNameOnSquare150x150Logo<Impl: ISecondaryTileVisualElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowNameOnSquare150x150Logo<Impl: ISecondaryTileVisualElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowNameOnSquare150x150Logo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1062,11 +1062,11 @@ impl ISecondaryTileVisualElementsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetShowNameOnWide310x150Logo<Impl: ISecondaryTileVisualElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetShowNameOnWide310x150Logo<Impl: ISecondaryTileVisualElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetShowNameOnWide310x150Logo(value).into()
         }
-        unsafe extern "system" fn ShowNameOnWide310x150Logo<Impl: ISecondaryTileVisualElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowNameOnWide310x150Logo<Impl: ISecondaryTileVisualElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowNameOnWide310x150Logo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1077,11 +1077,11 @@ impl ISecondaryTileVisualElementsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetShowNameOnSquare310x310Logo<Impl: ISecondaryTileVisualElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetShowNameOnSquare310x310Logo<Impl: ISecondaryTileVisualElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetShowNameOnSquare310x310Logo(value).into()
         }
-        unsafe extern "system" fn ShowNameOnSquare310x310Logo<Impl: ISecondaryTileVisualElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowNameOnSquare310x310Logo<Impl: ISecondaryTileVisualElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ShowNameOnSquare310x310Logo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1121,7 +1121,7 @@ impl ISecondaryTileVisualElementsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISecondaryTileVisualElements2Impl: Sized {
+pub trait ISecondaryTileVisualElements2_Impl: Sized {
     fn SetSquare71x71Logo(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn Square71x71Logo(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
 }
@@ -1130,13 +1130,13 @@ impl ::windows::core::RuntimeName for ISecondaryTileVisualElements2 {
     const NAME: &'static str = "Windows.UI.StartScreen.ISecondaryTileVisualElements2";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISecondaryTileVisualElements2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileVisualElements2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileVisualElements2Vtbl {
-        unsafe extern "system" fn SetSquare71x71Logo<Impl: ISecondaryTileVisualElements2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISecondaryTileVisualElements2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileVisualElements2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileVisualElements2_Vtbl {
+        unsafe extern "system" fn SetSquare71x71Logo<Impl: ISecondaryTileVisualElements2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSquare71x71Logo(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Square71x71Logo<Impl: ISecondaryTileVisualElements2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Square71x71Logo<Impl: ISecondaryTileVisualElements2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Square71x71Logo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1158,7 +1158,7 @@ impl ISecondaryTileVisualElements2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISecondaryTileVisualElements3Impl: Sized {
+pub trait ISecondaryTileVisualElements3_Impl: Sized {
     fn SetSquare44x44Logo(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn Square44x44Logo(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
 }
@@ -1167,13 +1167,13 @@ impl ::windows::core::RuntimeName for ISecondaryTileVisualElements3 {
     const NAME: &'static str = "Windows.UI.StartScreen.ISecondaryTileVisualElements3";
 }
 #[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISecondaryTileVisualElements3Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileVisualElements3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileVisualElements3Vtbl {
-        unsafe extern "system" fn SetSquare44x44Logo<Impl: ISecondaryTileVisualElements3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISecondaryTileVisualElements3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileVisualElements3_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileVisualElements3_Vtbl {
+        unsafe extern "system" fn SetSquare44x44Logo<Impl: ISecondaryTileVisualElements3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetSquare44x44Logo(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Square44x44Logo<Impl: ISecondaryTileVisualElements3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Square44x44Logo<Impl: ISecondaryTileVisualElements3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Square44x44Logo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1195,7 +1195,7 @@ impl ISecondaryTileVisualElements3Vtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ISecondaryTileVisualElements4Impl: Sized {
+pub trait ISecondaryTileVisualElements4_Impl: Sized {
     fn MixedRealityModel(&mut self) -> ::windows::core::Result<TileMixedRealityModel>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1203,9 +1203,9 @@ impl ::windows::core::RuntimeName for ISecondaryTileVisualElements4 {
     const NAME: &'static str = "Windows.UI.StartScreen.ISecondaryTileVisualElements4";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ISecondaryTileVisualElements4Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileVisualElements4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileVisualElements4Vtbl {
-        unsafe extern "system" fn MixedRealityModel<Impl: ISecondaryTileVisualElements4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ISecondaryTileVisualElements4_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecondaryTileVisualElements4_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecondaryTileVisualElements4_Vtbl {
+        unsafe extern "system" fn MixedRealityModel<Impl: ISecondaryTileVisualElements4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).MixedRealityModel() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1226,7 +1226,7 @@ impl ISecondaryTileVisualElements4Vtbl {
     }
 }
 #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
-pub trait IStartScreenManagerImpl: Sized {
+pub trait IStartScreenManager_Impl: Sized {
     fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
     fn SupportsAppListEntry(&mut self, applistentry: &::core::option::Option<super::super::ApplicationModel::Core::AppListEntry>) -> ::windows::core::Result<bool>;
     fn ContainsAppListEntryAsync(&mut self, applistentry: &::core::option::Option<super::super::ApplicationModel::Core::AppListEntry>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
@@ -1237,9 +1237,9 @@ impl ::windows::core::RuntimeName for IStartScreenManager {
     const NAME: &'static str = "Windows.UI.StartScreen.IStartScreenManager";
 }
 #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
-impl IStartScreenManagerVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStartScreenManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStartScreenManagerVtbl {
-        unsafe extern "system" fn User<Impl: IStartScreenManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStartScreenManager_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStartScreenManager_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStartScreenManager_Vtbl {
+        unsafe extern "system" fn User<Impl: IStartScreenManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).User() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1250,7 +1250,7 @@ impl IStartScreenManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportsAppListEntry<Impl: IStartScreenManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applistentry: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportsAppListEntry<Impl: IStartScreenManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applistentry: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).SupportsAppListEntry(&*(&applistentry as *const <super::super::ApplicationModel::Core::AppListEntry as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::Core::AppListEntry as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1261,7 +1261,7 @@ impl IStartScreenManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContainsAppListEntryAsync<Impl: IStartScreenManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applistentry: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContainsAppListEntryAsync<Impl: IStartScreenManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applistentry: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContainsAppListEntryAsync(&*(&applistentry as *const <super::super::ApplicationModel::Core::AppListEntry as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::Core::AppListEntry as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1272,7 +1272,7 @@ impl IStartScreenManagerVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestAddAppListEntryAsync<Impl: IStartScreenManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applistentry: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestAddAppListEntryAsync<Impl: IStartScreenManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applistentry: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).RequestAddAppListEntryAsync(&*(&applistentry as *const <super::super::ApplicationModel::Core::AppListEntry as ::windows::core::Abi>::Abi as *const <super::super::ApplicationModel::Core::AppListEntry as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1296,7 +1296,7 @@ impl IStartScreenManagerVtbl {
     }
 }
 #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
-pub trait IStartScreenManager2Impl: Sized + IStartScreenManagerImpl {
+pub trait IStartScreenManager2_Impl: Sized + IStartScreenManager_Impl {
     fn ContainsSecondaryTileAsync(&mut self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
     fn TryRemoveSecondaryTileAsync(&mut self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
@@ -1305,9 +1305,9 @@ impl ::windows::core::RuntimeName for IStartScreenManager2 {
     const NAME: &'static str = "Windows.UI.StartScreen.IStartScreenManager2";
 }
 #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System", feature = "implement_exclusive"))]
-impl IStartScreenManager2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStartScreenManager2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStartScreenManager2Vtbl {
-        unsafe extern "system" fn ContainsSecondaryTileAsync<Impl: IStartScreenManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStartScreenManager2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStartScreenManager2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStartScreenManager2_Vtbl {
+        unsafe extern "system" fn ContainsSecondaryTileAsync<Impl: IStartScreenManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ContainsSecondaryTileAsync(&*(&tileid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1318,7 +1318,7 @@ impl IStartScreenManager2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryRemoveSecondaryTileAsync<Impl: IStartScreenManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryRemoveSecondaryTileAsync<Impl: IStartScreenManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tileid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).TryRemoveSecondaryTileAsync(&*(&tileid as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1340,7 +1340,7 @@ impl IStartScreenManager2Vtbl {
     }
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-pub trait IStartScreenManagerStaticsImpl: Sized {
+pub trait IStartScreenManagerStatics_Impl: Sized {
     fn GetDefault(&mut self) -> ::windows::core::Result<StartScreenManager>;
     fn GetForUser(&mut self, user: &::core::option::Option<super::super::System::User>) -> ::windows::core::Result<StartScreenManager>;
 }
@@ -1349,9 +1349,9 @@ impl ::windows::core::RuntimeName for IStartScreenManagerStatics {
     const NAME: &'static str = "Windows.UI.StartScreen.IStartScreenManagerStatics";
 }
 #[cfg(all(feature = "System", feature = "implement_exclusive"))]
-impl IStartScreenManagerStaticsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStartScreenManagerStaticsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStartScreenManagerStaticsVtbl {
-        unsafe extern "system" fn GetDefault<Impl: IStartScreenManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IStartScreenManagerStatics_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStartScreenManagerStatics_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStartScreenManagerStatics_Vtbl {
+        unsafe extern "system" fn GetDefault<Impl: IStartScreenManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDefault() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1362,7 +1362,7 @@ impl IStartScreenManagerStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetForUser<Impl: IStartScreenManagerStaticsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetForUser<Impl: IStartScreenManagerStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetForUser(&*(&user as *const <super::super::System::User as ::windows::core::Abi>::Abi as *const <super::super::System::User as ::windows::core::DefaultType>::DefaultType)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1384,7 +1384,7 @@ impl IStartScreenManagerStaticsVtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-pub trait ITileMixedRealityModelImpl: Sized {
+pub trait ITileMixedRealityModel_Impl: Sized {
     fn SetUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn Uri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn SetBoundingBox(&mut self, value: &::core::option::Option<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>>) -> ::windows::core::Result<()>;
@@ -1395,13 +1395,13 @@ impl ::windows::core::RuntimeName for ITileMixedRealityModel {
     const NAME: &'static str = "Windows.UI.StartScreen.ITileMixedRealityModel";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "implement_exclusive"))]
-impl ITileMixedRealityModelVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileMixedRealityModelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITileMixedRealityModelVtbl {
-        unsafe extern "system" fn SetUri<Impl: ITileMixedRealityModelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl ITileMixedRealityModel_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileMixedRealityModel_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITileMixedRealityModel_Vtbl {
+        unsafe extern "system" fn SetUri<Impl: ITileMixedRealityModel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetUri(&*(&value as *const <super::super::Foundation::Uri as ::windows::core::Abi>::Abi as *const <super::super::Foundation::Uri as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn Uri<Impl: ITileMixedRealityModelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Uri<Impl: ITileMixedRealityModel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Uri() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1412,11 +1412,11 @@ impl ITileMixedRealityModelVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBoundingBox<Impl: ITileMixedRealityModelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBoundingBox<Impl: ITileMixedRealityModel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetBoundingBox(&*(&value as *const <super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox> as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        unsafe extern "system" fn BoundingBox<Impl: ITileMixedRealityModelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BoundingBox<Impl: ITileMixedRealityModel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).BoundingBox() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1440,7 +1440,7 @@ impl ITileMixedRealityModelVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait ITileMixedRealityModel2Impl: Sized {
+pub trait ITileMixedRealityModel2_Impl: Sized {
     fn SetActivationBehavior(&mut self, value: TileMixedRealityModelActivationBehavior) -> ::windows::core::Result<()>;
     fn ActivationBehavior(&mut self) -> ::windows::core::Result<TileMixedRealityModelActivationBehavior>;
 }
@@ -1449,13 +1449,13 @@ impl ::windows::core::RuntimeName for ITileMixedRealityModel2 {
     const NAME: &'static str = "Windows.UI.StartScreen.ITileMixedRealityModel2";
 }
 #[cfg(feature = "implement_exclusive")]
-impl ITileMixedRealityModel2Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileMixedRealityModel2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITileMixedRealityModel2Vtbl {
-        unsafe extern "system" fn SetActivationBehavior<Impl: ITileMixedRealityModel2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: TileMixedRealityModelActivationBehavior) -> ::windows::core::HRESULT {
+impl ITileMixedRealityModel2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileMixedRealityModel2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITileMixedRealityModel2_Vtbl {
+        unsafe extern "system" fn SetActivationBehavior<Impl: ITileMixedRealityModel2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: TileMixedRealityModelActivationBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetActivationBehavior(value).into()
         }
-        unsafe extern "system" fn ActivationBehavior<Impl: ITileMixedRealityModel2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TileMixedRealityModelActivationBehavior) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ActivationBehavior<Impl: ITileMixedRealityModel2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut TileMixedRealityModelActivationBehavior) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).ActivationBehavior() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1477,7 +1477,7 @@ impl ITileMixedRealityModel2Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-pub trait IVisualElementsRequestImpl: Sized {
+pub trait IVisualElementsRequest_Impl: Sized {
     fn VisualElements(&mut self) -> ::windows::core::Result<SecondaryTileVisualElements>;
     fn AlternateVisualElements(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SecondaryTileVisualElements>>;
     fn Deadline(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
@@ -1488,9 +1488,9 @@ impl ::windows::core::RuntimeName for IVisualElementsRequest {
     const NAME: &'static str = "Windows.UI.StartScreen.IVisualElementsRequest";
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "implement_exclusive"))]
-impl IVisualElementsRequestVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualElementsRequestImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualElementsRequestVtbl {
-        unsafe extern "system" fn VisualElements<Impl: IVisualElementsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVisualElementsRequest_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualElementsRequest_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualElementsRequest_Vtbl {
+        unsafe extern "system" fn VisualElements<Impl: IVisualElementsRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).VisualElements() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1501,7 +1501,7 @@ impl IVisualElementsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AlternateVisualElements<Impl: IVisualElementsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AlternateVisualElements<Impl: IVisualElementsRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).AlternateVisualElements() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1512,7 +1512,7 @@ impl IVisualElementsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Deadline<Impl: IVisualElementsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Deadline<Impl: IVisualElementsRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Deadline() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1523,7 +1523,7 @@ impl IVisualElementsRequestVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeferral<Impl: IVisualElementsRequestImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeferral<Impl: IVisualElementsRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1547,7 +1547,7 @@ impl IVisualElementsRequestVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVisualElementsRequestDeferralImpl: Sized {
+pub trait IVisualElementsRequestDeferral_Impl: Sized {
     fn Complete(&mut self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1555,9 +1555,9 @@ impl ::windows::core::RuntimeName for IVisualElementsRequestDeferral {
     const NAME: &'static str = "Windows.UI.StartScreen.IVisualElementsRequestDeferral";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVisualElementsRequestDeferralVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualElementsRequestDeferralImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualElementsRequestDeferralVtbl {
-        unsafe extern "system" fn Complete<Impl: IVisualElementsRequestDeferralImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IVisualElementsRequestDeferral_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualElementsRequestDeferral_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualElementsRequestDeferral_Vtbl {
+        unsafe extern "system" fn Complete<Impl: IVisualElementsRequestDeferral_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
@@ -1568,7 +1568,7 @@ impl IVisualElementsRequestDeferralVtbl {
     }
 }
 #[cfg(feature = "implement_exclusive")]
-pub trait IVisualElementsRequestedEventArgsImpl: Sized {
+pub trait IVisualElementsRequestedEventArgs_Impl: Sized {
     fn Request(&mut self) -> ::windows::core::Result<VisualElementsRequest>;
 }
 #[cfg(feature = "implement_exclusive")]
@@ -1576,9 +1576,9 @@ impl ::windows::core::RuntimeName for IVisualElementsRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.StartScreen.IVisualElementsRequestedEventArgs";
 }
 #[cfg(feature = "implement_exclusive")]
-impl IVisualElementsRequestedEventArgsVtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualElementsRequestedEventArgsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualElementsRequestedEventArgsVtbl {
-        unsafe extern "system" fn Request<Impl: IVisualElementsRequestedEventArgsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+impl IVisualElementsRequestedEventArgs_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualElementsRequestedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IVisualElementsRequestedEventArgs_Vtbl {
+        unsafe extern "system" fn Request<Impl: IVisualElementsRequestedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             match (*this).Request() {
                 ::core::result::Result::Ok(ok__) => {

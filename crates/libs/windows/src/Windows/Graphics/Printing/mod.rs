@@ -71,24 +71,24 @@ unsafe impl ::windows::core::RuntimeType for IPrintDocumentSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{dedc0c30-f1eb-47df-aae6-ed5427511f01}");
 }
 unsafe impl ::windows::core::Interface for IPrintDocumentSource {
-    type Vtable = IPrintDocumentSourceVtbl;
+    type Vtable = IPrintDocumentSource_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdedc0c30_f1eb_47df_aae6_ed5427511f01);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintDocumentSourceVtbl {
+pub struct IPrintDocumentSource_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPrintManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintManager {
-    type Vtable = IPrintManagerVtbl;
+    type Vtable = IPrintManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff2a9694_8c99_44fd_ae4a_19d9aa9a0f0a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintManagerVtbl {
+pub struct IPrintManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub PrintTaskRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -103,12 +103,12 @@ pub struct IPrintManagerVtbl {
 #[repr(transparent)]
 pub struct IPrintManagerStatic(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintManagerStatic {
-    type Vtable = IPrintManagerStaticVtbl;
+    type Vtable = IPrintManagerStatic_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58185dcd_e634_4654_84f0_e0152a8217ac);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintManagerStaticVtbl {
+pub struct IPrintManagerStatic_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -120,12 +120,12 @@ pub struct IPrintManagerStaticVtbl {
 #[repr(transparent)]
 pub struct IPrintManagerStatic2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintManagerStatic2 {
-    type Vtable = IPrintManagerStatic2Vtbl;
+    type Vtable = IPrintManagerStatic2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35a99955_e6ab_4139_9abd_b86a729b3598);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintManagerStatic2Vtbl {
+pub struct IPrintManagerStatic2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -133,12 +133,12 @@ pub struct IPrintManagerStatic2Vtbl {
 #[repr(transparent)]
 pub struct IPrintPageInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintPageInfo {
-    type Vtable = IPrintPageInfoVtbl;
+    type Vtable = IPrintPageInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd4be9c9_a6a1_4ada_930e_da872a4f23d3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintPageInfoVtbl {
+pub struct IPrintPageInfo_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetMediaSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: PrintMediaSize) -> ::windows::core::HRESULT,
     pub MediaSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PrintMediaSize) -> ::windows::core::HRESULT,
@@ -161,12 +161,12 @@ pub struct IPrintPageInfoVtbl {
 #[repr(transparent)]
 pub struct IPrintPageRange(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintPageRange {
-    type Vtable = IPrintPageRangeVtbl;
+    type Vtable = IPrintPageRange_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8a06c54_6e7c_51c5_57fd_0660c2d71513);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintPageRangeVtbl {
+pub struct IPrintPageRange_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub FirstPageNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub LastPageNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -175,12 +175,12 @@ pub struct IPrintPageRangeVtbl {
 #[repr(transparent)]
 pub struct IPrintPageRangeFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintPageRangeFactory {
-    type Vtable = IPrintPageRangeFactoryVtbl;
+    type Vtable = IPrintPageRangeFactory_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x408fd45f_e047_5f85_7129_fb085a4fad14);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintPageRangeFactoryVtbl {
+pub struct IPrintPageRangeFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, firstpage: i32, lastpage: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub CreateWithSinglePage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, page: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -189,12 +189,12 @@ pub struct IPrintPageRangeFactoryVtbl {
 #[repr(transparent)]
 pub struct IPrintPageRangeOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintPageRangeOptions {
-    type Vtable = IPrintPageRangeOptionsVtbl;
+    type Vtable = IPrintPageRangeOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce6db728_1357_46b2_a923_79f995f448fc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintPageRangeOptionsVtbl {
+pub struct IPrintPageRangeOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetAllowAllPages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub AllowAllPages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -207,12 +207,12 @@ pub struct IPrintPageRangeOptionsVtbl {
 #[repr(transparent)]
 pub struct IPrintTask(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTask {
-    type Vtable = IPrintTaskVtbl;
+    type Vtable = IPrintTask_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61d80247_6cf6_4fad_84e2_a5e82e2d4ceb);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintTaskVtbl {
+pub struct IPrintTask_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "ApplicationModel_DataTransfer")]
     pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -257,12 +257,12 @@ pub struct IPrintTaskVtbl {
 #[repr(transparent)]
 pub struct IPrintTask2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTask2 {
-    type Vtable = IPrintTask2Vtbl;
+    type Vtable = IPrintTask2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36234877_3e53_4d9d_8f5e_316ac8dedae1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintTask2Vtbl {
+pub struct IPrintTask2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetIsPreviewEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub IsPreviewEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -271,12 +271,12 @@ pub struct IPrintTask2Vtbl {
 #[repr(transparent)]
 pub struct IPrintTaskCompletedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTaskCompletedEventArgs {
-    type Vtable = IPrintTaskCompletedEventArgsVtbl;
+    type Vtable = IPrintTaskCompletedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bcd34af_24e9_4c10_8d07_14c346ba3fce);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintTaskCompletedEventArgsVtbl {
+pub struct IPrintTaskCompletedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Completion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PrintTaskCompletion) -> ::windows::core::HRESULT,
 }
@@ -284,12 +284,12 @@ pub struct IPrintTaskCompletedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPrintTaskOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTaskOptions {
-    type Vtable = IPrintTaskOptionsVtbl;
+    type Vtable = IPrintTaskOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a0a66bb_d289_41bb_96dd_57e28338ae3f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintTaskOptionsVtbl {
+pub struct IPrintTaskOptions_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetBordering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: PrintBordering) -> ::windows::core::HRESULT,
     pub Bordering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PrintBordering) -> ::windows::core::HRESULT,
@@ -302,12 +302,12 @@ pub struct IPrintTaskOptionsVtbl {
 #[repr(transparent)]
 pub struct IPrintTaskOptions2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTaskOptions2 {
-    type Vtable = IPrintTaskOptions2Vtbl;
+    type Vtable = IPrintTaskOptions2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb9b1606_9a36_4b59_8617_b217849262e1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintTaskOptions2Vtbl {
+pub struct IPrintTaskOptions2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub PageRangeOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -389,12 +389,12 @@ unsafe impl ::windows::core::RuntimeType for IPrintTaskOptionsCore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1bdbb474-4ed1-41eb-be3c-72d18ed67337}");
 }
 unsafe impl ::windows::core::Interface for IPrintTaskOptionsCore {
-    type Vtable = IPrintTaskOptionsCoreVtbl;
+    type Vtable = IPrintTaskOptionsCore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bdbb474_4ed1_41eb_be3c_72d18ed67337);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintTaskOptionsCoreVtbl {
+pub struct IPrintTaskOptionsCore_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub GetPageDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, jobpagenumber: u32, result__: *mut PrintPageDescription) -> ::windows::core::HRESULT,
@@ -625,12 +625,12 @@ unsafe impl ::windows::core::RuntimeType for IPrintTaskOptionsCoreProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c1b71832-9e93-4e55-814b-3326a59efce1}");
 }
 unsafe impl ::windows::core::Interface for IPrintTaskOptionsCoreProperties {
-    type Vtable = IPrintTaskOptionsCorePropertiesVtbl;
+    type Vtable = IPrintTaskOptionsCoreProperties_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1b71832_9e93_4e55_814b_3326a59efce1);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintTaskOptionsCorePropertiesVtbl {
+pub struct IPrintTaskOptionsCoreProperties_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetMediaSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: PrintMediaSize) -> ::windows::core::HRESULT,
     pub MediaSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PrintMediaSize) -> ::windows::core::HRESULT,
@@ -731,12 +731,12 @@ unsafe impl ::windows::core::RuntimeType for IPrintTaskOptionsCoreUIConfiguratio
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{62e69e23-9a1e-4336-b74f-3cc7f4cff709}");
 }
 unsafe impl ::windows::core::Interface for IPrintTaskOptionsCoreUIConfiguration {
-    type Vtable = IPrintTaskOptionsCoreUIConfigurationVtbl;
+    type Vtable = IPrintTaskOptionsCoreUIConfiguration_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62e69e23_9a1e_4336_b74f_3cc7f4cff709);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintTaskOptionsCoreUIConfigurationVtbl {
+pub struct IPrintTaskOptionsCoreUIConfiguration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub DisplayedOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -747,12 +747,12 @@ pub struct IPrintTaskOptionsCoreUIConfigurationVtbl {
 #[repr(transparent)]
 pub struct IPrintTaskProgressingEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTaskProgressingEventArgs {
-    type Vtable = IPrintTaskProgressingEventArgsVtbl;
+    type Vtable = IPrintTaskProgressingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x810cd3cb_b410_4282_a073_5ac378234174);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintTaskProgressingEventArgsVtbl {
+pub struct IPrintTaskProgressingEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub DocumentPageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -760,12 +760,12 @@ pub struct IPrintTaskProgressingEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPrintTaskRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTaskRequest {
-    type Vtable = IPrintTaskRequestVtbl;
+    type Vtable = IPrintTaskRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ff61e2e_2722_4240_a67c_f364849a17f3);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintTaskRequestVtbl {
+pub struct IPrintTaskRequest_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Deadline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -778,12 +778,12 @@ pub struct IPrintTaskRequestVtbl {
 #[repr(transparent)]
 pub struct IPrintTaskRequestedDeferral(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTaskRequestedDeferral {
-    type Vtable = IPrintTaskRequestedDeferralVtbl;
+    type Vtable = IPrintTaskRequestedDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfefb3f0_ce3e_42c7_9496_64800c622c44);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintTaskRequestedDeferralVtbl {
+pub struct IPrintTaskRequestedDeferral_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -791,12 +791,12 @@ pub struct IPrintTaskRequestedDeferralVtbl {
 #[repr(transparent)]
 pub struct IPrintTaskRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTaskRequestedEventArgs {
-    type Vtable = IPrintTaskRequestedEventArgsVtbl;
+    type Vtable = IPrintTaskRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0aff924_a31b_454c_a7b6_5d0cc522fc16);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintTaskRequestedEventArgsVtbl {
+pub struct IPrintTaskRequestedEventArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -804,12 +804,12 @@ pub struct IPrintTaskRequestedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IPrintTaskSourceRequestedArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTaskSourceRequestedArgs {
-    type Vtable = IPrintTaskSourceRequestedArgsVtbl;
+    type Vtable = IPrintTaskSourceRequestedArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9f067be_f456_41f0_9c98_5ce73e851410);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintTaskSourceRequestedArgsVtbl {
+pub struct IPrintTaskSourceRequestedArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
     pub Deadline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -822,12 +822,12 @@ pub struct IPrintTaskSourceRequestedArgsVtbl {
 #[repr(transparent)]
 pub struct IPrintTaskSourceRequestedDeferral(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTaskSourceRequestedDeferral {
-    type Vtable = IPrintTaskSourceRequestedDeferralVtbl;
+    type Vtable = IPrintTaskSourceRequestedDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a1560d1_6992_4d9d_8555_4ca4563fb166);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintTaskSourceRequestedDeferralVtbl {
+pub struct IPrintTaskSourceRequestedDeferral_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -835,12 +835,12 @@ pub struct IPrintTaskSourceRequestedDeferralVtbl {
 #[repr(transparent)]
 pub struct IPrintTaskTargetDeviceSupport(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPrintTaskTargetDeviceSupport {
-    type Vtable = IPrintTaskTargetDeviceSupportVtbl;
+    type Vtable = IPrintTaskTargetDeviceSupport_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x295d70c0_c2cb_4b7d_b0ea_93095091a220);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintTaskTargetDeviceSupportVtbl {
+pub struct IPrintTaskTargetDeviceSupport_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub SetIsPrinterTargetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub IsPrinterTargetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -851,12 +851,12 @@ pub struct IPrintTaskTargetDeviceSupportVtbl {
 #[repr(transparent)]
 pub struct IStandardPrintTaskOptionsStatic(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStandardPrintTaskOptionsStatic {
-    type Vtable = IStandardPrintTaskOptionsStaticVtbl;
+    type Vtable = IStandardPrintTaskOptionsStatic_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4483d26_0dd0_4cd4_baff_930fc7d6a574);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStandardPrintTaskOptionsStaticVtbl {
+pub struct IStandardPrintTaskOptionsStatic_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub MediaSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub MediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -876,12 +876,12 @@ pub struct IStandardPrintTaskOptionsStaticVtbl {
 #[repr(transparent)]
 pub struct IStandardPrintTaskOptionsStatic2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStandardPrintTaskOptionsStatic2 {
-    type Vtable = IStandardPrintTaskOptionsStatic2Vtbl;
+    type Vtable = IStandardPrintTaskOptionsStatic2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3be38bf4_7a44_4269_9a52_81261e289ee9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStandardPrintTaskOptionsStatic2Vtbl {
+pub struct IStandardPrintTaskOptionsStatic2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Bordering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -889,12 +889,12 @@ pub struct IStandardPrintTaskOptionsStatic2Vtbl {
 #[repr(transparent)]
 pub struct IStandardPrintTaskOptionsStatic3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IStandardPrintTaskOptionsStatic3 {
-    type Vtable = IStandardPrintTaskOptionsStatic3Vtbl;
+    type Vtable = IStandardPrintTaskOptionsStatic3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbf68e86_3858_41b3_a799_55dd9888d475);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IStandardPrintTaskOptionsStatic3Vtbl {
+pub struct IStandardPrintTaskOptionsStatic3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CustomPageRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -1203,7 +1203,7 @@ unsafe impl ::windows::core::RuntimeType for PrintManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintManager;{ff2a9694-8c99-44fd-ae4a-19d9aa9a0f0a})");
 }
 unsafe impl ::windows::core::Interface for PrintManager {
-    type Vtable = IPrintManagerVtbl;
+    type Vtable = IPrintManager_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff2a9694_8c99_44fd_ae4a_19d9aa9a0f0a);
 }
 impl ::windows::core::RuntimeName for PrintManager {
@@ -1704,7 +1704,7 @@ unsafe impl ::windows::core::RuntimeType for PrintPageInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintPageInfo;{dd4be9c9-a6a1-4ada-930e-da872a4f23d3})");
 }
 unsafe impl ::windows::core::Interface for PrintPageInfo {
-    type Vtable = IPrintPageInfoVtbl;
+    type Vtable = IPrintPageInfo_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd4be9c9_a6a1_4ada_930e_da872a4f23d3);
 }
 impl ::windows::core::RuntimeName for PrintPageInfo {
@@ -1812,7 +1812,7 @@ unsafe impl ::windows::core::RuntimeType for PrintPageRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintPageRange;{f8a06c54-6e7c-51c5-57fd-0660c2d71513})");
 }
 unsafe impl ::windows::core::Interface for PrintPageRange {
-    type Vtable = IPrintPageRangeVtbl;
+    type Vtable = IPrintPageRange_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8a06c54_6e7c_51c5_57fd_0660c2d71513);
 }
 impl ::windows::core::RuntimeName for PrintPageRange {
@@ -1924,7 +1924,7 @@ unsafe impl ::windows::core::RuntimeType for PrintPageRangeOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintPageRangeOptions;{ce6db728-1357-46b2-a923-79f995f448fc})");
 }
 unsafe impl ::windows::core::Interface for PrintPageRangeOptions {
-    type Vtable = IPrintPageRangeOptionsVtbl;
+    type Vtable = IPrintPageRangeOptions_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce6db728_1357_46b2_a923_79f995f448fc);
 }
 impl ::windows::core::RuntimeName for PrintPageRangeOptions {
@@ -2206,7 +2206,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTask {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTask;{61d80247-6cf6-4fad-84e2-a5e82e2d4ceb})");
 }
 unsafe impl ::windows::core::Interface for PrintTask {
-    type Vtable = IPrintTaskVtbl;
+    type Vtable = IPrintTask_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61d80247_6cf6_4fad_84e2_a5e82e2d4ceb);
 }
 impl ::windows::core::RuntimeName for PrintTask {
@@ -2287,7 +2287,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskCompletedEventArgs;{5bcd34af-24e9-4c10-8d07-14c346ba3fce})");
 }
 unsafe impl ::windows::core::Interface for PrintTaskCompletedEventArgs {
-    type Vtable = IPrintTaskCompletedEventArgsVtbl;
+    type Vtable = IPrintTaskCompletedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bcd34af_24e9_4c10_8d07_14c346ba3fce);
 }
 impl ::windows::core::RuntimeName for PrintTaskCompletedEventArgs {
@@ -2611,7 +2611,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskOptions;{1bdbb474-4ed1-41eb-be3c-72d18ed67337})");
 }
 unsafe impl ::windows::core::Interface for PrintTaskOptions {
-    type Vtable = IPrintTaskOptionsCoreVtbl;
+    type Vtable = IPrintTaskOptionsCore_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bdbb474_4ed1_41eb_be3c_72d18ed67337);
 }
 impl ::windows::core::RuntimeName for PrintTaskOptions {
@@ -2758,7 +2758,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskProgressingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskProgressingEventArgs;{810cd3cb-b410-4282-a073-5ac378234174})");
 }
 unsafe impl ::windows::core::Interface for PrintTaskProgressingEventArgs {
-    type Vtable = IPrintTaskProgressingEventArgsVtbl;
+    type Vtable = IPrintTaskProgressingEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x810cd3cb_b410_4282_a073_5ac378234174);
 }
 impl ::windows::core::RuntimeName for PrintTaskProgressingEventArgs {
@@ -2856,7 +2856,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskRequest;{6ff61e2e-2722-4240-a67c-f364849a17f3})");
 }
 unsafe impl ::windows::core::Interface for PrintTaskRequest {
-    type Vtable = IPrintTaskRequestVtbl;
+    type Vtable = IPrintTaskRequest_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ff61e2e_2722_4240_a67c_f364849a17f3);
 }
 impl ::windows::core::RuntimeName for PrintTaskRequest {
@@ -2934,7 +2934,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskRequestedDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskRequestedDeferral;{cfefb3f0-ce3e-42c7-9496-64800c622c44})");
 }
 unsafe impl ::windows::core::Interface for PrintTaskRequestedDeferral {
-    type Vtable = IPrintTaskRequestedDeferralVtbl;
+    type Vtable = IPrintTaskRequestedDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfefb3f0_ce3e_42c7_9496_64800c622c44);
 }
 impl ::windows::core::RuntimeName for PrintTaskRequestedDeferral {
@@ -3015,7 +3015,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskRequestedEventArgs;{d0aff924-a31b-454c-a7b6-5d0cc522fc16})");
 }
 unsafe impl ::windows::core::Interface for PrintTaskRequestedEventArgs {
-    type Vtable = IPrintTaskRequestedEventArgsVtbl;
+    type Vtable = IPrintTaskRequestedEventArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0aff924_a31b_454c_a7b6_5d0cc522fc16);
 }
 impl ::windows::core::RuntimeName for PrintTaskRequestedEventArgs {
@@ -3110,7 +3110,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskSourceRequestedArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskSourceRequestedArgs;{f9f067be-f456-41f0-9c98-5ce73e851410})");
 }
 unsafe impl ::windows::core::Interface for PrintTaskSourceRequestedArgs {
-    type Vtable = IPrintTaskSourceRequestedArgsVtbl;
+    type Vtable = IPrintTaskSourceRequestedArgs_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9f067be_f456_41f0_9c98_5ce73e851410);
 }
 impl ::windows::core::RuntimeName for PrintTaskSourceRequestedArgs {
@@ -3188,7 +3188,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskSourceRequestedDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTaskSourceRequestedDeferral;{4a1560d1-6992-4d9d-8555-4ca4563fb166})");
 }
 unsafe impl ::windows::core::Interface for PrintTaskSourceRequestedDeferral {
-    type Vtable = IPrintTaskSourceRequestedDeferralVtbl;
+    type Vtable = IPrintTaskSourceRequestedDeferral_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a1560d1_6992_4d9d_8555_4ca4563fb166);
 }
 impl ::windows::core::RuntimeName for PrintTaskSourceRequestedDeferral {
@@ -3252,12 +3252,12 @@ impl PrintTaskSourceRequestedHandler {
 }
 #[repr(C)]
 struct PrintTaskSourceRequestedHandlerBox<F: FnMut(&::core::option::Option<PrintTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + 'static> {
-    vtable: *const PrintTaskSourceRequestedHandlerVtbl,
+    vtable: *const PrintTaskSourceRequestedHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 impl<F: FnMut(&::core::option::Option<PrintTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + 'static> PrintTaskSourceRequestedHandlerBox<F> {
-    const VTABLE: PrintTaskSourceRequestedHandlerVtbl = PrintTaskSourceRequestedHandlerVtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
+    const VTABLE: PrintTaskSourceRequestedHandler_Vtbl = PrintTaskSourceRequestedHandler_Vtbl { base: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<PrintTaskSourceRequestedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
@@ -3302,7 +3302,7 @@ impl ::core::fmt::Debug for PrintTaskSourceRequestedHandler {
     }
 }
 unsafe impl ::windows::core::Interface for PrintTaskSourceRequestedHandler {
-    type Vtable = PrintTaskSourceRequestedHandlerVtbl;
+    type Vtable = PrintTaskSourceRequestedHandler_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c109fa8_5cb6_4b3a_8663_f39cb02dc9b4);
 }
 unsafe impl ::windows::core::RuntimeType for PrintTaskSourceRequestedHandler {
@@ -3310,7 +3310,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskSourceRequestedHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct PrintTaskSourceRequestedHandlerVtbl {
+pub struct PrintTaskSourceRequestedHandler_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
